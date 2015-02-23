@@ -9,7 +9,7 @@ var gulp = require('gulp')
 
 
 gulp.task('sass', function() {
-    return gulp.src('scss/ubuntu-styles.scss')
+    return gulp.src('scss/*.scss')
         .pipe(scsslint())
         .pipe(sass({ style: 'expanded' }))
         .on('error', function (err) { console.log(err.message); })
