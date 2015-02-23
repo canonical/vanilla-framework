@@ -20,7 +20,7 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 To get started you'll need some stuff:
 
-- [Latest release]()
+- [Latest release v1.0.0](https://github.com/ubuntudesign/web-style-guide/archive/master.zip)
 - Ruby
 - Sass
 - Node.js
