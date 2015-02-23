@@ -9,12 +9,12 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 ## Index
 
-- [Getting started]()
-- [Documentation]()
-- [Contributing]()
-- [Community]()
-- [Releases]()
-- [Copyright and licence]()
+- [Getting started](#getting-started)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Community](#community)
+- [Releases](#releases)
+- [Copyright and licence](#copyright-and-licence)
 
 ## Getting started
 
@@ -28,7 +28,7 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 ## Copyright and licence
 
-
+Code and documentation copyright 2015 Canonical Ltd. Licencing LGPLv3.
 
 
 
