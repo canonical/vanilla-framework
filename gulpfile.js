@@ -11,14 +11,13 @@ var gulp = require('gulp')
     minifycss = require('gulp-minify-css');
 
 // Define base folders
-var src = 'sass';
-var dest = 'css/responsive/latest/';
+var src = 'sass/';
+var dest = 'css/';
 
 // Compile CSS from Sass files
 gulp.task('sass', function() {
-    return gulp.src(src + '/responsive/latest/ubuntu-styles.scss')
+    return sass(src + 'ubuntu-styles.scss', { style: 'expanded' })
         .pipe(scsslint())
-        .pipe(sass({ style: 'expanded' }))
         .on('error', function (err) { console.log(err.message); })
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(gulp.dest(dest))
