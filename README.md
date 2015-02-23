@@ -21,10 +21,10 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 To get started you'll need some stuff:
 
 - [Latest release](https://github.com/ubuntudesign/web-style-guide/archive/master.zip)
-- Ruby
-- Sass
-- Node.js
-- Gulp
+- install [Ruby](https://www.ruby-lang.org/en/)
+- Install [Sass](http://sass-lang.com/install)
+- Install [Node.js](http://nodejs.org)
+- Install [Gulp](http://gulpjs.com)
 
 ## Documentation
 
