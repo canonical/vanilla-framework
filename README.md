@@ -36,6 +36,7 @@ Keep upto date with all new developments and upcoming changes with the Ubuntu we
 
 - Follow us on Twitter [@Ubuntudesigners](http://twitter.com/ubuntudesigners)
 - Read our latest blog posts at [Canonical Blog](http://design.canonical.com/topic/development/)
+- Talk to the team in IRC on <code>irc.freenode.com</code> and join channel <code>#ubuntu-website</code>
 
 ## Releases
 
