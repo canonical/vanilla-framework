@@ -1,0 +1,252 @@
+@charset 'UTF-8';
+
+%box {
+  @include rounded-corners(4px);
+  padding: 1.333em $gutter-width;
+}
+
+.box {
+  @extend %box;
+  background: #fff;
+  border: 1px solid #dfdcd9;
+}
+
+.box-grey {
+  @extend %box;
+  background: $light-grey;
+  color: $cool-grey;
+}
+
+.box-orange {
+  background: $ubuntu-orange;
+  color: #fff;
+}
+
+.box-highlight {
+	@include box-shadow(0 2px 2px 0 #c2c2c2);
+	border: 1px solid $light-grey;
+}
+
+.box-textured {
+  @include box-shadow(0 2px 2px 0 #c2c2c2);
+  background: url("#{$asset-path}patterns/grey-textured-background.jpg");
+  border: 0;
+}
+
+.box-padded {
+  @include rounded-corners(4px);
+  background: $box-solid-grey;
+  border: 0;
+  margin-bottom: 20px;
+  padding: 6px 5px;
+
+  h3 {
+    @include font-size(19.5);
+    margin-left: ($gutter-width / 4);
+    margin-top: 5px;
+  }
+
+  li h3 { // this happens in 'Further reading' /cloud/insights
+	  @include font-size(19.5);
+	  margin: 0;
+  }
+
+  div {
+    @include rounded-corners(4px);
+      background: #fff;
+      overflow: hidden;
+      padding: 8px 8px 2px;
+  }
+}
+
+.box-padded-feature {
+  @include rounded-corners(4px);
+  background: url("#{$asset-path}patterns/soft-centre-bkg.gif") repeat scroll 0 0 #a09f9f;
+  border: 0;
+  margin-bottom: 20px;
+  padding: 11px 5px 6px;
+
+  h3 {
+    color: #fff;
+    margin-left: ($gutter-width / 4);
+    @include font-size(19.5);
+  }
+
+  h4 {
+    @include font-size(16);
+    font-weight: normal;
+  }
+
+  > div {
+    @include rounded-corners(4px);
+      background: #fff;
+      overflow: hidden;
+      padding: 20px 8px;
+  }
+
+  div div {
+    margin-bottom: 0;
+  }
+
+	.inline-icons {
+		display: table;
+		width: 100%;
+		margin: 0;
+		text-align: center;
+
+    li {
+      display: table-cell;
+      text-align: left;
+      float: none;
+    }
+	}
+
+  .one-col {
+    width: 48px;
+    float: left;
+  }
+}
+
+
+.resource {
+  cursor: pointer;
+  padding-bottom: 40px;
+  position: relative;
+    -moz-transition: background .2s ease-out;
+    -webkit-transition: background .2s ease-out;
+  transition: background .2s ease-out;
+
+  & h2 {
+    padding-right: 20px;
+  }
+
+  &.five-col h2,
+  &.four-col h2 {
+    a:link,
+    a:visited {
+        font-size: inherit !important;
+    }
+  }
+
+  &.four-col {
+    h2 a:link,
+    h2 a:visited {
+      font-size: 1.125em;
+    }
+  }
+
+  &.twelve-col {
+    h2 a:link,
+    h2 a:visited {
+      font-size: 1.40625em;
+    }
+  }
+
+  &:hover { background-color: #fafafa; }
+
+  &:after {
+      -moz-box-shadow: 0 -1px 2px 0 #ddd;
+      -webkit-box-shadow: 0 -1px 2px 0 #ddd;
+    box-shadow: 0 -1px 2px 0 #ddd;
+    content: '';
+    height: 1px;
+    position: absolute;
+    right: -6px;
+    top: 14px;
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+      -moz-transition: all .2s ease-out;
+      -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    width: 41px;
+    z-index: 2;
+  }
+
+  &:hover:after {
+    right: -9px;
+    top: 18px;
+    width: 48px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+      -moz-transition: border-width .2s ease-out;
+      -webkit-transition: border-width .2s ease-out;
+    transition: border-width .2s ease-out;
+    top: -2px;
+    right: -3px;
+    width: 0;
+    height: 0;
+    border-bottom: 30px solid #fdfdfd;
+    border-right: 30px solid #fff;
+    -webkit-box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
+    -moz-box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
+    box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
+    z-index: 2;
+    @include rounded-corners(0 0 0 0);
+  }
+
+  &:hover:before {
+    border-bottom-width: 35px;
+    border-right-width: 35px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .content-cat {
+    background: url("#{$asset-path}icons/icon-resource-hub-icon-document.png") left center no-repeat;
+    color: #aea79f;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding-left: 20px;
+    padding: 0;
+    position: absolute;
+    text-transform: uppercase;
+  }
+
+  .content-cat-webinar {
+    background: url("#{$asset-path}icons/icon-resource-hub-webinar.png") left center no-repeat;
+  }
+
+  &.box-image-centered div + span img {
+    margin-top: 40px;
+  }
+}
+
+html.yui3-js-enabled .resource:hover a {
+  text-decoration: underline;
+}
+
+.row-grey .resource:before {
+  border-right-color: #f7f7f7;
+}
+
+@media only screen and (max-width : 768px) {
+
+  .box-padded-feature .inline-icons li {
+    float: left;
+    display: block;
+  }
+
+  .box-padded-feature {
+    .one-col {
+      width: 48px;
+      float: left;
+    }
+  }
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+
+} //@media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+
+} // end @media only screen and (min-width: 984px)
+

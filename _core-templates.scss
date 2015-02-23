@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+@import "core-constants";
+@import "core-mixins";
+
+/**
+ * Ubuntu Super Patterns Stylesheet
+ *
+ * Contains audience related themes for site-wide application
+ *
+ * @project		Ubuntu Patterns
+ * @author		Web Team at Canonical Ltd
+ * @copyright	2012 Canonical Ltd
+ *
+ */
+
+/**
+ * Audience specific
+ *
+ * @section audience
+ */
+
+/* Voice */
+.voice-community { }
+.voice-canonical { }
+.voice-community.voice-canonical { }
+
+/*
+ * Consumer
+ */
+
+.audience-consumer{
+  color: $cool-grey;
+
+  .row-box, .main-content {
+    color: $cool-grey;
+  }
+
+  .inner-wrapper {
+    background: #fff;
+  }
+
+  .quote-right-top {
+    padding: 60px 60px 0 40px;
+    background: url("/sites/ubuntu/latest/u/img/patterns/quote-orange-br-287x287.png") no-repeat;
+    height: 287px;
+    position: absolute;
+    right:  -($gutter-width * 2);
+    text-align: left;
+    top: -($gutter-width * 4.5);
+    width: $four-col;
+
+    p {
+      @include font-size (16);
+      margin: (1.538em / 2);
+      padding-bottom: 0;
+      color: #fff;
+
+      cite {
+        @include font-size (12);
+        color: #fff;
+        padding: 0;
+      }
+    }
+  }
+  .quote-right-top p a,
+  .quote-right p a { color: #fff; }
+  .quote-right {
+    @include font-size (18);
+    color: #fff;
+    padding: 50px 100px 0 50px;
+    text-indent: -6px;
+    background: url("/sites/ubuntu/latest/u/img/patterns/quote-orange-bl-287x287.png") no-repeat;
+    min-height: 287px;
+    position: absolute;
+    right:  -$gutter-width;
+    text-align: left;
+    top: -($gutter-width * 4.5);
+    width: $four-col -(150/$base)em;
+
+    cite {
+      font-style: normal;
+      margin-left: 6px;
+    }
+  }
+  .quote-right-alt {
+    background: url(/sites/ubuntu/latest/u/img/patterns/quote-white-br-360x360.png) 0 -100px no-repeat;
+    color: $ubuntu-orange;
+    padding: 50px 50px 0 50px;
+  }
+  .quote-right-right { background: url("/sites/ubuntu/latest/u/img/patterns/quote-orange-br-287x287.png") no-repeat; }
+}
+
+/*
+ * Enterprise
+ */
+
+.audience-enterprise {
+
+  h1 { margin: 0 0 18px 0; }
+  td{ background: #fff; }
+
+  th, td {
+    padding: 6px 10px;
+    background: #fff;
+  }
+  th[scope="col"] {
+    background: #E2D4DC;
+    color: $canonical-aubergine;
+  }
+  tbody th[rowspan] { background: #F7F2F6; }
+  tfoot th[rowspan] { background: #dfdcd9; }
+  tfoot td, tfoot th {
+    font-weight: normal;
+    background: #dfdcd9;
+  }
+  .inner-wrapper {
+    background: $dark-aubergine;
+	  color: #fff;
+	}
+	.row-box {
+    background: #fff;
+    color: $cool-grey;
+  }
+  /*.row-quote {
+    background: none repeat scroll 0 0 #E2D4DC;
+    color: #772953;
+    margin-left: -1.125em;
+    padding-top: 1.25em;
+    width: 58.75em;
+  }
+  .row-quote blockquote,
+  .row-quote blockquote p {
+    color: inherit;
+    font-size: 1.313em;
+    margin: 0 0.563em;
+    padding: 0;
+    top: auto;
+    width: auto;
+  }
+  .row-quote blockquote p {
+    line-height: 1.3;
+    text-indent: -12px;
+  }
+  .row-quote blockquote cite {
+    @include font-size (12);
+    color: #656565;
+    font-style: normal;
+    margin-left: 12px;
+    text-indent: 0;
+  }*/
+}
+
+.row-enterprise {
+  background: $canonical-aubergine;
+  color:#fff;
+  @include rounded-corners(0);
+
+  .box, div {
+    background: $canonical-aubergine;
+    color:#fff;
+  }
+  a {
+    color:#fff;
+  }
+}
+/*
+.audience-consumer.audience-enterprise{
+
+  .inner-wrapper {
+    background: $mid-aubergine;
+    color: #fff;
+  }
+
+  .row-box,
+  .main-content {
+    background: #fff;
+    color: $cool-grey;
+  }
+
+}
+*/
+
+.enterprise-dot-pattern { background:url('/sites/ubuntu/latest/u/img/patterns/enterprise-dot-pattern.png') }
+.developer-dot-pattern { background:url('/sites/ubuntu/latest/u/img/patterns/developer-dot-pattern.png') }

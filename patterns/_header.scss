@@ -1,0 +1,900 @@
+@charset "UTF-8";
+
+header.banner {
+	border-top: 0;
+	min-width: 100%;
+	width: auto;
+  background: $ubuntu-orange;
+  display: block;
+  position: relative;
+  z-index: 2;
+
+	.nav-primary {
+	  border: 0;
+		margin: 0 auto;
+		overflow: hidden;
+
+		ul {
+		  border-right: 1px solid lighten($ubuntu-orange, 10%);
+		  float: left;
+		  margin: 0;
+		  position: relative;
+
+			li {
+			  border-left: 1px solid darken($ubuntu-orange, 5%);
+			  float: left;
+			  list-style-image: none;
+			  margin: 0;
+			  text-indent: 0;
+			  vertical-align: bottom;
+			}
+
+			li:last-child {
+			  border-right: 1px solid darken($ubuntu-orange, 5%);
+			}
+
+			li a:link,
+			li a:visited {
+			  font-size: 14px;
+			  border-left: 1px solid lighten($ubuntu-orange, 7%);
+			  color: #fff;
+			  display: block;
+			  margin-bottom: 0;
+			  padding: 14px 14px 13px;
+			  position: relative;
+			  text-align: center;
+			  text-decoration: none;
+			    -webkit-font-smoothing: subpixel-antialiased;
+			    -moz-font-smoothing: subpixel-antialiased;
+			    -o-font-smoothing: subpixel-antialiased;
+			  font-smoothing: subpixel-antialiased;
+			}
+
+			a.active {
+			  background: #B83A10;
+			  border-left: 1px solid lighten($ubuntu-orange, 7%);
+			}
+
+			li a:hover {
+				background: #e1662f;
+				border-top: 0;
+				@include box-shadow(inset 0 2px 2px -2px #777);
+			}
+		} // end ul
+	} // nav-primary
+
+} // end header.banner
+
+
+// Responsive header navigation
+#main-navigation-link { display: none; }
+
+header.banner .nav-toggle {
+	position:absolute;
+	right: 0;
+	display: block;
+	width: 48px;
+	height: 48px;
+	text-indent: -99999px;
+	background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
+	@include background-size(25px auto);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+header.banner .no-script {
+	display: none;
+}
+
+.opera-mini header.banner .nav-toggle,
+.no-svg header.banner .nav-toggle {
+	background-image: url(#{$asset-path}icons/navigation-menu-plain.png);
+}
+
+header.banner nav ul {
+	background-color: $nav-bg;
+	display: none;
+	float: left;
+}
+header.banner .nav-primary.active {
+	@include box-shadow(0 1px 2px 1px rgba(120, 120, 120, 0.2));
+	padding: 0;
+	border-bottom: 1px solid $nav-border-dark;
+}
+
+header nav ul.active {
+	display: block;
+}
+
+header.banner .nav-primary ul li,
+header.banner .nav-primary ul li a:link,
+header.banner .nav-primary ul li a:visited,
+header.banner .nav-primary ul li a:active {
+	display: block;
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+header.banner .nav-primary ul li a:hover {
+	@include box-shadow(none);
+	background-color: $nav-hover-bg;
+}
+header.banner .nav-primary ul li a.active {
+	background-color: $nav-active-bg;
+}
+
+header.banner .nav-primary ul li {
+	border-bottom: 1px solid #F2F2F4;
+	font-size: 16px;
+}
+
+header.banner .nav-primary ul li:last-child {
+	border: 0;
+}
+
+header.banner nav.nav-primary ul li a:link,
+header.banner .nav-primary ul li a:visited,
+header.banner .nav-primary ul li a:hover,
+header.banner .nav-primary ul li a:active {
+	padding: 14px 14px 13px;
+	text-align: left;
+}
+
+header.banner nav.nav-primary ul.active li ul {
+	display: none;
+}
+
+#menu.active:after {
+  background-image: url(#{$asset-path}patterns/nav-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 26px;
+  content: "";
+  display: block;
+  height: 23px;
+  margin-left: 0;
+  padding-bottom: 17px;
+  position: relative;
+  top: -3px;
+  width: 48px;
+  z-index: 999;
+}
+html.no-svg, .opera-mini {
+  #menu.active:after {
+    background-image: url(#{$asset-path}patterns/nav-arrow.png);
+  }
+} // End responsive navigation
+
+/* nav-secondary */
+.nav-secondary {
+  border-bottom: 1px solid #dfdcd9;
+  margin-bottom: 0;
+
+
+  ul {
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 2px;
+
+    li {
+      float: left;
+      margin-top: 16px;
+      font-size: 14px;
+	    margin-right: 15px;
+
+      a:link,
+      a:visited {
+        color: #333;
+        font-size: 14px;
+        float: left;
+      }
+
+      a:hover,
+      a:active {
+        color: $ubuntu-orange;
+        text-decoration: none;
+      }
+    }
+
+    li,
+    li.active a:link,
+    li.active a:visited {
+      color: $ubuntu-orange;
+      text-decoration: none;
+    }
+  }
+  ul.breadcrumb {
+    margin-left: 20px;
+
+    li,
+    li a:link,
+    li a:visited {
+      color: $warm-grey;
+      margin-right: 8px;
+    }
+
+    li.active a:link,
+    li.active a:visited {
+      color: $ubuntu-orange;
+    }
+  }
+}
+
+header.banner h2 {
+	@include font-size (25);
+	display: block;
+	left: 4px;
+	margin-bottom:0;
+	position: relative;
+	text-transform: lowercase;
+	top: 14px;
+}
+
+header.banner h2 a:link, header.banner h2 a:visited, header.banner a {
+	color: #fff;
+	float: left;
+	text-decoration:none;
+}
+
+header.banner {
+	.logo {
+	  border-left: 0;
+  	float: left;
+    height: 48px;
+  	overflow: hidden;
+	}
+
+  .logo-ubuntu {
+  	background: url("#{$asset-path}ubuntu-logo.png") no-repeat scroll 0 10px transparent;
+    font-size: 18px;
+    margin-bottom: 0;
+    position: relative;
+    text-transform: lowercase;
+    float: left;
+    margin: 0;
+    display: inline-block;
+    height: 32px;
+    min-width: 128px;
+    margin-right: -20px;
+		margin-left: 10px;
+    padding: 7px 14px 9px 0;
+
+    img {
+      margin-right: 8px;
+      position: absolute;
+      left: -999em;
+    }
+
+    span {
+      float: left;
+      font-size: 23px;
+      font-weight: 300;
+      padding-left: 122px;
+      padding-right: 20px;
+      position: relative;
+      top: 5px;
+    }
+
+  }
+  .nav-primary.nav-left {
+    .logo-ubuntu {
+      float: right;
+    }
+  }
+  .nav-primary.nav-right {
+    .logo-ubuntu {
+			background-image: url("#{$asset-path}logos/logo-ubuntu-white.svg");
+			background-size: 107px 25px;
+      float: left;
+    }
+  }
+}
+
+html.no-svg, .opera-mini {
+  header.banner .nav-primary.nav-right .logo-ubuntu {
+    background-image: url("#{$asset-path}logos/logo-ubuntu-white.png");
+  }
+}
+
+@media only screen and (max-width: 295px) {
+
+// this changes the logo to the circle of friends on screens below 295px
+	header.banner {
+		.nav-primary.nav-right .logo-ubuntu,
+		.logo-ubuntu {
+			@include background_size(20px 20px);
+			background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
+			min-width: 0;
+			width: 38px;
+		}
+	}
+	header.banner .logo-ubuntu span {
+		padding-left: 38px;
+	}
+	
+} // end @@media only screen and (max-width: 295px)
+
+html.no-svg, .opera-mini {
+  header.banner .logo-ubuntu {
+		background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  header.banner .nav-primary {
+    @include box-shadow(0 1px 2px 1px rgba(0, 0, 0, 0.2));
+  }
+  
+  header.banner .nav-primary.active {
+    @include box-shadow(none);
+    padding: 0;
+  }
+
+  header nav ul.active {
+    float: left;
+  }
+  
+  header nav ul.active li:last-child a:link,
+  header nav ul.active li:last-child a:visited {
+		border-bottom: 0;
+	}
+	  
+  header.banner .nav-primary ul {
+    position: relative;
+    width: 100%;
+  }
+
+  header.banner .nav-primary ul li.active {
+    a:link,
+    a:visited {
+      color: #333;
+      font-weight: 700;
+    }
+  }
+
+  header.banner .nav-primary ul li,
+  header.banner .nav-primary ul li a:link,
+  header.banner .nav-primary ul li a:visited,
+  header.banner .nav-primary ul li a:active {
+    @include box-sizing();
+    background: transparent;
+    border: none;
+    display: block;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  header.banner .nav-primary ul li a:link,
+  header.banner .nav-primary ul li a:visited,
+  header.banner .nav-primary ul li a:hover,
+  header.banner .nav-primary ul li a:active {
+    background-color: $nav-bg;
+    border-bottom: 1px solid $nav-border-dark;
+    color: #333333;
+    font-size: 1em;
+  }
+  
+  header.banner .nav-primary ul li:nth-last-child(-n+2) a:link,
+  header.banner .nav-primary ul li:nth-last-child(-n+2) a:visited  {
+		border: 0;
+	}	
+
+  header.banner .nav-primary ul li a:hover {
+    @include box-shadow(none);
+  	background: lighten($nav_bg, 3%);
+  }
+  header.banner .nav-primary ul li a.active {
+    background-color: $nav-active-bg;
+  }
+
+  header.banner nav.nav-primary ul li a:link,
+  header.banner .nav-primary ul li a:visited,
+  header.banner .nav-primary ul li a:hover,
+  header.banner .nav-primary ul li a:active {
+    padding: 8px 10px;
+    text-align: left;
+  }
+
+  header.banner .nav-primary ul li {
+    @include box-sizing();
+    background: transparent;
+    border-bottom: 0;
+    border-right: 1px solid $nav-border-dark;
+    float: left;
+    width: 50%;
+  }
+
+  .nav-secondary {
+    background: #fff;
+
+    ul.second-level-nav {
+      border-top: 1px solid $nav-border-dark;
+      display: none;
+      margin-bottom: 0;
+      margin-left: 0;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      width: 100%;
+
+      li {
+        @include box-sizing();
+        width: 50%;
+        margin: 0;
+        float: left;
+
+        a,
+        a:link,
+        a:visited {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          display: block;
+          height: 100%;
+          padding: 10px 10px 10px 20px;
+          width: 100%;
+        }
+        &.active {
+          a,
+          a:link,
+          a:visited {
+            color: #333;
+            font-weight: 700;
+          }
+        }
+      }
+    } /* end .second-level-nav */
+    ul.third-level-nav {
+      display: none;
+      margin-bottom: 0;
+      width: 100%;
+      padding-bottom: 20px;
+
+      li {
+        @include box-sizing();
+        width: 50%;
+        margin: 0;
+        float: left;
+        padding-left: 30px;
+
+        a,
+        a:link,
+        a:visited {
+          @include box-sizing();
+          padding: 10px 10px 10px 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+
+        &.active {
+          a,
+          a:link,
+          a:visited {
+            color: #333;
+            font-weight: 700;
+          }
+        }
+
+        &.single-link {
+          width: 100%;
+        }
+      } /* end li */
+
+      li:only-child {
+        width: 100%;
+      }
+    } /* end third-level-nav */
+
+    ul.breadcrumb {
+      @include box-sizing();
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 0;
+
+      li:first-of-type {
+        border-bottom: 1px solid $nav-border-dark;
+        margin-bottom: -1px;
+      }
+
+      li {
+        @include box-sizing();
+        color: #fff;
+        width: 100%;
+        display: block;
+        height: 40px;
+        margin: 0;
+
+        a,
+        a:link,
+        a:visited {
+          @include box-sizing();
+          font-size: 16px;
+          width: 100%;
+          color: #333333;
+          display: block;
+          margin-right: 0;
+          text-decoration: none;
+          padding: 8px 10px 0 10px;
+        }
+
+
+        &.active {
+          margin-top: 12px;
+
+          a,
+          a:link,
+          a:visited {
+            color: #333;
+            font-weight: 700;
+          }
+        }
+
+        &:nth-of-type(2n) {
+          margin-top: 12px;
+        }
+
+        .after {
+          background-image: url(#{$asset-path}patterns/nav-down-arrow.svg);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          float: right;
+          height: 18px;
+          margin-right: -5px;
+          margin-top: -6px;
+          padding: 10px;
+          position: relative;
+          right: 0;
+          top: 0;
+          width: 18px;
+        }
+      }
+
+      li + li {
+        display: none;
+
+        a:link,
+        a:active,
+        a:visited {
+          padding-left: 20px;
+        }
+
+        a.after {
+          background-image: none;
+        }
+      }
+    }
+
+    &.open {
+      ul.breadcrumb li a:after,
+      ul.breadcrumb li a:link:after,
+      ul.breadcrumb li a:visited:after {
+        background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
+      }
+      ul.breadcrumb li + li a.after {
+        background-image: none;
+      }
+      ul.breadcrumb li .after {
+        background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
+        margin-top: -7px;
+      }
+      ul.second-level-nav,
+      ul.third-level-nav,
+      ul.breadcrumb li + li {
+        display: block;
+      }
+    }
+  }/* end nav-secondary */
+
+  .no-js {
+    .nav-secondary ul.second-level-nav { display: block; }
+
+    #main-navigation-link {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      width: 20px;
+      height: 28px;
+      z-index: 999;
+      text-indent: -999em;
+      display: block;
+
+      a {
+        background-image: url("#{$asset-path}icons/navigation-menu-plain.svg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 25px auto;
+        display: block;
+        width: 28px;
+        height: 28px;
+        position: absolute;
+
+      }
+    }
+  }
+
+  html.no-svg, .opera-mini {
+  .nav-secondary ul.breadcrumb {
+      li .after {
+        background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
+      }
+      &.open {
+        ul.breadcrumb li a:after,
+        ul.breadcrumb li a:link:after,
+        ul.breadcrumb li a:visited:after {
+          background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+        }
+        ul.breadcrumb li .after{
+          background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+        }
+      }
+    }
+    header.banner .nav-primary #google-appliance-search-form button[type="submit"] {
+      background-image: url("#{$asset-path}search-black.png");
+    }
+  }
+
+  html.no-svg, .opera-mini {
+    .nav-secondary ul.breadcrumb {
+      li .after {
+        background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
+      }
+      &.open {
+        ul.breadcrumb li a:after,
+        ul.breadcrumb li a:link:after,
+        ul.breadcrumb li a:visited:after {
+          background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+        }
+        ul.breadcrumb li .after{
+          background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+        }
+      }
+    }
+    header.banner .nav-primary #google-appliance-search-form button[type="submit"] {
+      background-image: url("#{$asset-path}search-black.png");
+    }
+  }
+
+  header.banner {
+    .nav-toggle {
+      background-image: url("#{$asset-path}icons/navigation-menu-plain.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 25px auto;
+      cursor: pointer;
+      display: block;
+      height: 48px;
+      position: absolute;
+      right: 0;
+      text-indent: -99999px;
+      width: 48px;
+    }
+  }
+
+
+  html.no-svg, .opera-mini {
+    header.banner .nav-toggle {
+      background-image: url("#{$asset-path}icons/navigation-menu-plain.png");
+    }
+  }
+
+}
+
+@media only screen and (min-width : 768px) {
+
+  header.banner .nav-primary ul li {
+    border-bottom: 0;
+  }
+}
+
+@media only screen and (min-width : 769px) {
+
+  header.banner {
+      -moz-box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px #FFFFFF;
+      -webkit-box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px #FFFFFF;
+    box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px #FFFFFF;
+
+    nav.nav-primary {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+      box-shadow: none;
+			border-bottom: 0;
+
+    }
+  }
+
+  header.banner .nav-toggle {
+   display: none;
+  }
+
+  header.banner nav ul {
+    background-color: transparent;
+    display: block;
+  }
+
+  header.banner .nav-primary ul li {
+    border-left: 1px solid #C64012;
+  }
+
+  header.banner .nav-primary ul li a:active,
+  header.banner .nav-primary ul li a:hover,
+  header.banner .nav-primary ul li a:visited,
+  header.banner nav.nav-primary ul li a:link {
+    border-left: 1px solid #EC5B29;
+  }
+  header.banner .nav-primary ul li:last-child {
+    border-right: 1px solid #C64012;
+    border-left: 1px solid #C64012;
+  }
+  header.banner .nav-primary ul li a.active {
+    background-color: #B83A10;
+  }
+  header.banner .nav-primary ul li a:hover {
+    background-color: #E1662F;
+  }
+
+  .nav-secondary {
+    ul:last-child li:last-child {
+      padding-bottom: 10px;
+    }
+
+    ul.breadcrumb,
+    ul.second-level-nav,
+    ul.third-level-nav {
+
+      li {
+        margin-right: 15px;
+      }
+    }
+
+    ul.breadcrumb {
+      float: left;
+
+      li {
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+      float: none;
+      margin-bottom: 0;
+    }
+    ul li {
+      margin-bottom: 5px;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 984px) {
+
+  header.banner {
+    margin-bottom: 20px;
+  }
+
+  header.banner nav.nav-primary ul {
+		display: block;
+  }
+
+  header.banner .nav-primary,
+  #nav-global .nav-global-wrapper {
+    width: 984px; /* 980px / 15px (baseline font); 980px + (60px x 2) = 1100px */
+  }
+
+  header.banner .nav-primary.nav-right .logo-ubuntu {
+    margin-left: 0;
+  }
+
+}
+
+/*
+ * Main navigation dropdown styles
+ */
+
+header.banner .nav-primary ul { position: static; }
+
+header.banner .nav-primary li ul {
+	@include box_shadow(0 2px 2px -1px #777777);
+	@include rounded_corners(10px);
+	background: #f7f7f7;
+	border: 1px solid #d5d5d5;
+	display: none;
+	float: none;
+	margin: 0;
+	padding: 5px 0;
+	position: absolute;
+	top: 51px;
+	width: 200px;
+}
+
+// the new arrow that appears if there is secondary nav when you hover over the main nav
+header.banner .nav-primary li:hover ul:after {
+	background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
+	content: '';
+	display: block;
+	height: 8px;
+	left: 20px;
+	position: relative;
+	top: -13px;
+	width: 200px;
+	z-index: 999;
+}
+
+// show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
+.no-generatedcontent header.banner .nav-primary li ul {
+	@include rounded_corners(0 0 10px 10px);
+	top: 48px;
+}
+
+// the old arrow that appears if there is secondary nav when you hover over the main nav
+header.banner .nav-primary li ul .arrow-up {
+    display: none;
+}
+
+header.banner .nav-primary li ul li {
+    border: 0;
+    float: none;
+}
+header.banner .nav-primary li ul li a:link,
+header.banner .nav-primary li ul li a:visited {
+    border: 0;
+    color: #333333;
+    padding: 0 0 11px 14px;
+    text-align: left;
+    width: 170px;
+}
+header.banner .nav-primary li ul li a:hover {
+    background: none repeat scroll 0 0 transparent;
+    @include box_shadow(none);
+    color: #DD4814;
+}
+header.banner .nav-primary li ul li.first a:link,
+header.banner .nav-primary li ul li.first a:visited,
+header.banner .nav-primary li ul li:first-of-type a:link {
+    padding: 10px 14px;
+}
+header.banner .nav-primary li ul li.active a:link,
+header.banner .nav-primary li ul li.active a:visited {
+    background: none repeat scroll 0 0 transparent !important;
+}
+header.banner .nav-primary li ul .promo {
+    border-top: 1px solid #D5D5D5;
+    float: left;
+    margin-top: 5px;
+    padding: 15px 0 0;
+}
+header.banner .nav-primary li ul .promo a:link,
+header.banner .nav-primary li ul .promo a:visited {
+    background: none repeat scroll 0 0 transparent;
+    border-left: 0 none;
+    color: #333333;
+    height: auto;
+    padding: 0;
+    text-align: left;
+}
+header.banner .nav-primary li ul .promo p { margin: 0 10px; }
+
+header.banner .nav-primary li ul .promo a:hover {
+    box-shadow: none;
+    color: #DD4814;
+}
+header.banner .nav-primary li ul .promo img {
+    margin-top: 14px;
+    margin-bottom: -6px;
+    @include rounded_corners(0 0 10px 10px);
+    position:relative;
+    top:1px;
+}
+header.banner .nav-primary li ul .promo .category {
+    color: $warm_grey;
+    font-size: 11px;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+header.banner .nav-primary li:hover ul { display: block; }
+
+html.lt-ie8 header.banner .nav-primary li:hover ul { display: none; }
+

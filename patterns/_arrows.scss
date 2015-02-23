@@ -1,0 +1,58 @@
+@charset 'UTF-8';
+
+%arrow {
+  height: 11px;
+  position: absolute;
+  width: 18px;
+}
+
+.arrow-up {
+  @extend %arrow;
+  background: url('#{$asset-path}patterns/arrow-up.png') 0 0 no-repeat;
+  left: 20px;
+  top: -11px;
+}
+
+.arrow-down {
+  @extend %arrow;
+  background: url('#{$asset-path}patterns/arrow-down.png') 0 0 no-repeat;
+  bottom: -11px;
+  right: 20px;
+}
+
+.arrow-right {
+  @extend %arrow;
+  background: url('#{$asset-path}patterns/arrow-right.png') 0 0 no-repeat;
+  height: 18px;
+  right: -11px;
+  top: 20px;
+  width: 11px;
+}
+
+.arrow-left {
+  @extend %arrow;
+  background: url('#{$asset-path}patterns/arrow-left.png') 0 0 no-repeat;
+  bottom: 20px;
+  height: 18px;
+  left: -11px;
+  width: 11px;
+}
+
+div > .arrow-left { left: -10px; }
+
+@media only screen and (max-width : 768px) {
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+
+  html.yui3-js-enabled .arrow {
+    visibility: visible;
+  }
+
+} // @media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+
+} // end @media only screen and (min-width: 984px)
+

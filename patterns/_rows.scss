@@ -1,0 +1,186 @@
+@charset 'UTF-8';
+
+
+// rows sass
+
+// contents:
+
+// row
+// row-hero
+// row-background
+// strips
+// row-aux
+// row-step
+
+
+
+// row
+// ----------------------------------------------------------
+.row {
+  @include box-sizing;
+  border-bottom: 1px dotted $warm-grey;
+  clear: both;
+  padding: 20px 10px 0;
+  position: relative;
+
+  br {
+    display: none;
+  }
+
+  &.no-padding-bottom { padding-bottom: 0 !important; }
+}
+
+.row-grey {
+  background: $light-grey;
+}
+
+.no-border { border: 0; }
+
+// row-hero
+// ----------------------------------------------------------
+#main-content .row-hero {
+  margin-top: 20px;
+  padding-top: 0;
+}
+
+// row-background
+// ----------------------------------------------------------
+.row-background {
+  color: #fff;
+  background: url("#{$asset-path}backgrounds/image-background-wallpaper.jpg") no-repeat scroll 50% 50% #4b1827;
+
+  a.alternate {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  a.alternate:hover {
+    color: rgba(255, 255, 255, .6);
+  }
+
+  @media only screen and (min-width : 768px) {
+    background-position: center 50%;
+    background-size: 100% auto;
+  }
+}
+
+// strips
+// ----------------------------------------------------------
+.strip {
+  width: 100%;
+  display: block;
+}
+
+.strip-dark {
+  background-color: $dark-aubergine;
+  background-image: url("#{$asset-path}backgrounds/background-grid.png");
+  background-repeat: repeat;
+  color: #fff;
+
+  .list-ubuntu li {
+    border: 0;
+  }
+
+  .resource {
+    color: #333;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .resource:before {
+    border-right-color: #2c001e;
+  }
+}
+
+#main-content .strip-dark {
+  .resource:before {
+    border-bottom-width: 29px;
+    right: -2px;
+    top: -1px;
+  }
+
+  .resource:hover:before {
+    border-bottom-width: 34px;
+  }
+
+  .resource h2 {
+    padding-right: 20px;
+  }
+}
+
+// row-aux
+// ----------------------------------------------------------
+.row-aux {
+  background-color: rgba(255, 255, 255, .6);
+  text-align: center;
+
+  h2,
+  p {
+    text-align: left;
+  }
+
+  a p {
+    color: #333;
+    margin-bottom: 30px;
+  }
+}
+
+// row-step
+// ----------------------------------------------------------
+.row-step {
+  h2 {
+    position: relative;
+    top: 5px;
+  }
+
+  .step {
+    position: relative;
+    top: -5px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 3px solid $ubuntu-orange;
+    color: $ubuntu-orange;
+    line-height: 32px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 23px;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width : 768px) {
+} // end @media only screen and (max-width : 768px)
+
+
+@media only screen and (min-width : 768px) {
+
+  .row { padding: 30px; }
+
+  #main-content .row-hero { margin-top: 40px; }
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+
+  .row-step .step {
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+  }
+
+  .row br { display: block; }
+
+} //@media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+
+  .row br { display: block; }
+
+  .row { padding: 60px 40px 40px; }
+
+  .no-border { border: 0; }
+
+} // end @media only screen and (min-width: 984px)
+

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/**
+ * Ubuntu Core Front-End Framework
+ *
+ * Grid file part of the Ubuntu Core Front-End Framework
+ *
+ * This grid is composed by 14 columns (units) separated by 13 gutters (1/3 unit).
+ * The first and last column are for padding purposes only.
+ * The content fits in the middle 12 columns.
+ * Possible divisions: 1 (12 units + 11 gutters), 2 (6 units + 5 gutters),
+ * 3 ( 4 units + 3 gutters) and 4 (3 units + 2 gutters).
+ *
+ * When 1 unit = 60px, 1 gutter = 20px
+ *
+ * @project		Ubuntu Core Front-End Framework
+ * @author		Web Team at Canonical Ltd
+ * @copyright	2012 Canonical Ltd
+ *
+ * @see			http://gridinator.com/
+ */
+/**
+ * Table of contents
+ *
+ * Main containers
+ * Columns
+ * Empty columns
+ * Borders
+ * Push and pull
+ * Verticla gutter
+ * Last
+ * Clearing
+
+	one-col			60
+	two-col			140
+	three-col		220
+	four-col		300
+	five-col		380
+	six-col			460
+	seven-col		540
+	eight-col		630
+	nine-col		700
+	ten-col			780
+	eleven-col	860
+	twelve-col	940
+
+*/
+
+.fake { display: none; }
+
+body {
+	font-size: 14px;
+}
+
+.one-col, .two-col, .three-col, .four-col, .five-col, .six-col, .seven-col, .eight-col, .nine-col, .ten-col, .eleven-col, .twelve-col, .col {
+	@include box-sizing;
+	clear: none;
+	display: inline-block;
+	float: none;
+	margin-right: $gutter;
+	margin-bottom: 20px;
+	padding: 0;
+	position: relative;
+	width: 100%;
+}
+
+.twelve-col {
+	.one-col,
+	.two-col,
+	.three-col,
+	.four-col,
+	.five-col,
+	.six-col,
+	.seven-col,
+	.eight-col,
+	.nine-col,
+	.ten-col,
+	.eleven-col { width: 100%; }
+}
+
+.last-col, .last { margin-right: 0; }
+
+/**
+ * Clearing
+ *
+ * Hard and soft clearing classes
+ *
+ * @section clearing
+ */
+
+.clearfix:after, .container:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow:hidden;
+  visibility: hidden;
+}
+
+.clear { clear: both; }
+.clearfix { display: block; }
+

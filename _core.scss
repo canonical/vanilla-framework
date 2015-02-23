@@ -1,0 +1,668 @@
+@charset "UTF-8";
+
+@import "core-constants";
+@import "core-mixins";
+
+/**
+ * Ubuntu Core Front-End Framework
+ *
+ * Main CSS file part of the Ubuntu Core Front-End Framework
+ *
+ * @project		Ubuntu Core Front-End Framework
+ * @author		Web Team at Canonical Ltd
+ * @copyright	2012 Canonical Ltd
+ *
+ * @colordef	$cool-grey (#333); main text
+ * @colordef	$ubuntu-orange (#dd4814); Ubuntu orange
+ */
+
+/**
+ * Dependencies
+ *
+ * Importing reset file: core-reset.css
+ * Importing grid file: core-grid.css
+ */
+
+/**
+ * Font sizes
+ *
+ * 45px
+ * 32px
+ * 23px
+ * 19.5px
+ * 16px - bold
+ * 13px - bold - uppercase
+ */
+
+/**
+ * Table of contents
+ * General
+ * Links
+ * Lists
+ * Images
+ * Base typography
+ * Global elements
+ * Forms
+ * Tables
+ */
+
+/**
+ * General
+ *
+ * @section links
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, ol, ul, li,
+form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, nav, section {
+	display: block;
+}
+
+audio, canvas, video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+audio:not([controls]) {
+	display: none;
+}
+
+[hidden] {
+	display: none;
+}
+
+// importing the latest version of ubuntu font from google here as well as in the HTML in most sites, seems daft doubling up but some sites don't pull this file in in the HTML, developer.u.c for example. Using @import instead of @font-face (as below) ensure we have the very latest version of the font
+@import url('//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic%7CUbuntu+Mono');
+
+/*@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Ubuntu Light'), local('Ubuntu-Light'), url('https://fonts.gstatic.com/s/ubuntu/v7/_aijTyevf54tkVDLy-dlnJBw1xU1rKptJj_0jans920.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntu/v7/_aijTyevf54tkVDLy-dlnLO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), url('https://fonts.gstatic.com/s/ubuntu/v7/zvCUQcxqeoKhyOlbifSAaevvDin1pK8aKteLpeZ5c0A.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntu/v7/vRvZYZlUaogOuHbBTT1SNevvDin1pK8aKteLpeZ5c0A.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url('https://fonts.gstatic.com/s/ubuntu/v7/0ihfXUL2emPh0ROJezvraJBw1xU1rKptJj_0jans920.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntu/v7/0ihfXUL2emPh0ROJezvraLO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Ubuntu Light Italic'), local('Ubuntu-LightItalic'), url('https://fonts.gstatic.com/s/ubuntu/v7/DZ_YjBPqZ88vcZCcIXm6Vogp9Q8gbYrhqGlRav_IXfk.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntu/v7/DZ_YjBPqZ88vcZCcIXm6VrrIa-7acMAeDBVuclsi6Gc.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Ubuntu Italic'), local('Ubuntu-Italic'), url('https://fonts.gstatic.com/s/ubuntu/v7/WB6rgjTg_oRfj6mlXZJbb3YhjbSpvc47ee6xR_80Hnw.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntu/v7/kbP_6ONYVgE-bLa9ZRbvvnYhjbSpvc47ee6xR_80Hnw.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Ubuntu Bold Italic'), local('Ubuntu-BoldItalic'), url('https://fonts.gstatic.com/s/ubuntu/v7/OMD20Sg9RTs7sUORCEN-7Ygp9Q8gbYrhqGlRav_IXfk.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntu/v7/OMD20Sg9RTs7sUORCEN-7brIa-7acMAeDBVuclsi6Gc.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url('https://fonts.gstatic.com/s/ubuntumono/v6/ViZhet7Ak-LRXZMXzuAfkYgp9Q8gbYrhqGlRav_IXfk.woff2') format('woff2'), url('https://fonts.gstatic.com/s/ubuntumono/v6/ViZhet7Ak-LRXZMXzuAfkbrIa-7acMAeDBVuclsi6Gc.woff') format('woff');
+}*/
+
+html {
+	-moz-transition: background-position 100 ease;
+	-ms-text-size-adjust: 100%;
+	-o-transition: background-position 100 ease;
+	-webkit-text-size-adjust: 100%;
+	-webkit-transition: background-position 100 ease;
+  background: url('#{$asset-path}backgrounds/image-background-paper.png') repeat-y fixed center top $light-grey;
+  font-size: 100%;
+  overflow-y: scroll;
+  text-size-adjust: 100%;
+  transition: background-position 100 ease;
+}
+
+body {
+    background: url('#{$asset-path}backgrounds/image-background-paper.png') repeat-y center top $light-grey;
+    color: #333;
+    font-family: Ubuntu, Arial, "libra sans", sans-serif;
+    font-weight: 300;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote {
+  margin: 28px 20px;
+}
+
+blockquote:before, 
+blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+legend {
+	border: 0;
+	*margin-left: -7px;
+}
+
+figure {
+	margin: 0;
+}
+
+abbr, 
+acronym { cursor: help; }
+
+/**
+ * Links
+ *
+ * @section links
+ */
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+a:link, 
+a:visited {
+	color: $link-color;
+	text-decoration: none;
+}
+
+a:hover, 
+a:active, 
+a:focus {
+	text-decoration: underline;
+}
+
+a.link-arrow:after { content: "\0000a0›"; }
+
+nav ul li h2 a:after { content: "\0000a0›"; }
+
+nav ul li a:after, 
+.carousel ul li a:after, 
+ul li p a:after { content: ""; }
+
+/**
+ * Lists
+ */
+
+ol, 
+ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+ol ol,
+ul ul, 
+ol ul, 
+ul ol { margin-bottom: 0; }
+
+nav ul,
+nav ol {
+	list-style: none;
+	list-style-image: none;
+}
+
+/**
+ * Images
+ *
+ * @section images
+ */
+
+svg:not(:root) { overflow: hidden; }
+
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+}
+
+img.left { margin-right: $gutter-width; }
+
+img.right { margin-left: $gutter-width; }
+
+.middle img {
+  vertical-align: middle;
+  margin-top: 4em;
+}
+
+/**
+ * Base typography
+ *
+ * @section type
+ */
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font-weight: 300;
+	line-height: 1.3;
+}
+
+h1 {
+  font-size: 1.625em;
+  margin-bottom: .5em;
+}
+
+h2 {
+  font-size: 1.438em;
+  margin-bottom: .5em;
+}
+
+h3 {
+  font-size: 1.219em;
+  margin-bottom: .522em;
+}
+
+h4 {
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: .615em;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+h6 {
+  font-size: .723em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+p, 
+li {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0;
+  margin-bottom: .75em;
+  padding: 0;
+}
+
+h2 span, 
+h1 span { display: block; }
+
+p + h2, 
+ul + h2, 
+ol + h2, 
+pre + h2 { margin-top: (18 / 32)+em; }
+
+header nav a:link { font-weight: normal; }
+
+p + h3, 
+ul + h3, 
+ol + h3, 
+pre + h3 { margin-top: (18 / 23)+em; }
+
+p + h4, 
+ul + h4, 
+ol + h4, 
+pre + h4 { margin-top: (19.5 / $base)+em; }
+
+
+
+ol+h2, p+h2, pre+h2, ul+h2 { margin-top: .563em; }
+ol+h3, p+h3, pre+h3, ul+h3 { margin-top: .783em; }
+ol+h4, p+h4, pre+h4, ul+h4 { margin-top: 1.219em; }
+
+/* p + ol, p + dl {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+}*/
+
+li { margin-bottom: .4em; }
+
+li:last-of-type { margin-bottom: 0; }
+
+ins {
+  background: #fffbeb;
+  text-decoration: none;
+}
+
+small, 
+.smaller { font-size: 13px; }
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup { vertical-align: text-top; }
+
+sub { vertical-align: text-bottom; }
+
+dfn { font-style: italic; }
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+code, pre {
+	font-family: "Ubuntu Mono", "Consolas", "Monaco", "Lucida Console", "Courier New", Courier, monospace;
+}
+
+pre {
+  @include rounded-corners(4px);
+  background: $light-orange;
+  padding: .6em 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+blockquote { margin: 0; }
+
+blockquote > p {
+  @include font-size (13);
+  font-weight:100;
+  margin:0 0 .4em 0;
+}
+
+blockquote small {
+  font-size:.813em;
+  line-height:1.4;
+}
+
+/**
+ * Forms
+ *
+ * Global form element styles
+ *
+ * @section forms
+ */
+
+button,
+input,
+select,
+textarea {
+	font-family: Ubuntu,Arial,"libra sans",sans-serif;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+
+select { 
+	font-size: 1em;
+	font-weight: 300;
+}
+
+button,
+input { line-height: normal; }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+	*overflow: visible;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+input[type="search"] {
+		@include rounded-corners(2px);
+	-moz-box-sizing: content-box;
+	-webkit-appearance: none;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	font-family: Ubuntu,Arial,"libra sans",sans-serif;
+	font-weight: 300;
+	outline: none;
+	padding: 0.6956522em 0.869565em;
+}
+
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+
+form fieldset {
+	@include rounded-corners(4px);
+	background-repeat: no-repeat;
+	background-color: #EFEEEC;
+	background-position: -15px -15px;
+	border: 0;
+	margin-bottom: 8px;
+	padding: 15px 20px;
+}
+
+form fieldset h3 {
+	border-bottom: 1px dotted #dfdcd9;
+	margin-bottom: 9px;
+	padding-bottom: 10px;
+}
+
+form fieldset li:first-child { margin-top: 0; }
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+	-webkit-appearance: none;
+	@include rounded-corners(2px);
+	background: #fff;
+	border: 1px solid #999;
+	display: block;
+	font-family: Ubuntu,Arial,"libra sans",sans-serif;
+	font-size: 1em;
+	font-weight: 300;
+	padding: 0.6956522em 0.869565em;
+}
+
+form input:focus, 
+form textarea:focus { border: 1px solid #dd4814; }
+
+form textarea[readonly='readonly'] { color: #999; }
+
+form input[type="checkbox"], form input[type="radio"] {
+	margin: 0;
+	width:auto;
+}
+
+form input[type="checkbox"] + label,
+form input[type="radio"] + label{
+	display: inline;
+	margin-left: 5px;
+	vertical-align: middle;
+	width: auto;
+}
+
+form input[type="submit"] {
+  @include font-size (16);
+  @include rounded-corners(4px);
+	@include gradient(#f26120, $ubuntu-orange);
+	@include box-shadow(none);
+	border: 0;
+	color: #fff;
+	display: block;
+	padding: 10px 14px;
+	text-shadow: none;
+	width: auto;
+	margin-bottom: 0;
+}
+
+form input[type="submit"]:hover {
+  background: $ubuntu-orange;
+}
+
+form label {
+	cursor: pointer;
+	display: block;
+	margin-bottom: 4px;
+}
+form label span {
+  color: $error;
+}
+
+form ul { margin-left:0; }
+
+form li {
+	list-style: none outside none;
+	margin-top: 14px;
+}
+
+
+form button[type="submit"] {
+  border: 0;
+  display: inline-block;
+  font-family: Ubuntu, Arial, "libra sans", sans-serif;
+  text-decoration:none;
+	font-weight: 300;
+}
+
+form input[type="reset"] {
+  display: none;
+}
+
+/**
+ * Tables
+ *
+ * @section tables
+ */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	overflow-x: scroll;
+  margin-bottom: $gutter-width;
+  margin: 0 0 (40/$base) + em 0;
+  width: 100%;
+
+  th, td {
+	padding: 15px 10px;
+	background: #f0edea;
+	border: 1px dotted $warm-grey;
+  }
+  td {
+	text-align: center;
+	vertical-align: middle;
+  }
+
+  thead th {
+	border-collapse: separate;
+	border-spacing: 0 10px;
+	background: #fee3d2;
+	color: #333333;
+	font-weight: normal;
+  }
+  tbody th {
+  	text-align: left;
+		font-weight: normal;
+	font-weight: 300;
+  }
+  th[scope="col"] {
+	text-align: center;
+  }
+  thead th:first-of-type { text-align: left; }
+}
+
+/* Responsive typo
+h1 {
+  @include font-size (26);
+  margin-bottom: .5rem;
+}
+h2 {
+  font-size: 1.438rem;
+  margin-bottom: .5rem;
+}
+h3 {
+  font-size: 1.219rem;
+  margin-bottom: .522rem;
+}
+h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: .615rem;
+}
+h5 {
+  font-size: .813rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+h6 {
+  font-size: .723rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+p {
+  @include font-size (14);
+  line-height: 1.6;
+  margin: 0;
+  margin-bottom: .75rem;
+  padding: 0;
+}*/
+
+@media only screen and (max-width : 768px) {
+	table {
+		display: block;
+	}
+} // end @media only screen and (max-width : 768px) 
+
+
+@media only screen and (min-width: 984px) {
+  form fieldset {
+	padding: 15px 20px;
+  }
+	img {
+	  max-width: none;
+	}
+}

@@ -1,0 +1,189 @@
+@charset 'UTF-8';
+
+.row.row-image-centered,
+div.box-image-centered,
+div.row-image-centered,
+div.row.row-image-centered {
+	padding: 20px 10px 0;
+}
+
+.row-box.row-image-centered {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.row.row-image-centered {
+  padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.row-hero.row-image-centered {
+		padding-top: 0;
+}
+
+div.row-image-centered,
+div.box-image-centered,
+div.row.row-image-centered {
+	//display: block;
+
+	div,
+	span {
+		//display: block;
+		float: none;
+	}
+
+	span {
+		width: 100%;
+
+		img {
+			height: auto;
+			max-width: 100%;
+			display: block;
+			padding: 0;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+	}
+
+	p,
+	h2,
+	h3 {
+		float: none;
+	}
+}
+
+@media only screen and (min-width : 768px) {
+
+	div.row-image-centered,
+	div.row.row-image-centered,
+	div.box-image-centered {
+		@include box-sizing;
+		padding-bottom: 20px;
+		display: table;
+
+		div {
+			float: none;
+			display: table-cell;
+			position: relative;
+
+			p,
+			h2,
+			h3 {
+				display: block;
+				width: 100%;
+				float: left;
+			}
+
+			+ span img { // if image is on the right hand side
+				padding-right: 0;
+				margin-bottom: 20px;
+			}
+		}
+
+		span {
+			display: table-cell;
+			float: none;
+			position: relative;
+			text-align: center;
+			top: 0;
+			vertical-align: middle;
+			width: auto;
+
+			img {
+				padding-right: 20px; // if image is on the left hand side
+			}
+		}
+	}
+	/* 
+		alternative to row-image-centered
+		requires equal-height class on row 
+		add align-vertically to the div containing the image
+		http://caniuse.com/transforms2d
+	*/
+	.js .align-vertically {
+		-moz-transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		
+		img, 
+		div {
+		  -ms-transform: translateY(-50%); // for IE9
+		  -webkit-transform: translateY(-50%);
+		  position: relative;
+		  top: 50%;
+		  transform: translateY(-50%);
+		}
+	}
+} //@media only screen and (min-width : 768px)
+
+div.box-image-centered {
+	padding-top: 20px;
+}
+
+@media only screen and (min-width : 768px) {
+
+	.row.row-image-centered,
+	div.box-image-centered,
+	div.row-image-centered,
+	div.row.row-image-centered {
+	    padding: 30px;
+	}
+	
+	div.box-image-centered div + span img,
+	div.row-image-centered div + span img,
+	div.row.row-image-centered div + span img,
+	div.box-image-centered span img.priority-0,
+	div.row-image-centered span img.priority-0,
+	div.row.row-image-centered span img.priority-0 {
+		margin-right: auto;
+		display: table-cell;
+		margin-bottom: 0;
+	}
+
+} // @media only screen and (min-width : 768px)
+
+@media only screen and (min-width: 984px) {
+
+  .row.row-image-centered,
+	div.row-image-centered,
+	div.row.row-image-centered,
+	div.box-image-centered {
+		@include box-sizing;
+		padding: 60px 40px 60px;
+		display: table;
+
+		div {
+			float: none;
+			display: table-cell;
+			position: relative;
+
+			p,
+			h2,
+			h3 {
+				display: block;
+				width: 100%;
+				float: left;
+			}
+
+			 + span img { // if image is on the right hand side
+				padding-right: 0;
+				//margin-bottom: 20px;
+			}
+		}
+
+		span {
+			display: table-cell;
+			float: none;
+			position: relative;
+			text-align: center;
+			top: 0;
+			vertical-align: middle;
+			width: auto;
+
+			img {
+				padding-right: 20px; // if image is on the left hand side
+			}
+		}
+	}
+
+} // end @media only screen and (min-width: 984px)

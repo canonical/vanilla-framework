@@ -1,0 +1,96 @@
+@charset 'UTF-8';
+
+.slider {
+  @include rounded-corners(4px);
+  background: $light-grey;
+  padding-top: $gutter-width * 2;
+
+  .slide-window {
+    overflow: hidden;
+    position: relative;
+    height: 450px;
+    -moz-transition: left 1s;
+      -webkit-transition: left 1s;
+      -o-transition: left 1s;
+    transition: left 1s;
+  }
+
+  .slide-container {
+    position: absolute;
+    width: (700 * 4)px;
+      -moz-transition: left 1s;
+      -webkit-transition: left 1s;
+      -o-transition: left 1s;
+    transition: left 1s;
+    left: 0;
+  }
+
+  .slider-dots {
+    ul {
+      position: absolute;
+      top: 550px;
+      left: 220px;
+      z-index: 5;
+    }
+
+    li {
+      background-position: 0 -8px;
+      background: url('#{$asset-path}patterns/sprite-pager.png') no-repeat;
+      float: left;
+      height: 7px;
+      list-style-type: none;
+      margin-right: .75em;
+      text-indent: -9999em;
+      width: 7px;
+
+      &.active {
+        background-position: 0 0;
+      }
+    }
+
+    a {
+      display: block;
+      outline: 0;
+    }
+  }
+
+  .slide {
+    float: right;
+    width: 700px;
+
+    h3 {
+      margin-top: 65px;
+      display: inline-block;
+    }
+
+    p {
+      width: 350px;
+    }
+  }
+
+  .arrow-prev,
+  .arrow-next {
+    font-size: 5em;
+    margin-top: 150px;
+    display: block;
+    color: $warm-grey;
+    outline: 0;
+  }
+
+  .arrow-prev:hover,
+  .arrow-next:hover {
+    text-decoration: none;
+    color: $cool-grey;
+  }
+
+  .arrow-prev:active,
+  .arrow-next:active {
+    padding-top: 1px;
+    text-decoration: none;
+  }
+
+  .arrow-prev:focus,
+  .arrow-next:focus {
+    text-decoration: none;
+  }
+}

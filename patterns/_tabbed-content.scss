@@ -1,0 +1,210 @@
+@charset 'UTF-8';
+
+html.js .tabbed-content .accordion-button {
+  @include box-sizing;
+  height: auto;
+  padding-bottom: .6em;
+  padding-right: 20px;
+}
+
+html.yui3-js-enabled {
+
+  .tabbed-menu {
+    display: none;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .arrow {
+    display: none;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .tabbed-content {
+			@include rounded-corners(4px);
+			padding: 8px 8px 0;
+    	background: $light-grey;
+      margin-bottom: 8px;
+
+      &.hide {
+        display: block;
+        opacity: 1 !important;
+      }
+
+      .title {
+        display: none;
+      }
+
+      div {
+        display: none;
+      }
+
+      .accordion-button {
+        @include box-sizing;
+        background: url("#{$asset-path}icons/icon-arrow-down.svg") no-repeat scroll right 3px $light-grey;
+        color: $cool-grey;
+        display: block;
+        font-size: 16px;
+        padding-bottom: .6em;
+        padding-right: 20px;
+        width: 100%;
+    }
+
+      &.open {
+        .accordion-button {
+          background-image: url("#{$asset-path}icons/icon-arrow-up.svg");
+          margin-bottom: 10px;
+        }
+
+        div {
+          display: block;
+        }
+      }
+  }
+
+  html.yui3-js-enabled.opera-mini .tabbed-content,
+  html.yui3-js-enabled.no-svg .tabbed-content {
+    .accordion-button {
+      background-image: url("#{$asset-path}icons/icon-arrow-right.png");
+    }
+
+    &.open {
+      .accordion-button {
+        background-image: url("#{$asset-path}icons/icon-arrow-up.png");
+      }
+    }
+  }
+
+  html.yui3-js-enabled.opera-mini.tabbed-content {
+    .accordion-button {
+      background-image: none;
+      margin-bottom: 10px;
+    }
+
+    div {
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width : 768px) {
+    .tabbed-menu {
+      display: block;
+    }
+
+    .tabbed-content {
+        margin-bottom: 20px;
+        padding: 40px;
+
+        &.hide {
+          display: none;
+          opacity: 0 !important;
+        }
+
+        .title {
+          display: block;
+        }
+
+        div {
+          display: block;
+        }
+
+        .vertical-divider div {
+          display: table-cell;
+        }
+
+      .accordion-button {
+        display: none;
+      }
+    }
+  }
+
+  .accordion-button.active {
+    background-color: transparent;
+  }
+
+}
+
+@media only screen and (min-width : 768px) {
+
+  .tabbed-menu {
+    @include box-shadow(0 -1px 10px #cfcfcf inset);
+    @include box-sizing;
+    @include rounded-corners(4px 4px 0 0);
+    background: none repeat scroll 0 0 $light-grey;
+    padding-bottom: $gutter-width;
+    padding-top: $gutter-width;
+    position: relative;
+
+    ul {
+      @include box-sizing;
+      display: table;
+      margin-bottom: 0;
+      padding: 0;
+      position: relative;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    li {
+      text-align: center;
+      display: table-cell;
+    }
+
+    a {
+      color: #666;
+      display: block;
+      outline: none;
+
+      .active {
+        color: $canonical-aubergine;
+        text-decoration: none;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .arrow {
+      bottom: 0;
+      position: absolute;
+    }
+  }
+
+  .tabbed-content {
+    @include clearfix();
+    padding: $gutter-width $gutter-width*2 0;
+
+    .row {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .tabbed-content .main-content {
+    padding-bottom: 40px;
+  }
+
+  html.yui3-js-enabled .tabbed-content.hide {
+    display: none;
+    opacity: 0;
+  }
+
+  .tabbed-content-bg {
+    @include box-sizing;
+    background: #fff;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .tabbed-content-bg .row-box {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+	html.yui3-js-enabled .arrow {
+		visibility: visible;
+	}
+  
+}

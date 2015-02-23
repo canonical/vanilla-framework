@@ -1,0 +1,253 @@
+@charset 'UTF-8';
+
+blockquote {
+  &.pull-quote {
+    text-indent: 0;
+
+    p {
+      color: $cool-grey;
+      padding-left: 10px;
+      padding-right: 10px;
+			@include font-size (24.833);
+      text-indent: -.4em;
+      margin-left: .4em;
+      line-height: 1.3;
+
+      span {
+        font-weight: bold;
+        color: $ubuntu-orange;
+        line-height: 0;
+        position: relative;
+        left: -5px;
+
+        & + span { left: 5px; } // the second span
+			}
+
+      cite {
+        margin: 10px 0 0;
+        font-weight: 300;
+        display: block;
+        font-size: .75em;
+				text-indent: 0;
+      }
+    }
+
+    &.js {
+      padding-left: $gutter-width * 3;
+      display: table-cell;
+    }
+  }
+
+  &.quote-canonical,
+  &.quote-canonical-white {
+    @include font-size (16);
+    background: url("#{$asset-path}patterns/quote-white-360x360.png") no-repeat 20px -130px;
+    color: $canonical-aubergine;
+    float: right;
+    font-size: 1em;
+    height: 215px;
+    margin-top: 0;
+    padding: 20px 60px 0;
+    position: relative;
+    width: 236px;
+  }
+
+  &.quote-canonical-white {
+    background: url("#{$asset-path}patterns/quote-aubergine-345x345.png") no-repeat 0 0;
+    color: #fff;
+    padding: 80px 60px 0;
+    height: 265px;
+  }
+
+  &.quote p:first-child {
+    @include font-size (18); // (16) desired value in px, this is divided by the baseline font-size value to reach the em value
+    line-height: 1.3;
+    text-indent: -7px;
+  }
+
+  &.quote-right-bottom {
+    background-image: url("#{$asset-path}pictograms/picto-pack/picto-quote-orange.svg");
+    background-repeat: no-repeat;
+    background-size: 287px 286px;
+    color: #fff;
+    height: 167px;
+    padding: 60px 40px;
+    position: static;
+    right: -($gutter-width * 2);
+    top: -($gutter-width * 4.5);
+    width: 207px;
+
+    & p { color: #fff; }
+  }
+
+  &.quote-grey {
+    @include font-size (36);
+    background: url("#{$asset-path}patterns/quote-grey-br-211x211.png") no-repeat scroll 0 0 transparent;
+    color: #fff;
+    height: 152px;
+    line-height: 40px;
+    margin-left: 20px;
+    padding: 60px 0 0;
+    text-align: center;
+    width: 211px;
+  }
+
+  &.quote-bottom-left {
+    background: url("#{$asset-path}patterns/quote-orange-bl-287x287.png") no-repeat;
+    color: #fff;
+    height: 167px;
+    padding: 55px 40px 70px 45px;
+    width: 225px;
+  }
+}
+
+//.pull-quote {
+  //@include font-size (30);
+  //color: $warm-grey;
+  //line-height: 1.4;
+  //right: 0;
+//}
+
+html.no-svg,
+.opera-mini {
+  blockquote.quote-right-bottom {
+    background-image: url("#{$asset-path}pictograms/picto-pack/picto-quote-orange.png");
+  }
+}
+
+// End blockquote
+
+// row-quote
+
+.row-quote {
+  @include rounded-corners(0);
+
+  blockquote {
+    @include rounded-corners(4px);
+    margin: 0;
+    padding: 0;
+
+    p {
+      margin-bottom: .75em;
+      line-height: 1.3;
+      color: $cool-grey;
+      padding-left: 10px;
+      padding-right: 10px;
+			//@include font-size (23);
+      //font-size: 1em;
+      text-indent: 0;
+    }
+
+    span {
+      font-weight: bold;
+      color: $ubuntu-orange;
+      line-height: 0;
+      position: relative;
+      left: -5px;
+
+      & + span { left: 5px; } // the second span
+    }
+
+    cite {
+      color: $cool-grey;
+      font-style: normal;
+      margin-bottom: 0;
+      font-size: .75em;
+      text-indent: -14px;
+      text-indent: 0;
+    }
+  }
+
+  .quote-twitter {
+    background: #fcece7 url('#{$asset-path}pictograms/pictogram-twitter-115x139.png') $gutter-width bottom no-repeat;
+    padding: $gutter-width $gutter-width $gutter-width $three-col;
+  }
+
+  .quote-twitter-small {
+    background: #fcece7 url('#{$asset-path}pictograms/pictogram-twitter-54x63.png') 99% bottom no-repeat;
+    padding: $gutter-width $gutter-width $gutter-width 80px;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+blockquote.quote-canonical,
+blockquote.quote-canonical-white {
+  background: none;
+  color: $cool-grey;
+  width: auto;
+  height: auto;
+  padding: 0 30px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width : 768px) {
+  .row-quote blockquote p {
+  }
+}
+
+@media only screen and (min-width : 768px) {
+
+  .row-quote blockquote {
+    text-indent: -7px;
+  }
+
+  .pull-quote {
+    text-indent: -.4em;
+  }
+
+  .row-quote blockquote p {
+    @include font-size (24.83);
+  }
+
+ 	blockquote.pull-quote p,
+ 	.row-quote blockquote p {
+    padding-left: 0;
+    padding-right: 0;
+    text-indent: -.7em;
+
+    span {
+      font-size: 1.391304348em;
+    }
+
+    cite {
+      margin-left: 0;
+      text-indent: 0;
+    }
+  }
+
+  blockquote.pull-quote p span,
+  .row-quote blockquote p span {
+    top: 5px;
+  }
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+
+  .row-quote blockquote {
+    p {
+			@include font-size (24.83);
+      text-indent: -.4em;
+    }
+  }
+
+} //@media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+
+  .row-quote blockquote {
+    padding: 0 80px 20px;
+    text-indent: -10px;
+	}
+
+	blockquote.pull-quote p span,
+	.row-quote blockquote p span {
+		top: 10px;
+	}
+
+} // end @media only screen and (min-width: 984px)
+

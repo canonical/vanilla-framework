@@ -1,0 +1,76 @@
+@charset 'UTF-8';
+
+.caps-centered,
+.muted-heading {
+    font-size: .875em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p.intro {
+  @include font-size (16);
+  line-height: 1.4;
+}
+
+.row div {
+  p:last-child,
+  ul:last-child { margin-bottom: 0; }
+}
+
+.four-col p:last-child {
+  margin-bottom: 0;
+}
+
+.note {
+  color: $warm-grey;
+  font-size: .813em;
+}
+
+@media only screen and (min-width : 768px) {
+
+  p.intro {
+    font-size: 1.13333em;
+  }
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+} //@media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+  h1 {
+    font-size: 2.8125em;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: .375em;
+  }
+
+  h3 {
+    font-size: 1.438em;
+    margin-bottom: .522em;
+  }
+
+  h4 {
+    font-size: 1em;
+    margin-bottom: .75em;
+  }
+
+  h5 { font-size: 1em; }
+
+  p,
+  li,
+  code,
+  pre {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: .75em;
+  }
+
+  p.intro {
+    font-size: 1.25em;
+  }
+
+} // end @media only screen and (min-width: 984px)

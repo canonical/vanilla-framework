@@ -1,0 +1,116 @@
+@charset 'UTF-8';
+
+a.link-cta-ubuntu,
+a.link-cta-canonical,
+a.link-cta-inverted,
+button.cta-ubuntu,
+button.cta-canonical,
+form button[type="submit"],
+form input[type="submit"] {
+	@include box-sizing();
+	@include font-size (16);
+	@include rounded-corners(3px);
+	background: $ubuntu-orange;
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0;
+	font-family: Ubuntu, Arial, 'libra sans', sans-serif;
+	font-weight: 300;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-font-smoothing: subpixel-antialiased;
+	-o-font-smoothing: subpixel-antialiased;
+	font-smoothing: subpixel-antialiased;
+	padding: 8px 14px;
+	width: 100%;
+	text-align: center;
+}
+
+a.cta-large,
+button.cta-large {
+	@include font-size (18);
+	padding: 10px 20px;
+}
+
+a.link-cta-canonical,
+button.cta-canonical,
+form button.cta-canonical[type="submit"],
+form input.cta-canonical[type="submit"] {
+	background: $canonical-aubergine;
+	color: #fff;
+}
+
+a.link-cta-inverted,
+button.cta-inverted {
+	background: #fff;
+	color: $cool-grey;
+}
+
+.row-enterprise a.link-cta-canonical,
+.row-enterprise button.link-cta-canonical {
+  background: #fff;
+  color: $canonical-aubergine;
+}
+
+a.link-cta-ubuntu:hover,
+a.link-cta-ubuntu:hover,
+button.cta-ubuntu:hover,
+form button[type="submit"]:hover,
+form input[type="submit"]:hover {
+	background: darken($ubuntu_orange, 6.2%); // #c03f11
+	text-decoration: none;
+}
+
+a.link-cta-canonical:hover,
+button.cta-canonical:hover {
+	background: darken($canonical-aubergine, 6.2%); // #5f193e
+  text-decoration: none;
+}
+
+a.link-cta-inverted:hover,
+.row-enterprise a.link-cta-canonical:hover,
+button.cta-inverted:hover,
+.row-enterprise button.cta-canonical:hover {
+  background: #fff;
+  text-decoration: underline;
+}
+
+a.cta-deactivated,
+a.cta-deactivated:hover,
+button.cta-deactivated,
+button.cta-deactivated:hover {
+  background: $box-solid-grey;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+@media only screen and (min-width : 768px) {
+
+	a.link-cta-ubuntu,
+	a.link-cta-canonical,
+	a.link-cta-inverted,
+	button.cta-ubuntu,
+	button.cta-canonical,
+	form button[type="submit"],
+	form input[type="submit"] {
+	  width: auto;
+	}
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+} // @media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+
+	a.link-cta-ubuntu,
+	a.link-cta-canonical,
+	a.link-cta-inverted,
+	button.cta-ubuntu,
+	button.cta-canonical,
+	form button[type="submit"],
+	form input[type="submit"] {
+	  width: auto;
+	}
+
+} // end @media only screen and (min-width: 984px)

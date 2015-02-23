@@ -1,0 +1,137 @@
+@charset 'UTF-8';
+
+.list,
+.list-ubuntu,
+.list-canonical {
+	list-style: none;
+	margin-left: 0;
+
+	li {
+	  border-bottom: 1px dotted $warm-grey;
+    margin-bottom: 0;
+    padding: 10px 0;
+	}
+
+	li:last-of-type,
+  li.last-item {
+	  border: 0;
+    padding-bottom: 0;
+  }
+}
+
+.list article {
+  border-bottom: 1px dotted $warm-grey;
+  margin-bottom: 0;
+  padding: 10px 0;
+}
+
+.list-spaced article,
+.list-spaced li {
+  padding: 30px 0;
+}
+
+nav .list a {
+	display: block;
+}
+
+.list-ubuntu li,
+.list-canonical li {
+	background-repeat: no-repeat;
+	background-position: 0 1em;
+  padding-left: 25px;
+}
+
+.list-ubuntu li { background-image: url('#{$asset-path}patterns/tick-orange.svg'); }
+
+.list-canonical li { background-image: url('#{$asset-path}patterns/tick-midaubergine.svg'); }
+
+.list-warm li { background-image: url('#{$asset-path}patterns/tick-warmgrey.svg'); }
+
+.list-dark li { background-image: url('#{$asset-path}patterns/tick-darkaubergine.svg'); }
+
+.vertical-divider .list-canonical li,
+.vertical-divider .list-ubuntu li {
+  padding-left: 25px;
+}
+
+html.no-svg,
+.opera-mini {
+  .list-ubuntu li {
+    background-image: url('#{$asset-path}patterns/tick-orange.png');
+  }
+
+  .list-canonical li {
+    background-image: url('#{$asset-path}patterns/tick-midaubergine.png');
+  }
+
+  .list-warm li {
+    background-image: url('#{$asset-path}patterns/tick-warmgrey.png');
+  }
+
+  .list-dark li {
+    background-image: url('#{$asset-path}patterns/tick-darkaubergine.png');
+  }
+}
+
+.no-bullets {
+  list-style: none;
+  margin-left: 0;
+}
+
+.row .combined-list {
+  ul,
+  div {
+    margin-bottom: 0;
+  }
+
+  li.last-item {
+    border-bottom: 1px dotted $warm-grey;
+    padding-bottom: 10px;
+  }
+
+  div.last-col,
+  ul.last-col {
+    margin-bottom: 20px;
+
+    li.last-item {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.inline {
+  margin-left: 0;
+
+  li {
+    display: inline;
+    list-style: none;
+    margin-left: 0;
+    float: left;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+
+	.row .combined-list {
+    ul,
+    div {
+      margin-bottom: 20px;
+    }
+
+    li.last-item {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+} // end @media only screen and (max-width : 768px)
+
+@media only screen and (min-width : 769px) {
+
+} //@media only screen and (min-width : 769px)
+
+@media only screen and (min-width: 984px) {
+
+} // end @media only screen and (min-width: 984px)
+

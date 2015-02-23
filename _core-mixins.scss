@@ -1,0 +1,83 @@
+/**
+ * mixins
+ *
+ * @section mixins
+ */
+
+@mixin font-size ($size: 16) {
+  font-size: ($size / $base)+em;
+  margin-bottom: (12 / $size)+em;
+}
+
+@mixin box-sizing ($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	box-sizing:         $type;
+}
+
+@mixin rounded-corners($radius: 4px 4px 4px 4px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow...) {
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin gradient($from, $to) {
+  background-color: $to;
+  background-image: -moz-linear-gradient($from, $to);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient($from, $to);
+  background-image: -o-linear-gradient($from, $to);
+}
+
+@mixin footer($background) {
+  padding: $gutter-width $two-col $gutter-width $four-col;
+  margin-bottom: 0;
+  background: url($background) no-repeat scroll $one-col center #F7F7F7;
+}
+
+@mixin clearfix() {
+  *zoom:1;
+
+  &:before,
+  &:after {
+      content:"";
+      display:table;
+  }
+  &:after {
+      clear:both;
+  }
+}
+
+// CSS3 colunms
+@mixin columns($num: 3, $gap: 20) {
+  -moz-column-count: $num;
+  -moz-column-gap: ($gap / $base)em;
+  -webkit-column-count: $num;
+  -webkit-column-gap: ($gap / $base)em;
+  column-count: $num;
+  column-gap: ($gap / $base)em;
+}
+
+// background-size
+@mixin background-size($size: 100% 100%) {
+  -moz-background-size: $size;
+  -webkit-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}
+
+// transitions
+@mixin transition($properties: all, $duration: .5s, $method: ease-out) {
+    -webkit-transition: $properties $duration $method;
+    -moz-transition: $properties $duration $method;
+    -ms-transition: $properties $duration $method;
+    -o-transition: $properties $duration $method;
+    transition: $properties $duration $method;
+}
+// usage: @include transition(all, 0.3s, ease-in-out);
