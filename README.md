@@ -29,7 +29,12 @@ To get started you'll need some stuff:
 ## Documentation
 
 ## Contributing
-https://github.com/ubuntudesign/web-style-guide
+
+Code:
+Fork us on: https://github.com/ubuntudesign/web-style-guide
+
+Bugs:
+https://github.com/ubuntudesign/web-style-guide/issues
 
 ## Community
 
