@@ -29,6 +29,7 @@ To get started you'll need some stuff:
 ## Documentation
 
 ## Contributing
+https://github.com/ubuntudesign/web-style-guide
 
 ## Community
 
