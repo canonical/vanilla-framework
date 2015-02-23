@@ -9,8 +9,6 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 ## Index
 
-_____
-
 - [Getting started]()
 - [Documentation]()
 - [Contributing]()
@@ -20,23 +18,20 @@ _____
 
 ## Getting started
 
-_____
-
 ## Documentation
-
-_____
 
 ## Contributing
 
-_____
-
 ## Community
-
-_____
 
 ## Releases
 
-_____
-
 ## Copyright and licence
-_____
+
+
+
+
+
+
+
+
