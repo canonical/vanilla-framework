@@ -18,6 +18,16 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 ## Getting started
 
+To get started you'll need some stuff:
+
+- [Latest release]()
+- Ruby
+- Sass
+- Node.js
+- Gulp
+
+Read the [design](http://design.ubuntu.com) site for information on how to use the framework; templates, modules and examples.
+
 ## Documentation
 
 ## Contributing
@@ -29,9 +39,3 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 ## Copyright and licence
 
 Code and documentation copyright 2015 Canonical Ltd. Licencing LGPLv3.
-
-
-
-
-
-
