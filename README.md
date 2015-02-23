@@ -20,19 +20,22 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 To get started you'll need some stuff:
 
-- [Latest release v1.0.0](https://github.com/ubuntudesign/web-style-guide/archive/master.zip)
+- [Latest release](https://github.com/ubuntudesign/web-style-guide/archive/master.zip)
 - Ruby
 - Sass
 - Node.js
 - Gulp
-
-Read the [design](http://design.ubuntu.com) site for information on how to use the framework; templates, modules and examples.
 
 ## Documentation
 
 ## Contributing
 
 ## Community
+
+Keep upto date with all new developments and upcoming changes with the Ubuntu web style framework
+
+- Follow us on Twitter [@Ubuntudesigners](http://twitter.com/ubuntudesigners)
+- Read our latest blog posts at [Canonical Blog](http://design.canonical.com/topic/development/)
 
 ## Releases
 
