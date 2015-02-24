@@ -1,32 +1,36 @@
-/**
- * mixins
- *
- * @section mixins
- */
+////
+/// Mixins
+/// @section mixins
+///
 
+/// font size, default 16
 @mixin font-size ($size: 16) {
   font-size: ($size / $base)+em;
   margin-bottom: (12 / $size)+em;
 }
 
+/// box-sizing with prefixes
 @mixin box-sizing ($type: border-box) {
-	-webkit-box-sizing: $type;
-	-moz-box-sizing:    $type;
-	box-sizing:         $type;
+  -webkit-box-sizing: $type;
+  -moz-box-sizing:    $type;
+  box-sizing:         $type;
 }
 
+/// border-radius with prefixes
 @mixin rounded-corners($radius: 4px 4px 4px 4px) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
 }
 
+/// box shadow with prefixes
 @mixin box-shadow($shadow...) {
   -moz-box-shadow: $shadow;
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
 }
 
+/// background gradient with prefixes
 @mixin gradient($from, $to) {
   background-color: $to;
   background-image: -moz-linear-gradient($from, $to);
@@ -35,12 +39,14 @@
   background-image: -o-linear-gradient($from, $to);
 }
 
+/// footer styles with parameterised backgrond image
 @mixin footer($background) {
   padding: $gutter-width $two-col $gutter-width $four-col;
   margin-bottom: 0;
-  background: url($background) no-repeat scroll $one-col center #F7F7F7;
+  background: url($background) no-repeat scroll $one-col center $light-grey;
 }
 
+/// clearfix
 @mixin clearfix() {
   *zoom:1;
 
@@ -54,7 +60,7 @@
   }
 }
 
-// CSS3 colunms
+/// CSS3 colunms
 @mixin columns($num: 3, $gap: 20) {
   -moz-column-count: $num;
   -moz-column-gap: ($gap / $base)em;
@@ -64,7 +70,7 @@
   column-gap: ($gap / $base)em;
 }
 
-// background-size
+/// background-size with prefixes
 @mixin background-size($size: 100% 100%) {
   -moz-background-size: $size;
   -webkit-background-size: $size;
@@ -72,12 +78,11 @@
   background-size: $size;
 }
 
-// transitions
+// transitions with prefixes: usage: @include transition(all, 0.3s, ease-in-out);
 @mixin transition($properties: all, $duration: .5s, $method: ease-out) {
-    -webkit-transition: $properties $duration $method;
-    -moz-transition: $properties $duration $method;
-    -ms-transition: $properties $duration $method;
-    -o-transition: $properties $duration $method;
-    transition: $properties $duration $method;
+  -webkit-transition: $properties $duration $method;
+  -moz-transition: $properties $duration $method;
+  -ms-transition: $properties $duration $method;
+  -o-transition: $properties $duration $method;
+  transition: $properties $duration $method;
 }
-// usage: @include transition(all, 0.3s, ease-in-out);
