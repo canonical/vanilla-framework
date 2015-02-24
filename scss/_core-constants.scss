@@ -1,79 +1,118 @@
 @charset 'UTF-8';
 ////
 /// Ubuntu Patterns Stylesheet
-
 /// The CSS file required by Ubuntu patterns page
-
 /// @project     Ubuntu Patterns
 /// @author      Web Team at Canonical Ltd
 /// @copyright   2012 Canonical Ltd
-
 /// @see         http://design.ubuntu.com
-
+////
 
 /// standard colors
 /// @colordef standard colors
 
-// assets database path
+/// assets database path
+/// usage: background: url(#{$asset-path}/backgrounds/background.jpg) no-repeat 0 0;
 $asset-path: '//assets.ubuntu.com/sites/ubuntu/latest/u/img/';
-// usage: background: url(#{$asset-path}/backgrounds/background.jpg) no-repeat 0 0;
 
-$ubuntu-orange:         #dd4814; // ubuntu orange (used for text links also on any site except canonical)
-$light-orange:          #fdf6f2; // used as background on pre text
-$canonical-aubergine:   #772953; // canonical aubergine
-$light-aubergine:       #77216f; // light aubergine (consumer)
-$mid-aubergine:         #5e2750; // mid aubergine (both)
-$dark-aubergine:        #2c001e; // dark aubergine (enterprise)
-$warm-grey:             #888; // warm grey
-$cool-grey:             #333; // cool grey
-$light-grey:            #f7f7f7; // light grey
+/// ubuntu orange (used for text links also on any site except canonical)
+$ubuntu-orange:         #dd4814;
+/// light-orange - used as background on pre text
+$light-orange:          #fdf6f2;
+/// canonical aubergine
+$canonical-aubergine:   #772953;
+/// light aubergine (consumer)
+$light-aubergine:       #77216f;
+/// mid aubergine (both)
+$mid-aubergine:         #5e2750;
+/// dark aubergine (enterprise)
+$dark-aubergine:        #2c001e;
+/// warm grey
+$warm-grey:             #888;
+/// cool grey
+$cool-grey:             #333;
+/// light grey
+$light-grey:            #f7f7f7;
 
-// notifications
-$error:                 #df382c; // red
-$warning:               #eca918; // yellow
-$success:               #38b44a; // green
-$information:           #19b6ee; // cyan
+/// red notifications
+$error:                 #df382c;
+/// yellow notifications
+$warning:               #eca918;
+/// gree notifications
+$success:               #38b44a;
+/// cyan notifications
+$information:           #19b6ee;
 
-// colour coded status - from negative to positive (Icon: canonical circle)
-$status-red:            #df382c; // red, for status that require immediate attention
-$status-grey:           #888; // grey, for disabled status or ones that don’t require attention
-$status-yellow:         #efb73e; // yellow, for status that require attention
-$status-blue:           #19b6ee; // blue, for status that don’t require action
-$status-green:          #38b44a; // green, for positive status
+/// red, for status that require immediate attention
+$status-red:            #df382c;
+/// grey, for disabled status or ones that don’t require attention
+$status-grey:           #888;
+/// yellow, for status that require attention
+$status-yellow:         #efb73e;
+/// blue, for status that don’t require action
+$status-blue:           #19b6ee;
+/// green, for positive status
+$status-green:          #38b44a;
 
-// misc colours
+/// box solid grey
 $box-solid-grey:        #efefef;
-$link-color:            $ubuntu-orange; // This is the global link color, mainly used for links in content
+/// This is the global link color, mainly used for links in content
+$link-color:            $ubuntu-orange;
 
-// grid variables 
+/// grid variables
+/// base
 $base:              14;
+/// gutter width
 $gutter-width:      20px;
+/// grid-gutter
 $grid-gutter:       20px;
+/// gutter
 $gutter:            2.12766%;
 
+/// one col
 $one-col:           6.38297%;
+/// two col
 $two-col:           14.89361%;
+/// three col
 $three-col:         23.40425%;
+/// four col
 $four-col:          31.91489%;
+/// five col
 $five-col:          40.42553%;
+/// six col
 $six-col:           48.93617%;
+/// seven col
 $seven-col:         57.4468%;
+/// eight col
 $eight-col:         65.95744%;
+/// nine col
 $nine-col:          74.46808%;
+/// ten col
 $ten-col:           82.97872%;
+/// eleven col
 $eleven-col:        91.48936%;
 
+/// nav background
 $nav-bg:            #f0f0f0;
+/// nav link colour
 $nav-link-color:    #333;
+/// nav border dark
 $nav-border-dark:   #d4d7d4;
+/// nav border light
 $nav-border-light:  #f2f2f4;
+/// nav hover background
 $nav-hover-bg:      #d0d0d0;
+/// nav active background
 $nav-active-bg:     #ddd;
 
+/// Medium breakpoint
 $breakpoint-medium: 'only screen and (min-width: 768px)';
 
+/// Large breakpoint
 $breakpoint-large: 'only screen and (min-width: 984px)';
 
+/// Base font size - medium screen
 @media only screen and (min-width : 768px) { $base: 15; }
 
+// Base font size - small screen
 @media only screen and (min-width: 984px) { $base: 14; }
