@@ -24,7 +24,6 @@ gulp.task('sasslint', function() {
 
 gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
-        .pipe(scsslint({ 'config' : 'lint.yml' }))
         .pipe(sass({ style: 'expanded' }))
         .on('error', function (err) { console.log(err.message); })
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
@@ -39,7 +38,7 @@ gulp.task('docs', function() {
         .pipe(sassdoc({ 'dest': 'build/docs'}));
 });
 
-gulp.task('build', ['sass', 'docs']);
+gulp.task('build', ['sasslint', 'sass', 'docs']);
 
 gulp.task('sass-lite', function() {
     return gulp.src('scss/ubuntu-styles.scss')
