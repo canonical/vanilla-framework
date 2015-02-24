@@ -1,7 +1,7 @@
-#Ubuntu web style framework
+# Ubuntu web style framework
 _____
 
-![build status](https://travis-ci.org/ubuntudesign/web-style-guide.svg?branch=master)
+[![Build Status](https://travis-ci.org/ubuntudesign/web-style-guide.svg?branch=master)](https://travis-ci.org/ubuntudesign/web-style-guide)
 
 Ubuntu web style framework is a guildelines framework to help you acheieve a consistent look, bringing the [Ubuntu](http://www.ubuntu.com/) and [Canonical](http://www.canonical.com/) brands to the web with precision. Here you will find the Ubuntu web style guide and a front-end framework, which you can apply to your web projects maintained by the [Canonical Web Team](https://github.com/orgs/ubuntudesign/people).
 
