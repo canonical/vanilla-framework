@@ -19,7 +19,8 @@ gulp.task('help', function() {
 
 gulp.task('sasslint', function() {
     return gulp.src('scss/*.scss')
-        .pipe(scsslint())
+        .pipe(scsslint({ 'config' : 'lint.yml' }))
+        .pipe(scsslint.failReporter())
 });
 
 gulp.task('sass', function() {
