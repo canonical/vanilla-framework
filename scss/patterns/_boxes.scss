@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 %box {
-  @include rounded-corners(4px);
+  border-radius: 4px;
   padding: 1.333em $gutter-width;
 }
 
@@ -23,18 +23,18 @@
 }
 
 .box-highlight {
-	@include box-shadow(0 2px 2px 0 #c2c2c2);
+	box-shadow: 0 2px 2px 0 #c2c2c2;
 	border: 1px solid $light-grey;
 }
 
 .box-textured {
-  @include box-shadow(0 2px 2px 0 #c2c2c2);
+  box-shadow: 0 2px 2px 0 #c2c2c2;
   background: url("#{$asset-path}patterns/grey-textured-background.jpg");
   border: 0;
 }
 
 .box-padded {
-  @include rounded-corners(4px);
+  border-radius: 4px;
   background: $box-solid-grey;
   border: 0;
   margin-bottom: 20px;
@@ -52,7 +52,7 @@
   }
 
   div {
-    @include rounded-corners(4px);
+      border-radius: 4px;
       background: $white;
       overflow: hidden;
       padding: 8px 8px 2px;
@@ -60,7 +60,7 @@
 }
 
 .box-padded-feature {
-  @include rounded-corners(4px);
+  border-radius: 4px;
   background: url("#{$asset-path}patterns/soft-centre-bkg.gif") repeat scroll 0 0 #a09f9f;
   border: 0;
   margin-bottom: 20px;
@@ -78,7 +78,7 @@
   }
 
   > div {
-    @include rounded-corners(4px);
+    border-radius: 4px;
       background: $white;
       overflow: hidden;
       padding: 20px 8px;
@@ -112,8 +112,6 @@
   cursor: pointer;
   padding-bottom: 40px;
   position: relative;
-    -moz-transition: background .2s ease-out;
-    -webkit-transition: background .2s ease-out;
   transition: background .2s ease-out;
 
   & h2 {
@@ -145,19 +143,13 @@
   &:hover { background-color: #fafafa; }
 
   &:after {
-      -moz-box-shadow: 0 -1px 2px 0 #ddd;
-      -webkit-box-shadow: 0 -1px 2px 0 #ddd;
     box-shadow: 0 -1px 2px 0 #ddd;
     content: '';
     height: 1px;
     position: absolute;
     right: -6px;
     top: 14px;
-      -ms-transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-      -moz-transition: all .2s ease-out;
-      -webkit-transition: all .2s ease-out;
     transition: all .2s ease-out;
     width: 41px;
     z-index: 2;
@@ -172,8 +164,6 @@
   &:before {
     content: '';
     position: absolute;
-      -moz-transition: border-width .2s ease-out;
-      -webkit-transition: border-width .2s ease-out;
     transition: border-width .2s ease-out;
     top: -2px;
     right: -3px;
@@ -181,11 +171,9 @@
     height: 0;
     border-bottom: 30px solid #fdfdfd;
     border-right: 30px solid $white;
-    -webkit-box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
-    -moz-box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
     box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
     z-index: 2;
-    @include rounded-corners(0 0 0 0);
+    border-radius: 0;
   }
 
   &:hover:before {

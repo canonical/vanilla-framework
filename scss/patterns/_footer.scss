@@ -5,8 +5,8 @@ body footer.global #nav-global li:first-of-type a {
 }
 
 footer.global {
-	@include box-sizing;
-	@include box-shadow(inset 0 2px 2px -1px #d3d3d3);
+	box-sizing: border-box;
+	box-shadow: inset 0 2px 2px -1px #d3d3d3;
 	background: none;
 	border-top: 0;
 	clear: both;
@@ -98,7 +98,7 @@ footer.global {
 	}
 
 	.top-link {
-    @include box-shadow(0 -4px 4px -4px rgba(0, 0, 0, 0.3) inset);
+    box-shadow: 0 -4px 4px -4px rgba(0, 0, 0, 0.3) inset;
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 0 none;
     float: left;
@@ -110,7 +110,7 @@ footer.global {
     width: 100%;
 
     a {
-      @include box-sizing();
+      box-sizing: border-box;
       background-image: url("#{$asset-path}pictograms/picto-pack/picto-upload-warmgrey.svg");
       background-position: 10px center;
       background-repeat: no-repeat;
@@ -136,7 +136,7 @@ html.no-svg, .opera-mini {
 
 @media only screen and (max-width : 768px) {
 	footer.no-global .legal {
-    @include box-sizing(content-box);
+        box-sizing: content-box;
 		box-shadow: 0 2px 2px -1px #D3D3D3 inset;
 		padding-top: 10px;
 		margin-left: -10px;
