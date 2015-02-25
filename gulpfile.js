@@ -1,11 +1,11 @@
-var gulp = require('gulp')
+var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     notify = require('gulp-notify'),
     gutil = require('gulp-util'),
-    scsslint = require('gulp-scss-lint');
-    minifycss = require('gulp-minify-css');
+    scsslint = require('gulp-scss-lint'),
+    minifycss = require('gulp-minify-css'),
     sassdoc = require('sassdoc'),
     util = require('util');
 
@@ -34,7 +34,7 @@ gulp.task('help', function() {
 gulp.task('sasslint', function() {
     return gulp.src('scss/*.scss')
         .pipe(scsslint({ 'config' : 'lint.yml' }))
-        .pipe(scsslint.failReporter())
+        .pipe(scsslint.failReporter());
 });
 
 gulp.task('sass', function() {
@@ -47,7 +47,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('build/css/'))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('build/css/'))
+        .pipe(gulp.dest('build/css/'));
 });
 
 gulp.task('docs', function() {
