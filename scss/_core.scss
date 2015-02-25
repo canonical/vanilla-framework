@@ -168,29 +168,30 @@ html {
 }
 
 body {
-    background: url('#{$asset-path}backgrounds/image-background-paper.png') repeat-y center top $light-grey;
-    color: #333;
-    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
-    font-weight: 300;
+  background: url('#{$asset-path}backgrounds/image-background-paper.png') repeat-y center top $light-grey;
+  color: #333;
+  font-family: Ubuntu, Arial, 'libra sans', sans-serif;
+  font-weight: 300;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
 blockquote { 
   margin: 0; 
-}
+  
+  > p {
+    @include font-size (13);
+    font-weight: 100;
+    margin: 0 0 .4em;
+  }
 
-blockquote > p {
-  @include font-size (13);
-  font-weight:100;
-  margin:0 0 .4em 0;
-}
-
-blockquote small {
-  font-size: .813em;
-  line-height: 1.4;
+  small {
+    font-size: .813em;
+    line-height: 1.4;
+  }
 }
 
 blockquote:before, 
@@ -202,7 +203,6 @@ q:after {
 
 legend {
   border: 0;
-  *margin-left: -7px;
 }
 
 figure {
@@ -210,8 +210,9 @@ figure {
 }
 
 abbr, 
-acronym { cursor: help; }
-
+acronym {
+  cursor: help;
+}
 
 /// Links
 /// @section links
@@ -280,14 +281,14 @@ img {
   border: 0;
   height: auto;
   max-width: 100%;
-}
 
-img.left { 
-  margin-right: $gutter-width; 
-}
+  .left { 
+    margin-right: $gutter-width; 
+  }
 
-img.right { 
-  margin-left: $gutter-width; 
+  .right { 
+    margin-left: $gutter-width; 
+  }
 }
 
 .middle img {
@@ -468,7 +469,6 @@ textarea {
   font-family: Ubuntu,Arial,'libra sans',sans-serif;
   margin: 0;
   vertical-align: baseline;
-  *vertical-align: middle;
 }
 
 select { 
@@ -487,7 +487,6 @@ input[type='reset'],
 input[type='submit'] {
   cursor: pointer;
   -webkit-appearance: button;
-  *overflow: visible;
 }
 
 input[type='checkbox'],
