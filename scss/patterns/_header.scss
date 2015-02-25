@@ -1,64 +1,64 @@
 @charset "UTF-8";
 
 header.banner {
-	border-top: 0;
-	min-width: 100%;
-	width: auto;
+  border-top: 0;
+  min-width: 100%;
+  width: auto;
   background: $ubuntu-orange;
   display: block;
   position: relative;
   z-index: 2;
 
-	.nav-primary {
-	  border: 0;
-		margin: 0 auto;
-		overflow: hidden;
+  .nav-primary {
+    border: 0;
+    margin: 0 auto;
+    overflow: hidden;
 
-		ul {
-		  border-right: 1px solid lighten($ubuntu-orange, 10%);
-		  float: left;
-		  margin: 0;
-		  position: relative;
+    ul {
+      border-right: 1px solid lighten($ubuntu-orange, 10%);
+      float: left;
+      margin: 0;
+      position: relative;
 
-			li {
-			  border-left: 1px solid darken($ubuntu-orange, 5%);
-			  float: left;
-			  list-style-image: none;
-			  margin: 0;
-			  text-indent: 0;
-			  vertical-align: bottom;
-			}
+      li {
+        border-left: 1px solid darken($ubuntu-orange, 5%);
+        float: left;
+        list-style-image: none;
+        margin: 0;
+        text-indent: 0;
+        vertical-align: bottom;
+      }
 
-			li:last-child {
-			  border-right: 1px solid darken($ubuntu-orange, 5%);
-			}
+      li:last-child {
+        border-right: 1px solid darken($ubuntu-orange, 5%);
+      }
 
-			li a:link,
-			li a:visited {
-			  font-size: 14px;
-			  border-left: 1px solid lighten($ubuntu-orange, 7%);
-			  color: $white;
-			  display: block;
-			  margin-bottom: 0;
-			  padding: 14px 14px 13px;
-			  position: relative;
-			  text-align: center;
-			  text-decoration: none;
-			  font-smoothing: subpixel-antialiased;
-			}
+      li a:link,
+      li a:visited {
+        font-size: 14px;
+        border-left: 1px solid lighten($ubuntu-orange, 7%);
+        color: $white;
+        display: block;
+        margin-bottom: 0;
+        padding: 14px 14px 13px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        font-smoothing: subpixel-antialiased;
+      }
 
-			a.active {
-			  background: #B83A10;
-			  border-left: 1px solid lighten($ubuntu-orange, 7%);
-			}
+      a.active {
+        background: #B83A10;
+        border-left: 1px solid lighten($ubuntu-orange, 7%);
+      }
 
-			li a:hover {
-				background: #e1662f;
-				border-top: 0;
-				box-shadow: inset 0 2px 2px -2px #777;
-			}
-		} // end ul
-	} // nav-primary
+      li a:hover {
+        background: #e1662f;
+        border-top: 0;
+        box-shadow: inset 0 2px 2px -2px #777;
+      }
+    } // end ul
+  } // nav-primary
 
 } // end header.banner
 
@@ -67,80 +67,80 @@ header.banner {
 #main-navigation-link { display: none; }
 
 header.banner .nav-toggle {
-	position:absolute;
-	right: 0;
-	display: block;
-	width: 48px;
-	height: 48px;
-	text-indent: -99999px;
-	background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
-	background-size: 25px auto;
-	background-repeat: no-repeat;
-	background-position: center center;
-	cursor: pointer;
+  position:absolute;
+  right: 0;
+  display: block;
+  width: 48px;
+  height: 48px;
+  text-indent: -99999px;
+  background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
+  background-size: 25px auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
 }
 
 header.banner .no-script {
-	display: none;
+  display: none;
 }
 
 .opera-mini header.banner .nav-toggle,
 .no-svg header.banner .nav-toggle {
-	background-image: url(#{$asset-path}icons/navigation-menu-plain.png);
+  background-image: url(#{$asset-path}icons/navigation-menu-plain.png);
 }
 
 header.banner nav ul {
-	background-color: $nav-bg;
-	display: none;
-	float: left;
+  background-color: $nav-bg;
+  display: none;
+  float: left;
 }
 header.banner .nav-primary.active {
-	box-shadow: 0 1px 2px 1px rgba(120, 120, 120, 0.2);
-	padding: 0;
-	border-bottom: 1px solid $nav-border-dark;
+  box-shadow: 0 1px 2px 1px rgba(120, 120, 120, 0.2);
+  padding: 0;
+  border-bottom: 1px solid $nav-border-dark;
 }
 
 header nav ul.active {
-	display: block;
+  display: block;
 }
 
 header.banner .nav-primary ul li,
 header.banner .nav-primary ul li a:link,
 header.banner .nav-primary ul li a:visited,
 header.banner .nav-primary ul li a:active {
-	display: block;
-	padding: 0;
-	margin: 0;
-	border: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 header.banner .nav-primary ul li a:hover {
-	box-shadow: none;
-	background-color: $nav-hover-bg;
+  box-shadow: none;
+  background-color: $nav-hover-bg;
 }
 header.banner .nav-primary ul li a.active {
-	background-color: $nav-active-bg;
+  background-color: $nav-active-bg;
 }
 
 header.banner .nav-primary ul li {
-	border-bottom: 1px solid #F2F2F4;
-	font-size: 16px;
+  border-bottom: 1px solid #F2F2F4;
+  font-size: 16px;
 }
 
 header.banner .nav-primary ul li:last-child {
-	border: 0;
+  border: 0;
 }
 
 header.banner nav.nav-primary ul li a:link,
 header.banner .nav-primary ul li a:visited,
 header.banner .nav-primary ul li a:hover,
 header.banner .nav-primary ul li a:active {
-	padding: 14px 14px 13px;
-	text-align: left;
+  padding: 14px 14px 13px;
+  text-align: left;
 }
 
 header.banner nav.nav-primary ul.active li ul {
-	display: none;
+  display: none;
 }
 
 #menu.active:after {
@@ -178,7 +178,7 @@ html.no-svg, .opera-mini {
       float: left;
       margin-top: 16px;
       font-size: 14px;
-	    margin-right: 15px;
+      margin-right: 15px;
 
       a:link,
       a:visited {
@@ -219,31 +219,31 @@ html.no-svg, .opera-mini {
 }
 
 header.banner h2 {
-	@include font-size (25);
-	display: block;
-	left: 4px;
-	margin-bottom:0;
-	position: relative;
-	text-transform: lowercase;
-	top: 14px;
+  @include font-size (25);
+  display: block;
+  left: 4px;
+  margin-bottom:0;
+  position: relative;
+  text-transform: lowercase;
+  top: 14px;
 }
 
 header.banner h2 a:link, header.banner h2 a:visited, header.banner a {
-	color: $white;
-	float: left;
-	text-decoration:none;
+  color: $white;
+  float: left;
+  text-decoration:none;
 }
 
 header.banner {
-	.logo {
-	  border-left: 0;
-  	float: left;
+  .logo {
+    border-left: 0;
+    float: left;
     height: 48px;
-  	overflow: hidden;
-	}
+    overflow: hidden;
+  }
 
   .logo-ubuntu {
-  	background: url("#{$asset-path}ubuntu-logo.png") no-repeat scroll 0 10px transparent;
+    background: url("#{$asset-path}ubuntu-logo.png") no-repeat scroll 0 10px transparent;
     font-size: 18px;
     margin-bottom: 0;
     position: relative;
@@ -254,7 +254,7 @@ header.banner {
     height: 32px;
     min-width: 128px;
     margin-right: -20px;
-		margin-left: 10px;
+    margin-left: 10px;
     padding: 7px 14px 9px 0;
 
     img {
@@ -281,8 +281,8 @@ header.banner {
   }
   .nav-primary.nav-right {
     .logo-ubuntu {
-			background-image: url("#{$asset-path}logos/logo-ubuntu-white.svg");
-			background-size: 107px 25px;
+      background-image: url("#{$asset-path}logos/logo-ubuntu-white.svg");
+      background-size: 107px 25px;
       float: left;
     }
   }
@@ -297,24 +297,24 @@ html.no-svg, .opera-mini {
 @media only screen and (max-width: 295px) {
 
 // this changes the logo to the circle of friends on screens below 295px
-	header.banner {
-		.nav-primary.nav-right .logo-ubuntu,
-		.logo-ubuntu {
-			background-size: 20px 20px;
-			background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
-			min-width: 0;
-			width: 38px;
-		}
-	}
-	header.banner .logo-ubuntu span {
-		padding-left: 38px;
-	}
-	
+  header.banner {
+    .nav-primary.nav-right .logo-ubuntu,
+    .logo-ubuntu {
+      background-size: 20px 20px;
+      background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
+      min-width: 0;
+      width: 38px;
+    }
+  }
+  header.banner .logo-ubuntu span {
+    padding-left: 38px;
+  }
+  
 } // end @@media only screen and (max-width: 295px)
 
 html.no-svg, .opera-mini {
   header.banner .logo-ubuntu {
-		background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
+    background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
   }
 }
 
@@ -334,9 +334,9 @@ html.no-svg, .opera-mini {
   
   header nav ul.active li:last-child a:link,
   header nav ul.active li:last-child a:visited {
-		border-bottom: 0;
-	}
-	  
+    border-bottom: 0;
+  }
+    
   header.banner .nav-primary ul {
     position: relative;
     width: 100%;
@@ -376,12 +376,12 @@ html.no-svg, .opera-mini {
   
   header.banner .nav-primary ul li:nth-last-child(-n+2) a:link,
   header.banner .nav-primary ul li:nth-last-child(-n+2) a:visited  {
-		border: 0;
-	}	
+    border: 0;
+  }  
 
   header.banner .nav-primary ul li a:hover {
     box-shadow: none;
-  	background: lighten($nav_bg, 3%);
+    background: lighten($nav_bg, 3%);
   }
   header.banner .nav-primary ul li a.active {
     background-color: $nav-active-bg;
@@ -692,7 +692,7 @@ html.no-svg, .opera-mini {
 
     nav.nav-primary {
       box-shadow: none;
-			border-bottom: 0;
+      border-bottom: 0;
 
     }
   }
@@ -767,7 +767,7 @@ html.no-svg, .opera-mini {
   }
 
   header.banner nav.nav-primary ul {
-		display: block;
+    display: block;
   }
 
   header.banner .nav-primary,
@@ -788,36 +788,36 @@ html.no-svg, .opera-mini {
 header.banner .nav-primary ul { position: static; }
 
 header.banner .nav-primary li ul {
-	box-shadow: 0 2px 2px -1px #777777;
-	border-radius: 10px;
-	background: #f7f7f7;
-	border: 1px solid #d5d5d5;
-	display: none;
-	float: none;
-	margin: 0;
-	padding: 5px 0;
-	position: absolute;
-	top: 51px;
-	width: 200px;
+  box-shadow: 0 2px 2px -1px #777777;
+  border-radius: 10px;
+  background: #f7f7f7;
+  border: 1px solid #d5d5d5;
+  display: none;
+  float: none;
+  margin: 0;
+  padding: 5px 0;
+  position: absolute;
+  top: 51px;
+  width: 200px;
 }
 
 // the new arrow that appears if there is secondary nav when you hover over the main nav
 header.banner .nav-primary li:hover ul:after {
-	background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
-	content: '';
-	display: block;
-	height: 8px;
-	left: 20px;
-	position: relative;
-	top: -13px;
-	width: 200px;
-	z-index: 999;
+  background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
+  content: '';
+  display: block;
+  height: 8px;
+  left: 20px;
+  position: relative;
+  top: -13px;
+  width: 200px;
+  z-index: 999;
 }
 
 // show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
 .no-generatedcontent header.banner .nav-primary li ul {
-	border-radius: 0 0 10px 10px;
-	top: 48px;
+  border-radius: 0 0 10px 10px;
+  top: 48px;
 }
 
 // the old arrow that appears if there is secondary nav when you hover over the main nav
@@ -888,4 +888,3 @@ header.banner .nav-primary li ul .promo .category {
 header.banner .nav-primary li:hover ul { display: block; }
 
 html.lt-ie8 header.banner .nav-primary li:hover ul { display: none; }
-
