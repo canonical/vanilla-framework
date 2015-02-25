@@ -33,7 +33,7 @@ gulp.task('help', function() {
 
 gulp.task('sasslint', function() {
     return gulp.src('scss/*.scss')
-        .pipe(scsslint({ 'config' : 'lint.yml' }))
+        .pipe(scsslint())
         .pipe(scsslint.failReporter());
 });
 
