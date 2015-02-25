@@ -44,9 +44,6 @@ header.banner {
 			  position: relative;
 			  text-align: center;
 			  text-decoration: none;
-			    -webkit-font-smoothing: subpixel-antialiased;
-			    -moz-font-smoothing: subpixel-antialiased;
-			    -o-font-smoothing: subpixel-antialiased;
 			  font-smoothing: subpixel-antialiased;
 			}
 
@@ -58,7 +55,7 @@ header.banner {
 			li a:hover {
 				background: #e1662f;
 				border-top: 0;
-				@include box-shadow(inset 0 2px 2px -2px #777);
+				box-shadow: inset 0 2px 2px -2px #777;
 			}
 		} // end ul
 	} // nav-primary
@@ -77,7 +74,7 @@ header.banner .nav-toggle {
 	height: 48px;
 	text-indent: -99999px;
 	background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
-	@include background-size(25px auto);
+	background-size: 25px auto;
 	background-repeat: no-repeat;
 	background-position: center center;
 	cursor: pointer;
@@ -98,7 +95,7 @@ header.banner nav ul {
 	float: left;
 }
 header.banner .nav-primary.active {
-	@include box-shadow(0 1px 2px 1px rgba(120, 120, 120, 0.2));
+	box-shadow: 0 1px 2px 1px rgba(120, 120, 120, 0.2);
 	padding: 0;
 	border-bottom: 1px solid $nav-border-dark;
 }
@@ -118,7 +115,7 @@ header.banner .nav-primary ul li a:active {
 }
 
 header.banner .nav-primary ul li a:hover {
-	@include box-shadow(none);
+	box-shadow: none;
 	background-color: $nav-hover-bg;
 }
 header.banner .nav-primary ul li a.active {
@@ -303,7 +300,7 @@ html.no-svg, .opera-mini {
 	header.banner {
 		.nav-primary.nav-right .logo-ubuntu,
 		.logo-ubuntu {
-			@include background_size(20px 20px);
+			background-size: 20px 20px;
 			background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
 			min-width: 0;
 			width: 38px;
@@ -323,11 +320,11 @@ html.no-svg, .opera-mini {
 
 @media only screen and (max-width : 768px) {
   header.banner .nav-primary {
-    @include box-shadow(0 1px 2px 1px rgba(0, 0, 0, 0.2));
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   }
   
   header.banner .nav-primary.active {
-    @include box-shadow(none);
+    box-shadow: none;
     padding: 0;
   }
 
@@ -357,7 +354,7 @@ html.no-svg, .opera-mini {
   header.banner .nav-primary ul li a:link,
   header.banner .nav-primary ul li a:visited,
   header.banner .nav-primary ul li a:active {
-    @include box-sizing();
+    box-sizing: border-box;
     background: transparent;
     border: none;
     display: block;
@@ -383,7 +380,7 @@ html.no-svg, .opera-mini {
 	}	
 
   header.banner .nav-primary ul li a:hover {
-    @include box-shadow(none);
+    box-shadow: none;
   	background: lighten($nav_bg, 3%);
   }
   header.banner .nav-primary ul li a.active {
@@ -399,7 +396,7 @@ html.no-svg, .opera-mini {
   }
 
   header.banner .nav-primary ul li {
-    @include box-sizing();
+    box-sizing: border-box;
     background: transparent;
     border-bottom: 0;
     border-right: 1px solid $nav-border-dark;
@@ -420,7 +417,7 @@ html.no-svg, .opera-mini {
       width: 100%;
 
       li {
-        @include box-sizing();
+        box-sizing: border-box;
         width: 50%;
         margin: 0;
         float: left;
@@ -428,8 +425,6 @@ html.no-svg, .opera-mini {
         a,
         a:link,
         a:visited {
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
           box-sizing: border-box;
           display: block;
           height: 100%;
@@ -453,7 +448,7 @@ html.no-svg, .opera-mini {
       padding-bottom: 20px;
 
       li {
-        @include box-sizing();
+        box-sizing: border-box;
         width: 50%;
         margin: 0;
         float: left;
@@ -462,7 +457,7 @@ html.no-svg, .opera-mini {
         a,
         a:link,
         a:visited {
-          @include box-sizing();
+          box-sizing: border-box;
           padding: 10px 10px 10px 0;
           display: block;
           width: 100%;
@@ -489,7 +484,7 @@ html.no-svg, .opera-mini {
     } /* end third-level-nav */
 
     ul.breadcrumb {
-      @include box-sizing();
+      box-sizing: border-box;
       width: 100%;
       margin-left: 0;
       margin-bottom: 0;
@@ -500,7 +495,7 @@ html.no-svg, .opera-mini {
       }
 
       li {
-        @include box-sizing();
+        box-sizing: border-box;
         color: $white;
         width: 100%;
         display: block;
@@ -510,7 +505,7 @@ html.no-svg, .opera-mini {
         a,
         a:link,
         a:visited {
-          @include box-sizing();
+          box-sizing: border-box;
           font-size: 16px;
           width: 100%;
           color: #333333;
@@ -693,13 +688,9 @@ html.no-svg, .opera-mini {
 @media only screen and (min-width : 769px) {
 
   header.banner {
-      -moz-box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px $white;
-      -webkit-box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px $white;
     box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px $white;
 
     nav.nav-primary {
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
       box-shadow: none;
 			border-bottom: 0;
 
@@ -797,8 +788,8 @@ html.no-svg, .opera-mini {
 header.banner .nav-primary ul { position: static; }
 
 header.banner .nav-primary li ul {
-	@include box_shadow(0 2px 2px -1px #777777);
-	@include rounded_corners(10px);
+	box-shadow: 0 2px 2px -1px #777777;
+	border-radius: 10px;
 	background: #f7f7f7;
 	border: 1px solid #d5d5d5;
 	display: none;
@@ -825,7 +816,7 @@ header.banner .nav-primary li:hover ul:after {
 
 // show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
 .no-generatedcontent header.banner .nav-primary li ul {
-	@include rounded_corners(0 0 10px 10px);
+	border-radius: 0 0 10px 10px;
 	top: 48px;
 }
 
@@ -848,7 +839,7 @@ header.banner .nav-primary li ul li a:visited {
 }
 header.banner .nav-primary li ul li a:hover {
     background: none repeat scroll 0 0 transparent;
-    @include box_shadow(none);
+    box-shadow: none;
     color: #DD4814;
 }
 header.banner .nav-primary li ul li.first a:link,
@@ -884,7 +875,7 @@ header.banner .nav-primary li ul .promo a:hover {
 header.banner .nav-primary li ul .promo img {
     margin-top: 14px;
     margin-bottom: -6px;
-    @include rounded_corners(0 0 10px 10px);
+    border-radius: 0 0 10px 10px;
     position:relative;
     top:1px;
 }

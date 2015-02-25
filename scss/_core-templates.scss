@@ -11,123 +11,12 @@
 /// @copyright  2012 Canonical Ltd
 ////
 
-/// Audience specific
-/// @section audience
-
-/// Consumer
-.audience-consumer {
-  color: $cool-grey;
-
-  .row-box, 
-  .main-content {
-    color: $cool-grey;
-  }
-
-  .inner-wrapper {
-    background: $white;
-  }
-
-  .quote-right-top {
-    background: url('/sites/ubuntu/latest/u/img/patterns/quote-orange-br-287x287.png') no-repeat;
-    height: 287px;
-    padding: 60px 60px 0 40px;
-    position: absolute;
-    right: -($gutter-width * 2);
-    text-align: left;
-    top: -($gutter-width * 4.5);
-    width: $four-col;
-
-    p {
-      @include font-size (16);
-      color: $white;
-      margin: (1.538em / 2);
-      padding-bottom: 0;
-
-      cite {
-        @include font-size (12);
-        color: $white;
-        padding: 0;
-      }
-    }
-  }
-
-  .quote-right-top p a,
-  .quote-right p a { 
-    color: $white; 
-  }
-
-  .quote-right {
-    @include font-size (18);
-    background: url('/sites/ubuntu/latest/u/img/patterns/quote-orange-bl-287x287.png') no-repeat;
-    color: $white;
-    min-height: 287px;
-    padding: 50px 100px 0 50px;
-    position: absolute;
-    right: -$gutter-width;
-    text-align: left;
-    text-indent: -6px;
-    top: -($gutter-width * 4.5);
-    width: $four-col -(150/$base)em;
-
-    cite {
-      font-style: normal;
-      margin-left: 6px;
-    }
-  }
-
-  .quote-right-alt {
-    background: url('/sites/ubuntu/latest/u/img/patterns/quote-white-br-360x360.png') 0 -100px no-repeat;
-    color: $ubuntu-orange;
-    padding: 50px 50px 0;
-  }
-
-  .quote-right-right { background: url('/sites/ubuntu/latest/u/img/patterns/quote-orange-br-287x287.png') no-repeat; }
-}
-
-/// Enterprise
-.audience-enterprise {
-
-  h1 { margin: 0 0 18px; }
-  td { background: $white; }
-
-  th, 
-  td {
-    background: $white;
-    padding: 6px 10px;
-  }
-
-  th[scope='col'] {
-    background: #e2d4dc;
-    color: $canonical-aubergine;
-  }
-
-  tbody th[rowspan] { background: #f7f2f6; }
-
-  tfoot th[rowspan] { background: #dfdcd9; }
-
-  tfoot td, 
-  tfoot th {
-    background: #dfdcd9;
-    font-weight: normal;
-  }
-
-  .inner-wrapper {
-    background: $dark-aubergine;
-    color: $white;
-  }
-
-  .row-box {
-    background: $white;
-    color: $cool-grey;
-  }
-}
-
 .row-enterprise {
-  @include rounded-corners(0);
+  border-radius: 0;
   background: $canonical-aubergine;
   color: $white;
 
-  .box, 
+  .box,
   div {
     background: $canonical-aubergine;
     color: $white;
@@ -138,5 +27,10 @@
   }
 }
 
-.enterprise-dot-pattern { background: url('/sites/ubuntu/latest/u/img/patterns/enterprise-dot-pattern.png'); }
-.developer-dot-pattern { background: url('/sites/ubuntu/latest/u/img/patterns/developer-dot-pattern.png'); }
+.enterprise-dot-pattern {
+  background: url('/sites/ubuntu/latest/u/img/patterns/enterprise-dot-pattern.png');
+}
+
+.developer-dot-pattern {
+  background: url('/sites/ubuntu/latest/u/img/patterns/developer-dot-pattern.png');
+}
