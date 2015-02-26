@@ -32,7 +32,8 @@ gulp.task('help', function() {
 });
 
 gulp.task('sasslint', function() {
-    return gulp.src('scss/**/*.scss')
+    var path = (gutil.env.file)? gutil.env.file : '**/*.scss';
+    return gulp.src('scss/' + path)
         .pipe(scsslint())
         .pipe(scsslint.failReporter());
 });
