@@ -38,7 +38,7 @@ gulp.task('sasslint', function() {
 });
 
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
+    return gulp.src('scss/**/*.scss')
         .pipe(sass({
             style: 'expanded',
             onError: throwSassError
