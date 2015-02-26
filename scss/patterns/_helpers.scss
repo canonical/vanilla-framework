@@ -1,5 +1,5 @@
 @charset 'UTF-8';
-@import '../_core-constants';
+@import '../core-constants';
 
 .left { float: left; }
 
@@ -25,7 +25,7 @@ img {
 }
 
 
-a.external {
+.external {
   background-size: .7em .7em;
   padding-right: .9em;
   background-image: url('#{$asset-path}external-link-orange.svg');
@@ -33,8 +33,8 @@ a.external {
   background-repeat: no-repeat;
 }
 
-.opera-mini a.external,
-.no-svg a.external { background-image: url('#{$asset-path}external-link-orange.png'); }
+.opera-mini .external,
+.no-svg .external { background-image: url('#{$asset-path}external-link-orange.png'); }
 
 .text-center,
 .align-center { text-align: center; }
@@ -56,18 +56,18 @@ a.external {
 .no-border { border: 0; }
 
 .link-top {
-    @include font-size (14);
-    clear: both;
-    margin-bottom: 40px;
-    margin-top: -40px;
+  @include font-size (14);
+  clear: both;
+  margin-bottom: 40px;
+  margin-top: -40px;
 
-    a {
-      background: $white;
-      margin-right: 10px;
-      margin-top: -17px;
-      padding: 5px;
-      float: right;
-    }
+  a {
+    background: $white;
+    margin-right: 10px;
+    margin-top: -17px;
+    padding: 5px;
+    float: right;
+  }
 }
 
 .pull-bottom-right {
@@ -78,7 +78,7 @@ a.external {
 }
 
 .box .pull-bottom-right {
-  border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px;
 }
 
 .pull-bottom-left { margin-left: -20px; margin-bottom: -21px; }
@@ -86,9 +86,9 @@ a.external {
 .pull-top-right { margin-left: -20px; margin-top: -21px; }
 
 
-div.box-image-centered span img,
-div.row-image-centered span img,
-div.row.row-image-centered span img,
+.box-image-centered span img,
+.row-image-centered span img,
+.row.row-image-centered span img,
 img {
   &.priority-0 {
     position: absolute;
@@ -98,28 +98,28 @@ img {
 
 .priority-0,
 .not-for-small {
-    position: absolute;
-    left: -999em;
+  position: absolute;
+  left: -999em;
 }
 
 // responsive video solution
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
 
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  & + h3,
-  & + .video-title {
+  + h3,
+  + .video-title {
     margin-top: 20px;
   }
 }
@@ -131,7 +131,7 @@ img {
   .pull-bottom-right,
   .pull-bottom-left { position: static; }
 
-  img.pull-bottom-left {
+  .pull-bottom-left {
     margin-bottom: 0;
     margin-left: 0;
   }
@@ -139,13 +139,14 @@ img {
 } // end @media only screen and (max-width : 768px)
 
 @media only screen and (min-width : 768px) {
-  div.box-image-centered span img,
-  div.row-image-centered span img,
-  div.row.row-image-centered span img,
+  .box-image-centered span img,
+  .row-image-centered span img,
+  .row.row-image-centered span img,
+
   img {
     &.priority-0 {
-    position: relative;
-    left: auto;
+      position: relative;
+      left: auto;
     }
   }
 
@@ -166,11 +167,11 @@ img {
     margin-right: -30px;
   }
 
-  img.pull-left {
+  .pull-left {
     margin-left: -30px;
   }
 
-  img.touch-border {
+  .touch-border {
     float: left;
     margin-bottom: -30px;
   }
@@ -179,18 +180,18 @@ img {
 
 @media only screen and (min-width : 769px) {
 
-  img.left { margin-right: 20px; }
+  .left { margin-right: 20px; }
 
 } //@media only screen and (min-width : 769px)
 
 @media only screen and (min-width: 984px) {
 
-  img.touch-border {
+  .touch-border {
     float: left;
     margin-bottom: -40px;
   }
 
-  img.pull-left { margin-left: -40px; }
+  .pull-left { margin-left: -40px; }
 
   .pull-right {
     float: right;
