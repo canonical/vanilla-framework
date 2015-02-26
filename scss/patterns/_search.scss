@@ -2,113 +2,113 @@
 
 .header-search,
 #box-search {
-    padding: 7px 0 7px 14px;
-    overflow: hidden;
+  padding: 7px 0 7px 14px;
+  overflow: hidden;
 
-    input[type="search"],
-    input[type="text"] {
-			-webkit-appearance: none;
-			@include box-shadow(inset 0 1px 4px rgba(0,0,0,0.2));
-			@include box-sizing();
-			@include rounded-corners(4px);
-			@include transition;
-			background-color: #be3d00;
-			border: none;
-			color: $white;
-			display: block;
-			float: left;
-			font-size: 16px;
-			height: 2.1em;
-			margin-bottom: 0;
-			padding: 0.5em 2.5em 0.5em 0.5em;
-			width: 100%;
-		}
-	  
-	  // User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
-	  // So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
-    ::-webkit-input-placeholder {
-			color: white;
-			opacity: 0.4;
+  input[type="search"],
+  input[type="text"] {
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: all .5s ease-out;
+    background-color: #be3d00;
+    border: none;
+    color: $white;
+    display: block;
+    float: left;
+    font-size: 16px;
+    height: 2.1em;
+    margin-bottom: 0;
+    padding: 0.5em 2.5em 0.5em 0.5em;
+    width: 100%;
+  }
+  
+  // User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
+  // So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
+  ::-webkit-input-placeholder {
+    color: white;
+    opacity: 0.4;
+  }
+  ::-webkit-input-placeholder {
+    color: white;
+    opacity: 0.4;
+  }
+
+  ::-moz-placeholder {
+    color: white;
+    opacity: 0.4;
+  }
+
+  :-ms-input-placeholder {
+    color: white;
+    opacity: 0.4;
+  }
+
+  input:-moz-placeholder {
+    color: white;
+    opacity: 0.4;
+  }
+
+  ::placeholder {
+      color: white;
+      opacity: 0.4;
+  }
+
+  input[type="search"]:focus { background-color: #a63603; }
+
+  button[type=submit] {
+    padding: 3px 2px;
+    line-height: 0;
+    float: left;
+    margin-left: -40px;
+    display: block;
+    background: none;
+    overflow: visible;
+    
+    &:hover { background: none; }
+
+    img {
+      height: 28px;
+      width: 28px;
     }
-    ::-webkit-input-placeholder {
-			color: white;
-			opacity: 0.4;
-    }
-
-    ::-moz-placeholder {
-			color: white;
-			opacity: 0.4;
-    }
-
-    :-ms-input-placeholder {
-			color: white;
-			opacity: 0.4;
-    }
-
-    input:-moz-placeholder {
-			color: white;
-			opacity: 0.4;
-    }
-
-    ::placeholder {
-        color: white;
-        opacity: 0.4;
-    }
-
-    input[type="search"]:focus { background-color: #a63603; }
-
-    button[type=submit] {
-        padding: 3px 2px;
-        line-height: 0;
-        float: left;
-        margin-left: -40px;
-        display: block;
-        background: none;
-        overflow: visible;
-        
-        &:hover { background: none; }
-
-        img {
-          height: 28px;
-          width: 28px;
-        }
-    }
+  }
 }
 
 header.banner .search-toggle {
-	@include background-size(20px 20px);
-	background-image: url('#{$asset-path}search_icon_white_64.png');
-	background-image: url('#{$asset-path}search.svg');
-	background-position: center center;
-	background-repeat: no-repeat;
-	display: block;
-	height: 48px;
-	outline: none;
-	overflow: hidden;
-	position: absolute;
-	right: 58px;
-	text-indent: -999em;
-	top: 0;
-	width: 24px;
+  background-size: 20px 20px;
+  background-image: url('#{$asset-path}search_icon_white_64.png');
+  background-image: url('#{$asset-path}search.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 48px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 58px;
+  text-indent: -999em;
+  top: 0;
+  width: 24px;
 }
 
 .search-toggle:link, 
 .search-toggle:active {
-	outline: none;
+  outline: none;
 }
 
 #box-search,
 .header-search {
-	background: #f0f0f0;
-	border: 0;
-	display: none;
-	float: left;
-	margin-bottom: 0;
-	position: relative;
-	margin: 0 0 -1px 0;
-	padding: 0;
-	width: 100%;
-	z-index: 3;
+  background: #f0f0f0;
+  border: 0;
+  display: none;
+  float: left;
+  margin-bottom: 0;
+  position: relative;
+  margin: 0 0 -1px 0;
+  padding: 0;
+  width: 100%;
+  z-index: 3;
 }
 
 #box-search.active,
@@ -117,28 +117,25 @@ header.banner .search-toggle {
 
 #box-search div,
 .header-search div {
-	@include box-shadow( 	inset 0 -4px 4px -4px rgba(0, 0, 0, .3), 
-												inset 0  5px 5px -5px rgba(0, 0, 0, 0.3));
-	background: $nav-bg;
-	margin: 10px;
-	position: relative;
-	z-index: 1;
+  box-shadow:  inset 0 -4px 4px -4px rgba(0, 0, 0, .3), inset 0  5px 5px -5px rgba(0, 0, 0, 0.3);
+  background: $nav-bg;
+  margin: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 #box-search form input[type="search"],
 .header-search form input[type="search"] {
-	@include font-size (16);
-	@include rounded-corners();
-  @include box-shadow(0 2px 2px rgba(0, 0, 0, 0.3) inset,
-											0 -1px 3px rgba(0, 0, 0, 0.2) inset,
-											0 2px 0 rgba(255, 255, 255, 0.4));
-	@include box-sizing();
-	background: $white;
-	border: 0;
-	color: #333;
-	font-size: 16px;
-	height: auto;
-	margin: 0;
+  @include font-size (16);
+  border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset, 0 -1px 3px rgba(0, 0, 0, 0.2) inset, 0 2px 0 rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+  background: $white;
+  border: 0;
+  color: #333;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
   float: left;
   padding: 9px 10px;
   width: 100%;
@@ -146,19 +143,19 @@ header.banner .search-toggle {
 
 .yes-js .header-inner #box-search,
 .yes-js .header-inner .header-search {
-	display: none;
+  display: none;
 
-	form {
-		@include box-sizing();
-		margin-left: 0;
-		margin-right: 0;
-		overflow: hidden;
-		padding: 10px;
-		top: 0;
-		z-index: 999;
-	  position: relative;
-	  width: 100%;
-	}
+  form {
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    padding: 10px;
+    top: 0;
+    z-index: 999;
+    position: relative;
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width : 768px) {
@@ -187,22 +184,22 @@ header.banner .search-toggle {
 
 @media only screen and (min-width : 960px) {
   #box-search,
-		.header-search {
-			background: none;
-			overflow:hidden;
-			padding: 7px 0 7px 14px;
-			border-right: 0 none;
-			float: right;
-			margin-bottom: 0;
-			padding-bottom: 5px;
-			padding-right: 0;
-			padding-top: 7px;
-			max-width: 220px;
-	
+    .header-search {
+      background: none;
+      overflow:hidden;
+      padding: 7px 0 7px 14px;
+      border-right: 0 none;
+      float: right;
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      padding-right: 0;
+      padding-top: 7px;
+      max-width: 220px;
+  
     form input[type="text"],
     form input[type="search"] {
-    	@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.4) inset);
-      @include box-sizing(content-box);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) inset;
+      box-sizing: content-box;
       background: url("#{$asset-path}icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 #BE3D00;
       border: 6px solid #DE6532;
       border-width: 0 0 1px;
@@ -242,7 +239,7 @@ header.banner .search-toggle {
           display: none;
         }
       }
-		}
+    }
     .header-search.open {
       display: block;
     }
@@ -265,16 +262,15 @@ header.banner .search-toggle {
     }
    }
 
-	html.no-svg, .opera-mini {
-		header.banner .search-toggle { background-image: url("#{$asset-path}img/search-white.png"); }
-	}
+  html.no-svg, .opera-mini {
+    header.banner .search-toggle { background-image: url("#{$asset-path}img/search-white.png"); }
+  }
 
-	.opera-mini {
-		x:-o-prefocus, header.banner .search-toggle {
-		  -o-background-size: 25px auto;
-		  background-size: 25px auto;
-		}
-	}
+  .opera-mini {
+    x:-o-prefocus, header.banner .search-toggle {
+      background-size: 25px auto;
+    }
+  }
 }
 
 @media only screen and (min-width: 984px) {
@@ -283,10 +279,10 @@ header.banner .search-toggle {
     display: block;
     margin-right: 0;
 
-		input[type="search"],
-		input[type="text"] {
-		}
-		
+    input[type="search"],
+    input[type="text"] {
+    }
+    
     form input[type="text"]:focus {
       width: 160px;
     }
@@ -305,156 +301,154 @@ header.banner .search-toggle {
 body.ubuntu-search,
 body.search-results,
 body.search-no-results {
-	.nav-secondary {
-		display: none;
-	}
-	section > h1, 
-	section article h1 {
-		padding-bottom: 10px;
-		font-size: 1.438em;
-		margin-bottom: 0;
-	}
-	section > h1 {
-		border-bottom: 1px dotted #dfdcd9;
-	}
-	.main-search {
-		padding: 20px 0;
-		margin: 0 0 20px 0;
-		background-color: transparent;
+  .nav-secondary {
+    display: none;
+  }
+  section > h1, 
+  section article h1 {
+    padding-bottom: 10px;
+    font-size: 1.438em;
+    margin-bottom: 0;
+  }
+  section > h1 {
+    border-bottom: 1px dotted #dfdcd9;
+  }
+  .main-search {
+    padding: 20px 0;
+    margin: 0 0 20px 0;
+    background-color: transparent;
 
-		input[type="search"] {
-			float: left;
-			width: 100%;
-			font-size: 2em;
-			border: 1px solid #999;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-			padding: 0.2em 65px 0.2em 0.2em;
-		}
-		button[type=submit] {
-			padding: 4px;
-			line-height: 0;
-			float: left;
-			margin-left: -53px;
-			display: block;
-			background: none;
-			overflow: visible;
-			width: auto;
-			margin-top: -4px;
-			
-			&:hover {
-				background: none;
-			}
-		
-			img {
-				height: 45px;
-				width: 45px;
-			}
-		}
-	}
+    input[type="search"] {
+      float: left;
+      width: 100%;
+      font-size: 2em;
+      border: 1px solid #999;
+      box-sizing: border-box;
+      padding: 0.2em 65px 0.2em 0.2em;
+    }
+    button[type=submit] {
+      padding: 4px;
+      line-height: 0;
+      float: left;
+      margin-left: -53px;
+      display: block;
+      background: none;
+      overflow: visible;
+      width: auto;
+      margin-top: -4px;
+      
+      &:hover {
+        background: none;
+      }
+    
+      img {
+        height: 45px;
+        width: 45px;
+      }
+    }
+  }
 
-	.search-result h1 .title-main {
-		margin-right: 20px;
-	}
-	.search-result h1 .result-url {
-		color: #999;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: block;
-		vertical-align: bottom;
-		padding-bottom: 2px;
-	}
-	.search-result h1 .result-url a {
-		color: #999;
-	}
-	.search-result p {
-		margin-bottom: 0;
-	}
+  .search-result h1 .title-main {
+    margin-right: 20px;
+  }
+  .search-result h1 .result-url {
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    vertical-align: bottom;
+    padding-bottom: 2px;
+  }
+  .search-result h1 .result-url a {
+    color: #999;
+  }
+  .search-result p {
+    margin-bottom: 0;
+  }
 
-	.num-results {
-		display: inline-block;
-		margin-left: 20px;
-	}
+  .num-results {
+    display: inline-block;
+    margin-left: 20px;
+  }
 
-	.bottom-results-total {
-		text-align: center;
-		width: 100%;
-		overflow: visible;
-		padding-top: 20px;
-		margin: 0;
-	}
+  .bottom-results-total {
+    text-align: center;
+    width: 100%;
+    overflow: visible;
+    padding-top: 20px;
+    margin: 0;
+  }
 
-	.bottom-nav {
-		overflow: hidden;
-		margin-top: -26px;
-	}
-	.bottom-nav ul {
-		margin-bottom: 0;
-		margin-left: 0;
-		padding: 0;
-		overflow: hidden;
-	}
-	.bottom-nav li {
-		float: left;
-		margin-left: 15px;
-	}
-	.bottom-nav li:first-child {
-		margin-left: 0;
-	}
-	.nav-back {
-		float: left;
-	}
-	.nav-back li:before {
-		content: "\2039"; /* left chevron &lsaquo; */
-		color: $ubuntu_orange;
-		margin-right: 5px;
-	}
-	.nav-back li.item-extreme:before {
-		content: "\2039\2039"; /* double left chevron &lsaquo; */
-	}
-	.nav-forward {
-		float: right;
-	}
-	.nav-forward li:after {
-		content: "\203A"; /* right chevron&nbsp;&rsaquo; */
-		color: $ubuntu_orange;
-		margin-left: 5px;
-	}
-	.nav-forward li.item-extreme:after {
-		content: "\203A\203A"; /* double right chevron&nbsp;&rsaquo; */
-	}
-	
-	.error-notification {
-		background-color: #fdffdc;
-		color: #333;
-		padding: 20px;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		width: 100%;
-		margin-top: 20px;
-		display: block;
-	}
-	
-	.result-line {
-		color: #ada69e;
-	}
-	.results-top {
-		border-bottom: 1px dotted #dfdcd9;
-		padding-bottom: 0.5em;
-	}
-	
-	.search-container {
-		padding-bottom: 0;
-	}
+  .bottom-nav {
+    overflow: hidden;
+    margin-top: -26px;
+  }
+  .bottom-nav ul {
+    margin-bottom: 0;
+    margin-left: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .bottom-nav li {
+    float: left;
+    margin-left: 15px;
+  }
+  .bottom-nav li:first-child {
+    margin-left: 0;
+  }
+  .nav-back {
+    float: left;
+  }
+  .nav-back li:before {
+    content: "\2039"; /* left chevron &lsaquo; */
+    color: $ubuntu_orange;
+    margin-right: 5px;
+  }
+  .nav-back li.item-extreme:before {
+    content: "\2039\2039"; /* double left chevron &lsaquo; */
+  }
+  .nav-forward {
+    float: right;
+  }
+  .nav-forward li:after {
+    content: "\203A"; /* right chevron&nbsp;&rsaquo; */
+    color: $ubuntu_orange;
+    margin-left: 5px;
+  }
+  .nav-forward li.item-extreme:after {
+    content: "\203A\203A"; /* double right chevron&nbsp;&rsaquo; */
+  }
+  
+  .error-notification {
+    background-color: #fdffdc;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+    display: block;
+  }
+  
+  .result-line {
+    color: #ada69e;
+  }
+  .results-top {
+    border-bottom: 1px dotted #dfdcd9;
+    padding-bottom: 0.5em;
+  }
+  
+  .search-container {
+    padding-bottom: 0;
+  }
 }
 
 @media only screen and (min-width : 768px) {
-	.ubuntu-search {
-		.main-search {
-			button[type=submit] {
-				margin-left: -60px;
-				margin-top: 0;
-			}
-		}
-	}
+  .ubuntu-search {
+    .main-search {
+      button[type=submit] {
+        margin-left: -60px;
+        margin-top: 0;
+      }
+    }
+  }
 } /* end @media only screen and (min-width : 768px) */

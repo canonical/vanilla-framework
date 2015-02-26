@@ -1,67 +1,95 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-header.banner {
-	border-top: 0;
-	min-width: 100%;
-	width: auto;
+$nav-box-shadow-color: #777777;
+$nav-border-color: #d5d5d5;
+$nav-hover-border-left: #ec5B29;
+
+.banner {
   background: $ubuntu-orange;
+  border-top: 0;
   display: block;
+  min-width: 100%;
   position: relative;
   z-index: 2;
+  width: auto;
 
-	.nav-primary {
-	  border: 0;
-		margin: 0 auto;
-		overflow: hidden;
+  .nav-primary {
+    border: 0;
+    margin: 0 auto;
+    overflow: hidden;
 
-		ul {
-		  border-right: 1px solid lighten($ubuntu-orange, 10%);
-		  float: left;
-		  margin: 0;
-		  position: relative;
+    ul {
+      border-right: 1px solid lighten($ubuntu-orange, 10%);
+      float: left;
+      margin: 0;
+      position: static;
 
-			li {
-			  border-left: 1px solid darken($ubuntu-orange, 5%);
-			  float: left;
-			  list-style-image: none;
-			  margin: 0;
-			  text-indent: 0;
-			  vertical-align: bottom;
-			}
+      li {
+        border-left: 1px solid darken($ubuntu-orange, 5%);
+        float: left;
+        list-style-image: none;
+        margin: 0;
+        text-indent: 0;
+        vertical-align: bottom;
+        
+        ul {
+          background: $light-grey;
+          box-shadow: 0 2px 2px -1px $nav-box-shadow-color;
+          border-radius: 10px;
+          border: 1px solid $nav-border-color;
+          display: none;
+          float: none;
+          margin: 0;
+          padding: 5px 0;
+          position: absolute;
+          top: 51px;
+          width: 200px;
+        }
 
-			li:last-child {
-			  border-right: 1px solid darken($ubuntu-orange, 5%);
-			}
+        // the new arrow that appears if there is secondary nav when you hover over the main nav
+       li:hover ul:after {
+          background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
+          content: '';
+          display: block;
+          height: 8px;
+          left: 20px;
+          position: relative;
+          top: -13px;
+          width: 200px;
+          z-index: 999;
+        }         
+      }
 
-			li a:link,
-			li a:visited {
-			  font-size: 14px;
-			  border-left: 1px solid lighten($ubuntu-orange, 7%);
-			  color: $white;
-			  display: block;
-			  margin-bottom: 0;
-			  padding: 14px 14px 13px;
-			  position: relative;
-			  text-align: center;
-			  text-decoration: none;
-			    -webkit-font-smoothing: subpixel-antialiased;
-			    -moz-font-smoothing: subpixel-antialiased;
-			    -o-font-smoothing: subpixel-antialiased;
-			  font-smoothing: subpixel-antialiased;
-			}
+      li:last-child {
+        border-right: 1px solid darken($ubuntu-orange, 5%);
+      }
 
-			a.active {
-			  background: #B83A10;
-			  border-left: 1px solid lighten($ubuntu-orange, 7%);
-			}
+      li a:link,
+      li a:visited {
+        border-left: 1px solid lighten($ubuntu-orange, 7%);
+        color: $white;
+        display: block;
+        font-size: 14px;
+        font-smoothing: subpixel-antialiased;
+        margin-bottom: 0;
+        padding: 14px 14px 13px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+      }
 
-			li a:hover {
-				background: #e1662f;
-				border-top: 0;
-				@include box-shadow(inset 0 2px 2px -2px #777);
-			}
-		} // end ul
-	} // nav-primary
+      a.active {
+        background: #b83A10;
+        border-left: 1px solid lighten($ubuntu-orange, 7%);
+      }
+
+      li a:hover {
+        background: #e1662F;
+        border-top: 0;
+        box-shadow: inset 0 2px 2px -2px $nav-box-shadow-color;
+      }
+    } // end ul
+  } // nav-primary
 
 } // end header.banner
 
@@ -69,81 +97,81 @@ header.banner {
 // Responsive header navigation
 #main-navigation-link { display: none; }
 
-header.banner .nav-toggle {
-	position:absolute;
-	right: 0;
-	display: block;
-	width: 48px;
-	height: 48px;
-	text-indent: -99999px;
-	background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
-	@include background-size(25px auto);
-	background-repeat: no-repeat;
-	background-position: center center;
-	cursor: pointer;
+.banner .nav-toggle {
+  background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 25px auto;
+  cursor: pointer;
+  display: block;
+  height: 48px;
+  position:absolute;
+  right: 0;
+  text-indent: -99999px;
+  width: 48px;
 }
 
-header.banner .no-script {
-	display: none;
+.banner .no-script {
+  display: none;
 }
 
-.opera-mini header.banner .nav-toggle,
-.no-svg header.banner .nav-toggle {
-	background-image: url(#{$asset-path}icons/navigation-menu-plain.png);
+.opera-mini .banner .nav-toggle,
+.no-svg .banner .nav-toggle {
+  background-image: url(#{$asset-path}icons/navigation-menu-plain.png);
 }
 
-header.banner nav ul {
-	background-color: $nav-bg;
-	display: none;
-	float: left;
+.banner nav ul {
+  background-color: $nav-bg;
+  display: none;
+  float: left;
 }
-header.banner .nav-primary.active {
-	@include box-shadow(0 1px 2px 1px rgba(120, 120, 120, 0.2));
-	padding: 0;
-	border-bottom: 1px solid $nav-border-dark;
+.banner .nav-primary.active {
+  box-shadow: 0 1px 2px 1px rgba(120, 120, 120, 0.2);
+  padding: 0;
+  border-bottom: 1px solid $nav-border-dark;
 }
 
 header nav ul.active {
-	display: block;
+  display: block;
 }
 
-header.banner .nav-primary ul li,
-header.banner .nav-primary ul li a:link,
-header.banner .nav-primary ul li a:visited,
-header.banner .nav-primary ul li a:active {
-	display: block;
-	padding: 0;
-	margin: 0;
-	border: none;
+.banner .nav-primary ul li,
+.banner .nav-primary ul li a:link,
+.banner .nav-primary ul li a:visited,
+.banner .nav-primary ul li a:active {
+  border: none;
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
-header.banner .nav-primary ul li a:hover {
-	@include box-shadow(none);
-	background-color: $nav-hover-bg;
+.banner .nav-primary ul li a:hover {
+  background-color: $nav-hover-bg;
+  box-shadow: none;
 }
-header.banner .nav-primary ul li a.active {
-	background-color: $nav-active-bg;
-}
-
-header.banner .nav-primary ul li {
-	border-bottom: 1px solid #F2F2F4;
-	font-size: 16px;
+.banner .nav-primary ul li a.active {
+  background-color: $nav-active-bg;
 }
 
-header.banner .nav-primary ul li:last-child {
-	border: 0;
+.banner .nav-primary ul li {
+  border-bottom: 1px solid #F2F2F4;
+  font-size: 16px;
 }
 
-header.banner nav.nav-primary ul li a:link,
-header.banner .nav-primary ul li a:visited,
-header.banner .nav-primary ul li a:hover,
-header.banner .nav-primary ul li a:active {
-	padding: 14px 14px 13px;
-	text-align: left;
+.banner .nav-primary ul li:last-child {
+  border: 0;
 }
 
-header.banner nav.nav-primary ul.active li ul {
-	display: none;
+.banner .nav-primary ul li a:link,
+.banner .nav-primary ul li a:visited,
+.banner .nav-primary ul li a:hover,
+.banner .nav-primary ul li a:active {
+  padding: 14px 14px 13px;
+  text-align: left;
+}
+
+.banner .nav-primary ul.active li ul {
+  display: none;
 }
 
 #menu.active:after {
@@ -160,7 +188,9 @@ header.banner nav.nav-primary ul.active li ul {
   width: 48px;
   z-index: 999;
 }
-html.no-svg, .opera-mini {
+
+.no-svg, 
+.opera-mini {
   #menu.active:after {
     background-image: url(#{$asset-path}patterns/nav-arrow.png);
   }
@@ -181,7 +211,7 @@ html.no-svg, .opera-mini {
       float: left;
       margin-top: 16px;
       font-size: 14px;
-	    margin-right: 15px;
+      margin-right: 15px;
 
       a:link,
       a:visited {
@@ -204,6 +234,7 @@ html.no-svg, .opera-mini {
       text-decoration: none;
     }
   }
+  
   ul.breadcrumb {
     margin-left: 20px;
 
@@ -221,49 +252,54 @@ html.no-svg, .opera-mini {
   }
 }
 
-header.banner h2 {
-	@include font-size (25);
-	display: block;
-	left: 4px;
-	margin-bottom:0;
-	position: relative;
-	text-transform: lowercase;
-	top: 14px;
+.banner h2 {
+  @include font-size (25);
+  display: block;
+  left: 4px;
+  margin-bottom:0;
+  position: relative;
+  text-transform: lowercase;
+  top: 14px;
 }
 
-header.banner h2 a:link, header.banner h2 a:visited, header.banner a {
-	color: $white;
-	float: left;
-	text-decoration:none;
+.banner h2 a:link, 
+.banner h2 a:visited, 
+.banner a {
+  color: $white;
+  float: left;
+  text-decoration:none;
 }
 
-header.banner {
-	.logo {
-	  border-left: 0;
-  	float: left;
+.banner {
+  .nav-primary li:hover ul { 
+    display: block; 
+  }
+
+  .logo {
+    border-left: 0;
+    float: left;
     height: 48px;
-  	overflow: hidden;
-	}
+    overflow: hidden;
+  }
 
   .logo-ubuntu {
-  	background: url("#{$asset-path}ubuntu-logo.png") no-repeat scroll 0 10px transparent;
-    font-size: 18px;
-    margin-bottom: 0;
-    position: relative;
-    text-transform: lowercase;
-    float: left;
-    margin: 0;
+    background: url("#{$asset-path}ubuntu-logo.png") no-repeat scroll 0 10px transparent;
     display: inline-block;
+    float: left;
+    font-size: 18px;
     height: 32px;
-    min-width: 128px;
+    text-transform: lowercase;
+    margin: 0;
     margin-right: -20px;
-		margin-left: 10px;
+    margin-left: 10px;
+    min-width: 128px;
     padding: 7px 14px 9px 0;
+    position: relative;
 
     img {
+      left: -999em;
       margin-right: 8px;
       position: absolute;
-      left: -999em;
     }
 
     span {
@@ -277,22 +313,98 @@ header.banner {
     }
 
   }
+  
   .nav-primary.nav-left {
     .logo-ubuntu {
       float: right;
     }
   }
+  
   .nav-primary.nav-right {
     .logo-ubuntu {
-			background-image: url("#{$asset-path}logos/logo-ubuntu-white.svg");
-			background-size: 107px 25px;
+      background-image: url("#{$asset-path}logos/logo-ubuntu-white.svg");
+      background-size: 107px 25px;
       float: left;
     }
   }
-}
+  .nav-primary li ul .arrow-up {
+    display: none;
+  }
+  
+  .nav-primary li ul li {
+    border: 0;
+    float: none;
+  }
+  
+  .nav-primary li ul li a:link,
+  .nav-primary li ul li a:visited {
+    border: 0;
+    color: #333333;
+    padding: 0 0 11px 14px;
+    text-align: left;
+    width: 170px;
+  }
+  
+  .nav-primary li ul li a:hover {
+    background: none repeat scroll 0 0 transparent;
+    box-shadow: none;
+    color: #DD4814;
+  }
+  
+  .nav-primary li ul li.first a:link,
+  .nav-primary li ul li.first a:visited,
+  .nav-primary li ul li:first-of-type a:link {
+    padding: 10px 14px;
+  }
+  
+  .nav-primary li ul li.active a:link,
+  .nav-primary li ul li.active a:visited {
+    background: none repeat scroll 0 0 transparent !important;
+  }
+  
+  .nav-primary li ul .promo {
+    border-top: 1px solid $nav-border-color;
+    float: left;
+    margin-top: 5px;
+    padding: 15px 0 0;
+  }
+  
+  .nav-primary li ul .promo a:link,
+  .nav-primary li ul .promo a:visited {
+    background: none repeat scroll 0 0 transparent;
+    border-left: 0 none;
+    color: $cool_grey;
+    height: auto;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .nav-primary li ul .promo p { margin: 0 10px; }
+  
+  .nav-primary li ul .promo a:hover {
+    box-shadow: none;
+    color: #DD4814;
+  }
+  
+  .nav-primary li ul .promo img {
+    margin-top: 14px;
+    margin-bottom: -6px;
+    border-radius: 0 0 10px 10px;
+    position:relative;
+    top:1px;
+  }
+  
+  .nav-primary li ul .promo .category {
+    color: $warm-grey;
+    font-size: 11px;
+    margin: 0 10px;
+    text-transform: uppercase;
+  }
+
+} // .banner
 
 html.no-svg, .opera-mini {
-  header.banner .nav-primary.nav-right .logo-ubuntu {
+  .banner .nav-primary.nav-right .logo-ubuntu {
     background-image: url("#{$asset-path}logos/logo-ubuntu-white.png");
   }
 }
@@ -300,34 +412,35 @@ html.no-svg, .opera-mini {
 @media only screen and (max-width: 295px) {
 
 // this changes the logo to the circle of friends on screens below 295px
-	header.banner {
-		.nav-primary.nav-right .logo-ubuntu,
-		.logo-ubuntu {
-			@include background_size(20px 20px);
-			background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
-			min-width: 0;
-			width: 38px;
-		}
-	}
-	header.banner .logo-ubuntu span {
-		padding-left: 38px;
-	}
-	
+  .banner {
+    .nav-primary.nav-right .logo-ubuntu,
+    .logo-ubuntu {
+      background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
+      background-size: 20px 20px;
+      min-width: 0;
+      width: 38px;
+    }
+  }
+  .banner .logo-ubuntu span {
+    padding-left: 38px;
+  }
+  
 } // end @@media only screen and (max-width: 295px)
 
-html.no-svg, .opera-mini {
-  header.banner .logo-ubuntu {
-		background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
+html.no-svg, 
+.opera-mini {
+  .banner .logo-ubuntu {
+    background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
   }
 }
 
 @media only screen and (max-width : 768px) {
-  header.banner .nav-primary {
-    @include box-shadow(0 1px 2px 1px rgba(0, 0, 0, 0.2));
+  .banner .nav-primary {
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   }
   
-  header.banner .nav-primary.active {
-    @include box-shadow(none);
+  .banner .nav-primary.active {
+    box-shadow: none;
     padding: 0;
   }
 
@@ -337,15 +450,15 @@ html.no-svg, .opera-mini {
   
   header nav ul.active li:last-child a:link,
   header nav ul.active li:last-child a:visited {
-		border-bottom: 0;
-	}
-	  
-  header.banner .nav-primary ul {
+    border-bottom: 0;
+  }
+    
+  .banner .nav-primary ul {
     position: relative;
     width: 100%;
   }
 
-  header.banner .nav-primary ul li.active {
+  .banner .nav-primary ul li.active {
     a:link,
     a:visited {
       color: #333;
@@ -353,11 +466,11 @@ html.no-svg, .opera-mini {
     }
   }
 
-  header.banner .nav-primary ul li,
-  header.banner .nav-primary ul li a:link,
-  header.banner .nav-primary ul li a:visited,
-  header.banner .nav-primary ul li a:active {
-    @include box-sizing();
+  .banner .nav-primary ul li,
+  .banner .nav-primary ul li a:link,
+  .banner .nav-primary ul li a:visited,
+  .banner .nav-primary ul li a:active {
+    box-sizing: border-box;
     background: transparent;
     border: none;
     display: block;
@@ -367,39 +480,40 @@ html.no-svg, .opera-mini {
     width: 100%;
   }
 
-  header.banner .nav-primary ul li a:link,
-  header.banner .nav-primary ul li a:visited,
-  header.banner .nav-primary ul li a:hover,
-  header.banner .nav-primary ul li a:active {
+  .banner .nav-primary ul li a:link,
+  .banner .nav-primary ul li a:visited,
+  .banner .nav-primary ul li a:hover,
+  .banner .nav-primary ul li a:active {
     background-color: $nav-bg;
     border-bottom: 1px solid $nav-border-dark;
     color: #333333;
     font-size: 1em;
   }
   
-  header.banner .nav-primary ul li:nth-last-child(-n+2) a:link,
-  header.banner .nav-primary ul li:nth-last-child(-n+2) a:visited  {
-		border: 0;
-	}	
+  .banner .nav-primary ul li:nth-last-child(-n+2) a:link,
+  .banner .nav-primary ul li:nth-last-child(-n+2) a:visited  {
+    border: 0;
+  }  
 
-  header.banner .nav-primary ul li a:hover {
-    @include box-shadow(none);
-  	background: lighten($nav_bg, 3%);
+  .banner .nav-primary ul li a:hover {
+    box-shadow: none;
+    background: lighten($nav_bg, 3%);
   }
-  header.banner .nav-primary ul li a.active {
+  
+  .banner .nav-primary ul li a.active {
     background-color: $nav-active-bg;
   }
 
-  header.banner nav.nav-primary ul li a:link,
-  header.banner .nav-primary ul li a:visited,
-  header.banner .nav-primary ul li a:hover,
-  header.banner .nav-primary ul li a:active {
+  .banner nav.nav-primary ul li a:link,
+  .banner .nav-primary ul li a:visited,
+  .banner .nav-primary ul li a:hover,
+  .banner .nav-primary ul li a:active {
     padding: 8px 10px;
     text-align: left;
   }
 
-  header.banner .nav-primary ul li {
-    @include box-sizing();
+  .banner .nav-primary ul li {
+    box-sizing: border-box;
     background: transparent;
     border-bottom: 0;
     border-right: 1px solid $nav-border-dark;
@@ -420,7 +534,7 @@ html.no-svg, .opera-mini {
       width: 100%;
 
       li {
-        @include box-sizing();
+        box-sizing: border-box;
         width: 50%;
         margin: 0;
         float: left;
@@ -428,14 +542,13 @@ html.no-svg, .opera-mini {
         a,
         a:link,
         a:visited {
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
           box-sizing: border-box;
           display: block;
           height: 100%;
           padding: 10px 10px 10px 20px;
           width: 100%;
         }
+        
         &.active {
           a,
           a:link,
@@ -444,7 +557,9 @@ html.no-svg, .opera-mini {
             font-weight: 700;
           }
         }
+        
       }
+      
     } /* end .second-level-nav */
     ul.third-level-nav {
       display: none;
@@ -453,7 +568,7 @@ html.no-svg, .opera-mini {
       padding-bottom: 20px;
 
       li {
-        @include box-sizing();
+        box-sizing: border-box;
         width: 50%;
         margin: 0;
         float: left;
@@ -462,7 +577,7 @@ html.no-svg, .opera-mini {
         a,
         a:link,
         a:visited {
-          @include box-sizing();
+          box-sizing: border-box;
           padding: 10px 10px 10px 0;
           display: block;
           width: 100%;
@@ -488,8 +603,8 @@ html.no-svg, .opera-mini {
       }
     } /* end third-level-nav */
 
-    ul.breadcrumb {
-      @include box-sizing();
+    .breadcrumb {
+      box-sizing: border-box;
       width: 100%;
       margin-left: 0;
       margin-bottom: 0;
@@ -500,7 +615,7 @@ html.no-svg, .opera-mini {
       }
 
       li {
-        @include box-sizing();
+        box-sizing: border-box;
         color: $white;
         width: 100%;
         display: block;
@@ -510,7 +625,7 @@ html.no-svg, .opera-mini {
         a,
         a:link,
         a:visited {
-          @include box-sizing();
+          box-sizing: border-box;
           font-size: 16px;
           width: 100%;
           color: #333333;
@@ -530,6 +645,7 @@ html.no-svg, .opera-mini {
             color: #333;
             font-weight: 700;
           }
+        
         }
 
         &:nth-of-type(2n) {
@@ -551,7 +667,8 @@ html.no-svg, .opera-mini {
           top: 0;
           width: 18px;
         }
-      }
+        
+      } // end breadcrumb
 
       li + li {
         display: none;
@@ -565,28 +682,36 @@ html.no-svg, .opera-mini {
         a.after {
           background-image: none;
         }
+      
       }
+      
     }
 
     &.open {
-      ul.breadcrumb li a:after,
-      ul.breadcrumb li a:link:after,
-      ul.breadcrumb li a:visited:after {
+      
+      .breadcrumb li a:after,
+      .breadcrumb li a:link:after,
+      .breadcrumb li a:visited:after {
         background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
       }
-      ul.breadcrumb li + li a.after {
+      
+      .breadcrumb li + li a.after {
         background-image: none;
       }
-      ul.breadcrumb li .after {
+      
+      .breadcrumb li .after {
         background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
         margin-top: -7px;
       }
-      ul.second-level-nav,
-      ul.third-level-nav,
-      ul.breadcrumb li + li {
+      
+      .second-level-nav,
+      .third-level-nav,
+      .breadcrumb li + li {
         display: block;
       }
+      
     }
+    
   }/* end nav-secondary */
 
   .no-js {
@@ -608,57 +733,62 @@ html.no-svg, .opera-mini {
         background-repeat: no-repeat;
         background-size: 25px auto;
         display: block;
-        width: 28px;
         height: 28px;
         position: absolute;
-
+        width: 28px;
       }
     }
   }
 
-  html.no-svg, .opera-mini {
+  .no-svg, .opera-mini {
   .nav-secondary ul.breadcrumb {
       li .after {
         background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
       }
+      
       &.open {
         ul.breadcrumb li a:after,
         ul.breadcrumb li a:link:after,
         ul.breadcrumb li a:visited:after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
-        ul.breadcrumb li .after{
+        
+        ul.breadcrumb li .after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
       }
     }
-    header.banner .nav-primary #google-appliance-search-form button[type="submit"] {
+    
+    .banner .nav-primary #google-appliance-search-form button[type="submit"] {
       background-image: url("#{$asset-path}search-black.png");
     }
   }
 
-  html.no-svg, .opera-mini {
+  .no-svg, .opera-mini {
     .nav-secondary ul.breadcrumb {
       li .after {
         background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
       }
+      
       &.open {
         ul.breadcrumb li a:after,
         ul.breadcrumb li a:link:after,
         ul.breadcrumb li a:visited:after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
+        
         ul.breadcrumb li .after{
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
       }
     }
-    header.banner .nav-primary #google-appliance-search-form button[type="submit"] {
+    
+    .banner .nav-primary #google-appliance-search-form button[type="submit"] {
       background-image: url("#{$asset-path}search-black.png");
     }
   }
 
-  header.banner {
+  .banner {
     .nav-toggle {
       background-image: url("#{$asset-path}icons/navigation-menu-plain.svg");
       background-position: center center;
@@ -674,9 +804,8 @@ html.no-svg, .opera-mini {
     }
   }
 
-
-  html.no-svg, .opera-mini {
-    header.banner .nav-toggle {
+  .no-svg, .opera-mini {
+    .banner .nav-toggle {
       background-image: url("#{$asset-path}icons/navigation-menu-plain.png");
     }
   }
@@ -685,55 +814,53 @@ html.no-svg, .opera-mini {
 
 @media only screen and (min-width : 768px) {
 
-  header.banner .nav-primary ul li {
+  .banner .nav-primary ul li {
     border-bottom: 0;
   }
 }
 
 @media only screen and (min-width : 769px) {
 
-  header.banner {
-      -moz-box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px $white;
-      -webkit-box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px $white;
-    box-shadow: 0 2px 2px -2px #777777 inset, 2px 1px $white;
+  .banner {
+    box-shadow: 0 2px 2px -2px $nav-box-shadow-color inset, 2px 1px $white;
 
-    nav.nav-primary {
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
+    .nav-primary {
       box-shadow: none;
-			border-bottom: 0;
-
+      border-bottom: 0;
     }
   }
 
-  header.banner .nav-toggle {
-   display: none;
+  .banner .nav-toggle {
+    display: none;
   }
 
-  header.banner nav ul {
+  .banner nav ul {
     background-color: transparent;
     display: block;
   }
 
-  header.banner .nav-primary ul li {
-    border-left: 1px solid #C64012;
+  .banner .nav-primary ul li {
+    border-left: 1px solid #c64012;
   }
 
-  header.banner .nav-primary ul li a:active,
-  header.banner .nav-primary ul li a:hover,
-  header.banner .nav-primary ul li a:visited,
-  header.banner nav.nav-primary ul li a:link {
-    border-left: 1px solid #EC5B29;
+  .banner .nav-primary ul li a:active,
+  .banner .nav-primary ul li a:hover,
+  .banner .nav-primary ul li a:visited,
+  .banner nav.nav-primary ul li a:link {
+    border-left: 1px solid $nav-hover-border-left;
   }
-  header.banner .nav-primary ul li:last-child {
-    border-right: 1px solid #C64012;
-    border-left: 1px solid #C64012;
+  
+  .banner .nav-primary ul li:last-child {
+    border-right: 1px solid #c64012;
+    border-left: 1px solid #c64012;
   }
-  header.banner .nav-primary ul li a.active {
-    background-color: #B83A10;
+  
+  .banner .nav-primary ul li a.active {
+    background-color: #b83A10;
   }
-  header.banner .nav-primary ul li a:hover {
-    background-color: #E1662F;
+  
+  .banner .nav-primary ul li a:hover {
+    background-color: #e1662F;
   }
 
   .nav-secondary {
@@ -741,16 +868,16 @@ html.no-svg, .opera-mini {
       padding-bottom: 10px;
     }
 
-    ul.breadcrumb,
-    ul.second-level-nav,
-    ul.third-level-nav {
+    .breadcrumb,
+    .second-level-nav,
+    .third-level-nav {
 
       li {
         margin-right: 15px;
       }
     }
 
-    ul.breadcrumb {
+    .breadcrumb {
       float: left;
 
       li {
@@ -762,6 +889,7 @@ html.no-svg, .opera-mini {
       float: none;
       margin-bottom: 0;
     }
+    
     ul li {
       margin-bottom: 5px;
     }
@@ -771,130 +899,30 @@ html.no-svg, .opera-mini {
 
 @media only screen and (min-width: 984px) {
 
-  header.banner {
+  .banner {
     margin-bottom: 20px;
   }
 
-  header.banner nav.nav-primary ul {
-		display: block;
+  .banner .nav-primary ul {
+    display: block;
   }
 
-  header.banner .nav-primary,
-  #nav-global .nav-global-wrapper {
+  .banner .nav-primary,
+  .nav-global-wrapper {
     width: 984px; /* 980px / 15px (baseline font); 980px + (60px x 2) = 1100px */
   }
 
-  header.banner .nav-primary.nav-right .logo-ubuntu {
+  .banner .nav-primary.nav-right .logo-ubuntu {
     margin-left: 0;
   }
 
 }
 
-/*
- * Main navigation dropdown styles
- */
-
-header.banner .nav-primary ul { position: static; }
-
-header.banner .nav-primary li ul {
-	@include box_shadow(0 2px 2px -1px #777777);
-	@include rounded_corners(10px);
-	background: #f7f7f7;
-	border: 1px solid #d5d5d5;
-	display: none;
-	float: none;
-	margin: 0;
-	padding: 5px 0;
-	position: absolute;
-	top: 51px;
-	width: 200px;
-}
-
-// the new arrow that appears if there is secondary nav when you hover over the main nav
-header.banner .nav-primary li:hover ul:after {
-	background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
-	content: '';
-	display: block;
-	height: 8px;
-	left: 20px;
-	position: relative;
-	top: -13px;
-	width: 200px;
-	z-index: 999;
-}
-
 // show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
-.no-generatedcontent header.banner .nav-primary li ul {
-	@include rounded_corners(0 0 10px 10px);
-	top: 48px;
+.no-generatedcontent .banner .nav-primary li ul {
+  border-radius: 0 0 10px 10px;
+  top: 48px;
 }
 
-// the old arrow that appears if there is secondary nav when you hover over the main nav
-header.banner .nav-primary li ul .arrow-up {
-    display: none;
-}
-
-header.banner .nav-primary li ul li {
-    border: 0;
-    float: none;
-}
-header.banner .nav-primary li ul li a:link,
-header.banner .nav-primary li ul li a:visited {
-    border: 0;
-    color: #333333;
-    padding: 0 0 11px 14px;
-    text-align: left;
-    width: 170px;
-}
-header.banner .nav-primary li ul li a:hover {
-    background: none repeat scroll 0 0 transparent;
-    @include box_shadow(none);
-    color: #DD4814;
-}
-header.banner .nav-primary li ul li.first a:link,
-header.banner .nav-primary li ul li.first a:visited,
-header.banner .nav-primary li ul li:first-of-type a:link {
-    padding: 10px 14px;
-}
-header.banner .nav-primary li ul li.active a:link,
-header.banner .nav-primary li ul li.active a:visited {
-    background: none repeat scroll 0 0 transparent !important;
-}
-header.banner .nav-primary li ul .promo {
-    border-top: 1px solid #D5D5D5;
-    float: left;
-    margin-top: 5px;
-    padding: 15px 0 0;
-}
-header.banner .nav-primary li ul .promo a:link,
-header.banner .nav-primary li ul .promo a:visited {
-    background: none repeat scroll 0 0 transparent;
-    border-left: 0 none;
-    color: #333333;
-    height: auto;
-    padding: 0;
-    text-align: left;
-}
-header.banner .nav-primary li ul .promo p { margin: 0 10px; }
-
-header.banner .nav-primary li ul .promo a:hover {
-    box-shadow: none;
-    color: #DD4814;
-}
-header.banner .nav-primary li ul .promo img {
-    margin-top: 14px;
-    margin-bottom: -6px;
-    @include rounded_corners(0 0 10px 10px);
-    position:relative;
-    top:1px;
-}
-header.banner .nav-primary li ul .promo .category {
-    color: $warm_grey;
-    font-size: 11px;
-    margin: 0 10px;
-    text-transform: uppercase;
-}
-header.banner .nav-primary li:hover ul { display: block; }
-
-html.lt-ie8 header.banner .nav-primary li:hover ul { display: none; }
+.lt-ie8 .banner .nav-primary li:hover ul { display: none; }
 

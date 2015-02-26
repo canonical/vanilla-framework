@@ -8,7 +8,11 @@ Awesome you want to contribute to out framework!
 
 ## Pull requests
 
-*lets define how we want this to happen*
+Template for PRs is:
+
+    # Details
+    ## Done
+    ## QA
 
 ## Feature requests
 

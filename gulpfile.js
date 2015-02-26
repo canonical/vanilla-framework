@@ -32,13 +32,14 @@ gulp.task('help', function() {
 });
 
 gulp.task('sasslint', function() {
-    return gulp.src('scss/*.scss')
-        .pipe(scsslint({ 'config' : 'lint.yml' }))
+    var path = (gutil.env.file)? gutil.env.file : '**/*.scss';
+    return gulp.src('scss/' + path)
+        .pipe(scsslint())
         .pipe(scsslint.failReporter());
 });
 
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
+    return gulp.src('scss/**/*.scss')
         .pipe(sass({
             style: 'expanded',
             onError: throwSassError

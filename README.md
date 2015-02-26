@@ -28,6 +28,8 @@ To get started you'll need some stuff:
 - Install [Node.js](http://nodejs.org)
 - Install [Gulp](http://gulpjs.com)
 
+## Themes
+
 ## Documentation
 
 ## Contributing

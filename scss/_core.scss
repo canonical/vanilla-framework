@@ -155,11 +155,6 @@ audio:not([controls]) {
 @import url('//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic%7CUbuntu+Mono');
 
 html {
-  -moz-transition: background-position 100 ease;
-  -ms-text-size-adjust: 100%;
-  -o-transition: background-position 100 ease;
-  -webkit-text-size-adjust: 100%;
-  -webkit-transition: background-position 100 ease;
   background: url('#{$asset-path}backgrounds/image-background-paper.png') repeat-y fixed center top $light-grey;
   font-size: 100%;
   overflow-y: scroll;
@@ -452,7 +447,7 @@ pre {
 }
 
 pre {
-  @include rounded-corners(4px);
+  border-radius: 4px;
   background: $light-orange;
   padding: .6em 1em;
   white-space: pre-wrap;
@@ -495,11 +490,8 @@ input[type='radio'] {
   padding: 0;
 }
 
-input[type='search'] {
-  @include rounded-corners(2px);
-  -moz-box-sizing: content-box;
-  -webkit-appearance: none;
-  -webkit-box-sizing: content-box;
+input[type="search"] {
+  border-radius: 2px;
   box-sizing: content-box;
   font-family: Ubuntu,Arial,'libra sans',sans-serif;
   font-weight: 300;
@@ -523,7 +515,7 @@ textarea {
 }
 
 form fieldset {
-  @include rounded-corners(4px);
+  border-radius: 4px;
   background-repeat: no-repeat;
   background-color: #efeeec;
   background-position: -15px -15px;
@@ -546,8 +538,7 @@ form input[type='text'],
 form input[type='email'],
 form input[type='tel'],
 form textarea {
-  -webkit-appearance: none;
-  @include rounded-corners(2px);
+  border-radius: 2px;
   background-color: $white;
   border: 1px solid #999;
   display: block;
@@ -580,9 +571,10 @@ form input[type='radio'] + label {
 
 form input[type='submit'] {
   @include font-size (16);
-  @include rounded-corners(4px);
-  @include gradient(#f26120, $ubuntu-orange);
-  @include box-shadow(none);
+  border-radius: 4px;
+  background-color: $ubuntu-orange;
+  background-image: linear-gradient(#f26120, $ubuntu-orange);
+  box-shadow: none;
   border: 0;
   color: $white;
   display: block;

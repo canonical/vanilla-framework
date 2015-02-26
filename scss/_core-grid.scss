@@ -1,5 +1,7 @@
 @charset 'UTF-8';
+
 ////
+
 /// Ubuntu Core Front-End Framework
 ///
 /// Grid file part of the Ubuntu Core Front-End Framework
@@ -12,11 +14,11 @@
 ///
 /// When 1 unit = 60px, 1 gutter = 20px
 ///
-/// @project		Ubuntu Core Front-End Framework
-/// @author		Web Team at Canonical Ltd
-/// @copyright	2012 Canonical Ltd
+/// @project    Ubuntu Core Front-End Framework
+/// @author    Web Team at Canonical Ltd
+/// @copyright  2012 Canonical Ltd
 ///
-/// @see			http://gridinator.com/
+/// @see      http://gridinator.com/
 
 /// Table of contents
 ///
@@ -29,18 +31,21 @@
 /// Last
 /// Clearing
   
-///  one-col			60
-///  two-col			140
-///  three-col		220
-///  four-col		300
-///  five-col		380
-///  six-col			460
-///  seven-col		540
-///  eight-col		630
-///  nine-col		700
-///  ten-col			780
-///  eleven-col	860
-///  twelve-col	940
+///  one-col      60
+///  two-col      140
+///  three-col    220
+///  four-col    300
+///  five-col    380
+///  six-col      460
+///  seven-col    540
+///  eight-col    630
+///  nine-col    700
+///  ten-col      780
+///  eleven-col  860
+///  twelve-col  940
+
+////
+
 .fake { 
   display: none; 
 }
@@ -62,12 +67,12 @@ body {
 .eleven-col, 
 .twelve-col, 
 .col {
-  @include box-sizing;
+  box-sizing: border-box;
   clear: none;
   display: inline-block;
   float: none;
-  margin-right: $gutter;
   margin-bottom: 20px;
+  margin-right: $gutter;
   padding: 0;
   position: relative;
   width: 100%;
@@ -94,13 +99,10 @@ body {
   margin-right: 0; 
 }
 
-/**
- * Clearing
- *
- * Hard and soft clearing classes
- *
- * @section clearing
- */
+// Clearing
+// Hard and soft clearing classes
+// @section clearing
+
 
 .clearfix:after,
 .container:after {
