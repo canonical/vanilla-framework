@@ -1,21 +1,18 @@
 @charset 'UTF-8';
 
-
-// rows sass
-
-// contents:
-
-// row
-// row-hero
-// row-background
-// strips
-// row-aux
-// row-step
-
+////
+/// rows sass
+/// contents:
+/// row
+/// row-hero
+/// row-background
+/// strips
+/// row-aux
+/// row-step
+////
 
 
-// row
-// ----------------------------------------------------------
+/// row
 .row {
   box-sizing: border-box;
   border-bottom: 1px dotted $warm-grey;
@@ -27,7 +24,9 @@
     display: none;
   }
 
-  &.no-padding-bottom { padding-bottom: 0 !important; }
+  &.no-padding-bottom {
+    padding-bottom: 0;
+  }
 }
 
 .row-grey {
@@ -36,25 +35,23 @@
 
 .no-border { border: 0; }
 
-// row-hero
-// ----------------------------------------------------------
-#main-content .row-hero {
+/// row-hero
+.row-hero {
   margin-top: 20px;
   padding-top: 0;
 }
 
-// row-background
-// ----------------------------------------------------------
+/// row-background
 .row-background {
   color: $white;
-  background: url("#{$asset-path}backgrounds/image-background-wallpaper.jpg") no-repeat scroll 50% 50% #4b1827;
+  background: url("#{$asset-path}backgrounds/image-background-wallpaper.jpg") no-repeat scroll 50% 50% $row-background;
 
-  a.alternate {
+  .alternate {
     color: $white;
     text-decoration: underline;
   }
 
-  a.alternate:hover {
+  .alternate:hover {
     color: rgba(255, 255, 255, .6);
   }
 
@@ -64,8 +61,7 @@
   }
 }
 
-// strips
-// ----------------------------------------------------------
+/// strips
 .strip {
   width: 100%;
   display: block;
@@ -84,16 +80,12 @@
   .resource {
     color: $cool-grey;
     box-shadow: none;
+    padding-right: 20px;
   }
 
-  .resource:before {
-    border-right-color: #2c001e;
-  }
-}
-
-#main-content .strip-dark {
   .resource:before {
     border-bottom-width: 29px;
+    border-right-color: $dark-aubergine;
     right: -2px;
     top: -1px;
   }
@@ -101,14 +93,9 @@
   .resource:hover:before {
     border-bottom-width: 34px;
   }
-
-  .resource h2 {
-    padding-right: 20px;
-  }
 }
 
-// row-aux
-// ----------------------------------------------------------
+/// row-aux
 .row-aux {
   background-color: rgba(255, 255, 255, .6);
   text-align: center;
@@ -119,13 +106,12 @@
   }
 
   a p {
-    color: #333;
+    color: $cool-grey;
     margin-bottom: 30px;
   }
 }
 
-// row-step
-// ----------------------------------------------------------
+/// row-step
 .row-step {
   h2 {
     position: relative;
@@ -148,19 +134,19 @@
   }
 }
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : $breakpoint-medium) {
 } // end @media only screen and (max-width : 768px)
 
 
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : $breakpoint-medium) {
 
   .row { padding: 30px; }
 
-  #main-content .row-hero { margin-top: 40px; }
+  .row-hero { margin-top: 40px; }
 
 } // end @media only screen and (max-width : 768px)
 
-@media only screen and (min-width : 769px) {
+@media only screen and (min-width : $breakpoint-medium + 1px) {
 
   .row-step .step {
     height: 42px;
@@ -172,7 +158,7 @@
 
 } //@media only screen and (min-width : 769px)
 
-@media only screen and (min-width: 984px) {
+@media only screen and (min-width: $breakpoint-large) {
 
   .row br { display: block; }
 
