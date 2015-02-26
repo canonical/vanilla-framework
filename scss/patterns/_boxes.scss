@@ -8,7 +8,7 @@
 .box {
   @extend %box;
   background: $white;
-  border: 1px solid #dfdcd9;
+  border: 1px solid $box-border;
 }
 
 .box-grey {
@@ -23,19 +23,19 @@
 }
 
 .box-highlight {
-  box-shadow: 0 2px 2px 0 #c2c2c2;
+  box-shadow: 0 2px 2px 0 $box-shadow;
   border: 1px solid $light-grey;
 }
 
 .box-textured {
-  box-shadow: 0 2px 2px 0 #c2c2c2;
+  box-shadow: 0 2px 2px 0 $box-shadow;
   background: url("#{$asset-path}patterns/grey-textured-background.jpg");
   border: 0;
 }
 
 .box-padded {
   border-radius: 4px;
-  background: $box-solid-grey;
+  background: $mid-grey;
   border: 0;
   margin-bottom: 20px;
   padding: 6px 5px;
@@ -52,24 +52,24 @@
   }
 
   div {
-      border-radius: 4px;
-      background: $white;
-      overflow: hidden;
-      padding: 8px 8px 2px;
+    border-radius: 4px;
+    background: $white;
+    overflow: hidden;
+    padding: 8px 8px 2px;
   }
 }
 
 .box-padded-feature {
   border-radius: 4px;
-  background: url("#{$asset-path}patterns/soft-centre-bkg.gif") repeat scroll 0 0 #a09f9f;
+  background: url('#{$asset-path}patterns/soft-centre-bkg.gif') repeat scroll 0 0 $cool-grey;
   border: 0;
   margin-bottom: 20px;
   padding: 11px 5px 6px;
 
   h3 {
+    @include font-size(19.5);
     color: $white;
     margin-left: ($gutter-width / 4);
-    @include font-size(19.5);
   }
 
   h4 {
@@ -79,9 +79,9 @@
 
   > div {
     border-radius: 4px;
-      background: $white;
-      overflow: hidden;
-      padding: 20px 8px;
+    background: $white;
+    overflow: hidden;
+    padding: 20px 8px;
   }
 
   div div {
@@ -114,36 +114,14 @@
   position: relative;
   transition: background .2s ease-out;
 
-  & h2 {
+  h2 {
     padding-right: 20px;
   }
 
-  &.five-col h2,
-  &.four-col h2 {
-    a:link,
-    a:visited {
-        font-size: inherit !important;
-    }
-  }
-
-  &.four-col {
-    h2 a:link,
-    h2 a:visited {
-      font-size: 1.125em;
-    }
-  }
-
-  &.twelve-col {
-    h2 a:link,
-    h2 a:visited {
-      font-size: 1.40625em;
-    }
-  }
-
-  &:hover { background-color: #fafafa; }
+  &:hover { background-color: $resource-hover; }
 
   &:after {
-    box-shadow: 0 -1px 2px 0 #ddd;
+    box-shadow: 0 -1px 2px 0 $resource-shadow;
     content: '';
     height: 1px;
     position: absolute;
@@ -169,7 +147,7 @@
     right: -3px;
     width: 0;
     height: 0;
-    border-bottom: 30px solid #fdfdfd;
+    border-bottom: 30px solid $light-grey;
     border-right: 30px solid $white;
     box-shadow: -2px 2px 2px rgba(176, 176, 176, .4);
     z-index: 2;
@@ -186,8 +164,8 @@
   }
 
   .content-cat {
-    background: url("#{$asset-path}icons/icon-resource-hub-icon-document.png") left center no-repeat;
-    color: #aea79f;
+    background: url('#{$asset-path}icons/icon-resource-hub-icon-document.png') left center no-repeat;
+    color: $warm-grey;
     font-size: 14px;
     letter-spacing: 1px;
     margin: 0;
@@ -198,7 +176,7 @@
   }
 
   .content-cat-webinar {
-    background: url("#{$asset-path}icons/icon-resource-hub-webinar.png") left center no-repeat;
+    background: url('#{$asset-path}icons/icon-resource-hub-webinar.png') left center no-repeat;
   }
 
   &.box-image-centered div + span img {
@@ -206,12 +184,12 @@
   }
 }
 
-html.yui3-js-enabled .resource:hover a {
+.yui3-js-enabled .resource:hover a {
   text-decoration: underline;
 }
 
 .row-grey .resource:before {
-  border-right-color: #f7f7f7;
+  border-right-color: $light-grey;
 }
 
 @media only screen and (max-width : 768px) {
