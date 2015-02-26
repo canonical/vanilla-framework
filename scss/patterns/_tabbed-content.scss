@@ -1,13 +1,13 @@
 @charset 'UTF-8';
 
-html.js .tabbed-content .accordion-button {
+.js .tabbed-content .accordion-button {
   box-sizing: border-box;
   height: auto;
   padding-bottom: .6em;
   padding-right: 20px;
 }
 
-html.yui3-js-enabled {
+.yui3-js-enabled {
 
   .tabbed-menu {
     display: none;
@@ -22,61 +22,57 @@ html.yui3-js-enabled {
   }
 
   .tabbed-content {
-      border-radius: 4px;
-      padding: 8px 8px 0;
-      background: $light-grey;
-      margin-bottom: 8px;
+    border-radius: 4px;
+    padding: 8px 8px 0;
+    background: $light-grey;
+    margin-bottom: 8px;
 
-      &.hide {
-        display: block;
-        opacity: 1 !important;
-      }
-
-      .title {
-        display: none;
-      }
-
-      div {
-        display: none;
-      }
-
-      .accordion-button {
-        box-sizing: border-box;
-        background: url("#{$asset-path}icons/icon-arrow-down.svg") no-repeat scroll right 3px $light-grey;
-        color: $cool-grey;
-        display: block;
-        font-size: 16px;
-        padding-bottom: .6em;
-        padding-right: 20px;
-        width: 100%;
+    &.hide {
+      display: block;
+      opacity: 1;
     }
 
-      &.open {
-        .accordion-button {
-          background-image: url("#{$asset-path}icons/icon-arrow-up.svg");
-          margin-bottom: 10px;
-        }
+    .title {
+      display: none;
+    }
 
-        div {
-          display: block;
-        }
-      }
+    div {
+      display: none;
+    }
+
+    .accordion-button {
+      box-sizing: border-box;
+      background: url("#{$asset-path}icons/icon-arrow-down.svg") no-repeat scroll right 3px $light-grey;
+      color: $cool-grey;
+      display: block;
+      font-size: 16px;
+      padding-bottom: .6em;
+      padding-right: 20px;
+      width: 100%;
+    }
+
+    &.open .accordion-button {
+      background-image: url("#{$asset-path}icons/icon-arrow-up.svg");
+      margin-bottom: 10px;
+    }
+
+    &.open div {
+      display: block;
+    }
   }
 
-  html.yui3-js-enabled.opera-mini .tabbed-content,
-  html.yui3-js-enabled.no-svg .tabbed-content {
+  .yui3-js-enabled.opera-mini .tabbed-content,
+  .yui3-js-enabled.no-svg .tabbed-content {
     .accordion-button {
       background-image: url("#{$asset-path}icons/icon-arrow-right.png");
     }
 
-    &.open {
-      .accordion-button {
-        background-image: url("#{$asset-path}icons/icon-arrow-up.png");
-      }
+    &.open .accordion-button {
+      background-image: url("#{$asset-path}icons/icon-arrow-up.png");
     }
   }
 
-  html.yui3-js-enabled.opera-mini.tabbed-content {
+  .yui3-js-enabled.opera-mini.tabbed-content {
     .accordion-button {
       background-image: none;
       margin-bottom: 10px;
@@ -93,25 +89,25 @@ html.yui3-js-enabled {
     }
 
     .tabbed-content {
-        margin-bottom: 20px;
-        padding: 40px;
+      margin-bottom: 20px;
+      padding: 40px;
 
-        &.hide {
-          display: none;
-          opacity: 0 !important;
-        }
+      &.hide {
+        display: none;
+        opacity: 0;
+      }
 
-        .title {
-          display: block;
-        }
+      .title {
+        display: block;
+      }
 
-        div {
-          display: block;
-        }
+      div {
+        display: block;
+      }
 
-        .vertical-divider div {
-          display: table-cell;
-        }
+      .vertical-divider div {
+        display: table-cell;
+      }
 
       .accordion-button {
         display: none;
@@ -128,7 +124,7 @@ html.yui3-js-enabled {
 @media only screen and (min-width : 768px) {
 
   .tabbed-menu {
-    box-shadow: 0 -1px 10px #cfcfcf inset;
+    box-shadow: 0 -1px 10px $mid-grey inset;
     box-sizing: border-box;
     border-radius: 4px 4px 0 0;
     background: none repeat scroll 0 0 $light-grey;
@@ -152,7 +148,7 @@ html.yui3-js-enabled {
     }
 
     a {
-      color: #666;
+      color: $cool-grey;
       display: block;
       outline: none;
 
@@ -186,7 +182,7 @@ html.yui3-js-enabled {
     padding-bottom: 40px;
   }
 
-  html.yui3-js-enabled .tabbed-content.hide {
+  .yui3-js-enabled .tabbed-content.hide {
     display: none;
     opacity: 0;
   }
@@ -202,9 +198,9 @@ html.yui3-js-enabled {
     padding-left: 0;
     padding-right: 0;
   }
-  
-  html.yui3-js-enabled .arrow {
+
+  .yui3-js-enabled .arrow {
     visibility: visible;
   }
-  
+
 }
