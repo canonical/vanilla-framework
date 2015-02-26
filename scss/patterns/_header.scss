@@ -1,8 +1,10 @@
 @charset 'UTF-8';
 
-$nav-box-shadow-color: #777777;
+$nav-box-shadow-color: #777;
 $nav-border-color: #d5d5d5;
-$nav-hover-border-left: #ec5B29;
+$nav-border-left: #c64012;
+$nav-hover-border-left: #ec5b29;
+$nav-hover-bg-color: #e1662f;
 
 .banner {
   background: $ubuntu-orange;
@@ -47,7 +49,7 @@ $nav-hover-border-left: #ec5B29;
         }
 
         // the new arrow that appears if there is secondary nav when you hover over the main nav
-       li:hover ul:after {
+        li:hover ul:after {
           background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
           content: '';
           display: block;
@@ -84,7 +86,7 @@ $nav-hover-border-left: #ec5B29;
       }
 
       li a:hover {
-        background: #e1662F;
+        background: $nav-hover-bg-color;
         border-top: 0;
         box-shadow: inset 0 2px 2px -2px $nav-box-shadow-color;
       }
@@ -125,8 +127,9 @@ $nav-hover-border-left: #ec5B29;
   display: none;
   float: left;
 }
+
 .banner .nav-primary.active {
-  box-shadow: 0 1px 2px 1px rgba(120, 120, 120, 0.2);
+  box-shadow: 0 1px 2px 1px rgba(120, 120, 120, .2);
   padding: 0;
   border-bottom: 1px solid $nav-border-dark;
 }
@@ -139,7 +142,7 @@ header nav ul.active {
 .banner .nav-primary ul li a:link,
 .banner .nav-primary ul li a:visited,
 .banner .nav-primary ul li a:active {
-  border: none;
+  border: 0;
   display: block;
   padding: 0;
   margin: 0;
@@ -403,7 +406,7 @@ header nav ul.active {
 
 } // .banner
 
-html.no-svg, .opera-mini {
+.no-svg, .opera-mini {
   .banner .nav-primary.nav-right .logo-ubuntu {
     background-image: url("#{$asset-path}logos/logo-ubuntu-white.png");
   }
@@ -427,7 +430,7 @@ html.no-svg, .opera-mini {
   
 } // end @@media only screen and (max-width: 295px)
 
-html.no-svg, 
+.no-svg, 
 .opera-mini {
   .banner .logo-ubuntu {
     background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
@@ -747,13 +750,13 @@ html.no-svg,
       }
       
       &.open {
-        ul.breadcrumb li a:after,
-        ul.breadcrumb li a:link:after,
-        ul.breadcrumb li a:visited:after {
+        .breadcrumb li a:after,
+        .breadcrumb li a:link:after,
+        .breadcrumb li a:visited:after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
         
-        ul.breadcrumb li .after {
+        .breadcrumb li .after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
       }
@@ -765,25 +768,25 @@ html.no-svg,
   }
 
   .no-svg, .opera-mini {
-    .nav-secondary ul.breadcrumb {
+    .nav-secondary .breadcrumb {
       li .after {
         background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
       }
       
       &.open {
-        ul.breadcrumb li a:after,
-        ul.breadcrumb li a:link:after,
-        ul.breadcrumb li a:visited:after {
+        .breadcrumb li a:after,
+        .breadcrumb li a:link:after,
+        .breadcrumb li a:visited:after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
         
-        ul.breadcrumb li .after{
+        .breadcrumb li .after{
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
       }
     }
     
-    .banner .nav-primary #google-appliance-search-form button[type="submit"] {
+    .banner .nav-primary .header-search button {
       background-image: url("#{$asset-path}search-black.png");
     }
   }
@@ -840,7 +843,7 @@ html.no-svg,
   }
 
   .banner .nav-primary ul li {
-    border-left: 1px solid #c64012;
+    border-left: 1px solid $nav-border-left;
   }
 
   .banner .nav-primary ul li a:active,
@@ -851,16 +854,16 @@ html.no-svg,
   }
   
   .banner .nav-primary ul li:last-child {
-    border-right: 1px solid #c64012;
-    border-left: 1px solid #c64012;
+    border-right: 1px solid $nav-border-left;
+    border-left: 1px solid $nav-border-left;
   }
   
-  .banner .nav-primary ul li a.active {
+  .banner .nav-primary ul li .active {
     background-color: #b83A10;
   }
   
   .banner .nav-primary ul li a:hover {
-    background-color: #e1662F;
+    background-color: $nav-hover-bg-color;
   }
 
   .nav-secondary {
