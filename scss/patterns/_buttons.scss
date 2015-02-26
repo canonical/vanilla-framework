@@ -18,11 +18,13 @@ form [type="submit"] {
   @include font-size (16);
   box-sizing: border-box;
   border-radius: 3px;
+  border: none;
   background: $ubuntu-orange;
   color: $white;
   text-decoration: none;
   display: inline-block;
   margin: 0;
+  outline: none;
   font-family: Ubuntu, Arial, 'libra sans', sans-serif;
   font-weight: 300;
   font-smoothing: subpixel-antialiased;
@@ -91,7 +93,7 @@ form .cta-canonical[type="submit"] {
 }
 
 /// Medium breakpoint
-@media only screen and ($breakpoint-medium) {
+@media only screen and (min-width : 768px)  {
   .link-cta-ubuntu,
   .link-cta-canonical,
   .link-cta-inverted,
@@ -103,7 +105,7 @@ form .cta-canonical[type="submit"] {
 }
 
 /// Large breakpoint
-@media only screen and ($breakpoint-large) {
+@media only screen and (min-width : 984px)  {
   .link-cta-ubuntu,
   .link-cta-canonical,
   .link-cta-inverted,
