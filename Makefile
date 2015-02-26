@@ -2,6 +2,7 @@ install:
 	@echo "Installing missing gulp deps..."
 	@type npm || curl -L https://npmjs.com/install.sh | sudo sh
 	@type gulp || sudo npm install -g gulp
+	@type gem || sudo apt install ruby-dev || echo "gem missing - please isntall manually!" && type gem
 	@type scss-lint || sudo gem install scss-lint -v 0.34.0
 
 	@npm install
