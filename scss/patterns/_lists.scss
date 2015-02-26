@@ -12,11 +12,13 @@
     padding: 10px 0;
   }
 
+  // scss-lint:disable QualifyingElement
   li:last-of-type,
   li.last-item {
     border: 0;
     padding-bottom: 0;
   }
+  // scss-lint:enable QualifyingElement
 }
 
 .list article {
@@ -54,7 +56,7 @@ nav .list a {
   padding-left: 25px;
 }
 
-html.no-svg,
+.no-svg,
 .opera-mini {
   .list-ubuntu li {
     background-image: url('#{$asset-path}patterns/tick-orange.png');
@@ -84,13 +86,13 @@ html.no-svg,
     margin-bottom: 0;
   }
 
+  // scss-lint:disable QualifyingElement
   li.last-item {
     border-bottom: 1px dotted $warm-grey;
     padding-bottom: 10px;
   }
 
-  div.last-col,
-  ul.last-col {
+  .last-col {
     margin-bottom: 20px;
 
     li.last-item {
@@ -98,6 +100,7 @@ html.no-svg,
       padding-bottom: 0;
     }
   }
+  // scss-lint:enable QualifyingElement
 }
 
 .inline {
@@ -119,10 +122,12 @@ html.no-svg,
       margin-bottom: 20px;
     }
 
+    // scss-lint:disable QualifyingElement
     li.last-item {
       border-bottom: 0;
       padding-bottom: 0;
     }
+    // scss-lint:enable QualifyingElement
   }
 
 } // end @media only screen and (max-width : 768px)
