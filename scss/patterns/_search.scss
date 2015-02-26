@@ -1,63 +1,52 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
+// scss-lint:disable IdSelector
 .header-search,
 #box-search {
   padding: 7px 0 7px 14px;
   overflow: hidden;
 
-  input[type="search"],
-  input[type="text"] {
+  [type="search"],
+  [type="text"] {
     -webkit-appearance: none;
-    box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
     box-sizing: border-box;
     border-radius: 4px;
     transition: all .5s ease-out;
-    background-color: #be3d00;
-    border: none;
+    background-color: darken($ubuntu-orange, 10%);
+    border: 0;
     color: $white;
     display: block;
     float: left;
     font-size: 16px;
     height: 2.1em;
     margin-bottom: 0;
-    padding: 0.5em 2.5em 0.5em 0.5em;
+    padding: .5em 2.5em .5em .5em;
     width: 100%;
   }
-  
-  // User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
-  // So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
-  ::-webkit-input-placeholder {
-    color: white;
-    opacity: 0.4;
-  }
-  ::-webkit-input-placeholder {
-    color: white;
-    opacity: 0.4;
+
+  /// User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
+  /// So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
+  placeholder {
+    color: $white;
+    opacity: .4;
   }
 
-  ::-moz-placeholder {
-    color: white;
-    opacity: 0.4;
-  }
-
-  :-ms-input-placeholder {
-    color: white;
-    opacity: 0.4;
-  }
-
-  input:-moz-placeholder {
-    color: white;
-    opacity: 0.4;
+  input:placeholder {
+    color: $white;
+    opacity: .4;
   }
 
   ::placeholder {
-      color: white;
-      opacity: 0.4;
+    color: $white;
+    opacity: .4;
   }
 
-  input[type="search"]:focus { background-color: #a63603; }
+  [type="search"]:focus {
+    background-color: darken($ubuntu-orange, 14%);
+  }
 
-  button[type=submit] {
+  [type=submit] {
     padding: 3px 2px;
     line-height: 0;
     float: left;
@@ -65,7 +54,7 @@
     display: block;
     background: none;
     overflow: visible;
-    
+
     &:hover { background: none; }
 
     img {
@@ -75,9 +64,8 @@
   }
 }
 
-header.banner .search-toggle {
+.banner .search-toggle {
   background-size: 20px 20px;
-  background-image: url('#{$asset-path}search_icon_white_64.png');
   background-image: url('#{$asset-path}search.svg');
   background-position: center center;
   background-repeat: no-repeat;
@@ -92,20 +80,20 @@ header.banner .search-toggle {
   width: 24px;
 }
 
-.search-toggle:link, 
+.search-toggle:link,
 .search-toggle:active {
   outline: none;
 }
 
 #box-search,
 .header-search {
-  background: #f0f0f0;
+  background: $light-grey;
   border: 0;
   display: none;
   float: left;
   margin-bottom: 0;
   position: relative;
-  margin: 0 0 -1px 0;
+  margin: 0 0 -1px;
   padding: 0;
   width: 100%;
   z-index: 3;
@@ -117,22 +105,22 @@ header.banner .search-toggle {
 
 #box-search div,
 .header-search div {
-  box-shadow:  inset 0 -4px 4px -4px rgba(0, 0, 0, .3), inset 0  5px 5px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 -4px 4px -4px rgba(0, 0, 0, .3), inset 0  5px 5px -5px rgba(0, 0, 0, .3);
   background: $nav-bg;
   margin: 10px;
   position: relative;
   z-index: 1;
 }
 
-#box-search form input[type="search"],
-.header-search form input[type="search"] {
+#box-search form [type="search"],
+.header-search form [type="search"] {
   @include font-size (16);
   border-radius: 4px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset, 0 -1px 3px rgba(0, 0, 0, 0.2) inset, 0 2px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3) inset, 0 -1px 3px rgba(0, 0, 0, .2) inset, 0 2px 0 rgba(255, 255, 255, .4);
   box-sizing: border-box;
   background: $white;
   border: 0;
-  color: #333;
+  color: $cool-grey;
   font-size: 16px;
   height: auto;
   margin: 0;
@@ -157,16 +145,18 @@ header.banner .search-toggle {
     width: 100%;
   }
 }
+// scss-lint:enable IdSelector
 
 @media only screen and (max-width : 768px) {
 
-  header.banner {
+  .banner {
     .search-toggle {
       right: 48px;
     }
   }
 
-  html.no-svg, .opera-mini {
+  .no-svg,
+  .opera-mini {
     .search-toggle {
       background-image: url("#{$asset-path}search-white.png");
     }
@@ -176,157 +166,159 @@ header.banner .search-toggle {
 
 @media only screen and (min-width : 768px) {
 
-  header.banner .search-toggle {
+  .banner .search-toggle {
     display: none;
   }
 
 } // @media only screen and (min-width : 768px)
 
 @media only screen and (min-width : 960px) {
+// scss-lint:disable IdSelector
   #box-search,
-    .header-search {
-      background: none;
-      overflow:hidden;
-      padding: 7px 0 7px 14px;
-      border-right: 0 none;
-      float: right;
-      margin-bottom: 0;
-      padding-bottom: 5px;
-      padding-right: 0;
-      padding-top: 7px;
-      max-width: 220px;
-  
-    form input[type="text"],
-    form input[type="search"] {
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) inset;
+  .header-search {
+// scss-lint:enable IdSelector
+    background: none;
+    overflow: hidden;
+    padding: 7px 0 7px 14px;
+    border-right: 0 none;
+    float: right;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+    padding-right: 0;
+    padding-top: 7px;
+    max-width: 220px;
+
+    form [type="text"],
+    form [type="search"] {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .4) inset;
       box-sizing: content-box;
-      background: url("#{$asset-path}icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 #BE3D00;
-      border: 6px solid #DE6532;
+      background: url("#{$asset-path}icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 darken($ubuntu-orange, 10%);
+      border: 6px solid darken($ubuntu-orange, 12%);
       border-width: 0 0 1px;
       color: $white;
-      font-size: 0.813em;
+      font-size: .813em;
       height: 24px;
       margin-bottom: 0;
       padding: 4px 4px 4px 30px;
-      transition: all 0.5s ease 0s;
+      transition: all .5s ease 0s;
       width: 86px;
     }
   }
 } // @media only screen and (min-width : 769px)
 
 @media only screen and (max-width : 960px) {
-  header.banner nav.nav-primary {
+  .banner .nav-primary .header-search {
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
 
-    .header-search {
-      padding: 0;
-      position: relative;
-      top: 0;
-      width: 100%;
+    [type="search"] {
+      border-radius: 0;
+      background: $light-grey;
+      color: $cool-grey;
+    }
 
-      input[type="search"] {
-        border-radius: 0;
-        background: $light_grey;
-        color: #333;
-      }
-      button[type="submit"] {
-        width: 32px;
-        height: 38px;
-        background: url('#{$asset-path}search-black.svg') no-repeat scroll center center transparent;
-        background-size: 28px 28px;
+    [type="submit"] {
+      width: 32px;
+      height: 38px;
+      background: url('#{$asset-path}search-black.svg') no-repeat scroll center center $transparent;
+      background-size: 28px 28px;
 
-        img {
-          max-width: none;
-          display: none;
-        }
+      img {
+        max-width: none;
+        display: none;
       }
     }
-    .header-search.open {
+
+    &.open {
       display: block;
     }
+  }
 
-   }
+  .banner .search-toggle {
+    background-image: url("#{$asset-path}search-white.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 25px auto;
+    cursor: pointer;
+    right: 0;
+    display: block;
+    height: 48px;
+    position: absolute;
+    text-indent: -99999px;
+    width: 48px;
+  }
 
-  header.banner {
-    .search-toggle {
-      background-image: url("#{$asset-path}search-white.svg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 25px auto;
-      cursor: pointer;
-      right: 0;
-      display: block;
-      height: 48px;
-      position: absolute;
-      text-indent: -99999px;
-      width: 48px;
+  .no-svg,
+  .opera-mini {
+    .banner .search-toggle {
+      background-image: url("#{$asset-path}img/search-white.png");
     }
-   }
-
-  html.no-svg, .opera-mini {
-    header.banner .search-toggle { background-image: url("#{$asset-path}img/search-white.png"); }
   }
 
   .opera-mini {
-    x:-o-prefocus, header.banner .search-toggle {
+    x:-o-prefocus,
+    .banner .search-toggle {
       background-size: 25px auto;
     }
   }
 }
 
 @media only screen and (min-width: 984px) {
+// scss-lint:disable IdSelector
   #box-search,
   .header-search {
+// scss-lint:enable IdSelector
     display: block;
     margin-right: 0;
 
-    input[type="search"],
-    input[type="text"] {
-    }
-    
-    form input[type="text"]:focus {
+    form [type="text"]:focus {
       width: 160px;
     }
   }
-} // @media only screen and (min-width: 984px)
+}
 
 @media only screen and (max-width : 768px) {
-
-  header.banner .search-toggle {
+  .banner .search-toggle {
     right: 48px;
   }
+}
 
-} // @media only screen and (min-width : 768px)
-
-// search results
-body.ubuntu-search,
-body.search-results,
-body.search-no-results {
+/// search results
+.ubuntu-search,
+.search-results,
+.search-no-results {
   .nav-secondary {
     display: none;
   }
-  section > h1, 
+
+  section > h1,
   section article h1 {
     padding-bottom: 10px;
     font-size: 1.438em;
     margin-bottom: 0;
   }
+
   section > h1 {
-    border-bottom: 1px dotted #dfdcd9;
+    border-bottom: 1px dotted $mid-grey;
   }
+
   .main-search {
     padding: 20px 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
     background-color: transparent;
 
-    input[type="search"] {
+    [type="search"] {
       float: left;
       width: 100%;
       font-size: 2em;
-      border: 1px solid #999;
+      border: 1px solid $warm-grey;
       box-sizing: border-box;
-      padding: 0.2em 65px 0.2em 0.2em;
+      padding: .2em 65px .2em .2em;
     }
-    button[type=submit] {
+
+    [type=submit] {
       padding: 4px;
       line-height: 0;
       float: left;
@@ -336,32 +328,36 @@ body.search-no-results {
       overflow: visible;
       width: auto;
       margin-top: -4px;
-      
-      &:hover {
-        background: none;
-      }
-    
+// scss-lint:disable NestingDepth
       img {
         height: 45px;
         width: 45px;
       }
+// scss-lint:enable NestingDepth
+    }
+
+    [type=submit]:hover {
+      background: none;
     }
   }
 
   .search-result h1 .title-main {
     margin-right: 20px;
   }
+
   .search-result h1 .result-url {
-    color: #999;
+    color: $warm-grey;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     vertical-align: bottom;
     padding-bottom: 2px;
+
+    a {
+      color: $warm-grey;
+    }
   }
-  .search-result h1 .result-url a {
-    color: #999;
-  }
+
   .search-result p {
     margin-bottom: 0;
   }
@@ -382,73 +378,79 @@ body.search-no-results {
   .bottom-nav {
     overflow: hidden;
     margin-top: -26px;
+
+    ul {
+      margin-bottom: 0;
+      margin-left: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+
+    li:first-child {
+      margin-left: 0;
+    }
   }
-  .bottom-nav ul {
-    margin-bottom: 0;
-    margin-left: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  .bottom-nav li {
-    float: left;
-    margin-left: 15px;
-  }
-  .bottom-nav li:first-child {
-    margin-left: 0;
-  }
+
   .nav-back {
     float: left;
+
+    li:before {
+      content: '\2039'; /* left chevron &lsaquo; */
+      color: $ubuntu-orange;
+      margin-right: 5px;
+    }
+
+    .item-extreme:before {
+      content: '\2039\2039'; /* double left chevron &lsaquo; */
+    }
   }
-  .nav-back li:before {
-    content: "\2039"; /* left chevron &lsaquo; */
-    color: $ubuntu_orange;
-    margin-right: 5px;
-  }
-  .nav-back li.item-extreme:before {
-    content: "\2039\2039"; /* double left chevron &lsaquo; */
-  }
+
   .nav-forward {
     float: right;
+
+    li:after {
+      content: '\203A'; /* right chevron&nbsp;&rsaquo; */
+      color: $ubuntu-orange;
+      margin-left: 5px;
+    }
+
+    .item-extreme:after {
+      content: '\203A\203A'; /* double right chevron&nbsp;&rsaquo; */
+    }
   }
-  .nav-forward li:after {
-    content: "\203A"; /* right chevron&nbsp;&rsaquo; */
-    color: $ubuntu_orange;
-    margin-left: 5px;
-  }
-  .nav-forward li.item-extreme:after {
-    content: "\203A\203A"; /* double right chevron&nbsp;&rsaquo; */
-  }
-  
+
   .error-notification {
-    background-color: #fdffdc;
-    color: #333;
+    background-color: $white;
+    color: $cool-grey;
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
     margin-top: 20px;
     display: block;
   }
-  
+
   .result-line {
-    color: #ada69e;
+    color: $warm-grey;
   }
+
   .results-top {
-    border-bottom: 1px dotted #dfdcd9;
-    padding-bottom: 0.5em;
+    border-bottom: 1px dotted $mid-grey;
+    padding-bottom: .5em;
   }
-  
+
   .search-container {
     padding-bottom: 0;
   }
 }
 
 @media only screen and (min-width : 768px) {
-  .ubuntu-search {
-    .main-search {
-      button[type=submit] {
-        margin-left: -60px;
-        margin-top: 0;
-      }
-    }
+  .ubuntu-search .main-search [type=submit] {
+    margin-left: -60px;
+    margin-top: 0;
   }
 } /* end @media only screen and (min-width : 768px) */
