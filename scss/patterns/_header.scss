@@ -1,20 +1,41 @@
 @charset 'UTF-8';
 
-$nav-box-shadow-color: #777;
-$nav-border-color: #d5d5d5;
-$nav-border-left: #c64012;
-$nav-hover-border-left: #ec5b29;
-$nav-hover-bg-color: #e1662f;
+// scss-lint:disable NestingDepth, IdSelector
+
+$nav-box-shadow-color:  #777 !default;
+$nav-border-color:      #d5d5d5 !default;
+$nav-border-left:       #c64012 !default;
+$nav-hover-border-left: #ec5b29 !default;
+$nav-hover-bg-color:    #e1662f !default;
+$nav-active-bg-color:   #b83a10 !default;
 
 .banner {
-  background: $brand-color;
   border-top: 0;
-  display: block;
   min-width: 100%;
+  width: auto;
+  background: $brand-color;
+  display: block;
   position: relative;
   z-index: 2;
-  width: auto;
-
+  
+  h2 {
+    @include font-size (25);
+    display: block;
+    left: 4px;
+    margin-bottom: 0;
+    position: relative;
+    text-transform: lowercase;
+    top: 14px;
+    
+    a:link, 
+    a:visited, 
+    a {
+      color: $white;
+      float: left;
+      text-decoration: none;
+    }
+  }
+  
   .nav-primary {
     border: 0;
     margin: 0 auto;
@@ -27,161 +48,297 @@ $nav-hover-bg-color: #e1662f;
       position: static;
 
       li {
+        border-bottom: 1px solid $nav-border-light;
         border-left: 1px solid darken($brand-color, 5%);
         float: left;
+        font-size: 16px;
         list-style-image: none;
         margin: 0;
         text-indent: 0;
         vertical-align: bottom;
 
-        ul {
-          background: $light-grey;
-          box-shadow: 0 2px 2px -1px $nav-box-shadow-color;
-          border-radius: 10px;
-          border: 1px solid $nav-border-color;
-          display: none;
-          float: none;
-          margin: 0;
-          padding: 5px 0;
-          position: absolute;
-          top: 51px;
-          width: 200px;
-        }
 
-        // the new arrow that appears if there is secondary nav when you hover over the main nav
-        li:hover ul:after {
-          background: url("#{$asset-path}patterns/arrow-up-smaller.png") no-repeat;
-          content: '';
+        &:last-child {
+          border-right: 1px solid darken($brand-color, 5%);
+        }
+  
+        a:link,
+        a:visited {
+          font-size: 14px;
+          border-left: 1px solid lighten($brand-color, 7%);
+          color: $white;
           display: block;
-          height: 8px;
-          left: 20px;
+          margin-bottom: 0;
+          padding: 14px 14px 13px;
           position: relative;
-          top: -13px;
-          width: 200px;
-          z-index: 999;
+          text-align: center;
+          text-decoration: none;
+          font-smoothing: subpixel-antialiased;
+        }
+  
+        .active {
+          background: $nav-active-bg-color;
+          border-left: 1px solid lighten($brand-color, 7%);
+        }
+
+        a:hover {
+          border-top: 0;
+          box-shadow: none;
+          background-color: $nav-hover-bg;
+        }
+                
+        li:last-child {
+          border: 0;
         }
       }
 
-      li:last-child {
-        border-right: 1px solid darken($brand-color, 5%);
-      }
-
-      li a:link,
-      li a:visited {
-        border-left: 1px solid lighten($brand-color, 7%);
-        color: $white;
-        display: block;
-        font-size: 14px;
-        font-smoothing: subpixel-antialiased;
-        margin-bottom: 0;
-        padding: 14px 14px 13px;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-      }
-
-      a.active {
-        background: #b83A10;
-        border-left: 1px solid lighten($brand-color, 7%);
-      }
-
-      li a:hover {
-        background: $nav-hover-bg-color;
-        border-top: 0;
-        box-shadow: inset 0 2px 2px -2px $nav-box-shadow-color;
-      }
     } // end ul
+    
+    &.active {
+      border-bottom: 1px solid $nav-border-dark;
+      box-shadow: 0 1px 2px 1px rgba(120, 120, 120, .2);
+      padding: 0;
+    }
+
+    ul li,
+    ul li a:link,
+    ul li a:visited,
+    ul li a:active {
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+        
+    ul li a:link,
+    ul li a:visited,
+    ul li a:hover,
+    ul li a:active {
+      padding: 14px 14px 13px;
+      text-align: left;
+    }
+    
+    .active li ul {
+      display: none;
+    }
+  
+    &.nav-left {
+      .logo-ubuntu {
+        float: right;
+      }
+    }
+
+    &.nav-right {
+      .logo-ubuntu {
+        background-image: url('#{$asset-path}logos/logo-ubuntu-white.svg');
+        background-size: 107px 25px;
+        float: left;
+      }
+    }
+    
+    li ul {
+      box-shadow: 0 2px 2px -1px $nav-box-shadow-color;
+      border-radius: 10px;
+      background: $light-grey;
+      border: 1px solid $nav-border-color;
+      display: none;
+      float: none;
+      margin: 0;
+      padding: 5px 0;
+      position: absolute;
+      top: 51px;
+      width: 200px;
+
+      .promo {
+        border-top: 1px solid $nav-border-color;
+        float: left;
+        margin-top: 5px;
+        padding: 15px 0 0;
+        
+        .category {
+          color: $warm-grey;
+          font-size: 11px;
+          margin: 0 10px;
+          text-transform: uppercase;
+        }
+        
+        img {
+          margin-top: 14px;
+          margin-bottom: -6px;
+          border-radius: 0 0 10px 10px;
+          position: relative;
+          top: 1px;
+        }
+        
+        a:hover {
+          box-shadow: none;
+          color: $brand-color;
+        }
+        
+        p { 
+          margin: 0 10px; 
+        }
+      }
+      
+      li {
+        border: 0;
+        float: none;
+
+        a:link,
+        a:visited {
+          border: 0;
+          color: $warm-grey;
+          padding: 0 0 11px 14px;
+          text-align: left;
+          width: 170px;
+        }
+        
+        a:hover {
+          background: none repeat scroll 0 0 $transparent;
+          box-shadow: none;
+          color: $brand-color;
+        }
+
+      }
+        
+      // the old arrow that appears if there is secondary nav when you hover over the main nav
+      .arrow-up {
+        display: none;
+      }
+      
+      .first a:link,
+      .first a:visited,
+      :first-of-type a:link {
+        padding: 10px 14px;
+      }
+      
+      .active a:link,
+      .active a:visited {
+        background: none;
+      }
+
+    } // end ul
+    
+    // the new arrow that appears if there is secondary nav when you hover over the main nav
+    li:hover ul:after {
+      background: url('#{$asset-path}patterns/arrow-up-smaller.png') no-repeat;
+      content: '';
+      display: block;
+      height: 8px;
+      left: 20px;
+      position: relative;
+      top: -13px;
+      width: 200px;
+      z-index: 999;
+    }
+    
+        
+    li ul .promo a:link,
+    li ul .promo a:visited {
+      background: none repeat scroll 0 0 $transparent;
+      border-left: 0 none;
+      color: $warm-grey;
+      height: auto;
+      padding: 0;
+      text-align: left;
+    }
+                  
+    li:hover ul { 
+      display: block; 
+    }
+    
   } // nav-primary
 
-} // end header.banner
+  .nav-toggle {
+    background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 25px auto;
+    cursor: pointer;
+    display: block;
+    height: 48px;
+    position: absolute;
+    right: 0;
+    text-indent: -99999px;
+    width: 48px;
+  }
+  
+  .no-script {
+    display: none;
+  }
+  
+  nav ul {
+    background-color: $nav-bg;
+    display: none;
+    float: left;
+  }
+  
+  .logo {
+    border-left: 0;
+    float: left;
+    height: 48px;
+    overflow: hidden;
+  }
 
+  .logo-ubuntu {
+    background: url('#{$asset-path}ubuntu-logo.png') no-repeat scroll 0 10px $transparent;
+    display: inline-block;
+    float: left;
+    font-size: 18px;
+    height: 32px;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: -20px;
+    min-width: 128px;
+    padding: 7px 14px 9px 0;
+    position: relative;
+    text-transform: lowercase;
 
-// Responsive header navigation
-#main-navigation-link { display: none; }
+    img {
+      margin-right: 8px;
+      position: absolute;
+      left: -999em;
+    }
 
-.banner .nav-toggle {
-  background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 25px auto;
-  cursor: pointer;
-  display: block;
-  height: 48px;
-  position:absolute;
-  right: 0;
-  text-indent: -99999px;
-  width: 48px;
+    span {
+      float: left;
+      font-size: 23px;
+      font-weight: 300;
+      padding-left: 122px;
+      padding-right: 20px;
+      position: relative;
+      top: 5px;
+    }
+
+  }
+    
+} // end .banner
+
+// show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
+.no-generatedcontent .banner .nav-primary li ul {
+  border-radius: 0 0 10px 10px;
+  top: 48px;
 }
 
-.banner .no-script {
-  display: none;
+// Responsive header navigation
+#main-navigation-link { 
+  display: none; 
 }
 
 .opera-mini .banner .nav-toggle,
 .no-svg .banner .nav-toggle {
-  background-image: url(#{$asset-path}icons/navigation-menu-plain.png);
+  background-image: url('#{$asset-path}icons/navigation-menu-plain.png');
 }
 
-.banner nav ul {
-  background-color: $nav-bg;
-  display: none;
-  float: left;
-}
-
-.banner .nav-primary.active {
-  box-shadow: 0 1px 2px 1px rgba(120, 120, 120, .2);
-  padding: 0;
-  border-bottom: 1px solid $nav-border-dark;
-}
-
-header nav ul.active {
+header nav .active {
   display: block;
-}
-
-.banner .nav-primary ul li,
-.banner .nav-primary ul li a:link,
-.banner .nav-primary ul li a:visited,
-.banner .nav-primary ul li a:active {
-  border: 0;
-  display: block;
-  padding: 0;
-  margin: 0;
-}
-
-.banner .nav-primary ul li a:hover {
-  background-color: $nav-hover-bg;
-  box-shadow: none;
-}
-.banner .nav-primary ul li a.active {
-  background-color: $nav-active-bg;
-}
-
-.banner .nav-primary ul li {
-  border-bottom: 1px solid #F2F2F4;
-  font-size: 16px;
-}
-
-.banner .nav-primary ul li:last-child {
-  border: 0;
-}
-
-.banner .nav-primary ul li a:link,
-.banner .nav-primary ul li a:visited,
-.banner .nav-primary ul li a:hover,
-.banner .nav-primary ul li a:active {
-  padding: 14px 14px 13px;
-  text-align: left;
-}
-
-.banner .nav-primary ul.active li ul {
-  display: none;
 }
 
 #menu.active:after {
-  background-image: url(#{$asset-path}patterns/nav-arrow.svg);
+  background-image: url('#{$asset-path}patterns/nav-arrow.svg');
   background-repeat: no-repeat;
   background-position: 50% 26px;
-  content: "";
+  content: '';
   display: block;
   height: 23px;
   margin-left: 0;
@@ -192,16 +349,26 @@ header nav ul.active {
   z-index: 999;
 }
 
-.no-svg,
+.no-svg, 
 .opera-mini {
+  
   #menu.active:after {
-    background-image: url(#{$asset-path}patterns/nav-arrow.png);
+    background-image: url('#{$asset-path}patterns/nav-arrow.png');
   }
+  
+  .banner .nav-primary.nav-right .logo-ubuntu {
+    background-image: url('#{$asset-path}logos/logo-ubuntu-white.png');
+  }
+  
+  .banner .logo-ubuntu {
+    background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
+  }
+
 } // End responsive navigation
 
-/* nav-secondary */
+// nav-secondary
 .nav-secondary {
-  border-bottom: 1px solid #dfdcd9;
+  border-bottom: 1px solid $mid-grey;
   margin-bottom: 0;
 
 
@@ -218,7 +385,7 @@ header nav ul.active {
 
       a:link,
       a:visited {
-        color: #333;
+        color: $warm-grey;
         font-size: 14px;
         float: left;
       }
@@ -231,14 +398,15 @@ header nav ul.active {
     }
 
     li,
-    li.active a:link,
-    li.active a:visited {
+    .active a:link,
+    .active a:visited {
       color: $brand-color;
       text-decoration: none;
     }
-  }
-
-  ul.breadcrumb {
+    
+  } // end ul
+  
+  .breadcrumb {
     margin-left: 20px;
 
     li,
@@ -248,167 +416,10 @@ header nav ul.active {
       margin-right: 8px;
     }
 
-    li.active a:link,
-    li.active a:visited {
+    .active a:link,
+    .active a:visited {
       color: $brand-color;
     }
-  }
-}
-
-.banner h2 {
-  @include font-size (25);
-  display: block;
-  left: 4px;
-  margin-bottom:0;
-  position: relative;
-  text-transform: lowercase;
-  top: 14px;
-}
-
-.banner h2 a:link,
-.banner h2 a:visited,
-.banner a {
-  color: $white;
-  float: left;
-  text-decoration:none;
-}
-
-.banner {
-  .nav-primary li:hover ul {
-    display: block;
-  }
-
-  .logo {
-    border-left: 0;
-    float: left;
-    height: 48px;
-    overflow: hidden;
-  }
-
-  .logo-ubuntu {
-    background: url("#{$asset-path}ubuntu-logo.png") no-repeat scroll 0 10px transparent;
-    display: inline-block;
-    float: left;
-    font-size: 18px;
-    height: 32px;
-    text-transform: lowercase;
-    margin: 0;
-    margin-right: -20px;
-    margin-left: 10px;
-    min-width: 128px;
-    padding: 7px 14px 9px 0;
-    position: relative;
-
-    img {
-      left: -999em;
-      margin-right: 8px;
-      position: absolute;
-    }
-
-    span {
-      float: left;
-      font-size: 23px;
-      font-weight: 300;
-      padding-left: 122px;
-      padding-right: 20px;
-      position: relative;
-      top: 5px;
-    }
-
-  }
-
-  .nav-primary.nav-left {
-    .logo-ubuntu {
-      float: right;
-    }
-  }
-
-  .nav-primary.nav-right {
-    .logo-ubuntu {
-      background-image: url("#{$asset-path}logos/logo-ubuntu-white.svg");
-      background-size: 107px 25px;
-      float: left;
-    }
-  }
-  .nav-primary li ul .arrow-up {
-    display: none;
-  }
-
-  .nav-primary li ul li {
-    border: 0;
-    float: none;
-  }
-
-  .nav-primary li ul li a:link,
-  .nav-primary li ul li a:visited {
-    border: 0;
-    color: #333333;
-    padding: 0 0 11px 14px;
-    text-align: left;
-    width: 170px;
-  }
-
-  .nav-primary li ul li a:hover {
-    background: none repeat scroll 0 0 transparent;
-    box-shadow: none;
-    color: #DD4814;
-  }
-
-  .nav-primary li ul li.first a:link,
-  .nav-primary li ul li.first a:visited,
-  .nav-primary li ul li:first-of-type a:link {
-    padding: 10px 14px;
-  }
-
-  .nav-primary li ul li.active a:link,
-  .nav-primary li ul li.active a:visited {
-    background: none repeat scroll 0 0 transparent !important;
-  }
-
-  .nav-primary li ul .promo {
-    border-top: 1px solid $nav-border-color;
-    float: left;
-    margin-top: 5px;
-    padding: 15px 0 0;
-  }
-
-  .nav-primary li ul .promo a:link,
-  .nav-primary li ul .promo a:visited {
-    background: none repeat scroll 0 0 transparent;
-    border-left: 0 none;
-    color: $cool_grey;
-    height: auto;
-    padding: 0;
-    text-align: left;
-  }
-
-  .nav-primary li ul .promo p { margin: 0 10px; }
-
-  .nav-primary li ul .promo a:hover {
-    box-shadow: none;
-    color: #DD4814;
-  }
-
-  .nav-primary li ul .promo img {
-    margin-top: 14px;
-    margin-bottom: -6px;
-    border-radius: 0 0 10px 10px;
-    position:relative;
-    top:1px;
-  }
-
-  .nav-primary li ul .promo .category {
-    color: $warm-grey;
-    font-size: 11px;
-    margin: 0 10px;
-    text-transform: uppercase;
-  }
-
-} // .banner
-
-.no-svg, .opera-mini {
-  .banner .nav-primary.nav-right .logo-ubuntu {
-    background-image: url("#{$asset-path}logos/logo-ubuntu-white.png");
   }
 }
 
@@ -418,53 +429,55 @@ header nav ul.active {
   .banner {
     .nav-primary.nav-right .logo-ubuntu,
     .logo-ubuntu {
-      background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
       background-size: 20px 20px;
+      background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
       min-width: 0;
       width: 38px;
     }
   }
+  
   .banner .logo-ubuntu span {
     padding-left: 38px;
   }
+  
+} // end @media only screen and (max-width: 295px)
 
-} // end @@media only screen and (max-width: 295px)
+/*
+ * Main navigation dropdown styles
+ */
 
-.no-svg,
-.opera-mini {
-  .banner .logo-ubuntu {
-    background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
-  }
+.lt-ie8 .banner .nav-primary li:hover ul { 
+  display: none; 
 }
 
 @media only screen and (max-width : 768px) {
   .banner .nav-primary {
-    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .2);
   }
-
+  
   .banner .nav-primary.active {
     box-shadow: none;
     padding: 0;
   }
 
-  header nav ul.active {
+  header nav .active {
     float: left;
   }
-
-  header nav ul.active li:last-child a:link,
-  header nav ul.active li:last-child a:visited {
+  
+  header nav .active li:last-child a:link,
+  header nav .active li:last-child a:visited {
     border-bottom: 0;
   }
-
+    
   .banner .nav-primary ul {
     position: relative;
     width: 100%;
   }
 
-  .banner .nav-primary ul li.active {
+  .banner .nav-primary ul .active {
     a:link,
     a:visited {
-      color: #333;
+      color: $warm-grey;
       font-weight: 700;
     }
   }
@@ -474,8 +487,8 @@ header nav ul.active {
   .banner .nav-primary ul li a:visited,
   .banner .nav-primary ul li a:active {
     box-sizing: border-box;
-    background: transparent;
-    border: none;
+    background: $transparent;
+    border: 0;
     display: block;
     font-weight: 300;
     margin: 0;
@@ -489,25 +502,25 @@ header nav ul.active {
   .banner .nav-primary ul li a:active {
     background-color: $nav-bg;
     border-bottom: 1px solid $nav-border-dark;
-    color: #333333;
+    color: $warm-grey;
     font-size: 1em;
   }
-
+  
   .banner .nav-primary ul li:nth-last-child(-n+2) a:link,
-  .banner .nav-primary ul li:nth-last-child(-n+2) a:visited  {
+  .banner .nav-primary ul li:nth-last-child(-n+2) a:visited {
     border: 0;
-  }
+  }  
 
   .banner .nav-primary ul li a:hover {
     box-shadow: none;
     background: lighten($nav_bg, 3%);
   }
-
-  .banner .nav-primary ul li a.active {
+  
+  .banner .nav-primary ul li .active {
     background-color: $nav-active-bg;
   }
 
-  .banner nav.nav-primary ul li a:link,
+  .banner .nav-primary ul li a:link,
   .banner .nav-primary ul li a:visited,
   .banner .nav-primary ul li a:hover,
   .banner .nav-primary ul li a:active {
@@ -517,7 +530,7 @@ header nav ul.active {
 
   .banner .nav-primary ul li {
     box-sizing: border-box;
-    background: transparent;
+    background: $transparent;
     border-bottom: 0;
     border-right: 1px solid $nav-border-dark;
     float: left;
@@ -527,7 +540,7 @@ header nav ul.active {
   .nav-secondary {
     background: $white;
 
-    ul.second-level-nav {
+    .second-level-nav {
       border-top: 1px solid $nav-border-dark;
       display: none;
       margin-bottom: 0;
@@ -551,20 +564,19 @@ header nav ul.active {
           padding: 10px 10px 10px 20px;
           width: 100%;
         }
-
+        
         &.active {
           a,
           a:link,
           a:visited {
-            color: #333;
+            color: $warm-grey;
             font-weight: 700;
           }
         }
-
       }
-
     } /* end .second-level-nav */
-    ul.third-level-nav {
+    
+    .third-level-nav {
       display: none;
       margin-bottom: 0;
       width: 100%;
@@ -591,7 +603,7 @@ header nav ul.active {
           a,
           a:link,
           a:visited {
-            color: #333;
+            color: $warm-grey;
             font-weight: 700;
           }
         }
@@ -604,6 +616,7 @@ header nav ul.active {
       li:only-child {
         width: 100%;
       }
+      
     } /* end third-level-nav */
 
     .breadcrumb {
@@ -620,24 +633,37 @@ header nav ul.active {
       li {
         box-sizing: border-box;
         color: $white;
-        width: 100%;
         display: block;
         height: 40px;
         margin: 0;
+        width: 100%;
+        
+        + li {
+          display: none;
+  
+          a:link,
+          a:active,
+          a:visited {
+            padding-left: 20px;
+          }
+  
+          .after {
+            background-image: none;
+          }
+        }
 
         a,
         a:link,
         a:visited {
           box-sizing: border-box;
-          font-size: 16px;
-          width: 100%;
-          color: #333333;
+          color: $warm-grey;
           display: block;
+          font-size: 16px;
           margin-right: 0;
+          padding: 8px 10px 0;
           text-decoration: none;
-          padding: 8px 10px 0 10px;
+          width: 100%;
         }
-
 
         &.active {
           margin-top: 12px;
@@ -645,10 +671,9 @@ header nav ul.active {
           a,
           a:link,
           a:visited {
-            color: #333;
+            color: $warm-grey;
             font-weight: 700;
           }
-
         }
 
         &:nth-of-type(2n) {
@@ -670,56 +695,43 @@ header nav ul.active {
           top: 0;
           width: 18px;
         }
-
-      } // end breadcrumb
-
-      li + li {
-        display: none;
-
-        a:link,
-        a:active,
-        a:visited {
-          padding-left: 20px;
-        }
-
-        a.after {
-          background-image: none;
-        }
-
       }
 
     }
 
     &.open {
-
+      
       .breadcrumb li a:after,
       .breadcrumb li a:link:after,
       .breadcrumb li a:visited:after {
         background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
       }
-
-      .breadcrumb li + li a.after {
+      
+      .breadcrumb li + li .after {
         background-image: none;
       }
-
+      
       .breadcrumb li .after {
         background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
         margin-top: -7px;
       }
-
+      
       .second-level-nav,
       .third-level-nav,
       .breadcrumb li + li {
         display: block;
       }
-
+      
     }
-
+    
   }/* end nav-secondary */
 
   .no-js {
-    .nav-secondary ul.second-level-nav { display: block; }
-
+    
+    .nav-secondary .second-level-nav { 
+      display: block; 
+    }
+    
     #main-navigation-link {
       position: absolute;
       right: 10px;
@@ -731,69 +743,81 @@ header nav ul.active {
       display: block;
 
       a {
-        background-image: url("#{$asset-path}icons/navigation-menu-plain.svg");
+        background-image: url('#{$asset-path}icons/navigation-menu-plain.svg');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 25px auto;
         display: block;
+        width: 28px;
         height: 28px;
         position: absolute;
-        width: 28px;
       }
+      
     }
+    
   }
 
-  .no-svg, .opera-mini {
-  .nav-secondary ul.breadcrumb {
+  .no-svg, 
+  .opera-mini {
+
+    .nav-secondary .breadcrumb {
+    
       li .after {
         background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
       }
-
+    
       &.open {
         .breadcrumb li a:after,
         .breadcrumb li a:link:after,
         .breadcrumb li a:visited:after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
-
+        
         .breadcrumb li .after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
-      }
-    }
+      } // end .open
 
-    .banner .nav-primary #google-appliance-search-form button[type="submit"] {
-      background-image: url("#{$asset-path}search-black.png");
+  } // end .nav-secondary .breadcrumb
+  
+    .banner .nav-primary button {
+      background-image: url('#{$asset-path}search-black.png');
     }
+    
   }
 
-  .no-svg, .opera-mini {
+  .no-svg,
+  .opera-mini {
+    
     .nav-secondary .breadcrumb {
+      
       li .after {
         background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
       }
-
+      
       &.open {
         .breadcrumb li a:after,
         .breadcrumb li a:link:after,
         .breadcrumb li a:visited:after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
-
-        .breadcrumb li .after{
+        
+        .breadcrumb li .after {
           background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
         }
+        
       }
+      
     }
-
-    .banner .nav-primary .header-search button {
-      background-image: url("#{$asset-path}search-black.png");
+    
+    .banner .nav-primary button {
+      background-image: url('#{$asset-path}search-black.png');
     }
   }
 
   .banner {
     .nav-toggle {
-      background-image: url("#{$asset-path}icons/navigation-menu-plain.svg");
+      background-image: url('#{$asset-path}icons/navigation-menu-plain.svg');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 25px auto;
@@ -807,10 +831,14 @@ header nav ul.active {
     }
   }
 
-  .no-svg, .opera-mini {
+
+  .no-svg, 
+  .opera-mini {
+    
     .banner .nav-toggle {
-      background-image: url("#{$asset-path}icons/navigation-menu-plain.png");
+      background-image: url('#{$asset-path}icons/navigation-menu-plain.png');
     }
+    
   }
 
 }
@@ -830,6 +858,7 @@ header nav ul.active {
     .nav-primary {
       box-shadow: none;
       border-bottom: 0;
+
     }
   }
 
@@ -838,7 +867,7 @@ header nav ul.active {
   }
 
   .banner nav ul {
-    background-color: transparent;
+    background-color: $transparent;
     display: block;
   }
 
@@ -849,25 +878,26 @@ header nav ul.active {
   .banner .nav-primary ul li a:active,
   .banner .nav-primary ul li a:hover,
   .banner .nav-primary ul li a:visited,
-  .banner nav.nav-primary ul li a:link {
+  .banner .nav-primary ul li a:link {
     border-left: 1px solid $nav-hover-border-left;
   }
-
+  
   .banner .nav-primary ul li:last-child {
     border-right: 1px solid $nav-border-left;
     border-left: 1px solid $nav-border-left;
   }
-
+  
   .banner .nav-primary ul li .active {
-    background-color: #b83A10;
+    background-color: $nav-active-bg-color;
   }
-
+  
   .banner .nav-primary ul li a:hover {
     background-color: $nav-hover-bg-color;
   }
 
   .nav-secondary {
-    ul:last-child li:last-child {
+    
+    :last-child li:last-child {
       padding-bottom: 10px;
     }
 
@@ -886,28 +916,30 @@ header nav ul.active {
       li {
         margin-bottom: 10px;
       }
+      
     }
 
     ul {
       float: none;
       margin-bottom: 0;
-    }
-
-    ul li {
-      margin-bottom: 5px;
+      
+      li {
+        margin-bottom: 5px;
+      }
+      
     }
   }
-
 }
 
 @media only screen and (min-width: 984px) {
 
   .banner {
     margin-bottom: 20px;
-  }
-
-  .banner .nav-primary ul {
-    display: block;
+    
+    .nav-primary ul {
+      display: block;
+    }
+    
   }
 
   .banner .nav-primary,
@@ -921,11 +953,4 @@ header nav ul.active {
 
 }
 
-// show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
-.no-generatedcontent .banner .nav-primary li ul {
-  border-radius: 0 0 10px 10px;
-  top: 48px;
-}
-
-.lt-ie8 .banner .nav-primary li:hover ul { display: none; }
-
+// scss-lint:enable NestingDepth, IdSelector
