@@ -20,17 +20,27 @@ To get started and see examples go to our [design](http://design.ubuntu.com) sit
 
 ## Getting started
 
-To get started you'll need some stuff:
+Clone the repository or [download it](https://github.com/ubuntudesign/web-style-guide/archive/master.zip).
 
-- [Latest release](https://github.com/ubuntudesign/web-style-guide/archive/master.zip)
-- install [Ruby](https://www.ruby-lang.org/en/)
-- Install [Sass](http://sass-lang.com/install)
-- Install [Node.js](http://nodejs.org)
-- Install [Gulp](http://gulpjs.com)
+Install [Node.js](http://nodejs.org) (`> 2.0`):
+
+``` bash
+# On Ubuntu:
+sudo apt install nodejs nodejs-legacy
+curl -L https://npmjs.com/install.sh | sudo sh`
+```
+
+Install all other dependencies:
+
+``` bash
+npm install-dependencies
+```
 
 ## Themes
 
 ## Documentation
+
+[Documentation](/docs/).
 
 ## Contributing
 
