@@ -164,7 +164,7 @@ html {
 
 body {
   background: url('#{$asset-path}backgrounds/image-background-paper.png') repeat-y center top $light-grey;
-  color: #333;
+  color: $cool-grey;
   font-family: Ubuntu, Arial, 'libra sans', sans-serif;
   font-weight: 300;
 }
@@ -231,7 +231,7 @@ a:focus {
   text-decoration: underline;
 }
 
-a.link-arrow:after {
+.link-arrow:after {
   content: '\0000a0›';
 }
 
@@ -406,7 +406,7 @@ li:last-of-type {
 }
 
 ins {
-  background: #fffbeb;
+  background: $code-bg;
   text-decoration: none;
 }
 
@@ -433,11 +433,6 @@ sub {
 
 dfn {
   font-style: italic;
-}
-
-mark {
-  background: #ff0;
-  color: #000;
 }
 
 code,
@@ -516,14 +511,14 @@ textarea {
 form fieldset {
   border-radius: 4px;
   background-repeat: no-repeat;
-  background-color: #efeeec;
+  background-color: $mid-grey;
   background-position: -15px -15px;
   border: 0;
   margin-bottom: 8px;
   padding: 15px 20px;
 
   h3 {
-    border-bottom: 1px dotted #dfdcd9;
+    border-bottom: 1px dotted $mid-grey;
     margin-bottom: 9px;
     padding-bottom: 10px;
   }
@@ -539,7 +534,7 @@ form input[type='tel'],
 form textarea {
   border-radius: 2px;
   background-color: $white;
-  border: 1px solid #999;
+  border: 1px solid $warm-grey;
   display: block;
   font-family: Ubuntu, Arial, 'libra sans', sans-serif;
   font-size: 1em;
@@ -549,10 +544,12 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border: 1px solid #dd4814;
+  border: 1px solid $ubuntu-orange;
  }
 
-form textarea[readonly='readonly'] { color: #999; }
+form textarea[readonly='readonly'] {
+  color: $warm-grey;
+}
 
 form input[type='checkbox'],
 form input[type='radio'] {
@@ -572,7 +569,7 @@ form input[type='submit'] {
   @include font-size (16);
   border-radius: 4px;
   background-color: $ubuntu-orange;
-  background-image: linear-gradient(#f26120, $ubuntu-orange);
+  background-image: linear-gradient(lighten($ubuntu-orange, 10%), $ubuntu-orange);
   box-shadow: none;
   border: 0;
   color: $white;
@@ -632,7 +629,7 @@ table {
   th,
   td {
     padding: 15px 10px;
-    background: #f0edea;
+    background: $light-grey;
     border: 1px dotted $warm-grey;
   }
 
@@ -644,7 +641,7 @@ table {
   thead th {
     border-collapse: separate;
     border-spacing: 0 10px;
-    background: #fee3d2;
+    background: $table-th;
     color: $cool-grey;
     font-weight: normal;
   }
