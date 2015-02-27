@@ -25,7 +25,7 @@ To get started you'll need some stuff:
 - [Latest release](https://github.com/ubuntudesign/web-style-guide/archive/master.zip)
 - install [Ruby](https://www.ruby-lang.org/en/)
 - Install [Sass](http://sass-lang.com/install)
-- Install [Node.js](http://nodejs.org)
+- Install [Node.js](http://nodejs.org) (`curl -L https://npmjs.com/install.sh | sudo sh`)
 - Install [Gulp](http://gulpjs.com)
 
 ## Themes
