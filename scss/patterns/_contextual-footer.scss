@@ -1,8 +1,8 @@
 @charset 'UTF-8';
 
 #context-footer {
-  box-sizing: border-box;
   @include font-size (14);
+  box-sizing: border-box;
   border-bottom: 0;
   clear: both;
   padding-bottom: 1px;
@@ -14,7 +14,7 @@
   width: 100%;
 
   hr {
-    box-shadow: inset 0 2px 2px -2px #333;
+    box-shadow: inset 0 2px 2px -2px $cool-grey;
     background: $ubuntu-orange;
     height: 14px;
     margin: 0 0 10px;
@@ -22,7 +22,7 @@
     clear: both;
   }
 
-  div.twelve-col {
+  .twelve-col {
     display: table;
     float: none;
     margin-bottom: 7px;
@@ -56,10 +56,10 @@
 
   ul {
     margin-bottom: 5px;
-  }
 
-  li.active {
-    display: none;
+    .active {
+      display: none;
+    }
   }
 
   h3 {
@@ -81,24 +81,26 @@
     padding-left: 30px;
     padding-right: 30px;
 
-    div + div {
-      width: 31%;
-    }
+    div {
 
-    div div.feature-four {
-      padding-bottom: 20px;
+      + div {
+        width: 31%;
+      }
+
+      .feature-four {
+        padding-bottom: 20px;
+      }
     }
 
     hr {
       margin: 0 -30px 40px;
     }
 
-    & > div {
+    > div {
       padding-left: 0;
       padding-right: 0;
     }
   }
-
 } // end @media only screen and (max-width : 768px)
 
 @media only screen and (min-width : 769px) {
@@ -109,17 +111,17 @@
 
   #context-footer {
     padding: 0 40px 10px;
-  }
 
-  #context-footer div div {
-    display: table-cell;
-    float: none;
-    padding-left: 20px;
-    margin-bottom: 0;
-  }
+    div div {
+      display: table-cell;
+      float: none;
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
 
-  #context-footer hr {
-    margin: 0 -40px 40px;
+    hr {
+      margin: 0 -40px 40px;
+    }
   }
 
 
