@@ -1,14 +1,13 @@
-@charset "UTF-8";
-
+// scss-lint:disable QualifyingElement, IdSelector
 body footer.global #nav-global li:first-of-type a {
   margin-left: 0;
 }
 
 footer.global {
-  box-sizing: border-box;
-  box-shadow: inset 0 2px 2px -1px #d3d3d3;
   background: none;
   border-top: 0;
+  box-shadow: inset 0 2px 2px -1px $mid-grey;
+  box-sizing: border-box;
   clear: both;
   display: block;
   padding: 30px 10px 20px;
@@ -17,16 +16,12 @@ footer.global {
 
 
   .legal {
-    /* Can be removed once live */
-    margin: 0 auto;
-    width: 100%; /* 980px / 15px (baseline font); 980px + (60px x 2) = 1100px */
-  }
-
-  .legal {
     background-image: none;
-    position: relative;
     clear: both;
+    margin: 0 auto;
     min-height: 40px;
+    position: relative;
+    width: 100%;
 
     p,
     ul {
@@ -35,22 +30,37 @@ footer.global {
   } // legal
 
   h2 {
-    font-size: 0.75em;
+    font-size: .75em;
     line-height: 1.4;
     margin-bottom: 0;
-    padding-bottom: 0.5em;
+    padding-bottom: .5em;
   }
 
-  h2, h2 a:link, h2 a:visited {
+  h2, 
+  h2 a:link, 
+  h2 a:visited {
     color: $cool-grey;
     font-weight: normal;
   }
 
-  nav ul li h2 a:after { content: ""; }
+  nav ul li h2 a:after { content: ''; }
 
-  ul {  margin: 0; }
+  ul {  
+    margin: 0;
 
-  nav ul li.two-col {
+    .inline li a:hover { 
+      color: $ubuntu-orange;
+    }
+
+    li:after {
+      color: $warm-grey;
+      content: '\00b7';
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+  }
+
+  nav ul .two-col {
     display: inline-block;
     min-height: 10em;
     vertical-align: top;
@@ -58,52 +68,46 @@ footer.global {
 
   nav ul li li {
     @include font-size (12);
-    font-size: 0.75em;
+    font-size: .75em;
     margin-bottom: 0;
   }
 
-  ul li li a:link, ul li li a:visited {
+  ul li li a:link, 
+  ul li li a:visited {
     color: $cool-grey;
     margin-bottom: 0;
   }
 
-  ul li li a:hover, ul li li a:active, h2 a:hover, h2 a:active {
+  ul li li a:hover, 
+  ul li li a:active, 
+  h2 a:hover, 
+  h2 a:active {
     color: $ubuntu-orange;
-    //text-decoration: underline;
   }
 
-  .inline li { display: inline; }
+  .inline li { 
+    display: inline; 
+    float: none;
+    margin-bottom: 0;
 
-  p, ul.inline li a {
+    li:last-child { width: 120px; }
+    li:last-child:after { content: ''; }
+  }
+
+  p, 
+  .inline li a {
     color: $cool-grey;
     font-size: 12px;
     margin-bottom: 0;
   }
-  ul.inline li a:hover { color: $ubuntu-orange; }
-  
-  ul.inline li:after {
-    color: $warm-grey;
-    content: "\00b7";
-    vertical-align: middle;
-    margin: 0 5px;
-  }
-  
-  ul.inline li:last-child { width: 120px; }
-  
-  ul.inline li:last-child:after { content: ""; }
-  
-  .inline li {
-      float: none;
-      margin-bottom: 0;
-  }
 
   .top-link {
-    box-shadow: 0 -4px 4px -4px rgba(0, 0, 0, 0.3) inset;
+    box-shadow: 0 -4px 4px -4px rgba(0, 0, 0, .3) inset;
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 0 none;
     float: left;
-    font-size: 0.75em;
-    letter-spacing: 0.05em;
+    font-size: .75em;
+    letter-spacing: .05em;
     margin: 0 0 0 -10px;
     padding-right: 20px;
     text-transform: uppercase;
@@ -116,7 +120,7 @@ footer.global {
       background-repeat: no-repeat;
       background-size: 14px 14px;
       border-bottom: 0 none;
-      color: #888888;
+      color: $warm-grey;
       display: block;
       float: none;
       font-weight: 400;
@@ -125,7 +129,8 @@ footer.global {
   }
 } /* End footer.global */
 
-html.no-svg, .opera-mini {
+.no-svg, 
+.opera-mini {
   footer.global .top-link {
     a {
       background-image: url("#{$asset-path}pictograms/picto-pack/picto-upload-warmgrey.png");
@@ -136,12 +141,12 @@ html.no-svg, .opera-mini {
 
 @media only screen and (max-width : 768px) {
   footer.no-global .legal {
-        box-sizing: content-box;
-    box-shadow: 0 2px 2px -1px #D3D3D3 inset;
-    padding-top: 10px;
+    box-shadow: 0 2px 2px -1px $mid-grey inset;
+    box-sizing: content-box;
     margin-left: -10px;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 10px;
   }
 
   #livechat-eye-catcher {
@@ -153,8 +158,8 @@ html.no-svg, .opera-mini {
 @media only screen and (min-width : 768px) {
 
   footer.global .inline li {
-      display: inline;
-      float: left;
+    display: inline;
+    float: left;
   }
 
 } // @media only screen and (min-width : 768px)
@@ -194,3 +199,4 @@ html.no-svg, .opera-mini {
 
 } // end @media only screen and (min-width: 984px)
 
+// scss-lint:enable IdSelector, QualifyingElement
