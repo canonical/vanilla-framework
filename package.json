@@ -4,7 +4,8 @@
   "description": "The Ubuntu web style guide",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "prepublish": "./.install_dependencies.sh",
+    "clean": "rm -r build; rm -r node_modules"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
