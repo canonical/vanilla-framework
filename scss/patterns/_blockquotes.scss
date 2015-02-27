@@ -1,104 +1,106 @@
 @charset 'UTF-8';
 
-blockquote {
-  &.pull-quote {
-    text-indent: 0;
+.pull-quote {
+  text-indent: 0;
 
-    p {
-      color: $base-color;
-      padding-left: 10px;
-      padding-right: 10px;
-      @include font-size (24.833);
-      text-indent: -.4em;
-      margin-left: .4em;
-      line-height: 1.3;
-
-      span {
-        font-weight: bold;
-        color: $brand-color;
-        line-height: 0;
-        position: relative;
-        left: -5px;
-
-        & + span { left: 5px; } // the second span
-      }
-
-      cite {
-        margin: 10px 0 0;
-        font-weight: 300;
-        display: block;
-        font-size: .75em;
-        text-indent: 0;
-      }
-    }
-
-    &.js {
-      padding-left: $gutter-width * 3;
-      display: table-cell;
-    }
-  }
-
-  &.quote-canonical,
-  &.quote-canonical-white {
-    @include font-size (16);
-    background: url("#{$asset-path}patterns/quote-white-360x360.png") no-repeat 20px -130px;
-    color: $canonical-aubergine;
-    float: right;
-    font-size: 1em;
-    height: 215px;
-    margin-top: 0;
-    padding: 20px 60px 0;
-    position: relative;
-    width: 236px;
-  }
-
-  &.quote-canonical-white {
-    background: url("#{$asset-path}patterns/quote-aubergine-345x345.png") no-repeat 0 0;
-    color: $white;
-    padding: 80px 60px 0;
-    height: 265px;
-  }
-
-  &.quote p:first-child {
-    @include font-size (18); // (16) desired value in px, this is divided by the baseline font-size value to reach the em value
+  p {
+    @include font-size (24.833);
+    color: $cool-grey;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-indent: -.4em;
+    margin-left: .4em;
     line-height: 1.3;
-    text-indent: -7px;
+
+    span {
+      font-weight: bold;
+      color: $ubuntu-orange;
+      line-height: 0;
+      position: relative;
+      left: -5px;
+
+      // scss-lint:disable NestingDepth
+      + span {
+        left: 5px;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    cite {
+      margin: 10px 0 0;
+      font-weight: 300;
+      display: block;
+      font-size: .75em;
+      text-indent: 0;
+    }
   }
 
-  &.quote-right-bottom {
-    background-image: url("#{$asset-path}pictograms/picto-pack/picto-quote-orange.svg");
-    background-repeat: no-repeat;
-    background-size: 287px 286px;
-    color: $white;
-    height: 167px;
-    padding: 60px 40px;
-    position: static;
-    right: -($gutter-width * 2);
-    top: -($gutter-width * 4.5);
-    width: 207px;
-
-    & p { color: $white; }
+  &.js {
+    padding-left: $gutter-width * 3;
+    display: table-cell;
   }
+}
 
-  &.quote-grey {
-    @include font-size (36);
-    background: url("#{$asset-path}patterns/quote-grey-br-211x211.png") no-repeat scroll 0 0 transparent;
-    color: $white;
-    height: 152px;
-    line-height: 40px;
-    margin-left: 20px;
-    padding: 60px 0 0;
-    text-align: center;
-    width: 211px;
-  }
+.quote-canonical,
+.quote-canonical-white {
+  @include font-size (16);
+  background: none;
+  color: $cool-grey;
+  width: auto;
+  height: auto;
+  float: right;
+  font-size: 1em;
+  margin-top: 20px;
+  padding: 0 30px;
+  position: relative;
+}
 
-  &.quote-bottom-left {
-    background: url("#{$asset-path}patterns/quote-orange-bl-287x287.png") no-repeat;
-    color: $white;
-    height: 167px;
-    padding: 55px 40px 70px 45px;
-    width: 225px;
-  }
+.quote-canonical-white {
+  background: url("#{$asset-path}patterns/quote-aubergine-345x345.png") no-repeat 0 0;
+  color: $white;
+  padding: 80px 60px 0;
+  height: 265px;
+}
+
+.quote p:first-child {
+  @include font-size (18); // (16) desired value in px, this is divided by the baseline font-size value to reach the em value
+  line-height: 1.3;
+  text-indent: -7px;
+}
+
+.quote-right-bottom {
+  background-image: url("#{$asset-path}pictograms/picto-pack/picto-quote-orange.svg");
+  background-repeat: no-repeat;
+  background-size: 287px 286px;
+  color: $white;
+  height: 167px;
+  padding: 60px 40px;
+  position: static;
+  right: -($gutter-width * 2);
+  top: -($gutter-width * 4.5);
+  width: 207px;
+
+  p { color: $white; }
+}
+
+&.quote-grey {
+  @include font-size (36);
+  background: url("#{$asset-path}patterns/quote-grey-br-211x211.png") no-repeat scroll 0 0 $transparent;
+  color: $white;
+  height: 152px;
+  line-height: 40px;
+  margin-left: 20px;
+  padding: 60px 0 0;
+  text-align: center;
+  width: 211px;
+}
+
+&.quote-bottom-left {
+  background: url("#{$asset-path}patterns/quote-orange-bl-287x287.png") no-repeat;
+  color: $white;
+  height: 167px;
+  padding: 55px 40px 70px 45px;
+  width: 225px;
 }
 
 //.pull-quote {
@@ -108,9 +110,9 @@ blockquote {
   //right: 0;
 //}
 
-html.no-svg,
+.no-svg,
 .opera-mini {
-  blockquote.quote-right-bottom {
+  .quote-right-bottom {
     background-image: url("#{$asset-path}pictograms/picto-pack/picto-quote-orange.png");
   }
 }
@@ -145,7 +147,11 @@ html.no-svg,
       position: relative;
       left: -5px;
 
-      & + span { left: 5px; } // the second span
+      // scss-lint:disable NestingDepth
+      + span {
+        left: 5px;
+      }
+      // scss-lint:enable NestingDepth
     }
 
     cite {
@@ -153,39 +159,23 @@ html.no-svg,
       font-style: normal;
       margin-bottom: 0;
       font-size: .75em;
-      text-indent: -14px;
       text-indent: 0;
     }
   }
 
   .quote-twitter {
-    background: #fcece7 url('#{$asset-path}pictograms/pictogram-twitter-115x139.png') $gutter-width bottom no-repeat;
+    background: $table-th url('#{$asset-path}pictograms/pictogram-twitter-115x139.png') $gutter-width bottom no-repeat;
     padding: $gutter-width $gutter-width $gutter-width $three-col;
   }
 
   .quote-twitter-small {
-    background: #fcece7 url('#{$asset-path}pictograms/pictogram-twitter-54x63.png') 99% bottom no-repeat;
+    background: $table-th url('#{$asset-path}pictograms/pictogram-twitter-54x63.png') 99% bottom no-repeat;
     padding: $gutter-width $gutter-width $gutter-width 80px;
 
     p {
       margin: 0;
       padding: 0;
     }
-  }
-}
-
-blockquote.quote-canonical,
-blockquote.quote-canonical-white {
-  background: none;
-  color: $base-color;
-  width: auto;
-  height: auto;
-  padding: 0 30px;
-  margin-top: 20px;
-}
-
-@media only screen and (max-width : 768px) {
-  .row-quote blockquote p {
   }
 }
 
@@ -199,12 +189,15 @@ blockquote.quote-canonical-white {
     text-indent: -.4em;
   }
 
-  .row-quote blockquote p {
-    @include font-size (24.83);
+  .row-quote blockquote {
+    p {
+      @include font-size (24.83);
+      text-indent: -.4em;
+    }
   }
 
-   blockquote.pull-quote p,
-   .row-quote blockquote p {
+  .pull-quote p,
+  .row-quote blockquote p {
     padding-left: 0;
     padding-right: 0;
     text-indent: -.7em;
@@ -219,21 +212,15 @@ blockquote.quote-canonical-white {
     }
   }
 
-  blockquote.pull-quote p span,
+  .pull-quote p span,
   .row-quote blockquote p span {
     top: 5px;
   }
-
 } // end @media only screen and (max-width : 768px)
 
 @media only screen and (min-width : 769px) {
 
-  .row-quote blockquote {
-    p {
-      @include font-size (24.83);
-      text-indent: -.4em;
-    }
-  }
+
 
 } //@media only screen and (min-width : 769px)
 
@@ -244,7 +231,7 @@ blockquote.quote-canonical-white {
     text-indent: -10px;
   }
 
-  blockquote.pull-quote p span,
+  .pull-quote p span,
   .row-quote blockquote p span {
     top: 10px;
   }

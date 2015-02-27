@@ -29,6 +29,14 @@
   }
 }
 
+.row:after {
+  clear: both;
+  content: '.';
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
 .row-grey {
   background: $light-grey;
 }
@@ -143,6 +151,17 @@
   .row { padding: 30px; }
 
   .row-hero { margin-top: 40px; }
+
+  .row,
+  #context-footer { // Clear entire row
+    border-radius: 0;
+    margin: 0;
+    padding: 40px 40px 20px;
+  }
+
+  .row-feature {
+    background: none;
+  }
 
 } // end @media only screen and (max-width : 768px)
 
