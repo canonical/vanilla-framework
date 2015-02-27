@@ -33,7 +33,7 @@ curl -L https://npmjs.com/install.sh | sudo sh`
 Install all other dependencies:
 
 ``` bash
-npm install-dependencies
+npm run-script dependencies
 ```
 
 ## Themes
