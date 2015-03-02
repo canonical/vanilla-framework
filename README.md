@@ -33,7 +33,6 @@ curl -L https://npmjs.com/install.sh | sudo sh`
 Install all other dependencies:
 
 ``` bash
-npm run-script dependencies  # System dependencies
 npm install                  # NodeJS dependencies
 ```
 
