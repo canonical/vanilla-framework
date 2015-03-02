@@ -1,6 +1,6 @@
 # Contributing to the Ubuntu web styles framework
 
-Awesome you want to contribute to out framework!
+Awesome you want to contribute to our framework!
 
 ## Bugs and Issues
 
