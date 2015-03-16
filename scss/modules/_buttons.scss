@@ -1,1 +1,113 @@
-// Buttons scss here
+@mixin vf-buttons {
+  a.link-cta-ubuntu,
+  a.link-cta-canonical,
+  a.link-cta-inverted,
+  button.cta-ubuntu,
+  button.cta-canonical,
+  form button[type="submit"],
+  form input[type="submit"] {
+    box-sizing: border-box;
+    @include ud-set-font-size(16);
+    border-radius: 3px;
+    background: ud-color(ubuntu-orange);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
+    font-weight: 300;
+    font-smoothing: subpixel-antialiased;
+    padding: 8px 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  a.cta-large,
+  button.cta-large {
+    @include ud-set-font-size(18);
+    padding: 10px 20px;
+  }
+
+  a.link-cta-canonical,
+  button.cta-canonical,
+  form button.cta-canonical[type="submit"],
+  form input.cta-canonical[type="submit"] {
+    background: ud-color(canonical-aubergine);
+    color: white;
+  }
+
+  a.link-cta-inverted,
+  button.cta-inverted {
+    background: white;
+    color: ud-color(cool-grey);
+  }
+
+  .row-enterprise a.link-cta-canonical,
+  .row-enterprise button.link-cta-canonical {
+    background: white;
+    color: ud-color(canonical-aubergine);
+  }
+
+  a.link-cta-ubuntu:hover,
+  a.link-cta-ubuntu:hover,
+  button.cta-ubuntu:hover,
+  form button[type="submit"]:hover,
+  form input[type="submit"]:hover {
+    background: darken(ud-color(ubuntu-orange), 6.2%); // #c03f11
+    text-decoration: none;
+  }
+
+  a.link-cta-canonical:hover,
+  button.cta-canonical:hover {
+    background: darken(ud-color(canonical-aubergine), 6.2%); // #5f193e
+    text-decoration: none;
+  }
+
+  a.link-cta-inverted:hover,
+  .row-enterprise a.link-cta-canonical:hover,
+  button.cta-inverted:hover,
+  .row-enterprise button.cta-canonical:hover {
+    background: white;
+    text-decoration: underline;
+  }
+
+  a.cta-deactivated,
+  a.cta-deactivated:hover,
+  button.cta-deactivated,
+  button.cta-deactivated:hover {
+    background: ud-color(lighter-grey);
+    color: white;
+    cursor: not-allowed;
+  }
+
+  @media only screen and (min-width : 768px) {
+
+    a.link-cta-ubuntu,
+    a.link-cta-canonical,
+    a.link-cta-inverted,
+    button.cta-ubuntu,
+    button.cta-canonical,
+    form button[type="submit"],
+    form input[type="submit"] {
+      width: auto;
+    }
+
+  } // end @media only screen and (max-width : 768px)
+
+  @media only screen and (min-width : 769px) {
+  } // @media only screen and (min-width : 769px)
+
+  @media only screen and (min-width: 984px) {
+
+    a.link-cta-ubuntu,
+    a.link-cta-canonical,
+    a.link-cta-inverted,
+    button.cta-ubuntu,
+    button.cta-canonical,
+    form button[type="submit"],
+    form input[type="submit"] {
+      width: auto;
+    }
+
+  } // end @media only screen and (min-width: 984px)
+}
