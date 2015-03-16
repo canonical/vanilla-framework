@@ -1,3 +1,9 @@
+/// font size, default 16
+@mixin vf-font-size ($size: 16) {
+  font-size: ($size / $base)+em;
+  margin-bottom: (12 / $size)+em;
+}
+
 @mixin vf-typography {
   .caps-centered,
   .muted-heading {
@@ -8,7 +14,7 @@
   }
 
   .intro {
-    @include font-size (16);
+    @include vf-font-size (16);
     line-height: 1.4;
   }
 
