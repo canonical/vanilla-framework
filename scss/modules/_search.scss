@@ -1,0 +1,457 @@
+@mixin vf-blockquotes {
+  // scss-lint:disable IdSelector
+  .header-search,
+  #box-search {
+    padding: 7px 0 7px 14px;
+    overflow: hidden;
+  
+    [type="search"],
+    [type="text"] {
+      -webkit-appearance: none;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
+      box-sizing: border-box;
+      border-radius: 4px;
+      transition: all .5s ease-out;
+      background-color: darken($brand-color, 10%);
+      border: 0;
+      color: $white;
+      display: block;
+      float: left;
+      font-size: 16px;
+      height: 2.1em;
+      margin-bottom: 0;
+      padding: .5em 2.5em .5em .5em;
+      width: 100%;
+    }
+  
+    /// User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
+    /// So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
+    placeholder {
+      color: $white;
+      opacity: .4;
+    }
+  
+    input:placeholder {
+      color: $white;
+      opacity: .4;
+    }
+  
+    ::placeholder {
+      color: $white;
+      opacity: .4;
+    }
+  
+    [type="search"]:focus {
+      background-color: darken($brand-color, 14%);
+    }
+  
+    [type=submit] {
+      padding: 3px 2px;
+      line-height: 0;
+      float: left;
+      margin-left: -40px;
+      display: block;
+      background: none;
+      overflow: visible;
+  
+      &:hover { background: none; }
+  
+      img {
+        height: 28px;
+        width: 28px;
+      }
+    }
+  }
+  
+  .banner .search-toggle {
+    background-size: 20px 20px;
+    background-image: url('#{$asset-path}search.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 48px;
+    outline: none;
+    overflow: hidden;
+    position: absolute;
+    right: 58px;
+    text-indent: -999em;
+    top: 0;
+    width: 24px;
+  }
+  
+  .search-toggle:link,
+  .search-toggle:active {
+    outline: none;
+  }
+  
+  #box-search,
+  .header-search {
+    background: $light-grey;
+    border: 0;
+    display: none;
+    float: left;
+    margin-bottom: 0;
+    position: relative;
+    margin: 0 0 -1px;
+    padding: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  #box-search.active,
+  .header-search.active,
+  .header-search.open { display: block; }
+  
+  #box-search div,
+  .header-search div {
+    box-shadow: inset 0 -4px 4px -4px rgba(0, 0, 0, .3), inset 0  5px 5px -5px rgba(0, 0, 0, .3);
+    background: $nav-bg;
+    margin: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  #box-search form [type="search"],
+  .header-search form [type="search"] {
+    @include font-size (16);
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3) inset, 0 -1px 3px rgba(0, 0, 0, .2) inset, 0 2px 0 rgba(255, 255, 255, .4);
+    box-sizing: border-box;
+    background: $white;
+    border: 0;
+    color: $base-color;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    float: left;
+    padding: 9px 10px;
+    width: 100%;
+  }
+  
+  .yes-js .header-inner #box-search,
+  .yes-js .header-inner .header-search {
+    display: none;
+  
+    form {
+      box-sizing: border-box;
+      margin-left: 0;
+      margin-right: 0;
+      overflow: hidden;
+      padding: 10px;
+      top: 0;
+      z-index: 999;
+      position: relative;
+      width: 100%;
+    }
+  }
+  // scss-lint:enable IdSelector
+  
+  @media only screen and (max-width : 768px) {
+  
+    .banner {
+      .search-toggle {
+        right: 48px;
+      }
+    }
+  
+    .no-svg,
+    .opera-mini {
+      .search-toggle {
+        background-image: url("#{$asset-path}search-white.png");
+      }
+    }
+  } // @media only screen and (max-width : 768px)
+  
+  
+  @media only screen and (min-width : 768px) {
+  
+    .banner .search-toggle {
+      display: none;
+    }
+  
+  } // @media only screen and (min-width : 768px)
+  
+  @media only screen and (min-width : 960px) {
+  // scss-lint:disable IdSelector
+    #box-search,
+    .header-search {
+  // scss-lint:enable IdSelector
+      background: none;
+      overflow: hidden;
+      padding: 7px 0 7px 14px;
+      border-right: 0 none;
+      float: right;
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      padding-right: 0;
+      padding-top: 7px;
+      max-width: 220px;
+  
+      form [type="text"],
+      form [type="search"] {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .4) inset;
+        box-sizing: content-box;
+        background: url("#{$asset-path}icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 darken($brand-color, 10%);
+        border: 6px solid darken($brand-color, 12%);
+        border-width: 0 0 1px;
+        color: $white;
+        font-size: .813em;
+        height: 24px;
+        margin-bottom: 0;
+        padding: 4px 4px 4px 30px;
+        transition: all .5s ease 0s;
+        width: 86px;
+      }
+    }
+  } // @media only screen and (min-width : 769px)
+  
+  @media only screen and (max-width : 960px) {
+    .banner .nav-primary .header-search {
+      padding: 0;
+      position: relative;
+      top: 0;
+      width: 100%;
+  
+      [type="search"] {
+        border-radius: 0;
+        background: $light-grey;
+        color: $base-color;
+      }
+  
+      [type="submit"] {
+        width: 32px;
+        height: 38px;
+        background: url('#{$asset-path}search-black.svg') no-repeat scroll center center $transparent;
+        background-size: 28px 28px;
+  
+        img {
+          max-width: none;
+          display: none;
+        }
+      }
+  
+      &.open {
+        display: block;
+      }
+    }
+  
+    .banner .search-toggle {
+      background-image: url("#{$asset-path}search-white.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 25px auto;
+      cursor: pointer;
+      right: 0;
+      display: block;
+      height: 48px;
+      position: absolute;
+      text-indent: -99999px;
+      width: 48px;
+    }
+  
+    .no-svg,
+    .opera-mini {
+      .banner .search-toggle {
+        background-image: url("#{$asset-path}img/search-white.png");
+      }
+    }
+  
+    .opera-mini {
+      x:-o-prefocus,
+      .banner .search-toggle {
+        background-size: 25px auto;
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 984px) {
+  // scss-lint:disable IdSelector
+    #box-search,
+    .header-search {
+  // scss-lint:enable IdSelector
+      display: block;
+      margin-right: 0;
+  
+      form [type="text"]:focus {
+        width: 160px;
+      }
+    }
+  }
+  
+  @media only screen and (max-width : 768px) {
+    .banner .search-toggle {
+      right: 48px;
+    }
+  }
+  
+  /// search results
+  .ubuntu-search,
+  .search-results,
+  .search-no-results {
+    .nav-secondary {
+      display: none;
+    }
+  
+    section > h1,
+    section article h1 {
+      padding-bottom: 10px;
+      font-size: 1.438em;
+      margin-bottom: 0;
+    }
+  
+    section > h1 {
+      border-bottom: 1px dotted $mid-grey;
+    }
+  
+    .main-search {
+      padding: 20px 0;
+      margin: 0 0 20px;
+      background-color: transparent;
+  
+      [type="search"] {
+        float: left;
+        width: 100%;
+        font-size: 2em;
+        border: 1px solid $warm-grey;
+        box-sizing: border-box;
+        padding: .2em 65px .2em .2em;
+      }
+  
+      [type=submit] {
+        padding: 4px;
+        line-height: 0;
+        float: left;
+        margin-left: -53px;
+        display: block;
+        background: none;
+        overflow: visible;
+        width: auto;
+        margin-top: -4px;
+  // scss-lint:disable NestingDepth
+        img {
+          height: 45px;
+          width: 45px;
+        }
+  // scss-lint:enable NestingDepth
+      }
+  
+      [type=submit]:hover {
+        background: none;
+      }
+    }
+  
+    .search-result h1 .title-main {
+      margin-right: 20px;
+    }
+  
+    .search-result h1 .result-url {
+      color: $warm-grey;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      vertical-align: bottom;
+      padding-bottom: 2px;
+  
+      a {
+        color: $warm-grey;
+      }
+    }
+  
+    .search-result p {
+      margin-bottom: 0;
+    }
+  
+    .num-results {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  
+    .bottom-results-total {
+      text-align: center;
+      width: 100%;
+      overflow: visible;
+      padding-top: 20px;
+      margin: 0;
+    }
+  
+    .bottom-nav {
+      overflow: hidden;
+      margin-top: -26px;
+  
+      ul {
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+  
+      li {
+        float: left;
+        margin-left: 15px;
+      }
+  
+      li:first-child {
+        margin-left: 0;
+      }
+    }
+  
+    .nav-back {
+      float: left;
+  
+      li:before {
+        content: '\2039'; /* left chevron &lsaquo; */
+        color: $brand-color;
+        margin-right: 5px;
+      }
+  
+      .item-extreme:before {
+        content: '\2039\2039'; /* double left chevron &lsaquo; */
+      }
+    }
+  
+    .nav-forward {
+      float: right;
+  
+      li:after {
+        content: '\203A'; /* right chevron&nbsp;&rsaquo; */
+        color: $brand-color;
+        margin-left: 5px;
+      }
+  
+      .item-extreme:after {
+        content: '\203A\203A'; /* double right chevron&nbsp;&rsaquo; */
+      }
+    }
+  
+    .error-notification {
+      background-color: $white;
+      color: $base-color;
+      padding: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      margin-top: 20px;
+      display: block;
+    }
+  
+    .result-line {
+      color: $warm-grey;
+    }
+  
+    .results-top {
+      border-bottom: 1px dotted $mid-grey;
+      padding-bottom: .5em;
+    }
+  
+    .search-container {
+      padding-bottom: 0;
+    }
+  }
+  
+  @media only screen and (min-width : 768px) {
+    .ubuntu-search .main-search [type=submit] {
+      margin-left: -60px;
+      margin-top: 0;
+    }
+  } /* end @media only screen and (min-width : 768px) */
+
+} // @mixin vf-blockquotes {
