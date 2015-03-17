@@ -1,0 +1,118 @@
+@mixin vf-buttons {
+  ////
+  /// Ubuntu Patterns Stylesheet
+  /// The CSS file required by Ubuntu patterns page
+  /// @project     Ubuntu Patterns
+  /// @author      Web Team at Canonical Ltd
+  /// @copyright   2012 Canonical Ltd
+  /// @see         http://design.ubuntu.com
+  ////
+
+  /// cta button
+  .link-cta-ubuntu,
+  .link-cta-canonical,
+  .link-cta-inverted,
+  .cta-ubuntu,
+  .cta-canonical,
+  form [type="submit"] {
+    @include vf-font-size (16);
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 0;
+    background: $brand-color;
+    color: $white;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    outline: none;
+    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
+    font-weight: 300;
+    font-smoothing: subpixel-antialiased;
+    padding: 8px 14px;
+    width: 100%;
+    text-align: center;
+
+    /// cta hover state
+    &:hover {
+      background: darken($base-color, 6.2%); // #c03f11
+      text-decoration: none;
+    }
+  }
+
+  /// cta large button
+  .cta-large,
+  .cta-large {
+    @include vf-font-size (18);
+    padding: 10px 20px;
+  }
+
+  /// Canonical cta colours
+  .link-cta-canonical,
+  .cta-canonical,
+  form .cta-canonical[type="submit"],
+  form .cta-canonical[type="submit"] {
+    background: $canonical-aubergine;
+    color: $white;
+
+    &:hover {
+      background: darken($canonical-aubergine, 6.2%); // #5f193e
+      text-decoration: none;
+    }
+  }
+
+  /// Inverted colour style
+  .link-cta-inverted,
+  .cta-inverted {
+    background: $white;
+    color: $base-color;
+
+    &:hover {
+      background: $white;
+      text-decoration: underline;
+    }
+  }
+
+  /// Enterprise cta colour style
+  .row-enterprise .link-cta-canonical,
+  .row-enterprise .link-cta-canonical {
+    background: $white;
+    color: $canonical-aubergine;
+
+    &:hover {
+      background: $white;
+      text-decoration: underline;
+    }
+  }
+
+  /// cta deactived style
+  .cta-deactivated,
+  .cta-deactivated:hover {
+    background: $cool-grey;
+    color: $white;
+    cursor: not-allowed;
+  }
+
+  /// Medium breakpoint
+  @media only screen and (min-width : 768px)  {
+    .link-cta-ubuntu,
+    .link-cta-canonical,
+    .link-cta-inverted,
+    .cta-ubuntu,
+    .cta-canonical,
+    form [type="submit"] {
+      width: auto;
+    }
+  }
+
+  /// Large breakpoint
+  @media only screen and (min-width : 984px)  {
+    .link-cta-ubuntu,
+    .link-cta-canonical,
+    .link-cta-inverted,
+    .cta-ubuntu,
+    .cta-canonical,
+    form [type="submit"] {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,157 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-lists
+/// @since        0.0.3
+////
+
+/// Default list styling
+/// @group Lists
+/// @example
+///   <ul>
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists {
+  ol,
+  ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol {
+    margin-bottom: 0;
+  }
+
+  nav ul,
+  nav ol {
+    list-style: none;
+    list-style-image: none;
+  }
+
+  li {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0 0 .4em;
+    padding: 0;
+  }
+
+  li:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include vf-lists-list();
+  @include vf-lists-no-bullets();
+  @include vf-lists-combined-list();
+  @include vf-lists-inline-list();
+}
+
+/// List styling using list class
+/// @group Lists
+/// @example
+///   <ul class="lists">
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-list {
+
+  .list {
+    list-style: none;
+    margin-left: 0;
+
+    li {
+      border-bottom: 1px dotted $warm-grey;
+      margin-bottom: 0;
+      padding: 10px 0;
+    }
+
+    li:last-of-type,
+    .last-item {
+      border: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+/// Displays a default styled list with no bullets
+/// @group Lists
+/// @example
+///   <ul class="no-bullets">
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-no-bullets {
+  .no-bullets {
+    list-style: none;
+    margin-left: 0;
+  }
+}
+
+/// Displays split as one on small screens
+/// @group Lists
+/// @example
+///   <div class="combined-list">
+///     <ul>
+///       <li>...</li>
+///     </ul>
+///     <ul>
+///       <li>...</li>
+///     </ul>
+///   </div>
+@mixin vf-lists-combined-list {
+  .combined-list {
+    ul,
+    div {
+      margin-bottom: 0;
+    }
+
+    .last-item {
+      border-bottom: 1px dotted $warm-grey;
+      padding-bottom: 10px;
+    }
+
+    .last-col {
+      margin-bottom: 20px;
+
+      .last-item {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  @media only screen and (min-width : 768px) {
+    .combined-list {
+      ul,
+      div {
+        margin-bottom: 20px;
+      }
+
+      .last-item {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+/// Displays a list inline with spacing
+/// @group Lists
+/// @example
+///   <ul class="inline-list">
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-inline-list {
+  .inline-list {
+    margin-left: 0;
+
+    li {
+      display: inline;
+      list-style: none;
+      margin-right: 20px;
+    }
+
+    .last-item {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,188 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-reset
+/// @since        0.0.3
+////
+
+/// Reset styling
+@mixin vf-reset {
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  ol,
+  ul,
+  li,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+  }
+
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  nav,
+  section {
+    display: block;
+  }
+
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+
+  audio:not([controls]) {
+    display: none;
+  }
+
+  [hidden] {
+    display: none;
+  }
+
+  html {
+    font-size: 100%;
+    overflow-y: scroll;
+    text-size-adjust: 100%;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  legend {
+    border: 0;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  abbr,
+  acronym {
+    cursor: help;
+  }
+
+  .link-arrow:after {
+    content: '\0000a0›';
+  }
+
+  nav ul li h2 a:after {
+    content: '\0000a0›';
+  }
+
+  nav ul li a:after,
+  .carousel ul li a:after,
+  ul li p a:after {
+    content: '';
+  }
+
+  svg:not(:root) {
+    overflow: hidden;
+  }
+
+  img {
+    border: 0;
+    height: auto;
+    max-width: 100%;
+
+    .left {
+      margin-right: $gutter-width;
+    }
+
+    .right {
+      margin-left: $gutter-width;
+    }
+  }
+
+  .middle img {
+    vertical-align: middle;
+    margin-top: 4em;
+  }
+
+  ins {
+    background: $code-bg;
+    text-decoration: none;
+  }
+
+  @media only screen and (min-width: 984px) {
+    img {
+      max-width: none;
+    }
+  }
+}

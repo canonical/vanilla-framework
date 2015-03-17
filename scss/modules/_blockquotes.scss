@@ -1,0 +1,183 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-lists
+/// @since        0.0.3
+////
+
+/// Default blockquote styling
+/// @group Blockquotes
+/// @example
+///   <blockquote>
+///     ...
+///   </blockquote>
+@mixin vf-blockquotes {
+  blockquote {
+    margin: 0;
+
+    > p {
+      font-size: .8125em;
+      margin: 0 0 .4em;
+    }
+
+    small {
+      font-size: .8125em;
+      line-height: 1.4;
+    }
+  }
+
+  @include vf-pull-quotes();
+  @include vf-row-quote();
+}
+
+/// Pull quote styling
+/// @group Blockquotes
+/// @example
+///   <blockquote class="pull-quotes">
+///     ...
+///   </blockquote>
+@mixin vf-pull-quotes {
+  .pull-quote {
+    text-indent: 0;
+
+    p {
+      font-size: 1.5em;
+      color: $cool-grey;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-indent: -.4em;
+      margin-left: .4em;
+      line-height: 1.3;
+
+      span {
+        font-weight: bold;
+        color: $brand-color;
+        line-height: 0;
+        position: relative;
+        left: -5px;
+
+        // scss-lint:disable NestingDepth
+        + span {
+          left: 5px;
+        }
+        // scss-lint:enable NestingDepth
+      }
+
+      cite {
+        margin: 10px 0 0;
+        font-weight: 300;
+        display: block;
+        font-size: .75em;
+        text-indent: 0;
+      }
+    }
+
+    @media only screen and (min-width : $breakpoint-medium) {
+      p {
+        padding-left: 0;
+        padding-right: 0;
+        text-indent: -.7em;
+
+        span {
+          top: 5px;
+          font-size: 1.391304348em;
+        }
+
+        cite {
+          margin-left: 0;
+          text-indent: 0;
+        }
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      p span {
+        top: 10px;
+      }
+    }
+  }
+}
+
+/// Row quote styling
+/// @group Blockquotes
+/// @example
+///   <div class="row row-quote">
+///     ...
+///   </div>
+@mixin vf-row-quote {
+  .row-quote {
+    border-radius: 0;
+
+    blockquote {
+      border-radius: 4px;
+      margin: 0;
+      padding: 0;
+
+      p {
+        margin-bottom: .75em;
+        line-height: 1.3;
+        color: $base-color;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-indent: 0;
+      }
+
+      span {
+        font-weight: bold;
+        color: $brand-color;
+        line-height: 0;
+        position: relative;
+        left: -5px;
+
+        // scss-lint:disable NestingDepth
+        + span {
+          left: 5px;
+        }
+        // scss-lint:enable NestingDepth
+      }
+
+      cite {
+        color: $base-color;
+        font-style: normal;
+        margin-bottom: 0;
+        font-size: .75em;
+        text-indent: 0;
+      }
+    }
+
+    @media only screen and (min-width : $breakpoint-medium) {
+      text-indent: -.4em;
+
+      blockquote {
+        text-indent: -7px;
+
+        p {
+          font-size: 1.5em;
+          text-indent: -.4em;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        span {
+          top: 5px;
+          font-size: 1.391304348em;
+        }
+
+        cite {
+          margin-left: 0;
+          text-indent: 0;
+        }
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      blockquote {
+        padding: 0 80px 20px;
+        text-indent: -10px;
+
+        p span {
+          top: 10px;
+        }
+      }
+    }
+  }
+}
