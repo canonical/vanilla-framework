@@ -1,4 +1,26 @@
 @mixin vf-blockquotes {
+  blockquote {
+    margin: 0;
+
+    > p {
+      @include vf-font-size (13);
+      font-weight: 100;
+      margin: 0 0 .4em;
+    }
+
+    small {
+      font-size: .813em;
+      line-height: 1.4;
+    }
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+  }
+  
   .pull-quote {
     text-indent: 0;
   
