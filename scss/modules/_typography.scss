@@ -1,9 +1,3 @@
-/// font size, default 16
-@mixin vf-font-size ($size: 16) {
-  font-size: ($size / $base)+em;
-  margin-bottom: (12 / $size)+em;
-}
-
 /// default typography styles for Vanilla
 @mixin vf-typography {
   @font-face {
@@ -56,7 +50,7 @@
   }
   
   body {
-    color: $base-color;
+    color: $text-color;
     font-family: Ubuntu, Arial, 'libra sans', sans-serif;
     font-weight: 300;
   }
@@ -114,7 +108,7 @@
 
   pre {
     border-radius: 4px;
-    background: $light-orange;
+    background-color: $brand-color-light;
     padding: .6em 1em;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -142,7 +136,7 @@
   ul + h4,
   ol + h4,
   pre + h4 {
-    margin-top: (19.5 / $base)+em;
+    margin-top: (19.5 / 16)+em;
   }
 
   ol+h2,
@@ -167,7 +161,7 @@
   }
 
   .intro {
-    @include vf-font-size (16);
+    font-size: 16em;
     line-height: 1.4;
   }
 
