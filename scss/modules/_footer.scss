@@ -1,0 +1,203 @@
+// scss-lint:disable QualifyingElement, IdSelector
+@mixin vf-footer {
+  body footer.global #nav-global li:first-of-type a {
+    margin-left: 0;
+  }
+
+  footer.global {
+    background: none;
+    border-top: 0;
+    box-shadow: inset 0 2px 2px -1px $mid-grey;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    padding: 30px 10px 20px;
+    position: relative;
+    width: 100%;
+
+
+    .legal {
+      background-image: none;
+      clear: both;
+      margin: 0 auto;
+      min-height: 40px;
+      position: relative;
+      width: 100%;
+
+      p,
+      ul {
+        padding-left: 0;
+      }
+    } // legal
+
+    h2 {
+      font-size: .75em;
+      line-height: 1.4;
+      margin-bottom: 0;
+      padding-bottom: .5em;
+    }
+
+    h2,
+    h2 a:link,
+    h2 a:visited {
+      color: $base-color;
+      font-weight: normal;
+    }
+
+    nav ul li h2 a:after { content: ''; }
+
+    ul {
+      margin: 0;
+
+      .inline li a:hover {
+        color: $brand-color;
+      }
+
+      li:after {
+        color: $warm-grey;
+        content: '\00b7';
+        vertical-align: middle;
+        margin: 0 5px;
+      }
+    }
+
+    nav ul .two-col {
+      display: inline-block;
+      min-height: 10em;
+      vertical-align: top;
+    }
+
+    nav ul li li {
+      @include vf-font-size (12);
+      font-size: .75em;
+      margin-bottom: 0;
+    }
+
+    ul li li a:link,
+    ul li li a:visited {
+      color: $base-color;
+      margin-bottom: 0;
+    }
+
+    ul li li a:hover,
+    ul li li a:active,
+    h2 a:hover,
+    h2 a:active {
+      color: $brand-color;
+    }
+
+    .inline li {
+      display: inline;
+      float: none;
+      margin-bottom: 0;
+
+      li:last-child { width: 120px; }
+      li:last-child:after { content: ''; }
+    }
+
+    p,
+    .inline li a {
+      color: $base-color;
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+
+    .top-link {
+      box-shadow: 0 -4px 4px -4px rgba(0, 0, 0, .3) inset;
+      background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+      border: 0 none;
+      float: left;
+      font-size: .75em;
+      letter-spacing: .05em;
+      margin: 0 0 0 -10px;
+      padding-right: 20px;
+      text-transform: uppercase;
+      width: 100%;
+
+      a {
+        box-sizing: border-box;
+        background-image: url("#{$asset-path}pictograms/picto-pack/picto-upload-warmgrey.svg");
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        background-size: 14px 14px;
+        border-bottom: 0 none;
+        color: $warm-grey;
+        display: block;
+        float: none;
+        font-weight: 400;
+        padding: 12px 0 12px 28px;
+      }
+    }
+  } /* End footer.global */
+
+  .no-svg,
+  .opera-mini {
+    footer.global .top-link {
+      a {
+        background-image: url("#{$asset-path}pictograms/picto-pack/picto-upload-warmgrey.png");
+      }
+    }
+  }
+
+
+  @media only screen and (max-width : 768px) {
+    footer.no-global .legal {
+      box-shadow: 0 2px 2px -1px $mid-grey inset;
+      box-sizing: content-box;
+      margin-left: -10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+    }
+
+    #livechat-eye-catcher {
+      display: block;
+    }
+
+  } // end @media only screen and (max-width : 768px)
+
+  @media only screen and (min-width : 768px) {
+
+    footer.global .inline li {
+      display: inline;
+      float: left;
+    }
+
+  } // @media only screen and (min-width : 768px)
+
+  @media only screen and (min-width : 769px) {
+
+    footer.global .top-link {
+      display: none;
+    }
+
+    footer.global .footer-b h2 a i {
+      font-style: normal;
+      display: inline;
+    }
+
+  } //@media only screen and (min-width : 769px)
+
+  @media only screen and (min-width: 984px) {
+
+    footer.global .legal {
+      width: 984px; /* 980px / 15px (baseline font); 980px + (60px x 2) = 1100px */
+    }
+
+    footer.global {
+      padding: 30px 0 20px;
+
+      .legal {
+        background: url("#{$asset-path}logos/logo-ubuntu-grey.png") 100% 0 no-repeat;
+      }
+
+      .footer-a {
+        display: block;
+      }
+    }
+
+
+
+  } // end @media only screen and (min-width: 984px)
+}
+// scss-lint:enable IdSelector, QualifyingElement

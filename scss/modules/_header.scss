@@ -1,0 +1,956 @@
+@mixin vf-header {
+  // scss-lint:disable NestingDepth, IdSelector
+  
+  $nav-box-shadow-color:  #777 !default;
+  $nav-border-color:      #d5d5d5 !default;
+  $nav-border-left:       #c64012 !default;
+  $nav-hover-border-left: #ec5b29 !default;
+  $nav-hover-bg-color:    #e1662f !default;
+  $nav-active-bg-color:   #b83a10 !default;
+  
+  .banner {
+    border-top: 0;
+    min-width: 100%;
+    width: auto;
+    background: $brand-color;
+    display: block;
+    position: relative;
+    z-index: 2;
+    
+    h2 {
+      @include vf-font-size (25);
+      display: block;
+      left: 4px;
+      margin-bottom: 0;
+      position: relative;
+      text-transform: lowercase;
+      top: 14px;
+      
+      a:link, 
+      a:visited, 
+      a {
+        color: $white;
+        float: left;
+        text-decoration: none;
+      }
+    }
+    
+    .nav-primary {
+      border: 0;
+      margin: 0 auto;
+      overflow: hidden;
+  
+      ul {
+        border-right: 1px solid lighten($brand-color, 10%);
+        float: left;
+        margin: 0;
+        position: static;
+  
+        li {
+          border-bottom: 1px solid $nav-border-light;
+          border-left: 1px solid darken($brand-color, 5%);
+          float: left;
+          font-size: 16px;
+          list-style-image: none;
+          margin: 0;
+          text-indent: 0;
+          vertical-align: bottom;
+  
+  
+          &:last-child {
+            border-right: 1px solid darken($brand-color, 5%);
+          }
+    
+          a:link,
+          a:visited {
+            font-size: 14px;
+            border-left: 1px solid lighten($brand-color, 7%);
+            color: $white;
+            display: block;
+            margin-bottom: 0;
+            padding: 14px 14px 13px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            font-smoothing: subpixel-antialiased;
+          }
+    
+          .active {
+            background: $nav-active-bg-color;
+            border-left: 1px solid lighten($brand-color, 7%);
+          }
+  
+          a:hover {
+            border-top: 0;
+            box-shadow: none;
+            background-color: $nav-hover-bg;
+          }
+                  
+          li:last-child {
+            border: 0;
+          }
+        }
+  
+      } // end ul
+      
+      &.active {
+        border-bottom: 1px solid $nav-border-dark;
+        box-shadow: 0 1px 2px 1px rgba(120, 120, 120, .2);
+        padding: 0;
+      }
+  
+      ul li,
+      ul li a:link,
+      ul li a:visited,
+      ul li a:active {
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+          
+      ul li a:link,
+      ul li a:visited,
+      ul li a:hover,
+      ul li a:active {
+        padding: 14px 14px 13px;
+        text-align: left;
+      }
+      
+      .active li ul {
+        display: none;
+      }
+    
+      &.nav-left {
+        .logo-ubuntu {
+          float: right;
+        }
+      }
+  
+      &.nav-right {
+        .logo-ubuntu {
+          background-image: url('#{$asset-path}logos/logo-ubuntu-white.svg');
+          background-size: 107px 25px;
+          float: left;
+        }
+      }
+      
+      li ul {
+        box-shadow: 0 2px 2px -1px $nav-box-shadow-color;
+        border-radius: 10px;
+        background: $light-grey;
+        border: 1px solid $nav-border-color;
+        display: none;
+        float: none;
+        margin: 0;
+        padding: 5px 0;
+        position: absolute;
+        top: 51px;
+        width: 200px;
+  
+        .promo {
+          border-top: 1px solid $nav-border-color;
+          float: left;
+          margin-top: 5px;
+          padding: 15px 0 0;
+          
+          .category {
+            color: $warm-grey;
+            font-size: 11px;
+            margin: 0 10px;
+            text-transform: uppercase;
+          }
+          
+          img {
+            margin-top: 14px;
+            margin-bottom: -6px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            top: 1px;
+          }
+          
+          a:hover {
+            box-shadow: none;
+            color: $brand-color;
+          }
+          
+          p { 
+            margin: 0 10px; 
+          }
+        }
+        
+        li {
+          border: 0;
+          float: none;
+  
+          a:link,
+          a:visited {
+            border: 0;
+            color: $warm-grey;
+            padding: 0 0 11px 14px;
+            text-align: left;
+            width: 170px;
+          }
+          
+          a:hover {
+            background: none repeat scroll 0 0 $transparent;
+            box-shadow: none;
+            color: $brand-color;
+          }
+  
+        }
+          
+        // the old arrow that appears if there is secondary nav when you hover over the main nav
+        .arrow-up {
+          display: none;
+        }
+        
+        .first a:link,
+        .first a:visited,
+        :first-of-type a:link {
+          padding: 10px 14px;
+        }
+        
+        .active a:link,
+        .active a:visited {
+          background: none;
+        }
+  
+      } // end ul
+      
+      // the new arrow that appears if there is secondary nav when you hover over the main nav
+      li:hover ul:after {
+        background: url('#{$asset-path}patterns/arrow-up-smaller.png') no-repeat;
+        content: '';
+        display: block;
+        height: 8px;
+        left: 20px;
+        position: relative;
+        top: -13px;
+        width: 200px;
+        z-index: 999;
+      }
+      
+          
+      li ul .promo a:link,
+      li ul .promo a:visited {
+        background: none repeat scroll 0 0 $transparent;
+        border-left: 0 none;
+        color: $warm-grey;
+        height: auto;
+        padding: 0;
+        text-align: left;
+      }
+                    
+      li:hover ul { 
+        display: block; 
+      }
+      
+    } // nav-primary
+  
+    .nav-toggle {
+      background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 25px auto;
+      cursor: pointer;
+      display: block;
+      height: 48px;
+      position: absolute;
+      right: 0;
+      text-indent: -99999px;
+      width: 48px;
+    }
+    
+    .no-script {
+      display: none;
+    }
+    
+    nav ul {
+      background-color: $nav-bg;
+      display: none;
+      float: left;
+    }
+    
+    .logo {
+      border-left: 0;
+      float: left;
+      height: 48px;
+      overflow: hidden;
+    }
+  
+    .logo-ubuntu {
+      background: url('#{$asset-path}ubuntu-logo.png') no-repeat scroll 0 10px $transparent;
+      display: inline-block;
+      float: left;
+      font-size: 18px;
+      height: 32px;
+      margin: 0;
+      margin-left: 10px;
+      margin-right: -20px;
+      min-width: 128px;
+      padding: 7px 14px 9px 0;
+      position: relative;
+      text-transform: lowercase;
+  
+      img {
+        margin-right: 8px;
+        position: absolute;
+        left: -999em;
+      }
+  
+      span {
+        float: left;
+        font-size: 23px;
+        font-weight: 300;
+        padding-left: 122px;
+        padding-right: 20px;
+        position: relative;
+        top: 5px;
+      }
+  
+    }
+      
+  } // end .banner
+  
+  // show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
+  .no-generatedcontent .banner .nav-primary li ul {
+    border-radius: 0 0 10px 10px;
+    top: 48px;
+  }
+  
+  // Responsive header navigation
+  #main-navigation-link { 
+    display: none; 
+  }
+  
+  .opera-mini .banner .nav-toggle,
+  .no-svg .banner .nav-toggle {
+    background-image: url('#{$asset-path}icons/navigation-menu-plain.png');
+  }
+  
+  header nav .active {
+    display: block;
+  }
+  
+  #menu.active:after {
+    background-image: url('#{$asset-path}patterns/nav-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 26px;
+    content: '';
+    display: block;
+    height: 23px;
+    margin-left: 0;
+    padding-bottom: 17px;
+    position: relative;
+    top: -3px;
+    width: 48px;
+    z-index: 999;
+  }
+  
+  .no-svg, 
+  .opera-mini {
+    
+    #menu.active:after {
+      background-image: url('#{$asset-path}patterns/nav-arrow.png');
+    }
+    
+    .banner .nav-primary.nav-right .logo-ubuntu {
+      background-image: url('#{$asset-path}logos/logo-ubuntu-white.png');
+    }
+    
+    .banner .logo-ubuntu {
+      background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
+    }
+  
+  } // End responsive navigation
+  
+  // nav-secondary
+  .nav-secondary {
+    border-bottom: 1px solid $mid-grey;
+    margin-bottom: 0;
+  
+  
+    ul {
+      float: left;
+      margin-bottom: 10px;
+      margin-left: 2px;
+  
+      li {
+        float: left;
+        margin-top: 16px;
+        font-size: 14px;
+        margin-right: 15px;
+  
+        a:link,
+        a:visited {
+          color: $warm-grey;
+          font-size: 14px;
+          float: left;
+        }
+  
+        a:hover,
+        a:active {
+          color: $brand-color;
+          text-decoration: none;
+        }
+      }
+  
+      li,
+      .active a:link,
+      .active a:visited {
+        color: $brand-color;
+        text-decoration: none;
+      }
+      
+    } // end ul
+    
+    .breadcrumb {
+      margin-left: 20px;
+  
+      li,
+      li a:link,
+      li a:visited {
+        color: $warm-grey;
+        margin-right: 8px;
+      }
+  
+      .active a:link,
+      .active a:visited {
+        color: $brand-color;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 295px) {
+  
+  // this changes the logo to the circle of friends on screens below 295px
+    .banner {
+      .nav-primary.nav-right .logo-ubuntu,
+      .logo-ubuntu {
+        background-size: 20px 20px;
+        background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
+        min-width: 0;
+        width: 38px;
+      }
+    }
+    
+    .banner .logo-ubuntu span {
+      padding-left: 38px;
+    }
+    
+  } // end @media only screen and (max-width: 295px)
+  
+  /*
+   * Main navigation dropdown styles
+   */
+  
+  .lt-ie8 .banner .nav-primary li:hover ul { 
+    display: none; 
+  }
+  
+  @media only screen and (max-width : 768px) {
+    .banner .nav-primary {
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .2);
+    }
+    
+    .banner .nav-primary.active {
+      box-shadow: none;
+      padding: 0;
+    }
+  
+    header nav .active {
+      float: left;
+    }
+    
+    header nav .active li:last-child a:link,
+    header nav .active li:last-child a:visited {
+      border-bottom: 0;
+    }
+      
+    .banner .nav-primary ul {
+      position: relative;
+      width: 100%;
+    }
+  
+    .banner .nav-primary ul .active {
+      a:link,
+      a:visited {
+        color: $warm-grey;
+        font-weight: 700;
+      }
+    }
+  
+    .banner .nav-primary ul li,
+    .banner .nav-primary ul li a:link,
+    .banner .nav-primary ul li a:visited,
+    .banner .nav-primary ul li a:active {
+      box-sizing: border-box;
+      background: $transparent;
+      border: 0;
+      display: block;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  
+    .banner .nav-primary ul li a:link,
+    .banner .nav-primary ul li a:visited,
+    .banner .nav-primary ul li a:hover,
+    .banner .nav-primary ul li a:active {
+      background-color: $nav-bg;
+      border-bottom: 1px solid $nav-border-dark;
+      color: $warm-grey;
+      font-size: 1em;
+    }
+    
+    .banner .nav-primary ul li:nth-last-child(-n+2) a:link,
+    .banner .nav-primary ul li:nth-last-child(-n+2) a:visited {
+      border: 0;
+    }  
+  
+    .banner .nav-primary ul li a:hover {
+      box-shadow: none;
+      background: lighten($nav_bg, 3%);
+    }
+    
+    .banner .nav-primary ul li .active {
+      background-color: $nav-active-bg;
+    }
+  
+    .banner .nav-primary ul li a:link,
+    .banner .nav-primary ul li a:visited,
+    .banner .nav-primary ul li a:hover,
+    .banner .nav-primary ul li a:active {
+      padding: 8px 10px;
+      text-align: left;
+    }
+  
+    .banner .nav-primary ul li {
+      box-sizing: border-box;
+      background: $transparent;
+      border-bottom: 0;
+      border-right: 1px solid $nav-border-dark;
+      float: left;
+      width: 50%;
+    }
+  
+    .nav-secondary {
+      background: $white;
+  
+      .second-level-nav {
+        border-top: 1px solid $nav-border-dark;
+        display: none;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        width: 100%;
+  
+        li {
+          box-sizing: border-box;
+          width: 50%;
+          margin: 0;
+          float: left;
+  
+          a,
+          a:link,
+          a:visited {
+            box-sizing: border-box;
+            display: block;
+            height: 100%;
+            padding: 10px 10px 10px 20px;
+            width: 100%;
+          }
+          
+          &.active {
+            a,
+            a:link,
+            a:visited {
+              color: $warm-grey;
+              font-weight: 700;
+            }
+          }
+        }
+      } /* end .second-level-nav */
+      
+      .third-level-nav {
+        display: none;
+        margin-bottom: 0;
+        width: 100%;
+        padding-bottom: 20px;
+  
+        li {
+          box-sizing: border-box;
+          width: 50%;
+          margin: 0;
+          float: left;
+          padding-left: 30px;
+  
+          a,
+          a:link,
+          a:visited {
+            box-sizing: border-box;
+            padding: 10px 10px 10px 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+  
+          &.active {
+            a,
+            a:link,
+            a:visited {
+              color: $warm-grey;
+              font-weight: 700;
+            }
+          }
+  
+          &.single-link {
+            width: 100%;
+          }
+        } /* end li */
+  
+        li:only-child {
+          width: 100%;
+        }
+        
+      } /* end third-level-nav */
+  
+      .breadcrumb {
+        box-sizing: border-box;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0;
+  
+        li:first-of-type {
+          border-bottom: 1px solid $nav-border-dark;
+          margin-bottom: -1px;
+        }
+  
+        li {
+          box-sizing: border-box;
+          color: $white;
+          display: block;
+          height: 40px;
+          margin: 0;
+          width: 100%;
+          
+          + li {
+            display: none;
+    
+            a:link,
+            a:active,
+            a:visited {
+              padding-left: 20px;
+            }
+    
+            .after {
+              background-image: none;
+            }
+          }
+  
+          a,
+          a:link,
+          a:visited {
+            box-sizing: border-box;
+            color: $warm-grey;
+            display: block;
+            font-size: 16px;
+            margin-right: 0;
+            padding: 8px 10px 0;
+            text-decoration: none;
+            width: 100%;
+          }
+  
+          &.active {
+            margin-top: 12px;
+  
+            a,
+            a:link,
+            a:visited {
+              color: $warm-grey;
+              font-weight: 700;
+            }
+          }
+  
+          &:nth-of-type(2n) {
+            margin-top: 12px;
+          }
+  
+          .after {
+            background-image: url(#{$asset-path}patterns/nav-down-arrow.svg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            float: right;
+            height: 18px;
+            margin-right: -5px;
+            margin-top: -6px;
+            padding: 10px;
+            position: relative;
+            right: 0;
+            top: 0;
+            width: 18px;
+          }
+        }
+  
+      }
+  
+      &.open {
+        
+        .breadcrumb li a:after,
+        .breadcrumb li a:link:after,
+        .breadcrumb li a:visited:after {
+          background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
+        }
+        
+        .breadcrumb li + li .after {
+          background-image: none;
+        }
+        
+        .breadcrumb li .after {
+          background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
+          margin-top: -7px;
+        }
+        
+        .second-level-nav,
+        .third-level-nav,
+        .breadcrumb li + li {
+          display: block;
+        }
+        
+      }
+      
+    }/* end nav-secondary */
+  
+    .no-js {
+      
+      .nav-secondary .second-level-nav { 
+        display: block; 
+      }
+      
+      #main-navigation-link {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        width: 20px;
+        height: 28px;
+        z-index: 999;
+        text-indent: -999em;
+        display: block;
+  
+        a {
+          background-image: url('#{$asset-path}icons/navigation-menu-plain.svg');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 25px auto;
+          display: block;
+          width: 28px;
+          height: 28px;
+          position: absolute;
+        }
+        
+      }
+      
+    }
+  
+    .no-svg, 
+    .opera-mini {
+  
+      .nav-secondary .breadcrumb {
+      
+        li .after {
+          background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
+        }
+      
+        &.open {
+          .breadcrumb li a:after,
+          .breadcrumb li a:link:after,
+          .breadcrumb li a:visited:after {
+            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+          }
+          
+          .breadcrumb li .after {
+            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+          }
+        } // end .open
+  
+    } // end .nav-secondary .breadcrumb
+    
+      .banner .nav-primary button {
+        background-image: url('#{$asset-path}search-black.png');
+      }
+      
+    }
+  
+    .no-svg,
+    .opera-mini {
+      
+      .nav-secondary .breadcrumb {
+        
+        li .after {
+          background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
+        }
+        
+        &.open {
+          .breadcrumb li a:after,
+          .breadcrumb li a:link:after,
+          .breadcrumb li a:visited:after {
+            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+          }
+          
+          .breadcrumb li .after {
+            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+          }
+          
+        }
+        
+      }
+      
+      .banner .nav-primary button {
+        background-image: url('#{$asset-path}search-black.png');
+      }
+    }
+  
+    .banner {
+      .nav-toggle {
+        background-image: url('#{$asset-path}icons/navigation-menu-plain.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 25px auto;
+        cursor: pointer;
+        display: block;
+        height: 48px;
+        position: absolute;
+        right: 0;
+        text-indent: -99999px;
+        width: 48px;
+      }
+    }
+  
+  
+    .no-svg, 
+    .opera-mini {
+      
+      .banner .nav-toggle {
+        background-image: url('#{$asset-path}icons/navigation-menu-plain.png');
+      }
+      
+    }
+  
+  }
+  
+  @media only screen and (min-width : 768px) {
+  
+    .banner .nav-primary ul li {
+      border-bottom: 0;
+    }
+  }
+  
+  @media only screen and (min-width : 769px) {
+  
+    .banner {
+      box-shadow: 0 2px 2px -2px $nav-box-shadow-color inset, 2px 1px $white;
+  
+      .nav-primary {
+        box-shadow: none;
+        border-bottom: 0;
+  
+      }
+    }
+  
+    .banner .nav-toggle {
+      display: none;
+    }
+  
+    .banner nav ul {
+      background-color: $transparent;
+      display: block;
+    }
+  
+    .banner .nav-primary ul li {
+      border-left: 1px solid $nav-border-left;
+    }
+  
+    .banner .nav-primary ul li a:active,
+    .banner .nav-primary ul li a:hover,
+    .banner .nav-primary ul li a:visited,
+    .banner .nav-primary ul li a:link {
+      border-left: 1px solid $nav-hover-border-left;
+    }
+    
+    .banner .nav-primary ul li:last-child {
+      border-right: 1px solid $nav-border-left;
+      border-left: 1px solid $nav-border-left;
+    }
+    
+    .banner .nav-primary ul li .active {
+      background-color: $nav-active-bg-color;
+    }
+    
+    .banner .nav-primary ul li a:hover {
+      background-color: $nav-hover-bg-color;
+    }
+  
+    .nav-secondary {
+      
+      :last-child li:last-child {
+        padding-bottom: 10px;
+      }
+  
+      .breadcrumb,
+      .second-level-nav,
+      .third-level-nav {
+  
+        li {
+          margin-right: 15px;
+        }
+      }
+  
+      .breadcrumb {
+        float: left;
+  
+        li {
+          margin-bottom: 10px;
+        }
+        
+      }
+  
+      ul {
+        float: none;
+        margin-bottom: 0;
+        
+        li {
+          margin-bottom: 5px;
+        }
+        
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 984px) {
+  
+    .banner {
+      margin-bottom: 20px;
+      
+      .nav-primary ul {
+        display: block;
+      }
+      
+    }
+  
+    .banner .nav-primary,
+    .nav-global-wrapper {
+      width: 984px; /* 980px / 15px (baseline font); 980px + (60px x 2) = 1100px */
+    }
+  
+    .banner .nav-primary.nav-right .logo-ubuntu {
+      margin-left: 0;
+    }
+  
+  }
+  
+  // scss-lint:enable NestingDepth, IdSelector
+} // @mixin vf-header

@@ -1,0 +1,54 @@
+@mixin vf-tables {
+  /// Tables
+  /// @section tables
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    overflow-x: scroll;
+    margin-bottom: $gutter-width;
+    margin: 0 0 (40/$base) + em;
+    width: 100%;
+
+    th,
+    td {
+      padding: 15px 10px;
+      background: $light-grey;
+      border: 1px dotted $warm-grey;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    thead th {
+      border-collapse: separate;
+      border-spacing: 0 10px;
+      background: $table-th;
+      color: $base-color;
+      font-weight: normal;
+    }
+
+    tbody th {
+      text-align: left;
+      font-weight: 300;
+    }
+
+    th[scope='col'] {
+      text-align: center;
+    }
+
+    thead th:first-of-type {
+      text-align: left;
+    }
+
+  }
+
+  @media only screen and (max-width : 768px) {
+
+    table {
+      display: block;
+    }
+
+  }
+}
