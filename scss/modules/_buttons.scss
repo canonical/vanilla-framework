@@ -40,32 +40,34 @@
   }
 }
 
-/// primary button
-@mixin primary-button {
-
-  .btn {
-    @include button($white, $brand-color, null)
-  }
-}
-
-/// secondary button
-@mixin secondary-button {
-
-  .btn-secondary {
-    @include button($brand-color, $white, $mid-grey);
-  }
-}
-
-/// text button
-@mixin text-button {
-
-  .btn-text {
-    @include button($brand-color, $transparent, null);
-  }
-}
-
 /// buttons mixin
 @mixin vf-buttons {
+
+  /// primary button
+  @mixin primary-button {
+
+    .btn {
+      @include button($white, $brand-color, null)
+    }
+  }
+
+  /// secondary button
+  @mixin secondary-button {
+
+    .btn-secondary {
+      @include button($brand-color, $white, $mid-grey);
+    }
+  }
+
+  /// text button
+  @mixin text-button {
+
+    .btn-text {
+      @include button($brand-color, $transparent, null);
+    }
+  }
+
+  /// Call all buttons
   @include primary-button;
   @include secondary-button;
   @include text-button;
