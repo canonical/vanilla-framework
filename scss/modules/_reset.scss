@@ -1,44 +1,11 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-reset
+/// @since        0.0.3
+////
+
+/// Reset styling
 @mixin vf-reset {
-  ////
-  /// Ubuntu Core Front-End Framework
-  /// Main CSS file part of the Ubuntu Core Front-End Framework
-  ///
-  /// @project    Vanilla Framework
-  /// @author     Web Team at Canonical Ltd
-  /// @copyright  2015 Canonical Ltd
-  ///
-  /// @colordef  $cool-grey (#333); main text
-  /// @colordef  $brand-color (#dd4814); Ubuntu orange
-
-  /// Dependencies
-  ///
-  /// Importing reset file: core-reset.css
-  /// Importing grid file: core-grid.css
-  ////
-
-  /// Font sizes
-  ///
-  /// 45px
-  /// 32px
-  /// 23px
-  /// 19.5px
-  /// 16px - bold
-  /// 13px - bold - uppercase
-
-  /// Table of contents
-  /// General
-  /// Links
-  /// Lists
-  /// Images
-  /// Base typography
-  /// Global elements
-  /// Forms
-  /// Tables
-  ////
-
-  /// General
-  ///
-  /// @section links
   html,
   body,
   div,
@@ -185,28 +152,6 @@
     content: '';
   }
 
-  /// Lists
-  ol,
-  ul {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
-  ol ol,
-  ul ul,
-  ol ul,
-  ul ol {
-    margin-bottom: 0;
-  }
-
-  nav ul,
-  nav ol {
-    list-style: none;
-    list-style-image: none;
-  }
-
-  /// Images
-  /// @section images
   svg:not(:root) {
     overflow: hidden;
   }
@@ -230,108 +175,14 @@
     margin-top: 4em;
   }
 
-  h2 span,
-  h1 span {
-    display: block;
-  }
-
-  p + h2,
-  ul + h2,
-  ol + h2,
-  pre + h2 {
-    margin-top: (18 / 32)+em;
-  }
-
-  header nav a:link {
-    font-weight: normal;
-  }
-
-  p + h3,
-  ul + h3,
-  ol + h3,
-  pre + h3 {
-    margin-top: (18 / 23)+em;
-  }
-
-  p + h4,
-  ul + h4,
-  ol + h4,
-  pre + h4 {
-    margin-top: (19.5 / $base)+em;
-  }
-
-  ol+h2,
-  p+h2,
-  pre+h2,
-  ul+h2 {
-    margin-top: .563em;
-  }
-
-  ol+h3,
-  p+h3,
-  pre+h3,
-  ul+h3 {
-    margin-top: .783em;
-  }
-
-  ol+h4,
-  p+h4,
-  pre+h4,
-  ul+h4 {
-    margin-top: 1.219em;
-  }
-
-  li {
-    margin-bottom: .4em;
-  }
-
-  li:last-of-type {
-    margin-bottom: 0;
-  }
-
   ins {
     background: $code-bg;
     text-decoration: none;
   }
 
-  small,
-  .smaller {
-    font-size: 13px;
-  }
-
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-
-  sup {
-    vertical-align: text-top;
-  }
-
-  sub {
-    vertical-align: text-bottom;
-  }
-
-  pre {
-    border-radius: 4px;
-    background: $light-orange;
-    padding: .6em 1em;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
   @media only screen and (min-width: 984px) {
-
-    form fieldset {
-      padding: 15px 20px;
-    }
-
     img {
       max-width: none;
     }
-
   }
 }
