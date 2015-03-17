@@ -3,6 +3,9 @@
 /// Import settings
 @import 'global-settings';
 
+/// Import reset
+@import 'modules/reset';
+
 /// vanilla base element styles
 @import 'modules/blockquotes';
 @import 'modules/buttons';
@@ -13,9 +16,11 @@
 @import 'modules/rows';
 @import 'modules/search';
 @import 'modules/typography';
+@import 'modules/tables';
 
 /// Include all the CSS
 @mixin vanilla {
+  @include vf-reset;
   @include vf-blockquotes;
   @include vf-buttons;
   @include vf-forms;
@@ -25,4 +30,5 @@
   @include vf-rows;
   @include vf-search;
   @include vf-typography;
+  @include vf-tables;
 }
