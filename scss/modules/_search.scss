@@ -1,3 +1,11 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-search
+/// @since        0.0.3
+////
+
+/// Search box styles
+/// @group Header
 @mixin vf-search {
   .header-search,
   .search-form {
@@ -143,7 +151,7 @@
     }
   }
   
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width : $breakpoint-medium) {
   
     .banner {
       .search-toggle {
@@ -157,16 +165,16 @@
         background-image: url("#{$asset-path}img/search-white.png");
       }
     }
-  } // @media only screen and (max-width : 768px)
+  }
   
   
-  @media only screen and (min-width : 768px) {
+  @media only screen and (min-width : $breakpoint-medium) {
   
     .banner .search-toggle {
       display: none;
     }
   
-  } // @media only screen and (min-width : 768px)
+  }
   
   @media only screen and (min-width : 960px) {
   // scss-lint:disable IdSelector
@@ -200,7 +208,7 @@
         width: 86px;
       }
     }
-  } // @media only screen and (min-width : 769px)
+  }
   
   @media only screen and (max-width : 960px) {
     .banner .nav-primary .header-search {
@@ -275,7 +283,7 @@
     }
   }
   
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width : $breakpoint-medium) {
     .banner .search-toggle {
       right: 48px;
     }
@@ -444,11 +452,11 @@
     }
   }
   
-  @media only screen and (min-width : 768px) {
+  @media only screen and (min-width : $breakpoint-medium) {
     .ubuntu-search .main-search [type=submit] {
       margin-left: -60px;
       margin-top: 0;
     }
-  } /* end @media only screen and (min-width : 768px) */
+  }
 
-} // @mixin vf-blockquotes {
+}
