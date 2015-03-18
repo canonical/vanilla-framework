@@ -59,7 +59,7 @@ gulp.task('docs', function() {
 gulp.task('build', ['sasslint', 'sass', 'docs']);
 
 gulp.task('sass-lite', function() {
-    return gulp.src('scss/ubuntu-styles.scss')
+    return gulp.src('scss/styles.scss')
         .pipe(sass({ style: 'expanded', errLogToConsole: true }))
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(gulp.dest('build/css/'));
