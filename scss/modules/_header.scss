@@ -1,34 +1,27 @@
 @mixin vf-header {
-  // scss-lint:disable NestingDepth, IdSelector
-  
-  $nav-box-shadow-color:  #777 !default;
-  $nav-border-color:      #d5d5d5 !default;
-  $nav-border-left:       #c64012 !default;
-  $nav-hover-border-left: #ec5b29 !default;
-  $nav-hover-bg-color:    #e1662f !default;
-  $nav-active-bg-color:   #b83a10 !default;
-  
+  // scss-lint:disable NestingDepth
+      
   .banner {
-    border-top: 0;
-    min-width: 100%;
-    width: auto;
     background: $brand-color;
+    border-top: 0;
     display: block;
+    min-width: 100%;
     position: relative;
+    width: auto;
     z-index: 2;
     
     h2 {
-      font-size: 1.563em;
       display: block;
+      font-size: 1.563em;
       left: 4px;
       margin-bottom: 0;
       position: relative;
       text-transform: lowercase;
       top: 14px;
       
+      a,
       a:link, 
-      a:visited, 
-      a {
+      a:visited {
         color: $white;
         float: left;
         text-decoration: none;
@@ -47,8 +40,8 @@
         position: static;
   
         li {
-          border-bottom: 1px solid $nav-border-light;
-          border-left: 1px solid darken($brand-color, 5%);
+          border-bottom: 1px solid lighten($brand-color, 10%);
+          border-left: 1px solid darken($brand-color, 20%);
           float: left;
           font-size: 16px;
           list-style-image: none;
@@ -58,32 +51,31 @@
   
   
           &:last-child {
-            border-right: 1px solid darken($brand-color, 5%);
+            border-right: 1px solid lighten($mobile-nav, 60%);
           }
     
           a:link,
           a:visited {
-            font-size: 14px;
             border-left: 1px solid lighten($brand-color, 7%);
             color: $white;
             display: block;
+            font-size: 14px;
+            font-smoothing: subpixel-antialiased;
             margin-bottom: 0;
             padding: 14px 14px 13px;
             position: relative;
             text-align: center;
             text-decoration: none;
-            font-smoothing: subpixel-antialiased;
           }
     
           .active {
-            background: $nav-active-bg-color;
+            background: darken($brand-color, 20%);
             border-left: 1px solid lighten($brand-color, 7%);
           }
   
           a:hover {
             border-top: 0;
             box-shadow: none;
-            background-color: $nav-hover-bg;
           }
                   
           li:last-child {
@@ -94,8 +86,8 @@
       } // end ul
       
       &.active {
-        border-bottom: 1px solid $nav-border-dark;
-        box-shadow: 0 1px 2px 1px rgba(120, 120, 120, .2);
+        border-bottom: 1px solid lighten($mobile-nav, 60%);
+        box-shadow: 0 1px 2px 1px $warm-grey;
         padding: 0;
       }
   
@@ -129,17 +121,17 @@
   
       &.nav-right {
         .logo-ubuntu {
-          background-image: url('#{$asset-path}logos/logo-ubuntu-white.svg');
+          background-image: url('#{$asset-path}img/logos/logo-ubuntu-white.svg');
           background-size: 107px 25px;
           float: left;
         }
       }
       
       li ul {
-        box-shadow: 0 2px 2px -1px $nav-box-shadow-color;
-        border-radius: 10px;
         background: $light-grey;
-        border: 1px solid $nav-border-color;
+        border-radius: 10px;
+        border: 1px solid lighten($cool-grey, 60%);
+        box-shadow: 0 2px 2px -1px $warm-grey;
         display: none;
         float: none;
         margin: 0;
@@ -147,38 +139,7 @@
         position: absolute;
         top: 51px;
         width: 200px;
-  
-        .promo {
-          border-top: 1px solid $nav-border-color;
-          float: left;
-          margin-top: 5px;
-          padding: 15px 0 0;
-          
-          .category {
-            color: $warm-grey;
-            font-size: 11px;
-            margin: 0 10px;
-            text-transform: uppercase;
-          }
-          
-          img {
-            margin-top: 14px;
-            margin-bottom: -6px;
-            border-radius: 0 0 10px 10px;
-            position: relative;
-            top: 1px;
-          }
-          
-          a:hover {
-            box-shadow: none;
-            color: $brand-color;
-          }
-          
-          p { 
-            margin: 0 10px; 
-          }
-        }
-        
+
         li {
           border: 0;
           float: none;
@@ -186,14 +147,14 @@
           a:link,
           a:visited {
             border: 0;
-            color: $warm-grey;
+            color: $cool-grey;
             padding: 0 0 11px 14px;
             text-align: left;
             width: 170px;
           }
           
           a:hover {
-            background: none repeat scroll 0 0 $transparent;
+            background: none;
             box-shadow: none;
             color: $brand-color;
           }
@@ -220,36 +181,21 @@
       
       // the new arrow that appears if there is secondary nav when you hover over the main nav
       li:hover ul:after {
-        background: url('#{$asset-path}patterns/arrow-up-smaller.png') no-repeat;
+        background: url('#{$asset-path}img/patterns/arrow-up-smaller.png') no-repeat;
         content: '';
         display: block;
         height: 8px;
         left: 20px;
-        position: relative;
-        top: -13px;
+        position: absolute;
+        top: -8px;
         width: 200px;
-        z-index: 999;
+        z-index: 20000;
       }
-      
-          
-      li ul .promo a:link,
-      li ul .promo a:visited {
-        background: none repeat scroll 0 0 $transparent;
-        border-left: 0 none;
-        color: $warm-grey;
-        height: auto;
-        padding: 0;
-        text-align: left;
-      }
-                    
-      li:hover ul { 
-        display: block; 
-      }
-      
+                                
     } // nav-primary
   
     .nav-toggle {
-      background-image: url(#{$asset-path}icons/navigation-menu-plain.svg);
+      background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 25px auto;
@@ -267,7 +213,7 @@
     }
     
     nav ul {
-      background-color: $nav-bg;
+      background-color: $light-grey;
       display: none;
       float: left;
     }
@@ -280,7 +226,7 @@
     }
   
     .logo-ubuntu {
-      background: url('#{$asset-path}ubuntu-logo.png') no-repeat scroll 0 10px $transparent;
+      background: url('#{$asset-path}img/ubuntu-logo.png') no-repeat scroll 0 10px $transparent;
       display: inline-block;
       float: left;
       font-size: 18px;
@@ -320,21 +266,24 @@
   }
   
   // Responsive header navigation
+  // scss-lint:disable IdSelector
   #main-navigation-link { 
     display: none; 
   }
+  // scss-lint:enable IdSelector
   
   .opera-mini .banner .nav-toggle,
   .no-svg .banner .nav-toggle {
-    background-image: url('#{$asset-path}icons/navigation-menu-plain.png');
+    background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
   }
   
   header nav .active {
     display: block;
   }
   
+  // scss-lint:disable IdSelector
   #menu.active:after {
-    background-image: url('#{$asset-path}patterns/nav-arrow.svg');
+    background-image: url('#{$asset-path}img/patterns/nav-arrow.svg');
     background-repeat: no-repeat;
     background-position: 50% 26px;
     content: '';
@@ -352,18 +301,19 @@
   .opera-mini {
     
     #menu.active:after {
-      background-image: url('#{$asset-path}patterns/nav-arrow.png');
+      background-image: url('#{$asset-path}img/patterns/nav-arrow.png');
     }
     
     .banner .nav-primary.nav-right .logo-ubuntu {
-      background-image: url('#{$asset-path}logos/logo-ubuntu-white.png');
+      background-image: url('#{$asset-path}img/logos/logo-ubuntu-white.png');
     }
     
     .banner .logo-ubuntu {
-      background-image: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.png');
+      background-image: url('#{$asset-path}img/logos/logo-ubuntu_cof-white_orange-hex.png');
     }
   
   } // End responsive navigation
+  // scss-lint:enable IdSelector
   
   // nav-secondary
   .nav-secondary {
@@ -429,7 +379,7 @@
       .nav-primary.nav-right .logo-ubuntu,
       .logo-ubuntu {
         background-size: 20px 20px;
-        background: url('#{$asset-path}logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
+        background: url('#{$asset-path}img/logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
         min-width: 0;
         width: 38px;
       }
@@ -451,7 +401,7 @@
   
   @media only screen and (max-width : 768px) {
     .banner .nav-primary {
-      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .2);
+      box-shadow: 0 1px 2px 1px $warm-grey;
     }
     
     .banner .nav-primary.active {
@@ -476,7 +426,7 @@
     .banner .nav-primary ul .active {
       a:link,
       a:visited {
-        color: $warm-grey;
+        color: $cool-grey;
         font-weight: 700;
       }
     }
@@ -499,9 +449,9 @@
     .banner .nav-primary ul li a:visited,
     .banner .nav-primary ul li a:hover,
     .banner .nav-primary ul li a:active {
-      background-color: $nav-bg;
-      border-bottom: 1px solid $nav-border-dark;
-      color: $warm-grey;
+      background-color: lighten($mobile-nav, 72%);
+      border-bottom: 1px solid lighten($mobile-nav, 60%);
+      color: $cool-grey;
       font-size: 1em;
     }
     
@@ -512,7 +462,7 @@
   
     .banner .nav-primary ul li a:hover {
       box-shadow: none;
-      background: lighten($nav_bg, 3%);
+      background: lighten($mobile-nav, 75%);
     }
     
     .banner .nav-primary ul li .active {
@@ -531,7 +481,7 @@
       box-sizing: border-box;
       background: $transparent;
       border-bottom: 0;
-      border-right: 1px solid $nav-border-dark;
+      border-right: 1px solid lighten($mobile-nav, 60%);
       float: left;
       width: 50%;
     }
@@ -540,7 +490,7 @@
       background: $white;
   
       .second-level-nav {
-        border-top: 1px solid $nav-border-dark;
+        border-top: 1px solid lighten($brand-color, 7%);
         display: none;
         margin-bottom: 0;
         margin-left: 0;
@@ -625,7 +575,7 @@
         margin-bottom: 0;
   
         li:first-of-type {
-          border-bottom: 1px solid $nav-border-dark;
+          border-bottom: 1px solid lighten($brand-color, 7%);
           margin-bottom: -1px;
         }
   
@@ -680,7 +630,7 @@
           }
   
           .after {
-            background-image: url(#{$asset-path}patterns/nav-down-arrow.svg);
+            background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 18px;
@@ -703,7 +653,7 @@
         .breadcrumb li a:after,
         .breadcrumb li a:link:after,
         .breadcrumb li a:visited:after {
-          background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
+          background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
         }
         
         .breadcrumb li + li .after {
@@ -711,7 +661,7 @@
         }
         
         .breadcrumb li .after {
-          background-image: url(#{$asset-path}patterns/nav-up-arrow.svg);
+          background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
           margin-top: -7px;
         }
         
@@ -731,6 +681,7 @@
         display: block; 
       }
       
+      // scss-lint:disable IdSelector
       #main-navigation-link {
         position: absolute;
         right: 10px;
@@ -742,7 +693,7 @@
         display: block;
   
         a {
-          background-image: url('#{$asset-path}icons/navigation-menu-plain.svg');
+          background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
           background-position: center center;
           background-repeat: no-repeat;
           background-size: 25px auto;
@@ -753,7 +704,7 @@
         }
         
       }
-      
+      // scss-lint:enable IdSelector
     }
   
     .no-svg, 
@@ -762,25 +713,25 @@
       .nav-secondary .breadcrumb {
       
         li .after {
-          background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
+          background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
         }
       
         &.open {
           .breadcrumb li a:after,
           .breadcrumb li a:link:after,
           .breadcrumb li a:visited:after {
-            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
           
           .breadcrumb li .after {
-            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
         } // end .open
   
     } // end .nav-secondary .breadcrumb
     
       .banner .nav-primary button {
-        background-image: url('#{$asset-path}search-black.png');
+        background-image: url('#{$asset-path}img/search-black.png');
       }
       
     }
@@ -791,18 +742,18 @@
       .nav-secondary .breadcrumb {
         
         li .after {
-          background-image: url(#{$asset-path}patterns/nav-down-arrow.png);
+          background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
         }
         
         &.open {
           .breadcrumb li a:after,
           .breadcrumb li a:link:after,
           .breadcrumb li a:visited:after {
-            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
           
           .breadcrumb li .after {
-            background-image: url(#{$asset-path}patterns/nav-up-arrow.png);
+            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
           
         }
@@ -810,13 +761,13 @@
       }
       
       .banner .nav-primary button {
-        background-image: url('#{$asset-path}search-black.png');
+        background-image: url('#{$asset-path}img/search-black.png');
       }
     }
   
     .banner {
       .nav-toggle {
-        background-image: url('#{$asset-path}icons/navigation-menu-plain.svg');
+        background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 25px auto;
@@ -835,7 +786,7 @@
     .opera-mini {
       
       .banner .nav-toggle {
-        background-image: url('#{$asset-path}icons/navigation-menu-plain.png');
+        background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
       }
       
     }
@@ -852,12 +803,11 @@
   @media only screen and (min-width : 769px) {
   
     .banner {
-      box-shadow: 0 2px 2px -2px $nav-box-shadow-color inset, 2px 1px $white;
+      box-shadow: 0 2px 2px -2px $warm-grey inset, 2px 1px $white;
   
       .nav-primary {
         box-shadow: none;
         border-bottom: 0;
-  
       }
     }
   
@@ -871,27 +821,27 @@
     }
   
     .banner .nav-primary ul li {
-      border-left: 1px solid $nav-border-left;
+      border-left: 1px solid darken($brand-color, 8%);
     }
   
     .banner .nav-primary ul li a:active,
     .banner .nav-primary ul li a:hover,
     .banner .nav-primary ul li a:visited,
     .banner .nav-primary ul li a:link {
-      border-left: 1px solid $nav-hover-border-left;
+      border-left: 1px solid lighten($brand-color, 12%);
     }
     
     .banner .nav-primary ul li:last-child {
-      border-right: 1px solid $nav-border-left;
-      border-left: 1px solid $nav-border-left;
+      border-right: 1px solid darken($brand-color, 8%);
+      border-left: 1px solid darken($brand-color, 8%);
     }
     
     .banner .nav-primary ul li .active {
-      background-color: $nav-active-bg-color;
+      background-color: darken($brand-color, 14%);
     }
     
     .banner .nav-primary ul li a:hover {
-      background-color: $nav-hover-bg-color;
+      background-color: lighten($brand-color, 8%);
     }
   
     .nav-secondary {
@@ -937,6 +887,11 @@
       
       .nav-primary ul {
         display: block;
+        
+        li:hover ul { 
+          display: block; 
+        }
+        
       }
       
     }
@@ -952,5 +907,5 @@
   
   }
   
-  // scss-lint:enable NestingDepth, IdSelector
+  // scss-lint:enable NestingDepth
 } // @mixin vf-header
