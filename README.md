@@ -1,9 +1,9 @@
-# Ubuntu web style framework
+# Vanilla
 _____
 
 [![Build Status](https://travis-ci.org/ubuntudesign/vanilla-framework.svg?branch=master)](https://travis-ci.org/ubuntudesign/vanilla-framework)
 
-Ubuntu web style framework is a guidelines framework to help you achieve a consistent look, bringing the [Ubuntu](http://www.ubuntu.com/) and [Canonical](http://www.canonical.com/) brands to the web with precision. Here you will find the Ubuntu web style guide and a front-end framework, which you can apply to your web projects maintained by the [Canonical Web Team](https://github.com/orgs/ubuntudesign/people).
+Vanilla is a guidelines framework to help you achieve a consistent look, bringing the [Ubuntu](http://www.ubuntu.com/) and [Canonical](http://www.canonical.com/) brands to the web with precision. Here you will find the Ubuntu web style guide and a front-end framework, which you can apply to your web projects maintained by the [Canonical Web Team](https://github.com/orgs/ubuntudesign/people).
 
 Sites created within Canonical should follow this style guide closely, whereas external sites are free to adapt and expand the existing components to their needs.
 
@@ -52,7 +52,7 @@ https://github.com/ubuntudesign/web-style-guide/issues
 
 ## Community
 
-Keep upto date with all new developments and upcoming changes with the Ubuntu web style framework
+Keep upto date with all new developments and upcoming changes with Vanilla.
 
 - Follow us on Twitter [@Ubuntudesigners](http://twitter.com/ubuntudesigners)
 - Read our latest blog posts at [Canonical Blog](http://design.canonical.com/topic/development/)
