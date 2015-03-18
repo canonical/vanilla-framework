@@ -1,17 +1,12 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-rows
+/// @since        0.0.3
+////
+
+/// Row element styles
+/// @group Rows
 @mixin vf-rows {
-////
-/// rows sass
-/// contents:
-/// row
-/// row-hero
-/// row-background
-/// strips
-/// row-aux
-/// row-step
-////
-
-
-/// row
   .row {
     box-sizing: border-box;
     border-bottom: 1px dotted $warm-grey;
@@ -42,13 +37,11 @@
 
   .no-border { border: 0; }
 
-  /// row-hero
   .row-hero {
     margin-top: 20px;
     padding-top: 0;
   }
 
-  /// strips
   .strip {
     width: 100%;
     display: block;
@@ -56,23 +49,24 @@
 
   @media only screen and (min-width : $breakpoint-medium) {
 
-    .row { padding: 30px; }
+    .row {
+      padding: 30px;
+    }
 
-    .row-hero { margin-top: 40px; }
+    .row-hero {
+      margin-top: 40px;
+    }
 
-    .row { // Clear entire row
+    .row {
       border-radius: 0;
       margin: 0;
       padding: 40px 40px 20px;
     }
-
-  } // end @media only screen and (max-width : $breakpoint-medium)
+  }
 
   @media only screen and (min-width : $breakpoint-medium + 1px) {
-
     .row br { display: block; }
-
-  } //@media only screen and (min-width : $breakpoint-medium + 1px)
+  }
 
   @media only screen and (min-width: $breakpoint-large) {
 
@@ -81,6 +75,5 @@
     .row { padding: 60px 40px 40px; }
 
     .no-border { border: 0; }
-
-  } // end @media only screen and (min-width: $breakpoint-large)
+  }
 }
