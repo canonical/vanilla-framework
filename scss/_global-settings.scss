@@ -10,20 +10,14 @@ $brand-face:            Ubuntu, Arial, 'libra sans', sans-serif !default;
 $transparent:           transparent !default;
 /// the theme's core brand colour
 $brand-color:           #dd4814 !default;
-/// light-orange - used as background on pre text
-$light-orange:          #fdf6f2 !default;
-/// canonical aubergine
-$canonical-aubergine:   #772953 !default;
-/// light aubergine (consumer)
-$light-aubergine:       #77216f !default;
-/// mid aubergine (both)
-$mid-aubergine:         #5e2750 !default;
-/// dark aubergine (enterprise)
-$dark-aubergine:        #2c001e !default;
-/// warm grey
-$warm-grey:             #888 !default;
+/// light brand colour
+$brand-color-light:     lighten($brand-color, 48%); ///TODO make this a lighter brand color
 /// cool grey
 $cool-grey:             #333 !default;
+/// text colour
+$text-color:            $cool-grey !default;
+/// warm grey
+$warm-grey:             #888 !default;
 /// mid grey
 $mid-grey:              #dfdcd9 !default;
 /// light grey
@@ -35,25 +29,14 @@ $black:                 #000 !default;
 /// row background
 $row-background:        #4b1827 !default;
 
-/// red notifications
+/// error notifications
 $error:                 #df382c !default;
-/// yellow notifications
+/// warning notifications
 $warning:               #eca918 !default;
-/// green notifications
+/// success notifications
 $success:               #38b44a !default;
-/// cyan notifications
+/// information notifications
 $information:           #19b6ee !default;
-
-/// red, for status that require immediate attention
-$status-red:            #df382c !default;
-/// grey, for disabled status or ones that don’t require attention
-$status-grey:           #888 !default;
-/// yellow, for status that require attention
-$status-yellow:         #efb73e !default;
-/// blue, for status that don’t require action
-$status-blue:           #19b6ee !default;
-/// green, for positive status
-$status-green:          #38b44a !default;
 
 /// box shadows
 $box-shadow:            #c2c2c2 !default;
@@ -67,12 +50,8 @@ $box-border:            #dfdcd9 !default;
 
 /// This is the global link color, mainly used for links in content
 $link-color:            $brand-color !default;
-/// Base font colour
-$base-color:            #333 !default;
 
 /// grid variables
-/// base
-$base:              14 !default;
 /// gutter width
 $gutter-width:      20px !default;
 /// grid-gutter
@@ -103,16 +82,9 @@ $ten-col:           82.97872% !default;
 /// eleven col
 $eleven-col:        91.48936% !default;
 
-/// nav background
-$nav-bg:            #f0f0f0 !default;
-/// nav link colour
-$nav-link-color:    #333 !default;
-/// nav border dark
-$nav-border-dark:   #d4d7d4 !default;
-/// nav border light
-$nav-border-light:  #f2f2f4 !default;
-/// nav hover background
-$nav-hover-bg:      #d0d0d0 !default;
+/// mobile nav
+$mobile-nav:     #333 !default;
+
 /// nav active background
 $nav-active-bg:     #ddd !default;
 
@@ -122,15 +94,12 @@ $resource-hover:    #fafafa !default;
 /// resource shadow
 $resource-shadow:   #ddd !default;
 
+// Site maximum width
+$site-max-width: 1030px !default;
+
 /// Medium breakpoint
-$breakpoint-medium: 768px;
+$breakpoint-medium: 768px !default;
 
 /// Large breakpoint
-$breakpoint-large: 984px;
-
-/// Base font size - medium screen
-@media only screen and (min-width : 768px) { $base: 15; }
-
-// Base font size - small screen
-@media only screen and (min-width: 984px) { $base: 14; }
+$breakpoint-large: 984px !default;
 

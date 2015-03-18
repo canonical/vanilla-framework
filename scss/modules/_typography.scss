@@ -1,9 +1,4 @@
-/// font size, default 16
-@mixin vf-font-size ($size: 16) {
-  font-size: ($size / $base)+em;
-  margin-bottom: (12 / $size)+em;
-}
-
+/// default typography styles for Vanilla
 @mixin vf-typography {
   @font-face {
     font-family: 'Ubuntu';
@@ -55,9 +50,31 @@
   }
   
   body {
-    color: $base-color;
+    color: $text-color;
     font-family: Ubuntu, Arial, 'libra sans', sans-serif;
     font-weight: 300;
+  }
+
+  /// Links
+  /// @section links
+  a:focus {
+    outline: thin dotted;
+  }
+
+  a:hover,
+  a:active {
+    outline: 0;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    text-decoration: underline;
   }
   
   .caps-centered,
@@ -68,8 +85,83 @@
     text-transform: uppercase;
   }
 
+  small,
+  .smaller {
+    font-size: 13px;
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    vertical-align: text-top;
+  }
+
+  sub {
+    vertical-align: text-bottom;
+  }
+
+  pre {
+    border-radius: 4px;
+    background-color: $brand-color-light;
+    padding: .6em 1em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  p + h2,
+  ul + h2,
+  ol + h2,
+  pre + h2 {
+    margin-top: (18 / 32)+em;
+  }
+
+  header nav a:link {
+    font-weight: normal;
+  }
+
+  p + h3,
+  ul + h3,
+  ol + h3,
+  pre + h3 {
+    margin-top: .783em;
+  }
+
+  p + h4,
+  ul + h4,
+  ol + h4,
+  pre + h4 {
+    margin-top: 1.21875;
+  }
+
+  ol+h2,
+  p+h2,
+  pre+h2,
+  ul+h2 {
+    margin-top: .563em;
+  }
+
+  ol+h3,
+  p+h3,
+  pre+h3,
+  ul+h3 {
+    margin-top: .783em;
+  }
+
+  ol+h4,
+  p+h4,
+  pre+h4,
+  ul+h4 {
+    margin-top: 1.219em;
+  }
+
   .intro {
-    @include vf-font-size (16);
+    font-size: 1em;
     line-height: 1.4;
   }
 
@@ -87,6 +179,62 @@
     font-size: .813em;
   }
 
+  /// Base typography
+  /// @section type
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 300;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 2.8125em;
+    margin-bottom: .5em;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: .5em;
+  }
+
+  h3 {
+    font-size: 1.4375em;
+    margin-bottom: .522em;
+  }
+
+  h4 {
+    font-size: 1.25em;
+    font-weight: 400;
+    margin-bottom: .615em;
+  }
+
+  h5 {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+
+  h6 {
+    font-size: .8125em;
+    font-weight: 400;
+    margin-bottom: 1em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  p,
+  li {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: .75em;
+    padding: 0;
+  }
+
   @media only screen and (min-width : 768px) {
 
     .intro {
@@ -99,27 +247,6 @@
   } //@media only screen and (min-width : 769px)
 
   @media only screen and (min-width: 984px) {
-    h1 {
-      font-size: 2.8125em;
-    }
-
-    h2 {
-      font-size: 2em;
-      margin-bottom: .375em;
-    }
-
-    h3 {
-      font-size: 1.438em;
-      margin-bottom: .522em;
-    }
-
-    h4 {
-      font-size: 1em;
-      margin-bottom: .75em;
-    }
-
-    h5 { font-size: 1em; }
-
     p,
     li,
     code,
@@ -134,4 +261,13 @@
     }
 
   } // end @media only screen and (min-width: 984px)
+
+  dfn {
+    font-style: italic;
+  }
+
+  code,
+  pre {
+    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
+  }
 }

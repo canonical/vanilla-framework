@@ -1,7 +1,12 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-forms
+/// @since        0.0.3
+////
+
+/// Form element styles
+/// @group Forms
 @mixin vf-forms {
-  /// Forms
-  /// Global form element styles
-  /// @section forms
   button,
   input,
   select,
@@ -117,7 +122,7 @@
   }
 
   form input[type='submit'] {
-    @include vf-font-size (16);
+    font-size: 1em;
     border-radius: 4px;
     background-color: $brand-color;
     background-image: linear-gradient(lighten($brand-color, 10%), $brand-color);
@@ -192,5 +197,11 @@
       }
     }
   // scss-lint:enable SelectorFormat
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    form fieldset {
+      padding: 15px 20px;
+    }
   }
 }

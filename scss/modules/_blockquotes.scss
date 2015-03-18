@@ -1,30 +1,67 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-lists
+/// @since        0.0.3
+////
+
+/// Default blockquote styling
+/// @group Blockquotes
+/// @example
+///   <blockquote>
+///     ...
+///   </blockquote>
 @mixin vf-blockquotes {
+  blockquote {
+    margin: 0;
+
+    > p {
+      font-size: 1em;
+      margin: 0 0 .4em;
+    }
+
+    small {
+      font-size: .8125em;
+      line-height: 1.4;
+    }
+  }
+
+  @include vf-pull-quotes();
+  @include vf-row-quote();
+}
+
+/// Pull quote styling
+/// @group Blockquotes
+/// @example
+///   <blockquote class="pull-quotes">
+///     ...
+///   </blockquote>
+@mixin vf-pull-quotes {
   .pull-quote {
     text-indent: 0;
-  
+
     p {
-      @include vf-font-size (24.833);
+      font-size: 1.5em;
       color: $cool-grey;
       padding-left: 10px;
       padding-right: 10px;
       text-indent: -.4em;
       margin-left: .4em;
       line-height: 1.3;
-  
+
       span {
         font-weight: bold;
         color: $brand-color;
         line-height: 0;
         position: relative;
         left: -5px;
-  
+
         // scss-lint:disable NestingDepth
         + span {
           left: 5px;
         }
         // scss-lint:enable NestingDepth
       }
-  
+
       cite {
         margin: 10px 0 0;
         font-weight: 300;
@@ -33,208 +70,114 @@
         text-indent: 0;
       }
     }
-  
-    &.js {
-      padding-left: $gutter-width * 3;
-      display: table-cell;
+
+    @media only screen and (min-width : $breakpoint-medium) {
+      p {
+        padding-left: 0;
+        padding-right: 0;
+        text-indent: -.7em;
+
+        span {
+          top: 5px;
+          font-size: 1.391304348em;
+        }
+
+        cite {
+          margin-left: 0;
+          text-indent: 0;
+        }
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      p span {
+        top: 10px;
+      }
     }
   }
-  
-  .quote-canonical,
-  .quote-canonical-white {
-    @include vf-font-size (16);
-    background: none;
-    color: $cool-grey;
-    width: auto;
-    height: auto;
-    float: right;
-    font-size: 1em;
-    margin-top: 20px;
-    padding: 0 30px;
-    position: relative;
-  }
-  
-  .quote-canonical-white {
-    background: url("#{$asset-path}img/patterns/quote-aubergine-345x345.png") no-repeat 0 0;
-    color: $white;
-    padding: 80px 60px 0;
-    height: 265px;
-  }
-  
-  .quote p:first-child {
-    @include vf-font-size (18); // (16) desired value in px, this is divided by the baseline font-size value to reach the em value
-    line-height: 1.3;
-    text-indent: -7px;
-  }
-  
-  .quote-right-bottom {
-    background-image: url("#{$asset-path}img/pictograms/picto-pack/picto-quote-orange.svg");
-    background-repeat: no-repeat;
-    background-size: 287px 286px;
-    color: $white;
-    height: 167px;
-    padding: 60px 40px;
-    position: static;
-    right: -($gutter-width * 2);
-    top: -($gutter-width * 4.5);
-    width: 207px;
-  
-    p { color: $white; }
-  }
-  
-  &.quote-grey {
-    @include vf-font-size (36);
-    background: url("#{$asset-path}img/patterns/quote-grey-br-211x211.png") no-repeat scroll 0 0 $transparent;
-    color: $white;
-    height: 152px;
-    line-height: 40px;
-    margin-left: 20px;
-    padding: 60px 0 0;
-    text-align: center;
-    width: 211px;
-  }
-  
-  &.quote-bottom-left {
-    background: url("#{$asset-path}img/patterns/quote-orange-bl-287x287.png") no-repeat;
-    color: $white;
-    height: 167px;
-    padding: 55px 40px 70px 45px;
-    width: 225px;
-  }
-  
-  //.pull-quote {
-    //@include vf-font-size (30);
-    //color: $warm-grey;
-    //line-height: 1.4;
-    //right: 0;
-  //}
-  
-  .no-svg,
-  .opera-mini {
-    .quote-right-bottom {
-      background-image: url("#{$asset-path}img/pictograms/picto-pack/picto-quote-orange.png");
-    }
-  }
-  
-  // End blockquote
-  
-  // row-quote
-  
+}
+
+/// Row quote styling
+/// @group Blockquotes
+/// @example
+///   <div class="row row-quote">
+///     ...
+///   </div>
+@mixin vf-row-quote {
   .row-quote {
     border-radius: 0;
-  
+
     blockquote {
       border-radius: 4px;
       margin: 0;
       padding: 0;
-  
+
       p {
         margin-bottom: .75em;
         line-height: 1.3;
-        color: $base-color;
+        color: $text-color;
         padding-left: 10px;
         padding-right: 10px;
-        //@include vf-font-size (23);
-        //font-size: 1em;
         text-indent: 0;
       }
-  
+
       span {
         font-weight: bold;
         color: $brand-color;
         line-height: 0;
         position: relative;
         left: -5px;
-  
+
         // scss-lint:disable NestingDepth
         + span {
           left: 5px;
         }
         // scss-lint:enable NestingDepth
       }
-  
+
       cite {
-        color: $base-color;
+        color: $text-color;
         font-style: normal;
         margin-bottom: 0;
         font-size: .75em;
         text-indent: 0;
       }
     }
-  
-    .quote-twitter {
-      background: $table-th url('#{$asset-path}img/pictograms/pictogram-twitter-115x139.png') $gutter-width bottom no-repeat;
-      padding: $gutter-width $gutter-width $gutter-width $three-col;
+
+    @media only screen and (min-width : $breakpoint-medium) {
+      text-indent: -.4em;
+
+      blockquote {
+        text-indent: -7px;
+
+        p {
+          font-size: 1.5em;
+          text-indent: -.4em;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        span {
+          top: 5px;
+          font-size: 1.391304348em;
+        }
+
+        cite {
+          margin-left: 0;
+          text-indent: 0;
+        }
+      }
     }
-  
-    .quote-twitter-small {
-      background: $table-th url('#{$asset-path}img/pictograms/pictogram-twitter-54x63.png') 99% bottom no-repeat;
-      padding: $gutter-width $gutter-width $gutter-width 80px;
-  
-      p {
-        margin: 0;
-        padding: 0;
+
+    @media only screen and (min-width: $breakpoint-large) {
+      blockquote {
+        padding: 0 80px 20px;
+        text-indent: -10px;
+
+        p span {
+          top: 10px;
+        }
       }
     }
   }
-  
-  @media only screen and (min-width : 768px) {
-  
-    .row-quote blockquote {
-      text-indent: -7px;
-    }
-  
-    .pull-quote {
-      text-indent: -.4em;
-    }
-  
-    .row-quote blockquote {
-      p {
-        @include vf-font-size (24.83);
-        text-indent: -.4em;
-      }
-    }
-  
-    .pull-quote p,
-    .row-quote blockquote p {
-      padding-left: 0;
-      padding-right: 0;
-      text-indent: -.7em;
-  
-      span {
-        font-size: 1.391304348em;
-      }
-  
-      cite {
-        margin-left: 0;
-        text-indent: 0;
-      }
-    }
-  
-    .pull-quote p span,
-    .row-quote blockquote p span {
-      top: 5px;
-    }
-  } // end @media only screen and (max-width : 768px)
-  
-  @media only screen and (min-width : 769px) {
-  
-  
-  
-  } //@media only screen and (min-width : 769px)
-  
-  @media only screen and (min-width: 984px) {
-  
-    .row-quote blockquote {
-      padding: 0 80px 20px;
-      text-indent: -10px;
-    }
-  
-    .pull-quote p span,
-    .row-quote blockquote p span {
-      top: 10px;
-    }
-  
-  } // end @media only screen and (min-width: 984px)
-
-} // @mixin vf-blockquotes
+}
