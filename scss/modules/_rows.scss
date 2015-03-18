@@ -48,74 +48,11 @@
     padding-top: 0;
   }
 
-  /// row-background
-  .row-background {
-    color: $white;
-    background: url("#{$asset-path}backgrounds/image-background-wallpaper.jpg") no-repeat scroll 50% 50% $row-background;
-
-    .alternate {
-      color: $white;
-      text-decoration: underline;
-    }
-
-    .alternate:hover {
-      color: rgba(255, 255, 255, .6);
-    }
-
-    @media only screen and (min-width : 768px) {
-      background-position: center 50%;
-      background-size: 100% auto;
-    }
-  }
-
   /// strips
   .strip {
     width: 100%;
     display: block;
   }
-
-  /// row-aux
-  .row-aux {
-    background-color: rgba(255, 255, 255, .6);
-    text-align: center;
-
-    h2,
-    p {
-      text-align: left;
-    }
-
-    a p {
-      color: $text-color;
-      margin-bottom: 30px;
-    }
-  }
-
-  /// row-step
-  .row-step {
-    h2 {
-      position: relative;
-      top: 5px;
-    }
-
-    .step {
-      position: relative;
-      top: -5px;
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      border: 3px solid $brand-color;
-      color: $brand-color;
-      line-height: 32px;
-      text-align: center;
-      background-color: $white;
-      font-size: 23px;
-      font-weight: 400;
-    }
-  }
-
-  @media only screen and (max-width : $breakpoint-medium) {
-  } // end @media only screen and (max-width : 768px)
-
 
   @media only screen and (min-width : $breakpoint-medium) {
 
@@ -123,32 +60,19 @@
 
     .row-hero { margin-top: 40px; }
 
-    // scss-lint:disable IdSelector
-    .row,
-    #context-footer { // Clear entire row
+    .row { // Clear entire row
       border-radius: 0;
       margin: 0;
       padding: 40px 40px 20px;
     }
-    // scss-lint:enable IdSelector
 
-    .row-feature {
-      background: none;
-    }
-
-  } // end @media only screen and (max-width : 768px)
+  } // end @media only screen and (max-width : $breakpoint-medium)
 
   @media only screen and (min-width : $breakpoint-medium + 1px) {
 
-    .row-step .step {
-      height: 42px;
-      width: 42px;
-      line-height: 42px;
-    }
-
     .row br { display: block; }
 
-  } //@media only screen and (min-width : 769px)
+  } //@media only screen and (min-width : $breakpoint-medium + 1px)
 
   @media only screen and (min-width: $breakpoint-large) {
 
@@ -158,5 +82,5 @@
 
     .no-border { border: 0; }
 
-  } // end @media only screen and (min-width: 984px)
+  } // end @media only screen and (min-width: $breakpoint-large)
 }

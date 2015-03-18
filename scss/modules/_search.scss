@@ -1,19 +1,17 @@
 @mixin vf-search {
-  // scss-lint:disable IdSelector
   .header-search,
-  #box-search {
+  .search-form {
     padding: 7px 0 7px 14px;
     overflow: hidden;
   
     [type="search"],
     [type="text"] {
       -webkit-appearance: none;
+      background-color: darken($brand-color, 10%);
+      border-radius: 4px;
+      border: 0;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
       box-sizing: border-box;
-      border-radius: 4px;
-      transition: all .5s ease-out;
-      background-color: darken($brand-color, 10%);
-      border: 0;
       color: $white;
       display: block;
       float: left;
@@ -21,6 +19,7 @@
       height: 2.1em;
       margin-bottom: 0;
       padding: .5em 2.5em .5em .5em;
+      transition: all .5s ease-out;
       width: 100%;
     }
   
@@ -65,7 +64,7 @@
   
   .banner .search-toggle {
     background-size: 20px 20px;
-    background-image: url('#{$asset-path}search.svg');
+    background-image: url('#{$asset-path}img/search.svg');
     background-position: center center;
     background-repeat: no-repeat;
     display: block;
@@ -84,8 +83,8 @@
     outline: none;
   }
   
-  #box-search,
-  .header-search {
+  .header-search,
+  .search-form {
     background: $light-grey;
     border: 0;
     display: none;
@@ -98,20 +97,20 @@
     z-index: 3;
   }
   
-  #box-search.active,
+  .search-form.active,
   .header-search.active,
   .header-search.open { display: block; }
   
-  #box-search div,
+  .search-form div,
   .header-search div {
     box-shadow: inset 0 -4px 4px -4px rgba(0, 0, 0, .3), inset 0  5px 5px -5px rgba(0, 0, 0, .3);
-    background: $nav-bg;
+    background: lighten($brand-color, 7%);
     margin: 10px;
     position: relative;
     z-index: 1;
   }
   
-  #box-search form [type="search"],
+  .search-form form [type="search"],
   .header-search form [type="search"] {
     border-radius: 4px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, .3) inset, 0 -1px 3px rgba(0, 0, 0, .2) inset, 0 2px 0 rgba(255, 255, 255, .4);
@@ -127,7 +126,7 @@
     width: 100%;
   }
   
-  .yes-js .header-inner #box-search,
+  .yes-js .header-inner .search-form,
   .yes-js .header-inner .header-search {
     display: none;
   
@@ -143,7 +142,6 @@
       width: 100%;
     }
   }
-  // scss-lint:enable IdSelector
   
   @media only screen and (max-width : 768px) {
   
@@ -156,7 +154,7 @@
     .no-svg,
     .opera-mini {
       .search-toggle {
-        background-image: url("#{$asset-path}search-white.png");
+        background-image: url("#{$asset-path}img/search-white.png");
       }
     }
   } // @media only screen and (max-width : 768px)
@@ -172,7 +170,7 @@
   
   @media only screen and (min-width : 960px) {
   // scss-lint:disable IdSelector
-    #box-search,
+    .search-form,
     .header-search {
   // scss-lint:enable IdSelector
       background: none;
@@ -190,7 +188,7 @@
       form [type="search"] {
         box-shadow: 0 2px 4px rgba(0, 0, 0, .4) inset;
         box-sizing: content-box;
-        background: url("#{$asset-path}icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 darken($brand-color, 10%);
+        background: url("#{$asset-path}img/icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 darken($brand-color, 10%);
         border: 6px solid darken($brand-color, 12%);
         border-width: 0 0 1px;
         color: $white;
@@ -220,7 +218,7 @@
       [type="submit"] {
         width: 32px;
         height: 38px;
-        background: url('#{$asset-path}search-black.svg') no-repeat scroll center center $transparent;
+        background: url('#{$asset-path}img/search-black.svg') no-repeat scroll center center $transparent;
         background-size: 28px 28px;
   
         img {
@@ -235,7 +233,7 @@
     }
   
     .banner .search-toggle {
-      background-image: url("#{$asset-path}search-white.svg");
+      background-image: url("#{$asset-path}img/search-white.svg");
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 25px auto;
@@ -265,7 +263,7 @@
   
   @media only screen and (min-width: 984px) {
   // scss-lint:disable IdSelector
-    #box-search,
+    .search-form,
     .header-search {
   // scss-lint:enable IdSelector
       display: block;
