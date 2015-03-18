@@ -4,7 +4,71 @@
 /// @since        0.0.3
 ////
 
-/// button pattern
+/// Default blockquote styling
+/// @group Buttons
+@mixin vf-buttons {
+  @include vf-primary-button;
+  @include vf-secondary-button;
+  @include vf-text-button;
+}
+
+/// Primary button styling
+/// @group Buttons
+/// @example
+///   <button class="btn">
+///     ...
+///   </button>
+@mixin vf-primary-button {
+  .btn {
+    @include button($white, $brand-color, null)
+  }
+}
+
+/// Secondary button styling
+/// @group Buttons
+/// @example
+///   <button class="btn-secondary">
+///     ...
+///   </button>
+@mixin vf-secondary-button {
+  .btn-secondary {
+    @include button($brand-color, $white, $mid-grey);
+  }
+}
+
+/// Text button styling
+/// @group Buttons
+/// @example
+///   <button class="btn-text">
+///     ...
+///   </button>
+@mixin vf-text-button {
+  .btn-text {
+    @include button($brand-color, $transparent, null);
+  }
+}
+
+/// Default button mixin
+/// @group Buttons
+@mixin vf-button($button-color, $button-bg, $border-color) {
+
+  @extend %button-pattern;
+  color: $button-color;
+  background: $button-bg;
+  @if $border-color != null {
+    border: 1px solid $border-color;
+  }
+
+  &:hover {
+    background: darken($button-bg, 6.2%);
+    @if $button-bg == $transparent {
+      text-decoration: underline;
+    }
+  }
+}
+
+/// Default button pattern styles
+/// @group Buttons
 %button-pattern {
   font-size: 1em;
   font-smoothing: subpixel-antialiased;
@@ -22,53 +86,3 @@
   outline: none;
 }
 
-/// button
-@mixin button($button-color, $button-bg, $border-color) {
-
-  @extend %button-pattern;
-  color: $button-color;
-  background: $button-bg;
-  @if $border-color != null {
-    border: 1px solid $border-color;
-  }
-
-  &:hover {
-    background: darken($button-bg, 6.2%);
-    @if $button-bg == $transparent {
-      text-decoration: underline;
-    }
-  }
-}
-
-/// buttons mixin
-@mixin vf-buttons {
-
-  /// primary button
-  @mixin primary-button {
-
-    .btn {
-      @include button($white, $brand-color, null)
-    }
-  }
-
-  /// secondary button
-  @mixin secondary-button {
-
-    .btn-secondary {
-      @include button($brand-color, $white, $mid-grey);
-    }
-  }
-
-  /// text button
-  @mixin text-button {
-
-    .btn-text {
-      @include button($brand-color, $transparent, null);
-    }
-  }
-
-  /// Call all buttons
-  @include primary-button;
-  @include secondary-button;
-  @include text-button;
-}
