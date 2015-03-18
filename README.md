@@ -1,4 +1,4 @@
-# Vanilla
+# Vanilla Framework
 _____
 
 [![Build Status](https://travis-ci.org/ubuntudesign/vanilla-framework.svg?branch=master)](https://travis-ci.org/ubuntudesign/vanilla-framework)
