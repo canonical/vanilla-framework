@@ -1,92 +1,81 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-buttons
+/// @since        0.0.3
+////
+
+/// Default blockquote styling
+/// @group Buttons
 @mixin vf-buttons {
-  ////
-  /// Ubuntu Patterns Stylesheet
-  /// The CSS file required by Ubuntu patterns page
-  /// @project     Ubuntu Patterns
-  /// @author      Web Team at Canonical Ltd
-  /// @copyright   2012 Canonical Ltd
-  /// @see         http://design.ubuntu.com
-  ////
+  @include vf-primary-button;
+  @include vf-secondary-button;
+}
 
-  /// cta button
-  .link-cta-ubuntu,
-  .link-cta-canonical,
-  .link-cta-inverted,
-  .cta-ubuntu,
-  .cta-canonical,
-  form [type="submit"] {
-    font-size: 1em;
-    box-sizing: border-box;
-    border-radius: 3px;
-    border: 0;
-    background: $brand-color;
-    color: $white;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0;
-    outline: none;
-    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
-    font-weight: 300;
-    font-smoothing: subpixel-antialiased;
-    padding: 8px 14px;
-    width: 100%;
-    text-align: center;
+/// Primary button styling
+/// @group Buttons
+/// @example
+///   <a class="button--primary">
+///     ...
+///   </a>
+@mixin vf-primary-button {
+  .button--primary {
+    @include vf-button($white, $brand-color, null)
+  }
+}
 
-    /// cta hover state
-    &:hover {
-      background: darken($cool-grey, 6.2%); // #c03f11
-      text-decoration: none;
-    }
+/// Secondary button styling
+/// @group Buttons
+/// @example
+///   <a class="button--secondary">
+///     ...
+///   </a>
+@mixin vf-secondary-button {
+  .button--secondary {
+    @include vf-button($brand-color, $white, $mid-grey);
+  }
+}
+
+/// Default button mixin
+/// @group Buttons
+@mixin vf-button($button-color, $button-bg, $border-color) {
+
+  @extend %button-pattern;
+  color: $button-color;
+  background: $button-bg;
+  @if $border-color != null {
+    border: 1px solid $border-color;
   }
 
-  /// cta large button
-  .cta-large,
-  .cta-large {
-    font-size: 1.125em;
-    padding: 10px 20px;
-  }
-
-  /// Inverted colour style
-  .link-cta-inverted,
-  .cta-inverted {
-    background: $white;
-    color: $text-color;
-
-    &:hover {
-      background: $white;
+  &:hover {
+    background: darken($button-bg, 6.2%);
+    @if $button-bg == $transparent {
       text-decoration: underline;
     }
   }
+}
 
-  /// cta deactived style
-  .cta-deactivated,
-  .cta-deactivated:hover {
-    background: $cool-grey;
-    color: $white;
-    cursor: not-allowed;
+/// Default button pattern styles
+/// @group Buttons
+%button-pattern {
+  font-smoothing: subpixel-antialiased;
+  font-size: 1em;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 8px 14px;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+
+  &:hover {
+    text-decoration: none;
   }
 
-  /// Medium breakpoint
-  @media only screen and (min-width : 768px)  {
-    .link-cta-ubuntu,
-    .link-cta-canonical,
-    .link-cta-inverted,
-    .cta-ubuntu,
-    .cta-canonical,
-    form [type="submit"] {
-      width: auto;
-    }
-  }
-
-  /// Large breakpoint
-  @media only screen and (min-width : 984px)  {
-    .link-cta-ubuntu,
-    .link-cta-canonical,
-    .link-cta-inverted,
-    .cta-ubuntu,
-    .cta-canonical,
-    form [type="submit"] {
-      width: auto;
-    }
+  @media only screen and (min-width : $breakpoint-medium) {
+    width: auto;
   }
 }
+

@@ -11,19 +11,11 @@
   input,
   select,
   textarea {
-    font-family: Ubuntu,Arial,'libra sans',sans-serif;
-    margin: 0;
-    vertical-align: baseline;
+    @extend %input-elements;
   }
 
-  select {
-    font-size: 1em;
-    font-weight: 300;
-  }
-
-  button,
-  input {
-    line-height: normal;
+  input::-webkit-search-decoration {
+    -webkit-appearance: none;
   }
 
   button,
@@ -36,21 +28,7 @@
 
   input[type='checkbox'],
   input[type='radio'] {
-    box-sizing: border-box;
-    padding: 0;
-  }
-
-  input[type="search"] {
-    border-radius: 2px;
-    box-sizing: content-box;
-    font-family: Ubuntu,Arial,'libra sans',sans-serif;
-    font-weight: 300;
-    outline: none;
-    padding: .6956522em .869565em;
-  }
-
-  input[type='search']::-webkit-search-decoration {
-    -webkit-appearance: none;
+    @extend %tick-elements;
   }
 
   button::-moz-focus-inner,
@@ -64,7 +42,7 @@
     vertical-align: top;
   }
 
-  form fieldset {
+  fieldset {
     border-radius: 4px;
     background-repeat: no-repeat;
     background-color: $mid-grey;
@@ -78,51 +56,28 @@
       margin-bottom: 9px;
       padding-bottom: 10px;
     }
-
-    li:first-child {
-      margin-top: 0;
-    }
   }
 
-  form input[type='text'],
-  form input[type='email'],
-  form input[type='tel'],
-  form textarea {
-    border-radius: 2px;
-    background-color: $white;
-    border: 1px solid $warm-grey;
-    display: block;
-    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
-    font-size: 1em;
-    font-weight: 300;
-    padding: .6956522em .869565em;
+  input:focus,
+  textarea:focus {
+    border-color: $brand-color;
   }
 
-  form input:focus,
-  form textarea:focus {
-    border: 1px solid $brand-color;
-   }
-
-  form textarea[readonly='readonly'] {
+  textarea[readonly='readonly'] {
     color: $warm-grey;
   }
 
-  form input[type='checkbox'],
-  form input[type='radio'] {
-    margin: 0;
-    width: auto;
-  }
-
-  form input[type='checkbox'] + label,
-  form input[type='radio'] + label {
+  input[type='checkbox'] + label,
+  input[type='radio'] + label {
     display: inline;
     margin-left: 5px;
     vertical-align: middle;
     width: auto;
   }
 
-  form input[type='submit'] {
-    font-size: 1em;
+  input[type='submit'],
+  button[type='submit'] {
+    font-size: 16px;
     border-radius: 4px;
     background-color: $brand-color;
     background-image: linear-gradient(lighten($brand-color, 10%), $brand-color);
@@ -136,11 +91,11 @@
     margin-bottom: 0;
   }
 
-  form input[type='submit']:hover {
+  input[type='submit']:hover {
     background: $brand-color;
   }
 
-  form label {
+  label {
     cursor: pointer;
     display: block;
     margin-bottom: 4px;
@@ -148,27 +103,9 @@
     span {
       color: $error;
     }
-
   }
 
-  form ul {
-    margin-left: 0;
-  }
-
-  form li {
-    list-style: none outside none;
-    margin-top: 14px;
-  }
-
-  form button[type='submit'] {
-    border: 0;
-    display: inline-block;
-    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
-    text-decoration: none;
-    font-weight: 300;
-  }
-
-  form input[type='reset'] {
+  input[type='reset'] {
     display: none;
   }
 
@@ -179,29 +116,39 @@
       box-sizing: border-box;
       width: 100%;
     }
-
-    .fieldset-submit ul {
-      margin-bottom: 0;
-    }
-  // scss-lint:disable SelectorFormat
-    fieldset {
-      .mktError,
-      .errMsg,
-      .reqMark {
-        color: $error;
-      }
-
-      .mktFormMsg {
-        clear: both;
-        display: block;
-      }
-    }
-  // scss-lint:enable SelectorFormat
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    form fieldset {
+    fieldset {
       padding: 15px 20px;
     }
   }
+}
+
+
+/// Default form input element styles
+/// @group Forms
+%input-elements {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .12);
+  margin: 0;
+  vertical-align: baseline;
+  border: 1px solid $warm-grey;
+  font-size: 16px;
+  border-radius: 2px;
+  box-sizing: content-box;
+  outline: none;
+  padding: .6956522em .869565em;
+}
+
+/// Default form checkbox and radio styles
+/// @group Forms
+%tick-elements {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .12);
+  border-radius: 2px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 0;
+  border: 1px solid $mid-grey;
+  width: 14px;
+  height: 14px;
 }
