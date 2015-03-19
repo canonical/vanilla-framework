@@ -4,7 +4,7 @@
 /// @since        0.0.3
 ////
 
-/// This grid is composed by 14 columns (units) separated by 13 gutters (1/3 unit).
+/// This grid is composed by 12 columns (units) separated by 11 gutters.
 /// The first and last column are for padding purposes only.
 /// The content fits in the middle 12 columns.
 /// Possible divisions: 1 (12 units + 11 gutters), 2 (6 units + 5 gutters),
@@ -18,575 +18,189 @@
 ///     ...
 ///   </div>
 
-%placeholder vf-clearfix {
-  display: block;
+@import 'helpers/number-word';
 
-  &:after {
-    clear: both;
-    content: '\0020';
-    display: block;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-  }
-}
-
-/// Hard and soft clearing classes
-/// @group Grid
-/// @example
-///   <div class="clearfix">
-///     ...
-///   </div>
-@mixin vf-clearfix() {
-  .clearfix {
-    @extend %vf-clearfix;
-  }
-}
+// Columns normally has 40 px of padding either side of
+// the main site
+$columns-max-width: $site-max-width - 80;
+// Calculate gutter percentage as representing $gutter-width pixels (default 20px)
+// of the max width for this context (default 904px)
+$gutter-percent: ($gutter-width / $columns-max-width) * 100%;
+// Get the standard width for a column
+$single-column-width: ($columns-max-width + $gutter-width) / $columns;
+// Get the percentage width of a standard column
+$single-column-percent: $single-column-width / $columns-max-width * 100%;
 
 @mixin vf-grid {
-
-  .inner-wrapper {
-    margin: 0 auto;
-    max-width: $site-max-width;
+  .inner-wrapper { @extend %vf-inner-wrapper; }
+  [class*='-col'].last-col,
+  [class*='-col'] [class*='-col'].last-col {
+    @extend %vf-last-col;
   }
 
-  .one-col { @include vf-column-width($one-col) }
-  .two-col { @include vf-column-width($two-col) }
-  .three-col { @include vf-column-width($three-col) }
-  .four-col { @include vf-column-width($four-col) }
-  .five-col { @include vf-column-width($five-col) }
-  .six-col { @include vf-column-width($six-col) }
-  .seven-col { @include vf-column-width($seven-col) }
-  .eight-col { @include vf-column-width($eight-col) }
-  .nine-col { @include vf-column-width($nine-col) }
-  .ten-col { @include vf-column-width($ten-col) }
-  .eleven-col { @include vf-column-width($eleven-col) }
-  .twelve-col { @include vf-column-width($twelve-col) }
-
-  @media only screen and (min-width: $breakpoint-medium) {
-
-    .twelve-col {
-      margin-right: 0;
-    }
-
-    .twelve-col .one-col {
-      margin-right: 2.21238%;
-      width: 6.3053%;
-    }
-
-    .twelve-col .two-col {
-      margin-right: 2.21238%;
-      width: 14.823%;
-    }
-
-    .twelve-col .three-col {
-      margin-right: 2.21238%;
-      width: 23.3407%;
-    }
-
-    .twelve-col .three-col {
-      margin-right: 2.21238%;
-      width: 48.8938%;
-    }
-
-    .twelve-col .four-col {
-      margin-right: 2.21238%;
-      width: 31.8584%;
-    }
-
-    .twelve-col .five-col {
-      margin-right: 2.21238%;
-      width: 40.3761%;
-    }
-
-    .twelve-col .six-col {
-      margin-right: 2.21238%;
-      width: 48.8938%;
-    }
-
-    .twelve-col .seven-col {
-      margin-right: 2.21238%;
-      width: 57.4115%;
-    }
-
-    .twelve-col .eight-col {
-      margin-right: 2.21238%;
-      width: 65.9292%;
-    }
-
-    .twelve-col .nine-col {
-      margin-right: 2.21238%;
-      width: 74.4469%;
-    }
-
-    .twelve-col .ten-col {
-      margin-right: 2.21238%;
-      width: 82.9646%;
-    }
-
-    .twelve-col .eleven-col {
-      margin-right: 2.21238%;
-      width: 91.4823%;
-    }
-
-    .twelve-col .twelve-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .eleven-col .one-col {
-      margin-right: 2.41837%;
-      width: 6.89238%;
-    }
-
-    .eleven-col .two-col {
-      margin-right: 2.41837%;
-      width: 16.20314%;
-    }
-
-    .eleven-col .three-col {
-      margin-right: 2.41837%;
-      width: 25.5139%;
-    }
-
-    .eleven-col .four-col {
-      margin-right: 2.41837%;
-      width: 34.82466%;
-    }
-
-    .eleven-col .five-col {
-      margin-right: 2.41837%;
-      width: 44.13542%;
-    }
-
-    .eleven-col .six-col {
-      margin-right: 2.41837%;
-      width: 53.44619%;
-    }
-
-    .eleven-col .seven-col {
-      margin-right: 2.41837%;
-      width: 62.75695%;
-    }
-
-    .eleven-col .eight-col {
-      margin-right: 2.41837%;
-      width: 72.06771%;
-    }
-
-    .eleven-col .nine-col {
-      margin-right: 2.41837%;
-      width: 81.37847%;
-    }
-
-    .eleven-col .ten-col {
-      margin-right: 2.41837%;
-      width: 90.68923%;
-    }
-
-    .eleven-col .eleven-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .ten-col .one-col {
-      margin-right: 2.66666%;
-      width: 7.6%;
-    }
-
-    .ten-col .two-col {
-      margin-right: 2.66666%;
-      width: 17.86666%;
-    }
-
-    .ten-col .three-col {
-      margin-right: 2.66666%;
-      width: 28.13333%;
-    }
-
-    .ten-col .four-col {
-      margin-right: 2.66666%;
-      width: 38.4%;
-    }
-
-    .ten-col .five-col {
-      margin-right: 2.66666%;
-      width: 48.66666%;
-    }
-
-    .ten-col .six-col {
-      margin-right: 2.66666%;
-      width: 58.93333%;
-    }
-
-    .ten-col .seven-col {
-      margin-right: 2.66666%;
-      width: 69.19999%;
-    }
-
-    .ten-col .eight-col {
-      margin-right: 2.66666%;
-      width: 79.46666%;
-    }
-
-    .ten-col .nine-col {
-      margin-right: 2.66666%;
-      width: 89.73333%;
-    }
-
-    .ten-col .ten-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .nine-col .one-col {
-      margin-right: 2.97176%;
-      width: 8.46953%;
-    }
-
-    .nine-col .two-col {
-      margin-right: 2.97176%;
-      width: 19.91084%;
-    }
-
-    .nine-col .three-col {
-      margin-right: 2.97176%;
-      width: 31.35215%;
-    }
-
-    .nine-col .four-col {
-      margin-right: 2.97176%;
-      width: 42.79346%;
-    }
-
-    .nine-col .five-col {
-      margin-right: 2.97176%;
-      width: 54.23476%;
-    }
-
-    .nine-col .six-col {
-      margin-right: 2.97176%;
-      width: 65.67607%;
-    }
-
-    .nine-col .seven-col {
-      margin-right: 2.97176%;
-      width: 77.11738%;
-    }
-
-    .nine-col .eight-col {
-      margin-right: 2.97176%;
-      width: 88.55869%;
-    }
-
-    .nine-col .nine-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .eight-col .one-col {
-      margin-right: 3.3557%;
-      width: 9.56375%;
-    }
-
-    .eight-col .two-col {
-      margin-right: 3.3557%;
-      width: 22.48322%;
-    }
-
-    .eight-col .three-col {
-      margin-right: 3.3557%;
-      width: 35.40268%;
-    }
-
-    .eight-col .four-col {
-      margin-right: 3.3557%;
-      width: 48.32214%;
-    }
-
-    .eight-col .five-col {
-      margin-right: 3.3557%;
-      width: 61.24161%;
-    }
-
-    .eight-col .six-col {
-      margin-right: 3.3557%;
-      width: 74.16107%;
-    }
-
-    .eight-col .seven-col {
-      margin-right: 3.3557%;
-      width: 87.08053%;
-    }
-
-    .eight-col .eight-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .seven-col .one-col {
-      margin-right: 3.85356%;
-      width: 10.98265%;
-    }
-
-    .seven-col .two-col {
-      margin-right: 3.85356%;
-      width: 25.81888%;
-    }
-
-    .seven-col .three-col {
-      margin-right: 3.85356%;
-      width: 40.6551%;
-    }
-
-    .seven-col .four-col {
-      margin-right: 3.85356%;
-      width: 55.49132%;
-    }
-
-    .seven-col .five-col {
-      margin-right: 3.85356%;
-      width: 70.32755%;
-    }
-
-    .seven-col .six-col {
-      margin-right: 3.85356%;
-      width: 85.16377%;
-    }
-
-    .seven-col .seven-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .six-col .one-col {
-      margin-right: 4.52488%;
-      width: 12.89592%;
-    }
-
-    .six-col .two-col {
-      margin-right: 4.52488%;
-      width: 30.31674%;
-    }
-
-    .six-col .three-col {
-      margin-right: 4.52488%;
-      width: 47.73755%;
-    }
-
-    .six-col .four-col {
-      margin-right: 4.52488%;
-      width: 65.15837%;
-    }
-
-    .six-col .five-col {
-      margin-right: 4.52488%;
-      width: 82.57918%;
-    }
-
-    .six-col .six-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .five-col .one-col {
-      margin-right: 5.47945%;
-      width: 15.61643%;
-    }
-
-    .five-col .two-col {
-      margin-right: 5.47945%;
-      width: 36.71232%;
-    }
-
-    .five-col .three-col {
-      margin-right: 5.47945%;
-      width: 57.80821%;
-    }
-
-    .five-col .four-col {
-      margin-right: 5.47945%;
-      width: 78.9041%;
-    }
-
-    .five-col .five-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .four-col .one-col {
-      margin-right: 6.94444%;
-      width: 19.79166%;
-    }
-
-    .four-col .two-col {
-      margin-right: 6.94444%;
-      width: 46.52777%;
-    }
-
-    .four-col .three-col {
-      margin-right: 6.94444%;
-      width: 73.26388%;
-    }
-
-    .four-col .four-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .three-col .one-col {
-      margin-right: 9.47867%;
-      width: 27.01421%;
-    }
-
-    .three-col .two-col {
-      margin-right: 9.47867%;
-      width: 63.5071%;
-    }
-
-    .three-col .three-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .two-col .one-col {
-      margin-right: 14.92537%;
-      width: 42.53731%;
-    }
-
-    .two-col .two-col {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    .one-col .one-col {
-      margin-right: 0;
-      width: 100%;
-    }
-  }
-
-  @include vf-clearfix();
-  @include vf-append-prepend();
-  @include vf-push-pulls();
+  // Each of these mixins generate classes for as many
+  // columns are defined in the $columns setting.
+  // Generated classes follow the pattern "{prefix}{number-word}{suffix}"
+  // e.g.: "eight-col" or "prepend-two"
+  @include generate-column-classes($columns, '', '-col');
+  @include generate-prepend-classes($columns, 'prepend-', '');
+  @include generate-append-classes($columns, 'append-', '');
+  @include generate-push-classes($columns, 'push-', '');
+  @include generate-pull-classes($columns, 'pull-', '');
 }
 
-@mixin vf-column-width($width) {
+
+/// Centralised wrapper for the main site body
+%vf-inner-wrapper {
+  margin: 0 auto;
+  max-width: $site-max-width;
+}
+
+// Last columns should have no margin
+%vf-last-col {
+  margin-right: 0;
+}
+
+/// Calculate the width and margin-right for all columns
+@mixin column-spacing($num-columns, $this-max-width: $columns-max-width, $total-columns: $columns) {
+  // Calculate gutter percentage as representing $gutter-width pixels (default 20px)
+  // of the max width for this context (default 904px)
+  $local-gutter-percent: ($gutter-width / $this-max-width) * 100%;
+  // The percentage of the total width taken up by one column
+  $column-total-width: (100 + $local-gutter-percent) / $total-columns;
+  // The percentage of the total width taken up by all the columns for this class
+  $columns-total-width: $column-total-width * $num-columns;
+
+  // We need a bit of extra space to accommodate for spaces between inline-blocks
+  $extra-space: 4px / $this-max-width * 100%;
+
+  // width + margin-right  = columns-total-width
+  width: $columns-total-width - $local-gutter-percent - $extra-space;
+  margin-right: $local-gutter-percent;
+}
+
+%vf-column {
+  // Base class styles
   box-sizing: border-box;
   clear: none;
   display: inline-block;
   float: none;
   margin-bottom: 20px;
-  margin-right: $gutter;
+  margin-right: 0;
   padding: 0;
   position: relative;
   width: 100%;
+}
 
-  &.last-col {
-    margin-right: 0;
-  }
+/// Generate classes for columns
+/// The english word for the numbers will be used (e.g.: one, two)
+/// With a prefix (default: blank) or suffix (default: '-col') either side.
+/// So by default, the classes will be "one-col", "two-col" etc.
+/// Each column class will include rules for nested column classes within it
+@mixin generate-column-classes($total-columns, $prefix: '', $suffix: '-col') {
+  @for $class-columns from 1 through ($total-columns) {
+    // Use the "number-word" function
+    // to generate class names like ".one-col"
+    .#{$prefix}#{vf-number-word($class-columns)}#{$suffix} {
+      @extend %vf-column;
 
-  @media only screen and (min-width: $breakpoint-medium) {
-    float: left;
-    width: $width;
+      @if $class-columns != $total-columns {
+        // Get the width and the height for this column class
+        @media only screen and (min-width: $breakpoint-medium) {
+          @include column-spacing($class-columns);
+
+          // How wide will this column class be?
+          $columns-width: $single-column-width * $class-columns;
+
+          // Nested columns
+          @if $class-columns > 1 {
+
+            // Only include nesting classes for up to the
+            // number of columns that this class will span
+            // e.g. five-col can only contain 5 columns and no more
+            @for $nested-columns from 1 through ($class-columns - 1) {
+              .#{$prefix}#{vf-number-word($nested-columns)}#{$suffix} {
+                // Calculate the width and margin-right for this nested class
+                @include column-spacing($nested-columns, $columns-width, $class-columns);
+              }
+            }
+          }
+
+          .#{$prefix}#{vf-number-word($class-columns)}#{$suffix} {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
   }
 }
 
-/// Append and prepend
-/// @group Grid
-/// @example
-///   <div class="six-col append-six">
-///     ...
-///   </div>
-@mixin vf-append-prepend() {
+@mixin generate-prepend-classes($total-columns, $prefix: 'prepend-', $suffix: '') {
   @media only screen and (min-width: $breakpoint-medium) {
-    .append-one { margin-right: $one-col + $gutter; }
-    .append-two { margin-right: $two-col + $gutter; }
-    .append-three { margin-right: $three-col + $gutter; }
-    .append-four { margin-right: $four-col + $gutter; }
-    .append-five { margin-right: $five-col + $gutter; }
-    .append-six { margin-right: $six-col + $gutter; }
-    .append-seven { margin-right: $seven-col + $gutter; }
-    .append-eight { margin-right: $eight-col + $gutter; }
-    .append-nine { margin-right: $nine-col + $gutter; }
-    .append-ten { margin-right: $ten-col + $gutter; }
-    .append-eleven { margin-right: $eleven-col + $gutter; }
-
-    .prepend-one { margin-left: $one-col + $gutter; }
-    .prepend-two { margin-left: $two-col + $gutter; }
-    .prepend-three { margin-left: $three-col + $gutter; }
-    .prepend-four { margin-left: $four-col + $gutter; }
-    .prepend-five { margin-left: $five-col + $gutter; }
-    .prepend-six { margin-left: $six-col + $gutter; }
-    .prepend-seven { margin-left: $seven-col + $gutter; }
-    .prepend-eight { margin-left: $eight-col + $gutter; }
-    .prepend-nine { margin-left: $nine-col + $gutter; }
-    .prepend-ten { margin-left: $ten-col + $gutter; }
-    .prepend-eleven { margin-left: $eleven-col + $gutter; }
+    // Generate prefix class from column width
+    @for $prepend-columns from 1 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($prepend-columns)}#{$suffix} {
+        margin-left: $single-column-percent * $prepend-columns;
+      }
+    }
   }
 }
 
-/// Push and pull
-/// Use these classes to push elements into the next
-/// column and pull it into the previous column
-/// @group Grid
-/// @example
-///   <div class="six-col push-six">
-///     ...
-///   </div>
-@mixin vf-push-pulls() {
+@mixin generate-append-classes($total-columns, $prefix: 'append-', $suffix: '') {
   @media only screen and (min-width: $breakpoint-medium) {
-    .pull-one,
-    .pull-two,
-    .pull-three,
-    .pull-four,
-    .pull-five,
-    .pull-six,
-    .pull-seven,
-    .pull-eight,
-    .pull-nine,
-    .pull-ten,
-    .pull-eleven {
-      float: left;
-      position: relative;
+    // Generate prefix class from column width
+    @for $append-columns from 1 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($append-columns)}#{$suffix} {
+        margin-right: $single-column-percent * $append-columns;
+      }
+    }
+  }
+}
+
+/// Push and pull columns need to float
+%floating-column {
+  float: left;
+  position: relative;
+}
+
+@mixin generate-push-classes($total-columns, $prefix: 'push-', $suffix: '') {
+  @media only screen and (min-width: $breakpoint-medium) {
+    // first column is special
+    .#{$prefix}one#{$suffix} {
+      @extend %floating-column;
+      margin: 0 (-($single-column-percent)) 0 $single-column-percent;
     }
 
-    .pull-one { margin-left: -$one-col; }
-    .pull-two { margin-left: -($two-col + $gutter); }
-    .pull-three { margin-left: -($three-col + $gutter); }
-    .pull-four { margin-left: -($four-col + $gutter); }
-    .pull-five { margin-left: -($four-col + $gutter); }
-    .pull-six { margin-left: -($six-col + $gutter); }
-    .pull-seven { margin-left: -($seven-col + $gutter); }
-    .pull-eight { margin-left: -($eight-col + $gutter); }
-    .pull-nine { margin-left: -($nine-col + $gutter); }
-    .pull-ten { margin-left: -($ten-col + $gutter); }
-    .pull-eleven { margin-left: -($eleven-col + $gutter); }
+    // Generate prefix class from column width
+    @for $push-columns from 2 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($push-columns)}#{$suffix} {
+        @extend %floating-column;
+        $push-amount: ($single-column-percent * $push-columns) + $gutter-percent;
+        margin: 0 (-($push-amount)) 0 $push-amount;
+      }
+    }
+  }
+}
 
-    .push-one,
-    .push-two,
-    .push-three,
-    .push-four,
-    .push-five,
-    .push-six,
-    .push-seven,
-    .push-eight,
-    .push-nine,
-    .push-ten,
-    .push-eleven {
-      float: left;
-      position: relative;
+@mixin generate-pull-classes($total-columns, $prefix: 'pull-', $suffix: '') {
+  @media only screen and (min-width: $breakpoint-medium) {
+    // first column is special
+    .#{$prefix}one#{$suffix} {
+      @extend %floating-column;
+      margin-left: -($single-column-percent - $gutter-percent);
     }
 
-    .push-one { margin: 0 (-($one-col + $gutter)) 0 ($one-col + $gutter); }
-    .push-two { margin: 0 (-($two-col + ($gutter * 2))) 0 ($two-col + ($gutter * 2)); }
-    .push-three { margin: 0 (-($three-col + ($gutter * 2))) 0 ($three-col + ($gutter * 2)); }
-    .push-four { margin: 0 (-($four-col + ($gutter * 2))) 0 ($four-col + ($gutter * 2)); }
-    .push-five { margin: 0 (-($four-col + ($gutter * 2))) 0 ($four-col + ($gutter * 2)); }
-    .push-six { margin: 0 (-($six-col + ($gutter * 2))) 0 ($six-col + ($gutter * 2)); }
-    .push-seven { margin: 0 (-($seven-col + ($gutter * 2))) 0 ($seven-col + ($gutter * 2)); }
-    .push-eight { margin: 0 (-($eight-col + ($gutter * 2))) 0 ($eight-col + ($gutter * 2)); }
-    .push-nine { margin: 0 (-($nine-col + ($gutter * 2))) 0 ($nine-col + ($gutter * 2)); }
-    .push-ten { margin: 0 (-($ten-col + ($gutter * 2))) 0 ($ten-col + ($gutter * 2)); }
-    .push-eleven { margin: 0 (-($eleven-col + ($gutter * 2))) 0 ($eleven-col + ($gutter * 2)); }
+    // Generate prefix class from column width
+    @for $pull-columns from 2 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($pull-columns)}#{$suffix} {
+        @extend %floating-column;
+        margin-left: $single-column-percent * $pull-columns;
+      }
+    }
   }
 }
