@@ -71,11 +71,9 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   // The percentage of the total width taken up by all the columns for this class
   $columns-total-width: $column-total-width * $num-columns;
 
-  // We need a bit of extra space to accommodate for spaces between inline-blocks
-  $extra-space: 4px / $this-max-width * 100%;
-
   // width + margin-right  = columns-total-width
-  width: $columns-total-width - $local-gutter-percent - $extra-space;
+  float: left;
+  width: $columns-total-width - $local-gutter-percent;
   margin-right: $local-gutter-percent;
 }
 
@@ -83,13 +81,14 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   // Base class styles
   box-sizing: border-box;
   clear: none;
-  display: inline-block;
-  float: none;
   margin-bottom: 20px;
   margin-right: 0;
   padding: 0;
   position: relative;
   width: 100%;
+  @media only screen and (min-width: $breakpoint-medium) {
+    float: left;
+  }
 }
 
 /// Generate classes for columns
