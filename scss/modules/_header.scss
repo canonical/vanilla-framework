@@ -8,7 +8,7 @@
 /// @group header
 @mixin vf-header {
   // scss-lint:disable NestingDepth
-      
+
   .banner {
     background: $brand-color;
     border-top: 0;
@@ -17,7 +17,7 @@
     position: relative;
     width: auto;
     z-index: 2;
-    
+
     h2 {
       display: block;
       font-size: 1.563em;
@@ -26,27 +26,27 @@
       position: relative;
       text-transform: lowercase;
       top: 14px;
-      
+
       a,
-      a:link, 
+      a:link,
       a:visited {
         color: $white;
         float: left;
         text-decoration: none;
       }
     }
-    
+
     .nav-primary {
       border: 0;
       margin: 0 auto;
       overflow: hidden;
-  
+
       ul {
         border-right: 1px solid lighten($brand-color, 10%);
         float: left;
         margin: 0;
         position: static;
-  
+
         li {
           border-bottom: 1px solid lighten($brand-color, 10%);
           border-left: 1px solid darken($brand-color, 20%);
@@ -56,12 +56,12 @@
           margin: 0;
           text-indent: 0;
           vertical-align: bottom;
-  
-  
+
+
           &:last-child {
             border-right: 1px solid lighten($mobile-nav, 60%);
           }
-    
+
           a:link,
           a:visited {
             border-left: 1px solid lighten($brand-color, 7%);
@@ -75,30 +75,30 @@
             text-align: center;
             text-decoration: none;
           }
-    
+
           .active {
             background: darken($brand-color, 20%);
             border-left: 1px solid lighten($brand-color, 7%);
           }
-  
+
           a:hover {
             border-top: 0;
             box-shadow: none;
           }
-                  
+
           li:last-child {
             border: 0;
           }
         }
-  
+
       } // end ul
-      
+
       &.active {
         border-bottom: 1px solid lighten($mobile-nav, 60%);
         box-shadow: 0 1px 2px 1px $warm-grey;
         padding: 0;
       }
-  
+
       ul li,
       ul li a:link,
       ul li a:visited,
@@ -108,7 +108,7 @@
         margin: 0;
         border: 0;
       }
-          
+
       ul li a:link,
       ul li a:visited,
       ul li a:hover,
@@ -116,17 +116,17 @@
         padding: 14px 14px 13px;
         text-align: left;
       }
-      
+
       .active li ul {
         display: none;
       }
-    
+
       &.nav-left {
         .logo-ubuntu {
           float: right;
         }
       }
-  
+
       &.nav-right {
         .logo-ubuntu {
           background-image: url('#{$asset-path}img/logos/logo-ubuntu-white.svg');
@@ -134,7 +134,7 @@
           float: left;
         }
       }
-      
+
       li ul {
         background: $light-grey;
         border-radius: 10px;
@@ -151,7 +151,7 @@
         li {
           border: 0;
           float: none;
-  
+
           a:link,
           a:visited {
             border: 0;
@@ -160,33 +160,33 @@
             text-align: left;
             width: 170px;
           }
-          
+
           a:hover {
             background: none;
             box-shadow: none;
             color: $brand-color;
           }
-  
+
         }
-          
+
         // the old arrow that appears if there is secondary nav when you hover over the main nav
         .arrow-up {
           display: none;
         }
-        
+
         .first a:link,
         .first a:visited,
         :first-of-type a:link {
           padding: 10px 14px;
         }
-        
+
         .active a:link,
         .active a:visited {
           background: none;
         }
-  
+
       } // end ul
-      
+
       // the new arrow that appears if there is secondary nav when you hover over the main nav
       li:hover ul:after {
         background: url('#{$asset-path}img/patterns/arrow-up-smaller.png') no-repeat;
@@ -199,9 +199,9 @@
         width: 200px;
         z-index: 20000;
       }
-                                
+
     } // nav-primary
-  
+
     .nav-toggle {
       background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
       background-position: center center;
@@ -215,80 +215,50 @@
       text-indent: -99999px;
       width: 48px;
     }
-    
+
     .no-script {
       display: none;
     }
-    
+
     nav ul {
       background-color: $light-grey;
       display: none;
       float: left;
     }
-    
+
     .logo {
       border-left: 0;
       float: left;
       height: 48px;
+      margin-right: 15px;
       overflow: hidden;
-    }
-  
-    .logo-ubuntu {
-      background: url('#{$asset-path}img/ubuntu-logo.png') no-repeat scroll 0 10px $transparent;
-      display: inline-block;
-      float: left;
-      font-size: 18px;
-      height: 32px;
-      margin: 0;
-      margin-left: 10px;
-      margin-right: -20px;
-      min-width: 128px;
-      padding: 7px 14px 9px 0;
       position: relative;
-      text-transform: lowercase;
-  
-      img {
-        margin-right: 8px;
-        position: absolute;
-        left: -999em;
-      }
-  
-      span {
-        float: left;
-        font-size: 23px;
-        font-weight: 300;
-        padding-left: 122px;
-        padding-right: 20px;
-        position: relative;
-        top: 5px;
-      }
-  
+      top: 8px;
     }
-      
   } // end .banner
-  
+
   // show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
   .no-generatedcontent .banner .nav-primary li ul {
     border-radius: 0 0 10px 10px;
     top: 48px;
   }
-  
+
   // Responsive header navigation
   // scss-lint:disable IdSelector
-  #main-navigation-link { 
-    display: none; 
+  #main-navigation-link {
+    display: none;
   }
   // scss-lint:enable IdSelector
-  
+
   .opera-mini .banner .nav-toggle,
   .no-svg .banner .nav-toggle {
     background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
   }
-  
+
   header nav .active {
     display: block;
   }
-  
+
   // scss-lint:disable IdSelector
   #menu.active:after {
     background-image: url('#{$asset-path}img/patterns/nav-arrow.svg');
@@ -304,84 +274,84 @@
     width: 48px;
     z-index: 999;
   }
-  
-  .no-svg, 
+
+  .no-svg,
   .opera-mini {
-    
+
     #menu.active:after {
       background-image: url('#{$asset-path}img/patterns/nav-arrow.png');
     }
-    
+
     .banner .nav-primary.nav-right .logo-ubuntu {
       background-image: url('#{$asset-path}img/logos/logo-ubuntu-white.png');
     }
-    
+
     .banner .logo-ubuntu {
       background-image: url('#{$asset-path}img/logos/logo-ubuntu_cof-white_orange-hex.png');
     }
-  
+
   } // End responsive navigation
   // scss-lint:enable IdSelector
-  
+
   // nav-secondary
   .nav-secondary {
     border-bottom: 1px solid $mid-grey;
     margin-bottom: 0;
-  
-  
+
+
     ul {
       float: left;
       margin-bottom: 10px;
       margin-left: 2px;
-  
+
       li {
         float: left;
         margin-top: 16px;
         font-size: 14px;
         margin-right: 15px;
-  
+
         a:link,
         a:visited {
           color: $warm-grey;
           font-size: 14px;
           float: left;
         }
-  
+
         a:hover,
         a:active {
           color: $brand-color;
           text-decoration: none;
         }
       }
-  
+
       li,
       .active a:link,
       .active a:visited {
         color: $brand-color;
         text-decoration: none;
       }
-      
+
     } // end ul
-    
+
     .breadcrumb {
       margin-left: 20px;
-  
+
       li,
       li a:link,
       li a:visited {
         color: $warm-grey;
         margin-right: 8px;
       }
-  
+
       .active a:link,
       .active a:visited {
         color: $brand-color;
       }
     }
   }
-  
+
   @media only screen and (max-width: 295px) {
-  
+
   // this changes the logo to the circle of friends on screens below 295px
     .banner {
       .nav-primary.nav-right .logo-ubuntu,
@@ -392,45 +362,45 @@
         width: 38px;
       }
     }
-    
+
     .banner .logo-ubuntu span {
       padding-left: 38px;
     }
-    
+
   } // end @media only screen and (max-width: 295px)
-  
+
   /*
    * Main navigation dropdown styles
    */
-  
-  .lt-ie8 .banner .nav-primary li:hover ul { 
-    display: none; 
+
+  .lt-ie8 .banner .nav-primary li:hover ul {
+    display: none;
   }
-  
+
   @media only screen and (max-width : $breakpoint-medium) {
     .banner .nav-primary {
       box-shadow: 0 1px 2px 1px $warm-grey;
     }
-    
+
     .banner .nav-primary.active {
       box-shadow: none;
       padding: 0;
     }
-  
+
     header nav .active {
       float: left;
     }
-    
+
     header nav .active li:last-child a:link,
     header nav .active li:last-child a:visited {
       border-bottom: 0;
     }
-      
+
     .banner .nav-primary ul {
       position: relative;
       width: 100%;
     }
-  
+
     .banner .nav-primary ul .active {
       a:link,
       a:visited {
@@ -438,7 +408,7 @@
         font-weight: 700;
       }
     }
-  
+
     .banner .nav-primary ul li,
     .banner .nav-primary ul li a:link,
     .banner .nav-primary ul li a:visited,
@@ -452,7 +422,7 @@
       padding: 0;
       width: 100%;
     }
-  
+
     .banner .nav-primary ul li a:link,
     .banner .nav-primary ul li a:visited,
     .banner .nav-primary ul li a:hover,
@@ -462,21 +432,21 @@
       color: $cool-grey;
       font-size: 1em;
     }
-    
+
     .banner .nav-primary ul li:nth-last-child(-n+2) a:link,
     .banner .nav-primary ul li:nth-last-child(-n+2) a:visited {
       border: 0;
-    }  
-  
+    }
+
     .banner .nav-primary ul li a:hover {
       box-shadow: none;
       background: lighten($mobile-nav, 75%);
     }
-    
+
     .banner .nav-primary ul li .active {
       background-color: $nav-active-bg;
     }
-  
+
     .banner .nav-primary ul li a:link,
     .banner .nav-primary ul li a:visited,
     .banner .nav-primary ul li a:hover,
@@ -484,7 +454,7 @@
       padding: 8px 10px;
       text-align: left;
     }
-  
+
     .banner .nav-primary ul li {
       box-sizing: border-box;
       background: $transparent;
@@ -493,10 +463,10 @@
       float: left;
       width: 50%;
     }
-  
+
     .nav-secondary {
       background: $white;
-  
+
       .second-level-nav {
         border-top: 1px solid lighten($brand-color, 7%);
         display: none;
@@ -505,13 +475,13 @@
         padding-bottom: 10px;
         padding-top: 10px;
         width: 100%;
-  
+
         li {
           box-sizing: border-box;
           width: 50%;
           margin: 0;
           float: left;
-  
+
           a,
           a:link,
           a:visited {
@@ -521,7 +491,7 @@
             padding: 10px 10px 10px 20px;
             width: 100%;
           }
-          
+
           &.active {
             a,
             a:link,
@@ -532,20 +502,20 @@
           }
         }
       } /* end .second-level-nav */
-      
+
       .third-level-nav {
         display: none;
         margin-bottom: 0;
         width: 100%;
         padding-bottom: 20px;
-  
+
         li {
           box-sizing: border-box;
           width: 50%;
           margin: 0;
           float: left;
           padding-left: 30px;
-  
+
           a,
           a:link,
           a:visited {
@@ -555,7 +525,7 @@
             width: 100%;
             height: 100%;
           }
-  
+
           &.active {
             a,
             a:link,
@@ -564,29 +534,29 @@
               font-weight: 700;
             }
           }
-  
+
           &.single-link {
             width: 100%;
           }
         } /* end li */
-  
+
         li:only-child {
           width: 100%;
         }
-        
+
       } /* end third-level-nav */
-  
+
       .breadcrumb {
         box-sizing: border-box;
         width: 100%;
         margin-left: 0;
         margin-bottom: 0;
-  
+
         li:first-of-type {
           border-bottom: 1px solid lighten($brand-color, 7%);
           margin-bottom: -1px;
         }
-  
+
         li {
           box-sizing: border-box;
           color: $white;
@@ -594,21 +564,21 @@
           height: 40px;
           margin: 0;
           width: 100%;
-          
+
           + li {
             display: none;
-    
+
             a:link,
             a:active,
             a:visited {
               padding-left: 20px;
             }
-    
+
             .after {
               background-image: none;
             }
           }
-  
+
           a,
           a:link,
           a:visited {
@@ -621,10 +591,10 @@
             text-decoration: none;
             width: 100%;
           }
-  
+
           &.active {
             margin-top: 12px;
-  
+
             a,
             a:link,
             a:visited {
@@ -632,11 +602,11 @@
               font-weight: 700;
             }
           }
-  
+
           &:nth-of-type(2n) {
             margin-top: 12px;
           }
-  
+
           .after {
             background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
             background-position: center center;
@@ -653,42 +623,42 @@
             width: 18px;
           }
         }
-  
+
       }
-  
+
       &.open {
-        
+
         .breadcrumb li a:after,
         .breadcrumb li a:link:after,
         .breadcrumb li a:visited:after {
           background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
         }
-        
+
         .breadcrumb li + li .after {
           background-image: none;
         }
-        
+
         .breadcrumb li .after {
           background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
           margin-top: -7px;
         }
-        
+
         .second-level-nav,
         .third-level-nav,
         .breadcrumb li + li {
           display: block;
         }
-        
+
       }
-      
+
     }/* end nav-secondary */
-  
+
     .no-js {
-      
-      .nav-secondary .second-level-nav { 
-        display: block; 
+
+      .nav-secondary .second-level-nav {
+        display: block;
       }
-      
+
       // scss-lint:disable IdSelector
       #main-navigation-link {
         position: absolute;
@@ -699,7 +669,7 @@
         z-index: 999;
         text-indent: -999em;
         display: block;
-  
+
         a {
           background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
           background-position: center center;
@@ -710,69 +680,69 @@
           height: 28px;
           position: absolute;
         }
-        
+
       }
       // scss-lint:enable IdSelector
     }
-  
-    .no-svg, 
+
+    .no-svg,
     .opera-mini {
-  
+
       .nav-secondary .breadcrumb {
-      
+
         li .after {
           background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
         }
-      
+
         &.open {
           .breadcrumb li a:after,
           .breadcrumb li a:link:after,
           .breadcrumb li a:visited:after {
             background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
-          
+
           .breadcrumb li .after {
             background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
         } // end .open
-  
+
     } // end .nav-secondary .breadcrumb
-    
+
       .banner .nav-primary button {
         background-image: url('#{$asset-path}img/search-black.png');
       }
-      
+
     }
-  
+
     .no-svg,
     .opera-mini {
-      
+
       .nav-secondary .breadcrumb {
-        
+
         li .after {
           background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
         }
-        
+
         &.open {
           .breadcrumb li a:after,
           .breadcrumb li a:link:after,
           .breadcrumb li a:visited:after {
             background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
-          
+
           .breadcrumb li .after {
             background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
-          
+
         }
-        
+
       }
-      
+
       .banner .nav-primary button {
         background-image: url('#{$asset-path}img/search-black.png');
       }
     }
-  
+
     .banner {
       .nav-toggle {
         background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
@@ -788,132 +758,132 @@
         width: 48px;
       }
     }
-  
-  
-    .no-svg, 
+
+
+    .no-svg,
     .opera-mini {
-      
+
       .banner .nav-toggle {
         background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
       }
-      
+
     }
-  
+
   }
-  
+
   @media only screen and (min-width : $breakpoint-medium) {
-  
+
     .banner .nav-primary ul li {
       border-bottom: 0;
     }
   }
-  
+
   @media only screen and (min-width : $breakpoint-medium + 1) {
-  
+
     .banner {
       box-shadow: 0 2px 2px -2px $warm-grey inset, 2px 1px $white;
-  
+
       .nav-primary {
         box-shadow: none;
         border-bottom: 0;
       }
     }
-  
+
     .banner .nav-toggle {
       display: none;
     }
-  
+
     .banner nav ul {
       background-color: $transparent;
       display: block;
     }
-  
+
     .banner .nav-primary ul li {
       border-left: 1px solid darken($brand-color, 8%);
     }
-  
+
     .banner .nav-primary ul li a:active,
     .banner .nav-primary ul li a:hover,
     .banner .nav-primary ul li a:visited,
     .banner .nav-primary ul li a:link {
       border-left: 1px solid lighten($brand-color, 12%);
     }
-    
+
     .banner .nav-primary ul li:last-child {
       border-right: 1px solid darken($brand-color, 8%);
       border-left: 1px solid darken($brand-color, 8%);
     }
-    
+
     .banner .nav-primary ul li .active {
       background-color: darken($brand-color, 14%);
     }
-    
+
     .banner .nav-primary ul li a:hover {
       background-color: lighten($brand-color, 8%);
     }
-  
+
     .nav-secondary {
-      
+
       :last-child li:last-child {
         padding-bottom: 10px;
       }
-  
+
       .breadcrumb,
       .second-level-nav,
       .third-level-nav {
-  
+
         li {
           margin-right: 15px;
         }
       }
-  
+
       .breadcrumb {
         float: left;
-  
+
         li {
           margin-bottom: 10px;
         }
-        
+
       }
-  
+
       ul {
         float: none;
         margin-bottom: 0;
-        
+
         li {
           margin-bottom: 5px;
         }
-        
+
       }
     }
   }
-  
+
   @media only screen and (min-width: $breakpoint-large) {
-  
+
     .banner {
       margin-bottom: 20px;
-      
+
       .nav-primary ul {
         display: block;
-        
-        li:hover ul { 
-          display: block; 
+
+        li:hover ul {
+          display: block;
         }
-        
+
       }
-      
+
     }
-  
+
     .banner .nav-primary,
     .nav-global-wrapper {
       width: 984px; /* 980px / 15px (baseline font); 980px + (60px x 2) = 1100px */
     }
-  
+
     .banner .nav-primary.nav-right .logo-ubuntu {
       margin-left: 0;
     }
-  
+
   }
-  
+
   // scss-lint:enable NestingDepth
 } // @mixin vf-header
