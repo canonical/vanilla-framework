@@ -1,4 +1,8 @@
 #! /usr/bin/env python
+"""
+A script for increasing the version in an npm project's
+package.json.
+"""
 
 import argparse
 import json
