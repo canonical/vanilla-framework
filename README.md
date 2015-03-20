@@ -1,5 +1,7 @@
 # Vanilla Framework
 
+[![Join the chat at https://gitter.im/ubuntudesign/vanilla-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ubuntudesign/vanilla-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/ubuntudesign/vanilla-framework.svg?branch=master)](https://travis-ci.org/ubuntudesign/vanilla-framework) [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 
 Vanilla is a guidelines framework to help you achieve a consistent look, bringing the [Ubuntu](http://www.ubuntu.com/) and [Canonical](http://www.canonical.com/) brands to the web with precision. Here you will find the Ubuntu web style guide and a front-end framework, which you can apply to your web projects maintained by the [Canonical Web Team](https://github.com/orgs/ubuntudesign/people).
