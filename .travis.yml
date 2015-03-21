@@ -3,10 +3,11 @@ node_js:
   - "0.10.25"
 script: node_modules/gulp/bin/gulp.js test
 notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#ubuntu-webteam"
   webhooks:
     urls:
       - "https://webhooks.gitter.im/e/9898d67dfc1dd39f9cb2"
       - "https://ducksboard-travis.herokuapp.com/PonRr3k42Nm4ulyerpdUxBgYDb5VDYttufyBB1scNdtfqEv67V/travis-status"
     on_success: change
-    on_failure: always
-    on_start: false
