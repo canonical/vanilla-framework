@@ -10,15 +10,6 @@ A simple extensible CSS framework, written in [Sass](http://sass-lang.com/).
 
 Vanilla Framework contains a basic CSS grid and pattern classes, and is designed to be extended either directly or by creating extension themes.
 
-## Index
-
-- [Getting started](#getting-started)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Community](#community)
-- [Releases](#releases)
-- [Copyright and licence](#copyright-and-licence)
-
 ## Getting started
 
 Clone the repository or [download it](https://github.com/ubuntudesign/web-style-guide/archive/master.zip).
