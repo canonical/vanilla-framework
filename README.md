@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 [![Downloads](http://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
 [![devDependency Status](https://david-dm.org/ubuntudesign/vanilla-framework/dev-status.svg)](https://david-dm.org/ubuntudesign/vanilla-framework#info=devDependencies)
-[![Chat in #ubuntu-webteam on Freenode](https://img.shields.io/badge/chat-%23ubuntu--webteam-blue.svg)](http://webchat.freenode.net/?channels=ubuntu-webteam)
+[![Chat in #canonical-webteam on Freenode](https://img.shields.io/badge/chat-%23canonical--webteam-blue.svg)](http://webchat.freenode.net/?channels=canonial-webteam)
 
 Vanilla is a guidelines framework to help you achieve a consistent look, bringing the [Ubuntu](http://www.ubuntu.com/) and [Canonical](http://www.canonical.com/) brands to the web with precision. Here you will find the Ubuntu web style guide and a front-end framework, which you can apply to your web projects maintained by the [Canonical Web Team](https://github.com/orgs/ubuntudesign/people).
 
