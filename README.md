@@ -12,8 +12,6 @@ Vanilla Framework contains a basic CSS grid and pattern classes, and is designed
 
 ## Getting started
 
-Clone the repository or [download it](https://github.com/ubuntudesign/web-style-guide/archive/master.zip).
-
 Install [Node.js](http://nodejs.org) (`> 2.0`):
 
 ``` bash
