@@ -6,11 +6,9 @@
 [![devDependency Status](https://david-dm.org/ubuntudesign/vanilla-framework/dev-status.svg)](https://david-dm.org/ubuntudesign/vanilla-framework#info=devDependencies)
 [![Chat in #canonical-webteam on Freenode](https://img.shields.io/badge/chat-%23canonical--webteam-blue.svg)](http://webchat.freenode.net/?channels=canonial-webteam)
 
-Vanilla is a guidelines framework to help you achieve a consistent look, bringing the [Ubuntu](http://www.ubuntu.com/) and [Canonical](http://www.canonical.com/) brands to the web with precision. Here you will find the Ubuntu web style guide and a front-end framework, which you can apply to your web projects maintained by the [Canonical Web Team](https://github.com/orgs/ubuntudesign/people).
+A simple extensible CSS framework, written in [Sass](http://sass-lang.com/).
 
-Sites created within Canonical should follow this style guide closely, whereas external sites are free to adapt and expand the existing components to their needs.
-
-To get started and see examples go to our [design](http://design.ubuntu.com) site.
+Vanilla Framework contains a basic CSS grid and pattern classes, and is designed to be extended either directly or by creating extension themes.
 
 ## Index
 
