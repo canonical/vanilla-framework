@@ -14,7 +14,7 @@ Vanilla Framework contains a basic CSS grid and pattern classes, and is designed
 
 ## Hotlinking
 
-On [the project homepage](http://ubuntudesign.github.io/vanilla-framework) to find the link to the latest build to add directly into your markup:
+On [the project homepage](http://ubuntudesign.github.io/vanilla-framework), find the link to the latest build to add directly into your markup:
 
 ``` html
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
