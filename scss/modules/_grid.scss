@@ -162,7 +162,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
 }
 
 /// Push and pull columns need to float
-%floating-column {
+@mixin floating-column {
   float: left;
   position: relative;
 }
@@ -171,7 +171,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   @media only screen and (min-width: $breakpoint-medium) {
     // first column is special
     .#{$prefix}one#{$suffix} {
-      @extend %floating-column;
+      @include floating-column;
       margin: 0 (-($single-column-percent)) 0 $single-column-percent;
     }
 
@@ -179,7 +179,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
     @for $push-columns from 2 through ($total-columns - 1) {
       // Generate class name from $prefix, number and $suffix
       .#{$prefix}#{vf-number-word($push-columns)}#{$suffix} {
-        @extend %floating-column;
+        @include floating-column;
         $push-amount: ($single-column-percent * $push-columns) + $gutter-percent;
         margin: 0 (-($push-amount)) 0 $push-amount;
       }
@@ -191,7 +191,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   @media only screen and (min-width: $breakpoint-medium) {
     // first column is special
     .#{$prefix}one#{$suffix} {
-      @extend %floating-column;
+      @include floating-column;
       margin-left: -($single-column-percent - $gutter-percent);
     }
 
@@ -199,7 +199,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
     @for $pull-columns from 2 through ($total-columns - 1) {
       // Generate class name from $prefix, number and $suffix
       .#{$prefix}#{vf-number-word($pull-columns)}#{$suffix} {
-        @extend %floating-column;
+        @include floating-column;
         margin-left: $single-column-percent * $pull-columns;
       }
     }
