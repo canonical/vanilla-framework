@@ -704,35 +704,6 @@
           .breadcrumb li .after {
             background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
           }
-        } // end .open
-
-    } // end .nav-secondary .breadcrumb
-
-      .banner .nav-primary button {
-        background-image: url('#{$asset-path}img/search-black.png');
-      }
-
-    }
-
-    .no-svg,
-    .opera-mini {
-
-      .nav-secondary .breadcrumb {
-
-        li .after {
-          background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
-        }
-
-        &.open {
-          .breadcrumb li a:after,
-          .breadcrumb li a:link:after,
-          .breadcrumb li a:visited:after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
-          }
-
-          .breadcrumb li .after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
-          }
 
         }
 
@@ -759,14 +730,41 @@
       }
     }
 
+    .nav-toggle {
+      background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
+      top: 0;
 
-    .no-svg,
-    .opera-mini {
+      .nav-toggle__link {
+        background: url('../img/navigation-menu.svg');
+        width: 48px;
+        height: 48px;
 
-      .banner .nav-toggle {
-        background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
+        &.open {
+          display: block;
+        }
+
+        &.close {
+          display: none;
+        }
       }
+    }
 
+    .nav-primary:target {
+      ul {
+        display: block;
+      }
+    }
+
+    .nav-primary:target + .nav-toggle {
+      .nav-toggle__link {
+        &.open {
+          display: none;
+        }
+
+        &.close {
+          display: block;
+        }
+      }
     }
 
   }
