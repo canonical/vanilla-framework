@@ -127,14 +127,6 @@
         }
       }
 
-      &.nav-right {
-        .logo-ubuntu {
-          background-image: url('#{$asset-path}img/logos/logo-ubuntu-white.svg');
-          background-size: 107px 25px;
-          float: left;
-        }
-      }
-
       li ul {
         background: $light-grey;
         border-radius: 10px;
@@ -231,17 +223,12 @@
       float: left;
       height: 48px;
       margin-right: 15px;
+      margin-left: 15px;
       overflow: hidden;
       position: relative;
       top: 8px;
     }
   } // end .banner
-
-  // show secondary nav differently if :after isn't supported, remove arrow and move secondary nav up to meet the bottom of the navbar
-  .no-generatedcontent .banner .nav-primary li ul {
-    border-radius: 0 0 10px 10px;
-    top: 48px;
-  }
 
   // Responsive header navigation
   // scss-lint:disable IdSelector
@@ -249,11 +236,6 @@
     display: none;
   }
   // scss-lint:enable IdSelector
-
-  .opera-mini .banner .nav-toggle,
-  .no-svg .banner .nav-toggle {
-    background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
-  }
 
   header nav .active {
     display: block;
@@ -274,23 +256,6 @@
     width: 48px;
     z-index: 999;
   }
-
-  .no-svg,
-  .opera-mini {
-
-    #menu.active:after {
-      background-image: url('#{$asset-path}img/patterns/nav-arrow.png');
-    }
-
-    .banner .nav-primary.nav-right .logo-ubuntu {
-      background-image: url('#{$asset-path}img/logos/logo-ubuntu-white.png');
-    }
-
-    .banner .logo-ubuntu {
-      background-image: url('#{$asset-path}img/logos/logo-ubuntu_cof-white_orange-hex.png');
-    }
-
-  } // End responsive navigation
   // scss-lint:enable IdSelector
 
   // nav-secondary
@@ -350,34 +315,10 @@
     }
   }
 
-  @media only screen and (max-width: 295px) {
-
-  // this changes the logo to the circle of friends on screens below 295px
-    .banner {
-      .nav-primary.nav-right .logo-ubuntu,
-      .logo-ubuntu {
-        background-size: 20px 20px;
-        background: url('#{$asset-path}img/logos/logo-ubuntu_cof-white_orange-hex.svg') 0 50% no-repeat;
-        min-width: 0;
-        width: 38px;
-      }
-    }
-
-    .banner .logo-ubuntu span {
-      padding-left: 38px;
-    }
-
-  } // end @media only screen and (max-width: 295px)
-
   /*
    * Main navigation dropdown styles
    */
-
-  .lt-ie8 .banner .nav-primary li:hover ul {
-    display: none;
-  }
-
-  @media only screen and (max-width : $breakpoint-medium) {
+  @media only screen and (max-width : $navigation-threshold) {
     .banner .nav-primary {
       box-shadow: 0 1px 2px 1px $warm-grey;
     }
@@ -431,11 +372,6 @@
       border-bottom: 1px solid lighten($mobile-nav, 60%);
       color: $cool-grey;
       font-size: 1em;
-    }
-
-    .banner .nav-primary ul li:nth-last-child(-n+2) a:link,
-    .banner .nav-primary ul li:nth-last-child(-n+2) a:visited {
-      border: 0;
     }
 
     .banner .nav-primary ul li a:hover {
@@ -648,98 +584,6 @@
         .breadcrumb li + li {
           display: block;
         }
-
-      }
-
-    }/* end nav-secondary */
-
-    .no-js {
-
-      .nav-secondary .second-level-nav {
-        display: block;
-      }
-
-      // scss-lint:disable IdSelector
-      #main-navigation-link {
-        position: absolute;
-        right: 10px;
-        top: 12px;
-        width: 20px;
-        height: 28px;
-        z-index: 999;
-        text-indent: -999em;
-        display: block;
-
-        a {
-          background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-size: 25px auto;
-          display: block;
-          width: 28px;
-          height: 28px;
-          position: absolute;
-        }
-
-      }
-      // scss-lint:enable IdSelector
-    }
-
-    .no-svg,
-    .opera-mini {
-
-      .nav-secondary .breadcrumb {
-
-        li .after {
-          background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
-        }
-
-        &.open {
-          .breadcrumb li a:after,
-          .breadcrumb li a:link:after,
-          .breadcrumb li a:visited:after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
-          }
-
-          .breadcrumb li .after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
-          }
-        } // end .open
-
-    } // end .nav-secondary .breadcrumb
-
-      .banner .nav-primary button {
-        background-image: url('#{$asset-path}img/search-black.png');
-      }
-
-    }
-
-    .no-svg,
-    .opera-mini {
-
-      .nav-secondary .breadcrumb {
-
-        li .after {
-          background-image: url('#{$asset-path}img/patterns/nav-down-arrow.png');
-        }
-
-        &.open {
-          .breadcrumb li a:after,
-          .breadcrumb li a:link:after,
-          .breadcrumb li a:visited:after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
-          }
-
-          .breadcrumb li .after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.png');
-          }
-
-        }
-
-      }
-
-      .banner .nav-primary button {
-        background-image: url('#{$asset-path}img/search-black.png');
       }
     }
 
@@ -754,31 +598,54 @@
         height: 48px;
         position: absolute;
         right: 0;
+        top: 0;
         text-indent: -99999px;
         width: 48px;
       }
+
+      .nav-toggle__link {
+        width: 48px;
+        height: 48px;
+
+        &.open {
+          display: block;
+        }
+
+        &.close {
+          display: none;
+        }
+      }
     }
 
-
-    .no-svg,
-    .opera-mini {
-
-      .banner .nav-toggle {
-        background-image: url('#{$asset-path}img/icons/navigation-menu-plain.png');
+    // scss-lint:disable IdSelector
+    #nav:target {
+      ul {
+        display: block;
       }
 
+      + .nav-toggle {
+        .nav-toggle__link {
+          &.open {
+            display: none;
+          }
+
+          &.close {
+            display: block;
+          }
+        }
+      }
     }
-
   }
+    // scss-lint:enable IdSelector
 
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (min-width : $navigation-threshold) {
 
     .banner .nav-primary ul li {
       border-bottom: 0;
     }
   }
 
-  @media only screen and (min-width : $breakpoint-medium + 1) {
+  @media only screen and (min-width : $navigation-threshold + 1) {
 
     .banner {
       box-shadow: 0 2px 2px -2px $warm-grey inset, 2px 1px $white;
@@ -869,9 +736,7 @@
         li:hover ul {
           display: block;
         }
-
       }
-
     }
 
     .banner .nav-primary,
@@ -882,8 +747,6 @@
     .banner .nav-primary.nav-right .logo-ubuntu {
       margin-left: 0;
     }
-
   }
-
   // scss-lint:enable NestingDepth
 } // @mixin vf-header
