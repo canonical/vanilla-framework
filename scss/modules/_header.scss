@@ -32,7 +32,6 @@
       border-left: 0;
 
       a {
-        display: inline-block;
         display: table-cell;
         height: 100%;
         vertical-align: middle;
@@ -113,7 +112,7 @@
               border-right: 1px solid darken($brand-color, 8%);
 
               a {
-                border-right: none;
+                border-right: 0;
               }
             }
           }
@@ -138,8 +137,8 @@
             background-color: lighten($mobile-nav, 72%);
             font-smoothing: subpixel-antialiased;
 
-            @if $header-link-color != '#333' {
-              color: $cool-grey
+            @if $header-link-color != $cool-grey {
+              color: $cool-grey;
             }
 
             @media only screen and (min-width: $breakpoint-large) {
