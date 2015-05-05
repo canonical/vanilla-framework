@@ -8,13 +8,22 @@
 /// @group Forms
 @mixin vf-forms {
 
+  $states: (
+    error: $error,
+    warning: $warning,
+    success: $success,
+    information: $information
+  );
+
   label {
     cursor: pointer;
     display: block;
     margin-bottom: 4px;
 
-    span {
-      color: $error;
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        color: $color;
+      }
     }
   }
 
@@ -48,6 +57,12 @@
         margin-left: 5px;
         vertical-align: middle;
         width: auto;
+      }
+    }
+
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        border: 1px solid $color;
       }
     }
   }
