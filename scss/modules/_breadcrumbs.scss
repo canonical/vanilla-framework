@@ -11,17 +11,170 @@
 ///   ...
 /// </blockquote>
 @mixin vf-breadcrumbs {
-  .breadcrumb {
-    box-sizing: border-box;
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 0;
+  .nav-secondary {
 
-    li,
-    li a:link,
-    li a:visited {
-      color: $warm-grey;
-      margin-right: 8px;
+    @media only screen and (min-width: $breakpoint-large) {
+      border-bottom: 1px solid $alto-grey;
+    }
+
+    .breadcrumb {
+      box-sizing: border-box;
+      width: 100%;
+      margin-bottom: 0;
+      margin-left: 0;
+
+      @media only screen and (min-width: $breakpoint-large) {
+        width: auto;
+        float: left;
+        margin-left: 20px;
+      }
+
+      li {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        margin: 0;
+        color: $white;
+
+        &:first-of-type {
+          border-bottom: 1px solid $alto-grey;
+
+          @media only screen and (min-width: $breakpoint-large) {
+            border-bottom: 0;
+          }
+        }
+
+        a {
+          font-size: 16px;
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          margin-right: 0;
+          padding: 8px 10px 0;
+          text-decoration: none;
+          color: $cool-grey;
+
+          @media only screen and (min-width: $breakpoint-large) {
+            font-size: 14px;
+          }
+
+          .after {
+            position: relative;
+            top: 0;
+            right: 0;
+            float: right;
+            width: 18px;
+            height: 18px;
+            margin-top: -6px;
+            margin-right: -5px;
+            padding: 10px;
+            background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 18px;
+          }
+        }
+
+        > a {
+          display: none;
+
+          @media only screen and (min-width: $breakpoint-large) {
+            display: block;
+          }
+        }
+
+        .breadcrumb-toggle {
+
+          @media only screen and (min-width: $breakpoint-large) {
+            display: none;
+          }
+
+          .breadcrumb-toggle__close {
+            display: none;
+          }
+
+          .breadcrumb-toggle__open {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .second-level-nav {
+      display: none;
+      overflow: hidden;
+      width: 100%;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $alto-grey;
+
+      @media only screen and (min-width: $breakpoint-large) {
+        display: block;
+        float: none;
+        margin-bottom: 0;
+        padding: 0;
+        width: auto;
+        border-bottom: 0;
+      }
+
+      li {
+        float: left;
+        width: 50%;
+        margin: 0;
+
+        @media only screen and (min-width: $breakpoint-large) {
+          width: auto;
+          margin-right: 15px;
+          margin-bottom: 5px;
+        }
+
+        a {
+          font-size: 14px;
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          color: $cool-grey;
+
+          @media only screen and (min-width: $breakpoint-large) {
+            padding: 8px 10px 0;
+          }
+        }
+      }
     }
   }
+  // scss-lint:disable IdSelector
+  #breadcrumbs:target {
+
+    .breadcrumb {
+
+      li {
+
+        a {
+          .after {
+            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
+          }
+        }
+
+        .breadcrumb-toggle {
+
+          .breadcrumb-toggle__close {
+            display: block;
+          }
+
+          .breadcrumb-toggle__open {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .second-level-nav {
+      display: block;
+    }
+  }
+  // scss-lint:enable NestingDepth
 }
