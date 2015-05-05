@@ -8,6 +8,42 @@
 /// Global helper classes
 /// @group helpers
 @mixin vf-helpers {
+  .priority-0,
+  .not-for-small {
+    display: none;
+  }
+
+  .for-mobile, 
+  .for-small {
+    display: none;
+  }
+  
+  @media only screen and (min-width : $breakpoint-medium) {
+    .priority-0,
+    .not-for-small {
+      display: block;
+    }
+  
+    .for-mobile, 
+    .for-small {
+      display: none;
+    }
+  }
+  
+  .link-top {
+    font-size: .75em;
+    clear: both;
+    margin-bottom: 40px;
+    margin-top: -40px;
+  
+    a {
+      background: $white;
+      margin-right: 10px;
+      margin-top: -17px;
+      padding: 5px;
+      float: right;
+    }
+  }
   
   .accessibility-aid {
     left: -999em;

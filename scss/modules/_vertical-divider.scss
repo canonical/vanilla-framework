@@ -1,0 +1,52 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-vertical-divider
+/// @since        0.0.13
+////
+
+/// Vertical divider applies a vertical divider between columns inside parent
+/// @group Utils
+/// @example
+///   <div class="row vertical-divider">
+///     <div class="six-col">...</div>
+///   <div class="six-col last-col">...</div>
+///   </div>
+@mixin vf-vertical-divider {
+
+  @media only screen and (min-width : $breakpoint-medium) {
+    .vertical-divider {
+      position: relative;
+
+      > div,
+      > li {
+        padding-left: ($gutter-width / 2);
+        padding-right: ($gutter-width / 2);
+
+        &:before {
+          content: '';
+          position: absolute;
+          right: -($gutter-width / 2);
+          top: 0;
+          height: 100%;
+          width: 1px;
+          border-left: 1px dotted $warm-grey;
+        }
+      }
+
+      > .last-col,
+      > div:last-of-type,
+      > li:last-of-type {
+        padding-right: 0;
+
+        &:before {
+          border-left: 0;
+        }
+      }
+
+      > div:first-of-type,
+      > li:first-of-type {
+        padding-left: 0;
+      }
+    }
+  }
+}
