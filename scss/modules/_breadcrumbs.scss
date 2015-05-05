@@ -12,122 +12,16 @@
 /// </blockquote>
 @mixin vf-breadcrumbs {
   .breadcrumb {
-    margin-left: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
 
     li,
     li a:link,
     li a:visited {
       color: $warm-grey;
       margin-right: 8px;
-    }
-
-    .active a:link,
-    .active a:visited {
-      color: $brand-color;
-    }
-  }
-
-  .breadcrumb {
-    box-sizing: border-box;
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 0;
-
-    li:first-of-type {
-      border-bottom: 1px solid lighten($brand-color, 7%);
-      margin-bottom: -1px;
-    }
-
-    li {
-      box-sizing: border-box;
-      color: $white;
-      display: block;
-      height: 40px;
-      margin: 0;
-      width: 100%;
-
-      + li {
-        display: none;
-
-        a:link,
-        a:active,
-        a:visited {
-          padding-left: 20px;
-        }
-
-        .after {
-          background-image: none;
-        }
-      }
-
-      a,
-      a:link,
-      a:visited {
-        box-sizing: border-box;
-        color: $warm-grey;
-        display: block;
-        font-size: 16px;
-        margin-right: 0;
-        padding: 8px 10px 0;
-        text-decoration: none;
-        width: 100%;
-      }
-
-      &.active {
-        margin-top: 12px;
-
-        a,
-        a:link,
-        a:visited {
-          color: $warm-grey;
-          font-weight: 700;
-        }
-      }
-
-      &:nth-of-type(2n) {
-        margin-top: 12px;
-      }
-
-      .after {
-        background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 18px;
-        float: right;
-        height: 18px;
-        margin-right: -5px;
-        margin-top: -6px;
-        padding: 10px;
-        position: relative;
-        right: 0;
-        top: 0;
-        width: 18px;
-      }
-    }
-
-  }
-
-  &.open {
-
-    .breadcrumb li a:after,
-    .breadcrumb li a:link:after,
-    .breadcrumb li a:visited:after {
-      background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
-    }
-
-    .breadcrumb li + li .after {
-      background-image: none;
-    }
-
-    .breadcrumb li .after {
-      background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
-      margin-top: -7px;
-    }
-
-    .second-level-nav,
-    .third-level-nav,
-    .breadcrumb li + li {
-      display: block;
     }
   }
 }
