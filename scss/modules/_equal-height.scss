@@ -1,0 +1,30 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-vertical-divider
+/// @since        0.0.13
+////
+
+/// Equal heights makes all immediate child divs and li's heights equal
+/// @group Utils
+/// @example
+///   <div class="row equal-height">
+///     <div class="six-col">...</div>
+///     <div class="six-col last-col">...</div>
+///   </div>
+@mixin vf-equal-height {
+  @media only screen and (min-width : $breakpoint-medium) {
+    .equal-height {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      > div,
+      > li {
+        box-sizing: border-box;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+      }
+    }
+  }
+}
