@@ -67,7 +67,7 @@ gulp.task('sass-lite', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('scss/*.scss', ['sass-lite']);
+    gulp.watch('scss/**/*.scss', ['sass-lite']);
 });
 
 gulp.task('test', ['sasslint']);
