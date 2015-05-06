@@ -8,13 +8,22 @@
 /// @group Forms
 @mixin vf-forms {
 
+  $states: (
+    error: $error,
+    warning: $warning,
+    success: $success,
+    information: $information
+  );
+
   label {
     cursor: pointer;
     display: block;
     margin-bottom: 4px;
 
-    span {
-      color: $error;
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        color: $color;
+      }
     }
   }
 
@@ -50,6 +59,12 @@
         width: auto;
       }
     }
+
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        border: 1px solid $color;
+      }
+    }
   }
 
   // Textarea styles
@@ -64,14 +79,14 @@
 
       &:active,
       &:focus {
-        border-color: $mid-grey;
+        border-color: $warm-grey;
         outline: none;
       }
     }
   }
 
   fieldset {
-    background-color: $mid-grey;
+    background-color: $light-grey;
     background-position: -15px -15px;
     background-repeat: no-repeat;
     border-radius: 4px;
@@ -118,7 +133,7 @@
 
   &:active,
   &:focus {
-    border-color: $cool-grey;
+    border-color: $warm-grey;
     outline: none;
   }
 
