@@ -1,0 +1,203 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-lists
+/// @since        0.0.3
+////
+
+/// Default blockquote styling
+/// @group Blockquotes
+/// @example
+/// <blockquote>
+///   ...
+/// </blockquote>
+@mixin vf-breadcrumbs {
+  .nav-secondary {
+
+    @media only screen and (min-width: $navigation-threshold) {
+      border: 1px solid $alto-grey;
+      border-top: 0;
+    }
+
+    .breadcrumb {
+      box-sizing: border-box;
+      width: 100%;
+      margin-bottom: 0;
+      margin-left: 0;
+
+      @media only screen and (min-width: $navigation-threshold) {
+        width: auto;
+        float: left;
+        margin-left: 20px;
+      }
+
+      li {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        margin: 0;
+        color: $white;
+
+        // scss-lint:disable NestingDepth
+        &:first-of-type {
+          border-bottom: 1px solid $alto-grey;
+
+          @media only screen and (min-width: $navigation-threshold) {
+            border-bottom: 0;
+          }
+        }
+
+        a {
+          font-size: 1em;
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          margin-right: 0;
+          padding: 8px 10px 0;
+          text-decoration: none;
+          color: $cool-grey;
+
+          @media only screen and (min-width: $navigation-threshold) {
+            font-size: .875em;
+          }
+        }
+
+        .breadcrumb-link {
+          display: none;
+
+          @media only screen and (min-width: $navigation-threshold) {
+            display: block;
+          }
+        }
+
+        .breadcrumb-toggle {
+
+          @media only screen and (min-width: $navigation-threshold) {
+            display: none;
+          }
+
+          .breadcrumb-toggle__close,
+          .breadcrumb-toggle__open {
+
+            &:after {
+              position: relative;
+              top: 0;
+              right: 0;
+              float: right;
+              width: 18px;
+              height: 18px;
+              margin-top: -6px;
+              margin-right: -5px;
+              padding: 10px;
+              background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 18px;
+              display: block;
+
+              @media only screen and (min-width: $navigation-threshold) {
+                display: none;
+              }
+            }
+          }
+
+          .breadcrumb-toggle__close {
+            display: none;
+          }
+
+          .breadcrumb-toggle__open {
+            display: block;
+          }
+        }
+        // scss-lint:enable NestingDepth
+      }
+    }
+
+    .second-level-nav {
+      display: none;
+      overflow: hidden;
+      width: 100%;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $alto-grey;
+
+      @media only screen and (min-width: $navigation-threshold) {
+        display: block;
+        float: none;
+        margin-bottom: 0;
+        padding: 0;
+        width: auto;
+        border-bottom: 0;
+      }
+
+      li {
+        float: left;
+        width: 50%;
+        margin: 0;
+
+        @media only screen and (min-width: $navigation-threshold) {
+          width: auto;
+          margin-right: 15px;
+          margin-bottom: 5px;
+        }
+
+        // scss-lint:disable NestingDepth
+        a {
+          font-size: .875em;
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          color: $cool-grey;
+
+
+          &.active {
+            font-weight: 500;
+          }
+
+          @media only screen and (min-width: $navigation-threshold) {
+            padding: 8px 10px 0;
+
+            &.active {
+              color: $brand-color;
+            }
+          }
+        }
+        // scss-lint:enable NestingDepth
+      }
+    }
+  }
+  // scss-lint:disable IdSelector
+  #breadcrumbs:target {
+
+    .breadcrumb {
+
+      li {
+
+        // scss-lint:disable NestingDepth
+        .breadcrumb-toggle {
+
+          .breadcrumb-toggle__close {
+            display: block;
+
+            &:after {
+              background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
+            }
+          }
+
+          .breadcrumb-toggle__open {
+            display: none;
+          }
+        }
+        // scss-lint:enable NestingDepth
+      }
+    }
+
+    .second-level-nav {
+      display: block;
+    }
+  }
+  // scss-lint:enable NestingDepth
+}
