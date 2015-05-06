@@ -11,7 +11,6 @@
 ///   ...
 /// </blockquote>
 @mixin vf-breadcrumbs {
-  // scss-lint:disable NestingDepth
   .nav-secondary {
 
     @media only screen and (min-width: $breakpoint-large) {
@@ -38,6 +37,7 @@
         margin: 0;
         color: $white;
 
+        // scss-lint:disable NestingDepth
         &:first-of-type {
           border-bottom: 1px solid $alto-grey;
 
@@ -47,7 +47,7 @@
         }
 
         a {
-          font-size: 16px;
+          font-size: 1em;
           display: block;
           box-sizing: border-box;
           width: 100%;
@@ -57,27 +57,11 @@
           color: $cool-grey;
 
           @media only screen and (min-width: $breakpoint-large) {
-            font-size: 14px;
-          }
-
-          .after {
-            position: relative;
-            top: 0;
-            right: 0;
-            float: right;
-            width: 18px;
-            height: 18px;
-            margin-top: -6px;
-            margin-right: -5px;
-            padding: 10px;
-            background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 18px;
+            font-size: .875em;
           }
         }
 
-        > a {
+        .breadcrumb-link {
           display: none;
 
           @media only screen and (min-width: $breakpoint-large) {
@@ -91,6 +75,31 @@
             display: none;
           }
 
+          .breadcrumb-toggle__close,
+          .breadcrumb-toggle__open {
+
+            &:after {
+              position: relative;
+              top: 0;
+              right: 0;
+              float: right;
+              width: 18px;
+              height: 18px;
+              margin-top: -6px;
+              margin-right: -5px;
+              padding: 10px;
+              background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 18px;
+              display: block;
+
+              @media only screen and (min-width: $breakpoint-large) {
+                display: none;
+              }
+            }
+          }
+
           .breadcrumb-toggle__close {
             display: none;
           }
@@ -99,6 +108,7 @@
             display: block;
           }
         }
+        // scss-lint:enable NestingDepth
       }
     }
 
@@ -132,7 +142,7 @@
         }
 
         a {
-          font-size: 14px;
+          font-size: .875em;
           display: block;
           box-sizing: border-box;
           width: 100%;
@@ -140,6 +150,7 @@
           padding: 10px;
           color: $cool-grey;
 
+          // scss-lint:disable NestingDepth
           &.active {
             font-weight: 500;
           }
@@ -151,6 +162,7 @@
               color: $brand-color;
             }
           }
+          // scss-lint:enable NestingDepth
         }
       }
     }
@@ -162,22 +174,22 @@
 
       li {
 
-        a {
-          .after {
-            background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
-          }
-        }
-
+        // scss-lint:disable NestingDepth
         .breadcrumb-toggle {
 
           .breadcrumb-toggle__close {
             display: block;
+
+            &:after {
+              background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
+            }
           }
 
           .breadcrumb-toggle__open {
             display: none;
           }
         }
+        // scss-lint:enable NestingDepth
       }
     }
 
