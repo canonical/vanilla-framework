@@ -18,10 +18,6 @@
   @include vf-align-center;
   @include vf-no-margin-bottom;
   @include vf-no-padding-bottom;
-  @include vf-pull-left-20;
-  @include vf-pull-right-20;
-  @include vf-pull-left-40;
-  @include vf-pull-right-40;
   @include vf-pull-bottom-right;
   @include vf-pull-bottom-left;
   @include vf-pull-top-right;
@@ -188,65 +184,6 @@
 ///   </div>
 @mixin vf-no-padding-bottom {
   .no-padding-bottom { padding-bottom: 0; }
-}
-
-/// Pulls the element 20px's to the left for aligning
-/// with the border in vertical align
-/// @group Helpers
-/// @example
-///   <div class="vertical-align">
-///     <div class="six-col"></div>
-///     <div class="six-col">
-///       <img src="..." class="pull-left-20" />
-///     </div>
-///   </div>
-@mixin vf-pull-left-20 {
-  .pull-left-20 { margin-left: -20px; }
-}
-
-/// Pulls the element 20px's to the right for aligning
-/// with the border in vertical align
-/// @group Helpers
-/// @example
-///   <div class="vertical-align">
-///     <div class="six-col">
-///       <img src="..." class="pull-right-20" />
-///     </div>
-///     <div class="six-col"></div>
-///   </div>
-@mixin vf-pull-right-20 {
-  .pull-right-20 { margin-right: -20px; }
-}
-
-/// Pulls the element 40px's to the left for aligning with right edge
-/// @group Helpers
-/// @example
-///   <div class="vertical-align">
-///     <div class="six-col">
-///       <img src="..." class="pull-left-40" />
-///     </div>
-///   </div>
-@mixin vf-pull-left-40 {
-  .pull-left-40 { margin-left: -40px; }
-}
-
-/// Pulls the element 40px's to the right for aligning with right edge
-/// @group Helpers
-/// @example
-///   <div class="vertical-align">
-///     <div class="six-col"></div>
-///     <div class="six-col">
-///       <img src="..." class="pull-right-40" />
-///     </div>
-///   </div>
-@mixin vf-pull-right-40 {
-  .pull-right-40 {
-    margin-right: -30px;
-
-    @media only screen and (min-width : $breakpoint-medium) {
-      margin-right: -41px;
-    }
-  }
 }
 
 /// Aligns the element to the bottom right corner
