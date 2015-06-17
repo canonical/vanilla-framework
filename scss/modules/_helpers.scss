@@ -314,17 +314,13 @@
 ///     <img src="..." class="priority-0" />
 ///   </div>
 @mixin vf-priority-0 {
-  .priority-0,
-  .not-for-small {
-    display: none;
-  }
-
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (max-width : $breakpoint-medium - 1) {
     .priority-0,
     .not-for-small {
-      display: block;
+      display: none;
     }
   }
+  
 }
 
 /// Display's on medium view and larger
