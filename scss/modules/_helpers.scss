@@ -256,18 +256,20 @@
 ///     <img src="..." class="pull-bottom-right" />
 ///   </div>
 @mixin vf-pull-bottom-right {
-  position: static;
+  .pull-bottom-right {
+    position: static;
 
-  @media only screen and (min-width : $breakpoint-medium) {
-    .pull-bottom-right {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: auto;
-    }
+    @media only screen and (min-width : $breakpoint-medium) {
+      .pull-bottom-right {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: auto;
+      }
 
-    .box .pull-bottom-right {
-      border-radius: 0 0 4px;
+      .box .pull-bottom-right {
+        border-radius: 0 0 4px;
+      }
     }
   }
 }
