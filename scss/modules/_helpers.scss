@@ -20,7 +20,6 @@
   @include vf-no-padding-bottom;
   @include vf-pull-bottom-right;
   @include vf-pull-bottom-left;
-  @include vf-pull-top-right;
   @include vf-priority-0;
   @include vf-for-small;
   @include vf-video-container;
@@ -103,14 +102,12 @@
 ///     </div>
 ///   </div>
 @mixin vf-touch-border {
-  .touch-border,
-  .touch-bottom { margin-bottom: -3px; }
 
   @media only screen and (min-width : $breakpoint-medium) {
     .touch-border,
     .touch-bottom {
       float: left;
-      margin-bottom: -30px;
+      margin-bottom: -$gutter-width;
     }
   }
 
@@ -118,7 +115,7 @@
     .touch-border,
     .touch-bottom {
       float: left;
-      margin-bottom: -40px;
+      margin-bottom: -$gutter-width * 2;
     }
   }
 }
@@ -193,20 +190,22 @@
 ///     <img src="..." class="pull-bottom-right" />
 ///   </div>
 @mixin vf-pull-bottom-right {
-  .pull-bottom-right {
-    position: static;
+  .pull-bottom-right {  
+    float: right;
+    margin-right: -($gutter-width / 2);
+  }
 
-    @media only screen and (min-width : $breakpoint-medium) {
-      .pull-bottom-right {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: auto;
-      }
+  @media only screen and (min-width : $breakpoint-medium) {
+    .pull-bottom-right {
+      margin-right: -($gutter-width * 2);
+      margin-bottom: -($gutter-width * 2);
+    }
+  }
 
-      .box .pull-bottom-right {
-        border-radius: 0 0 4px;
-      }
+  @media only screen and (min-width : $breakpoint-large) {
+    .pull-bottom-right {
+      margin-right: -($gutter-width * 2);
+      margin-bottom: -($gutter-width * 3);
     }
   }
 }
@@ -218,23 +217,27 @@
 ///     <img src="..." class="pull-bottom-left" />
 ///   </div>
 @mixin vf-pull-bottom-left {
+
+  .pull-bottom-left {  
+    float: left;
+    margin-left: -($gutter-width / 2);
+  }
+
   @media only screen and (min-width : $breakpoint-medium) {
     .pull-bottom-left {
-      margin-left: -20px;
-      margin-bottom: -21px;
+      margin-left: -($gutter-width * 2);
+      margin-bottom: -($gutter-width * 2);
+    }
+  }
+
+  @media only screen and (min-width : $breakpoint-large) {
+    .pull-bottom-left {
+      margin-left: -($gutter-width * 2);
+      margin-bottom: -($gutter-width * 3);
     }
   }
 }
 
-/// Aligns the element to the top right corner
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="pull-top-right" />
-///   </div>
-@mixin vf-pull-top-right {
-  .pull-top-right { margin-left: -20px; margin-top: -21px; }
-}
 
 /// By wrapping a video embed it makes the video responsive
 /// @group Helpers
@@ -272,18 +275,13 @@
 ///     <img src="..." class="pull-right" />
 ///   </div>
 @mixin vf-pull-right {
-  @media only screen and (min-width : $breakpoint-medium) {
-    .pull-right {
-      float: right;
-      margin-right: -30px;
+  .pull-right {
+    @media only screen and (max-width : $breakpoint-medium) {
+      margin-bottom: $gutter-width;
     }
-  }
-
-  @media only screen and (min-width : $breakpoint-medium) {
-    .pull-right {
-      float: right;
-      margin-right: -40px;
-    }
+    
+    float: right;
+    margin-right: -($gutter-width * 2);
   }
 }
 
@@ -294,16 +292,8 @@
 ///     <img src="..." class="pull-left" />
 ///   </div>
 @mixin vf-pull-left {
-  @media only screen and (min-width : $breakpoint-medium) {
-    .pull-left {
-      margin-left: -30px;
-    }
-  }
-
-  @media only screen and (min-width : $breakpoint-large) {
-    .pull-left {
-      margin-left: -40px;
-    }
+  .pull-left {
+    margin-left: -($gutter-width * 2);
   }
 }
 
