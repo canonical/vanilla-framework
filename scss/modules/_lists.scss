@@ -41,6 +41,7 @@
   @include vf-lists-no-bullets();
   @include vf-lists-combined-list();
   @include vf-lists-inline-list();
+  @include vf-stepped-list();
 }
 
 /// List styling using list class
@@ -150,5 +151,42 @@
     .last-item {
       margin-right: 0;
     }
+  }
+}
+
+/// Displays a step by step list of instructions
+/// @group Lists
+/// @example
+///   <ol class="list-step">
+///     <li class="list-step__item eight-col">
+///       <h3 class="list-step__title">
+///         <span class="list-step__bullet">1</span>
+///         First step
+///       </h3>
+///       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+///     </li>
+///     ...
+///   </ol>
+@mixin vf-stepped-list {
+
+  .list-step {
+    list-style: none;
+    margin-left: $gutter-width * 3;
+  }
+
+  .list-step__title {
+    margin-bottom: 0;
+  }
+
+  .list-step__bullet {
+    box-shadow: 0 1px 3px 1px rgba(51, 51, 51, .2);
+    background: $white;
+    border-radius: 50%;
+    padding: .3em .68em;
+    display: inline-block;
+    color: $link-color;
+    margin-right: .34375em;
+    margin-bottom: .625em;
+    margin-left: -$gutter-width * 3;
   }
 }
