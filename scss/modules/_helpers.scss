@@ -26,6 +26,7 @@
   @include vf-pull-right;
   @include vf-pull-left;
   @include vf-for-medium;
+  @include vf-med-six-col;
 }
 
 
@@ -190,7 +191,7 @@
 ///     <img src="..." class="pull-bottom-right" />
 ///   </div>
 @mixin vf-pull-bottom-right {
-  .pull-bottom-right {  
+  .pull-bottom-right {
     float: right;
     margin-right: -($gutter-width / 2);
   }
@@ -218,7 +219,7 @@
 ///   </div>
 @mixin vf-pull-bottom-left {
 
-  .pull-bottom-left {  
+  .pull-bottom-left {
     float: left;
     margin-left: -($gutter-width / 2);
   }
@@ -279,7 +280,7 @@
     @media only screen and (max-width : $breakpoint-medium) {
       margin-bottom: $gutter-width;
     }
-    
+
     float: right;
     margin-right: -($gutter-width * 2);
   }
@@ -310,7 +311,7 @@
       display: none;
     }
   }
-  
+
 }
 
 /// Display's on medium view and larger
@@ -339,6 +340,31 @@
     .for-mobile,
     .for-small {
       display: none;
+    }
+  }
+}
+
+/// Med-six-col is a wrapper for a group three-cols.
+/// It converts the three-cols to six-cols in medium viewports
+/// @group Helpers
+/// @example
+///   <div class="med-six-col">
+///     <div class="three-col">...</div>
+///     <div class="three-col">...</div>
+///     <div class="three-col">...</div>
+///     <div class="three-col last-col">...</div>
+///   </div>
+@mixin vf-med-six-col {
+  .med-six-col {
+
+    @media only screen and (min-width : $breakpoint-medium) and (max-width : $breakpoint-large) {
+      .three-col {
+        width: 48.93617%;
+      }
+
+      .three-col:nth-of-type(2n) {
+        margin-right: 0;
+      }
     }
   }
 }
