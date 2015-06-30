@@ -38,6 +38,10 @@
   }
 
   @include vf-lists-list();
+  @include vf-lists-list-ubuntu();
+  @include vf-lists-list-canonical();
+  @include vf-lists-list-warm();
+  @include vf-lists-list-dark();
   @include vf-lists-no-bullets();
   @include vf-lists-combined-list();
   @include vf-lists-inline-list();
@@ -47,7 +51,7 @@
 /// List styling using list class
 /// @group Lists
 /// @example
-///   <ul class="lists">
+///   <ul class='lists'>
 ///     <li>...</li>
 ///   </ul>
 @mixin vf-lists-list {
@@ -71,10 +75,97 @@
   }
 }
 
+/// Displays an ubuntu styled list with tick bullets
+/// @group Lists
+/// @example
+///   <ul class='list-ubuntu'>
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-list-ubuntu {
+    
+  .list-ubuntu {
+    @extend %list-bullet-pattern;
+
+    li {
+      @extend %list-item-bullet-pattern;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'><symbol viewBox='-502 -3550 984 4000'><path opacity='.2' fill='%233081FF' d='M482-3550h-984V450h984z'/><path opacity='.8' fill='%233081FF' d='M-462-3550h-40V450h40zM482-3550h-40V450h40z'/><path opacity='.3' fill='%233081FF' d='M-405-3550h-57V450h57z'/><path opacity='.5' fill='%233081FF' d='M-328-3550h-57V450h57z'/><path opacity='.3' fill='%233081FF' d='M-251-3550h-57V450h57z'/><path opacity='.5' fill='%233081FF' d='M-174-3550h-57V450h57z'/><path opacity='.3' fill='%233081FF' d='M-97-3550h-57V450h57z'/><path opacity='.5' fill='%233081FF' d='M-20-3550h-57V450h57z'/><path opacity='.3' fill='%233081FF' d='M57-3550H0V450h57z'/><path opacity='.5' fill='%233081FF' d='M134-3550H77V450h57z'/><path opacity='.3' fill='%233081FF' d='M211-3550h-57V450h57z'/><path opacity='.5' fill='%233081FF' d='M288-3550h-57V450h57z'/><path opacity='.3' fill='%233081FF' d='M365-3550h-57V450h57z'/><path opacity='.5' fill='%233081FF' d='M442-3550h-57V450h57z'/></symbol><g><circle fill='%23DD4814' cx='7' cy='7' r='7'/><path fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z'/></g></svg>");
+    }
+  }
+}
+
+/// Displays a canonical styled list with tick bullets
+/// @group Lists
+/// @example
+///   <ul class='list-canonical'>
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-list-canonical {
+    
+  .list-canonical {
+    @extend %list-bullet-pattern;
+
+    li {
+      @extend %list-item-bullet-pattern;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><symbol viewBox="-502 -3550 984 4000"><path opacity=".2" fill="%233081FF" d="M482-3550h-984V450h984z"/><path opacity=".8" fill="%233081FF" d="M-462-3550h-40V450h40zM482-3550h-40V450h40z"/><path opacity=".3" fill="%233081FF" d="M-405-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-328-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M-251-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-174-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M-97-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-20-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M57-3550H0V450h57z"/><path opacity=".5" fill="%233081FF" d="M134-3550H77V450h57z"/><path opacity=".3" fill="%233081FF" d="M211-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M288-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M365-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M442-3550h-57V450h57z"/></symbol><g><circle fill="%235E2750" cx="7" cy="7" r="7"/><path fill="%23fff" d="M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z"/></g></svg>');
+    }
+  }
+}
+
+/// Displays a warm styled list with grey tick bullets
+/// @group Lists
+/// @example
+///   <ul class='list-warm'>
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-list-warm {
+    
+  .list-warm {
+    @extend %list-bullet-pattern;
+
+    li {
+      @extend %list-item-bullet-pattern;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><symbol viewBox="-502 -3550 984 4000"><path opacity=".2" fill="%233081FF" d="M482-3550h-984V450h984z"/><path opacity=".8" fill="%233081FF" d="M-462-3550h-40V450h40zM482-3550h-40V450h40z"/><path opacity=".3" fill="%233081FF" d="M-405-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-328-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M-251-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-174-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M-97-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-20-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M57-3550H0V450h57z"/><path opacity=".5" fill="%233081FF" d="M134-3550H77V450h57z"/><path opacity=".3" fill="%233081FF" d="M211-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M288-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M365-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M442-3550h-57V450h57z"/></symbol><g><circle fill="%23AEA79F" cx="7" cy="7" r="7"/><path fill="%23fff" d="M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z"/></g></svg>');
+    }
+  }
+}
+
+/// Displays a dark styled list with dark aubergine tick bullets
+/// @group Lists
+/// @example
+///   <ul class='list-dark'>
+///     <li>...</li>
+///   </ul>
+@mixin vf-lists-list-dark {
+    
+  .list-dark {
+    @extend %list-bullet-pattern;
+    
+    li {
+      @extend %list-item-bullet-pattern;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><symbol viewBox="-502 -3550 984 4000"><path opacity=".2" fill="%233081FF" d="M482-3550h-984V450h984z"/><path opacity=".8" fill="%233081FF" d="M-462-3550h-40V450h40zM482-3550h-40V450h40z"/><path opacity=".3" fill="%233081FF" d="M-405-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-328-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M-251-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-174-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M-97-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M-20-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M57-3550H0V450h57z"/><path opacity=".5" fill="%233081FF" d="M134-3550H77V450h57z"/><path opacity=".3" fill="%233081FF" d="M211-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M288-3550h-57V450h57z"/><path opacity=".3" fill="%233081FF" d="M365-3550h-57V450h57z"/><path opacity=".5" fill="%233081FF" d="M442-3550h-57V450h57z"/></symbol><g><circle fill="%235E2750" cx="7" cy="7" r="7"/><path fill="%23fff" d="M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z"/></g></svg>');
+    }
+  }
+}
+
+/// Default bulleted list pattern styles
+/// @group Lists
+%list-bullet-pattern {
+  list-style: none;
+  margin-left: 0;
+}
+
+/// Default bulleted list item pattern styles
+/// @group Lists
+%list-item-bullet-pattern {
+  background-repeat: no-repeat;
+  background-position: 0 .25em;
+  padding-left: 25px; 
+}
+
 /// Displays a default styled list with no bullets
 /// @group Lists
 /// @example
-///   <ul class="no-bullets">
+///   <ul class='no-bullets'>
 ///     <li>...</li>
 ///   </ul>
 @mixin vf-lists-no-bullets {
@@ -87,7 +178,7 @@
 /// Displays split as one on small screens
 /// @group Lists
 /// @example
-/// <div class="combined-list">
+/// <div class='combined-list'>
 ///   <ul>
 ///     <li>...</li>
 ///   </ul>
@@ -135,7 +226,7 @@
 /// Displays a list inline with spacing
 /// @group Lists
 /// @example
-///   <ul class="inline-list">
+///   <ul class='inline-list'>
 ///     <li>...</li>
 ///   </ul>
 @mixin vf-lists-inline-list {
@@ -157,10 +248,10 @@
 /// Displays a step by step list of instructions
 /// @group Lists
 /// @example
-///   <ol class="list-step">
-///     <li class="list-step__item eight-col">
-///       <h3 class="list-step__title">
-///         <span class="list-step__bullet">1</span>
+///   <ol class='list-step'>
+///     <li class='list-step__item eight-col'>
+///       <h3 class='list-step__title'>
+///         <span class='list-step__bullet'>1</span>
 ///         First step
 ///       </h3>
 ///       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
