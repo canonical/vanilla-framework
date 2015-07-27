@@ -81,14 +81,10 @@
 ///   </ul>
 @mixin vf-lists-list-ticks() {
   .list-ticks {
-    list-style: none;
-    margin-left: 0;
+    @extend %list-ticks;
     
     li {
-      background-repeat: no-repeat;
-      background-position: 0 .25em;
       background-image: svg-tick($bullet-color);
-      padding-left: 25px;
     }
   }
 }
@@ -210,6 +206,17 @@
     margin-right: .34375em;
     margin-bottom: .625em;
     margin-left: -$gutter-width * 3;
+  }
+}
+
+%list-ticks {
+  list-style: none;
+  margin-left: 0;
+
+  li {
+    background-repeat: no-repeat;
+    background-position: 0 .25em;
+    padding-left: 25px;
   }
 }
 
