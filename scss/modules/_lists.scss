@@ -87,7 +87,7 @@
     li {
       background-repeat: no-repeat;
       background-position: 0 .25em;
-      background-image: svgTick($bullet-color);
+      background-image: svg-tick($bullet-color);
       padding-left: 25px;
     }
   }
@@ -216,13 +216,23 @@
 // this is to get the variable inserted in an inline svg, we have to strip the # and replace with %23
 // it also checks to see if the color is a light color and adjusts the background color accordingly
 @function url-friendly-color($color) {
-  @if (lightness($color) > 50) {
-    @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1)
+  @if type-of($color) != 'color' {
+    @warn "'#{$fill-color}' is not a color'.";
+    @return false;
   } @else {
-    @return '%23' + str-slice('#{$color}', 2, -1)
-  } 
+    @if (lightness($color) > 50) {
+      @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1)
+    } @else {
+      @return '%23' + str-slice('#{$color}', 2, -1)
+    } 
+  }
 }
 
-@function svgTick($fillColor) {
-  @return url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'><circle fill='" + url-friendly-color($fillColor) + "' cx='7' cy='7' r='7'/><path fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z' /></svg>");
+@function svg-tick($fill-color) {
+  @if type-of($fill-color) != 'color' {
+    @warn "'#{$fill-color}' is not a color'.";
+    @return false;
+  }
+  
+  @return url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'><circle fill='" + url-friendly-color($fill-color) + "' cx='7' cy='7' r='7'/><path fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z' /></svg>");
 }
