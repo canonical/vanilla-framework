@@ -81,14 +81,11 @@
 ///   </ul>
 @mixin vf-lists-list-ticks() {
   .list-ticks {
-    list-style: none;
-    margin-left: 0;
+    @extend %list-ticks;
     
     li {
-      background-repeat: no-repeat;
-      background-position: 0 .25em;
+      @extend %list-ticks-item;
       background-image: svg-tick($bullet-color);
-      padding-left: 25px;
     }
   }
 }
@@ -211,6 +208,17 @@
     margin-bottom: .625em;
     margin-left: -$gutter-width * 3;
   }
+}
+
+%list-ticks {
+  list-style: none;
+  margin-left: 0;
+}
+  
+%list-ticks-item {
+  background-repeat: no-repeat;
+  background-position: 0 .25em;
+  padding-left: 25px;
 }
 
 // this is to get the variable inserted in an inline svg, we have to strip the # and replace with %23
