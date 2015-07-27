@@ -84,7 +84,6 @@
     @extend %list-ticks;
     
     li {
-      @extend %list-ticks-item;
       background-image: svg-tick($bullet-color);
     }
   }
@@ -213,12 +212,12 @@
 %list-ticks {
   list-style: none;
   margin-left: 0;
-}
-  
-%list-ticks-item {
-  background-repeat: no-repeat;
-  background-position: 0 .25em;
-  padding-left: 25px;
+
+  li {
+    background-repeat: no-repeat;
+    background-position: 0 .25em;
+    padding-left: 25px;
+  }
 }
 
 // this is to get the variable inserted in an inline svg, we have to strip the # and replace with %23
