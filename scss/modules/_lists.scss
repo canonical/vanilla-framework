@@ -52,24 +52,8 @@
 ///     <li>...</li>
 ///   </ul>
 @mixin vf-lists-list {
-
   .list {
-    list-style: none;
-    margin-left: 0;
-
-    li {
-      border-bottom: 1px dotted $warm-grey;
-      margin-bottom: 0;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    li:last-of-type,
-    .last-item {
-      border: 0;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+    @extend %list;
   }
 }
 
@@ -209,14 +193,31 @@
   }
 }
 
-%list-ticks {
+%list {
   list-style: none;
   margin-left: 0;
 
   li {
+    border-bottom: 1px dotted $warm-grey;
+    margin-bottom: 0;
+    padding: 10px 0;
+  }
+
+  li:last-of-type,
+  .last-item {
+    border: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+%list-ticks {
+  @extend %list;
+
+  li {
     background-repeat: no-repeat;
-    background-position: 0 .25em;
-    padding-left: 25px;
+    background-position: 0 1em;
+    padding: 10px 0 10px 25px;
   }
 }
 
