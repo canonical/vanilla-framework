@@ -11,7 +11,7 @@
     <title>Vanilla framework | pattern library</title>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/v1/vanilla-framework-version-0.0.53.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/v1/vanilla-framework-version-0.0.54.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic%7CUbuntu+Mono' rel='stylesheet' type='text/css' />
 </head>
 
@@ -51,7 +51,7 @@
                 </ul>
                 <ul class="second-level-nav">
                     <li class="first">
-                        <a href="/server">Overview</a>
+                        <a class="active" href="/server">Overview</a>
                     </li>
                     <li>
                         <a href="/server/management">Server management</a>
@@ -234,7 +234,7 @@
                         <input placeholder="I'm an input text" type="text" id="information" class="has-information">
                     </form>
                 </div>
-                <div class="four-col prepend-two last-col">Input with error message</div>
+                <div class="four-col prepend-two last-col">Input with information message</div>
             </div>
             <div class="row no-border">
                 <div class="six-col">
@@ -243,7 +243,7 @@
                         <input placeholder="I'm an input text" type="text" id="success" class="has-success">
                     </form>
                 </div>
-                <div class="four-col prepend-two last-col">Input with error message</div>
+                <div class="four-col prepend-two last-col">Input with success message</div>
             </div>
             <div class="row no-border">
                 <div class="six-col">
@@ -252,7 +252,7 @@
                         <input placeholder="I'm an input text" type="text" id="warning" class="has-warning">
                     </form>
                 </div>
-                <div class="four-col prepend-two last-col">Input with error message</div>
+                <div class="four-col prepend-two last-col">Input with warning message</div>
             </div>
             <div class="row no-border">
                 <div class="six-col">
@@ -385,11 +385,34 @@
                 </div>
                 <div class="four-col prepend-two last-col">Textarea</div>
             </div>
-            <div class="row">
+            <div class="row no-border">
                 <div class="six-col">
                     <textarea readonly="readonly">Textarea...</textarea>
                 </div>
                 <div class="four-col prepend-two last-col">Readonly textarea</div>
+            </div>
+            <div class="row">
+                <div class="six-col">
+                    <form action="/">
+                        <fieldset>
+                            <ul>
+                                <li>
+                                    <label for="list-input-1">Label</label>
+                                    <input placeholder="I'm an input text" id="list-input-1" type="text">
+                                </li>
+                                <li>
+                                    <label for="list-input-2">Label</label>
+                                    <input placeholder="I'm an input text" id="list-input-2" type="text">
+                                </li>
+                                <li>
+                                    <label for="list-input-3">Label</label>
+                                    <input placeholder="I'm an input text" id="list-input-3" type="text">
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="four-col prepend-two last-col">Form elements in a list</div>
             </div>
             <div class="row" id="typography">
                 <h2>Typography</h2>
@@ -461,10 +484,9 @@
                     <h4>Un-ordered list</h4>
                     <ul>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis vel ratione, consectetur ullam quidem soluta!</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic optio rerum tempore iste delectus necessitatibus.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate praesentium voluptatum laudantium, officia mollitia labore.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quia, ipsum odio doloribus ut, molestias!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae nesciunt ab corporis dolores optio minima.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio laudantium enim consectetur perspiciatis, fugit numquam!</li>
                     </ul>
                 </div>
@@ -473,9 +495,8 @@
                     <ol>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit officia, sit minima asperiores iusto tempora.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur suscipit quis repudiandae fugit, sint blanditiis!</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officia obcaecati eveniet adipisci? Impedit, assumenda!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis omnis expedita atque facere, sunt.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                     </ol>
                 </div>
@@ -484,36 +505,44 @@
                 <div class="six-col">
                     <h4>.list</h4>
                     <ul class="list">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis vel ratione, consectetur ullam quidem soluta!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic optio rerum tempore iste delectus necessitatibus.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate praesentium voluptatum laudantium, officia mollitia labore.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quia, ipsum odio doloribus ut, molestias!</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae nesciunt ab corporis dolores optio minima.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio laudantium enim consectetur perspiciatis, fugit numquam!</li>
                     </ul>
                 </div>
                 <div class="six-col last-col">
                     <h4>.no-bullets</h4>
                     <ul class="no-bullets">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit officia, sit minima asperiores iusto tempora.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur suscipit quis repudiandae fugit, sint blanditiis!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officia obcaecati eveniet adipisci? Impedit, assumenda!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis omnis expedita atque facere, sunt.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row no-border">
                 <div class="six-col">
+                    <h4>.list-ticks</h4>
+                    <ul class="list-ticks">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
+                        <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                        <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                        <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                        <li class="last-item">Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                    </ul>
+                </div>
+                <div class="six-col last-col">
                     <h4>.inline-list</h4>
                     <ul class="inline-list">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                        <li>Item 4</li>
-                        <li>Item 5</li>
-                        <li class="last-item">Item 6</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li class="last-item">Lorem ipsum</li>
                     </ul>
                 </div>
             </div>
@@ -530,6 +559,52 @@
                     <li class="last-item"><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/partners/hplogo2012.jpg" alt="HP"></li>
                 </ul>
             </div>
+
+            <div class="row">
+              <h3>Stepped list</h3>
+                <ol class="list-step">
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">1</span>
+                      First step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">2</span>
+                      Second step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">3</span>
+                      Third step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">4</span>
+                      Forth step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">5</span>
+                      Last but not least
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+                </ol>
+            </div>
+
             <div class="row" id="tables">
                 <h2>Table</h2>
                 <div class="twelve-col">
@@ -573,7 +648,7 @@
                     </table>
                 </div>
             </div>
-            <div class="row row-hero no-border">
+            <div class="row row-hero">
                 <h2>Page hero</h2>
                 <div class="six-col">
                     <h1>This is a hero unit title</h1>
@@ -582,6 +657,124 @@
                 </div>
                 <div class="six-col last-col">
                     <img src="http://design.ubuntu.com/wp-content/uploads/hero-unit-image.jpg" alt="Ubuntu on a laptop" />
+                </div>
+            </div>
+            <div class="row" id="helpers">
+                <h2>Helper classes</h2>
+                <h3>.left and .right</h3>
+                <div class="twelve-col">
+                    <div class="left">left content</div>
+                    <div class="right">right content</div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.no-border</h3>
+                <div class="row">
+                    <div class="twelve-col">
+                        <p>Row with border</p>
+                    </div>
+                </div>
+                <div class="row no-border">
+                    <div class="twelve-col">
+                        <p>Row without border</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="link-top">
+                    <a href="#">Back to top</a>
+                </div>
+                <h3>.link-top</h3>
+            </div>
+            <div class="row">
+                <div class="twelve-col">
+                    <h3>.caps</h3>
+                    <p class="caps">This is uppercased</p>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.touch-border</h3>
+                <div class="twelve-col no-margin-bottom">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="touch-border" />
+                </div>
+            </div>
+            <div class="row">
+                <h3>.accessibility-aid</h3>
+                <p class="accessibility-aid">You should not see this text</p>
+            </div>
+            <div class="row">
+                <h3>.external</h3>
+                <p><a href="#" class="external">This is an external link</a></p>
+            </div>
+            <div class="row">
+                <h3>.align-center</h3>
+                <p class="align-center">This text should be centered</p>
+            </div>
+            <div class="row">
+                <h3>.video-container</h3>
+                <div class="twelve-col">
+                    <div class="video-container">
+                        <iframe width="442" height="249" src="http://www.youtube.com/embed/6pSslGRi-ew?rel=0&amp;wmode=opaque&amp;modestbranding=0" frameborder="0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.priority-0</h3>
+                <div class="twelve-col">
+                    <div class="priority-0">This should not be visible on small screens</div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.for-medium</h3>
+                <div class="twelve-col">
+                    <div class="for-medium">This should be visible on medium and large screens</div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.for-small</h3>
+                <div class="twelve-col">
+                    <div class="for-small">This should only be visible on small screens</div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.pull-bottom-right</h3>
+                <div class="twelve-col">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="pull-bottom-right" />
+                </div>
+            </div>
+            <div class="row">
+                <h3>.pull-bottom-left</h3>
+                <div class="twelve-col">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="pull-bottom-left" />
+                </div>
+            </div>
+            <div class="row">
+                <h3>.pull-right</h3>
+                <div class="twelve-col">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="pull-right" />
+                </div>
+            </div>
+            <div class="row">
+                <h3>.pull-left</h3>
+                <div class="twelve-col">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="pull-left" />
+                </div>
+            </div>
+            <div class="row no-border">
+                <h3>.med-six-col</h3>
+                <div class="med-six-col">
+                    <div class="three-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                    <div class="three-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                    <div class="three-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                    <div class="three-col last-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
                 </div>
             </div>
         </div>
