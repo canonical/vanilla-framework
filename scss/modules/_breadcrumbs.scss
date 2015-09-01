@@ -20,24 +20,27 @@
 
     .breadcrumb {
       box-sizing: border-box;
-      width: 100%;
       margin-bottom: 0;
       margin-left: 0;
 
       @media only screen and (min-width: $navigation-threshold) {
-        width: auto;
         float: left;
         margin-left: 20px;
         margin-left: 4px;
       }
-
+      
       li {
-        display: block;
         box-sizing: border-box;
-        width: 100%;
+        color: $white;
+        display: block;
         height: 40px;
         margin: 0;
-        color: $white;
+        width: 100%;
+        
+        @media only screen and (min-width: $navigation-threshold) {
+          display: inline-block;
+          width: auto;
+        }
 
         // scss-lint:disable NestingDepth
         &:first-of-type {
@@ -49,25 +52,27 @@
         }
 
         a {
-          font-size: 1em;
-          display: block;
           box-sizing: border-box;
+          color: $warm-grey;
+          font-size: 1em;
+          display: inline-block;
           width: 100%;
           margin-right: 0;
-          padding: 8px 10px 0;
+          padding: 8px 10px;
           text-decoration: none;
-          color: $cool-grey;
-
+          
           @media only screen and (min-width: $navigation-threshold) {
             font-size: .875em;
           }
         }
 
-        .breadcrumb-link {
-          display: none;
+        .breadcrumb-link,
+        .active {
 
           @media only screen and (min-width: $navigation-threshold) {
-            display: block;
+            display: inline-block;
+            float: left;
+            width: auto;
           }
         }
 
@@ -114,7 +119,9 @@
       }
     }
 
-    .second-level-nav {
+    .second-level-nav,
+    .third-level-nav {
+      box-sizing: border-box;
       display: none;
       overflow: hidden;
       width: 100%;
@@ -124,8 +131,8 @@
       border-bottom: 1px solid $alto-grey;
 
       @media only screen and (min-width: $navigation-threshold) {
-        display: block;
-        float: none;
+        display: inline-block;
+        float: left;
         margin-bottom: 0;
         padding: 0;
         width: auto;
@@ -133,13 +140,12 @@
       }
 
       li {
-        float: left;
-        width: 50%;
         margin: 0;
 
         @media only screen and (min-width: $navigation-threshold) {
           width: auto;
           margin-bottom: 5px;
+          float: none;
         }
 
         // scss-lint:disable NestingDepth
@@ -169,35 +175,93 @@
         // scss-lint:enable NestingDepth
       }
     }
-  }
-  // scss-lint:disable IdSelector
-  #breadcrumbs:target {
-
-    .breadcrumb {
-
-      li {
-
-        // scss-lint:disable NestingDepth
-        .breadcrumb-toggle {
-
-          .breadcrumb-toggle__close {
-            display: block;
-
-            &:after {
-              background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
-            }
+    // scss-lint:disable NestingDepth
+    .second-level-nav li {
+      @media only screen and (min-width: $navigation-threshold) {  
+        
+        a {
+          &.active {
+            color: $warm-grey;
           }
+        }        
 
-          .breadcrumb-toggle__open {
-            display: none;
-          }
+        .third-level-nav li a {        
+          color: $cool-grey;
         }
-        // scss-lint:enable NestingDepth
+        
       }
     }
+    // scss-lint:enable NestingDepth
+  }
+  
+  .third-level-nav li a:hover {
+    color: $link-color;
+  }
 
-    .second-level-nav {
-      display: block;
+  .third-level-nav li .active {        
+    color: $link-color;
+    float: none;
+  }
+
+  // scss-lint:disable IdSelector
+  @media only screen and (max-width: $navigation-threshold - 1) {
+    #breadcrumbs:hover {
+        
+      .breadcrumb {
+          
+        li {
+  
+          // scss-lint:disable NestingDepth
+          .breadcrumb-toggle {
+  
+            .breadcrumb-toggle__close {
+              display: block;
+  
+              &:after {
+                background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
+              }
+            }
+  
+            .breadcrumb-toggle__open {
+              display: none;
+            }
+          }
+          // scss-lint:enable NestingDepth
+        }
+      }
+  
+      .second-level-nav,
+      .third-level-nav,
+      .active {
+        border: 0;
+        display: block;
+        overflow: visible;
+        float: left;
+        width: 100%;
+        position: relative;
+        clear: both;
+      }
+      
+      li {
+        border: 0;
+      }
+      
+      .second-level-nav {
+        border-top: 1px solid $alto-grey;
+      }
+      
+      .third-level-nav {
+        border-bottom: 1px solid $alto-grey;
+        padding-top: 0;
+        
+        li {
+          box-sizing: border-box;
+          float: left;
+          width: 50%;
+          display: block;
+          padding-left: 10px;
+       }
+      }
     }
   }
   // scss-lint:enable NestingDepth
