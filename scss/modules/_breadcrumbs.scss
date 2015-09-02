@@ -33,7 +33,6 @@
         box-sizing: border-box;
         color: $white;
         display: block;
-        height: 40px;
         margin: 0;
         width: 100%;
         
@@ -73,49 +72,24 @@
             display: inline-block;
             float: left;
             width: auto;
-          }
-        }
-
-        .breadcrumb-toggle {
-
-          @media only screen and (min-width: $navigation-threshold) {
-            display: none;
-          }
-
-          .breadcrumb-toggle__close,
-          .breadcrumb-toggle__open {
-
-            &:after {
-              position: relative;
-              top: 0;
-              right: 0;
-              float: right;
-              width: 18px;
-              height: 18px;
-              margin-top: -6px;
-              margin-right: -5px;
-              padding: 10px;
-              background-image: url('#{$asset-path}img/patterns/nav-down-arrow.svg');
-              background-repeat: no-repeat;
-              background-position: center center;
-              background-size: 18px;
-              display: block;
-
-              @media only screen and (min-width: $navigation-threshold) {
-                display: none;
-              }
+            
+            &:after { 
+              content:"\203A";
+              display: inline-block;
+              height: 5px;
+              margin-left: 8px;
+              position: absolute;
+              width: 5px;
             }
           }
-
-          .breadcrumb-toggle__close {
-            display: none;
-          }
-
-          .breadcrumb-toggle__open {
-            display: block;
-          }
+          
         }
         // scss-lint:enable NestingDepth
+        
+        .breadcrumb-link {
+          
+        }
+
       }
     }
 
@@ -144,7 +118,6 @@
 
         @media only screen and (min-width: $navigation-threshold) {
           width: auto;
-          margin-bottom: 5px;
           float: none;
         }
 
@@ -169,6 +142,7 @@
 
             &.active {
               color: $link-color;
+              
             }
           }
         }
@@ -196,6 +170,11 @@
         .third-level-nav li .active {        
           color: $link-color;
           float: none;
+          
+          &:after {
+            content: ''; 
+          }
+          
         }
       }
     }
@@ -209,6 +188,7 @@
   .third-level-nav li .active {        
     color: $link-color;
     float: none;
+    
   }
 
   // scss-lint:disable IdSelector
