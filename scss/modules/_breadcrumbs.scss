@@ -22,6 +22,7 @@
       box-sizing: border-box;
       margin-bottom: 0;
       margin-left: 0;
+      padding-top: 2px;
 
       @media only screen and (min-width: $navigation-threshold) {
         float: left;
@@ -138,7 +139,6 @@
 
             &.active {
               color: $link-color;
-              
             }
           }
         }
@@ -190,30 +190,7 @@
   // scss-lint:disable IdSelector
   @media only screen and (max-width: $navigation-threshold - 1) {
     #breadcrumbs:hover {
-        
-      .breadcrumb {
           
-        li {
-  
-          // scss-lint:disable NestingDepth
-          .breadcrumb-toggle {
-  
-            .breadcrumb-toggle__close {
-              display: block;
-  
-              &:after {
-                background-image: url('#{$asset-path}img/patterns/nav-up-arrow.svg');
-              }
-            }
-  
-            .breadcrumb-toggle__open {
-              display: none;
-            }
-          }
-          // scss-lint:enable NestingDepth
-        }
-      }
-  
       .second-level-nav,
       .third-level-nav,
       .active {
