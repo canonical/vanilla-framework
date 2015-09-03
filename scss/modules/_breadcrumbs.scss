@@ -13,7 +13,7 @@
 ///             <a href="#" class="breadcrumb-link">Section</a>
 ///             <ul class="second-level-nav">
 ///                 <li>
-///                     <a href="#" class="active">Second level</a>
+///                     <a href="#" class="breadcrumb-link--second-level">Second level</a>
 ///                     <ul class="third-level-nav">
 ///                         <li>
 ///                             <a class="active" href="#">third level</a>
@@ -31,7 +31,7 @@
 ///     </ul>
 /// </nav>
 @mixin vf-breadcrumbs {
-  .nav-secondary {
+  .nav-secondary {  
 
     @media only screen and (min-width: $navigation-threshold) {
       border: 1px solid $alto-grey;
@@ -43,6 +43,7 @@
       margin-bottom: 0;
       margin-left: 0;
       padding-top: 2px;
+      padding-bottom: 3px;
 
       @media only screen and (min-width: $navigation-threshold) {
         float: left;
@@ -52,7 +53,7 @@
       li {
         box-sizing: border-box;
         color: $white;
-        display: block;
+        display: inline-block;
         margin: 0;
         width: 100%;
         
@@ -86,26 +87,29 @@
         }
 
         .breadcrumb-link,
+        .breadcrumb-link--second-level,
         .active {
 
           @media only screen and (min-width: $navigation-threshold) {
             display: inline-block;
-            float: left;
+            float: none;
             width: auto;
-            
-            &:after { 
-              content: '\203A';
-              display: inline-block;
-              height: 5px;
-              margin-left: 8px;
-              position: absolute;
-              width: 5px;
-            }
           }
-          
         }
-        // scss-lint:enable NestingDepth
-        
+ 
+         .breadcrumb-link,
+        .breadcrumb-link--second-level {
+
+          &:after { 
+            content: '\203A';
+            display: inline-block;
+            height: 5px;
+            margin-left: 8px;
+            position: absolute;
+            width: 5px;
+          }
+        }
+       // scss-lint:enable NestingDepth       
       }
     }
 
@@ -121,8 +125,8 @@
       border-bottom: 1px solid $alto-grey;
 
       @media only screen and (min-width: $navigation-threshold) {
-        display: inline-block;
-        float: left;
+        display: inline;
+        float: none;
         margin-bottom: 0;
         padding: 0;
         width: auto;
@@ -133,8 +137,8 @@
         margin: 0;
 
         @media only screen and (min-width: $navigation-threshold) {
-          width: auto;
           float: none;
+          width: auto;
         }
 
         // scss-lint:disable NestingDepth
@@ -168,7 +172,8 @@
     .second-level-nav li {
       @media only screen and (min-width: $navigation-threshold) {  
         
-        .active {
+        .active,
+        .breadcrumb-link--second-level {
           color: $warm-grey;
         }
 
