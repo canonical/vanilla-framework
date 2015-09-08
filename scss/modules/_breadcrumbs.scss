@@ -171,6 +171,7 @@
     // scss-lint:disable NestingDepth
     .second-level-nav li {
       @media only screen and (min-width: $navigation-threshold) {  
+        width: auto;
         
         .active,
         .breadcrumb-link--second-level {
@@ -227,10 +228,15 @@
       
       li {
         border: 0;
+        float: left;
       }
       
       .second-level-nav {
         border-top: 1px solid $alto-grey;
+        
+        li {
+          float: left;
+        }
       }
       
       .third-level-nav {
@@ -239,7 +245,6 @@
         
         li {
           box-sizing: border-box;
-          float: left;
           width: 50%;
           display: block;
           padding-left: 10px;
