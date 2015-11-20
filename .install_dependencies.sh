@@ -4,10 +4,10 @@ set -e
 
 # Use 'sudo' for development setup, but simply '/usr/bin/env' in other environments
 COMMAND_PREFIX="sudo /usr/bin/env"
-GULP="/usr/bin/gulp"
+GULP="/usr/bin/env gulp"
+
 if [[ "${DEBIAN_FRONTEND}" == "noninteractive" ]] || [[ "$(whoami)" ==   "root" ]]; then
     COMMAND_PREFIX="/usr/bin/env"
-    GULP="/usr/bin/env gulp"
 fi
 
 echo "Project dependencies:"
