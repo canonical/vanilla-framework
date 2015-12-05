@@ -58,3 +58,5 @@ Keep upto date with all new developments and upcoming changes with Vanilla.
 - Talk to the team in IRC on <code>irc.freenode.com</code> and join channel <code>#canonical-webteam</code>
 
 Code licensed [LGPLv3](http://opensource.org/licenses/lgpl-3.0.html) by [Canonical Ltd.](http://www.canonical.com/).
+
+With ♥ from Canonical
