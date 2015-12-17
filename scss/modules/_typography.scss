@@ -7,58 +7,61 @@
 /// Typographic element styles
 /// @group Typography
 @mixin vf-typography {
-  @font-face {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 300;
-    src: url('#{$asset-path}fonts/ubuntu-l-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-l-webfont.woff') format('woff');
-  }
 
-  @font-face {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 400;
-    src: url('#{$asset-path}fonts/ubuntu-r-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-r-webfont.woff') format('woff');
-  }
+  @if str-index($base-font-family, 'Ubuntu') {
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 300;
+      src: url('#{$asset-path}fonts/ubuntu-l-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-l-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 700;
-    src: url('#{$asset-path}fonts/ubuntu-b-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-b-webfont.woff') format('woff');
-  }
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 400;
+      src: url('#{$asset-path}fonts/ubuntu-r-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-r-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'Ubuntu';
-    font-style: italic;
-    font-weight: 300;
-    src: url('#{$asset-path}fonts/ubuntu-li-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-li-webfont.woff') format('woff');
-  }
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 700;
+      src: url('#{$asset-path}fonts/ubuntu-b-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-b-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'Ubuntu';
-    font-style: italic;
-    font-weight: 400;
-    src: url('#{$asset-path}fonts/ubuntu-ri-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-ri-webfont.woff') format('woff');
-  }
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 300;
+      src: url('#{$asset-path}fonts/ubuntu-li-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-li-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'Ubuntu';
-    font-style: italic;
-    font-weight: 700;
-    src: url('#{$asset-path}fonts/ubuntu-bi-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-bi-webfont.woff') format('woff');
-  }
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 400;
+      src: url('#{$asset-path}fonts/ubuntu-ri-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-ri-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'Ubuntu Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: url('#{$asset-path}fonts/ubuntumono-r-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntumono-r-webfont.woff') format('woff');
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 700;
+      src: url('#{$asset-path}fonts/ubuntu-bi-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntu-bi-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('#{$asset-path}fonts/ubuntumono-r-webfont.woff2') format('woff2'), url('#{$asset-path}fonts/ubuntumono-r-webfont.woff') format('woff');
+    }
   }
 
   body {
     color: $text-color;
-    font-family: Ubuntu, Arial, 'libra sans', sans-serif;
+    font-family: unquote($base-font-family);
     font-size: 16px;
     font-weight: 300;
   }
@@ -199,6 +202,7 @@
   h4,
   h5,
   h6 {
+    font-family: unquote($heading-font-family);
     font-weight: 300;
     line-height: 1.3;
   }
