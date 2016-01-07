@@ -30,6 +30,14 @@
       transition: all .5s ease-out;
       width: 100%;
     }
+    
+    .svg-search-handle {
+      fill: contrast-friendly-search-color($brand-color);
+    }
+    
+    .svg-search-frame {
+      stroke: contrast-friendly-search-color($brand-color);
+    }
   
     /// User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
     /// So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
@@ -72,7 +80,7 @@
   
   .banner .search-toggle {
     background-size: 20px 20px;
-    background-image: url('#{$asset-path}img/search.svg');
+    background-image: url('#{$asset-server}0885fedc-search.svg');
     background-position: center center;
     background-repeat: no-repeat;
     display: block;
@@ -84,12 +92,40 @@
     text-indent: -999em;
     top: 0;
     width: 24px;
+    
+    .search-toggle__link {
+      width: 48px;
+      height: 48px;
+
+      &.open {
+        display: block;
+      }
+
+      &.close {
+        display: none;
+      }
+    }
   }
+
+    #site-search:hover {
+      
+      form {
+        display: block;
+      }
+      
+      + .search-toggle .search-toggle__link {
+
+        &.open {
+          display: none;
+        }
+
+        &.close {
+          display: block;
+        }
+      }
+    }
   
-  .search-toggle:link,
-  .search-toggle:active {
-    outline: none;
-  }
+  // scss-lint:enable NestingDepth, IdSelector
   
   .header-search,
   .search-form {
@@ -162,7 +198,7 @@
     .no-svg,
     .opera-mini {
       .search-toggle {
-        background-image: url("#{$asset-path}img/search-white.png");
+        background-image: url('#{$asset-server}75d8151d-search-white.png');
       }
     }
   }
@@ -191,7 +227,7 @@
       form [type="search"] {
         box-shadow: 0 2px 4px rgba(0, 0, 0, .4) inset;
         box-sizing: content-box;
-        background: url("#{$asset-path}img/icons/icon-search.png") no-repeat scroll 5px center, none repeat scroll 0 0 darken($brand-color, 10%);
+        background: url('#{$asset-server}71a40e51-icon-search.png') no-repeat scroll 5px center, none repeat scroll 0 0 darken($brand-color, 10%);
         border: 6px solid darken($brand-color, 12%);
         border-width: 0 0 1px;
         color: $white;
@@ -221,10 +257,11 @@
       [type="submit"] {
         width: 32px;
         height: 38px;
-        background: url('#{$asset-path}img/search-black.svg') no-repeat scroll center center $transparent;
+        background: url('#{$asset-server}19750a6d-search-black.svg') no-repeat scroll center center $transparent;
         background-size: 28px 28px;
   
-        img {
+        img,
+        svg {
           max-width: none;
           display: none;
         }
@@ -236,7 +273,7 @@
     }
   
     .banner .search-toggle {
-      background-image: url("#{$asset-path}img/search-white.svg");
+      background-image: svg-search($brand-color);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 25px auto;
@@ -252,7 +289,7 @@
     .no-svg,
     .opera-mini {
       .banner .search-toggle {
-        background-image: url("#{$asset-path}img/search-white.png");
+        background-image: url('#{$asset-server}2196e362-search-white.svg');
       }
     }
   
@@ -451,5 +488,27 @@
       margin-top: 0;
     }
   }
+}
 
+// this is to get the variable inserted in an inline svg, we have to strip the # and replace with %23
+// it also checks to see if the color is a light color and adjusts the background color accordingly
+@function contrast-friendly-search-color($color) {
+  @if type-of($color) != 'color' {
+    @warn "'#{$fill-color}' is not a color'.";
+    @return false;
+  } @else {
+    @if (lightness($color) > 50) {
+      @return '%23' + str-slice('#{darken($color, 69%)}', 2, -1)
+    } @else {
+      @return '%23' + str-slice('#{lighten($color, 69%)}', 2, -1)
+   } 
+  }
+}
+
+@function svg-search($color) {
+  @if type-of($color) != 'color' {
+    @warn "'#{$color}' is not a color'.";
+    @return false;
+  }
+  @return url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 90 90'><g color='" + contrast-friendly-search-color($color) + "'><path fill='none' stroke-width='4' overflow='visible' enable-background='accumulate' d='M0 0h90v90H0z'/><path d='M69 36.5a33 33.5 0 1 1-66 0 33 33.5 0 1 1 66 0z' transform='matrix(.636 0 0 .627 16.114 16.12)' fill='none' stroke='" + contrast-friendly-search-color($color) + "' stroke-width='9.5' overflow='visible' enable-background='accumulate'/><path d='M55.77 52.92L52.94 55.75l14 14 2.83-2.83-14-14z' font-size='xx-small' fill='" + contrast-friendly-search-color($color) + "' stroke-width='6' overflow='visible' enable-background='accumulate' font-family='Sans' class='s0'/><path d='M60.97 57.03c-1.55-3.04 1.02-3.63 2.46-0.58 1.44-0.21 3.21 4.29l9.19 9.2c2.68 2.85 3.26 2.46 5.64 2.38-2.38 2.77-2.79-0.08-5.65l-9.19-9.2c-0.73-0.75-1.78-1.19-2.83-1.19z' font-size='xx-small' fill='" + contrast-friendly-search-color($color) + "' stroke-width='11.8' overflow='visible' enable-background='accumulate' font-family='Sans' class='s0'/></g></svg>");
 }
