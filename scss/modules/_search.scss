@@ -107,24 +107,25 @@
     }
   }
 
-    #site-search:hover {
-      
-      form {
+  // scss-lint:disable NestingDepth, IdSelector
+  #site-search:hover {
+    
+    form {
+      display: block;
+    }
+    
+    + .search-toggle .search-toggle__link {
+
+      &.open {
+        display: none;
+      }
+
+      &.close {
         display: block;
       }
-      
-      + .search-toggle .search-toggle__link {
-
-        &.open {
-          display: none;
-        }
-
-        &.close {
-          display: block;
-        }
-      }
     }
-  
+  }
+
   // scss-lint:enable NestingDepth, IdSelector
   
   .header-search,
