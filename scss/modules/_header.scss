@@ -207,20 +207,25 @@
     }
 
     // scss-lint:disable IdSelector
-    #nav:hover {
-
-      ul {
-        display: block;
-      }
-
-      + .nav-toggle .nav-toggle__link {
-
-        &.open {
-          display: none;
-        }
-
-        &.close {
+    @media only screen and (max-width: $navigation-threshold) {
+      #nav:hover {
+        ul {
           display: block;
+          
+          ul {
+            display: none;
+          }
+        }
+  
+        .nav-toggle .nav-toggle__link {
+  
+          &.open {
+            display: none;
+          }
+  
+          &.close {
+            display: block;
+          }
         }
       }
     }
