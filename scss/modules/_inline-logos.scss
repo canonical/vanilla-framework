@@ -19,9 +19,7 @@
     width: 100%;
 
     li {
-      clear: none;
       display: inline-block;
-      float: none;
       margin: 10px $gutter-width;
       padding: 0;
 
@@ -59,32 +57,24 @@
     }
   }
 
-  @media only screen and (max-width : $breakpoint-medium) {
-
-    .inline-logos {
-      img {
-        max-width: 172px;
-        max-height: 48px;
-      }
-    }
-  }
-
-  @media only screen and (min-width : $breakpoint-medium + 1) {
+  @media only screen and (min-width : $breakpoint-medium) {
 
     .inline-logos {
       li {
-        clear: none;
         display: inline-block;
         height: auto;
-        margin: $gutter-width 0;
+        margin: $gutter-width 30px;
+        width: 170px;
+        height: 63px;
         line-height: 60px;
-        padding: 0 40px;
+        //border: 1px dotted #ccc;
 
         img {
           float: none;
+          height: auto;
           vertical-align: middle;
-          max-width: 200px;
-          max-height: 45px;
+          max-width: 170px;
+          max-height: 63px;
         }
       }
     }
