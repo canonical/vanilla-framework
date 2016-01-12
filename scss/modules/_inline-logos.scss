@@ -18,83 +18,57 @@
     text-align: center;
     width: 100%;
 
-    li {
-      clear: none;
+    .inline-logos__item {
       display: inline-block;
-      float: none;
-      margin: 10px $gutter-width;
-      padding: 0;
-
-      &.clear-row { clear: left; }
-
-      &.last-item { border: 0; }
-    }
-
-    img {
-      transition: all .3s ease-out;
-      vertical-align: middle;
-      max-width: 115px;
-      max-height: 32px;
-    }
-  }
-
-  .inline-icons {
-    margin: 0 0 $gutter-width;
-
-    li {
       margin-right: $gutter-width;
-      margin-bottom: $gutter-width;
-      text-align: left;
-      display: inline-block;
+      padding: 0 0 20px;
+      width: 36%;
+      
+      @media only screen and (max-width : 300px) {
+        margin: 0 0 20px;
+        width: 100%;
+      }
 
-      &.last-item { margin-right: 0; }
-    }
+      &.clear-row { 
+        clear: left; 
+      }
 
-    &.no-margin-bottom li { margin-bottom: 0; }
-
-    img {
-      vertical-align: middle;
-      max-width: 115px;
-      max-height: 32px;
-    }
-  }
-
-  @media only screen and (max-width : $breakpoint-medium) {
-
-    .inline-logos {
-      img {
-        max-width: 172px;
-        max-height: 48px;
+      &.last-item { 
+        border: 0; 
       }
     }
+
+    .inline-logos__image {
+      max-height: 32px;
+      max-width: 115px;
+      transition: all .3s ease-out;
+      vertical-align: middle;
+    }
   }
 
-  @media only screen and (min-width : $breakpoint-medium + 1) {
-
+  @media only screen and (min-width : $breakpoint-medium) {
     .inline-logos {
-      li {
-        clear: none;
+      .inline-logos__item {
         display: inline-block;
-        height: auto;
-        margin: $gutter-width 0;
+        height: 56px;
         line-height: 60px;
-        padding: 0 40px;
-
-        img {
-          float: none;
-          vertical-align: middle;
-          max-width: 200px;
-          max-height: 45px;
-        }
+        margin: 0 30px 30px;
+        width: 150px;
+      }
+      
+      .inline-logos__image {
+        float: none;
+        height: auto;
+        max-height: 56px;
+        max-width: 150px;
+        vertical-align: middle;
       }
     }
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-
-    .inline-icons {
-      text-align: left;
-      margin-bottom: 20px;
+    .inline-logos__item {
+      margin-bottom: 40px;
     }
   }
 }
