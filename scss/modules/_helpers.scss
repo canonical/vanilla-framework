@@ -104,18 +104,15 @@
 ///   </div>
 @mixin vf-touch-border {
 
-  @media only screen and (min-width : $breakpoint-medium) {
-    .touch-border,
-    .touch-bottom {
-      float: left;
+  .touch-border,
+  .touch-bottom {
+    float: left;
+
+    @media only screen and (min-width : $breakpoint-medium) {
       margin-bottom: -$gutter-width;
     }
-  }
 
-  @media only screen and (min-width: $breakpoint-large) {
-    .touch-border,
-    .touch-bottom {
-      float: left;
+    @media only screen and (min-width: $breakpoint-large) {
       margin-bottom: -$gutter-width * 2;
     }
   }
