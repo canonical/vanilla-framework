@@ -35,7 +35,7 @@ Then reference it from your own Sass files, with optional settings:
 $brand-color: #ffffff;
 
 // Import the framework
-@import "../node_modules/vanilla-framework/vanilla";
+@import "../node_modules/vanilla-framework/scss/vanilla";
 // Run the framework
 @include vanilla;
 ```
