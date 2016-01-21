@@ -318,10 +318,12 @@
 ///     <img src="..." class="for-medium" />
 ///   </div>
 @mixin vf-for-medium {
-  @media only screen and (min-width: $breakpoint-large) {
-    .for-tablet,
-    .for-medium {
-      display: none;
+  .for-tablet,
+  .for-medium {
+    display: none;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      display: block;
     }
   }
 }
