@@ -53,7 +53,7 @@ If you don't want the whole framework, you can just `@include` specific [modules
 
 Keep up to date with all new developments and upcoming changes with Vanilla.
 
-- Follow us on Twitter [@Ubuntudesigners](http://twitter.com/ubuntudesigners)
+- Follow us on Twitter [@UbuntuDesigners](http://twitter.com/ubuntudesigners)
 - Read our latest blog posts at [Canonical Blog](http://design.canonical.com/topic/development/)
 - Talk to the team in IRC on <code>irc.freenode.com</code> and join channel <code>#canonical-webteam</code>
 
