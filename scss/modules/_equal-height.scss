@@ -4,7 +4,7 @@
 /// @since        0.0.13
 ////
 
-/// Equal heights makes all immediate child divs and li's heights equal
+/// Equal heights makes all immediate child divs and li's heights equal...
 /// @group Utils
 /// @example
 ///   <div class="row equal-height">
@@ -26,17 +26,27 @@
         flex: auto;
         flex-direction: column;
       }
-      
-      /// Sets the element to center an inner element vertically. Has to be used in conjunction with equal-height and if it's an image it'll need align-center
-      /// @example
-      ///   <div class="four-col align-center align-vertically">
-      ///     <img src="love-orange.svg" alt="" />
-      ///   </div>
-      &__align-vertically { 
-        align-items: center;
-        justify-content: center;
-      } 
-    }   
+    }
+  }
+    
+  @include vf-align-vertically();
+}
+
+/// Sets the element to center an inner element vertically. Has to be used in conjunction with equal-height and if it's an image it'll need align-center, too.
+/// @group Utils
+/// @example
+///   <div class="row equal-height">
+///     <div class="eight-col">...</div>
+///     <div class="four-col align-vertically align-center last-col">
+///       <img src="love-orange.svg" alt="" />
+///     </div>
+///   </div>
+@mixin vf-align-vertically {
+  @media only screen and (min-width : $breakpoint-medium) {    
+    &__align-vertically { 
+      align-items: center;
+      justify-content: center;
+    } 
   }
 }
 
