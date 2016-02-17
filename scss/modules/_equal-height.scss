@@ -11,22 +11,14 @@
 ///     <div class="six-col">...</div>
 ///     <div class="six-col last-col">...</div>
 ///   </div>
-@mixin vf-equal-height {
-  @media only screen and (min-width : $breakpoint-medium) {
-    .equal-height {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      width: 100%;
+@mixin vf-equal-heights {
+  @include vf-equal-height;
+  @include vf-vertical-divider;
+}
 
-      > div,
-      > li {
-        box-sizing: border-box;
-        display: flex;
-        flex: auto;
-        flex-direction: column;
-      }
-    }
+@mixin vf-equal-height {
+  .equal-height {
+    @extend %equal-height;
   }
     
   @include vf-align-vertically();
@@ -43,10 +35,73 @@
 ///   </div>
 @mixin vf-align-vertically {
   @media only screen and (min-width : $breakpoint-medium) {    
-    &__align-vertically { 
+    .equal-height__align-vertically { 
       align-items: center;
       justify-content: center;
     } 
+  }
+}
+
+/// Vertical divider applies a vertical divider between columns inside parent
+/// @group Utils
+/// @example
+///   <div class="row equal-height--vertical-divider">
+///     <div class="six-col">...</div>
+///   <div class="six-col last-col">...</div>
+///   </div>
+@mixin vf-vertical-divider {
+  .equal-height--vertical-divider {
+    @extend %equal-height;
+
+    @media only screen and (min-width : $breakpoint-medium) {
+      position: relative;
+
+      &__item {
+        padding-left: ($gutter-width / 2);
+        padding-right: ($gutter-width / 2);
+
+        &:before {
+          content: '';
+          position: absolute;
+          right: -($gutter-width / 2);
+          top: 0;
+          height: 100%;
+          width: 1px;
+          border-right: 1px dotted $warm-grey;
+        }
+      }
+
+      .last-col,
+      &__item:last-of-type {
+        padding-right: 0;
+
+        &:before {
+          border-right: 0;
+        }
+      }
+
+      &__item:first-of-type {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+/// Default equal-height pattern styles
+/// @group Utils
+%equal-height {
+  @media only screen and (min-width : $breakpoint-medium) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+
+    > .equal-height__item {
+      box-sizing: border-box;
+      display: flex;
+      flex: auto;
+      flex-direction: column;
+    }
   }
 }
 
