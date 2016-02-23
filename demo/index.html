@@ -12,7 +12,6 @@
 
     <!-- stylesheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="../build/css/build.css" />
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic%7CUbuntu+Mono' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -39,6 +38,29 @@
     </header>
     <div class="wrapper">
         <div id="main-content" class="inner-wrapper">
+            <nav role="navigation" class="nav-secondary clearfix" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#" class="breadcrumb-link">Section</a>
+                        <ul class="second-level-nav">
+                            <li>
+                                <a href="#" class="breadcrumb-link--second-level">Second level</a>
+                                <ul class="third-level-nav">
+                                    <li>
+                                        <a class="active" href="#">third level</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">third level</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">third level</a>
+                                    </li>
+                                </ul>
+                             </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
             <div class="row" id="grid">
                 <h2>Grid</h2>
                 <div class="twelve-col box">.twelve-col</div>
@@ -91,43 +113,6 @@
                     <div class="two-col last-col box">.two-col</div>
                 </div>
             </div>
-            <div class="row vertical-divider no-border no-padding-bottom">
-                <h2>Vertical divider</h2>
-                <h4>with divs</h4>
-                <div class="four-col">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                </div>
-                <div class="four-col">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                </div>
-                <div class="four-col last-col">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                </div>
-            </div>
-            <div class="row">
-                <h4>with list</h4>
-                <ul class="no-bullets vertical-divider">
-                    <li class="three-col">
-                        <h3>Title</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                    </li>
-                    <li class="three-col">
-                        <h3>Title</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                    </li>
-                    <li class="three-col">
-                        <h3>Title</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                    </li>
-                    <li class="three-col last-col">
-                        <h3>Title</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
-                    </li>
-                </ul>
-            </div>
             <div class="row no-border no-padding-bottom">
                 <h2>Equal heights</h2>
                 <h4>with divs</h4>
@@ -141,22 +126,73 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row equal-height">
+                <div class="equal-height__item eight-col" style="background-color: #eee">
+                    <h2>Vertically center an element</h2>
+                    <p class="intro">Sets the element to center an inner element vertically.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt suscipit magna purus lorem, fishcakes dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, tincidunt suscipit magna ut tempor enim gravida.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, hipster tincidunt suscipit magna. Suspendisse tin hat dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                </div>
+                <div class="equal-height__item four-col last-col align-center equal-height__align-vertically" style="background-color: #eee">
+                  <h3>.equal-height__align-vertically</h3>
+                  <img src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/pictograms/picto-pack/picto-projectswelove-orange.svg" alt="" width="160">
+                </div>
+            </div>            
+            <div class="row equal-height">
                 <h4>with list</h4>
                 <ul class="no-bullets equal-height">
-                    <li class="three-col" style="background-color: #eee">
+                    <li class="equal-height__item three-col" style="background-color: #eee">
                         <h3>Title</h3>
                         <p>Lorem ipsum dolor sit amet.</p>
                     </li>
-                    <li class="three-col" style="background-color: #eee">
+                    <li class="equal-height__item three-col" style="background-color: #eee">
                         <h3>Title</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. </p>
                     </li>
-                    <li class="three-col" style="background-color: #eee">
+                    <li class="equal-height__item three-col" style="background-color: #eee">
                         <h3>Title</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. </p>
                     </li>
-                    <li class="three-col last-col" style="background-color: #eee">
+                    <li class="equal-height__item three-col last-col" style="background-color: #eee">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="row no-border no-padding-bottom">
+                <h2>Equal heights with vertical divider</h2>
+                <h4>with divs</h4>
+                <div class="equal-height--vertical-divider">
+                  <div class="equal-height--vertical-divider__item four-col">
+                      <h3>Title</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                  </div>
+                  <div class="equal-height--vertical-divider__item four-col">
+                      <h3>Title</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur consectetur consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Ut ornare quis velit ,fusce posuere bibendum mi <strong>moleskin</strong> venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                  </div>
+                  <div class="equal-height--vertical-divider__item four-col last-col">
+                      <h3>Title</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>with list</h4>
+                <ul class="no-bullets equal-height--vertical-divider">
+                    <li class="equal-height--vertical-divider__item three-col">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                    </li>
+                    <li class="equal-height--vertical-divider__item three-col">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                    </li>
+                    <li class="equal-height--vertical-divider__item three-col">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
+                    </li>
+                    <li class="equal-height--vertical-divider__item three-col last-col">
                         <h3>Title</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
                     </li>
@@ -212,7 +248,7 @@
                         <input placeholder="I'm an input text" type="text" id="information" class="has-information">
                     </form>
                 </div>
-                <div class="four-col prepend-two last-col">Input with error message</div>
+                <div class="four-col prepend-two last-col">Input with information message</div>
             </div>
             <div class="row no-border">
                 <div class="six-col">
@@ -221,7 +257,7 @@
                         <input placeholder="I'm an input text" type="text" id="success" class="has-success">
                     </form>
                 </div>
-                <div class="four-col prepend-two last-col">Input with error message</div>
+                <div class="four-col prepend-two last-col">Input with success message</div>
             </div>
             <div class="row no-border">
                 <div class="six-col">
@@ -230,7 +266,7 @@
                         <input placeholder="I'm an input text" type="text" id="warning" class="has-warning">
                     </form>
                 </div>
-                <div class="four-col prepend-two last-col">Input with error message</div>
+                <div class="four-col prepend-two last-col">Input with warning message</div>
             </div>
             <div class="row no-border">
                 <div class="six-col">
@@ -359,15 +395,42 @@
             </div>
             <div class="row no-border">
                 <div class="six-col">
-                    <textarea>Textarea...</textarea>
+                    <form>
+                        <textarea>Textarea...</textarea>
+                    </form>
                 </div>
                 <div class="four-col prepend-two last-col">Textarea</div>
             </div>
-            <div class="row">
+            <div class="row no-border">
                 <div class="six-col">
-                    <textarea readonly="readonly">Textarea...</textarea>
+                    <form>
+                        <textarea readonly="readonly">Textarea...</textarea>
+                    </form>
                 </div>
                 <div class="four-col prepend-two last-col">Readonly textarea</div>
+            </div>
+            <div class="row">
+                <div class="six-col">
+                    <form action="/">
+                        <fieldset>
+                            <ul>
+                                <li>
+                                    <label for="list-input-1">Label</label>
+                                    <input placeholder="I'm an input text" id="list-input-1" type="text">
+                                </li>
+                                <li>
+                                    <label for="list-input-2">Label</label>
+                                    <input placeholder="I'm an input text" id="list-input-2" type="text">
+                                </li>
+                                <li>
+                                    <label for="list-input-3">Label</label>
+                                    <input placeholder="I'm an input text" id="list-input-3" type="text">
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="four-col prepend-two last-col">Form elements in a list</div>
             </div>
             <div class="row" id="typography">
                 <h2>Typography</h2>
@@ -439,10 +502,9 @@
                     <h4>Un-ordered list</h4>
                     <ul>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis vel ratione, consectetur ullam quidem soluta!</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic optio rerum tempore iste delectus necessitatibus.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate praesentium voluptatum laudantium, officia mollitia labore.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quia, ipsum odio doloribus ut, molestias!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae nesciunt ab corporis dolores optio minima.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio laudantium enim consectetur perspiciatis, fugit numquam!</li>
                     </ul>
                 </div>
@@ -451,9 +513,8 @@
                     <ol>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit officia, sit minima asperiores iusto tempora.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur suscipit quis repudiandae fugit, sint blanditiis!</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officia obcaecati eveniet adipisci? Impedit, assumenda!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis omnis expedita atque facere, sunt.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                     </ol>
                 </div>
@@ -462,52 +523,146 @@
                 <div class="six-col">
                     <h4>.list</h4>
                     <ul class="list">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis vel ratione, consectetur ullam quidem soluta!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic optio rerum tempore iste delectus necessitatibus.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate praesentium voluptatum laudantium, officia mollitia labore.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quia, ipsum odio doloribus ut, molestias!</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae nesciunt ab corporis dolores optio minima.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio laudantium enim consectetur perspiciatis, fugit numquam!</li>
                     </ul>
                 </div>
                 <div class="six-col last-col">
                     <h4>.no-bullets</h4>
                     <ul class="no-bullets">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                         <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit officia, sit minima asperiores iusto tempora.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur suscipit quis repudiandae fugit, sint blanditiis!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officia obcaecati eveniet adipisci? Impedit, assumenda!</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis omnis expedita atque facere, sunt.</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row no-border">
                 <div class="six-col">
+                    <h4>.list-ticks</h4>
+                    <ul class="list-ticks">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non doloremque, ullam sed quasi perferendis.</li>
+                        <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                        <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                        <li>Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                        <li class="last-item">Lorem ipsum dulor sit amet, consectetur adipisicing elit. Accusamus saepe architecto itaque et cum, quod.</li>
+                    </ul>
+                </div>
+                <div class="six-col last-col">
                     <h4>.inline-list</h4>
                     <ul class="inline-list">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                        <li>Item 4</li>
-                        <li>Item 5</li>
-                        <li class="last-item">Item 6</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li class="last-item">Lorem ipsum</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <h4>.inline-logos</h4>
-                <ul class="inline-logos no-bullets">
-                    <li><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/partners/lenovolowres.jpg" alt="Lenovo"></li>
-                    <li><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/partners/emc.png" alt="EMC"></li>
-                    <li class="last-item"><img src="http://tickerreport.com/logos/avago-technologies-logo.jpg" alt="Avago Technologies"></li>
-                    <li><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/partners/logo_amd.png" alt="AMD"></li>
-                    <li><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-pack/logo-dell.svg" alt="Dell"></li>
-                    <li><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/partners/partners-logo-ibm.png" alt="IBM"></li>
-                    <li class="last-item"><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-cisco.png" alt="Cisco"></li>
-                    <li class="last-item"><img src="http://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/partners/hplogo2012.jpg" alt="HP"></li>
+                <ul class="inline-logos">
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/4676d0be-lenovolowres.jpg" alt="Lenovo">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/64f61220-emc.png" alt="EMC">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/a9c75f9e-logo_amd.png" alt="AMD">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/5ddba83a-logo-dell.svg" alt="Dell">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/683950fd-logo-ibm.svg" alt="IBM">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/4d6054f9-logo-cisco.svg" alt="Cisco">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/a298e7ec-logo-hp.svg" alt="HP">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/f7db330d-partner-logo-chaosprime.png" alt="ChaosPrime">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/3630a703-partner-logo-allwinnertech.png" alt="Allwinner Technology">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/23835286-partner-logo-rti.png" alt="Real-Time Innovations">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/e6bc8a26-partner-logo-osrf.png" alt="OSRF">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/d27eee64-partner-logo-banana-pro.png" alt="LeMaker">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/8c1b05d8-partner-logo-fairwaves_t.png" alt="Fairwaves">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/e3ca63f5-Logo_ZORAROBOTICS.png" alt="Zora Robotics">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/25517997-partner-logo-cloudplugs.png" alt="CloudPlugs">
+                    </li>
+                    <li class="inline-logos__item">
+                        <img class="inline-logos__image" src="https://assets.ubuntu.com/v1/153d58ce-partner-logo-solidrun.png" alt="SolidRun">
+                    </li>
                 </ul>
             </div>
+
+            <div class="row">
+              <h3>Stepped list</h3>
+                <ol class="list-step">
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">1</span>
+                      First step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">2</span>
+                      Second step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">3</span>
+                      Third step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">4</span>
+                      Forth step
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+
+                  <li class="list-step__item eight-col">
+                    <h3 class="list-step__title">
+                      <span class="list-step__bullet">5</span>
+                      Last but not least
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
+                  </li>
+                </ol>
+            </div>
+
             <div class="row" id="tables">
                 <h2>Table</h2>
                 <div class="twelve-col">
@@ -551,7 +706,7 @@
                     </table>
                 </div>
             </div>
-            <div class="row row-hero no-border">
+            <div class="row row-hero">
                 <h2>Page hero</h2>
                 <div class="six-col">
                     <h1>This is a hero unit title</h1>
@@ -562,14 +717,114 @@
                     <img src="http://design.ubuntu.com/wp-content/uploads/hero-unit-image.jpg" alt="Ubuntu on a laptop" />
                 </div>
             </div>
+            <div class="row" id="helpers">
+                <h2>Helper classes</h2>
+                <h3>.left and .right</h3>
+                <div class="twelve-col">
+                    <div class="left">left content</div>
+                    <div class="right">right content</div>
+                </div>
+            </div>
+            <div class="row row-grey">
+                <h3>.row-grey</h3>
+                    <div class="twelve-col">
+                        <p>Row with grey background</p>
+                    </div>
+            </div>
+            <div class="row">
+                <h3>.no-border</h3>
+                <div class="row">
+                    <div class="twelve-col">
+                        <p>Row with border</p>
+                    </div>
+                </div>
+                <div class="row no-border">
+                    <div class="twelve-col">
+                        <p>Row without border</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="link-top">
+                    <a href="#">Back to top</a>
+                </div>
+                <h3>.link-top</h3>
+            </div>
+            <div class="row">
+                <div class="twelve-col">
+                    <h3>.caps</h3>
+                    <p class="caps">This is uppercased</p>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.touch-border</h3>
+                <div class="twelve-col no-margin-bottom">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="touch-border" />
+                </div>
+            </div>
+            <div class="row">
+                <h3>.accessibility-aid</h3>
+                <p class="accessibility-aid">You should not see this text</p>
+            </div>
+            <div class="row">
+                <h3>.external</h3>
+                <p><a href="#" class="external">This is an external link</a></p>
+            </div>
+            <div class="row">
+                <h3>.align-center</h3>
+                <p class="align-center">This text should be centered</p>
+            </div>
+            <div class="row">
+                <h3>.video-container</h3>
+                <div class="twelve-col">
+                    <div class="video-container">
+                        <iframe width="442" height="249" src="http://www.youtube.com/embed/6pSslGRi-ew?rel=0&amp;wmode=opaque&amp;modestbranding=0" frameborder="0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.priority-0</h3>
+                <div class="twelve-col">
+                    <div class="priority-0">This should not be visible on small screens</div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.for-medium</h3>
+                <div class="twelve-col">
+                    <div class="for-medium">This should be visible on medium and large screens</div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>.for-small</h3>
+                <div class="twelve-col">
+                    <div class="for-small">This should only be visible on small screens</div>
+                </div>
+            </div>
+            <div class="row no-border">
+                <h3>.med-six-col</h3>
+                <div class="med-six-col">
+                    <div class="three-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                    <div class="three-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                    <div class="three-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                    <div class="three-col last-col">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="global clearfix no-global">
       <nav id="main-navigation" role="navigation" class="clearfix">
         <div class="legal clearfix has-cookie">
-            <p class="twelve-col">© 2015 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            <p class="twelve-col">© 2016 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
             <ul class="inline-list clear">
-                <li><a href="/legal"><small>Legal information</small></a>
+                <li><a href="http://www.ubuntu.com/legal"><small>Legal information</small></a>
                 </li>
                 <li><a href="https://bugs.launchpad.net/ubuntu-website-content/"><small>Report a bug on this site</small></a>
                 </li>
@@ -589,4 +844,3 @@
 </style>
 
 </html>
-<!-- the end -->

@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     gutil = require('gulp-util'),
     scsslint = require('gulp-scss-lint'),
-    minifycss = require('gulp-minify-css'),
+    cssnano = require('gulp-cssnano');
     sassdoc = require('sassdoc'),
     util = require('util');
 
@@ -48,7 +48,7 @@ gulp.task('sass', function() {
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(gulp.dest('build/css/'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(minifycss())
+        .pipe(cssnano())
         .pipe(gulp.dest('build/css/'));
 });
 

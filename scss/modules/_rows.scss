@@ -15,7 +15,7 @@
     box-sizing: border-box;
     border-bottom: 1px dotted $warm-grey;
     clear: both;
-    padding: 20px 10px 0;
+    padding: $gutter-width ($gutter-width / 2) 0;
     position: relative;
 
     br {
@@ -37,12 +37,14 @@
 
   .row-grey {
     background: $light-grey;
+    border: 0;
+    margin-top: -1px;
   }
 
   .no-border { border: 0; }
 
   .row-hero {
-    margin-top: 20px;
+    margin-top: $gutter-width;
     padding-top: 0;
   }
 
@@ -53,18 +55,18 @@
 
   @media only screen and (min-width : $breakpoint-medium) {
 
-    .row {
-      padding: 30px;
-    }
-
     .row-hero {
-      margin-top: 40px;
+      margin-top: $gutter-width * 2;
     }
 
     .row {
       border-radius: 0;
       margin: 0;
-      padding: 40px 40px 20px;
+      padding: ($gutter-width * 2) $gutter-width $gutter-width;
+
+      &-grey {
+        margin-top: -1px;
+      }
     }
   }
 
@@ -76,7 +78,7 @@
 
     .row br { display: block; }
 
-    .row { padding: 60px 40px 40px; }
+    .row { padding: ($gutter-width * 3) $gutter-width ($gutter-width * 2); }
 
     .no-border { border: 0; }
   }
