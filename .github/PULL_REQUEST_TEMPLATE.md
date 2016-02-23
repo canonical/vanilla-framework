@@ -1,20 +1,27 @@
-#### What's this PR do?
+## PR Context
 
+[provide more detailed introduction to the PR]
 
-#### Where should the reviewer start?
+## Where should the reviewer start/setup?
 
+[create a list of steps for the reviewer to setup their branch or development enviroment]
 
-#### How should this be manually tested?
+#### How to QA
 
+[inform the reviewer of how to test and replicate the original issue or inform them of the desired outcome of this PR]
 
-#### Any background context you want to provide?
+## Any background context you want to provide
 
+[extra information and further context to the PR or issue]
 
-#### What are the relevant tickets?
+## Relevant tickets
 
+[list out any effected issues]
 
-#### Screenshots (if appropriate)
+## Screenshots
 
+[if relevant, include a screenshot]
 
-#### Questions:
+## Questions:
 
+[if relevant, add any further questions]
