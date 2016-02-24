@@ -1,27 +1,15 @@
-## PR Context
+## Done
 
-[provide more detailed introduction to the PR]
+[List of work items including drive-bys]
 
-## Where should the reviewer start/setup?
+## QA
 
-[create a list of steps for the reviewer to setup their branch or development enviroment]
+[List of steps to QA the new features or prove the bug has been resolved]
 
-#### How to QA
+## Details
 
-[inform the reviewer of how to test and replicate the original issue or inform them of the desired outcome of this PR]
-
-## Any background context you want to provide
-
-[extra information and further context to the PR or issue]
-
-## Relevant tickets
-
-[list out any effected issues]
+[List of links to issues/bugs and cards if needed]
 
 ## Screenshots
 
 [if relevant, include a screenshot]
-
-## Questions:
-
-[if relevant, add any further questions]
