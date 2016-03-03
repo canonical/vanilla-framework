@@ -15,7 +15,7 @@
       -webkit-appearance: none;
       background-color: darken($brand-color, 10%);
       border-radius: 4px;
-      border: 0;
+      box-shadow: none;
       box-sizing: border-box;
       color: $white;
       display: block;
@@ -54,6 +54,7 @@
   
     [type="search"]:focus {
       background-color: darken($brand-color, 14%);
+      border-color: darken($brand-color, 14%);
     }
   
     [type=submit] {
@@ -84,7 +85,7 @@
     outline: none;
     overflow: hidden;
     position: absolute;
-    right: 58px;
+    right: 0;
     text-indent: -999em;
     top: 0;
     width: 24px;
@@ -188,7 +189,7 @@
   
     .banner {
       .search-toggle {
-        right: 48px;
+        right: 0;
       }
     }
   
@@ -275,10 +276,10 @@
       background-repeat: no-repeat;
       background-size: 25px auto;
       cursor: pointer;
-      right: 0;
       display: block;
       height: 48px;
       position: absolute;
+      right: 0;
       text-indent: -99999px;
       width: 48px;
     }
@@ -301,7 +302,7 @@
   @media only screen and (min-width: 984px) {
     .search-form,
     .header-search {
-      display: none;
+      display: block;
       margin-right: 0;
   
       form [type="text"]:focus {
@@ -341,9 +342,9 @@
     }
   
     .main-search {
-      padding: 20px 0;
-      margin: 0 0 20px;
       background-color: transparent;
+      margin: 0 0 20px;
+      padding: 20px 0;
   
       [type="search"] {
         border: 1px solid $warm-grey;
