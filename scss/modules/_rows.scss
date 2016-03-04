@@ -25,17 +25,27 @@
     &.no-padding-bottom {
       padding-bottom: 0;
     }
+
+    &::after {
+      clear: both;
+      content: '.';
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+
+    &--light {
+      background: $white;
+    }
+
+    &--dark {
+      background: $cool-grey;
+      color: $white;
+    }
   }
 
-  .row:after {
-    clear: both;
-    content: '.';
-    display: block;
-    height: 0;
-    visibility: hidden;
-  }
-
-  .row-grey {
+  .row-grey, // retain to ensure backwards compatibility
+  .row--grey {
     background: $light-grey;
     border: 0;
     margin-top: -1px;
@@ -51,6 +61,11 @@
   .strip {
     width: 100%;
     display: block;
+  }
+
+  .strip-inner-wrapper {
+    max-width: $site-max-width;
+    margin: auto;
   }
 
   @media only screen and (min-width : $breakpoint-medium) {
