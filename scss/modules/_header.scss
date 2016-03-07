@@ -183,7 +183,7 @@
       height: 48px;
       cursor: pointer;
       text-indent: -99999px;
-      background-image: url('#{$asset-path}img/icons/navigation-menu-plain.svg');
+      background-image: url('#{$asset-server}12387180-navigation-menu-plain.svg');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 25px auto;
@@ -207,20 +207,22 @@
     }
 
     // scss-lint:disable IdSelector
-    #nav:target {
-
-      ul {
-        display: block;
-      }
-
-      + .nav-toggle {
-
-        .nav-toggle__link {
-
+    @media only screen and (max-width: $navigation-threshold) {
+      #nav:hover {
+        ul {
+          display: block;
+          
+          ul {
+            display: none;
+          }
+        }
+  
+        .nav-toggle .nav-toggle__link {
+  
           &.open {
             display: none;
           }
-
+  
           &.close {
             display: block;
           }
@@ -228,5 +230,5 @@
       }
     }
   }
-  // scss-lint:enable NestingDepth
-} // @mixin vf-header
+  // scss-lint:enable NestingDepth, IdSelector
+}
