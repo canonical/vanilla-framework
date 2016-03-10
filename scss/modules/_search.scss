@@ -64,6 +64,7 @@
       margin-left: -40px;
       overflow: visible;
       padding: 3px 2px;
+      width: auto;
   
       &:hover { background: none; }
   
@@ -76,10 +77,10 @@
   }
   
   .banner .search-toggle {
-    background-size: 20px 20px;
     background-image: svg-search($brand-color);
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: 20px 20px;
     display: block;
     height: 48px;
     outline: none;
@@ -129,10 +130,8 @@
     border: 0;
     display: none;
     float: left;
-    margin-bottom: 0;
     position: relative;
     margin: 0;
-    padding: 0;
     width: 100%;
     z-index: 3;
   }
@@ -183,7 +182,7 @@
     }
   }
   
-  @media only screen and (max-width : $breakpoint-medium) {
+  @media only screen and (max-width : $navigation-threshold) {
   
     .banner {
       .search-toggle {
@@ -199,13 +198,13 @@
     }
   }
   
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (min-width : $navigation-threshold) {
     .banner .search-toggle {
       display: none;
     }
   }
   
-  @media only screen and (min-width : 960px) {
+  @media only screen and (min-width : $navigation-threshold) {
     .search-form,
     .header-search {
       background: none;
@@ -217,37 +216,51 @@
       padding: 7px 0 5px 14px;
   
       form [type="text"],
-      form [type="text"] {
+      form [type="search"] {
         box-shadow: 0 2px 4px rgba(0, 0, 0, .4) inset;
         box-sizing: content-box;
         background-color: darken($brand-color, 10%);
-        border: 6px solid darken($brand-color, 12%);
+        border: 0 solid darken($brand-color, 12%);
         border-width: 0 0 1px;
         color: contrast-friendly-search-color($brand-color);
         font-size: .813em;
         height: 24px;
         margin-bottom: 0;
-        padding: 4px 4px 4px 30px;
+        padding: .5em 2.5em .5em .5em;
         transition: all .5s ease 0s;
         width: 86px;
-      }
-    }
-  }
-  
-  @media only screen and (min-width :$breakpoint-medium + 1) {
-    .header-search,
-    .search-form {
-      [type="search"],
-      [type="text"] {
-        color: contrast-friendly-search-color($brand-color);
-        border-color: darken($brand-color, 12%);
-        padding: .5em 2.5em .5em .5em;
- 
+        
         &:focus {
           background-color: darken($brand-color, 14%);
           border-color: darken($brand-color, 20%);
         }
       }
+      
+      .svg-search-handle {
+        fill: contrast-friendly-search-color($brand-color);
+      }
+      
+      .svg-search-frame {
+        stroke: contrast-friendly-search-color($brand-color);
+      }
+      
+      placeholder {
+        color: contrast-friendly-search-color($brand-color);
+      }
+    
+      input:placeholder {
+        color: contrast-friendly-search-color($brand-color);
+      }
+    
+      ::placeholder {
+        color: contrast-friendly-search-color($brand-color);
+      }
+    }
+  }
+  
+  @media only screen and (min-width :$navigation-threshold) {
+    .header-search,
+    .search-form {
             
       .svg-search-handle {
         fill: contrast-friendly-search-color($brand-color);
@@ -271,9 +284,8 @@
     }
   }
   
-  @media only screen and (max-width : 960px) {
+  @media only screen and (max-width : $navigation-threshold) {
     .banner .nav-primary .header-search {
-      padding: 0;
       position: relative;
       top: 0;
       width: 100%;
@@ -286,7 +298,7 @@
       [type="submit"] {
         background-color: $transparent;
         height: 38px;
-        margin-top: 2px;
+        margin-top: 0;
         width: 32px;
   
         img,
@@ -329,11 +341,10 @@
     }
   }
   
-  @media only screen and (min-width: 984px) {
+  @media only screen and (min-width: $navigation-threshold) {
     .search-form,
     .header-search {
       display: block;
-      margin-right: 0;
       
       .svg-search-handle {
         fill: contrast-friendly-search-color($brand-color);
@@ -353,8 +364,15 @@
       }
     }
   }
+
+  @media only screen and (max-width: $site-max-width) {
+    .search-form,
+    .header-search {
+      margin-right: 10px;
+    }
+  }
   
-  @media only screen and (max-width : $breakpoint-medium) {
+  @media only screen and (max-width : $navigation-threshold) {
     .banner .search-toggle {
       right: 48px;
     }
@@ -396,7 +414,6 @@
       [type=submit] {
         width: 32px;
         height: 38px;
-        //background-image: svg-search($brand-color);
         background-repeat: no-repeat;
         background-position: center 8px;
         background-color: $transparent;
@@ -528,7 +545,7 @@
     }
   }
   
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (min-width : $navigation-threshold) {
     .ubuntu-search .main-search [type=submit] {
       margin-left: -60px;
       margin-top: 0;
