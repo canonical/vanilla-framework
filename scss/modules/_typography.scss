@@ -62,7 +62,7 @@
   body {
     color: $text-color;
     font-family: unquote($base-font-family);
-    font-size: 16px;
+    font-size: $base-font-size;
     font-weight: 300;
   }
 
@@ -87,7 +87,7 @@
   a:focus {
     text-decoration: underline;
   }
-  
+
   strong {
     font-weight: 400;
   }
@@ -258,7 +258,46 @@
     font-family: Ubuntu,Arial,'libra sans',sans-serif;
   }
 
+  @media only screen and (max-width : $breakpoint-medium) {
+
+    @mixin heading-downsize-mixin($font-size, $margin-bottom) {
+      font-size: ($base-font-size-small/$base-font-size * $font-size);
+      margin-bottom: ($base-font-size-small/$base-font-size * $margin-bottom);
+    }
+
+    h1 {
+      @include heading-downsize-mixin(2.8125em, .5em);
+    }
+
+    h2 {
+      @include heading-downsize-mixin(2em, .5em);
+    }
+
+    h3 {
+      @include heading-downsize-mixin(1.4375em, .522em);
+    }
+
+    h4 {
+      @include heading-downsize-mixin(1.25em, .615em);
+      font-weight: 400;
+    }
+
+    h5 {
+      @include heading-downsize-mixin(1em, 1em);
+      font-weight: 700;
+    }
+
+    h6 {
+      @include heading-downsize-mixin(.8125em, 1em);
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+  }
+
   @media only screen and (min-width : $breakpoint-medium) {
+
     .intro {
       font-size: 1.13333em;
     }
