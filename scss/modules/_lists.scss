@@ -68,7 +68,7 @@
     @extend %list-ticks;
     
     li {
-      background-image: svg-tick($bullet-color);
+      background-image: svg-tick($brand-color);
     }
   }
 }
@@ -230,11 +230,15 @@
     @warn "'#{$fill-color}' is not a color'.";
     @return false;
   } @else {
-    @if (lightness($color) > 50) {
-      @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1)
+    @if $bullet-color == null {
+      @if (lightness($color) > 50) {
+        @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1)
+      } @else {
+        @return '%23' + str-slice('#{$color}', 2, -1)
+      } 
     } @else {
       @return '%23' + str-slice('#{$color}', 2, -1)
-    } 
+    }
   }
 }
 
