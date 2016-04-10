@@ -8,8 +8,8 @@
 /// @group Utils
 /// @example
 ///   <div class="row equal-height">
-///     <div class="six-col">...</div>
-///     <div class="six-col last-col">...</div>
+///     <div class="six-col equal-height__item">...</div>
+///     <div class="six-col last-col equal-height__item">...</div>
 ///   </div>
 @mixin vf-equal-heights {
   @include vf-equal-height;
@@ -46,8 +46,8 @@
 /// @group Utils
 /// @example
 ///   <div class="row equal-height--vertical-divider">
-///     <div class="six-col">...</div>
-///   <div class="six-col last-col">...</div>
+///     <div class="six-col equal-height--vertical-divider__item">...</div>
+///   <div class="six-col last-col equal-height--vertical-divider__item">...</div>
 ///   </div>
 @mixin vf-vertical-divider {
   .equal-height--vertical-divider {
@@ -84,6 +84,20 @@
         padding-left: 0;
       }
     }
+
+    @media only screen and (max-width : $breakpoint-medium) {
+      .equal-height--vertical-divider {
+        &__item {
+          border-bottom: 1px dotted $warm-grey;
+          padding-bottom: 20px;
+        }
+
+        &__item:last-of-type {
+          border-bottom: 0;
+          padding-bottom: inherit;
+        }
+      }
+    }
   }
 }
 
@@ -96,7 +110,7 @@
     flex-direction: row;
     width: 100%;
 
-    > .equal-height__item {
+    .equal-height__item {
       display: flex;
       flex: auto;
       flex-direction: column;
