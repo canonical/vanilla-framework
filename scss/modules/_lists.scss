@@ -66,7 +66,7 @@
 @mixin vf-lists-list-ticks() {
   .list-ticks {
     @extend %list-ticks;
-    
+
     li {
       background-image: svg-tick($bullet-color);
     }
@@ -176,8 +176,16 @@
     margin-left: $gutter-width * 3;
   }
 
-  .list-step__title {
-    margin-bottom: 0;
+  @media only screen and (max-width : $breakpoint-large) {
+    .list-step__item:first-child {
+      margin-top: 10px;
+    }
+  }
+
+  @media only screen and (min-width : $breakpoint-large) {
+    .list-step__title {
+      margin-bottom: 0;
+    }
   }
 
   .list-step__bullet {
@@ -190,6 +198,11 @@
     margin-right: .34375em;
     margin-bottom: .625em;
     margin-left: -$gutter-width * 3;
+
+    @media only screen and (max-width : $breakpoint-large) {
+      position: absolute;
+      top: -5px;
+    }
   }
 }
 
@@ -234,7 +247,7 @@
       @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1)
     } @else {
       @return '%23' + str-slice('#{$color}', 2, -1)
-    } 
+    }
   }
 }
 
