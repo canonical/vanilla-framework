@@ -1,0 +1,113 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-lists
+/// @since        0.0.71
+////
+
+/// List Grid
+/// @example
+//
+// To remove border-left from a .list-grid__item, add the class .last-col
+// To remove border-bottom from a .list-grid__item, add the class .last-row
+//
+// <ul class="list--grid twelve-col no-bullets no-margin-bottom">
+//     <li class="list--grid__item six-col">
+//         <div class="one-col ">
+//             <img class="list--grid__img" src="image.svg" alt="icon">
+//         </div>
+//         <div class="three-col last-col">
+//             <h3><a class="external" href="#">Link</a></h3>
+//             <p>lorem ipsum</p>
+//         </div>
+//     </li>
+//     <li class="list--grid__item six-col last-col">
+//         <div class="one-col ">
+//             <img class="list--grid__img" src="image.svg" alt="icon">
+//         </div>
+//         <div class="three-col last-col">
+//             <h3><a class="external" href="#">Link</a></h3>
+//             <p>lorem ipsum</p>
+//         </div>
+//     </li>
+//     <li class="list--grid__item six-col last-row">
+//         <div class="one-col ">
+//             <img class="list--grid__img" src="image.svg" alt="icon">
+//         </div>
+//         <div class="three-col last-col">
+//             <h3><a class="external" href="#">Link</a></h3>
+//             <p>lorem ipsum</p>
+//         </div>
+//     </li>
+//     <li class="list--grid__item six-col last-col last-row">
+//         <div class="one-col ">
+//             <img class="list--grid__img" src="image.svg" alt="icon">
+//         </div>
+//         <div class="three-col last-col">
+//             <h3><a class="external" href="#">Link</a></h3>
+//             <p>lorem ipsum</p>
+//         </div>
+//     </li>
+// </ul>
+
+@mixin vf-list-grid {
+
+    $grid-border-style: 1px dotted #888;
+
+    .list--grid {
+
+        @media only screen and (min-width: $breakpoint-medium) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__img {
+            display: block;
+            margin: auto;
+        }
+
+        p {
+            font-size: .875rem;
+        }
+
+        &__item {
+            border-bottom: $grid-border-style;
+            margin-bottom: 30px;
+            display: flex;
+
+            @media only screen and (max-width: $breakpoint-medium) {
+
+                > [class*='-col'] {
+
+                    &:first-child {
+                        width: 25%;
+                        padding-right: 1rem;
+                    }
+
+                    &:last-child {
+                        width: 75%;
+                    }
+                }
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            @media only screen and (min-width: $breakpoint-medium) {
+                display: flex;
+                flex-wrap: wrap;
+                border-right: $grid-border-style;
+                margin: 0;
+                padding: 1.5em .75em 0;
+
+                &.last-col {
+                    border-right: 0;
+                }
+
+                &.last-row {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}
