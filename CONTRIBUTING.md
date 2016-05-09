@@ -2,7 +2,7 @@
 
 Awesome you want to contribute to our framework!
 
-## Bugs and Issues
+## Bugs and issues
 
 *Add something here about bugs and issues*
 
