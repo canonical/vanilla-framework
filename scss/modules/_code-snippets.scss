@@ -27,12 +27,41 @@
     border-radius: 4px;
   }
 
-  pre {
+  pre,
+  .code-block {
     border-radius: .5em;
-    border: 1px solid $cool-grey;
+    border: 1px solid $mid-grey;
     margin: .5em 0;
     overflow: auto;
     padding: 1em;
+
+    &.code-block--terminal {
+      background-color: $cool-grey;
+      color: $white;
+      border: 0;
+    }
+
+    &.code-block--numbering {
+      counter-reset: line-numbering;
+
+      .code-block__line {
+        float: left;
+        clear: both;
+        background: none;
+        margin: 0;
+
+        &::before {
+          content: counter(line-numbering);
+          counter-increment: line-numbering;
+          padding-right: 1em; /* space after numbers */
+          width: 1.5em;
+          text-align: right;
+          opacity: .5;
+          pointer-events: none;
+          user-select: none;
+        }
+      }
+    }
   }
 
   /* kbd {
@@ -46,19 +75,6 @@
   samp {
 
   }*/
-
-  .code {
-    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
-  }
-
-  .code-block {
-    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
-
-    &.code-block--terminal {
-      background-color: $cool-grey;
-      color: $white;
-    }
-  }
 
   .code-snippet {
     font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
