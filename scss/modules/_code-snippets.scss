@@ -1,0 +1,75 @@
+////
+/// @author       Web Team at Canonical Ltd
+/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-code-snippets
+/// @since        0.0.71
+////
+
+/// Equal heights makes all immediate child divs and li's heights equal
+/// @group Utils
+/// @example
+///   <div class="row equal-height">
+///     <div class="six-col equal-height__item">...</div>
+///     <div class="six-col last-col equal-height__item">...</div>
+///   </div>
+@mixin vf-code-snippets {
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
+  }
+
+  code {
+    padding: 4px 6px;
+    font-size: 90%;
+    background-color: $light-grey;
+    border-radius: 4px;
+  }
+
+  pre {
+    border-radius: .5em;
+    border: 1px solid $cool-grey;
+    margin: .5em 0;
+    overflow: auto;
+    padding: 1em;
+  }
+
+  /* kbd {
+
+  }
+
+  var {
+
+  }
+
+  samp {
+
+  }*/
+
+  .code {
+    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
+  }
+
+  .code-block {
+    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
+
+    &.code-block--terminal {
+      background-color: $cool-grey;
+      color: $white;
+    }
+  }
+
+  .code-snippet {
+    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
+
+    &.code-snippet--terminal {
+      background-color: $cool-grey;
+      color: $white;
+    }
+  }
+}
+
+%code-style {
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
+}
