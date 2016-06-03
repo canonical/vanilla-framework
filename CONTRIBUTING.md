@@ -1,19 +1,60 @@
-# Contributing to the Ubuntu web styles framework
+# Contributing to Vanilla Framework
 
-Awesome you want to contribute to our framework!
+So, you'd like to contribute to Vanilla Framework? Great!
 
 ## Bugs and issues
 
-*Add something here about bugs and issues*
+We use the [Issues tracker](https://github.com/ubuntudesign/vanilla-framework/issues) to track all our bugs and feature requests, collectively known as 'issues'.
+
+When [submitting a new issue](https://github.com/ubuntudesign/vanilla-framework/issues/new), please check that it hasn't already been raised by someone else. We've provided a template for new issues which will help you structure your issue to ensure it can be picked up and actioned with minimum fuss. 
+
+Please provide as much information possible detailing what you're currently experiencing and what you'd expect to experience.
+
+The outline for creating a new issue is:
+
+**Process**
+
+What is the process to reproduce the issue?
+
+**Expected result**
+
+What did you expect to see/happen when following the process above?
+
+**Current result**
+
+What is the current result you are eperiencing?
+
+**Screenshot (of issue)**
+
+If applicable, please provide a screenshot or animated gif of the issue.
+
+**Browser details**
+
+Provide your device and browser details including screen size if applicable. 
+
+
+## Git workflow
+
+To work on an issue, please fork this repo and create a new branch on your local instance to work on an issue. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to  `upstream/master`.
+
+When commiting changes, group related changes so that project is always in a working state. Use succinct yet descriptive commit messages which allow for easy scanning of the commit log.
 
 ## Pull requests
 
-Template for PRs is:
+Template for new Pull Requests  is:
 
-    # Details
-    ## Done
-    ## QA
+**Context**
 
-## Feature requests
+Why are you proposing this change?
 
-*How do we want the community to ask for new features*
+**Done**
+
+What changes have you made to the code base?
+
+**QA**
+
+What steps need to be taken to test your changes?
+
+**Related**
+
+Link to any relevant issues. e.g. `Fixes: #100`
