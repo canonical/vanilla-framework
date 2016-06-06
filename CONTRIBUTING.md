@@ -2,11 +2,12 @@
 
 So, you'd like to contribute to Vanilla Framework? Great!
 
+
 ## Bugs and issues
 
 We use the [Issues tracker](https://github.com/ubuntudesign/vanilla-framework/issues) to track all our bugs and feature requests, collectively known as 'issues'.
 
-When [submitting a new issue](https://github.com/ubuntudesign/vanilla-framework/issues/new), please check that it hasn't already been raised by someone else. We've provided a template for new issues which will help you structure your issue to ensure it can be picked up and actioned with minimum fuss. 
+When [submitting a new issue](https://github.com/ubuntudesign/vanilla-framework/issues/new), please check that it hasn't already been raised by someone else. We've provided a template for new issues which will help you structure your issue to ensure it can be picked up and actioned with minimum fuss.
 
 Please provide as much information possible detailing what you're currently experiencing and what you'd expect to experience.
 
@@ -22,7 +23,7 @@ What did you expect to see/happen when following the process above?
 
 **Current result**
 
-What is the current result you are eperiencing?
+What is the current result you are experiencing?
 
 **Screenshot (of issue)**
 
@@ -30,14 +31,20 @@ If applicable, please provide a screenshot or animated gif of the issue.
 
 **Browser details**
 
-Provide your device and browser details including screen size if applicable. 
+Provide your device and browser details including screen size if applicable.
 
 
 ## Git workflow
 
-To work on an issue, please fork this repo and create a new branch on your local instance to work on an issue. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to  `upstream/master`.
+To work on an issue, please fork this repo and create a new branch on your local fork to work on an issue. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to  `upstream/master`.
 
-When commiting changes, group related changes so that project is always in a working state. Use succinct yet descriptive commit messages which allow for easy scanning of the commit log.
+When committing changes, group related changes so that project is always in a working state. Use succinct yet descriptive commit messages which allow for easy scanning of the commit log.
+
+
+## Running tests locally
+
+Before proposing a Pull Request, ensure that the test pass on local fork. To kick off the tests, run `gulp test`
+
 
 ## Pull requests
 
