@@ -49,6 +49,11 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   @include generate-append-classes($columns, 'append-', '');
   @include generate-push-classes($columns, 'push-', '');
   @include generate-pull-classes($columns, 'pull-', '');
+
+  // The base grid class without a width for adding vertical rhythm.
+  .col {
+    @extend %vf-column;
+  }
 }
 
 
