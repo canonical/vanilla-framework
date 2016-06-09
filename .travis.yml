@@ -1,11 +1,18 @@
 language: node_js
 node_js:
   - "0.10.37"
-script: node_modules/gulp/bin/gulp.js test
+install:
+  - gem install percy-cli
+before_script:
+  - npm i
+  - node_modules/gulp/bin/gulp.js build
+script:
+  - node_modules/gulp/bin/gulp.js test
+  - percy snapshot demo/
 notifications:
   irc:
     channels:
-      - "chat.freenode.net#canonical-webteam"
+      - "chat.freenode.net#vanilla-framework"
   webhooks:
     urls:
       - "https://webhooks.gitter.im/e/9898d67dfc1dd39f9cb2"
