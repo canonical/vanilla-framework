@@ -10,7 +10,8 @@ A simple extensible CSS framework, written in [Sass](http://sass-lang.com/).
 
 Vanilla Framework contains a basic CSS grid and pattern classes, and is designed to be extended either directly or by creating extension themes.
 
-[Project homepage](http://ubuntudesign.github.io/vanilla-framework) | [Documentation](http://ubuntudesign.github.io/vanilla-framework/docs/)
+[Project homepage](http://ubuntudesign.github.io/vanilla-framework) | [Documentation](http://ubuntudesign.github.io/vanilla-framework/docs/) |
+[Project Task Board](https://waffle.io/ubuntudesign/vanilla-framework)
 
 ## Hotlinking
 
@@ -30,14 +31,26 @@ npm install vanilla-framework  # Installs at ./node_modules/vanilla-framework
 
 Then reference it from your own Sass files, with optional settings:
 
+ ```javascript
+gulp.task('sass', function() {
+  return gulp.src('[your-sass-directory]/**/*.scss')
+  .pipe(sass({
+    includePaths: ['node_modules']
+  }))
+});
+ ```
+
+ Note: This example uses Gulp but the same principle should apply for your preferred task runner of choice.
+
 ``` sass
 // Optionally override some settings
 $brand-color: #ffffff;
 
-// Import the framework
-@import "../node_modules/vanilla-framework/scss/vanilla";
-// Run the framework
-@include vanilla;
+// Import the theme
+@import "vanilla-framework/scss/vanilla";
+
+// Run the theme
+ @include ubuntu-vanilla-theme;
 ```
 
 You can override any of the settings in [_global-settings.scss](scss/_global-settings.scss).
