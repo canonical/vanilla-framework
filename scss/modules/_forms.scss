@@ -120,10 +120,13 @@
     select,
     textarea {
       width: 100%;
+
+      &[disabled="disabled"] {
+        @extend %disabled-element;
+      }
     }
   }
 }
-
 
 /// Default form input element styles
 /// @group Forms
@@ -152,11 +155,6 @@
   &::placeholder {
     color: contrast-friendly-search-color($brand-color);
   }
-
-  &[disabled="disabled"] {
-    opacity: .5;
-    cursor: not-allowed;
-  }
 }
 
 /// Default form checkbox and radio styles
@@ -169,4 +167,18 @@
   padding: 0;
   vertical-align: middle;
   width: 14px;
+
+  &[disabled="disabled"] {
+
+    + label {
+      @extend %disabled-element;
+    }
+  }
+}
+
+/// Disabled form elements
+/// @group Forms
+%disabled-element {
+  opacity: .5;
+  cursor: not-allowed;
 }
