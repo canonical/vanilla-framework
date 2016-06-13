@@ -10,7 +10,8 @@ A simple extensible CSS framework, written in [Sass](http://sass-lang.com/).
 
 Vanilla Framework contains a basic CSS grid and pattern classes, and is designed to be extended either directly or by creating extension themes.
 
-[Project homepage](http://ubuntudesign.github.io/vanilla-framework) | [Documentation](http://ubuntudesign.github.io/vanilla-framework/docs/)
+[Project homepage](http://ubuntudesign.github.io/vanilla-framework) | [Documentation](http://ubuntudesign.github.io/vanilla-framework/docs/) |
+[Project Task Board](https://waffle.io/ubuntudesign/vanilla-framework)
 
 ## Hotlinking
 
