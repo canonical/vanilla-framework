@@ -4,13 +4,13 @@
 /// @since        0.0.71
 ////
 
-/// Code block and code snippets styles
-/// @group Codesnippets
+/// Code and pre styles
+/// @group Code
 /// @example
 ///   <pre>
 ///     <code>...</code>
 ///   </pre>
-@mixin vf-code-snippets {
+@mixin vf-code {
 
   code,
   samp,
@@ -29,8 +29,17 @@
     hyphens: none;
     direction: ltr;
   }
+}
 
-  pre,
+/// Code block styles
+/// @group Code
+/// @example
+///   <pre class="code-block">
+///     <code class="code-block__line">...</code>
+///     <code class="code-block__line">...</code>
+///     <code class="code-block__line">...</code>
+///   </pre>
+@mixin vf-code-block {
   .code-block {
     overflow: auto;
     margin: .5em 0;
@@ -38,7 +47,6 @@
     border: 1px solid $mid-grey;
     border-radius: .5em;
 
-    code,
     .code-block__line {
       float: left;
       clear: both;
@@ -66,7 +74,16 @@
       }
     }
   }
+}
 
+/// Code snippet styles
+/// @group Code
+/// @example
+/// <div class="code-snippet">
+///   <input class="code-snippet__input" value="sudo apt-get install" readonly="readonly">
+///   <button class="code-snippet__copy-button">Copy to clipboard</button>
+/// </div>
+@mixin vf-code-snippet {
   .code-snippet {
     position: relative;
     overflow: hidden;
