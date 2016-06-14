@@ -46,9 +46,9 @@ gulp.task('sass', function() {
             onError: throwSassError
         }))
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-        .pipe(gulp.dest('build/css/'))
-        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('demo/css/'))
         .pipe(cssnano())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('build/css/'));
 });
 
@@ -63,7 +63,8 @@ gulp.task('sass-lite', function() {
     return gulp.src('scss/build.scss')
         .pipe(sass({ style: 'expanded', errLogToConsole: true }))
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-        .pipe(gulp.dest('build/css/'));
+        .pipe(gulp.dest('build/css/'))
+        .pipe(gulp.dest('demo/css/'));
 });
 
 gulp.task('watch', function() {
