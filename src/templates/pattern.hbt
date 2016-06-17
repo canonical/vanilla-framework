@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ title }} | Vanilla Framework</title>
+</head>
+
+<!-- Add Ubuntu font from Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+<style>
+
+    /*Temp styling for mvp */
+
+    body {
+        font-family: 'Ubuntu', sans-serif;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    aside {
+        padding: 1rem;
+        background: #ccc;
+    }
+
+    .pl {
+        display: flex;
+        flex: 1;
+    }
+
+    .pl__content {
+        padding: 0 1rem;
+    }
+
+    footer {
+        padding: 1rem;
+        color: #ccc;
+        font-size: .875rem;
+    }
+
+</style>
+
+<body>
+
+    {{> header }}
+    <div class="pl">
+        {{> sidebar }}
+        <main class="pl__content">
+            <iframe>
+                {{{ contents }}}
+            <iframe>
+        </main>
+    </div>
+
+    {{> footer }}
+
+</body>
+</html>
