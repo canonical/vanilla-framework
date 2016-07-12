@@ -14,6 +14,8 @@ module.exports = function() {
 
     return function(files, metalsmith, done) {
 
+        debugger;
+
         var
             meta = metalsmith.metadata(),
             file, f, page, p, c, thisCol, layout;

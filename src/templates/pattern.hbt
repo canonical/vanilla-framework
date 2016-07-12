@@ -49,11 +49,14 @@
 
     {{> header }}
     <div class="pl">
-        {{> sidebar }}
+
+        {{#each collections.patterns}}
+            <li>{{this.title}}</li>
+        {{/each}}
         <main class="pl__content">
             <iframe>
                 {{{ contents }}}
-            <iframe>
+            </iframe>
         </main>
     </div>
 
