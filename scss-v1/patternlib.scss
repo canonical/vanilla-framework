@@ -1,0 +1,28 @@
+.pl {
+
+  font-family: Ubuntu, sans-serif;
+
+  &,
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sidenav {
+    order: -1;
+  }
+
+  @media (min-width: 768px) {
+
+    .pl__container {
+      flex-direction: row;
+      flex: 1;
+    }
+    .pl__content {
+      flex: 1;
+    }
+    .pl__sidenav {
+      flex: 0 0 12em;
+    }
+  }
+}

@@ -51,8 +51,17 @@ collections = require('metalsmith-collections'),
 permalinks = require('metalsmith-permalinks'),
 browserSync = require('metalsmith-browser-sync');
 
+/* Gulp instructions start here */
+gulp.task('help', function() {
+  console.log('sass - Generate the min and unminified css from sass');
+  console.log('develop - Generate Pattern Library and watch assets');
+  console.log('build - Generate css');
+  console.log('watch - Watch sass files and generate unminified css');
+  console.log('test - Lints Sass');
+});
+
 /* Generate Pattern Library with Metalsmith */
-gulp.task('metalsmith', function() {
+gulp.task('pattern-library', function() {
   metalsmith(dir.base)
     .clean(!devBuild) // clean folder before a production build
     .source(dir.source) // source folder (src/)
@@ -69,14 +78,6 @@ gulp.task('metalsmith', function() {
     .build(function (err) { // build or error log
         if(err) console.log(err)
     })
-});
-
-/* Gulp instructions start here */
-gulp.task('help', function() {
-  console.log('sass - Generate the min and unminified css from sass');
-  console.log('build - Generate css');
-  console.log('watch - Watch sass files and generate unminified css');
-  console.log('test - Lints Sass');
 });
 
 /* Helper functions */
@@ -99,22 +100,21 @@ gulp.task('sasslint', function() {
     .pipe(scsslint.failReporter());
 });
 
-gulp.task('sass', function() {
-  return gulp.src('scss/**/*.scss')
+gulp.task('sass-build', function() {
+  return gulp.src('scss-v1/**/*.scss')
     .pipe(sass({
       style: 'expanded',
       errLogToConsole: true,
       onError: throwSassError
     }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-    .pipe(gulp.dest('demo/css/'))
     .pipe(cssnano())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('build/css/'));
 });
 
-gulp.task('sass-lite', function() {
-  return gulp.src('scss/build.scss')
+gulp.task('sass-develop', function() {
+  return gulp.src(['scss-v1/build.scss', 'scss-v1/patternlib.scss'])
     .pipe(sass({ style: 'expanded', errLogToConsole: true }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(gulp.dest('build/css/'))
@@ -122,14 +122,14 @@ gulp.task('sass-lite', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('scss/**/*.scss', ['sass-lite']);
-  gulp.watch(['src/**/*.hbt', 'src/**/*.html'], ['metalsmith']);
+  gulp.watch('scss-v1/**/*.scss', ['sass-develop']);
+  gulp.watch(['src/**/*.hbt', 'src/**/*.html'], ['pattern-library']);
 });
 
-gulp.task('develop', ['metalsmith', 'watch']);
+gulp.task('develop', ['pattern-library', 'sass-develop', 'watch']);
 
 gulp.task('test', ['sasslint']);
 
-gulp.task('build', ['metalsmith', 'sasslint', 'sass']);
+gulp.task('build', ['pattern-library', 'sasslint', 'sass-build']);
 
 gulp.task('default', ['help']);
