@@ -29,8 +29,8 @@ siteMeta = {
   desc:     'A living Pattern Library showcasing Vanilla Framework',
   author:   'Canonical Web Team',
   contact:  'https://twitter.com/craigbuckler',
-  // domain:    devBuild ? 'http://127.0.0.1' : 'https://rawgit.com', // set domain
-  // rootpath:  devBuild ? null  : '/sitepoint-editors/metalsmith-demo/master/build/' // set absolute path (null for relative)
+  domain:    devBuild ? 'http://127.0.0.1' : 'https://rawgit.com', // set domain
+  rootpath:  devBuild ? null  : '/sitepoint-editors/metalsmith-demo/master/build/' // set absolute path (null for relative)
 },
 
 // modules
@@ -38,7 +38,6 @@ gulp = require('gulp'),
 rename = require('gulp-rename'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-notify = require('gulp-notify'),
 gutil = require('gulp-util'),
 scsslint = require('gulp-scss-lint'),
 cssnano = require('gulp-cssnano'),
@@ -49,6 +48,7 @@ metalsmith = require('metalsmith'),
 markdown   = require('metalsmith-markdown'),
 layouts = require('metalsmith-layouts'),
 collections = require('metalsmith-collections'),
+permalinks = require('metalsmith-permalinks'),
 browserSync = require('metalsmith-browser-sync');
 
 /* Generate Pattern Library with Metalsmith */
@@ -57,12 +57,14 @@ gulp.task('metalsmith', function() {
     .clean(!devBuild) // clean folder before a production build
     .source(dir.source) // source folder (src/)
     .destination(dir.dest) // build folder (build/)
-    .metadata(siteMeta) // add metadata to every page
-    .use(markdown()) // convert markdown to html
-    .use(layouts(templateConfig)) // layout templating
     .use(collections({
-      patterns: 'src/patterns/*.hbt'
+      patterns: 'src/patterns/*.html'
     }))
+    .use(markdown()) // convert markdown to html
+    .use(permalinks({
+        pattern: ':collection/:title'
+    }))
+    .use(layouts(templateConfig)) // layout templating
     .use(browserSync())
     .build(function (err) { // build or error log
         if(err) console.log(err)
@@ -90,12 +92,6 @@ function throwSassError(sassError) {
   });
 }
 
-gulp.task('metalsmith-js', function () {
-  return gulp.src('src/lib/**/*.js') // Get source files with gulp.src
-    .pipe(concat('metalsmith.js'))
-    .pipe(gulp.dest('build/js/')) // Outputs the file in the destination folder
-})
-
 gulp.task('sasslint', function() {
   var path = (gutil.env.file)? gutil.env.file : '**/*.scss';
   return gulp.src('scss/' + path)
@@ -117,8 +113,6 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('build/css/'));
 });
 
-gulp.task('build', ['sasslint', 'sass']);
-
 gulp.task('sass-lite', function() {
   return gulp.src('scss/build.scss')
     .pipe(sass({ style: 'expanded', errLogToConsole: true }))
@@ -129,12 +123,13 @@ gulp.task('sass-lite', function() {
 
 gulp.task('watch', function() {
   gulp.watch('scss/**/*.scss', ['sass-lite']);
-  gulp.watch('src/lib/**/*.js', ['metalsmith-js']);
-  gulp.watch('**/*.hbt', ['metalsmith']);
+  gulp.watch(['src/**/*.hbt', 'src/**/*.html'], ['metalsmith']);
 });
+
+gulp.task('develop', ['metalsmith', 'watch']);
 
 gulp.task('test', ['sasslint']);
 
-gulp.task('dev', ['metalsmith', 'metalsmith-js', 'sass','watch']);
+gulp.task('build', ['metalsmith', 'sasslint', 'sass']);
 
 gulp.task('default', ['help']);
