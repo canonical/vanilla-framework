@@ -67,7 +67,17 @@ gulp.task('pattern-library', function() {
     .source(dir.source) // source folder (src/)
     .destination(dir.dest) // build folder (build/)
     .use(collections({
-      patterns: 'src/patterns/*.html'
+      settings: { // collection name
+        patterns: 'src/vf/settings/*.hbt'
+      },
+      base: { // collection name
+        patterns: 'src/vf/base/*.html'
+      },
+      // beware possible confusion, we're calling this collection 'patterns' but
+      // metalsmith-collections also requires a 'patterns' arg
+      patterns: { // collection name
+        patterns: 'src/vf/patterns/*.html'
+      },
     }))
     .use(markdown()) // convert markdown to html
     .use(permalinks({

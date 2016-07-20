@@ -1,6 +1,18 @@
+.pl-header {
+  width: 100%;
+  background: #4a4a4a;
+  padding: 1rem;
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
 .pl {
 
   font-family: Ubuntu, sans-serif;
+  margin: 0;
 
   &,
   &__container {
@@ -8,8 +20,40 @@
     flex-direction: column;
   }
 
+  &__content,
+  &__sidenav {
+    padding: 1rem;
+  }
+
   &__sidenav {
     order: -1;
+    background: #f7f7f7;
+
+    .sidenav-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &__link {
+        text-transform: capitalize;
+        display: inline-block;
+        margin-bottom: .5rem;
+        padding-left: .5rem;
+        font-size: .875rem;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    background: #f7f7f7;
+    padding: 1rem;
+    font-size: .875rem;
+    color: darken(#f7f7f7, 25%);
   }
 
   @media (min-width: 768px) {
@@ -17,6 +61,7 @@
     .pl__container {
       flex-direction: row;
       flex: 1;
+      min-height: calc(100vh - 100px);
     }
     .pl__content {
       flex: 1;
