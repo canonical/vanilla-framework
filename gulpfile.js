@@ -43,13 +43,14 @@ scsslint = require('gulp-scss-lint'),
 cssnano = require('gulp-cssnano'),
 util = require('util'),
 concat = require('gulp-concat'),
+browserSync = require('browser-sync').create(),
+reload      = browserSync.reload,
 // Metalmsith - pattern library generation
 metalsmith = require('metalsmith'),
 markdown   = require('metalsmith-markdown'),
 layouts = require('metalsmith-layouts'),
 collections = require('metalsmith-collections'),
-permalinks = require('metalsmith-permalinks'),
-browserSync = require('metalsmith-browser-sync');
+permalinks = require('metalsmith-permalinks');
 
 /* Gulp instructions start here */
 gulp.task('help', function() {
@@ -58,6 +59,17 @@ gulp.task('help', function() {
   console.log('build - Generate css');
   console.log('watch - Watch sass files and generate unminified css');
   console.log('test - Lints Sass');
+});
+
+// Static server
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./build"
+        }
+    });
+
+    gulp.watch("./build/**/*.html").on("change", reload);
 });
 
 /* Generate Pattern Library with Metalsmith */
@@ -84,7 +96,6 @@ gulp.task('pattern-library', function() {
         pattern: ':collection/:title'
     }))
     .use(layouts(templateConfig)) // layout templating
-    .use(browserSync())
     .build(function (err) { // build or error log
         if(err) console.log(err)
     })
@@ -128,15 +139,16 @@ gulp.task('sass-develop', function() {
     .pipe(sass({ style: 'expanded', errLogToConsole: true }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(gulp.dest('build/css/'))
-    .pipe(gulp.dest('demo/css/'));
+    .pipe(gulp.dest('demo/css/'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
   gulp.watch('scss/**/*.scss', ['sass-develop']);
-  gulp.watch(['src/**/*.hbt', 'src/**/*.html'], ['pattern-library']);
+  gulp.watch(['src/**/*.hbt', 'src/**/*.html', 'src/**/*.md'], ['pattern-library']);
 });
 
-gulp.task('develop', ['pattern-library', 'sass-develop', 'watch']);
+gulp.task('develop', ['pattern-library', 'sass-develop', 'watch', 'browser-sync']);
 
 gulp.task('test', ['sasslint']);
 
