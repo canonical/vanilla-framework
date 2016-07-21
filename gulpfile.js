@@ -45,6 +45,7 @@ util = require('util'),
 concat = require('gulp-concat'),
 browserSync = require('browser-sync').create(),
 reload      = browserSync.reload,
+ghPages = require('gulp-gh-pages'),
 // Metalmsith - pattern library generation
 metalsmith = require('metalsmith'),
 markdown   = require('metalsmith-markdown'),
@@ -141,6 +142,11 @@ gulp.task('sass-develop', function() {
     .pipe(gulp.dest('build/css/'))
     .pipe(gulp.dest('demo/css/'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('watch', function() {
