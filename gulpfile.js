@@ -111,7 +111,7 @@ gulp.task('sasslint', function() {
 });
 
 gulp.task('sass-build', function() {
-  return gulp.src('scss-v1/**/*.scss')
+  return gulp.src('scss/**/*.scss')
     .pipe(sass({
       style: 'expanded',
       errLogToConsole: true,
@@ -124,7 +124,7 @@ gulp.task('sass-build', function() {
 });
 
 gulp.task('sass-develop', function() {
-  return gulp.src(['scss-v1/build.scss', 'scss-v1/patternlib.scss'])
+  return gulp.src(['scss/build.scss', 'scss/patternlib.scss'])
     .pipe(sass({ style: 'expanded', errLogToConsole: true }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(gulp.dest('build/css/'))
@@ -132,7 +132,7 @@ gulp.task('sass-develop', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('scss-v1/**/*.scss', ['sass-develop']);
+  gulp.watch('scss/**/*.scss', ['sass-develop']);
   gulp.watch(['src/**/*.hbt', 'src/**/*.html'], ['pattern-library']);
 });
 
