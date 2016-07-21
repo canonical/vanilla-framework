@@ -1,5 +1,4 @@
 ---
 collection: base
-title: grid
+title: media
 ---
-s

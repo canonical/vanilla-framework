@@ -1,6 +1,6 @@
 ---
-collection: patterns
-title: forms
+collection: tools
+title: clearfix
 ---
 
 <form action="/">
