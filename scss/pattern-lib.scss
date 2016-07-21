@@ -1,3 +1,6 @@
+@import 'vanilla';
+@include vanilla;
+
 .pl-header {
   width: 100%;
   background: #4a4a4a;
@@ -14,9 +17,13 @@
   font-family: Ubuntu, sans-serif;
   margin: 0;
 
-  &__heading1 {
+  &__heading {
     text-transform: capitalize;
     margin-top: 0;
+  }
+
+  &__nav {
+    @extend .clearfix;
   }
 
   .topnav-list {
@@ -25,6 +32,7 @@
     list-style: none;
     float: right;
     padding-right: 2rem;
+    max-width: 50%;
 
     &__item {
       display: inline-block;
