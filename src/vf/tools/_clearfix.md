@@ -3,7 +3,6 @@ collection: tools
 title: clearfix
 ---
 
-<form action="/">
-    <label for="success" class="has-success">Label success state</label>
-    <input placeholder="I'm an input text" type="text" id="success" class="has-success">
-</form>
+A clearfix is a way for an element to automatically clear its child elements, so that you don't need to add additional markup. It's generally used in float layouts where elements are floated to be stacked horizontally.
+
+The clearfix is a way to combat the zero-height container problem for floated elements.
