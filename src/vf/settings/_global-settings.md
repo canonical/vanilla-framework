@@ -4,419 +4,195 @@ title: Global settings
 ---
 
 These settings are the defaults used by Vanilla when first included in your site. These settings can be over-written to tweak Vanilla to suit your needs.
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Value</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$asset-path</td>
+      <td>https://assets.ubuntu.com/sites/ubuntu/latest/u/</td>
+      <td>assets database path</td>
+    </tr>
+    <tr>
+      <td>$asset-server</td>
+      <td>https://assets.ubuntu.com/v1/</td>
+      <td>assets server address</td>
+    </tr>
+    <tr>
+      <td>$base-font-family</td>
+      <td>"Ubuntu, Arial, 'libra sans', sans-serif"</td>
+      <td>Base font family</td>
+    </tr>
+    <tr>
+      <td>$base-font-size</td>
+      <td>16px</td>
+      <td>Base font size</td>
+    </tr>
+    <tr>
+      <td>$heading-font-family</td>
+      <td>$base-font-family</td>
+      <td>Heading font family</td>
+    </tr>
+    <tr>
+      <td>$transparent</td>
+      <td>transparent</td>
+      <td>transparent to use throughout the site</td>
+    </tr>
+    <tr>
+      <td>$brand-color</td>
+      <td>#f7f7f7</td>
+      <td>the theme's core brand colour</td>
+    </tr>
+    <tr>
+      <td>$brand-color-light</td>
+      <td>lighten($brand-color, 48%)</td>
+      <td>light brand colour</td>
+    </tr>
+    <tr>
+      <td>$cool-grey</td>
+      <td>#333</td>
+      <td>cool grey</td>
+    </tr>
+    <tr>
+      <td>$text-color</td>
+      <td>$cool-grey</td>
+      <td>text colour</td>
+    </tr>
+    <tr>
+      <td>$header-link-color</td>
+      <td>$cool-grey</td>
+      <td>header link colour</td>
+    </tr>
+    <tr>
+      <td>$warm-grey</td>
+      <td>#888</td>
+      <td>warm grey</td>
+    </tr>
+    <tr>
+      <td>$mid-grey</td>
+      <td>#cdcdcd</td>
+      <td>mid grey</td>
+    </tr>
+    <tr>
+      <td>$light-grey</td>
+      <td>light grey</td>
+      <td>light grey</td>
+    </tr>
+    <tr>
+      <td>$alto-grey</td>
+      <td>#d2d2d2</td>
+      <td>alto grey</td>
+    </tr>
+    <tr>
+      <td>$white</td>
+      <td>#fff</td>
+      <td>white</td>
+    </tr>
+    <tr>
+      <td>$black</td>
+      <td>#000</td>
+      <td>black</td>
+    </tr>
+    <tr>
+      <td>$row-background</td>
+      <td>#4b1827</td>
+      <td>row background</td>
+    </tr>
+    <tr>
+      <td>$error</td>
+      <td>#df382c</td>
+      <td>error notifications</td>
+    </tr>
+    <tr>
+      <td>$warning</td>
+      <td>#eca918</td>
+      <td>warning notifications</td>
+    </tr>
+    <tr>
+      <td>$success</td>
+      <td>#38b44a</td>
+      <td>success notifications</td>
+    </tr>
+    <tr>
+      <td>$information</td>
+      <td>#19b6ee</td>
+      <td>information notifications</td>
+    </tr>
+    <tr>
+      <td>$box-solid-grey</td>
+      <td>#efefef</td>
+      <td>Box solid grey</td>
+    </tr>
+    <tr>
+      <td>$box-shadow</td>
+      <td>#c2c2c2</td>
+      <td>Box shadows</td>
+    </tr>
+    <tr>
+      <td>$code-bg</td>
+      <td>#fffbeb</td>
+      <td>code backgrounds</td>
+    </tr>
+    <tr>
+      <td>$table-th</td>
+      <td>#fee3d2</td>
+      <td>table header backgrounds</td>
+    </tr>    
+    <tr>
+      <td>$box-border</td>
+      <td>#dfdcd9</td>
+      <td>box borders</td>
+    </tr>    
+    <tr>
+      <td>$link-color</td>
+      <td>#e95420</td>
+      <td>This is the global link color, mainly used for links in content</td>
+    </tr>    
+    <tr>
+      <td>$gutter-width</td>
+      <td>20px</td>
+      <td>gutter width</td>
+    </tr>    
+    <tr>
+      <td>$columns</td>
+      <td>12</td>
+      <td>number of columns in the grid</td>
+    </tr>    
+    <tr>
+      <td>$mobile-nav</td>
+      <td>$cool-grey</td>
+      <td>mobile nav</td>
+    </tr>    
+    <tr>
+      <td>$nav-active-bg</td>
+      <td>#ddd</td>
+      <td>nav active background</td>
+    </tr>
+    <tr>
+      <td>$site-max-width</td>
+      <td>1030px</td>
+      <td>site maximum width</td>
+    </tr>    
+    <tr>
+      <td>$breakpoint-medium</td>
+      <td>768px</td>
+      <td>Medium breakpoint</td>
+    </tr>    
+    <tr>
+      <td>$breakpoint-large</td>
+      <td>$site-max-width</td>
+      <td>Large breakpoint</td>
+    </tr>    
+    <tr>
+      <td>$navigation-threshold</td>
+      <td>620px</td>
+      <td>Threshold to switch to small screen navigation</td>
+    </tr>
 
-<pre><code>
-////
-/// @author       Web Team at Canonical Ltd
-/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-reset
-/// @since        0.0.3
-////
-/// Reset styling
-@mixin vf-reset {
-
-  * {
-    font-smoothing: subpixel-antialiased;
-    box-sizing: border-box;
-  }
-
-  /// Prevent adjustments of font size after orientation changes in IE and iOS.
-  html {
-    text-size-adjust: 100%;
-    font-size: 100%;
-    overflow-y: scroll;
-  }
-
-  a,
-  acronym,
-  address,
-  applet,
-  article,
-  aside,
-  audio,
-  b,
-  big,
-  blockquote,
-  body,
-  canvas,
-  caption,
-  center,
-  cite,
-  code,
-  del,
-  details,
-  dfn,
-  div,
-  dl,
-  em,
-  embed,
-  figcaption,
-  figure,
-  footer,
-  form,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  header,
-  html,
-  i,
-  iframe,
-  img,
-  ins,
-  kbd,
-  label,
-  legend,
-  li,
-  mark,
-  menu,
-  nav,
-  object,
-  ol,
-  output,
-  p,
-  pre,
-  q,
-  ruby,
-  s,
-  samp,
-  section,
-  small,
-  span,
-  strike,
-  strong,
-  sub,
-  summary,
-  sup,
-  table,
-  tbody,
-  td,
-  tfoot,
-  th,
-  thead,
-  time,
-  tr,
-  tt,
-  u,
-  ul,
-  var,
-  video {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-  }
-
-  // Create block level HTML5 elems
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  main,
-  menu,
-  nav,
-  section,
-  summary {
-    display: block;
-  }
-
-  // Add the correct display in IE 9-.
-  audio,
-  canvas,
-  progress,
-  video {
-    display: inline-block;
-  }
-
- // Add the correct display in iOS 4-7.
-  audio:not([controls]) {
-    display: none;
-    height: 0;
-  }
-
-  // Add the correct vertical alignment in Chrome, Firefox, and Opera.
-  progress {
-    vertical-align: baseline;
-  }
-
-  // Add the correct display in IE 10- & Add the correct display in IE.
-  template,
-  [hidden] {
-    display: none;
-  }
-
-  // Remove the gray background on active links in IE 10 & remove gaps in links
-  // underline in iOS 8+ and Safari 8+.
-  a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-  }
-
-  // Remove the bottom border in Firefox 39- & Add the correct text decoration
-  // in Chrome, Edge, IE, Opera, and Safari.
-  abbr[title] {
-    border-bottom: 0;
-    text-decoration: underline;
-  }
-
-  blockquote,
-  q {
-    quotes: none;
-  }
-
-  legend {
-    border: 0;
-  }
-
-  figure {
-    margin: 0;
-  }
-
-  abbr,
-  acronym {
-    cursor: help;
-  }
-
-  .link-arrow:after {
-    content: '\0000a0›';
-  }
-
-  nav ul li h2 a:after {
-    content: '\0000a0›';
-  }
-
-  nav ul li a:after,
-  ul li p a:after {
-    content: '';
-  }
-
-  img {
-    border: 0;
-    height: auto;
-    max-width: 100%;
-
-    .left {
-      margin-right: $gutter-width;
-    }
-
-    .right {
-      margin-left: $gutter-width;
-    }
-  }
-
-  .middle img {
-    vertical-align: middle;
-    margin-top: 4em;
-  }
-
-  ins {
-    background: $code-bg;
-    text-decoration: none;
-  }
-}
-
-/// Add the correct font weight in Chrome, Edge, and Safari.
-b,
-strong {
-  font-weight: bolder;
-}
-
-/// Add the correct font style in Android 4.3-.
-dfn {
-  font-style: italic;
-}
-
-/// Correct the font size and margin on `h1` elements within `section` and
-/// `article` contexts in Chrome, Firefox, and Safari.
-h1 {
-  font-size: 2em;
-  margin: .67em 0;
-}
-
-/// Add the correct background and color in IE 9-.
-mark {
-  background-color: $brand-color;
-  color: $cool-grey;
-}
-
-/// Add the correct font size in all browsers.
-small {
-  font-size: 80%;
-}
-
-/// Prevent `sub` and `sup` elements from affecting the line height in
-/// all browsers.
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -.25em;
-}
-
-sup {
-  top: -.5em;
-}
-
-/// Remove the border on images inside links in IE 10-.
-img {
-  border-style: none;
-}
-
-/// Hide the overflow in IE.
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/// Correct the inheritance and scaling of font size in all browsers.
-/// Correct the odd `em` font sizing in all browsers.
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-/// Add the correct margin in IE 8.
-figure {
-  margin: 1em 40px;
-}
-
-/// Add the correct box sizing in Firefox.
-/// Show the overflow in Edge and IE.
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-
-/// Change font properties to `inherit` in all browsers (opinionated).
-/// Remove the margin in Firefox and Safari.
-button,
-input,
-optgroup,
-select,
-textarea {
-  font: inherit;
-  margin: 0;
-}
-
-/// Restore the font weight unset by the previous rule.
-optgroup {
-  font-weight: bold;
-}
-
-/// Show the overflow in IE & show the overflow in Edge.
-button,
-input {
-  overflow: visible;
-}
-
-/// Remove the inheritance of text transform in Edge, Firefox, and IE.
-/// Remove the inheritance of text transform in Firefox.
-button,
-select {
-  text-transform: none;
-}
-
-/// Prevent a WebKit bug where destroys native `audio` and `video`
-/// controls in Android 4.
-/// Correct the inability to style clickable types in iOS and Safari.
-button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-/// Remove the inner border and padding in Firefox.
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/// Restore the focus styles unset by the previous rule.
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/// Change the border, margin, and padding in all browsers (opinionated).
-fieldset {
-  border: 1px solid $box-solid-grey;
-  margin: 0 2px;
-  padding: .35em .625em .75em;
-}
-
-/// Correct the text wrapping in Edge and IE.
-/// Correct the color inheritance from `fieldset` elements in IE.
-/// Remove the padding so developers are not caught out when they zero out
-/// `fieldset` elements in all browsers.
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-
-/// Remove the default vertical scrollbar in IE.
-textarea {
-  overflow: auto;
-}
-
-/// Add the correct box sizing in IE 10-.
-/// Remove the padding in IE 10-.
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-/// Correct the cursor style of increment and decrement buttons in Chrome.
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/// Correct the odd appearance in Chrome and Safari.
-/// Correct the outline style in Safari.
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-
-/// Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/// Correct the text style of placeholders in Chrome, Edge, and Safari.
-::-webkit-input-placeholder {
-  color: inherit;
-  opacity: .54;
-}
-
-/// Correct the inability to style clickable types in iOS and Safari.
-/// Change font properties to `inherit` in Safari.
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-</code></pre>
+  </tbody>
+</table>
