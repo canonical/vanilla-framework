@@ -135,7 +135,7 @@ gulp.task('sass-build', function() {
 });
 
 gulp.task('sass-develop', function() {
-  return gulp.src(['scss/build.scss', 'scss/patternlib.scss'])
+  return gulp.src(['scss/build.scss', 'scss/pattern-lib.scss'])
     .pipe(sass({ style: 'expanded', errLogToConsole: true }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(gulp.dest('build/css/'))
@@ -152,6 +152,6 @@ gulp.task('develop', ['pattern-library', 'sass-develop', 'watch', 'browser-sync'
 
 gulp.task('test', ['sasslint']);
 
-gulp.task('build', ['pattern-library', 'sasslint', 'sass-build']);
+gulp.task('build', ['pattern-library', 'sass-build']);
 
 gulp.task('default', ['help']);
