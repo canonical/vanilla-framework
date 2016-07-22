@@ -28,9 +28,7 @@ siteMeta = {
   name:     'Vanilla Framework',
   desc:     'A living Pattern Library showcasing Vanilla Framework',
   author:   'Canonical Web Team',
-  contact:  'https://twitter.com/craigbuckler',
-  domain:    devBuild ? 'http://127.0.0.1' : 'https://rawgit.com', // set domain
-  rootpath:  devBuild ? null  : '/sitepoint-editors/metalsmith-demo/master/build/' // set absolute path (null for relative)
+  contact:  'https://mobile.twitter.com/vanillaframewrk'
 },
 
 // modules
