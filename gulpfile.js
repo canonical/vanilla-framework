@@ -10,7 +10,7 @@ pkg = require('./package.json'),
 dir = {
   base: __dirname + '/',
   lib: __dirname + '/lib/',
-  source: './src/',
+  source: './docs/',
   dest: './build/'
 },
 
