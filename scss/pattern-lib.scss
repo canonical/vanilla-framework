@@ -8,14 +8,15 @@ $sidebar-width: 12em;
 
 .pl-header {
   width: 100%;
-  background: #4a4a4a;
+  background: $cool-grey;
   padding: 1rem;
   display: flex;
 
   &__link {
-    color: #fff;
+    color: $white;
 
-    &, &:hover {
+    &,
+    &:hover {
       text-decoration: none;
     }
   }
@@ -23,14 +24,12 @@ $sidebar-width: 12em;
 
 .pl {
 
-  font-family: Ubuntu, sans-serif;
   margin: 0;
 
   &__heading {
     text-transform: capitalize;
     margin: 0 0 1rem;
     border-bottom: 1px solid $mid-grey;
-    text-transform: capitalize;
   }
 
   &__nav {
@@ -38,7 +37,7 @@ $sidebar-width: 12em;
   }
 
   .topnav-list {
-    margin:0;
+    margin: 0;
     padding: 0;
     list-style: none;
     padding-right: 2rem;
@@ -50,7 +49,7 @@ $sidebar-width: 12em;
     }
 
     &__link {
-      color: #fff;
+      color: $white;
       text-decoration: none;
       font-weight: 300;
     }
@@ -74,61 +73,60 @@ $sidebar-width: 12em;
 
   &__sidenav {
     order: -1;
-    background: #f7f7f7;
+    background: $light-grey;
+  }
 
-    .sidenav-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+  .sidenav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-      &__item {
-        margin-bottom: 0;
-      }
+    &__item {
+      margin-bottom: 0;
+    }
 
-      &__link {
-        text-transform: capitalize;
-        display: inline-block;
-        margin-bottom: .5rem;
-        padding-left: .5rem;
-        font-size: .875rem;
-        text-decoration: none;
-        margin-bottom: 0;
+    &__link {
+      text-transform: capitalize;
+      display: inline-block;
+      padding-left: .5rem;
+      font-size: .875rem;
+      text-decoration: none;
+      margin-bottom: 0;
+    }
 
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+    &__link:hover {
+      text-decoration: underline;
     }
   }
 
   &__footer {
-    background: #f7f7f7;
+    background: $light-grey;
     padding: 2rem;
     padding-left: calc(#{$sidebar-width} + 2.5rem);
     font-size: .875rem;
-    color: darken(#f7f7f7, 25%);
+    color: darken($light-grey, 25%);
 
     .inline-list {
       list-style: none;
-
-      padding: 0;
+      padding: 1rem 0 0;
       margin: 0;
+    }
 
-      li {
-        display: inline;
-        font-size: .875rem;
-        padding:1rem 0 0;
+    .inline-list__item {
+      display: inline;
+      font-size: .875rem;
+      padding: 1rem 0 0;
+    }
 
-        &::after {
-          content: "•";
-          color: #888;
-          font-size: 1em;
-          padding: 0 .25rem;
-        }
-        &:last-child::after {
-          content: "";
-        }
-      }
+    .inline-list__item:after {
+      content: '•';
+      color: $cool-grey;
+      font-size: 1em;
+      padding: 0 .25rem;
+    }
+
+    .inline-list__item:last-child::after {
+      content: '';
     }
   }
 
@@ -139,9 +137,11 @@ $sidebar-width: 12em;
       flex: 1;
       min-height: calc(100vh - 100px);
     }
+
     .pl__content {
       flex: 1;
     }
+
     .pl__sidenav {
       flex: 0 0 $sidebar-width;
     }
