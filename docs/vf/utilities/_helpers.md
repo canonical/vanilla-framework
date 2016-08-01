@@ -1,5 +1,5 @@
 ---
-collection: overrides
+collection: utilities
 title: helpers
 ---
 
