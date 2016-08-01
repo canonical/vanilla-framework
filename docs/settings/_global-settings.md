@@ -14,7 +14,7 @@ These settings are the defaults used by Vanilla when first included in your site
   </thead>
   <tbody>
     <tr>
-      <td>$asset-path</td>
+      <td>$webfont-assets-path</td>
       <td>https://assets.ubuntu.com/sites/ubuntu/latest/u/</td>
       <td>assets database path</td>
     </tr>
