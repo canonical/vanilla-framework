@@ -1,15 +1,4 @@
-////
-/// @author       Web Team at Canonical Ltd
-/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-lists
-/// @since        0.0.3
-////
-
-/// Default list styling
-/// @group Lists
-/// @example
-///   <ul>
-///     <li>...</li>
-///   </ul>
+// Default list styling
 @mixin vf-lists {
   @include vf-lists-list();
   @include vf-lists-list-ticks();
@@ -19,24 +8,14 @@
   @include vf-stepped-list();
 }
 
-/// List styling using list class
-/// @group Lists
-/// @example
-///   <ul class='lists'>
-///     <li>...</li>
-///   </ul>
+// List styling using list class
 @mixin vf-lists-list {
   .list {
     @extend %list;
   }
 }
 
-/// Displays an ubuntu styled list with tick bullets
-/// @group Lists
-/// @example
-///   <ul class='list-ticks'>
-///     <li>...</li>
-///   </ul>
+// Displays an ubuntu styled list with tick bullets
 @mixin vf-lists-list-ticks() {
   .list-ticks {
     @extend %list-ticks;
@@ -47,12 +26,7 @@
   }
 }
 
-/// Displays a default styled list with no bullets
-/// @group Lists
-/// @example
-///   <ul class='no-bullets'>
-///     <li>...</li>
-///   </ul>
+// Displays a default styled list with no bullets
 @mixin vf-lists-no-bullets {
   .no-bullets {
     list-style: none;
@@ -60,17 +34,7 @@
   }
 }
 
-/// Displays split as one on small screens
-/// @group Lists
-/// @example
-/// <div class='combined-list'>
-///   <ul>
-///     <li>...</li>
-///   </ul>
-///   <ul>
-///     <li>...</li>
-///   </ul>
-/// </div>
+// Displays split as one on small screens
 @mixin vf-lists-combined-list {
   .combined-list {
     ul,
@@ -108,12 +72,7 @@
   }
 }
 
-/// Displays a list inline with spacing
-/// @group Lists
-/// @example
-///   <ul class='inline-list'>
-///     <li>...</li>
-///   </ul>
+// Displays a list inline with spacing
 @mixin vf-lists-inline-list {
   .inline-list {
     margin-left: 0;
@@ -130,19 +89,7 @@
   }
 }
 
-/// Displays a step by step list of instructions
-/// @group Lists
-/// @example
-///   <ol class='list-step'>
-///     <li class='list-step__item eight-col'>
-///       <h3 class='list-step__title'>
-///         <span class='list-step__bullet'>1</span>
-///         First step
-///       </h3>
-///       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-///     </li>
-///     ...
-///   </ol>
+// Displays a step by step list of instructions
 @mixin vf-stepped-list {
 
   .list-step {
