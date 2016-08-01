@@ -1,5 +1,5 @@
 ---
-collection: tools
+collection: layout
 title: rows
 ---
 
