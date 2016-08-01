@@ -189,7 +189,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>Large breakpoint</td>
     </tr>    
     <tr>
-      <td>$navigation-threshold</td>
+      <td>$breakpoint-small</td>
       <td>620px</td>
       <td>Threshold to switch to small screen navigation</td>
     </tr>
