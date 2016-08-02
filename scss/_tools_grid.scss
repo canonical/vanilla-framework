@@ -1,22 +1,8 @@
-////
-/// @author       Web Team at Canonical Ltd
-/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-grid
-/// @since        0.0.3
-////
-
-/// This grid is composed by 12 columns (units) separated by 11 gutters.
-/// The first and last column are for padding purposes only.
-/// The content fits in the middle 12 columns.
-/// Possible divisions: 1 (12 units + 11 gutters), 2 (6 units + 5 gutters),
-/// 3 ( 4 units + 3 gutters) and 4 (3 units + 2 gutters).
-/// @group Grid
-/// @example
-/// <div class="six-col">
-///   ...
-/// </div>
-/// <div class="six-col last-col">
-///   ...
-/// </div>
+// This grid is composed by 12 columns (units) separated by 11 gutters.
+// The first and last column are for padding purposes only.
+// The content fits in the middle 12 columns.
+// Possible divisions: 1 (12 units + 11 gutters), 2 (6 units + 5 gutters),
+// 3 ( 4 units + 3 gutters) and 4 (3 units + 2 gutters).
 
 @import 'tools_number-word';
 
@@ -31,8 +17,7 @@ $single-column-width: ($columns-max-width + $gutter-width) / $columns;
 // Get the percentage width of a standard column
 $single-column-percent: $single-column-width / $columns-max-width * 100%;
 
-/// Column management classes for the grid
-/// @group Grid
+// Column management classes for the grid
 @mixin vf-grid {
   .inner-wrapper { @extend %vf-inner-wrapper; }
   [class*='-col'].last-col,
@@ -52,7 +37,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
 }
 
 
-/// Centralised wrapper for the main site body
+// Centralised wrapper for the main site body
 %vf-inner-wrapper {
   margin: 0 auto;
   max-width: $site-max-width;
@@ -63,7 +48,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   margin-right: 0;
 }
 
-/// Calculate the width and margin-right for all columns
+// Calculate the width and margin-right for all columns
 @mixin column-spacing($num-columns, $this-max-width: $columns-max-width, $total-columns: $columns) {
   // Calculate gutter percentage as representing $gutter-width pixels (default 20px)
   // of the max width for this context (default 904px)
@@ -93,11 +78,11 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   }
 }
 
-/// Generate classes for columns
-/// The english word for the numbers will be used (e.g.: one, two)
-/// With a prefix (default: blank) or suffix (default: '-col') either side.
-/// So by default, the classes will be "one-col", "two-col" etc.
-/// Each column class will include rules for nested column classes within it
+// Generate classes for columns
+// The english word for the numbers will be used (e.g.: one, two)
+// With a prefix (default: blank) or suffix (default: '-col') either side.
+// So by default, the classes will be "one-col", "two-col" etc.
+// Each column class will include rules for nested column classes within it
 @mixin generate-column-classes($total-columns, $prefix: '', $suffix: '-col') {
   @for $class-columns from 1 through ($total-columns) {
     // Use the "number-word" function
@@ -161,7 +146,7 @@ $single-column-percent: $single-column-width / $columns-max-width * 100%;
   }
 }
 
-/// Push and pull columns need to float
+// Push and pull columns need to float
 @mixin floating-column {
   float: left;
   position: relative;

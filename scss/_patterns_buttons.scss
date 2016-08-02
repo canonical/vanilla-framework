@@ -1,22 +1,10 @@
-////
-/// @author       Web Team at Canonical Ltd
-/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-buttons
-/// @since        0.0.3
-////
-
-/// Default blockquote styling
-/// @group Buttons
+// Default blockquote styling
 @mixin vf-buttons {
   @include vf-primary-button;
   @include vf-secondary-button;
 }
 
-/// Primary button styling
-/// @group Buttons
-/// @example
-/// <a class="button--primary">
-///   ...
-/// </a>
+// Primary button styling
 @mixin vf-primary-button {
   button,
   input[type='button'],
@@ -31,20 +19,14 @@
   }
 }
 
-/// Secondary button styling
-/// @group Buttons
-/// @example
-/// <a class="button--secondary">
-///   ...
-/// </a>
+// Secondary button styling
 @mixin vf-secondary-button {
   .button--secondary {
     @include vf-button($primary-button-color, $white, $mid-grey);
   }
 }
 
-/// Default button mixin
-/// @group Buttons
+// Default button mixin
 @mixin vf-button($button-color, $button-bg, $border-color) {
 
   @extend %button-pattern;
@@ -62,8 +44,7 @@
   }
 }
 
-/// Default button pattern styles
-/// @group Buttons
+// Default button pattern styles
 %button-pattern {
   font-smoothing: subpixel-antialiased;
   font-size: 1em;

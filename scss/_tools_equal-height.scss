@@ -1,16 +1,4 @@
-////
-/// @author       Web Team at Canonical Ltd
-/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#utils-mixin-vf-equal-height
-/// @since        0.0.13
-////
-
-/// Equal heights makes all immediate child divs and li's heights equal
-/// @group Utils
-/// @example
-///   <div class="row equal-height">
-///     <div class="six-col equal-height__item">...</div>
-///     <div class="six-col last-col equal-height__item">...</div>
-///   </div>
+// Equal heights makes all immediate child divs and li's heights equal
 @mixin vf-equal-heights {
   @include vf-equal-height;
   @include vf-vertical-divider;
@@ -24,15 +12,7 @@
   @include vf-align-vertically();
 }
 
-/// Sets the element to center an inner element vertically. Has to be used in conjunction with equal-height and if it's an image it'll need align-center, too.
-/// @group Utils
-/// @example
-///   <div class="row equal-height">
-///     <div class="eight-col">...</div>
-///     <div class="four-col align-vertically align-center last-col">
-///       <img src="love-orange.svg" alt="" />
-///     </div>
-///   </div>
+// Sets the element to center an inner element vertically. Has to be used in conjunction with equal-height and if it's an image it'll need align-center, too.
 @mixin vf-align-vertically {
   @media only screen and (min-width : $breakpoint-medium) {
     .equal-height__align-vertically {
@@ -42,13 +22,7 @@
   }
 }
 
-/// Vertical divider applies a vertical divider between columns inside parent
-/// @group Utils
-/// @example
-///   <div class="row equal-height--vertical-divider">
-///     <div class="six-col equal-height--vertical-divider__item">...</div>
-///   <div class="six-col last-col equal-height--vertical-divider__item">...</div>
-///   </div>
+// Vertical divider applies a vertical divider between columns inside parent
 @mixin vf-vertical-divider {
   .equal-height--vertical-divider {
     @extend %equal-height;
@@ -101,8 +75,7 @@
   }
 }
 
-/// Default equal-height pattern styles
-/// @group Utils
+// Default equal-height pattern styles
 %equal-height {
   @media only screen and (min-width : $breakpoint-medium) {
     display: flex;

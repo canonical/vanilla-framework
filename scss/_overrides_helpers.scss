@@ -1,11 +1,4 @@
-////
-/// @author       Web Team at Canonical Ltd
-/// @link         http://ubuntudesign.github.io/vanilla-framework/docs/#mixin-vf-helpers
-/// @since        0.0.52
-////
-
-/// A collect of functions to aid and enhance the users abililty
-/// @group Helpers
+// A collect of functions to aid and enhance the users abililty
 @mixin vf-helpers {
   @include vf-left;
   @include vf-right;
@@ -29,42 +22,22 @@
 }
 
 
-/// Floats an element left
-/// @group Helpers
-/// @example
-///   <div class="left">
-///   </div>
+// Floats an element left
 @mixin vf-left {
   .left { float: left; }
 }
 
-/// Floats an element right
-/// @group Helpers
-/// @example
-///   <div class="right">
-///   </div>
+// Floats an element right
 @mixin vf-right {
   .right { float: right; }
 }
 
-/// Removes the border from element
-/// @group Helpers
-/// @example
-///   <div class="row no-border">
-///     ...
-///   </div>
+// Removes the border from element
 @mixin vf-no-border {
   .no-border { border: 0; }
 }
 
-/// Provides a wrapper that positions the link over the rows border
-/// @group Helpers
-/// @example
-///   <div class="row">
-///     <div class="link-top">
-///       <a href="#">Back to top</a>
-///     </div>
-///   </div>
+// Provides a wrapper that positions the link over the rows border
 @mixin vf-link-top {
   .link-top {
     font-size: .875em;
@@ -82,24 +55,12 @@
   }
 }
 
-/// Convents text to uppercase
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <p class="caps">This text should be uppercase</p>
-///   </div>
+// Convents text to uppercase
 @mixin vf-caps {
   .caps { text-transform: uppercase; }
 }
 
 /// Hides containing elements to the left off screen but its available for screen readers
-/// @group Helpers
-/// @example
-///   <ul class="accessibility-aid">
-///     <li class="accessibility-aid">
-///       <a accesskey="s" href="#main-content">Jump to content</a>
-///     </li>
-///   </ul>
 @mixin vf-accessibility-aid {
   .accessibility-aid,
   .off-left {
@@ -108,10 +69,7 @@
   }
 }
 
-/// Appends an external icon ot the right of the link
-/// @group Helpers
-/// @example
-///   <a href="..." class="external">Jump to another site</a>
+// Appends an external icon ot the right of the link
 @mixin vf-external {
   .external {
     background-size: .7em .7em;
@@ -126,41 +84,23 @@
   }
 }
 
-/// Sets the element to text-align center
-/// @group Helpers
-/// @example
-///   <div class="twelve-col">
-///     <p class="align-center">Centered text</p>
-///   </div>
+// Sets the element to text-align center
 @mixin vf-align-center {
   .text-center,
   .align-center { text-align: center; }
 }
 
-/// Removes margin bottom
-/// @group Helpers
-/// @example
-///   <div class="six-col no-margin-bottom">
-///   </div>
+// Removes margin bottom
 @mixin vf-no-margin-bottom {
   .no-margin-bottom { margin-bottom: 0; }
 }
 
-/// Removes padding bottom
-/// @group Helpers
-/// @example
-///   <div class="six-col no-padding-bottom">
-///   </div>
+// Removes padding bottom
 @mixin vf-no-padding-bottom {
   .no-padding-bottom { padding-bottom: 0; }
 }
 
-/// Aligns the element to the bottom right corner
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="pull-bottom-right" />
-///   </div>
+// Aligns the element to the bottom right corner
 @mixin vf-pull-bottom-right {
   .pull-bottom-right {
     float: right;
@@ -182,12 +122,7 @@
   }
 }
 
-/// Aligns the element to the bottom left corner
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="pull-bottom-left" />
-///   </div>
+// Aligns the element to the bottom left corner
 @mixin vf-pull-bottom-left {
 
   .pull-bottom-left {
@@ -211,13 +146,7 @@
 }
 
 
-/// By wrapping a video embed it makes the video responsive
-/// @group Helpers
-/// @example
-///   <div class="video-container">
-///     <iframe width="442" height="249" src="http://www.youtube.com/embed/6pSslGRi-ew?rel=0&amp;wmode=opaque&amp;modestbranding=0" frameborder="0" allowfullscreen=""></iframe>
-///     <h3 class="video-title">Landscape - Canonical's systems management tool for Ubuntu</h3>
-///   </div>
+// By wrapping a video embed it makes the video responsive
 @mixin vf-video-container {
   .video-container {
     position: relative;
@@ -240,12 +169,7 @@
   }
 }
 
-/// Aligns the element to the right of the the container
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="pull-right" />
-///   </div>
+// Aligns the element to the right of the the container
 @mixin vf-pull-right {
   .pull-right {
     @media only screen and (max-width : $breakpoint-medium) {
@@ -257,24 +181,14 @@
   }
 }
 
-/// Aligns the element to the left of the the container
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="pull-left" />
-///   </div>
+// Aligns the element to the left of the the container
 @mixin vf-pull-left {
   .pull-left {
     margin-left: -($gutter-width * 2);
   }
 }
 
-/// Hides content on small screens
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="priority-0" />
-///   </div>
+// Hides content on small screens
 @mixin vf-priority-0 {
   @media only screen and (max-width : $breakpoint-medium - 1) {
     .priority-0,
@@ -285,12 +199,7 @@
 
 }
 
-/// Display's on medium view and larger
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="for-medium" />
-///   </div>
+// Display's on medium view and larger
 @mixin vf-for-medium {
   .for-tablet,
   .for-medium {
@@ -302,12 +211,7 @@
   }
 }
 
-/// Shows content only on small screens
-/// @group Helpers
-/// @example
-///   <div class="six-col">
-///     <img src="..." class="for-small" />
-///   </div>
+// Shows content only on small screens
 @mixin vf-for-small {
   @media only screen and (min-width : $breakpoint-medium) {
     .for-mobile,
@@ -317,16 +221,8 @@
   }
 }
 
-/// Med-six-col is a wrapper for a group three-cols.
-/// It converts the three-cols to six-cols in medium viewports
-/// @group Helpers
-/// @example
-///   <div class="med-six-col">
-///     <div class="three-col">...</div>
-///     <div class="three-col">...</div>
-///     <div class="three-col">...</div>
-///     <div class="three-col last-col">...</div>
-///   </div>
+// Med-six-col is a wrapper for a group three-cols.
+// It converts the three-cols to six-cols in medium viewports
 @mixin vf-med-six-col {
   .med-six-col {
 
