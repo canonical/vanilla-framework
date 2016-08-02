@@ -1,4 +1,4 @@
 ---
-collection: tools
+collection: layout
 title: number word
 ---
