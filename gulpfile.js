@@ -43,18 +43,12 @@ util = require('util'),
 concat = require('gulp-concat'),
 browserSync = require('browser-sync').create(),
 reload      = browserSync.reload,
-ghPages = require('gulp-gh-pages'),
-// Metalmsith - pattern library generation
-metalsmith = require('metalsmith'),
-markdown   = require('metalsmith-markdown'),
-layouts = require('metalsmith-layouts'),
-collections = require('metalsmith-collections'),
-permalinks = require('metalsmith-permalinks');
+ghPages = require('gulp-gh-pages');
 
 /* Gulp instructions start here */
 gulp.task('help', function() {
   console.log('sass - Generate the min and unminified css from sass');
-  console.log('develop - Generate Pattern Library and watch assets');
+  console.log('develop - Build and watch assets for development');
   console.log('build - Generate css');
   console.log('watch - Watch sass files and generate unminified css');
   console.log('test - Lints Sass');
