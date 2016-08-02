@@ -41,13 +41,6 @@ title: helpers
     </div>
 </div>
 
-<h3>.touch-border</h3>
-<div class="row" id="touch-border">
-    <div class="twelve-col no-margin-bottom">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=350%C3%97150&amp;w=350&amp;h=150" alt="" class="touch-border">
-    </div>
-</div>
-
 <h3>.accessibility-aid</h3>
 <div class="row" id="accessibility-aid">
     <p class="accessibility-aid">You should not see this text</p>

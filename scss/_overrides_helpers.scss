@@ -12,7 +12,6 @@
   @include vf-no-border;
   @include vf-link-top;
   @include vf-caps;
-  @include vf-touch-border;
   @include vf-accessibility-aid;
   @include vf-external;
   @include vf-align-center;
@@ -91,31 +90,6 @@
 ///   </div>
 @mixin vf-caps {
   .caps { text-transform: uppercase; }
-}
-
-/// Mainly used on images to lower them to touch the bottom border of the row
-/// Requires no-margin-bottom helper on col
-/// @group Helpers
-/// @example
-///   <div class="row">
-///     <div class="six-col no-margin-bottom">
-///       <img src="..." class="touch-bottom" />
-///     </div>
-///   </div>
-@mixin vf-touch-border {
-
-  .touch-border,
-  .touch-bottom {
-    float: left;
-
-    @media only screen and (min-width : $breakpoint-medium) {
-      margin-bottom: -$gutter-width;
-    }
-
-    @media only screen and (min-width: $breakpoint-large) {
-      margin-bottom: -$gutter-width * 2;
-    }
-  }
 }
 
 /// Hides containing elements to the left off screen but its available for screen readers
