@@ -30,3 +30,7 @@
 * `$alto-grey` is now `$color-alto-grey`
 * `$white` is now `$color-white`
 * `$black` is now `$color-black`
+* `$error` is now `$color-error`
+* `$warning` is now `$color-warning`
+* `$success` is now `$color-success`
+* `$link-color` is now `$color-highlight`
