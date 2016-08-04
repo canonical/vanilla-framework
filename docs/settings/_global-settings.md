@@ -99,7 +99,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>warning notifications</td>
     </tr>
     <tr>
-      <td>$success</td>
+      <td>$color-success</td>
       <td>#38b44a</td>
       <td>success notifications</td>
     </tr>
