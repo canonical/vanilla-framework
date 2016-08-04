@@ -124,11 +124,6 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>information notifications</td>
     </tr>
     <tr>
-      <td>$box-solid-grey</td>
-      <td>#efefef</td>
-      <td>Box solid grey</td>
-    </tr>
-    <tr>
       <td>$link-color</td>
       <td>#e95420</td>
       <td>This is the global link color, mainly used for links in content</td>
