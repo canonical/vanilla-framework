@@ -169,7 +169,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>mobile nav</td>
     </tr>    
     <tr>
-      <td>$nav-active-bg</td>
+      <td>$light-grey</td>
       <td>#ddd</td>
       <td>nav active background</td>
     </tr>
