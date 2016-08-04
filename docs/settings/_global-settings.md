@@ -133,16 +133,11 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>#c2c2c2</td>
       <td>Box shadows</td>
     </tr>
-    <tr>
-      <td>$code-bg</td>
-      <td>#fffbeb</td>
-      <td>code backgrounds</td>
-    </tr>  
-    <tr>
       <td>$link-color</td>
       <td>#e95420</td>
       <td>This is the global link color, mainly used for links in content</td>
     </tr>    
+    <tr>
     <tr>
       <td>$gutter-width</td>
       <td>20px</td>
