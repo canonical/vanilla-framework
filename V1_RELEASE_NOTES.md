@@ -20,3 +20,7 @@
 * `$row-background` has been removed
 * `$header-link-color` has been removed
 * `$text-color` has been removed
+* `$transparent` is now `$color-transparent`
+* `$brand-color` is now `$color-brand`
+* `$brand-color-light` is now `$color-brand-light`
+* `$cool-grey` is now `$color-cool-grey`
