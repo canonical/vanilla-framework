@@ -159,19 +159,14 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>number of columns in the grid</td>
     </tr>    
     <tr>
-      <td>$cool-grey</td>
-      <td>$cool-grey</td>
-      <td>mobile nav</td>
-    </tr>    
-    <tr>
-      <td>$light-grey</td>
-      <td>#ddd</td>
-      <td>nav active background</td>
-    </tr>
-    <tr>
       <td>$site-max-width</td>
       <td>1030px</td>
       <td>site maximum width</td>
+    </tr>
+    <tr>
+      <td>$breakpoint-small</td>
+      <td>620px</td>
+      <td>Threshold to switch to small screen navigation</td>
     </tr>    
     <tr>
       <td>$breakpoint-medium</td>
@@ -183,11 +178,5 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>$site-max-width</td>
       <td>Large breakpoint</td>
     </tr>    
-    <tr>
-      <td>$breakpoint-small</td>
-      <td>620px</td>
-      <td>Threshold to switch to small screen navigation</td>
-    </tr>
-
   </tbody>
 </table>
