@@ -45,4 +45,4 @@
 
 * `$base-font-family` is now `$font-base-family`
 * `$base-font-size` is now `$font-base-size`
-* `$heading-font-family` is now `font-heading-family:`
+* `$font-heading-family` is now `font-heading-family`
