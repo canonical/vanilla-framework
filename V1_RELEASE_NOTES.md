@@ -34,3 +34,7 @@
 * `$warning` is now `$color-warning`
 * `$success` is now `$color-success`
 * `$link-color` is now `$color-highlight`
+
+* `$gutter-width` is now `$grid-gutter-width`
+* `$columns` is now `$grid-columns`
+* `$site-max-width` is now `$grid-max-width`

@@ -109,17 +109,17 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>This is the global link color, mainly used for links in content</td>
     </tr>
     <tr>
-      <td>$gutter-width</td>
+      <td>$grid-gutter-width</td>
       <td>20px</td>
       <td>gutter width</td>
     </tr>    
     <tr>
-      <td>$columns</td>
+      <td>$grid-columns</td>
       <td>12</td>
       <td>number of columns in the grid</td>
     </tr>    
     <tr>
-      <td>$site-max-width</td>
+      <td>$grid-max-width</td>
       <td>1030px</td>
       <td>site maximum width</td>
     </tr>
@@ -135,7 +135,7 @@ These settings are the defaults used by Vanilla when first included in your site
     </tr>    
     <tr>
       <td>$breakpoint-large</td>
-      <td>$site-max-width</td>
+      <td>$grid-max-width</td>
       <td>Large breakpoint</td>
     </tr>    
   </tbody>
