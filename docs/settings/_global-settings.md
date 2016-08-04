@@ -79,12 +79,12 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>alto grey</td>
     </tr>
     <tr>
-      <td>$white</td>
+      <td>$color-white</td>
       <td>#fff</td>
       <td>white</td>
     </tr>
     <tr>
-      <td>$black</td>
+      <td>$color-black</td>
       <td>#000</td>
       <td>black</td>
     </tr>

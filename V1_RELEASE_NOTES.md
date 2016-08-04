@@ -26,5 +26,7 @@
 * `$cool-grey` is now `$color-cool-grey`
 * `$warm-grey` is now `$color-warm-grey`
 * `$mid-grey` is now `$color-mid-grey`
-* `$color-light-grey` is now `$color-light-grey`
-* `$color-alto-grey` is now `$color-alto-grey`
+* `$light-grey` is now `$color-light-grey`
+* `$alto-grey` is now `$color-alto-grey`
+* `$white` is now `$color-white`
+* `$black` is now `$color-black`
