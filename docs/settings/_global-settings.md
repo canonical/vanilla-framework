@@ -142,12 +142,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>$table-th</td>
       <td>#fee3d2</td>
       <td>table header backgrounds</td>
-    </tr>    
-    <tr>
-      <td>$box-border</td>
-      <td>#dfdcd9</td>
-      <td>box borders</td>
-    </tr>    
+    </tr>     
     <tr>
       <td>$link-color</td>
       <td>#e95420</td>

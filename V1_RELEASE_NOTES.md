@@ -7,6 +7,8 @@
 ### Settings changes
 
 * `$navigation-threshold` has been replaced with `$breakpoint-small`
-* `$mobile-nav` has been removed from settings
-* `$nav-active-bg` has been removed from settings
-*
+* `$mobile-nav` has been removed
+* `$nav-active-bg` has been removed
+* `$bullet-color` has been removed
+* `$primary-button-color` has been removed
+* `$box-border` has been removed
