@@ -64,11 +64,6 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>text colour</td>
     </tr>
     <tr>
-      <td>$header-link-color</td>
-      <td>$cool-grey</td>
-      <td>header link colour</td>
-    </tr>
-    <tr>
       <td>$warm-grey</td>
       <td>#888</td>
       <td>warm grey</td>
