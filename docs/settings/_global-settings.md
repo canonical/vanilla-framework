@@ -24,7 +24,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>assets server address</td>
     </tr>
     <tr>
-      <td>$base-font-family</td>
+      <td>$font-base-family</td>
       <td>"Ubuntu, Arial, 'libra sans', sans-serif"</td>
       <td>Base font family</td>
     </tr>
@@ -35,7 +35,7 @@ These settings are the defaults used by Vanilla when first included in your site
     </tr>
     <tr>
       <td>$heading-font-family</td>
-      <td>$base-font-family</td>
+      <td>$font-base-family</td>
       <td>Heading font family</td>
     </tr>
     <tr>
