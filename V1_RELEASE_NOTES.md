@@ -19,3 +19,4 @@
 * `$information` has been removed
 * `$row-background` has been removed
 * `$header-link-color` has been removed
+* `$text-color` has been removed
