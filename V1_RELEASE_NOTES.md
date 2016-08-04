@@ -9,3 +9,4 @@
 * `$navigation-threshold` has been replaced with `$breakpoint-small`
 * `$mobile-nav` has been removed from settings
 * `$nav-active-bg` has been removed from settings
+*
