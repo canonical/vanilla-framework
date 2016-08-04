@@ -89,7 +89,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>black</td>
     </tr>
     <tr>
-      <td>$error</td>
+      <td>$color-error</td>
       <td>#df382c</td>
       <td>error notifications</td>
     </tr>
