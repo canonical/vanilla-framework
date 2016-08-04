@@ -94,7 +94,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>error notifications</td>
     </tr>
     <tr>
-      <td>$warning</td>
+      <td>$color-warning</td>
       <td>#eca918</td>
       <td>warning notifications</td>
     </tr>
