@@ -164,7 +164,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>number of columns in the grid</td>
     </tr>    
     <tr>
-      <td>$mobile-nav</td>
+      <td>$cool-grey</td>
       <td>$cool-grey</td>
       <td>mobile nav</td>
     </tr>    
