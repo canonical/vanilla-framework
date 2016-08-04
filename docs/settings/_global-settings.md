@@ -44,13 +44,13 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>transparent to use throughout the site</td>
     </tr>
     <tr>
-      <td>$brand-color</td>
+      <td>$color-brand</td>
       <td>#f7f7f7</td>
       <td>the theme's core brand colour</td>
     </tr>
     <tr>
-      <td>$brand-color-light</td>
-      <td>lighten($brand-color, 48%)</td>
+      <td>$color-brand-light</td>
+      <td>lighten($color-brand, 48%)</td>
       <td>light brand colour</td>
     </tr>
     <tr>
