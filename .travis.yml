@@ -1,14 +1,11 @@
 language: node_js
 node_js:
   - "0.10.37"
-install:
-  - gem install percy-cli -v 1.2.4
 before_script:
   - npm i
   - node_modules/gulp/bin/gulp.js build
 script:
-  - node_modules/gulp/bin/gulp.js test
-  - percy snapshot build/
+  - node_modules/gulp/bin/gulp.js tests
 notifications:
   irc:
     channels:
