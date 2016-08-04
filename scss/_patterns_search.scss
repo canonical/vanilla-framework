@@ -8,7 +8,7 @@
       -webkit-appearance: none;
       background-color: darken($color-brand, 10%);
       box-shadow: none;
-      color: $cool-grey;
+      color: $color-cool-grey;
       display: block;
       float: left;
       font-size: 1em;
@@ -19,33 +19,33 @@
     }
 
     .svg-search-handle {
-      fill: $cool-grey;
+      fill: $color-cool-grey;
     }
 
     .svg-search-frame {
-      stroke: $cool-grey;
+      stroke: $color-cool-grey;
     }
 
     // User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
     // So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
     placeholder {
-      color: $cool-grey;
+      color: $color-cool-grey;
       opacity: 1;
     }
 
     input:placeholder {
-      color: $cool-grey;
+      color: $color-cool-grey;
       opacity: 1;
     }
 
     ::placeholder {
-      color: $cool-grey;
+      color: $color-cool-grey;
       opacity: 1;
     }
 
     [type="search"]:focus {
       background-color: darken($color-brand, 14%);
-      border-color: lighten($cool-grey, 50%);
+      border-color: lighten($color-cool-grey, 50%);
     }
 
     [type=submit] {
@@ -281,7 +281,7 @@
       width: 100%;
 
       [type="search"] {
-        background-color: lighten($cool-grey, 72%);
+        background-color: lighten($color-cool-grey, 72%);
         color: contrast-friendly-search-color($color-brand);
       }
 
@@ -512,7 +512,7 @@
 
     .error-notification {
       background-color: $white;
-      color: $cool-grey;
+      color: $color-cool-grey;
       display: block;
       margin-top: 20px;
       padding: 20px;
@@ -564,7 +564,7 @@
     @return false;
   } @else {
     @if (lightness($color) > 60) {
-      @return $cool-grey; // Lighter background, return dark color
+      @return $color-cool-grey; // Lighter background, return dark color
     } @else {
       @return $white; // Darker background, return light color
     }

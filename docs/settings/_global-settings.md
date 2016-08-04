@@ -54,7 +54,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>light brand colour</td>
     </tr>
     <tr>
-      <td>$cool-grey</td>
+      <td>$color-cool-grey</td>
       <td>#333</td>
       <td>cool grey</td>
     </tr>
