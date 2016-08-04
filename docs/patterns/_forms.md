@@ -18,16 +18,6 @@ title: forms
 <div class="row no-border">
     <div class="six-col">
         <form action="/">
-            <label for="information" class="has-information">Label information state</label>
-            <input placeholder="I'm an input text" type="text" id="information" class="has-information">
-        </form>
-    </div>
-    <div class="four-col prepend-two last-col">Input with information message</div>
-</div>
-
-<div class="row no-border">
-    <div class="six-col">
-        <form action="/">
             <label for="success" class="has-success">Label success state</label>
             <input placeholder="I'm an input text" type="text" id="success" class="has-success">
         </form>

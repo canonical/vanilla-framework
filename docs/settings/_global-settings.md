@@ -119,11 +119,6 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>success notifications</td>
     </tr>
     <tr>
-      <td>$information</td>
-      <td>#19b6ee</td>
-      <td>information notifications</td>
-    </tr>
-    <tr>
       <td>$link-color</td>
       <td>#e95420</td>
       <td>This is the global link color, mainly used for links in content</td>
