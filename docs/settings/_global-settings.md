@@ -29,12 +29,12 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>Base font family</td>
     </tr>
     <tr>
-      <td>$base-font-size</td>
+      <td>$font-base-size</td>
       <td>16px</td>
       <td>Base font size</td>
     </tr>
     <tr>
-      <td>$heading-font-family</td>
+      <td>$font-heading-family</td>
       <td>$font-base-family</td>
       <td>Heading font family</td>
     </tr>

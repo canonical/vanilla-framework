@@ -6,7 +6,7 @@
 
 ### Settings changes
 
-* `$navigation-threshold` has been replaced with `$breakpoint-small`
+
 * `$mobile-nav` has been removed
 * `$nav-active-bg` has been removed
 * `$bullet-color` has been removed
@@ -38,3 +38,11 @@
 * `$gutter-width` is now `$grid-gutter-width`
 * `$columns` is now `$grid-columns`
 * `$site-max-width` is now `$grid-max-width`
+
+* `$navigation-threshold` has been replaced with `$breakpoint-small`
+
+* `$asset-server` is now `$assets-server`
+
+* `$base-font-family` is now `$font-base-family`
+* `$base-font-size` is now `$font-base-size`
+* `$heading-font-family` is now `font-heading-family:`
