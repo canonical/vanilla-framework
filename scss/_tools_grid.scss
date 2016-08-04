@@ -1,0 +1,192 @@
+// This grid is composed by 12 columns (units) separated by 11 gutters.
+// The first and last column are for padding purposes only.
+// The content fits in the middle 12 columns.
+// Possible divisions: 1 (12 units + 11 gutters), 2 (6 units + 5 gutters),
+// 3 ( 4 units + 3 gutters) and 4 (3 units + 2 gutters).
+
+@import 'tools_number-word';
+
+// Columns normally has 40 px of padding either side of
+// the main site
+$columns-max-width: $site-max-width - 80;
+// Calculate gutter percentage as representing $gutter-width pixels (default 20px)
+// of the max width for this context (default 904px)
+$gutter-percent: ($gutter-width / $columns-max-width) * 100%;
+// Get the standard width for a column
+$single-column-width: ($columns-max-width + $gutter-width) / $columns;
+// Get the percentage width of a standard column
+$single-column-percent: $single-column-width / $columns-max-width * 100%;
+
+// Column management classes for the grid
+@mixin vf-grid {
+  .inner-wrapper { @extend %vf-inner-wrapper; }
+  [class*='-col'].last-col,
+  [class*='-col'] [class*='-col'].last-col {
+    @extend %vf-last-col;
+  }
+
+  // Each of these mixins generate classes for as many
+  // columns are defined in the $columns setting.
+  // Generated classes follow the pattern "{prefix}{number-word}{suffix}"
+  // e.g.: "eight-col" or "prepend-two"
+  @include generate-column-classes($columns, '', '-col');
+  @include generate-prepend-classes($columns, 'prepend-', '');
+  @include generate-append-classes($columns, 'append-', '');
+  @include generate-push-classes($columns, 'push-', '');
+  @include generate-pull-classes($columns, 'pull-', '');
+}
+
+
+// Centralised wrapper for the main site body
+%vf-inner-wrapper {
+  margin: 0 auto;
+  max-width: $site-max-width;
+}
+
+// Last columns should have no margin
+%vf-last-col {
+  margin-right: 0;
+}
+
+// Calculate the width and margin-right for all columns
+@mixin column-spacing($num-columns, $this-max-width: $columns-max-width, $total-columns: $columns) {
+  // Calculate gutter percentage as representing $gutter-width pixels (default 20px)
+  // of the max width for this context (default 904px)
+  $local-gutter-percent: ($gutter-width / $this-max-width) * 100%;
+  // The percentage of the total width taken up by one column
+  $column-total-width: (100 + $local-gutter-percent) / $total-columns;
+  // The percentage of the total width taken up by all the columns for this class
+  $columns-total-width: $column-total-width * $num-columns;
+
+  // width + margin-right  = columns-total-width
+  float: left;
+  width: $columns-total-width - $local-gutter-percent;
+  margin-right: $local-gutter-percent;
+}
+
+%vf-column {
+  // Base class styles
+  clear: none;
+  margin-bottom: 20px;
+  margin-right: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  @media only screen and (min-width: $breakpoint-medium) {
+    float: left;
+  }
+}
+
+// Generate classes for columns
+// The english word for the numbers will be used (e.g.: one, two)
+// With a prefix (default: blank) or suffix (default: '-col') either side.
+// So by default, the classes will be "one-col", "two-col" etc.
+// Each column class will include rules for nested column classes within it
+@mixin generate-column-classes($total-columns, $prefix: '', $suffix: '-col') {
+  @for $class-columns from 1 through ($total-columns) {
+    // Use the "number-word" function
+    // to generate class names like ".one-col"
+    .#{$prefix}#{vf-number-word($class-columns)}#{$suffix} {
+      @extend %vf-column;
+
+      @if $class-columns != $total-columns {
+        // Get the width and the height for this column class
+        @media only screen and (min-width: $breakpoint-medium) {
+          @include column-spacing($class-columns);
+
+          // How wide will this column class be?
+          $columns-width: $single-column-width * $class-columns;
+
+          // Nested columns
+          @if $class-columns > 1 {
+
+            // Only include nesting classes for up to the
+            // number of columns that this class will span
+            // e.g. five-col can only contain 5 columns and no more
+            @for $nested-columns from 1 through ($class-columns - 1) {
+              .#{$prefix}#{vf-number-word($nested-columns)}#{$suffix} {
+                // Calculate the width and margin-right for this nested class
+                @include column-spacing($nested-columns, $columns-width, $class-columns);
+              }
+            }
+          }
+
+          .#{$prefix}#{vf-number-word($class-columns)}#{$suffix} {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-prepend-classes($total-columns, $prefix: 'prepend-', $suffix: '') {
+  @media only screen and (min-width: $breakpoint-medium) {
+    // Generate prefix class from column width
+    @for $prepend-columns from 1 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($prepend-columns)}#{$suffix} {
+        margin-left: $single-column-percent * $prepend-columns;
+      }
+    }
+  }
+}
+
+@mixin generate-append-classes($total-columns, $prefix: 'append-', $suffix: '') {
+  @media only screen and (min-width: $breakpoint-medium) {
+    // Generate prefix class from column width
+    @for $append-columns from 1 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($append-columns)}#{$suffix} {
+        margin-right: $single-column-percent * $append-columns;
+      }
+    }
+  }
+}
+
+// Push and pull columns need to float
+@mixin floating-column {
+  float: left;
+  position: relative;
+}
+
+@mixin generate-push-classes($total-columns, $prefix: 'push-', $suffix: '') {
+  @media only screen and (min-width: $breakpoint-medium) {
+    // first column is special
+    .#{$prefix}one#{$suffix} {
+      @include floating-column;
+      margin: 0 (-($single-column-percent)) 0 $single-column-percent;
+    }
+
+    // Generate prefix class from column width
+    @for $push-columns from 2 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($push-columns)}#{$suffix} {
+        @include floating-column;
+        $push-amount: ($single-column-percent * $push-columns) + $gutter-percent;
+        margin: 0 (-($push-amount)) 0 $push-amount;
+      }
+    }
+  }
+}
+
+@mixin generate-pull-classes($total-columns, $prefix: 'pull-', $suffix: '') {
+  @media only screen and (min-width: $breakpoint-medium) {
+    // first column is special
+    .#{$prefix}one#{$suffix} {
+      @include floating-column;
+      margin-left: -($single-column-percent - $gutter-percent);
+    }
+
+    // Generate prefix class from column width
+    @for $pull-columns from 2 through ($total-columns - 1) {
+      // Generate class name from $prefix, number and $suffix
+      .#{$prefix}#{vf-number-word($pull-columns)}#{$suffix} {
+        @include floating-column;
+        margin-left: $single-column-percent * $pull-columns;
+      }
+    }
+  }
+}

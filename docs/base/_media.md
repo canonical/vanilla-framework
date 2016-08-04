@@ -1,0 +1,4 @@
+---
+collection: base
+title: media
+---
