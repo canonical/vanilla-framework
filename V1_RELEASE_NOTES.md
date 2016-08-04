@@ -13,4 +13,5 @@
 * `$primary-button-color` has been removed
 * `$box-border` has been removed
 * `$table-th` has been removed
-* `$code-bg` has been removed
+* `$code-bg` has been removed, `$mid-grey` should be used instead
+* `$box-shadow` has been removed, `$mid-grey` should be used instead
