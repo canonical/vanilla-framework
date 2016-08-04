@@ -39,7 +39,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>Heading font family</td>
     </tr>
     <tr>
-      <td>$transparent</td>
+      <td>$color-transparent</td>
       <td>transparent</td>
       <td>transparent to use throughout the site</td>
     </tr>
