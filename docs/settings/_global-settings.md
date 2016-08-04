@@ -19,7 +19,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>assets database path</td>
     </tr>
     <tr>
-      <td>$asset-server</td>
+      <td>$assets-server</td>
       <td>https://assets.ubuntu.com/v1/</td>
       <td>assets server address</td>
     </tr>
