@@ -59,22 +59,22 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>cool grey</td>
     </tr>
     <tr>
-      <td>$warm-grey</td>
+      <td>$color-warm-grey</td>
       <td>#888</td>
       <td>warm grey</td>
     </tr>
     <tr>
-      <td>$mid-grey</td>
+      <td>$color-mid-grey</td>
       <td>#cdcdcd</td>
       <td>mid grey</td>
     </tr>
     <tr>
-      <td>$light-grey</td>
+      <td>$color-light-grey</td>
       <td>light grey</td>
       <td>light grey</td>
     </tr>
     <tr>
-      <td>$alto-grey</td>
+      <td>$color-alto-grey</td>
       <td>#d2d2d2</td>
       <td>alto grey</td>
     </tr>

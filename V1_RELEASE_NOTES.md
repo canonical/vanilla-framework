@@ -24,3 +24,7 @@
 * `$brand-color` is now `$color-brand`
 * `$brand-color-light` is now `$color-brand-light`
 * `$cool-grey` is now `$color-cool-grey`
+* `$warm-grey` is now `$color-warm-grey`
+* `$mid-grey` is now `$color-mid-grey`
+* `$color-light-grey` is now `$color-light-grey`
+* `$color-alto-grey` is now `$color-alto-grey`
