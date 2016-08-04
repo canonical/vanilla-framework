@@ -137,12 +137,7 @@ These settings are the defaults used by Vanilla when first included in your site
       <td>$code-bg</td>
       <td>#fffbeb</td>
       <td>code backgrounds</td>
-    </tr>
-    <tr>
-      <td>$table-th</td>
-      <td>#fee3d2</td>
-      <td>table header backgrounds</td>
-    </tr>     
+    </tr>  
     <tr>
       <td>$link-color</td>
       <td>#e95420</td>
