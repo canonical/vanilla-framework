@@ -2,7 +2,7 @@
 
 @mixin vf-typography {
 
-  @if str-index($base-font-family, 'Ubuntu') {
+  @if str-index($font-base-family, 'Ubuntu') {
     @font-face {
       font-family: 'Ubuntu';
       font-style: normal;
@@ -59,9 +59,9 @@
   }
 
   body {
-    color: $text-color;
-    font-family: unquote($base-font-family);
-    font-size: $base-font-size;
+    color: $color-cool-grey;
+    font-family: unquote($font-base-family);
+    font-size: $font-base-size;
     font-weight: 300;
   }
 
@@ -77,7 +77,7 @@
   }
 
   a {
-    color: $link-color;
+    color: $color-highlight;
     text-decoration: none;
   }
 
@@ -181,7 +181,7 @@
   }
 
   .note {
-    color: $warm-grey;
+    color: $color-warm-grey;
     font-size: .813em;
   }
 
@@ -193,7 +193,7 @@
   h4,
   h5,
   h6 {
-    font-family: unquote($heading-font-family);
+    font-family: unquote($font-heading-family);
     font-weight: 300;
     line-height: 1.3;
   }
