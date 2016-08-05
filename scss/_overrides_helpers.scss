@@ -46,7 +46,7 @@
     margin-top: -40px;
 
     a {
-      background: $white;
+      background: $color-white;
       margin-right: 10px;
       margin-top: -35px;
       padding: 5px;
@@ -74,13 +74,13 @@
   .external {
     background-size: .7em .7em;
     padding-right: .9em;
-    background-image: url('#{$asset-server}f24a8aa0-external-link-orange.svg');
+    background-image: url('#{$assets-path}f24a8aa0-external-link-orange.svg');
     background-position: 100% top;
     background-repeat: no-repeat;
   }
 
   .no-svg .external {
-    background-image: url('#{$asset-server}f24a8aa0-external-link-orange.svg');
+    background-image: url('#{$assets-path}f24a8aa0-external-link-orange.svg');
   }
 }
 
@@ -104,20 +104,20 @@
 @mixin vf-pull-bottom-right {
   .pull-bottom-right {
     float: right;
-    margin-right: -($gutter-width / 2);
+    margin-right: -($grid-gutter-width / 2);
   }
 
   @media only screen and (min-width : $breakpoint-medium) {
     .pull-bottom-right {
-      margin-right: -($gutter-width * 2);
-      margin-bottom: -($gutter-width * 2);
+      margin-right: -($grid-gutter-width * 2);
+      margin-bottom: -($grid-gutter-width * 2);
     }
   }
 
   @media only screen and (min-width : $breakpoint-large) {
     .pull-bottom-right {
-      margin-right: -($gutter-width * 2);
-      margin-bottom: -($gutter-width * 3);
+      margin-right: -($grid-gutter-width * 2);
+      margin-bottom: -($grid-gutter-width * 3);
     }
   }
 }
@@ -127,20 +127,20 @@
 
   .pull-bottom-left {
     float: left;
-    margin-left: -($gutter-width / 2);
+    margin-left: -($grid-gutter-width / 2);
   }
 
   @media only screen and (min-width : $breakpoint-medium) {
     .pull-bottom-left {
-      margin-left: -($gutter-width * 2);
-      margin-bottom: -($gutter-width * 2);
+      margin-left: -($grid-gutter-width * 2);
+      margin-bottom: -($grid-gutter-width * 2);
     }
   }
 
   @media only screen and (min-width : $breakpoint-large) {
     .pull-bottom-left {
-      margin-left: -($gutter-width * 2);
-      margin-bottom: -($gutter-width * 3);
+      margin-left: -($grid-gutter-width * 2);
+      margin-bottom: -($grid-gutter-width * 3);
     }
   }
 }
@@ -173,18 +173,18 @@
 @mixin vf-pull-right {
   .pull-right {
     @media only screen and (max-width : $breakpoint-medium) {
-      margin-bottom: $gutter-width;
+      margin-bottom: $grid-gutter-width;
     }
 
     float: right;
-    margin-right: -($gutter-width * 2);
+    margin-right: -($grid-gutter-width * 2);
   }
 }
 
 // Aligns the element to the left of the the container
 @mixin vf-pull-left {
   .pull-left {
-    margin-left: -($gutter-width * 2);
+    margin-left: -($grid-gutter-width * 2);
   }
 }
 

@@ -6,9 +6,9 @@
     [type="search"],
     [type="text"] {
       -webkit-appearance: none;
-      background-color: darken($brand-color, 10%);
+      background-color: darken($color-brand, 10%);
       box-shadow: none;
-      color: $cool-grey;
+      color: $color-cool-grey;
       display: block;
       float: left;
       font-size: 1em;
@@ -19,33 +19,33 @@
     }
 
     .svg-search-handle {
-      fill: $cool-grey;
+      fill: $color-cool-grey;
     }
 
     .svg-search-frame {
-      stroke: $cool-grey;
+      stroke: $color-cool-grey;
     }
 
     // User agents are required to ignore a rule with an unknown selector. i.e: a group of selectors containing an invalid selector is invalid.
     // So we need separate placeholder rules for each browser. Otherwise the whole group would be ignored by all browsers.
     placeholder {
-      color: $cool-grey;
+      color: $color-cool-grey;
       opacity: 1;
     }
 
     input:placeholder {
-      color: $cool-grey;
+      color: $color-cool-grey;
       opacity: 1;
     }
 
     ::placeholder {
-      color: $cool-grey;
+      color: $color-cool-grey;
       opacity: 1;
     }
 
     [type="search"]:focus {
-      background-color: darken($brand-color, 14%);
-      border-color: lighten($mobile-nav, 50%);
+      background-color: darken($color-brand, 14%);
+      border-color: lighten($color-cool-grey, 50%);
     }
 
     [type=submit] {
@@ -69,7 +69,7 @@
   }
 
   .banner .search-toggle {
-    background-image: svg-search($brand-color);
+    background-image: svg-search($color-brand);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 20px 20px;
@@ -118,7 +118,7 @@
   // scss-lint:enable NestingDepth, IdSelector
   .header-search,
   .search-form {
-    background: $light-grey;
+    background: $color-light-grey;
     border: 0;
     display: none;
     float: left;
@@ -135,7 +135,7 @@
   .search-form div,
   .header-search div {
     box-shadow: inset 0 -4px 4px -4px rgba(0, 0, 0, .3), inset 0  5px 5px -5px rgba(0, 0, 0, .3);
-    background: lighten($brand-color, 7%);
+    background: lighten($color-brand, 7%);
     margin: 10px;
     position: relative;
     z-index: 1;
@@ -143,10 +143,10 @@
 
   .search-form form [type="search"],
   .header-search form [type="search"] {
-    background: $white;
+    background: $color-white;
     border: 0;
     box-shadow: 0 2px 2px rgba(0, 0, 0, .3) inset, 0 -1px 3px rgba(0, 0, 0, .2) inset, 0 2px 0 rgba(255, 255, 255, .4);
-    color: contrast-friendly-search-color($brand-color);
+    color: contrast-friendly-search-color($color-brand);
     display: block;
     float: left;
     font-size: 1em;
@@ -172,7 +172,7 @@
     }
   }
 
-  @media only screen and (max-width : $navigation-threshold) {
+  @media only screen and (max-width : $breakpoint-small) {
 
     .banner {
       .search-toggle {
@@ -183,18 +183,18 @@
     .no-svg,
     .opera-mini {
       .search-toggle {
-        background-image: url('#{$asset-server}75d8151d-search-white.png');
+        background-image: url('#{$assets-path}75d8151d-search-white.png');
       }
     }
   }
 
-  @media only screen and (min-width : $navigation-threshold) {
+  @media only screen and (min-width : $breakpoint-small) {
     .banner .search-toggle {
       display: none;
     }
   }
 
-  @media only screen and (min-width : $navigation-threshold) {
+  @media only screen and (min-width : $breakpoint-small) {
     .search-form,
     .header-search {
       background: none;
@@ -209,10 +209,10 @@
       form [type="search"] {
         box-shadow: 0 2px 4px rgba(0, 0, 0, .4) inset;
         box-sizing: content-box;
-        background-color: darken($brand-color, 10%);
-        border: 0 solid darken($brand-color, 12%);
+        background-color: darken($color-brand, 10%);
+        border: 0 solid darken($color-brand, 12%);
         border-width: 0 0 1px;
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
         font-size: .813em;
         height: 24px;
         margin-bottom: 0;
@@ -221,72 +221,72 @@
         width: 86px;
 
         &:focus {
-          background-color: darken($brand-color, 14%);
-          border-color: darken($brand-color, 20%);
+          background-color: darken($color-brand, 14%);
+          border-color: darken($color-brand, 20%);
         }
       }
 
       .svg-search-handle {
-        fill: contrast-friendly-search-color($brand-color);
+        fill: contrast-friendly-search-color($color-brand);
       }
 
       .svg-search-frame {
-        stroke: contrast-friendly-search-color($brand-color);
+        stroke: contrast-friendly-search-color($color-brand);
       }
 
       placeholder {
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
       }
 
       input:placeholder {
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
       }
 
       ::placeholder {
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
       }
     }
   }
 
-  @media only screen and (min-width :$navigation-threshold) {
+  @media only screen and (min-width :$breakpoint-small) {
     .header-search,
     .search-form {
 
       .svg-search-handle {
-        fill: contrast-friendly-search-color($brand-color);
+        fill: contrast-friendly-search-color($color-brand);
       }
 
       .svg-search-frame {
-        stroke: contrast-friendly-search-color($brand-color);
+        stroke: contrast-friendly-search-color($color-brand);
       }
 
       placeholder {
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
       }
 
       input:placeholder {
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
       }
 
       ::placeholder {
-        color: contrast-friendly-search-color($brand-color);
+        color: contrast-friendly-search-color($color-brand);
       }
     }
   }
 
-  @media only screen and (max-width : $navigation-threshold) {
+  @media only screen and (max-width : $breakpoint-small) {
     .banner .nav-primary .header-search {
       position: relative;
       top: 0;
       width: 100%;
 
       [type="search"] {
-        background-color: lighten($mobile-nav, 72%);
-        color: contrast-friendly-search-color($brand-color);
+        background-color: lighten($color-cool-grey, 72%);
+        color: contrast-friendly-search-color($color-brand);
       }
 
       [type="submit"] {
-        background-color: $transparent;
+        background-color: $color-transparent;
         height: 38px;
         margin-top: 0;
         width: 32px;
@@ -303,7 +303,7 @@
     }
 
     .banner .search-toggle {
-      background-image: svg-search($brand-color);
+      background-image: svg-search($color-brand);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 25px auto;
@@ -319,7 +319,7 @@
     .no-svg,
     .opera-mini {
       .banner .search-toggle {
-        background-image: url('#{$asset-server}2196e362-search-white.svg');
+        background-image: url('#{$assets-path}2196e362-search-white.svg');
       }
     }
 
@@ -331,17 +331,17 @@
     }
   }
 
-  @media only screen and (min-width: $navigation-threshold) {
+  @media only screen and (min-width: $breakpoint-small) {
     .search-form,
     .header-search {
       display: block;
 
       .svg-search-handle {
-        fill: contrast-friendly-search-color($brand-color);
+        fill: contrast-friendly-search-color($color-brand);
       }
 
       .svg-search-frame {
-        stroke: contrast-friendly-search-color($brand-color);
+        stroke: contrast-friendly-search-color($color-brand);
       }
 
       form [type="text"]:focus {
@@ -355,14 +355,14 @@
     }
   }
 
-  @media only screen and (max-width: $site-max-width) {
+  @media only screen and (max-width: $grid-max-width) {
     .search-form,
     .header-search {
       margin-right: 10px;
     }
   }
 
-  @media only screen and (max-width : $navigation-threshold) {
+  @media only screen and (max-width : $breakpoint-small) {
     .banner .search-toggle {
       right: 48px;
     }
@@ -384,7 +384,7 @@
     }
 
     section > h1 {
-      border-bottom: 1px dotted $mid-grey;
+      border-bottom: 1px dotted $color-mid-grey;
     }
 
     .main-search {
@@ -393,7 +393,7 @@
       padding: 20px 0;
 
       [type="search"] {
-        border: 1px solid $warm-grey;
+        border: 1px solid $color-warm-grey;
         float: left;
         font-size: 2em;
         padding: .2em 65px .2em .2em;
@@ -405,7 +405,7 @@
         height: 38px;
         background-repeat: no-repeat;
         background-position: center 8px;
-        background-color: $transparent;
+        background-color: $color-transparent;
         background-size: 28px 28px;
         display: block;
         float: left;
@@ -432,7 +432,7 @@
     }
 
     .search-result h1 .result-url {
-      color: $warm-grey;
+      color: $color-warm-grey;
       display: block;
       overflow: hidden;
       padding-bottom: 2px;
@@ -440,7 +440,7 @@
       vertical-align: bottom;
 
       a {
-        color: $warm-grey;
+        color: $color-warm-grey;
       }
     }
 
@@ -486,7 +486,7 @@
       float: left;
 
       li:before {
-        color: $brand-color;
+        color: $color-brand;
         content: '\2039'; /* left chevron &lsaquo; */
         margin-right: 5px;
       }
@@ -500,7 +500,7 @@
       float: right;
 
       li:after {
-        color: $brand-color;
+        color: $color-brand;
         content: '\203A'; /* right chevron&nbsp;&rsaquo; */
         margin-left: 5px;
       }
@@ -511,8 +511,8 @@
     }
 
     .error-notification {
-      background-color: $white;
-      color: $text-color;
+      background-color: $color-white;
+      color: $color-cool-grey;
       display: block;
       margin-top: 20px;
       padding: 20px;
@@ -520,11 +520,11 @@
     }
 
     .result-line {
-      color: $warm-grey;
+      color: $color-warm-grey;
     }
 
     .results-top {
-      border-bottom: 1px dotted $mid-grey;
+      border-bottom: 1px dotted $color-mid-grey;
       padding-bottom: .5em;
     }
 
@@ -533,7 +533,7 @@
     }
   }
 
-  @media only screen and (min-width : $navigation-threshold) {
+  @media only screen and (min-width : $breakpoint-small) {
     .ubuntu-search .main-search [type=submit] {
       margin-left: -60px;
       margin-top: 0;
@@ -564,9 +564,9 @@
     @return false;
   } @else {
     @if (lightness($color) > 60) {
-      @return $cool-grey; // Lighter background, return dark color
+      @return $color-cool-grey; // Lighter background, return dark color
     } @else {
-      @return $white; // Darker background, return light color
+      @return $color-white; // Darker background, return light color
     }
   }
 }

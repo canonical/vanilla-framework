@@ -2,18 +2,18 @@
 @mixin vf-header {
   // scss-lint:disable NestingDepth
   .banner {
-    background: $brand-color;
+    background: $color-brand;
     border-bottom: 0;
     border-top: 0;
-    box-shadow: inset 0 -1px 0 lighten($mobile-nav, 60%);
+    box-shadow: inset 0 -1px 0 lighten($color-cool-grey, 60%);
     display: block;
     min-width: 100%;
     position: relative;
     width: auto;
     z-index: 2;
 
-    @media only screen and (min-width: $navigation-threshold) {
-      border-bottom: 1px solid lighten($mobile-nav, 60%);
+    @media only screen and (min-width: $breakpoint-small) {
+      border-bottom: 1px solid lighten($color-cool-grey, 60%);
       box-shadow: none;
     }
 
@@ -26,7 +26,7 @@
       margin: 0 10px;
       border-left: 0;
 
-      @media only screen and (min-width : $navigation-threshold) {
+      @media only screen and (min-width : $breakpoint-small) {
         margin: 0 15px;
       }
 
@@ -34,7 +34,7 @@
         display: table-cell;
         height: 100%;
         vertical-align: middle;
-        color: $header-link-color;
+        color: $color-cool-grey;
 
         span {
           display: inline-block;
@@ -56,7 +56,7 @@
       a:visited {
         float: left;
         text-decoration: none;
-        color: $header-link-color;
+        color: $color-cool-grey;
       }
     }
 
@@ -65,8 +65,8 @@
       margin: 0 auto;
       border: 0;
 
-      @media only screen and (min-width: $navigation-threshold) {
-        max-width: $site-max-width;
+      @media only screen and (min-width: $breakpoint-small) {
+        max-width: $grid-max-width;
       }
 
       span {
@@ -79,16 +79,16 @@
         width: 100%;
         margin: 0;
         padding: 0;
-        border-top: 1px solid lighten($mobile-nav, 60%);
-        box-shadow: inset 0 -1px 0 lighten($mobile-nav, 60%);
-        background-color: lighten($mobile-nav, 72%);
+        border-top: 1px solid lighten($color-cool-grey, 60%);
+        box-shadow: inset 0 -1px 0 lighten($color-cool-grey, 60%);
+        background-color: lighten($color-cool-grey, 72%);
 
-        @media only screen and (min-width: $navigation-threshold) {
+        @media only screen and (min-width: $breakpoint-small) {
           position: static;
           display: block;
           width: auto;
           border-top: 0;
-          background-color: $transparent;
+          background-color: $color-transparent;
           box-shadow: none;
         }
 
@@ -96,18 +96,18 @@
           float: left;
           width: 50%;
           margin: 0;
-          border-right: 1px solid lighten($mobile-nav, 60%);
-          border-bottom: 1px solid lighten($mobile-nav, 60%);
+          border-right: 1px solid lighten($color-cool-grey, 60%);
+          border-bottom: 1px solid lighten($color-cool-grey, 60%);
           background: transparent;
 
-          @media only screen and (min-width: $navigation-threshold) {
+          @media only screen and (min-width: $breakpoint-small) {
             width: auto;
             border-right: 0;
             border-bottom: 0;
-            border-left: 1px solid darken($brand-color, 8%);
+            border-left: 1px solid darken($color-brand, 8%);
 
             &:last-child {
-              border-right: 1px solid darken($brand-color, 8%);
+              border-right: 1px solid darken($color-brand, 8%);
 
               a {
                 border-right: 0;
@@ -115,7 +115,7 @@
             }
           }
 
-          @media only screen and (max-width: $navigation-threshold) {
+          @media only screen and (max-width: $breakpoint-small) {
             &:nth-child(2n+2) {
               border-right: 0;
             }
@@ -132,32 +132,32 @@
             padding: 8px 10px;
             text-align: left;
             text-decoration: none;
-            background-color: lighten($mobile-nav, 72%);
+            background-color: lighten($color-cool-grey, 72%);
             font-smoothing: subpixel-antialiased;
-            color: $cool-grey;
+            color: $color-cool-grey;
 
-            @media only screen and (min-width: $navigation-threshold) {
+            @media only screen and (min-width: $breakpoint-small) {
               font-size: .875em;
               padding: 14px 14px 13px;
               text-align: center;
-              border-left: 1px solid lighten($brand-color, 12%);
-              background-color: $transparent;
-              color: $header-link-color;
+              border-left: 1px solid lighten($color-brand, 12%);
+              background-color: $color-transparent;
+              color: $color-cool-grey;
             }
 
             &:hover {
-              background: lighten($mobile-nav, 75%);
+              background: lighten($color-cool-grey, 75%);
 
-              @media only screen and (min-width: $navigation-threshold) {
-                background-color: lighten($brand-color, 8%);
+              @media only screen and (min-width: $breakpoint-small) {
+                background-color: lighten($color-brand, 8%);
               }
             }
 
             &.active {
-              background-color: $nav-active-bg;
+              background-color: $color-light-grey;
 
-              @media only screen and (min-width: $navigation-threshold) {
-                background-color: darken($brand-color, 8%);
+              @media only screen and (min-width: $breakpoint-small) {
+                background-color: darken($color-brand, 8%);
                 border-left: 0;
               }
             }
@@ -175,12 +175,12 @@
       height: 48px;
       cursor: pointer;
       text-indent: -99999px;
-      background-image: url('#{$asset-server}12387180-navigation-menu-plain.svg');
+      background-image: url('#{$assets-path}12387180-navigation-menu-plain.svg');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 25px auto;
 
-      @media only screen and (min-width: $navigation-threshold) {
+      @media only screen and (min-width: $breakpoint-small) {
         display: none;
       }
 
@@ -199,7 +199,7 @@
     }
 
     // scss-lint:disable IdSelector
-    @media only screen and (max-width: $navigation-threshold) {
+    @media only screen and (max-width: $breakpoint-small) {
       #nav:hover {
         ul {
           display: block;
