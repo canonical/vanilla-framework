@@ -41,7 +41,7 @@
 
 * `$navigation-threshold` has been replaced with `$breakpoint-small`
 
-* `$asset-server` is now `$assets-server`
+* `$asset-server` is now `$assets-path`
 
 * `$base-font-family` is now `$font-base-family`
 * `$base-font-size` is now `$font-base-size`

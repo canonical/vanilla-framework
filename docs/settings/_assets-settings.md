@@ -5,4 +5,4 @@ title: Assets settings
 
 Setting  | Default Value
  ------------- | -------------
-$assets-server:   | https://assets.ubuntu.com/v1/
+$assets-path:   | https://assets.ubuntu.com/v1/
