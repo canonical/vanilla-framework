@@ -19,6 +19,11 @@ $single-column-percent: $single-column-width / $grid-columns-max-width * 100%;
 
 // Column management classes for the grid
 @mixin vf-grid {
+
+  * {
+    box-sizing: border-box;
+  }
+
   .inner-wrapper { @extend %vf-inner-wrapper; }
   [class*='-col'].last-col,
   [class*='-col'] [class*='-col'].last-col {
