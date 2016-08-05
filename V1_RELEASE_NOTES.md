@@ -47,6 +47,10 @@
 * `$base-font-size` is now `$font-base-size`
 * `$font-heading-family` is now `font-heading-family`
 
+### Util/Helper changes
+
+* `.pull-left`, `.pull-right`, `.pull-bottom-right` & `.pull-bottom-left` have been removed as their use case is considered too specific for inclusion in Vanilla.
+
 * `.priority-0`, `.not-for-small`, `.for-tablet`, `.for-medium`, `.for-mobile`, `.for-small` have all been deprecated.
 
 * `.external` link pattern has become `.p-link--external`
