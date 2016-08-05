@@ -1,17 +1,9 @@
-%vf-clearfix {
-  display: block;
+// Force a parent to clear floated children
 
-  &:after {
-    clear: both;
-    content: '\0020';
-    display: block;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-  }
-}
-
-// Hard and soft clearing classes
 @mixin vf-clearfix() {
-  .clearfix { @extend %vf-clearfix; }
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
