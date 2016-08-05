@@ -1,6 +1,6 @@
 ---
 collection: settings
-title: Assets settings
+title: Font settings
 ---
 
 Setting  | Default Value
