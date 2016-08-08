@@ -25,14 +25,6 @@ title: helpers
     </div>
 </div>
 
-<h3>.link-top</h3>
-<div class="row" id="link-top">
-    <div class="link-top">
-        <a href="#">Back to top</a>
-    </div>
-    <h3>.link-top</h3>
-</div>
-
 <h3>.caps</h3>
 <div class="row" id="caps">
     <div class="twelve-col">
