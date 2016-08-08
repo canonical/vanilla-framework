@@ -46,3 +46,5 @@
 * `$base-font-family` is now `$font-base-family`
 * `$base-font-size` is now `$font-base-size`
 * `$font-heading-family` is now `font-heading-family`
+
+* `.priority-0`, `.not-for-small`, `.for-tablet`, `.for-medium`, `.for-mobile`, `.for-small` have all been deprecated.

@@ -1,0 +1,51 @@
+// A collect of functions to aid and enhance the users abililty
+@mixin vf-u-visibility {
+
+  .u-hidden {
+
+    &--small {
+
+      @media screen and (max-width: $breakpoint-medium) {
+        display: none;
+      }
+    }
+
+    &--medium {
+
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+        display: none;
+      }
+    }
+
+    &--large {
+
+      @media screen and (min-width: $breakpoint-large) {
+        display: none;
+      }
+    }
+  }
+
+  .u-visible {
+
+    &--small {
+
+      @media screen and (max-width: $breakpoint-medium) {
+        display: block;
+      }
+    }
+
+    &--medium {
+
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+        display: block;
+      }
+    }
+
+    &--large {
+
+      @media screen and (min-width: $breakpoint-large) {
+        display: block;
+      }
+    }
+  }
+}
