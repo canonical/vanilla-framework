@@ -46,12 +46,6 @@ title: helpers
     <p class="accessibility-aid">You should not see this text</p>
 </div>
 
-<h3>.external</h3>
-<div class="row" id="external">
-    <h3>.external</h3>
-    <p><a href="#" class="external">This is an external link</a></p>
-</div>
-
 <h3>.align-center</h3>
 <div class="row" id="align-center">
     <p class="align-center">This text should be centered</p>
