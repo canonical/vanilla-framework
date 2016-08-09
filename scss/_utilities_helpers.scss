@@ -8,13 +8,9 @@
   @include vf-align-center;
   @include vf-no-margin-bottom;
   @include vf-no-padding-bottom;
-  @include vf-pull-bottom-right;
-  @include vf-pull-bottom-left;
   @include vf-priority-0;
   @include vf-for-small;
   @include vf-video-container;
-  @include vf-pull-right;
-  @include vf-pull-left;
   @include vf-for-medium;
   @include vf-med-six-col;
 }
@@ -65,52 +61,6 @@
   .no-padding-bottom { padding-bottom: 0; }
 }
 
-// Aligns the element to the bottom right corner
-@mixin vf-pull-bottom-right {
-  .pull-bottom-right {
-    float: right;
-    margin-right: -($grid-gutter-width / 2);
-  }
-
-  @media only screen and (min-width : $breakpoint-medium) {
-    .pull-bottom-right {
-      margin-right: -($grid-gutter-width * 2);
-      margin-bottom: -($grid-gutter-width * 2);
-    }
-  }
-
-  @media only screen and (min-width : $breakpoint-large) {
-    .pull-bottom-right {
-      margin-right: -($grid-gutter-width * 2);
-      margin-bottom: -($grid-gutter-width * 3);
-    }
-  }
-}
-
-// Aligns the element to the bottom left corner
-@mixin vf-pull-bottom-left {
-
-  .pull-bottom-left {
-    float: left;
-    margin-left: -($grid-gutter-width / 2);
-  }
-
-  @media only screen and (min-width : $breakpoint-medium) {
-    .pull-bottom-left {
-      margin-left: -($grid-gutter-width * 2);
-      margin-bottom: -($grid-gutter-width * 2);
-    }
-  }
-
-  @media only screen and (min-width : $breakpoint-large) {
-    .pull-bottom-left {
-      margin-left: -($grid-gutter-width * 2);
-      margin-bottom: -($grid-gutter-width * 3);
-    }
-  }
-}
-
-
 // By wrapping a video embed it makes the video responsive
 @mixin vf-video-container {
   .video-container {
@@ -131,25 +81,6 @@
     + .video-title {
       margin-top: 20px;
     }
-  }
-}
-
-// Aligns the element to the right of the the container
-@mixin vf-pull-right {
-  .pull-right {
-    @media only screen and (max-width : $breakpoint-medium) {
-      margin-bottom: $grid-gutter-width;
-    }
-
-    float: right;
-    margin-right: -($grid-gutter-width * 2);
-  }
-}
-
-// Aligns the element to the left of the the container
-@mixin vf-pull-left {
-  .pull-left {
-    margin-left: -($grid-gutter-width * 2);
   }
 }
 
