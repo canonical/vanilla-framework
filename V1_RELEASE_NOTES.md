@@ -56,4 +56,7 @@
 * `.external` link pattern has become `.p-link--external`
 * `.link-top` link pattern has become `.p-link--top`
 
+* `.left` link pattern has become `.u-float--left`
+* `.right` link pattern has become `.u-link--right`
+
 * `.no-border` util has been removed.
