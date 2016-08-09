@@ -55,3 +55,5 @@
 
 * `.external` link pattern has become `.p-link--external`
 * `.link-top` link pattern has become `.p-link--top`
+
+* `.no-border` util has been removed.
