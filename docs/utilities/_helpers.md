@@ -25,14 +25,6 @@ title: helpers
     </div>
 </div>
 
-<h3>.link-top</h3>
-<div class="row" id="link-top">
-    <div class="link-top">
-        <a href="#">Back to top</a>
-    </div>
-    <h3>.link-top</h3>
-</div>
-
 <h3>.caps</h3>
 <div class="row" id="caps">
     <div class="twelve-col">
@@ -44,12 +36,6 @@ title: helpers
 <h3>.accessibility-aid</h3>
 <div class="row" id="accessibility-aid">
     <p class="accessibility-aid">You should not see this text</p>
-</div>
-
-<h3>.external</h3>
-<div class="row" id="external">
-    <h3>.external</h3>
-    <p><a href="#" class="external">This is an external link</a></p>
 </div>
 
 <h3>.align-center</h3>

@@ -20,7 +20,7 @@ title: buttons
 
 <div class="row">
     <div class="six-col">
-        <button class="button--primary" href="#"><span class="external">External button</span></button>
+        <button class="button--primary" href="#"><span class="p-link--external">External button</span></button>
     </div>
     <div class="four-col prepend-two last-col">External button</div>
 </div>
@@ -41,7 +41,7 @@ title: buttons
 
 <div class="row">
     <div class="six-col">
-        <a class="button--secondary" href="#"><span class="external">External secondary button</span></a>
+        <a class="button--secondary" href="#"><span class="p-link--external">External secondary button</span></a>
     </div>
     <div class="four-col prepend-two last-col">External secondary link button</div>
 </div>

@@ -48,3 +48,6 @@
 * `$font-heading-family` is now `font-heading-family`
 
 * `.priority-0`, `.not-for-small`, `.for-tablet`, `.for-medium`, `.for-mobile`, `.for-small` have all been deprecated.
+
+* `.external` link pattern has become `.p-link--external`
+* `.link-top` link pattern has become `.p-link--top`
