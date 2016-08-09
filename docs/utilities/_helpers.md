@@ -11,20 +11,6 @@ title: helpers
     </div>
 </div>
 
-<h3>.no-border</h3>
-<div class="row" id="no-border">
-    <div class="row">
-        <div class="twelve-col">
-            <p>Row with border</p>
-        </div>
-    </div>
-    <div class="row no-border">
-        <div class="twelve-col">
-            <p>Row without border</p>
-        </div>
-    </div>
-</div>
-
 <h3>.caps</h3>
 <div class="row" id="caps">
     <div class="twelve-col">
