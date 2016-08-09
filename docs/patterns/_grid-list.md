@@ -11,7 +11,7 @@ title: grid list
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
             <div class="three-col last-col">
-                <h3><a class="link--external" href="#">Link</a></h3>
+                <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
         </li>
@@ -20,7 +20,7 @@ title: grid list
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
             <div class="three-col last-col">
-                <h3><a class="link--external" href="#">Link</a></h3>
+                <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
         </li>
@@ -29,7 +29,7 @@ title: grid list
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
             <div class="three-col last-col">
-                <h3><a class="link--external" href="#">Link</a></h3>
+                <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
         </li>
@@ -38,7 +38,7 @@ title: grid list
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
             <div class="three-col last-col">
-                <h3><a class="link--external" href="#">Link</a></h3>
+                <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
         </li>
