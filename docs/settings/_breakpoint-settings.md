@@ -1,6 +1,6 @@
 ---
 collection: settings
-title: Breakpoint settings
+title: Breakpoint
 ---
 
 Setting  | Default Value
