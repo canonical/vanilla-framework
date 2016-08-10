@@ -60,3 +60,6 @@
 * `.right` link pattern has become `.u-link--right`
 
 * `.no-border` util has been removed.
+
+* `.off-left` has been deprecated
+* `.accessibility-aid` has been renamed `.u-off-screen`
