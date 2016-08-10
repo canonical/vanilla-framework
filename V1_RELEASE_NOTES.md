@@ -68,3 +68,5 @@
 * `.row-grey / .row--grey` has been deprecated.
 * `.row-hero` has been deprecated
 * `.strip-inner-wrapper` has been deprecated
+
+* `.align-center` is now `.u-text-center`

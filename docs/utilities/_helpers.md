@@ -24,11 +24,6 @@ title: helpers
     <p class="u-off-screen">You should not see this text</p>
 </div>
 
-<h3>.align-center</h3>
-<div class="row" id="align-center">
-    <p class="align-center">This text should be centered</p>
-</div>
-
 <h3>.video-container</h3>
 <div class="row" id="video-container">
     <div class="twelve-col">

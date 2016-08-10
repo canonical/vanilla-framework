@@ -10,7 +10,7 @@ title: vertically center
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt suscipit magna purus lorem, fishcakes dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, tincidunt suscipit magna ut tempor enim gravida.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, hipster tincidunt suscipit magna. Suspendisse tin hat dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
     </div>
-    <div class="equal-height__item four-col last-col align-center equal-height__align-vertically" style="background-color: #eee">
+    <div class="equal-height__item four-col last-col u-text-center equal-height__align-vertically" style="background-color: #eee">
       <h3>.equal-height__align-vertically</h3>
       <img src="https://assets.ubuntu.com/v1/095a11c1-picto-projectswelove-orange.svg" alt="" width="160">
     </div>
