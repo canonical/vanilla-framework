@@ -3,7 +3,6 @@
   @include vf-left;
   @include vf-right;
   @include vf-caps;
-  @include vf-accessibility-aid;
   @include vf-align-center;
   @include vf-no-margin-bottom;
   @include vf-no-padding-bottom;
@@ -13,7 +12,6 @@
   @include vf-for-medium;
   @include vf-med-six-col;
 }
-
 
 // Floats an element left
 @mixin vf-left {
@@ -28,15 +26,6 @@
 // Convents text to uppercase
 @mixin vf-caps {
   .caps { text-transform: uppercase; }
-}
-
-/// Hides containing elements to the left off screen but its available for screen readers
-@mixin vf-accessibility-aid {
-  .accessibility-aid,
-  .off-left {
-    position: absolute;
-    left: -999em;
-  }
 }
 
 // Sets the element to text-align center

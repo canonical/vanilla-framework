@@ -19,9 +19,9 @@ title: helpers
     </div>
 </div>
 
-<h3>.accessibility-aid</h3>
-<div class="row" id="accessibility-aid">
-    <p class="accessibility-aid">You should not see this text</p>
+<h3>.u-off-screen</h3>
+<div class="row" id="u-off-screen">
+    <p class="u-off-screen">You should not see this text</p>
 </div>
 
 <h3>.align-center</h3>
