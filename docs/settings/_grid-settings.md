@@ -1,6 +1,6 @@
 ---
 collection: settings
-title: Grid settings
+title: Grid
 ---
 
 Setting  | Default Value

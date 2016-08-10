@@ -1,6 +1,6 @@
 ---
 collection: settings
-title: Color settings
+title: Color
 ---
 
 Setting  | Value
