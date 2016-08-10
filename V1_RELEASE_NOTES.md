@@ -61,6 +61,9 @@
 
 * `.off-left` has been deprecated
 * `.accessibility-aid` has been renamed `.u-off-screen`
+
+* `.no-margin-bottom` is now `.no-margin--bottom`
+* `.no-padding-bottom` is now `.no-padding--bottom`
 * `.no-border` util has been deprecated.
 
 * `.row--light` has been deprecated.
