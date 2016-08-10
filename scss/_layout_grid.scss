@@ -24,6 +24,20 @@ $single-column-percent: $single-column-width / $grid-columns-max-width * 100%;
     box-sizing: border-box;
   }
 
+  // scss-lint:disable PlaceholderInExtend
+  .row {
+    @extend .clearfix;
+    padding: $grid-gutter-width ($grid-gutter-width / 2);
+    position: relative;
+    max-width: $grid-max-width;
+    margin: auto;
+
+    & + & {
+      margin-top: $grid-gutter-width;
+    }
+  }
+  // scss-lint:enable PlaceholderInExtend
+
   .inner-wrapper { @extend %vf-inner-wrapper; }
   [class*='-col'].last-col,
   [class*='-col'] [class*='-col'].last-col {

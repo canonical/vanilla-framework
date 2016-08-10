@@ -3,6 +3,15 @@ collection: layout
 title: grid
 ---
 
+The grid is constructing using `*-col` elements nested inside a single `.row` parent element.
+
+```
+<div class="row">
+    <div class="six-col">.six-col</div>
+    <div class="six-col">.six-col</div>
+</div>
+```
+
 <div class="row">
     <div class="twelve-col box">.twelve-col</div>
     <div class="eleven-col box">.eleven-col</div>
