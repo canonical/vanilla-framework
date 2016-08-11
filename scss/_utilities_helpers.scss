@@ -3,7 +3,7 @@
   @include vf-left;
   @include vf-right;
   @include vf-caps;
-  @include vf-align-center;
+  @include vf-accessibility-aid;
   @include vf-no-margin-bottom;
   @include vf-no-padding-bottom;
   @include vf-priority-0;
@@ -28,10 +28,13 @@
   .caps { text-transform: uppercase; }
 }
 
-// Sets the element to text-align center
-@mixin vf-align-center {
-  .text-center,
-  .align-center { text-align: center; }
+/// Hides containing elements to the left off screen but its available for screen readers
+@mixin vf-accessibility-aid {
+  .accessibility-aid,
+  .off-left {
+    position: absolute;
+    left: -999em;
+  }
 }
 
 // Removes margin bottom

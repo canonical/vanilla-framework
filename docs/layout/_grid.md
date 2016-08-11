@@ -43,23 +43,23 @@ The grid is constructing using `*-col` elements nested inside a single `.row` pa
 
 <div class="row">
     <h2>Nested grid</h2>
-    <div class="twelve-col box align-center">
+    <div class="twelve-col box u-text-center">
         <div class="eight-col box">.eight-col</div>
         <div class="four-col last-col box">.four-col</div>
     </div>
-    <div class="six-col box align-center">
+    <div class="six-col box u-text-center">
         <div class="four-col box">.four-col</div>
         <div class="two-col last-col box">.two-col</div>
     </div>
-    <div class="six-col last-col box align-center">
+    <div class="six-col last-col box u-text-center">
         <div class="three-col box">.three-col</div>
         <div class="three-col last-col box">.three-col</div>
     </div>
-    <div class="eight-col box align-center">
+    <div class="eight-col box u-text-center">
         <div class="one-col box">.one-col</div>
         <div class="seven-col last-col box">.seven-col</div>
     </div>
-    <div class="four-col box align-center last-col">
+    <div class="four-col box u-text-center last-col">
         <div class="two-col box">.two-col</div>
         <div class="two-col last-col box">.two-col</div>
     </div>
