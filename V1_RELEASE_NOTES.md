@@ -59,7 +59,12 @@
 * `.left` link pattern has become `.u-float--left`
 * `.right` link pattern has become `.u-link--right`
 
-* `.no-border` util has been removed.
-
 * `.off-left` has been deprecated
 * `.accessibility-aid` has been renamed `.u-off-screen`
+* `.no-border` util has been deprecated.
+
+* `.row--light` has been deprecated.
+* `.row--dark` has been deprecated.
+* `.row-grey / .row--grey` has been deprecated.
+* `.row-hero` has been deprecated
+* `.strip-inner-wrapper` has been deprecated
