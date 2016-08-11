@@ -13,7 +13,7 @@ $color-alto-grey   | #d2d2d2
 $color-mid-grey   | #cdcdcd   
 $color-warm-grey   | #888   
 $color-cool-grey   | #333
-$color-white   | #fff
+$color-light   | #fff
 $color-black   | #000
 $color-error   | #df382c    
 $color-warning   | #eca918    
