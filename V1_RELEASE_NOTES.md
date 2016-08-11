@@ -29,7 +29,7 @@
 * `$light-grey` is now `$color-light-grey`
 * `$alto-grey` is now `$color-alto-grey`
 * `$white` is now `$color-light`
-* `$black` is now `$color-black`
+* `$black` is now `$color-dark`
 * `$error` is now `$color-error`
 * `$warning` is now `$color-warning`
 * `$success` is now `$color-success`
