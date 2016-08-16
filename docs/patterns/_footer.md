@@ -7,18 +7,18 @@ title: footer
 <footer class="p-footer" role="contentinfo">
   &copy; 2016 Company name and logo are registered trademarks of Company Ltd.
   <nav role="navigation">
-        <ul class="p-footer-links">
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 1</a>
+        <ul class="p-footer__links">
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 1</a>
             </li>
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 2</a>
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 2</a>
             </li>
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 3</a>
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 3</a>
             </li>
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 4</a>
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 4</a>
             </li>
         </ul>
         <span class="u-off-screen">
@@ -29,20 +29,20 @@ title: footer
 ```
 
 <footer class="p-footer" role="contentinfo">
-  &copy; 2016 Company name and logo are registered trademarks of Company Ltd.
+  <p class="p-footer__copy">&copy; 2016 Company name and logo are registered trademarks of Company Ltd.</p>
   <nav role="navigation">
-        <ul class="p-footer-links">
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 1</a>
+        <ul class="p-footer__links">
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 1</a>
             </li>
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 2</a>
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 2</a>
             </li>
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 3</a>
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 3</a>
             </li>
-            <li class="p-footer-links__item">
-                <a class="p-footer-links__link" href="#">Footer link 4</a>
+            <li class="p-footer__item">
+                <a class="p-footer__link" href="#">Footer link 4</a>
             </li>
         </ul>
         <span class="u-off-screen">

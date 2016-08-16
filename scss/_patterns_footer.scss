@@ -3,11 +3,19 @@
 
   .p-footer {
     font-size: .75rem;
-  }
+    padding-top: 1rem;
+    border-top: 1px dotted $color-dark;
 
-  .p-footer-links {
-    margin: 1rem 0 0;
-    padding: 0 0 0 .5rem;
+    &__copy {
+      font-size: .875rem;
+      padding-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    &__links {
+      margin: 0;
+      padding: .5rem 0;
+    }
 
     &__item {
       display: block;
@@ -21,6 +29,7 @@
     &__link {
       border-bottom: 0;
       font-size: .75rem;
+      color: $color-warm-grey;
     }
 
     @media (min-width: $breakpoint-medium) {
@@ -29,6 +38,11 @@
 
       &__item {
         display: inline-block;
+      }
+
+      &__links {
+        padding: 0;
+        margin-top: 0;
       }
 
       &__link {
