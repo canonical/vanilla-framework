@@ -72,3 +72,5 @@
 * `.caps` has been deprecated
 
 * `.video-container` is now `.media-container`
+
+* `.row-quote` has been deprecated
