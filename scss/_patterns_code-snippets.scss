@@ -1,0 +1,47 @@
+// Code and pre styles
+@mixin vf-p-code-snippets {
+
+  .code-snippet {
+    position: relative;
+    overflow: hidden;
+    transition: all .2s;
+    border: 1px solid $color-mid-grey;
+    border-radius: 4px;
+    background-color: $color-light;
+    font-family: $font-monospace;
+
+    &__input {
+      font-size: 1em;
+      font-weight: 300;
+      width: 100%;
+      padding: .7em 1em;
+      color: $color-cool-grey;
+      border: 0;
+      background-color: transparent;
+    }
+
+    &__action {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: 50px;
+      height: 100%;
+      text-indent: -9999px;
+      border-left: 1px solid $color-mid-grey;
+      background-color: $color-light;
+      background-image: url('#{$assets-path}994e60f9-get-link-url_16.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &--inverse {
+      border: 1px solid $color-dark;
+
+      .code-snippet__input {
+        background-color: $color-dark;
+        color: $color-light;
+      }
+    }
+  }
+}

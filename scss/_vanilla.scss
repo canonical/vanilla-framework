@@ -8,6 +8,7 @@
 
 // Base
 @import
+'base_code',
 'base_images',
 'base_links',
 'base_lists',
@@ -29,6 +30,7 @@
 'patterns_breadcrumbs',
 'patterns_buttons',
 'patterns_code',
+'patterns_code-snippets',
 'patterns_footer',
 'patterns_forms',
 'patterns_grid-list',
@@ -51,15 +53,13 @@
 @mixin vanilla {
   // Base
   @include vf-b-links;
+  @include vf-b-code;
   @include vf-reset;
   @include vf-helpers;
   @include vf-blockquotes;
   @include vf-buttons;
   @include vf-breadcrumbs;
   @include vf-clearfix;
-  @include vf-code;
-  @include vf-code-block;
-  @include vf-code-snippet;
   @include vf-forms;
   @include vf-grid;
   @include vf-header;
@@ -75,6 +75,8 @@
   @include vf-equal-heights;
   // Patterns
   @include vf-p-links;
+  @include vf-p-code;
+  @include vf-p-code-snippets;
   // Utilities
   @include vf-u-floats;
   @include vf-u-text-center;
