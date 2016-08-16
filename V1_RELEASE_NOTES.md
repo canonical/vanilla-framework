@@ -34,15 +34,11 @@
 * `$warning` is now `$color-warning`
 * `$success` is now `$color-success`
 * `$link-color` is now `$color-highlight`
-
 * `$gutter-width` is now `$grid-gutter-width`
 * `$columns` is now `$grid-columns`
 * `$site-max-width` is now `$grid-max-width`
-
 * `$navigation-threshold` has been replaced with `$breakpoint-small`
-
 * `$asset-server` is now `$assets-path`
-
 * `$base-font-family` is now `$font-base-family`
 * `$base-font-size` is now `$font-base-size`
 * `$font-heading-family` is now `font-heading-family`
@@ -71,5 +67,8 @@
 * `.row-grey / .row--grey` has been deprecated.
 * `.row-hero` has been deprecated
 * `.strip-inner-wrapper` has been deprecated
-
 * `.align-center` is now `.u-text-center`
+* `.med-six-col` has been deprecated
+* `.caps` has been deprecated
+
+* `.video-container` is now `.media-container`
