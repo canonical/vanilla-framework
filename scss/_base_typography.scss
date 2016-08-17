@@ -1,6 +1,6 @@
 // Typographic element styles
 
-@mixin vf-typography {
+@mixin vf-b-typography {
 
   @if str-index($font-base-family, 'Ubuntu') {
     @font-face {
@@ -19,13 +19,6 @@
 
     @font-face {
       font-family: 'Ubuntu';
-      font-style: normal;
-      font-weight: 700;
-      src: url('#{$assets-path}833b90ce-ubuntu-b-webfont.woff2') format('woff2'), url('#{$assets-path}4d80ab6d-ubuntu-b-webfont.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu';
       font-style: italic;
       font-weight: 300;
       src: url('#{$assets-path}abb07502-ubuntu-li-webfont.woff2') format('woff2'), url('#{$assets-path}65fc9630-ubuntu-li-webfont.woff') format('woff');
@@ -39,10 +32,10 @@
     }
 
     @font-face {
-      font-family: 'Ubuntu';
-      font-style: italic;
-      font-weight: 700;
-      src: url('#{$assets-path}34021dbd-ubuntu-bi-webfont.woff2') format('woff2'), url('#{$assets-path}3f670882-ubuntu-bi-webfont.woff') format('woff');
+      font-family: 'Ubuntu Mono';
+      font-style: normal;
+      font-weight: 300;
+      src: url('#{$assets-path}871f7456-ubuntumono-r-webfont.woff2') format('woff2'), url('#{$assets-path}8df3f408-ubuntumono-r-webfont.woff') format('woff');
     }
 
     @font-face {
@@ -62,30 +55,29 @@
   body {
     color: $color-cool-grey;
     font-family: unquote($font-base-family);
-    font-size: $font-base-size;
     font-weight: 300;
+    font-size: calc(#{$font-base-size} * .875);
+
+    @media screen and (min-width: $breakpoint-medium) {
+      font-size: calc(#{$font-base-size} * .9375);
+    }
+
+    @media screen and (min-width: $breakpoint-large) {
+      font-size: $font-base-size;
+    }
   }
 
   strong {
     font-weight: 400;
   }
 
-  .caps-centered,
-  .muted-heading {
-    font-size: .875em;
-    margin-bottom: 20px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  small,
-  .smaller {
-    font-size: 13px;
+  small {
+    font-size: 75%;
   }
 
   sub,
   sup {
-    font-size: 75%;
+    font-size: 62.5%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -99,73 +91,6 @@
     vertical-align: text-bottom;
   }
 
-  p + h2,
-  ul + h2,
-  ol + h2,
-  pre + h2 {
-    margin-top: (18 / 32)+em;
-  }
-
-  header nav a:link {
-    font-weight: normal;
-  }
-
-  p + h3,
-  ul + h3,
-  ol + h3,
-  pre + h3 {
-    margin-top: .783em;
-  }
-
-  p + h4,
-  ul + h4,
-  ol + h4,
-  pre + h4 {
-    margin-top: 1.21875;
-  }
-
-  ol + h2,
-  p + h2,
-  pre + h2,
-  ul + h2 {
-    margin-top: .563em;
-  }
-
-  ol + h3,
-  p + h3,
-  pre + h3,
-  ul + h3 {
-    margin-top: .783em;
-  }
-
-  ol + h4,
-  p + h4,
-  pre + h4,
-  ul + h4 {
-    margin-top: 1.219em;
-  }
-
-  .intro {
-    font-size: 1em;
-    line-height: 1.4;
-  }
-
-  .row div,
-  .row ul {
-    p:last-child { margin-bottom: 0; }
-  }
-
-  .four-col p:last-child {
-    margin-bottom: 0;
-  }
-
-  .note {
-    color: $color-warm-grey;
-    font-size: .813em;
-  }
-
-  /// Base typography
-  /// @section type
   h1,
   h2,
   h3,
@@ -174,56 +99,16 @@
   h6 {
     font-family: unquote($font-heading-family);
     font-weight: 300;
-    line-height: 1.3;
-  }
-
-  h1,
-  .heading-1 {
-    font-size: 2.8125em;
-    margin-bottom: .5em;
-  }
-
-  h2,
-  .heading-2 {
-    font-size: 2em;
-    margin-bottom: .5em;
-  }
-
-  h3,
-  .heading-3 {
-    font-size: 1.4375em;
-    margin-bottom: .522em;
-  }
-
-  h4,
-  .heading-4 {
-    font-size: 1.25em;
-    font-weight: 400;
-    margin-bottom: .615em;
-  }
-
-  h5,
-  .heading-5 {
-    font-size: 1em;
-    font-weight: 700;
-    margin-bottom: 1em;
-  }
-
-  h6,
-  .heading-6 {
-    font-size: .8125em;
-    font-weight: 400;
-    margin-bottom: 1em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+    line-height: 1.5;
+    margin-bottom: .5rem;
   }
 
   p,
   li {
-    font-size: 1em;
+    font-size: 100%;
     line-height: 1.5;
     margin: 0;
-    margin-bottom: .75em;
+    margin-bottom: .5rem;
     padding: 0;
   }
 
@@ -231,120 +116,10 @@
   input,
   select,
   textarea {
-    font-family: Ubuntu,Arial,'libra sans',sans-serif;
-  }
-
-  /// medium screen
-  @media only screen and (min-width : $breakpoint-medium) and (max-width : $breakpoint-large) {
-
-    h1 {
-      font-size: 1.5234375em;
-      margin-bottom: .5em;
-    }
-
-    h2 {
-      font-size: 1.348125em;
-      margin-bottom: .5em;
-    }
-
-    h3 {
-      font-size: 1.1428125em;
-      margin-bottom: .522em;
-    }
-
-    h4 {
-      font-size: 1.171875em;
-      font-weight: 400;
-      margin-bottom: .615em;
-    }
-
-    h5 {
-      font-size: .9375em;
-      font-weight: 700;
-      margin-bottom: 1em;
-    }
-
-    h6 {
-      font-size: .6778125em;
-      font-weight: 400;
-      margin-bottom: 1em;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .intro {
-      font-size: 1.13333em;
-    }
-  }
-
-  /// small screen
-  @media only screen and (max-width : $breakpoint-medium) {
-
-    h1 {
-      font-size: 1.421875em;
-      margin-bottom: .4375em;
-    }
-
-    h2 {
-      font-size: 1.25825em;
-      margin-bottom: .4375em;
-    }
-
-    h3 {
-      font-size: 1.066625em;
-      margin-bottom: .45675em;
-    }
-
-    h4 {
-      font-size: 1.09375em;
-      font-weight: 400;
-      margin-bottom: .538125em;
-    }
-
-    h5 {
-      font-size: .875em;
-      font-weight: 700;
-      margin-bottom: .875em;
-    }
-
-    h6 {
-      font-size: .632625em;
-      font-weight: 400;
-      margin-bottom: .875em;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    p,
-    li {
-      font-size: .875rem;
-    }
-
-  }
-
-  @media only screen and (min-width: $breakpoint-large) {
-
-    p,
-    li,
-    code,
-    pre {
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: .75em;
-    }
-
-    .intro {
-      font-size: 1.25em;
-    }
-
+    font-family: $font-base-family;
   }
 
   dfn {
     font-style: italic;
-  }
-
-  code,
-  pre {
-    font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', Courier, monospace;
   }
 }

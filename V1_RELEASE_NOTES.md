@@ -76,3 +76,5 @@
 * `.box` has been deprecated in favour of `.p-card`
 
 * `.row-quote` has been deprecated
+
+* `.smaller` has been deprecated
