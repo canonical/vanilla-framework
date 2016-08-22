@@ -5,11 +5,11 @@ title: equal height
 
 <div class="row">
     <div class="equal-height">
-        <div class="eight-col box" style="background-color: #eee">
+        <div class="eight-col" style="background-color: #eee">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
         </div>
-        <div class="four-col last-col box" style="background-color: #eee">
+        <div class="four-col last-col" style="background-color: #eee">
             <p>Short piece of text</p>
         </div>
     </div>

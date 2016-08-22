@@ -13,54 +13,54 @@ The grid is constructing using `*-col` elements nested inside a single `.row` pa
 ```
 
 <div class="row">
-    <div class="twelve-col box">.twelve-col</div>
-    <div class="eleven-col box">.eleven-col</div>
-    <div class="one-col last-col box">&nbsp;</div>
-    <div class="ten-col box">.ten-col</div>
-    <div class="two-col last-col box">.two-col</div>
-    <div class="nine-col box">.nine-col</div>
-    <div class="three-col last-col box">.three-col</div>
-    <div class="eight-col box">.eight-col</div>
-    <div class="four-col last-col box">.four-col</div>
-    <div class="seven-col box">.seven-col</div>
-    <div class="five-col last-col box">.five-col</div>
-    <div class="six-col box">.six-col</div>
-    <div class="six-col last-col box">.six-col</div>
-    <div class="four-col box">.four-col</div>
-    <div class="four-col box">.four-col</div>
-    <div class="four-col last-col box">.four-col</div>
-    <div class="three-col box">.three-col</div>
-    <div class="three-col box">.three-col</div>
-    <div class="three-col box">.three-col</div>
-    <div class="three-col last-col box">.three-col</div>
-    <div class="two-col box">.two-col</div>
-    <div class="eight-col box">.eight-col</div>
-    <div class="two-col last-col box">.two-col</div>
-    <div class="three-col box">.three-col</div>
-    <div class="six-col box">.six-col</div>
-    <div class="three-col last-col box">.three-col</div>
+    <div class="twelve-col pl__outline">.twelve-col</div>
+    <div class="eleven-col pl__outline">.eleven-col</div>
+    <div class="one-col last-col pl__outline">&nbsp;</div>
+    <div class="ten-col pl__outline">.ten-col</div>
+    <div class="two-col last-col pl__outline">.two-col</div>
+    <div class="nine-col pl__outline">.nine-col</div>
+    <div class="three-col last-col pl__outline">.three-col</div>
+    <div class="eight-col pl__outline">.eight-col</div>
+    <div class="four-col last-col pl__outline">.four-col</div>
+    <div class="seven-col pl__outline">.seven-col</div>
+    <div class="five-col last-col pl__outline">.five-col</div>
+    <div class="six-col pl__outline">.six-col</div>
+    <div class="six-col last-col pl__outline">.six-col</div>
+    <div class="four-col pl__outline">.four-col</div>
+    <div class="four-col pl__outline">.four-col</div>
+    <div class="four-col last-col pl__outline">.four-col</div>
+    <div class="three-col pl__outline">.three-col</div>
+    <div class="three-col pl__outline">.three-col</div>
+    <div class="three-col pl__outline">.three-col</div>
+    <div class="three-col last-col pl__outline">.three-col</div>
+    <div class="two-col pl__outline">.two-col</div>
+    <div class="eight-col pl__outline">.eight-col</div>
+    <div class="two-col last-col pl__outline">.two-col</div>
+    <div class="three-col pl__outline">.three-col</div>
+    <div class="six-col pl__outline">.six-col</div>
+    <div class="three-col last-col pl__outline">.three-col</div>
 </div>
 
 <div class="row">
     <h2>Nested grid</h2>
-    <div class="twelve-col box u-text-center">
-        <div class="eight-col box">.eight-col</div>
-        <div class="four-col last-col box">.four-col</div>
+    <div class="twelve-col pl__outline u-text-center">
+        <div class="eight-col pl__outline">.eight-col</div>
+        <div class="four-col last-col pl__outline">.four-col</div>
     </div>
-    <div class="six-col box u-text-center">
-        <div class="four-col box">.four-col</div>
-        <div class="two-col last-col box">.two-col</div>
+    <div class="six-col pl__outline u-text-center">
+        <div class="four-col pl__outline">.four-col</div>
+        <div class="two-col last-col pl__outline">.two-col</div>
     </div>
-    <div class="six-col last-col box u-text-center">
-        <div class="three-col box">.three-col</div>
-        <div class="three-col last-col box">.three-col</div>
+    <div class="six-col last-col pl__outline u-text-center">
+        <div class="three-col pl__outline">.three-col</div>
+        <div class="three-col last-col pl__outline">.three-col</div>
     </div>
-    <div class="eight-col box u-text-center">
-        <div class="one-col box">.one-col</div>
-        <div class="seven-col last-col box">.seven-col</div>
+    <div class="eight-col pl__outline u-text-center">
+        <div class="one-col pl__outline">.one-col</div>
+        <div class="seven-col last-col pl__outline">.seven-col</div>
     </div>
-    <div class="four-col box u-text-center last-col">
-        <div class="two-col box">.two-col</div>
-        <div class="two-col last-col box">.two-col</div>
+    <div class="four-col pl__outline u-text-center last-col">
+        <div class="two-col pl__outline">.two-col</div>
+        <div class="two-col last-col pl__outline">.two-col</div>
     </div>
 </div>

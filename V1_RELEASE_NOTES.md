@@ -73,4 +73,6 @@
 
 * `.video-container` is now `.media-container`
 
+* `.box` has been deprecated in favour of `.p-card`
+
 * `.row-quote` has been deprecated
