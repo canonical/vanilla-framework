@@ -30,7 +30,7 @@ Cards are used to display modular information. A card will expand to fill the fu
 This highlighted variant should be used to convey user interaction with a card.
 
 ```html
-<div class="p-card p-card--highlighted">
+<div class="p-card--highlighted">
     <h3 class="p-card__title">Card (Highlighted)</h3>
     <p class="p-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
     <footer class="p-card__footer">
