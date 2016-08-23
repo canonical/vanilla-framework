@@ -78,3 +78,5 @@
 * `.row-quote` has been deprecated
 
 * `.smaller` has been deprecated
+
+* `.header-search` and `.search-form` have been deprecated
