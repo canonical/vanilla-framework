@@ -44,7 +44,7 @@ gulp.task('sass', function() {
 
 ``` sass
 // Optionally override some settings
-$brand-color: #ffffff;
+$color-brand: #ffffff;
 
 // Import the theme
 @import "vanilla-framework/scss/vanilla";

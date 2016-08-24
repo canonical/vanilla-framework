@@ -1,0 +1,70 @@
+// Default blockquote styling
+@mixin vf-buttons {
+  @include vf-primary-button;
+  @include vf-secondary-button;
+}
+
+// Primary button styling
+@mixin vf-primary-button {
+  button,
+  input[type='button'],
+  input[type='reset'],
+  input[type='submit'],
+  .button--primary {
+    @include vf-button($color-light, $color-light-grey, null);
+
+    .p-link--external {
+      background-image: url('#{$assets-path}484aba04-external-link-white.svg');
+    }
+  }
+}
+
+// Secondary button styling
+@mixin vf-secondary-button {
+  .button--secondary {
+    @include vf-button($color-highlight, $color-light, $color-mid-grey);
+  }
+}
+
+// Default button mixin
+@mixin vf-button($button-color, $button-bg, $border-color) {
+
+  @extend %button-pattern;
+  color: $button-color;
+  background-color: $button-bg;
+  @if $border-color != null {
+    border: 1px solid $border-color;
+  }
+
+  &:hover {
+    background-color: darken($button-bg, 6.2%);
+    @if $button-bg == $color-transparent {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Default button pattern styles
+%button-pattern {
+  font-smoothing: subpixel-antialiased;
+  font-size: 1em;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 11px 24px;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  font-weight: 300;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @media only screen and (min-width : $breakpoint-medium) {
+    width: auto;
+  }
+}

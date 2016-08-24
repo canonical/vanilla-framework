@@ -1,0 +1,68 @@
+// List Grid
+
+@mixin vf-grid-list {
+
+  $grid-border-style: 1px dotted $color-warm-grey;
+
+  .grid-list {
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__img {
+      display: block;
+      margin: auto;
+      max-width: 60px;
+    }
+
+    p {
+      font-size: .875rem;
+    }
+
+    &__item {
+      border-bottom: $grid-border-style;
+      margin-bottom: 30px;
+      display: flex;
+
+      @media only screen and (max-width: $breakpoint-medium) {
+
+        > [class*='-col'] {
+
+          // scss-lint:disable NestingDepth
+          &:first-child {
+            width: 25%;
+            padding-right: 1rem;
+          }
+
+          &:last-child {
+            width: 75%;
+          }
+          // scss-lint:enable NestingDepth
+
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        display: flex;
+        flex-wrap: wrap;
+        border-right: $grid-border-style;
+        margin: 0;
+        padding: 1.5em .75em 0;
+
+        &.last-col {
+          border-right: 0;
+        }
+
+        &.last-row {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

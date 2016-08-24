@@ -1,0 +1,61 @@
+// Footer pattern styling
+@mixin vf-p-footer {
+
+  .p-footer {
+    font-size: .75rem;
+    padding-top: 1rem;
+    border-top: 1px dotted $color-dark;
+
+    &__copy {
+      font-size: .875rem;
+      padding-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    &__links {
+      margin: 0;
+      padding: .5rem 0;
+    }
+
+    &__item {
+      display: block;
+      margin-bottom: .25rem;
+
+      &:last-child a:after {
+        opacity: 0;
+      }
+    }
+
+    &__link {
+      border-bottom: 0;
+      font-size: .75rem;
+      color: $color-warm-grey;
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      margin: 0;
+      padding: 0;
+
+      &__item {
+        display: inline-block;
+      }
+
+      &__links {
+        padding: 0;
+        margin-top: 0;
+      }
+
+      &__link {
+        margin-right: 1rem;
+
+        &:after {
+          content: '\00b7'; // Adds a middle dot
+          font-size: 1.5rem;
+          position: relative;
+          top: .2rem;
+          left: .5rem;
+        }
+      }
+    }
+  }
+}

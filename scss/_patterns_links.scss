@@ -1,0 +1,28 @@
+// Link style patterns
+@mixin vf-p-links {
+
+  .p-link {
+
+    // Used for links point at a different domain
+    &--external {
+      position: relative;
+
+      &:after {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        content: url('#{$assets-path}a79c9a58-external-link.svg');
+        position: absolute;
+        top: 0;
+        right: -1.25rem;
+      }
+    }
+
+    // Used on 'Back to top' links to return user to top of page
+    &--top {
+      clear: both;
+      display: block;
+      float: right;
+    }
+  }
+}
