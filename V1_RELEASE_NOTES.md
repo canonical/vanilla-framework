@@ -30,9 +30,9 @@
 * `$alto-grey` is now `$color-alto-grey`
 * `$white` is now `$color-light`
 * `$black` is now `$color-dark`
-* `$error` is now `$color-error`
+* `$error` is now `$color-negative`
 * `$warning` is now `$color-warning`
-* `$success` is now `$color-success`
+* `$success` is now `$color-positive`
 * `$link-color` is now `$color-highlight`
 * `$gutter-width` is now `$grid-gutter-width`
 * `$columns` is now `$grid-columns`
