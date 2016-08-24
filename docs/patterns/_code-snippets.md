@@ -23,13 +23,13 @@ Code snippets should be used when presenting the user with a small snippet of co
 
 
 ```html
-<div class="code-snippet code-snippet--inverse">
+<div class="code-snippet--inverse">
     <input class="code-snippet__input" value="sudo apt-get update" readonly="readonly">
     <button class="code-snippet__action">Copy to clipboard</button>
 </div>
 ```
 
-<div class="code-snippet code-snippet--inverse">
+<div class="code-snippet--inverse">
     <input class="code-snippet__input" value="sudo apt-get update" readonly="readonly">
     <button class="code-snippet__action">Copy to clipboard</button>
 </div>
