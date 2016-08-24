@@ -80,3 +80,5 @@
 * `.smaller` has been deprecated
 
 * `.header-search` and `.search-form` have been deprecated
+
+* `.inline-logos` is now `.p-image-grid`.
