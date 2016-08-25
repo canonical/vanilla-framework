@@ -1,0 +1,53 @@
+// Default button styling
+@mixin vf-p-buttons {
+
+  .button {
+    padding: .75rem 1.5rem;
+
+    &--neutral {
+      @extend .button;
+      background-color: $color-light;
+      color: $color-dark;
+      border: 1px solid $color-mid-grey;
+
+      &:hover {
+        background-color: $color-light-grey;
+      }
+    }
+
+    &--positive {
+      @extend .button;
+      background-color: $color-positive;
+      color: $color-light;
+
+      &:hover {
+        background-color: darken($color-positive, 20%);
+      }
+    }
+
+    &--negative {
+      @extend .button;
+      background-color: $color-negative;
+      color: $color-light;
+
+      &:hover {
+        background-color: darken($color-negative, 20%);
+      }
+    }
+
+    &--brand {
+      @extend .button;
+      background-color: $color-brand;
+      color: invert($color-brand);
+
+      &:hover {
+        background-color: darken($color-brand, 20%);
+      }
+    }
+
+    &--disabled {
+      @extend .button;
+      opacity: .5;
+    }
+  }
+}

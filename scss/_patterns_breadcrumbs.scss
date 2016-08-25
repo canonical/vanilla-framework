@@ -1,0 +1,219 @@
+// Default breadcrumbs styling
+
+@mixin vf-breadcrumbs {
+  .nav-secondary {
+
+    @media only screen and (min-width: $breakpoint-small) {
+      border: 1px solid $color-alto-grey;
+      border-top: 0;
+    }
+
+    .breadcrumb {
+      margin-bottom: 0;
+      margin-left: 0;
+      padding-top: 2px;
+      padding-bottom: 3px;
+
+      @media only screen and (min-width: $breakpoint-small) {
+        float: left;
+        margin-left: 4px;
+      }
+
+      li {
+        color: $color-light;
+        display: inline-block;
+        margin: 0;
+        width: 100%;
+
+        @media only screen and (min-width: $breakpoint-small) {
+          display: inline-block;
+          width: auto;
+        }
+
+        // scss-lint:disable NestingDepth
+        &:first-of-type {
+          border-bottom: 1px solid $color-alto-grey;
+
+          @media only screen and (min-width: $breakpoint-small) {
+            border-bottom: 0;
+          }
+        }
+
+        a {
+          color: $color-warm-grey;
+          font-size: 1em;
+          display: inline-block;
+          width: 100%;
+          margin-right: 0;
+          padding: 8px 10px;
+          text-decoration: none;
+
+          @media only screen and (min-width: $breakpoint-small) {
+            font-size: .875em;
+          }
+        }
+
+        .breadcrumb-link,
+        .breadcrumb-link--second-level,
+        .active {
+
+          @media only screen and (min-width: $breakpoint-small) {
+            display: inline-block;
+            float: none;
+            width: auto;
+          }
+        }
+
+        .breadcrumb-link,
+        .breadcrumb-link--second-level {
+
+          &:after {
+            content: '\203A';
+            display: inline-block;
+            height: 5px;
+            margin-left: 8px;
+            position: absolute;
+            width: 5px;
+          }
+        }
+       // scss-lint:enable NestingDepth
+      }
+    }
+
+    .second-level-nav,
+    .third-level-nav {
+      display: none;
+      overflow: hidden;
+      width: 100%;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $color-alto-grey;
+
+      @media only screen and (min-width: $breakpoint-small) {
+        display: inline;
+        float: none;
+        margin-bottom: 0;
+        padding: 0;
+        width: auto;
+        border-bottom: 0;
+      }
+
+      li {
+        margin: 0;
+
+        @media only screen and (min-width: $breakpoint-small) {
+          float: none;
+          width: auto;
+        }
+
+        // scss-lint:disable NestingDepth
+        a {
+          font-size: .875em;
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          color: $color-cool-grey;
+
+          @media only screen and (max-width: $breakpoint-small) {
+            &.active {
+              font-weight: 500;
+            }
+          }
+
+          @media only screen and (min-width: $breakpoint-small) {
+            padding: 8px 10px 0;
+
+            &.active {
+              color: $color-highlight;
+            }
+          }
+        }
+        // scss-lint:enable NestingDepth
+      }
+    }
+    // scss-lint:disable NestingDepth
+    .second-level-nav li {
+      @media only screen and (min-width: $breakpoint-small) {
+        width: auto;
+
+        .active,
+        .breadcrumb-link--second-level {
+          color: $color-warm-grey;
+        }
+
+        .third-level-nav li a {
+          color: $color-cool-grey;
+        }
+
+        .third-level-nav li a:hover {
+          color: $color-highlight;
+        }
+
+        .third-level-nav li .active {
+          color: $color-highlight;
+          float: none;
+
+          &:after {
+            content: '';
+          }
+
+        }
+      }
+    }
+    // scss-lint:enable NestingDepth
+  }
+
+  .third-level-nav li a:hover {
+    color: $color-highlight;
+  }
+
+  .third-level-nav li .active {
+    color: $color-highlight;
+    float: none;
+
+  }
+
+  // scss-lint:disable IdSelector
+  @media only screen and (max-width: $breakpoint-small - 1) {
+    #breadcrumbs:hover {
+
+      .second-level-nav,
+      .third-level-nav,
+      .active {
+        border: 0;
+        display: block;
+        overflow: visible;
+        float: left;
+        width: 100%;
+        position: relative;
+        clear: both;
+      }
+
+      li {
+        border: 0;
+        float: left;
+      }
+
+      .second-level-nav {
+        border-top: 1px solid $color-alto-grey;
+
+        li {
+          float: left;
+        }
+      }
+
+      .third-level-nav {
+        border-bottom: 1px solid $color-alto-grey;
+        padding-top: 0;
+
+        li {
+          width: 50%;
+          display: block;
+          padding-left: 10px;
+       }
+      }
+    }
+  }
+}

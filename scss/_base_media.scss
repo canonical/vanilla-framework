@@ -1,0 +1,40 @@
+// Media element styles
+@mixin vf-b-media {
+
+  // Corrects overflow displayed oddly in IE9
+  svg:not(:root) {
+    overflow: hidden;
+  }
+
+  figure {
+    width: 100%;
+
+    caption {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  object,
+  iframe,
+  embed,
+  canvas,
+  video,
+  audio {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 20px;
+  }
+
+  // Prevents modern browsers from displaying 'audio' without controls
+  // Remove excess height in iOS5 devices
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+
+  [hidden] {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+// Base blockquotes styling
+@mixin vf-b-blockquotes {
+  blockquote {
+    margin: 0;
+    position: relative;
+    padding-right: 1.25rem;
+
+    > p {
+      font-size: 1.5rem;
+      margin: 0 0 0 3rem;
+    }
+
+    small,
+    cite {
+      font-size: .75rem;
+      line-height: 1.5;
+    }
+
+    cite {
+      width: 100%;
+      margin-left: 3rem;
+    }
+
+    &::before,
+    &::after {
+      font-size: 3rem;
+      font-weight: bold;
+      color: $color-warm-grey;
+      position: absolute;
+    }
+
+    &::before {
+      content: '\201C'; // Unicode for left double quotation mark
+      left: .5rem;
+      top: -.5rem;
+    }
+
+    &::after {
+      content: '\201D'; // Unicode for right double quotation mark
+      right: .5rem;
+      bottom: .5rem;
+    }
+  }
+}

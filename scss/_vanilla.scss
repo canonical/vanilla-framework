@@ -1,56 +1,93 @@
-// import required files
+// Settings
+@import
+'settings_assets',
+'settings_breakpoints',
+'settings_colors',
+'settings_grid',
+'settings_font';
 
-/// Import settings
-@import 'global-settings';
+// Base
+@import
+'base_blockquotes',
+'base_button',
+'base_code',
+'base_images',
+'base_links',
+'base_lists',
+'base_media',
+'base_reset',
+'base_tables',
+'base_typography';
 
-/// Import reset
-@import 'modules/reset';
+// Layout
+@import
+'layout_clearfix',
+'layout_equal-height',
+'layout_grid';
 
-/// vanilla base element styles
-@import 'modules/helpers';
-@import 'modules/breadcrumbs';
-@import 'modules/blockquotes';
-@import 'modules/buttons';
-@import 'modules/clearfix';
-@import 'modules/code';
-@import 'modules/forms';
-@import 'modules/grid';
-@import 'modules/header';
-@import 'modules/lists';
-@import 'modules/grid-list';
-@import 'modules/rows';
-@import 'modules/boxes';
-@import 'modules/search';
-@import 'modules/typography';
-@import 'modules/tables';
-@import 'modules/footer';
-@import 'modules/media';
-@import 'modules/inline-logos';
-@import 'modules/equal-height';
+// Patterns
+@import
+'patterns_card',
+'patterns_breadcrumbs',
+'patterns_buttons',
+'patterns_code',
+'patterns_code-snippets',
+'patterns_footer',
+'patterns_forms',
+'patterns_grid-list',
+'patterns_header',
+'patterns_inline-logos',
+'patterns_links',
+'patterns_pull-quotes',
+'patterns_strip';
 
-/// Include all the CSS
+// Utilities
+@import
+'utilities_floats',
+'utilities_off-screen',
+'utilities_text-center',
+'utilities_margin-collapse',
+'utilities_embedded-media',
+'utilities_vertically-center',
+'utilities_visibility';
+
+// Include all the CSS
 @mixin vanilla {
-  @include vf-reset;
-  @include vf-helpers;
-  @include vf-blockquotes;
-  @include vf-buttons;
+  // Uncategorised
   @include vf-breadcrumbs;
   @include vf-clearfix;
-  @include vf-code;
-  @include vf-code-block;
-  @include vf-code-snippet;
   @include vf-forms;
   @include vf-grid;
-  @include vf-header;
   @include vf-lists;
   @include vf-grid-list;
-  @include vf-rows;
-  @include vf-boxes;
-  @include vf-search;
-  @include vf-typography;
   @include vf-tables;
-  @include vf-footer;
-  @include vf-media;
   @include vf-inline-logos;
   @include vf-equal-heights;
+  // Base
+  @include vf-b-blockquotes;
+  @include vf-b-button;
+  @include vf-b-code;
+  @include vf-b-links;
+  @include vf-b-media;
+  @include vf-b-reset;
+  @include vf-b-typography;
+  // Patterns
+  @include vf-p-buttons;
+  @include vf-p-card;
+  @include vf-p-code;
+  @include vf-p-code-snippets;
+  @include vf-p-footer;
+  @include vf-p-header;
+  @include vf-p-links;
+  @include vf-p-header;
+  @include vf-p-pull-quotes;
+  @include vf-p-strip;
+  // Utilities
+  @include vf-u-floats;
+  @include vf-u-embedded-media;
+  @include vf-u-text-center;
+  @include vf-u-margin-collapse;
+  @include vf-u-visibility;
+  @include vf-u-off-screen;
+  @include vf-u-vertically-center;
 }

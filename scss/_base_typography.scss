@@ -1,0 +1,125 @@
+// Typographic element styles
+
+@mixin vf-b-typography {
+
+  @if str-index($font-base-family, 'Ubuntu') {
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 300;
+      src: url('#{$assets-path}50afa266-ubuntu-l-webfont.woff2') format('woff2'), url('#{$assets-path}0194407b-ubuntu-l-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 400;
+      src: url('#{$assets-path}1cbafee5-ubuntu-r-webfont.woff2') format('woff2'), url('#{$assets-path}81863185-ubuntu-r-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 300;
+      src: url('#{$assets-path}abb07502-ubuntu-li-webfont.woff2') format('woff2'), url('#{$assets-path}65fc9630-ubuntu-li-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 400;
+      src: url('#{$assets-path}fca66073-ubuntu-ri-webfont.woff2') format('woff2'), url('#{$assets-path}f0898c72-ubuntu-ri-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu Mono';
+      font-style: normal;
+      font-weight: 300;
+      src: url('#{$assets-path}871f7456-ubuntumono-r-webfont.woff2') format('woff2'), url('#{$assets-path}8df3f408-ubuntumono-r-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('#{$assets-path}871f7456-ubuntumono-r-webfont.woff2') format('woff2'), url('#{$assets-path}8df3f408-ubuntumono-r-webfont.woff') format('woff');
+    }
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: subpixel-antialiased;
+  }
+
+  body {
+    color: $color-cool-grey;
+    font-family: unquote($font-base-family);
+    font-weight: 300;
+    font-size: calc(#{$font-base-size} * .875);
+
+    @media screen and (min-width: $breakpoint-medium) {
+      font-size: calc(#{$font-base-size} * .9375);
+    }
+
+    @media screen and (min-width: $breakpoint-large) {
+      font-size: $font-base-size;
+    }
+  }
+
+  strong {
+    font-weight: 400;
+  }
+
+  small {
+    font-size: 75%;
+  }
+
+  sub,
+  sup {
+    font-size: 62.5%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    vertical-align: text-top;
+  }
+
+  sub {
+    vertical-align: text-bottom;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: unquote($font-heading-family);
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: .5rem;
+  }
+
+  p,
+  li {
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: .5rem;
+    padding: 0;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: $font-base-family;
+  }
+
+  dfn {
+    font-style: italic;
+  }
+}
