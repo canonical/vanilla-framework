@@ -5,7 +5,7 @@
 }
 
 @mixin vf-equal-height {
-  .equal-height {
+  .u-equal-height {
     @extend %equal-height;
   }
 
@@ -15,7 +15,7 @@
 // Sets the element to center an inner element vertically. Has to be used in conjunction with equal-height and if it's an image it'll need u-text-center, too.
 @mixin vf-align-vertically {
   @media only screen and (min-width : $breakpoint-medium) {
-    .equal-height__align-vertically {
+    .u-equal-height__align-vertically {
       align-items: center;
       justify-content: center;
     }
@@ -24,8 +24,10 @@
 
 // Vertical divider applies a vertical divider between columns inside parent
 @mixin vf-vertical-divider {
-  .equal-height--vertical-divider {
+  .u-equal-height--vertical-divider {
     @extend %equal-height;
+    margin-left: 0;
+    padding-left: 0;
 
     @media only screen and (min-width : $breakpoint-medium) {
       position: relative;
@@ -60,10 +62,10 @@
     }
 
     @media only screen and (max-width : $breakpoint-medium) {
-      .equal-height--vertical-divider {
+      .u-equal-height--vertical-divider {
         &__item {
           border-bottom: 1px dotted $color-warm-grey;
-          padding-bottom: 20px;
+          padding-bottom: 1rem;
         }
 
         &__item:last-of-type {
@@ -83,7 +85,7 @@
     flex-direction: row;
     width: 100%;
 
-    .equal-height__item {
+    .u-equal-height__item {
       display: flex;
       flex: auto;
       flex-direction: column;
