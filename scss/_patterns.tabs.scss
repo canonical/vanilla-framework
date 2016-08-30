@@ -1,0 +1,41 @@
+// Tabs pattern
+@mixin vf-p-tabs {
+
+  .p-tabs {
+    display: inline-block;
+
+    &__item {
+      font-size: 1rem;
+      display: inline-block;
+      list-style-type: none;
+      text-align: center;
+
+      &:after {
+        content: '';
+        width: 1px;
+        display: inline-block;
+        background: $color-warm-grey;
+        height: 11px;
+        padding: 0;
+        margin: 0 5px;
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      width: 100%;
+
+      &:hover {
+        border-bottom: 3px solid $color-warm-grey;
+      }
+
+      &.is-active {
+        border-color: $color-highlight;
+      }
+    }
+  }
+}
