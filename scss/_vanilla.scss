@@ -10,6 +10,7 @@
 @import
 'base_blockquotes',
 'base_button',
+'base_forms',
 'base_code',
 'base_images',
 'base_links',
@@ -33,7 +34,6 @@
 'patterns_code-numbered',
 'patterns_code-snippet',
 'patterns_footer',
-'patterns_forms',
 'patterns_grid-list',
 'patterns_header',
 'patterns_image-grid',
@@ -57,9 +57,18 @@
 @mixin vanilla {
   // Reset
   @include vf-b-reset;
+  // Uncategorised
+  @include vf-clearfix;
+  @include vf-grid;
+  @include vf-lists;
+  @include vf-grid-list;
+  @include vf-tables;
+  @include vf-inline-logos;
+  @include vf-equal-heights;
   // Base
   @include vf-b-blockquotes;
   @include vf-b-button;
+  @include vf-b-forms;
   @include vf-b-code;
   @include vf-b-links;
   @include vf-b-media;
