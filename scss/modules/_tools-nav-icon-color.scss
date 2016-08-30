@@ -1,0 +1,14 @@
+// this is to get the variable inserted in an inline svg, we have to strip the # and replace with %23
+// it also checks to see if the color is a light color and adjusts the background color accordingly
+@function nav-icon-color($color) {
+  @if type-of($color) != 'color' {
+    @warn "'#{$color}' is not a color'.";
+    @return false;
+  } @else {
+    @if (lightness($color) > 60) {
+      @return '%23333'; // Lighter backgorund, return dark color
+    } @else {
+      @return '%23fff'; // Darker background, return light color
+    }
+  }
+}

@@ -182,7 +182,7 @@
       height: 48px;
       cursor: pointer;
       text-indent: -99999px;
-      background-image: url('#{$asset-server}12387180-navigation-menu-plain.svg');
+      background-image: svg-nav-icon($brand-color);
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 25px auto;
@@ -231,3 +231,13 @@
   }
   // scss-lint:enable NestingDepth, IdSelector
 }
+
+@function svg-nav-icon($color) {
+  @if type-of($color) != 'color' {
+    @warn "'#{$color}' is not a color'.";
+    @return false;
+  }
+  @return url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' height='90' width='90'><g color='%23000'><path fill='" + nav-icon-color($color) + "' enable-background='accumulate' d='M5.995 15h78v12h-78z'/><path fill='" + nav-icon-color($color) + "' enable-background='accumulate' d='M5.995 39h78v12h-78z'/><path fill='" + nav-icon-color($color) + "' enable-background='accumulate' d='M5.995 63h78v12h-78z'/><path fill='none' enable-background='accumulate' d='M-.005 0h90v90h-90z'/></g></svg>");
+}
+
+
