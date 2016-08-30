@@ -23,10 +23,10 @@ On [the project homepage](http://ubuntudesign.github.io/vanilla-framework), find
 
 ## Local usage
 
-Install the Node package into your project:
+Install all the dependancies for vanilla framework project:
 
 ``` bash
-npm install vanilla-framework  # Installs at ./node_modules/vanilla-framework
+npm install
 ```
 
 Then reference it from your own Sass files, with optional settings:
