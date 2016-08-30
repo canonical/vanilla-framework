@@ -1,15 +1,19 @@
 // Full width strip pattern
 @mixin vf-p-strip {
 
-  width: 100%;
-  clear: both;
-  background-color: $color-light;
+  .strip {
+    width: 100%;
+    clear: both;
+    background-color: $color-light;
 
-  &--light {
-    background-color: $color-light-grey;
-  }
+    &--light {
+      @extend .strip;
+      background-color: $color-light-grey;
+    }
 
-  &--dark {
-    background-color: $color-cool-grey;
+    &--dark {
+      @extend .strip;
+      background-color: $color-cool-grey;
+    }
   }
 }
