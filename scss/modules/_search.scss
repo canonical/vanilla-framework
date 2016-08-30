@@ -186,13 +186,6 @@
         right: 0;
       }
     }
-
-    .no-svg,
-    .opera-mini {
-      .search-toggle {
-        background-image: url('#{$asset-server}75d8151d-search-white.png');
-      }
-    }
   }
 
   @media only screen and (min-width : $navigation-threshold) {
@@ -321,13 +314,6 @@
       right: 0;
       text-indent: -99999px;
       width: 48px;
-    }
-
-    .no-svg,
-    .opera-mini {
-      .banner .search-toggle {
-        background-image: url('#{$asset-server}2196e362-search-white.svg');
-      }
     }
 
     .opera-mini {
@@ -548,21 +534,6 @@
   }
 }
 
-// this is to get the variable inserted in an inline svg, we have to strip the # and replace with %23
-// it also checks to see if the color is a light color and adjusts the background color accordingly
-@function svg-search-color($color) {
-  @if type-of($color) != 'color' {
-    @warn "'#{$color}' is not a color'.";
-    @return false;
-  } @else {
-    @if (lightness($color) > 60) {
-      @return '%23333'; // Lighter backgorund, return dark color
-    } @else {
-      @return '%23fff'; // Darker background, return light color
-    }
-  }
-}
-
 // todo: this should probably go into a functions file
 // this checks to see if the color is a light color and adjusts text/svg color accordingly
 @function contrast-friendly-search-color($color) {
@@ -583,5 +554,5 @@
     @warn "'#{$color}' is not a color'.";
     @return false;
   }
-  @return url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 90 90'><g color='" + svg-search-color($color) + "'><path fill='none' stroke-width='4' overflow='visible' enable-background='accumulate' d='M0 0h90v90H0z'/><path d='M69 36.5a33 33.5 0 1 1-66 0 33 33.5 0 1 1 66 0z' transform='matrix(.636 0 0 .627 16.114 16.12)' fill='none' stroke='" + svg-search-color($color) + "' stroke-width='9.5' overflow='visible' enable-background='accumulate'/><path d='M55.77 52.92L52.94 55.75l14 14 2.83-2.83-14-14z' font-size='xx-small' fill='" + svg-search-color($color) + "' stroke-width='6' overflow='visible' enable-background='accumulate' font-family='Sans' class='s0'/><path d='M60.97 57.03c-1.55-3.04 1.02-3.63 2.46-0.58 1.44-0.21 3.21 4.29l9.19 9.2c2.68 2.85 3.26 2.46 5.64 2.38-2.38 2.77-2.79-0.08-5.65l-9.19-9.2c-0.73-0.75-1.78-1.19-2.83-1.19z' font-size='xx-small' fill='" + svg-search-color($color) + "' stroke-width='11.8' overflow='visible' enable-background='accumulate' font-family='Sans' class='s0'/></g></svg>");
+  @return url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 90 90'><g color='" + nav-icon-color($color) + "'><path fill='none' stroke-width='4' overflow='visible' enable-background='accumulate' d='M0 0h90v90H0z'/><path d='M69 36.5a33 33.5 0 1 1-66 0 33 33.5 0 1 1 66 0z' transform='matrix(.636 0 0 .627 16.114 16.12)' fill='none' stroke='" + nav-icon-color($color) + "' stroke-width='9.5' overflow='visible' enable-background='accumulate'/><path d='M55.77 52.92L52.94 55.75l14 14 2.83-2.83-14-14z' font-size='xx-small' fill='" + nav-icon-color($color) + "' stroke-width='6' overflow='visible' enable-background='accumulate' font-family='Sans' class='s0'/><path d='M60.97 57.03c-1.55-3.04 1.02-3.63 2.46-0.58 1.44-0.21 3.21 4.29l9.19 9.2c2.68 2.85 3.26 2.46 5.64 2.38-2.38 2.77-2.79-0.08-5.65l-9.19-9.2c-0.73-0.75-1.78-1.19-2.83-1.19z' font-size='xx-small' fill='" + nav-icon-color($color) + "' stroke-width='11.8' overflow='visible' enable-background='accumulate' font-family='Sans' class='s0'/></g></svg>");
 }
