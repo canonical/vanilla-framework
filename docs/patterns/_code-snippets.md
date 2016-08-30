@@ -10,7 +10,7 @@ Code snippets should be used when presenting the user with a small snippet of co
 ```html
 <div class="code-snippet">
     <input class="code-snippet__input" value="sudo apt-get update" readonly="readonly">
-    <button class="code-snippet__copy-button">Copy to clipboard</button>
+    <button class="code-snippet__action">Copy to clipboard</button>
 </div>
 ```
 
@@ -21,6 +21,7 @@ Code snippets should be used when presenting the user with a small snippet of co
 
 ## .code-snippet--inverse
 
+If you want the code block to be on a dark background, use `.code-snippet--inverse`
 
 ```html
 <div class="code-snippet--inverse">

@@ -16,6 +16,17 @@ title: vertically center
     </div>
 </div>
 
+```html
+<div class="row equal-height">
+    <div class="equal-height__item eight-col">
+      <!-- content -->
+    </div>
+    <div class="equal-height__item equal-height__align-vertically four-col last-col">
+      <!-- content -->
+    </div>
+</div>
+```
+
 <div class="row equal-height">
     <h4>with list</h4>
     <ul class="no-bullets equal-height">
@@ -37,3 +48,14 @@ title: vertically center
         </li>
     </ul>
 </div>
+
+```html
+<div class="row equal-height">
+    <!-- content -->
+    <ul class="no-bullets equal-height">
+        <li class="equal-height__item three-col">
+            <!-- content -->
+        </li>
+    </ul>
+</div>
+```
