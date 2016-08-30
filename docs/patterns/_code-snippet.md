@@ -1,11 +1,11 @@
 ---
 collection: patterns
-title: code snippets
+title: code snippet
 ---
 
 ## .code-snippet
 
-Code snippets should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
+Code snippet should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 
 ```html
 <div class="code-snippet">
