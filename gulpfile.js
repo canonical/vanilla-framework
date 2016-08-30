@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     scsslint = require('gulp-scss-lint'),
     cssnano = require('gulp-cssnano');
     sassdoc = require('sassdoc'),
-    util = require('util');
+    util = require('util'),
+    plumber = require('gulp-plumber');
 
 /* Helper functions */
 function throwSassError(sassError) {
@@ -40,6 +41,7 @@ gulp.task('sasslint', function() {
 
 gulp.task('sass', function() {
     return gulp.src('scss/**/*.scss')
+        .pipe(plumber())
         .pipe(sass({
             style: 'expanded',
             errLogToConsole: true,
