@@ -3,8 +3,8 @@ collection: layout
 title: vertically center
 ---
 
-<div class="row equal-height">
-    <div class="equal-height__item eight-col">
+<div class="row u-equal-height">
+    <div class="u-equal-height__item eight-col">
         <h2>Vertically center an element</h2>
         <p class="intro">Sets the element to center an inner element vertically.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt suscipit magna purus lorem, fishcakes dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, tincidunt suscipit magna ut tempor enim gravida.</p>
@@ -16,22 +16,22 @@ title: vertically center
     </div>
 </div>
 
-<div class="row equal-height">
+<div class="row">
     <h4>with list</h4>
-    <ul class="no-bullets equal-height">
-        <li class="equal-height__item three-col" style="background-color: #eee">
+    <ul class="no-bullets u-equal-height">
+        <li class="u-equal-height__item three-col" style="background-color: #eee">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet.</p>
         </li>
-        <li class="equal-height__item three-col" style="background-color: #eee">
+        <li class="u-equal-height__item three-col" style="background-color: #eee">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. </p>
         </li>
-        <li class="equal-height__item three-col" style="background-color: #eee">
+        <li class="u-equal-height__item three-col" style="background-color: #eee">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. </p>
         </li>
-        <li class="equal-height__item three-col last-col" style="background-color: #eee">
+        <li class="u-equal-height__item three-col last-col" style="background-color: #eee">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
         </li>
