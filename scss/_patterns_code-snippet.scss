@@ -5,19 +5,19 @@
     position: relative;
     overflow: hidden;
     transition: all .2s;
-    border: 1px solid $color-mid-grey;
     border-radius: 4px;
+    border: 1px solid $color-mid-grey;
     background-color: $color-light;
-    font-family: $font-monospace;
 
     &__input {
+      font-family: $font-monospace;
       font-size: 1em;
       font-weight: 300;
       width: 100%;
       padding: .7em 1em;
-      color: $color-cool-grey;
       border: 0;
       background-color: transparent;
+      color: $color-warm-grey;
     }
 
     &__action {
@@ -28,21 +28,25 @@
       width: 50px;
       height: 100%;
       text-indent: -9999px;
-      border-left: 1px solid $color-mid-grey;
-      background-color: $color-light;
       background-image: url('#{$assets-path}994e60f9-get-link-url_16.svg');
       background-repeat: no-repeat;
       background-position: center;
+      border-left: 1px solid $color-mid-grey;
+      background-color: $color-light;
     }
   }
 
-  .code-snippet--inverse {
+  .code-snippet--dark {
     @extend .code-snippet;
-    border: 1px solid $color-dark;
+    border: 1px solid $color-mid-grey;
+    background-color: $color-dark;
 
     .code-snippet__input {
+      color: $color-mid-grey;
+    }
+
+    .code-snippet__action {
       background-color: $color-dark;
-      color: $color-light;
     }
   }
 }
