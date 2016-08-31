@@ -3,12 +3,23 @@
 
   .p-pull-quote {
     max-width: 75%;
-    font-size: 1.5rem;
+
+    > p {
+      font-size: 1.4375rem;
+
+      &:first-of-type::before,
+      &:last-of-type::after {
+        font-size: 2.8125rem;
+      }
+      &:first-of-type::before {
+        margin-left: -2.5rem;
+      }
+    }
 
     &__citation {
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-style: italic;
-      margin-top: .75rem;
+      margin-top: 1rem;
       display: inline-block;
     }
   }
