@@ -53,6 +53,18 @@
       }
     }
 
+    &[type='submit'] {
+      border: 0;
+      padding: .75rem 1.5rem;
+      background-color: $color-positive;
+      color: $color-light;
+
+      &:hover {
+        cursor: pointer;
+        background-color: darken($color-positive, 20%);
+      }
+    }
+
     @each $state, $color in $states {
       &.has-#{$state} {
         border: 1px solid $color;
@@ -65,8 +77,13 @@
   }
 
   form ul {
-    margin-left: 0;
+    margin: 0;
+    padding-left: 0;
     list-style: none;
+
+    li:last-child {
+      margin-bottom: 0;
+    }
   }
 
   // Textarea styles
@@ -91,19 +108,19 @@
     background-color: $color-light-grey;
     background-position: -.9375rem -.9375rem;
     background-repeat: no-repeat;
-    border-radius: 4px;
+    border-radius: .25rem;
     border: 0;
-    margin-bottom: 8px;
-    padding: 15px 20px;
+    margin-bottom: .5rem;
+    padding: .9375rem 1.25rem;
 
     @media only screen and (min-width: $breakpoint-large) {
-      padding: 15px 20px;
+      padding: .9375rem 1.25rem;
     }
 
     h3 {
       border-bottom: 1px dotted $color-mid-grey;
-      margin-bottom: 9px;
-      padding-bottom: 10px;
+      margin-bottom: .5625rem;
+      padding-bottom: .625rem;
     }
   }
 
@@ -123,13 +140,14 @@
 // Default form input element styles
 %input-elements {
   -webkit-appearance: textfield;
-  border-radius: 2px;
+  border-radius: .125rem;
   border: 1px solid $color-mid-grey;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, .12);
+  font-family: $font-base-family;
   font-size: 1rem;
   margin: 0;
   outline: none;
-  padding: .6956522em .869565em;
+  padding: .6875rem .8125rem;
   vertical-align: baseline;
   font-weight: 300;
 
@@ -150,13 +168,9 @@
 
 // Default form checkbox and radio styles
 %tick-elements {
-  border-radius: 2px;
-  border: 1px solid $color-mid-grey;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .12);
-  height: 14px;
   padding: 0;
   vertical-align: middle;
-  width: 14px;
+  width: auto;
 
   &[disabled='disabled'] {
 
