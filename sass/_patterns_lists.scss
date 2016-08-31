@@ -1,11 +1,11 @@
 // Default list styling
 @mixin vf-lists {
-  @include vf-lists-list();
-  @include vf-lists-list-ticks();
-  @include vf-lists-no-bullets();
-  @include vf-lists-combined-list();
-  @include vf-lists-inline-list();
-  @include vf-stepped-list();
+  @include vf-lists-list;
+  @include vf-lists-list-ticks;
+  @include vf-lists-no-bullets;
+  @include vf-lists-combined-list;
+  @include vf-lists-inline-list;
+  @include vf-stepped-list;
 }
 
 // List styling using list class
@@ -16,7 +16,7 @@
 }
 
 // Displays an ubuntu styled list with tick bullets
-@mixin vf-lists-list-ticks() {
+@mixin vf-lists-list-ticks {
   .list-ticks {
     @extend %list-ticks;
 
@@ -57,7 +57,7 @@
     }
   }
 
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (min-width: $breakpoint-medium) {
     .combined-list {
       ul,
       div {
@@ -97,13 +97,13 @@
     margin-left: $grid-gutter-width * 3;
   }
 
-  @media only screen and (max-width : $breakpoint-large) {
+  @media only screen and (max-width: $breakpoint-large) {
     .list-step__item:first-child {
       margin-top: 10px;
     }
   }
 
-  @media only screen and (min-width : $breakpoint-large) {
+  @media only screen and (min-width: $breakpoint-large) {
     .list-step__title {
       margin-bottom: 0;
     }
@@ -120,7 +120,7 @@
     margin-bottom: .625em;
     margin-left: -$grid-gutter-width * 3;
 
-    @media only screen and (max-width : $breakpoint-large) {
+    @media only screen and (max-width: $breakpoint-large) {
       position: absolute;
       top: -5px;
     }
@@ -165,9 +165,9 @@
     @return false;
   } @else {
     @if (lightness($color) > 50) {
-      @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1)
+      @return '%23' + str-slice('#{darken($color, 20%)}', 2, -1);
     } @else {
-      @return '%23' + str-slice('#{$color}', 2, -1)
+      @return '%23' + str-slice('#{$color}', 2, -1);
     }
   }
 }
