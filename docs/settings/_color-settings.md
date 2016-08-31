@@ -50,11 +50,11 @@ title: Color
 </tr>
 <tr>
 <td>$color-negative</td>
-<td style="background-color: #df382c;;">#df382c </td>
+<td style="background-color: #df382c;">#df382c </td>
 </tr>
 <tr>
 <td>$color-warning</td>
-<td style="background-color: #eca918;;">#eca918 </td>
+<td style="background-color: #eca918;">#eca918 </td>
 </tr>
 <tr>
 <td>$color-positive</td>
