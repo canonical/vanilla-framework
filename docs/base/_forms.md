@@ -36,7 +36,7 @@ Our form controls all receive global styling. All elements and labels are set to
     <ul>
         <li>
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" id="exampleInputEmail1" placeholder="Email">
+            <input type="date" id="exampleInputEmail1" placeholder="Email">
         </li>
         <li>
             <label for="exampleInputPassword1">Password</label>
