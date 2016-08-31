@@ -5,7 +5,7 @@ title: forms
 
 Our form controls all receive global styling. All elements and labels are set to 100% width of the ```<form>``` parent element. Wrapping all form elements in a list ```<ul>``` for optium verticle spacing between form elements.
 
-### Example
+#### Example
 
 <div class="twelve-col">
     <form>
@@ -65,7 +65,7 @@ Our form controls all receive global styling. All elements and labels are set to
     <ul>
         <li>
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" id="exampleInputEmail1" placeholder="Email">
+            <input type="date" id="exampleInputEmail1" placeholder="Email">
         </li>
         <li>
             <label for="exampleInputPassword1">Password</label>
@@ -113,36 +113,87 @@ Our form controls all receive global styling. All elements and labels are set to
 </form>
 ```
 
-## Feedback states
+## Styled form elements
+
+### inputs
+
+All common input styles are supported with in the framework. We support all HTML5 text input types; ```text```, ```password```, ```datetime```, ```datetime-local```, ```date```, ```month```, ```time```, ```week```, ```color```, ```number```, ```email```, ```url```, ```search``` &amp; ```tel```.
+
+#### Example
+
+<div class="twelve-col">
+    <form>
+        <label for="exampleTextInput">Example input</label>
+        <input type="text" id="exampleTextInput" placeholder="Example input" />
+    </form>
+</div>
+
+```
+<input type="text" id="exampleTextInput" placeholder="Example input" />
+```
+
+### Feedback classes
 
 Applying classes ```.has-error```, ```.has-success```, ```.has-warning``` on either the element or label will give form response to a user.
 
-### Example
+#### Example
 
 <div class="twelve-col">
     <form>
         <ul>
             <li>
-                <label class="has-error" for="has-error">Label error state</label>
-                <input type="text" id="has-error" class="has-error" placeholder="Input has-error class">
+                <label class="has-success" for="inputSuccess">Input success</label>
+                <input type="text" id="inputSuccess" class="has-success" placeholder="Input has-success class">
             </li>
             <li>
-                <label class="has-success" for="has-success">Label success state</label>
-                <input type="text" id="has-success" class="has-success" placeholder="Input has-success class">
+                <label class="has-error" for="inputError">Input error</label>
+                <input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
             </li>
             <li>
-                <label class="has-warning" for="has-warning">Label warning state</label>
-                <input type="text" id="has-warning" class="has-warning" placeholder="Input has-warning class">
+                <label class="has-warning" for="inputWarning">Input warning</label>
+                <input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
+            </li>
+            <li>
+                <input type="checkbox" class="has-success">
+                <label for="checkboxExampleSuccess" class="has-success">Checkbox with success</label>
+            </li>
+            <li>
+                <input type="checkbox" class="has-error">
+                <label for="checkboxExampleError" class="has-error">Checkbox with error</label>
+            </li>
+            <li>
+                <input type="checkbox" class="has-warning">
+                <label for="checkboxExampleWarning" class="has-warning">Checkbox with warning</label>
             </li>
         </ul>
     </form>
 </div>
 
+```
+<label class="has-success" for="inputSuccess">Input success</label>
+<input type="text" id="inputSuccess" class="has-success" placeholder="Input has-success class">
+
+<label class="has-error" for="inputError">Input error</label>
+<input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
+
+<label class="has-warning" for="inputWarning">Input warning</label>
+<input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
+
+<input type="checkbox" class="has-success">
+<label for="checkboxExampleSuccess" class="has-success">Checkbox with success</label>
+
+<input type="checkbox" class="has-error">
+<label for="checkboxExampleError" class="has-error">Checkbox with error</label>
+
+<input type="checkbox" class="has-warning">
+<label for="checkboxExampleWarning" class="has-warning">Checkbox with warning</label>
+```
+
 ## Disabled state
 
 Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interactions. All disabled inputs will have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
 
-### Example
+#### Example
 
 <div class="twelve-col">
     <form>
@@ -159,7 +210,7 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
 
 The ```<fieldset>``` container applies a background and a ```8px``` padding around any form input.
 
-### Example
+#### Example
 
 <div class="twelve-col">
     <form>
@@ -172,7 +223,7 @@ The ```<fieldset>``` container applies a background and a ```8px``` padding arou
 
 ## Fielset form list
 
-### Example
+#### Example
 
 <div class="twelve-col">
     <form>
