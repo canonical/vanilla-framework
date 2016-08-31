@@ -7,7 +7,7 @@ title: Code
 
 Here is an example of some <code>sample inline code</code> with a paragraph.
 
-## Block code
+## Code block
 
 ```
 <pre>
