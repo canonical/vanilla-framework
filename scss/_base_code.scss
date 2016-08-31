@@ -3,27 +3,30 @@
   code,
   samp,
   kbd {
-    font-family: $font-monospace;
+    font-family: unquote($font-monospace);
     text-align: left;
   }
 
   pre,
   code {
-    text-align: left;
-    white-space: pre;
+    white-space: pre-line;
     word-spacing: normal;
     word-wrap: break-word;
     tab-size: 4;
     hyphens: none;
     direction: ltr;
+    line-height: 1.5rem;
+    margin: .5rem 0;
   }
 
   pre {
+    text-align: left;
     background: $color-dark;
-    color: $color-light;
-    border: 1px solid $color-mid-grey;
+    color: $color-mid-grey;
+    border: 0;
     padding: 1rem;
     border-radius: .5rem;
-    overflow: scroll;
+    overflow: auto;
+    text-shadow: none;
   }
 }
