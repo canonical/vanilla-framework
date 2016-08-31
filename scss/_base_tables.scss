@@ -2,52 +2,35 @@
 @mixin vf-tables {
   table {
     border-collapse: collapse;
-    border-spacing: 0;
+    border: 0;
     overflow-x: scroll;
     margin-bottom: $grid-gutter-width;
-    margin: 0 0 2.5em;
     width: 100%;
-
-    th,
-    td {
-      background: $color-light-grey;
-      border: 1px dotted $color-warm-grey;
-      padding: 15px 10px;
-    }
-
-    td {
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    thead th {
-      border-collapse: separate;
-      border-spacing: 0 10px;
-      background: $color-warm-grey;
-      color: $color-cool-grey;
-      font-weight: normal;
-    }
-
-    tbody th {
-      font-weight: 300;
-      text-align: left;
-    }
-
-    th[scope='col'] {
-      text-align: center;
-    }
-
-    thead th:first-of-type {
-      text-align: left;
-    }
-
   }
 
-  @media only screen and (max-width : 768px) {
+  th,
+  td {
+    padding: 1rem .75rem;
+  }
 
-    table {
-      display: block;
-    }
+  td {
+    text-align: right;
+    vertical-align: middle;
+  }
 
+  tr {
+    border-bottom: 1px solid $color-light-grey;
+  }
+
+  thead th {
+    border-collapse: separate;
+    border-spacing: 0 .5rem;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  tbody th {
+    font-weight: 400;
+    text-align: left;
   }
 }
