@@ -68,3 +68,21 @@ title: Lists
     </ul>
     <li>Ordered list item 4</li>
 </ol>
+
+## Definition list
+
+```html
+<dl>
+    <dt>Definition title</dt>
+    <dd>Definition list item 1</dd>
+    <dt>Ordered list item 3</dt>
+    <dd>Definition list item 2</dd>
+</dl>
+```
+
+<dl>
+    <dt>Definition title</dt>
+    <dd>Definition list item 1</dd>
+    <dt>Ordered list item 3</dt>
+    <dd>Definition list item 2</dd>
+</dl>
