@@ -47,7 +47,7 @@ gulp.task('sass', function() {
 $color-brand: #ffffff;
 
 // Import the theme
-@import "vanilla-framework/scss/vanilla";
+@import "vanilla-framework/sass/vanilla";
 
 // Run the theme
  @include ubuntu-vanilla-theme;
