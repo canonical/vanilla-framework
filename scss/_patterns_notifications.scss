@@ -1,0 +1,69 @@
+// Notification style patterns
+@mixin vf-p-notification {
+  @include vf-notifications-default();
+  @include vf-notifications-positive();
+  @include vf-notifications-warning();
+  @include vf-notifications-negative();
+}
+
+// Default notification styling
+@mixin vf-notifications-default {
+  .p-notification {
+    @extend %notification;
+    background-color: $color-light;
+    color: $color-cool-grey;
+
+    &__action {
+      margin-right: 1rem;
+      border-bottom: 0;
+      text-decoration: underline;
+      margin-bottom: 0;
+      color: currentColor;
+    }
+
+    &__content {
+      flex: 1;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Positive notification styling
+@mixin vf-notifications-positive {
+  .p-notification--positive {
+    @extend %notification;
+    background-color: $color-positive;
+    color: $color-light;
+  }
+}
+
+// Warning notification styling
+@mixin vf-notifications-warning {
+  .p-notification--warning {
+    @extend %notification;
+    background-color: $color-warning;
+    color: $color-cool-grey;
+  }
+}
+
+// Negative notification styling
+@mixin vf-notifications-negative {
+  .p-notification--negative {
+    @extend %notification;
+    background-color: $color-negative;
+    color: $color-light;
+  }
+}
+
+// The placeholder for basic notification styling
+%notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 1px 5px 1px rgba($color-cool-grey, .2);
+}
