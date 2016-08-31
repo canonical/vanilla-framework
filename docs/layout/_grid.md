@@ -1,6 +1,6 @@
 ---
 collection: layout
-title: grid
+title: Grid
 ---
 
 The grid is constructing using `*-col` elements nested inside a single `.row` parent element.

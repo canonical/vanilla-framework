@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: grid list
+title: Grid list
 ---
 
 <div class="row" id="grid-list">

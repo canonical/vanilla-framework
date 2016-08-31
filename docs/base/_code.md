@@ -1,6 +1,6 @@
 ---
 collection: base
-title: code
+title: Code
 ---
 
 ## Inline code

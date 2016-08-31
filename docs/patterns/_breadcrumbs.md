@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: breadcrumbs
+title: Breadcrumbs
 ---
 
 ```html

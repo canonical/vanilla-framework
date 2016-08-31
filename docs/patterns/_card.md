@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: card
+title: Card
 ---
 
 ## .p-card

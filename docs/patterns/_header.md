@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: header
+title: Header
 ---
 
 ```html

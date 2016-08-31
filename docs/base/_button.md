@@ -1,6 +1,6 @@
 ---
 collection: base
-title: button
+title: Button
 ---
 
 ```

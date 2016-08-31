@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: buttons
+title: Buttons
 ---
 
 ```html

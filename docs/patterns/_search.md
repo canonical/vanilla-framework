@@ -1,4 +1,4 @@
 ---
 collection: patterns
-title: search
+title: Search
 ---

@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: code snippet
+title: Code snippet
 ---
 
 ## .code-snippet

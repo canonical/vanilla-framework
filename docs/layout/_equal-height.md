@@ -1,6 +1,6 @@
 ---
 collection: layout
-title: equal height
+title: Equal height
 ---
 
 <div class="row">
