@@ -91,6 +91,23 @@ The ```<textarea>``` tag defines a multi-line text input control.
 <textarea rows="3">Textarea</textarea>
 ```
 
+Read only state attribute ```readonly```, disabled the input but retains a default cursor.
+
+#### Example
+
+<div class="twelve-col">
+    <form>
+        <label for"textarea">Example readonly textarea</label>
+        <textarea id="textarea" rows="3" readonly="readonly">Textarea...</textarea>
+    </form>
+</div>
+
+
+```
+<textarea rows="3" readonly>Textarea</textarea>
+```
+
+
 ### Checkboxes and radios
 
 Checkboxes and radios are used for selecting one or multiple options

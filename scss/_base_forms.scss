@@ -94,17 +94,6 @@
     @extend %input-elements;
     overflow: auto;
     vertical-align: top;
-
-    &[readonly='readonly'] {
-      color: $color-warm-grey;
-      cursor: default;
-
-      &:active,
-      &:focus {
-        border-color: $color-warm-grey;
-        outline: none;
-      }
-    }
   }
 
   // Fieldset styles
@@ -182,8 +171,14 @@
     color: contrast-friendly-search-color($color-brand);
   }
 
+  &[disabled],
   &[disabled="disabled"] {
     @extend %disabled-element;
+  }
+
+  &[readonly],
+  &[readonly="readonly"] {
+    @extend %readonly-element;
   }
 
   @each $state, $color in $states {
@@ -204,7 +199,8 @@
   width: auto;
   outline: none;
 
-  &[disabled='disabled'] {
+  &[disabled],
+  &[disabled="disabled"] {
 
     + label {
       @extend %disabled-element;
@@ -216,4 +212,17 @@
 %disabled-element {
   opacity: .5;
   cursor: not-allowed;
+}
+
+// Readonly form elements
+%readonly-element {
+  color: $color-warm-grey;
+  cursor: default;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $color-mid-grey;
+    outline: none;
+  }
 }
