@@ -1,16 +1,20 @@
 ---
 collection: base
-title: blockquote
+title: Blockquote
 ---
 
 ```
 <blockquote>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-    <cite>A. N. Author</cite>
+    <p>I will build a great wall — and nobody builds walls better than me, believe me — and I’ll build them very inexpensively.</p>
+    <p>I will build a great, great wall on our southern border, and I will make Mexico pay for that wall.</p>
+    <p>Mark my words.</p>
+    <cite>Donald J. Trump</cite>
 </blockquote>
 ```
 
 <blockquote>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-    <cite>A. N. Author</cite>
+    <p>I will build a great wall — and nobody builds walls better than me, believe me — and I’ll build them very inexpensively.</p>
+    <p>I will build a great, great wall on our southern border, and I will make Mexico pay for that wall.</p>
+    <p>Mark my words.</p>
+    <cite>Donald J. Trump</cite>
 </blockquote>

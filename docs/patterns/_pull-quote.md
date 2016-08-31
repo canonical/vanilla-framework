@@ -1,7 +1,8 @@
 ---
 collection: patterns
-title: pull quote
+title: Pull quote
 ---
+A pull quote limits a [blockquote](/base/blockquote) to 75% of the width of its container... doesn't really seem necessary.
 
 ```html
 <blockquote class="p-pull-quote">
