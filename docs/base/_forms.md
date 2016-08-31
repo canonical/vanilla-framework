@@ -28,32 +28,12 @@ Our form controls all receive global styling. All elements and labels are set to
                 </select>
             </li>
             <li>
-                <label for"textarea">Message</label>
-                <textarea id="textarea">Message...</textarea>
-            </li>
-            <li>
                 <label for="exampleInputFile">File input</label>
                 <input type="file" id="exampleInputFile">
             </li>
             <li>
                 <input type="checkbox" id="CheckMe">
-                <label for="CheckMe">Check me out</label>
-            </li>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio1" value="option1">
-                <label for="Radio1">Radio 1</label>
-            </li>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio2" value="option2">
-                <label for="Radio2">Radio 2</label>
-            </li>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio4" value="option4">
-                <label for="Radio4">Radio 4</label>
-            </li>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio6" value="option6">
-                <label for="Radio6">Radio 6</label>
+                <label for="CheckMe">Check me</label>
             </li>
         </ul>
         <button type="submit" class="button--primary button--inline">Submit</button>
@@ -131,6 +111,58 @@ All common input styles are supported with in the framework. We support all HTML
 ```
 <input type="text" id="exampleTextInput" placeholder="Example input" />
 ```
+
+### Textarea
+
+The ```<textarea>``` tag defines a multi-line text input control.
+
+#### Example
+
+<div class="twelve-col">
+    <form>
+        <label for"textarea">Example textarea</label>
+        <textarea id="textarea" rows="3">Textarea...</textarea>
+    </form>
+</div>
+
+```
+<textarea rows="3">Textarea...</textarea>
+```
+
+### Checkboxes and radios
+
+Checkboxes and radios are used for selecting one or multiple options
+
+#### Example
+
+<div class="twelve-col">
+    <form>
+        <li>
+            <input type="checkbox" id="checkExample1">
+            <label for="checkExample1">Checkbox example</label>
+        </li>
+        <li>
+            <input type="checkbox" id="checkExample2" disabled="disabled">
+            <label for="checkExample2">Checkbox example - disabled</label>
+        </li>
+        <li>
+            <input type="radio" name="RadioOptions" id="Radio1" value="option1">
+            <label for="Radio1">Radio 1</label>
+        </li>
+        <li>
+            <input type="radio" name="RadioOptions" id="Radio2" value="option2">
+            <label for="Radio2">Radio 2</label>
+        </li>
+        <li>
+            <input type="radio" name="RadioOptions" id="Radio4" value="option4">
+            <label for="Radio4">Radio 4</label>
+        </li>
+        <li>
+            <input type="radio" name="RadioOptions" id="Radio6" value="option6">
+            <label for="Radio6">Radio 6</label>
+        </li>
+    </form>
+</div>
 
 ### Feedback classes
 
