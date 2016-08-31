@@ -26,6 +26,19 @@ title: Buttons
     <button class="button--disabled">Disabled</button>
 </div>
 
+```html
+<a href="#" class="button">Button</a>
+
+<a href="#" class="button--neutral">Neutral</a>
+
+<a href="#" class="button--positive">Positive</a>
+
+<a href="#" class="button--negative">Negative</a>
+
+<a href="#" class="button--brand">Brand</a>
+
+<a href="#" class="button--disabled">Disabled</a>
+```
 <div class="twelve-col">
     <a href="#" class="button">Button</a>
     <a href="#" class="button--neutral">Neutral</a>
