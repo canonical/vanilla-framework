@@ -19,7 +19,7 @@ Code snippet should be used when presenting the user with a small snippet of cod
     <button class="code-snippet__action">Copy to clipboard</button>
 </div>
 
-## .code-snippet--light
+## .code-snippet--dark
 
 If you want the code block to be on a dark background, use `.code-snippet--dark`
 
