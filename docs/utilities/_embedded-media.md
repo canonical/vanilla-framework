@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: embedded media
+title: Embedded media
 ---
 
 ## .u-embedded-media

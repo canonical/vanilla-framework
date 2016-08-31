@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: off screen
+title: Off screen
 ---
 
 ## .u-off-screen

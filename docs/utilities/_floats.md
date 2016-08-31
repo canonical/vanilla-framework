@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: floats
+title: Floats
 ---
 
 These do pretty much what they say on the tin.
