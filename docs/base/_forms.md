@@ -161,38 +161,36 @@ The ```<fieldset>``` container applies a background and a ```8px``` padding arou
 
 ### Example
 
-<div class="row no-border">
-    <div class="eight-col">
-        <form>
-            <fieldset>
-                <label for="input-fieldset">Label</label>
-                <input placeholder="Example input" id="input-fieldset" type="text">
-            </fieldset>
-        </form>
-    </div>
+<div class="twelve-col">
+    <form>
+        <fieldset>
+            <label for="input-fieldset">Label</label>
+            <input placeholder="Example input" id="input-fieldset" type="text">
+        </fieldset>
+    </form>
 </div>
 
 ## Fielset form list
 
-<div class="row">
-    <div class="eight-col">
-        <form>
-            <fieldset>
-                <ul>
-                    <li>
-                        <label for="list-input-1">Label</label>
-                        <input placeholder="I'm an input text" id="list-input-1" type="text">
-                    </li>
-                    <li>
-                        <label for="list-input-2">Label</label>
-                        <input placeholder="I'm an input text" id="list-input-2" type="text">
-                    </li>
-                    <li>
-                        <label for="list-input-3">Label</label>
-                        <input placeholder="I'm an input text" id="list-input-3" type="text">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-    </div>
+### Example
+
+<div class="twelve-col">
+    <form>
+        <fieldset>
+            <ul>
+                <li>
+                    <label for="list-input-1">Label</label>
+                    <input placeholder="I'm an input text" id="list-input-1" type="text">
+                </li>
+                <li>
+                    <label for="list-input-2">Label</label>
+                    <input placeholder="I'm an input text" id="list-input-2" type="text">
+                </li>
+                <li>
+                    <label for="list-input-3">Label</label>
+                    <input placeholder="I'm an input text" id="list-input-3" type="text">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
 </div>
