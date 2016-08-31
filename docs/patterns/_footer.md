@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: footer
+title: Footer
 ---
 
 ```html

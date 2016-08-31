@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: strip
+title: Strip
 ---
 
 The strip pattern provides a full width strip container in which to wrap a row.

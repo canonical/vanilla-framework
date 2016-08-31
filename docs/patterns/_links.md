@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: links
+title: Links
 ---
 
 ## .p-link--external

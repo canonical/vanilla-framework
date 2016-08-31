@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: tabs
+title: Tabs
 ---
 
 <ul class="p-tabs">    

@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: code numbered
+title: Code numbered
 ---
 
 ## .code--numbered

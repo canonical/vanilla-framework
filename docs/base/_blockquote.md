@@ -1,6 +1,6 @@
 ---
 collection: base
-title: blockquote
+title: Blockquote
 ---
 
 ```

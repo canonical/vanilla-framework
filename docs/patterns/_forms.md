@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: forms
+title: Forms
 ---
 
 <div class="row">

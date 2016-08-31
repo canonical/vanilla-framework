@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: image grid
+title: Image grid
 ---
 
 This image grid can be used to showcase a group of related image such as logos.

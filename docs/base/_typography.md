@@ -1,6 +1,6 @@
 ---
 collection: base
-title: typography
+title: Typography
 ---
 
 ## Page Headings

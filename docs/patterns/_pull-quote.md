@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: pull quote
+title: Pull quote
 ---
 
 ```html

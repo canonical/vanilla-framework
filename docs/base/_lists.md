@@ -1,6 +1,6 @@
 ---
 collection: base
-title: lists
+title: Lists
 ---
 
 ## Ordered list

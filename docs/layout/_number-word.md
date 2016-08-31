@@ -1,4 +1,4 @@
 ---
 collection: layout
-title: number word
+title: Number word
 ---
