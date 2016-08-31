@@ -1,6 +1,6 @@
 ---
 collection: base
-title: Tables
+title: Table
 ---
 
 ```html
