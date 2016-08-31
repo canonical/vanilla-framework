@@ -1,12 +1,6 @@
 // Form element styles
 @mixin vf-b-forms {
 
-  $states: (
-    error: $color-negative,
-    warning: $color-warning,
-    success: $color-positive
-  );
-
   label {
     cursor: pointer;
     display: block;
@@ -19,6 +13,7 @@
     }
   }
 
+  // Input styles
   input {
 
     &[type='text'],
@@ -64,26 +59,11 @@
         background-color: darken($color-positive, 20%);
       }
     }
-
-    @each $state, $color in $states {
-      &.has-#{$state} {
-        border: 1px solid $color;
-
-        &:focus {
-          border: 1px solid $color;
-        }
-      }
-    }
   }
 
-  form ul {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-
-    li:last-child {
-      margin-bottom: 0;
-    }
+  // Select styles
+  select {
+    @extend %input-elements;
   }
 
   // Textarea styles
@@ -104,6 +84,7 @@
     }
   }
 
+  // Fieldset styles
   fieldset {
     background-color: $color-light-grey;
     background-position: -.9375rem -.9375rem;
@@ -124,14 +105,22 @@
     }
   }
 
+  // Form styles
   form {
     input,
     select,
     textarea {
       width: 100%;
+    }
 
-      &[disabled="disabled"] {
-        @extend %disabled-element;
+    // List used for layout purposes
+    ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+
+      li:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -163,6 +152,24 @@
 
   &::placeholder {
     color: contrast-friendly-search-color($color-brand);
+  }
+
+  &:-ms-input-placeholder {
+    color: contrast-friendly-search-color($color-brand);
+  }
+
+  &[disabled="disabled"] {
+    @extend %disabled-element;
+  }
+
+  @each $state, $color in $states {
+    &.has-#{$state} {
+      border: 1px solid $color;
+
+      &:focus {
+        border: 1px solid $color;
+      }
+    }
   }
 }
 
