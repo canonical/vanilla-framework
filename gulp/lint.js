@@ -1,10 +1,9 @@
 var gulp = require('gulp');
-var scsslint = require('gulp-scss-lint');
-var gutil = require('gulp-util');
+var sassLint = require('gulp-sass-lint');
 
-gulp.task('lint:scss', function() {
-    var path = (gutil.env.file)? gutil.env.file : '**/*.scss';
-    return gulp.src('scss/' + path)
-    .pipe(scsslint())
-    .pipe(scsslint.failReporter());
+gulp.task('lint:sass', function() {
+  return gulp.src('sass/**/*.s+(a|c)ss')
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
