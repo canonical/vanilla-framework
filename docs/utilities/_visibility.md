@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: visibility
+title: Visibility
 ---
 
 These utils exist to show or hide an element with a certain breakpoint, if specified. The modifier on each class relates directly to the breakpoint of the same name.

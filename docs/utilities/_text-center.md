@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: text center
+title: Text center
 ---
 
 ## .u-text-center

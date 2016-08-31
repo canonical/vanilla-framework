@@ -1,11 +1,11 @@
 ---
 collection: utilities
-title: margin collapse
+title: Margin collapse
 ---
 
 Collapse margins on any element. You can also single out a margin for collapse by specifying a corresponding modifier class.
 
-Note: Using these utils may cause existing patterns to lose consistency. 
+Note: Using these utils may cause existing patterns to lose consistency.
 
 ## .no-margin--*
 

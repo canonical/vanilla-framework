@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: padding collapse
+title: Padding collapse
 ---
 
 Collapse padding on any element. You can also single out a padding for collapse by specifying a corresponding modifier class.

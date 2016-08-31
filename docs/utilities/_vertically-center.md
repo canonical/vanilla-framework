@@ -1,6 +1,6 @@
 ---
 collection: utilities
-title: vertically center
+title: Vertically center
 ---
 
 This class will vertically center the direct child of the element it is placed on.
