@@ -7,11 +7,11 @@
     &--external {
       position: relative;
 
-      &::after {
+      &:after {
+        @include external-svg();
         display: block;
         width: 1rem;
         height: 1rem;
-        content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" height="90" width="90"><g><path fill="none" color="%23000" d="M0 0h90v90H0z"/><g><path fill="%23e95420" d="M33 13.012C8.994 13.042 6 13.747 6 31v36c0 18 3 18 30 18h12c27 0 30 0 30-18v-9h-9v6c0 12 0 12-24 12h-6c-24 0-24 0-24-12V34c0-10.864.192-11.885 18-11.982v-9.006z"/><path fill="none" color="%23000" d="M0 0h90v90H0z"/><path d="M41.82 17.782c.628-2.514 40.01-12.362 41.896-10.477C85.6 9.19 75.752 48.573 73.24 49.202c-2.515.628-32.05-28.906-31.422-31.42z" xml:space="default" fill="%23e95420" color="%23000"/><path style="block-progression:tb;text-transform:none;text-indent:0" fill="%23e95420" xml:space="default" d="M56.43 24.64L32.09 48.98l9.94 9.94 24.34-24.34z" color="%23000"/></g></g></svg>');
         position: absolute;
         top: 0;
         right: -1.25rem;
@@ -25,4 +25,8 @@
       float: right;
     }
   }
+}
+
+@mixin external-svg($color-external-svg: $color-cool-grey) {
+  content: url("data:image/svg+xml;utf8, <svg width='14px' height='15px' viewBox='0 0 14 15' xmlns='http://www.w3.org/2000/svg'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><g id='Group' transform='translate(-1.000000, -1.000000)'><polygon id='Shape' points='0 0 16 0 16 16 0 16'></polygon><g id='Shape'><path d='M5.86666667,2.31324444 C1.59893333,2.31857778 1.06666667,2.44391111 1.06666667,5.51111111 L1.06666667,11.9111111 C1.06666667,15.1111111 1.6,15.1111111 6.4,15.1111111 L8.53333333,15.1111111 C13.3333333,15.1111111 13.8666667,15.1111111 13.8666667,11.9111111 L13.8666667,10.3111111 L12.2666667,10.3111111 L12.2666667,11.3777778 C12.2666667,13.5111111 12.2666667,13.5111111 8,13.5111111 L6.93333333,13.5111111 C2.66666667,13.5111111 2.66666667,13.5111111 2.66666667,11.3777778 L2.66666667,6.04444444 C2.66666667,4.11306667 2.7008,3.93155556 5.86666667,3.91431111 L5.86666667,2.31324444 L5.86666667,2.31324444 Z' fill='#{$color-external-svg}'></path><polygon points='0 0 16 0 16 16 0 16'></polygon><path d='M7.43466667,3.16124444 C7.54631111,2.71431111 14.5475556,0.963555556 14.8828444,1.29866667 C15.2177778,1.63377778 13.4670222,8.6352 13.0204444,8.74702222 C12.5733333,8.85866667 7.32266667,3.60817778 7.43431111,3.16124444 L7.43466667,3.16124444 Z' fill='#{$color-external-svg}'></path><polygon fill='#{$color-external-svg}' points='10.032 4.38044444 5.70488889 8.70755556 7.472 10.4746667 11.7991111 6.14755556'></polygon></g></g></g></svg>");
 }
