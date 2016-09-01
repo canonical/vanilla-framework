@@ -7,7 +7,7 @@ Vanilla typography starts with a base font size of 16px and a font weight of 300
 
 ## Page Headings
 
-All headings uses Ubuntu Light font and have a line height of 1.3 and font-weight of 300 unless specified otherwise.
+All headings uses Ubuntu Light font and have a line height of 1.3 and font-weight of 300 unless specified otherwise.  Here are some examples with large size screen font sizes.
 
 <h1>&lt;h1&gt;/.heading-1 has a font size of 45px</h1>
 <h2>&lt;h2&gt;/.heading-2 has a font size of 32px</h2>
