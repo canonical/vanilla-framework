@@ -2,52 +2,60 @@
 @mixin vf-p-buttons {
 
   .button {
-    padding: .75rem 1.5rem;
+    @extend %button-pattern;
 
     &--neutral {
       @extend .button;
       background-color: $color-light;
       color: $color-dark;
-      border: 1px solid $color-mid-grey;
+      border-color: $color-mid-grey;
 
       &:hover {
         background-color: $color-light-grey;
+        border-color: $color-mid-grey;
       }
     }
 
     &--positive {
       @extend .button;
       background-color: $color-positive;
+      border-color: $color-positive;
       color: $color-light;
 
       &:hover {
         background-color: darken($color-positive, 20%);
+        border-color: darken($color-positive, 20%);
       }
     }
 
     &--negative {
       @extend .button;
       background-color: $color-negative;
+      border-color: $color-negative;
       color: $color-light;
 
       &:hover {
         background-color: darken($color-negative, 20%);
+        border-color: darken($color-negative, 20%);
       }
     }
 
     &--brand {
       @extend .button;
       background-color: $color-brand;
+      border-color: $color-brand;
       color: invert($color-brand);
 
       &:hover {
         background-color: darken($color-brand, 20%);
+        border-color: darken($color-brand, 20%);
       }
     }
 
     &--disabled {
       @extend .button;
       opacity: .5;
+      cursor: default;
     }
   }
 }
