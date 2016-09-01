@@ -3,7 +3,7 @@ collection: base
 title: forms
 ---
 
-Our form controls all receive global styling. All elements and labels are set to 100% width of the ```<form>``` parent element. Wrapping all form elements in a list ```<ul>``` for optium verticle spacing between form elements.
+Our form controls all receive global styling. All elements and labels are set to 100% width of the ```<form>``` parent element.
 
 <div class="twelve-col">
     <form>
@@ -17,7 +17,6 @@ Our form controls all receive global styling. All elements and labels are set to
         <label for="CheckMe">Check me</label>
         <input type="checkbox" id="CheckMe">
         <label for="CheckMe">Check me</label>
-        <button type="submit" class="button">Submit</button>
         <button type="submit" class="button">Submit</button>
     </form>
 </div>
