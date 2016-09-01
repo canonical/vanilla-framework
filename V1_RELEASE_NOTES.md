@@ -20,14 +20,14 @@
 * `$row-background` has been removed
 * `$header-link-color` has been removed
 * `$text-color` has been removed
+* `$alto-grey` has been removed
+* `$brand-color-light` has been removed
 * `$transparent` is now `$color-transparent`
-* `$brand-color` is now `$color-brand`
-* `$brand-color-light` is now `$color-brand-light`
+* `$brand-color` is now `$color-brand` and #333
 * `$cool-grey` is now `$color-cool-grey`
-* `$warm-grey` is now `$color-warm-grey`
-* `$mid-grey` is now `$color-mid-grey`
+* `$warm-grey` is now `$color-warm-grey` and #cdcdcd
+* `$mid-grey` is now `$color-mid-grey` and #888
 * `$light-grey` is now `$color-light-grey`
-* `$alto-grey` is now `$color-alto-grey`
 * `$white` is now `$color-light`
 * `$black` is now `$color-dark`
 * `$error` is now `$color-negative`
@@ -82,3 +82,5 @@
 * `.header-search` and `.search-form` have been deprecated
 
 * `.inline-logos` is now `.p-image-grid`.
+
+* `p-header` has become `p-navigation` as well as all the sub-BEM classes

@@ -1,6 +1,6 @@
 ---
 collection: patterns
-title: notification
+title: Notification
 ---
 
 ## .p-notification
