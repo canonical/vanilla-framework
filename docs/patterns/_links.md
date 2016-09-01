@@ -21,8 +21,12 @@ This class should be used on hyperlinks that will return the user to the top of 
 
 Example:
 
-<a class="p-link--top">Back to top</a>
+<div class="p-top">
+    <a href="#" class="p-top__link">Back to top</a>
+</div>
 
 ```html
-<a class="p-link--top">Back to top</a>
+<div class="p-top">
+    <a href="#" class="p-top__link">Back to top</a>
+</div>
 ```
