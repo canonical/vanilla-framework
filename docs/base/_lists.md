@@ -75,6 +75,5 @@ title: Lists
 <dl>
     <dt>Definition title</dt>
     <dd>Definition list item 1</dd>
-    <dt>Ordered list item 3</dt>
     <dd>Definition list item 2</dd>
 </dl>
