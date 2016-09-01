@@ -5,53 +5,34 @@ title: forms
 
 Our form controls all receive global styling. All elements and labels are set to 100% width of the ```<form>``` parent element. Wrapping all form elements in a list ```<ul>``` for optium verticle spacing between form elements.
 
-#### Example
-
 <div class="twelve-col">
     <form>
-        <ul>
-            <li>
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" id="exampleInputEmail1" placeholder="Email">
-            </li>
-            <li>
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" id="exampleInputPassword1" placeholder="Password">
-            </li>
-            <li>
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-            </li>
-            <li>
-                <input type="checkbox" id="CheckMe">
-                <label for="CheckMe">Check me</label>
-            </li>
-        </ul>
-        <button type="submit" class="button--primary button--inline">Submit</button>
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" id="exampleInputEmail1" placeholder="Email">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" id="exampleInputPassword1" placeholder="Password">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <input type="checkbox" id="CheckMe">
+        <label for="CheckMe">Check me</label>
+        <input type="checkbox" id="CheckMe">
+        <label for="CheckMe">Check me</label>
+        <button type="submit" class="button">Submit</button>
+        <button type="submit" class="button">Submit</button>
     </form>
 </div>
 
 ```
 <form>
-    <ul>
-        <li>
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="date" id="exampleInputEmail1" placeholder="Email">
-        </li>
-        <li>
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" id="exampleInputPassword1" placeholder="Password">
-        </li>
-        <li>
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
-        </li>
-        <li>
-            <input type="checkbox" id="CheckMe">
-            <label for="CheckMe">Check me out</label>
-        </li>
-    </ul>
-    <button type="submit" class="button--primary button--inline">Submit</button>
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="date" id="exampleInputEmail1" placeholder="Email">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" id="exampleInputPassword1" placeholder="Password">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <input type="checkbox" id="CheckMe">
+    <label for="CheckMe">Check me out</label>
+    <button type="submit" class="button">Submit</button>
 </form>
 ```
 
@@ -60,8 +41,6 @@ Our form controls all receive global styling. All elements and labels are set to
 ### inputs
 
 All common input styles are supported with in the framework. We support all HTML5 text input types; ```text```, ```password```, ```datetime```, ```datetime-local```, ```date```, ```month```, ```time```, ```week```, ```color```, ```number```, ```email```, ```url```, ```search``` &amp; ```tel```.
-
-#### Example
 
 <div class="twelve-col">
     <form>
@@ -78,8 +57,6 @@ All common input styles are supported with in the framework. We support all HTML
 
 The ```<textarea>``` tag defines a multi-line text input control.
 
-#### Example
-
 <div class="twelve-col">
     <form>
         <label for"textarea">Example textarea</label>
@@ -92,8 +69,6 @@ The ```<textarea>``` tag defines a multi-line text input control.
 ```
 
 Read only state attribute ```readonly```, disabled the input but retains a default cursor.
-
-#### Example
 
 <div class="twelve-col">
     <form>
@@ -112,20 +87,12 @@ Read only state attribute ```readonly```, disabled the input but retains a defau
 
 Checkboxes and radios are used for selecting one or multiple options
 
-#### Example
-
 <div class="twelve-col">
     <form>
-        <ul>
-            <li>
-                <input type="checkbox" id="checkExample1">
-                <label for="checkExample1">Checkbox example</label>
-            </li>
-            <li>
-                <input type="checkbox" id="checkExample2" disabled="disabled">
-                <label for="checkExample2">Checkbox example - disabled</label>
-            </li>
-        </ul>
+        <input type="checkbox" id="checkExample1">
+        <label for="checkExample1">Checkbox example</label>
+        <input type="checkbox" id="checkExample2" disabled="disabled">
+        <label for="checkExample2">Checkbox example - disabled</label>
     </form>
 </div>
 
@@ -137,24 +104,14 @@ Checkboxes and radios are used for selecting one or multiple options
 <label for="checkExample2">Checkbox example - disabled</label>
 ```
 
-#### Example
-
 <div class="twelve-col">
     <form>
-        <ul>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio1" value="option1">
-                <label for="Radio1">Radio example 1</label>
-            </li>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio2" value="option2">
-                <label for="Radio2">Radio example 2</label>
-            </li>
-            <li>
-                <input type="radio" name="RadioOptions" id="Radio4" value="option4" disabled="disabled">
-                <label for="Radio4">Radio example 3 - disabled</label>
-            </li>
-        </ul>
+        <input type="radio" name="RadioOptions" id="Radio1" value="option1">
+        <label for="Radio1">Radio example 1</label>
+        <input type="radio" name="RadioOptions" id="Radio2" value="option2">
+        <label for="Radio2">Radio example 2</label>
+        <input type="radio" name="RadioOptions" id="Radio4" value="option4" disabled="disabled">
+        <label for="Radio4">Radio example 3 - disabled</label>
     </form>
 </div>
 
@@ -169,8 +126,6 @@ Checkboxes and radios are used for selecting one or multiple options
 ### Selects
 
 The ```<select>``` element is used to create a drop-down list.
-
-#### Example
 
 <div class="twelve-col">
     <form>
@@ -194,8 +149,6 @@ The ```<select>``` element is used to create a drop-down list.
 ```
 
 Modify using the ```multiple``` attribute on to create a multiple select controls
-
-#### Example
 
 <div class="twelve-col">
     <form>
@@ -222,16 +175,10 @@ Modify using the ```multiple``` attribute on to create a multiple select control
 
 Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interactions. All disabled inputs will have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
 
-#### Example
-
 <div class="twelve-col">
     <form>
-        <ul>
-            <li>
-                <label for="disabled-input">Disabled input</label>
-                <input type="text" id="disabled-input" placeholder="Input is disabled" disabled="disabled">
-            </li>
-        </ul>
+        <label for="disabled-input">Disabled input</label>
+        <input type="text" id="disabled-input" placeholder="Input is disabled" disabled="disabled">
     </form>
 </div>
 
@@ -239,36 +186,20 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
 
 Applying classes ```.has-error```, ```.has-success```, ```.has-warning``` on either the element or label will give form response to a user.
 
-#### Example
-
 <div class="twelve-col">
     <form>
-        <ul>
-            <li>
-                <label class="has-success" for="inputSuccess">Input success</label>
-                <input type="text" id="inputSuccess" class="has-success" placeholder="Input has-success class">
-            </li>
-            <li>
-                <label class="has-error" for="inputError">Input error</label>
-                <input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
-            </li>
-            <li>
-                <label class="has-warning" for="inputWarning">Input warning</label>
-                <input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
-            </li>
-            <li>
-                <input type="checkbox" class="has-success">
-                <label for="checkboxExampleSuccess" class="has-success">Checkbox with success</label>
-            </li>
-            <li>
-                <input type="checkbox" class="has-error">
-                <label for="checkboxExampleError" class="has-error">Checkbox with error</label>
-            </li>
-            <li>
-                <input type="checkbox" class="has-warning">
-                <label for="checkboxExampleWarning" class="has-warning">Checkbox with warning</label>
-            </li>
-        </ul>
+        <label class="has-success" for="inputSuccess">Input success</label>
+        <input type="text" id="inputSuccess" class="has-success" placeholder="Input has-success class">
+        <label class="has-error" for="inputError">Input error</label>
+        <input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
+        <label class="has-warning" for="inputWarning">Input warning</label>
+        <input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
+        <input type="checkbox" class="has-success">
+        <label for="checkboxExampleSuccess" class="has-success">Checkbox with success</label>
+        <input type="checkbox" class="has-error">
+        <label for="checkboxExampleError" class="has-error">Checkbox with error</label>
+        <input type="checkbox" class="has-warning">
+        <label for="checkboxExampleWarning" class="has-warning">Checkbox with warning</label>
     </form>
 </div>
 
@@ -296,8 +227,6 @@ Applying classes ```.has-error```, ```.has-success```, ```.has-warning``` on eit
 
 The ```<fieldset>``` container applies a background and a ```8px``` padding around any form input.
 
-#### Example
-
 <div class="twelve-col">
     <form>
         <fieldset>
@@ -314,44 +243,26 @@ The ```<fieldset>``` container applies a background and a ```8px``` padding arou
 </fieldset>
 ```
 
-#### Example
-
 <div class="twelve-col">
     <form>
         <fieldset>
-            <ul>
-                <li>
-                    <label for="list-input-1">Label</label>
-                    <input placeholder="I'm an input text" id="list-input-1" type="text">
-                </li>
-                <li>
-                    <label for="list-input-2">Label</label>
-                    <input placeholder="I'm an input text" id="list-input-2" type="text">
-                </li>
-                <li>
-                    <label for="list-input-3">Label</label>
-                    <input placeholder="I'm an input text" id="list-input-3" type="text">
-                </li>
-            </ul>
+            <label for="list-input-1">Label</label>
+            <input placeholder="I'm an input text" id="list-input-1" type="text">
+            <label for="list-input-2">Label</label>
+            <input placeholder="I'm an input text" id="list-input-2" type="text">
+            <label for="list-input-3">Label</label>
+            <input placeholder="I'm an input text" id="list-input-3" type="text">
         </fieldset>
     </form>
 </div>
 
 ```
 <fieldset>
-    <ul>
-        <li>
-            <label for="list-input-1">Label</label>
-            <input placeholder="I'm an input text" id="list-input-1" type="text">
-        </li>
-        <li>
-            <label for="list-input-2">Label</label>
-            <input placeholder="I'm an input text" id="list-input-2" type="text">
-        </li>
-        <li>
-            <label for="list-input-3">Label</label>
-            <input placeholder="I'm an input text" id="list-input-3" type="text">
-        </li>
-    </ul>
+    <label for="list-input-1">Label</label>
+    <input placeholder="I'm an input text" id="list-input-1" type="text">
+    <label for="list-input-2">Label</label>
+    <input placeholder="I'm an input text" id="list-input-2" type="text">
+    <label for="list-input-3">Label</label>
+    <input placeholder="I'm an input text" id="list-input-3" type="text">
 </fieldset>
 ```
