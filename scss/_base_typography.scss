@@ -12,15 +12,21 @@
     font-smoothing: subpixel-antialiased;
   }
 
+  html {
+    font-size: calc(#{$font-base-size} * .9375);
+
+    @media screen and (min-width: $breakpoint-medium) {
+      font-size: $font-base-size;
+    }
+  }
+
   body {
     color: $color-cool-grey;
     font-family: unquote($font-base-family);
     font-weight: 300;
-    font-size: calc(#{$font-base-size} * .9375);
     line-height: 1.6;
 
     @media screen and (min-width: $breakpoint-medium) {
-      font-size: $font-base-size;
       line-height: 1.5;
     }
   }
