@@ -9,12 +9,12 @@
     @extend %equal-height;
   }
 
-  @include vf-align-vertically();
+  @include vf-align-vertically;
 }
 
 // Sets the element to center an inner element vertically. Has to be used in conjunction with equal-height and if it's an image it'll need u-text-center, too.
 @mixin vf-align-vertically {
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (min-width: $breakpoint-medium) {
     .u-equal-height__align-vertically {
       align-items: center;
       justify-content: center;
@@ -29,14 +29,14 @@
     margin-left: 0;
     padding-left: 0;
 
-    @media only screen and (min-width : $breakpoint-medium) {
+    @media only screen and (min-width: $breakpoint-medium) {
       position: relative;
 
       &__item {
         padding-left: ($grid-gutter-width / 2);
         padding-right: ($grid-gutter-width / 2);
 
-        &:before {
+        &::before {
           content: '';
           position: absolute;
           right: -($grid-gutter-width / 2);
@@ -51,7 +51,7 @@
       &__item:last-of-type {
         padding-right: 0;
 
-        &:before {
+        &::before {
           border-right: 0;
         }
       }
@@ -61,7 +61,7 @@
       }
     }
 
-    @media only screen and (max-width : $breakpoint-medium) {
+    @media only screen and (max-width: $breakpoint-medium) {
       .u-equal-height--vertical-divider {
         &__item {
           border-bottom: 1px dotted $color-warm-grey;
@@ -79,7 +79,7 @@
 
 // Default equal-height pattern styles
 %equal-height {
-  @media only screen and (min-width : $breakpoint-medium) {
+  @media only screen and (min-width: $breakpoint-medium) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

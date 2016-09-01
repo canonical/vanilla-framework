@@ -24,5 +24,5 @@ gulp.task('help', function() {
 /* Gulp default task list */
 gulp.task('default', ['help']);
 gulp.task('develop', ['watch', 'sass:develop']);
-gulp.task('test', ['lint:scss']);
-gulp.task('build', ['lint:scss', 'sass:build']);
+gulp.task('test', ['lint:sass']);
+gulp.task('build', ['lint:sass', 'sass:build']);
