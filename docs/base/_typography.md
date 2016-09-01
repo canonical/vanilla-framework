@@ -25,15 +25,17 @@ All headings uses Ubuntu Light font and have a line height of 1.3 and font-weigh
 
 ## Blockquotes and citations
 
-<blockquote>
-    <p>Now is no time to think of what you do not have.<p>
-    <p>Think of what you can do with that there is.</p>
-    <cite>&mdash; Ernest Hemingway, The Old Man and the Sea</cite>
-</blockquote>
+<div>
+    <blockquote>
+        <p>Now is no time to think of what you do not have.<p>
+        <p>Think of what you can do with that there is.</p>
+        <cite>&mdash; Ernest Hemingway, The Old Man and the Sea</cite>
+    </blockquote>
+</div>
 
 ## Small text
 
-<small>This is some &lt;small&gt;/.smaller text and font-size of 13px.</small>
+<small>This is some &lt;small&gt; text and font-size of 13px.</small>
 
 ## Strong text
 
