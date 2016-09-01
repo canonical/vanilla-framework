@@ -27,17 +27,48 @@
     }
   }
 
+  /// Links
+  /// @section links
+  a:focus {
+    outline: thin dotted;
+  }
+
+  a:hover,
+  a:active {
+    outline: 0;
+  }
+
+  a {
+    color: $color-brand;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    text-decoration: underline;
+  }
+
   strong {
     font-weight: 400;
   }
 
-  small {
-    font-size: 75%;
+  .caps-centered,
+  .muted-heading {
+    font-size: .875rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  small,
+  .smaller {
+    font-size: .8125rem;
   }
 
   sub,
   sup {
-    font-size: 62.5%;
+    font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -51,6 +82,76 @@
     vertical-align: text-bottom;
   }
 
+  p + h2,
+  ul + h2,
+  ol + h2,
+  pre + h2 {
+    margin-top: (18 / 32) + rem;
+  }
+
+  header nav a:link {
+    font-weight: normal;
+  }
+
+  p + h3,
+  ul + h3,
+  ol + h3,
+  pre + h3 {
+    margin-top: .783rem;
+  }
+
+  p + h4,
+  ul + h4,
+  ol + h4,
+  pre + h4 {
+    margin-top: 1.21875rem;
+  }
+
+  ol + h2,
+  p + h2,
+  pre + h2,
+  ul + h2 {
+    margin-top: .563rem;
+  }
+
+  ol + h3,
+  p + h3,
+  pre + h3,
+  ul + h3 {
+    margin-top: .783rem;
+  }
+
+  ol + h4,
+  p + h4,
+  pre + h4,
+  ul + h4 {
+    margin-top: 1.219rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .row div,
+  .row ul {
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .four-col p:last-child {
+    margin-bottom: 0;
+  }
+
+  .note {
+    color: $color-warm-grey;
+    font-size: .813rem;
+  }
+
+  /// Base typography
+  /// @section type
   h1,
   h2,
   h3,
@@ -59,20 +160,65 @@
   h6 {
     font-family: unquote($font-heading-family);
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.3;
+  }
+
+  h1,
+  .heading-1 {
+    font-size: 2.8125rem;
     margin-bottom: .5rem;
+  }
+
+  h2,
+  .heading-2 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  h3,
+  .heading-3 {
+    font-size: 1.4375rem;
+    margin-bottom: .522rem;
+  }
+
+  h4,
+  .heading-4 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: .615rem;
+  }
+
+  h5,
+  .heading-5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  h6,
+  .heading-6 {
+    font-size: .8125rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
   }
 
   p,
   li {
-    font-size: 100%;
+    font-size: 1rem;
     line-height: 1.5;
     margin: 0;
-    margin-bottom: .5rem;
+    margin-bottom: .75rem;
     padding: 0;
   }
 
   dfn {
     font-style: italic;
+  }
+
+  code,
+  pre {
+    font-family: unquote($font-monospace);
   }
 }
