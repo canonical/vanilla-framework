@@ -4,6 +4,7 @@ title: Lists
 ---
 
 ## Ordered list
+
 ```html
 <ol>
     <li>Ordered list item 1</li>
@@ -33,6 +34,7 @@ title: Lists
 </ol>
 
 ## Unordered list
+
 ```html
 <ul>
     <li>Unordered list item 1</li>

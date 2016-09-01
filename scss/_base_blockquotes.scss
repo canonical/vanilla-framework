@@ -1,48 +1,10 @@
 // Base blockquotes styling
 @mixin vf-b-blockquotes {
-  %quotes {
-    font-size: 2rem;
-    font-weight: bold;
-    color: $color-warm-grey;
-    line-height: 1rem;
-  }
-
   blockquote {
-    margin: 1rem 0;
-    position: relative;
-    padding-right: 1.25rem;
+    border-left: 2px solid $color-mid-grey;
 
-    > p {
-      font-size: 1.17rem;
-      margin: 0 0 .5rem 3rem;
-
-      &:first-of-type::before {
-        @extend %quotes;
-        margin-left: -1.8rem;
-        content: '\201C\2002'; // Unicode for left double quotation mark +  1/2 em space
-      }
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-
-      &:last-of-type::after {
-        @extend %quotes;
-        content: '\2002\201E'; // Unicode for 1/2 em space + low double quotation mark
-      }
-    }
-
-    small,
-    cite {
-      font-size: 1rem;
-      font-style: italic;
-      line-height: 1.5;
-      margin-top: .75rem;
-    }
-
-    cite {
-      width: 100%;
-      margin-left: 3rem;
+    > cite {
+      display: block;
     }
   }
 }
