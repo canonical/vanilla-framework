@@ -17,7 +17,7 @@ title: Buttons
 <button class="button--disabled">Disabled</button>
 ```
 
-<div class="twelve-col">
+<div class="col-12">
     <button class="button">Button</button>
     <button class="button--neutral">Neutral</button>
     <button class="button--positive">Positive</button>
@@ -40,7 +40,7 @@ title: Buttons
 <a href="#" class="button--disabled">Disabled</a>
 ```
 
-<div class="twelve-col">
+<div class="col-12">
     <a href="#" class="button">Button</a>
     <a href="#" class="button--neutral">Neutral</a>
     <a href="#" class="button--positive">Positive</a>
