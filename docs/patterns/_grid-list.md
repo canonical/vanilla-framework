@@ -10,16 +10,16 @@ title: Grid list
             <div class="col-1 ">
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3 last-col">
+            <div class="col-3">
                 <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
         </li>
-        <li class="grid-list__item col-6 last-col">
+        <li class="grid-list__item col-6">
             <div class="col-1 ">
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3 last-col">
+            <div class="col-3">
                 <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
@@ -28,16 +28,16 @@ title: Grid list
             <div class="col-1 ">
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3 last-col">
+            <div class="col-3">
                 <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>
         </li>
-        <li class="grid-list__item col-6 last-col last-row">
+        <li class="grid-list__item col-6 last-row">
             <div class="col-1 ">
                 <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3 last-col">
+            <div class="col-3">
                 <h3><a class="p-link--external" href="#">Link</a></h3>
                 <p>lorem ipsum</p>
             </div>

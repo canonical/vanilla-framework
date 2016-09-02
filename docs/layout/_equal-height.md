@@ -9,7 +9,7 @@ title: Equal height
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor hendrerit viverra. Maecenas in molestie sapien.</p>
         </div>
-        <div class="col-4 last-col u-equal-height__item" style="background-color: #eee">
+        <div class="col-4 u-equal-height__item" style="background-color: #eee">
             <p>Short piece of text</p>
         </div>
     </div>
@@ -27,7 +27,7 @@ title: Equal height
           <h3>Title</h3>
           <p>Lorem ipsum dolor sit amet, consectetur consectetur consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Ut ornare quis velit ,fusce posuere bibendum mi <strong>moleskin</strong> venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
       </div>
-      <div class="u-equal-height--vertical-divider__item col-4 last-col">
+      <div class="u-equal-height--vertical-divider__item col-4">
           <h3>Title</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
       </div>
@@ -49,7 +49,7 @@ title: Equal height
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
         </li>
-        <li class="u-equal-height--vertical-divider__item col-3 last-col">
+        <li class="u-equal-height--vertical-divider__item col-3">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at elit augue. Maecenas eleifend varius leo id facilisis. Nunc sit amet hendrerit nisl. Fusce posuere bibendum mi dignissim venenatis. Ut ornare quis velit ac lobortis. Vestibulum faucibus tortor iaculis hendrerit viverra. Maecenas in molestie sapien.</p>
         </li>
