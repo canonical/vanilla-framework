@@ -10,7 +10,7 @@ title: Table
             <th></th>
             <th scope="col">Header</th>
             <th scope="col">Header</th>
-            <th scope="col">Header</th>
+            <th scope="col" class="u-text-align--right">Header</th>
         </tr>
     </thead>
     <tfoot>
@@ -18,7 +18,7 @@ title: Table
             <td></td>
             <td>Footer</td>
             <td>Footer</td>
-            <td>Footer</td>
+            <td class="u-text-align--right">123</td>
         </tr>
     </tfoot>
     <tbody>
@@ -26,19 +26,19 @@ title: Table
             <th scope="row">Header row</th>
             <td>Table cell</td>
             <td>Table cell</td>
-            <td>Table cell</td>
+            <td class="u-text-align--right">111</td>
         </tr>
         <tr>
             <th scope="row">Header row</th>
             <td>Table cell</td>
             <td>Table cell</td>
-            <td>Table cell</td>
+            <td class="u-text-align--right">222</td>
         </tr>
         <tr>
             <th scope="row">Header row</th>
             <td>Table cell</td>
             <td>Table cell</td>
-            <td>Table cell</td>
+            <td class="u-text-align--right">333</td>
         </tr>
     </tbody>
 </table>
@@ -50,7 +50,7 @@ title: Table
             <th></th>
             <th scope="col">Header</th>
             <th scope="col">Header</th>
-            <th scope="col">Header</th>
+            <th scope="col" class="u-text-align--right">Header</th>
         </tr>
     </thead>
     <tfoot>
@@ -58,7 +58,7 @@ title: Table
             <td></td>
             <td>Footer</td>
             <td>Footer</td>
-            <td>Footer</td>
+            <td class="u-text-align--right">123</td>
         </tr>
     </tfoot>
     <tbody>
@@ -66,19 +66,19 @@ title: Table
             <th scope="row">Header row</th>
             <td>Table cell</td>
             <td>Table cell</td>
-            <td>Table cell</td>
+            <td class="u-text-align--right">111</td>
         </tr>
         <tr>
             <th scope="row">Header row</th>
             <td>Table cell</td>
             <td>Table cell</td>
-            <td>Table cell</td>
+            <td class="u-text-align--right">222</td>
         </tr>
         <tr>
             <th scope="row">Header row</th>
             <td>Table cell</td>
             <td>Table cell</td>
-            <td>Table cell</td>
+            <td class="u-text-align--right">333</td>
         </tr>
     </tbody>
 </table>
