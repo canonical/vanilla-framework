@@ -10,14 +10,12 @@ Notifications are used to display global information. A notification will displa
 ```html
 <div class="p-notification">
     <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    <a href="#" class="p-notification__action">Dismiss</a>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 80px;">
+<div class="pl__relative" style="min-height: 120px;">
     <div class="p-notification">
         <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <a href="#" class="p-notification__action">Dismiss</a>
     </div>
 </div>
 
@@ -28,14 +26,12 @@ This warning variant should be used to convey information that is not critical b
 ```html
 <div class="p-notification--warning">
     <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    <a href="#" class="p-notification__action">Dismiss</a>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 80px;">
+<div class="pl__relative" style="min-height: 120px;">
     <div class="p-notification--warning">
         <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <a href="#" class="p-notification__action">Dismiss</a>
     </div>
 </div>
 
@@ -46,14 +42,12 @@ This negative variant should be used to convey information that is critical and 
 ```html
 <div class="p-notification--negative">
     <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    <a href="#" class="p-notification__action">Dismiss</a>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 80px;">
+<div class="pl__relative" style="min-height: 120px;">
     <div class="p-notification--negative">
         <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <a href="#" class="p-notification__action">Dismiss</a>
     </div>
 </div>
 
@@ -64,13 +58,31 @@ This positive variant should be used to convey information of success or complet
 ```html
 <div class="p-notification--positive">
     <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    <a href="#" class="p-notification__action">Dismiss</a>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 80px;">
+<div class="pl__relative" style="min-height: 120px;">
     <div class="p-notification--positive">
         <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <a href="#" class="p-notification__action">Dismiss</a>
+    </div>
+</div>
+
+### Adding actions
+
+Notifications have the ability to add an action link or button to them. These will appear on the top right and stack below the message on small screens.
+
+Note: All functionallity must be developed in independently.
+
+```html
+<div class="p-notification">
+    <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    <a href="#" class="p-notification__action">Change password</a>
+</div>
+```
+
+<div class="pl__relative" style="min-height: 120px;">
+    <div class="p-notification">
+        <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        <a href="#" class="p-notification__action">Change password</a>
     </div>
 </div>
