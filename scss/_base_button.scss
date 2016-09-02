@@ -3,37 +3,30 @@
 @mixin vf-b-button {
 
   button {
-    @extend %button-pattern;
-    background-color: $color-light;
-    border-color: $color-mid-grey;
-    color: $color-dark;
+    @include button-pattern;
     line-height: 1rem;
-
-    &:active,
-    &:focus,
-    &:hover {
-      border-color: $color-mid-grey;
-      background-color: rgba(0, 0, 0, .1);
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-transparent;
-      }
-    }
   }
 }
 
-%button-pattern {
-  background-color: $color-warm-grey;
-  border-color: $color-warm-grey;
+/// mixin for all the buttons
+/// there are sensible defaults, but you can
+/// override colors as desired
+@mixin button-pattern (
+$button-background-color: $color-light,
+$button-border-color: $color-mid-grey,
+$button-text-color: $color-dark,
+$button-hover-background-color: rgba(0, 0, 0, .1),
+$button-hover-border-color: $color-mid-grey,
+$button-disabled-background-color: $color-transparent,
+$button-disabled-border-color: $color-transparent
+) {
+  background-color: $button-background-color;
+  border-color: $button-border-color;
   border-radius: .125rem;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
+  color: $button-text-color;
   cursor: pointer;
   display: inline-block;
   font-family: unquote($font-base-family);
@@ -49,7 +42,16 @@
   transition: background-color .2s;
   width: 100%;
 
+  &:visited {
+    color: $button-text-color;
+  }
+
+
+  &:active,
+  &:focus,
   &:hover {
+    background-color: $button-hover-background-color;
+    border-color: $button-hover-border-color;
     text-decoration: none;
   }
 
@@ -57,6 +59,13 @@
   &.is--disabled {
     cursor: default;
     opacity: .5;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $button-disabled-background-color;
+      border-color: $button-disabled-border-color;
+    }
   }
 
   @media only screen and (min-width: $breakpoint-medium) {

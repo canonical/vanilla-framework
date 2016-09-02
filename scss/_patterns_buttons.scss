@@ -10,30 +10,11 @@
 
 @mixin button-plain {
   .button {
-    @extend %button-pattern;
-    background-color: $color-light;
-    border-color: $color-mid-grey;
-    color: $color-dark;
-
-    &:visited {
-      color: $color-dark;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: rgba(0, 0, 0, .1);
-      border-color: $color-mid-grey;
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-light;
-      }
-    }
+    /// default .button class styling
+    @include button-pattern (
+    $button-disabled-background-color: $color-light,
+    $button-disabled-border-color: $color-light
+    );
   }
 }
 
@@ -43,31 +24,8 @@
   /// <a class="button--neutral">
   ///   ...
   /// </a>
-  &--neutral {
-    @extend %button-pattern;
-    background-color: $color-light;
-    border-color: $color-mid-grey;
-    color: $color-dark;
-
-    &:visited {
-      color: $color-dark;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: rgba(0, 0, 0, .1);
-      border-color: $color-mid-grey;
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-transparent;
-      }
-    }
+  .button--neutral {
+    @include button-pattern;
   }
 }
 
@@ -77,32 +35,16 @@
   /// <a class="button--brand">
   ///   ...
   /// </a>
-  &--brand {
-    @extend %button-pattern;
-    background-color: $color-brand;
-    border-color: $color-brand;
-    color: invert($color-brand);
-
-    &:visited {
-      color: invert($color-brand);
-    }
-
-    &:focus,
-    &:active,
-    &:hover {
-      background-color: darken($color-brand, 10%);
-      border-color: darken($color-brand, 10%);
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-brand;
-        border-color: $color-brand;
-      }
-    }
+  .button--brand {
+    @include button-pattern (
+    $button-background-color: $color-brand,
+    $button-border-color: $color-brand,
+    $button-text-color: invert($color-brand),
+    $button-hover-background-color: darken($color-brand, 10%),
+    $button-hover-border-color: darken($color-brand, 10%),
+    $button-disabled-background-color: $color-brand,
+    $button-disabled-border-color: $color-brand
+    );
   }
 }
 
@@ -112,32 +54,16 @@
   /// <a class="button--positive">
   ///   ...
   /// </a>
-  &--positive {
-    @extend %button-pattern;
-    background-color: $color-positive;
-    border-color: $color-positive;
-    color: $color-light;
-
-    &:visited {
-      color: $color-light;
-    }
-
-    &:focus,
-    &:active,
-    &:hover {
-      background-color: darken($color-positive, 10%);
-      border-color: darken($color-positive, 10%);
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-positive;
-        border-color: $color-positive;
-      }
-    }
+  .button--positive {
+    @include button-pattern (
+    $button-background-color: $color-positive,
+    $button-border-color: $color-positive,
+    $button-text-color: $color-light,
+    $button-hover-background-color: darken($color-positive, 10%),
+    $button-hover-border-color: darken($color-positive,10%),
+    $button-disabled-background-color: $color-positive,
+    $button-disabled-border-color: $color-positive
+    );
   }
 }
 
@@ -147,32 +73,16 @@
   /// <a class="button--negative">
   ///   ...
   /// </a>
-  &--negative {
-    @extend %button-pattern;
-    background-color: $color-negative;
-    border-color: $color-negative;
-    color: $color-light;
-
-    &:visited {
-      color: $color-light;
-    }
-
-    &:focus,
-    &:active,
-    &:hover {
-      background-color: darken($color-negative, 10%);
-      border-color: darken($color-negative, 10%);
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-negative;
-        border-color: $color-negative;
-      }
-    }
+  .button--negative {
+    @include button-pattern (
+    $button-background-color: $color-negative,
+    $button-border-color: $color-negative,
+    $button-text-color: $color-light,
+    $button-hover-background-color: darken($color-negative, 10%),
+    $button-hover-border-color: darken($color-negative,10%),
+    $button-disabled-background-color: $color-negative,
+    $button-disabled-border-color: $color-negative
+    );
   }
 }
 
@@ -182,31 +92,13 @@
   /// <a class="button--base">
   ///   ...
   /// </a>
-  &--base {
-    @extend %button-pattern;
-    background-color: $color-transparent;
-    border-color: $color-transparent;
-    color: $color-cool-grey;
-
-    &:visited {
-      color: $color-cool-grey;
-    }
-
-    &:focus,
-    &:active,
-    &:hover {
-      background-color: rgba(0, 0, 0, .1);
-      border-color: $color-transparent;
-    }
-
-    &[disabled],
-    &.is--disabled {
-      &:active,
-      &:focus,
-      &:hover {
-        background-color: $color-transparent;
-        border-color: $color-transparent;
-      }
-    }
+  .button--base {
+    @include button-pattern (
+    $button-background-color: $color-transparent,
+    $button-border-color: $color-transparent,
+    $button-text-color: $color-cool-grey,
+    $button-hover-background-color: rgba(0, 0, 0, .1),
+    $button-hover-border-color: $color-transparent
+    );
   }
 }

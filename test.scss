@@ -1,0 +1,85 @@
+$color-transparent:      transparent !default;
+
+$color-brand:            #333 !default;
+
+$color-highlight:        #e95420 !default;
+
+$color-light-grey:       #f7f7f7 !default;
+$color-warm-grey:        #cdcdcd !default;
+$color-mid-grey:         #888 !default;
+$color-cool-grey:        #333 !default;
+
+$color-light:            #fff !default;
+$color-dark:             #000 !default;
+
+$color-negative:         #dc382c !default;
+$color-warning:          #eca918 !default;
+$color-positive:         #38b44a !default;
+
+$color-input-shadow:     rgba(0, 0, 0, .12) !default;
+
+$states: (
+  error: $color-negative,
+  warning: $color-warning,
+  success: $color-positive
+);
+
+
+@mixin button-pattern ($button-background-color: $color-negative, $button-border-color: $color-negative, $button-text-color: $color-light, $button-hover-background-color: darken($color-negative, 10%), $button-hover-border-color: darken($color-negative, 10%), $button-disabled-background-color: $color-negative, $button-disabled-border-color: $color-negative) {
+  background-color: $button-background-color;
+  border-color: $button-border-color;
+  border-radius: .125rem;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: $button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: unquote(arial);
+  font-size: 1rem;
+  font-smoothing: subpixel-antialiased;
+  font-weight: 300;
+  line-height: 1rem;
+  margin: 0;
+  outline: none;
+  padding: .6875rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s;
+  width: 100%;
+
+  &:visited {
+    color: $button-text-color;
+  }
+
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $button-hover-background-color;
+    border-color: $button-hover-border-color;
+    text-decoration: none;
+  }
+
+  &:disabled,
+  &.is--disabled {
+    cursor: default;
+    opacity: .5;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $button-disabled-background-color;
+      border-color: $button-disabled-border-color;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    width: auto;
+  }
+}
+
+
+.class {
+  @include button-pattern($button-background-color: $color-positive, $button-border-color: $color-positive, $button-text-color: $color-light, $button-hover-background-color: darken($color-positive, 10%), $button-hover-border-color: darken($color-positive, 10%), $button-disabled-background-color: $color-positive, $button-disabled-border-color: $color-positive);
+}
