@@ -1,6 +1,6 @@
 ---
 collection: base
-title: forms
+title: Forms
 ---
 
 Our form controls all receive global styling. All elements and labels are set to 100% width of the ```<form>``` parent element.
