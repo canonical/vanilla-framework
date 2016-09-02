@@ -3,70 +3,266 @@ collection: layout
 title: Grid
 ---
 
-The grid is constructing using `*-col` elements nested inside a single `.row` parent element.
+The grid is constructing using `col-*` elements nested inside a single `.row` parent element.
 
 ```html
 <div class="row">
-    <div class="six-col">.six-col</div>
-    <div class="six-col">.six-col</div>
+    <div class="col-12">.col-12</div>
+</div>
+<div class="row">
+    <div class="col-11">.col-11</div>
+    <div class="col-1">.col-1</div>
+</div>
+<div class="row">
+    <div class="col-10">.col-10</div>
+    <div class="col-2">.col-2</div>
+</div>
+<div class="row">
+    <div class="col-9">.col-9</div>
+    <div class="col-3">.col-3</div>
+</div>
+<div class="row">
+    <div class="col-8">.col-8</div>
+    <div class="col-4">.col-4</div>
+</div>
+<div class="row">
+    <div class="col-7">.col-7</div>
+    <div class="col-5">.col-5</div>
+</div>
+<div class="row">
+    <div class="col-6">.col-6</div>
+    <div class="col-6">.col-6</div>
+</div>
+<div class="row">
+    <div class="col-5">.col-5</div>
+    <div class="col-7">.col-7</div>
+</div>
+<div class="row">
+    <div class="col-4">.col-4</div>
+    <div class="col-8">.col-8</div>
+</div>
+<div class="row">
+    <div class="col-3">.col-3</div>
+    <div class="col-9">.col-9</div>
+</div>
+<div class="row">
+    <div class="col-2">.col-2</div>
+    <div class="col-10">.col-10</div>
+</div>
+<div class="row">
+    <div class="col-1">.col-1</div>
+    <div class="col-11">.col-11</div>
 </div>
 ```
 
+<div class="grid_outline">
+    <div class="row">
+        <div class="col-12">
+            <span>.col-12</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11">
+            <span>.col-11</span>
+        </div>
+        <div class="col-1">
+            <span>.col-1</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <span>.col-10</span>
+        </div>
+        <div class="col-2">
+            <span>.col-2</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <span>.col-9</span>
+        </div>
+        <div class="col-3">
+            <span>.col-3</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <span>.col-8</span>
+        </div>
+        <div class="col-4">
+            <span>.col-4</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <span>.col-7</span>
+        </div>
+        <div class="col-5">
+            <span>.col-5</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <span>.col-6</span>
+        </div>
+        <div class="col-6">
+            <span>.col-6</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <span>.col-5</span>
+        </div>
+        <div class="col-7">
+            <span>.col-7</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <span>.col-4</span>
+        </div>
+        <div class="col-8">
+            <span>.col-8</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <span>.col-3</span>
+        </div>
+        <div class="col-9">
+            <span>.col-9</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <span>.col-2</span>
+        </div>
+        <div class="col-10">
+            <span>.col-10</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <span>.col-1</span>
+        </div>
+        <div class="col-11">
+            <span>.col-11</span>
+        </div>
+    </div>
+</div>
+
+## Nested grid
+
+Nest grids by ensuring columns add up to the number assigned to their parent column.
+
+```html
 <div class="row">
-    <div class="twelve-col pl__outline">.twelve-col</div>
-    <div class="eleven-col pl__outline">.eleven-col</div>
-    <div class="one-col last-col pl__outline">&nbsp;</div>
-    <div class="ten-col pl__outline">.ten-col</div>
-    <div class="two-col last-col pl__outline">.two-col</div>
-    <div class="nine-col pl__outline">.nine-col</div>
-    <div class="three-col last-col pl__outline">.three-col</div>
-    <div class="eight-col pl__outline">.eight-col</div>
-    <div class="four-col last-col pl__outline">.four-col</div>
-    <div class="seven-col pl__outline">.seven-col</div>
-    <div class="five-col last-col pl__outline">.five-col</div>
-    <div class="six-col pl__outline">.six-col</div>
-    <div class="six-col last-col pl__outline">.six-col</div>
-    <div class="four-col pl__outline">.four-col</div>
-    <div class="four-col pl__outline">.four-col</div>
-    <div class="four-col last-col pl__outline">.four-col</div>
-    <div class="three-col pl__outline">.three-col</div>
-    <div class="three-col pl__outline">.three-col</div>
-    <div class="three-col pl__outline">.three-col</div>
-    <div class="three-col last-col pl__outline">.three-col</div>
-    <div class="two-col pl__outline">.two-col</div>
-    <div class="eight-col pl__outline">.eight-col</div>
-    <div class="two-col last-col pl__outline">.two-col</div>
-    <div class="three-col pl__outline">.three-col</div>
-    <div class="six-col pl__outline">.six-col</div>
-    <div class="three-col last-col pl__outline">.three-col</div>
+    <div class="col-11">
+        <div class="col-6">
+            .col-6
+        </div>
+        <div class="col-5">
+            .col-5
+        </div>
+    </div>
+    <div class="col-1">
+        .col-1
+    </div>
 </div>
 
 <div class="row">
-    <h2>Nested grid</h2>
-    <p>You can nest grid elements as well.</p>
-    <div class="twelve-col pl__outline">
-        <p>.twelve-col with an .eight-col and .four-col</p>
-        <div class="eight-col pl__outline">.eight-col</div>
-        <div class="four-col last-col pl__outline">.four-col</div>
+    <div class="col-10">
+        .col-10
     </div>
-    <div class="six-col pl__outline">
-        <p>.six-col with a .four-col and .two-col</p>
-        <div class="four-col pl__outline">.four-col</div>
-        <div class="two-col last-col pl__outline">.two-col</div>
+    <div class="col-2">
+        .col-2
     </div>
-    <div class="six-col last-col pl__outline">
-        <p>.six-col with a .three-col and .three-col</p>
-        <div class="three-col pl__outline">.three-col</div>
-        <div class="three-col last-col pl__outline">.three-col</div>
+</div>
+```
+
+
+<div class="grid_outline">
+    <div class="row">
+        <div class="col-11">
+            <span>
+                <div class="col-6">
+                    <span>.col-6</span>
+                </div>
+                <div class="col-5">
+                    <span>.col-5</span>
+                </div>
+            </span>
+        </div>
+        <div class="col-1">
+            <span>.col-1</span>
+        </div>
     </div>
-    <div class="eight-col pl__outline u-text-center">
-        <p>.eight-col with a .one-col and .seven-col</p>
-        <div class="one-col pl__outline">.one-col</div>
-        <div class="seven-col last-col pl__outline">.seven-col</div>
+    <div class="row">
+        <div class="col-10">
+            <span>.col-10</span>
+        </div>
+        <div class="col-2">
+            <span>.col-2</span>
+        </div>
     </div>
-    <div class="four-col pl__outline u-text-center last-col">
-        <p>.four-col with a .two-col and .two-col</p>
-        <div class="two-col pl__outline">.two-col</div>
-        <div class="two-col last-col pl__outline">.two-col</div>
+</div>
+
+## Prefix empty columns
+
+You can push position columns right of left using the `.prefix-*` or `.suffix-*` classname as needs be.
+
+```html
+<div class="row">
+    <div class="col-8">
+        .col-8
+    </div>
+    <div class="col-4">
+        .col-4
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-7">
+        .col-7
+    </div>
+    <div class="col-4 prefix-1">
+        .col-4.prefix-1
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-7">
+        .col-7
+    </div>
+    <div class="col-4 suffix-1">
+        .col-4.suffix-1
+    </div>
+</div>
+```
+
+<div class="grid_outline">
+    <div class="row">
+      <div class="col-8">
+        <span>.col-8</span>
+      </div>
+      <div class="col-4">
+        <span>.col-4</span>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <span>.col-7</span>
+        </div>
+        <div class="col-4 prefix-1">
+            <span>.col-4.prefix-1</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <span>.col-7</span>
+        </div>
+        <div class="col-4 suffix-1">
+            <span>.col-4.suffix-1</span>
+        </div>
     </div>
 </div>

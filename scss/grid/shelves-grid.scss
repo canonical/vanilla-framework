@@ -1,0 +1,147 @@
+@import "./shelves";
+
+@include shelves-base;
+
+// Mobile
+// ----------------------------------------------------------------------------
+
+@if $shelves-mobile-columns != false {
+  @include with-mobile-grid {
+    %shelves-mobile-column-base {
+      @include column-base;
+      @include column-gutter;
+
+      .#{class-name($shelves-row-name)} &:first-child {
+        @extend %shelves-mobile-first-column;
+      }
+    }
+
+    %shelves-mobile-first-column {
+      @include reset-column-gutter;
+    }
+
+    .#{class-name($shelves-first-mobile-column-name)} {
+      @extend %shelves-mobile-first-column;
+    }
+
+    @include shelves-columns(
+      $extend: "shelves-mobile-column-base",
+      $prefixes: $shelves-mobile-prefixes,
+      $suffixes: $shelves-mobile-suffixes,
+      $pushes: $shelves-mobile-pushes,
+      $pulls: $shelves-mobile-pulls,
+      $column-name: $shelves-mobile-column-name,
+      $prefix-name: $shelves-mobile-prefix-name,
+      $suffix-name: $shelves-mobile-suffix-name,
+      $push-name: $shelves-mobile-push-name,
+      $pull-name: $shelves-mobile-pull-name
+    );
+  }
+}
+
+// Tablet
+// ----------------------------------------------------------------------------
+
+@if $shelves-tablet-columns != false {
+  @include on-tablet-up {
+    %shelves-tablet-column-base {
+      @include column-base;
+      @include column-gutter;
+
+      .#{class-name($shelves-row-name)} &:first-child {
+        @extend %shelves-tablet-first-column;
+      }
+    }
+
+    %shelves-tablet-first-column {
+      @include reset-column-gutter;
+    }
+
+    .#{class-name($shelves-first-tablet-column-name)} {
+      @extend %shelves-tablet-first-column;
+    }
+
+    @include shelves-columns(
+      $extend: "shelves-tablet-column-base",
+      $prefixes: $shelves-tablet-prefixes,
+      $suffixes: $shelves-tablet-suffixes,
+      $pushes: $shelves-tablet-pushes,
+      $pulls: $shelves-tablet-pulls,
+      $column-name: $shelves-tablet-column-name,
+      $prefix-name: $shelves-tablet-prefix-name,
+      $suffix-name: $shelves-tablet-suffix-name,
+      $push-name: $shelves-tablet-push-name,
+      $pull-name: $shelves-tablet-pull-name
+    );
+  }
+}
+
+// Desktop
+// ----------------------------------------------------------------------------
+
+@if $shelves-desktop-columns != false {
+  @include on-desktop {
+    %shelves-desktop-column-base {
+      @include column-base;
+      @include column-gutter;
+
+      .#{class-name($shelves-row-name)} &:first-child {
+        @extend %shelves-first-desktop-column;
+      }
+    }
+
+    %shelves-first-desktop-column {
+      @include reset-column-gutter;
+    }
+
+    .#{class-name($shelves-first-desktop-column-name)} {
+      @extend %shelves-first-desktop-column;
+    }
+
+    @include shelves-columns(
+      $extend: "shelves-desktop-column-base",
+      $prefixes: $shelves-prefixes,
+      $suffixes: $shelves-suffixes,
+      $pushes: $shelves-pushes,
+      $pulls: $shelves-pulls
+    );
+
+    // Nested Desktop Columns
+
+    @if $shelves-nested-columns != false {
+      @for $i from 1 to $shelves-desktop-columns - 1 {
+        // Loop background through the columns
+        // to cascade the nested column properties.
+        $i: $shelves-desktop-columns - $i;
+
+        .#{class-name($shelves-desktop-column-name $i)} {
+          %shelves-nested-column-#{$i}-base {
+            @include column-gutter($i);
+          }
+
+          @include shelves-columns(
+            $extend: "shelves-nested-column-#{$i}-base",
+            $context: $i,
+            $prefixes: $shelves-nested-prefixes,
+            $suffixes: $shelves-nested-suffixes,
+            $pushes: $shelves-nested-pushes,
+            $pulls: $shelves-nested-pulls
+          );
+        }
+      }
+    }
+  }
+}
+
+@if $shelves-center {
+  .#{class-name($shelves-row-name)} .#{class-name($shelves-center-column-name)} {
+    @include center-column;
+  }
+}
+
+// Visibility Helpers
+// ----------------------------------------------------------------------------
+
+@if $shelves-visibility {
+  @include shelves-visibility-helpers;
+}

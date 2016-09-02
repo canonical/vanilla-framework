@@ -1,0 +1,69 @@
+// Place the block of content with the given grid settings.
+//
+//   $columns - The number of columns in the grid.
+//   $gutter  - The width of the gutter in the grid.
+//              Defaults to the value of $shelves-gutter.
+//
+@mixin with-grid($columns, $gutter: $shelves-gutter) {
+  $original-shelves-columns: $shelves-columns;
+  $original-shelves-gutter: $shelves-gutter;
+  $shelves-columns: $columns !global;
+  $shelves-gutter: $gutter !global;
+  @content;
+  $shelves-columns: $original-shelves-columns !global;
+  $shelves-gutter: $original-shelves-gutter !global;
+}
+
+// Place the block of content with the given context (the current column size).
+//
+//   $context - The number of columns encapsulating the column.
+//
+@mixin with-parent-column($context) {
+  $original-shelves-contenxt: $shelves-context;
+  $shelves-context: $context !global;
+  @content;
+  $shelves-context: $original-shelves-contenxt !global;
+}
+
+// Place the block of content with the given desktop grid settings.
+//
+//   $columns - The number of columns in the grid.
+//              Defaults to the value of $shelves-columns.
+//   $gutter  - The width of the gutter in the grid.
+//              Defaults to the value of $shelves-gutter.
+//
+@mixin with-desktop-grid($columns: $shelves-columns, $gutter: $shelves-gutter) {
+  @include with-grid($columns, $gutter) {
+    @content;
+  }
+}
+
+// Place the block of content with the given tablet grid settings.
+//
+//   $columns - The number of columns in the grid.
+//              Defaults to the value of $shelves-tablet-columns.
+//   $gutter  - The width of the gutter in the grid.
+//              Defaults to the value of $shelves-tablet-gutter.
+//
+@mixin with-tablet-grid(
+    $columns: $shelves-tablet-columns,
+    $gutter: $shelves-tablet-gutter) {
+  @include with-grid($columns, $gutter) {
+    @content;
+  }
+}
+
+// Place the block of content with the given mobile grid settings.
+//
+//   $columns - The number of columns in the grid.
+//              Defaults to the value of $shelves-mobile-columns.
+//   $gutter  - The width of the gutter in the grid.
+//              Defaults to the value of $shelves-mobile-gutter.
+//
+@mixin with-mobile-grid(
+    $columns: $shelves-mobile-columns,
+    $gutter: $shelves-mobile-gutter) {
+  @include with-grid($columns, $gutter) {
+    @content;
+  }
+}
