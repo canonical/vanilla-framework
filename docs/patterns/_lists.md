@@ -3,9 +3,7 @@ collection: patterns
 title: Lists
 ---
 
-CLASSES: list list--state list--divided list--state-divided
-
-## .list
+## List
 
 A basic list with no bullets, dividers or other decoration.
 
@@ -23,24 +21,25 @@ A basic list with no bullets, dividers or other decoration.
     <li class="list__item">Dolor</li>
 </ul>
 
-### .list__item--state
+## List item with icon
 A list item with an icon bullet. Default is a tick.
+Intended to be modified with state classes to change the icon.
 
 ```html
 <ul class="list">
-    <li class="list__item--state">Lorem</li>
-    <li class="list__item--state">Ipsum</li>
-    <li class="list__item--state">Dolor</li>
+    <li class="list__item--icon">Lorem</li>
+    <li class="list__item--icon">Ipsum</li>
+    <li class="list__item--icon">Dolor</li>
 </ul>
 ```
 
 <ul class="list">
-    <li class="list__item--state">Lorem</li>
-    <li class="list__item--state">Ipsum</li>
-    <li class="list__item--state">Dolor</li>
+    <li class="list__item--icon">Lorem</li>
+    <li class="list__item--icon">Ipsum</li>
+    <li class="list__item--icon">Dolor</li>
 </ul>
 
-## --divided
+## List divided
 
 A modifier to add a visual separator between list items
 
@@ -58,14 +57,32 @@ A modifier to add a visual separator between list items
     <li class="list__item">Dolor</li>
 </ul>
 
-## .list-inline
-.list-inline
+## Inline lists
+```html
+<ul class="inline-list">
+    <li class="inline-list__item">Lorem</li>
+    <li class="inline-list__item">Ipsum</li>
+    <li class="inline-list__item">Dolor</li>
+</ul>
+```
 
-## --middot
---middot
+<ul class="inline-list">
+    <li class="inline-list__item">Lorem</li>
+    <li class="inline-list__item">Ipsum</li>
+    <li class="inline-list__item">Dolor</li>
+</ul>
 
-## list-stepped
-.list-stepped
+## Middot-separated inline list
+```html
+<ul class="inline-list--middot">
+    <li class="inline-list__item">Lorem</li>
+    <li class="inline-list__item">Ipsum</li>
+    <li class="inline-list__item">Dolor</li>
+</ul>
+```
 
-## .list-inline-images
-.list-inline-images
+<ul class="inline-list--middot">
+    <li class="inline-list__item">Lorem</li>
+    <li class="inline-list__item">Ipsum</li>
+    <li class="inline-list__item">Dolor</li>
+</ul>

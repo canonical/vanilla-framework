@@ -5,6 +5,7 @@
   @include vf-lists-list-item-state;
   @include vf-lists-combined-list;
   @include vf-lists-inline-list;
+  @include vf-lists-inline-list-middot;
   @include vf-stepped-list;
 }
 
@@ -38,7 +39,7 @@
 
 // Displays an ubuntu styled list item with a tick bullet
 @mixin vf-lists-list-item-state {
-  .list__item--state {
+  .list__item--icon {
     background-image: svg-tick($color-brand);
     background-repeat: no-repeat;
     background-position: 0 1em;
@@ -88,15 +89,40 @@
 @mixin vf-lists-inline-list {
   .inline-list {
     margin-left: 0;
+    padding-left: 0;
 
-    li {
-      display: inline;
-      list-style: none;
-      margin-right: 20px;
+    &__item {
+      @extend %inline-list-item;
     }
+  }
+}
 
-    .last-item {
-      margin-right: 0;
+@mixin vf-lists-inline-list-middot {
+  .inline-list--middot {
+    margin-left: 0;
+    padding-left: 0;
+
+    .inline-list__item {
+      @extend %inline-list-item;
+      position: relative;
+
+      &::after {
+        content: '•';
+        color: $color-mid-grey;
+        line-height: 0;
+        font-size: 1.4rem;
+        position: absolute;
+        right: -1rem;
+        top: .55rem;
+
+      }
+
+      &:last-of-type,
+      .last-item {
+        &::after {
+          content: '';
+        }
+      }
     }
   }
 }
@@ -158,6 +184,17 @@
   .last-item {
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+}
+
+%inline-list-item {
+  display: inline;
+  list-style: none;
+  margin-right: 1.25rem;
+
+  &:last-of-type,
+  .last-item {
+    margin-right: 0;
   }
 }
 
