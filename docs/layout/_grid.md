@@ -209,7 +209,7 @@ Nest grids by ensuring columns add up to the number assigned to their parent col
 
 ## Prefix empty columns
 
-You can push position columns right of left using the `.prefix-*` classname.
+You can push position columns right of left using the `.prefix-*` or `.suffix-*` classname as needs be.
 
 ```html
 <div class="row">
@@ -229,6 +229,15 @@ You can push position columns right of left using the `.prefix-*` classname.
         .col-4.prefix-1
     </div>
 </div>
+
+<div class="row">
+    <div class="col-7">
+        .col-7
+    </div>
+    <div class="col-4 suffix-1">
+        .col-4.suffix-1
+    </div>
+</div>
 ```
 
 <div class="grid_outline">
@@ -246,6 +255,14 @@ You can push position columns right of left using the `.prefix-*` classname.
         </div>
         <div class="col-4 prefix-1">
             <span>.col-4.prefix-1</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <span>.col-7</span>
+        </div>
+        <div class="col-4 suffix-1">
+            <span>.col-4.suffix-1</span>
         </div>
     </div>
 </div>
