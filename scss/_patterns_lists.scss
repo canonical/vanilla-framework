@@ -11,39 +11,30 @@
 
 // List styling using list class
 @mixin vf-lists-list {
-  .list {
+  .p-list {
     @extend %list;
-
-    &__item {
-      @extend %list-item;
-    }
   }
 }
 
 // A list with separators between items
 @mixin vf-lists-list-divided {
-  .list--divided {
+  .p-list--divided {
     @extend %list;
 
-    .list__item {
+    .p-list__item {
       @extend %list-item;
-      border-bottom: 1px dotted $color-warm-grey;
-
-      &:last-of-type,
-      .last-item {
-        border-bottom: 0;
-      }
+      @extend %list-item-divided;
     }
   }
 }
 
-// Displays an ubuntu styled list item with a tick bullet
+// Displays item with a tick bullet
 @mixin vf-lists-list-item-state {
-  .list__item--icon {
+  .is-ticked {
     background-image: svg-tick($color-brand);
     background-repeat: no-repeat;
-    background-position: 0 1em;
-    padding: 10px 0 0 25px;
+    background-position: 0 50%;
+    padding-left: 25px;
   }
 }
 
@@ -87,7 +78,7 @@
 
 // Displays a list inline with spacing
 @mixin vf-lists-inline-list {
-  .inline-list {
+  .p-inline-list {
     margin-left: 0;
     padding-left: 0;
 
@@ -99,11 +90,11 @@
 
 // Displays a list inline with items separated by dots
 @mixin vf-lists-inline-list-middot {
-  .inline-list--middot {
+  .p-inline-list--middot {
     margin-left: 0;
     padding-left: 0;
 
-    .inline-list__item {
+    .p-inline-list__item {
       @extend %inline-list-item;
       position: relative;
 
@@ -115,7 +106,6 @@
         position: absolute;
         right: -1rem;
         top: .55rem;
-
       }
 
       &:last-of-type,
@@ -170,10 +160,6 @@
   list-style: none;
   margin-left: 0;
   padding-left: 0;
-
-  &__item {
-    @extend %list-item;
-  }
 }
 
 // Placeholder for list items
@@ -181,11 +167,14 @@
   margin-bottom: 0;
   padding-bottom: .63rem;
   padding-top: .63rem;
+}
+
+%list-item-divided {
+  border-bottom: 1px dotted $color-warm-grey;
 
   &:last-of-type,
   .last-item {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    border-bottom: 0;
   }
 }
 
