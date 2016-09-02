@@ -1,0 +1,150 @@
+// Media query shortcut for min-width breakpoints.
+//
+//   $min-width - The min width to use as a breakpoint.
+//
+@mixin min-screen($min-width) {
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+// Media query shortcut for max-width breakpoints.
+//
+//   $max-width - The max width to use as a breakpoint.
+//
+@mixin max-screen($max-width) {
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+// Media query shortcut for min-width & max-width breakpoints.
+//
+//   $min-width - The min width to use as a breakpoint.
+//   $max-width - The max width to use as a breakpoint.
+//
+@mixin screen($min-width: null, $max-width: null) {
+  @if $min-width and $max-width {
+    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  }
+  @else if $min-width {
+    @include min-screen($min-width) {
+      @content;
+    }
+  }
+  @else if $max-width {
+    @include max-screen($max-width) {
+      @content;
+    }
+  }
+}
+
+// Media query shortcut for targeting only desktop device sizes (widths above
+// the tablet breakpoint).
+//
+//   $breakpoint - The min width to use as a breakpoint.
+//                 Defaults to the value of $shelves-tablet-breakpoint.
+//   $columns    - The number of columns in the grid.
+//                 Defaults to the value of $shelves-columns.
+//   $gutter     - The width of the gutter in the grid.
+//                 Defaults to the value of $shelves-gutter.
+//
+@mixin on-desktop(
+    $breakpoint: $shelves-tablet-breakpoint,
+    $columns: $shelves-columns,
+    $gutter: $shelves-gutter) {
+  @include min-screen($breakpoint) {
+    @include with-desktop-grid($columns, $gutter) {
+      @content;
+    }
+  }
+}
+
+// Media query shortcut for targeting only tablet & desktop device sizes
+// (widths above the mobile breakpoint).
+//
+//   $breakpoint - The min width to use as a breakpoint.
+//                 Defaults to the value of $shelves-mobile-breakpoint.
+//   $columns    - The number of columns in the grid.
+//                 Defaults to the value of $shelves-tablet-columns.
+//   $gutter     - The width of the gutter in the grid.
+//                 Defaults to the value of $shelves-tablet-gutter.
+//
+@mixin on-tablet-up(
+    $breakpoint: $shelves-mobile-breakpoint,
+    $columns: $shelves-tablet-columns,
+    $gutter: $shelves-tablet-gutter) {
+  @include min-screen($breakpoint) {
+    @include with-tablet-grid($columns, $gutter) {
+      @content;
+    }
+  }
+}
+
+// Media query shortcut for targeting only tablet device sizes (widths between
+// the mobile breakpoint and the tablet breakpoint).
+//
+//   $mobile-breakpoint - The min width to use as a breakpoint.
+//                        Defaults to the value of $shelves-mobile-breakpoint.
+//   $tablet-breakpoint - The max width to use as a breakpoint
+//                        Defaults to the value of $shelves-tablet-breakpoint.
+//   $columns           - The number of columns in the grid.
+//                        Defaults to the value of $shelves-tablet-columns.
+//   $gutter            - The width of the gutter in the grid.
+//                        Defaults to the value of $shelves-tablet-gutter.
+//
+@mixin on-tablet(
+    $mobile-breakpoint: $shelves-mobile-breakpoint,
+    $tablet-breakpoint: $shelves-tablet-breakpoint - 1,
+    $columns: $shelves-tablet-columns,
+    $gutter: $shelves-tablet-gutter) {
+  @include screen($mobile-breakpoint, $tablet-breakpoint) {
+    @include with-tablet-grid($columns, $gutter) {
+      @content;
+    }
+  }
+}
+
+// Media query shortcut for targeting only mobile & tablet device sizes
+// (widths below the tablet breakpoint).
+//
+//   $breakpoint - The max width to use as a breakpoint.
+//                 Defaults to the value of $shelves-tablet-breakpoint.
+//   $columns    - The number of columns in the grid.
+//                 Defaults to the value of $shelves-tablet-columns.
+//   $gutter     - The width of the gutter in the grid.
+//                 Defaults to the value of $shelves-tablet-gutter.
+//
+@mixin on-tablet-down(
+    $breakpoint: $shelves-tablet-breakpoint - 1,
+    $columns: $shelves-tablet-columns,
+    $gutter: $shelves-tablet-gutter) {
+  @include max-screen($breakpoint) {
+    @include with-tablet-grid($columns, $gutter) {
+      @content;
+    }
+  }
+}
+
+// Media query shortcut for targeting only mobile device sizes (widths below
+// the mobile breakpoint).
+//
+//   $breakpoint - The max width to use as a breakpoint.
+//                 Defaults to the value of $shelves-mobile-breakpoint.
+//   $columns    - The number of columns in the grid.
+//                 Defaults to the value of $shelves-mobile-columns.
+//   $gutter     - The width of the gutter in the grid.
+//                 Defaults to the value of $shelves-mobile-gutter.
+//
+@mixin on-mobile(
+    $breakpoint: $shelves-mobile-breakpoint - 1,
+    $columns: $shelves-mobile-columns,
+    $gutter: $shelves-mobile-gutter) {
+  @include max-screen($breakpoint) {
+    @include with-mobile-grid($columns, $gutter) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+// Clearfix mixin based on micro-clearfix:
+// http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin shelves-clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  @if $shelves-ie7-support {
+    *zoom: 1;
+  }
+}
+
+// This fixes IE 10's "Snap Mode". See for more information:
+// http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+//
+//   width     - Customize the width used. In the future, "device-width" may
+//               work better, but explicitly setting to 320px is recommended.
+//               Defaults to 320px.
+//   max-width - The media query max-width used to detect "Snap Mode".
+//               Defaults to 400px.
+//
+@mixin fix-snap-mode($width: 320px, $max-width: 400px) {
+  @include max-screen($max-width) {
+    @-ms-viewport {
+      width: $width;
+    }
+  }
+}
+
+// Makes the media (generally used on <img>s) fully fluid.
+@mixin fluid-media {
+  max-width: 100%;
+  height: auto;
+
+  @if $shelves-ie8-support {
+    @media \0screen {
+      width: auto;
+    }
+  }
+}
+
+// Forces the element to not be visible. This is used in the visibility helpers.
+@mixin force-hidden {
+  display: none !important;
+}
+
+// Forces the element to be visible. This is used in the visibility helpers.
+@mixin force-visible {
+  display: inherit !important;
+}
