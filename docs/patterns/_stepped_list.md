@@ -32,7 +32,7 @@ title: Stepped list
       <li class="list-step__item eight-col">
         <h3 class="list-step__title">
           <span class="list-step__bullet">4</span>
-          Forth step
+          Fourth step
         </h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
       </li>
