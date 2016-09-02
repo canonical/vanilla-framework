@@ -14,8 +14,6 @@ Our form controls all receive global styling. All elements and labels are set to
     <input type="file" id="exampleInputFile">
     <input type="checkbox" id="CheckMe">
     <label for="CheckMe">Check me</label>
-    <input type="checkbox" id="CheckMe">
-    <label for="CheckMe">Check me</label>
     <button type="submit" class="button">Submit</button>
 </form>
 
