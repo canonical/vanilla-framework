@@ -4,38 +4,59 @@
 
   button {
     @extend %button-pattern;
+    background-color: $color-light;
+    border-color: $color-mid-grey;
+    color: $color-dark;
+    line-height: 1rem;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-color: $color-mid-grey;
+      background-color: rgba(0, 0, 0, .1);
+    }
+
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $color-transparent;
+      }
+    }
   }
 }
 
 %button-pattern {
-  font-family: unquote($font-base-family);
-  font-smoothing: subpixel-antialiased;
-  font-size: 1rem;
-  display: inline-block;
+  background-color: $color-warm-grey;
+  border-color: $color-warm-grey;
+  border-radius: .125rem;
+  border-style: solid;
+  border-width: 1px;
   box-sizing: border-box;
-  width: 100%;
+  cursor: pointer;
+  display: inline-block;
+  font-family: unquote($font-base-family);
+  font-size: 1rem;
+  font-smoothing: subpixel-antialiased;
+  font-weight: 300;
+  line-height: 1rem;
   margin: 0;
+  outline: none;
   padding: .6875rem 1.5rem;
   text-align: center;
   text-decoration: none;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: .125rem;
-  background-color: $color-warm-grey;
-  border-color: $color-warm-grey;
-  color: $color-light;
-  outline: none;
-  font-weight: 300;
-  cursor: pointer;
-  transition: none;
+  transition: background-color .2s;
+  width: 100%;
 
   &:hover {
     text-decoration: none;
   }
 
-  &[disabled] {
-    opacity: .5;
+  &:disabled,
+  &.is--disabled {
     cursor: default;
+    opacity: .5;
   }
 
   @media only screen and (min-width: $breakpoint-medium) {

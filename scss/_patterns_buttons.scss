@@ -1,61 +1,212 @@
 // Default button styling
 @mixin vf-p-buttons {
+  @include button-plain;
+  @include button-neutral;
+  @include button-brand;
+  @include button-positive;
+  @include button-negative;
+  @include button-base;
+}
 
+@mixin button-plain {
   .button {
     @extend %button-pattern;
+    background-color: $color-light;
+    border-color: $color-mid-grey;
+    color: $color-dark;
 
-    &--neutral {
-      @extend .button;
-      background-color: $color-light;
+    &:visited {
       color: $color-dark;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: rgba(0, 0, 0, .1);
       border-color: $color-mid-grey;
-
-      &:hover {
-        background-color: $color-light-grey;
-        border-color: $color-mid-grey;
-      }
     }
 
-    &--positive {
-      @extend .button;
-      background-color: $color-positive;
-      border-color: $color-positive;
-      color: $color-light;
-
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
       &:hover {
-        background-color: darken($color-positive, 20%);
-        border-color: darken($color-positive, 20%);
+        background-color: $color-light;
       }
     }
+  }
+}
 
-    &--negative {
-      @extend .button;
-      background-color: $color-negative;
-      border-color: $color-negative;
-      color: $color-light;
+@mixin button-neutral {
+  /// Neutral button styling
+  /// @example
+  /// <a class="button--neutral">
+  ///   ...
+  /// </a>
+  &--neutral {
+    @extend %button-pattern;
+    background-color: $color-light;
+    border-color: $color-mid-grey;
+    color: $color-dark;
 
-      &:hover {
-        background-color: darken($color-negative, 20%);
-        border-color: darken($color-negative, 20%);
-      }
+    &:visited {
+      color: $color-dark;
     }
 
-    &--brand {
-      @extend .button;
-      background-color: $color-brand;
-      border-color: $color-brand;
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: rgba(0, 0, 0, .1);
+      border-color: $color-mid-grey;
+    }
+
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $color-transparent;
+      }
+    }
+  }
+}
+
+@mixin button-brand {
+  /// Brand button styling
+  /// @example
+  /// <a class="button--brand">
+  ///   ...
+  /// </a>
+  &--brand {
+    @extend %button-pattern;
+    background-color: $color-brand;
+    border-color: $color-brand;
+    color: invert($color-brand);
+
+    &:visited {
       color: invert($color-brand);
-
-      &:hover {
-        background-color: darken($color-brand, 20%);
-        border-color: darken($color-brand, 20%);
-      }
     }
 
-    &--disabled {
-      @extend .button;
-      opacity: .5;
-      cursor: default;
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: darken($color-brand, 10%);
+      border-color: darken($color-brand, 10%);
+    }
+
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $color-brand;
+        border-color: $color-brand;
+      }
+    }
+  }
+}
+
+@mixin button-positive {
+  /// Positive button styling
+  /// @example
+  /// <a class="button--positive">
+  ///   ...
+  /// </a>
+  &--positive {
+    @extend %button-pattern;
+    background-color: $color-positive;
+    border-color: $color-positive;
+    color: $color-light;
+
+    &:visited {
+      color: $color-light;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: darken($color-positive, 10%);
+      border-color: darken($color-positive, 10%);
+    }
+
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $color-positive;
+        border-color: $color-positive;
+      }
+    }
+  }
+}
+
+@mixin button-negative {
+  /// Negative button styling
+  /// @example
+  /// <a class="button--negative">
+  ///   ...
+  /// </a>
+  &--negative {
+    @extend %button-pattern;
+    background-color: $color-negative;
+    border-color: $color-negative;
+    color: $color-light;
+
+    &:visited {
+      color: $color-light;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: darken($color-negative, 10%);
+      border-color: darken($color-negative, 10%);
+    }
+
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $color-negative;
+        border-color: $color-negative;
+      }
+    }
+  }
+}
+
+@mixin button-base {
+  /// Base button styling
+  /// @example
+  /// <a class="button--base">
+  ///   ...
+  /// </a>
+  &--base {
+    @extend %button-pattern;
+    background-color: $color-transparent;
+    border-color: $color-transparent;
+    color: $color-cool-grey;
+
+    &:visited {
+      color: $color-cool-grey;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: rgba(0, 0, 0, .1);
+      border-color: $color-transparent;
+    }
+
+    &[disabled],
+    &.is--disabled {
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $color-transparent;
+        border-color: $color-transparent;
+      }
     }
   }
 }
