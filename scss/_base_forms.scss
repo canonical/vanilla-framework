@@ -44,6 +44,16 @@
     &[type='search'] {
       appearance: none;
       border-radius: 0;
+
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: searchfield-cancel-button;
+        cursor: pointer;
+      }
     }
 
     // Checkbox and radio inputs
@@ -78,7 +88,7 @@
     text-indent: .01px;
     text-overflow: '';
     appearance: none;
-    
+
     &:hover {
       cursor: pointer;
     }
