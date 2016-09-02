@@ -7,18 +7,35 @@ These utils exist to show or hide an element with a certain breakpoint, if speci
 
 ## .u-hidden--*
 
-```css
-.u-hidden
-.u-hidden--small
-.u-hidden--medium
-.u-hidden--large
 ```
+<div class="u-hidden--small">Hidden on small screens</div>
+```
+<div class="u-hidden--small">Hidden on small screens</div>
+
+```
+<div class="u-hidden--medium">Hidden on medium screens</div>
+```
+<div class="u-hidden--medium">Hidden on medium screens</div>
+
+```
+<div class="u-hidden--large">Hidden on large screens</div>
+```
+<div class="u-hidden--large">Hidden on large screens</div>
+
 
 ## .u-visible--*
 
-```css
-.u-visible
-.u-visible--small
-.u-visible--medium
-.u-visible--large
 ```
+<div class="u-visible--small">visible on small screens</div>
+```
+<div class="u-visible--small">visible on small screens</div>
+
+```
+<div class="u-visible--medium">visible on medium screens</div>
+```
+<div class="u-visible--medium">visible on medium screens</div>
+
+```
+<div class="u-visible--large">visible on large screens</div>
+```
+<div class="u-visible--large">visible on large screens</div>
