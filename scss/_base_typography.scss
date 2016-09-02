@@ -3,7 +3,7 @@
 @mixin vf-b-typography {
 
   @if str-index($font-base-family, 'Ubuntu') {
-    @import url($font-import-url);
+    @import url($font-import);
   }
 
   * {
@@ -12,32 +12,240 @@
     font-smoothing: subpixel-antialiased;
   }
 
-  body {
-    color: $color-cool-grey;
-    font-family: unquote($font-base-family);
-    font-weight: 300;
-    font-size: calc(#{$font-base-size} * .875);
+  html {
+    font-size: calc(#{$font-base-size} * .9375);
 
     @media screen and (min-width: $breakpoint-medium) {
-      font-size: calc(#{$font-base-size} * .9375);
-    }
-
-    @media screen and (min-width: $breakpoint-large) {
       font-size: $font-base-size;
     }
   }
 
+  body {
+    color: $color-cool-grey;
+    font-family: unquote($font-base-family);
+    font-weight: 300;
+    line-height: 1.6;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      line-height: 1.5;
+    }
+  }
+
+  /// Base typography
+  /// @section type
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: unquote($font-heading-family);
+    font-weight: 300;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  p {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: unquote($font-base-family);
+  }
+
+  // headings
+  h1 {
+    font-size: 2.134rem;
+    line-height: 1.125;
+
+    @media only screen and (min-width: $breakpoint-medium)  {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: 3rem;
+      line-height: 1.25;
+    }
+  }
+
+  h2 {
+    font-size: 1.734rem;
+    line-height: 1.154;
+
+    @media only screen and (min-width: $breakpoint-medium)  {
+      font-size: 2rem;
+      line-height: 1.25;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: 2.25rem;
+      line-height: 1.167;
+    }
+  }
+
+  h3 {
+    font-size: 1.534rem;
+    line-height: 1.305;
+
+    @media only screen and (min-width: $breakpoint-medium)  {
+      font-size: 1.625rem;
+      line-height: 1.154;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: 1.75rem;
+      line-height: 1.286;
+    }
+  }
+
+  h4 {
+    font-size: 1.334rem;
+    line-height: 1.2;
+
+    @media only screen and (min-width: $breakpoint-medium)  {
+      font-size: 1.375rem;
+      line-height: 1.364;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+  }
+
+  h5 {
+    font-size: 1.2rem;
+    line-height: 1.334;
+
+    @media only screen and (min-width: $breakpoint-medium)  {
+      font-size: 1.188rem;
+      line-height: 1.264;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: 1.313rem;
+      line-height: 1.143;
+    }
+  }
+
+  h6 {
+    font-size: 1.067rem;
+    line-height: 1.125;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      font-size: 1.063rem;
+      line-height: 1.412;
+      margin-top: 1.5rem;
+    }
+  }
+
+  // list spacing
+  ol + h2,
+  p + h2,
+  pre + h2,
+  ul + h2,
+  ol + h3,
+  p + h3,
+  pre + h3,
+  ul + h3 {
+    margin-top: 1.5rem;
+
+    @media only screen and (min-width: $breakpoint-medium)  {
+      margin-top: 1.6rem;
+    }
+  }
+
+  // code
+  pre {
+    background-color: $color-cool-grey;
+    border-radius: 2px;
+    color: $color-light-grey;
+    padding: 1.125rem;
+    margin-top: 1.125rem;
+    margin-bottom: 1.125rem;
+  }
+
+  pre code {
+    margin: 0;
+    padding: 0;
+  }
+
+  // lists
+  ul,
+  ol {
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  li > ul,
+  li > ol {
+    padding-top: 0;
+  }
+
+  li > ul > li:last-of-type,
+  li > ol > li:last-of-type {
+    padding-bottom: 0;
+  }
+
+  // blockquotes
+  blockquote {
+    padding-left: 1.5rem;
+    margin-left: 0;
+
+    > p {
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: .8rem;
+
+      @media only screen and (min-width: $breakpoint-medium)  {
+        margin-bottom: .75rem;
+      }
+    }
+
+    > cite {
+      font-size: 1rem;
+      font-style: normal;
+      margin-top: .8rem;
+
+      @media only screen and (min-width: $breakpoint-medium)  {
+        margin-top: .75rem;
+      }
+    }
+  }
+
+  // misc
   strong {
     font-weight: 400;
   }
 
   small {
-    font-size: 75%;
+    font-size: .8125rem;
   }
 
   sub,
   sup {
-    font-size: 62.5%;
+    font-size: .75rem;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -49,37 +257,5 @@
 
   sub {
     vertical-align: text-bottom;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: unquote($font-heading-family);
-    font-weight: 300;
-    line-height: 1.5;
-    margin-bottom: .5rem;
-  }
-
-  p,
-  li {
-    font-size: 100%;
-    line-height: 1.5;
-    margin: 0;
-    margin-bottom: .5rem;
-    padding: 0;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    font-family: $font-base-family;
-  }
-
-  dfn {
-    font-style: italic;
   }
 }
