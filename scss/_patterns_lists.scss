@@ -1,23 +1,23 @@
 // Default list styling
 @mixin vf-lists {
-  @include vf-p-lists-list;
-  @include vf-p-lists-list-divided;
-  @include vf-p-lists-list-item-state;
-  @include vf-p-lists-combined-list;
-  @include vf-p-lists-inline-list;
-  @include vf-p-lists-inline-list-middot;
+  @include vf-p-list;
+  @include vf-p-list-divided;
+  @include vf-p-list-item-state;
+  @include vf-p-combined-list;
+  @include vf-p-inline-list;
+  @include vf-p-inline-list-middot;
   @include vf-p-stepped-list;
 }
 
 // List styling using list class
-@mixin vf-p-lists-list {
+@mixin vf-p-list {
   .p-list {
     @extend %list;
   }
 }
 
 // A list with separators between items
-@mixin vf-p-lists-list-divided {
+@mixin vf-p-list-divided {
   .p-list--divided {
     @extend %list;
 
@@ -29,7 +29,7 @@
 }
 
 // Displays item with a tick bullet
-@mixin vf-p-lists-list-item-state {
+@mixin vf-p-list-item-state {
   .is-ticked {
     background-image: svg-tick($color-brand);
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 }
 
 // Displays split as one on small screens
-@mixin vf-p-lists-combined-list {
+@mixin vf-p-combined-list {
   .combined-list {
     ul,
     div {
@@ -77,7 +77,7 @@
 }
 
 // Displays a list inline with spacing
-@mixin vf-p-lists-inline-list {
+@mixin vf-p-inline-list {
   .p-inline-list {
     margin-left: 0;
     padding-left: 0;
@@ -89,7 +89,7 @@
 }
 
 // Displays a list inline with items separated by dots
-@mixin vf-p-lists-inline-list-middot {
+@mixin vf-p-inline-list-middot {
   .p-inline-list--middot {
     margin-left: 0;
     padding-left: 0;
