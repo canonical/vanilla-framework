@@ -1,0 +1,66 @@
+#! /usr/bin/env bash
+
+##
+# A script to install dependencies and run gulp inside docker-containers
+##
+
+# strict mode (http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+set -euo pipefail
+
+##
+# Check docker is installed correctly
+##
+if ! command -v docker >/dev/null 2>&1; then
+    echo "
+    Error: Docker not installed
+    ==
+    Please install Docker before continuing:
+    https://www.docker.com/products/docker
+    "
+fi
+if grep -q '^docker:' /etc/group && ! groups | grep -q '\bdocker\b'; then
+    echo "
+    Error: `whoami` not in docker group
+    ===
+    Please add this user to the docker group, e.g. with:
+    $$ newgrp docker
+    "
+fi
+
+if [ ! -f .packages-volume-name ]; then
+  hash=$(uuidgen | sed 's/-//g' | cut -c1-8)
+  echo "node-packages-$hash" > .packages-volume-name
+fi
+
+commands=$@
+
+while [[ -n "${1:-}" ]] && [[ "${1:0:1}" == "-" ]]; do
+    key="$1"
+
+    case $key in
+        -l|--local-override-module)
+            if [ -z "${2:-}" ]; then invalid; fi
+            override_paths+=("$2")
+            shift
+        ;;
+        -h|--help) commands="usage" ;;
+        *) invalid ;;
+    esac
+    shift
+done
+
+if [ -n "${override_paths:-}" ]; then
+  overrides=""
+  for path in "${override_paths[@]}"; do
+    module_name=$(basename $path)
+    overrides+=" --volume '$path':/packages/overrides/$module_name"
+  done
+fi
+
+docker run \
+  -ti \
+  --volume $(cat .packages-volume-name):/packages/node_modules \
+  ${overrides:-} \
+  --volume `pwd`:/app \
+  ubuntudesign/node:v1.0.5 $commands
+
