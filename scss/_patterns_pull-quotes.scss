@@ -1,28 +1,28 @@
 // Pull quote styling
 @mixin vf-p-pull-quotes {
   %quotes {
+    color: $color-warm-grey;
     font-size: 2.8125rem;
     font-weight: bold;
-    color: $color-warm-grey;
     line-height: 1rem;
   }
 
   .p-pull-quote {
-    max-width: 75%;
-    margin: 1rem 0;
-    position: relative;
-    padding-right: 1.25rem;
     border: 0;
+    margin: 1rem 0;
+    max-width: 75%;
+    padding-right: 1.25rem;
+    position: relative;
 
     > p {
       font-size: 1.4375rem;
-      margin: 0;
       font-style: normal;
+      margin: 0;
 
       &:first-of-type::before {
         @extend %quotes;
-        margin-left: -2.5rem;
         content: '\201C\2002'; // Unicode for left double quotation mark +  1/2 em space
+        margin-left: -2.5rem;
       }
 
       &:last-of-type {
@@ -36,11 +36,11 @@
     }
 
     &__citation {
+      display: inline-block;
       font-size: 1.25rem;
       font-style: italic;
-      margin-top: .75rem;
-      display: inline-block;
       line-height: 1.5;
+      margin-top: .75rem;
       width: 100%;
     }
   }
