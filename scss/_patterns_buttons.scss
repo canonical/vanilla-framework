@@ -1,61 +1,106 @@
 // Default button styling
 @mixin vf-p-buttons {
+  @include button-plain;
+  @include button-neutral;
+  @include button-brand;
+  @include button-positive;
+  @include button-negative;
+  @include button-base;
+}
 
+@mixin button-plain {
   .button {
-    @extend %button-pattern;
+    /// default .button class styling
+    @include button-pattern (
+      $button-disabled-background-color: $color-light,
+      $button-disabled-border-color: $color-light
+    );
+  }
+}
 
-    &--neutral {
-      @extend .button;
-      background-color: $color-light;
-      color: $color-dark;
-      border-color: $color-mid-grey;
+@mixin button-neutral {
+  /// Neutral button styling
+  /// @example
+  /// <a class="button--neutral">
+  ///   ...
+  /// </a>
+  .button--neutral {
+    @include button-pattern (
+      $button-disabled-border-color: $color-mid-grey
+    );
+  }
+}
 
-      &:hover {
-        background-color: $color-light-grey;
-        border-color: $color-mid-grey;
-      }
-    }
+@mixin button-brand {
+  /// Brand button styling
+  /// @example
+  /// <a class="button--brand">
+  ///   ...
+  /// </a>
+  .button--brand {
+    @include button-pattern (
+      $button-background-color: $color-brand,
+      $button-border-color: $color-brand,
+      $button-text-color: invert($color-brand),
+      $button-hover-background-color: darken($color-brand, 10%),
+      $button-hover-border-color: darken($color-brand, 10%),
+      $button-disabled-background-color: $color-brand,
+      $button-disabled-border-color: $color-brand
+    );
+  }
+}
 
-    &--positive {
-      @extend .button;
-      background-color: $color-positive;
-      border-color: $color-positive;
-      color: $color-light;
+@mixin button-positive {
+  /// Positive button styling
+  /// @example
+  /// <a class="button--positive">
+  ///   ...
+  /// </a>
+  .button--positive {
+    @include button-pattern (
+      $button-background-color: $color-positive,
+      $button-border-color: $color-positive,
+      $button-text-color: $color-light,
+      $button-hover-background-color: darken($color-positive, 10%),
+      $button-hover-border-color: darken($color-positive, 10%),
+      $button-disabled-background-color: $color-positive,
+      $button-disabled-border-color: $color-positive
+    );
+  }
+}
 
-      &:hover {
-        background-color: darken($color-positive, 20%);
-        border-color: darken($color-positive, 20%);
-      }
-    }
+@mixin button-negative {
+  /// Negative button styling
+  /// @example
+  /// <a class="button--negative">
+  ///   ...
+  /// </a>
+  .button--negative {
+    @include button-pattern (
+      $button-background-color: $color-negative,
+      $button-border-color: $color-negative,
+      $button-text-color: $color-light,
+      $button-hover-background-color: darken($color-negative, 10%),
+      $button-hover-border-color: darken($color-negative, 10%),
+      $button-disabled-background-color: $color-negative,
+      $button-disabled-border-color: $color-negative
+    );
+  }
+}
 
-    &--negative {
-      @extend .button;
-      background-color: $color-negative;
-      border-color: $color-negative;
-      color: $color-light;
-
-      &:hover {
-        background-color: darken($color-negative, 20%);
-        border-color: darken($color-negative, 20%);
-      }
-    }
-
-    &--brand {
-      @extend .button;
-      background-color: $color-brand;
-      border-color: $color-brand;
-      color: invert($color-brand);
-
-      &:hover {
-        background-color: darken($color-brand, 20%);
-        border-color: darken($color-brand, 20%);
-      }
-    }
-
-    &--disabled {
-      @extend .button;
-      opacity: .5;
-      cursor: default;
-    }
+@mixin button-base {
+  /// Base button styling
+  /// @example
+  /// <a class="button--base">
+  ///   ...
+  /// </a>
+  .button--base {
+    @include button-pattern (
+      $button-background-color: $color-transparent,
+      $button-border-color: $color-transparent,
+      $button-text-color: $color-cool-grey,
+      $button-hover-background-color: rgba(0, 0, 0, .1),
+      $button-hover-border-color: $color-transparent
+    );
   }
 }
