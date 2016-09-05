@@ -1,16 +1,53 @@
+%navigation-toggle {
+  @extend %button-pattern;
+  width: auto;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  float: right;
+  text-transform: uppercase;
+
+  @media (min-width: $breakpoint-medium) {
+    display: none;
+  }
+}
+
 // Default header styling
 @mixin vf-p-navigation {
-
   .p-navigation {
     @extend .clearfix;
     width: 100%;
     background-color: $color-brand;
     color: $color-light;
+    position: relative;
+
+    &__toggle--open {
+      @extend %navigation-toggle;
+    }
+
+    &:target &__toggle--open {
+      display: none;
+    }
+
+    &__toggle--close {
+      @extend %navigation-toggle;
+      display: none;
+    }
+
+    &:target &__toggle--close {
+      display: inline-block;
+    }
 
     &__logo {
       width: 100%;
       padding: 1rem;
       text-align: center;
+
+      @media (min-width: $breakpoint-medium) {
+        display: inline-block;
+        float: left;
+        width: auto;
+      }
 
       &-link {
         border-bottom: 0;
@@ -20,6 +57,23 @@
     &__links {
       padding: 1rem;
       background-color: $color-warm-grey;
+
+      @media (min-width: $breakpoint-medium) {
+        background-color: transparent;
+        float: right;
+      }
+    }
+
+    &__nav {
+      display: none;
+
+      @media (min-width: $breakpoint-medium) {
+        display: block;
+      }
+    }
+
+    &:target &__nav {
+      display: block;
     }
 
     &__link {
@@ -31,26 +85,11 @@
       &:last-child {
         margin-bottom: 0;
       }
-    }
 
-    @media (min-width: $breakpoint-medium) {
-
-      &__logo {
-        display: inline-block;
-        float: left;
-        width: auto;
-      }
-
-      &__links {
-        background-color: transparent;
-        float: right;
-      }
-
-      &__link {
+      @media (min-width: $breakpoint-medium) {
         display: inline-block;
         width: auto;
         margin: 0 0 0 .5rem;
-
       }
     }
   }
