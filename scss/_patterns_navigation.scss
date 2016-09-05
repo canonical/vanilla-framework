@@ -1,11 +1,11 @@
 %navigation-toggle {
   @include button-pattern;
-  width: auto;
-  position: absolute;
-  top: 4px;
-  right: 4px;
   float: right;
+  position: absolute;
+  right: 4px;
   text-transform: uppercase;
+  top: 4px;
+  width: auto;
 
   @media (min-width: $breakpoint-medium) {
     display: none;
@@ -16,10 +16,10 @@
 @mixin vf-p-navigation {
   .p-navigation {
     @extend .clearfix;
-    width: 100%;
     background-color: $color-brand;
     color: $color-light;
     position: relative;
+    width: 100%;
 
     &__toggle--open {
       @extend %navigation-toggle;
@@ -39,9 +39,9 @@
     }
 
     &__logo {
-      width: 100%;
       padding: 1rem;
       text-align: center;
+      width: 100%;
 
       @media (min-width: $breakpoint-medium) {
         display: inline-block;
@@ -55,8 +55,8 @@
     }
 
     &__links {
-      padding: 1rem;
       background-color: $color-warm-grey;
+      padding: 1rem;
 
       @media (min-width: $breakpoint-medium) {
         background-color: transparent;
@@ -77,8 +77,8 @@
     }
 
     &__link {
-      display: block;
       border-bottom: 0;
+      display: block;
       margin-bottom: .5rem;
       text-align: center;
 
@@ -88,8 +88,8 @@
 
       @media (min-width: $breakpoint-medium) {
         display: inline-block;
-        width: auto;
         margin: 0 0 0 .5rem;
+        width: auto;
       }
     }
   }
