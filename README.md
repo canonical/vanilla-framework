@@ -21,26 +21,28 @@ On [the project homepage](http://ubuntudesign.github.io/vanilla-framework), find
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
 ```
 
-## Local usage
+## Including Vanilla in your project
 
-Install the Node package into your project:
+Pull down the latest version of Vanilla into your local `node_modules` folder,
+and save it into your project's dependencies (`package.json`) as follows:
 
 ``` bash
-npm install vanilla-framework  # Installs at ./node_modules/vanilla-framework
+npm install --save-dev vanilla-framework
 ```
 
-Then reference it from your own Sass files, with optional settings:
+Now ensure that your SASS builder is including modules from `node_modules`. E.g. for Gulp:
 
- ```javascript
+``` javascript
+// gulpfile.js
 gulp.task('sass', function() {
   return gulp.src('[your-sass-directory]/**/*.scss')
   .pipe(sass({
     includePaths: ['node_modules']
   }))
 });
- ```
+```
 
- Note: This example uses Gulp but the same principle should apply for your preferred task runner of choice.
+Then reference it from your own Sass files, with optional settings:
 
 ``` sass
 // Optionally override some settings
@@ -61,6 +63,19 @@ If you don't want the whole framework, you can just `@include` specific [modules
 
 - [ubuntu-vanilla-theme](https://github.com/ubuntudesign/ubuntu-vanilla-theme) (alpha)
 - [canonical-vanilla-theme](https://github.com/ubuntudesign/canonical-vanilla-theme) (alpha)
+
+## Vanilla local development
+
+To develop on Vanilla itself, simply pull down the project and make changes.
+
+Once you've made your changes you can use the `run` script to build and test your code:
+
+``` bash
+./run        # List available commands
+./run build  # Build the CSS
+./run watch  # Watch files and rebuild when changes happen
+./run test   # Run the
+```
 
 ## Community
 
