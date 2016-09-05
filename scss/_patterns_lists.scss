@@ -36,8 +36,8 @@
 @mixin vf-p-list-item-state {
   .is-ticked {
     background-image: svg-tick($color-brand);
-    background-repeat: no-repeat;
     background-position: 0 50%;
+    background-repeat: no-repeat;
     padding-left: 25px;
   }
 }
@@ -69,7 +69,7 @@
     .combined-list {
       ul,
       div {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
       }
 
       .last-item {
@@ -103,10 +103,10 @@
       position: relative;
 
       &::after {
-        content: '•';
         color: $color-mid-grey;
-        line-height: 0;
+        content: '\00b7';
         font-size: 1.4rem;
+        line-height: 0;
         position: absolute;
         right: -1rem;
         top: .55rem;
@@ -129,28 +129,31 @@
     margin-left: $grid-gutter-width * 3;
   }
 
-  @media only screen and (max-width: $breakpoint-large) {
-    .list-step__item:first-child {
-      margin-top: 10px;
-    }
+  .list-step__item:first-child {
+    margin-top: .75rem;
   }
 
   @media only screen and (min-width: $breakpoint-large) {
+
+    .list-step__item:first-child {
+      margin-top: 0;
+    }
+
     .list-step__title {
       margin-bottom: 0;
     }
   }
 
   .list-step__bullet {
-    box-shadow: 0 1px 3px 1px rgba(51, 51, 51, .2);
     background: $color-light;
     border-radius: 50%;
-    padding: .3em .68em;
-    display: inline-block;
+    box-shadow: 0 1px 3px 1px $color-mid-grey;
     color: $color-highlight;
-    margin-right: .34375em;
-    margin-bottom: .625em;
+    display: inline-block;
+    margin-bottom: .625rem;
     margin-left: -$grid-gutter-width * 3;
+    margin-right: .34375rem;
+    padding: .3rem .68rem;
 
     @media only screen and (max-width: $breakpoint-large) {
       position: absolute;
