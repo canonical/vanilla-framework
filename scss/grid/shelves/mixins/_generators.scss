@@ -1,0 +1,143 @@
+// Generates the grid's base classes.
+//
+//   $responsive-base - Include the responsive base styles.
+//                      Defaults to the value of $shelves-responsive-base.
+//
+@mixin shelves-base($responsive-base: $shelves-responsive-base) {
+  @if $responsive-base {
+    @include shelves-responsive-base;
+  }
+
+  .#{class-name($shelves-row-name)} {
+    @include row;
+
+    .#{class-name($shelves-row-name)} {
+      @include reset-row;
+    }
+  }
+}
+
+// Adds some non-grid related responsive styles. It fixes IE 10's
+// "Snap Mode" and making images fluid.
+@mixin shelves-responsive-base {
+  @include fix-snap-mode;
+
+  img {
+    @include fluid-media;
+  }
+}
+
+// Include visibility helpers for showing/hiding content based on
+// device size.
+@mixin shelves-visibility-helpers {
+  @include on-mobile {
+    .#{class-name($shelves-hidden-mobile-name)},
+    .#{class-name($shelves-visible-tablet-name)},
+    .#{class-name($shelves-visible-desktop-name)} {
+      @include force-hidden;
+    }
+  }
+
+  @include on-tablet {
+    .#{class-name($shelves-visible-mobile-name)},
+    .#{class-name($shelves-hidden-tablet-name)},
+    .#{class-name($shelves-visible-desktop-name)} {
+      @include force-hidden;
+    }
+  }
+
+  @include on-desktop {
+    .#{class-name($shelves-visible-mobile-name)},
+    .#{class-name($shelves-visible-tablet-name)},
+    .#{class-name($shelves-hidden-desktop-name)} {
+      @include force-hidden;
+    }
+  }
+}
+
+// Generates the classes used for laying out and modifying
+// the columns. This can be used in different contexts, varying
+// the number of columns if necessary.
+//
+//   $extend      - Each column will @extend this placeholder if set.
+//                  Defaults to null.
+//   $start       - Where to start the loop. Defaults to 1.
+//   $end         - Where to end the loop.
+//                  Defaults to the value of $total.
+//   $context     - The context of generated classes.
+//                  Defaults to the value of $total.
+//   $total       - The total number of columns in the grid.
+//                  Defaults to the value of $shelves-columns.
+//   $gutter      - The width of the gutter in the root context (in %).
+//                  Defaults to the value of $shelves-gutter.
+//   $prefixes    - Include prefix classes. Defaults to false.
+//   $suffixes    - Include suffix classes. Defaults to false.
+//   $pushes      - Include push classes. Defaults to false.
+//   $pulls       - Include pull classes. Defaults to false.
+//   $column-name - The name of the column to generate widths for.
+//                  Defaults to $shelves-desktop-column-name.
+//   $prefix-name - The class name of the prefix modifier.
+//                  Defaults to $shelves-desktop-prefix-name.
+//   $suffix-name - The class name of the suffix modifier.
+//                  Defaults to $shelves-desktop-suffix-name.
+//   $push-name   - The class name of the push modifier.
+//                  Defaults to $shelves-desktop-push-name.
+//   $pull-name   - The class name of the pull modifier.
+//                  Defaults to $shelves-desktop-pull-name.
+//
+@mixin shelves-columns(
+    $extend: null,
+    $start: 1,
+    $end: null,
+    $context: $shelves-context,
+    $total: $shelves-columns,
+    $gutter: $shelves-gutter,
+    $prefixes: false,
+    $suffixes: false,
+    $pushes: false,
+    $pulls: false,
+    $column-name: $shelves-desktop-column-name,
+    $prefix-name: $shelves-desktop-prefix-name,
+    $suffix-name: $shelves-desktop-suffix-name,
+    $push-name: $shelves-desktop-push-name,
+    $pull-name: $shelves-desktop-pull-name) {
+  $context: $total !default;
+  $end: $context !default;
+
+  @for $i from $start to $end {
+    .#{class-name($column-name $i)} {
+      @if $extend {
+        @extend %#{$extend};
+      }
+      @include column-width($i, $context, $total, $gutter);
+    }
+  }
+  @if $prefixes {
+    @for $i from $start to $end {
+      .#{class-name($prefix-name $i)} {
+        @include prefix-column($i, $context, $total, $gutter);
+      }
+    }
+  }
+  @if $suffixes {
+    @for $i from $start to $end {
+      .#{class-name($suffix-name $i)} {
+        @include suffix-column($i, $context, $total, $gutter);
+      }
+    }
+  }
+  @if $pushes {
+    @for $i from $start to $end {
+      .#{class-name($push-name $i)} {
+        @include push-column($i, $context, $total, $gutter);
+      }
+    }
+  }
+  @if $pulls {
+    @for $i from $start to $end {
+      .#{class-name($pull-name $i)} {
+        @include pull-column($i, $context, $total, $gutter);
+      }
+    }
+  }
+}

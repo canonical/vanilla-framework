@@ -1,0 +1,65 @@
+// Includes the styles for the row element. This includes
+// a clearfix, widths, and centering.
+//
+//   $max-width - The max width of the row element. If this is
+//                false, the row is completely fluid. Defaults
+//                to $shelves-max-width.
+//   $margin    - The outer margins. Defaults to $shelves-margin.
+//
+@mixin row(
+    $max-width: $shelves-max-width,
+    $margin: $shelves-margin) {
+  @include row-base;
+  @include row-width($max-width);
+  @include row-margin($margin);
+}
+
+// Simply adds a clearfix.
+@mixin row-base {
+  @include shelves-clearfix;
+}
+
+// Includes the widths and centering for the rows.
+//
+//   $max-width - The max width of the row element. If this is
+//                false, the row is completely fluid. Defaults
+//                to $shelves-max-width.
+//
+@mixin row-width($max-width: $shelves-max-width) {
+  @if type-of($max-width) == 'number' {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $max-width;
+  }
+}
+
+// Includes the styles for the outer margins of the row.
+//
+//   $margin - The outer margins. Defaults to $shelves-margin.
+//
+@mixin row-margin($margin: $shelves-margin) {
+  padding-left: $margin;
+  padding-right: $margin;
+}
+
+// Row Resets
+// ----------------------------------------------------------------------------
+
+// Reset a row completely, removing the width and outer margins.
+@mixin reset-row {
+  @include reset-row-width;
+  @include reset-row-margin;
+}
+
+// Reset a row to expand to the full width of its container.
+@mixin reset-row-width {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: none;
+}
+
+// Remove the outer margin from the rows.
+@mixin reset-row-margin {
+  padding-right: 0;
+  padding-left: 0;
+}
