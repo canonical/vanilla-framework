@@ -56,6 +56,7 @@
 
     &__links {
       background-color: $color-warm-grey;
+      margin: 0;  // For if this class is applied to a <ul>
       padding: 1rem;
 
       @media (min-width: $breakpoint-medium) {
@@ -77,10 +78,16 @@
     }
 
     &__link {
-      border-bottom: 0;
+      border-bottom: 0;  // For when this class is applied to an <a> directly
       display: block;
       margin-bottom: .5rem;
       text-align: center;
+
+      &>a {
+        // For when this class is applied to something that contains <a>s, e.g.:
+        // <li class="p-navigation__list"><a></a></li>
+        border-bottom: 0;
+      }
 
       &:last-child {
         margin-bottom: 0;
