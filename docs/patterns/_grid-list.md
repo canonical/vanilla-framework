@@ -1,45 +1,45 @@
 ---
 collection: patterns
-title: Grid list
+title: Grid lists
 ---
 
 <div class="row" id="grid-list">
-    <h4>.grid-list</h4>
-    <ul class="grid-list col-12 no-bullets no-margin-bottom">
-        <li class="grid-list__item col-6">
-            <div class="col-1 ">
-                <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
+    <h4>.p-grid-list</h4>
+    <ul class="p-grid-list col-12 no-bullets no-margin-bottom">
+        <li class="p-grid-list__item col-6">
+            <div class="p-grid-list__img">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3">
-                <h3><a class="p-link--external" href="#">Link</a></h3>
-                <p>lorem ipsum</p>
-            </div>
-        </li>
-        <li class="grid-list__item col-6">
-            <div class="col-1 ">
-                <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
-            </div>
-            <div class="col-3">
-                <h3><a class="p-link--external" href="#">Link</a></h3>
-                <p>lorem ipsum</p>
+            <div class="p-grid-list__content">
+                <h3 class="p-grid-list__title"><a class="p-grid-list__link" href="#">Link</a></h3>
+                <p class="p-grid-list__desc">lorem ipsum</p>
             </div>
         </li>
-        <li class="grid-list__item col-6 last-row">
-            <div class="col-1 ">
-                <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
+        <li class="p-grid-list__item col-6 last-col">
+            <div class="p-grid-list__img">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3">
-                <h3><a class="p-link--external" href="#">Link</a></h3>
-                <p>lorem ipsum</p>
+            <div class="p-grid-list__content">
+                <h3 class="p-grid-list__title"><a class="p-grid-list__link" href="#">Link</a></h3>
+                <p class="p-grid-list__desc">lorem ipsum</p>
             </div>
         </li>
-        <li class="grid-list__item col-6 last-row">
-            <div class="col-1 ">
-                <img class="grid-list__img" src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
+        <li class="p-grid-list__item col-6 last-row">
+            <div class="p-grid-list__img">
+                <img src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
             </div>
-            <div class="col-3">
-                <h3><a class="p-link--external" href="#">Link</a></h3>
-                <p>lorem ipsum</p>
+            <div class="p-grid-list__content">
+                <h3 class="p-grid-list__title"><a class="p-grid-list__link" href="#">Link</a></h3>
+                <p class="p-grid-list__desc">lorem ipsum</p>
+            </div>
+        </li>
+        <li class="p-grid-list__item col-6 last-col">
+            <div class="p-grid-list__img">
+                <img src="https://placeholdit.imgix.net/~text?txtsize=8&amp;txt=60%C3%9760&amp;w=60&amp;h=60" alt="icon">
+            </div>
+            <div class="p-grid-list__content">
+                <h3 class="p-grid-list__title"><a class="p-grid-list__link" href="#">Link</a></h3>
+                <p class="p-grid-list__desc">lorem ipsum</p>
             </div>
         </li>
     </ul>

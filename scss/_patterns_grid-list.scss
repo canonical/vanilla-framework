@@ -1,43 +1,20 @@
 // List Grid
-
 @mixin vf-p-grid-list {
-  $grid-border-style: 1px dotted $color-warm-grey;
-
-  .grid-list {
-
-    @media only screen and (min-width: $breakpoint-medium) {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    &__img {
-      display: block;
-      margin: auto;
-      max-width: 60px;
-    }
-
-    p {
-      font-size: .875rem;
-    }
+  .p-grid-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 0;
+    padding-left: 0;
 
     &__item {
       border-bottom: $grid-border-style;
+      box-sizing: border-box;
       display: flex;
-      margin-bottom: 30px;
-
-      @media only screen and (max-width: $breakpoint-medium) {
-
-        > [class*='-col'] {
-          &:first-child {
-            padding-right: 1rem;
-            width: 25%;
-          }
-
-          &:last-child {
-            width: 75%;
-          }
-        }
-      }
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: .6875rem;
 
       &:last-child {
         border-bottom: 0;
@@ -45,10 +22,8 @@
 
       @media only screen and (min-width: $breakpoint-medium) {
         border-right: $grid-border-style;
-        display: flex;
-        flex-wrap: wrap;
         margin: 0;
-        padding: 1.5em .75em 0;
+        padding: .6875rem .75rem 0;
 
         &.last-col {
           border-right: 0;
@@ -58,6 +33,31 @@
           border-bottom: 0;
         }
       }
+    }
+
+    &__img {
+      flex-grow: 0;
+      flex-shrink: 0;
+      float: left;
+      margin-bottom: .4375rem;
+      margin-right: 5%;
+    }
+
+    &__content {
+      flex: 1;
+      margin-bottom: .4375rem;
+    }
+
+    &__title {
+      line-height: 1;
+      margin-bottom: .5rem;
+      margin-top: 0;
+    }
+
+    &__desc {
+      font-size: .875rem;
+      margin-bottom: 0;
+      margin-top: 0;
     }
   }
 }
