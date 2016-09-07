@@ -2,19 +2,19 @@
 @mixin vf-p-footer {
 
   .p-footer {
+    border-top: 1px dotted $color-dark;
     font-size: .75rem;
     padding-top: 1rem;
-    border-top: 1px dotted $color-dark;
 
     @media (min-width: $breakpoint-medium) {
+      font-size: .8125rem;
       margin: 0;
       padding: 0;
-      font-size: .8125rem;
     }
 
     &__copy {
-      padding-top: 1rem;
       margin-bottom: 0;
+      padding-top: 1rem;
     }
 
     &__links {
@@ -22,8 +22,8 @@
       padding: .5rem 0;
 
       @media (min-width: $breakpoint-medium) {
-        padding: 0;
         margin-top: 0;
+        padding: 0;
       }
     }
 
@@ -42,19 +42,19 @@
 
     &__link {
       border-bottom: 0;
-      font-size: .75rem;
       color: $color-warm-grey;
+      font-size: .75rem;
 
       @media (min-width: $breakpoint-medium) {
-        margin-right: 1rem;
         font-size: .8125rem;
+        margin-right: 1rem;
 
         &::after {
           content: '\00b7'; // Adds a middle dot
           font-size: 1.5rem;
+          left: .5rem;
           position: relative;
           top: .2rem;
-          left: .5rem;
         }
       }
     }
