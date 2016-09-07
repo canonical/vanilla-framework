@@ -1,15 +1,15 @@
 // Card patterns
 @mixin vf-p-card {
 
-  .p-card {
+  %p-card {
     background: $color-light;
-    border-radius: 2px;
     border: 1px solid $color-mid-grey;
+    border-radius: 2px;
     padding: 1rem;
 
     &__title {
-      margin: 0 0 .5rem;
       font-size: 1.5rem;
+      margin: 0 0 .5rem;
     }
 
     &__content {
@@ -22,8 +22,12 @@
     }
   }
 
+  .p-card {
+    @extend %p-card;
+  }
+
   .p-card--highlighted {
-    @extend .p-card;
-    box-shadow: 0 1px 5px 1px rgba($color-cool-grey, .2);
+    @extend %p-card;
+    box-shadow: 0 1px 5px 1px $color-light-grey;
   }
 }
