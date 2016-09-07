@@ -2,20 +2,20 @@
 @mixin vf-p-code-numbered {
 
   .code--numbered {
-    counter-reset: line-numbering;
     background: $color-light-grey;
     color: $color-cool-grey;
+    counter-reset: line-numbering;
     padding: 0 1rem;
 
     .code-line::before {
-      width: 1.5rem;
-      padding-right: 1rem; // space after numbers
       content: counter(line-numbering);
       counter-increment: line-numbering;
-      user-select: none;
-      text-align: right;
-      pointer-events: none;
       opacity: .5;
+      padding-right: 1rem; // space after numbers
+      pointer-events: none;
+      text-align: right;
+      user-select: none;
+      width: 1.5rem;
     }
   }
 }
