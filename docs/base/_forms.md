@@ -3,7 +3,7 @@ collection: base
 title: Forms
 ---
 
-Our form controls all receive global styling. All elements and labels are set to 100% width of the ```<form>``` parent element.
+Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are set to 100% width of the ```<form>``` parent element.
 
 <form>
     <label for="exampleInputEmail1">Email address</label>
@@ -31,11 +31,11 @@ Our form controls all receive global styling. All elements and labels are set to
 </form>
 ```
 
-## Styled form elements
+## Input elements
 
-### inputs
+### HTML5 elements
 
-All common input styles are supported with in the framework. We support all HTML5 text input types; ```text```, ```password```, ```datetime```, ```datetime-local```, ```date```, ```month```, ```time```, ```week```, ```color```, ```number```, ```email```, ```url```, ```search``` &amp; ```tel```.
+Vanilla supports all HTML5 input types: ```text```, ```password```, ```datetime```, ```datetime-local```, ```date```, ```month```, ```time```, ```week```, ```color```, ```number```, ```email```, ```url```, ```search``` and ```tel```.
 
 <form>
     <label for="exampleTextInput">Example input</label>
@@ -59,7 +59,7 @@ The ```<textarea>``` tag defines a multi-line text input control.
 <textarea rows="3">Textarea</textarea>
 ```
 
-Read only state attribute ```readonly```, disabled the input but retains a default cursor.
+The attribute ```readonly``` disables the input but retains a default cursor.
 
 <form>
     <label for"textarea">Example readonly textarea</label>
@@ -73,7 +73,7 @@ Read only state attribute ```readonly```, disabled the input but retains a defau
 
 ### Checkboxes and radios
 
-Checkboxes and radios are used for selecting one or multiple options
+Checkboxes and radios are used for selecting one or multiple options, respectively.
 
 <form>
     <input type="checkbox" id="checkExample1">
@@ -130,7 +130,7 @@ The ```<select>``` element is used to create a drop-down list.
 </select>
 ```
 
-Modify using the ```multiple``` attribute on to create a multiple select controls
+You can use the ```multiple``` attribute  to create a multiple select control.
 
 <form>
     <label for="exampleSelectMulti">Example multi select</label>
@@ -153,7 +153,7 @@ Modify using the ```multiple``` attribute on to create a multiple select control
 
 ## Disabled state
 
-Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interactions. All disabled inputs will have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
+Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interaction. All disabled inputs have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
 
 <form>
     <label for="disabled-input">Disabled input</label>
