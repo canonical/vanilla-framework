@@ -60,6 +60,10 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 <td><code>$color-positive</code></td>
 <td style="background-color: #38b44a; color: #fff;">#38b44a</td>
 </tr>
+<tr>
+<td><code>$color-information</code></td>
+<td style="background-color: #19b6ee; color: #fff;">#19b6ee</td>
+</tr>
 </tbody>
 </table>
 </div>
