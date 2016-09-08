@@ -210,7 +210,7 @@ Nest grids by ensuring columns add up to the number assigned to their parent col
 
 Adding empty columns before or after an element might be useful when you need extra space between elements and columns than that provided by the default grid.
 
-The classes `.prefix-1`, `.prepend-2`, `.prepend-3`, and so on, will add empty columns before the element to the number of columns specified in the class.
+The classes `.prefix-1`, `.prefix-2`, `.prefix-3`, and so on, will add empty columns before the element to the number of columns specified in the class.
 
 The classes `.suffix-1`, `.suffix-2`, `.suffix-3`, and so on, will add empty columns after the element to the number of columns specified in the class.
 
