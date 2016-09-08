@@ -38,8 +38,8 @@ Vanilla form controls have global styling defined at the HTML element level. Lab
 Vanilla supports all HTML5 input types: ```text```, ```password```, ```datetime```, ```datetime-local```, ```date```, ```month```, ```time```, ```week```, ```color```, ```number```, ```email```, ```url```, ```search``` and ```tel```.
 
 <form>
-    <label for="exampleTextInput">Example input</label>
-    <input type="text" id="exampleTextInput" placeholder="Example input" />
+    <label for="exampleTextInput">Label</label>
+    <input type="text" id="exampleTextInput" placeholder="Placeholder text" />
 </form>
 
 ```
@@ -51,19 +51,19 @@ Vanilla supports all HTML5 input types: ```text```, ```password```, ```datetime`
 The ```<textarea>``` tag defines a multi-line text input control.
 
 <form>
-    <label for"textarea">Example textarea</label>
-    <textarea id="textarea" rows="3">Textarea...</textarea>
+    <label for"textarea">Label</label>
+    <textarea id="textarea" rows="3">Textarea</textarea>
 </form>
 
 ```
 <textarea rows="3">Textarea</textarea>
 ```
 
-The attribute ```readonly``` disables the input but retains a default cursor.
+The attribute ```readonly``` disables the input but it still retains a default cursor.
 
 <form>
-    <label for"textarea">Example readonly textarea</label>
-    <textarea id="textarea" rows="3" readonly="readonly">Textarea...</textarea>
+    <label for"textarea">Label</label>
+    <textarea id="textarea" rows="3" readonly="readonly">Read-only textarea</textarea>
 </form>
 
 ```
@@ -71,69 +71,69 @@ The attribute ```readonly``` disables the input but retains a default cursor.
 ```
 
 
-### Checkboxes and radios
+### Checkbox and radio button
 
-Checkboxes and radios are used for selecting one or multiple options, respectively.
+Checkboxes and radio buttonss are used for selecting one or multiple options, respectively.
 
 <form>
     <input type="checkbox" id="checkExample1">
-    <label for="checkExample1">Checkbox example</label>
+    <label for="checkExample1">Checkbox option 1</label>
     <input type="checkbox" id="checkExample2" disabled="disabled">
-    <label for="checkExample2">Checkbox example - disabled</label>
+    <label for="checkExample2">Checkbox option 2 - disabled</label>
 </form>
 
 ```
 <input type="checkbox" id="checkExample1">
-<label for="checkExample1">Checkbox example</label>
+<label for="checkExample1">Checkbox option 1</label>
 
 <input type="checkbox" id="checkExample2" disabled="disabled">
-<label for="checkExample2">Checkbox example - disabled</label>
+<label for="checkExample2">Checkbox option 2 - disabled</label>
 ```
 
 <form>
     <input type="radio" name="RadioOptions" id="Radio1" value="option1">
-    <label for="Radio1">Radio example 1</label>
+    <label for="Radio1">Radio option 1</label>
     <input type="radio" name="RadioOptions" id="Radio2" value="option2">
-    <label for="Radio2">Radio example 2</label>
+    <label for="Radio2">Radio option 2</label>
     <input type="radio" name="RadioOptions" id="Radio4" value="option4" disabled="disabled">
-    <label for="Radio4">Radio example 3 - disabled</label>
+    <label for="Radio4">Radio option 3 - disabled</label>
 </form>
 
 ```
 <input type="radio" name="RadioOptions" id="Radio1" value="option1">
-<label for="Radio1">Radio example 1</label>
+<label for="Radio1">Radio option 1</label>
 
 <input type="radio" name="RadioOptions" id="Radio4" value="option4" disabled="disabled">
-<label for="Radio4">Radio example 3 - disabled</label>
+<label for="Radio4">Radio option 3 - disabled</label>
 ```
 
-### Selects
+### Select
 
 The ```<select>``` element is used to create a drop-down list.
 
 <form>
-    <label for="exampleSelect">Example select</label>
+    <label for="exampleSelect">Label</label>
     <select name="exampleSelect" id="exampleSelect">
-        <option value="" disabled="disabled">Select...</option>
-        <option value="1">Value 1</option>
-        <option value="2">Value 2</option>
-        <option value="3">Value 3</option>
+        <option value="" disabled="disabled">Select an option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
     </select>
 </form>
 
 ```
 <select name="exampleSelect" id="exampleSelect">
-    <option value="" disabled="disabled" selected>Select...</option>
-    <option value="1">Value 1</option>
-    <option value="2">Value 2</option>
-    <option value="3">Value 3</option>
+    <option value="" disabled="disabled" selected>Select an option</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
 </select>
 ```
 
 You can use the ```multiple``` attribute  to create a multiple select control.
 
 <form>
-    <label for="exampleSelectMulti">Example multi select</label>
+    <label for="exampleSelectMulti">Label</label>
     <select name="exampleSelectMulti" id="exampleSelectMulti" multiple>
         <option value="" disabled="disabled">Select...</option>
         <option value="1">Value 1</option>
@@ -156,52 +156,52 @@ You can use the ```multiple``` attribute  to create a multiple select control.
 Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interaction. All disabled inputs have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
 
 <form>
-    <label for="disabled-input">Disabled input</label>
+    <label for="disabled-input">Label</label>
     <input type="text" id="disabled-input" placeholder="Input is disabled" disabled="disabled">
 </form>
 
 ## Feedback classes
 
-Applying classes ```.has-error```, ```.has-success```, ```.has-warning``` on either the element or label will give form response to a user.
+Applying the classes ```.has-error```, ```.has-success``` or ```.has-warning``` to an input or label will style that element differently to provide visual feedback in case there is an error, success or warning notification related to the element.
 
 <form>
-    <label class="has-success" for="inputSuccess">Input success</label>
+    <label class="has-success" for="inputSuccess">Label success</label>
     <input type="text" id="inputSuccess" class="has-success" placeholder="Input has-success class">
-    <label class="has-error" for="inputError">Input error</label>
+    <label class="has-error" for="inputError">Label error</label>
     <input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
-    <label class="has-warning" for="inputWarning">Input warning</label>
+    <label class="has-warning" for="inputWarning">Label warning</label>
     <input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
     <input type="checkbox" class="has-success">
-    <label for="checkboxExampleSuccess" class="has-success">Checkbox with success</label>
+    <label for="checkboxExampleSuccess" class="has-success">Checkbox success</label>
     <input type="checkbox" class="has-error">
-    <label for="checkboxExampleError" class="has-error">Checkbox with error</label>
+    <label for="checkboxExampleError" class="has-error">Checkbox error</label>
     <input type="checkbox" class="has-warning">
-    <label for="checkboxExampleWarning" class="has-warning">Checkbox with warning</label>
+    <label for="checkboxExampleWarning" class="has-warning">Checkbox warning</label>
 </form>
 
 ```
-<label class="has-success" for="inputSuccess">Input success</label>
+<label class="has-success" for="inputSuccess">Label success</label>
 <input type="text" id="inputSuccess" class="has-success" placeholder="Input has-success class">
 
-<label class="has-error" for="inputError">Input error</label>
+<label class="has-error" for="inputError">Label error</label>
 <input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
 
-<label class="has-warning" for="inputWarning">Input warning</label>
+<label class="has-warning" for="inputWarning">Label warning</label>
 <input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
 
 <input type="checkbox" class="has-success">
-<label for="checkboxExampleSuccess" class="has-success">Checkbox with success</label>
+<label for="checkboxExampleSuccess" class="has-success">Checkbox success</label>
 
 <input type="checkbox" class="has-error">
-<label for="checkboxExampleError" class="has-error">Checkbox with error</label>
+<label for="checkboxExampleError" class="has-error">Checkbox error</label>
 
 <input type="checkbox" class="has-warning">
-<label for="checkboxExampleWarning" class="has-warning">Checkbox with warning</label>
+<label for="checkboxExampleWarning" class="has-warning">Checkbox warning</label>
 ```
 
 ## Fieldset
 
-The ```<fieldset>``` container applies a background and a ```8px``` padding around any form input.
+You can use the ```<fieldset>``` element to divide the form into different logical sections.
 
 <form>
     <fieldset>
