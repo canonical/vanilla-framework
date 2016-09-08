@@ -37,13 +37,13 @@
         padding-right: ($grid-gutter-width / 2);
 
         &::before {
+          border-right: 1px dotted $color-warm-grey;
           content: '';
+          height: 100%;
           position: absolute;
           right: -($grid-gutter-width / 2);
           top: 0;
-          height: 100%;
           width: 1px;
-          border-right: 1px dotted $color-warm-grey;
         }
       }
 
@@ -81,8 +81,8 @@
 %equal-height {
   @media only screen and (min-width: $breakpoint-medium) {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
 
     .u-equal-height__item {
