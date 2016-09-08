@@ -3,7 +3,11 @@ collection: layout
 title: Grid
 ---
 
-The grid is constructing using `col-*` elements nested inside a single `.row` parent element.
+Vanilla's default grid has 12 columns and 20px gutters. On large screens, each column takes up 6.3053% of the total width.
+
+Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column should span a minimum of 3 column units.
+
+The grid is constructed using `col-*` elements nested inside a single `.row` parent element. All content must be inside a `.row` container so that it correctly aligns to the grid.
 
 <div class="grid_outline">
     <div class="row">
