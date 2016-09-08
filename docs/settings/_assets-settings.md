@@ -3,6 +3,6 @@ collection: settings
 title: Assets
 ---
 
-Setting  | Default Value
+Setting  | Default value
  ------------- | -------------
-$assets-path   | https://assets.ubuntu.com/v1/
+`$assets-path` | https://assets.ubuntu.com/v1/
