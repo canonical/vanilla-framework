@@ -5,7 +5,7 @@ title: Typography
 
 All text in Vanilla uses the Ubuntu typeface.
 
-Vanilla's typographic scale has a base font size of 14 pixels (small screens) and a font weight of 300.  At the medium breakpoint, the base font size is 15 pixels, and at large breakpoint it is 16 pixels.
+Vanilla's typographic scale has a base font size of 14 pixels (small screens) and a font weight of 300.  At the medium breakpoint, the base font size is 15 pixels, and at the large breakpoint it is 16 pixels.
 
 ## Typographic scale
 
