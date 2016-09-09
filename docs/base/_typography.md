@@ -40,14 +40,6 @@ Vanilla's typographic scale has a base font size of 14 pixels (small screens) an
 
 <p>This text is <sub>subscripted</sub></p>
 
-## Code and code blocks
-
-Here is some `inline code`.
-
-<pre><code>&lt;pre&gt;&lt;code&gt;Here is a
-code block
-with some text&lt;/code&gt;&lt;/pre&gt;</code></pre>
-
 ## Typographic scale
 
   |  Small  |  Medium  |  Large
