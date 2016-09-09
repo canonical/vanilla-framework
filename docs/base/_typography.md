@@ -3,11 +3,11 @@ collection: base
 title: Typography
 ---
 
-Vanilla typography starts with a base font size of 16px and a font weight of 300 for large screens.  For medium screens the base size drops to 15px and at small screens it becomes 14px.
+All text in Vanilla uses the Ubuntu typeface.
 
-## Page headings
+Vanilla's typographic scale has a base font size of 14 pixels (small screens) and a font weight of 300.  At the medium breakpoint, the base font size is 15 pixels, and at large breakpoint it is 16 pixels.
 
-All headings uses Ubuntu Light font and have a line height of 1.3 and font-weight of 300 unless specified otherwise.  Here are some examples with large size screen font sizes.
+## Typographic scale
 
 <h1>This is a sample of the &lt;h1&gt; heading</h1>
 <h2>This is a sample of the &lt;h2&gt; heading</h2>
@@ -15,27 +15,20 @@ All headings uses Ubuntu Light font and have a line height of 1.3 and font-weigh
 <h4>This is a sample of the &lt;h4&gt; heading</h4>
 <h5>This is a sample of the &lt;h5&gt; heading</h5>
 <h6>This is a sample of the &lt;h6&gt; heading</h6>
-
-## Paragraphs
-
-<p>Paragraphs use the Ubuntu Light font at 16px with a line height of 1.5.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, <em>sed do eiusmod tempor</em> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-<p>Duis aute irure dolor in <strong>reprehenderit</strong> in voluptate velit <abbr title="test">esse cillum dolore</abbr> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>This is a sample of a paragraph.</p>
 
 ## Blockquotes and citations
 
 <div>
     <blockquote>
-        <p>Now is no time to think of what you do not have.<p>
-        <p>Think of what you can do with that there is.</p>
-        <cite>&mdash; Ernest Hemingway, The Old Man and the Sea</cite>
+        <p>Ubuntu is an ancient African word meaning 'humanity to others'. It also means 'I am what I am because of who we all are'. The Ubuntu operating system brings the spirit of Ubuntu to the world of computers.</p>
+        <cite>&mdash;Canonical</cite>
     </blockquote>
 </div>
 
 ## Small text
 
-<small>This is some &lt;small&gt; text and font-size of 13px.</small>
+<small>This is some &lt;small&gt; text with a font size of 13 pixels.</small>
 
 ## Strong text
 
