@@ -5,7 +5,7 @@ title: Typography
 
 Vanilla typography starts with a base font size of 16px and a font weight of 300 for large screens.  For medium screens the base size drops to 15px and at small screens it becomes 14px.
 
-## Page Headings
+## Page headings
 
 All headings uses Ubuntu Light font and have a line height of 1.3 and font-weight of 300 unless specified otherwise.  Here are some examples with large size screen font sizes.
 
@@ -57,9 +57,7 @@ Here is some `inline code`.
 code block
 with some text&lt;/code&gt;&lt;/pre&gt;</code></pre>
 
-## Details of typography settings
-
-For paragraphs and headings.
+## Typographic scale
 
 Screen size  |  Small  |  Medium  |  Large
 :----------- | -----------: | -----------: | -----------:
