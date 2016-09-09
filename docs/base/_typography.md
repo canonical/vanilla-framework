@@ -7,8 +7,6 @@ All text in Vanilla uses the Ubuntu typeface.
 
 Vanilla's typographic scale has a base font size of 14 pixels (small screens) and a font weight of 300.  At the medium breakpoint, the base font size is 15 pixels, and at the large breakpoint it is 16 pixels.
 
-## Typographic scale
-
 <h1>This is a sample of the &lt;h1&gt; heading</h1>
 <h2>This is a sample of the &lt;h2&gt; heading</h2>
 <h3>This is a sample of the &lt;h3&gt; heading</h3>
