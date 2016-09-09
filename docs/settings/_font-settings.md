@@ -3,7 +3,7 @@ collection: settings
 title: Font
 ---
 
-Vanilla includes by default the Ubuntu font family.
+Vanilla uses by default the Ubuntu font family.
 
 All Ubuntu sites and applications use the Ubuntu font, as it has been specially created to complement the Ubuntu tone of voice. It has a contemporary style and contains characteristics unique to the Ubuntu brand that convey a precise, reliable and free attitude.
 
