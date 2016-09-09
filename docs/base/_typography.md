@@ -59,7 +59,7 @@ with some text&lt;/code&gt;&lt;/pre&gt;</code></pre>
 
 ## Typographic scale
 
-Screen size  |  Small  |  Medium  |  Large
+  |  Small  |  Medium  |  Large
 :----------- | -----------: | -----------: | -----------:
 **p**  |    |    |  
 font size  |  15px  |  16px  |  16px
