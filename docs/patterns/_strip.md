@@ -7,7 +7,7 @@ The strip pattern provides a full width strip container in which to wrap a row. 
 
 A `.strip` container should always be the parent of a `.row` and never the other way around.
 
-<div class="strip--dark">
+<div class="strip--light">
     <div class="row">
         <h2>Title of a light row</h2>
         <p>Some text inside a row.</p>
@@ -15,7 +15,7 @@ A `.strip` container should always be the parent of a `.row` and never the other
 </div>
 
 ```html
-<div class="strip--dark">
+<div class="strip--light">
     <div class="row">
         ...
     </div>
