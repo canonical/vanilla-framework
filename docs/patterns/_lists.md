@@ -41,7 +41,7 @@ Intended to be modified with state classes to change the icon.
 
 ## List divided
 
-A modifier to add a visual separator between list items
+A modifier to add a visual separator between list items.
 
 ```html
 <ul class="p-list--divided">
@@ -59,7 +59,7 @@ A modifier to add a visual separator between list items
 
 ## List divided with icons
 
-A modifier to add a visual separator between list items
+A modifier to add a visual separator between list items.
 
 ```html
 <ul class="p-list--divided">
