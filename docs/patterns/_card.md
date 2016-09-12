@@ -35,7 +35,7 @@ The purpose of the basic card is to display information, without user interactio
 
 The highlighted card should be used when you can interact with the content.
 
-<div class="p-card p-card--highlighted">
+<div class="p-card--highlighted">
     <h3 class="p-card__title">Title</h3>
     <p class="p-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
     <footer class="p-card__footer">
