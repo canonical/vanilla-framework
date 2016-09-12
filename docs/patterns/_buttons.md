@@ -84,8 +84,8 @@ You can apply `button` classes on buttons and link elements.
 ```
 
 <div class="twelve-col">
-    <p><a href="#" class="button--negative">Negative</a></p>
-    <p><a href="#" class="button--negative is--disabled">Negative disabled</a></p>
+    <p><a href="#" class="button--negative">Negative link</a></p>
+    <p><a href="#" class="button--negative is--disabled">Negative link disabled</a></p>
 </div>
 
 ```html
