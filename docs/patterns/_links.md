@@ -3,23 +3,19 @@ collection: patterns
 title: Links
 ---
 
-## .p-link--external
+## External link
 
-This class should be used on hyperlinks that will take the user to another domain.
+The `external-link` class should be used on hyperlinks that go to a different domain than the current one.
 
-Example:
-
-<a class="p-link--external">External Link</a>
+<a class="p-link--external">External link</a>
 
 ```html
-<a class="p-link--external">External Link</a>
+<a class="p-link--external">External link</a>
 ```
 
-## .p-link--top
+## Back to top link
 
-This class should be used on hyperlinks that will return the user to the top of the page.
-
-Example:
+The `back-to-top` link can be used to make it easier to go back to the top on long pages. If the page is divided into different sections, you can use more than one per page.
 
 <div class="p-top">
     <a href="#" class="p-top__link">Back to top</a>
