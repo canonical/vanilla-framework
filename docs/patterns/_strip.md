@@ -24,8 +24,10 @@ A `.strip` container should always be the parent of a `.row` and never the other
 
 <div class="strip--dark">
     <div class="row">
-        <h2>Title of a dark row</h2>
-        <p>Some text inside a row.</p>
+        <div class="col-12">
+            <h2>Title of a dark row</h2>
+            <p>Some text inside a row.</p>
+        </div>
     </div>
 </div>
 
