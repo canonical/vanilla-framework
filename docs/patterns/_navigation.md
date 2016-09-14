@@ -12,7 +12,7 @@ title: Navigation
     </div>
     <a href="#navigation" class="p-navigation__toggle--open">Menu</a>
     <a href="#navigation-closed" class="p-navigation__toggle--close">Close</a>
-    <nav id="main-navigation" class="p-navigation__nav" role="navigation">
+    <nav id="main-navigation" class="p-navigation__nav">
         <span class="u-off-screen">
             <a href="#main-content">Jump to main content</a>
         </span>
