@@ -55,9 +55,7 @@ $color-brand: #ffffff;
  @include ubuntu-vanilla-theme;
 ```
 
-You can override any of the settings in [_global-settings.scss](scss/_global-settings.scss).
-
-If you don't want the whole framework, you can just `@include` specific [modules](scss/modules) - e.g. `@include vf-forms`.
+If you don't want the whole framework, you can just `@include` specific [modules](scss/modules) - e.g. `@include vf-b-forms`.
 
 ## Themes
 
