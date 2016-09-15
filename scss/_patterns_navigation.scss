@@ -1,14 +1,7 @@
 %navigation-toggle {
-  @include button-pattern;
-  float: right;
-  position: absolute;
-  right: 4px;
-  text-transform: uppercase;
-  top: 4px;
-  width: auto;
-
   @media (min-width: $breakpoint-medium) {
     display: none;
+    text-decoration: none;
   }
 }
 
@@ -20,6 +13,15 @@
     color: $color-light;
     position: relative;
     width: 100%;
+
+    .p-navigation__toggle--open,
+    .p-navigation__toggle--close,
+    .p-navigation__link {
+      &:visited {
+        border-bottom: 0;
+        color: $color-light;
+      }
+    }
 
     &__toggle--open {
       @extend %navigation-toggle;
@@ -39,15 +41,9 @@
     }
 
     &__logo {
+      display: inline-block;
+      float: left;
       padding: 1rem;
-      text-align: center;
-      width: 100%;
-
-      @media (min-width: $breakpoint-medium) {
-        display: inline-block;
-        float: left;
-        width: auto;
-      }
 
       &-link {
         border-bottom: 0;
