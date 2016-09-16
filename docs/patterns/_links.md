@@ -17,8 +17,10 @@ The `external-link` class should be used on hyperlinks that go to a different do
 
 The `back-to-top` link can be used to make it easier to go back to the top on long pages. If the page is divided into different sections, you can use more than one per page.
 
-<div class="p-top">
-    <a href="#" class="p-top__link">Back to top</a>
+<div class="row">
+    <div class="p-top">
+        <a href="#" class="p-top__link">Back to top</a>
+    </div>
 </div>
 
 ```html
