@@ -7,6 +7,10 @@
     position: relative;
     width: 100%;
 
+    @media (min-width: $breakpoint-medium) {
+      display: flex;
+    }
+
     &__toggle--open,
     &__toggle--close,
     &__link,
@@ -27,12 +31,12 @@
     &__toggle {
       &--open,
       &--close {
-          float: right;
-          margin: 1rem;
+        float: right;
+        margin: 1rem;
 
-          @media (min-width: $breakpoint-medium) {
-              display: none;
-          }
+        @media (min-width: $breakpoint-medium) {
+          display: none;
+        }
       }
     }
 
@@ -43,19 +47,20 @@
     }
 
     &__logo {
-      display: inline-block;
+      align-items: center;
+      display: flex;
+      font-size: 1.2rem;
       float: left;
-      padding: 1rem;
-
-      &-link {
-        border-bottom: 0;
+      margin: 1rem;
+      
+      @media (min-width: $breakpoint-medium) {
+        margin: 0 1rem;
       }
     }
 
     &__link {
       border-bottom: 0;  // For when this class is applied to an <a> directly
       display: block;
-      text-align: center;
 
       &>a {
         // For when this class is applied to something that contains <a>s, e.g.:
