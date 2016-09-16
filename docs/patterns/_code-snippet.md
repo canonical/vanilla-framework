@@ -3,7 +3,7 @@ collection: patterns
 title: Code snippet
 ---
 
-## Code snippet light
+## Light
 
 Code snippet should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 
@@ -19,7 +19,7 @@ Code snippet should be used when presenting the user with a small snippet of cod
 </div>
 ```
 
-## Code snippet dark
+## Dark
 
 <div class="code-snippet--dark">
     <input class="code-snippet__input" value="sudo apt-get update" readonly="readonly">
