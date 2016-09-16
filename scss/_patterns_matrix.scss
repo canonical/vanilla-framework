@@ -1,0 +1,78 @@
+// List Grid
+@mixin vf-p-matrix {
+
+  .p-matrix {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+      @extend %clearfix;
+      border-bottom: 1px dotted $color-mid-grey;
+      margin-bottom: 1rem;
+      padding: 1rem;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      @media (min-width: $breakpoint-small) { // 2 items per row
+        float: left;
+        width: calc(50% - .5rem);
+        padding-right: 1rem;
+        border-right: 1px dotted $color-mid-grey;
+        margin-bottom: 0;
+
+        &:nth-child(2n) {
+          padding-right: 0;
+          border-right: 0;
+        }
+
+        &:nth-last-child(-n+2) {
+          border-bottom: 0;
+        }
+      }
+
+      @media (min-width: $breakpoint-medium) { // 3 items per row
+
+        width: calc(33.333% - .666666rem);
+
+        &:nth-child(2n) {
+          padding-right: 1rem;
+          border-right: 1px dotted $color-mid-grey;
+        }
+
+        &:nth-child(3n) {
+          padding-right: 0;
+          border-right: 0;
+        }
+
+        &:nth-last-child(-n+3) {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    &__img,
+    &__content {
+      float: left;
+      display: inline-block;
+    }
+
+    &__img {
+      margin-right: 1rem;
+    }
+
+    &__title {
+      margin-bottom: .5rem;
+    }
+
+    &__desc {
+      margin-bottom: 0;
+    }
+
+    &__link {
+      border-bottom: 0;
+    }
+  }
+}
