@@ -62,8 +62,8 @@ The ```<textarea>``` tag defines a multi-line text input control.
 The attribute ```readonly``` disables the input but it still retains a default cursor.
 
 <form>
-    <label for"textarea">Label</label>
-    <textarea id="textarea" rows="3" readonly="readonly">Read-only textarea</textarea>
+    <label for="textarea2">Label</label>
+    <textarea id="textarea2" rows="3" readonly="readonly">Read-only textarea</textarea>
 </form>
 
 ```
