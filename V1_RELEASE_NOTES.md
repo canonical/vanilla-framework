@@ -81,6 +81,6 @@
 
 * `.header-search` and `.search-form` have been deprecated
 
-* `.inline-logos` is now `.p-image-grid`.
+* `.inline-logos` is now `.p-inline-images`.
 
 * `p-header` has become `p-navigation` as well as all the sub-BEM classes
