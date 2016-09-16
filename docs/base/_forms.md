@@ -51,7 +51,7 @@ Vanilla supports all HTML5 input types: ```text```, ```password```, ```datetime`
 The ```<textarea>``` tag defines a multi-line text input control.
 
 <form>
-    <label for"textarea">Label</label>
+    <label for="textarea">Label</label>
     <textarea id="textarea" rows="3">Textarea</textarea>
 </form>
 
