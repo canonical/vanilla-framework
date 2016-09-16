@@ -48,7 +48,7 @@ title: Navigation
 ```html
 <header class="p-navigation" role="banner">
     <div class="p-navigation__logo">
-        <a class="p-navigation__link" href="#">
+        <a class="p-navigation__link u-vertically-center" href="#">
             Vanilla
         </a>
     </div>
