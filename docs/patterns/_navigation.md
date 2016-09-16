@@ -10,8 +10,8 @@ title: Navigation
             Vanilla
         </a>
     </div>
-    <a href="#navigation" class="p-navigation__toggle--open" title="menu">menu</a>
-    <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">menu</a>
+    <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+    <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Menu</a>
     <nav class="p-navigation__nav">
         <span class="u-off-screen">
             <a href="#main-content">Jump to main content</a>
@@ -31,8 +31,8 @@ title: Navigation
             Vanilla
         </a>
     </div>
-    <a href="#navigation" class="p-navigation__toggle--open" title="menu">menu</a>
-    <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">menu</a>
+    <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+    <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Menu</a>
     <nav class="p-navigation__nav" role="navigation">
         <span class="u-off-screen">
             <a href="#main-content">Jump to main content</a>
