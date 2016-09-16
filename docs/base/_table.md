@@ -6,7 +6,7 @@ title: Table
 <table>
     <thead>
         <tr>
-            <th></th>
+            <td></td>
             <th scope="col">Header</th>
             <th scope="col">Header</th>
             <th scope="col" class="u-text-align--right">Header</th>
