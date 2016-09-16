@@ -114,7 +114,7 @@ The ```<select>``` element is used to create a drop-down list.
 <form>
     <label for="exampleSelect">Label</label>
     <select name="exampleSelect" id="exampleSelect">
-        <option value="" disabled="disabled">Select an option</option>
+        <option value="" disabled="disabled" selected>Select an option</option>
         <option value="1">Option 1</option>
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
@@ -171,11 +171,11 @@ Applying the classes ```.has-error```, ```.has-success``` or ```.has-warning``` 
     <input type="text" id="inputError" class="has-error" placeholder="Input has-error class">
     <label class="has-warning" for="inputWarning">Label warning</label>
     <input type="text" id="inputWarning" class="has-warning" placeholder="Input has-warning class">
-    <input type="checkbox" class="has-success">
+    <input type="checkbox" id="checkboxExampleSuccess" class="has-success">
     <label for="checkboxExampleSuccess" class="has-success">Checkbox success</label>
-    <input type="checkbox" class="has-error">
+    <input type="checkbox" id="checkboxExampleError" class="has-error">
     <label for="checkboxExampleError" class="has-error">Checkbox error</label>
-    <input type="checkbox" class="has-warning">
+    <input type="checkbox" id="checkboxExampleWarning" class="has-warning">
     <label for="checkboxExampleWarning" class="has-warning">Checkbox warning</label>
 </form>
 
