@@ -1,0 +1,84 @@
+// List Grid
+@mixin vf-p-matrix {
+
+  .p-matrix {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+      @extend %clearfix;
+      border-bottom: 1px dotted $color-mid-grey;
+      margin-bottom: 1rem;
+      padding: 1rem;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      @media (min-width: $breakpoint-small) { // 2 items per row
+        border-right: 1px dotted $color-mid-grey;
+        display: table-cell;
+        float: left;
+        margin-bottom: 0;
+        padding-right: 1rem;
+        vertical-align: top;
+        width: calc(50% - .5rem);
+
+        &:nth-child(2n) {
+          border-right: 0;
+          margin-right: 0;
+        }
+
+        &:nth-last-child(-n+2) {
+          border-bottom: 0;
+        }
+      }
+
+      @media (min-width: $breakpoint-large) { // 3 items per row
+        width: calc(33.333% - .666666rem);
+
+        &:nth-child(2n) {
+          border-right: 1px dotted $color-mid-grey;
+          padding-right: 1rem;
+        }
+
+        &:nth-child(3n) {
+          border-right: 0;
+          padding-right: 0;
+        }
+
+        &:nth-last-child(-n+3) {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    &__img,
+    &__content {
+      display: inline-block;
+      float: left;
+    }
+
+    &__img {
+      margin-right: 1rem;
+      max-width: calc(30% - 1rem);
+    }
+
+    &__content {
+      max-width: 70%;
+    }
+
+    &__title {
+      margin-bottom: .5rem;
+    }
+
+    &__desc {
+      margin-bottom: 0;
+    }
+
+    &__link {
+      border-bottom: 0;
+    }
+  }
+}

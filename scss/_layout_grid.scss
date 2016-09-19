@@ -11,3 +11,23 @@ $shelves-column-name: $grid-col-name;
 @import
 'grid/shelves',
 'grid/shelves-grid';
+
+// Remove double margin bottoms on rows
+.row >,
+[class^="col-"] > {
+  p,
+  ul,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  table,
+  article,
+  div {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
