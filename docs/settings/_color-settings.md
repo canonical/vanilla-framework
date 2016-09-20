@@ -46,19 +46,19 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 </tr>
 <tr>
 <td><code>$color-negative</code></td>
-<td style="background-color: #df382c; color: #fff;">#df382c </td>
+<td style="background-color: #d73024; color: #fff;">#d73024</td>
 </tr>
 <tr>
 <td><code>$color-warning</code></td>
-<td style="background-color: #eca918;">#eca918 </td>
+<td style="background-color: #f99b11;">#f99b11</td>
 </tr>
 <tr>
 <td><code>$color-positive</code></td>
-<td style="background-color: #38b44a; color: #fff;">#38b44a</td>
+<td style="background-color: #0f8420; color: #fff;">#0f8420</td>
 </tr>
 <tr>
 <td><code>$color-information</code></td>
-<td style="background-color: #19b6ee; color: #fff;">#19b6ee</td>
+<td style="background-color: #007aa6; color: #fff;">#007aa6</td>
 </tr>
 </tbody>
 </table>
