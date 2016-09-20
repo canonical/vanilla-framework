@@ -1,5 +1,5 @@
 ---
-collection: layout
+collection: patterns
 title: Grid
 ---
 
@@ -9,99 +9,97 @@ Layouts can be created combining rows with different number of columns to an ide
 
 The grid is constructed using `col-*` elements nested inside a single `.row` parent element. All content must be inside a `.row` container so that it correctly aligns to the grid.
 
-<div class="grid_outline">
-    <div class="row">
-        <div class="col-12">
-            <span>.col-12</span>
-        </div>
+<div class="row">
+    <div class="col-12 theme__outline">
+        <span>.col-12</span>
     </div>
-    <div class="row">
-        <div class="col-11">
-            <span>.col-11</span>
-        </div>
-        <div class="col-1">
-            <span>.col-1</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-11 theme__outline">
+        <span>.col-11</span>
     </div>
-    <div class="row">
-        <div class="col-10">
-            <span>.col-10</span>
-        </div>
-        <div class="col-2">
-            <span>.col-2</span>
-        </div>
+    <div class="col-1 theme__outline">
+        <span>.col-1</span>
     </div>
-    <div class="row">
-        <div class="col-9">
-            <span>.col-9</span>
-        </div>
-        <div class="col-3">
-            <span>.col-3</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-10 theme__outline">
+        <span>.col-10</span>
     </div>
-    <div class="row">
-        <div class="col-8">
-            <span>.col-8</span>
-        </div>
-        <div class="col-4">
-            <span>.col-4</span>
-        </div>
+    <div class="col-2 theme__outline">
+        <span>.col-2</span>
     </div>
-    <div class="row">
-        <div class="col-7">
-            <span>.col-7</span>
-        </div>
-        <div class="col-5">
-            <span>.col-5</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-9 theme__outline">
+        <span>.col-9</span>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <span>.col-6</span>
-        </div>
-        <div class="col-6">
-            <span>.col-6</span>
-        </div>
+    <div class="col-3 theme__outline">
+        <span>.col-3</span>
     </div>
-    <div class="row">
-        <div class="col-5">
-            <span>.col-5</span>
-        </div>
-        <div class="col-7">
-            <span>.col-7</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-8 theme__outline">
+        <span>.col-8</span>
     </div>
-    <div class="row">
-        <div class="col-4">
-            <span>.col-4</span>
-        </div>
-        <div class="col-8">
-            <span>.col-8</span>
-        </div>
+    <div class="col-4 theme__outline">
+        <span>.col-4</span>
     </div>
-    <div class="row">
-        <div class="col-3">
-            <span>.col-3</span>
-        </div>
-        <div class="col-9">
-            <span>.col-9</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-7 theme__outline">
+        <span>.col-7</span>
     </div>
-    <div class="row">
-        <div class="col-2">
-            <span>.col-2</span>
-        </div>
-        <div class="col-10">
-            <span>.col-10</span>
-        </div>
+    <div class="col-5 theme__outline">
+        <span>.col-5</span>
     </div>
-    <div class="row">
-        <div class="col-1">
-            <span>.col-1</span>
-        </div>
-        <div class="col-11">
-            <span>.col-11</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-6 theme__outline">
+        <span>.col-6</span>
+    </div>
+    <div class="col-6 theme__outline">
+        <span>.col-6</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-5 theme__outline">
+        <span>.col-5</span>
+    </div>
+    <div class="col-7 theme__outline">
+        <span>.col-7</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 theme__outline">
+        <span>.col-4</span>
+    </div>
+    <div class="col-8 theme__outline">
+        <span>.col-8</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 theme__outline">
+        <span>.col-3</span>
+    </div>
+    <div class="col-9 theme__outline">
+        <span>.col-9</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2 theme__outline">
+        <span>.col-2</span>
+    </div>
+    <div class="col-10 theme__outline">
+        <span>.col-10</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1 theme__outline">
+        <span>.col-1</span>
+    </div>
+    <div class="col-11 theme__outline">
+        <span>.col-11</span>
     </div>
 </div>
 
@@ -159,29 +157,27 @@ The grid is constructed using `col-*` elements nested inside a single `.row` par
 
 Nest grids by ensuring columns add up to the number assigned to their parent column.
 
-<div class="grid_outline">
-    <div class="row">
-        <div class="col-11">
-            <span>
-                <div class="col-6">
-                    <span>.col-6</span>
-                </div>
-                <div class="col-5">
-                    <span>.col-5</span>
-                </div>
-            </span>
-        </div>
-        <div class="col-1">
-            <span>.col-1</span>
-        </div>
+<div class="row">
+    <div class="col-11 theme__outline">
+        <span>
+            <div class="col-6" style="background: #ccc">
+                <span>.col-6</span>
+            </div>
+            <div class="col-5" style="background: #ccc">
+                <span>.col-5</span>
+            </div>
+        </span>
     </div>
-    <div class="row">
-        <div class="col-10">
-            <span>.col-10</span>
-        </div>
-        <div class="col-2">
-            <span>.col-2</span>
-        </div>
+    <div class="col-1 theme__outline">
+        <span>.col-1</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-10 theme__outline">
+        <span>.col-10</span>
+    </div>
+    <div class="col-2 theme__outline">
+        <span>.col-2</span>
     </div>
 </div>
 
@@ -218,30 +214,29 @@ The classes `.prefix-1`, `.prefix-2`, `.prefix-3`, and so on, will add empty col
 
 The classes `.suffix-1`, `.suffix-2`, `.suffix-3`, and so on, will add empty columns after the element to the number of columns specified in the class.
 
-<div class="grid_outline">
-    <div class="row">
-      <div class="col-8">
-        <span>.col-8</span>
-      </div>
-      <div class="col-4">
-        <span>.col-4</span>
-      </div>
+
+<div class="row">
+  <div class="col-8">
+    <div class="theme__outline">.col-8</div>
+  </div>
+  <div class="col-4">
+    <div class="theme__outline">.col-4</div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-7">
+        <div class="theme__outline">.col-7</div>
     </div>
-    <div class="row">
-        <div class="col-7">
-            <span>.col-7</span>
-        </div>
-        <div class="col-4 prefix-1">
-            <span>.col-4.prefix-1</span>
-        </div>
+    <div class="col-4 prefix-1">
+        <div class="theme__outline">.col-4.prefix-1</div>
     </div>
-    <div class="row">
-        <div class="col-7">
-            <span>.col-7</span>
-        </div>
-        <div class="col-4 suffix-1">
-            <span>.col-4.suffix-1</span>
-        </div>
+</div>
+<div class="row">
+    <div class="col-7">
+        <div class="theme__outline">.col-7</div>
+    </div>
+    <div class="col-4 suffix-1">
+        <div class="theme__outline">.col-4.suffix-1</div>
     </div>
 </div>
 
@@ -274,4 +269,3 @@ The classes `.suffix-1`, `.suffix-2`, `.suffix-3`, and so on, will add empty col
     </div>
 </div>
 ```
-

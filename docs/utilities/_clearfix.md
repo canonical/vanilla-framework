@@ -1,5 +1,5 @@
 ---
-collection: layout
+collection: utilities
 title: Clearfix
 ---
 

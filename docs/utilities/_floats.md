@@ -7,7 +7,7 @@ The float utilities allow you to float an element left or right.
 
 ## Right
 
-<div class="pl__demo clearfix">
+<div class="u-clearfix">
     <div class="u-float--right">Content floated right</div>
 </div>
 
@@ -19,7 +19,7 @@ The float utilities allow you to float an element left or right.
 
 ## Left
 
-<div class="pl__demo clearfix">
+<div class="u-clearfix">
     <div class="u-float--left">Content floated left</div>
 </div>
 
