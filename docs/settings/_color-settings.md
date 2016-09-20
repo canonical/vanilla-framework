@@ -58,7 +58,7 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 </tr>
 <tr>
 <td><code>$color-information</code></td>
-<td style="background-color: #19b6ee; color: #fff;">#19b6ee</td>
+<td style="background-color: #007aa6; color: #fff;">#007aa6</td>
 </tr>
 </tbody>
 </table>
