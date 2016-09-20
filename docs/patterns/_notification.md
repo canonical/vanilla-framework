@@ -9,14 +9,16 @@ Notifications are used to display global information. A notification will displa
 
 ```html
 <div class="p-notification">
-    <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    <p class="p-notification__response">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!
+    </p>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 120px;">
-    <div class="p-notification">
-        <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    </div>
+<div class="p-notification">
+    <p class="p-notification__response">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!
+    </p>
 </div>
 
 ## .p-notification--warning
@@ -25,14 +27,16 @@ This warning variant should be used to convey information that is not critical b
 
 ```html
 <div class="p-notification--warning">
-    <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    <p class="p-notification__response">
+        <span class="p-notification__status">Blocked:</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!
+    </p>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 120px;">
-    <div class="p-notification--warning">
-        <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    </div>
+<div class="p-notification--warning">
+    <p class="p-notification__response">
+        <span class="p-notification__status">Blocked:</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!
+    </p>
 </div>
 
 ## .p-notification--negative
@@ -41,14 +45,16 @@ This negative variant should be used to convey information that is critical and 
 
 ```html
 <div class="p-notification--negative">
-    <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    <p class="p-notification__response">
+        <span class="p-notification__status">Error:</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis! <a href="#" class="p-notification__action">Dismiss</a>
+    </p>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 120px;">
-    <div class="p-notification--negative">
-        <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    </div>
+<div class="p-notification--negative">
+    <p class="p-notification__response">
+        <span class="p-notification__status">Error:</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis! <a href="#" class="p-notification__action">Dismiss</a>
+    </p>
 </div>
 
 ## .p-notification--positive
@@ -57,32 +63,34 @@ This positive variant should be used to convey information of success or complet
 
 ```html
 <div class="p-notification--positive">
-    <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    <p class="p-notification__response">
+        <span class="p-notification__status">Success:</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!
+    </p>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 120px;">
-    <div class="p-notification--positive">
-        <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    </div>
+<div class="p-notification--positive">
+    <p class="p-notification__response">
+        <span class="p-notification__status">Success:</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!
+    </p>
 </div>
 
 ### Adding actions
 
-Notifications have the ability to add an action link or button to them. These will appear on the top right and stack below the message on small screens.
+Notifications have the ability to add an action link to them. These should appear inline with the notification response and will add margin between the link and content.
 
-Note: All functionallity must be developed in independently.
+Note: All functionality must be developed in independently.
 
 ```html
 <div class="p-notification">
-    <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    <a href="#" class="p-notification__action">Change password</a>
+    <p class="p-notification__response">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!<a href="#" class="p-notification__action">Dismiss</a>
+    </p>
 </div>
 ```
 
-<div class="pl__relative" style="min-height: 120px;">
-    <div class="p-notification">
-        <p class="p-notification__content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <a href="#" class="p-notification__action">Change password</a>
-    </div>
+<div class="p-notification">
+    <p class="p-notification__response">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!<a href="#" class="p-notification__action">Dismiss</a>
+    </p>
 </div>
