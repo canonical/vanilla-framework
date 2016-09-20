@@ -3,7 +3,7 @@ collection: patterns
 title: Matrix
 ---
 
-<ul class="p-matrix clearfix">
+<ul class="p-matrix u-clearfix">
     <li class="p-matrix__item">
         <img class="p-matrix__img" src="http://placehold.it/60x60" alt="icon">
         <div class="p-matrix__content">
@@ -49,7 +49,7 @@ title: Matrix
 </ul>
 
 ```html
-<ul class="p-matrix clearfix">
+<ul class="p-matrix u-clearfix">
     <li class="p-matrix__item">
         <img class="p-matrix__img" src="http://placehold.it/60x60" alt="icon">
         <div class="p-matrix__content">
