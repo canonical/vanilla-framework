@@ -21,24 +21,24 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 <td style="background-color: #333; color: #fff;">#333</td>
 </tr>
 <tr>
-<td><code>$color-light-grey</code></td>
+<td><code>$color-x-light</code></td>
+<td style="background-color: #fff;">#fff</td>
+</tr>
+<tr>
+<td><code>$color-light</code></td>
 <td style="background-color: #f7f7f7;">#f7f7f7</td>
 </tr>
 <tr>
 <td><code>$color-mid-light</code></td>
-<td style="background-color: #cdcdcd;">#cdcdcd</td>
+<td style="background-color: #cdcdcd; color: #fff;">#cdcdcd</td>
 </tr>
 <tr>
 <td><code>$color-mid-dark</code></td>
-<td style="background-color: #888; color: #fff;">#888</td>
-</tr>
-<tr>
-<td><code>$color-dark</code></td>
 <td style="background-color: #333; color: #fff;">#333</td>
 </tr>
 <tr>
-<td><code>$color-x-light</code></td>
-<td style="background-color: #fff;">#fff</td>
+<td><code>$color-dark</code></td>
+<td style="background-color: #666; color: #fff;">#666</td>
 </tr>
 <tr>
 <td><code>$color-x-dark</code></td>
