@@ -14,7 +14,7 @@ Vanilla form controls have global styling defined at the HTML element level. Lab
     <input type="file" id="exampleInputFile">
     <input type="checkbox" id="CheckMe">
     <label for="CheckMe">Check me</label>
-    <button type="submit" class="button">Submit</button>
+    <button type="submit" class="p-button">Submit</button>
 </form>
 
 ```
@@ -27,7 +27,7 @@ Vanilla form controls have global styling defined at the HTML element level. Lab
     <input type="file" id="exampleInputFile">
     <input type="checkbox" id="CheckMe">
     <label for="CheckMe">Check me out</label>
-    <button type="submit" class="button">Submit</button>
+    <button type="submit" class="p-button">Submit</button>
 </form>
 ```
 

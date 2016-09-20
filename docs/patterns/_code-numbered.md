@@ -5,11 +5,11 @@ title: Code numbered
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
 
-Code numbered extends the [base styling of code](/base/code/). 
+Code numbered extends the [base styling of code](/base/code/).
 
 See also: [code snippet](/patterns/code-snippet/).
 
-<pre class="code--numbered">
+<pre class="p-code-numbered">
     <code>
 <span class="code-line">this is a code sample line 1</span>
 <span class="code-line">this is a code sample line 2</span>
@@ -20,7 +20,7 @@ See also: [code snippet](/patterns/code-snippet/).
 </pre>
 
 ```html
-<pre class="code--numbered">
+<pre class="p-code-numbered">
     <code>
 <span class="code-line">this is a code sample line 1</span>
 <span class="code-line">this is a code sample line 2</span>
