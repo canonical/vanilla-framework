@@ -50,7 +50,7 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 </tr>
 <tr>
 <td><code>$color-warning</code></td>
-<td style="background-color: #eca918;">#eca918 </td>
+<td style="background-color: #f99b11;">#f99b11</td>
 </tr>
 <tr>
 <td><code>$color-positive</code></td>
