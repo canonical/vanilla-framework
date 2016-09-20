@@ -84,13 +84,13 @@ Note: All functionality must be developed in independently.
 ```html
 <div class="p-notification">
     <p class="p-notification__response">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis! <a href="#" class="p-notification__action">Dismiss</a>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!<a href="#" class="p-notification__action">Dismiss</a>
     </p>
 </div>
 ```
 
 <div class="p-notification">
     <p class="p-notification__response">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis! <a href="#" class="p-notification__action">Dismiss</a>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ipsum nemo autem reiciendis nulla tempore natus repudiandae dolorem. Corporis maxime, iure maiores repellat, odit facilis!<a href="#" class="p-notification__action">Dismiss</a>
     </p>
 </div>
