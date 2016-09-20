@@ -26,8 +26,8 @@
 * `$brand-color` is now `$color-brand` and #333
 * `$cool-grey` is now `$color-dark`
 * `$warm-grey` is now `$color-mid-light` and #cdcdcd
-* `$mid-grey` is now `$color-mid-dark` and #888
-* `$light-grey` is now `$color-light-grey`
+* `$mid-grey` is now `$color-dark` and #888
+* `$light-grey` is now `$color-light`
 * `$white` is now `$color-x-light`
 * `$black` is now `$color-x-dark`
 * `$error` is now `$color-negative`
