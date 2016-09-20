@@ -5,7 +5,7 @@ title: Color
 
 Vanilla works with a fairly neutral colour palette consisting of a range of greys and a traffic light palette (red, yellow, green) plus blue.
 
-You can define a brand colour (<code>$color-brand</code>) that can be used for call-to-action buttons and other highlights across the framework. The default Vanilla brand colour is <code>$color-cool-grey</code>.
+You can define a brand colour (<code>$color-brand</code>) that can be used for call-to-action buttons and other highlights across the framework. The default Vanilla brand colour is <code>$color-dark</code>.
 
 <div>
 <table>
@@ -33,7 +33,7 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 <td style="background-color: #888; color: #fff;">#888</td>
 </tr>
 <tr>
-<td><code>$color-cool-grey</code></td>
+<td><code>$color-dark</code></td>
 <td style="background-color: #333; color: #fff;">#333</td>
 </tr>
 <tr>
