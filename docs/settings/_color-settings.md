@@ -29,7 +29,7 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 <td style="background-color: #cdcdcd;">#cdcdcd</td>
 </tr>
 <tr>
-<td><code>$color-mid-grey</code></td>
+<td><code>$color-mid-dark</code></td>
 <td style="background-color: #888; color: #fff;">#888</td>
 </tr>
 <tr>
