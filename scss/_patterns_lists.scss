@@ -125,8 +125,20 @@
 // Displays a step by step list of instructions
 @mixin vf-p-stepped-list {
   .list-step {
+    @extend %clearfix;
     list-style: none;
     margin-left: $grid-gutter-width * 3;
+    padding: 0;
+
+    &__title {
+      position: relative;
+    }
+  }
+
+  .list-step__item {
+    clear: both;
+    margin-left: 0;
+    width: 100%;
   }
 
   .list-step__item:first-child {
@@ -153,7 +165,7 @@
     margin-bottom: .625rem;
     margin-left: -$grid-gutter-width * 3;
     margin-right: .34375rem;
-    padding: .3rem .68rem;
+    padding: .45rem 1rem;
 
     @media only screen and (max-width: $breakpoint-large) {
       position: absolute;
