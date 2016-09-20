@@ -1,56 +1,82 @@
 // Code and pre styles
 @mixin vf-p-code-snippet {
 
-  %code-snippet {
+  %p-code-snippet {
     background-color: $color-light;
     border: 1px solid $color-mid-grey;
     border-radius: 4px;
+    display: flex;
     overflow: hidden;
     position: relative;
     transition: border .2s, background-color .2s;
+    width: 100%;
+  }
+
+  %p-code-snippet-input {
+    background-color: transparent;
+    border: 0;
+    color: $color-mid-grey;
+    font-family: unquote($font-monospace);
+    font-size: 1em;
+    font-weight: 300;
+    padding: .7em 1em;
+    width: 100%;
+  }
+
+  %p-code-snippet-action {
+    background-color: $color-light;
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 15.999999" width="16"><g><g><g color="%23000"><path fill="none" enable-background="accumulate" d="M.174.126h16.008v16.008H.174z"/><path fill="none" enable-background="accumulate" d="M.174.126h16.008v16.008H.174z"/><path d="M5.023 11.285L11.33 4.98" stroke="%23808080" stroke-width="1.334.194" fill="none" enable-background="accumulate"/><path style="text-decoration-color:%23000000;isolation:auto;block-progression:tb;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none" d="M12.333.126c-.11.003-.22.017-.33.038-.868.174-1.42.782-1.9 1.262L8.667 2.864c-.48.48-1.087 1.03-1.26 1.9-.075.37-.044.76.096 1.166l1.77-1.77c.103-.113.216-.23.338-.352l1.438-1.438c.48-.48.887-.83 1.217-.897.042-.008.085-.014.13-.016.047-.002.096 0 .147.005.31.037.737.248 1.397.908.88.88.96 1.343.895 1.673-.067.33-.417.738-.897 1.217L12.5 6.698c-.123.123-.24.237-.354.34l-1.768 1.77c.406.14.797.17 1.168.095.868-.173 1.42-.782 1.9-1.26l1.437-1.44c.48-.478 1.087-1.03 1.26-1.898.174-.868-.223-1.843-1.26-2.88-.778-.778-1.52-1.196-2.21-1.283-.115-.014-.228-.02-.34-.016zm-7.19 7.19c-.112.004-.222.017-.33.04-.868.172-1.42.78-1.9 1.26l-1.437 1.438c-.48.48-1.087 1.03-1.26 1.9-.175.867.222 1.84 1.26 2.88 1.037 1.036 2.012 1.433 2.88 1.26.867-.174 1.42-.782 1.898-1.262l1.44-1.438c.478-.48 1.086-1.03 1.26-1.9.074-.37.043-.76-.097-1.167L7.09 12.093c-.103.114-.217.233-.34.357l-1.44 1.438c-.48.48-.886.83-1.217.896-.33.066-.793-.016-1.673-.896s-.962-1.343-.896-1.673c.066-.33.417-.738.896-1.217L3.858 9.56c.123-.123.24-.237.354-.34l1.77-1.77c-.17-.056-.336-.097-.5-.118-.114-.014-.227-.02-.34-.016z" fill="%23808080" enable-background="accumulate"/></g></g></g></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    border-color: transparent;
+    border-left: 1px solid $color-mid-grey;
+    display: block;
+    flex: 1;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    text-indent: -9999px;
+    top: 0;
+    width: 50px;
+
+    &:hover {
+      border-color: transparent;
+      border-left: 1px solid $color-mid-grey;
+    }
+  }
+
+  // Default code snippet
+  .p-code-snippet {
+    @extend %p-code-snippet;
 
     &__input {
-      background-color: transparent;
-      border: 0;
-      color: $color-warm-grey;
-      font-family: unquote($font-monospace);
-      font-size: 1em;
-      font-weight: 300;
-      padding: .7em 1em;
-      width: 100%;
+      @extend %p-code-snippet-input;
     }
 
     &__action {
-      background-color: $color-light;
-      background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 15.999999" width="16"><g><g><g color="%23000"><path fill="none" enable-background="accumulate" d="M.174.126h16.008v16.008H.174z"/><path fill="none" enable-background="accumulate" d="M.174.126h16.008v16.008H.174z"/><path d="M5.023 11.285L11.33 4.98" stroke="%23808080" stroke-width="1.334.194" fill="none" enable-background="accumulate"/><path style="text-decoration-color:%23000000;isolation:auto;block-progression:tb;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none" d="M12.333.126c-.11.003-.22.017-.33.038-.868.174-1.42.782-1.9 1.262L8.667 2.864c-.48.48-1.087 1.03-1.26 1.9-.075.37-.044.76.096 1.166l1.77-1.77c.103-.113.216-.23.338-.352l1.438-1.438c.48-.48.887-.83 1.217-.897.042-.008.085-.014.13-.016.047-.002.096 0 .147.005.31.037.737.248 1.397.908.88.88.96 1.343.895 1.673-.067.33-.417.738-.897 1.217L12.5 6.698c-.123.123-.24.237-.354.34l-1.768 1.77c.406.14.797.17 1.168.095.868-.173 1.42-.782 1.9-1.26l1.437-1.44c.48-.478 1.087-1.03 1.26-1.898.174-.868-.223-1.843-1.26-2.88-.778-.778-1.52-1.196-2.21-1.283-.115-.014-.228-.02-.34-.016zm-7.19 7.19c-.112.004-.222.017-.33.04-.868.172-1.42.78-1.9 1.26l-1.437 1.438c-.48.48-1.087 1.03-1.26 1.9-.175.867.222 1.84 1.26 2.88 1.037 1.036 2.012 1.433 2.88 1.26.867-.174 1.42-.782 1.898-1.262l1.44-1.438c.478-.48 1.086-1.03 1.26-1.9.074-.37.043-.76-.097-1.167L7.09 12.093c-.103.114-.217.233-.34.357l-1.44 1.438c-.48.48-.886.83-1.217.896-.33.066-.793-.016-1.673-.896s-.962-1.343-.896-1.673c.066-.33.417-.738.896-1.217L3.858 9.56c.123-.123.24-.237.354-.34l1.77-1.77c-.17-.056-.336-.097-.5-.118-.114-.014-.227-.02-.34-.016z" fill="%23808080" enable-background="accumulate"/></g></g></g></svg>');
-      background-position: center;
-      background-repeat: no-repeat;
-      border-left: 1px solid $color-mid-grey;
-      display: block;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      text-indent: -9999px;
-      top: 0;
-      width: 50px;
+      @extend %p-code-snippet-action;
     }
   }
 
-  .code-snippet {
-    @extend %code-snippet;
-  }
-
-  .code-snippet--dark {
-    @extend %code-snippet;
+  // Dark code snippet
+  .p-code-snippet--dark {
+    @extend %p-code-snippet;
     background-color: $color-dark;
-    border: 1px solid $color-mid-grey;
+    border: 1px solid $color-light-grey;
 
-    .code-snippet__input {
-      color: $color-mid-grey;
+    .p-code-snippet__input {
+      @extend %p-code-snippet-input;
+      color: $color-light-grey;
     }
 
-    .code-snippet__action {
+    .p-code-snippet__action {
+      @extend %p-code-snippet-action;
       background-color: $color-dark;
+
+      &:hover {
+        background-color: $color-mid-grey;
+        background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 15.999999" width="16"><g><g><g color="%23000"><path fill="none" enable-background="accumulate" d="M.174.126h16.008v16.008H.174z"/><path fill="none" enable-background="accumulate" d="M.174.126h16.008v16.008H.174z"/><path d="M5.023 11.285L11.33 4.98" stroke="%23000000" stroke-width="1.334.194" fill="none" enable-background="accumulate"/><path style="text-decoration-color:%23ffffff;isolation:auto;block-progression:tb;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none" d="M12.333.126c-.11.003-.22.017-.33.038-.868.174-1.42.782-1.9 1.262L8.667 2.864c-.48.48-1.087 1.03-1.26 1.9-.075.37-.044.76.096 1.166l1.77-1.77c.103-.113.216-.23.338-.352l1.438-1.438c.48-.48.887-.83 1.217-.897.042-.008.085-.014.13-.016.047-.002.096 0 .147.005.31.037.737.248 1.397.908.88.88.96 1.343.895 1.673-.067.33-.417.738-.897 1.217L12.5 6.698c-.123.123-.24.237-.354.34l-1.768 1.77c.406.14.797.17 1.168.095.868-.173 1.42-.782 1.9-1.26l1.437-1.44c.48-.478 1.087-1.03 1.26-1.898.174-.868-.223-1.843-1.26-2.88-.778-.778-1.52-1.196-2.21-1.283-.115-.014-.228-.02-.34-.016zm-7.19 7.19c-.112.004-.222.017-.33.04-.868.172-1.42.78-1.9 1.26l-1.437 1.438c-.48.48-1.087 1.03-1.26 1.9-.175.867.222 1.84 1.26 2.88 1.037 1.036 2.012 1.433 2.88 1.26.867-.174 1.42-.782 1.898-1.262l1.44-1.438c.478-.48 1.086-1.03 1.26-1.9.074-.37.043-.76-.097-1.167L7.09 12.093c-.103.114-.217.233-.34.357l-1.44 1.438c-.48.48-.886.83-1.217.896-.33.066-.793-.016-1.673-.896s-.962-1.343-.896-1.673c.066-.33.417-.738.896-1.217L3.858 9.56c.123-.123.24-.237.354-.34l1.77-1.77c-.17-.056-.336-.097-.5-.118-.114-.014-.227-.02-.34-.016z" fill="%2ffffff" enable-background="accumulate"/></g></g></g></svg>');
+      }
     }
   }
 }
