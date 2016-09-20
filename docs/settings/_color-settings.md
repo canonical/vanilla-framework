@@ -25,7 +25,7 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 <td style="background-color: #f7f7f7;">#f7f7f7</td>
 </tr>
 <tr>
-<td><code>$color-warm-grey</code></td>
+<td><code>$color-mid-light</code></td>
 <td style="background-color: #cdcdcd;">#cdcdcd</td>
 </tr>
 <tr>

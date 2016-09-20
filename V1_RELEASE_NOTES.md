@@ -25,7 +25,7 @@
 * `$transparent` is now `$color-transparent`
 * `$brand-color` is now `$color-brand` and #333
 * `$cool-grey` is now `$color-dark`
-* `$warm-grey` is now `$color-warm-grey` and #cdcdcd
+* `$warm-grey` is now `$color-mid-light` and #cdcdcd
 * `$mid-grey` is now `$color-mid-dark` and #888
 * `$light-grey` is now `$color-light-grey`
 * `$white` is now `$color-light`
