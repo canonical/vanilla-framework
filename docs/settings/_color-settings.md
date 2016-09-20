@@ -37,7 +37,7 @@ You can define a brand colour (<code>$color-brand</code>) that can be used for c
 <td style="background-color: #333; color: #fff;">#333</td>
 </tr>
 <tr>
-<td><code>$color-light</code></td>
+<td><code>$color-x-light</code></td>
 <td style="background-color: #fff;">#fff</td>
 </tr>
 <tr>
