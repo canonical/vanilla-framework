@@ -1,0 +1,12 @@
+// Functions used across multiple patterns or utils
+
+// This is to get the variable inserted in an inline svg, we have to strip the #
+// and replace with %23
+@function url-friendly-color($color) {
+  @if type-of($color) != 'color' {
+    @warn '#{$fill-color} is not a color.';
+    @return false;
+  } @else {
+    @return '%23' + str-slice('#{$color}', 2, -1);
+  }
+}
