@@ -24,12 +24,12 @@
 * `$brand-color-light` has been removed
 * `$transparent` is now `$color-transparent`
 * `$brand-color` is now `$color-brand` and #333
-* `$cool-grey` is now `$color-cool-grey`
-* `$warm-grey` is now `$color-warm-grey` and #cdcdcd
-* `$mid-grey` is now `$color-mid-grey` and #888
-* `$light-grey` is now `$color-light-grey`
-* `$white` is now `$color-light`
-* `$black` is now `$color-dark`
+* `$cool-grey` is now `$color-dark`
+* `$warm-grey` is now `$color-mid-light` and #cdcdcd
+* `$mid-grey` is now `$color-dark` and #888
+* `$light-grey` is now `$color-light`
+* `$white` is now `$color-x-light`
+* `$black` is now `$color-x-dark`
 * `$error` is now `$color-negative`
 * `$warning` is now `$color-warning`
 * `$success` is now `$color-positive`
