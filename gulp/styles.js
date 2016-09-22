@@ -5,7 +5,7 @@ autoprefixer = require('gulp-autoprefixer'),
 cssnano = require('gulp-cssnano'),
 rename = require('gulp-rename'),
 sourcemaps = require('gulp-sourcemaps'),
-sassPath = 'scss/**/*.scss';
+sassPath = 'scss/build.scss';
 
 // Provide details of Sass errors
 function throwSassError(sassError) {
@@ -34,8 +34,9 @@ gulp.task('sass:develop', function() {
 gulp.task('sass:build', function() {
   return gulp.src(sassPath)
     .pipe(sass({
-      style: 'expanded',
+      style: 'compressed',
       errLogToConsole: true,
+      omitSourceMapUrl: true,
       onError: throwSassError
     }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
