@@ -6,9 +6,7 @@
 [![devDependency Status](https://david-dm.org/ubuntudesign/vanilla-framework/dev-status.svg)](https://david-dm.org/ubuntudesign/vanilla-framework#info=devDependencies)
 [![Chat in #vanilla-framework on Freenode](https://img.shields.io/badge/chat-%23vanilla--framework-blue.svg)](http://webchat.freenode.net/?channels=vanilla-framework)
 
-A simple extensible CSS framework, written in [Sass](http://sass-lang.com/).
-
-Vanilla Framework contains a basic CSS grid and pattern classes, and is designed to be extended either directly or by creating extension themes.
+Vanilla Framework is a simple extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement it's patterns.
 
 [Project homepage](http://ubuntudesign.github.io/vanilla-framework) | [Documentation](http://ubuntudesign.github.io/vanilla-framework/docs/) |
 [Project Task Board](https://waffle.io/ubuntudesign/vanilla-framework) | [Join the mailing list](https://lists.ubuntu.com/mailman/listinfo/vanilla-framework)
@@ -23,7 +21,7 @@ On [the project homepage](http://ubuntudesign.github.io/vanilla-framework), find
 
 ## Including Vanilla in your project
 
-Pull down the latest version of Vanilla into your local `node_modules` folder,
+Pull down the latest version of Vanilla into your local `node_modules` folder
 and save it into your project's dependencies (`package.json`) as follows:
 
 ``` bash
@@ -51,16 +49,10 @@ $color-brand: #ffffff;
 // Import the theme
 @import "vanilla-framework/scss/vanilla";
 
-// Run the theme
- @include ubuntu-vanilla-theme;
+// Add theme if applicable
 ```
 
-If you don't want the whole framework, you can just `@include` specific [modules](scss/modules) - e.g. `@include vf-b-forms`.
-
-## Themes
-
-- [ubuntu-vanilla-theme](https://github.com/ubuntudesign/ubuntu-vanilla-theme) (alpha)
-- [canonical-vanilla-theme](https://github.com/ubuntudesign/canonical-vanilla-theme) (alpha)
+If you don't want the whole framework, you can just `@include` specific [parts](scss) - e.g. `@include vf-b-forms`.
 
 ## Vanilla local development
 
@@ -69,10 +61,10 @@ To develop on Vanilla itself, simply pull down the project and make changes.
 Once you've made your changes you can use the `run` script to build and test your code:
 
 ``` bash
-./run        # List available commands
-./run build  # Build the CSS
-./run watch  # Watch files and rebuild when changes happen
-./run test   # Run the
+./run          # List available commands
+./run develop  # Watch files and rebuild when changes happen
+./run test     # Run the Sass linter
+./run build    # Watch files and rebuild when changes happen
 ```
 
 ## Community
