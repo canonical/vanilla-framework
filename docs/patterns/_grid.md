@@ -5,9 +5,14 @@ title: Grid
 
 Vanilla's default grid has 12 columns and 20px gutters. On large screens, each column takes up 6.3053% of the total width.
 
-Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column should span a minimum of 3 column units.
+- The page structure must be laid out using rows (`.row`)
+- All content must be within columns (`.col-*`)
+- Only columns should be direct children of a row
 
-The grid is constructed using `col-*` elements nested inside a single `.row` parent element. All content must be inside a `.row` container so that it correctly aligns to the grid.
+Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column should span a minimum of 3 columns.
+
+Read also: [Breakpoints](/settings/breakpoints)
+
 
 <div class="row">
     <div class="col-12 theme__outline">
