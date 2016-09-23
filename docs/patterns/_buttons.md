@@ -5,7 +5,11 @@ title: Buttons
 
 You can apply `button` classes on buttons and link elements.
 
+**Note:** Avoid using more than two button styles together.
+
 ## Base button
+
+A base button is usually used alongside a neutral button.
 
 <div class="twelve-col">
     <p><button class="p-button--base">Base button</button></p>
@@ -28,6 +32,8 @@ You can apply `button` classes on buttons and link elements.
 ```
 
 ## Neutral button
+
+A neutral button can be used to indicate a positive action that isn't necessarily the main call-to-action.
 
 <div class="twelve-col">
     <p><button class="p-button--neutral">Neutral button</button></p>
@@ -94,6 +100,8 @@ You can apply `button` classes on buttons and link elements.
 ```
 
 ## Brand button
+
+You can use the brand button with the main color of your brand.
 
 <div class="twelve-col">
     <p><button class="p-button--brand">Brand button</button></p>
