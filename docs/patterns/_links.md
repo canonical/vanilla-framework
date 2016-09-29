@@ -5,9 +5,9 @@ title: Links
 
 ## External link
 
-The `external-link` class should be used on hyperlinks that go to a different domain than the current one.
+The `external-link` class should be used on hyperlinks that go to a different domain than the current one. E.g.:
 
-<a class="p-link--external">External link</a>
+An <a class="p-link--external">external link</a> in a sentence.
 
 ```html
 <a class="p-link--external">External link</a>

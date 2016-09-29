@@ -3,18 +3,9 @@
   .p-link {
 
     // Used for links point at a different domain
-    &--external {
-      position: relative;
-
-      &::after {
-        @include link-svg-icon;
-        display: block;
-        height: 1rem;
-        position: absolute;
-        right: -1.25rem;
-        top: 0;
-        width: 1rem;
-      }
+    &--external::after {
+      @include link-svg-icon;
+      margin-left: 0.25em;
     }
   }
 
