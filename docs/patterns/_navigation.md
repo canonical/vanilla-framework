@@ -4,7 +4,7 @@ title: Navigation
 ---
 
 ```html
-<header class="p-navigation" role="banner">
+<header class="p-navigation" role="banner" id="navigation">
     <div class="p-navigation__logo">
         <a class="p-navigation__link" href="#">
             Vanilla
