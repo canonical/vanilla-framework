@@ -12,7 +12,7 @@ title: Lists
 </ul>
 
 ```html
-<ul class="list">
+<ul class="p-list">
     <li class="p-list__item">Lorem</li>
     <li class="p-list__item">Ipsum</li>
     <li class="p-list__item">Dolor</li>
