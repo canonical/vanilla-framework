@@ -34,11 +34,11 @@ You can define a brand color (<code>$color-brand</code>) that can be used for ca
 </tr>
 <tr>
 <td><code>$color-mid-dark</code></td>
-<td style="background-color: #333; color: #fff;">#333</td>
+<td style="background-color: #666; color: #fff;">#666</td>
 </tr>
 <tr>
 <td><code>$color-dark</code></td>
-<td style="background-color: #666; color: #fff;">#666</td>
+<td style="background-color: #333; color: #fff;">#333</td>
 </tr>
 <tr>
 <td><code>$color-x-dark</code></td>
