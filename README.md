@@ -19,7 +19,7 @@ On [the project homepage](http://ubuntudesign.github.io/vanilla-framework), find
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
 ```
 
-## Including Vanilla in your project
+## Including Vanilla in your project via NPM
 
 Pull down the latest version of Vanilla into your local `node_modules` folder
 and save it into your project's dependencies (`package.json`) as follows:
