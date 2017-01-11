@@ -1,36 +1,33 @@
+// This file imports Shelves Grid framework
+// http://shelvesgrid.org/
+// The settings below can be changed in _settings_grid.scss
+$shelves-max-width: $grid-max-width;
+$shelves-columns: $grid-columns;
+$shelves-gutter: $grid-gutter-width;
+$shelves-tablet-breakpoint: $breakpoint-medium;
+$shelves-mobile-breakpoint: $breakpoint-small;
+$shelves-column-name: $grid-col-name;
+
 @import
 'grid/shelves',
 'grid/shelves-grid';
 
-@mixin vf-p-grid {
-
-  // This file imports Shelves Grid framework
-  // http://shelvesgrid.org/
-  // The settings below can be changed in _settings_grid.scss
-  $shelves-max-width: $grid-max-width;
-  $shelves-columns: $grid-columns;
-  $shelves-gutter: $grid-gutter-width;
-  $shelves-tablet-breakpoint: $breakpoint-medium;
-  $shelves-mobile-breakpoint: $breakpoint-small;
-  $shelves-column-name: $grid-col-name;
-
-  // Remove double margin bottoms on rows
-  .row >,
-  [class^='col-'] > {
-    p,
-    ul,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    table,
-    article,
-    div {
-      &:last-child {
-        margin-bottom: 0;
-      }
+// Remove double margin bottoms on rows
+.row >,
+[class^='col-'] > {
+  p,
+  ul,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  table,
+  article,
+  div {
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
