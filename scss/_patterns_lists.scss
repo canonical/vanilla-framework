@@ -44,9 +44,13 @@
 @mixin vf-p-list-item-state {
   .is-ticked {
     background-image: svg-tick($color-mid-dark);
-    background-position: 0 1rem;
+    background-position: 0 .25rem;
     background-repeat: no-repeat;
     padding-left: 25px;
+
+    .p-list--divided & {
+      background-position: 0 1rem;
+    }
   }
 }
 
