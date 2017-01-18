@@ -1,0 +1,31 @@
+// Align all text within an element
+
+@mixin vf-u-content-align {
+  @include vf-u-content-align--center;
+  @include vf-u-content-align--left;
+  @include vf-u-content-align--right;
+}
+
+// Center all text within an element
+@mixin vf-u-content-align--center {
+  .u-text-align--center {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+// Left align all text within an element
+@mixin vf-u-content-align--left {
+  .u-text-align--left {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+}
+
+// Right align all text within an element
+@mixin vf-u-content-align--right {
+  .u-text-align--right {
+    justify-content: flex-end !important;
+    text-align: right !important;
+  }
+}
