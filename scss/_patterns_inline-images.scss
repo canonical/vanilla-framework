@@ -9,8 +9,18 @@
 
     &__img {
       display: inline-block;
-      padding: .5rem;
+      max-width: calc(50% - 2rem); // 2 items per row
+      padding: 1rem;
       text-align: center;
+      width: 100%;
+
+      @media (min-width: $breakpoint-small) { // 3 items per row
+        max-width: calc(33.3333% - 2rem);
+      }
+
+      @media (min-width: $breakpoint-large) { // 4 items per row
+        max-width: calc(25% - 2rem);
+      }
     }
   }
 }
