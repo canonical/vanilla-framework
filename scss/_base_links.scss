@@ -1,9 +1,7 @@
 // Base styling for links
 @mixin vf-b-links {
   a {
-    border-bottom: 1px solid currentColor;
-    color: inherit;
-    font-weight: 400;
+    color: $color-highlight;
     text-decoration: none;
     transition: border-color .2s;
 
@@ -12,12 +10,12 @@
     }
 
     &:hover {
-      border-bottom-color: $color-mid-light;
+      border-bottom: 1px solid $color-highlight;
       cursor: pointer;
     }
 
     &:visited {
-      color: $color-mid-dark;
+      color: darken($color-highlight, 10%);
     }
   }
 }

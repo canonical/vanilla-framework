@@ -11,6 +11,35 @@
     &--no-underline {
       border: 0;
     }
+
+    &--soft {
+      color: $color-dark;
+    }
+
+    &--strong {
+      border-bottom-color: $color-highlight;
+      color: $color-dark;
+      font-weight: 400;
+
+      &:hover {
+        color: $color-highlight;
+      }
+    }
+
+    &--inverted {
+      border-bottom-color: $color-light;
+      color: $color-light;
+
+      &:hover {
+        color: $color-light;
+        border-bottom-color: $color-light;
+      }
+
+      &:visited {
+        color: darken($color-light, 10%);
+        border-bottom-color: darken($color-light, 10%);
+      }
+    }
   }
 
   .p-top {
