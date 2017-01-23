@@ -6,37 +6,38 @@
     margin: 0;
     padding: 0;
 
+    @media (min-width: $breakpoint-small) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     &__item {
       @extend %clearfix;
-      border-bottom: 1px dotted $color-mid-dark;
-      margin-bottom: 1rem;
+      border-top: 1px dotted $color-mid-dark;
       padding: 1rem;
 
-      &:last-child {
-        border-bottom: 0;
+      &:empty {
+        display: none; // hide orphans
       }
 
-      @media (min-width: $breakpoint-small) { // 2 items per row
+      &:first-child {
+        border-top: 0;
+      }
+
+      @media (min-width: $breakpoint-small) { // 3 items per row
         border-right: 1px dotted $color-mid-dark;
-        display: table-cell;
-        float: left;
+        border-top: 1px dotted $color-mid-dark;
         margin-bottom: 0;
         padding-right: 1rem;
-        vertical-align: top;
-        width: calc(50% - .5rem);
-
-        &:nth-child(2n) {
-          border-right: 0;
-          margin-right: 0;
-        }
-
-        &:nth-last-child(-n+2) {
-          border-bottom: 0;
-        }
-      }
-
-      @media (min-width: $breakpoint-large) { // 3 items per row
         width: calc(33.333% - .666666rem);
+
+        &:empty {
+          display: block; // hide orphans
+        }
+
+        &:nth-child(-n+3) {
+          border-top: 0;
+        }
 
         &:nth-child(2n) {
           border-right: 1px dotted $color-mid-dark;
@@ -46,10 +47,6 @@
         &:nth-child(3n) {
           border-right: 0;
           padding-right: 0;
-        }
-
-        &:nth-last-child(-n+3) {
-          border-bottom: 0;
         }
       }
     }
