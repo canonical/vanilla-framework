@@ -1,4 +1,4 @@
-# Contributing to Vanilla Framework
+# Contributing to Vanilla framework
 
 So, you'd like to contribute to Vanilla framework? Great!
 
