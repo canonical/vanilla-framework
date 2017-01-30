@@ -3,7 +3,7 @@ collection: patterns
 title: Grid
 ---
 
-Vanilla's default grid has 12 columns and 20px gutters. On large screens, each column takes up 6.3053% of the total width.
+Vanilla's default grid has 12 columns and `20px` gutters. On large screens, each column takes up 6.3053% of the total width.
 
 - The page structure must be laid out using rows (`.row`)
 - All content must be within columns (`.col-*`)

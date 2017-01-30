@@ -83,7 +83,7 @@ title: Lists
 </ul>
 ```
 
-## Middot-separated inline list
+## Middot separated inline list
 
 <ul class="p-inline-list--middot">
     <li class="p-inline-list__item">Lorem</li>

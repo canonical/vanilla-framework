@@ -73,7 +73,7 @@ The attribute ```readonly``` disables the input but it still retains a default c
 
 ### Checkbox and radio button
 
-Checkboxes and radio buttonss are used for selecting one or multiple options, respectively.
+Checkboxes and radio buttons are used for selecting one or multiple options, respectively.
 
 <form>
     <input type="checkbox" id="checkExample1">
