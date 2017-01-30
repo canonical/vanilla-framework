@@ -7,9 +7,9 @@ Vanilla uses three breakpoints: one for small screens (like phones), one for med
 
 Setting  | Default value
  ------------- | -------------
-`$breakpoint-small`   | 620px
-`$breakpoint-medium`   | 768px
-`$breakpoint-large`   | 1030px
+`$breakpoint-small`   | `620px`
+`$breakpoint-medium`   | `768px`
+`$breakpoint-large`   | `1030px`
 
 ### Targeting small screens
 
