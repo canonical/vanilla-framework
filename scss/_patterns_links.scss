@@ -11,6 +11,54 @@
     &--no-underline {
       border: 0;
     }
+
+    &--soft {
+      color: $color-dark;
+
+      &:hover {
+        color: $color-link;
+      }
+
+      &:visited {
+        border-bottom: 0;
+        color: $color-dark;
+      }
+
+      &.is-selected {
+        font-weight: 400;
+      }
+    }
+
+    &--strong {
+      border-bottom-color: $color-link;
+      color: $color-dark;
+      font-weight: 400;
+
+      &:visited {
+        color: $color-dark;
+      }
+
+      &:hover {
+        border-bottom-color: $color-link;
+        color: $color-link;
+      }
+    }
+
+    &--inverted {
+      border-bottom-color: $color-light;
+      color: $color-light;
+      font-weight: 400;
+
+      &:hover {
+        border-bottom-color: $color-light;
+        color: $color-light;
+      }
+
+      &:visited {
+        border-bottom-color: darken($color-light, 10%);
+        color: darken($color-light, 10%);
+      }
+    }
   }
 
   .p-top {

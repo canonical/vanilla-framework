@@ -1,23 +1,20 @@
 // Base styling for links
 @mixin vf-b-links {
   a {
-    border-bottom: 1px solid currentColor;
-    color: inherit;
-    font-weight: 400;
+    color: $color-link;
     text-decoration: none;
-    transition: border-color .2s;
 
     &:focus {
       outline: thin dotted $color-mid-light;
     }
 
     &:hover {
-      border-bottom-color: $color-mid-light;
+      border-bottom: 1px solid $color-link;
       cursor: pointer;
     }
 
     &:visited {
-      color: $color-mid-dark;
+      color: darken($color-link, 10%);
     }
   }
 }
