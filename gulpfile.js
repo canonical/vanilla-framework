@@ -23,6 +23,6 @@ gulp.task('help', function() {
 
 /* Gulp default task list */
 gulp.task('default', ['help']);
-gulp.task('develop', ['watch', 'sass:develop']);
+gulp.task('develop', ['watch', 'sass:develop', 'jekyll']);
 gulp.task('test', ['lint:sass', 'lint:spellcheck']);
 gulp.task('build', ['lint:sass', 'sass:build']);
