@@ -15,15 +15,15 @@
     &__toggle--open,
     &__toggle--close,
     &__link {
-      &:visited {
-        color: $color-x-light;
-      }
-    }
-
-    &__link {
+      color: $color-x-light;
 
       &:hover {
+        border-bottom: 0;
         text-decoration: underline;
+      }
+
+      &:visited {
+        color: $color-x-light;
       }
     }
 
@@ -70,20 +70,21 @@
       border-bottom: 0;  // For when this class is applied to an <a> directly
       display: block;
 
-      & > a {
-        // For when this class is applied to something that contains <a>s, e.g.:
-        // <li class="p-navigation__list"><a></a></li>
-        border-bottom: 0;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
       @media (min-width: $breakpoint-medium) {
         display: block;
         float: left;
         width: auto;
+      }
+
+      & > a {
+        // For when this class is applied to something that contains <a>s, e.g.:
+        // <li class="p-navigation__list"><a></a></li>
+        border-bottom: 0;
+        color: $color-x-light;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
 
@@ -99,14 +100,9 @@
         float: left;
       }
 
-
       .p-navigation__link {
         border-left: 1px solid $color-x-light;
         padding: 1rem;
-
-        &:last-of-type {
-          border-right: 1px solid $color-x-light;
-        }
 
         @media (max-width: $breakpoint-medium) {
           background-color: $color-light;
@@ -114,8 +110,20 @@
           border-bottom: 1px solid $color-mid-light;
           color: $color-dark;
           text-align: left;
+        }
 
-          &:last-of-type {
+        > a {
+          // For when this class is applied to something that contains <a>s, e.g.:
+          // <li class="p-navigation__list"><a></a></li>
+          @media (max-width: $breakpoint-medium) {
+            color: $color-dark;
+          }
+        }
+
+        &:last-of-type {
+          border-right: 1px solid $color-x-light;
+
+          @media (max-width: $breakpoint-medium) {
             border-bottom: 0;
           }
         }
