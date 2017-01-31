@@ -11,3 +11,10 @@ $shelves-column-name: $grid-col-name;
 @import
 'grid/shelves',
 'grid/shelves-grid';
+
+// Add vertical padding to add spacing when columns stack on small screens.
+@include on-tablet-down {
+  [class*="col-"] {
+    margin-bottom: $grid-gutter-width;
+  }
+}
