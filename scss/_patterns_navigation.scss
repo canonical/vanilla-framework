@@ -15,16 +15,18 @@
     &__toggle--open,
     &__toggle--close,
     &__link {
+      color: $color-x-light;
+
+      &:hover {
+        border-bottom: 0;
+        text-decoration: underline;
+      }
+
       &:visited {
         color: $color-x-light;
       }
-    }
 
-    &__link {
 
-      &:hover {
-        text-decoration: underline;
-      }
     }
 
     &:target &__toggle--open {
@@ -74,6 +76,7 @@
         // For when this class is applied to something that contains <a>s, e.g.:
         // <li class="p-navigation__list"><a></a></li>
         border-bottom: 0;
+        color: $color-x-light;
       }
 
       &:last-child {
@@ -99,7 +102,6 @@
         float: left;
       }
 
-
       .p-navigation__link {
         border-left: 1px solid $color-x-light;
         padding: 1rem;
@@ -114,6 +116,12 @@
           border-bottom: 1px solid $color-mid-light;
           color: $color-dark;
           text-align: left;
+
+          & > a {
+            // For when this class is applied to something that contains <a>s, e.g.:
+            // <li class="p-navigation__list"><a></a></li>
+            color: $color-dark;
+          }
 
           &:last-of-type {
             border-bottom: 0;
