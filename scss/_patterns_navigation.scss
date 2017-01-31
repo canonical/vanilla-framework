@@ -25,8 +25,6 @@
       &:visited {
         color: $color-x-light;
       }
-
-
     }
 
     &:target &__toggle--open {
@@ -72,6 +70,12 @@
       border-bottom: 0;  // For when this class is applied to an <a> directly
       display: block;
 
+      @media (min-width: $breakpoint-medium) {
+        display: block;
+        float: left;
+        width: auto;
+      }
+
       & > a {
         // For when this class is applied to something that contains <a>s, e.g.:
         // <li class="p-navigation__list"><a></a></li>
@@ -81,12 +85,6 @@
 
       &:last-child {
         margin-bottom: 0;
-      }
-
-      @media (min-width: $breakpoint-medium) {
-        display: block;
-        float: left;
-        width: auto;
       }
     }
 
@@ -106,24 +104,26 @@
         border-left: 1px solid $color-x-light;
         padding: 1rem;
 
-        &:last-of-type {
-          border-right: 1px solid $color-x-light;
-        }
-
         @media (max-width: $breakpoint-medium) {
           background-color: $color-light;
           border: 0;
           border-bottom: 1px solid $color-mid-light;
           color: $color-dark;
           text-align: left;
+        }
 
-          & > a {
-            // For when this class is applied to something that contains <a>s, e.g.:
-            // <li class="p-navigation__list"><a></a></li>
+        & > a {
+          // For when this class is applied to something that contains <a>s, e.g.:
+          // <li class="p-navigation__list"><a></a></li>
+          @media (max-width: $breakpoint-medium) {
             color: $color-dark;
           }
+        }
 
-          &:last-of-type {
+        &:last-of-type {
+          border-right: 1px solid $color-x-light;
+
+          @media (max-width: $breakpoint-medium) {
             border-bottom: 0;
           }
         }
