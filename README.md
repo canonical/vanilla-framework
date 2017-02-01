@@ -6,7 +6,7 @@
 [![devDependency Status](https://david-dm.org/ubuntudesign/vanilla-framework/dev-status.svg)](https://david-dm.org/ubuntudesign/vanilla-framework#info=devDependencies)
 [![Chat in #vanilla-framework on Freenode](https://img.shields.io/badge/chat-%23vanilla--framework-blue.svg)](http://webchat.freenode.net/?channels=vanilla-framework)
 
-Vanilla Framework is a simple extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement it's patterns.
+Vanilla Framework is a simple extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement its patterns.
 
 [Documentation](https://docs.vanillaframework.io) |
 [Project Task Board](https://waffle.io/ubuntudesign/vanilla-framework) | [Join the mailing list](https://lists.ubuntu.com/mailman/listinfo/vanilla-framework)
