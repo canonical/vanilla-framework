@@ -1,0 +1,45 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Header -->
+<div class="p-strip">
+    <div class="row">
+      <div class="12-col">
+        <h1>{{ site.name }}</h1>
+        <hr />
+      </div>
+    </div>
+</div>
+
+<div class="p-strip">
+    <div class="row">
+        <div class="col-12">
+            <h3>Base</h3>
+            <ul class="p-list">
+                {% for base in site.base %}
+                    <li><a href="{{ base.url }}">{{ base.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <hr />
+
+            <h3>Patterns</h3>
+            <ul class="p-list">
+                {% for pattern in site.patterns %}
+                    <li><a href="{{ pattern.url }}">{{ pattern.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <hr />
+
+            <h3>Utilities</h3>
+            <ul class="p-list">
+                {% for util in site.utilities %}
+                    <li><a href="{{ util.url }}">{{ util.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
