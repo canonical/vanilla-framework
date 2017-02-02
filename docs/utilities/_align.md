@@ -1,9 +1,9 @@
 ---
 collection: utilities
-title: Text align
+title: Align
 ---
 
-You can use these utilities to force the text inside an element to align center, left or right.
+You can use these utilities to force the content inside an element to align center, left or right.
 
 ## Center
 
