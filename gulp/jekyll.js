@@ -2,6 +2,6 @@ var gulp = require('gulp');
 var shell = require('gulp-shell');
 
 // Watch tasks
-gulp.task('jekyll', shell.task([
+gulp.task('jekyll:serve', shell.task([
   'jekyll serve'
 ]));
