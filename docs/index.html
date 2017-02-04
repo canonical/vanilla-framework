@@ -19,10 +19,12 @@ title: Home
             <h3>Base</h3>
             <nav>
               <ul class="p-list">
-                  {% for base in site.base %}
+                  {% for page in site.pages %}
+                      {% if page.url contains '/base/' %}
                       <li>
-                          <a href="{{ base.url }}" class="p-link--soft">{{ base.title }}</a>
+                          <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
                       </li>
+                      {% endif %}
                   {% endfor %}
               </ul>
             </nav>
@@ -31,10 +33,12 @@ title: Home
             <h3>Patterns</h3>
             <nav>
                 <ul class="p-list">
-                  {% for pattern in site.patterns %}
+                  {% for page in site.pages %}
+                      {% if page.url contains '/patterns/' %}
                       <li>
-                          <a href="{{ pattern.url }}" class="p-link--soft">{{ pattern.title }}</a>
+                          <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
                       </li>
+                      {% endif %}
                   {% endfor %}
                 </ul>
             </nav>
@@ -43,10 +47,12 @@ title: Home
             <h3>Utilities</h3>
             <nav>
                 <ul class="p-list">
-                    {% for util in site.utilities %}
+                    {% for page in site.pages %}
+                        {% if page.url contains '/utilities/' %}
                         <li>
-                            <a href="{{ util.url }}" class="p-link--soft">{{ util.title }}</a>
+                            <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
                         </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </nav>
