@@ -58,13 +58,16 @@ If you don't want the whole framework, you can just `@include` specific [parts](
 
 To develop on Vanilla itself, simply pull down the project and make changes.
 
-Once you've made your changes you can use the `run` script to build and test your code:
+You can then compile your Sass changes into `build/css/build.css` by running:
 
 ``` bash
-./run          # List available commands
-./run develop  # Watch files and rebuild when changes happen
-./run test     # Run the Sass linter
-./run build    # Watch files and rebuild when changes happen
+gulp build
+```
+
+Or you can run a local server to view your changes live with:
+
+``` bash
+gulp jekyll
 ```
 
 ## Community
