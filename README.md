@@ -58,6 +58,13 @@ If you don't want the whole framework, you can just `@include` specific [parts](
 
 To develop on Vanilla itself, simply pull down the project and make changes.
 
+To test it locally using our recommended tooling, you need to first install dependencies:
+
+``` bash
+bundle install
+npm install
+```
+
 You can then compile your Sass changes into `build/css/build.css` by running:
 
 ``` bash
