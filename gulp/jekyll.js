@@ -3,5 +3,6 @@ var shell = require('gulp-shell');
 
 // Watch tasks
 gulp.task('jekyll:serve', shell.task([
-  'jekyll serve'
+  'JEKYLL_ENV=development bundle exec jekyll serve'
 ]));
+

@@ -1,40 +1,14 @@
-##
-## This config for the the jekyll instance at /jekyll which is used to test Examples
-## during development. To view, run: `jekyll serve`
-##
 name: Vanilla framework - Examples
 
-# The directory for Jekyll setup files
-source: jekyll
-
-# The directory for category index pages. Change it to something else if
-# for example you want links like /categories/category1 instead of /category1
-category_dir: /
-
-# Uncomment if you are planning to run the blog in a subdirectory
-# Note - if you enable this, and attempt to view your site locally you have to use the baseurl in your local path.
-# Example, you must use http://localhost:4000/path/to/blog
-#baseurl: /path/to/blog
-baseurl:
-
-#### Under the Hood Stuff #####
-
-# Use rdiscount as the markdown engine because it generates html5 compliant code for stuff like footnotes
-# If you use maroku (default engine) some of your generated pages may not validate or lint as html5
-# If you don't have it install it via gem install rdiscount
-markdown: rdiscount
+baseurl: /vanilla-framework
 
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 permalink: pretty
 
-# Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+# Keep Jekyll directories out of the way
+plugins_dir:  _jekyll/_plugins
+layouts_dir:  _jekyll/_layouts
+destination: _jekyll/_site
 
-# collections
-collections:
-  base:
-    output: true
-  patterns:
-    output: true
-  utilities:
-    output: true
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: ["*.md", "*.scss", "node_modules", "package.json", "Gemfile", "Gemfile.lock", "gulpfile.js", "gulp", "LICENSE"]
