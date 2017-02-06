@@ -1,0 +1,61 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Header -->
+<div class="p-strip">
+    <div class="row">
+      <div class="12-col">
+        <h1>{{ site.name }}</h1>
+        <hr />
+      </div>
+    </div>
+</div>
+
+<div class="p-strip">
+    <div class="row">
+        <div class="col-4">
+            <h3>Base</h3>
+            <nav>
+              <ul class="p-list">
+                  {% for page in site.pages %}
+                      {% if page.url contains '/base/' %}
+                      <li>
+                          <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
+                      </li>
+                      {% endif %}
+                  {% endfor %}
+              </ul>
+            </nav>
+        </div>
+        <div class="col-4">
+            <h3>Patterns</h3>
+            <nav>
+                <ul class="p-list">
+                  {% for page in site.pages %}
+                      {% if page.url contains '/patterns/' %}
+                      <li>
+                          <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
+                      </li>
+                      {% endif %}
+                  {% endfor %}
+                </ul>
+            </nav>
+        </div>
+        <div class="col-4">
+            <h3>Utilities</h3>
+            <nav>
+                <ul class="p-list">
+                    {% for page in site.pages %}
+                        {% if page.url contains '/utilities/' %}
+                        <li>
+                            <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
