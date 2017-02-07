@@ -18,6 +18,8 @@ notifications:
 language: ruby
 rvm: 2.1.1
 before_script:
+  - npm i
+  - node_modules/gulp/bin/gulp.js sass:jekyll
   - gem install jekyll
   - gem install percy-cli
 script:
