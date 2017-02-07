@@ -9,6 +9,8 @@ Here is an example of some <code>sample inline code</code> within a paragraph.
 
 ## Code block
 
+{% include example.html %}
+
 <iframe
     src="http://ubuntudesign.github.io/vanilla-framework/examples/base/code/"
     width="100%"
