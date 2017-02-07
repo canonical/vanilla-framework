@@ -21,5 +21,5 @@ before_script:
   - gem install jekyll
   - gem install percy-cli
 script:
-  - jekyll build
+  - JEKYLL_ENV=development jekyll build
   - percy snapshot --widths "375,768,1280" _jekyll/_site/
