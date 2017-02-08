@@ -28,15 +28,6 @@ gulp.task('sass:develop', function() {
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(sourcemaps.write('maps/'))
     .pipe(gulp.dest('build/css/'))
-    .pipe(gulp.dest('jekyll/css/'));
-});
-
-// Build Sass for visual regression testing
-gulp.task('sass:jekyll', function() {
-  return gulp.src(sassPath)
-    .pipe(sass({ errLogToConsole: true }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-    .pipe(gulp.dest('_jekyll/_site/build/css/'));
 });
 
 // Build Sass for production
@@ -49,6 +40,7 @@ gulp.task('sass:build', function() {
       onError: throwSassError
     }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
+    .pipe(gulp.dest('build/css/'))
     .pipe(cssnano())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('build/css/'));
