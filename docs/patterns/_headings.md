@@ -3,7 +3,7 @@ collection: patterns
 title: Headings
 ---
 
-Headings classes can be added to text elements to give them the same visual appearance as base H1, H2, H3... elements.
+Heading classes can be added to text elements to give them the same visual appearance as base h1, h2, h3, etc., elements.
 
 
 <h6 class="p-heading--one">Heading six</h6>
