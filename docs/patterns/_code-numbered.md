@@ -9,24 +9,7 @@ Code numbered extends the [base styling of code](/base/code/).
 
 See also: [code snippet](/patterns/code-snippet/).
 
-<pre class="p-code-numbered">
-    <code>
-<span class="code-line">this is a code sample line 1</span>
-<span class="code-line">this is a code sample line 2</span>
-<span class="code-line">this is a code sample line 3</span>
-<span class="code-line">this is a code sample line 4</span>
-<span class="code-line">this is a code sample line 5</span>
-    </code>
-</pre>
-
-```html
-<pre class="p-code-numbered">
-    <code>
-<span class="code-line">this is a code sample line 1</span>
-<span class="code-line">this is a code sample line 2</span>
-<span class="code-line">this is a code sample line 3</span>
-<span class="code-line">this is a code sample line 4</span>
-<span class="code-line">this is a code sample line 5</span>
-    </code>
-</pre>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/code-numbered/"
+    class="js-example">
+    View example of the code numbered pattern
+</a>
