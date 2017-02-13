@@ -7,34 +7,12 @@ The strip pattern provides a full width strip container in which to wrap a row. 
 
 A `.p-strip` container should always be the parent of a `.row` and never the other way around.
 
-<div class="p-strip--light">
-    <div class="row">
-        <h2>Title of a light row</h2>
-        <p>Some text inside a row.</p>
-    </div>
-</div>
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/strips/strips-light/"
+    class="js-example">
+    View example of the strip light pattern
+</a>
 
-```html
-<div class="p-strip--light">
-    <div class="row">
-        ...
-    </div>
-</div>
-```
-
-<div class="p-strip--dark">
-    <div class="row">
-        <div class="col-12">
-            <h2>Title of a dark row</h2>
-            <p>Some text inside a row.</p>
-        </div>
-    </div>
-</div>
-
-```html
-<div class="p-strip--dark">
-    <div class="row">
-        ...
-    </div>
-</div>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/strips/strips-dark/"
+    class="js-example">
+    View example of the strip dark pattern
+</a>

@@ -3,18 +3,7 @@ collection: patterns
 title: Breadcrumbs
 ---
 
-<nav class="p-breadcrumbs">
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb1</a>
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb2</a>
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb3</a>
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb4</a>
-</nav>
-
-```html
-<nav class="p-breadcrumbs">
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb1</a>
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb2</a>
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb3</a>
-    <a class="p-breadcrumbs__link" href="#">Breadcrumb4</a>
-</nav>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/breadcrumbs/"
+    class="js-example">
+    View example of the breadcrumbs pattern
+</a>

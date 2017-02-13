@@ -5,184 +5,50 @@ title: Lists
 
 ## List
 
-<ul class="p-list">
-    <li class="p-list__item">Lorem</li>
-    <li class="p-list__item">Ipsum</li>
-    <li class="p-list__item">Dolor</li>
-</ul>
-
-```html
-<ul class="p-list">
-    <li class="p-list__item">Lorem</li>
-    <li class="p-list__item">Ipsum</li>
-    <li class="p-list__item">Dolor</li>
-</ul>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/list/"
+    class="js-example">
+    View example of the list pattern
+</a>
 
 ## List with icon
 
-<ul class="p-list">
-    <li class="p-list__item is-ticked">Lorem</li>
-    <li class="p-list__item is-ticked">Ipsum</li>
-    <li class="p-list__item is-ticked">Dolor</li>
-</ul>
-
-```html
-<ul class="p-list">
-    <li class="p-list__item is-ticked">Lorem</li>
-    <li class="p-list__item is-ticked">Ipsum</li>
-    <li class="p-list__item is-ticked">Dolor</li>
-</ul>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/lists-ticked/"
+    class="js-example">
+    View example of the ticked list pattern
+</a>
 
 ## List with dividers
 
-<ul class="p-list--divided">
-    <li class="p-list__item">Lorem</li>
-    <li class="p-list__item">Ipsum</li>
-    <li class="p-list__item">Dolor</li>
-</ul>
-
-```html
-<ul class="p-list--divided">
-    <li class="p-list__item">Lorem</li>
-    <li class="p-list__item">Ipsum</li>
-    <li class="p-list__item">Dolor</li>
-</ul>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/lists-dividers/"
+    class="js-example">
+    View example of the divided list pattern
+</a>
 
 ## List with icons and dividers
 
-<ul class="p-list--divided">
-    <li class="p-list__item is-ticked">Lorem</li>
-    <li class="p-list__item is-ticked">Ipsum</li>
-    <li class="p-list__item is-ticked">Dolor</li>
-</ul>
-
-```html
-<ul class="p-list--divided">
-    <li class="p-list__item is-ticked">Lorem</li>
-    <li class="p-list__item is-ticked">Ipsum</li>
-    <li class="p-list__item is-ticked">Dolor</li>
-</ul>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/lists-dividers-ticked/"
+    class="js-example">
+    View example of the ticked divided list pattern
+</a>
 
 ## Inline list
 
-<ul class="p-inline-list">
-    <li class="p-inline-list__item">Lorem</li>
-    <li class="p-inline-list__item">Ipsum</li>
-    <li class="p-inline-list__item">Dolor</li>
-</ul>
-
-```html
-<ul class="p-inline-list">
-    <li class="p-inline-list__item">Lorem</li>
-    <li class="p-inline-list__item">Ipsum</li>
-    <li class="p-inline-list__item">Dolor</li>
-</ul>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/lists-inline/"
+    class="js-example">
+    View example of the inline list pattern
+</a>
 
 ## Middot separated inline list
 
-<ul class="p-inline-list--middot">
-    <li class="p-inline-list__item">Lorem</li>
-    <li class="p-inline-list__item">Ipsum</li>
-    <li class="p-inline-list__item">Dolor</li>
-</ul>
-
-```html
-<ul class="p-inline-list--middot">
-    <li class="p-inline-list__item">Lorem</li>
-    <li class="p-inline-list__item">Ipsum</li>
-    <li class="p-inline-list__item">Dolor</li>
-</ul>
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/lists-mid-dot/"
+    class="js-example">
+    View example of the middot list pattern
+</a>
 ```
 
 ## Stepped List
 
-<ol class="list-step">
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">1</span>
-      First step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">2</span>
-      Second step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">3</span>
-      Third step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">4</span>
-      Fourth step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">5</span>
-      Last but not least
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-</ol>
-
-```
-<ol class="list-step">
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">1</span>
-      First step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">2</span>
-      Second step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">3</span>
-      Third step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">4</span>
-      Fourth step
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-
-  <li class="list-step__item col-8">
-    <h3 class="list-step__title">
-      <span class="list-step__bullet">5</span>
-      Last but not least
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus lorem, dictum vel dolor eu, tincidunt suscipit magna. Suspendisse dignissim nisl vitae turpis iaculis, ut tempor enim gravida.</p>
-  </li>
-</ol>
-```
+<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/lists/lists-stepped/"
+    class="js-example">
+    View example of the stepped list pattern
+</a>
