@@ -28,7 +28,7 @@ This negative variant should be used to convey information that is critical and 
 
 <a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/notifications/negative/"
     class="js-example">
-    View example of the negaitve notification pattern
+    View example of the negative notification pattern
 </a>
 
 ## .p-notification--positive
