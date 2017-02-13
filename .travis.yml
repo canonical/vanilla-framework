@@ -1,11 +1,18 @@
 language: node_js
 node_js:
   - "6.6.0"
+before_install:
+  - rvm install 2.2.5
+install:
+  - gem install jekyll
+  - gem install percy-cli
+  - npm install
 before_script:
-  - npm i
   - node_modules/gulp/bin/gulp.js build
 script:
+  - jekyll build
   - node_modules/gulp/bin/gulp.js test
+  - percy snapshot --widths "375,768,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
 notifications:
   irc:
     channels:
@@ -14,12 +21,3 @@ notifications:
     on_success: change
     on_failure: always
     on_success: change
-
-language: ruby
-rvm: 2.1.1
-before_script:
-  - gem install jekyll
-  - gem install percy-cli
-script:
-  - jekyll build
-  - percy snapshot --widths "375,768,1280" _jekyll/_site/

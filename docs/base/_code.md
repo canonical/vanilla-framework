@@ -5,7 +5,7 @@ title: Code
 
 ## Inline code
 
-Here is an example of some <code>sample inline code</code> within a paragraph.
+Here is an example of some <code>inline code</code> within a paragraph.
 
 ## Code block
 
