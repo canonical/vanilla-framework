@@ -123,3 +123,14 @@ You can use the brand button with the main color of your brand.
 <p><a href="#" class="p-button--brand">Brand link</a></p>
 <p><a href="#" class="p-button--brand is--disabled" aria-disabled="true">Brand link disabled</a></p>
 ```
+## Inline button
+
+Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by wrapping the text in a `<span>` and placing the button immediately after it.
+
+<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+<button>Button</button>
+
+```html
+<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+<button>Button</button>
+```
