@@ -36,6 +36,6 @@ Setting  | Default value
 Animations are preset to components. Components can we modified or extended to
 include animation by including the animation mixin.
 
-```css
+```scss
 @include animation(property: all, duration: brisk, easing: out);
 ```
