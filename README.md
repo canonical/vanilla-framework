@@ -85,6 +85,19 @@ Or you can run a local server to view your changes live with:
 gulp jekyll
 ```
 
+## Building documentation pages
+
+The documentation available at <https://docs.vanillaframework.io> is built from
+the markdown files located in the [`/docs/`](/docs) folder. You can also build the
+HTML documentation pages locally as follows:
+
+``` bash
+snap install documentation-builder  # Install the documentation-builder tool
+documentation-builder --base-directory docs --output-path docs/build
+```
+
+Now open the `docs/build/en/index.html` file in your browser.
+
 ## Community
 
 Keep up to date with all new developments and upcoming changes with Vanilla.
