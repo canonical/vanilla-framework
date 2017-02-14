@@ -1,0 +1,20 @@
+// Global animations settings
+
+$animation-duration: (
+  snap: 100,
+  fast: 165,
+  brisk: 333,
+  slow: 500,
+  sleepy: 1000
+);
+
+$animation-easing: (
+  out: 'easeOutCubic',
+  in: 'easeInCubic'
+);
+
+@mixin animation($property: all, $duration: slow, $easing: out) {
+  transition-duration: map-get($animation-duration, $duration);
+  transition-property: $property;
+  transition-timing-function: map-get($animation-easing, $easing);
+};
