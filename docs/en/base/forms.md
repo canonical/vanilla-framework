@@ -116,3 +116,8 @@ You can use the ```<fieldset>``` element to divide the form into different logic
     class="js-example">
     View example of the base form fieldset
 </a>
+
+<hr />
+
+Related:
+* [Buttons pattern](https://docs.vanillaframework.io/patterns/buttons/)
