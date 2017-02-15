@@ -4,8 +4,8 @@ title: Animations
 ---
 
 Vanilla has a cross matrix of duration and easing to apply animation across
-it required components. Components that animate staticly such as, the
-background of buttons. Have a much shorter duration then components with
+it required components. Components that animate statically such as, the
+background of buttons have a much shorter duration then components with
 motion.
 
 ## Durations
@@ -33,7 +33,7 @@ Setting  | Default value
 
 ### Usage
 
-Animations are preset to components. Components can we modified or extended to
+Animations are preset to components. Components can be modified or extended to
 include animation by including the animation mixin.
 
 ```scss
