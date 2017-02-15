@@ -8,6 +8,8 @@ Vanilla works with a fairly neutral color palette consisting of a range of greys
 
 You can define a brand color (<code>$color-brand</code>) that can be used for call-to-action buttons and other highlights across the framework. The default Vanilla brand color is <code>$color-dark</code>.
 
+When planning your pages, make sure there is an even distribution and well-balanced percentage of light and strong colors. Think of the screen as a whole: it shouldn't be top- or bottom-heavy.
+
 <div>
 <table>
 <thead>
@@ -63,7 +65,5 @@ You can define a brand color (<code>$color-brand</code>) that can be used for ca
 </tr>
 </tbody>
 </table>
-
-When planning your pages, make sure there is an even distribution and well-balanced percentage of light and strong colors. Think of the screen as a whole: it shouldn't be top- or bottom-heavy.
 
 </div>

@@ -12,7 +12,7 @@ Setting  | Default value
 `$breakpoint-medium`   | `768px`
 `$breakpoint-large`   | `1030px`
 
-### Targeting small screens
+## Target small screens
 
 ```css
 @media screen and (max-width: $breakpoint-medium) {
@@ -20,7 +20,7 @@ Setting  | Default value
 }
 ```
 
-### Targeting medium screens
+## Target medium screens
 
 ```css
 @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
@@ -28,7 +28,7 @@ Setting  | Default value
 }
 ```
 
-### Targeting large screens
+## Target large screens
 
 ```css
 @media screen and (min-width: $breakpoint-large) {
