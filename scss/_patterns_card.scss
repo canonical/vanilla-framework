@@ -3,8 +3,13 @@
 
   %p-card {
     background: $color-x-light;
+    border: 1px solid $color-mid-light;
     border-radius: 2px;
-    padding: 1rem;
+    padding: 1.333rem;
+
+    @media (min-width: $breakpoint-medium) {
+      padding: 1.25rem;
+    }
 
     &__title {
       font-size: 1.5rem;
@@ -16,14 +21,13 @@
     }
 
     &__footer {
-      border-top: 1px solid $color-mid-dark;
+      border-top: 1px solid $color-mid-light;
       padding-top: 1rem;
     }
   }
 
   .p-card {
     @extend %p-card;
-    border: 1px solid $color-mid-dark;
   }
 
   .p-card--highlighted {
