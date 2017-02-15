@@ -1,19 +1,19 @@
 # Vanilla Framework
 
-[![Build Status](https://travis-ci.org/ubuntudesign/vanilla-framework.svg?branch=master)](https://travis-ci.org/ubuntudesign/vanilla-framework)
+[![Build Status](https://travis-ci.org/vanilla-framework/vanilla-framework.svg?branch=master)](https://travis-ci.org/vanilla-framework/vanilla-framework)
 [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 [![Downloads](http://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
-[![devDependency Status](https://david-dm.org/ubuntudesign/vanilla-framework/dev-status.svg)](https://david-dm.org/ubuntudesign/vanilla-framework#info=devDependencies)
+[![devDependency Status](https://david-dm.org/vanilla-framework/vanilla-framework/dev-status.svg)](https://david-dm.org/vanilla-framework/vanilla-framework#info=devDependencies)
 [![Chat in #vanilla-framework on Freenode](https://img.shields.io/badge/chat-%23vanilla--framework-blue.svg)](http://webchat.freenode.net/?channels=vanilla-framework)
 
 Vanilla Framework is a simple extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement its patterns.
 
 [Documentation](https://docs.vanillaframework.io) |
-[Project Task Board](https://waffle.io/ubuntudesign/vanilla-framework) | [Join the mailing list](https://lists.ubuntu.com/mailman/listinfo/vanilla-framework)
+[Project Task Board](https://waffle.io/vanilla-framework/vanilla-framework) | [Join the mailing list](https://lists.ubuntu.com/mailman/listinfo/vanilla-framework)
 
 ## Hotlinking
 
-On [the project homepage](http://ubuntudesign.github.io/vanilla-framework), find the link to the latest build to add directly into your markup:
+On [the project homepage](http://vanilla-framework.github.io/vanilla-framework), find the link to the latest build to add directly into your markup:
 
 ``` html
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />

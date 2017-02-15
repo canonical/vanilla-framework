@@ -14,7 +14,7 @@ All card styles, but in particular the highlighted card, should be used sparingl
 
 The purpose of the basic card is to display information, without user interaction.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/card/card/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/card/"
     class="js-example">
     View example of the default card pattern
 </a>
@@ -24,7 +24,7 @@ The purpose of the basic card is to display information, without user interactio
 
 The highlighted card should be used when you can interact with the content.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/card/highlighted/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/highlighted/"
     class="js-example">
     View example of the base definition list
 </a>
