@@ -10,7 +10,7 @@ Code numbered extends the [base styling of code](/base/code/).
 
 See also: [code snippet](/patterns/code-snippet/).
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/code-numbered/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-numbered/"
     class="js-example">
     View example of the code numbered pattern
 </a>

@@ -8,7 +8,7 @@ title: Links
 
 The `.p-link--external` class should be used on hyperlinks that go to a different domain than the current one. E.g.:
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/links/links-external/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-external/"
     class="js-example">
     View example of the external link pattern
 </a>
@@ -31,7 +31,7 @@ The `.p-link--no-underline` class should be used on hyperlinks where an underlin
 
 The `.p-top` link can be used to make it easier to go back to the top on long pages. If the page is divided into different sections, you can use more than one per page.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/patterns/links/links-back-to-top/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-back-to-top/"
     class="js-example">
     View example of the back to top pattern
 </a>

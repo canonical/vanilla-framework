@@ -6,7 +6,7 @@ title: Forms
 
 Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are set to 100% width of the ```<form>``` parent element.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/form"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/form"
     class="js-example">
     View example of a base form
 </a>
@@ -55,7 +55,7 @@ The attribute ```readonly``` disables the input but it still retains a default c
 
 Checkboxes and radio buttons are used for selecting one or multiple options, respectively.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/checkboxes"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/checkboxes"
     class="js-example">
     View example of the base checkboxes
 </a>
@@ -69,7 +69,7 @@ Checkboxes and radio buttons are used for selecting one or multiple options, res
     <label for="Radio4">Radio option 3 - disabled</label>
 </form>
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/radio-buttons"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/radio-buttons"
     class="js-example">
     View example of the base radio buttons
 </a>
@@ -78,14 +78,14 @@ Checkboxes and radio buttons are used for selecting one or multiple options, res
 
 The ```<select>``` element is used to create a drop-down list.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/selects"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/selects"
     class="js-example">
     View example of the base selects
 </a>
 
 You can use the ```multiple``` attribute  to create a multiple select control.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/select-multiple"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/select-multiple"
     class="js-example">
     View example of the base multiple selects
 </a>
@@ -103,7 +103,7 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
 
 Applying the classes ```.has-error```, ```.has-success``` or ```.has-warning``` to an input or label will style that element differently to provide visual feedback in case there is an error, success or warning notification related to the element.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/feedback"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/feedback"
     class="js-example">
     View example of the base form feedback
 </a>
@@ -112,7 +112,7 @@ Applying the classes ```.has-error```, ```.has-success``` or ```.has-warning``` 
 
 You can use the ```<fieldset>``` element to divide the form into different logical sections.
 
-<a href="https://ubuntudesign.github.io/vanilla-framework/examples/base/forms/fieldset"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/fieldset"
     class="js-example">
     View example of the base form fieldset
 </a>
