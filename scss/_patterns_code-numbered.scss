@@ -5,17 +5,18 @@
     background: $color-light;
     color: $color-dark;
     counter-reset: line-numbering;
-    padding: 0 1rem;
+    padding: 1rem;
 
     .code-line::before {
+      color: $color-mid-dark;
       content: counter(line-numbering);
       counter-increment: line-numbering;
-      opacity: .5;
+      display: inline-block;
       padding-right: 1rem; // space after numbers
       pointer-events: none;
       text-align: right;
       user-select: none;
-      width: 1.5rem;
+      width: 3rem;
     }
   }
 }

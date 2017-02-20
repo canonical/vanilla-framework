@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
         {% if site.env == 'development' %}
         <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/build/css/build.css" />
@@ -12,11 +13,8 @@
     </head>
 
     <body>
-        <div class="row">
-            <div class="col-12">
-                 {{ content }}
-            </div>
-        </div>
-
+      <div id="wrapper" style="margin:2rem;">
+        {{ content }}
+      <div>
     </body>
 </html>

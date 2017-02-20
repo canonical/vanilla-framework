@@ -5,6 +5,16 @@
   button {
     @include button-pattern;
     line-height: 1rem;
+
+    span + & {
+
+      @media (max-width: $breakpoint-medium) {
+        margin-top: 1.2rem;
+      }
+      @media (min-width: $breakpoint-medium) {
+        margin-left: .5rem;
+      }
+    }
   }
 }
 
