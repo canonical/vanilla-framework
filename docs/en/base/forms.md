@@ -4,7 +4,7 @@ title: Forms
 
 # Forms
 
-Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are set to 100% width of the ```<form>``` parent element.
+Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are 100% width of the ```<form>``` parent element.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/form"
     class="js-example">
@@ -53,7 +53,7 @@ The attribute ```readonly``` disables the input but it still retains a default c
 
 ### Checkbox and radio button
 
-Checkboxes and radio buttons are used for selecting one or multiple options, respectively.
+Use checkboxes and radio buttons to select one or more options.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/checkboxes"
     class="js-example">
@@ -76,14 +76,14 @@ Checkboxes and radio buttons are used for selecting one or multiple options, res
 
 ### Select
 
-The ```<select>``` element is used to create a drop-down list.
+Use the ```<select>``` element to create a drop-down list.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/selects"
     class="js-example">
     View example of the base selects
 </a>
 
-You can use the ```multiple``` attribute  to create a multiple select control.
+Use the ```multiple``` attribute to create a multiple select control.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/select-multiple"
     class="js-example">

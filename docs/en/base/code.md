@@ -4,7 +4,7 @@ title: Code
 
 # Code
 
-Vanilla gives you two ways to display code using only the standard HTML elements.
+Vanilla gives you two ways to display code using the standard HTML elements.
 
 ## Inline code
 
