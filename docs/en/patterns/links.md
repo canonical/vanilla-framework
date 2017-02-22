@@ -17,15 +17,10 @@ The `.p-link--external` class should be used on hyperlinks that go to a differen
 
 The `.p-link--no-underline` class should be used on hyperlinks where an underline should not appear, such as image links. E.g.:
 
-<a class="p-link--no-underline" href="#">
-    <img src="http://placehold.it/150x200" alt="Placeholder image" />
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-without-underline/"
+    class="js-example">
+    View example of the links without underline pattern
 </a>
-
-```html
-<a class="p-link--no-underline" href="#">
-    <img src="http://placehold.it/150x200" alt="Placeholder image" />
-</a>
-```
 
 ## Back to top link
 
