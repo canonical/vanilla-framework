@@ -8,22 +8,17 @@ All text in Vanilla uses the Ubuntu typeface.
 
 Vanilla's typographic scale has a base font size of 14 pixels (small screens) and a font weight of 300.  At the medium breakpoint, the base font size is 15 pixels, and at the large breakpoint it is 16 pixels.
 
-<h1>This is a sample of the &lt;h1&gt; heading</h1>
-<h2>This is a sample of the &lt;h2&gt; heading</h2>
-<h3>This is a sample of the &lt;h3&gt; heading</h3>
-<h4>This is a sample of the &lt;h4&gt; heading</h4>
-<h5>This is a sample of the &lt;h5&gt; heading</h5>
-<h6>This is a sample of the &lt;h6&gt; heading</h6>
-<p>This is a sample of a paragraph.</p>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/headings"
+    class="js-example">
+    View example of the base headings
+</a>
 
 ## Blockquotes and citations
 
-<div>
-    <blockquote>
-        <p>Ubuntu is an ancient African word meaning 'humanity to others'. It also means 'I am what I am because of who we all are'. The Ubuntu operating system brings the spirit of Ubuntu to the world of computers.</p>
-        <cite>&mdash;Canonical</cite>
-    </blockquote>
-</div>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/blockquotes"
+    class="js-example">
+    View example of the base blockquotes
+</a>
 
 ## Small text
 

@@ -4,7 +4,7 @@ title: Forms
 
 # Forms
 
-Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are set to 100% width of the ```<form>``` parent element.
+Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are 100% width of the ```<form>``` parent element.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/form"
     class="js-example">
@@ -13,61 +13,34 @@ Vanilla form controls have global styling defined at the HTML element level. Lab
 
 ## Input elements
 
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/input"
+    class="js-example">
+    View example of an input element
+</a>
+
 ### HTML5 elements
 
 Vanilla supports all HTML5 input types: ```text```, ```password```, ```datetime```, ```datetime-local```, ```date```, ```month```, ```time```, ```week```, ```color```, ```number```, ```email```, ```url```, ```search``` and ```tel```.
-
-<form>
-    <label for="exampleTextInput">Label</label>
-    <input type="text" id="exampleTextInput" placeholder="Placeholder text" />
-</form>
-
-```
-<input type="text">
-```
 
 ### Textarea
 
 The ```<textarea>``` tag defines a multi-line text input control.
 
-<form>
-    <label for="textarea">Label</label>
-    <textarea id="textarea" rows="3">Textarea</textarea>
-</form>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/textarea"
+    class="js-example">
+    View example of an input element
+</a>
 
-```
-<textarea rows="3">Textarea</textarea>
-```
-
-The attribute ```readonly``` disables the input but it still retains a default cursor.
-
-<form>
-    <label for="textarea2">Label</label>
-    <textarea id="textarea2" rows="3" readonly="readonly">Read-only textarea</textarea>
-</form>
-
-```
-<textarea rows="3" readonly>Textarea</textarea>
-```
-
+Note: The attribute ```readonly``` disables the input but it still retains a default cursor.
 
 ### Checkbox and radio button
 
-Checkboxes and radio buttons are used for selecting one or multiple options, respectively.
+Use checkboxes and radio buttons to select one or more options.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/checkboxes"
     class="js-example">
     View example of the base checkboxes
 </a>
-
-<form>
-    <input type="radio" name="RadioOptions" id="Radio1" value="option1">
-    <label for="Radio1">Radio option 1</label>
-    <input type="radio" name="RadioOptions" id="Radio2" value="option2">
-    <label for="Radio2">Radio option 2</label>
-    <input type="radio" name="RadioOptions" id="Radio4" value="option4" disabled="disabled">
-    <label for="Radio4">Radio option 3 - disabled</label>
-</form>
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/radio-buttons"
     class="js-example">
@@ -76,14 +49,14 @@ Checkboxes and radio buttons are used for selecting one or multiple options, res
 
 ### Select
 
-The ```<select>``` element is used to create a drop-down list.
+Use the ```<select>``` element to create a drop-down list.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/selects"
     class="js-example">
     View example of the base selects
 </a>
 
-You can use the ```multiple``` attribute  to create a multiple select control.
+Use the ```multiple``` attribute to create a multiple select control.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/select-multiple"
     class="js-example">
@@ -94,10 +67,10 @@ You can use the ```multiple``` attribute  to create a multiple select control.
 
 Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interaction. All disabled inputs have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
 
-<form>
-    <label for="disabled-input">Label</label>
-    <input type="text" id="disabled-input" placeholder="Input is disabled" disabled="disabled">
-</form>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/disabled-input"
+    class="js-example">
+    View example of a disabled input
+</a>  
 
 ## Feedback classes
 
