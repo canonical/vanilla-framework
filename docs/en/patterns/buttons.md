@@ -12,125 +12,52 @@ You can apply `button` classes on buttons and link elements.
 
 A base button is usually used alongside a neutral button.
 
-<div class="twelve-col">
-    <p><button class="p-button--base">Base button</button></p>
-    <p><button class="p-button--base" disabled>Base button disabled</button></p>
-</div>
-
-```html
-<p><button class="p-button--base">Base button</button></p>
-<p><button class="p-button--base" disabled>Base button disabled</button></p>
-```
-
-<div class="twelve-col">
-    <p><a href="#" class="p-button--base">Base link</a></p>
-    <p><a href="#" class="p-button--base is--disabled" aria-disabled="true">Base link disabled</a></p>
-</div>
-
-```html
-<p><a href="#" class="p-button--base">Base link</a></p>
-<p><a href="#" class="p-button--base is--disabled" aria-disabled="true">Base link button</a></p>
-```
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/base"
+    class="js-example">
+    View example of the base button pattern
+</a>
 
 ## Neutral button
 
 A neutral button can be used to indicate a positive action that isn't necessarily the main call-to-action.
 
-<div class="twelve-col">
-    <p><button class="p-button--neutral">Neutral button</button></p>
-    <p><button class="p-button--neutral" disabled>Neutral button disabled</button></p>
-</div>
-
-```html
-<p><button class="p-button--neutral">Neutral button</button></p>
-<p><button class="p-button--neutral" disabled>Neutral button disabled</button></p>
-```
-
-<div class="twelve-col">
-    <p><a href="#" class="p-button--neutral">Neutral link</a></p>
-    <p><a href="#" class="p-button--neutral is--disabled" aria-disabled="true">Neutral link disabled</a></p>
-</div>
-
-```html
-<p><a href="#" class="p-button--neutral button">Neutral link</a></p>
-<p><a href="#" class="p-button--neutral is--disabled" aria-disabled="true">Neutral link disabled</a></p>
-```
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/neutral"
+    class="js-example">
+    View example of the neutral button pattern
+</a>
 
 ## Positive button
 
-<div class="twelve-col">
-    <p><button class="p-button--positive">Positive button</button></p>
-    <p><button class="p-button--positive" disabled>Positive button disabled</button></p>
-</div>
+A positive button can be used to indicate a positive action that is the main call-to-action.
 
-```html
-<p><button class="p-button--positive">Positive button</button></p>
-<p><button class="p-button--positive" disabled>Positive button disabled</button></p>
-```
-
-<div class="twelve-col">
-    <p><a href="#" class="p-button--positive">Positive link</a></p>
-    <p><a href="#" class="p-button--positive is--disabled" aria-disabled="true">Positive link disabled</a></p>
-</div>
-
-```html
-<p><a href="#" class="p-button--positive">Positive link</a></p>
-<p><a href="#" class="p-button--positive is--disabled" aria-disabled="true">Positive link disabled</a></p>
-```
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/positive"
+    class="js-example">
+    View example of the positive button pattern
+</a>
 
 ## Negative button
 
-<div class="twelve-col">
-    <p><button class="p-button--negative">Negative button</button></p>
-    <p><button class="p-button--negative" disabled>Negative button disabled</button></p>
-</div>
+A negative button can be used to indicate a negative action that is destructive or permanent.
 
-```html
-<p><button class="p-button--negative">Negative button</button></p>
-<p><button class="p-button--negative" disabled>Negative button disabled</button></p>
-```
-
-<div class="twelve-col">
-    <p><a href="#" class="p-button--negative">Negative link</a></p>
-    <p><a href="#" class="p-button--negative is--disabled" aria-disabled="true">Negative link disabled</a></p>
-</div>
-
-```html
-<p><a href="#" class="p-button--negative">Negative link</a></p>
-<p><a href="#" class="p-button--negative is--disabled" aria-disabled="true">Negative link disabled</a></p>
-```
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/neutral"
+    class="js-example">
+    View example of the negative button pattern
+</a>
 
 ## Brand button
 
 You can use the brand button with the main color of your brand.
 
-<div class="twelve-col">
-    <p><button class="p-button--brand">Brand button</button></p>
-    <p><button class="p-button--brand" disabled>Brand button disabled</button></p>
-</div>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/brand"
+    class="js-example">
+    View example of the brand button pattern
+</a>
 
-```html
-<p><button class="p-button--brand">Brand button</button></p>
-<p><button class="p-button--brand" disabled>Brand button disabled</button></p>
-```
-
-<div class="twelve-col">
-    <p><a href="#" class="p-button--brand">Brand link</a></p>
-    <p><a href="#" class="p-button--brand is--disabled" aria-disabled="true">Brand link disabled</a></p>
-</div>
-
-```html
-<p><a href="#" class="p-button--brand">Brand link</a></p>
-<p><a href="#" class="p-button--brand is--disabled" aria-disabled="true">Brand link disabled</a></p>
-```
 ## Inline button
 
 Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by wrapping the text in a `<span>` and placing the button immediately after it.
 
-<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-<button>Button</button>
-
-```html
-<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-<button>Button</button>
-```
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/inline"
+    class="js-example">
+    View example of the inline button pattern
+</a>
