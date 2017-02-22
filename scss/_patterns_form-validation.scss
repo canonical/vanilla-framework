@@ -1,0 +1,69 @@
+// form validation styling for form inputs
+
+@mixin vf-p-form-validation {
+
+  %validation-wrapper {
+    color: $color-dark;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    margin-top: .5333rem;
+    position: relative;
+
+    @media (min-width: $breakpoint-medium) {
+      font-size: .875rem;
+      margin-top: .5rem;
+    }
+
+    &::after {
+      position: absolute;
+      right: .75rem;
+      top: calc(50% - 8px);
+    }
+  }
+
+  .p-form-validation {
+
+    @extend %validation-wrapper;
+
+    &__message {
+      font-size: .9333rem;
+
+      @media (min-width: $breakpoint-medium) {
+        font-size: .875rem;
+      }
+    }
+  }
+
+  .is-error {
+
+    .p-form-validation__input {
+      border-color: $color-negative;
+    }
+
+    &::after {
+      content: url('#{$assets-path}4b0cd7fc-icon-error.svg');
+    }
+  }
+
+  .is-success {
+
+    .p-form-validation__input {
+      border-color: $color-positive;
+    }
+
+    &::after {
+      content: url('#{$assets-path}94949185-icon-success.svg');
+    }
+  }
+
+  .is-warning {
+
+    .p-form-validation__input {
+      border-color: $color-warning;
+    }
+
+    &::after {
+      content: url('#{$assets-path}c41194d3-icon-warning.svg');
+    }
+  }
+}
