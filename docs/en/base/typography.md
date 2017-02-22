@@ -15,12 +15,10 @@ Vanilla's typographic scale has a base font size of 14 pixels (small screens) an
 
 ## Blockquotes and citations
 
-<div>
-    <blockquote>
-        <p>Ubuntu is an ancient African word meaning 'humanity to others'. It also means 'I am what I am because of who we all are'. The Ubuntu operating system brings the spirit of Ubuntu to the world of computers.</p>
-        <cite>&mdash;Canonical</cite>
-    </blockquote>
-</div>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/blockquotes"
+    class="js-example">
+    View example of the base blockquotes
+</a>
 
 ## Small text
 
