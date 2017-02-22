@@ -16,4 +16,4 @@ visually prominent way.
 
 ## Related
 
-* [Blockquotes and citations in base typography](/base/typography/#blockquotes-and-citations)
+* [Blockquotes and citations in base typography](/base/typography#blockquotes-and-citations)
