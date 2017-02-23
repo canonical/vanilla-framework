@@ -8,7 +8,13 @@
     // Used for links point at a different domain
     &--external::after {
       @include link-svg-icon;
+      bottom: .25rem;
       margin-left: .25em;
+      position: relative;
+    }
+
+    &--external:hover::after {
+      @include link-svg-icon($color-link);
     }
 
     &--no-underline {
@@ -43,6 +49,10 @@
       &:hover {
         color: $color-link;
         text-decoration: underline;
+      }
+
+      &.p-link--external:hover::after {
+        @include link-svg-icon($color-dark);
       }
     }
 
