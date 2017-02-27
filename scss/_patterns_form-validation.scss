@@ -17,13 +17,17 @@
     &::after {
       position: absolute;
       right: .75rem;
-      top: calc(50% - 8px);
+      top: calc(50% - 7px);
     }
   }
 
   .p-form-validation {
 
     @extend %validation-wrapper;
+
+    .p-form-validation__input { // Not using parent selector here as two classes are required to override atribute selectors in reset
+      padding: .5rem 2.5rem .5rem .75rem;
+    }
 
     &__message {
       font-size: .9333rem;
