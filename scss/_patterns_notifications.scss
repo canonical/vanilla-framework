@@ -6,26 +6,6 @@
   @include vf-notifications-negative;
 }
 
-// The placeholder for basic notification styling
-%notification {
-  background-color: $color-x-light;
-  border: 0;
-  border-color: $color-mid-dark;
-  border-radius: .125rem;
-  border-style: solid;
-  border-top-width: 3px;
-  // sass-lint:disable no-color-literals
-  // sass-lint doesn't recognise rgba func as valid color
-  box-shadow: 0 1px 5px 1px rgba($color-x-dark, .2);
-  // sass-lint:enable no-color-literals
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-  padding: .625rem;
-  text-align: center;
-  width: 100%;
-}
-
 // Default notification styling
 @mixin vf-notifications-default {
   .p-notification {
@@ -88,4 +68,24 @@
       padding-left: 1.5rem;
     }
   }
+}
+
+// The placeholder for basic notification styling
+%notification {
+  background-color: $color-x-light;
+  border: 0;
+  border-color: $color-mid-dark;
+  border-radius: .125rem;
+  border-style: solid;
+  border-top-width: 3px;
+  // sass-lint:disable no-color-literals
+  // sass-lint doesn't recognise rgba func as valid color
+  box-shadow: 0 1px 5px 1px rgba($color-x-dark, .2);
+  // sass-lint:enable no-color-literals
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  padding: .625rem;
+  text-align: center;
+  width: 100%;
 }
