@@ -41,7 +41,7 @@ When planning your pages, make sure there is an even distribution and well-balan
 </tr>
 <tr>
 <td><code>$color-dark</code></td>
-<td style="background-color: #333; color: #fff;">#333</td>
+<td style="background-color: #111; color: #fff;">#111</td>
 </tr>
 <tr>
 <td><code>$color-x-dark</code></td>
@@ -49,7 +49,7 @@ When planning your pages, make sure there is an even distribution and well-balan
 </tr>
 <tr>
 <td><code>$color-negative</code></td>
-<td style="background-color: #d73024; color: #fff;">#d73024</td>
+<td style="background-color: #c7162b; color: #fff;">#c7162b</td>
 </tr>
 <tr>
 <td><code>$color-warning</code></td>
@@ -57,10 +57,14 @@ When planning your pages, make sure there is an even distribution and well-balan
 </tr>
 <tr>
 <td><code>$color-positive</code></td>
-<td style="background-color: #0f8420; color: #fff;">#0f8420</td>
+<td style="background-color: #0e8420; color: #fff;">#0e8420</td>
 </tr>
 <tr>
 <td><code>$color-information</code></td>
+<td style="background-color: #335280; color: #fff;">#335280</td>
+</tr>
+<tr>
+<td><code>$color-link</code></td>
 <td style="background-color: #007aa6; color: #fff;">#007aa6</td>
 </tr>
 </tbody>
