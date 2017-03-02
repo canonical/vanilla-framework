@@ -8,7 +8,7 @@ title: Notification
 
 Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, warning, negative or position.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
     class="js-example">
     View example of the default notification pattern
 </a>

@@ -8,9 +8,9 @@ By wrapping ```<label>``` and input form elements in a wrapper called ```.p-form
 
 - ```.is-success```
 - ```.is-warning```
-- ```.is-error``` 
+- ```.is-error```
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/form-validation"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/form-validation/"
     class="js-example">
     View examples of form validation patterns
 </a>
