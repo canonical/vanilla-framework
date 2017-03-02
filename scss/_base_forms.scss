@@ -4,6 +4,8 @@
   label {
     cursor: pointer;
     display: block;
+    font-size: 1rem;
+    line-height: 1.5;
 
     @each $state, $color in $states {
       &.has-#{$state} {
@@ -115,6 +117,7 @@
   // Textarea styles
   textarea {
     @extend %input-elements;
+    margin-bottom: .5rem;
     overflow: auto;
     vertical-align: top;
   }
@@ -163,13 +166,18 @@
   font-size: 1rem;
   font-weight: 300;
   outline: none;
-  padding: .6875rem .8125rem;
+  padding: .8rem .5333rem;
   vertical-align: baseline;
   width: 100%;
+
+  @media (min-width: $breakpoint-medium) {
+    padding: .75rem .5rem;
+  }
 
   &:active,
   &:focus {
     border-color: $color-mid-dark;
+    color: $color-dark;
     outline: none;
   }
 
