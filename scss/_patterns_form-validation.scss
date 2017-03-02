@@ -20,7 +20,8 @@
     @extend %validation-wrapper;
 
     .p-form-validation__input { // Not using parent selector here as two classes are required to override atribute selectors in reset
-      margin-bottom: 0;
+      background-position: calc(100% - 1rem) 50%;
+      background-repeat: no-repeat;
       padding: .5rem 2.5rem .5rem .75rem;
     }
 
@@ -47,33 +48,24 @@
   .is-error {
 
     .p-form-validation__input {
+      background-image: url('#{$assets-path}4b0cd7fc-icon-error.svg');
       border-color: $color-negative;
-    }
-
-    .p-form-validation__icon::after {
-      content: url('#{$assets-path}4b0cd7fc-icon-error.svg');
     }
   }
 
   .is-success {
 
     .p-form-validation__input {
+      background-image: url('#{$assets-path}94949185-icon-success.svg');
       border-color: $color-positive;
-    }
-
-    .p-form-validation__icon::after {
-      content: url('#{$assets-path}94949185-icon-success.svg');
     }
   }
 
   .is-warning {
 
     .p-form-validation__input {
+      background-image: url('#{$assets-path}c41194d3-icon-warning.svg');
       border-color: $color-warning;
-    }
-
-    .p-form-validation__icon::after {
-      content: url('#{$assets-path}c41194d3-icon-warning.svg');
     }
   }
 }
