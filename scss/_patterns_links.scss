@@ -6,19 +6,12 @@
     }
 
     // Used for links point at a different domain
-    &--external::after {
-      @include link-svg-icon;
-      bottom: .25rem;
-      margin-left: .25em;
-      position: relative;
-    }
-
-    &--external::after {
+    &--external {
       @include link-svg-icon($color-link);
-    }
-
-    &--external:hover::after {
-      @include link-svg-icon($color-link);
+      background-position: 100% top;
+      background-repeat: no-repeat;
+      background-size: .7rem .7rem;
+      padding-right: .9rem;
     }
 
     &--no-underline {
