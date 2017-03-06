@@ -15,12 +15,20 @@
       @extend %heading-3;
       color: $color-dark;
       font-style: normal;
-      margin: 0;
 
       &:first-of-type::before {
         @extend %quotes;
         content: '\201C\2002'; // Unicode for left double quotation mark +  1/2 em space
         margin-left: -1.5rem;
+        padding-right: 1.5rem;
+        position: relative;
+        top: .1rem;
+
+        @media (min-width: $breakpoint-medium)  {
+          margin-left: -1.9rem;
+          padding-right: 1.9rem;
+          top: .4rem;
+        }
       }
 
       &:last-of-type {
