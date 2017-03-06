@@ -93,4 +93,4 @@ You can use the ```<fieldset>``` element to divide the form into different logic
 <hr />
 
 Related:
-* [Buttons pattern](https://docs.vanillaframework.io/patterns/buttons/)
+* [Buttons pattern](/en/patterns/buttons/)
