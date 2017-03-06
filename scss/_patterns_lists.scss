@@ -19,7 +19,7 @@
 // List styling using list class
 @mixin vf-p-list {
   .p-list {
-    @extend %list;
+    @include list;
 
     &__item {
       margin-bottom: .6667rem;
@@ -30,11 +30,11 @@
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
-    @extend %list;
+    @include list;
 
     .p-list__item {
-      @extend %list-item;
-      @extend %list-item-divided;
+      @include list-item;
+      @include list-item-divided;
     }
   }
 }
@@ -60,7 +60,7 @@
     padding-left: 0;
 
     &__item {
-      @extend %inline-list-item;
+      @include inline-list-item;
     }
   }
 }
@@ -72,7 +72,7 @@
     padding-left: 0;
 
     .p-inline-list__item {
-      @extend %inline-list-item;
+      @include inline-list-item;
       position: relative;
 
       &::after {
@@ -154,20 +154,20 @@
 }
 
 // Placeholder for basic styled lists
-%list {
+@mixin list {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
 
 // Placeholder for list items
-%list-item {
+@mixin list-item {
   margin-bottom: 0;
   padding-bottom: .63rem;
   padding-top: .63rem;
 }
 
-%list-item-divided {
+@mixin list-item-divided {
   border-bottom: 1px dotted $color-mid-light;
 
   &:last-of-type,
@@ -177,7 +177,7 @@
 }
 
 // Placeholder for inline list items
-%inline-list-item {
+@mixin inline-list-item {
   display: inline;
   list-style: none;
   margin-right: 1.25rem;
