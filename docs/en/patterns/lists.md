@@ -5,11 +5,11 @@ title: Lists
 # Lists
 
 If you want to display lists in a way that is more visually distinctive than the
- standard ```<ol>``` and ```<ul>```, Vanilla has 7 list styles at your disposal. 
+ standard ```<ol>``` and ```<ul>```, Vanilla has 7 list styles at your disposal.
 
 ## Simple list
 
-Use the class ```.p-list``` for a list without bullets and more spacing between 
+Use the class ```.p-list``` for a list without bullets and more spacing between
 items than the basic lists.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/list/"
@@ -56,8 +56,8 @@ Apply the class ```.p-inline-list``` to display all the list items in one line.
 
 ## Middot-separated inline list
 
-Apply the class ```.p-inline-list--middot``` to add a middot character between 
-inline list items. 
+Apply the class ```.p-inline-list--middot``` to add a middot character between
+inline list items.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-mid-dot/"
     class="js-example">
@@ -66,7 +66,7 @@ inline list items.
 
 ## Stepped list
 
-If you want to display a list of items that form a set of steps — like a 
+If you want to display a list of items that form a set of steps — like a
 tutorial or instructions — you can use the class ```.p-list-step```.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-stepped/"
@@ -78,5 +78,5 @@ tutorial or instructions — you can use the class ```.p-list-step```.
 
 ## Related
 
-* [Base lists](/base/lists/)
-* [Inline images pattern](/patterns/inline-images/)
+* [Base lists](/en/base/lists/)
+* [Inline images pattern](/en/patterns/inline-images/)
