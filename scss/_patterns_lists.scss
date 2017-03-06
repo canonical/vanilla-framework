@@ -1,4 +1,39 @@
 // Default list styling
+// Mixin for basic styled lists
+@mixin list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+// Mixin for list items
+@mixin list-item {
+  margin-bottom: 0;
+  padding-bottom: .63rem;
+  padding-top: .63rem;
+}
+
+@mixin list-item-divided {
+  border-bottom: 1px dotted $color-mid-light;
+
+  &:last-of-type,
+  .last-item {
+    border-bottom: 0;
+  }
+}
+
+// Mixin for inline list items
+@mixin inline-list-item {
+  display: inline;
+  list-style: none;
+  margin-right: 1.25rem;
+
+  &:last-of-type,
+  .last-item {
+    margin-right: 0;
+  }
+}
+
 @mixin vf-p-lists {
   @include vf-p-list;
   @include vf-p-list-divided;
@@ -150,40 +185,5 @@
       position: absolute;
       top: -5px;
     }
-  }
-}
-
-// Placeholder for basic styled lists
-@mixin list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-// Placeholder for list items
-@mixin list-item {
-  margin-bottom: 0;
-  padding-bottom: .63rem;
-  padding-top: .63rem;
-}
-
-@mixin list-item-divided {
-  border-bottom: 1px dotted $color-mid-light;
-
-  &:last-of-type,
-  .last-item {
-    border-bottom: 0;
-  }
-}
-
-// Placeholder for inline list items
-@mixin inline-list-item {
-  display: inline;
-  list-style: none;
-  margin-right: 1.25rem;
-
-  &:last-of-type,
-  .last-item {
-    margin-right: 0;
   }
 }
