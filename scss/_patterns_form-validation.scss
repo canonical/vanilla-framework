@@ -1,7 +1,7 @@
 // form validation styling for form inputs
 
 @mixin vf-p-form-validation {
-  %validation-wrapper {
+  @mixin validation-wrapper {
     color: $color-dark;
     line-height: 1.5;
     margin-bottom: 1rem;
@@ -15,7 +15,7 @@
   }
 
   .p-form-validation {
-    @extend %validation-wrapper;
+    @include validation-wrapper;
 
     .p-form-validation__input { // Not using parent selector here as two classes are required to override atribute selectors in reset
       background-position: calc(100% - 1rem) .75rem;
