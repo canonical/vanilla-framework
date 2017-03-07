@@ -14,7 +14,7 @@ When you refer to code inline with other text, use the <code>&lt;code&gt;</code>
 
 If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> together with the <code>&lt;code&gt;</code> tag.
 
-<a href="http://127.0.0.1:4321/vanilla-framework/examples/base/code/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/code/"
     class="js-example">
     View example of the base code block
 </a>
