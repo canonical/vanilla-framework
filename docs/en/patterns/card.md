@@ -26,5 +26,5 @@ The highlighted card should be used when you can interact with the content.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/highlighted/"
     class="js-example">
-    View example of the base definition list
+    View example of the highlighted card pattern
 </a>
