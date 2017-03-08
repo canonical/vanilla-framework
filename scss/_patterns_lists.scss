@@ -1,4 +1,39 @@
 // Default list styling
+// Mixin for basic styled lists
+@mixin list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+// Mixin for list items
+@mixin list-item {
+  margin-bottom: 0;
+  padding-bottom: .63rem;
+  padding-top: .63rem;
+}
+
+@mixin list-item-divided {
+  border-bottom: 1px dotted $color-mid-light;
+
+  &:last-of-type,
+  .last-item {
+    border-bottom: 0;
+  }
+}
+
+// Mixin for inline list items
+@mixin inline-list-item {
+  display: inline;
+  list-style: none;
+  margin-right: 1.25rem;
+
+  &:last-of-type,
+  .last-item {
+    margin-right: 0;
+  }
+}
+
 @mixin vf-p-lists {
   @include vf-p-list;
   @include vf-p-list-divided;
@@ -19,7 +54,7 @@
 // List styling using list class
 @mixin vf-p-list {
   .p-list {
-    @extend %list;
+    @include list;
 
     &__item {
       margin-bottom: .6667rem;
@@ -30,11 +65,11 @@
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
-    @extend %list;
+    @include list;
 
     .p-list__item {
-      @extend %list-item;
-      @extend %list-item-divided;
+      @include list-item;
+      @include list-item-divided;
     }
   }
 }
@@ -60,7 +95,7 @@
     padding-left: 0;
 
     &__item {
-      @extend %inline-list-item;
+      @include inline-list-item;
     }
   }
 }
@@ -72,7 +107,7 @@
     padding-left: 0;
 
     .p-inline-list__item {
-      @extend %inline-list-item;
+      @include inline-list-item;
       position: relative;
 
       &::after {
@@ -150,40 +185,5 @@
       position: absolute;
       top: -5px;
     }
-  }
-}
-
-// Placeholder for basic styled lists
-%list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-// Placeholder for list items
-%list-item {
-  margin-bottom: 0;
-  padding-bottom: .63rem;
-  padding-top: .63rem;
-}
-
-%list-item-divided {
-  border-bottom: 1px dotted $color-mid-light;
-
-  &:last-of-type,
-  .last-item {
-    border-bottom: 0;
-  }
-}
-
-// Placeholder for inline list items
-%inline-list-item {
-  display: inline;
-  list-style: none;
-  margin-right: 1.25rem;
-
-  &:last-of-type,
-  .last-item {
-    margin-right: 0;
   }
 }
