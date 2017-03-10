@@ -102,4 +102,4 @@ Use a description list when you want to list a group of one or more terms and de
 
 ## Related
 
-* [Lists pattern](/en/patterns/lists/)
+* [Lists pattern](/en/patterns/lists)
