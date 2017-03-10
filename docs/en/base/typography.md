@@ -100,5 +100,6 @@ Use a description list when you want to list a group of one or more terms and de
 
 <hr />
 
-Related:
-* [Lists pattern](https://docs.vanillaframework.io/patterns/lists/)
+## Related
+
+* [Lists pattern](/en/patterns/lists)
