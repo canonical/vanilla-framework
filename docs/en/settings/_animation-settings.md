@@ -1,5 +1,4 @@
 ---
-collection: settings
 title: Animations
 ---
 
