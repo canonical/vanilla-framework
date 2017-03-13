@@ -1,10 +1,27 @@
 // Form element styles
 @mixin vf-b-forms {
+
+  form {
+    margin-bottom: 2rem;
+
+    > * {
+      margin-bottom: .5rem;
+    }
+
+    fieldset,
+    div {
+      > * {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+
   label {
     cursor: pointer;
     display: block;
     font-size: $sp-medium;
     line-height: 1.5;
+    margin-bottom: .75rem;
 
     @each $state, $color in $states {
       &.has-#{$state} {
@@ -136,21 +153,6 @@
       padding-bottom: .625rem;
     }
   }
-
-  form {
-    margin-bottom: 2rem;
-
-    > * {
-      margin-bottom: $sp-x-small;
-    }
-
-    fieldset,
-    div {
-      > * {
-        margin-bottom: $sp-x-small;
-      }
-    }
-  }
 }
 
 // Default form input element styles
@@ -163,6 +165,7 @@
   font-family: unquote($font-base-family);
   font-size: $sp-medium;
   font-weight: 300;
+  margin-bottom: 1.25rem;
   outline: none;
   padding: .8rem .5333rem;
   vertical-align: baseline;
