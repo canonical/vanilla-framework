@@ -1,30 +1,31 @@
+@mixin p-card {
+  background: $color-x-light;
+  border: 1px solid $color-mid-light;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  padding: 1.333rem;
+
+  @media (min-width: $breakpoint-medium) {
+    padding: 1.25rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 0 0 .5rem;
+  }
+
+  &__content {
+    margin-bottom: 1rem;
+  }
+
+  &__footer {
+    border-top: 1px solid $color-mid-light;
+    padding-top: 1rem;
+  }
+}
+
 // Card patterns
 @mixin vf-p-card {
-  @mixin p-card {
-    background: $color-x-light;
-    border: 1px solid $color-mid-light;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-    padding: 1.333rem;
-
-    @media (min-width: $breakpoint-medium) {
-      padding: 1.25rem;
-    }
-
-    &__title {
-      font-size: 1.5rem;
-      margin: 0 0 .5rem;
-    }
-
-    &__content {
-      margin-bottom: 1rem;
-    }
-
-    &__footer {
-      border-top: 1px solid $color-mid-light;
-      padding-top: 1rem;
-    }
-  }
 
   .p-card {
     @include p-card;
@@ -36,9 +37,6 @@
 
   .p-card--highlighted {
     @include p-card;
-    // sass-lint:disable no-color-literals
-    // sass-lint doesn't recognise rgba func as valid color
-    box-shadow: 0 1px 5px 1px rgba($color-dark, .2);
-    // sass-lint:enable no-color-literals
+    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
   }
 }
