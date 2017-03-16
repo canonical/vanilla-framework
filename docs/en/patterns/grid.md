@@ -21,11 +21,13 @@ Read also: [Breakpoints](/en/settings/breakpoints)
 
 ## Empty columns
 
-Adding empty columns before or after an element might be useful when you need extra space between elements and columns than that provided by the default grid.
+Prefixes and suffixes add extra horizontal padding to columns, creating some negative space between or around them.
 
-The classes `.prefix-1`, `.prefix-2`, `.prefix-3`, and so on, will add empty columns before the element to the number of columns specified in the class.
+To add some space to the left of the column add a `.prefix-[n]` class, where `n` is the number of grid units the space should take up.
 
-The classes `.suffix-1`, `.suffix-2`, `.suffix-3`, and so on, will add empty columns after the element to the number of columns specified in the class.
+To add some space to the right add a `.suffix-[n]` class.
+
+By default, prefixes and suffixes only work on top level columns. 
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
     class="js-example">
