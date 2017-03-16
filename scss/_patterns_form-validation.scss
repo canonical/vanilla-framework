@@ -1,18 +1,18 @@
-// form validation styling for form inputs
+@mixin validation-wrapper {
+  color: $color-dark;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  margin-top: .5333rem;
+  position: relative;
 
-@mixin vf-p-form-validation {
-  @mixin validation-wrapper {
-    color: $color-dark;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    margin-top: .5333rem;
-    position: relative;
-
-    @media (min-width: $breakpoint-medium) {
-      font-size: .875rem;
-      margin-top: .5rem;
-    }
+  @media (min-width: $breakpoint-medium) {
+    font-size: .875rem;
+    margin-top: .5rem;
   }
+}
+
+// form validation styling for form inputs
+@mixin vf-p-form-validation {
 
   .p-form-validation {
     @include validation-wrapper;
