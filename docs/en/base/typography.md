@@ -71,6 +71,17 @@ Vanilla's typographic scale has a base font size of 14 pixels (small screens) an
 | margin top    | `18px` | `24px` | `24px` |
 | margin bottom | `18px` | `24px` | `24px` |
 
+## Heading classes
+
+Heading classes can be added to text elements to give them the same visual appearance as base h1, h2, h3, etc., elements.
+
+Heading classes are not tied to elements and can be freely mixed, for example you can apply `p-heading--one` style to an `h3` element if that better suits your document style and tree.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/mixed/"
+    class="js-example">
+    View example of the mixed headings pattern
+</a>
+
 ## Ordered list
 
 Use an ordered list when the order of the items is important.
