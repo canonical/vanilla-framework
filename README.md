@@ -9,11 +9,11 @@
 Vanilla Framework is a simple extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement its patterns.
 
 [Documentation](https://docs.vanillaframework.io) |
-[Project Task Board](https://waffle.io/vanilla-framework/vanilla-framework) | [Join the mailing list](https://lists.ubuntu.com/mailman/listinfo/vanilla-framework)
+[Project Task Board](https://waffle.io/vanilla-framework/vanilla-framework) | [Join the mailing list](http://canonical.us3.list-manage2.com/subscribe?u=56dac47c206ba0f58ec25f314&id=36f7d8394e)
 
 ## Hotlinking
 
-On [the project homepage](http://vanilla-framework.github.io/vanilla-framework), find the link to the latest build to add directly into your markup:
+ You can link to the latest build to add directly into your markup like so, by replacing the x values with the [version number you wish to link](https://github.com/vanilla-framework/vanilla-framework/releases).
 
 ``` html
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
