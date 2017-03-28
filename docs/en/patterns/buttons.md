@@ -39,7 +39,7 @@ A positive button can be used to indicate a positive action that is the main cal
 
 A negative button can be used to indicate a negative action that is destructive or permanent.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/neutral/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/negative/"
     class="js-example">
     View example of the negative button pattern
 </a>
