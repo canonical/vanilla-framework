@@ -2,14 +2,14 @@
 @mixin vf-b-button {
   button {
     @include button-pattern;
-    line-height: 1rem;
+    line-height: $sp-medium;
 
     span + & {
       @media (max-width: $breakpoint-medium) {
         margin-top: 1.2rem;
       }
       @media (min-width: $breakpoint-medium) {
-        margin-left: .5rem;
+        margin-left: $sp-x-small;
       }
     }
   }
@@ -37,13 +37,13 @@
   cursor: pointer;
   display: inline-block;
   font-family: unquote($font-base-family);
-  font-size: 1rem;
+  font-size: $sp-medium;
   font-smoothing: subpixel-antialiased;
   font-weight: 300;
-  line-height: 1rem;
+  line-height: $sp-medium;
   margin: 0;
   outline: none;
-  padding: .75rem 1.5rem;
+  padding: $sp-small $sp-large;
   text-align: center;
   text-decoration: none;
   transition: background-color .2s;
