@@ -55,7 +55,7 @@ You can use the brand button with the main color of your brand.
 
 ## Inline button
 
-Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by wrapping the text in a `<span>` and placing the button immediately after it.
+Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by adding the state class `is-inline` to the button element.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/inline/"
     class="js-example">
