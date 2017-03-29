@@ -6,6 +6,7 @@
   @include button-positive;
   @include button-negative;
   @include button-base;
+  @include button-inline;
 }
 
 @mixin button-plain {
@@ -20,9 +21,10 @@
 @mixin button-neutral {
   .p-button--neutral {
     @include button-pattern (
-      $button-disabled-border-color: $color-mid-dark,
+      $button-disabled-border-color: $color-mid-light,
       $button-border-color: $color-mid-light,
-      $button-hover-background-color: $color-light
+      $button-hover-background-color: $color-light,
+      $button-hover-border-color: $color-mid-light
     );
   }
 }
@@ -78,5 +80,18 @@
       $button-hover-background-color: $color-light,
       $button-hover-border-color: $color-transparent
     );
+  }
+}
+
+@mixin button-inline {
+  [class^="p-button"].is-inline {
+    @media (max-width: $breakpoint-medium) {
+      margin-top: 1.2rem;
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      margin-left: $sp-small;
+      width: auto;
+    }
   }
 }
