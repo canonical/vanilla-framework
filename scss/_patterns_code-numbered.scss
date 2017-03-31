@@ -1,21 +1,56 @@
 // Code and pre styles
 @mixin vf-p-code-numbered {
+
+  $sidebar-width: 4.5rem;
+
   .p-code-numbered {
-    background: $color-light;
+    background: $color-x-light;
     color: $color-dark;
     counter-reset: line-numbering;
-    padding: $sp-medium;
+    padding: 1rem 0 0;
+    position: relative;
 
-    .code-line::before {
-      color: $color-mid-dark;
-      content: counter(line-numbering);
-      counter-increment: line-numbering;
-      display: inline-block;
-      padding-right: $sp-medium; // space after numbers
-      pointer-events: none;
-      text-align: right;
-      user-select: none;
-      width: $sp-xxx-large;
+    &::before {
+      background-color: $color-x-light;
+      width: $sidebar-width;
+    }
+
+    .code-line {
+      background: $color-light;
+      display: block;
+      margin: -#{$sp-large} 0 0 0;
+      padding: $sp-x-small 0 $sp-x-small 5.5rem;
+      position: relative;
+
+      &:first-child,
+      &:first-child::before {
+        padding-top: 1.25rem;
+      }
+
+      &:last-child,
+      &:last-child::before {
+        padding-bottom: $sp-medium;
+      }
+
+      &::before {
+        background: $color-x-light;
+        border-right: 1px solid $color-dark;
+        color: $color-mid-dark;
+        content: counter(line-numbering);
+        counter-increment: line-numbering;
+        display: inline-block;
+        height: 9999px; // infinity figure to ensure sidebar fills full height of each item
+        left: 0;
+        margin-right: $sp-medium;
+        max-height: 100%;
+        padding: $sp-x-small $sp-medium $sp-medium $sp-medium; // space after numbers
+        pointer-events: none;
+        position: absolute;
+        text-align: right;
+        top: 0;
+        user-select: none;
+        width: $sidebar-width;
+      }
     }
   }
 }
