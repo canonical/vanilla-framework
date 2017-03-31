@@ -1,0 +1,142 @@
+#! /usr/bin/env bash
+
+set -euo pipefail
+
+# Define the versions of the two docker images
+yarn_image="canonicalwebteam/yarn:v0.2.0"
+
+# Usage instructions
+USAGE="Usage
+===
+
+  $ ./run \\
+    [-m|--node-module PATH]  # A path to a local node module to use instead of the installed dependencies \\
+    [COMMAND]                # Optionally provide a command to run
+
+Commands
+---
+
+- watch: Run \`yarn run watch\`
+- build: Run \`yarn run build\`
+- test: Run \`yarn run test\`
+- yarn <args>: Run yarn
+- clean: Remove all images and containers, any installed dependencies and the .docker-project file
+"
+
+##
+# Check docker is installed correctly
+##
+if ! command -v docker >/dev/null 2>&1; then
+    echo "
+    Error: Docker not installed
+    ==
+    Please install Docker before continuing:
+    https://www.docker.com/products/docker
+    "
+    exit 1
+fi
+if grep -q '^docker:' /etc/group && ! groups | grep -q '\bdocker\b'; then
+    echo "
+    Error: `whoami` not in docker group
+    ===
+    Please add this user to the docker group, e.g. with:
+    \$ newgrp docker
+    "
+    exit 1
+fi
+
+# Generate the project name
+if [[ -f ".docker-project" ]]; then
+  project=$(cat .docker-project)
+else
+  project=$((pwd | md5sum 2> /dev/null || md5 -q -s `pwd`) | cut -c1-8)
+  echo $project > .docker-project
+fi
+
+# Read current environment variables
+if [ -f .env ]; then
+    export $(cat .env | grep -v ^\# | xargs)
+fi
+
+# Optional arguments
+# ==
+#  --watch - Toggle "yarn run watch" in the background
+#  --help - Show usage instructions
+invalid() {
+    echo "Command not recognised."
+    echo ""
+    echo "$USAGE"
+    exit 1
+}
+
+module_volumes=()
+
+while [[ -n "${1:-}" ]] && [[ "${1:0:1}" == "-" ]]; do
+    key="$1"
+
+    case $key in
+        -m|--node-module)
+            if [ -z "${2:-}" ]; then invalid; fi
+            module_volumes+=("--volume" "${2}":"`pwd`/node_modules/$(basename ${2})")
+            shift
+        ;;
+        -h|--help) echo "$USAGE"; exit ;;
+        *) invalid ;;
+    esac
+    shift
+done
+
+docker_run() {
+  # The standard set of "docker run" arguments
+
+  [ -t 1 ] && tty="--tty --interactive" || tty=""  # Do we have a terminal?
+  [ -f .env ] && env_file="--env-file .env" || env_file=""  # Do we have an env file?
+
+  docker run  \
+    --user $(id -u):$(id -g)  `# Use the current user inside container`  \
+    ${env_file}               `# Pass environment variables into the container, if file exists`  \
+    --volume `pwd`:`pwd`      `# Mirror current directory inside container`  \
+    --workdir `pwd`           `# Set current directory to the image's work directory`  \
+    ${tty}                    `# Attach a pseudo-terminal, if relevant`  \
+    $@                        `# Extra arguments`
+}
+
+docker_yarn () {
+  # Run "yarn" from the "node" image
+  docker_run  \
+    ${module_volumes[@]+"${module_volumes[@]}"}  `# Add any override modules as volumes`  \
+    $yarn_image $@               `# Use the image for node version 7`
+}
+
+yarn_install () {
+  # Install yarn dependencies, without module overrides
+  docker_run $yarn_image install
+}
+
+
+# Do the real business
+run_command=${1:-}
+if [[ -n "${run_command}" ]]; then shift; fi
+
+case $run_command in
+  "build")
+    yarn_install
+    docker_yarn run build
+  ;;
+  "watch")
+    yarn_install
+    docker_yarn run build
+    docker_yarn run watch
+  ;;
+  "test")
+    yarn_install
+    docker_yarn run test
+  ;;
+  "clean")
+    docker_yarn run clean || true
+    rm -rf node_modules .docker-project
+    docker volume rm --force ${project}-dependencies
+  ;;
+  "yarn") docker_yarn $@ ;;
+  *) invalid ;;
+esac
