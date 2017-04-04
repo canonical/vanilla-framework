@@ -89,12 +89,11 @@
   }
 
   p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.75rem;
     margin-top: 0;
 
-    @media screen and (min-width: $breakpoint-medium) {
-      margin-bottom: $sp-x-large;
-      margin-top: 0;
+    & + & {
+      margin-bottom: $sp-large;
     }
   }
 
@@ -153,8 +152,12 @@
 
   // blockquotes
   blockquote {
-    margin-left: 0;
+    margin: 1.75rem 0;
     padding-left: $sp-large;
+
+    @media (min-width: $breakpoint-medium) {
+      margin: 2rem 0;
+    }
 
     > p {
       font-size: $sp-medium;
