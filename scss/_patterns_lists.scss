@@ -2,7 +2,7 @@
 // Mixin for basic styled lists
 @mixin list {
   list-style: none;
-  margin-left: 0;
+  margin: 0;
   padding-left: 0;
 }
 
@@ -27,6 +27,7 @@
   display: inline;
   list-style: none;
   margin-right: 1.25rem;
+
 
   &:last-of-type,
   .last-item {
@@ -92,6 +93,7 @@
 @mixin vf-p-inline-list {
   .p-inline-list {
     margin-left: 0;
+    margin-top: 0;
     padding-left: 0;
 
     &__item {
@@ -104,6 +106,7 @@
 @mixin vf-p-inline-list-middot {
   .p-inline-list--middot {
     margin-left: 0;
+    margin-top: 0;
     padding-left: 0;
 
     .p-inline-list__item {
@@ -139,11 +142,13 @@
   .p-list-step {
     @extend %clearfix;
     list-style: none;
+    margin: 0;
     margin-left: $grid-gutter-width * 3;
     padding: 0;
 
     &__title {
       margin-bottom: 1rem;
+      margin-top: 0;
       padding-top: .25rem;
       position: relative;
     }
