@@ -6,30 +6,9 @@ title: Typography
 
 All text in Vanilla uses the Ubuntu typeface.
 
-Vanilla's typographic scale has a base font size of 14 pixels (small screens) and a font weight of 300.  At the medium breakpoint, the base font size is 15 pixels, and at the large breakpoint it is 16 pixels.
-
-## Blockquotes and citations
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/blockquotes/"
-    class="js-example">
-    View example of the base blockquotes
-</a>
-
-## Small text
-
-<small>This is some &lt;small&gt; text with a font size of 13 pixels.</small>
-
-## Strong text
-
-<strong>This is some strong text</strong>
-
-## Superscripted text
-
-<p>This text is <sup>superscripted</sup></p>
-
-## Subscripted text
-
-<p>This text is <sub>subscripted</sub></p>
+Vanilla's typographic scale has a base font size of 14 pixels (small screens) 
+and a font weight of 300.  At the medium breakpoint, the base font size is 15 
+pixels, and at the large breakpoint it is 16 pixels.
 
 ## Typographic scale
 
@@ -73,9 +52,13 @@ Vanilla's typographic scale has a base font size of 14 pixels (small screens) an
 
 ## Heading classes
 
-Heading classes can be added to text elements to give them the same visual appearance as base h1, h2, h3, etc., elements.
+Heading classes can be added to text elements to give them the same visual 
+appearance as the base h1-h6 heading elements without sacrificing correct 
+heading order and semantics.
 
-Heading classes are not tied to elements and can be freely mixed, for example you can apply `p-heading--one` style to an `h3` element if that better suits your document style and tree.
+Heading classes are not tied to elements and can be freely mixed, for example 
+you can apply the `p-heading--one` class to an `h3` element if that better 
+suits your document style and tree.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/mixed/"
     class="js-example">
@@ -102,15 +85,41 @@ Use an unordered list when the order of the items isn't important.
 
 ## Description list
 
-Use a description list when you want to list a group of one or more terms and descriptions.
+Use a description list when you want to list a group of one or more terms and 
+descriptions.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/lists/definition-list/"
     class="js-example">
     View example of the base definition list
 </a>
 
+## Blockquotes and citations
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/blockquotes/"
+    class="js-example">
+    View example of the base blockquotes
+</a>
+
+## Small text
+
+<small>This is some &lt;small&gt; text with a font size of 13 pixels.</small>
+
+## Strong text
+
+<strong>This is some strong text</strong>
+
+## Superscripted text
+
+<p>This text is <sup>superscripted</sup></p>
+
+## Subscripted text
+
+<p>This text is <sub>subscripted</sub></p>
+
 <hr />
 
 ## Related
 
+* [Code](/en/base/code)
+* [Pull quote pattern](/en/patterns/pull-quote)
 * [Lists pattern](/en/patterns/lists)
