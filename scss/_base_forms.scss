@@ -1,10 +1,27 @@
 // Form element styles
 @mixin vf-b-forms {
+
+  form {
+    margin-bottom: 2rem;
+
+    > * {
+      margin-bottom: .5rem;
+    }
+
+    fieldset,
+    div {
+      > * {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+
   label {
     cursor: pointer;
     display: block;
     font-size: $sp-medium;
     line-height: 1.5;
+    margin-bottom: .75rem;
 
     @each $state, $color in $states {
       &.has-#{$state} {
@@ -33,6 +50,7 @@
     }
 
     &[type='file'] {
+      margin-bottom: 1rem;
       outline: none;
       width: 100%;
     }
@@ -65,6 +83,7 @@
       min-height: $sp-large;
 
       + label {
+        margin-bottom: 1rem;
         vertical-align: middle;
         width: 100%;
       }
@@ -114,7 +133,7 @@
   // Textarea styles
   textarea {
     @include input-elements;
-    margin-bottom: $sp-x-small;
+    margin-bottom: 1.25rem;
     overflow: auto;
     vertical-align: top;
   }
@@ -136,19 +155,6 @@
       padding-bottom: .625rem;
     }
   }
-
-  form {
-    > * {
-      margin-bottom: $sp-x-small;
-    }
-
-    fieldset,
-    div {
-      > * {
-        margin-bottom: $sp-x-small;
-      }
-    }
-  }
 }
 
 // Default form input element styles
@@ -161,6 +167,7 @@
   font-family: unquote($font-base-family);
   font-size: $sp-medium;
   font-weight: 300;
+  margin-bottom: 1.25rem;
   outline: none;
   padding: .8rem .5333rem;
   vertical-align: baseline;

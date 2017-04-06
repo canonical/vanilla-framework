@@ -1,7 +1,7 @@
 @mixin vf-b-lists {
   ol,
   ul {
-    margin-bottom: $sp-medium;
+    margin-bottom: 2.25rem;
     margin-left: $sp-medium;
     padding-left: $sp-medium;
 
@@ -17,8 +17,18 @@
   }
 
   li {
-    margin: 0 0 $sp-x-small;
+    margin: 0;
     padding: 0;
+  }
+
+  li > ul > li:last-of-type,
+  li > ol > li:last-of-type {
+    padding-bottom: 0;
+  }
+
+  dl {
+    margin-bottom: 2.25rem;
+    margin-top: 0;
   }
 
   dt {
@@ -30,11 +40,24 @@
 
     &:first-of-type {
       border-top: 0;
+      padding-top: 0;
     }
   }
 
   dd {
     margin-left: $grid-gutter-width;
     margin-top: $sp-x-small;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    ul,
+    ol,
+    dl {
+      margin: 2.25rem 0;
+
+      & & {
+        margin: 0;
+      }
+    }
   }
 }
