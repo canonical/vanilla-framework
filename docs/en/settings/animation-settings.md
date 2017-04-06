@@ -2,16 +2,18 @@
 title: Animations
 ---
 
-Vanilla has a cross matrix of duration and easing to apply animation across
-it required components. Components that animate statically such as, the
-background of buttons have a much shorter duration then components with
-motion.
+Vanilla has a cross matrix of duration and easing that can be used to apply 
+animation to components.
 
 ## Durations
 
-Vanilla uses a range of animation durations to dictate the speed in which an
+Vanilla uses a range of animation durations to dictate the time in which an
 animation should complete. These values are stored within a map named
 `$animation-duration`.
+
+Components that animate statically, like a button that changes background 
+color, tend to have a shorter duration than components with motion 
+animation.
 
 Setting  | Default value
  ------------- | -------------
@@ -23,7 +25,7 @@ Setting  | Default value
 
 ## Easings
 
-Vanilla's easing consists of `easeInCubic` and `easeOutCubic`.
+Vanilla's easing can be `easeInCubic` or `easeOutCubic`.
 
 Setting  | Default value
  ------------- | -------------
