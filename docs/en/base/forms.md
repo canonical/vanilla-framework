@@ -72,13 +72,13 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
     View example of a disabled input
 </a>  
 
-## Feedback classes
+## Validation classes
 
-Applying the classes ```.has-error```, ```.has-success``` or ```.has-warning``` to an input or label will style that element differently to provide visual feedback in case there is an error, success or warning notification related to the element.
+Applying the classes ```.is-error```, ```.is-warning``` or ```.is-success``` to an input will style that element differently to provide visual feedback in case there is an error, warning or success notification related to the element.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/feedback/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/form-validation/"
     class="js-example">
-    View example of the base form feedback
+    View example of form validation patterns
 </a>
 
 ## Fieldset
