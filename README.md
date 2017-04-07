@@ -83,7 +83,7 @@ You can then compile your Sass changes into `build/css/build.css` by running:
 Or you can run a local server to view your changes live with:
 
 ``` bash
-./run start
+gulp jekyll
 ```
 
 ## Building documentation pages
