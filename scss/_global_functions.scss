@@ -10,3 +10,12 @@
     @return '%23' + str-slice('#{$color}', 2, -1);
   }
 }
+
+// Test value of bg $color and return light or dark text color accordingly
+@function contrast-text-color($color) {
+  @if (lightness($color) > 55) {
+    @return $color-x-dark; // Lighter background, return dark color
+  } @else {
+    @return $color-x-light; // Darker background, return light color
+  }
+}
