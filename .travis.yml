@@ -6,6 +6,7 @@ before_install:
 install:
   - gem install jekyll
   - gem install percy-cli
+  - gem install sass
   - npm install
 before_script:
   - node_modules/gulp/bin/gulp.js build
@@ -13,6 +14,7 @@ script:
   - jekyll build
   - node_modules/gulp/bin/gulp.js test
   - percy snapshot --widths "375,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
+  - sass --no-cache --sourcemap=none scss/build.scss build/css/build.css
 notifications:
   irc:
     channels:
