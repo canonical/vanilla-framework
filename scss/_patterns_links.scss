@@ -15,8 +15,10 @@
       padding-right: .9rem;
     }
 
-    &--no-underline {
-      border: 0;
+    @include deprecate('2.0.0', 'This class is no longer required as links now use text-decoration') {
+      &--no-underline {
+        border: 0;
+      }
     }
 
     &--soft {

@@ -13,15 +13,6 @@ The `.p-link--external` class should be used on hyperlinks that go to a differen
     View example of the external link pattern
 </a>
 
-## Link without underline
-
-The `.p-link--no-underline` class should be used on hyperlinks where an underline should not appear, such as image links. E.g.:
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-without-underline/"
-    class="js-example">
-    View example of the links without underline pattern
-</a>
-
 ## Back to top link
 
 The `.p-top` link can be used to make it easier to go back to the top on long pages. If the page is divided into different sections, you can use more than one per page.
