@@ -13,13 +13,31 @@ The `.p-link--external` class should be used on hyperlinks that go to a differen
     View example of the external link pattern
 </a>
 
-## Link without underline
+## Soft link
 
-The `.p-link--no-underline` class should be used on hyperlinks where an underline should not appear, such as image links. E.g.:
+The `.p-link--soft` class should be used on hyperlinks where many links are grouped together, such as a link cloud.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-without-underline/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-soft/"
     class="js-example">
-    View example of the links without underline pattern
+    View example of the soft link pattern
+</a>
+
+## Strong link
+
+The `.p-link--strong` class should be used on hyperlinks that require emphasis.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-strong/"
+    class="js-example">
+    View example of the strong link pattern
+</a>
+
+## Inverted link
+
+The `.p-link--external` class should be used where links are placed on a dark background.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-inverted/"
+    class="js-example">
+    View example of the inverted link pattern
 </a>
 
 ## Back to top link
