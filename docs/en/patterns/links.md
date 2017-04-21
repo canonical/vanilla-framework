@@ -33,7 +33,7 @@ The `.p-link--strong` class should be used on hyperlinks that require emphasis.
 
 ## Inverted link
 
-The `.p-link--external` class should be used where links are placed on a dark background.
+The `.p-link--inverted` class should be used where links are placed on a dark background.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-inverted/"
     class="js-example">
