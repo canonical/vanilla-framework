@@ -6,19 +6,37 @@
     list-style: none; // if list is used as wrapper
     text-align: center;
 
-    &__img {
+    &__item {
       display: inline-block;
-      max-width: calc(50% - #{$sp-x-large}); // 2 items per row
-      padding: $sp-medium;
+      max-width: 5.625rem;
+      margin: $sp-x-large;
       text-align: center;
       width: 100%;
+      vertical-align: middle;
 
-      @media (min-width: $breakpoint-small) { // 3 items per row
-        max-width: calc(33.3333% - #{$sp-x-large});
+      @media (min-width: $breakpoint-medium) {
+        max-width: 11.25rem;
+        margin: $sp-xxx-large;
       }
 
-      @media (min-width: $breakpoint-large) { // 4 items per row
-        max-width: calc(25% - #{$sp-x-large});
+      * {
+        width: 100%;
+      }
+    }
+
+    @include deprecate('2.0.0', 'Use .p-inline-images__item instead') {
+      &__img {
+        display: inline-block;
+        max-width: 5.625rem;
+        margin: $sp-x-large;
+        text-align: center;
+        width: 100%;
+        vertical-align: middle;
+
+        @media (min-width: $breakpoint-medium) {
+          max-width: 11.25rem;
+          margin: $sp-xxx-large;
+        }
       }
     }
   }
