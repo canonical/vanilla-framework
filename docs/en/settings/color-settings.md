@@ -52,7 +52,7 @@ When planning your pages, make sure there is an even distribution and well-balan
 <td style="background-color: #c7162b; color: #fff;">`#c7162b`</td>
 </tr>
 <tr>
-<td>`$color-warning`</td>
+<td>`$color-caution`</td>
 <td style="background-color: #f99b11;">`#f99b11`</td>
 </tr>
 <tr>
