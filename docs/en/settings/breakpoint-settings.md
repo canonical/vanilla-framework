@@ -42,6 +42,6 @@ The `$breakpoint-navigation-threshold` is the breakpoint in which the
 navigation switches from horizontal (large screen) navigation to a burger style 
 menu (small screen).
 
-If you have a large number of menu items you may consider overriding this 
+If you have a large number of menu items, you may consider overriding this 
 value to a large breakpoint so the navigation snaps to a burger menu at a 
 larger breakpoint.

@@ -26,6 +26,6 @@ Note: You can constrain the width of the navigation to match the
     View example of the full width navigation pattern
 </a>
 
-Tip: You can change the breakpoint in which the menu changes to a small screen 
+Tip: You can change the breakpoint at which the menu changes to a small screen 
 menu by adjusting the `$breakpoint-navigation-threshold` in 
 `_settings_breakpoints.scss`.
