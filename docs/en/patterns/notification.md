@@ -6,7 +6,7 @@ title: Notification
 
 ## .p-notification
 
-Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, warning, negative or position.
+Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, caution, negative or position.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
     class="js-example">
@@ -14,13 +14,13 @@ Notifications are used to display global information. A notification will displa
 </a>
 
 
-## .p-notification--warning
+## .p-notification--caution
 
-This warning variant should be used to convey information that is not critical but the user should be aware of.
+This caution variant should be used to convey information that is not critical but the user should be aware of.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/warning/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/caution/"
     class="js-example">
-    View example of the warning notification pattern
+    View example of the caution notification pattern
 </a>
 
 ## .p-notification--negative
@@ -49,5 +49,5 @@ Note: All functionality must be developed in independently.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/action/"
     class="js-example">
-    View example of the warning notification pattern
+    View example of the caution notification pattern
 </a>
