@@ -42,13 +42,13 @@
         float: right;
         margin: $sp-medium;
 
-        @media (min-width: $breakpoint-medium) {
+        @media (min-width: $breakpoint-navigation-threshold + 1) {
           display: none;
         }
       }
     }
 
-    @media (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-navigation-threshold) {
       &:target &__toggle--close {
         display: inline-block;
       }
@@ -61,7 +61,7 @@
       font-size: 1.2rem;
       margin: $sp-medium;
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
         margin: .9rem;
       }
     }
@@ -70,7 +70,7 @@
       border-bottom: 0;  // For when this class is applied to an <a> directly
       display: block;
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
         display: block;
         float: left;
         width: auto;
@@ -94,7 +94,7 @@
       margin: 0; // For if this class is applied to a <ul>
       padding: 0; // For if this class is applied to a <ul>
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
         background-color: transparent;
         clear: none;
         float: left;
@@ -104,7 +104,7 @@
         border-left: 1px solid $color-x-light;
         padding: $sp-medium;
 
-        @media (max-width: $breakpoint-medium) {
+        @media (max-width: $breakpoint-navigation-threshold) {
           background-color: $color-light;
           border: 0;
           border-bottom: 1px solid $color-mid-light;
@@ -115,7 +115,7 @@
         > a {
           // For when this class is applied to something that contains <a>s, e.g.:
           // <li class="p-navigation__list"><a></a></li>
-          @media (max-width: $breakpoint-medium) {
+          @media (max-width: $breakpoint-navigation-threshold) {
             color: $color-dark;
           }
         }
@@ -123,7 +123,7 @@
         &:last-of-type {
           border-right: 1px solid $color-x-light;
 
-          @media (max-width: $breakpoint-medium) {
+          @media (max-width: $breakpoint-navigation-threshold) {
             border-bottom: 0;
           }
         }
@@ -133,7 +133,7 @@
     &__nav {
       display: none;
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
         display: block;
       }
     }
