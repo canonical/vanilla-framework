@@ -37,7 +37,7 @@ Setting  | Default value
 }
 ```
 
-## Modifing the navigation threshold
+## Modifying the navigation threshold
 The `$breakpoint-navigation-threshold` is the breakpoint in which the 
 navigation switches from horizontal (large screen) navigation to a burger style 
 menu (small screen).
