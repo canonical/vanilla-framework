@@ -11,6 +11,7 @@ Setting  | Default value
 `$breakpoint-small`   | `620px`
 `$breakpoint-medium`   | `768px`
 `$breakpoint-large`   | `1030px`
+`$breakpoint-navigation-threshold`   | `$breakpoint-medium`
 
 ## Target small screens
 
@@ -35,3 +36,12 @@ Setting  | Default value
     //css
 }
 ```
+
+## Modifying the navigation threshold
+The `$breakpoint-navigation-threshold` is the breakpoint in which the 
+navigation switches from horizontal (large screen) navigation to a burger style 
+menu (small screen).
+
+If you have a large number of menu items, you may consider overriding this 
+value to a large breakpoint so the navigation snaps to a burger menu at a 
+larger breakpoint.
