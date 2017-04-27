@@ -40,6 +40,10 @@
   transition: background-color .2s;
   width: 100%;
 
+  @media only screen and (min-width: $breakpoint-medium) {
+    width: auto;
+  }
+
   &:visited {
     color: $button-text-color;
   }
@@ -65,7 +69,7 @@
     }
   }
 
-  @media only screen and (min-width: $breakpoint-medium) {
-    width: auto;
+  .p-link--external {
+    @include link-svg-icon($button-text-color);
   }
 }
