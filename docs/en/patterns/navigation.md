@@ -12,7 +12,7 @@ Note: You can constrain the width of the navigation to match the
 `$grid-max-width` by placing everything inside the header element within a
 `.row` wrapper.
 
-Note: To make the navigation full width you should just remove the `row` div 
+Note: To make the navigation full width you should just remove the `row` element
 from the mark up presented below.
 
 
@@ -30,6 +30,6 @@ from the mark up presented below.
     View example of the light navigation pattern
 </a>
 
-Tip: You can change the breakpoint at which the menu changes to a small screen 
-menu by adjusting the `$breakpoint-navigation-threshold` in 
+Tip: You can change the breakpoint at which the menu changes to a small screen
+menu by adjusting the `$breakpoint-navigation-threshold` in
 `_settings_breakpoints.scss`.
