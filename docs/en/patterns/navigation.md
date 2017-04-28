@@ -12,18 +12,22 @@ Note: You can constrain the width of the navigation to match the
 `$grid-max-width` by placing everything inside the header element within a
 `.row` wrapper.
 
-## Fixed width navigation
+Note: To make the navigation full width you should just remove the `row` div 
+from the mark up presented below.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/fixed-width/"
+
+## Dark/default navigation
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/dark/"
     class="js-example">
-    View example of the fixed width navigation pattern
+    View example of the dark navigation pattern
 </a>
 
-## Full width navigation
+## Light navigation
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/full-width/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/light/"
     class="js-example">
-    View example of the full width navigation pattern
+    View example of the light navigation pattern
 </a>
 
 Tip: You can change the breakpoint at which the menu changes to a small screen 
