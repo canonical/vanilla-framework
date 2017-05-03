@@ -3,6 +3,13 @@ layout: default
 title: Home
 ---
 
+{% capture pages %}
+  {% for page in site.pages %}
+    |{{ page.title }}#{{ page.url }}
+  {% endfor %}
+{% endcapture %}
+{% assign sortedpages = pages | split: '|' | sort %}
+
 <!-- Header -->
 <div class="p-strip">
     <div class="row">
@@ -19,13 +26,17 @@ title: Home
             <h3>Base</h3>
             <nav>
               <ul class="p-list">
-                  {% for page in site.pages %}
-                      {% if page.url contains '/base/' %}
-                      <li>
-                          <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
-                      </li>
-                      {% endif %}
-                  {% endfor %}
+                {% for page in sortedpages %}
+                  {% assign pageitems = page | split: '#' %}
+                  {% if pageitems[1] contains '/base/' %}
+                    <li>
+                      <a href="{{ pageitems[1] | prepend:site.baseurl }}"
+                        class="p-link--soft">
+                        {{ pageitems[0] }}
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
               </ul>
             </nav>
         </div>
@@ -33,12 +44,16 @@ title: Home
             <h3>Patterns</h3>
             <nav>
                 <ul class="p-list">
-                  {% for page in site.pages %}
-                      {% if page.url contains '/patterns/' %}
+                  {% for page in sortedpages %}
+                    {% assign pageitems = page | split: '#' %}
+                    {% if pageitems[1] contains '/patterns/' %}
                       <li>
-                          <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
+                        <a href="{{ pageitems[1] | prepend:site.baseurl }}"
+                          class="p-link--soft">
+                          {{ pageitems[0] }}
+                        </a>
                       </li>
-                      {% endif %}
+                    {% endif %}
                   {% endfor %}
                 </ul>
             </nav>
@@ -46,15 +61,19 @@ title: Home
         <div class="col-4">
             <h3>Utilities</h3>
             <nav>
-                <ul class="p-list">
-                    {% for page in site.pages %}
-                        {% if page.url contains '/utilities/' %}
-                        <li>
-                            <a href="{{ page.url | prepend:site.baseurl }}" class="p-link--soft">{{ page.title }}</a>
-                        </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+              <ul class="p-list">
+                {% for page in sortedpages %}
+                  {% assign pageitems = page | split: '#' %}
+                  {% if pageitems[1] contains '/utilities/' %}
+                  <li>
+                    <a href="{{ pageitems[1] | prepend:site.baseurl }}"
+                      class="p-link--soft">
+                      {{ pageitems[0] }}
+                    </a>
+                  </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
             </nav>
         </div>
     </div>
