@@ -1,20 +1,52 @@
 // Default header styling
+
 @mixin vf-p-navigation {
+  @include navigation-light;
+  @include navigation-dark;
+}
+
+@mixin navigation-dark {
+  .p-navigation,
+  .p-navigation--dark {
+    @include navigation-pattern(
+      $background-color: $color-dark,
+      $border-color: $color-mid-light,
+      $text-color: $color-x-light
+    )
+  }
+}
+
+@mixin navigation-light {
+  .p-navigation--light {
+    @include navigation-pattern(
+      $background-color: $color-light,
+      $border-color: $color-mid-light,
+      $text-color: $color-dark
+    );
+    border-bottom: 1px solid $color-mid-light;
+  }
+}
+
+@mixin navigation-pattern (
+  $background-color: $color-brand,
+  $border-color: $color-x-light,
+  $text-color: $color-x-light
+) {
+  @extend %clearfix;
+  background-color: $background-color;
+  color: $text-color;
+  position: relative;
+  width: 100%;
+
+  .row {
+    padding: 0;
+  }
+
   .p-navigation {
-    @extend %clearfix;
-    background-color: $color-brand;
-    color: $color-x-light;
-    position: relative;
-    width: 100%;
-
-    .row {
-      padding: 0;
-    }
-
     &__toggle--open,
     &__toggle--close,
     &__link {
-      color: $color-x-light;
+      color: $text-color;
 
       &:hover {
         border-bottom: 0;
@@ -22,12 +54,8 @@
       }
 
       &:visited {
-        color: $color-x-light;
+        color: $text-color;
       }
-    }
-
-    &:target &__toggle--open {
-      display: none;
     }
 
     &__toggle--close {
@@ -35,11 +63,10 @@
     }
 
     &__toggle {
-
       &--open,
       &--close {
         float: right;
-        margin: $sp-medium;
+        margin: $sp-small $sp-medium;
 
         @media (min-width: $breakpoint-navigation-threshold + 1) {
           display: none;
@@ -47,21 +74,15 @@
       }
     }
 
-    @media (max-width: $breakpoint-navigation-threshold) {
-      &:target &__toggle--close {
-        display: inline-block;
-      }
-    }
-
     &__logo {
+      @include heading-4;
       align-items: center;
       display: flex;
       float: left;
-      font-size: 1.2rem;
-      margin: $sp-medium;
+      margin: $sp-small $sp-x-small;
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
-        margin: .9rem;
+        margin: $sp-x-small ($sp-large - $sp-xx-small);
       }
     }
 
@@ -79,7 +100,13 @@
         // For when this class is applied to something that contains <a>s, e.g.:
         // <li class="p-navigation__list"><a></a></li>
         border-bottom: 0;
-        color: $color-x-light;
+        color: $color-dark;
+        font-size: .93333rem;
+
+        @media (min-width: $breakpoint-navigation-threshold + 1) {
+          color: $text-color;
+          font-size: .875rem;
+        }
       }
 
       &:last-child {
@@ -100,31 +127,37 @@
       }
 
       .p-navigation__link {
-        border-left: 1px solid $color-x-light;
-        padding: $sp-medium;
+        border-left: 1px solid $color-mid-light;
+        padding: $sp-small $sp-x-small;
 
         @media (max-width: $breakpoint-navigation-threshold) {
           background-color: $color-light;
-          border: 0;
-          border-bottom: 1px solid $color-mid-light;
+          border-left: 0;
+          border-top: 1px solid $color-mid-light;
           color: $color-dark;
           text-align: left;
         }
 
-        > a {
-          // For when this class is applied to something that contains <a>s, e.g.:
-          // <li class="p-navigation__list"><a></a></li>
-          @media (max-width: $breakpoint-navigation-threshold) {
-            color: $color-dark;
-          }
+        @media (min-width: $breakpoint-navigation-threshold + 1) {
+          padding: $sp-small ($sp-large - $sp-xx-small);
         }
+      }
 
-        &:last-of-type {
-          border-right: 1px solid $color-x-light;
+      > a {
+        // For when this class is applied to something that contains <a>s, e.g.:
+        // <li class="p-navigation__list"><a></a></li>
+        @media (max-width: $breakpoint-navigation-threshold) {
+          color: $color-dark;
+          display: block;
+        }
+      }
 
-          @media (max-width: $breakpoint-navigation-threshold) {
-            border-bottom: 0;
-          }
+      &:last-of-type {
+        border-right: 1px solid $color-mid-light;
+
+        @media (max-width: $breakpoint-navigation-threshold) {
+          border-bottom: 0;
+          border-right: 0;
         }
       }
     }
@@ -136,8 +169,20 @@
         display: block;
       }
     }
+  }
 
-    &:target &__nav {
+  &:target {
+    .p-navigation__toggle--open {
+      display: none;
+    }
+
+    .p-navigation__toggle--close {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        display: inline-block;
+      }
+    }
+
+    .p-navigation__nav {
       display: block;
     }
   }
