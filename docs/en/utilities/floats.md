@@ -1,5 +1,6 @@
 ---
 title: Floats
+site_title: Floats | Vanilla framework documentation
 ---
 
 # Floats

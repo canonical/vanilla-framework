@@ -1,6 +1,6 @@
 ---
 title: Code snippet
-site_title: Code snippet | Pattern | Vanilla framework documentation
+site_title: Code snippet | Vanilla framework documentation
 ---
 
 # Code snippet
