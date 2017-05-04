@@ -1,5 +1,6 @@
 ---
 title: Links
+site_title: Links | Vanilla framework documentation
 ---
 
 # Links

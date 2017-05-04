@@ -1,5 +1,6 @@
 ---
 title: Forms
+site_title: Forms | Vanilla framework documentation
 ---
 
 # Forms
@@ -70,7 +71,7 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/disabled-input/"
     class="js-example">
     View example of a disabled input
-</a>  
+</a>
 
 ## Validation classes
 

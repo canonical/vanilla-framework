@@ -1,5 +1,6 @@
 ---
 title: Card
+site_title: Cards | Vanilla framework documentation
 ---
 
 # Card

@@ -1,5 +1,6 @@
 ---
 title: Pull quote
+site_title: Pull quote | Vanilla framework documentation
 ---
 
 # Pull quote

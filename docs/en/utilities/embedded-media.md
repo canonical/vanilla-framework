@@ -1,5 +1,6 @@
 ---
 title: Embedded media
+site_title: Embedded media | Vanilla framework documentation
 ---
 
 # Embedded media

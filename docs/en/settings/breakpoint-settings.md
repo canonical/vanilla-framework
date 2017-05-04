@@ -1,5 +1,6 @@
 ---
 title: Breakpoints
+site_title: Breakpoints | Vanilla framework documentation
 ---
 
 # Breakpoints
@@ -38,10 +39,10 @@ Setting  | Default value
 ```
 
 ## Modifying the navigation threshold
-The `$breakpoint-navigation-threshold` is the breakpoint in which the 
-navigation switches from horizontal (large screen) navigation to a burger style 
+The `$breakpoint-navigation-threshold` is the breakpoint in which the
+navigation switches from horizontal (large screen) navigation to a burger style
 menu (small screen).
 
-If you have a large number of menu items, you may consider overriding this 
-value to a large breakpoint so the navigation snaps to a burger menu at a 
+If you have a large number of menu items, you may consider overriding this
+value to a large breakpoint so the navigation snaps to a burger menu at a
 larger breakpoint.

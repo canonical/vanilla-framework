@@ -1,5 +1,6 @@
 ---
 title: Clearfix
+site_title: Clearfix | Vanilla framework documentation
 ---
 
 # Clearfix

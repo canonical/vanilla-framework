@@ -1,5 +1,6 @@
 ---
 title: Grid
+site_title: Grid | Vanilla framework documentation
 ---
 
 # Grid
@@ -27,7 +28,7 @@ To add some space to the left of the column add a `.prefix-[n]` class, where `n`
 
 To add some space to the right add a `.suffix-[n]` class.
 
-By default, prefixes and suffixes only work on top level columns. 
+By default, prefixes and suffixes only work on top level columns.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
     class="js-example">

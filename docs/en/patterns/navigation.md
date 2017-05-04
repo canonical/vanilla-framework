@@ -1,5 +1,6 @@
 ---
 title: Navigation
+site_title: Navigation | Vanilla framework documentation
 ---
 
 Vanilla includes a simple navigation bar that you can add to the top of your

@@ -1,14 +1,15 @@
 ---
 title: Table
+site_title: Tables | Vanilla framework documentation
 ---
 
 # Table
 
-The default Vanilla table adds some padding to the table cells and horizontal 
+The default Vanilla table adds some padding to the table cells and horizontal
 dividers between each row of the table.
 
-We recommend that you align the text in table columns that contain only digits 
-to the right by adding the class ```.u-align--right``` to each individual cell, 
+We recommend that you align the text in table columns that contain only digits
+to the right by adding the class ```.u-align--right``` to each individual cell,
 as in the example that follows. This is considered good practice when formatting
  data tables as it makes it easier to scan and compare the values quickly.
 

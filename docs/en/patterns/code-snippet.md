@@ -1,5 +1,6 @@
 ---
 title: Code snippet
+site_title: Code snippet | Vanilla framework documentation
 ---
 
 # Code snippet
