@@ -1,5 +1,6 @@
 ---
 title: Form validation
+site_title: Form validation | Vanilla framework documentation
 ---
 
 # Error / Caution / Success states

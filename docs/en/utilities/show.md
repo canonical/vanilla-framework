@@ -1,5 +1,6 @@
 ---
 title: Show
+site_title: Show | Vanilla framework documentation
 ---
 
 # Show

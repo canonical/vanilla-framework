@@ -1,5 +1,6 @@
 ---
 title: Buttons
+site_title: Buttons | Vanilla framework documentation
 ---
 
 # Buttons

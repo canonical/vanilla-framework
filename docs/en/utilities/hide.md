@@ -1,5 +1,6 @@
 ---
 title: Hide
+site_title: Hide | Vanilla framework documentation
 ---
 
 # Hide

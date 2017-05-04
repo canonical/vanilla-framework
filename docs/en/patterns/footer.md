@@ -1,10 +1,11 @@
 ---
 title: Footer
+site_title: Footer | Vanilla framework documentation
 ---
 
 # Footer
 
-You can use this simple footer pattern to display copyright notices and a selection of links. 
+You can use this simple footer pattern to display copyright notices and a selection of links.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/footer/"
     class="js-example">

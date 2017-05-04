@@ -1,13 +1,14 @@
 ---
 title: Typography
+site_title: Typography | Vanilla framework documentation
 ---
 
 # Typography
 
 All text in Vanilla uses the Ubuntu typeface.
 
-Vanilla's typographic scale has a base font size of 15 pixels (screens smaller than 768 pixels) 
-and a font weight of 300.  At the medium breakpoint, the base font size increases to 16 
+Vanilla's typographic scale has a base font size of 15 pixels (screens smaller than 768 pixels)
+and a font weight of 300.  At the medium breakpoint, the base font size increases to 16
 pixels.
 
 ## Typographic scale
@@ -52,12 +53,12 @@ pixels.
 
 ## Heading classes
 
-Heading classes can be added to text elements to give them the same visual 
-appearance as the base h1-h6 heading elements without sacrificing correct 
+Heading classes can be added to text elements to give them the same visual
+appearance as the base h1-h6 heading elements without sacrificing correct
 heading order and semantics.
 
-Heading classes are not tied to elements and can be freely mixed, for example 
-you can apply the `p-heading--one` class to an `h3` element if that better 
+Heading classes are not tied to elements and can be freely mixed, for example
+you can apply the `p-heading--one` class to an `h3` element if that better
 suits your document style and tree.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/mixed/"
@@ -85,7 +86,7 @@ Use an unordered list when the order of the items isn't important.
 
 ## Description list
 
-Use a description list when you want to list a group of one or more terms and 
+Use a description list when you want to list a group of one or more terms and
 descriptions.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/lists/definition-list/"

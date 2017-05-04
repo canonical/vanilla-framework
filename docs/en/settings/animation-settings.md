@@ -1,8 +1,9 @@
 ---
 title: Animations
+site_title: Animations | Vanilla framework documentation
 ---
 
-Vanilla has a cross matrix of duration and easing that can be used to apply 
+Vanilla has a cross matrix of duration and easing that can be used to apply
 animation to components.
 
 ## Durations
@@ -11,8 +12,8 @@ Vanilla uses a range of animation durations to dictate the time in which an
 animation should complete. These values are stored within a map named
 `$animation-duration`.
 
-Components that animate statically, like a button that changes background 
-color, tend to have a shorter duration than components with motion 
+Components that animate statically, like a button that changes background
+color, tend to have a shorter duration than components with motion
 animation.
 
 Setting  | Default value

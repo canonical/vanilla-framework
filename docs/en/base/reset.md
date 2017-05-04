@@ -1,5 +1,6 @@
 ---
 title: Reset
+site_title: Reset | Vanilla framework documentation
 ---
 
 # Reset

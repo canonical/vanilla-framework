@@ -1,5 +1,6 @@
 ---
 title: Code
+site_title: Code | Vanilla framework documentation
 ---
 
 # Code

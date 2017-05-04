@@ -1,5 +1,6 @@
 ---
 title: Align
+site_title: Align | Vanilla framework documentation
 ---
 
 # Align

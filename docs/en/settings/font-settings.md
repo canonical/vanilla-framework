@@ -1,5 +1,6 @@
 ---
 title: Font
+site_title: Font | Vanilla framework documentation
 ---
 
 # Font
