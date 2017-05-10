@@ -55,22 +55,14 @@
   }
 
   html {
-    font-size: calc(#{$font-base-size} * .9375);
-
-    @media screen and (min-width: $breakpoint-medium) {
-      font-size: $font-base-size;
-    }
+    font-size: $font-base-size;
   }
 
   body {
     color: $color-dark;
     font-family: unquote($font-base-family);
     font-weight: 300;
-    line-height: 1.6;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      line-height: 1.5;
-    }
+    line-height: 1.5;
   }
 
   /// Base typography
@@ -84,23 +76,13 @@
   [class^="p-heading--"] {
     font-family: unquote($font-heading-family);
     font-weight: 300;
-    margin-bottom: 1.2rem;
+    margin-bottom: $sp-large;
     margin-top: 0;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      margin-bottom: $sp-large;
-      margin-top: 0;
-    }
   }
 
   p {
-    margin-bottom: 1.2rem;
+    margin-bottom: $sp-large;
     margin-top: 0;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      margin-bottom: $sp-large;
-      margin-top: 0;
-    }
   }
 
   button,
@@ -144,11 +126,7 @@
   p + h3,
   pre + h3,
   ul + h3 {
-    margin-top: $sp-large;
-
-    @media only screen and (min-width: $breakpoint-medium)  {
-      margin-top: 1.6rem;
-    }
+    margin-top: 1.6rem;
   }
 
   // lists
@@ -180,21 +158,13 @@
     > p {
       font-size: $sp-medium;
       font-style: italic;
-      margin-bottom: .8rem;
-
-      @media only screen and (min-width: $breakpoint-medium)  {
-        margin-bottom: $sp-small;
-      }
+      margin-bottom: $sp-small;
     }
 
     > cite {
       font-size: $sp-medium;
       font-style: normal;
-      margin-top: .8rem;
-
-      @media only screen and (min-width: $breakpoint-medium)  {
-        margin-top: $sp-small;
-      }
+      margin-top: $sp-small;
     }
   }
 
@@ -225,13 +195,8 @@
 }
 
 @mixin heading-1 {
-  font-size: 2.134rem;
-  line-height: 1.125;
-
-  @media only screen and (min-width: $breakpoint-medium)  {
-    font-size: $sp-xx-large;
-    line-height: 1.2;
-  }
+  font-size: $sp-xx-large;
+  line-height: 1.2;
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: $sp-xxx-large;
@@ -240,13 +205,8 @@
 }
 
 @mixin heading-2 {
-  font-size: 1.734rem;
-  line-height: 1.154;
-
-  @media only screen and (min-width: $breakpoint-medium)  {
-    font-size: $sp-x-large;
-    line-height: 1.25;
-  }
+  font-size: $sp-x-large;
+  line-height: 1.25;
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: 2.25rem;
@@ -255,13 +215,8 @@
 }
 
 @mixin heading-3 {
-  font-size: 1.534rem;
-  line-height: 1.305;
-
-  @media only screen and (min-width: $breakpoint-medium)  {
-    font-size: 1.625rem;
-    line-height: 1.154;
-  }
+  font-size: 1.625rem;
+  line-height: 1.154;
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: 1.75rem;
@@ -270,13 +225,8 @@
 }
 
 @mixin heading-4 {
-  font-size: 1.334rem;
-  line-height: 1.2;
-
-  @media only screen and (min-width: $breakpoint-medium)  {
-    font-size: 1.375rem;
-    line-height: 1.364;
-  }
+  font-size: 1.375rem;
+  line-height: 1.364;
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: $sp-large;
@@ -285,13 +235,8 @@
 }
 
 @mixin heading-5 {
-  font-size: 1.2rem;
-  line-height: 1.334;
-
-  @media only screen and (min-width: $breakpoint-medium)  {
-    font-size: 1.188rem;
-    line-height: 1.264;
-  }
+  font-size: 1.188rem;
+  line-height: 1.264;
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: 1.313rem;
@@ -300,14 +245,8 @@
 }
 
 @mixin heading-6 {
-  font-size: 1.067rem;
-  line-height: 1.125;
+  font-size: 1.063rem;
+  line-height: 1.412;
   margin-bottom: 1.2rem;
-  margin-top: 1.2rem;
-
-  @media only screen and (min-width: $breakpoint-medium) {
-    font-size: 1.063rem;
-    line-height: 1.412;
-    margin-top: $sp-large;
-  }
+  margin-top: $sp-large;
 }
