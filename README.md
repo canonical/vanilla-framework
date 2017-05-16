@@ -56,34 +56,22 @@ If you don't want the whole framework, you can just `@include` specific [parts](
 
 ## Vanilla local development
 
-To develop on Vanilla itself, simply pull down the project and make changes.
-
-To test it locally using our recommended tooling, you need to first install dependencies:
-
-You need to have bundler installed:
+The simplest way to run Vanilla framework is to first [install Docker](https://docs.docker.com/engine/installation/), add your user to the `docker` group, and then use the `./run` script:
 
 ``` bash
-gem install bundler
+./run
 ```
 
-You need to have node and npm. To install follow the [installation instructions](https://docs.npmjs.com/getting-started/installing-node) on this page.
+Once the containers are setup, you can visit <http://0.0.0.0:8000/vanilla-framework/> in your browser.
+
+### Building CSS
+
+For working on Sass files, you may want to dynamically watch for changes to rebuild the CSS whenever something changes.
+
+To setup the watcher, run:
 
 ``` bash
-bundle install
-```
-
-Finally, [install Docker](https://docs.docker.com/engine/installation/).
-
-You can then compile your Sass changes into `build/css/build.css` by running:
-
-``` bash
-./run build
-```
-
-Or you can run a local server to view your changes live with:
-
-``` bash
-gulp jekyll
+./run watch
 ```
 
 ## Building documentation pages

@@ -7,12 +7,13 @@ install:
   - gem install jekyll
   - gem install percy-cli
   - gem install sass
+  - bundle install
   - npm install
 before_script:
-  - node_modules/gulp/bin/gulp.js build
+  - npm run build
 script:
-  - jekyll build
-  - node_modules/gulp/bin/gulp.js test
+  - npm run test
+  - npm run build-examples
   - percy snapshot --widths "375,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
   - sass --no-cache --sourcemap=none scss/build.scss build/css/build.css
 notifications:
