@@ -18,7 +18,7 @@ When committing changes, make sure to group related changes so that the project 
 
 ### Running tests locally
 
-Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests, run `gulp test`.
+Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests, run `./run test`.
 
 ## Licenses
 
