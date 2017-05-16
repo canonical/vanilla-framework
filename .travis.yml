@@ -9,7 +9,7 @@ install:
   - gem install sass
   - npm install
 before_script:
-  - node_modules/gulp/bin/gulp.js build
+  - npm run build
 script:
   - node_modules/gulp/bin/gulp.js test
   - percy snapshot --widths "375,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
