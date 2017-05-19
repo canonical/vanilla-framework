@@ -56,23 +56,25 @@ If you don't want the whole framework, you can just `@include` specific [parts](
 
 ## Vanilla local development
 
-The simplest way to run Vanilla framework is to first [install Docker](https://docs.docker.com/engine/installation/), add your user to the `docker` group, and then use the `./run` script:
+The simplest way to run Vanilla framework is to first [install Docker](https://docs.docker.com/engine/installation/) (Linux users may need to [add your user to the `docker` group](https://docs.docker.com/engine/installation/linux/linux-postinstall/)), and then use the `./run` script to build the site:
 
 ``` bash
-./run
+./run build  # Build the CSS into the ./build/ directory
+# or
+./run watch  # Dynamically watch for changes to the Sass files and build automatically
 ```
 
-Once the containers are setup, you can visit <http://0.0.0.0:8000/vanilla-framework/> in your browser.
+### Viewing patterns in the browser
 
-### Building CSS
+The [examples directory](https://github.com/vanilla-framework/vanilla-framework/tree/develop/examples) contains example markup for each component of the framework.
 
-For working on Sass files, you may want to dynamically watch for changes to rebuild the CSS whenever something changes.
-
-To setup the watcher, run:
+To view these examples in the browser, run the local server with:
 
 ``` bash
-./run watch
+./run serve
 ```
+
+Once the containers are setup, you can visit <http://0.0.0.0:8004/vanilla-framework/> in your browser to see the examples.
 
 ## Building documentation pages
 
@@ -98,3 +100,4 @@ Keep up to date with all new developments and upcoming changes with Vanilla.
 Code licensed [LGPLv3](http://opensource.org/licenses/lgpl-3.0.html) by [Canonical Ltd](http://www.canonical.com/)
 
 With ♥ from Canonical
+
