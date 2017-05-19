@@ -14,8 +14,8 @@
 set -euo pipefail
 
 # Define the versions of the two docker images
-bundler_image="canonicalwebteam/bundler:v0.1.1"
-yarn_image="canonicalwebteam/yarn:v0.3.1"
+bundler_image="canonicalwebteam/bundler:v0.1.2"
+node_image="canonicalwebteam/node:v0.1.0"
 
 USAGE="Usage
 ===
@@ -34,7 +34,7 @@ Commands
 - build: Run \`yarn run build\`
 - test: Run \`yarn run test\`
 - stop: Stop any running containers
-- yarn <args>: Run yarn
+- node <args>: Run a command in the node container
 - clean: Remove all images and containers, any installed dependencies and the .docker-project file
 - clean-cache: Empty cache files, which are saved between projects (eg, yarn)
 "
@@ -73,7 +73,7 @@ fi
 
 # Settings
 module_volumes=()
-yarn_cache_volume="${CANONICAL_WEBTEAM_YARN_CACHE_VOLUME:-canonical-webteam-yarn-cache}"
+node_cache_volume="${CANONICAL_WEBTEAM_NODE_CACHE_VOLUME:-canonical-webteam-node-cache}"
 [ -t 1 ] && tty="--tty --interactive" || tty=""           # Do we have a terminal?
 [ -f .env ] && env_file="--env-file .env" || env_file=""  # Do we have an env file?
 
@@ -164,26 +164,32 @@ bundler_run () {
 }
 
 
-yarn_run () {
-    # Standard options for running yarn
+node_run () {
+    # Standard options for running node commands
     container_name="${1}"
     command="${2:-}"
     extra_options="${3:-}"
 
-    # Run "yarn" from the "node" image
+    # Run a command in the "node" image
     run_as_user "${container_name}"  \
-        --volume ${yarn_cache_volume}:/home/shared/.cache/yarn/  `# Bind yarn cache to volume` \
+        --volume ${node_cache_volume}:/home/shared/.cache/  `# Bind cache to volume` \
         ${module_volumes[@]+"${module_volumes[@]}"}  `# Add any override modules as volumes`  \
         ${extra_options}                             `# Extra options`  \
-        ${yarn_image} ${command}                     `# Run command in yarn image`
+        ${node_image} ${command}                     `# Run command in node image`
 }
 
-yarn_install () {
+node_install () {
+    # Install bower dependencies, if we need to
+    if [ -f "bower.json" ]; then
+        node_run "${project}-bower-install" "bower install"
+    fi
+
     # Install yarn dependencies, without module overrides
-    run_as_user "${project}-install" \
-        --volume ${yarn_cache_volume}:/home/shared/.cache/yarn/  `# Bind yarn cache to volume` \
-        ${yarn_image} install  `# Install yarn dependencies`
+    run_as_user "${project}-yarn-install" \
+        --volume ${node_cache_volume}:/home/shared/.cache/  `# Bind yarn cache to volume` \
+        ${node_image} yarn install  `# Install yarn dependencies`
 }
+
 
 
 # Find current run command
@@ -193,7 +199,7 @@ if [[ -n "${run_command}" ]]; then shift; fi
 # Do the real business
 case $run_command in
     ""|"serve")
-        yarn_install
+        node_install
 
         # Read optional arguments
         detach=""
@@ -214,12 +220,12 @@ case $run_command in
             shift
         done
 
-        yarn_run "${project}-build" "run build"
+        node_run "${project}-build" "yarn run build"
 
         # Run watch command in the background
         if ${run_watcher}; then
             if [ -z "${detach}" ];  then trap "kill_container ${project}-watch" EXIT; fi
-            yarn_run "${project}-watch" "run watch" "--detach"  # Run watch in the background
+            node_run "${project}-watch" "yarn run watch" "--detach"  # Run watch in the background
         fi
 
         
@@ -251,23 +257,23 @@ case $run_command in
             bundler_run "${project}-watch-site" "jekyll build --watch" "--detach"  # Run site watcher in the background
         fi
         
-        yarn_install
-        yarn_run "${project}-build" "run build"
-        yarn_run "${project}-watch" "run watch"
+        node_install
+        node_run "${project}-build" "yarn run build"
+        node_run "${project}-watch" "yarn run watch"
     ;;
     "build")
-        yarn_install
-        yarn_run "${project}-build" "run build"
+        node_install
+        node_run "${project}-build" "yarn run build"
         bundler_run "${project}-build-site" "jekyll build"
     ;;
     "test")
-        yarn_install
-        yarn_run "${project}-yarn-test" "run test"
+        node_install
+        node_run "${project}-yarn-test" "yarn run test"
         
     ;;
     "clean")
         echo "Running 'clean' yarn script"
-        yarn_run "${project}-clean" "run clean" || true  # Run the clean script
+        node_run "${project}-clean" "yarn run clean" || true  # Run the clean script
 
         echo "Removing all containers, volumes and networks for project: ${project}"
         project_containers="$(docker ps --all --quiet --filter name=${project})"
@@ -281,12 +287,12 @@ case $run_command in
         rm -rf .docker-project  # Remove the project file
     ;;
     "clean-cache")
-        # Clean yarn cache volume
-        echo "Removing cache volume ${yarn_cache_volume}"
-        containers_using_volume=$(docker ps --quiet --all --filter "volume=canonical-webteam-yarn-cache")
+        # Clean node cache volume
+        echo "Removing cache volume ${node_cache_volume}"
+        containers_using_volume=$(docker ps --quiet --all --filter "volume=${node_cache_volume}")
         if [ -n "${containers_using_volume}" ]; then docker rm --force ${containers_using_volume}; fi
-        docker volume rm --force ${yarn_cache_volume}
+        docker volume rm --force ${node_cache_volume}
     ;;
-    "yarn") yarn_run "${project}-yarn-$(date +'%s')" "${@}" ;;
+    "node") node_run "${project}-node-$(date +'%s')" "${@}" ;;
     *) invalid "Command '${run_command}' not recognised." ;;
 esac
