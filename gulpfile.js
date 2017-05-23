@@ -28,3 +28,5 @@ gulp.task('develop', ['watch', 'sass:develop']);
 gulp.task('jekyll', ['watch', 'sass:develop', 'jekyll:serve']);
 gulp.task('test', ['lint:sass', 'lint:spellcheck']);
 gulp.task('build', ['lint:sass', 'sass:build']);
+gulp.task('build-examples', ['jekyll:build']);
+
