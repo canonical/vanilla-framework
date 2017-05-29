@@ -1,6 +1,5 @@
 @mixin p-card {
   background: $color-x-light;
-  border: 1px solid $color-mid-light;
   border-radius: 2px;
   margin-bottom: $sp-medium;
   padding: 1.333rem;
@@ -29,6 +28,7 @@
 
   .p-card {
     @include p-card;
+    border: 1px solid $color-mid-light;
 
     & & {
       margin-bottom: 0;
@@ -37,7 +37,6 @@
 
   .p-card--highlighted {
     @include p-card;
-    border: 0;
     box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
   }
 }
