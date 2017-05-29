@@ -52,7 +52,26 @@ $color-brand: #ffffff;
 // Add theme if applicable
 ```
 
-If you don't want the whole framework, you can just `@include` specific [parts](scss) - e.g. `@include vf-b-forms`.
+### Advanaced usage: Modular inclusion
+
+If you don't want the whole framework, you can just `@include` specific [parts](scss) on the framework. To do so import the pattern and include it.
+
+For example, the following the will include the base typography styles, card pattern and button pattern.
+
+``` sass
+// Base
+@import 'vanilla-framework/scss/base_typography';
+
+// Patterns
+@import
+'vanilla-framework/scss/patterns_card',
+'vanilla-framework/scss/patterns_buttons';
+
+// Vanilla base styles
+@include vf-b-typography;
+@include vf-p-card;
+@include vf-p-buttons;
+```
 
 ## Vanilla local development
 
