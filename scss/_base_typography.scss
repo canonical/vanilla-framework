@@ -121,6 +121,65 @@
     line-height: 1.5;
   }
 
+  // Base vertical spacing
+  * {
+    + * {
+      margin-top: 1.25rem;
+
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 1.75rem;
+      }
+
+      @media screen and (min-width: #{$breakpoint-large}) {
+        margin-top: $sp-x-large;
+      }
+    }
+
+    + h1 {
+      margin-top: $sp-x-large;
+
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 3.25rem;
+      }
+
+      @media screen and (min-width: #{$breakpoint-large}) {
+        margin-top: 3.75rem;
+      }
+    }
+
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      margin-top: $sp-large;
+
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 1.75rem;
+      }
+
+      @media screen and (min-width: #{$breakpoint-large}) {
+        margin-top: $sp-x-large;
+      }
+    }
+
+    + h2,
+    + h3,
+    + h4 {
+      + * {
+        margin-top: $sp-x-small;
+
+        @media screen and (min-width: #{$breakpoint-medium}) {
+          margin-top: $sp-small;
+        }
+
+        @media screen and (min-width: #{$breakpoint-large}) {
+          margin-top: $sp-medium;
+        }
+      }
+    }
+  }
+
   /// Base typography
   /// @section type
   h1,
@@ -135,8 +194,43 @@
     margin-bottom: 0;
   }
 
+  h1 {
+    + * {
+      margin-top: $sp-medium;
+
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 1.25rem;
+      }
+
+      @media screen and (min-width: #{$breakpoint-large}) {
+        margin-top: $sp-large;
+      }
+    }
+  }
+
+  h5,
+  h6 {
+    + * {
+      margin-top: $sp-x-small;
+
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: $sp-small;
+      }
+    }
+  }
+
   p {
     margin-bottom: 0;
+  }
+
+  p {
+    + p {
+      margin-top: $sp-medium;
+
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: $sp-large;
+      }
+    }
   }
 
   button,
