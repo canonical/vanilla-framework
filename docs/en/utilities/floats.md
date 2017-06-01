@@ -11,7 +11,7 @@ The float utilities allow you to float an element left or right.
 ## All screens
 
 You can use the following to float an element on left or right on all screen
-izes.
+sizes.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/floats/default/"
     class="js-example">
