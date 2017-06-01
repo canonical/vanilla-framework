@@ -232,8 +232,13 @@
 }
 
 @mixin heading-1 {
-  font-size: $sp-xx-large;
+  font-size: $sp-x-large;
   line-height: 1.2;
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    font-size: $sp-xx-large;
+    line-height: 1.2;
+  }
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: $sp-xxx-large;
@@ -242,8 +247,13 @@
 }
 
 @mixin heading-2 {
-  font-size: $sp-x-large;
+  font-size: 1.75rem;
   line-height: 1.25;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    font-size: $sp-x-large;
+    line-height: 1.25;
+  }
 
   @media only screen and (min-width: $breakpoint-large) {
     font-size: 2.25rem;
