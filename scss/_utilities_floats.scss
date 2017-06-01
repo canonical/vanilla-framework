@@ -1,10 +1,58 @@
 // Float utilities
 @mixin vf-u-floats {
-  .u-float--right {
-    float: right !important;
+  @include deprecate('2.0.0', 'Use .u-float-right instead') {
+    .u-float--right {
+      float: right !important;
+    }
   }
 
-  .u-float--left {
+  @include deprecate('2.0.0', 'Use .u-float-left instead') {
+    .u-float--left {
+      float: left !important;
+    }
+  }
+
+  .u-float-right {
+    float: right !important;
+
+    &--small {
+      @media (max-width: $breakpoint-small) {
+        float: right !important;
+      }
+    }
+
+    &--medium {
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+        float: right !important;
+      }
+    }
+
+    &--large {
+      @media (min-width: $breakpoint-large) {
+        float: right !important;
+      }
+    }
+  }
+
+  .u-float-left {
     float: left !important;
+
+    &--small {
+      @media (max-width: $breakpoint-small) {
+        float: left !important;
+      }
+    }
+
+    &--medium {
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+        float: left !important;
+      }
+    }
+
+    &--large {
+      @media (min-width: $breakpoint-large) {
+        float: left !important;
+      }
+    }
   }
 }
