@@ -1,25 +1,26 @@
 @mixin vf-vertical-rhythm {
   * {
     + * {
-      margin-top: $sp-x-large;
+      margin-top: $sp-medium;
 
-      @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: $sp-large;
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 1.75rem;
       }
-      @media screen and (max-width: #{$breakpoint-small}) {
-        margin-top: $sp-medium;
+
+      @media screen and (min-width: #{$breakpoint-large}) {
+        margin-top: $sp-x-large;
       }
     }
 
     + h1 {
-      margin-top: 3.75rem;
+      margin-top: $sp-x-large;
 
-      @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: 3.25rems;
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 3.25rem;
       }
 
-      @media screen and (max-width: #{$breakpoint-small}) {
-        margin-top: $sp-x-large;
+      @media screen and (min-width: #{$breakpoint-large}) {
+        margin-top: 3.75rem;
       }
     }
 
@@ -30,11 +31,11 @@
     + h6 {
       margin-top: $sp-x-large;
 
-      @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: 3.25rems;
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 1.75rem;
       }
 
-      @media screen and (max-width: #{$breakpoint-small}) {
+      @media screen and (min-width: #{$breakpoint-large}) {
         margin-top: $sp-x-large;
       }
     }
@@ -43,31 +44,28 @@
     + h3,
     + h4 {
       + * {
-        margin-top: $sp-medium;
+        margin-top: $sp-small;
+
+        @media screen and (min-width: #{$breakpoint-medium}) {
+          margin-top: $sp-small;
+        }
+
+        @media screen and (min-width: #{$breakpoint-large}) {
+          margin-top: $sp-medium;
+        }
       }
     }
   }
 
   h1 {
     + * {
-      margin-top: $sp-large;
+      margin-top: $sp-small;
 
-      @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: $sp-medium;
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: 1.25rem;
       }
-      @media screen and (max-width: #{$breakpoint-small}) {
-        margin-top: $sp-small;
-      }
-    }
-
-    + h1 {
-      margin-top: $sp-xxx-large;
-
-      @media screen and (max-width: #{$breakpoint-medium}) {
+      @media screen and (min-width: #{$breakpoint-large}) {
         margin-top: $sp-large;
-      }
-      @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: $sp-medium;
       }
     }
   }
@@ -81,10 +79,10 @@
 
   p {
     + p {
-      margin-top: $sp-large;
+      margin-top: $sp-medium;
 
-      @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: $sp-medium;
+      @media screen and (min-width: #{$breakpoint-medium}) {
+        margin-top: $sp-large;
       }
     }
   }
