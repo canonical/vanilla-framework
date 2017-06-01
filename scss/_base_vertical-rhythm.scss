@@ -2,6 +2,7 @@
   * {
     + * {
       margin-top: $sp-x-large;
+
       @media screen and (max-width: #{$breakpoint-medium}) {
         margin-top: $sp-large;
       }
@@ -27,12 +28,22 @@
     + h4,
     + h5,
     + h6 {
-      margin-top: $sp-xx-large;
+      margin-top: $sp-x-large;
+
       @media screen and (max-width: #{$breakpoint-medium}) {
-        margin-top: $sp-xx-large;
+        margin-top: 3.25rems;
       }
+
       @media screen and (max-width: #{$breakpoint-small}) {
-        margin-top: $sp-large;
+        margin-top: $sp-x-large;
+      }
+    }
+
+    + h2,
+    + h3,
+    + h4 {
+      + * {
+        margin-top: $sp-medium;
       }
     }
   }
@@ -40,6 +51,7 @@
   h1 {
     + * {
       margin-top: $sp-large;
+
       @media screen and (max-width: #{$breakpoint-medium}) {
         margin-top: $sp-medium;
       }
@@ -50,6 +62,7 @@
 
     + h1 {
       margin-top: $sp-xxx-large;
+
       @media screen and (max-width: #{$breakpoint-medium}) {
         margin-top: $sp-large;
       }
@@ -67,9 +80,9 @@
   }
 
   p {
-
     + p {
       margin-top: $sp-large;
+
       @media screen and (max-width: #{$breakpoint-medium}) {
         margin-top: $sp-medium;
       }
@@ -87,6 +100,19 @@
       > ol {
         margin-top: $sp-x-small;
       }
+    }
+  }
+
+  form {
+    > input {
+      margin-top: $sp-x-small;
+    }
+
+    > label,
+    > input[type="checkbox"],
+    > button,
+    > input[type="submit"] {
+      margin-top: $sp-medium;
     }
   }
 }
