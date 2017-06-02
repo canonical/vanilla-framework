@@ -138,26 +138,23 @@
   }
 
   form {
-    > * {
-      margin-top: $sp-x-small !important;
-    }
-
-    fieldset,
-    div {
-      > * {
-        margin-top: $sp-x-small;
-      }
-    }
-
-    > input {
+    + * {
       margin-top: $sp-x-small;
     }
 
-    > label,
-    > input[type="checkbox"],
-    > input[type="radio"],
-    > button,
-    > input[type="submit"] {
+    * + input {
+      margin-top: $sp-small;
+    }
+
+    * + label {
+      margin-top: 1.25rem;
+    }
+
+    + label,
+    + input[type="checkbox"],
+    + input[type="radio"],
+    + button,
+    + input[type="submit"] {
       margin-top: $sp-medium;
     }
   }
