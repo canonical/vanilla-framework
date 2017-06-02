@@ -8,7 +8,7 @@
 
 // Mixin for list items
 @mixin list-item {
-  margin-bottom: 0;
+  margin-top: 0;
   padding-bottom: .63rem;
   padding-top: .63rem;
 }
@@ -144,11 +144,16 @@
 
     &__title {
       position: relative;
+
+      + * {
+        margin-top: 0;
+      }
     }
 
     &__item {
       clear: both;
       margin-left: 0;
+      margin-top: $sp-large;
       width: 100%;
 
       &:first-child {
