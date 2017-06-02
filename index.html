@@ -29,7 +29,7 @@ title: Home
                 {% for page in sortedpages %}
                   {% assign pageitems = page | split: '#' %}
                   {% if pageitems[1] contains '/base/' %}
-                    <li>
+                    <li class="p-list__item">
                       <a href="{{ pageitems[1] | prepend:site.baseurl }}"
                         class="p-link--soft">
                         {{ pageitems[0] }}
@@ -47,7 +47,7 @@ title: Home
                   {% for page in sortedpages %}
                     {% assign pageitems = page | split: '#' %}
                     {% if pageitems[1] contains '/patterns/' %}
-                      <li>
+                      <li class="p-list__item">
                         <a href="{{ pageitems[1] | prepend:site.baseurl }}"
                           class="p-link--soft">
                           {{ pageitems[0] }}
@@ -65,7 +65,7 @@ title: Home
                 {% for page in sortedpages %}
                   {% assign pageitems = page | split: '#' %}
                   {% if pageitems[1] contains '/utilities/' %}
-                  <li>
+                  <li class="p-list__item">
                     <a href="{{ pageitems[1] | prepend:site.baseurl }}"
                       class="p-link--soft">
                       {{ pageitems[0] }}
