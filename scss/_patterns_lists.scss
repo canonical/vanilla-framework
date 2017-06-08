@@ -137,13 +137,16 @@
 // Displays a step by step list of instructions
 @mixin vf-p-stepped-list {
   .p-list-step {
-    @extend %clearfix;
     list-style: none;
     margin-left: $grid-gutter-width * 3;
     padding: 0;
 
     &__title {
       position: relative;
+
+      @media only screen and (min-width: $breakpoint-large) {
+        margin-bottom: 0;
+      }
     }
 
     &__item {
@@ -153,37 +156,31 @@
 
       &:first-child {
         margin-top: $sp-small;
+
+        @media only screen and (min-width: $breakpoint-large) {
+          margin-top: 0;
+        }
       }
     }
-  }
 
-  @media only screen and (min-width: $breakpoint-large) {
-    .p-list-step__item:first-child {
-      margin-top: 0;
-    }
+    &__bullet {
+      background: $color-mid-dark;
+      border-radius: 50%;
+      color: $color-x-light;
+      display: inline-block;
+      font-size: $sp-large;
+      height: 50px;
+      margin-bottom: .625rem;
+      margin-left: -$grid-gutter-width * 3;
+      margin-right: .34375rem;
+      padding: .65rem 0;
+      text-align: center;
+      width: 50px;
 
-    .p-list-step__title {
-      margin-bottom: 0;
-    }
-  }
-
-  .p-list-step__bullet {
-    background: $color-mid-dark;
-    border-radius: 50%;
-    color: $color-x-light;
-    display: inline-block;
-    font-size: $sp-large;
-    height: 50px;
-    margin-bottom: .625rem;
-    margin-left: -$grid-gutter-width * 3;
-    margin-right: .34375rem;
-    padding: .65rem 1.15rem;
-    text-align: center;
-    width: 50px;
-
-    @media only screen and (max-width: $breakpoint-large) {
-      position: absolute;
-      top: -5px;
+      @media only screen and (max-width: $breakpoint-large) {
+        position: absolute;
+        top: -5px;
+      }
     }
   }
 }
