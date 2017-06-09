@@ -13,11 +13,20 @@
   }
 
   figure {
+    margin-left: 0;
     width: 100%;
 
-    caption {
+    @at-root {
+      * + figure {
+        @include default-vertical-spacing;
+      }
+    }
+
+    caption,
+    figcaption {
       display: block;
-      text-align: center;
+      font-style: italic;
+      margin-top: $sp-x-small;
       width: 100%;
     }
   }
