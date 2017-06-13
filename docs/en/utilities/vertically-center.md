@@ -7,7 +7,7 @@ site_title: Vertically center | Vanilla framework documentation
 
 The `.u-vertically-center` class will vertically center the direct child of the element it is placed on.
 
-Note: only effects medium and large screens.
+Note: only affects medium and large screens.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/vertically-center/"
     class="js-example">
