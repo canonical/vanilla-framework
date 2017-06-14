@@ -1,13 +1,8 @@
 @mixin p-card {
   background: $color-x-light;
-  border: 1px solid $color-mid-light;
   border-radius: 2px;
   margin-bottom: $sp-medium;
-  padding: 1.333rem;
-
-  @media (min-width: $breakpoint-medium) {
-    padding: 1.25rem;
-  }
+  padding: 1.25rem;
 
   &__title {
     font-size: $sp-large;
@@ -29,6 +24,7 @@
 
   .p-card {
     @include p-card;
+    border: 1px solid $color-mid-light;
 
     & & {
       margin-bottom: 0;
