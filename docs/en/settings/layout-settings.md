@@ -9,6 +9,6 @@ These settings are used specifically to configure the grid which will determine 
 
 Setting  | Default value
  ------------- | -------------
-`$grid-gutter-widths`   | `20px`
+`$grid-gutter-width`   | `20px`
 `$grid-columns`   | `12`
 `$grid-max-width`   | `1030px`
