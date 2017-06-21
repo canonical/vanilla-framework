@@ -35,11 +35,20 @@ This negative variant should be used to convey information that is critical and 
 
 ## .p-notification--positive
 
-This positive variant should be used to convey information of success or completion.
+This positive variant should be used to convey success or completion.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/positive/"
     class="js-example">
     View example of the positive notification pattern
+</a>
+
+## .p-notification--information
+
+This information variant should be used to convey an information message.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/information/"
+    class="js-example">
+    View example of the information notification pattern
 </a>
 
 ### Adding actions
