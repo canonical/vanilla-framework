@@ -74,7 +74,7 @@ To view these examples in the browser, run the local server with:
 ./run serve
 ```
 
-Once the containers are setup, you can visit <http://0.0.0.0:8004/vanilla-framework/> in your browser to see the examples.
+Once the containers are setup, you can visit <http://0.0.0.0:8101/vanilla-framework/> in your browser to see the examples.
 
 ## Building documentation pages
 
