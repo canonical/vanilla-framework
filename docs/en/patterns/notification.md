@@ -46,7 +46,7 @@ This positive variant should be used to convey success or completion.
 
 This information variant should be used to convey an information message.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/positive/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/information/"
     class="js-example">
     View example of the information notification pattern
 </a>
