@@ -1,7 +1,7 @@
 @mixin vf-b-lists {
   ol,
   ul {
-    margin-bottom: $sp-medium;
+    margin-bottom: 0;
     margin-left: $sp-medium;
     padding-left: $sp-medium;
 
@@ -14,11 +14,26 @@
       list-style: none;
       list-style-image: none;
     }
+
+    li {
+      + li {
+        margin-top: $sp-x-small;
+      }
+
+      > ul,
+      > ol {
+        margin-top: $sp-x-small;
+      }
+    }
   }
 
   li {
     margin: 0 0 $sp-x-small;
     padding: 0;
+  }
+
+  dl {
+    margin-bottom: 0;
   }
 
   dt {

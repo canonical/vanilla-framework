@@ -8,7 +8,7 @@
 
 // Mixin for list items
 @mixin list-item {
-  margin-bottom: 0;
+  margin-top: 0;
   padding-bottom: .63rem;
   padding-top: .63rem;
 }
@@ -57,7 +57,7 @@
     @include list;
 
     &__item {
-      margin-bottom: .6667rem;
+      margin-top: .6667rem;
     }
   }
 }
@@ -142,16 +142,18 @@
     padding: 0;
 
     &__title {
+      margin-top: 0;
       position: relative;
 
-      @media only screen and (min-width: $breakpoint-large) {
-        margin-bottom: 0;
+      + * {
+        margin-top: 0;
       }
     }
 
     &__item {
       clear: both;
       margin-left: 0;
+      margin-top: $sp-large;
       width: 100%;
 
       &:first-child {
