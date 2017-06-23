@@ -29,3 +29,11 @@ The highlighted card should be used when you can interact with the content.
     class="js-example">
     View example of the highlighted card pattern
 </a>
+
+## Optional header and footer
+
+Both cards have styles for a header and footer.
+
+The header will accept either text or an image with a max height of 32 pixels and has a border below.
+
+The footer adds a border above.
