@@ -4,7 +4,10 @@
 
 ## QA
 
-[List of steps to QA the new features or prove the bug has been resolved]
+- Pull code
+- Run `./run serve --watch`
+- Open http://0.0.0.0:8101/vanilla-framework/
+- [Add additional steps]
 
 ## Details
 
