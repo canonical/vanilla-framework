@@ -61,4 +61,22 @@
       }
     }
   }
+
+  // Adds padding to single element rows
+  .row > *:only-child {
+    @include default-vertical-spacing;
+  }
+
+  .row:first-of-type > *:only-child {
+    margin-bottom: 1.25rem;
+    margin-top: 0;
+
+    @media screen and (min-width: #{$breakpoint-medium}) {
+      margin-bottom: 1.75rem;
+    }
+
+    @media screen and (min-width: #{$breakpoint-large}) {
+      margin-bottom: $sp-x-large;
+    }
+  }
 }
