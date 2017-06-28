@@ -63,11 +63,11 @@
   }
 
   // Adds padding to single element rows
-  .row > *:only-child {
+  .row > *:only-child:not([class^="#{$grid-col-name}-"]) {
     @include default-vertical-spacing;
   }
 
-  .row:first-of-type > *:only-child {
+  .row:first-of-type > *:only-child:not([class^="#{$grid-col-name}-"]) {
     margin-bottom: 1.25rem;
     margin-top: 0;
 
