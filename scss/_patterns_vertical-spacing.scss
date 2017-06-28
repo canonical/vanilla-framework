@@ -10,6 +10,19 @@
   }
 }
 
+@mixin default-vertical-spacing-reversed {
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+
+  @media screen and (min-width: #{$breakpoint-medium}) {
+    margin-bottom: 1.75rem;
+  }
+
+  @media screen and (min-width: #{$breakpoint-large}) {
+    margin-bottom: $sp-x-large;
+  }
+}
+
 @mixin vf-p-vertical-spacing {
   * {
     + * {
@@ -63,20 +76,19 @@
   }
 
   // Adds padding to single element rows
-  .row > *:only-child:not([class^="#{$grid-col-name}-"]) {
-    @include default-vertical-spacing;
-  }
-
-  .row:first-of-type > *:only-child:not([class^="#{$grid-col-name}-"]) {
-    margin-bottom: 1.25rem;
-    margin-top: 0;
-
-    @media screen and (min-width: #{$breakpoint-medium}) {
-      margin-bottom: 1.75rem;
+  .row {
+    &:first-of-type > *:only-child {
+      &:not([class^="#{$grid-col-name}-"]),
+      & > *:not([class^="#{$grid-col-name}-"]) {
+        @include default-vertical-spacing-reversed;
+      }
     }
 
-    @media screen and (min-width: #{$breakpoint-large}) {
-      margin-bottom: $sp-x-large;
+    & > *:only-child {
+      &:not([class^="#{$grid-col-name}-"]),
+      & > *:not([class^="#{$grid-col-name}-"]) {
+        @include default-vertical-spacing;
+      }
     }
   }
 }
