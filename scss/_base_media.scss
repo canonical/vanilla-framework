@@ -1,3 +1,5 @@
+@import 'settings';
+
 // Media element styles
 @mixin vf-b-media {
 
@@ -19,7 +21,15 @@
 
     @at-root {
       * + figure {
-        @include default-vertical-spacing;
+        margin-top: 1.25rem;
+
+        @media screen and (min-width: #{$breakpoint-medium}) {
+          margin-top: 1.75rem;
+        }
+
+        @media screen and (min-width: #{$breakpoint-large}) {
+          margin-top: $sp-x-large;
+        }
       }
     }
 
