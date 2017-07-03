@@ -2,21 +2,57 @@
 title: Home
 ---
 
-## A simple extensible CSS framework, written in Sass.
+## Get started
 
-[![Build Status](https://travis-ci.org/vanilla-framework/vanilla-framework.svg?branch=master)](https://travis-ci.org/vanilla-framework/vanilla-framework)
-[![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
-[![Downloads](https://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
-[![devDependency Status](https://david-dm.org/vanilla-framework/vanilla-framework/dev-status.svg)](https://david-dm.org/vanilla-framework/vanilla-framework#info=devDependencies)
-[![Chat in #vanilla-framework on Freenode](https://img.shields.io/badge/chat-%23vanilla--framework-blue.svg)](http://webchat.freenode.net/?channels=vanilla-framework)
+You can use Vanilla in your projects in a few different ways.
 
-Vanilla Framework contains a basic CSS grid and pattern classes, and is designed to be extended either directly or by creating extension themes.
+### Install via npm
 
-Sites created within Canonical should follow this style guide closely, whereas external sites are free to adapt and expand the existing components to their needs.
+The recommended way to get Vanilla is through [npm](https://www.npmjs.com/):
 
-For ways to use Vanilla framework, see [vanilla-framework/vanilla-framework on GitHub](https://github.com/vanilla-framework/vanilla-framework).
+`npm install --save vanilla-framework`
 
-Code licensed [LGPLv3](http://opensource.org/licenses/lgpl-3.0.html) by [Canonical Ltd.](http://www.canonical.com/).
+This will pull down the latest version into your local `node_modules` folder and save it into your project's dependencies in `package.json`.
 
-With ♥ from Canonical.
+Now when you build Sass, make sure to include modules from node_modules. E.g. for [node-sass](https://github.com/sass/node-sass):
+
+`$ node-sass --include-path node_modules {file}.scss {file}.css`
+
+Finally, reference it from your own Sass files, with optional settings:
+
+```
+// Optionally override some settings
+$color-brand: #ffffff;
+
+// Import the theme
+@import 'vanilla-framework/scss/vanilla';
+```
+
+If you don't need the whole framework, you can just include specific parts, e.g. `@include vf-b-forms`.
+
+### Hotlink
+
+Alternatively, you can add Vanilla directly to your markup:
+
+`<link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />`
+
+### Download
+
+Download the latest version of Vanilla from [GitHub](https://github.com/vanilla-framework/vanilla-framework/releases/)
+
+### Local development
+
+To make improvements to Vanilla itself, please follow the instructions on the project’s [README.md](https://github.com/vanilla-framework/vanilla-framework#vanilla-framework).
+
+## Guidelines
+
+If you want to propose new patterns or improvements to Vanilla, make sure to follow these guidelines, which help to keep Vanilla robust and accessible:
+
+- [Accessibility guidelines]()
+- [Browser support]()
+- [Coding standards]()
+
+## Getting help
+
+If you have any questions or get stuck, you can file an issue on [GitHub](https://github.com/vanilla-framework/vanilla-framework/issues/new) or ask us a question on [Twitter](https://twitter.com/vanillaframewrk) or [Slack](https://vanillaframework.slack.com).
 
