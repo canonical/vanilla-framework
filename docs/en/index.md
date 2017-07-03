@@ -8,7 +8,7 @@ You can use Vanilla in your projects in a few different ways.
 
 ### Install via npm
 
-The recommended way to get Vanilla is through npm:
+The recommended way to get Vanilla is through [npm](https://www.npmjs.com/):
 
 `npm install --save vanilla-framework`
 
