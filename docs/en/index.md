@@ -14,7 +14,7 @@ The recommended way to get Vanilla is through npm:
 
 This will pull down the latest version into your local `node_modules` folder and save it into your project's dependencies in `package.json`.
 
-Now when you build Sass, make sure to include modules from node_modules. E.g. for node-sass:
+Now when you build Sass, make sure to include modules from node_modules. E.g. for [node-sass](https://github.com/sass/node-sass):
 
 `$ node-sass --include-path node_modules {file}.scss {file}.css`
 
