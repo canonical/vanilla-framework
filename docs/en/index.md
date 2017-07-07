@@ -10,7 +10,7 @@ You can use Vanilla in your projects in a few different ways.
 
 The recommended way to get Vanilla is through [npm](https://www.npmjs.com/):
 
-`npm install --save vanilla-framework`
+`npm install --save-dev vanilla-framework`
 
 This will pull down the latest version into your local `node_modules` folder and save it into your project's dependencies in `package.json`.
 
