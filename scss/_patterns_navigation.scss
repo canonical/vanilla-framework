@@ -25,6 +25,12 @@
       $border-color: $color-mid-light,
       $text-color: $color-dark
     );
+    border-bottom: 1px solid $color-mid-light;
+
+    // remove double bottom border on open nav
+    &:target .p-navigation__nav .p-navigation__link:last-child {
+      border-bottom: 0;
+    }
   }
 }
 
