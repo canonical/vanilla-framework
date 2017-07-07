@@ -8,30 +8,17 @@
   }
 }
 
-/// mixin for all the buttons
-/// there are sensible defaults, but you can
-/// override colors as desired
-@mixin button-pattern (
-  $button-background-color: $color-x-light,
-  $button-text-color: $color-dark,
-  $button-disabled-background-color: $color-transparent,
-  $button-disabled-border-color: $color-mid-light,
-  $button-border-color: $color-mid-light,
-  $button-hover-background-color: $color-light,
-  $button-hover-border-color: $color-mid-light
-) {
+%button-pattern {
   @include animation(
     $property: background-color,
     $duration: fast,
     $easing: in
   );
-  background-color: $button-background-color;
-  border-color: $button-border-color;
+
   border-radius: .125rem;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  color: $button-text-color;
   cursor: pointer;
   display: inline-block;
   font-family: unquote($font-base-family);
@@ -60,6 +47,36 @@
     width: auto;
   }
 
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:disabled,
+  &.is--disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+}
+
+/// mixin for all the buttons
+/// there are sensible defaults, but you can
+/// override colors as desired
+@mixin button-pattern (
+  $button-background-color: $color-x-light,
+  $button-text-color: $color-dark,
+  $button-disabled-background-color: $color-transparent,
+  $button-disabled-border-color: $color-mid-light,
+  $button-border-color: $color-mid-light,
+  $button-hover-background-color: $color-light,
+  $button-hover-border-color: $color-mid-light
+) {
+  @extend %button-pattern;
+  background-color: $button-background-color;
+  border-color: $button-border-color;
+  color: $button-text-color;
+
   &:visited {
     color: $button-text-color;
   }
@@ -69,13 +86,10 @@
   &:hover {
     background-color: $button-hover-background-color;
     border-color: $button-hover-border-color;
-    text-decoration: none;
   }
 
   &:disabled,
   &.is--disabled {
-    cursor: not-allowed;
-    opacity: .5;
 
     &:active,
     &:focus,
