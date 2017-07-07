@@ -3,13 +3,15 @@
 // Footer pattern styling
 @mixin vf-p-footer {
   .p-footer {
-    border-top: 1px dotted $color-x-dark;
-    font-size: $sp-small;
-    margin-bottom: $sp-medium;
-    padding-top: $sp-small;
+    border-top: 1px solid $color-mid-light;
+    font-size: .875rem;
+    line-height: 1.5;
+    padding-bottom: $sp-medium;
+    padding-top: $sp-medium;
 
     @media (min-width: $breakpoint-medium) {
-      font-size: .8125rem;
+      padding-bottom: $sp-large;
+      padding-top: $sp-large;
     }
 
     &__copy {
@@ -18,12 +20,16 @@
 
     &__links {
       margin: 0;
-      padding: $sp-x-small 0;
+      padding: $sp-small 0 0;
 
       @media (min-width: $breakpoint-medium) {
         margin-top: 0;
-        padding: 0;
+        padding-top: $sp-medium;
       }
+    }
+
+    &__nav {
+      margin-top: 0;
     }
 
     &__item {
@@ -42,7 +48,6 @@
     &__link {
       border-bottom: 0;
       color: $color-dark;
-      font-size: $sp-small;
 
       &:visited {
         color: darken($color-dark, 10%);
@@ -53,16 +58,16 @@
       }
 
       @media (min-width: $breakpoint-medium) {
-        font-size: .8125rem;
         margin-right: $sp-medium;
+        position: relative;
 
         &::after {
           content: '\00b7'; // Adds a middle dot
           display: inline-block;
           font-size: $sp-large;
-          left: $sp-x-small;
-          position: relative;
-          top: .2rem;
+          position: absolute;
+          right: -.75rem;
+          top: -.65rem;
         }
       }
 
