@@ -81,14 +81,14 @@
   .row {
     &:first-of-type > *:only-child {
       &:not([class^="#{$grid-col-name}-"]),
-      & > *:not([class^="#{$grid-col-name}-"]) {
+      & > *:only-child:not([class^="#{$grid-col-name}-"]) {
         @include default-vertical-spacing-reversed;
       }
     }
 
     & > *:only-child {
       &:not([class^="#{$grid-col-name}-"]),
-      & > *:not([class^="#{$grid-col-name}-"]) {
+      & > *:only-child:not([class^="#{$grid-col-name}-"]) {
         @include default-vertical-spacing;
       }
     }
