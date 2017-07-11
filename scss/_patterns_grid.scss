@@ -10,18 +10,25 @@ $shelves-tablet-breakpoint: $breakpoint-medium;
 $shelves-mobile-breakpoint: $breakpoint-small;
 $shelves-column-name: $grid-col-name;
 
-@import
-'grid/shelves',
-'grid/shelves-grid';
+@import 'grid/shelves-grid';
 
-// Add vertical padding to add spacing when columns stack on small screens.
-[class*="col-"],
-.row {
-  margin-top: 0;
-}
+@mixin vf-p-grid-modifications {
 
-@include on-tablet-down {
-  [class*="col-"] + [class*="col-"] {
-    margin-top: $grid-gutter-width;
+  // Add vertical padding to add spacing when columns stack on small screens.
+  [class*="col-"],
+  .row {
+    margin-top: 0;
+  }
+
+  @include on-tablet-down {
+    [class*="col-"] + [class*="col-"] {
+      margin-top: $grid-gutter-width;
+    }
+  }
+
+  // Demo helper
+  [grid-demo] [class*="col-"]  {
+    background: $color-mid-light;
+    margin-bottom: $sp-medium;
   }
 }
