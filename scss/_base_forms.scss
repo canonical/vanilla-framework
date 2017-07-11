@@ -16,74 +16,73 @@
   }
 
   // Input styles
-  input {
-    &[type='text'],
-    &[type='date'],
-    &[type='datetime'],
-    &[type='datatime-local'],
-    &[type='month'],
-    &[type='time'],
-    &[type='week'],
-    &[type='color'],
-    &[type='number'],
-    &[type='search'],
-    &[type='password'],
-    &[type='email'],
-    &[type='url'],
-    &[type='tel'] {
-      @include input-elements;
-    }
 
-    &[type='file'] {
-      outline: none;
-      width: 100%;
-    }
+  [type='text'],
+  [type='date'],
+  [type='datetime'],
+  [type='datatime-local'],
+  [type='month'],
+  [type='time'],
+  [type='week'],
+  [type='color'],
+  [type='number'],
+  [type='search'],
+  [type='password'],
+  [type='email'],
+  [type='url'],
+  [type='tel'] {
+    @include input-elements;
+  }
 
-    &[type='reset'] {
+  [type='file'] {
+    outline: none;
+    width: 100%;
+  }
+
+  [type='reset'] {
+    display: none;
+  }
+
+  [type='search'] {
+    appearance: none;
+    border-radius: 0;
+
+    // sass-lint:disable no-vendor-prefixes
+    // These vendor prefixes are unique and cannot be added by autoprefixer
+    &::-webkit-search-results-decoration {
       display: none;
     }
 
-    &[type='search'] {
-      appearance: none;
-      border-radius: 0;
-
-      // sass-lint:disable no-vendor-prefixes
-      // These vendor prefixes are unique and cannot be added by autoprefixer
-      &::-webkit-search-results-decoration {
-        display: none;
-      }
-
-      &::-webkit-search-cancel-button {
-        -webkit-appearance: searchfield-cancel-button;
-        cursor: pointer;
-      }
-      // sass-lint:enable no-vendor-prefixes
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: searchfield-cancel-button;
+      cursor: pointer;
     }
+    // sass-lint:enable no-vendor-prefixes
+  }
 
-    // Checkbox and radio inputs
-    &[type='checkbox'],
-    &[type='radio'] {
-      @include tick-elements;
-      min-height: $sp-large;
+  // Checkbox and radio inputs
+  [type='checkbox'],
+  [type='radio'] {
+    @include tick-elements;
+    min-height: $sp-large;
 
-      + label {
-        vertical-align: middle;
-        width: 100%;
-      }
-    }
-
-    &[type='submit'] {
-      background-color: $color-positive;
-      border: 0;
-      color: $color-x-light;
-      padding: $sp-small $sp-large;
-
-      &:hover {
-        background-color: darken($color-positive, 20%);
-        cursor: pointer;
-      }
+    + label {
+      vertical-align: middle;
+      width: 100%;
     }
   }
+
+  [type='submit'] {
+    background-color: $color-positive;
+    color: $color-x-light;
+    padding: $sp-small $sp-large;
+
+    &:hover {
+      background-color: darken($color-positive, 20%);
+      cursor: pointer;
+    }
+  }
+
 
   // Select styles
   select {
