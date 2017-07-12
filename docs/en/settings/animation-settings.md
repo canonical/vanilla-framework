@@ -1,6 +1,5 @@
 ---
-title: Animations
-site_title: Animations | Vanilla framework documentation
+title: Animations settings
 ---
 
 Vanilla has a cross matrix of duration and easing that can be used to apply

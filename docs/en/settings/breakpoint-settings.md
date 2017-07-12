@@ -1,6 +1,5 @@
 ---
-title: Breakpoints
-site_title: Breakpoints | Vanilla framework documentation
+title: Breakpoints settings
 ---
 
 # Breakpoints

@@ -1,6 +1,5 @@
 ---
 title: Vertically center
-site_title: Vertically center | Vanilla framework documentation
 ---
 
 # Vertically center

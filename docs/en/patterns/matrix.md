@@ -1,6 +1,5 @@
 ---
 title: Matrix
-site_title: Matrix | Vanilla framework documentation
 ---
 
 # Matrix

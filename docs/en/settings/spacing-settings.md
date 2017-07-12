@@ -1,6 +1,5 @@
 ---
-title: Spacing
-site_title: Spacing | Vanilla framework documentation
+title: Spacing settings
 ---
 
 # Spacing

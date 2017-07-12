@@ -1,6 +1,5 @@
 ---
 title: Code numbered
-site_title: Code numbered | Vanilla framework documentation
 ---
 
 # Code numbered

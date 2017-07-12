@@ -1,6 +1,5 @@
 ---
 title: Forms
-site_title: Forms | Vanilla framework documentation
 ---
 
 # Forms

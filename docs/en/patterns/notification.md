@@ -1,6 +1,5 @@
 ---
 title: Notification
-site_title: Notification | Vanilla framework documentation
 ---
 
 # Notification

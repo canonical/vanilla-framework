@@ -1,6 +1,5 @@
 ---
 title: Inline images
-site_title: Inline images | Vanilla framework documentation
 ---
 
 # Inline images

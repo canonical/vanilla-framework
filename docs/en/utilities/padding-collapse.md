@@ -1,6 +1,5 @@
 ---
 title: Padding collapse
-site_title: Padding collapse | Vanilla framework documentation
 ---
 
 # Padding collapse

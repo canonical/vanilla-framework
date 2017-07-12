@@ -1,6 +1,5 @@
 ---
 title: Off screen
-site_title: Off screen | Vanilla framework documentation
 ---
 
 # Off screen

@@ -1,6 +1,5 @@
 ---
 title: Footer
-site_title: Footer | Vanilla framework documentation
 ---
 
 # Footer

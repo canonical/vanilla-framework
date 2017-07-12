@@ -1,6 +1,5 @@
 ---
 title: Breadcrumbs
-site_title: Breadcrumbs | Vanilla framework documentation
 ---
 
 # Breadcrumbs

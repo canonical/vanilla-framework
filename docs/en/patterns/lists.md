@@ -1,6 +1,5 @@
 ---
 title: Lists
-site_title: Lists | Vanilla framework documentation
 ---
 
 # Lists

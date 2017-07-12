@@ -1,6 +1,5 @@
 ---
 title: Strip
-site_title: Strip | Vanilla framework documentation
 ---
 
 # Strip
