@@ -1,6 +1,5 @@
 ---
-title: Font
-site_title: Font | Vanilla framework documentation
+title: Font settings
 ---
 
 # Font

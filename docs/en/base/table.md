@@ -1,6 +1,5 @@
 ---
 title: Table
-site_title: Tables | Vanilla framework documentation
 ---
 
 # Table

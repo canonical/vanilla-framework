@@ -1,6 +1,5 @@
 ---
-title: Assets
-site_title: Assets | Vanilla framework documentation
+title: Assets settings
 ---
 
 # Assets

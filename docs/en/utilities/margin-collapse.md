@@ -1,6 +1,5 @@
 ---
 title: Margin collapse
-site_title: Margin collapse | Vanilla framework documentation
 ---
 
 # Margin collapse

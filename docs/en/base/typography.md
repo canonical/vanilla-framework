@@ -1,6 +1,5 @@
 ---
 title: Typography
-site_title: Typography | Vanilla framework documentation
 ---
 
 # Typography

@@ -1,6 +1,5 @@
 ---
 title: Grid
-site_title: Grid | Vanilla framework documentation
 ---
 
 # Grid

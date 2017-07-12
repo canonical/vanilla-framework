@@ -1,6 +1,5 @@
 ---
 title: Equal height
-site_title: Equal height | Vanilla framework documentation
 ---
 
 # Equal height

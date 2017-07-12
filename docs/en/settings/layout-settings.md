@@ -1,6 +1,5 @@
 ---
-title: Layout
-site_title: Layout | Vanilla framework documentation
+title: Layout settings
 ---
 
 # Layout

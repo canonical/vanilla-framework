@@ -1,6 +1,5 @@
 ---
-title: Color
-site_title: Color | Vanilla framework documentation
+title: Color settings
 ---
 
 # Color
