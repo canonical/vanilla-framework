@@ -1,6 +1,6 @@
 ---
 title: Card
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Card
