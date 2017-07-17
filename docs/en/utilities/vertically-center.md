@@ -1,5 +1,5 @@
 ---
-title: Vertically center
+title: Vertically center table_of_contents: True
 ---
 
 # Vertically center

@@ -1,5 +1,5 @@
 ---
-title: Reset
+title: Reset table_of_contents: True
 ---
 
 # Reset

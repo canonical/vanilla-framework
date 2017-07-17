@@ -1,5 +1,5 @@
 ---
-title: Notification
+title: Notification table_of_contents: True
 ---
 
 # Notification

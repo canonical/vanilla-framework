@@ -1,5 +1,5 @@
 ---
-title: Margin collapse
+title: Margin collapse table_of_contents: True
 ---
 
 # Margin collapse

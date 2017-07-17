@@ -1,5 +1,5 @@
 ---
-title: Spacing settings
+title: Spacing settings table_of_contents: True
 ---
 
 # Spacing
@@ -16,4 +16,3 @@ Setting  | Default value
 `$sp-x-large` | `2rem`
 `$sp-xx-large` | `2.5rem`
 `$sp-xxx-large` | `3rem`
-

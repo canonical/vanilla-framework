@@ -1,5 +1,5 @@
 ---
-title: Hide
+title: Hide table_of_contents: True
 ---
 
 # Hide

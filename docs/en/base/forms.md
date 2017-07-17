@@ -1,5 +1,5 @@
 ---
-title: Forms
+title: Forms table_of_contents: True
 ---
 
 # Forms

@@ -1,5 +1,5 @@
 ---
-title: Off screen
+title: Off screen table_of_contents: True
 ---
 
 # Off screen

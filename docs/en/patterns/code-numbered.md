@@ -1,5 +1,5 @@
 ---
-title: Code numbered
+title: Code numbered table_of_contents: True
 ---
 
 # Code numbered

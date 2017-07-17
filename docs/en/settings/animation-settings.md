@@ -1,5 +1,5 @@
 ---
-title: Animations settings
+title: Animations settings table_of_contents: True
 ---
 
 Vanilla has a cross matrix of duration and easing that can be used to apply

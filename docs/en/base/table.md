@@ -1,5 +1,5 @@
 ---
-title: Table
+title: Table table_of_contents: True
 ---
 
 # Table

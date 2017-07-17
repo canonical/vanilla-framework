@@ -1,5 +1,5 @@
 ---
-title: Clearfix
+title: Clearfix table_of_contents: True
 ---
 
 # Clearfix

@@ -1,5 +1,5 @@
 ---
-title: Equal height
+title: Equal height table_of_contents: True
 ---
 
 # Equal height

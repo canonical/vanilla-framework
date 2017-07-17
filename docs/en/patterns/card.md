@@ -1,5 +1,5 @@
 ---
-title: Card
+title: Card table_of_contents: True
 ---
 
 # Card

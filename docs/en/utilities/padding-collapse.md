@@ -1,5 +1,5 @@
 ---
-title: Padding collapse
+title: Padding collapse table_of_contents: True
 ---
 
 # Padding collapse

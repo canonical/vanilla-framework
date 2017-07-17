@@ -1,5 +1,5 @@
 ---
-title: Color settings
+title: Color settings table_of_contents: True
 ---
 
 # Color

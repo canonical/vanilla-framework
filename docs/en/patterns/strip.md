@@ -1,5 +1,5 @@
 ---
-title: Strip
+title: Strip table_of_contents: True
 ---
 
 # Strip

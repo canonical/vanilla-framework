@@ -1,5 +1,5 @@
 ---
-title: Layout settings
+title: Layout settings table_of_contents: True
 ---
 
 # Layout

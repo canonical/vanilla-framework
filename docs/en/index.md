@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Home table_of_contents: True
 ---
 
 ## Get started
@@ -55,4 +55,3 @@ If you want to propose new patterns or improvements to Vanilla, make sure to fol
 ## Getting help
 
 If you have any questions or get stuck, you can file an issue on [GitHub](https://github.com/vanilla-framework/vanilla-framework/issues/new) or ask us a question on [Twitter](https://twitter.com/vanillaframewrk) or [Slack](https://vanillaframework.slack.com).
-

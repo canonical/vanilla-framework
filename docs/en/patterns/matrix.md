@@ -1,5 +1,5 @@
 ---
-title: Matrix
+title: Matrix table_of_contents: True
 ---
 
 # Matrix

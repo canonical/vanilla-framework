@@ -1,5 +1,5 @@
 ---
-title: Font settings
+title: Font settings table_of_contents: True
 ---
 
 # Font

@@ -1,5 +1,5 @@
 ---
-title: Footer
+title: Footer table_of_contents: True
 ---
 
 # Footer

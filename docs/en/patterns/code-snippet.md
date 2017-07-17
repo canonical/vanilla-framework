@@ -1,5 +1,5 @@
 ---
-title: Code snippet
+title: Code snippet table_of_contents: True
 ---
 
 # Code snippet

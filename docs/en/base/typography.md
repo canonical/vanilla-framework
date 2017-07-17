@@ -1,5 +1,5 @@
 ---
-title: Typography
+title: Typography table_of_contents: True
 ---
 
 # Typography

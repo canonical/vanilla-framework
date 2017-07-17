@@ -1,5 +1,5 @@
 ---
-title: Links
+title: Links table_of_contents: True
 ---
 
 # Links

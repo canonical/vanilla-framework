@@ -1,5 +1,5 @@
 ---
-title: Grid
+title: Grid table_of_contents: True
 ---
 
 # Grid

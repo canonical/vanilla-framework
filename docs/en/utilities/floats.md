@@ -1,5 +1,5 @@
 ---
-title: Floats
+title: Floats table_of_contents: True
 ---
 
 # Floats

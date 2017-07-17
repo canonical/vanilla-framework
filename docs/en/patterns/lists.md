@@ -1,5 +1,5 @@
 ---
-title: Lists
+title: Lists table_of_contents: True
 ---
 
 # Lists
