@@ -1,6 +1,6 @@
 ---
 title: Vertically center
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Vertically center

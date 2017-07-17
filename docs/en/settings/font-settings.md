@@ -1,6 +1,6 @@
 ---
 title: Font settings
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Font

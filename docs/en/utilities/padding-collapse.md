@@ -1,6 +1,6 @@
 ---
 title: Padding collapse
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Padding collapse

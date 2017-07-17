@@ -1,6 +1,6 @@
 ---
 title: Show
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Show

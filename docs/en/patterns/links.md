@@ -1,6 +1,6 @@
 ---
 title: Links
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Links

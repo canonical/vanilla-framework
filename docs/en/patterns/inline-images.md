@@ -1,6 +1,6 @@
 ---
 title: Inline images
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Inline images

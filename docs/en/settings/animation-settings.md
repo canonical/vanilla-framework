@@ -1,6 +1,6 @@
 ---
 title: Animations settings
-table_of_contents: True
+table_of_contents: true
 ---
 
 Vanilla has a cross matrix of duration and easing that can be used to apply

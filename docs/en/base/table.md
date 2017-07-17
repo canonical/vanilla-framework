@@ -1,6 +1,6 @@
 ---
 title: Table
-table_of_contents: True
+table_of_contents: true
 ---
 
 # Table
