@@ -120,16 +120,7 @@
         // For when this class is applied to something that contains <a>s, e.g.:
         // <li class="p-navigation__link"><a></a></li>
         border-bottom: 0;
-        color: $color-dark;
         display: block;
-        font-size: .875rem;
-        padding: .84375rem $sp-x-small; // 0.84375rem = (48px [height] - 21px [line-height]) / 2
-
-        @media (min-width: $breakpoint-navigation-threshold + 1) {
-          color: $text-color;
-          padding-left: ($sp-large - $sp-xx-small);
-          padding-right: ($sp-large - $sp-xx-small);
-        }
       }
 
       &:last-child {
@@ -165,8 +156,14 @@
         }
       }
 
+      .p-navigation__link > a,
       > a {
-        // For when this class is applied to something that contains <a>s, e.g.:
+        // For links nested in navigation list, e.g:
+        // <ul class="p-navigation__links">
+        //  <li class="p-navigation__link"><a></a></li>
+        // </ul>
+        //
+        // and for links nested directly in navigation, e.g:
         // <div class="p-navigation__links">
         //   <a class="class="p-navigation__link"></a>
         // </div>
