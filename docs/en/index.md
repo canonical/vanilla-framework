@@ -1,5 +1,6 @@
 ---
-title: Home table_of_contents: True
+title: Home
+table_of_contents: true
 ---
 
 ## Get started
