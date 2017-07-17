@@ -1,5 +1,6 @@
 ---
 title: Form validation
+table_of_contents: true
 ---
 
 # Error / Caution / Success states

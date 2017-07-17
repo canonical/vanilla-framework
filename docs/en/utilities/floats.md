@@ -1,5 +1,6 @@
 ---
 title: Floats
+table_of_contents: true
 ---
 
 # Floats

@@ -1,5 +1,6 @@
 ---
 title: Breadcrumbs
+table_of_contents: true
 ---
 
 # Breadcrumbs

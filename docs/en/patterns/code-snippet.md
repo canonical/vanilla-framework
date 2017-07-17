@@ -1,5 +1,6 @@
 ---
 title: Code snippet
+table_of_contents: true
 ---
 
 # Code snippet

@@ -1,5 +1,6 @@
 ---
 title: Layout settings
+table_of_contents: true
 ---
 
 # Layout

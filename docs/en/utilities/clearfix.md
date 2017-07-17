@@ -1,5 +1,6 @@
 ---
 title: Clearfix
+table_of_contents: true
 ---
 
 # Clearfix

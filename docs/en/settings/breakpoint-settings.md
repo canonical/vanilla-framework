@@ -1,5 +1,6 @@
 ---
 title: Breakpoints settings
+table_of_contents: true
 ---
 
 # Breakpoints

@@ -1,5 +1,6 @@
 ---
 title: Pull quote
+table_of_contents: true
 ---
 
 # Pull quote
@@ -17,4 +18,3 @@ visually prominent way.
 ## Related
 
 * [Blockquotes and citations in base typography](/en/base/typography#blockquotes-and-citations)
-

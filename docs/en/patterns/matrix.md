@@ -1,5 +1,6 @@
 ---
 title: Matrix
+table_of_contents: true
 ---
 
 # Matrix

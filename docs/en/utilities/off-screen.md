@@ -1,5 +1,6 @@
 ---
 title: Off screen
+table_of_contents: true
 ---
 
 # Off screen

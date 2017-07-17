@@ -1,5 +1,6 @@
 ---
 title: Assets settings
+table_of_contents: true
 ---
 
 # Assets

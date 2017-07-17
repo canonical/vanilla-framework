@@ -1,5 +1,6 @@
 ---
 title: Table
+table_of_contents: true
 ---
 
 # Table

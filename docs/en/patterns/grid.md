@@ -1,5 +1,6 @@
 ---
 title: Grid
+table_of_contents: true
 ---
 
 # Grid

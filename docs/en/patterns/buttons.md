@@ -1,5 +1,6 @@
 ---
 title: Buttons
+table_of_contents: true
 ---
 
 # Buttons

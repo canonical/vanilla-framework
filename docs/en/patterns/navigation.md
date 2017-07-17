@@ -1,5 +1,6 @@
 ---
 title: Navigation
+table_of_contents: true
 ---
 
 Vanilla includes a simple navigation bar that you can add to the top of your

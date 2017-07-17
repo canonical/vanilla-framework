@@ -1,5 +1,6 @@
 ---
 title: Lists
+table_of_contents: true
 ---
 
 # Lists

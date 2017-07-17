@@ -1,5 +1,6 @@
 ---
 title: Forms
+table_of_contents: true
 ---
 
 # Forms
