@@ -12,7 +12,7 @@ Please provide as much information possible detailing what you're currently expe
 
 ## Pull requests
 
-To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to  `upstream/master`.
+To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to  `upstream/develop`.
 
 When committing changes, make sure to group related changes so that the project is always in a working state. Use succinct yet descriptive commit messages to allow for easy reading of the commit log.
 
