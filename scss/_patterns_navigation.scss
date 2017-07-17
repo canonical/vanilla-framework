@@ -118,15 +118,9 @@
 
       & > a {
         // For when this class is applied to something that contains <a>s, e.g.:
-        // <li class="p-navigation__list"><a></a></li>
+        // <li class="p-navigation__link"><a></a></li>
         border-bottom: 0;
-        color: $color-dark;
-        font-size: .93333rem;
-
-        @media (min-width: $breakpoint-navigation-threshold + 1) {
-          color: $text-color;
-          font-size: .875rem;
-        }
+        display: block;
       }
 
       &:last-child {
@@ -148,7 +142,6 @@
 
       .p-navigation__link {
         border-left: 1px solid $color-mid-light;
-        padding: $sp-small $sp-x-small;
 
         @media (max-width: $breakpoint-navigation-threshold) {
           background-color: $color-light;
@@ -161,18 +154,28 @@
             border-bottom: 1px solid $color-mid-light;
           }
         }
-
-        @media (min-width: $breakpoint-navigation-threshold + 1) {
-          padding: $sp-small ($sp-large - $sp-xx-small);
-        }
       }
 
+      .p-navigation__link > a,
       > a {
-        // For when this class is applied to something that contains <a>s, e.g.:
-        // <li class="p-navigation__list"><a></a></li>
-        @media (max-width: $breakpoint-navigation-threshold) {
-          color: $color-dark;
-          display: block;
+        // For links nested in navigation list, e.g:
+        // <ul class="p-navigation__links">
+        //  <li class="p-navigation__link"><a></a></li>
+        // </ul>
+        //
+        // and for links nested directly in navigation, e.g:
+        // <div class="p-navigation__links">
+        //   <a class="class="p-navigation__link"></a>
+        // </div>
+
+        color: $color-dark;
+        font-size: .875rem;
+        padding: .84375rem $sp-x-small;  // 0.84375rem = (48px [height] - 21px [line-height]) / 2
+
+        @media (min-width: $breakpoint-navigation-threshold + 1) {
+          color: $text-color;
+          padding-left: ($sp-large - $sp-xx-small);
+          padding-right: ($sp-large - $sp-xx-small);
         }
       }
 
