@@ -129,7 +129,7 @@ $font-allow-cyrillic-greek-latin: true;
 
 <hr />
 
-## Related
+### Related
 
 * [Code](/en/base/code)
 * [Pull quote pattern](/en/patterns/pull-quote)

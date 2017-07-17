@@ -93,5 +93,6 @@ You can use the ```<fieldset>``` element to divide the form into different logic
 
 <hr />
 
-## Related:
+### Related
+
 * [Buttons pattern](/en/patterns/buttons/)
