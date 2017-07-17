@@ -1,5 +1,6 @@
 ---
-title: Show table_of_contents: True
+title: Show
+table_of_contents: True
 ---
 
 # Show

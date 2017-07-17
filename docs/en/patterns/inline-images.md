@@ -1,5 +1,6 @@
 ---
-title: Inline images table_of_contents: True
+title: Inline images
+table_of_contents: True
 ---
 
 # Inline images

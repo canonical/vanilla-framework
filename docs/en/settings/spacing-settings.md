@@ -1,5 +1,6 @@
 ---
-title: Spacing settings table_of_contents: True
+title: Spacing settings
+table_of_contents: True
 ---
 
 # Spacing

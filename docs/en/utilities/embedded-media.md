@@ -1,5 +1,6 @@
 ---
-title: Embedded media table_of_contents: True
+title: Embedded media
+table_of_contents: True
 ---
 
 # Embedded media

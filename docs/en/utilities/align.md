@@ -1,5 +1,6 @@
 ---
-title: Align table_of_contents: True
+title: Align
+table_of_contents: True
 ---
 
 # Align

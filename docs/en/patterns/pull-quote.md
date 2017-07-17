@@ -1,5 +1,6 @@
 ---
-title: Pull quote table_of_contents: True
+title: Pull quote
+table_of_contents: True
 ---
 
 # Pull quote

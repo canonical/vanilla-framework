@@ -1,5 +1,6 @@
 ---
-title: Code table_of_contents: True
+title: Code
+table_of_contents: True
 ---
 
 # Code
