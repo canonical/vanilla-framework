@@ -17,6 +17,8 @@ set -euo pipefail
 bundler_image="canonicalwebteam/bundler:v0.1.2"
 node_image="canonicalwebteam/node:v0.1.0"
 
+VERSION="0.3.3"
+
 USAGE="Usage
 ===
 
@@ -73,10 +75,11 @@ fi
 
 # Settings
 module_volumes=()
-node_cache_volume="${CANONICAL_WEBTEAM_NODE_CACHE_VOLUME:-canonical-webteam-node-cache}"
+yarn_cache_volume="${CANONICAL_WEBTEAM_YARN_CACHE_VOLUME:-canonical-webteam-node-cache}"
 [ -t 1 ] && tty="--tty --interactive" || tty=""           # Do we have a terminal?
 [ -f .env ] && env_file="--env-file .env" || env_file=""  # Do we have an env file?
 
+run_serve_docker_opts="${CANONICAL_WEBTEAM_RUN_SERVE_DOCKER_OPTS:-}"
 
 # Defaults environment settings
 PORT=8000
@@ -106,6 +109,7 @@ while [[ -n "${1:-}" ]] && [[ "${1:0:1}" == "-" ]]; do
             shift
         ;;
         -h|--help) echo "$USAGE"; exit ;;
+        -v|--version) echo "Generated from generator-canonical-webteam@$VERSION"; exit ;;
         *) invalid "Option '${key}' not recognised." ;;
     esac
     shift
@@ -144,49 +148,41 @@ run_as_user () {
 
 
 bundler_run () {
-    container_name="${1}"
-    command="${2:-}"
-    extra_options="${3:-}"
+    container_name="${1}"; shift
+    extra_options="${1:-}"; shift
 
     # Kill existing containers
     kill_container "${container_name}"
 
-    docker run \
-        --name ${container_name}             `# Name the container` \
-        --rm                                 `# Remove the container once it's finished`  \
-        ${env_file}                          `# Pass environment variables into the container, if file exists`  \
-        --tty --interactive                  `# Attach an interactive terminal`  \
-        --user $(id -u):$(id -g)             `# Run everything as the current user`  \
-        --volume `pwd`:`pwd` --workdir `pwd` `# Run in the current working directory`  \
+    run_as_user "${container_name}" \
         --volume ${project}-bundle:/bundler  `# Persist ruby dependencies in a docker volume`  \
         ${extra_options}                     `# Extra options`  \
-        ${bundler_image} ${command}          `# Run the jeklyll command`
+        ${bundler_image} $@                  `# Run the jeklyll command`
 }
 
 
 node_run () {
     # Standard options for running node commands
-    container_name="${1}"
-    command="${2:-}"
-    extra_options="${3:-}"
+    container_name="${1}"; shift
+    extra_options="${1:-}"; shift
 
     # Run a command in the "node" image
     run_as_user "${container_name}"  \
-        --volume ${node_cache_volume}:/home/shared/.cache/  `# Bind cache to volume` \
-        ${module_volumes[@]+"${module_volumes[@]}"}  `# Add any override modules as volumes`  \
-        ${extra_options}                             `# Extra options`  \
-        ${node_image} ${command}                     `# Run command in node image`
+        --volume ${yarn_cache_volume}:/home/shared/.cache/yarn/  `# Bind cache to volume` \
+        ${module_volumes[@]+"${module_volumes[@]}"}              `# Add any override modules as volumes`  \
+        ${extra_options}                                         `# Extra options`  \
+        ${node_image} ${@}                                       `# Run command in node image`
 }
 
 node_install () {
     # Install bower dependencies, if we need to
     if [ -f "bower.json" ]; then
-        node_run "${project}-bower-install" "bower install"
+        node_run "${project}-bower-install" "" bower install
     fi
 
     # Install yarn dependencies, without module overrides
     run_as_user "${project}-yarn-install" \
-        --volume ${node_cache_volume}:/home/shared/.cache/  `# Bind yarn cache to volume` \
+        --volume ${yarn_cache_volume}:/home/shared/.cache/yarn/  `# Bind yarn cache to volume` \
         ${node_image} yarn install  `# Install yarn dependencies`
 }
 
@@ -220,18 +216,16 @@ case $run_command in
             shift
         done
 
-        node_run "${project}-build" "yarn run build"
+        node_run "${project}-build" "" yarn run build
 
         # Run watch command in the background
         if ${run_watcher}; then
             if [ -z "${detach}" ];  then trap "kill_container ${project}-watch" EXIT; fi
-            node_run "${project}-watch" "yarn run watch" "--detach"  # Run watch in the background
+            node_run "${project}-watch" "--detach" yarn run watch  # Run watch in the background
         fi
 
-        
-
         # Run the serve container, publishing the port, and detaching if required
-        bundler_run "${project}-serve" "jekyll serve -P ${PORT} -H 0.0.0.0" "--env PORT=${PORT} --publish ${PORT}:${PORT} ${detach}"
+        bundler_run "${project}-serve" "--env PORT=${PORT} --publish ${PORT}:${PORT} ${detach} ${run_serve_docker_opts}" jekyll serve -P ${PORT} -H 0.0.0.0 $*
         
     ;;
     "stop")
@@ -254,26 +248,26 @@ case $run_command in
         done
         if ${watch_site}; then
             trap "kill_container ${project}-watch-site" EXIT
-            bundler_run "${project}-watch-site" "jekyll build --watch" "--detach"  # Run site watcher in the background
+            bundler_run "${project}-watch-site" "--detach" jekyll build --watch  # Run site watcher in the background
         fi
         
         node_install
-        node_run "${project}-build" "yarn run build"
-        node_run "${project}-watch" "yarn run watch"
+        node_run "${project}-build" "" yarn run build
+        node_run "${project}-watch" "" yarn run watch
     ;;
     "build")
         node_install
-        node_run "${project}-build" "yarn run build"
-        bundler_run "${project}-build-site" "jekyll build"
+        node_run "${project}-build" "" yarn run build
+        bundler_run "${project}-build-site" "" jekyll build
     ;;
     "test")
         node_install
-        node_run "${project}-yarn-test" "yarn run test"
+        node_run "${project}-yarn-test" "" yarn run test
         
     ;;
     "clean")
         echo "Running 'clean' yarn script"
-        node_run "${project}-clean" "yarn run clean" || true  # Run the clean script
+        node_run "${project}-clean" "" yarn run clean || true  # Run the clean script
 
         echo "Removing all containers, volumes and networks for project: ${project}"
         project_containers="$(docker ps --all --quiet --filter name=${project})"
@@ -288,11 +282,13 @@ case $run_command in
     ;;
     "clean-cache")
         # Clean node cache volume
-        echo "Removing cache volume ${node_cache_volume}"
-        containers_using_volume=$(docker ps --quiet --all --filter "volume=${node_cache_volume}")
+        echo "Removing cache volume ${yarn_cache_volume}"
+        containers_using_volume=$(docker ps --quiet --all --filter "volume=${yarn_cache_volume}")
         if [ -n "${containers_using_volume}" ]; then docker rm --force ${containers_using_volume}; fi
-        docker volume rm --force ${node_cache_volume}
+        docker volume rm --force ${yarn_cache_volume}
+
+        
     ;;
-    "node") node_run "${project}-node-$(date +'%s')" "${@}" ;;
+    "node") node_run "${project}-node-$(date +'%s')" "" $@ ;;
     *) invalid "Command '${run_command}' not recognised." ;;
 esac
