@@ -95,4 +95,4 @@ You can use the ```<fieldset>``` element to divide the form into different logic
 
 ### Related
 
-* [Buttons pattern](/en/patterns/buttons/)
+* [Buttons pattern](/en/patterns/buttons)

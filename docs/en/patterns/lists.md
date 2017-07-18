@@ -79,5 +79,5 @@ tutorial or instructions — you can use the class ```.p-list-step```.
 
 ### Related
 
-* [Base lists](/en/base/lists/)
-* [Inline images pattern](/en/patterns/inline-images/)
+* [Base lists](/en/base/lists)
+* [Inline images pattern](/en/patterns/inline-images)

@@ -24,5 +24,5 @@ If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> tog
 
 ### Related
 
-* [Code numbered pattern](/en/patterns/code-numbered/)
-* [Code snippet pattern](/en/patterns/code-snippet/)
+* [Code numbered pattern](/en/patterns/code-numbered)
+* [Code snippet pattern](/en/patterns/code-snippet)

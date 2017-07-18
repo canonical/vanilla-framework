@@ -13,7 +13,7 @@ Vanilla's default grid has 12 columns and `20px` gutters. On large screens, each
 
 Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column should span a minimum of 3 columns.
 
-Read also: [Breakpoints](/en/settings/breakpoints)
+Read also: [Breakpoints](/en/settings/breakpoint-settings)
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/default/"
     class="js-example">
