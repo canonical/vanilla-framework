@@ -20,6 +20,9 @@ If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> tog
     View example of the base code block
 </a>
 
-Related:
+<hr />
+
+### Related
+
 * [Code numbered pattern](/en/patterns/code-numbered/)
 * [Code snippet pattern](/en/patterns/code-snippet/)

@@ -77,7 +77,7 @@ tutorial or instructions — you can use the class ```.p-list-step```.
 
 <hr />
 
-## Related
+### Related
 
 * [Base lists](/en/base/lists/)
 * [Inline images pattern](/en/patterns/inline-images/)

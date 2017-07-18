@@ -15,6 +15,6 @@ visually prominent way.
 
 <hr />
 
-## Related
+### Related
 
 * [Blockquotes and citations in base typography](/en/base/typography#blockquotes-and-citations)
