@@ -119,7 +119,7 @@ descriptions.
 
 ## Enabling Cyrillic, Greek and Latin fonts
 
-Due to the extra extra weight of loading these fonts they are not imported by
+Due to the extra weight of loading these fonts they are not imported by
 default. To enable Cyrillic, Greek and Latin fonts on Ubuntu please set the
 following font setting to true.
 
