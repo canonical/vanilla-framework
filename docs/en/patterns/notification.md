@@ -1,6 +1,6 @@
 ---
 title: Notification
-table_of_contents: true
+table_of_contents: false
 ---
 
 # Notification
