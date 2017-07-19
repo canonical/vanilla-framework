@@ -34,3 +34,12 @@ By default, prefixes and suffixes only work on top level columns.
     class="js-example">
     View example of the empty columns within the grid
 </a>
+
+## Nested columns
+
+Columns can be nested infinitely by adding `.row` classes within columns. Basically, just remember that all columns must be wrapped in `.row` classes, even when nested.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/nested/"
+    class="js-example">
+    View example of the nested columns within the grid
+</a>
