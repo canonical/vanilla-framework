@@ -15,3 +15,5 @@ Matrix items will display in one column on small screens. At resolutions above
     class="js-example">
     View example of the matrix pattern
 </a>
+
+**Note**: for the Matrix pattern to display correctly on large screens, you'll need to add list items in a multiple of three. If you do not have content for all the items, leave them empty but the list item must be present. 
