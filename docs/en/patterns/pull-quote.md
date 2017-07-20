@@ -1,6 +1,6 @@
 ---
 title: Pull quote
-table_of_contents: true
+table_of_contents: false
 ---
 
 # Pull quote

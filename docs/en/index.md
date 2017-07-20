@@ -44,14 +44,6 @@ Download the latest version of Vanilla from [GitHub](https://github.com/vanilla-
 
 To make improvements to Vanilla itself, please follow the instructions on the project’s [README.md](https://github.com/vanilla-framework/vanilla-framework#vanilla-framework).
 
-## Guidelines
-
-If you want to propose new patterns or improvements to Vanilla, make sure to follow these guidelines, which help to keep Vanilla robust and accessible:
-
-- [Accessibility guidelines]()
-- [Browser support]()
-- [Coding standards]()
-
 ## Getting help
 
 If you have any questions or get stuck, you can file an issue on [GitHub](https://github.com/vanilla-framework/vanilla-framework/issues/new) or ask us a question on [Twitter](https://twitter.com/vanillaframewrk) or [Slack](https://vanillaframework.slack.com).
