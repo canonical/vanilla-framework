@@ -3,6 +3,8 @@ title: Navigation
 table_of_contents: true
 ---
 
+# Navigation
+
 Vanilla includes a simple navigation bar that you can add to the top of your
 sites.
 
