@@ -40,6 +40,22 @@ Alternatively, you can add Vanilla directly to your markup:
 
 Download the latest version of Vanilla from [GitHub](https://github.com/vanilla-framework/vanilla-framework/releases/)
 
+### Using with Github Pages via Git submodules
+
+Creating a submodule in the git repo does not add all the code to the project but includes a reference and path to include the framework. You may find this method useful if you're planing to host on Github Pages.
+
+Run this command at the root of your project (replacing vX.X.X with the release you wish to use)
+
+```
+git submodule add -b vX.X.X -- git@github.com:vanilla-framework/vanilla-framework.git _sass/vanilla-framework
+```
+
+By running the following command it will pull down the framework into the correct location.
+
+```
+git submodule update
+```
+
 ### Local development
 
 To make improvements to Vanilla itself, please follow the instructions on the project’s [README.md](https://github.com/vanilla-framework/vanilla-framework#vanilla-framework).
