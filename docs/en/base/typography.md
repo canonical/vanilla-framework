@@ -103,7 +103,10 @@ descriptions.
 
 ## Small text
 
-<small>This is some &lt;small&gt; text with a font size of 13 pixels.</small>
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/small/"
+    class="js-example">
+    View example of the small text
+</a>
 
 ## Strong text
 
