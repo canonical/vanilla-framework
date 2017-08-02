@@ -30,6 +30,17 @@ The highlighted card should be used when you can interact with the content.
     View example of the highlighted card pattern
 </a>
 
+
+## Overlay card
+
+The purpose of the card overlay pattern is to make the text visible in
+conjunction with a strip image.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/overlay/"
+  class="js-example">
+  View example of the patterns card overlay
+</a>
+
 ## Optional header and footer
 
 Both cards have styles for a header and footer.
