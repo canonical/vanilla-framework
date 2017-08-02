@@ -1,6 +1,6 @@
 @import 'settings';
 
-@mixin p-card {
+%p-card {
   background: $color-x-light;
   border-radius: 2px;
   color: $color-dark;
@@ -33,20 +33,33 @@
   }
 }
 
-// Card patterns
 @mixin vf-p-card {
+  @include vf-p-card-default;
+  @include vf-p-card-highlighted;
+  @include vf-p-card-overlay;
+}
 
+@mixin vf-p-card-default {
   .p-card {
-    @include p-card;
+    @extend %p-card;
     border: 1px solid $color-mid-light;
 
     & & {
       margin-top: 0;
     }
   }
+}
 
+@mixin vf-p-card-highlighted {
   .p-card--highlighted {
-    @include p-card;
+    @extend %p-card;
     box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+  }
+}
+
+@mixin vf-p-card-overlay {
+  .p-card--overlay {
+    @extend %p-card;
+    background: transparentize($color-x-light, .15);
   }
 }
