@@ -43,6 +43,8 @@
   @include vf-p-inline-list;
   @include vf-p-inline-list-middot;
   @include vf-p-stepped-list;
+  @include vf-p-list-split;
+  @include vf-p-list-item-state;
 }
 
 @function svg-tick($color) {
@@ -186,5 +188,46 @@
         top: -5px;
       }
     }
+  }
+}
+
+// Adaptor class `is-split` to split the items of a list into two columns
+@mixin vf-p-list-split {
+  [class*='p-list'].is-split {
+
+    @media (min-width: $breakpoint-medium) {
+      @supports (columns: 1) {
+        columns: 2;
+
+        .p-list__item {
+          display: inline-block;
+          width: 100%;
+        }
+      }
+
+      @supports not (columns: 1) {
+        display: flex;
+        flex-wrap: wrap;
+
+        .p-list__item {
+          width: calc(50% - .5rem);
+        }
+      }
+
+      .p-list__item:last-of-type {
+        border-bottom: 1px dotted $color-mid-light;
+      }
+
+      &:nth-child(2n-1) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+// Displays item with a tick bullet
+@mixin vf-p-list-item-state {
+  .is-ticked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Ccircle fill='" + $color-accent + "' cx='7' cy='7' r='7'/%3E%3Cpath fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z' /%3E%3C/svg%3E");
   }
 }

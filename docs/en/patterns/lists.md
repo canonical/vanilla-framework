@@ -75,6 +75,24 @@ tutorial or instructions — you can use the class ```.p-list-step```.
     View example of the stepped list pattern
 </a>
 
+## Ticked list
+
+The color of the tick icon is set by the `$color-accent` variable in `_settings.scss`.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-ticked/"
+  class="js-example">
+  View example of the pattern list ticked
+</a>
+
+## Split list
+
+If you wish to split the items in a list into two columns above `$breakpoint-medium`, you can do so by adding the class `is-split` to the list element.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/split-list/"
+  class="js-example">
+  View example of the patterns split list
+</a>
+
 <hr />
 
 ### Related
