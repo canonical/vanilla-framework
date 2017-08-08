@@ -78,19 +78,11 @@
   }
 
   // Adds padding to single element rows
-  .row {
-    &:first-of-type > *:only-child {
-      &:not([class^="#{$grid-col-name}-"]),
-      & > *:only-child:not([class^="#{$grid-col-name}-"]) {
-        @include default-vertical-spacing-reversed;
-      }
-    }
+  .row:first-of-type [class^="col-"]:only-child > *:only-child {
+    @include default-vertical-spacing-reversed;
+  }
 
-    & > *:only-child {
-      &:not([class^="#{$grid-col-name}-"]),
-      & > *:only-child:not([class^="#{$grid-col-name}-"]) {
-        @include default-vertical-spacing;
-      }
-    }
+  .row [class^="col-"]:only-child > *:only-child {
+    @include default-vertical-spacing;
   }
 }
