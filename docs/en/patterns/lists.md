@@ -88,9 +88,9 @@ The color of the tick icon is set by the `$color-accent` variable in `_settings.
 
 If you wish to split the items in a list into two columns above `$breakpoint-medium`, you can do so by adding the class `is-split` to the list element.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/split-list/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-split/"
   class="js-example">
-  View example of the patterns split list
+  View example of the patterns list split
 </a>
 
 <hr />
