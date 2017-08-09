@@ -21,52 +21,60 @@ When planning your pages, make sure there is an even distribution and well-balan
 </thead>
 <tbody>
 <tr>
-<td>`$color-brand`</td>
-<td style="background-color: #333; color: #fff;">`#333`</td>
+<td>$color-brand</td>
+<td style="background-color: #333; color: #fff;">#333</td>
 </tr>
 <tr>
-<td>`$color-x-light`</td>
-<td style="background-color: #fff;">`#fff`</td>
+<td>$color-x-light</td>
+<td style="background-color: #fff;">#fff</td>
 </tr>
 <tr>
-<td>`$color-light`</td>
-<td style="background-color: #f7f7f7;">`#f7f7f7`</td>
+<td>$color-light</td>
+<td style="background-color: #f7f7f7;">#f7f7f7</td>
 </tr>
 <tr>
-<td>`$color-mid-light`</td>
-<td style="background-color: #cdcdcd; color: #fff;">`#cdcdcd`</td>
+<td>$color-mid-light</td>
+<td style="background-color: #cdcdcd; color: #fff;">#cdcdcd</td>
 </tr>
 <tr>
-<td>`$color-mid-dark`</td>
-<td style="background-color: #666; color: #fff;">`#666`</td>
+<td>$color-mid-dark</td>
+<td style="background-color: #666; color: #fff;">#666</td>
 </tr>
 <tr>
-<td>`$color-dark`</td>
-<td style="background-color: #111; color: #fff;">`#111`</td>
+<td>$color-dark</td>
+<td style="background-color: #111; color: #fff;">#111</td>
 </tr>
 <tr>
-<td>`$color-x-dark`</td>
-<td style="background-color: #000; color: #fff;">`#000`</td>
+<td>$color-x-dark</td>
+<td style="background-color: #000; color: #fff;">#000</td>
 </tr>
 <tr>
-<td>`$color-negative`</td>
-<td style="background-color: #c7162b; color: #fff;">`#c7162b`</td>
+<td>$color-negative</td>
+<td style="background-color: #c7162b; color: #fff;">#c7162b</td>
 </tr>
 <tr>
-<td>`$color-caution`</td>
-<td style="background-color: #f99b11;">`#f99b11`</td>
+<td>$color-caution</td>
+<td style="background-color: #f99b11;">#f99b11</td>
 </tr>
 <tr>
-<td>`$color-positive`</td>
-<td style="background-color: #0e8420; color: #fff;">`#0e8420`</td>
+<td>$color-positive</td>
+<td style="background-color: #0e8420; color: #fff;">#0e8420</td>
 </tr>
 <tr>
-<td>`$color-information`</td>
-<td style="background-color: #335280; color: #fff;">`#335280`</td>
+<td>$color-information</td>
+<td style="background-color: #335280; color: #fff;">#335280</td>
 </tr>
 <tr>
-<td>`$color-link`</td>
-<td style="background-color: #007aa6; color: #fff;">`#007aa6`</td>
+<td>$color-link</td>
+<td style="background-color: #007aa6; color: #fff;">#007aa6</td>
+</tr>
+<tr>
+<td>$color-accent</td>
+<td style="background-color: #333; color: #fff;">$color-brand</td>
+</tr>
+<tr>
+<td>$color-accent-background</td>
+<td style="background-color: #333; color: #fff;">$color-brand</td>
 </tr>
 </tbody>
 </table>

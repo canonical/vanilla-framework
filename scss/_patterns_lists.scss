@@ -43,6 +43,7 @@
   @include vf-p-inline-list;
   @include vf-p-inline-list-middot;
   @include vf-p-stepped-list;
+  @include vf-p-list-split;
 }
 
 @function svg-tick($color) {
@@ -79,7 +80,7 @@
 // Displays item with a tick bullet
 @mixin vf-p-list-item-state {
   .is-ticked {
-    background-image: svg-tick($color-mid-dark);
+    background-image: svg-tick($color-accent);
     background-position: 0 .3rem;
     background-repeat: no-repeat;
     padding-left: 25px;
@@ -188,3 +189,38 @@
     }
   }
 }
+
+// Adaptor class `is-split` to split the items of a list into two columns
+@mixin vf-p-list-split {
+  [class*='p-list'].is-split {
+
+    @media (min-width: $breakpoint-medium) {
+      @supports (columns: 1) {
+        columns: 2;
+
+        .p-list__item {
+          display: inline-block;
+          width: 100%;
+        }
+      }
+
+      @supports not (columns: 1) {
+        display: flex;
+        flex-wrap: wrap;
+
+        .p-list__item {
+          width: calc(50% - .5rem);
+        }
+      }
+
+      .p-list__item:last-of-type {
+        border-bottom: 1px dotted $color-mid-light;
+      }
+
+      &:nth-child(2n-1) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
