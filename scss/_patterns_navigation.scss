@@ -37,6 +37,11 @@
 
 @mixin navigation-sidebar {
   .p-navigation--sidebar {
+    @include navigation-pattern(
+      $background-color: $color-x-light,
+      $border-color: $color-mid-light,
+      $text-color: $color-dark
+    );
     a {
       color: $color-dark;
       display: block;
@@ -69,7 +74,7 @@
       padding-top: $sp-x-small;
 
       @at-root {
-        .is-selected + {
+        .is-selected +  {
           .sidebar__second-level,
           .sidebar__third-level {
             display: block;
@@ -116,19 +121,12 @@
       @media (max-width: $breakpoint-medium) {
         overflow: hidden;
         position: relative;
-
-
-
-
-
       }
-
     }
     &__toggle--open,
     &__toggle--close,
     &__link {
       color: $text-color;
-
 
       &:hover {
         border-bottom: 0;

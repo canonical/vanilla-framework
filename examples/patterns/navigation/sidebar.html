@@ -5,6 +5,23 @@ category: _patterns
 ---
 
 <div class="p-navigation--sidebar">
+  <header id="navigation" role="banner">
+    <div class="row">
+      <div class="p-navigation__banner">
+        <div class="p-navigation__logo">
+          <a class="p-navigation__link" href="#">
+            Vanilla
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <select name="exampleSelect" id="exampleSelect">
+    <option value="" disabled="disabled" selected="">Select an option</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
   <ul class="p-list sidebar__first-level">
     <li>
       <a class="is-selected" href="#">First level 1 <i class="p-icon--chevron"></i></a>
@@ -35,10 +52,14 @@ category: _patterns
 </div>
 
 <script>
-  let navSidebarLinks = document.querySelectorAll('.sidebar__first-level a');
-  navSidebarLinks.forEach(function (el) {
-    el.addEventListener('click', function() {
-      this.classList.toggle('is-selected');
-    }, false);
-  });
+let navSidebarLinks = document.querySelectorAll(".sidebar__first-level a");
+navSidebarLinks.forEach(function(el) {
+  el.addEventListener(
+    "click",
+    function() {
+      this.classList.toggle("is-selected");
+    },
+    false
+  );
+});
 </script>
