@@ -35,11 +35,71 @@
   }
 }
 
-@mixin navigation-pattern (
-  $background-color: $color-brand,
+@mixin navigation-sidebar {
+  .p-navigation--sidebar {
+    a {
+      color: $color-dark;
+      display: block;
+      padding: $sp-x-small 0;
+      position: relative;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+
+    .is-selected {
+      font-weight: bold;
+    }
+
+    .sidebar__third-level {
+      background-color: $color-mid-dark;
+      margin-right: -$sp-medium;
+      padding-left: $sp-x-large;
+      position: relative;
+      right: $sp-medium;
+    }
+
+    .sidebar__second-level,
+    .sidebar__third-level {
+      display: none;
+      list-style: none;
+      margin-left: 0;
+      padding-bottom: $sp-x-small;
+      padding-top: $sp-x-small;
+
+      @at-root {
+        .is-selected + {
+          .sidebar__second-level,
+          .sidebar__third-level {
+            display: block;
+          }
+        }
+      }
+
+      .is-deepest-level {
+        background-color: $color-light;
+      }
+    }
+
+    .p-icon--chevron {
+      perspective: 800px;
+      perspective-origin: 50% 100px;
+      position: absolute;
+      right: $sp-medium;
+      top: $sp-medium;
+      transition: all .5s ease-in-out;
+    }
+
+    .is-selected .p-icon--chevron {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+@mixin navigation-pattern ($background-color: $color-brand,
   $border-color: $color-x-light,
-  $text-color: $color-x-light
-) {
+  $text-color: $color-x-light) {
   @extend %clearfix;
   background-color: $background-color;
   color: $text-color;
@@ -52,34 +112,35 @@
   }
 
   .p-navigation {
-
     &__banner {
-
       @media (max-width: $breakpoint-medium) {
         overflow: hidden;
         position: relative;
-      }
-    }
 
+
+
+
+
+      }
+
+    }
     &__toggle--open,
     &__toggle--close,
     &__link {
       color: $text-color;
 
+
       &:hover {
         border-bottom: 0;
         text-decoration: underline;
       }
-
       &:visited {
         color: $text-color;
       }
     }
-
     &__toggle--close {
       display: none;
     }
-
     &__toggle {
       &--open,
       &--close {

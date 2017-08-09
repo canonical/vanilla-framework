@@ -1,0 +1,44 @@
+---
+layout: default
+title: Navigation / Sidebar
+category: _patterns
+---
+
+<div class="p-navigation--sidebar">
+  <ul class="p-list sidebar__first-level">
+    <li>
+      <a class="is-selected" href="#">First level 1 <i class="p-icon--chevron"></i></a>
+      <ul class="sidebar__second-level">
+        <li><a href="#">Second level 1 <i class="p-icon--chevron"></i></a></li>
+        <li><a href="#">Second level 2 <i class="p-icon--chevron"></i></a></li>
+        <li><a class="is-selected" href="#">Second level 3 <i class="p-icon--chevron"></i></a>
+          <ul class="sidebar__third-level is-deepest-level">
+            <li><a href="#">Third level 1</a></li>
+            <li><a href="#">Third level 2</a></li>
+            <li><a href="#">Third level 3</a></li>
+            <li><a href="#">Third level 4</a></li>
+            <li><a href="#">Third level 5</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Second level 4 <i class="p-icon--chevron"></i></a></li>
+        <li><a href="#">Second level 5 <i class="p-icon--chevron"></i> </a></li>
+      </ul>
+    </li>
+    <li><a href="#">First level 2</a></li>
+    <li><a href="#">First level 3</a></li>
+  </ul>
+  <hr>
+  <ul class="p-list">
+    <li><a href="#">Supplementary link 1</a></li>
+    <li><a href="#">Supplementary link 2</a></li>
+  </ul>
+</div>
+
+<script>
+  let navSidebarLinks = document.querySelectorAll('.sidebar__first-level a');
+  navSidebarLinks.forEach(function (el) {
+    el.addEventListener('click', function() {
+      this.classList.toggle('is-selected');
+    }, false);
+  });
+</script>
