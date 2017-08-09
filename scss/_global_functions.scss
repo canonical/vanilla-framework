@@ -34,3 +34,13 @@
     }
   }
 }
+
+// Returns the font color to be presented on the passed background-color
+// variable.
+@function determine-text-color($background-color) {
+  @if (lightness($background-color) > 50) {
+    @return $color-dark;
+  } @else {
+    @return $color-x-light;
+  }
+}
