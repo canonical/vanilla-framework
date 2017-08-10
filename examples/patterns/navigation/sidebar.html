@@ -87,11 +87,11 @@ category: _patterns
     el.addEventListener(
       "click",
       function(e) {
+        e.stopPropagation();
         let item = this;
-        if(item.nextSibling) {
+        if (item.nextSibling) {
           item.classList.toggle("is-selected");
         }
-        e.stopPropagation();
       },
       false
     );
