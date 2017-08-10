@@ -42,6 +42,7 @@
       $border-color: $color-mid-light,
       $text-color: $color-dark
     );
+
     a {
       color: $color-dark;
       display: block;
@@ -51,18 +52,26 @@
       &:hover {
         color: $color-link;
       }
+
+      &:focus {
+        outline: 0;
+      }
     }
 
     .is-selected {
       font-weight: bold;
     }
 
+    .sidebar__first-level {
+      padding-left: $sp-small;
+    }
+
     .sidebar__third-level {
       background-color: $color-mid-dark;
-      margin-right: -$sp-medium;
-      padding-left: $sp-x-large;
+      margin-right: -4rem;
+      padding-left: 4rem;
       position: relative;
-      right: $sp-medium;
+      right: 3rem;
     }
 
     .sidebar__second-level,
@@ -74,7 +83,23 @@
       padding-top: $sp-x-small;
 
       @at-root {
+        .p-icon--collapse {
+          display: none;
+        }
+
+        .is-selected {
+
+          .p-icon--collapse {
+            display: block;
+          }
+
+          .p-icon--expand {
+            display: none;
+          }
+        }
+
         .is-selected +  {
+
           .sidebar__second-level,
           .sidebar__third-level {
             display: block;
@@ -87,17 +112,14 @@
       }
     }
 
-    .p-icon--chevron {
+    .p-icon--expand,
+    .p-icon--collapse {
       perspective: 800px;
       perspective-origin: 50% 100px;
       position: absolute;
       right: $sp-medium;
-      top: $sp-medium;
-      transition: all .5s ease-in-out;
-    }
-
-    .is-selected .p-icon--chevron {
-      transform: rotateX(180deg);
+      top: $sp-small;
+      transition: all .5s ease-in-out; // sass-lint:disable-line no-transition-all
     }
   }
 }
@@ -123,6 +145,7 @@
         position: relative;
       }
     }
+
     &__toggle--open,
     &__toggle--close,
     &__link {
@@ -132,14 +155,18 @@
         border-bottom: 0;
         text-decoration: underline;
       }
+
       &:visited {
         color: $text-color;
       }
     }
+
     &__toggle--close {
       display: none;
     }
+
     &__toggle {
+
       &--open,
       &--close {
         margin: 0;
