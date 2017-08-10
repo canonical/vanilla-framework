@@ -75,6 +75,17 @@ tutorial or instructions — you can use the class ```.p-list-step```.
     View example of the stepped list pattern
 </a>
 
+## Stepped list: detailed
+
+Stepped list should be used for step by step instructions. This pattern is best
+used on a `.p-strip--light` as the description sections are displayed in a white
+box.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-stepped-detailed/"
+  class="js-example">
+  View example of the pattern stepped list detailed
+</a>
+
 ## Ticked list
 
 The color of the tick icon is set by the `$color-accent` variable in `_settings.scss`.
@@ -91,6 +102,7 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-split/"
   class="js-example">
   View example of the patterns list split
+
 </a>
 
 <hr />
@@ -98,3 +110,4 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 ### Related
 
 * [Inline images pattern](/en/patterns/inline-images)
+

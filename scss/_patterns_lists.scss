@@ -2,20 +2,20 @@
 
 // Default list styling
 // Mixin for basic styled lists
-@mixin list {
+@mixin vf-list {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
 
 // Mixin for list items
-@mixin list-item {
+@mixin vf-list-item {
   margin-top: 0;
   padding-bottom: .63rem;
   padding-top: .63rem;
 }
 
-@mixin list-item-divided {
+@mixin vf-list-item-divided {
   border-bottom: 1px dotted $color-mid-light;
 
   &:last-of-type,
@@ -25,7 +25,7 @@
 }
 
 // Mixin for inline list items
-@mixin inline-list-item {
+@mixin vf-inline-list-item {
   display: inline;
   list-style: none;
   margin-right: 1.25rem;
@@ -43,6 +43,7 @@
   @include vf-p-inline-list;
   @include vf-p-inline-list-middot;
   @include vf-p-stepped-list;
+  @include vf-p-stepped-list-detailed;
   @include vf-p-list-split;
 }
 
@@ -57,7 +58,7 @@
 // List styling using list class
 @mixin vf-p-list {
   .p-list {
-    @include list;
+    @include vf-list;
 
     &__item {
       margin-top: .6667rem;
@@ -68,11 +69,11 @@
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
-    @include list;
+    @include vf-list;
 
     .p-list__item {
-      @include list-item;
-      @include list-item-divided;
+      @include vf-list-item;
+      @include vf-list-item-divided;
     }
   }
 }
@@ -98,7 +99,7 @@
     padding-left: 0;
 
     &__item {
-      @include inline-list-item;
+      @include vf-inline-list-item;
     }
   }
 }
@@ -110,7 +111,7 @@
     padding-left: 0;
 
     .p-inline-list__item {
-      @include inline-list-item;
+      @include vf-inline-list-item;
       position: relative;
 
       &::after {
@@ -185,6 +186,64 @@
       @media only screen and (max-width: $breakpoint-large) {
         position: absolute;
         top: -5px;
+      }
+    }
+  }
+}
+
+
+@mixin vf-p-stepped-list-detailed {
+  .p-stepped-list--detailed {
+    list-style: none;
+    padding: 0 2rem 0 3rem;
+
+    @media (max-width: $grid-max-width) {
+      margin-top: 2.5rem;
+    }
+
+    .p-list-step__item {
+      margin-bottom: 3rem;
+
+      @media (min-width: $breakpoint-medium) {
+        display: flex;
+        margin: 0;
+
+        > * {
+          width: 50%;
+        }
+      }
+    }
+
+    .p-list-step__title {
+
+      @media (min-width: $breakpoint-medium) {
+        padding-top: 2.75rem;
+      }
+
+    }
+
+    .p-list-step__content {
+      background: $color-x-light;
+      color: $color-x-dark;
+      margin-left: -4rem;
+      margin-right: -2rem;
+      margin-top: 2.5rem;
+      padding: 1.3333rem;
+
+      @media (min-width: $breakpoint-medium) {
+        border-bottom: 1px solid $color-light;
+        margin: .25rem 0 0;
+        padding: 2.5rem;
+      }
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      .p-list-step__bullet {
+        left: -$grid-gutter-width * 3;
+        margin-left: 0;
+        margin-right: 1rem;
+        position: absolute;
+        top: 2.25rem;
       }
     }
   }
