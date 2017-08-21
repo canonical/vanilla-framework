@@ -15,8 +15,8 @@ category: _patterns
         </a>
       </div>
         </div>
-        <div class="mobile-col-2 u-align--right">
-          <ul class="p-inline-list u-no-margin--top u-float-right" style="display: inline-block">
+        <div class="sidebar__cta mobile-col-2 u-align--right">
+          <ul class="p-inline-list u-no-margin--top u-float-right">
             <li class="p-inline-list__item">
               <i class="p-icon--search"></i>
             </li>
@@ -27,7 +27,6 @@ category: _patterns
           </ul>
         </div>
       </div>
-
     </div>
   </header>
 
@@ -107,6 +106,21 @@ category: _patterns
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
 
 <script>
+  // Sidebar menu overlay toggle
+  let toggleElements = document.querySelectorAll('[data-js="sidebar-toggle"]');
+  toggleElements.forEach(function(el) {
+    el.addEventListener(
+      "click",
+      function(e) {
+        e.preventDefault();
+        toggleElements.forEach(function(el) {
+          el.classList.toggle("u-hide");
+        });
+      },
+      false
+    );
+  });
+  // Sidebar accordion sections
   let navSidebarLinks = document.querySelectorAll('[data-js="sidebar-first-level"] a');
   navSidebarLinks.forEach(function(el) {
     el.addEventListener(
@@ -117,20 +131,6 @@ category: _patterns
         if (item.nextSibling) {
           item.classList.toggle("is-selected");
         }
-      },
-      false
-    );
-  });
-
-  let toggleElements = document.querySelectorAll('[data-js="sidebar-toggle"]');
-  toggleElements.forEach(function(el) {
-    el.addEventListener(
-      "click",
-      function(e) {
-        e.preventDefault();
-        toggleElements.forEach(function(el) {
-          el.classList.toggle("u-hide");
-        });
       },
       false
     );
