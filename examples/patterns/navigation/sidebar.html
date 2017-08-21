@@ -7,79 +7,104 @@ category: _patterns
 <div class="p-navigation--sidebar">
   <header id="navigation" role="banner">
     <div class="p-navigation__banner">
-      <div class="p-navigation__logo">
+      <div class="row">
+        <div class="mobile-col-2">
+          <div class="p-navigation__logo">
         <a class="p-navigation__link" href="#">
           Vanilla
         </a>
       </div>
+        </div>
+        <div class="mobile-col-2 u-align--right">
+          <ul class="p-inline-list u-no-margin--top u-float-right" style="display: inline-block">
+            <li class="p-inline-list__item">
+              <i class="p-icon--search"></i>
+            </li>
+            <li class="p-inline-list__item">
+              <i data-js="sidebar-toggle" class="p-icon--menu"></i>
+              <i data-js="sidebar-toggle" class="p-icon--close u-hide"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </header>
-  <select name="exampleSelect" id="exampleSelect">
-    <option value="" disabled="disabled" selected="">Select a version</option>
-    <option value="1">Version 1</option>
-    <option value="2">Version 2</option>
-    <option value="3">Version 3</option>
-  </select>
-  <ul class="p-list sidebar__first-level" data-js="sidebar-first-level">
-    <li>
-      <a class="sidebar__link" href="#">Section title 1 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-      <ul class="sidebar__second-level">
-        <li><a class="sidebar__link" href="#">Second level 1</a></li>
-        <li><a class="sidebar__link" href="#">Second level 2</a></li>
-        <li><a class="sidebar__link is-selected" href="#">Second level 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-          <ul class="sidebar__third-level is-deepest-level">
-            <li><a class="sidebar__link" href="#">Third level 1</a></li>
-            <li><a class="sidebar__link" href="#">Third level 2</a></li>
-            <li><a class="sidebar__link" href="#">Third level 3</a></li>
-            <li><a class="sidebar__link" href="#">Third level 4</a></li>
-            <li><a class="sidebar__link" href="#">Third level 5</a></li>
-          </ul>
-        </li>
-        <li><a class="sidebar__link" href="#">Second level 4</a></li>
-        <li><a class="sidebar__link" href="#">Second level 5</a></li>
-      </ul>
-    </li>
-    <li><a class="sidebar__link" href="#">Section title 2 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-      <ul class="sidebar__second-level">
-        <li><a class="sidebar__link" href="#">Second level 1</a></li>
-        <li><a class="sidebar__link" href="#">Second level 2</a></li>
-        <li><a class="sidebar__link" href="#">Second level 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-          <ul class="sidebar__third-level is-deepest-level">
-            <li><a class="sidebar__link" href="#">Third level 1</a></li>
-            <li><a class="sidebar__link" href="#">Third level 2</a></li>
-            <li><a class="sidebar__link" href="#">Third level 3</a></li>
-            <li><a class="sidebar__link" href="#">Third level 4</a></li>
-            <li><a class="sidebar__link" href="#">Third level 5</a></li>
-          </ul>
-        </li>
-        <li><a class="sidebar__link" href="#">Second level 4</a></li>
-        <li><a class="sidebar__link" href="#">Second level 5</a></li>
-      </ul>
-    </li>
-    <li><a class="sidebar__link" href="#">Section title 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-      <ul class="sidebar__second-level">
-        <li><a class="sidebar__link" href="#">Second level 1</a></li>
-        <li><a class="sidebar__link" href="#">Second level 2</a></li>
-        <li><a class="sidebar__link is-selected" href="#">Second level 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-          <ul class="sidebar__third-level is-deepest-level">
-            <li><a class="sidebar__link" href="#">Third level 1</a></li>
-            <li><a class="sidebar__link" href="#">Third level 2</a></li>
-            <li><a class="sidebar__link" href="#">Third level 3</a></li>
-            <li><a class="sidebar__link" href="#">Third level 4</a></li>
-            <li><a class="sidebar__link" href="#">Third level 5</a></li>
-          </ul>
-        </li>
-        <li><a class="sidebar__link" href="#">Second level 4</a></li>
-        <li><a class="sidebar__link" href="#">Second level 5</a></li>
-      </ul>
-    </li>
-  </ul>
-  <hr>
-  <ul class="p-list">
-    <li><a class="p-link--external sidebar__link" href="#">Supplementary link 1</a></li>
-    <li><a class="p-link--external sidebar__link" href="#">Supplementary link 2</a></li>
-  </ul>
+
+  <div data-js="sidebar-toggle" class="sidebar__content u-hide">
+    <select name="exampleSelect" id="exampleSelect">
+      <option value="" disabled="disabled" selected="">Select a version</option>
+      <option value="1">Version 1</option>
+      <option value="2">Version 2</option>
+      <option value="3">Version 3</option>
+    </select>
+    <ul class="p-list sidebar__first-level" data-js="sidebar-first-level">
+      <li>
+        <a class="sidebar__link" href="#">Section title 1 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+        <ul class="sidebar__second-level">
+          <li><a class="sidebar__link" href="#">Second level 1</a></li>
+          <li><a class="sidebar__link" href="#">Second level 2</a></li>
+          <li><a class="sidebar__link is-selected" href="#">Second level 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+            <ul class="sidebar__third-level is-deepest-level">
+              <li><a class="sidebar__link" href="#">Third level 1</a></li>
+              <li><a class="sidebar__link" href="#">Third level 2</a></li>
+              <li><a class="sidebar__link" href="#">Third level 3</a></li>
+              <li><a class="sidebar__link" href="#">Third level 4</a></li>
+              <li><a class="sidebar__link" href="#">Third level 5</a></li>
+            </ul>
+          </li>
+          <li><a class="sidebar__link" href="#">Second level 4</a></li>
+          <li><a class="sidebar__link" href="#">Second level 5</a></li>
+        </ul>
+      </li>
+      <li><a class="sidebar__link" href="#">Section title 2 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+        <ul class="sidebar__second-level">
+          <li><a class="sidebar__link" href="#">Second level 1</a></li>
+          <li><a class="sidebar__link" href="#">Second level 2</a></li>
+          <li><a class="sidebar__link" href="#">Second level 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+            <ul class="sidebar__third-level is-deepest-level">
+              <li><a class="sidebar__link" href="#">Third level 1</a></li>
+              <li><a class="sidebar__link" href="#">Third level 2</a></li>
+              <li><a class="sidebar__link" href="#">Third level 3</a></li>
+              <li><a class="sidebar__link" href="#">Third level 4</a></li>
+              <li><a class="sidebar__link" href="#">Third level 5</a></li>
+            </ul>
+          </li>
+          <li><a class="sidebar__link" href="#">Second level 4</a></li>
+          <li><a class="sidebar__link" href="#">Second level 5</a></li>
+        </ul>
+      </li>
+      <li><a class="sidebar__link" href="#">Section title 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+        <ul class="sidebar__second-level">
+          <li><a class="sidebar__link" href="#">Second level 1</a></li>
+          <li><a class="sidebar__link" href="#">Second level 2</a></li>
+          <li><a class="sidebar__link is-selected" href="#">Second level 3 <i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+            <ul class="sidebar__third-level is-deepest-level">
+              <li><a class="sidebar__link" href="#">Third level 1</a></li>
+              <li><a class="sidebar__link" href="#">Third level 2</a></li>
+              <li><a class="sidebar__link" href="#">Third level 3</a></li>
+              <li><a class="sidebar__link" href="#">Third level 4</a></li>
+              <li><a class="sidebar__link" href="#">Third level 5</a></li>
+            </ul>
+          </li>
+          <li><a class="sidebar__link" href="#">Second level 4</a></li>
+          <li><a class="sidebar__link" href="#">Second level 5</a></li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <ul class="p-list">
+      <li><a class="p-link--external sidebar__link" href="#">Supplementary link 1</a></li>
+      <li><a class="p-link--external sidebar__link" href="#">Supplementary link 2</a></li>
+    </ul>
+  </div>
 </div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
 
 <script>
   let navSidebarLinks = document.querySelectorAll('[data-js="sidebar-first-level"] a');
@@ -92,6 +117,20 @@ category: _patterns
         if (item.nextSibling) {
           item.classList.toggle("is-selected");
         }
+      },
+      false
+    );
+  });
+
+  let toggleElements = document.querySelectorAll('[data-js="sidebar-toggle"]');
+  toggleElements.forEach(function(el) {
+    el.addEventListener(
+      "click",
+      function(e) {
+        e.preventDefault();
+        toggleElements.forEach(function(el) {
+          el.classList.toggle("u-hide");
+        });
       },
       false
     );
