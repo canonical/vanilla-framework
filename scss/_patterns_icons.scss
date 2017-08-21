@@ -1,12 +1,13 @@
 /// Icons
+@mixin vf-icon-size($size) {
+  height: $size;
+  width: $size;
+}
+
 @mixin vf-p-icons {
-  @mixin icon-size($size) {
-    height: $size;
-    width: $size;
-  }
 
   %icon {
-    @include icon-size($sp-medium);
+    @include vf-icon-size($sp-medium);
     background: {
       color: currentColor;
       position: center;
@@ -151,23 +152,23 @@
 
     // Set a specific icon size
     &--medium {
-      @include icon-size(1.25rem);
+      @include vf-icon-size(1.25rem);
     }
 
     &--large {
-      @include icon-size($sp-large);
+      @include vf-icon-size($sp-large);
     }
 
     &--x-large {
-      @include icon-size(1.75rem);
+      @include vf-icon-size(1.75rem);
     }
 
     &--x-large {
-      @include icon-size(2.25rem);
+      @include vf-icon-size(2.25rem);
     }
 
     &--xx-large {
-      @include icon-size($sp-xxx-large);
+      @include vf-icon-size($sp-xxx-large);
     }
   }
 }
