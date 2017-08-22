@@ -41,10 +41,8 @@ conjunction with a strip image.
   View example of the patterns card overlay
 </a>
 
-## Optional header and footer
+## Optional header
 
-Both cards have styles for a header and footer.
+Both cards have styles for an optional header.
 
 The header will accept either text or an image with a max height of 32 pixels and has a border below.
-
-The footer adds a border above.
