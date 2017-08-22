@@ -55,6 +55,10 @@
       .p-inline-list {
         display: inline-block;
       }
+
+      @media (min-width: $breakpoint-medium) {
+        display: none;
+      }
     }
 
     .sidebar__content {
@@ -63,6 +67,10 @@
       position: absolute;
       top: $sp-medium;
       width: 100%;
+
+      @media (min-width: $breakpoint-medium) {
+        display: block !important; // important to override u-hide util
+      }
     }
 
     .sidebar__link {

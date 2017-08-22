@@ -4,7 +4,9 @@ title: Navigation / Sidebar
 category: _patterns
 ---
 
-<div class="p-navigation--sidebar">
+<div class="row" style="max-width: 100%">
+  <div class="col-4">
+    <div class="p-navigation--sidebar">
   <header id="navigation" role="banner">
     <div class="p-navigation__banner">
       <div class="row">
@@ -21,8 +23,8 @@ category: _patterns
               <i class="p-icon--search"></i>
             </li>
             <li class="p-inline-list__item">
-              <i data-js="sidebar-toggle" class="p-icon--menu"></i>
-              <i data-js="sidebar-toggle" class="p-icon--close u-hide"></i>
+              <i class="p-icon--menu js-sidebar-toggle"></i>
+              <i class="p-icon--close js-sidebar-toggle u-hide"></i>
             </li>
           </ul>
         </div>
@@ -30,7 +32,7 @@ category: _patterns
     </div>
   </header>
 
-  <div data-js="sidebar-toggle" class="sidebar__content u-hide">
+  <div class="sidebar__content js-sidebar-toggle u-hide">
     <select name="exampleSelect" id="exampleSelect">
       <option value="" disabled="disabled" selected="">Select a version</option>
       <option value="1">Version 1</option>
@@ -98,16 +100,22 @@ category: _patterns
     </ul>
   </div>
 </div>
+  </div>
+  <div class="col-8">
+    <div class="row">
+      <div class="col-8">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum ducimus maiores, sunt sequi officia neque sit? Error blanditiis modi mollitia, reprehenderit id illum! Quas suscipit officia vitae voluptatum dolores, facere?</p>
 
 <script>
   // Sidebar menu overlay toggle
-  let toggleElements = document.querySelectorAll('[data-js="sidebar-toggle"]');
+  let toggleElements = document.querySelectorAll('.js-sidebar-toggle');
   toggleElements.forEach(function(el) {
     el.addEventListener(
       "click",
@@ -121,7 +129,7 @@ category: _patterns
     );
   });
   // Sidebar accordion sections
-  let navSidebarLinks = document.querySelectorAll('[data-js="sidebar-first-level"] a');
+  let navSidebarLinks = document.querySelectorAll('.js-sidebar-toggle a');
   navSidebarLinks.forEach(function(el) {
     el.addEventListener(
       "click",
