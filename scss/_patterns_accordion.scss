@@ -1,0 +1,56 @@
+@import 'settings';
+
+@mixin vf-p-accordion {
+  .p-accordion {
+    border-bottom: 1px solid $color-mid-light;
+
+    &__list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__group {
+      border-top: 1px solid $color-mid-light;
+      margin: 0;
+    }
+
+    &__tab {
+      background: {
+        position: top 1.25rem right $sp-medium;
+        repeat: no-repeat;
+      }
+      border: 0;
+      padding: $sp-medium $sp-xx-large $sp-medium $sp-small;
+      text-align: left;
+      transition-duration: 0s;
+      width: 100%;
+      z-index: 2;
+
+      // aria-selected controls the open and closed state for the accordion tab
+      &[aria-expanded='true'] {
+        background-image: url('#{$assets-path}abbb2c52-Accordion-close.svg');
+      }
+
+      &[aria-expanded='false'] {
+        background-image: url('#{$assets-path}897f5f6c-Accordion-open.svg');
+      }
+
+      &:focus {
+        outline: 1px solid $color-link;
+        outline-offset: 2px;
+      }
+    }
+
+    &__panel {
+      border-top: 1px solid $color-mid-light;
+      margin: 0;
+      padding: $sp-small $sp-small $sp-small $sp-large;
+
+      // Hides panel content
+      &[aria-hidden='true'] {
+        display: none;
+      }
+    }
+  }
+}
