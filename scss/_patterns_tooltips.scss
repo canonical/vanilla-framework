@@ -1,0 +1,202 @@
+@import 'settings';
+
+@mixin vf-p-tooltips {
+  .p-tooltip {
+    position: relative;
+
+    &__message {
+      @extend .p-card--highlighted;
+      background-color: $color-dark;
+      border: 0;
+      color: $color-x-light;
+      display: none;
+      font-size: .875rem;
+      left: 0;
+      line-height: 1.25rem;
+      max-width: 330px;
+      min-width: 155px;
+      padding: $sp-x-small $sp-small;
+      position: absolute;
+      text-align: left;
+      text-decoration: initial;
+      top: 100%;
+      transform: translateX(0%) translateY(13px);
+      white-space: pre;
+      z-index: 1;
+
+      &::before {
+        border: {
+          bottom: 8px solid $color-dark;
+          left: 8px solid transparent;
+          right: 8px solid transparent;
+        }
+        bottom: 100%;
+        content: '';
+        height: 0;
+        left: $sp-small;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+      }
+    }
+
+    &:focus,
+    &:hover {
+
+      .p-tooltip__message {
+        display: inline;
+        text-decoration: initial;
+      }
+    }
+
+    // Bottom center tooltip
+    &--btm-center {
+
+      .p-tooltip__message {
+        bottom: inherit;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%) translateY(13px);
+
+        &::before {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    // Bottom right tooltip
+    &--btm-right {
+
+      .p-tooltip__message {
+        bottom: inherit;
+        left: initial;
+        right: 0;
+        top: 100%;
+        transform: translateY(13px);
+
+        &::before {
+          left: initial;
+          right: $sp-small;
+        }
+      }
+    }
+
+    // Top left tooltip
+    &--top-left {
+
+      .p-tooltip__message {
+        bottom: 100%;
+        left: 0;
+        top: initial;
+        transform: translateX(0%) translateY(-13px);
+
+        &::before {
+          border: {
+            bottom: 8px solid transparent;
+            left: 8px solid transparent;
+            right: 8px solid transparent;
+            top: 8px solid $color-dark;
+          }
+          bottom: -1rem;
+          left: $sp-small;
+        }
+      }
+    }
+
+    // Top center tooltip
+    &--top-center {
+
+      .p-tooltip__message {
+        bottom: 100%;
+        left: 50%;
+        top: initial;
+        transform: translateX(-50%) translateY(-13px);
+
+        &::before {
+          border: {
+            bottom: 8px solid transparent;
+            left: 8px solid transparent;
+            right: 8px solid transparent;
+            top: 8px solid $color-dark;
+          }
+          bottom: -1rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    // Top right tooltip
+    &--top-right {
+
+      .p-tooltip__message {
+        bottom: 100%;
+        left: initial;
+        right: 0;
+        top: initial;
+        transform: translateX(0%) translateY(-13px);
+
+        &::before {
+          border: {
+            bottom: 8px solid transparent;
+            left: 8px solid transparent;
+            right: 8px solid transparent;
+            top: 8px solid $color-dark;
+          }
+          bottom: -1rem;
+          left: initial;
+          right: $sp-small;
+        }
+      }
+    }
+
+    // Right tooltip
+    &--right {
+
+      .p-tooltip__message {
+        bottom: inherit;
+        left: 100%;
+        top: 50%;
+        transform: translateX(14px) translateY(-50%);
+
+        &::before {
+          border: {
+            bottom: 8px solid transparent;
+            left: 8px solid transparent;
+            right: 8px solid $color-dark;
+            top: 8px solid transparent;
+          }
+          bottom: inherit;
+          left: 0;
+          top: 50%;
+          transform: translateX(-16px) translateY(-50%);
+        }
+      }
+    }
+
+    // Left tooltip
+    &--left {
+
+      .p-tooltip__message {
+        bottom: inherit;
+        left: -16px;
+        top: 50%;
+        transform: translateX(-100%) translateY(-50%);
+
+        &::before {
+          border: {
+            bottom: 8px solid transparent;
+            left: 8px solid $color-dark;
+            right: 8px solid transparent;
+            top: 8px solid transparent;
+          }
+          bottom: inherit;
+          left: 100%;
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
+        }
+      }
+    }
+  }
+}
