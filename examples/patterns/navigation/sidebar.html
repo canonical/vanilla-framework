@@ -123,11 +123,7 @@ category: _patterns
         e.preventDefault();
         toggleElements.forEach(function(el) {
           el.classList.toggle("u-hide");
-          if(el.getAttribute('aria-hidden') === true) {
-            el.setAttribute('aria-hidden', false);
-          } else {
-            el.setAttribute('aria-hidden', true);
-          }
+          el.setAttribute('aria-hidden', el.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
         });
       },
       false
