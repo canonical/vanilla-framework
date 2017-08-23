@@ -1,9 +1,9 @@
 ---
-title: Modak
+title: Modal
 table_of_contents: true
 ---
 
-# Modak
+# Modal
 
 The modal pattern can be useful to overlay and area of the screen which can contain a prompt, dialog or interaction.
 
