@@ -5,6 +5,7 @@
 @mixin vf-p-navigation {
   @include navigation-light;
   @include navigation-dark;
+  @include navigation-sidebar;
 }
 
 @mixin navigation-dark {
@@ -14,7 +15,7 @@
       $background-color: $color-dark,
       $border-color: $color-mid-light,
       $text-color: $color-x-light
-    )
+    );
   }
 }
 
@@ -34,11 +35,132 @@
   }
 }
 
-@mixin navigation-pattern (
-  $background-color: $color-brand,
+@mixin navigation-sidebar {
+  .p-navigation--sidebar {
+    @include navigation-pattern(
+      $background-color: $color-x-light,
+      $border-color: $color-mid-light,
+      $text-color: $color-dark
+    );
+
+    .p-navigation__logo {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+    }
+
+    .sidebar__cta {
+      margin-top: 0;
+
+      .p-inline-list {
+        display: inline-block;
+      }
+
+      [class^="p-icon"] {
+        cursor: pointer;
+      }
+
+      @media (min-width: $breakpoint-medium) {
+        display: none;
+      }
+    }
+
+    .sidebar__content {
+      background: $color-x-light;
+      padding-bottom: $sp-medium;
+      position: absolute;
+      top: $sp-medium;
+      width: 100%;
+
+      @media (min-width: $breakpoint-medium) {
+        display: block !important; // important to override u-hide util
+      }
+    }
+
+    .sidebar__link {
+      color: $color-dark;
+      display: block;
+      padding: $sp-x-small 0;
+      position: relative;
+
+      &:hover {
+        color: $color-link;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    .is-selected {
+      font-weight: bold;
+    }
+
+    .sidebar__first-level {
+      padding-left: 0;
+    }
+
+    .sidebar__third-level {
+      background-color: $color-mid-dark;
+      margin-right: -4rem;
+      padding-left: 4rem;
+      position: relative;
+      right: 3rem;
+    }
+
+    .sidebar__second-level,
+    .sidebar__third-level {
+      display: none;
+      list-style: none;
+      margin-left: 0;
+      padding-bottom: $sp-x-small;
+      padding-top: $sp-x-small;
+
+      @at-root {
+        .p-icon--minus {
+          display: none;
+        }
+
+        .is-selected {
+
+          .p-icon--minus {
+            display: block;
+          }
+
+          .p-icon--plus {
+            display: none;
+          }
+        }
+
+        .is-selected +  {
+
+          .sidebar__second-level,
+          .sidebar__third-level {
+            display: block;
+          }
+        }
+      }
+
+      .is-deepest-level {
+        background-color: $color-light;
+      }
+    }
+
+    .p-icon--plus,
+    .p-icon--minus {
+      perspective: 800px;
+      perspective-origin: 50% 100px;
+      position: absolute;
+      right: $sp-medium;
+      top: $sp-small;
+      transition: all .5s ease-in-out; // sass-lint:disable-line no-transition-all
+    }
+  }
+}
+
+@mixin navigation-pattern ($background-color: $color-brand,
   $border-color: $color-x-light,
-  $text-color: $color-x-light
-) {
+  $text-color: $color-x-light) {
   @extend %clearfix;
   background-color: $background-color;
   color: $text-color;
@@ -51,9 +173,7 @@
   }
 
   .p-navigation {
-
     &__banner {
-
       @media (max-width: $breakpoint-medium) {
         overflow: hidden;
         position: relative;
@@ -80,6 +200,7 @@
     }
 
     &__toggle {
+
       &--open,
       &--close {
         margin: 0;
@@ -106,7 +227,7 @@
     }
 
     &__link {
-      border-bottom: 0;  // For when this class is applied to an <a> directly
+      border-bottom: 0; // For when this class is applied to an <a> directly
       display: block;
       margin-top: 0;
 
@@ -175,7 +296,7 @@
 
         color: $color-dark;
         font-size: .875rem;
-        padding: .84375rem $sp-x-small;  // 0.84375rem = (48px [height] - 21px [line-height]) / 2
+        padding: .84375rem $sp-x-small; // 0.84375rem = (48px [height] - 21px [line-height]) / 2
 
         @media (min-width: $breakpoint-navigation-threshold + 1) {
           color: $text-color;
