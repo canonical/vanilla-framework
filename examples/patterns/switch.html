@@ -1,0 +1,123 @@
+---
+layout: default
+title: Switch
+category: _patterns
+---
+
+<label id="switch-on-label" for="switch-on">Switch - On</label>
+<button id="switch-on" class="p-switch" type="button" role="switch" aria-checked="true" aria-labelledby="switch-on-label">
+  <span>On</span>
+  <span>Off</span>
+</button>
+
+<label id="switch-off-label" for="switch-off">Switch - Off</label>
+<button id="switch-off" class="p-switch" type="button" role="switch" aria-checked="false" aria-labelledby="switch-off-label">
+  <span>On</span>
+  <span>Off</span>
+</button>
+
+<label id="on-disabled-label" for="on-disabled">Switch - On disabled</label>
+<button id="on-disabled" class="p-switch" type="button" role="switch" aria-checked="true" aria-labelledby="on-disabled-label" disabled>
+  <span>On</span>
+  <span>Off</span>
+</button>
+
+<label id="off-disabled-label" for="off-disabled">Switch - Off disabled</label>
+<button id="off-disabled" class="p-switch" type="button" role="switch" aria-checked="false" aria-labelledby="off-disabled-label" disabled>
+  <span>On</span>
+  <span>Off</span>
+</button>
+
+<h2>Example JavaScript</h2>
+<pre><code>
+(function() {
+  /**
+   * Control switch elements via toggling aria-checked
+   *
+   * @param {String} switchBtn
+   *
+   * @example
+   * &lt;label id="switch-label" for="switch"&gt;Switch&lt;/label&gt;
+   * &lt;button id="switch" class="p-switch" type="button" role="switch" aria-checked="false" aria-labelledby="switch-label"&gt;
+   *   &lt;span&gt;On&lt;/span&gt;
+   *   &lt;span&gt;Off&lt;/span&gt;
+   * &lt;/button&gt;
+   *
+   */
+   function switchToggle(switchBtn) {
+
+     // Select all switch control elements
+     /**
+      * @param {Object[]} switches
+      * @param {String} switchBtn
+      */
+     var switches = Array.prototype.slice.call(
+       document.querySelectorAll(switchBtn)
+     );
+
+     // Set click event to each switch control element
+     /**
+      * @param {String} switchBtn
+      */
+     switches.forEach(function (switchBtn) {
+       switchBtn.addEventListener('click', function(event) {
+
+         // If aria-checked is already true, set to false
+         if (this.getAttributeNode("aria-checked").value == 'false') {
+           this.setAttribute('aria-checked', 'true');
+         } else {
+           this.setAttribute('aria-checked', 'false');
+         }
+       });
+     });
+   }
+
+   switchToggle('.p-switch');
+})()
+</code></pre>
+<script>
+(function() {
+  /**
+   * Control switch elements via toggling aria-checked
+   *
+   * @param {String} switchBtn
+   *
+   * @example
+   * <label id="switch-label" for="switch">Switch</label>
+   * <button id="switch" class="p-switch" type="button" role="switch" aria-checked="false" aria-labelledby="switch-label">
+   *   <span>On</span>
+   *   <span>Off</span>
+   * </button>
+   *
+   */
+  function switchToggle(switchBtn) {
+
+    // Select all switch control elements
+    /**
+     * @param {Object[]} switches
+     * @param {String} switchBtn
+     */
+    var switches = Array.prototype.slice.call(
+      document.querySelectorAll(switchBtn)
+    );
+
+    // Set click event to each switch control element
+    /**
+     * @param {String} switchBtn
+     */
+    switches.forEach(function (switchBtn) {
+      switchBtn.addEventListener('click', function(event) {
+
+        // If aria-checked is already true, set to false
+        if (this.getAttributeNode("aria-checked").value == 'false') {
+          this.setAttribute('aria-checked', 'true');
+        } else {
+          this.setAttribute('aria-checked', 'false');
+        }
+      });
+    });
+  }
+
+  switchToggle('.p-switch');
+})()
+</script>
