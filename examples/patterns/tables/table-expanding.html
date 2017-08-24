@@ -75,53 +75,6 @@ category: _patterns
     </tbody>
 </table>
 
-<h2>Example JavaScript</h2>
-<pre><code>
-(function() {
-    /**
-     * Toggle target elements with aria controls, hidden and expanded
-     *
-     * @param {String} toggleCtrl
-     *
-     * @example
-     * &lt;button class="u-toggle" aria-controls="#menu" aria-expanded="false"&gt;Toggle&lt;/button&gt;
-     * &lt;div id="menu" aria-hidden="true"&gt;
-     *     &lt;p&gt;Example menu&lt;/p&gt;
-     * &lt;/div&gt;
-     */
-
-    function toggle(toggleCtrl) {
-
-        // Select all toggle control elements
-        var t = document.querySelectorAll(toggleCtrl);
-
-        // Loop through all toggle control elements
-        for(i = 0; i < t.length; i++) {
-
-            // Set click event to each toggle control element
-            t[i].addEventListener('click', function(event) {
-
-                // Get toggle aria-control target
-                var target = document.querySelector(
-                    this.getAttribute('aria-controls'));
-
-                // If target hidden is already true set to fale and toggle
-                // control expanded to be true / false
-                if (target.getAttributeNode("aria-hidden").value == 'true') {
-                    this.setAttribute('aria-expanded', 'true');
-                    target.setAttribute('aria-hidden', 'false');
-                } else {
-                    this.setAttribute('aria-expanded', 'false');
-                    target.setAttribute('aria-hidden', 'true');
-                }
-            });
-        }
-    }
-
-    toggle('.u-toggle');
-})()
-</code></pre>
-
 <script>
 (function() {
     /**
