@@ -37,17 +37,17 @@
     }
 
     &::before {
-      @extend .p-card--highlighted;
+      @extend %p-card--highlighted;
+      @include animation($duration: slow);
       background-color: $color-x-light;
       content: '';
       display: block;
       height: 100%;
       left: 0;
-      max-height: 2rem;
+      max-height: $sp-x-large;
       padding: 0;
       position: absolute;
       top: 0;
-      transition: .5s;
       width: 50%;
     }
 

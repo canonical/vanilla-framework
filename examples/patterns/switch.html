@@ -63,11 +63,8 @@ category: _patterns
        switchBtn.addEventListener('click', function(event) {
 
          // If aria-checked is already true, set to false
-         if (this.getAttributeNode("aria-checked").value == 'false') {
-           this.setAttribute('aria-checked', 'true');
-         } else {
-           this.setAttribute('aria-checked', 'false');
-         }
+         this.setAttribute('aria-checked',
+           this.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
        });
      });
    }
@@ -109,11 +106,8 @@ category: _patterns
       switchBtn.addEventListener('click', function(event) {
 
         // If aria-checked is already true, set to false
-        if (this.getAttributeNode("aria-checked").value == 'false') {
-          this.setAttribute('aria-checked', 'true');
-        } else {
-          this.setAttribute('aria-checked', 'false');
-        }
+        this.setAttribute('aria-checked',
+          this.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
       });
     });
   }
