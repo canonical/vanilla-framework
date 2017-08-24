@@ -5,7 +5,7 @@ title: Contextual menu
 
 ## Contextual menu
 
-A contextual menu can be applied to any button, link or navigation item that requires a secondary menu.
+A contextual menu can be applied to any button, link or navigation item that requires a secondary menu. To interact with the menu it will require some javascript to hide/show each pattern. This achieved by finding the toggle element `p-contextual-menu__toggle` and what it controls `aria-controls`. The target element will be hidden or shown with `aria-hidden="true"` or `false`. The control element will also change `aria-expanded` so and screen readers will know it's active.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/contextual-menu/"
   class="js-example">
