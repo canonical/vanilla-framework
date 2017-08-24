@@ -1,0 +1,115 @@
+@import 'settings';
+
+@mixin vf-p-table-mobile-card {
+  .p-table--mobile-card {
+    @media screen and (max-width: $breakpoint-medium) {
+      thead {
+        display: none;
+      }
+
+      tr {
+        align-items: flex-end;
+        background: $color-x-light;
+        border: {
+          radius: 2px;
+          width: 0;
+        }
+        box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+        display: flex;
+        flex: {
+          direction: column;
+          wrap: wrap;
+        }
+        justify-content: center;
+        padding: $sp-large;
+        width: 100%;
+
+        + tr {
+          margin-top: $sp-medium;
+        }
+      }
+
+      td {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        + td {
+          padding-top: $sp-small;
+        }
+
+        &[aria-label] {
+          flex-basis: 50%;
+          max-width: 50%;
+          position: relative;
+          text-align: right;
+
+          &::before {
+            content: attr(aria-label);
+            display: block;
+            font-weight: 500;
+            height: 100%;
+            left: -100%;
+            position: absolute;
+            text-align: left;
+            width: 100%;
+          }
+        }
+      }
+
+      // Styles contextual menus differently with in mobile-card tables
+      .p-contextual-menu {
+        width: 100%;
+
+        // Initial menu item for actions should be hidden
+        [role="menuitem"] {
+          display: none;
+        }
+
+        &__dropdown {
+          box-shadow: none;
+          display: block;
+          max-width: 100%;
+          position: relative;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        &__group {
+          padding: 0;
+
+          + .p-contextual-menu__group {
+            margin-top: $sp-small;
+            padding-top: $sp-small;
+          }
+        }
+
+        // Any link items should be styled as a button element
+        &__link {
+          border: {
+            color: $color-mid-light;
+            radius: .125rem;
+            style: solid;
+            width: 1px;
+          }
+          box-sizing: border-box;
+          color: $color-x-dark;
+          cursor: pointer;
+          display: block;
+          line-height: $sp-medium;
+          outline: none;
+          padding: $sp-small $sp-large;
+          text-align: center;
+          text-decoration: none;
+          width: 100%;
+
+          + .p-contextual-menu__link {
+            margin-top: $sp-x-small;
+          }
+        }
+      }
+    }
+  }
+}
