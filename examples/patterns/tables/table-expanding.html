@@ -1,0 +1,169 @@
+---
+layout: default
+title: Table expanding
+category: _patterns
+---
+
+<table class="p-table-expanding" role="grid">
+    <thead>
+        <tr role="row">
+            <th scope="col" id="t-name" aria-sort="none">Name</th>
+            <th scope="col" id="t-users" aria-sort="none" class="u-align--right">Users</th>
+            <th scope="col" id="t-units" aria-sort="none" class="u-align--right">Units</th>
+            <th scope="col" id="t-revenue" aria-sort="none" class="u-align--right">Actions</th>
+            <th class="u-hide"><!-- empty cell required for validation --></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr role="row">
+            <td role="rowheader" aria-label="Name">Grape</td>
+            <td role="gridcell" aria-label="Users" class="u-align--right">8</td>
+            <td role="gridcell" aria-label="Units" class="u-align--right">19</td>
+            <td role="gridcell" class="u-align--right">
+                <button class="u-toggle" aria-controls="#expanded-row" aria-expanded="false" data-shown-text="Hide" data-hidden-text="Show">Show</button>
+            </td>
+            <td id="expanded-row" class="p-table-expanding__panel" aria-hidden="true">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Expanding table cell</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dicta beatae nostrum eligendi similique earum, dolorem fuga quis, sequi voluptates architecto ipsa dolorum eaque rem expedita inventore voluptas odit aspernatur alias molestias facere, eum accusamus dolor, assumenda. Eaque, id! Dolorem perferendis reprehenderit eum, odio minima ad commodi earum non, iste suscipit.</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="http://placehold.it/1024x325" alt="">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr role="row">
+            <td role="rowheader" aria-label="Name">Melon</td>
+            <td role="gridcell" aria-label="Users" class="u-align--right">12</td>
+            <td role="gridcell" aria-label="Units" class="u-align--right">23</td>
+            <td role="gridcell" class="u-align--right">
+                <button class="u-toggle" aria-controls="#expanded-row-2" aria-expanded="false">Show</button>
+            </td>
+            <td id="expanded-row-2" class="p-table-expanding__panel" aria-hidden="true">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Expanding table cell</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dicta beatae nostrum eligendi similique earum, dolorem fuga quis, sequi voluptates architecto ipsa dolorum eaque rem expedita inventore voluptas odit aspernatur alias molestias facere, eum accusamus dolor, assumenda. Eaque, id! Dolorem perferendis reprehenderit eum, odio minima ad commodi earum non, iste suscipit.</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="http://placehold.it/1024x325" alt="">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr role="row">
+            <td role="rowheader" aria-label="Name">Apple</td>
+            <td role="gridcell" aria-label="Users" class="u-align--right">9</td>
+            <td role="gridcell" aria-label="Units" class="u-align--right">17</td>
+            <td role="gridcell" class="u-align--right">
+                <button class="u-toggle" aria-controls="#expanded-row-3" aria-expanded="false">Show</button>
+            </td>
+            <td id="expanded-row-3" class="p-table-expanding__panel" aria-hidden="true">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Expanding table cell</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dicta beatae nostrum eligendi similique earum, dolorem fuga quis, sequi voluptates architecto ipsa dolorum eaque rem expedita inventore voluptas odit aspernatur alias molestias facere, eum accusamus dolor, assumenda. Eaque, id! Dolorem perferendis reprehenderit eum, odio minima ad commodi earum non, iste suscipit.</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="http://placehold.it/1024x325" alt="">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Example JavaScript</h2>
+<pre><code>
+(function() {
+    /**
+     * Toggle target elements with aria controls, hidden and expanded
+     *
+     * @param {String} toggleCtrl
+     *
+     * @example
+     * &lt;button class="u-toggle" aria-controls="#menu" aria-expanded="false"&gt;Toggle&lt;/button&gt;
+     * &lt;div id="menu" aria-hidden="true"&gt;
+     *     &lt;p&gt;Example menu&lt;/p&gt;
+     * &lt;/div&gt;
+     */
+
+    function toggle(toggleCtrl) {
+
+        // Select all toggle control elements
+        var t = document.querySelectorAll(toggleCtrl);
+
+        // Loop through all toggle control elements
+        for(i = 0; i < t.length; i++) {
+
+            // Set click event to each toggle control element
+            t[i].addEventListener('click', function(event) {
+
+                // Get toggle aria-control target
+                var target = document.querySelector(
+                    this.getAttribute('aria-controls'));
+
+                // If target hidden is already true set to fale and toggle
+                // control expanded to be true / false
+                if (target.getAttributeNode("aria-hidden").value == 'true') {
+                    this.setAttribute('aria-expanded', 'true');
+                    target.setAttribute('aria-hidden', 'false');
+                } else {
+                    this.setAttribute('aria-expanded', 'false');
+                    target.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
+    }
+
+    toggle('.u-toggle');
+})()
+</code></pre>
+
+<script>
+(function() {
+    /**
+     * Toggle target elements with aria controls, hidden and expanded
+     *
+     * @param {String} toggleCtrl
+     *
+     * @example
+     * <button class="u-toggle" aria-controls="#menu" aria-expanded="false">Toggle</button>
+     * <div id="menu" aria-hidden="true">
+     *     <p>Example menu</p>
+     * </div>
+     */
+
+    function toggle(toggleCtrl) {
+
+        // Select all toggle control elements
+        var t = document.querySelectorAll(toggleCtrl);
+
+        // Loop through all toggle control elements
+        for(i = 0; i < t.length; i++) {
+
+            // Set click event to each toggle control element
+            t[i].addEventListener('click', function(event) {
+
+                // Get toggle aria-control target
+                var target = document.querySelector(
+                    this.getAttribute('aria-controls'));
+
+                // If target hidden is already true set to fale and toggle
+                // control expanded to be true / false
+                if (target.getAttributeNode("aria-hidden").value == 'true') {
+                    this.setAttribute('aria-expanded', 'true');
+                    target.setAttribute('aria-hidden', 'false');
+                } else {
+                    this.setAttribute('aria-expanded', 'false');
+                    target.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
+    }
+
+    toggle('.u-toggle');
+})()
+</script>
