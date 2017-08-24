@@ -1,0 +1,268 @@
+---
+layout: default
+title: Table sortable
+category: _patterns
+---
+
+<h2>Table sortable</h2>
+<table class="p-table--sortable" role="grid">
+  <thead>
+    <tr role="row">
+      <th scope="col" role="columnheader" id="t-name" aria-sort="none">Name</th>
+      <th scope="col" role="columnheader" id="t-users" aria-sort="none" class="u-align--right">Users</th>
+      <th scope="col" role="columnheader" id="t-units" aria-sort="none" class="u-align--right">Units</th>
+      <th scope="col" role="columnheader" id="t-revenue" aria-sort="none" class="u-align--right">Revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr role="row">
+      <td role="rowheader">Grape</td>
+      <td role="gridcell" class="u-align--right">8</td>
+      <td role="gridcell" class="u-align--right">19</td>
+      <td role="gridcell" class="u-align--right">$70</td>
+    </tr>
+    <tr role="row">
+      <td role="rowheader">Melon</td>
+      <td role="gridcell" class="u-align--right">12</td>
+      <td role="gridcell" class="u-align--right">23</td>
+      <td role="gridcell" class="u-align--right">$99</td>
+    </tr>
+    <tr role="row">
+      <td role="rowheader">Apple</td>
+      <td role="gridcell" class="u-align--right">9</td>
+      <td role="gridcell" class="u-align--right">17</td>
+      <td role="gridcell" class="u-align--right">$120</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Example JavaScript</h3>
+<pre><code>
+/**
+ * Sort a table by the column specified.
+ *
+ * @param {HTMLTableElement} table
+ * @param {Number} col
+ */
+function sortTable(table, col) {
+  // For readability set the scope to the header.
+  var header = this;
+
+  // Helper 'contant'.
+  var SORTABLE_STATES = {
+    none: 0,
+    ascending: -1,
+    descending: 1,
+    ORDER: ['none', 'ascending', 'descending']
+  };
+
+  // Based on the current aria-sort, get the next state.
+  var newOrder = SORTABLE_STATES.ORDER.indexOf(header.getAttribute('aria-sort')) + 1;
+  newOrder = newOrder > SORTABLE_STATES.ORDER.length - 1 ? 0 : newOrder;
+  newOrder = SORTABLE_STATES.ORDER[newOrder];
+  var currentSort = table.querySelectorAll('[aria-sort]');
+
+  // Reset all header sorts.
+  for (var i = 0, ii = currentSort.length; i < ii; i += 1) {
+    currentSort[i].setAttribute('aria-sort', 'none');
+  }
+
+  // Set the new header sort.
+  header.setAttribute('aria-sort', newOrder);
+
+  // Get the direction of the sort and assume only one tbody.
+  // For this example only assume one tbody.
+  var direction = SORTABLE_STATES[newOrder];
+  var body = table.tBodies[0];
+
+  // Convert the HTML element list to an array.
+  var newRows = Array.prototype.slice.call(body.rows, 0);
+
+  // If the direction is 0 - aria-sort="none".
+  if (direction === 0) {
+    // Reset to the default order.
+    newRows.sort(function (a, b) {
+      return  a.getAttribute('data-index') - b.getAttribute('data-index');
+    });
+  } else {
+    newRows.sort(function (a, b) {
+      // Trim the cell contents.
+      var c = a.cells[col].textContent.trim();
+      var d = b.cells[col].textContent.trim();
+
+      // If the content contains a number, parse it as a number.
+      // This is very crude and should not be considered production ready.
+      if (c.replace(/[^0-9]/gi, '') !== '' && !isNaN(c.replace(/[^0-9]/gi, ''))) {
+        c = parseInt(c.replace(/[^0-9]/gi, ''));
+        // Ascending for numbers and the alphabet are opposite.
+        direction *= -1;
+      }
+      if (d.replace(/[^0-9]/gi, '') !== '' && !isNaN(d.replace(/[^0-9]/gi, ''))) {
+        d = parseInt(d.replace(/[^0-9]/gi, ''));
+        // Ascending for numbers and the alphabet are opposite.
+        direction *= -1;
+      }
+
+      // Based on the direction, do the sort.
+      if (direction === 1) {
+        return c < d;
+      } else {
+        return c > d;
+      }
+    });
+  }
+  // Append each row into the table, replacing the current elements.
+  for(var i = 0, ii = body.rows.length; i < ii; i += 1) {
+    body.appendChild(newRows[i]);
+  }
+}
+
+/**
+ * Create a sortable table from a table.
+ * @param {HTMLTableElement} table
+ */
+function createSortableTable(table) {
+  // Select sortable column headers.
+  var clickableHeaders = table.querySelectorAll('[role="columnheader"][aria-sort]');
+  // For this example, assume only one tbody.
+  var rows = table.tBodies[0].rows;
+  // Set an index for the default order.
+  for (var row = 0, totalRows = rows.length; row < totalRows; row += 1) {
+    rows[row].setAttribute('data-index', row);
+  }
+
+  // Attach the click event for each header.
+  for (var i = 0, ii = clickableHeaders.length; i < ii; i += 1) {
+    // Ensure we bind the event to the header and pass the table and column.
+    clickableHeaders[i].addEventListener('click', sortTable.bind(clickableHeaders[i], table, i));
+  }
+}
+
+/**
+ * Make all --sortable tables on the page sortable.
+ */
+function createSortableTables() {
+  var tables = document.querySelectorAll('table.p-table--sortable');
+  for (var i = 0, ii = tables.length; i < ii; i += 1) {
+    createSortableTable(tables[i]);
+  }
+}
+
+createSortableTables();
+</code></pre>
+
+<script>
+  (function() {
+    /**
+     * Sort a table by the column specified.
+     *
+     * @param {HTMLTableElement} table
+     * @param {Number} col
+     */
+    function sortTable(table, col) {
+      // For readability set the scope to the header.
+      var header = this;
+
+      // Helper 'contant'.
+      var SORTABLE_STATES = {
+        none: 0,
+        ascending: -1,
+        descending: 1,
+        ORDER: ['none', 'ascending', 'descending']
+      };
+
+      // Based on the current aria-sort, get the next state.
+      var newOrder = SORTABLE_STATES.ORDER.indexOf(header.getAttribute('aria-sort')) + 1;
+      newOrder = newOrder > SORTABLE_STATES.ORDER.length - 1 ? 0 : newOrder;
+      newOrder = SORTABLE_STATES.ORDER[newOrder];
+      var currentSort = table.querySelectorAll('[aria-sort]');
+
+      // Reset all header sorts.
+      for (var i = 0, ii = currentSort.length; i < ii; i += 1) {
+        currentSort[i].setAttribute('aria-sort', 'none');
+      }
+
+      // Set the new header sort.
+      header.setAttribute('aria-sort', newOrder);
+
+      // Get the direction of the sort and assume only one tbody.
+      // For this example only assume one tbody.
+      var direction = SORTABLE_STATES[newOrder];
+      var body = table.tBodies[0];
+
+      // Convert the HTML element list to an array.
+      var newRows = Array.prototype.slice.call(body.rows, 0);
+
+      // If the direction is 0 - aria-sort="none".
+      if (direction === 0) {
+        // Reset to the default order.
+        newRows.sort(function (a, b) {
+          return  a.getAttribute('data-index') - b.getAttribute('data-index');
+        });
+      } else {
+        newRows.sort(function (a, b) {
+          // Trim the cell contents.
+          var c = a.cells[col].textContent.trim();
+          var d = b.cells[col].textContent.trim();
+
+          // If the content contains a number, parse it as a number.
+          // This is very crude and should not be considered production ready.
+          if (c.replace(/[^0-9]/gi, '') !== '' && !isNaN(c.replace(/[^0-9]/gi, ''))) {
+            c = parseInt(c.replace(/[^0-9]/gi, ''));
+            // Ascending for numbers and the alphabet are opposite.
+            direction *= -1;
+          }
+          if (d.replace(/[^0-9]/gi, '') !== '' && !isNaN(d.replace(/[^0-9]/gi, ''))) {
+            d = parseInt(d.replace(/[^0-9]/gi, ''));
+            // Ascending for numbers and the alphabet are opposite.
+            direction *= -1;
+          }
+
+          // Based on the direction, do the sort.
+          if (direction === 1) {
+            return c < d;
+          } else {
+            return c > d;
+          }
+        });
+      }
+      // Append each row into the table, replacing the current elements.
+      for(var i = 0, ii = body.rows.length; i < ii; i += 1) {
+        body.appendChild(newRows[i]);
+      }
+    }
+
+    /**
+     * Create a sortable table from a table.
+     * @param {HTMLTableElement} table
+     */
+    function createSortableTable(table) {
+      // Select sortable column headers.
+      var clickableHeaders = table.querySelectorAll('[role="columnheader"][aria-sort]');
+      // For this example, assume only one tbody.
+      var rows = table.tBodies[0].rows;
+      // Set an index for the default order.
+      for (var row = 0, totalRows = rows.length; row < totalRows; row += 1) {
+        rows[row].setAttribute('data-index', row);
+      }
+
+      // Attach the click event for each header.
+      for (var i = 0, ii = clickableHeaders.length; i < ii; i += 1) {
+        // Ensure we bind the event to the header and pass the table and column.
+        clickableHeaders[i].addEventListener('click', sortTable.bind(clickableHeaders[i], table, i));
+      }
+    }
+
+    /**
+     * Make all --sortable tables on the page sortable.
+     */
+    function createSortableTables() {
+      var tables = document.querySelectorAll('table.p-table--sortable');
+      for (var i = 0, ii = tables.length; i < ii; i += 1) {
+        createSortableTable(tables[i]);
+      }
+    }
+
+    createSortableTables();
+  })()
+</script>

@@ -1,0 +1,46 @@
+@import 'settings';
+
+@mixin theme-p-table-sortable {
+
+  %heading-icon {
+    background: {
+      image: url('#{$assets-path}f3f43376-chevron_up.svg');
+      position: center;
+      repeat: no-repeat;
+      size: 100%;
+    }
+    content: ' ';
+    display: inline-block;
+    height: .4rem;
+    margin-left: $sp-x-small;
+    vertical-align: middle;
+    width: $sp-medium;
+  }
+
+  .p-table--sortable {
+    table-layout: fixed;
+
+    th[role="columnheader"] {
+
+      &[aria-sort] {
+        align-items: center;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      &[aria-sort="ascending"]::after {
+        @extend %heading-icon;
+      }
+
+      &[aria-sort="descending"]::after {
+        @extend %heading-icon;
+        transform: rotate(180deg);
+      }
+
+      &[aria-sort]:hover {
+        color: $color-link;
+        text-decoration: underline;
+      }
+    }
+  }
+}
