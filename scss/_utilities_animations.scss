@@ -1,0 +1,16 @@
+/// Animations
+@mixin vf-u-animations {
+  .u-animation--spin {
+    animation: spin map-get($animation-duration, sleepy) infinite linear !important;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
