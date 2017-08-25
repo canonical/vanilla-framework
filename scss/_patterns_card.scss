@@ -18,6 +18,11 @@
   }
 }
 
+%p-card--highlighted {
+  @extend %p-card;
+  box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+}
+
 @mixin vf-p-card {
   @include vf-p-card-default;
   @include vf-p-card-highlighted;
@@ -37,8 +42,7 @@
 
 @mixin vf-p-card-highlighted {
   .p-card--highlighted {
-    @extend %p-card;
-    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+    @extend %p-card--highlighted;
   }
 }
 

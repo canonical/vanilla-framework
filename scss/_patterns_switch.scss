@@ -1,0 +1,61 @@
+@import 'settings';
+
+@mixin vf-p-switch {
+  .p-switch {
+    align-items: stretch;
+    border: 0;
+    display: inline-flex;
+    font-size: .875rem;
+    height: 2rem;
+    padding: initial;
+    position: relative;
+    width: 4rem;
+
+    &:focus {
+      outline: 1px solid $color-link;
+      outline-offset: 3px;
+    }
+
+    :first-child,
+    :last-child {
+      box-shadow: inset 0 2px 5px 0 transparentize($color-dark, .8);
+      line-height: 2rem;
+      margin: 0;
+      text-align: center;
+      width: 50%;
+    }
+
+    :first-child {
+      background-color: $color-information;
+      border-radius: 2px 0 0 2px;
+      color: $color-x-light;
+    }
+
+    :last-child {
+      background-color: $color-mid-light;
+      border-radius: 0 2px 2px 0;
+    }
+
+    &::before {
+      @extend %p-card--highlighted;
+      @include animation($duration: slow);
+      background-color: $color-x-light;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      max-height: $sp-x-large;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      width: 50%;
+    }
+
+    &[aria-checked='true'] {
+
+      &::before {
+        left: 50%;
+      }
+    }
+  }
+}
