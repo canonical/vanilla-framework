@@ -1,103 +1,107 @@
 @import 'settings';
 
 @mixin vf-p-forms {
-  .p-form {
-
-    &--stacked {
-      width: 100%;
-
-      .p-form__group {
-        @media screen and (min-width: $breakpoint-medium) {
-          align-items: baseline;
-          display: flex;
-          flex-flow: wrap;
-
-          + .p-form__group {
-            margin-top: $sp-small;
-          }
-        }
-      }
-
-      .p-form__label {
-        @media screen and (min-width: $breakpoint-medium) {
-          flex: {
-            basis: 25%;
-            grow: 1;
-          }
-          margin: 0;
-          max-width: 25%;
-          padding-right: $sp-small;
-        }
-      }
-
-      .p-form__control {
-        @media screen and (min-width: $breakpoint-medium) {
-          flex: {
-            basis: 75%;
-            grow: 1;
-          }
-          margin: 0;
-          max-width: 75%;
-        }
-      }
-    }
-
-    &--inline {
-      @media screen and (min-width: $breakpoint-medium) {
-        align-items: baseline;
-        display: inline-flex;
-        flex-direction: row;
-
-        > * {
-          margin: 0;
-        }
-      }
-
-      .p-form__group {
-        @media screen and (min-width: $breakpoint-medium) {
-          display: inline-flex;
-          width: auto;
-
-          + .p-form__group,
-          + [class*="p-button"] {
-            margin-left: $sp-large;
-          }
-
-          .p-form__label,
-          .p-form__control,
-          .p-form-validation__message {
-            align-self: baseline;
-            box-sizing: border-box;
-          }
-
-          .p-form__label {
-            flex-shrink: 0;
-            padding-right: $sp-medium;
-          }
-
-          .p-form__control {
-            display: inline-block;
-            margin: 0;
-          }
-
-          .p-form-validation__message {
-            clear: both;
-            margin-top: $sp-xx-small;
-            min-width: 100%; // Sets the width to the minimum width of the parent
-            width: 0; // Removes any block level width
-          }
-        }
-      }
-
-      [class*="p-button"] {
-        flex: initial;
-        flex-shrink: 0;
-        margin-top: 0;
-      }
-    }
-  }
+  @include vf-p-forms-stacked;
+  @include vf-p-forms-inline;
 
   form + [class*="p-button"] {
     margin-top: $sp-large;
+  }
+}
+
+@mixin vf-p-forms-stacked {
+  .p-form--stacked {
+    width: 100%;
+
+    .p-form__group {
+      @media screen and (min-width: $breakpoint-medium) {
+        align-items: baseline;
+        display: flex;
+        flex-flow: wrap;
+
+        + .p-form__group {
+          margin-top: $sp-small;
+        }
+      }
+    }
+
+    .p-form__label {
+      @media screen and (min-width: $breakpoint-medium) {
+        flex: {
+          basis: 25%;
+          grow: 1;
+        }
+        margin: 0;
+        max-width: 25%;
+        padding-right: $sp-small;
+      }
+    }
+
+    .p-form__control {
+      @media screen and (min-width: $breakpoint-medium) {
+        flex: {
+          basis: 75%;
+          grow: 1;
+        }
+        margin: 0;
+        max-width: 75%;
+      }
+    }
+  }
+}
+
+@mixin vf-p-forms-inline {
+  .p-form--inline {
+    @media screen and (min-width: $breakpoint-medium) {
+      align-items: baseline;
+      display: inline-flex;
+      flex-direction: row;
+
+      > * {
+        margin: 0;
+      }
+    }
+
+    .p-form__group {
+      @media screen and (min-width: $breakpoint-medium) {
+        display: inline-flex;
+        width: auto;
+
+        + .p-form__group,
+        + [class*="p-button"] {
+          margin-left: $sp-large;
+        }
+
+        .p-form__label,
+        .p-form__control,
+        .p-form-validation__message {
+          align-self: baseline;
+          box-sizing: border-box;
+        }
+
+        .p-form__label {
+          flex-shrink: 0;
+          padding-right: $sp-medium;
+        }
+
+        .p-form__control {
+          display: inline-block;
+          margin: 0;
+        }
+
+        .p-form-validation__message {
+          clear: both;
+          margin-top: $sp-xx-small;
+          min-width: 100%; // Sets the width to the minimum width of the parent
+          width: 0; // Removes any block level width
+        }
+      }
+    }
+
+    [class*="p-button"] {
+      flex: initial;
+      flex-shrink: 0;
+      margin-top: 0;
+    }
   }
 }
