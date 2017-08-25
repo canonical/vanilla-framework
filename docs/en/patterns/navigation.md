@@ -36,3 +36,12 @@ from the mark up presented below.
 Tip: You can change the breakpoint at which the menu changes to a small screen
 menu by adjusting the `$breakpoint-navigation-threshold` in
 `_settings_breakpoints.scss`.
+
+# Sidebar Navigation
+
+Vanilla also allows you to use a sidebar navigation, with menu items collapsing under section titles in an accordion. This example code will expand to fill the space available to it so it needs to be used in conjunction with the grid to set the layout correctly.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/sidebar/"
+    class="js-example">
+    View example of the sidebar navigation pattern
+</a>
