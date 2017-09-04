@@ -21,7 +21,7 @@ pixels.
 | margin top    | `16px` | `16px` | `24px` |
 | <h1>h1</h1>   |        |        |        |
 | font size     | `32px` | `32px` | `48px` |
-| line height   | `36px` | `48px` | `60px` |
+| line height   | `42px` | `42px` | `60px` |
 | margin top    | `32px` | `32px` | `60px` |
 | <h2>h2</h2>   |        |        |        |
 | font size     | `28px` | `28px` | `36px` |
