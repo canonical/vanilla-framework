@@ -14,7 +14,7 @@ The `.p-link--external` class should be used on hyperlinks that go to a differen
     View example of the external link pattern
 </a>
 
-!!! Note: 
+!!! Note:
     The `p-link--external` class makes use of the fairly new [CSS Masks](http://www.caniuse.com/#search=mask). For support in more browsers you should run your CSS through [an autoprefixer](https://www.npmjs.com/package/autoprefixer) before deploying.
 
 ## Soft link
