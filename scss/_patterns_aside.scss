@@ -1,0 +1,33 @@
+@import 'settings';
+
+@mixin vf-p-aside {
+  .p-aside {
+    align-self: flex-start;
+    border-top: 1px solid $color-mid-light;
+    flex: 0 0 16em;
+    font-size: .875rem;
+    padding: 0 1rem;
+
+    @media (min-width: $breakpoint-medium) {
+      border-left: 1px solid $color-mid-light;
+      border-top: 0;
+      margin-top: 6rem;
+      padding: 0 2rem;
+    }
+
+    &__header {
+      color: $color-mid-dark;
+      font-size: 1em;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+    }
+
+    &__section {
+      padding: 1.5rem 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px dotted $color-mid-light;
+      }
+    }
+  }
+}
