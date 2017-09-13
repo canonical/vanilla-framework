@@ -4,29 +4,54 @@
   .p-aside {
     align-self: flex-start;
     border-top: 1px solid $color-mid-light;
-    flex: 0 0 16em;
+    flex: 0 0 16rem;
     font-size: .875rem;
-    padding: 0 1rem;
+    padding: 0 $sp-medium;
 
     @media (min-width: $breakpoint-medium) {
       border-left: 1px solid $color-mid-light;
       border-top: 0;
-      margin-top: 6rem;
-      padding: 0 2rem;
+      margin-top: $sp-xxx-large * 2;
+      padding: 0 $sp-x-large;
     }
 
     &__header {
       color: $color-mid-dark;
-      font-size: 1em;
-      margin-bottom: .5rem;
+      font-size: $sp-medium;
+      margin-bottom: $sp-x-small;
       text-transform: uppercase;
     }
 
     &__section {
-      padding: 1.5rem 0;
+      padding: $sp-large 0;
 
       &:not(:last-child) {
         border-bottom: 1px dotted $color-mid-light;
+      }
+    }
+
+    &__nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .nav__link {
+        border-bottom: 0;
+        color: $color-dark;
+        margin-bottom: $sp-x-small;
+
+        &:visited {
+          color: $color-dark;
+        }
+
+        &:hover {
+          color: $color-link;
+        }
+
+        &.is-active {
+          font-weight: bold;
+          padding-left: $sp-x-small;
+        }
       }
     }
   }
