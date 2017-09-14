@@ -12,6 +12,13 @@
 }
 
 @mixin vf-p-media-object {
+  %media-image {
+    border-radius: 4px;
+    height: 3.75rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    width: 3.75rem;
+  }
 
   .p-media-object {
     display: flex;
@@ -21,16 +28,20 @@
     }
 
     &__image {
-      border-radius: 4px;
-      height: 3.75rem;
-      margin-right: 1rem;
-      vertical-align: middle;
-      width: 3.75rem;
+      @extend %media-image;
 
       @media (min-width: $breakpoint-medium) {
         height: 4.5rem;
         width: 4.5rem;
       }
+    }
+
+    &__image--large {
+      @extend %media-image;
+
+      flex-shrink: 0;
+      height: 6rem;
+      width: 6rem;
     }
 
     &__title {
@@ -40,6 +51,10 @@
 
     &__content {
       margin-top: $sp-xx-small;
+    }
+
+    &__content--large {
+      margin-top: $sp-medium;
     }
 
     &__meta-list {
