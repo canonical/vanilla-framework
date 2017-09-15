@@ -1,7 +1,7 @@
 @import 'settings';
 
 @mixin vf-strip {
-  @include external-link-color;
+  @include vf-external-link-color;
   clear: both;
   margin-top: 0;
   padding: $sp-x-large 0;
@@ -43,7 +43,7 @@
   .p-strip--accent {
     @include vf-strip;
     background-color: $color-accent-background;
-    color: determine-text-color($color-accent-background);
+    color: vf-determine-text-color($color-accent-background);
   }
 }
 
