@@ -120,6 +120,15 @@ descriptions.
 
 <p>This text is <sub>subscripted</sub></p>
 
+## Font weights
+
+If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/ffont-weights/"
+    class="js-example">
+    View example of the Ubuntu font weights.
+</a>
+
 ## Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
