@@ -124,7 +124,7 @@ descriptions.
 
 If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/ffont-weights/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/font-weights/"
     class="js-example">
     View example of the Ubuntu font weights.
 </a>
