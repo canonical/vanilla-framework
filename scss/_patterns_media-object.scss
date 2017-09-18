@@ -12,7 +12,6 @@
 }
 
 @mixin vf-p-media-object {
-
   .p-media-object {
     display: flex;
 
@@ -21,11 +20,11 @@
     }
 
     &__image {
-      border-radius: 4px;
-      height: 3.75rem;
-      margin-right: 1rem;
+      border-radius: $sp-xx-small;
+      height: $sp-xxx-large + $sp-small;
+      margin-right: $sp-medium;
       vertical-align: middle;
-      width: 3.75rem;
+      width: $sp-xxx-large + $sp-small;
 
       @media (min-width: $breakpoint-medium) {
         height: 4.5rem;
@@ -64,6 +63,25 @@
       &--venue {
         @include vf-iconed-list-item;
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90.000001"><g transform="translate(-111.967 -929.337)" color="#000"><path fill="none" stroke-width="4" overflow="visible" enable-background="accumulate" d="M111.967 929.336h90v90h-90z"/><circle r="6.5" cy="24.5" cx="23.5" transform="matrix(1.846 0 0 1.846 113.583 929.105)" fill="#aea79f" stroke-width="2" overflow="visible" enable-background="accumulate"/><circle r="21" cy="45" cx="45" transform="matrix(1.429 0 0 1.429 92.682 910.05)" fill="none" stroke="#aea79f" stroke-width="4.2" stroke-linejoin="round" overflow="visible" enable-background="accumulate"/><path d="M152.967 931.736l8-2.4v15h-8zM160.967 1016.336h-8v-12h8zM198.967 970.336v8h-12v-8zM114.967 978.336v-8h12v8z" overflow="visible" fill="#aea79f" stroke-width="6" enable-background="accumulate"/></g></svg>');
+      }
+    }
+
+    &--large {
+      display: flex;
+      padding: $sp-xx-large 0;
+
+      .p-media-object__image {
+        flex-shrink: 0;
+        height: 2 * $sp-xxx-large;
+        width: 2 * $sp-xxx-large;
+      }
+
+      .p-media-object__title {
+        @include heading-1;
+      }
+
+      .p-media-object__content {
+        margin-top: $sp-small;
       }
     }
   }
