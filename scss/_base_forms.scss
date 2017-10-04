@@ -168,6 +168,7 @@
 
 // Default form input element styles
 @mixin input-elements {
+  @include focus;
   appearance: textfield;
   background-color: $color-x-light;
   border: 1px solid $color-mid-light;
@@ -182,8 +183,7 @@
   vertical-align: baseline;
   width: 100%;
 
-  &:active,
-  &:focus {
+  &:active {
     border-color: $color-mid-dark;
     color: $color-dark;
     outline: none;
@@ -207,16 +207,13 @@
   @each $state, $color in $states {
     &.has-#{$state} {
       border: 1px solid $color;
-
-      &:focus {
-        border: 1px solid $color;
-      }
     }
   }
 }
 
 // Default form checkbox and radio styles
 @mixin tick-elements {
+  @include focus;
   float: left;
   height: $sp-large;
   margin-bottom: 0;
@@ -247,8 +244,7 @@
   cursor: default;
 
   &:hover,
-  &:active,
-  &:focus {
+  &:active {
     border-color: $color-mid-dark;
     outline: none;
   }
