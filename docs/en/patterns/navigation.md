@@ -18,7 +18,7 @@ Note: You can constrain the width of the navigation to match the
 Note: To make the navigation full width you should just remove the `row` element
 from the mark up presented below.
 
-The background color of a navigation pattern can be set via the `$color-navigation-bg` variable.
+The background color of a navigation pattern can be set via the `$color-navigation-background` variable.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/default/"
     class="js-example">

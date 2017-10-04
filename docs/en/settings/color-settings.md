@@ -77,7 +77,7 @@ When planning your pages, make sure there is an even distribution and well-balan
 <td style="background-color: #333; color: #fff;">$color-brand</td>
 </tr>
 <tr>
-<td>$color-navigation-bg</td>
+<td>$color-navigation-background</td>
 <td style="background-color: #fff; color: #000;">$color-x-light</td>
 </tr>
 </tbody>
