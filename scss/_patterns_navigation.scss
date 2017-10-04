@@ -4,8 +4,6 @@
 
 @mixin vf-p-navigation {
   @include navigation-default;
-  @include navigation-light;
-  @include navigation-dark;
   @include navigation-sidebar;
 }
 
@@ -13,34 +11,9 @@
   .p-navigation {
     @include navigation-pattern(
       $background-color: $color-navigation-bg,
-      $border-color: $color-mid-light,
+      $border-color: if(lightness($color-navigation-bg) > 50, $color-mid-light, transparent),
       $text-color: if(lightness($color-navigation-bg) > 50, $color-dark, $color-light)
     );
-  }
-}
-
-@mixin navigation-dark {
-  .p-navigation--dark {
-    @include navigation-pattern(
-      $background-color: $color-x-dark,
-      $border-color: $color-mid-light,
-      $text-color: $color-x-light
-    );
-  }
-}
-
-@mixin navigation-light {
-  .p-navigation--light {
-    @include navigation-pattern(
-      $background-color: $color-x-light,
-      $border-color: $color-mid-light,
-      $text-color: $color-dark
-    );
-
-    // remove double bottom border on open nav
-    &:target .p-navigation__nav .p-navigation__link:last-child {
-      border-bottom: 0;
-    }
   }
 }
 

@@ -18,28 +18,11 @@ Note: You can constrain the width of the navigation to match the
 Note: To make the navigation full width you should just remove the `row` element
 from the mark up presented below.
 
-## Default navigation
-
-The background color of a default navigation pattern can be set via the `$color-navigation-bg` variable.
+The background color of a navigation pattern can be set via the `$color-navigation-bg` variable.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/default/"
     class="js-example">
-    View example of the default navigation pattern
-</a>
-
-
-## Dark navigation
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/dark/"
-    class="js-example">
-    View example of the dark navigation pattern
-</a>
-
-## Light navigation
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/light/"
-    class="js-example">
-    View example of the light navigation pattern
+    View example of the navigation pattern
 </a>
 
 Tip: You can change the breakpoint at which the menu changes to a small screen
