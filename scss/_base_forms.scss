@@ -35,7 +35,7 @@
   }
 
   [type='file'] {
-    outline: none;
+    @include focus;
     width: 100%;
   }
 
@@ -152,6 +152,8 @@
     }
 
     * {
+      + input[type="checkbox"],
+      + input[type="radio"],
       + button,
       + input[type="submit"] {
         margin-top: $sp-medium;
@@ -213,10 +215,9 @@
 @mixin tick-elements {
   @include focus($offset: 0);
   float: left;
-  height: $sp-medium;
+  height: $sp-large;
   margin-bottom: 0;
   margin-right: $sp-medium;
-  margin-top: $sp-large;
   outline: none;
   padding: 0;
   vertical-align: middle;
