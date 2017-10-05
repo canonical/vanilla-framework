@@ -3,35 +3,17 @@
 // Default header styling
 
 @mixin vf-p-navigation {
-  @include navigation-light;
-  @include navigation-dark;
+  @include navigation-default;
   @include navigation-sidebar;
 }
 
-@mixin navigation-dark {
-  .p-navigation,
-  .p-navigation--dark {
+@mixin navigation-default {
+  .p-navigation {
     @include navigation-pattern(
-      $background-color: $color-dark,
-      $border-color: $color-mid-light,
-      $text-color: $color-x-light
+      $background-color: $color-navigation-background,
+      $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
+      $text-color: if(lightness($color-navigation-background) > 50, $color-dark, $color-light)
     );
-  }
-}
-
-@mixin navigation-light {
-  .p-navigation--light {
-    @include navigation-pattern(
-      $background-color: $color-x-light,
-      $border-color: $color-mid-light,
-      $text-color: $color-dark
-    );
-    border-bottom: 1px solid $color-mid-light;
-
-    // remove double bottom border on open nav
-    &:target .p-navigation__nav .p-navigation__link:last-child {
-      border-bottom: 0;
-    }
   }
 }
 
@@ -42,6 +24,7 @@
       $border-color: $color-mid-light,
       $text-color: $color-dark
     );
+    border-bottom: 0;
 
     .p-navigation__logo {
       margin: 0 $sp-medium 0 0;
@@ -162,11 +145,10 @@
   }
 }
 
-@mixin navigation-pattern ($background-color: $color-brand,
-  $border-color: $color-x-light,
-  $text-color: $color-x-light) {
+@mixin navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
   @extend %clearfix;
   background-color: $background-color;
+  border-bottom: 1px solid $border-color;
   color: $text-color;
   margin-top: 0;
   position: relative;
