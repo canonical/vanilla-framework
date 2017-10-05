@@ -152,8 +152,6 @@
     }
 
     * {
-      + input[type="checkbox"],
-      + input[type="radio"],
       + button,
       + input[type="submit"] {
         margin-top: $sp-medium;
@@ -213,11 +211,12 @@
 
 // Default form checkbox and radio styles
 @mixin tick-elements {
-  @include focus;
+  @include focus($offset: 0);
   float: left;
-  height: $sp-large;
+  height: $sp-medium;
   margin-bottom: 0;
   margin-right: $sp-medium;
+  margin-top: $sp-large;
   outline: none;
   padding: 0;
   vertical-align: middle;
