@@ -39,3 +39,11 @@
     @return $color-x-light;
   }
 }
+
+// Adds visiual focus to elements on :focus
+@mixin focus($color: $color-focus, $width: 1px, $offset: 2px) {
+  &:focus {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
