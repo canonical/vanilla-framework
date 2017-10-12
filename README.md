@@ -93,7 +93,7 @@ Now open the `docs/build/en/index.html` file in your browser.
 
 Keep up to date with all new developments and upcoming changes with Vanilla.
 
-- Follow us on Twitter [@UbuntuDesigners](http://twitter.com/ubuntudesigners)
+- Follow us on Twitter [@vanillaframewrk](https://twitter.com/vanillaframewrk)
 - Read our latest blog posts at [Canonical Blog](http://design.canonical.com/topic/development/)
 - Talk to the team in IRC on <code>irc.freenode.net</code> and join channel <code>#vanilla-framework</code>
 
