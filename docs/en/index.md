@@ -25,7 +25,7 @@ Finally, reference it from your own Sass files, with optional settings:
 $color-brand: #ffffff;
 
 // Import the theme
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework/scss/build';
 ```
 
 If you don't need the whole framework, you can just include specific parts, e.g. `@include vf-b-forms`.
