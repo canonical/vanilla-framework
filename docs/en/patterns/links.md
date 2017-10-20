@@ -14,9 +14,6 @@ The `.p-link--external` class should be used on hyperlinks that go to a differen
     View example of the external link pattern
 </a>
 
-!!! Note:
-    The `p-link--external` class makes use of the fairly new [CSS Masks](http://www.caniuse.com/#search=mask). For support in more browsers you should run your CSS through [an autoprefixer](https://www.npmjs.com/package/autoprefixer) before deploying.
-
 ## Soft link
 
 The `.p-link--soft` class should be used on hyperlinks where many links are grouped together, such as a link cloud.
