@@ -2,6 +2,72 @@
 
 @mixin vf-p-pagination {
   .p-pagination {
-    background: pink;
+    display: flex;
+    width: 100%;
+
+    &__link {
+      display: block;
+      flex: 1;
+      margin-top: 0;
+      padding: 1rem;
+      position: relative;
+
+      &:first-child {
+        padding-left: 2rem;
+
+        @media (max-width: $breakpoint-x-small) {
+          display: block;
+          max-width: .5rem;
+        }
+      }
+
+      &:first-child .p-pagination__arrow {
+        left: .75rem;
+      }
+
+      &:last-child {
+        padding-right: 2rem;
+        text-align: right;
+
+        .p-pagination__arrow {
+          right: .75rem;
+        }
+      }
+
+      &:hover {
+        background: $color-light;
+        text-decoration: none;
+      }
+    }
+
+    &__label,
+    &__title {
+      color: $color-dark;
+      display: block;
+      margin-top: 0;
+      width: 100%;
+    }
+
+    &__label {
+      margin-bottom: .5rem;
+    }
+
+    &__title {
+      font-size: 1.125rem;
+    }
+
+    &__arrow {
+      margin: 0;
+      position: absolute;
+      top: calc(50% - 15px);
+    }
+
+    &__text {
+      margin-top: 0;
+
+      @media (max-width: $breakpoint-x-small) {
+        display: none;
+      }
+    }
   }
 }
