@@ -3,11 +3,20 @@ collection: patterns
 title: Media object
 ---
 
-# Media objects
+# Media object
 
 A media object should be used to display events or articles.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/media-object/media-object/"
+  class="js-example">
+  View example of the pattern media object
+</a>
+
+# Media object (with circular image)
+
+You can add an `is-round` state to the `.p-media-object__image` element to create a circular image style, recommended to be used for headshots of people.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/media-object/media-object-circ-img/"
   class="js-example">
   View example of the pattern media object
 </a>
