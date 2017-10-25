@@ -28,7 +28,7 @@ The `.p-link--soft` class should be used on hyperlinks where many links are grou
 
 ## Strong link
 
-The `.p-link--strong` class should be used on hyperlinks that require emphasis.
+The `.p-link--strong` class should be used on hyperlinks that require emphasis or on a dark background.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-strong/"
     class="js-example">
