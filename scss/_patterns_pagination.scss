@@ -12,6 +12,18 @@
       padding: $sp-medium;
       position: relative;
 
+      &:first-child::before,
+      &:last-child::after {
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        content: ' ';
+        height: 23px;
+        margin: 0;
+        position: absolute;
+        top: calc(50% - 10px);
+        width: 3px;
+      }
+
       &:first-child {
         padding-left: $sp-x-large;
 
@@ -21,7 +33,7 @@
         }
       }
 
-      &:first-child .p-pagination__arrow {
+      &:first-child::before {
         background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjEwcHgiIHdpZHRoPSIzcHgiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAzIDEwIj48IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwLjIgKDMzODI2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KIDx0aXRsZT5Hcm91cDwvdGl0bGU+CiA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KIDxnIGlkPSJQYWdlLTEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0ibm9uZSI+CiAgPGcgaWQ9Ikdyb3VwIiBmaWxsPSIjMzMzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjUgNSkgc2NhbGUoLTEgMSkgdHJhbnNsYXRlKC0xLjUgLTUpIj4KICAgPGcgaWQ9IlNoYXBlIj4KICAgIDxwYXRoIGQ9Im0wIDEwdi0xLjc1bDAuMDYyLTAuMDljMC4xODYtMC4yNjYgMC4zNjgtMC41NCAwLjU0NS0wLjgyMyAwLjIyNS0wLjM2IDAuNDM2LTAuNzI3IDAuNjMzLTEuMTA0IDAuMTktMC4zNjQgMC40MjMtMC44NzQgMC41NzgtMS4yMzMtMC4xNTUtMC4zNi0wLjM4Ny0wLjg3LTAuNTc4LTEuMjM0LTAuMTk3LTAuMzc2LTAuNDA4LTAuNzQ0LTAuNjMzLTEuMTA0LTAuMTc3LTAuMjg0LTAuMzYtMC41NTYtMC41NDUtMC44MjNsLTAuMDYyLTAuMDg5di0xLjc1bDAuNTg0IDAuNzdjMC4zMjQgMC40NSAwLjYzNyAwLjkwNiAwLjkyNyAxLjM3NCAwLjMyNSAwLjUyMyAwLjYxNiAxLjAzIDAuODczIDEuNTI0IDAuMjM4IDAuNDU2IDAuNDMyIDAuODggMC41NiAxLjE5NmwwLjA1NiAwLjEzNi0wLjA1NiAwLjEzNmMtMC4xMzMgMC4zMjQtMC4zMjMgMC43NC0wLjU2IDEuMTk1LTAuMjU4IDAuNDk1LTAuNTUgMS4wMDMtMC44NzMgMS41MjUtMC4yOSAwLjQ2OC0wLjYwMiAwLjkyNi0wLjkyNiAxLjM3NmwtMC41ODUgMC43Njh6Ii8+CiAgIDwvZz4KICA8L2c+CiA8L2c+Cjwvc3ZnPgo=');
         left: $sp-small;
       }
@@ -31,7 +43,7 @@
         text-align: right;
       }
 
-      &:last-child .p-pagination__arrow {
+      &:last-child::after {
         background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjEwcHgiIHdpZHRoPSIzcHgiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAzIDEwIj48IS0tIEdlbmVyYXRvcjogU2tldGNoIDQyICgzNjc4MSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiA8dGl0bGU+cGF0aDQyMjQ8L3RpdGxlPgogPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiA8ZyBpZD0iUGFnZS0xIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9Im5vbmUiPgogIDxnIGlkPSJBcnRib2FyZCIgZmlsbD0iIzMzMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU2MyAtNTQ4KSI+CiAgIDxnIGlkPSJBY2NvcmRpb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1NiA0MzQpIj4KICAgIDxnIGlkPSJBY2NvcmlkaW9uIj4KICAgICA8ZyBpZD0ic3RhdHVzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxIDc3KSI+CiAgICAgIDxnIGlkPSIxIj4KICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MDggNDIpIHJvdGF0ZSgtOTApIHRyYW5zbGF0ZSgtMTggLTE4KSI+CiAgICAgICAgPHBhdGggaWQ9InBhdGg0MjI0IiBkPSJtMTMgMTZoMC45NzUgMC43NzRsMC4wOSAwLjA2MmMwLjI2NyAwLjE4NiAwLjU0IDAuMzY4IDAuODI0IDAuNTQ1IDAuMzYgMC4yMjUgMC43MjcgMC40MzYgMS4xMDQgMC42MzMgMC4zNjQgMC4xOTEgMC44NzQgMC40MjMgMS4yMzMgMC41NzggMC4zNTktMC4xNTUgMC44Ny0wLjM4NyAxLjIzNC0wLjU3OCAwLjM3Ni0wLjE5NyAwLjc0NC0wLjQwOCAxLjEwNC0wLjYzMyAwLjI4NC0wLjE3NyAwLjU1Ni0wLjM1OSAwLjgyMy0wLjU0NWwwLjA5LTAuMDYyaDEuNzQ5bC0wLjc2OSAwLjU4NGMtMC40NSAwLjMyNC0wLjkwNyAwLjYzNy0xLjM3NSAwLjkyNy0wLjUyMyAwLjMyNC0xLjAzMSAwLjYxNS0xLjUyNCAwLjg3Mi0wLjQ1NiAwLjIzOC0wLjg3OSAwLjQzMi0xLjE5NiAwLjU2MWwtMC4xMzYgMC4wNTYtMC4xMzYtMC4wNTZjLTAuMzI0LTAuMTMzLTAuNzM5LTAuMzIzLTEuMTk1LTAuNTYxLTAuNDk0LTAuMjU3LTEuMDAyLTAuNTQ4LTEuNTI0LTAuODcyLTAuNDY4LTAuMjktMC45MjYtMC42MDMtMS4zNzYtMC45MjdsLTAuNzY5LTAuNTg0eiIvPgogICAgICAgPC9nPgogICAgICA8L2c+CiAgICAgPC9nPgogICAgPC9nPgogICA8L2c+CiAgPC9nPgogPC9nPgo8L3N2Zz4K');
         right: $sp-small;
       }
@@ -60,16 +72,6 @@
       @media (min-width: $breakpoint-small) {
         font-size: 1.25rem;
       }
-    }
-
-    &__arrow {
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      height: 23px;
-      margin: 0;
-      position: absolute;
-      top: calc(50% - 10px);
-      width: 3px;
     }
 
     &__text {
