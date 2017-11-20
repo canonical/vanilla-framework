@@ -170,6 +170,7 @@ $ms-ratio: 1.333333;
     }
   }
 
+  cite,
   p {
     @include default-text;
   }
@@ -225,19 +226,17 @@ $ms-ratio: 1.333333;
   // blockquotes
   blockquote {
     margin-bottom: 0;
+    margin-top: 0;
     margin-left: 0;
+    overflow: auto; // include margins of children into it's own height
     padding-left: $sp-large;
 
     > p {
-      font-size: $sp-medium;
       font-style: italic;
-      margin-top: $sp-small;
     }
 
     > cite {
-      font-size: $sp-medium;
       font-style: normal;
-      margin-top: $sp-small;
     }
   }
 
