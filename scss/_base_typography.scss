@@ -1,4 +1,6 @@
 @import 'settings';
+$ms-ratio: 1.333333;
+
 
 // Typographic element styles
 @mixin vf-b-typography {
@@ -129,7 +131,7 @@
     color: $color-dark;
     font-family: unquote($font-base-family);
     font-weight: 300;
-    line-height: 1.5;
+    line-height: $vertical-unit-ratio * 2;
   }
 
 
@@ -146,15 +148,15 @@
     margin: 0;
   }
 
-  h1 {
-    + * {
-      margin-top: $sp-medium;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-large;
-      }
-    }
-  }
+  // h1 {
+  //   + * {
+  //     margin-top: $sp-medium;
+  //
+  //     @media screen and (min-width: #{$breakpoint-large}) {
+  //       margin-top: $sp-large;
+  //     }
+  //   }
+  // }
 
 
   h5,
@@ -169,17 +171,7 @@
   }
 
   p {
-    margin-bottom: 0;
-  }
-
-  p {
-    + p {
-      margin-top: $sp-medium;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-large;
-      }
-    }
+    @include default-text;
   }
 
   button,
@@ -268,68 +260,131 @@
 }
 
 @mixin heading-1 {
-  font-size: $sp-x-large;
+  $baseline-nudge-h1: .7rem;
+  font-size: $ms-ratio * $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.2;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: $sp-xxx-large;
-    line-height: 1.25;
-  }
+  line-height: $sp-vertical-base-unit * 5;
+  margin-bottom: $sp-vertical-base-unit * 3 - $baseline-nudge-h1;
+  margin-top: 0 !important;
+  padding-top: $baseline-nudge-h1;
+  // @media only screen and (min-width: $breakpoint-large) {
+  //   // font-size: $sp-xxx-large;
+  // }
 }
 
 @mixin heading-2 {
-  font-size: 1.75rem;
+  $baseline-nudge-h2: .5rem;
+  font-size: $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.25;
+  line-height: $sp-vertical-base-unit * 3;
+  margin-bottom: $sp-vertical-base-unit * 2 - $baseline-nudge-h2;
+  margin-top: 0 !important;
+  padding-top: $baseline-nudge-h2;
 
   @media only screen and (min-width: $breakpoint-large) {
-    font-size: $sp-x-large;
-    line-height: 1.25;
-  }
+    $baseline-nudge-h2-large: .6rem;
+    // font-size: 2.25rem;
+    line-height: $sp-vertical-base-unit * 4;
+    margin-bottom: $sp-vertical-base-unit * 3 - $baseline-nudge-h2-large;
+    padding-top: $baseline-nudge-h2-large;
 
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 2.25rem;
-    line-height: 1.167;
   }
 }
 
 @mixin heading-3 {
-  font-size: $sp-large;
+  $baseline-nudge-h3: .6rem;
+  font-size: $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.154;
+  line-height: $sp-vertical-base-unit * 3;
+  margin-bottom: $sp-vertical-base-unit * 2 - $baseline-nudge-h3;
+  margin-top: 0 !important;
+  padding-top: $baseline-nudge-h3;
 
   @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.75rem;
-    line-height: 1.286;
+    $baseline-nudge-h3-large: .45rem;
+    // font-size: 1.75rem;
+    margin-bottom: $sp-vertical-base-unit * 2 - $baseline-nudge-h3-large;
+    padding-top: $baseline-nudge-h3-large;
   }
 }
 
 @mixin heading-4 {
-  font-size: 1.375rem;
+  $baseline-nudge-h4: .6rem;
+  font-size: $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.364;
+  line-height: $sp-vertical-base-unit * 3;
+  margin-bottom: $sp-vertical-base-unit * 2 - $baseline-nudge-h4;
+  margin-top: -$sp-vertical-base-unit !important;
+  padding-top: $baseline-nudge-h4;
 
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: $sp-large;
-    line-height: 1.25;
-  }
+  // @media only screen and (min-width: $breakpoint-large) {
+  //   // font-size: $sp-large;
+  // }
 }
-* {line-height: 1.4}
 
 @mixin heading-5 {
-  font-size: 1.125rem;
+  @include default-text;
+  @include uppercase;
+  font-size: 1rem;
   font-weight: 300;
-  line-height: 1.264;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.25rem;
-    line-height: 1.143;
-  }
+  // @media only screen and (min-width: $breakpoint-large) {
+  //   // font-size: 1.25rem;
+  // }
 }
 
 @mixin heading-6 {
+  @include default-text;
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.412;
+  font-weight: 300;
+  font-style: italic;
+
+}
+
+@mixin default-text {
+  $baseline-nudge-p: .35rem;
+  font-size: 1rem;
+  line-height: $sp-vertical-base-unit * 2;
+  margin-bottom: $sp-vertical-base-unit * 2 - $baseline-nudge-p;
+  margin-top: 0 !important;
+  padding-top: $baseline-nudge-p;
+}
+
+@mixin uppercase {
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+@mixin v-rhythm-typography {
+  // max-width based on font size for better readability
+  %heading-copy--short {
+    max-width: 20em;
+  }
+
+  %heading-copy--long {
+    max-width: 25em;
+  }
+
+  %paragraph-copy {
+    max-width: 35em;
+  }
+
+  h1,
+  h2,
+  .p-heading--two {
+    @extend %heading-copy--short;
+  }
+
+  h3,
+  h4,
+  .p-heading--three,
+  .p-heading--four {
+    @extend %heading-copy--long;
+  }
+
+  h5,
+  p,
+  .p-heading--five,
+  .p-heading--six {
+    @extend %paragraph-copy;
+  }
 }

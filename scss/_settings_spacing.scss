@@ -1,9 +1,26 @@
-// Global spacing settings
-$sp-xx-small: 1rem * .25 !default;
-$sp-x-small: 1rem * .5 !default;
-$sp-small: 1rem * .75 !default;
-$sp-medium: 1rem !default;
-$sp-large: 1rem * 1.5 !default;
-$sp-x-large: 1rem * 2 !default;
-$sp-xx-large: 1rem * 2.5 !default;
-$sp-xxx-large: 1rem * 3 !default;
+//separate ratio so it can be used unitless (e.g. for line-height)
+$vertical-unit-ratio: .75;
+$sp-vertical-base-unit: 1rem * $vertical-unit-ratio;
+
+
+// Global spacing settings (original)
+// $sp-xx-small: 1rem * .25 !default;
+// $sp-x-small: 1rem * .5 !default;
+// $sp-small: 1rem * .75 !default;
+// $sp-medium: 1rem !default;
+// $sp-large: 1rem * 1.5 !default;
+// $sp-x-large: 1rem * 2 !default;
+// $sp-xx-large: 1rem * 2.5 !default;
+// $sp-xxx-large: 1rem * 3 !default;
+
+
+$sp-xx-small: $sp-vertical-base-unit * .25 !default;
+$sp-x-small: $sp-vertical-base-unit * .5 !default;
+$sp-small: $sp-vertical-base-unit !default;
+$sp-medium: $sp-vertical-base-unit * 1 !default;
+$sp-large: $sp-vertical-base-unit * 2 !default;
+$sp-x-large: $sp-vertical-base-unit * 3 !default;
+$sp-xx-large: $sp-vertical-base-unit * 3 !default;
+$sp-xxx-large: $sp-vertical-base-unit * 4 !default;
+$sp-xxxx-large: $sp-vertical-base-unit * 5 !default;
+$sp-xxxxx-large: $sp-vertical-base-unit * 8 !default;
