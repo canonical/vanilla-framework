@@ -1,5 +1,7 @@
 @import 'settings';
 
+$numbered-bullet-width: 3rem;
+$numbered-bullet-margin-right: 1rem;
 // Default list styling
 // Mixin for basic styled lists
 @mixin vf-list {
@@ -146,7 +148,7 @@
 @mixin vf-p-stepped-list {
   .p-list-step {
     list-style: none;
-    margin-left: $grid-gutter-width * 3;
+    margin-left: $numbered-bullet-width + $numbered-bullet-margin-right;
     padding: 0;
 
     &__title {
@@ -179,75 +181,57 @@
       color: $color-x-light;
       display: inline-block;
       font-size: $sp-large;
-      height: 50px;
-      line-height: 50px;
-      margin-bottom: .625rem;
-      margin-left: -$grid-gutter-width * 3;
-      margin-right: .34375rem;
+      height: $numbered-bullet-width;
+      line-height: $numbered-bullet-width;
+      margin-left: -$numbered-bullet-width - $numbered-bullet-margin-right;
+      margin-top: -.185em;
+      position: absolute;
       text-align: center;
-      width: 50px;
-
-      @media only screen and (max-width: $breakpoint-large) {
-        position: absolute;
-        top: -5px;
-      }
+      width: $numbered-bullet-width;
     }
   }
 }
 
-
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
+    @extend %clearfix;
     list-style: none;
-    padding: 0 2rem 0 3rem;
-
+    margin-left: 0;
+    padding: 0 2rem 0 $numbered-bullet-width + $numbered-bullet-margin-right;
     @media (max-width: $grid-max-width) {
-      margin-top: 2.5rem;
+      margin-top: $sp-xx-large;
     }
 
     .p-list-step__item {
-      margin-bottom: 3rem;
+      margin-bottom: $sp-xxx-large;
 
       @media (min-width: $breakpoint-medium) {
         display: flex;
         margin: 0;
 
-        > * {
-          width: 50%;
+        >:nth-child(2n) {
+          @include column(6, $grid-columns);
+        }
+
+        >:nth-child(2n+1) {
+          @include column(6, $grid-columns, true);
         }
       }
     }
 
     .p-list-step__title {
-
       @media (min-width: $breakpoint-medium) {
-        padding-top: 2.75rem;
+        padding-top: $sp-xx-large;
       }
-
     }
 
     .p-list-step__content {
       background: $color-x-light;
       color: $color-x-dark;
-      margin-left: -4rem;
-      margin-right: -2rem;
-      margin-top: 2.5rem;
-      padding: 1.3333rem;
 
       @media (min-width: $breakpoint-medium) {
         border-bottom: 1px solid $color-light;
-        margin: .25rem 0 0;
-        padding: 2.5rem;
-      }
-    }
-
-    @media (min-width: $breakpoint-medium) {
-      .p-list-step__bullet {
-        left: -$grid-gutter-width * 3;
-        margin-left: 0;
-        margin-right: 1rem;
-        position: absolute;
-        top: 2.25rem;
+        padding: $sp-xx-large 0;
       }
     }
   }
@@ -277,7 +261,7 @@
       }
 
       &:nth-child(2n-1) {
-        margin-right: 1rem;
+        margin-right: $sp-medium;
       }
     }
   }
