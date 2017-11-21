@@ -9,8 +9,15 @@
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
     font-size: $sp-small;
-    margin-bottom: $sp-small;
+    margin-bottom: $sp-x-large;
     padding-bottom: $sp-small;
+    
+    >.p-link--soft {
+      //include child margins into height
+      overflow: auto;
+      //prevent height colapse due to display: inline
+      display: inline-block;
+    }
 
     img {
       max-height: $sp-x-large;
@@ -37,7 +44,8 @@
   .p-card {
     @extend %p-card;
     border: 1px solid $color-mid-light;
-
+    margin-bottom: $sp-x-large;
+    
     & & {
       margin-top: 0;
     }

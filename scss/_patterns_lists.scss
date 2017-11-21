@@ -61,6 +61,7 @@ $numbered-bullet-margin-right: 1rem;
 @mixin vf-p-list {
   .p-list {
     @include vf-list;
+    @extend %clearfix;
 
     &__item {
       margin-top: .6667rem;
@@ -248,6 +249,7 @@ $numbered-bullet-margin-right: 1rem;
     @media (min-width: $breakpoint-medium) {
       @supports (columns: 1) {
         columns: 2;
+        column-gap: $sp-x-large;
 
         .p-list__item {
           display: inline-block;
