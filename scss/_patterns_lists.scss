@@ -60,8 +60,8 @@ $numbered-bullet-margin-right: 1rem;
 // List styling using list class
 @mixin vf-p-list {
   .p-list {
-    @include vf-list;
     @extend %clearfix;
+    @include vf-list;
 
     &__item {
       margin-top: .6667rem;
@@ -189,9 +189,9 @@ $numbered-bullet-margin-right: 1rem;
       position: absolute;
       text-align: center;
       width: $numbered-bullet-width;
-      
+
       @media (min-width: $breakpoint-large) {
-        margin-top: -.15em;        
+        margin-top: -.15em;
       }
     }
   }
@@ -248,8 +248,8 @@ $numbered-bullet-margin-right: 1rem;
 
     @media (min-width: $breakpoint-medium) {
       @supports (columns: 1) {
-        columns: 2;
         column-gap: $sp-x-large;
+        columns: 2;
 
         .p-list__item {
           display: inline-block;
