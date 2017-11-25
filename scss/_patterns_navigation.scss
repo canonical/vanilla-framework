@@ -3,13 +3,13 @@
 // Default header styling
 
 @mixin vf-p-navigation {
-  @include navigation-default;
-  @include navigation-sidebar;
+  @include vf-navigation-default;
+  @include vf-navigation-sidebar;
 }
 
-@mixin navigation-default {
+@mixin vf-navigation-default {
   .p-navigation {
-    @include navigation-pattern(
+    @include vf-navigation-pattern(
       $background-color: $color-navigation-background,
       $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
       $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
@@ -17,9 +17,9 @@
   }
 }
 
-@mixin navigation-sidebar {
+@mixin vf-navigation-sidebar {
   .p-navigation--sidebar {
-    @include navigation-pattern(
+    @include vf-navigation-pattern(
       $background-color: $color-x-light,
       $border-color: $color-mid-light,
       $text-color: $color-dark
@@ -145,7 +145,7 @@
   }
 }
 
-@mixin navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
+@mixin vf-navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
   @extend %clearfix;
   background-color: $background-color;
   border-bottom: 1px solid $border-color;
