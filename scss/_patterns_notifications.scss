@@ -1,7 +1,7 @@
 @import 'settings';
 
 // The mixin for basic notification styling
-@mixin notification {
+@mixin vf-notification {
   background-color: $color-x-light;
   border: 0;
   border-color: $color-mid-dark;
@@ -29,7 +29,7 @@
 // Default notification styling
 @mixin vf-notifications-default {
   .p-notification {
-    @include notification;
+    @include vf-notification;
 
     &__response {
       background-position: 0 4px;
@@ -54,7 +54,7 @@
 // Positive notification styling
 @mixin vf-notifications-positive {
   .p-notification--positive {
-    @include notification;
+    @include vf-notification;
     border-color: $color-positive;
 
     .p-notification__response {
@@ -67,7 +67,7 @@
 // Caution notification styling
 @mixin vf-notifications-caution {
   .p-notification--caution {
-    @include notification;
+    @include vf-notification;
     border-color: $color-caution;
 
     .p-notification__response {
@@ -81,7 +81,7 @@
 @mixin vf-notifications-warning {
   @include deprecate('2.0.0', 'Use .p-notifications--caution instead') {
     .p-notification--warning {
-      @include notification;
+      @include vf-notification;
       border-color: $color-warning;
 
       .p-notification__response {
@@ -95,7 +95,7 @@
 // Negative notification styling
 @mixin vf-notifications-negative {
   .p-notification--negative {
-    @include notification;
+    @include vf-notification;
     border-color: $color-negative;
 
     .p-notification__response {
@@ -108,7 +108,7 @@
 // Information notification styling
 @mixin vf-notifications-information {
   .p-notification--information {
-    @include notification;
+    @include vf-notification;
     border-color: $color-information;
   }
 }
