@@ -3,18 +3,18 @@
 // Base button styles
 @mixin vf-b-button {
   button {
-    @include button-pattern;
+    @include vf-button-pattern;
     line-height:  $sp-medium;
   }
 }
 
 %button-pattern {
-  @include animation(
+  @include vf-animation(
     $property: background-color,
     $duration: fast,
     $easing: in
   );
-  @include focus;
+  @include vf-focus;
 
   border-radius: .125rem;
   border-style: solid;
@@ -63,7 +63,7 @@
 /// mixin for all the buttons
 /// there are sensible defaults, but you can
 /// override colors as desired
-@mixin button-pattern (
+@mixin vf-button-pattern (
   $button-background-color: $color-x-light,
   $button-text-color: $color-dark,
   $button-disabled-background-color: $color-transparent,

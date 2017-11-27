@@ -2,27 +2,27 @@
 
 // Default button styling
 @mixin vf-p-buttons {
-  @include button-plain;
-  @include button-neutral;
-  @include button-brand;
-  @include button-positive;
-  @include button-negative;
-  @include button-base;
-  @include button-inline;
+  @include vf-button-plain;
+  @include vf-button-neutral;
+  @include vf-button-brand;
+  @include vf-button-positive;
+  @include vf-button-negative;
+  @include vf-button-base;
+  @include vf-button-inline;
 }
 
-@mixin button-plain {
+@mixin vf-button-plain {
   .p-button {
-    @include button-pattern (
+    @include vf-button-pattern (
       $button-disabled-background-color: $color-x-light,
       $button-disabled-border-color: $color-x-light
     );
   }
 }
 
-@mixin button-neutral {
+@mixin vf-button-neutral {
   .p-button--neutral {
-    @include button-pattern (
+    @include vf-button-pattern (
       $button-disabled-border-color: $color-mid-light,
       $button-border-color: $color-mid-light,
       $button-hover-background-color: $color-light,
@@ -31,9 +31,9 @@
   }
 }
 
-@mixin button-brand {
+@mixin vf-button-brand {
   .p-button--brand {
-    @include button-pattern (
+    @include vf-button-pattern (
       $button-background-color: $color-brand,
       $button-border-color: $color-brand,
       $button-text-color: vf-contrast-text-color($color-brand),
@@ -45,9 +45,9 @@
   }
 }
 
-@mixin button-positive {
+@mixin vf-button-positive {
   .p-button--positive {
-    @include button-pattern (
+    @include vf-button-pattern (
       $button-background-color: $color-positive,
       $button-border-color: $color-positive,
       $button-text-color: $color-x-light,
@@ -59,9 +59,9 @@
   }
 }
 
-@mixin button-negative {
+@mixin vf-button-negative {
   .p-button--negative {
-    @include button-pattern (
+    @include vf-button-pattern (
       $button-background-color: $color-negative,
       $button-border-color: $color-negative,
       $button-text-color: $color-x-light,
@@ -73,9 +73,9 @@
   }
 }
 
-@mixin button-base {
+@mixin vf-button-base {
   .p-button--base {
-    @include button-pattern (
+    @include vf-button-pattern (
       $button-background-color: $color-transparent,
       $button-border-color: $color-transparent,
       $button-text-color: $color-dark,
@@ -85,7 +85,7 @@
   }
 }
 
-@mixin button-inline {
+@mixin vf-button-inline {
   [class^="p-button"].is-inline {
     @media (max-width: $breakpoint-medium) {
       margin-top: 1.2rem;
