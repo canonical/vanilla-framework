@@ -1,26 +1,48 @@
+//modular scale ratio
+$ms-ratio: 1.333333;
 //separate ratio so it can be used unitless (e.g. for line-height)
-$vertical-unit-ratio: .75;
-$sp-vertical-base-unit: 1rem * $vertical-unit-ratio;
+$sp-unit-ratio: .75;
+$sp-unit: 1rem * $sp-unit-ratio;
+$px: .0625rem; // 1px expressed as rem; useful in calculations where sizes are defined in rems. 
+$sp-xx-small: $sp-unit * .25 !default;
+$sp-x-small: $sp-unit * .5 !default;
+$sp-small: $sp-unit !default;
+$sp-medium: $sp-unit * 1 !default;
+$sp-large: $sp-unit * 2 !default;
+$sp-x-large: $sp-unit * 3 !default;
+$sp-xx-large: $sp-unit * 3 !default;
+$sp-xxx-large: $sp-unit * 4 !default;
+$sp-xxxx-large: $sp-unit * 5 !default;
+$sp-xxxxx-large: $sp-unit * 8 !default;
 
+// Maps containing values used to snap text at given font size to the baseline grid
+// format: map name: $baselin-offset-at- followed by base unit (12px);
+//   key name: pow followed by the power $ms-ratio has been raised to; 
+//  (font-sizes are 1rem * $ms-ratio taken to powers 0 - 4)
 
-// Global spacing settings (original)
-// $sp-xx-small: 1rem * .25 !default;
-// $sp-x-small: 1rem * .5 !default;
-// $sp-small: 1rem * .75 !default;
-// $sp-medium: 1rem !default;
-// $sp-large: 1rem * 1.5 !default;
-// $sp-x-large: 1rem * 2 !default;
-// $sp-xx-large: 1rem * 2.5 !default;
-// $sp-xxx-large: 1rem * 3 !default;
+$nudges--baseline-12: (
+  pow4: .7rem,
+  pow3: .6rem,
+  pow2: .45rem,
+  pow1: .6rem,
+  pow0: .35rem
+);
 
+$nudges--baseline-8: (
+  pow4: .7rem,
+  pow3: .6rem,
+  pow2: .45rem,
+  pow1: .6rem,
+  pow0: .35rem
+);
 
-$sp-xx-small: $sp-vertical-base-unit * .25 !default;
-$sp-x-small: $sp-vertical-base-unit * .5 !default;
-$sp-small: $sp-vertical-base-unit !default;
-$sp-medium: $sp-vertical-base-unit * 1 !default;
-$sp-large: $sp-vertical-base-unit * 2 !default;
-$sp-x-large: $sp-vertical-base-unit * 3 !default;
-$sp-xx-large: $sp-vertical-base-unit * 3 !default;
-$sp-xxx-large: $sp-vertical-base-unit * 4 !default;
-$sp-xxxx-large: $sp-vertical-base-unit * 5 !default;
-$sp-xxxxx-large: $sp-vertical-base-unit * 8 !default;
+$sp-after: (
+  h1: 2,
+  h2: 2,
+  h3: 2,
+  h4: 2,
+  h5: 0,
+  h6: 0,
+  p: 2
+);
+
