@@ -8,12 +8,12 @@ install:
   - gem install percy-cli
   - gem install sass
   - bundle install
-  - npm install
+  - yarn install
 before_script:
-  - npm run build
+  - yarn run build
 script:
-  - npm run test
-  - npm run build-examples
+  - yarn run test
+  - yarn run build-examples
   - percy snapshot --widths "375,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
   - sass --no-cache --sourcemap=none scss/build.scss build/css/build.css
 notifications:

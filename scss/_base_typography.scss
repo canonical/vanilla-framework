@@ -169,6 +169,7 @@
   }
 
   p {
+    @include p-max-width;
     margin-bottom: 0;
   }
 
@@ -267,7 +268,29 @@
   }
 }
 
+// Optimal max-width for main headings (up to 2 lines of copy)
+@mixin heading-max-width--short {
+  max-width: 20em;
+}
+
+// Optimal max-width for headings (up to 3 lines of copy)
+@mixin heading-max-width--long {
+  max-width: 25em;
+}
+
+// Optimal max-width for body copy
+@mixin p-max-width {
+  max-width: 35em;
+}
+
+// Relaxed max-width for cases like notifications, where minimizing vertical height is
+// more important than maintaining the optimal max-width of 35em
+@mixin p-max-width--long {
+  max-width: 60em;
+}
+
 @mixin vf-heading-1 {
+  @include heading-max-width--short;
   font-size: $sp-x-large;
   font-weight: 300;
   line-height: 1.2;
@@ -279,6 +302,7 @@
 }
 
 @mixin vf-heading-2 {
+  @include heading-max-width--short;
   font-size: 1.75rem;
   font-weight: 300;
   line-height: 1.25;
@@ -295,6 +319,7 @@
 }
 
 @mixin vf-heading-3 {
+  @include heading-max-width--long;
   font-size: $sp-large;
   font-weight: 300;
   line-height: 1.154;
@@ -306,6 +331,7 @@
 }
 
 @mixin vf-heading-4 {
+  @include heading-max-width--long;
   font-size: 1.375rem;
   font-weight: 300;
   line-height: 1.364;
@@ -317,6 +343,7 @@
 }
 
 @mixin vf-heading-5 {
+  @include p-max-width;
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.264;
@@ -328,6 +355,7 @@
 }
 
 @mixin vf-heading-6 {
+  @include p-max-width;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.412;
