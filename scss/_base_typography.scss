@@ -1,6 +1,4 @@
 @import 'settings';
-$ms-ratio: 1.333333;
-
 
 // Typographic element styles
 @mixin vf-b-typography {
@@ -238,46 +236,45 @@ $ms-ratio: 1.333333;
   }
 }
 
+$baseline-nudge-h1: map-get($nudges--baseline-8, pow4);
+$baseline-nudge-h2: map-get($nudges--baseline-8, pow3);
+$baseline-nudge-h3: map-get($nudges--baseline-8, pow2);
+$baseline-nudge-h4: map-get($nudges--baseline-8, pow1);
+$baseline-nudge-p: map-get($nudges--baseline-8, pow0);
+
 @mixin heading-1 {
-  $baseline-nudge-h1: map-get($nudges--baseline-12, pow4);
   font-size: $ms-ratio * $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 5;
-  margin-bottom: $sp-unit * 2 - $baseline-nudge-h1;
+  line-height: $sp-unit * 7;
+  margin-bottom: map-get($sp-after--desktop, h1) - $baseline-nudge-h1;
   margin-top: 0;
   padding-top: $baseline-nudge-h1;
 }
 
 @mixin heading-2 {
-  $baseline-nudge-h2: map-get($nudges--baseline-12, pow3);
   font-size: $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 4;
+  line-height: $sp-unit * 6;
   margin-top: 0;
   padding-top: $baseline-nudge-h2;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    margin-bottom: $sp-unit * 2 - $baseline-nudge-h2;
-  }
+  margin-bottom: map-get($sp-after--desktop, h2) - $baseline-nudge-h2;
 }
 
 @mixin heading-3 {
-  $baseline-nudge-h3: map-get($nudges--baseline-12, pow2);
   font-size: $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 3;
-  margin-bottom: $sp-unit * 2 - $baseline-nudge-h3;
+  line-height: $sp-unit * 5;
+  margin-bottom: map-get($sp-after--desktop, h3) - $baseline-nudge-h3;
   margin-top: 0;
   padding-top: $baseline-nudge-h3;
 }
 
 @mixin heading-4 {
-  $baseline-nudge-h4: map-get($nudges--baseline-12, pow1);
   font-size: $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 3;
-  margin-bottom: $sp-unit - $baseline-nudge-h4;
-  margin-top: -$sp-unit;
+  line-height: $sp-unit * 4;
+  margin-bottom: map-get($sp-after--desktop, h4) - $baseline-nudge-h4;
+  margin-top: 0;
   padding-top: $baseline-nudge-h4;
 }
 
@@ -295,23 +292,21 @@ $ms-ratio: 1.333333;
   margin-top: 0;
 }
 
-$baseline-nudge-p: map-get($nudges--baseline-12, pow0);
-
 @mixin default-text {
   font-size: 1rem;
-  line-height: $sp-unit * 2;
-  margin-bottom: $sp-unit * 1 - $baseline-nudge-p;
+  line-height: $sp-unit * 3;
+  margin-bottom: map-get($sp-after--desktop, h5) - $baseline-nudge-p;
   margin-top: 0;
   padding-top: $baseline-nudge-p;
 }
 
 %paragraph {
   @include default-text;
-  margin-bottom: $sp-unit * map-get($sp-after, p) - $baseline-nudge-p;
+  margin-bottom: map-get($sp-after--desktop, p) - $baseline-nudge-p;
 }
 
 %sp--ph1 {
-  margin-top: $sp-unit * 3 - $baseline-nudge-p;
+  padding-top: $baseline-nudge-h1 + map-get($sp-before--desktop, h1);
 }
 
 p + h1,
@@ -320,7 +315,7 @@ p + .p-heading--two {
 }
 
 %sp--ph2 {
-  margin-top: $sp-unit * 3 - $baseline-nudge-p;
+  padding-top: $baseline-nudge-h2 + map-get($sp-before--desktop, h2);
 }
 
 p + h2,
@@ -329,7 +324,7 @@ p + .p-heading--two {
 }
 
 %sp--ph3 {
-  margin-top: $sp-unit * 3 - $baseline-nudge-p;
+  padding-top: $baseline-nudge-h3 + map-get($sp-before--desktop, h3);
 }
 
 p + h3,
@@ -338,7 +333,7 @@ p + .p-heading--three {
 }
 
 %sp--ph4 {
-  margin-top: $sp-unit * 3 - $baseline-nudge-p;
+  padding-top: $baseline-nudge-h4 + map-get($sp-before--desktop, h4);
 }
 
 p + h4,
@@ -349,13 +344,12 @@ p + .p-heading--four {
 p + h5,
 p + .p-heading--five,
 p + h6,
-p + .p-heading--six
- {
-  @extend %sp--ph6;
+p + .p-heading--six {
+  @extend %sp--ph5;
 }
 
-%sp--ph6 {
-  margin-top: $sp-unit * 3 - $baseline-nudge-p;
+%sp--ph5 {
+  padding-top: $baseline-nudge-p + map-get($sp-before--desktop, h5);
 }
 
 @mixin v-rhythm-typography {
