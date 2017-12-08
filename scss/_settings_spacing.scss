@@ -1,9 +1,70 @@
-// Global spacing settings
-$sp-xx-small: 1rem * .25 !default;
-$sp-x-small: 1rem * .5 !default;
-$sp-small: 1rem * .75 !default;
-$sp-medium: 1rem !default;
-$sp-large: 1rem * 1.5 !default;
-$sp-x-large: 1rem * 2 !default;
-$sp-xx-large: 1rem * 2.5 !default;
-$sp-xxx-large: 1rem * 3 !default;
+//modular scale ratio
+$ms-ratio: 1.333333;
+// $ms-ratio: 1.316074012952492460819218901796999055160068590205822176731;
+//separate ratio so it can be used unitless (e.g. for line-height)
+$sp-unit-ratio: .5;
+$sp-unit: 1rem * $sp-unit-ratio;
+$px: .0625rem; // 1px expressed as rem; useful in calculations where sizes are defined in rems. 
+$sp-xx-small: $sp-unit * .25 !default;
+$sp-x-small: $sp-unit * .5 !default;
+$sp-small: $sp-unit !default;
+$sp-medium: $sp-unit * 2 !default;
+$sp-large: $sp-unit * 3 !default;
+$sp-x-large: $sp-unit * 4 !default;
+$sp-xx-large: $sp-unit * 5 !default;
+$sp-xxx-large: $sp-unit * 6 !default;
+$sp-xxxx-large: $sp-unit * 8 !default;
+$sp-xxxxx-large: $sp-unit * 12 !default;
+
+// Maps containing values used to snap text at given font size to the nearest baseline.
+// format: map name: $baselin-offset-at- followed by base unit (12px);
+//   key name: pow followed by the power $ms-ratio has been raised to; 
+//  (font-sizes are 1rem * $ms-ratio taken to powers 0 - 4)
+
+$nudges--baseline-12: (
+  pow4: .7rem,
+  pow3: .6rem,
+  pow2: .45rem,
+  pow1: .6rem,
+  pow0: .35remß
+);
+
+$nudges--baseline-8: (
+  pow4: .6rem,
+  pow3: .6rem,
+  pow2: .55rem,
+  pow1: .45rem,
+  pow0: .35rem
+);
+
+// space before element on desktop
+$sp-before--desktop: (
+  h1: 3 * $sp-unit,
+  h2: 3 * $sp-unit,
+  h3: 4 * $sp-unit,
+  h4: 2 * $sp-unit,
+  h5: 2 * $sp-unit,
+  h6: 2 * $sp-unit,
+  p: 2 * $sp-unit
+);
+
+// space after element on desktop
+$sp-after--desktop: (
+  h1: 4 * $sp-unit,
+  h2: 3 * $sp-unit,
+  h3: 3 * $sp-unit,
+  h4: 2 * $sp-unit,
+  h5: 2 * $sp-unit,
+  h6: 3 * $sp-unit,
+  p: 3 * $sp-unit
+);
+
+$sp-after--mobile: (
+  h1: 3 * $sp-unit,
+  h2: 3 * $sp-unit,
+  h3: 3 * $sp-unit,
+  h4: 2 * $sp-unit,
+  h5: 2 * $sp-unit,
+  h6: 2 * $sp-unit,
+  p: 2 * $sp-unit
+);
