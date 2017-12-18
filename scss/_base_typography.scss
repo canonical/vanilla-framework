@@ -122,16 +122,13 @@
   }
 
   html {
-    font-size: $font-base-size;
-  }
-
-  body {
     color: $color-dark;
     font-family: unquote($font-base-family);
     font-weight: 300;
-    line-height: $sp-unit-ratio * 3;
+    font-size: $font-base-size;
+    // line-height: $sp-unit-ratio * 3;
+    line-height: $sp-unit * 3;
   }
-
 
   /// Base typography
   /// @section type
@@ -147,7 +144,7 @@
   }
 
   cite {
-    @include default-text;
+    @extend %default-text;
   }
 
   p {
@@ -191,6 +188,34 @@
   h6,
   .p-heading--six {
     @include vf-heading-6;
+  }
+
+  // override default spacing for specific combinations of elements
+  p + h1,
+  p + .p-heading--two {
+    @extend %sp--ph1;
+  }
+
+  p + h2,
+  p + .p-heading--two {
+    @extend %sp--ph2;
+  }
+
+  p + h3,
+  p + .p-heading--three {
+    @extend %sp--ph3;
+  }
+
+  p + h4,
+  p + .p-heading--four {
+    @extend %sp--ph4;
+  }
+
+  p + h5,
+  p + .p-heading--five,
+  p + h6,
+  p + .p-heading--six {
+    @extend %sp--ph5;
   }
 
   li {
@@ -241,6 +266,10 @@
     line-height: 0;
     position: relative;
     vertical-align: baseline;
+  }
+
+  .text {
+    @extend %default-text;
   }
 }
 
@@ -312,14 +341,14 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 @mixin vf-heading-5 {
-  @include default-text;
+  @extend %default-text;
   @include p-max-width;
   font-size: 1rem;
   font-weight: 500;
 }
 
 @mixin vf-heading-6 {
-  @include default-text;
+  @extend %default-text;
   @include p-max-width;
   font-size: 1rem;
   font-style: italic;
@@ -327,8 +356,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
   margin-top: 0;
 }
 
-@mixin default-text {
-  font-size: 1rem;
+%default-text {
   line-height: $sp-unit * 3;
   margin-bottom: map-get($sp-after--desktop, h5) - $baseline-nudge-p;
   margin-top: 0;
@@ -336,7 +364,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 %paragraph {
-  @include default-text;
+  @extend %default-text;
   margin-bottom: map-get($sp-after--desktop, p) - $baseline-nudge-p;
 }
 
@@ -344,43 +372,16 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
   padding-top: $baseline-nudge-h1 + map-get($sp-before--desktop, h1);
 }
 
-p + h1,
-p + .p-heading--two {
-  @extend %sp--ph1;
-}
-
 %sp--ph2 {
   padding-top: $baseline-nudge-h2 + map-get($sp-before--desktop, h2);
-}
-
-p + h2,
-p + .p-heading--two {
-  @extend %sp--ph2;
 }
 
 %sp--ph3 {
   padding-top: $baseline-nudge-h3 + map-get($sp-before--desktop, h3);
 }
 
-p + h3,
-p + .p-heading--three {
-  @extend %sp--ph3;
-}
-
 %sp--ph4 {
   padding-top: $baseline-nudge-h4 + map-get($sp-before--desktop, h4);
-}
-
-p + h4,
-p + .p-heading--four {
-  @extend %sp--ph4;
-}
-
-p + h5,
-p + .p-heading--five,
-p + h6,
-p + .p-heading--six {
-  @extend %sp--ph5;
 }
 
 %sp--ph5 {

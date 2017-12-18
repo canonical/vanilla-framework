@@ -10,30 +10,33 @@
     text-align: left;
   }
 
+  code {
+    @extend %default-text;
+    margin-bottom: - $baseline-nudge-p;
+  }
+
   pre,
   code {
     direction: ltr;
+    display: block;
     hyphens: none;
-    line-height: 1.5;
-    margin-bottom: 0;
-    margin-top: 0;
     tab-size: 4;
     white-space: pre-wrap;
     word-spacing: normal;
     word-wrap: break-word;
-
-    & + & {
-      @include vf-default-vertical-spacing;
-    }
   }
 
   pre {
     background-color: $color-light;
     border: 1px solid $color-mid-light;
+
     border-radius: 2px;
     color: $color-dark;
+    margin-bottom: $sp-unit * 4 - $px; // border compensations
+    margin-top: -1px;
     overflow: auto;
-    padding: $sp-medium;
+    padding-left: $sp-medium;
+    padding-right: $sp-medium;
     text-align: left;
     text-shadow: none;
   }

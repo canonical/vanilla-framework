@@ -5,8 +5,6 @@
   label {
     cursor: pointer;
     display: block;
-    font-size: $sp-medium;
-    line-height: 1;
 
     @each $state, $color in $states {
       &.has-#{$state} {
@@ -133,22 +131,13 @@
 
     h3 {
       border-bottom: 1px dotted $color-mid-dark;
-      padding-bottom: .625rem;
     }
   }
 
   form {
-    + * {
-      margin-top: $sp-x-small;
-    }
-
     * + input,
     * + select {
       margin-top: $sp-small;
-    }
-
-    * + label {
-      margin-top: $sp-medium;
     }
 
     * {
@@ -157,12 +146,12 @@
       + button,
       + input[type="submit"] {
         margin-top: $sp-medium;
-
-        + label {
-          margin-top: $sp-medium;
-        }
       }
     }
+  }
+
+  label {
+    @extend %default-text;
   }
 }
 
