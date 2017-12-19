@@ -6,8 +6,21 @@
     border-top: 1px solid $color-mid-light;
     font-size: .875rem;
     line-height: 1.5;
+    margin-top: auto;
     padding-bottom: $sp-medium;
     padding-top: $sp-medium;
+
+    @at-root {
+      body,
+      html {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+    }
 
     @media (min-width: $breakpoint-medium) {
       padding-bottom: $sp-large;
