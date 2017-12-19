@@ -270,17 +270,17 @@
 
 // Optimal max-width for main headings (up to 2 lines of copy)
 @mixin heading-max-width--short {
-  max-width: 20em;
+  max-width: map-get($max-widths, heading-short);
 }
 
 // Optimal max-width for headings (up to 3 lines of copy)
 @mixin heading-max-width--long {
-  max-width: 25em;
+  max-width: map-get($max-widths, heading-long);
 }
 
 // Optimal max-width for body copy
 @mixin p-max-width {
-  max-width: 35em;
+  max-width: map-get($max-widths, p);
 }
 
 // Relaxed max-width for cases like notifications, where minimizing vertical height is
@@ -359,4 +359,18 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.412;
+}
+
+// exceptions
+$max-widths: (
+  p: 35rem,
+  heading-long: 25em,
+  heading-short: 20em
+);
+
+//sets max width to match max-width of paragraphs.
+// Useful to ensure list indents etc. don't create varying raged edge.
+// TODO: consider placing elsewhere
+.u-measure--p {
+  @include p-max-width;
 }

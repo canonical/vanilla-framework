@@ -4,7 +4,6 @@
   ol,
   ul {
     margin-bottom: 0;
-    margin-left: $sp-medium;
     padding-left: $sp-medium;
 
     ul,
@@ -32,6 +31,10 @@
   li {
     margin: 0 0 $sp-x-small;
     padding: 0;
+
+    p {
+      max-width: map-get($max-widths, p) - $sp-medium; // matches value of ul/ol padding-left
+    }
   }
 
   dl {
