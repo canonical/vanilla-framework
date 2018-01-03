@@ -1,0 +1,69 @@
+---
+layout: default
+title: Slider / Input
+category: _patterns
+---
+
+<div class="p-slider__wrapper">
+  <input class="p-slider" type="range" min="0" max="100" value="50" step="1" id="slider3">
+  <input class="p-slider__input" type="text" maxlength="3" id="slider3-input">
+</div>
+<div class="p-slider__wrapper">
+  <input class="p-slider" type="range" min="0" max="100" value="50" step="1" id="slider4" disabled>
+  <input class="p-slider__input" type="text" maxlength="3" id="slider4-input" disabled>
+</div>
+
+<script>
+  (function() {
+
+    function equaliseValues(receive, give) {
+      receive.value = give.value;
+      give.value = receive.value;
+    }
+
+    // Fix for Chrome and Safari as they don't support CSS slider progress
+    function renderSlider(slider, progressColour, emptyColour) {
+      if (browser === 'Chrome' || browser === 'Safari') {
+        var value = (slider.value - slider.min) / (slider.max - slider.min);
+        slider.style.backgroundImage = '-webkit-gradient(linear, left top, right top, color-stop('
+        + value + ', ' + progressColour + '), color-stop(' + value + ', ' + emptyColour + '))';
+      }
+    }
+
+    var browser;
+    /Edge/i.test(navigator.userAgent) ? browser = 'Edge' :
+    /Chrome/i.test(navigator.userAgent) ? browser = 'Chrome' :
+    /Safari/i.test(navigator.userAgent) ? browser = 'Safari' :
+    /NET/i.test(navigator.userAgent) ? browser = 'IE' :
+    browser = 'Other';
+    var progressColour = '#335280';
+    var emptyColour = '#fff';
+    var sliders = Array.prototype.slice.call(document.querySelectorAll('.p-slider'));
+
+    sliders.forEach(function(slider) {
+      var input = document.getElementById(slider.id + '-input');
+      renderSlider(slider, progressColour, emptyColour);
+
+      if (input) {
+        equaliseValues(input, slider);
+        input.oninput = function() {
+          if (!input.value) input.value = 0;
+          equaliseValues(slider, input);
+          renderSlider(slider, progressColour, emptyColour);
+        }
+      }
+
+      // Fix for IE as it doesn't support 'oninput'
+      if (browser === 'IE') {
+        slider.onchange = function() {
+          if (input) equaliseValues(input, slider)
+        }
+      } else {
+        slider.oninput = function() {
+          if (input) equaliseValues(input, slider);
+          renderSlider(slider, progressColour, emptyColour);
+        }
+      }
+    });
+  })();
+</script>
