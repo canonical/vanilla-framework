@@ -9,18 +9,20 @@
     position: relative;
 
     &::before {
-      background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, $color-x-light);// sass-lint:disable-line no-color-literals
+      background: linear-gradient(to right, hsla(0, 0%, 100%, 0), $color-x-light 50%);// sass-lint:disable-line no-color-literals
       bottom: 0;
       color: $color-mid-dark;
       content: '\203A';
       display: block;
       font-size: 2rem;
+      height: $sp-xxx-large;
       padding-right: $sp-large;
+      pointer-events: none;
       position: absolute;
       right: 0;
       text-align: right;
       top: 0;
-      width: 100px;
+      width: 5rem;
       z-index: 10;
 
       @media screen and (min-width: $breakpoint-medium) {
@@ -30,8 +32,8 @@
 
     &__list {
       margin: 0 auto;
-      overflow: scroll;
-      padding: 0 $sp-xxx-large 0 $sp-large;
+      overflow-x: auto;
+      padding: 0 0 0 $sp-large;
       position: relative;
       white-space: nowrap;
       width: 100%;
@@ -52,6 +54,14 @@
 
       @media screen and (min-width: $breakpoint-medium) {
         float: left;
+      }
+
+      &:last-child {
+        margin-right: $sp-xxx-large;
+
+        @media screen and (min-width: $breakpoint-medium) {
+          margin-right: 0;
+        }
       }
     }
 
