@@ -3,7 +3,7 @@ title: Font settings
 table_of_contents: true
 ---
 
-# Font
+## Font
 
 Vanilla uses the Ubuntu font family by default, but you can specify any other font family to better suit your project.
 

@@ -3,7 +3,7 @@ title: Clearfix
 table_of_contents: true
 ---
 
-# Clearfix
+## Clearfix
 
 A clearfix is a way for an element to automatically clear its child elements, so that you don't need to add additional markup. It's generally used in float layouts where elements are floated to be stacked horizontally.
 

@@ -3,9 +3,9 @@ title: Notification
 table_of_contents: false
 ---
 
-# Notification
+## Notification
 
-## .p-notification
+### .p-notification
 
 Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, caution, negative or position.
 
@@ -15,7 +15,7 @@ Notifications are used to display global information. A notification will displa
 </a>
 
 
-## .p-notification--caution
+### .p-notification--caution
 
 This caution variant should be used to convey information that is not critical but the user should be aware of.
 
@@ -24,7 +24,7 @@ This caution variant should be used to convey information that is not critical b
     View example of the caution notification pattern
 </a>
 
-## .p-notification--negative
+### .p-notification--negative
 
 This negative variant should be used to convey information that is critical and the user should take action.
 
@@ -33,7 +33,7 @@ This negative variant should be used to convey information that is critical and 
     View example of the negative notification pattern
 </a>
 
-## .p-notification--positive
+### .p-notification--positive
 
 This positive variant should be used to convey success or completion.
 
@@ -42,7 +42,7 @@ This positive variant should be used to convey success or completion.
     View example of the positive notification pattern
 </a>
 
-## .p-notification--information
+### .p-notification--information
 
 This information variant should be used to convey an information message.
 

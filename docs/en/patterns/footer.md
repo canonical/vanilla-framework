@@ -3,7 +3,7 @@ title: Footer
 table_of_contents: true
 ---
 
-# Footer
+## Footer
 
 You can use this simple footer pattern to display copyright notices and a selection of links.
 

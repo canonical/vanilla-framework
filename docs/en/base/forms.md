@@ -3,7 +3,7 @@ title: Forms
 table_of_contents: true
 ---
 
-# Forms
+## Forms
 
 Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are 100% width of the ```<form>``` parent element.
 
@@ -12,7 +12,7 @@ Vanilla form controls have global styling defined at the HTML element level. Lab
     View example of a base form
 </a>
 
-## Input elements
+### Input elements
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/input/"
     class="js-example">
@@ -64,7 +64,7 @@ Use the ```multiple``` attribute to create a multiple select control.
     View example of the base multiple selects
 </a>
 
-## Disabled state
+### Disabled state
 
 Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interaction. All disabled inputs have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
 
@@ -73,7 +73,7 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
     View example of a disabled input
 </a>
 
-## Validation classes
+### Validation classes
 
 Applying the classes ```.is-error```, ```.is-caution``` or ```.is-success``` to an input will style that element differently to provide visual feedback in case there is an error, caution or success notification related to the element.
 
@@ -82,7 +82,7 @@ Applying the classes ```.is-error```, ```.is-caution``` or ```.is-success``` to 
     View example of form validation patterns
 </a>
 
-## Fieldset
+### Fieldset
 
 You can use the ```<fieldset>``` element to divide the form into different logical sections.
 
@@ -93,6 +93,6 @@ You can use the ```<fieldset>``` element to divide the form into different logic
 
 <hr />
 
-### Related
+#### Related
 
 * [Buttons pattern](/en/patterns/buttons)
