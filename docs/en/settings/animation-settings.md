@@ -3,10 +3,12 @@ title: Animations settings
 table_of_contents: true
 ---
 
+## Animations
+
 Vanilla has a cross matrix of duration and easing that can be used to apply
 animation to components.
 
-## Durations
+### Durations
 
 Vanilla uses a range of animation durations to dictate the time in which an
 animation should complete. These values are stored within a map named
@@ -24,7 +26,7 @@ Setting  | Default value
 `slow`   | `.5s`
 `sleepy`   | `1s`
 
-## Easings
+### Easings
 
 Vanilla's easing can be `easeInCubic` or `easeOutCubic`.
 
