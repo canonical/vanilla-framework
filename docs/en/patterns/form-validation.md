@@ -3,7 +3,7 @@ title: Form validation
 table_of_contents: true
 ---
 
-# Error / Caution / Success states
+## Error / Caution / Success states
 
 By wrapping ```<label>``` and input form elements in a wrapper called ```.p-form-validation```, you can then dynamically add state classes to indicate form field validation states.
 

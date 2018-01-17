@@ -3,7 +3,7 @@ title: Color settings
 table_of_contents: true
 ---
 
-# Color
+## Color
 
 Vanilla works with a fairly neutral color palette consisting of a range of greys and a traffic light palette (red, yellow, green) plus blue.
 

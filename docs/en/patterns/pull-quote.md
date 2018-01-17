@@ -3,7 +3,7 @@ title: Pull quote
 table_of_contents: false
 ---
 
-# Pull quote
+## Pull quote
 
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
@@ -15,6 +15,6 @@ visually prominent way.
 
 <hr />
 
-### Related
+#### Related
 
 * [Blockquotes and citations in base typography](/en/base/typography#blockquotes-and-citations)

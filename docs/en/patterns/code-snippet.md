@@ -3,7 +3,7 @@ title: Code snippet
 table_of_contents: false
 ---
 
-# Code snippet
+## Code snippet
 
 Code snippet should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 

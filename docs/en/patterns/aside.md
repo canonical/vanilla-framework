@@ -3,7 +3,7 @@ title: Aside
 table_of_contents: false
 ---
 
-# Aside
+## Aside
 
 An aside can be used to display a contextual menu within a page, such as a table of contents.
 

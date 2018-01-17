@@ -3,7 +3,7 @@ title: Table
 table_of_contents: true
 ---
 
-# Table
+## Table
 
 The default Vanilla table adds some padding to the table cells and horizontal
 dividers between each row of the table.

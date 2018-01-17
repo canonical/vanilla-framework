@@ -3,7 +3,7 @@ title: Code numbered
 table_of_contents: true
 ---
 
-# Code numbered
+## Code numbered
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
 

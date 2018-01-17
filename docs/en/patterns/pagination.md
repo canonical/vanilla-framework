@@ -3,7 +3,7 @@ title: Pagination
 table_of_contents: true
 ---
 
-# Pagination
+## Pagination
 
 The pagination component should be used to navigate from one article to the next or previous in a chronological fashion.
 

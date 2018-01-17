@@ -3,7 +3,7 @@ title: Navigation
 table_of_contents: true
 ---
 
-# Navigation
+## Navigation
 
 Vanilla includes a simple navigation bar that you can add to the top of your
 sites.
@@ -27,7 +27,7 @@ Tip: You can change the breakpoint at which the menu changes to a small screen
 menu by adjusting the `$breakpoint-navigation-threshold` in
 `_settings_breakpoints.scss`.
 
-# Sidebar Navigation
+## Sidebar Navigation
 
 Vanilla also allows you to use a sidebar navigation, with menu items collapsing
 under section titles in an accordion. This example code will expand to fill the

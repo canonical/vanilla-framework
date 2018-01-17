@@ -3,7 +3,7 @@ title: Breadcrumbs
 table_of_contents: true
 ---
 
-# Breadcrumbs
+## Breadcrumbs
 
 You can use the breadcrumbs pattern to indicate where the current page sits in
 the site's navigation. The separators between each item are added via CSS, so

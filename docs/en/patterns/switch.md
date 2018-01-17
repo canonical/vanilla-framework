@@ -3,7 +3,7 @@ title: Switch
 table_of_contents: true
 ---
 
-# Switch
+## Switch
 
 You can use this switch pattern to display on and off content, such as for settings or simple controls. By changing the `aria-checked` attribute from true or false will animate the switch on/off.
 

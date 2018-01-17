@@ -3,7 +3,7 @@ title: Show
 table_of_contents: true
 ---
 
-# Show
+## Show
 
 Show an element within a certain breakpoint.
 
