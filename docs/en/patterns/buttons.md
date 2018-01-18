@@ -62,3 +62,9 @@ Should you wish to place a button after a line of inline text, as a CTA for exam
     class="js-example">
     View example of the inline button pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Buttons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Buttons)

@@ -134,8 +134,12 @@ $font-allow-cyrillic-greek-latin: true;
 
 <hr />
 
-#### Related
+### Design
+
+* [Typography design](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography)
+
+### Related
 
 * [Code](/en/base/code)
 * [Pull quote pattern](/en/patterns/pull-quote)
-* [Lists pattern](/en/patterns/lists)
+* [Font settings](/en/settings/font-settings)

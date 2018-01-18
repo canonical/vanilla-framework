@@ -11,3 +11,9 @@ The modal pattern can be useful to overlay and area of the screen which can cont
     class="js-example">
     View example of the modal pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Modal design](https://github.com/ubuntudesign/vanilla-design/tree/master/Modal)

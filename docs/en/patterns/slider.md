@@ -24,3 +24,9 @@ The `p-slider__wrapper` and `p-slider__input` classes should be used when you wa
     class="js-example">
     View example of the slider pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Slider design](https://github.com/ubuntudesign/vanilla-design/tree/master/Slider)

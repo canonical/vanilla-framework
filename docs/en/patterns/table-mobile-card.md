@@ -14,3 +14,15 @@ The `<thead>` element is completely hidden from  view on a smaller screen and if
   class="js-example">
   View example of the patterns table mobile card
 </a>
+
+<hr />
+
+### Design
+
+* [Table mobile card design](https://github.com/ubuntudesign/vanilla-design/tree/master/Table%20mobile%20card)
+
+### Related
+
+* [Table pattern](/en/base/table)
+* [Table expanding pattern](/en/patterns/table-expanding)
+* [Table sortable pattern](/en/patterns/table-sortable)

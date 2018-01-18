@@ -13,3 +13,13 @@ Avoid using tooltips to provide instructions or guidance. They shouldn't be used
     class="js-example">
     View example of the tooltips pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Tooltips design](https://github.com/ubuntudesign/vanilla-design/tree/master/Tooltips)
+
+### Related
+
+* [Contextual menu pattern](/en/patterns/contextual-menu)

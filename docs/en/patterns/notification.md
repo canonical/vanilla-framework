@@ -61,3 +61,9 @@ Note: All functionality must be developed in independently.
     class="js-example">
     View example of the caution notification pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Notifications design](https://github.com/ubuntudesign/vanilla-design/tree/master/Notifications)

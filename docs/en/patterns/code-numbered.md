@@ -15,3 +15,9 @@ See also: [code snippet](/en/patterns/code-snippet).
     class="js-example">
     View example of the code numbered pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Code design](https://github.com/ubuntudesign/vanilla-design/tree/master/Code)
