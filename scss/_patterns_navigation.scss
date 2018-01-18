@@ -254,6 +254,7 @@
       @media (min-width: $breakpoint-navigation-threshold + 1) {
         background-color: transparent;
         clear: none;
+        flex-shrink: 0;
         float: left;
       }
 
@@ -311,7 +312,30 @@
       margin-top: 0;
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
-        display: block;
+        display: flex;
+      }
+
+      > .p-search-box {
+        align-self: center;
+        margin-left: auto;
+        margin-top: 0;
+        max-width: 20rem;
+        order: 1;
+        width: 100%;
+
+        @media (max-width: $breakpoint-navigation-threshold) {
+          max-width: inherit;
+          order: -1;
+          top: 0;
+        }
+
+        > .p-search-box__input,
+        .p-search-box__button,
+        .p-search-box__reset {
+          @media (max-width: $breakpoint-navigation-threshold) {
+            border-bottom: 0;
+          }
+        }
       }
     }
   }
@@ -328,7 +352,12 @@
     }
 
     .p-navigation__nav {
-      display: block;
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: $breakpoint-navigation-threshold) {
+        flex-direction: column;
+      }
     }
   }
 }
