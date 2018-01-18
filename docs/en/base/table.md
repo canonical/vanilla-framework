@@ -17,3 +17,15 @@ as in the example that follows. This is considered good practice when formatting
     class="js-example">
     View example of the base table
 </a>
+
+<hr />
+
+### Design
+
+* [Table design](https://github.com/ubuntudesign/vanilla-design/tree/master/Table)
+
+### Related
+
+* [Table expanding pattern](/en/patterns/table-expanding)
+* [Table mobile card pattern](/en/patterns/table-mobile-card)
+* [Table sortable pattern](/en/patterns/table-sortable)

@@ -16,3 +16,9 @@ To select the active tab add the attribute `aria-selected="true"` and that list 
     class="js-example">
     View example of the tabs pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Tabs design](https://github.com/ubuntudesign/vanilla-design/tree/master/Tabs)

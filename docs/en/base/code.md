@@ -22,7 +22,11 @@ If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> tog
 
 <hr />
 
-#### Related
+### Design
+
+* [Code design](https://github.com/ubuntudesign/vanilla-design/tree/master/Code)
+
+### Related
 
 * [Code numbered pattern](/en/patterns/code-numbered)
 * [Code snippet pattern](/en/patterns/code-snippet)

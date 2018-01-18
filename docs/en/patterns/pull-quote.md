@@ -15,6 +15,10 @@ visually prominent way.
 
 <hr />
 
-#### Related
+### Design
+
+* [Pull quote design](https://github.com/ubuntudesign/vanilla-design/tree/master/Pull%20quote)
+
+### Related
 
 * [Blockquotes and citations in base typography](/en/base/typography#blockquotes-and-citations)

@@ -106,28 +106,50 @@
         padding: 1rem 0.75rem;
       }
 
-      h2:first-child {
-        align-items: center;
-        border-bottom: solid 1px #cdcdcd;
-        display: flex;
-        justify-content: space-between;
+      select + .sidebar__first-level {
+        margin-top: 1rem;
+      }
+
+      h2:nth-child(2) {
+        display: inline-block;
         padding-bottom: 1rem;
+        margin-top: 0;
         max-width: 100%;
+      }
+
+      main {
+        position: relative;
       }
 
       .docs-wrapper {
         display: flex;
         flex-direction: column;
         margin-top: 0;
-        padding: 0 1rem;
       }
 
       .main-col {
-        padding: 1.5rem 0;
+        order: 2;
+        padding: 0.5rem 1rem 3rem 1rem;
       }
 
       .sidebar-col {
-        padding-top: 1.5rem;
+        border-right: 0;
+        order: 0;
+        padding: 1.5rem 1rem 0 1rem;
+      }
+
+      .toc-col {
+        display: none;
+        margin-top: 0 !important;
+        order: 1;
+      }
+
+      .p-aside {
+        padding: 0 1rem;
+      }
+
+      .p-aside__section {
+        padding: 0.5rem 0;
       }
 
       .p-navigation--sidebar .sidebar__content {
@@ -135,13 +157,18 @@
         top: 0;
       }
 
-      .p-toc {
-        margin: 0;
-        padding: 0;
+      .p-toc__link {
+        border-bottom: 0;
+        color: #111;
+        margin-bottom: .5rem;
       }
 
-      .p-toc__link {
+      .p-toc__link:visited {
         color: #111;
+      }
+
+      .p-toc__link:hover {
+        color: #007aa6;
       }
 
       .u-no-max-width {
@@ -150,30 +177,65 @@
 
       .links-container {
         display: flex;
-        font-size: 1rem;
         margin-top: 0;
       }
 
       .header-link {
         border-right: 1px solid #cdcdcd;
         margin-top: 0;
-        padding: 0 0.5rem;
+        padding: 0 0.5rem 0 0.2rem;
         text-align: center;
       }
 
       .header-link:last-child {
         border: 0;
+        padding: 0 0 0 0.5rem;
       }
 
-      @media (min-width: 900px) {
+      @media only screen and (min-width: 900px) {
         .docs-wrapper {
           flex-direction: row;
         }
 
+        .main-col {
+          order: 1;
+          padding: 1.5rem 0 3rem 0;
+        }
+
         .sidebar-col {
-          min-width: 15rem;
+          border-right: 1px solid #cdcdcd;
+          min-width: 18rem;
+          order: 0;
+        }
+
+        .toc-col {
+          border-left: 1px solid #cdcdcd;
+          display: block;
+          order: 2;
+        }
+
+        .p-aside {
+          padding: 0 1.5rem;
+        }
+
+        .p-aside__section {
+          padding: 1.5rem 0;
         }
       }
+
+      @media only screen and (min-width: 1030px) {
+        h2:nth-child(2) {
+          padding-bottom: 0;
+        }
+
+        .links-container {
+          display: inline-flex;
+          position: absolute;
+          right: 0;
+          top: 0.6rem;
+        }
+      }
+
     </style>
   </head>
   <body class="theme">
@@ -187,23 +249,9 @@
     <header id="navigation" class="p-navigation">
       <div class="p-navigation__banner">
         <div class="p-navigation__logo" style="margin-bottom: 0">
-          <a href="https://vanillaframework.io/"><img src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla framework logo"></a>
+          <a href="/"><img src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla framework logo"></a>
         </div>
-        <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-        <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
       </div>
-      <nav class="p-navigation__nav">
-        <span class="u-off-screen">
-          <a href="#main-content">Jump to main content</a>
-        </span>
-        <ul class="p-navigation__links">
-          <li class="p-navigation__link"><a href="/">Docs</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/accessibility">Accessibility</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/browser-support">Browser support</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/coding-standards">Coding standards</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/contribute">Contribute</a></li>
-        </ul>
-      </nav>
     </header>
     <div class="docs-wrapper u-no-max-width">
       {% if navigation %}
@@ -231,7 +279,10 @@
             </div>
           </header>
           <div class="sidebar__content js-sidebar-toggle u-hide u-no-margin--top" aria-hidden="true">
-            <ul class="p-list sidebar__first-level u-no-margin--top" data-js="sidebar-first-level">
+            <select name="version-select" id="version-select">
+              <option value="latest">v1.6.4</option>
+            </select>
+            <ul class="p-list sidebar__first-level" data-js="sidebar-first-level">
               {% for item in navigation %}
               <li>
                 {% if item.location %}
@@ -248,41 +299,27 @@
               {% endfor %}
             </ul>
             <hr>
+            <ul class="p-list u-no-margin--top">
+              <li><a class="p-link--external sidebar__link" href="https://vanillaframework.io/">vanillaframework.io</a></li>
+            </ul>
           </div>
         </div>
       </div>
       {% endif %}
       <div class="col-8 main-col u-no-margin--top">
         <main id="main-content">
+          <h1 class="u-off-screen">Vanilla framework documentation</h1>
           {{ content }}
         </main>
       </div>
-      {% if toc_items or versions %}
+      {% if toc_items %}
       <div class="col-2 toc-col">
         <aside id="side-content" class="p-aside" style="border: 0;">
-          {% if versions %}
-          <nav class="p-aside__section">
-            <h4 class="p-aside__header">Versions</h4>
-            <ul class="p-versions">
-              {% for version in versions %}
-                {% if version.path is none %}
-                <li class="p-versions__item--missing">{{ version.name }}</li>
-                {% elif version.path == '' %}
-                <li class="p-versions__item--current">{{ version.name }}</li>
-                {% else %}
-                <li class="p-versions__item">
-                  <a href="{{ version.path }}" class="p-versions__link">{{ version.name }}</a>
-                </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </nav>
-          {% endif %}
           {% if toc_items %}
           <div class="p-aside__section">
             <h4 class="p-aside__header">Contents</h4>
-            <nav>
-              <ul class="p-toc">
+            <nav class="p-aside__nav">
+              <ul class="p-list">
                 {{ toc_items }}
                 <li class="p-toc__item--separate" id="back-to-top" style="display: none">
                   <a class="p-toc__link" href="#">Back to top</a>
@@ -337,6 +374,10 @@
       );
     });
 
+    function insertAfter(newNode, referenceNode) {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }
+
     // Append GitHub and Report a bug links
     function createLink(linkText, linkHref) {
       var link = document.createElement('a');
@@ -355,8 +396,11 @@
     linksContainer.appendChild(ghLink);
     linksContainer.appendChild(bugLink);
 
-    var contentHeader = document.getElementById('main-content').firstElementChild;
-    contentHeader.appendChild(linksContainer);
+    var contentHeader = document.getElementById('main-content').children[1];
+    insertAfter(linksContainer, contentHeader);
+
+    var line = document.createElement('hr');
+    insertAfter(line, linksContainer);
 
     // Add classes to links
     var links = document.querySelectorAll('a');

@@ -43,3 +43,9 @@ Columns can be nested infinitely by adding `.row` classes within columns. Basica
     class="js-example">
     View example of the nested columns within the grid
 </a>
+
+<hr />
+
+### Design
+
+* [Grid design](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid)

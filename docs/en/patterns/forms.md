@@ -16,3 +16,14 @@ By applying the classes ```.p-form--inline .p-form--stacked``` and wrapping any 
     class="js-example">
     View examples of form stacked patterns
 </a>
+
+<hr />
+
+### Design
+
+* [Forms design](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms)
+
+### Related
+
+* [Forms pattern](/en/base/forms)
+* [Form validation pattern](/en/patterns/form-validation)

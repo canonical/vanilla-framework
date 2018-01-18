@@ -11,3 +11,9 @@ Code snippet should be used when presenting the user with a small snippet of cod
     class="js-example">
     View example of the code snippet pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Code design](https://github.com/ubuntudesign/vanilla-design/tree/master/Code)

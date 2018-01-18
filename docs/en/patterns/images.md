@@ -18,3 +18,9 @@ table_of_contents: true
     class="js-example">
     View example of image with border
 </a>
+
+<hr />
+
+### Design
+
+* [Image design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image)

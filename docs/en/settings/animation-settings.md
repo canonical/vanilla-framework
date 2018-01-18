@@ -43,3 +43,9 @@ include animation by including the animation mixin.
 ```scss
 @include animation(property: all, duration: brisk, easing: out);
 ```
+
+<hr />
+
+### Design
+
+* [Animations design](https://github.com/ubuntudesign/vanilla-design/tree/master/Animations)

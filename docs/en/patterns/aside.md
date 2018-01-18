@@ -11,3 +11,9 @@ An aside can be used to display a contextual menu within a page, such as a table
     class="js-example">
     View example of the aside pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Aside design](https://github.com/ubuntudesign/vanilla-design/tree/master/Aside)

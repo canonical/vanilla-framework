@@ -17,3 +17,13 @@ Setting  | Default value
 `$font-monospace`    | '"Ubuntu Mono", Consolas, Monaco, Courier, monospace'
 `$font-base-size`   | `1rem`
 `$font-heading-family`   | `$font-base-family`
+
+### Design
+
+* [Typography design](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography)
+
+### Related
+
+* [Base typography](/en/base/typography)
+* [Code](/en/base/code)
+* [Pull quote pattern](/en/patterns/pull-quote)

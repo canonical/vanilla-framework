@@ -52,3 +52,9 @@ The `.p-top` link can be used to make it easier to go back to the top on long pa
     class="js-example">
     View example of the back to top pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Links design](https://github.com/ubuntudesign/vanilla-design/tree/master/Links)

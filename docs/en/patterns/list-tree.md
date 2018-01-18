@@ -16,7 +16,10 @@ Each directory can be opened or collapse using `aria-hidden`, set `true` for ope
 
 <hr />
 
-#### Related
+### Design
+
+* [List tree design](https://github.com/ubuntudesign/vanilla-design/tree/master/List%20tree)
+
+### Related
 
 * [Lists](/en/patterns/lists)
-

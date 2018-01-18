@@ -11,3 +11,9 @@ The pagination component should be used to navigate from one article to the next
     class="js-example">
     View example of the pagination pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Pagination design](https://github.com/ubuntudesign/vanilla-design/tree/master/Pagination)

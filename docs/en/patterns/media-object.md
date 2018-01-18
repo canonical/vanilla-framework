@@ -29,3 +29,9 @@ Use large variant of media object pattern to display details of a single object 
   class="js-example">
   View example of the pattern media object large
 </a>
+
+<hr />
+
+### Design
+
+* [Media object design](https://github.com/ubuntudesign/vanilla-design/tree/master/Media%20object)

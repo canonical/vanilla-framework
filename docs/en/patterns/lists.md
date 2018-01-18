@@ -107,7 +107,10 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 
 <hr />
 
-#### Related
+### Design
 
-* [Inline images pattern](/en/patterns/inline-images)
+* [Lists design](https://github.com/ubuntudesign/vanilla-design/tree/master/Lists)
 
+### Related
+
+* [List tree pattern](/en/patterns/list-tree)

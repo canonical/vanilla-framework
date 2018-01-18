@@ -93,6 +93,11 @@ You can use the ```<fieldset>``` element to divide the form into different logic
 
 <hr />
 
-#### Related
+### Design
 
-* [Buttons pattern](/en/patterns/buttons)
+* [Forms design](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms)
+
+### Related
+
+* [Forms layout pattern](/en/patterns/forms)
+* [Form validation pattern](/en/patterns/form-validation)

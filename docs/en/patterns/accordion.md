@@ -16,3 +16,9 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
     class="js-example">
     View example of the accordion pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Accordion design](https://github.com/ubuntudesign/vanilla-design/tree/master/Accordion)

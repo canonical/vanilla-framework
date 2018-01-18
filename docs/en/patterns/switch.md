@@ -11,3 +11,9 @@ You can use this switch pattern to display on and off content, such as for setti
     class="js-example">
     View example of the switch pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Switch design](https://github.com/ubuntudesign/vanilla-design/tree/master/Switch)

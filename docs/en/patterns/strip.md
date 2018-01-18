@@ -67,3 +67,9 @@ This state gives the strip smaller vertical padding.
   class="js-example">
   View example of the pattern strip is-shallow
 </a>
+
+<hr />
+
+### Design
+
+* [Strip design](https://github.com/ubuntudesign/vanilla-design/tree/master/Strip)

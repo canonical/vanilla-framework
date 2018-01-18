@@ -13,3 +13,9 @@ you don't have to include them manually.
     class="js-example">
     View example of the breadcrumbs pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Breadcrumbs design](https://github.com/ubuntudesign/vanilla-design/tree/master/Breadcrumbs)
