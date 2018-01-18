@@ -107,7 +107,10 @@
       }
 
       h2:first-child {
+        align-items: center;
         border-bottom: solid 1px #cdcdcd;
+        display: flex;
+        justify-content: space-between;
         padding-bottom: 1rem;
         max-width: 100%;
       }
@@ -143,6 +146,23 @@
 
       .u-no-max-width {
         max-width: inherit;
+      }
+
+      .links-container {
+        display: flex;
+        font-size: 1rem;
+        margin-top: 0;
+      }
+
+      .header-link {
+        border-right: 1px solid #cdcdcd;
+        margin-top: 0;
+        padding: 0 0.5rem;
+        text-align: center;
+      }
+
+      .header-link:last-child {
+        border: 0;
       }
 
       @media (min-width: 900px) {
@@ -215,7 +235,7 @@
               {% for item in navigation %}
               <li>
                 {% if item.location %}
-                <a class="sidebar__link p-link--external" href="{{ item.location }}">{{ item.title }}</a>
+                <a class="sidebar__link" href="{{ item.location }}">{{ item.title }}</a>
                 {% elif item.children %}
                 <a class="sidebar__link {% for child in item.children %}{% if child.active %}is-selected{% endif %}{% endfor %}" href="#{{ item.title }}">{{ item.title }}<i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
                 <ul class="sidebar__second-level">
@@ -300,6 +320,7 @@
         false
       );
     });
+
     // Sidebar accordion sections
     var navSidebarLinks = document.querySelectorAll('.js-sidebar-toggle a');
     navSidebarLinks.forEach(function(el) {
@@ -315,7 +336,36 @@
         false
       );
     });
-    console.log({{ navigation }});
+
+    // Append GitHub and Report a bug links
+    function createLink(linkText, linkHref) {
+      var link = document.createElement('a');
+      link.className = 'header-link';
+      link.appendChild(document.createTextNode(linkText));
+      link.href = linkHref;
+      return link;
+    }
+
+    var linksContainer = document.createElement('div');
+    linksContainer.className = 'links-container';
+
+    var ghLink = createLink('View on GitHub', 'https://github.com/vanilla-framework/vanilla-framework');
+    var bugLink = createLink('Report a bug', 'https://github.com/vanilla-framework/vanilla-framework/issues/new')
+
+    linksContainer.appendChild(ghLink);
+    linksContainer.appendChild(bugLink);
+
+    var contentHeader = document.getElementById('main-content').firstElementChild;
+    contentHeader.appendChild(linksContainer);
+
+    // Add classes to links
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+      if (link.hostname && link.hostname != location.hostname) {
+        link.className += ' p-link--external';
+      }
+    });
+
     </script>
     <script src="https://assets.ubuntu.com/v1/7db7c898-example-1.0.5.js"></script>
   </body>
