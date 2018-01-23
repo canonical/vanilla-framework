@@ -3,7 +3,7 @@ title: Embedded media
 table_of_contents: true
 ---
 
-# Embedded media
+## Embedded media
 
 Embed media objects such as videos, maps and calendars.
 

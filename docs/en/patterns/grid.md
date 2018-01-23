@@ -3,7 +3,7 @@ title: Grid
 table_of_contents: true
 ---
 
-# Grid
+## Grid
 
 Vanilla's default grid has 12 columns and `20px` gutters. On large screens, each column takes up 6.3053% of the total width.
 
@@ -20,7 +20,7 @@ Read also: [Breakpoints](/en/settings/breakpoint-settings)
     View example of the default grid
 </a>
 
-## Empty columns
+### Empty columns
 
 Prefixes and suffixes add extra horizontal padding to columns, creating some negative space between or around them.
 
@@ -35,7 +35,7 @@ By default, prefixes and suffixes only work on top level columns.
     View example of the empty columns within the grid
 </a>
 
-## Nested columns
+### Nested columns
 
 Columns can be nested infinitely by adding `.row` classes within columns. Basically, just remember that all columns must be wrapped in `.row` classes, even when nested.
 
@@ -43,3 +43,9 @@ Columns can be nested infinitely by adding `.row` classes within columns. Basica
     class="js-example">
     View example of the nested columns within the grid
 </a>
+
+<hr />
+
+### Design
+
+* [Grid design](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid)

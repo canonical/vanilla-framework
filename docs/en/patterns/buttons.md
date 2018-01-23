@@ -3,13 +3,13 @@ title: Buttons
 table_of_contents: true
 ---
 
-# Buttons
+## Buttons
 
 You can apply `button` classes on buttons and link elements.
 
 **Note:** Avoid using more than two button styles together.
 
-## Base button
+### Base button
 
 A base button is usually used alongside a neutral button.
 
@@ -18,7 +18,7 @@ A base button is usually used alongside a neutral button.
     View example of the base button pattern
 </a>
 
-## Neutral button
+### Neutral button
 
 A neutral button can be used to indicate a positive action that isn't necessarily the main call-to-action.
 
@@ -27,7 +27,7 @@ A neutral button can be used to indicate a positive action that isn't necessaril
     View example of the neutral button pattern
 </a>
 
-## Positive button
+### Positive button
 
 A positive button can be used to indicate a positive action that is the main call-to-action.
 
@@ -36,7 +36,7 @@ A positive button can be used to indicate a positive action that is the main cal
     View example of the positive button pattern
 </a>
 
-## Negative button
+### Negative button
 
 A negative button can be used to indicate a negative action that is destructive or permanent.
 
@@ -45,7 +45,7 @@ A negative button can be used to indicate a negative action that is destructive 
     View example of the negative button pattern
 </a>
 
-## Brand button
+### Brand button
 
 You can use the brand button with the main color of your brand.
 
@@ -54,7 +54,7 @@ You can use the brand button with the main color of your brand.
     View example of the brand button pattern
 </a>
 
-## Inline button
+### Inline button
 
 Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by adding the state class `is-inline` to the button element.
 
@@ -62,3 +62,9 @@ Should you wish to place a button after a line of inline text, as a CTA for exam
     class="js-example">
     View example of the inline button pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Buttons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Buttons)

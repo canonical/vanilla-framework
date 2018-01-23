@@ -3,7 +3,7 @@ title: Forms layout
 table_of_contents: true
 ---
 
-# Form layout
+## Form layout
 
 By applying the classes ```.p-form--inline .p-form--stacked``` and wrapping any form control in ```.p-form__group``` you can change the layout style of any form and to fit a design purpose.
 
@@ -16,3 +16,14 @@ By applying the classes ```.p-form--inline .p-form--stacked``` and wrapping any 
     class="js-example">
     View examples of form stacked patterns
 </a>
+
+<hr />
+
+### Design
+
+* [Forms design](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms)
+
+### Related
+
+* [Forms pattern](/en/base/forms)
+* [Form validation pattern](/en/patterns/form-validation)
