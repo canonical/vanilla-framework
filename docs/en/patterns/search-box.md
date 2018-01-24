@@ -20,3 +20,14 @@ This pattern integrates with `.p-navigation__nav` for both large and small scree
     class="js-example">
     View examples of search box navigation patterns
 </a>
+
+<hr />
+
+### Design
+
+* [Search design](https://github.com/ubuntudesign/vanilla-design/tree/master/Search)
+
+### Related
+
+* [Forms pattern](/en/base/forms)
+* [Navigation pattern](/en/patterns/navigation)

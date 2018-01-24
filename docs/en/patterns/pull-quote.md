@@ -3,7 +3,7 @@ title: Pull quote
 table_of_contents: false
 ---
 
-# Pull quote
+## Pull quote
 
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
@@ -14,6 +14,10 @@ visually prominent way.
 </a>
 
 <hr />
+
+### Design
+
+* [Pull quote design](https://github.com/ubuntudesign/vanilla-design/tree/master/Pull%20quote)
 
 ### Related
 

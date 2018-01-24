@@ -3,7 +3,7 @@ title: Color settings
 table_of_contents: true
 ---
 
-# Color
+## Color
 
 Vanilla works with a fairly neutral color palette consisting of a range of greys and a traffic light palette (red, yellow, green) plus blue.
 
@@ -84,3 +84,9 @@ When planning your pages, make sure there is an even distribution and well-balan
 </table>
 
 </div>
+
+<hr />
+
+### Design
+
+* [Color design](https://github.com/ubuntudesign/vanilla-design/tree/master/Color)
