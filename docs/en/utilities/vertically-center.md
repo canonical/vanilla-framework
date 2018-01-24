@@ -3,7 +3,7 @@ title: Vertically center
 table_of_contents: true
 ---
 
-# Vertically center
+## Vertically center
 
 The `.u-vertically-center` class will vertically center the direct child of the element it is placed on.
 

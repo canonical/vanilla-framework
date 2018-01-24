@@ -60,6 +60,6 @@ git submodule update
 
 To make improvements to Vanilla itself, please follow the instructions on the project’s [README.md](https://github.com/vanilla-framework/vanilla-framework#vanilla-framework).
 
-## Getting help
+### Getting help
 
 If you have any questions or get stuck, you can file an issue on [GitHub](https://github.com/vanilla-framework/vanilla-framework/issues/new) or ask us a question on [Twitter](https://twitter.com/vanillaframewrk) or [Slack](https://vanillaframework.slack.com).

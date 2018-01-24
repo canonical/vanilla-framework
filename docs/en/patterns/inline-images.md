@@ -3,7 +3,7 @@ title: Inline images
 table_of_contents: true
 ---
 
-# Inline images
+## Inline images
 
 The Inline images pattern can be used to showcase a group of related images, such as a group of customer or partner logos.
 
@@ -11,3 +11,9 @@ The Inline images pattern can be used to showcase a group of related images, suc
     class="js-example">
     View example of the inline images pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Image design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image)

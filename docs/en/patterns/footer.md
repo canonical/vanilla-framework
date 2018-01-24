@@ -3,7 +3,7 @@ title: Footer
 table_of_contents: true
 ---
 
-# Footer
+## Footer
 
 You can use this simple footer pattern to display copyright notices and a selection of links.
 
@@ -11,3 +11,9 @@ You can use this simple footer pattern to display copyright notices and a select
     class="js-example">
     View example of the footer pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Footer design](https://github.com/ubuntudesign/vanilla-design/tree/master/Footer)

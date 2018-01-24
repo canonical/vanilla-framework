@@ -49,3 +49,9 @@ most cases it would be a strip. This only affects medium and large screen sizes.
   class="js-example">
   View example of the utilities image position bottom left
 </a>
+
+<hr />
+
+### Design
+
+* [Image positioning design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image%20positioning)
