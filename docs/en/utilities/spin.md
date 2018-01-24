@@ -3,7 +3,7 @@ title: Spin
 table_of_contents: true
 ---
 
-# Spin
+## Spin
 
 Animate an element by spinning with the follow utility class.
 

@@ -12,11 +12,13 @@ A divider is used to separate related content items.
   View example of the patterns divider
 </a>
 
----
+<hr />
 
-#### Vanilla patterns
+### Design
 
-These patterns are an extension or addition of the patterns available on Vanilla
-framework.
+* [Lists design](https://github.com/ubuntudesign/vanilla-design/tree/master/Lists)
 
-[Vanilla framework list patterns](https://docs.vanillaframework.io/en/patterns/lists)
+### Related
+
+* [Lists pattern](/en/patterns/lists)
+* [Matrix pattern](/en/patterns/matrix)

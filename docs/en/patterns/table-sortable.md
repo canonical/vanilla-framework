@@ -11,3 +11,15 @@ Using the class `p-table--sortable` and assigning `role="columnheader"` and `ari
   class="js-example">
   View example of the table sortable pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Table sortable design](https://github.com/ubuntudesign/vanilla-design/tree/master/Table%20sortable)
+
+### Related
+
+* [Table pattern](/en/base/table)
+* [Table mobile card pattern](/en/patterns/table-mobile-card)
+* [Table expanding pattern](/en/patterns/table-expanding)

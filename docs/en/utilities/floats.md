@@ -3,12 +3,12 @@ title: Floats
 table_of_contents: true
 ---
 
-# Floats
+## Floats
 
 The float utilities allow you to float an element left or right.
 
 
-## All screens
+### All screens
 
 You can use the following to float an element on left or right on all screen
 sizes.
@@ -18,7 +18,7 @@ sizes.
     View example of the all screen floats utility
 </a>
 
-## Only large screens
+### Only large screens
 
 You can limit floats to only large screen sizes using the following example.
 
@@ -27,7 +27,7 @@ You can limit floats to only large screen sizes using the following example.
     View example of the large screen floats utility
 </a>
 
-## Only medium screens
+### Only medium screens
 
 You can limit floats to only medium screen sizes using the following example.
 
@@ -36,7 +36,7 @@ You can limit floats to only medium screen sizes using the following example.
     View example of the medium screen floats utility
 </a>
 
-## Only small screens
+### Only small screens
 
 You can limit floats to only small screen sizes using the following example.
 

@@ -3,7 +3,7 @@ title: Typography
 table_of_contents: true
 ---
 
-# Typography
+## Typography
 
 All text in Vanilla uses the Ubuntu typeface.
 
@@ -11,7 +11,7 @@ Vanilla's typographic scale has a base font size of 15 pixels (screens smaller t
 and a font weight of 300.  At the medium breakpoint, the base font size increases to 16
 pixels.
 
-## Typographic scale
+### Typographic scale
 
 |               | Small  | Medium | Large  |
 | ------------- | -----  | ------ | -----  |
@@ -44,7 +44,7 @@ pixels.
 | line height   | `24px` | `24px` | `24px` |
 | margin top    | `24px` | `24px` | `32px` |
 
-## Heading classes
+### Heading classes
 
 Heading classes can be added to text elements to give them the same visual
 appearance as the base h1-h6 heading elements without sacrificing correct
@@ -59,7 +59,7 @@ suits your document style and tree.
     View example of the mixed headings pattern
 </a>
 
-## Ordered list
+### Ordered list
 
 Use an ordered list when the order of the items is important.
 
@@ -68,7 +68,7 @@ Use an ordered list when the order of the items is important.
     View example of the base ordered list
 </a>
 
-## Unordered list
+### Unordered list
 
 Use an unordered list when the order of the items isn't important.
 
@@ -77,7 +77,7 @@ Use an unordered list when the order of the items isn't important.
     View example of the base unordered list
 </a>
 
-## Description list
+### Description list
 
 Use a description list when you want to list a group of one or more terms and
 descriptions.
@@ -87,33 +87,33 @@ descriptions.
     View example of the base definition list
 </a>
 
-## Blockquotes and citations
+### Blockquotes and citations
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/blockquotes/"
     class="js-example">
     View example of the base blockquotes
 </a>
 
-## Small text
+### Small text
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/small/"
     class="js-example">
     View example of the small text
 </a>
 
-## Strong text
+### Strong text
 
 <strong>This is some strong text</strong>
 
-## Superscripted text
+### Superscripted text
 
 <p>This text is <sup>superscripted</sup></p>
 
-## Subscripted text
+### Subscripted text
 
 <p>This text is <sub>subscripted</sub></p>
 
-## Font weights
+### Font weights
 
 If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
 
@@ -122,7 +122,7 @@ If you are using the Ubuntu font, it comes in five weights; thin, light, regular
     View example of the Ubuntu font weights.
 </a>
 
-## Enabling Cyrillic, Greek and Latin fonts
+### Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
 default. To enable Cyrillic, Greek and Latin fonts on Ubuntu please set the
@@ -134,8 +134,12 @@ $font-allow-cyrillic-greek-latin: true;
 
 <hr />
 
+### Design
+
+* [Typography design](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography)
+
 ### Related
 
 * [Code](/en/base/code)
 * [Pull quote pattern](/en/patterns/pull-quote)
-* [Lists pattern](/en/patterns/lists)
+* [Font settings](/en/settings/font-settings)
