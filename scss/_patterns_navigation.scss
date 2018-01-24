@@ -150,12 +150,17 @@
   background-color: $background-color;
   border-bottom: 1px solid $border-color;
   color: $text-color;
+  height: $sp-xxx-large;
   margin-top: 0;
   position: relative;
   width: 100%;
 
   .row {
     padding: 0;
+  }
+
+  @media (max-width: $breakpoint-navigation-threshold) {
+    height: auto;
   }
 
   .p-navigation {
@@ -261,16 +266,24 @@
       .p-navigation__link {
         border-left: 1px solid $color-mid-light;
 
-        @media (max-width: $breakpoint-navigation-threshold) {
+        &:hover {
           background-color: $color-light;
+        }
+
+        @media (max-width: $breakpoint-navigation-threshold) {
+          background-color: $color-x-light;
           border-left: 0;
           border-top: 1px solid $color-mid-light;
           color: $color-dark;
           text-align: left;
+        }
 
-          &:last-child {
-            border-bottom: 1px solid $color-mid-light;
-          }
+        > a {
+          border-bottom: 3px solid transparent;
+        }
+
+        &.is-selected > a {
+          border-bottom-color: $color-mid-dark;
         }
       }
 
@@ -288,7 +301,7 @@
 
         color: $color-dark;
         font-size: .875rem;
-        padding: .84375rem $sp-x-small; // 0.84375rem = (48px [height] - 21px [line-height]) / 2
+        padding: .8125rem $sp-x-small .625rem $sp-x-small;
 
         @media (min-width: $breakpoint-navigation-threshold + 1) {
           color: $text-color;
