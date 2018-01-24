@@ -3,7 +3,7 @@ title: Spacing settings
 table_of_contents: true
 ---
 
-# Spacing
+## Spacing
 
 Vanilla uses spacing variables across the codebase to help ensure consistency of spacing between elements in across patterns and utilities.
 

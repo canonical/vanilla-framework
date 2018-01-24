@@ -3,7 +3,7 @@ title: Card
 table_of_contents: true
 ---
 
-# Card
+## Card
 
 There are two card styles available to use in Vanilla.
 
@@ -11,7 +11,7 @@ A card will expand to fill the full width of its parent container.
 
 All card styles, but in particular the highlighted card, should be used sparingly.
 
-## Basic card
+### Basic card
 
 The purpose of the basic card is to display information, without user interaction.
 
@@ -21,7 +21,7 @@ The purpose of the basic card is to display information, without user interactio
 </a>
 
 
-## Highlighted card
+### Highlighted card
 
 The highlighted card should be used when you can interact with the content.
 
@@ -31,7 +31,7 @@ The highlighted card should be used when you can interact with the content.
 </a>
 
 
-## Overlay card
+### Overlay card
 
 The purpose of the card overlay pattern is to make the text visible in
 conjunction with a strip image.
@@ -41,8 +41,14 @@ conjunction with a strip image.
   View example of the patterns card overlay
 </a>
 
-## Optional header
+### Optional header
 
 Both cards have styles for an optional header.
 
 The header will accept either text or an image with a max height of 32 pixels and has a border below.
+
+<hr />
+
+### Design
+
+* [Card design](https://github.com/ubuntudesign/vanilla-design/tree/master/Card)

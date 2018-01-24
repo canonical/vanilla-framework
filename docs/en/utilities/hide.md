@@ -3,7 +3,7 @@ title: Hide
 table_of_contents: true
 ---
 
-# Hide
+## Hide
 
 Hide an element within a certain breakpoint.
 

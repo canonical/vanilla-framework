@@ -3,7 +3,7 @@ title: Padding collapse
 table_of_contents: true
 ---
 
-# Padding collapse
+## Padding collapse
 
 Remove one or more paddings on an element.
 

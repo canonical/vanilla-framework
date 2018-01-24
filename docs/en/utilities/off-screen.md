@@ -3,7 +3,7 @@ title: Off screen
 table_of_contents: true
 ---
 
-# Off screen
+## Off screen
 
 The `.u-off-screen` class will position an element out of the page flow and off-screen, while still making it available to screen readers.
 
