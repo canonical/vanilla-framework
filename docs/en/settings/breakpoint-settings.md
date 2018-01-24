@@ -3,7 +3,7 @@ title: Breakpoints settings
 table_of_contents: true
 ---
 
-# Breakpoints
+## Breakpoints
 
 Vanilla uses three breakpoints: one for small screens (like phones), one for medium sized screens and a third for large screens.
 
@@ -15,7 +15,7 @@ Setting  | Default value
 `$breakpoint-large`   | `1030px`
 `$breakpoint-navigation-threshold`   | `$breakpoint-medium`
 
-## Target small screens
+### Target small screens
 
 ```css
 @media screen and (max-width: $breakpoint-medium) {
@@ -23,7 +23,7 @@ Setting  | Default value
 }
 ```
 
-## Target medium screens
+### Target medium screens
 
 ```css
 @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
@@ -31,7 +31,7 @@ Setting  | Default value
 }
 ```
 
-## Target large screens
+### Target large screens
 
 ```css
 @media screen and (min-width: $breakpoint-large) {
@@ -39,7 +39,7 @@ Setting  | Default value
 }
 ```
 
-## Modifying the navigation threshold
+### Modifying the navigation threshold
 The `$breakpoint-navigation-threshold` is the breakpoint in which the
 navigation switches from horizontal (large screen) navigation to a burger style
 menu (small screen).

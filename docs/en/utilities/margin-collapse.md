@@ -3,7 +3,7 @@ title: Margin collapse
 table_of_contents: true
 ---
 
-# Margin collapse
+## Margin collapse
 
 Remove one or more margins of an element.
 

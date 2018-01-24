@@ -3,7 +3,7 @@ title: Code numbered
 table_of_contents: true
 ---
 
-# Code numbered
+## Code numbered
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
 
@@ -15,3 +15,9 @@ See also: [code snippet](/en/patterns/code-snippet).
     class="js-example">
     View example of the code numbered pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Code design](https://github.com/ubuntudesign/vanilla-design/tree/master/Code)

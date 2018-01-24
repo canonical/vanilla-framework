@@ -19,3 +19,13 @@ Using direction modifiers will change the placement of the drop-down menu. By de
   class="js-example">
   View example of the contextual menu pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Contextual menu design](https://github.com/ubuntudesign/vanilla-design/tree/master/Contextual%20menu)
+
+### Related
+
+* [Tooltips pattern](/en/patterns/tooltips)
