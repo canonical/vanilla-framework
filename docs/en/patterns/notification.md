@@ -7,7 +7,7 @@ table_of_contents: false
 
 ### .p-notification
 
-Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, caution, negative or position.
+Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, caution, negative or position. You can also include a close button using the `p-icon--close` pattern, although you will need to implement the click function yourself.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
     class="js-example">
