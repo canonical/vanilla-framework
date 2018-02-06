@@ -5,6 +5,7 @@
   @include vf-u-align--center;
   @include vf-u-align--left;
   @include vf-u-align--right;
+  @include align-text;
 }
 
 // Center all text within an element
@@ -32,5 +33,20 @@
     justify-content: flex-end !important;
     margin-left: auto !important;
     text-align: right !important;
+  }
+}
+
+@mixin align-text {
+  .u-align--center & {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .u-align--left & {
+    margin-right: auto;
+  }
+
+  .u-align--right & {
+    margin-left: auto;
   }
 }
