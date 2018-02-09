@@ -3,7 +3,7 @@ title: Icons
 table_of_contents: true
 ---
 
-# Icons
+## Icons
 
 Icons can be added via an `<i>` element like so:
 
@@ -15,13 +15,11 @@ Class name  |
 `p-icon--minus` |
 `p-icon--expand` |
 `p-icon--collapse` |
-`p-icon--collapse` |
 `p-icon--spinner` |
 `p-icon--chevron` |
 `p-icon--close` |
 `p-icon--help` |
 `p-icon--information` |
-`p-icon--help` |
 `p-icon--delete` |
 `p-icon--external` |
 `p-icon--contextual-menu` |
@@ -48,7 +46,7 @@ When placed within `.p-strip--dark`, icon colors are reverted to ensure legibili
     View example of the icon set (dark)
 </a>
 
-## Social icons
+### Social icons
 
 Class name  |
  ------------- |
@@ -66,7 +64,7 @@ Class name  |
     View example of the icon set (Social)
 </a>
 
-## Share icons
+### Share icons
 
 If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we recommend using these specific buttons:
 
@@ -74,3 +72,9 @@ If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we re
 - **Facebook** - https://developers.facebook.com/docs/plugins/share-button/
 - **Google+** - https://developers.google.com/+/web/share/](https://developers.google.com/+/web/share/
 - **LinkedIn** - https://developer.linkedin.com/plugins/share](https://developer.linkedin.com/plugins/share
+
+  <hr />
+
+  ### Design
+
+  * [Icons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons)

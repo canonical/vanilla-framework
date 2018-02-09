@@ -1,0 +1,12 @@
+{
+    "scripts": {
+      "clean": "rm -rf node_modules yarn-error.log css static/css *.log *.sqlite build/ .extra templates",
+      "watch": "watch -p './**/*.md' -c 'yarn run build-css'",
+      "build": "documentation-builder --base-directory . --output-path templates --template-path template.html --tag-manager-code 'GTM-K92JCQ' --no-link-extensions --force",
+      "test": "",
+      "serve": "cd dist && FLASK_DEBUG=true FLASK_APP=app.py flask run -h 0.0.0.0 -p $PORT"
+    },
+    "dependencies": {
+      "watch-cli": "^0.2.2"
+  }
+}
