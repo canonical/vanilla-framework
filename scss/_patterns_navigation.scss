@@ -47,19 +47,18 @@
         cursor: pointer;
       }
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
         display: none;
       }
     }
 
     .sidebar__content {
       background: $color-x-light;
+      margin-top: $sp-small;
       padding-bottom: $sp-medium;
-      position: absolute;
-      top: $sp-x-large;
       width: 100%;
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
         display: block !important; // important to override u-hide util
       }
     }
@@ -150,6 +149,7 @@
   background-color: $background-color;
   border-bottom: 1px solid $border-color;
   color: $text-color;
+  height: $sp-xxx-large;
   margin-top: 0;
   position: relative;
   width: 100%;
@@ -158,9 +158,13 @@
     padding: 0;
   }
 
+  @media (max-width: $breakpoint-navigation-threshold) {
+    height: auto;
+  }
+
   .p-navigation {
     &__banner {
-      @media (max-width: $breakpoint-medium) {
+      @media (max-width: $breakpoint-navigation-threshold) {
         overflow: hidden;
         position: relative;
       }
@@ -254,22 +258,31 @@
       @media (min-width: $breakpoint-navigation-threshold + 1) {
         background-color: transparent;
         clear: none;
+        flex-shrink: 0;
         float: left;
       }
 
       .p-navigation__link {
         border-left: 1px solid $color-mid-light;
 
-        @media (max-width: $breakpoint-navigation-threshold) {
+        &:hover {
           background-color: $color-light;
+        }
+
+        @media (max-width: $breakpoint-navigation-threshold) {
+          background-color: $color-x-light;
           border-left: 0;
           border-top: 1px solid $color-mid-light;
           color: $color-dark;
           text-align: left;
+        }
 
-          &:last-child {
-            border-bottom: 1px solid $color-mid-light;
-          }
+        > a {
+          border-bottom: 3px solid transparent;
+        }
+
+        &.is-selected > a {
+          border-bottom-color: $color-mid-dark;
         }
       }
 
@@ -287,7 +300,7 @@
 
         color: $color-dark;
         font-size: .875rem;
-        padding: .84375rem $sp-x-small; // 0.84375rem = (48px [height] - 21px [line-height]) / 2
+        padding: .8125rem $sp-x-small .625rem $sp-x-small;
 
         @media (min-width: $breakpoint-navigation-threshold + 1) {
           color: $text-color;
@@ -311,7 +324,30 @@
       margin-top: 0;
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
-        display: block;
+        display: flex;
+      }
+
+      > .p-search-box {
+        align-self: center;
+        margin-left: auto;
+        margin-top: 0;
+        max-width: 20rem;
+        order: 1;
+        width: 100%;
+
+        @media (max-width: $breakpoint-navigation-threshold) {
+          max-width: inherit;
+          order: -1;
+          top: 0;
+        }
+
+        > .p-search-box__input,
+        .p-search-box__button,
+        .p-search-box__reset {
+          @media (max-width: $breakpoint-navigation-threshold) {
+            border-bottom: 0;
+          }
+        }
       }
     }
   }
@@ -328,7 +364,12 @@
     }
 
     .p-navigation__nav {
-      display: block;
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: $breakpoint-navigation-threshold) {
+        flex-direction: column;
+      }
     }
   }
 }

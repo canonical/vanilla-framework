@@ -15,3 +15,15 @@ Using `p-table-expanding__panel` it can be hidden using the `aria-hidden` attrib
   class="js-example">
   View example of the expanding table pattern
 </a>
+
+<hr />
+
+### Design
+
+* [Table design](https://github.com/ubuntudesign/vanilla-design/tree/master/Table)
+
+### Related
+
+* [Table pattern](/en/base/table)
+* [Table mobile card pattern](/en/patterns/table-mobile-card)
+* [Table sortable pattern](/en/patterns/table-sortable)

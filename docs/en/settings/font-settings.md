@@ -3,7 +3,7 @@ title: Font settings
 table_of_contents: true
 ---
 
-# Font
+## Font
 
 Vanilla uses the Ubuntu font family by default, but you can specify any other font family to better suit your project.
 
@@ -17,3 +17,13 @@ Setting  | Default value
 `$font-monospace`    | '"Ubuntu Mono", Consolas, Monaco, Courier, monospace'
 `$font-base-size`   | `1rem`
 `$font-heading-family`   | `$font-base-family`
+
+### Design
+
+* [Typography design](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography)
+
+### Related
+
+* [Base typography](/en/base/typography)
+* [Code](/en/base/code)
+* [Pull quote pattern](/en/patterns/pull-quote)

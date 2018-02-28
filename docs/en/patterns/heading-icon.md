@@ -9,3 +9,9 @@ title: Heading icon
   class="js-example">
   View example of the pattern heading icons
 </a>
+
+<hr />
+
+### Design
+
+* [Heading icon design](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon)

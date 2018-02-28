@@ -150,6 +150,8 @@
   p {
     @extend %paragraph;
     @include p-max-width;
+    @include align-text;
+
   }
 
   button,
@@ -301,6 +303,7 @@ $baseline-nudge-h4: map-get($nudges--baseline-8, pow1);
 $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 
 @mixin vf-heading-1 {
+  @include align-text;
   @include heading-max-width--short;
   font-size: $ms-ratio * $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
@@ -311,6 +314,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 @mixin vf-heading-2 {
+  @include align-text;
   @include heading-max-width--short;
   font-size: $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
@@ -321,6 +325,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 @mixin vf-heading-3 {
+  @include align-text;
   @include heading-max-width--long;
   font-size: $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
@@ -331,6 +336,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 @mixin vf-heading-4 {
+  @include align-text;
   @include heading-max-width--long;
   font-size: $ms-ratio * 1rem;
   font-weight: 300;
@@ -342,6 +348,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 
 @mixin vf-heading-5 {
   @extend %default-text;
+  @include align-text;
   @include p-max-width;
   font-size: 1rem;
   font-weight: 500;
@@ -349,6 +356,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 
 @mixin vf-heading-6 {
   @extend %default-text;
+  @include align-text;
   @include p-max-width;
   font-size: 1rem;
   font-style: italic;
