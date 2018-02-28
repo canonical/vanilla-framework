@@ -17,7 +17,7 @@
 
     &__tab {
       background: {
-        position: top 1.25rem right $sp-medium;
+        position: top $sp-medium right $sp-medium;
         repeat: no-repeat;
       }
       border: 0;
@@ -29,11 +29,13 @@
 
       // aria-selected controls the open and closed state for the accordion tab
       &[aria-expanded='true'] {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h15v15H0z'/%3E%3C/defs%3E%3Cg fill-rule='evenodd' fill='none'%3E%3Cuse xlink:href='%23a'/%3E%3Cpath stroke='%23888' d='M.5.5h14v14H.5z'/%3E%3Cpath fill='%23888' d='M4 8V7h7v1z'/%3E%3C/g%3E%3C/svg%3E");
+        @include vf-icon-minus(vf-url-friendly-color($color-mid-dark));
+        background-size: $sp-medium;
       }
 
       &[aria-expanded='false'] {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='15' width='15' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h16v16H0z'/%3E%3C/defs%3E%3Cg fill-rule='evenodd' fill='none'%3E%3Cuse xlink:href='%23a'/%3E%3Cpath stroke='%23888' d='M.5.5h14v14H.5z'/%3E%3Cpath fill='%23888' d='M7 4h1v7H7z'/%3E%3Cpath fill='%23888' d='M4 8V7h7v1z'/%3E%3C/g%3E%3C/svg%3E");
+        @include vf-icon-plus(vf-url-friendly-color($color-mid-dark));
+        background-size: $sp-medium;
       }
 
       &:focus {
