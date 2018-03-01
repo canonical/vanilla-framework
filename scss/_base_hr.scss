@@ -1,11 +1,16 @@
 @import 'settings';
 
+$sp--hr: (
+  top: $sp-medium - $px,
+  bottom: $sp-medium
+);
+
 // Horizontal rule
 @mixin vf-b-hr {
   hr {
     border: 0;
     height: 0;
-    margin: $sp-medium 0;
+    margin: map-get($sp--hr, top) 0 map-get($sp--hr, bottom);
     position: relative;
 
     &::after {
