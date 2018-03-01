@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "6.6.0"
 before_install:
-  - rvm install 2.2.5
+  - rvm install 2.5.0
 install:
   - gem install jekyll
   - gem install percy-cli
@@ -14,6 +14,7 @@ before_script:
 script:
   - yarn run test
   - yarn run build-examples
+  - "[ $(du -b build/css/build.min.css | cut -f 1) -lt 100000 ] || (echo 'Your CSS is too large!'; exit 1)"
   - percy snapshot --widths "375,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
   - sass --no-cache --sourcemap=none scss/build.scss build/css/build.css
 notifications:
@@ -22,7 +23,7 @@ notifications:
       - "chat.freenode.net#vanilla-framework"
     on_success: change
     on_failure: always
-    on_success: change
   slack:
     rooms:
       - vanillaframework:wvRcrt4C6ODhvHxrUkTaKlD5#general
+
