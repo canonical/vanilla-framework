@@ -1,16 +1,21 @@
 @import 'settings';
 
 @mixin vf-b-lists {
+  li > ul,
+  li > ol {
+    padding-top: 0;
+  }
+
+  li > ul > li:last-of-type,
+  li > ol > li:last-of-type {
+    padding-bottom: 0;
+  }
+
   ol,
   ul {
     margin-bottom: 0;
     margin-left: $sp-medium;
     padding-left: $sp-medium;
-
-    ul,
-    ol {
-      margin-bottom: 0;
-    }
 
     nav & {
       list-style: none;
@@ -25,6 +30,7 @@
 
   dl {
     margin-bottom: 0;
+    margin-top: 0;
   }
 
   dt {
