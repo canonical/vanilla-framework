@@ -2,25 +2,43 @@
 
 $numbered-bullet-width: 3rem;
 $numbered-bullet-margin-right: 1rem;
+$tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
+
 // Default list styling
 // Mixin for basic styled lists
 @mixin vf-list {
   list-style: none;
+  margin-bottom: map-get($sp-after--desktop, p);
   margin-left: 0;
   padding-left: 0;
 }
 
 // Mixin for list items
+$sp-list-item-inner--top: map-get($nudges--baseline-8, pow0);
+$sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges--baseline-8, pow0);
 @mixin vf-list-item {
-  margin-top: 0;
+  padding-bottom: $sp-list-item-inner--bottom;
+  padding-top: $sp-list-item-inner--top;
 }
 
 @mixin vf-list-item-divided {
-  border-bottom: 1px dotted $color-mid-light;
+  position: relative;
+
+  &::after {
+    border-bottom: 1px dotted $color-mid-light;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
 
   &:last-of-type,
   .last-item {
-    border-bottom: 0;
+    &::after {
+      border-bottom: 0;
+    }
   }
 }
 
@@ -62,7 +80,7 @@ $numbered-bullet-margin-right: 1rem;
     @include vf-list;
 
     &__item {
-      @extend %default-text;
+      @include vf-list-item;
     }
   }
 }
@@ -87,13 +105,9 @@ $numbered-bullet-margin-right: 1rem;
 @mixin vf-p-list-item-state {
   .is-ticked {
     background-image: svg-tick($color-accent);
-    background-position: 0 map-get($line-heights, p) * .5;
+    background-position-y: $sp-list-item-inner--top + (map-get($line-heights, default-text) - $tick-height) * .5;
     background-repeat: no-repeat;
-    padding-left: 25px;
-
-    .p-list--divided & {
-      background-position: 0 $sp-medium;
-    }
+    padding-left: 2rem;
   }
 }
 
@@ -152,7 +166,6 @@ $numbered-bullet-margin-right: 1rem;
     padding: 0;
 
     &__title {
-      margin-top: 0;
       position: relative;
     }
 
@@ -203,8 +216,6 @@ $numbered-bullet-margin-right: 1rem;
     }
 
     .p-list-step__item {
-      margin-bottom: $sp-xxx-large;
-
       @media (min-width: $breakpoint-medium) {
         display: flex;
         margin: 0;
@@ -223,16 +234,11 @@ $numbered-bullet-margin-right: 1rem;
       @media (min-width: $breakpoint-medium) {
         padding-top: $sp-xx-large;
       }
-      @media only screen and (min-width: $breakpoint-large) {
-        + * {
-          margin-top: 0;
-        }
-      }
     }
 
     .p-list-step__content {
       @media (min-width: $breakpoint-medium) {
-        border-bottom: 1px solid $color-light;
+        border-bottom: 1px solid $color-mid-light;
         padding: $sp-xx-large 0;
       }
     }
