@@ -127,7 +127,7 @@
     font-size: $font-base-size;
     font-weight: 300;
     // set default line height to match p
-    line-height: map-get($line-heights, p);
+    line-height: map-get($line-heights, default-text);
   }
 
   /// Base typography
@@ -217,22 +217,6 @@
   p + h6,
   p + .p-heading--six {
     @extend %sp--ph5;
-  }
-
-  li {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
-  li > ul,
-  li > ol {
-    padding-top: 0;
-  }
-
-  li > ul > li:last-of-type,
-  li > ol > li:last-of-type {
-    padding-bottom: 0;
   }
 
   // blockquotes
@@ -379,8 +363,8 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 %default-text {
-  line-height: map-get($line-heights, p);
-  margin-bottom: map-get($sp-after--desktop, h5) - $baseline-nudge-p;
+  line-height: map-get($line-heights, default-text);
+  margin-bottom: map-get($sp-after--desktop, default-text) - $baseline-nudge-p;
   margin-top: 0;
   padding-top: $baseline-nudge-p;
 }
