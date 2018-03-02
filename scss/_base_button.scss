@@ -13,6 +13,7 @@
     $duration: fast,
     $easing: in
   );
+  
   @include vf-focus;
 
   border-radius: 2 * $px;
@@ -23,16 +24,15 @@
   display: inline-block;
   margin: 0 0 $sp-unit 0 !important;
   padding: $sp-unit - $px $sp-large;
-  
-  table &, 
-  .dense & {
-    padding: $sp-bordered-inner--top $sp-small $sp-bordered-inner--bottom;
-    margin: - map-get($nudges--baseline-8, pow0) 0 !important;
-  }
-
   text-align: center;
   text-decoration: none;
   width: 100%;
+
+  table &, 
+  .dense & {
+    margin: - map-get($nudges--baseline-8, pow0) 0 !important;
+    padding: $sp-bordered-inner--top $sp-small $sp-bordered-inner--bottom;
+  }
 
   & + & {
     @media (min-width: $breakpoint-x-small) {
