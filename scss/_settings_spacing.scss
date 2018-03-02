@@ -26,10 +26,8 @@ $line-heights: (
   h1: 7 * $sp-unit,
   h2: 6 * $sp-unit,
   h3: 5 * $sp-unit,
-  h4: 3 * $sp-unit,
-  h5: 3 * $sp-unit,
-  h6: 3 * $sp-unit,
-  p: 3 * $sp-unit
+  h4: 4 * $sp-unit,
+  default-text: 3 * $sp-unit
 );
 $nudges--baseline-8: (
   pow4: .6rem,
@@ -58,5 +56,11 @@ $sp-after--desktop: (
   h4: 3 * $sp-unit,
   h5: 3 * $sp-unit,
   h6: 3 * $sp-unit,
-  p: 3 * $sp-unit
+  p: 3 * $sp-unit,
+  default-text: 1
 );
+
+
+//spacing values for specific purpouses. These will be the settings that turn vanilla regular into vanilla dense.
+$sp-bordered-inner--top: map-get($nudges--baseline-8, pow0) - $px;
+$sp-bordered-inner--bottom: $sp-bordered-inner--top;
