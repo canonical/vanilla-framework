@@ -126,8 +126,8 @@
     font-family: unquote($font-base-family);
     font-size: $font-base-size;
     font-weight: 300;
-    // line-height: $sp-unit-ratio * 3;
-    line-height: $sp-unit * 3;
+    // set default line height to match p
+    line-height: map-get($line-heights, p);
   }
 
   /// Base typography
@@ -321,7 +321,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
   @include heading-max-width--short;
   font-size: $ms-ratio * $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 7;
+  line-height: map-get($line-heights, h1);
   margin-bottom: map-get($sp-after--desktop, h1) - $baseline-nudge-h1;
   margin-top: 0;
   padding-top: $baseline-nudge-h1;
@@ -332,7 +332,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
   @include heading-max-width--short;
   font-size: $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 6;
+  line-height: map-get($line-heights, h2);
   margin-bottom: map-get($sp-after--desktop, h2) - $baseline-nudge-h2;
   margin-top: 0;
   padding-top: $baseline-nudge-h2;
@@ -343,7 +343,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
   @include heading-max-width--long;
   font-size: $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 5;
+  line-height: map-get($line-heights, h3);
   margin-bottom: map-get($sp-after--desktop, h3) - $baseline-nudge-h3;
   margin-top: 0;
   padding-top: $baseline-nudge-h3;
@@ -354,7 +354,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
   @include heading-max-width--long;
   font-size: $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: $sp-unit * 4;
+  line-height: map-get($line-heights, h4);
   margin-bottom: map-get($sp-after--desktop, h4) - $baseline-nudge-h4;
   margin-top: 0;
   padding-top: $baseline-nudge-h4;
@@ -379,7 +379,7 @@ $baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 }
 
 %default-text {
-  line-height: $sp-unit * 3;
+  line-height: map-get($line-heights, p);
   margin-bottom: map-get($sp-after--desktop, h5) - $baseline-nudge-p;
   margin-top: 0;
   padding-top: $baseline-nudge-p;
