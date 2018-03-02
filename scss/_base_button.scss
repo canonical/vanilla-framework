@@ -21,8 +21,15 @@
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  margin: 0 $sp-unit $sp-unit * 2 0 !important;
+  margin: 0 0 $sp-unit 0 !important;
   padding: $sp-unit - $px $sp-large;
+  
+  table &, 
+  .dense & {
+    padding: $sp-bordered-inner--top $sp-small $sp-bordered-inner--bottom;
+    margin: - map-get($nudges--baseline-8, pow0) 0 !important;
+  }
+
   text-align: center;
   text-decoration: none;
   width: 100%;
