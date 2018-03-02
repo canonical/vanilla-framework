@@ -21,7 +21,10 @@
         repeat: no-repeat;
       }
       border: 0;
-      padding: $sp-medium $sp-xx-large $sp-medium $sp-small;
+      //XXX remove !important once this is fixed https://github.com/vanilla-framework/vanilla-framework/issues/1495
+      margin-bottom: 0 !important;
+      padding-left: $sp-small;
+      padding-right: $sp-xx-large;
       text-align: left;
       transition-duration: 0s;
       width: 100%;
@@ -47,7 +50,7 @@
     &__panel {
       border-top: 1px solid $color-mid-light;
       margin: 0;
-      padding: $sp-small $sp-small $sp-small $sp-large;
+      padding: $sp-small-$px $sp-small $sp-small $sp-large;
 
       // Hides panel content
       &[aria-hidden='true'] {
