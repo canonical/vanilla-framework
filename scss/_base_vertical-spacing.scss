@@ -1,10 +1,10 @@
 @import 'settings';
 
 @mixin vf-default-vertical-spacing {
-  margin-top: 1.25rem;
+  margin-top: $sp-medium;
 
   @media screen and (min-width: #{$breakpoint-medium}) {
-    margin-top: 1.75rem;
+    margin-top: $sp-large;
   }
 
   @media screen and (min-width: #{$breakpoint-large}) {
@@ -14,9 +14,9 @@
 
 @mixin vf-b-vertical-spacing {
   * {
-    + * {
-      @include vf-default-vertical-spacing;
-    }
+    // + * {
+    //   @include vf-default-vertical-spacing;
+    // }
 
     > p:first-child {
       margin-top: 0;
@@ -65,7 +65,7 @@
     }
   }
 
-  .row ~ .row {
-    @include vf-default-vertical-spacing;
-  }
+  // .row ~ .row {
+  //   @include vf-default-vertical-spacing;
+  // }
 }

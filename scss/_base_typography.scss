@@ -122,16 +122,13 @@
   }
 
   html {
-    font-size: $font-base-size;
-  }
-
-  body {
     color: $color-dark;
     font-family: unquote($font-base-family);
+    font-size: $font-base-size;
     font-weight: 300;
-    line-height: 1.5;
+    // line-height: $sp-unit-ratio * 3;
+    line-height: $sp-unit * 3;
   }
-
 
   /// Base typography
   /// @section type
@@ -143,45 +140,17 @@
   h6,
   [class^="p-heading--"] {
     font-family: unquote($font-heading-family);
-    margin: 0;
+    // margin: 0; // handled individually
   }
 
-  h1 {
-    + * {
-      margin-top: $sp-medium;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-large;
-      }
-    }
-  }
-
-
-  h5,
-  h6 {
-    + * {
-      margin-top: $sp-x-small;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-small;
-      }
-    }
+  cite {
+    @extend %default-text;
   }
 
   p {
+    @extend %paragraph;
     @include p-max-width;
     @include align-text;
-    margin-bottom: 0;
-  }
-
-  p {
-    + p {
-      margin-top: $sp-medium;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-large;
-      }
-    }
   }
 
   button,
@@ -192,28 +161,62 @@
   }
 
   // headings
-  h1 {
+  h1,
+  .p-heading--one {
     @include vf-heading-1;
   }
 
-  h2 {
+  h2,
+  .p-heading--two {
     @include vf-heading-2;
   }
 
-  h3 {
+  h3,
+  .p-heading--three {
     @include vf-heading-3;
   }
 
-  h4 {
+  h4,
+  .p-heading--four {
     @include vf-heading-4;
   }
 
-  h5 {
+  h5,
+  .p-heading--five {
     @include vf-heading-5;
   }
 
-  h6 {
+  h6,
+  .p-heading--six {
     @include vf-heading-6;
+  }
+
+  // override default spacing for specific combinations of elements
+  p + h1,
+  p + .p-heading--one {
+    @extend %sp--ph1;
+  }
+
+  p + h2,
+  p + .p-heading--two {
+    @extend %sp--ph2;
+  }
+
+  p + h3,
+  p + .p-heading--three {
+    @extend %sp--ph3;
+  }
+
+  p + h4,
+  p + .p-heading--four {
+    @extend %sp--ph4;
+  }
+
+  p + h5,
+  p + .p-heading--five,
+  p + h6,
+  p + .p-heading--six {
+    @extend %sp--ph5;
   }
 
   li {
@@ -236,18 +239,16 @@
   blockquote {
     margin-bottom: 0;
     margin-left: 0;
+    margin-top: 0;
+    overflow: auto; // include margins of children into it's own height
     padding-left: $sp-large;
 
     > p {
-      font-size: $sp-medium;
       font-style: italic;
-      margin-top: $sp-small;
     }
 
     > cite {
-      font-size: $sp-medium;
       font-style: normal;
-      margin-top: $sp-small;
     }
   }
 
@@ -266,6 +267,10 @@
     line-height: 0;
     position: relative;
     vertical-align: baseline;
+  }
+
+  .text {
+    @extend %default-text;
   }
 }
 
@@ -305,75 +310,102 @@
   }
 }
 
-@mixin vf-heading-1 {
-  @include heading-max-width--short;
-  @include align-text;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.3125;
+$baseline-nudge-h1: map-get($nudges--baseline-8, pow4);
+$baseline-nudge-h2: map-get($nudges--baseline-8, pow3);
+$baseline-nudge-h3: map-get($nudges--baseline-8, pow2);
+$baseline-nudge-h4: map-get($nudges--baseline-8, pow1);
+$baseline-nudge-p: map-get($nudges--baseline-8, pow0);
 
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 3rem;
-    line-height: 1.25;
-  }
+@mixin vf-heading-1 {
+  @include align-text;
+  @include heading-max-width--short;
+  font-size: $ms-ratio * $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
+  font-weight: 300;
+  line-height: $sp-unit * 7;
+  margin-bottom: map-get($sp-after--desktop, h1) - $baseline-nudge-h1;
+  margin-top: 0;
+  padding-top: $baseline-nudge-h1;
 }
 
 @mixin vf-heading-2 {
-  @include heading-max-width--short;
   @include align-text;
-  font-size: 1.75rem;
+  @include heading-max-width--short;
+  font-size: $ms-ratio * $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.2857;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 2.25rem;
-    line-height: 1.333;
-  }
+  line-height: $sp-unit * 6;
+  margin-bottom: map-get($sp-after--desktop, h2) - $baseline-nudge-h2;
+  margin-top: 0;
+  padding-top: $baseline-nudge-h2;
 }
 
 @mixin vf-heading-3 {
-  @include heading-max-width--long;
   @include align-text;
-  font-size: 1.5rem;
+  @include heading-max-width--long;
+  font-size: $ms-ratio * $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.333;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.75rem;
-    line-height: 1.287;
-  }
+  line-height: $sp-unit * 5;
+  margin-bottom: map-get($sp-after--desktop, h3) - $baseline-nudge-h3;
+  margin-top: 0;
+  padding-top: $baseline-nudge-h3;
 }
 
 @mixin vf-heading-4 {
-  @include heading-max-width--long;
   @include align-text;
-  font-size: 1.375rem;
+  @include heading-max-width--long;
+  font-size: $ms-ratio * 1rem;
   font-weight: 300;
-  line-height: 1.2727;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.5rem;
-    line-height: 1.333;
-  }
+  line-height: $sp-unit * 4;
+  margin-bottom: map-get($sp-after--desktop, h4) - $baseline-nudge-h4;
+  margin-top: 0;
+  padding-top: $baseline-nudge-h4;
 }
 
 @mixin vf-heading-5 {
-  @include p-max-width;
+  @extend %default-text;
   @include align-text;
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.333;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
+  @include p-max-width;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 @mixin vf-heading-6 {
-  @include p-max-width;
+  @extend %default-text;
   @include align-text;
+  @include p-max-width;
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  font-style: italic;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+%default-text {
+  line-height: $sp-unit * 3;
+  margin-bottom: map-get($sp-after--desktop, h5) - $baseline-nudge-p;
+  margin-top: 0;
+  padding-top: $baseline-nudge-p;
+}
+
+%paragraph {
+  @extend %default-text;
+  margin-bottom: map-get($sp-after--desktop, p) - $baseline-nudge-p;
+}
+
+%sp--ph1 {
+  padding-top: $baseline-nudge-h1 + map-get($sp-before--desktop, h1);
+}
+
+%sp--ph2 {
+  padding-top: $baseline-nudge-h2 + map-get($sp-before--desktop, h2);
+}
+
+%sp--ph3 {
+  padding-top: $baseline-nudge-h3 + map-get($sp-before--desktop, h3);
+}
+
+%sp--ph4 {
+  padding-top: $baseline-nudge-h4 + map-get($sp-before--desktop, h4);
+}
+
+%sp--ph5 {
+  padding-top: $baseline-nudge-p + map-get($sp-before--desktop, h5);
 }

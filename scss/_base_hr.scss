@@ -4,8 +4,17 @@
 @mixin vf-b-hr {
   hr {
     border: 0;
-    border-top: 1px solid $color-mid-light;
     height: 0;
     margin: $sp-medium 0;
+    position: relative;
+
+    &::after {
+      border-top: 1px solid $color-mid-light;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 }

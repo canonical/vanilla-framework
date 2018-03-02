@@ -4,7 +4,6 @@
 @mixin vf-b-button {
   button {
     @include vf-button-pattern;
-    line-height:  $sp-medium;
   }
 }
 
@@ -16,30 +15,20 @@
   );
   @include vf-focus;
 
-  border-radius: .125rem;
+  border-radius: 2 * $px;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font-family: unquote($font-base-family);
-  font-size: $sp-medium;
-  font-weight: 300;
-  line-height: $sp-medium;
-  outline: none;
-  padding: $sp-small $sp-large;
+  margin: -$px $sp-unit $sp-unit * 2 - $px 0; // $px compensates for border width
   text-align: center;
   text-decoration: none;
   width: 100%;
 
   & + & {
-
-    @media (max-width: $breakpoint-x-small - 1) {
-      margin-top: $sp-medium;
-    }
-
     @media (min-width: $breakpoint-x-small) {
-      margin-left: $sp-medium;
+      margin-right: $sp-medium;
     }
   }
 

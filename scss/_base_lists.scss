@@ -16,21 +16,10 @@
       list-style: none;
       list-style-image: none;
     }
-
-    li {
-      + li {
-        margin-top: $sp-x-small;
-      }
-
-      > ul,
-      > ol {
-        margin-top: $sp-x-small;
-      }
-    }
   }
 
   li {
-    margin: 0 0 $sp-x-small;
+    margin: 0;
     padding: 0;
   }
 
@@ -39,11 +28,8 @@
   }
 
   dt {
+    @extend %default-text;
     border-top: 1px dotted $color-mid-dark;
-    font-size: $sp-medium;
-    font-weight: 400;
-    margin-top: $sp-medium;
-    padding-top: $sp-medium;
 
     &:first-of-type {
       border-top: 0;
@@ -51,6 +37,7 @@
   }
 
   dd {
+    @extend %default-text;
     margin-left: $sp-medium;
     margin-top: $sp-x-small;
   }
