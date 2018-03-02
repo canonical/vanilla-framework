@@ -129,30 +129,26 @@
     color: $color-dark;
     padding: .9375rem 1.25rem;
 
-    & + & {
-      @include vf-default-vertical-spacing;
-    }
-
     h3 {
       border-bottom: 1px dotted $color-mid-dark;
     }
   }
 
-  form {
-    * + input,
-    * + select {
-      margin-top: $sp-small;
-    }
+  // form {
+  //   * + input,
+  //   * + select {
+  //     margin-top: $sp-small;
+  //   }
 
-    * {
-      + input[type="checkbox"],
-      + input[type="radio"],
-      + button,
-      + input[type="submit"] {
-        margin-top: $sp-medium;
-      }
-    }
-  }
+  //   * {
+  //     + input[type="checkbox"],
+  //     + input[type="radio"],
+  //     + button,
+  //     + input[type="submit"] {
+  //       margin-top: $sp-medium;
+  //     }
+  //   }
+  // }
 
   label {
     @extend %default-text;
@@ -167,14 +163,20 @@
   border: 1px solid $color-mid-light;
   border-radius: .125rem;
   box-shadow: inset 0 1px 2px $color-input-shadow;
-  color: $color-dark;
-  font-family: unquote($font-base-family);
-  font-size: $sp-medium;
-  font-weight: 300;
+  // color: $color-dark;
+  // font-family: unquote($font-base-family);
+  // font-size: $sp-medium;
+  // font-weight: 300;
   outline: none;
-  padding: $sp-x-small $sp-small;
+  padding: $sp-bordered-inner--top $sp-small $sp-bordered-inner--bottom;
   vertical-align: baseline;
   width: 100%;
+
+  td &,
+  .dense & {
+    margin-bottom: - 1 * map-get($nudges--baseline-8, pow0);
+    margin-top: - 1 * map-get($nudges--baseline-8, pow0);
+  }
 
   &:active {
     border-color: $color-mid-dark;
@@ -204,11 +206,13 @@
   }
 }
 
+$p-computed-height: map-get($nudges--baseline-8, pow0) * 2 + map-get($line-heights, default-text);
+
 // Default form checkbox and radio styles
 @mixin vf-tick-elements {
   @include vf-focus($offset: 0);
   float: left;
-  height: $sp-large;
+  height: $p-computed-height;
   margin-bottom: 0;
   margin-right: $sp-small;
   outline: none;
