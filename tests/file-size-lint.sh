@@ -7,16 +7,14 @@ fi
 
 THRESHOLD=400000
 CURRENTSIZE=$(du -b $FILE | cut -f 1)
-REPONSESTART='Your generated CSS is '
-REPONSEJOIN=' with a threshold of '
-MESSAGE=$REPONSESTART$CURRENTSIZE$REPONSEJOIN$THRESHOLD
+MESSAGE="Your generated CSS is ${CURRENTSIZE} with a threshold of ${THRESHOLD}"
 if [ $CURRENTSIZE -lt $THRESHOLD ]; then
-  STATUS='SUCCESS: '
+  STATUS='SUCCESS'
   EXIT=0
 else
-  STATUS='ERROR: '
+  STATUS='ERROR'
   EXIT=1
 fi
 
-echo $STATUS$MESSAGE
+echo "${STATUS}: ${MESSAGE}"
 exit $EXIT
