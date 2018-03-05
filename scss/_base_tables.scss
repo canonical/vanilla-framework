@@ -11,7 +11,10 @@
 
   th,
   td {
-    padding: $sp-small 0;
+    // aligns loose text (not wrapped in a p etc.) to the baseline grid; 
+    // XXX: audit use of other elements in tables to evaluate impact on non text elements. 
+    padding-bottom: 2 * $sp-unit - map-get($nudges--baseline-8, pow0);
+    padding-top: map-get($nudges--baseline-8, pow0);
   }
 
   td {
@@ -25,17 +28,27 @@
       border-collapse: separate;
       border-spacing: 0 $sp-x-small;
       font-weight: 400;
+      position: relative;
       text-align: left;
     }
-
+    
     tr {
-      border-bottom: 1px solid $color-mid-dark;
+      position: relative;
+
+      &::after {
+        @extend %pseudo-hr--bottom;
+        background-color: $color-dark;
+      }
     }
   }
 
   tbody {
     tr {
-      border-bottom: 1px solid $color-mid-light;
+      position: relative;
+
+      &::after {
+        @extend %pseudo-hr--bottom;
+      }
 
       &:last-child {
         border-bottom: 0;
