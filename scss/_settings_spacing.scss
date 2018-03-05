@@ -60,7 +60,18 @@ $sp-after--desktop: (
   default-text: 1
 );
 
-
 //spacing values for specific purpouses. These will be the settings that turn vanilla regular into vanilla dense.
 $sp-bordered-inner--top: map-get($nudges--baseline-8, pow0) - $px;
 $sp-bordered-inner--bottom: $sp-bordered-inner--top;
+
+$dense: false;
+$multi: 2;
+@if $dense {
+  $multi: 1;
+}
+// these are draft settings, precise values for dense and regular vanilla will be dialed in (and connected to a multiplier) later
+$spv: (
+  section: 8 * $sp-unit * $multi,
+  outer: 4 * $sp-unit * $multi,
+  inner: 1 * $sp-unit * $multi
+);
