@@ -1,25 +1,22 @@
 @import 'settings';
 
-$sp--hr: (
-  top: $sp-medium - $px,
-  bottom: $sp-medium
-);
-
 // Horizontal rule
 @mixin vf-b-hr {
-  hr {
-    border: 0;
-    height: 0;
-    margin: map-get($sp--hr, top) 0 map-get($sp--hr, bottom);
-    position: relative;
+  %pseudo-hr--bottom {
+    background-color: $color-mid-light;
+    bottom: 1px;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
 
-    &::after {
-      border-top: 1px solid $color-mid-light;
-      content: '';
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
+  hr {
+    background-color: $color-mid-light;
+    border: 0;
+    height: 1px;
+    margin: 0 0 map-get($spv, inner) - $px;
+    position: relative;
   }
 }
