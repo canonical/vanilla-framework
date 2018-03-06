@@ -5,16 +5,21 @@
   table {
     border: 0;
     border-collapse: collapse;
+    margin-bottom: map-get($spv, outer);
     overflow-x: auto;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 2 * $sp-unit - map-get($nudges--baseline-8, pow0) - $px;
+    border-top-color: transparent;
+    border-top-style: solid;
+    border-top-width: map-get($nudges--baseline-8, pow0);
+    table-layout: fixed;
     width: 100%;
   }
 
   th,
   td {
-    // aligns loose text (not wrapped in a p etc.) to the baseline grid; 
-    // XXX: audit use of other elements in tables to evaluate impact on non text elements. 
-    padding-bottom: 2 * $sp-unit - map-get($nudges--baseline-8, pow0);
-    padding-top: map-get($nudges--baseline-8, pow0);
+    padding: $multi * $sp-unit 1rem $multi * $sp-unit - $px 0;
   }
 
   td {
@@ -31,33 +36,26 @@
       position: relative;
       text-align: left;
     }
-    
-    tr {
-      position: relative;
 
-      &::after {
-        @extend %pseudo-hr--bottom;
-        background-color: $color-dark;
-      }
+    tr {
+      border-bottom: 1px solid $color-dark;
+      position: relative;
     }
   }
 
   tbody {
-    tr {
-      position: relative;
+    th {
+      font-weight: 400;
+      text-align: left;
+    }
 
-      &::after {
-        @extend %pseudo-hr--bottom;
-      }
+    tr {
+      border-bottom: 1px solid $color-mid-light;
+      position: relative;
 
       &:last-child {
         border-bottom: 0;
       }
-    }
-
-    th {
-      font-weight: 400;
-      text-align: left;
     }
   }
 }
