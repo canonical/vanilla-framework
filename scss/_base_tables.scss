@@ -4,54 +4,47 @@
 @mixin vf-b-tables {
   table {
     border: 0;
+    // border-bottom-color: transparent;
+    // border-bottom-style: solid;
+    // border-bottom-width: 2 * $sp-unit - map-get($nudges--baseline-8, pow0) - $px;
+    // border-bottom: 2 * $sp-unit - map-get($nudges--baseline-8, pow0) - $px solid transparent;
     border-collapse: collapse;
+    // border-top-color: transparent;
+    // border-top-style: solid;
+    // border-top-width: map-get($nudges--baseline-8, pow0);
     margin-bottom: map-get($spv, outer);
     overflow-x: auto;
-    border-bottom-color: transparent;
-    border-bottom-style: solid;
-    border-bottom-width: 2 * $sp-unit - map-get($nudges--baseline-8, pow0) - $px;
-    border-top-color: transparent;
-    border-top-style: solid;
-    border-top-width: map-get($nudges--baseline-8, pow0);
     table-layout: fixed;
     width: 100%;
   }
 
-  th,
-  td {
-    padding: $multi * $sp-unit 1rem $multi * $sp-unit - $px 0;
+  td,
+  th {
+    overflow: hidden;
+    padding-bottom: $multi * $sp-unit;
+    padding-left: 0;
+    padding-top: $multi * $sp-unit - $px;
+    text-align: left;
+    text-overflow: ellipsis;
+
+    &:not(:last-of-type) {
+      padding-right: map-get($sph, default) * 3;
+    }
   }
 
-  td {
-    font-weight: 300;
-    text-align: left;
-    vertical-align: middle;
+  th {
+    font-weight: 400;
   }
 
   thead {
-    th {
-      border-collapse: separate;
-      border-spacing: 0 $sp-x-small;
-      font-weight: 400;
-      position: relative;
-      text-align: left;
-    }
-
     tr {
       border-bottom: 1px solid $color-dark;
-      position: relative;
     }
   }
 
   tbody {
-    th {
-      font-weight: 400;
-      text-align: left;
-    }
-
     tr {
       border-bottom: 1px solid $color-mid-light;
-      position: relative;
 
       &:last-child {
         border-bottom: 0;
