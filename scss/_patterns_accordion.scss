@@ -1,30 +1,30 @@
 @import 'settings';
 
 @mixin vf-p-accordion {
-  .p-accordion {
-    border-bottom: 1px solid $color-mid-light;
+  $icon-size: map-get($icon-sizes, default);
 
+  .p-accordion {
     &__list {
       list-style-type: none;
       margin: 0;
       padding: 0;
     }
 
-    &__group {
+    &__group:not(:first-child) {
       border-top: 1px solid $color-mid-light;
-      margin: 0;
     }
 
     &__tab {
       background: {
-        position: top $sp-medium right $sp-medium;
+        position: top $icon-size right $sp-medium;
         repeat: no-repeat;
       }
+      background-color: inherit;
       border: 0;
       //XXX remove !important once this is fixed https://github.com/vanilla-framework/vanilla-framework/issues/1495
       margin-bottom: 0 !important;
-      padding-left: $sp-small;
-      padding-right: $sp-xx-large;
+      padding-left: 0;
+      padding-right: map-get($sph, default);
       text-align: left;
       transition-duration: 0s;
       width: 100%;
@@ -33,12 +33,12 @@
       // aria-selected controls the open and closed state for the accordion tab
       &[aria-expanded='true'] {
         @include vf-icon-minus(vf-url-friendly-color($color-mid-dark));
-        background-size: $sp-medium;
+        background-size: $icon-size;
       }
 
       &[aria-expanded='false'] {
         @include vf-icon-plus(vf-url-friendly-color($color-mid-dark));
-        background-size: $sp-medium;
+        background-size: $icon-size;
       }
 
       &:focus {
@@ -50,12 +50,17 @@
     &__panel {
       border-top: 1px solid $color-mid-light;
       margin: 0;
-      padding: $sp-small - $px $sp-small $sp-small $sp-large;
+      overflow: auto; // include child margins into its height
+      padding-left: map-get($sph, default);
 
       // Hides panel content
       &[aria-hidden='true'] {
         display: none;
       }
+    }
+
+    p {
+      @extend %default-text; //margin-bottom: map-get($sp-after--desktop, default-text) - $baseline-nudge-p;
     }
   }
 }
