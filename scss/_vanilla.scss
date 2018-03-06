@@ -61,7 +61,8 @@
 'utilities_hide',
 'utilities_image-position',
 'utilities_visibility',
-'utilities_baseline-grid';
+'utilities_baseline-grid',
+'utilities_sticky-footer';
 
 // Include all the CSS
 @mixin vanilla {
@@ -124,4 +125,7 @@
   @include vf-u-vertically-center;
   @include vf-u-visibility;
   @include vf-u-baseline-grid;
+  @if($sticky-footer) {
+    @include vf-u-sticky-footer;
+  }
 }

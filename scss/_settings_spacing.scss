@@ -1,3 +1,5 @@
+$sticky-footer: true;
+
 //type scale ratio
 $ms-ratio: 1.3333333;
 // $ms-ratio: 1.316074012952492460819218901796999055160068590205822176731;
@@ -67,14 +69,19 @@ $sp-bordered-inner--bottom: $sp-bordered-inner--top;
 
 // these are draft settings, precise values for dense and regular vanilla will be dialed in (and connected to a multiplier) later
 $spv: (
-  section: 4 * $sp-unit * $multi,
-  outer: 2 * $sp-unit * $multi,
+  section: $sp-unit * $multi * 4,
+  section--mobile: $sp-unit * $multi * 2,
+  section--shallow: $sp-unit * $multi * 2,
+  section--deep: $sp-unit * $multi * 6,
+  outer: $sp-unit * $multi * 2,
   inner: 1 * $sp-unit * $multi
 );
 
 $sph: (
   default: $sp-unit * $multi,
-  input: $sp-unit
+  default--mobile: $sp-unit * .5,
+  input: $sp-unit,
+  outer: $sp-unit * 2 * $multi
 );
 
 $icon-sizes: (
