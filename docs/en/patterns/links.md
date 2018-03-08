@@ -5,9 +5,18 @@ table_of_contents: true
 
 ## Links
 
+### Default link
+
+Regular links are a colour defined by `$color-link` (default: `#007aa6`) and are 10% darker when already visited.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/links/"
+    class="js-example">
+    View example of the default link pattern
+</a>
+
 ### External link
 
-The `.p-link--external` class should be used on hyperlinks that go to a different domain than the current one. E.g.:
+The `.p-link--external` class should be used on hyperlinks that go to a different domain than the current one.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/links/links-external/"
     class="js-example">
