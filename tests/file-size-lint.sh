@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THRESHOLD=400000
+THRESHOLD=175000
 FILE='build/css/build.min.css'
 
 if [ ! -f $FILE ]; then
