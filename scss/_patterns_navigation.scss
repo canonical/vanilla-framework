@@ -1,7 +1,8 @@
 @import 'settings';
 
-// Default header styling
+$nav-border-bottom-thickness: $px;
 
+// Default header styling
 @mixin vf-p-navigation {
   @include vf-navigation-default;
   @include vf-navigation-sidebar;
@@ -14,7 +15,8 @@
       $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
       $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
     );
-    height: $sp-xxx-large;
+
+    display: flex;
   }
 }
 
@@ -29,7 +31,7 @@
     height: auto;
 
     .p-navigation__logo {
-      margin: 0 $sp-medium 0 0;
+      margin: 0 map-get($sph, default) 0 0;
     }
 
     .p-navigation__tagline {
@@ -147,20 +149,18 @@
 }
 
 @mixin vf-navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
-  @extend %clearfix;
   background-color: $background-color;
-  border-bottom: 1px solid $border-color;
   color: $text-color;
-  margin-top: 0;
   position: relative;
-  width: 100%;
 
-  .row {
-    padding: 0;
-  }
-
-  @media (max-width: $breakpoint-navigation-threshold) {
-    height: auto;
+  &::after {
+    background: $border-color;
+    bottom: 0;
+    content: '';
+    height: $nav-border-bottom-thickness;
+    left: 0;
+    position: absolute;
+    right: 0;
   }
 
   .p-navigation {
@@ -206,15 +206,10 @@
     }
 
     &__logo {
-      @include vf-heading-4;
       align-items: center;
       display: flex;
-      float: left;
-      margin: $sp-small $sp-x-small;
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        margin: $sp-x-small ($sp-large - $sp-xx-small);
-      }
+      margin: 0 map-get($sph, quad) map-get($spv, unit) 0;
+      padding-top: map-get($spv, unit);
     }
 
     &__image {
@@ -278,12 +273,8 @@
           text-align: left;
         }
 
-        > a {
-          border-bottom: 3px solid transparent;
-        }
-
         &.is-selected > a {
-          border-bottom-color: $color-mid-dark;
+          @extend %current-indicator;
         }
       }
 
@@ -299,14 +290,17 @@
         //   <a class="class="p-navigation__link"></a>
         // </div>
 
+        @extend %small-text;
+
+        $menu-item-padding-top: 1.5 * map-get($spv, unit);
+
         color: $color-dark;
-        font-size: .875rem;
-        padding: .8125rem $sp-x-small .625rem $sp-x-small;
+        margin-bottom: 0;
+        padding: $menu-item-padding-top map-get($sph, half);
 
         @media (min-width: $breakpoint-navigation-threshold + 1) {
           color: $text-color;
-          padding-left: ($sp-large - $sp-xx-small);
-          padding-right: ($sp-large - $sp-xx-small);
+          padding: $menu-item-padding-top map-get($sph, default);
         }
       }
 
@@ -322,16 +316,17 @@
 
     &__nav {
       display: none;
-      margin-top: 0;
+      // margin-top: 0;
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
         display: flex;
+        width: 100%;
       }
 
       > .p-search-box {
-        align-self: center;
+        // align-self: center;
         margin-left: auto;
-        margin-top: 0;
+        // margin-top: 0;
         max-width: 20rem;
         order: 1;
         width: 100%;
@@ -339,7 +334,7 @@
         @media (max-width: $breakpoint-navigation-threshold) {
           max-width: inherit;
           order: -1;
-          top: 0;
+          // top: 0;
         }
 
         > .p-search-box__input,
@@ -350,6 +345,11 @@
           }
         }
       }
+    }
+
+    &__row {
+      display: flex;
+      width: 100%;
     }
   }
 

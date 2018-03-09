@@ -1,7 +1,8 @@
-$sticky-footer: true;
+$sticky-footer: false;
 
 //type scale ratio
-$ms-ratio: 1.3333333;
+// $ms-ratio: 1.3333333;
+$ms-ratio: 16 / 14; //1.14285714286; // 1.30612244899; //(this is 16/14 squared, so 14 is on the scale as well);
 // $ms-ratio: 1.316074012952492460819218901796999055160068590205822176731;
 $sp-unit-ratio: .5;
 $dense: true;
@@ -24,19 +25,32 @@ $sp-xxxxx-large: $sp-unit * 12 !default;
 //  (font-sizes are 1rem * $ms-ratio taken to powers 0 - 4)
 
 $line-heights: (
-  h1: 7 * $sp-unit,
-  h2: 6 * $sp-unit,
-  h3: 5 * $sp-unit,
-  h4: 4 * $sp-unit,
+  h1: 6 * $sp-unit,
+  h2: 5 * $sp-unit,
+  h3: 4 * $sp-unit,
+  h4: 3 * $sp-unit,
   default-text: 3 * $sp-unit
 );
-$nudges--baseline-8: (
-  pow4: .6rem,
-  pow3: .6rem,
-  pow2: .55rem,
-  pow1: .45rem,
-  pow0: .35rem
+
+// baseline nudges for type scale ratio of (16/14) squared
+$nudges: (
+  nudge--h1: .45rem,
+  nudge--h2: .45rem,
+  nudge--h3: .4rem,
+  nudge--h4: .3rem,
+  nudge--p: .4rem,
+  nudge--small: .45rem
 );
+
+// baseline nudges for type scale ratio of 1.3333
+// $nudges: (
+//   nudge--h1: .6rem,
+//   nudge--h2: .6rem,
+//   nudge--h3: .55rem,
+//   nudge--h4: .45rem,
+//   nudge--p: .35rem,
+//   14px: .45rem
+// );
 
 // space before element on desktop
 $sp-before--desktop: (
@@ -51,37 +65,37 @@ $sp-before--desktop: (
 
 // space after element on desktop
 $sp-after--desktop: (
-  h1: 3 * $sp-unit,
-  h2: 3 * $sp-unit,
-  h3: 3 * $sp-unit,
-  h4: 3 * $sp-unit,
+  h1: 4 * $sp-unit,
+  h2: 4 * $sp-unit,
+  h3: 4 * $sp-unit,
+  h4: 4 * $sp-unit,
   h5: 3 * $sp-unit,
   h6: 3 * $sp-unit,
   p: 3 * $sp-unit,
   default-text: 1
 );
 
-$multi: 1;
+//scaling factor (1: desne; 2: regular)
+$multi: 2;
 
-//spacing values for specific purpouses. These will be the settings that turn vanilla regular into vanilla dense.
-$sp-bordered-inner--top: map-get($nudges--baseline-8, pow0) - $px;
-$sp-bordered-inner--bottom: $sp-bordered-inner--top;
-
-// these are draft settings, precise values for dense and regular vanilla will be dialed in (and connected to a multiplier) later
+// These are draft settings, precise values for dense and regular vanilla will be dialed in (and connected to a multiplier) later
 $spv: (
   section: $sp-unit * $multi * 4,
-  section--mobile: $sp-unit * $multi * 2,
-  section--shallow: $sp-unit * $multi * 2,
-  section--deep: $sp-unit * $multi * 6,
   outer: $sp-unit * $multi * 2,
-  inner: 1 * $sp-unit * $multi
+  inner: $sp-unit * $multi,
+  quad: $sp-unit * 4,
+  default: $sp-unit * 2,
+  unit: $sp-unit,
+  half: $sp-unit * .5,
+  quarter: $sp-unit * .25
 );
 
 $sph: (
-  default: $sp-unit * $multi,
-  default--mobile: $sp-unit * .5,
-  input: $sp-unit,
-  outer: $sp-unit * 2 * $multi
+  quad: $sp-unit * 4,
+  default: $sp-unit * 2,
+  unit: $sp-unit,
+  half: $sp-unit * .5,
+  quarter: $sp-unit * .25
 );
 
 $icon-sizes: (

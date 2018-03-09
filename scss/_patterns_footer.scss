@@ -3,16 +3,8 @@
 // Footer pattern styling
 @mixin vf-p-footer {
   .p-footer {
-    border-top: 1px solid $color-mid-light;
-    font-size: .875rem;
-    line-height: 1.5;
-    padding-bottom: $sp-medium;
-    padding-top: $sp-medium;
-
-    @media (min-width: $breakpoint-medium) {
-      padding-bottom: $sp-large;
-      padding-top: $sp-large;
-    }
+    @extend %pseudo-border--top;
+    @extend %section-padding--default;
 
     &__copy {
       margin-bottom: 0;
@@ -20,11 +12,10 @@
 
     &__links {
       margin: 0;
-      padding: $sp-small 0 0;
+      padding: 0;
 
       @media (min-width: $breakpoint-medium) {
         margin-top: 0;
-        padding-top: $sp-medium;
       }
     }
 
@@ -34,7 +25,7 @@
 
     &__item {
       display: block;
-      margin-bottom: $sp-xx-small;
+      // margin-bottom: $sp-xx-small;
 
       @media (min-width: $breakpoint-medium) {
         display: inline-block;
@@ -46,8 +37,11 @@
     }
 
     &__link {
+      @extend %paragraph;
+
       border-bottom: 0;
       color: $color-dark;
+      display: inline-block;
 
       &:visited {
         color: darken($color-dark, 10%);
@@ -65,9 +59,10 @@
           content: '\00b7'; // Adds a middle dot
           display: inline-block;
           font-size: $sp-large;
+          line-height: 1.5rem;
           position: absolute;
-          right: -.75rem;
-          top: -.65rem;
+          right: - $sp-unit * 1.5;
+          top: map-get($nudges, nudge--p) - map-get($spv, half);
         }
       }
 

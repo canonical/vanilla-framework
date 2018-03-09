@@ -4,14 +4,7 @@
 @mixin vf-b-tables {
   table {
     border: 0;
-    // border-bottom-color: transparent;
-    // border-bottom-style: solid;
-    // border-bottom-width: 2 * $sp-unit - map-get($nudges--baseline-8, pow0) - $px;
-    // border-bottom: 2 * $sp-unit - map-get($nudges--baseline-8, pow0) - $px solid transparent;
     border-collapse: collapse;
-    // border-top-color: transparent;
-    // border-top-style: solid;
-    // border-top-width: map-get($nudges--baseline-8, pow0);
     margin-bottom: map-get($spv, outer);
     overflow-x: auto;
     table-layout: fixed;
@@ -20,15 +13,17 @@
 
   td,
   th {
+    @extend %single-border-text-vpadding--scaling;
+
     overflow: hidden;
-    padding-bottom: $multi * $sp-unit;
     padding-left: 0;
-    padding-top: $multi * $sp-unit - $px;
     text-align: left;
     text-overflow: ellipsis;
 
-    &:not(:last-of-type) {
-      padding-right: map-get($sph, default) * 3;
+    @media screen and (min-width: $breakpoint-medium) {
+      &:not(:last-of-type) {
+        padding-right: map-get($sph, default);
+      }
     }
   }
 

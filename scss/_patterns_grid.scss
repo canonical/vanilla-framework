@@ -14,16 +14,9 @@ $shelves-column-name: $grid-col-name;
 @import 'grid/shelves-grid';
 
 @mixin vf-p-grid-modifications {
-
-  // Add vertical padding to add spacing when columns stack on small screens.
-  [class*="col-"],
-  .row {
-    margin-top: 0;
-  }
-
   @include on-tablet-down {
     [class*="col-"] + [class*="col-"] {
-      margin-top: $grid-col-margin--tablet;
+      margin-top: 0 * $grid-col-margin--tablet;
     }
   }
 

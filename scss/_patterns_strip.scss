@@ -1,14 +1,9 @@
 @import 'settings';
 
 @mixin vf-strip {
+  @extend %section-padding--default;
   clear: both;
-  margin-top: 0;
-  padding: $sp-x-large 0;
   width: 100%;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    padding: $sp-xxxx-large 0;
-  }
 }
 
 @mixin vf-p-strip {
@@ -64,26 +59,39 @@
 
 @mixin vf-p-strip-bordered {
   [class^='p-strip'].is-bordered {
-    border-bottom: 1px solid $color-mid-light;
+    @extend %pseudo-border--bottom;
+    position: relative;
+  }
+}
+
+%section-padding--default {
+  padding: map-get($spv, unit) * $multi 0;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    padding: map-get($spv, default) * $multi 0;
+  }
+}
+
+%section-padding--shallow {
+  padding: map-get($spv, half) * $multi 0 map-get($spv, half);
+
+  @media only screen and (min-width: $breakpoint-large) {
+    padding: map-get($spv, unit) * $multi 0;
   }
 }
 
 @mixin vf-p-strip-shallow {
   [class^='p-strip'].is-shallow {
-    padding: $sp-large 0;
-
-    @media only screen and (min-width: $breakpoint-large) {
-      padding: $sp-xx-large 0;
-    }
+    @extend %section-padding--shallow;
   }
 }
 
 @mixin vf-p-strip-deep {
   [class^='p-strip'].is-deep {
-    padding: $sp-xxx-large 0;
+    padding: map-get($spv, quarter) 0 map-get($spv, quarter) + $sp-unit;
 
     @media only screen and (min-width: $breakpoint-large) {
-      padding: $sp-xxxxx-large 0;
+      padding: map-get($spv, quad) 0 map-get($spv, quad) + $sp-unit;
     }
   }
 }

@@ -16,3 +16,24 @@
 'settings_grid',
 'settings_system',
 'settings_font';
+
+
+// temporarily placing variables here
+$bar-thickness: $px * 3;
+
+$border-radius: $sp-unit * .25;
+
+%current-indicator {
+  position: relative;
+
+  &::after {
+    background: $color-mid-dark;
+    bottom: 0;
+    content: '';
+    height: $bar-thickness;
+    left: -1px;
+    position: absolute;
+    right: -1px;
+    z-index: 1;
+  }
+}

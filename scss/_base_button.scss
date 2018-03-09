@@ -8,29 +8,29 @@
 }
 
 %button-pattern {
+  @extend %bordered-text-vertical-padding;
   @include vf-animation(
     $property: #{background-color, border-color},
     $duration: fast,
     $easing: in
   );
-
   @include vf-focus;
-
-  border-radius: 2 * $px;
+  border-radius: $border-radius;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
   margin: 0 0 $sp-unit 0 !important;
-  padding: $sp-unit - $px $sp-large;
+  padding-left: map-get($sph, default);
+  padding-right: map-get($sph, default);
   text-align: center;
   text-decoration: none;
   width: 100%;
 
   table & {
-    margin: 0 0 (- map-get($nudges--baseline-8, pow0)) 0 !important;
-    padding: $sp-bordered-inner--top - $sp-unit * .5 map-get($sph, default) $sp-bordered-inner--bottom - $sp-unit * .5;
+    margin: 0 0 (map-get($spv, unit) - map-get($nudges, nudge--p)) 0 !important;
+    padding: (map-get($nudges, nudge--p) - $sp-unit * .5 - $px) map-get($sph, default);
   }
 
   & + & {

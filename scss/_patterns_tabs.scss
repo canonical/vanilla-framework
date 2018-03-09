@@ -2,14 +2,14 @@
 
 @mixin vf-p-tabs {
   .p-tabs {
-    @extend .p-card--highlighted; // sass-lint:disable-line placeholder-in-extend
+    // @extend .p-card--highlighted; // sass-lint:disable-line placeholder-in-extend
     border-radius: 0;
     overflow: hidden;
     padding: 0;
     position: relative;
 
     &::before {
-      background: linear-gradient(to right, hsla(0, 0%, 100%, 0), $color-x-light 50%);// sass-lint:disable-line no-color-literals
+      // background: linear-gradient(to right, hsla(0, 0%, 100%, 0), $color-x-light 50%);// sass-lint:disable-line no-color-literals
       bottom: 0;
       color: $color-mid-dark;
       content: '\203A';
@@ -31,17 +31,18 @@
     }
 
     &__list {
+      @extend %pseudo-border--bottom;
       margin: 0 auto;
       overflow-x: auto;
-      padding: 0 0 0 $sp-large;
+      padding: 0;
       position: relative;
       white-space: nowrap;
       width: 100%;
 
       @media screen and (min-width: $breakpoint-medium) {
+        margin-bottom: map-get($spv, default);
         max-width: $grid-max-width;
         overflow: hidden;
-        padding: 0 $sp-large;
       }
     }
 
@@ -66,10 +67,9 @@
     }
 
     &__link {
-      border-bottom: 3px solid transparent;
       color: $color-x-dark;
       display: inline-block;
-      padding: $sp-small;
+      padding: map-get($sph, half) * (1 + $multi) map-get($sph, default);
 
       &:visited,
       &:active {
@@ -77,12 +77,13 @@
       }
 
       &:hover {
-        border-bottom: 3px solid $color-mid-light;
+        @extend %current-indicator;
         text-decoration: none;
       }
 
       &[aria-selected="true"] {
-        border-bottom: 3px solid $color-mid-dark;
+        // border-bottom: 3px solid $color-mid-dark;
+        @extend %current-indicator;
       }
     }
   }

@@ -8,14 +8,13 @@ $tick-height: .875rem; //14px value from svg as rem so it can be used in calcula
 // Mixin for basic styled lists
 @mixin vf-list {
   list-style: none;
-  margin-bottom: map-get($sp-after--desktop, p);
   margin-left: 0;
   padding-left: 0;
 }
 
 // Mixin for list items
-$sp-list-item-inner--top: map-get($nudges--baseline-8, pow0);
-$sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges--baseline-8, pow0);
+$sp-list-item-inner--top: map-get($nudges, nudge--p);
+$sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges, nudge--p);
 @mixin vf-list-item {
   padding-bottom: $sp-list-item-inner--bottom;
   padding-top: $sp-list-item-inner--top;

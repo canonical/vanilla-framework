@@ -10,20 +10,27 @@
       padding: 0;
     }
 
-    &__group:not(:first-child) {
-      border-top: 1px solid $color-mid-light;
+    &__group {
+      &:not(:last-child) .p-accordion__tab {
+        border-bottom: 1px solid $color-mid-light;
+      }
     }
 
     &__tab {
+      @extend %single-border-text-vpadding--scaling;
+
+      $calculated-height: $multi * map-get($spv, half) * 2 - $px + map-get($line-heights, default-text);
+      $offset-top: ($calculated-height - $icon-size) * .5;
       background: {
-        position: top $icon-size right $sp-medium;
+        position: top $offset-top right map-get($sph, unit);
         repeat: no-repeat;
       }
       background-color: inherit;
       border: 0;
+      border-radius: 0;
       //XXX remove !important once this is fixed https://github.com/vanilla-framework/vanilla-framework/issues/1495
       margin-bottom: 0 !important;
-      padding-left: 0;
+      padding-left: map-get($sph, default);
       padding-right: map-get($sph, default);
       text-align: left;
       transition-duration: 0s;
@@ -48,7 +55,7 @@
     }
 
     &__panel {
-      border-top: 1px solid $color-mid-light;
+      border-bottom: 1px solid $color-mid-light;
       margin: 0;
       overflow: auto; // include child margins into its height
       padding-left: map-get($sph, default);
@@ -60,7 +67,7 @@
     }
 
     p {
-      @extend %default-text; //margin-bottom: map-get($sp-after--desktop, default-text) - $baseline-nudge-p;
+      @extend %default-text;
     }
   }
 }
