@@ -1,0 +1,57 @@
+//typography
+
+%default-text {
+  margin-bottom: map-get($sp-after--desktop, default-text) - $baseline-nudge-p;
+  margin-top: 0;
+  padding-top: $baseline-nudge-p;
+}
+
+%paragraph {
+  @extend %default-text;
+  margin-bottom: map-get($sp-after--desktop, p) - $baseline-nudge-p;
+}
+
+%small-text {
+  font-size: 1rem / pow($ms-ratio, 1);
+  margin-bottom: map-get($sp-after--desktop, p) - map-get($nudges, nudge--small);
+  padding-top: map-get($nudges, 14px);
+}
+
+%sp--ph1 {
+  padding-top: $baseline-nudge-h1 + map-get($sp-before--desktop, h1);
+}
+
+%sp--ph2 {
+  padding-top: $baseline-nudge-h2 + map-get($sp-before--desktop, h2);
+}
+
+%sp--ph3 {
+  padding-top: $baseline-nudge-h3 + map-get($sp-before--desktop, h3);
+}
+
+%sp--ph4 {
+  padding-top: $baseline-nudge-h4 + map-get($sp-before--desktop, h4);
+}
+
+%sp--ph5 {
+  padding-top: $baseline-nudge-p + map-get($sp-before--desktop, h5);
+}
+
+
+//patterns
+%bordered-text-vertical-padding {
+  $bordered-text-padding-top: map-get($nudges, nudge--p) - $px;
+  $difference: $sp-unit - map-get($nudges, nudge--p);
+  margin-bottom: map-get($spv, default) + $difference * 2;
+  padding-bottom: $bordered-text-padding-top;
+  padding-top: $bordered-text-padding-top;
+}
+
+%single-border-text-vpadding--scaling {
+  $factor: ($multi - 1);
+  // $bordered-text-padding-top: map-get($nudges, nudge--p) + $factor * map-get($spv, half);
+  $bordered-text-padding-top: $multi * map-get($spv, half);
+  // $difference: $sp-unit - map-get($nudges, nudge--p) - $px;
+  padding-bottom: $bordered-text-padding-top - $px;
+  padding-top: $bordered-text-padding-top;
+}

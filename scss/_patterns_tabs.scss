@@ -70,19 +70,15 @@
       color: $color-x-dark;
       display: inline-block;
       padding: map-get($sph, half) * (1 + $multi) map-get($sph, default);
+      text-decoration: none;
 
       &:visited,
       &:active {
         color: $color-x-dark;
       }
 
-      &:hover {
-        @extend %current-indicator;
-        text-decoration: none;
-      }
-
+      &:hover,
       &[aria-selected="true"] {
-        // border-bottom: 3px solid $color-mid-dark;
         @extend %current-indicator;
       }
     }

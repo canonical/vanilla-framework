@@ -2,23 +2,6 @@
 
 // Form element styles
 @mixin vf-b-forms {
-  %bordered-text-vertical-padding {
-    $bordered-text-padding-top: map-get($nudges, nudge--p) - $px;
-    $difference: $sp-unit - map-get($nudges, nudge--p);
-    margin-bottom: map-get($spv, default) + $difference * 2;
-    padding-bottom: $bordered-text-padding-top;
-    padding-top: $bordered-text-padding-top;
-  }
-
-  %single-border-text-vpadding--scaling {
-    $factor: ($multi - 1);
-    // $bordered-text-padding-top: map-get($nudges, nudge--p) + $factor * map-get($spv, half);
-    $bordered-text-padding-top: $multi * map-get($spv, half);
-    // $difference: $sp-unit - map-get($nudges, nudge--p) - $px;
-    padding-bottom: $bordered-text-padding-top - $px;
-    padding-top: $bordered-text-padding-top;
-  }
-
   label {
     cursor: pointer;
     display: block;
