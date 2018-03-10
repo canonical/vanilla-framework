@@ -37,7 +37,6 @@
   padding-top: $baseline-nudge-p + map-get($sp-before--desktop, h5);
 }
 
-
 //patterns
 %bordered-text-vertical-padding {
   $bordered-text-padding-top: map-get($nudges, nudge--p) - $px;
@@ -54,4 +53,19 @@
   // $difference: $sp-unit - map-get($nudges, nudge--p) - $px;
   padding-bottom: $bordered-text-padding-top - $px;
   padding-top: $bordered-text-padding-top;
+}
+
+%current-indicator {
+  position: relative;
+
+  &::after {
+    background: $color-mid-dark;
+    bottom: 0;
+    content: '';
+    height: $bar-thickness;
+    left: -1px;
+    position: absolute;
+    right: -1px;
+    z-index: 1;
+  }
 }
