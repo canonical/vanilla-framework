@@ -5,24 +5,20 @@ $nav-border-bottom-thickness: $px;
 // Default header styling
 @mixin vf-p-navigation {
   @include vf-navigation-default;
-  @include vf-navigation-sidebar;
+  // @include vf-navigation-sidebar;
 }
 
 @mixin vf-navigation-default {
-  .p-navigation {
-    @include vf-navigation-pattern(
-      $background-color: $color-navigation-background,
-      $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
-      $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
-    );
-
-    display: flex;
-  }
+  @include vf-navigation-pattern (
+    $background-color: $color-navigation-background,
+    $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
+    $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
+  );
 }
 
 @mixin vf-navigation-sidebar {
   .p-navigation--sidebar {
-    @include vf-navigation-pattern(
+    @include vf-navigation-pattern (
       $background-color: $color-x-light,
       $border-color: $color-mid-light,
       $text-color: $color-dark
@@ -149,177 +145,119 @@ $nav-border-bottom-thickness: $px;
 }
 
 @mixin vf-navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
-  background-color: $background-color;
-  color: $text-color;
-  position: relative;
-
-  &::after {
-    background: $border-color;
-    bottom: 0;
-    content: '';
-    height: $nav-border-bottom-thickness;
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
-
   .p-navigation {
+    background-color: $background-color;
+    color: $text-color;
+    display: flex;
+    position: relative;
+    
+    @media (max-width: $breakpoint-navigation-threshold) {
+      flex-direction: column;
+    }
+    @media (min-width: $breakpoint-navigation-threshold + 1) {
+      flex-direction: row;
+    }
+
+    a {
+      color: $color-dark;
+      text-decoration: none;
+    }
+
+    // line under menu
+    &::after {
+      background: $border-color;
+      bottom: 0;
+      content: '';
+      height: $nav-border-bottom-thickness;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+
     &__banner {
+      display: flex;
+      justify-content: space-between;
+
       @media (max-width: $breakpoint-navigation-threshold) {
-        overflow: hidden;
-        position: relative;
+        flex: 0 1 100%;
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
+        flex: 0 0 auto;
       }
     }
 
-    &__toggle--open,
-    &__toggle--close,
+    &__image {
+        vertical-align: top; // remvoe gapp added by default "baseline"
+    }
+
     &__link {
-      color: $text-color;
+      & > a {
+        $menu-item-padding-top: 1.5 * map-get($spv, unit);
+  
+        @extend %small-text;
 
-      &:hover {
-        border-bottom: 0;
-        text-decoration: underline;
-      }
+        display: block;
+        margin-bottom: 0;
+        position: relative;
 
-      &:visited {
-        color: $text-color;
-      }
-    }
-
-    &__toggle--close {
-      display: none;
-    }
-
-    &__toggle {
-
-      &--open,
-      &--close {
-        margin: 0;
-        position: absolute;
-        right: 1rem;
-        top: calc(50% - .75rem);
-
-        @media (min-width: $breakpoint-navigation-threshold + 1) {
-          display: none;
+        @media (max-width: $breakpoint-navigation-threshold) {
+          padding: $menu-item-padding-top map-get($sph, half);
         }
+        
+        @media (min-width: $breakpoint-navigation-threshold + 1) {
+          border-left: 1px solid $color-mid-light;
+          padding: $menu-item-padding-top map-get($sph, default);
+        }
+  
+        &::after {
+          background: $border-color;
+          bottom: 0;
+          content: '';
+          height: $nav-border-bottom-thickness;
+          left: 0;
+          position: absolute;
+          right: 0;
+        }
+
+        &:hover {
+          background-color: $color-light;
+        }
+      }
+
+      &.is-selected > a {
+        @extend %current-indicator;
+      }
+    }
+
+    &__links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
+        flex-wrap: wrap;
+        display: flex;
       }
     }
 
     &__logo {
-      align-items: center;
       display: flex;
       margin: 0 map-get($sph, quad) map-get($spv, unit) 0;
       padding-top: map-get($spv, unit);
     }
 
-    &__image {
-      float: left;
-      height: $sp-x-large;
-    }
-
-    &__link {
-      border-bottom: 0; // For when this class is applied to an <a> directly
-      display: block;
-      margin-top: 0;
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        display: block;
-        float: left;
-        width: auto;
-      }
-
-      &,
-      & > a {
-        // For when this class is applied to something that contains <a>s, e.g.:
-        // <li class="p-navigation__link"><a></a></li>
-        border-bottom: 0;
-        display: block;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    &__links {
-      background-color: $color-mid-light;
-      clear: both;
-      margin: 0; // For if this class is applied to a <ul>
-      padding: 0; // For if this class is applied to a <ul>
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        background-color: transparent;
-        clear: none;
-        flex-shrink: 0;
-        float: left;
-      }
-
-      .p-navigation__link {
-        border-left: 1px solid $color-mid-light;
-
-        &:hover {
-          background-color: $color-light;
-        }
-
-        @media (max-width: $breakpoint-navigation-threshold) {
-          background-color: $color-x-light;
-          border-left: 0;
-          border-top: 1px solid $color-mid-light;
-          color: $color-dark;
-          text-align: left;
-        }
-
-        &.is-selected > a {
-          // @extend %current-indicator;
-        }
-      }
-
-      .p-navigation__link > a,
-      > a {
-        // For links nested in navigation list, e.g:
-        // <ul class="p-navigation__links">
-        //  <li class="p-navigation__link"><a></a></li>
-        // </ul>
-        //
-        // and for links nested directly in navigation, e.g:
-        // <div class="p-navigation__links">
-        //   <a class="class="p-navigation__link"></a>
-        // </div>
-
-        @extend %small-text;
-
-        $menu-item-padding-top: 1.5 * map-get($spv, unit);
-
-        color: $color-dark;
-        margin-bottom: 0;
-        padding: $menu-item-padding-top map-get($sph, half);
-
-        @media (min-width: $breakpoint-navigation-threshold + 1) {
-          color: $text-color;
-          padding: $menu-item-padding-top map-get($sph, default);
-        }
-      }
-
-      &:last-of-type {
-        border-right: 1px solid $color-mid-light;
-
-        @media (max-width: $breakpoint-navigation-threshold) {
-          border-bottom: 0;
-          border-right: 0;
-        }
-      }
-    }
-
     &__nav {
       display: none;
-      // margin-top: 0;
+
+      @media (max-width: $breakpoint-navigation-threshold) {
+        flex-direction: column;
+      }
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
         display: flex;
+        justify-content: space-between;
+        flex-direction: row;
         width: 100%;
       }
 
@@ -350,27 +288,50 @@ $nav-border-bottom-thickness: $px;
     &__row {
       display: flex;
       width: 100%;
-    }
-  }
-
-  &:target {
-    .p-navigation__toggle--open {
-      display: none;
-    }
-
-    .p-navigation__toggle--close {
-      @media (max-width: $breakpoint-navigation-threshold) {
-        display: inline-block;
-      }
-    }
-
-    .p-navigation__nav {
-      display: flex;
-      flex-direction: row;
-
+      
       @media (max-width: $breakpoint-navigation-threshold) {
         flex-direction: column;
       }
+    }
+
+    &:target {
+      .p-navigation__nav {
+        display: flex;
+      }
+
+      .p-navigation__toggle--open {
+        display: none;
+      }
+
+      .p-navigation__toggle--close {
+        @media (max-width: $breakpoint-navigation-threshold) {
+          display: block;
+        }
+      }
+    }
+
+    &__toggle {
+      &--open,
+      &--close {        
+        @extend %small-text;
+
+        margin-bottom: 0;
+        display: none;
+      }
+
+      &--open {
+        @media (max-width: $breakpoint-navigation-threshold) {
+          display: block;
+        }
+      }
+    }
+
+    .u-image-position .u-image-position--right {
+      // XXX: patch - override utility, as it positions absolutely, which leads to overlap on smaller screens. 
+      // Should use flex instead; But that will require changing the markup
+      position: relative;
+      margin: inherit;
+      right: unset;
     }
   }
 }

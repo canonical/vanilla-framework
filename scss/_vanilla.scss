@@ -48,23 +48,24 @@
 ;
 
 // Utilities
-// @import
+@import
 // 'utilities_animations',
 // 'utilities_clearfix',
 // 'utilities_floats',
 // 'utilities_equal-height',
-// 'utilities_off-screen',
+'utilities_off-screen',
 // 'utilities_content-align',
 // 'utilities_margin-collapse',
 // 'utilities_padding-collapse',
 // 'utilities_embedded-media',
 // 'utilities_vertically-center',
 // 'utilities_show',
-// 'utilities_hide',
-// 'utilities_image-position',
+'utilities_hide',
+'utilities_image-position',
 // 'utilities_visibility',
-// 'utilities_baseline-grid',
-// 'utilities_sticky-footer';
+'utilities_baseline-grid'
+// 'utilities_sticky-footer'
+;
 
 // Include all the CSS
 @mixin vanilla {
@@ -120,13 +121,14 @@
   // @include vf-u-align;
   // @include vf-u-margin-collapse;
   // @include vf-u-padding-collapse;
-  // @include vf-u-hide;
-  // @include vf-u-image-position;
+  @include vf-u-hide;
+  @include vf-u-image-position;
   // @include vf-u-show;
-  // @include vf-u-off-screen;
+  @include vf-u-off-screen;
   // @include vf-u-vertically-center;
   // @include vf-u-visibility;
-  // @include vf-u-baseline-grid;
+  @include vf-u-baseline-grid;
+
   @if($sticky-footer) {
     @include vf-u-sticky-footer;
   }
