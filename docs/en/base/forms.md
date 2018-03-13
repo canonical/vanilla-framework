@@ -64,6 +64,33 @@ Use the ```multiple``` attribute to create a multiple select control.
     View example of the base multiple selects
 </a>
 
+### Fieldset
+
+You can use the ```<fieldset>``` element to divide the form into different logical sections.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/fieldset/"
+    class="js-example">
+    View example of the base form fieldset
+</a>
+
+### Inline form
+
+By applying the class ```.p-form--inline``` and wrapping any form control in ```.p-form__group``` you can change the layout style of any form to be inline.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/forms/form-inline/"
+    class="js-example">
+    View examples of form inline patterns
+</a>
+
+### Stacked form
+
+By applying the class ```.p-form--stacked``` and wrapping any form control in ```.p-form__group``` you can change the layout style of any form to be stacked.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/forms/form-stacked/"
+    class="js-example">
+    View examples of form stacked patterns
+</a>
+
 ### Disabled state
 
 Adding the ```[disabled="disabled"]``` attribute to an input will prevent user interaction. All disabled inputs have an opacity of ```0.5``` and ```not-allowed``` cursor on hover.
@@ -77,18 +104,9 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
 
 Applying the classes ```.is-error```, ```.is-caution``` or ```.is-success``` to an input will style that element differently to provide visual feedback in case there is an error, caution or success notification related to the element.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/form-validation/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/forms/form-validation/"
     class="js-example">
     View example of form validation patterns
-</a>
-
-### Fieldset
-
-You can use the ```<fieldset>``` element to divide the form into different logical sections.
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/fieldset/"
-    class="js-example">
-    View example of the base form fieldset
 </a>
 
 <hr />

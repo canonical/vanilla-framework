@@ -22,28 +22,42 @@ most cases it would be a strip. This only affects medium and large screen sizes.
   View example of the utilities image position top
 </a>
 
-### Position top right
+### Position left
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/left/"
+  class="js-example">
+  View example of the utilities image position top
+</a>
+
+### Position right
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/right/"
+  class="js-example">
+  View example of the utilities image position top
+</a>
+
+### Position top-right
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top-right/"
   class="js-example">
   View example of the utilities image position top right
 </a>
 
-### Position top left
+### Position top-left
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top-left/"
   class="js-example">
   View example of the utilities image position top left
 </a>
 
-### Position bottom right
+### Position bottom-right
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom-right/"
   class="js-example">
   View example of the utilities image position bottom right
 </a>
 
-### Position bottom left
+### Position bottom-left
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom-left/"
   class="js-example">
