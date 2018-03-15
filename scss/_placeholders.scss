@@ -1,8 +1,13 @@
 //typography
+$baseline-nudge-h1: map-get($nudges, nudge--h1);
+$baseline-nudge-h2: map-get($nudges, nudge--h2);
+$baseline-nudge-h3: map-get($nudges, nudge--h3);
+$baseline-nudge-h4: map-get($nudges, nudge--h4);
+$baseline-nudge-p: map-get($nudges, nudge--p);
 
 %default-text {
   margin-bottom: map-get($sp-after--desktop, default-text) - $baseline-nudge-p;
-  margin-top: 0;
+  margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
   padding-top: $baseline-nudge-p;
 }
 
@@ -39,18 +44,14 @@
 
 //patterns
 %bordered-text-vertical-padding {
-  $bordered-text-padding-top: map-get($nudges, nudge--p) - $px;
-  $difference: $sp-unit - map-get($nudges, nudge--p);
-  margin-bottom: map-get($spv, default) + $difference * 2;
+  $bordered-text-padding-top: $spv-nudge - $px;
+  margin-bottom: $spv-inter + $spv-nudge-compensation * 2;
   padding-bottom: $bordered-text-padding-top;
   padding-top: $bordered-text-padding-top;
 }
 
 %single-border-text-vpadding--scaling {
-  $factor: ($multi - 1);
-  // $bordered-text-padding-top: map-get($nudges, nudge--p) + $factor * map-get($spv, half);
-  $bordered-text-padding-top: $multi * map-get($spv, half);
-  // $difference: $sp-unit - map-get($nudges, nudge--p) - $px;
+  $bordered-text-padding-top: $multi * $spv-intra--condensed;
   padding-bottom: $bordered-text-padding-top - $px;
   padding-top: $bordered-text-padding-top;
 }

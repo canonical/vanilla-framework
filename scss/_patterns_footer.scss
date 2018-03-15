@@ -6,6 +6,8 @@
     @extend %pseudo-border--top;
     @extend %section-padding--default;
 
+    position: relative;
+
     &__copy {
       margin-bottom: 0;
     }
@@ -25,7 +27,6 @@
 
     &__item {
       display: block;
-      // margin-bottom: $sp-xx-small;
 
       @media (min-width: $breakpoint-medium) {
         display: inline-block;
@@ -62,7 +63,7 @@
           line-height: 1.5rem;
           position: absolute;
           right: - $sp-unit * 1.5;
-          top: map-get($nudges, nudge--p) - map-get($spv, half);
+          top: map-get($nudges, nudge--p) - $spv-intra--condensed;
         }
       }
 

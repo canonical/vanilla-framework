@@ -14,11 +14,15 @@ $shelves-column-name: $grid-col-name;
 @import 'grid/shelves-grid';
 
 @mixin vf-p-grid-modifications {
-  @include on-tablet-down {
-    [class*="col-"] + [class*="col-"] {
-      margin-top: 0 * $grid-col-margin--tablet;
-    }
+  .row {
+    width: 100%;
   }
+
+  // @include on-tablet-down {
+  //   [class*="col-"] + [class*="col-"] {
+  //     margin-top: 0 * $grid-col-margin--tablet;
+  //   }
+  // }
 
   // Demo helper
   [grid-demo] [class*="col-"]  {

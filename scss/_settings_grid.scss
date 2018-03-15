@@ -1,9 +1,7 @@
 // Global grid settings
-$grid-margin-width:         20px !default;
+$grid-margin-width:         $sp-unit * 3 !default;
 $grid-columns:              12 !default;
 $grid-gutter-column-ratio:  1.61803398875; // golden ratio
-$grid-gutter-width:         100% / ($grid-columns * $grid-gutter-column-ratio + ($grid-columns - 1) * 1) !default; // gutter expressed as percentage of full width
-$grid-max-width:            1440px;// + 2 * $grid-margin-width !default;
+$grid-gutter-width:         100% / ($grid-columns * $grid-gutter-column-ratio + ($grid-columns - 1)) !default; // gutter expressed as percentage of full width
+$grid-max-width:            1440px;// + 2 * $grid-margin-width
 $grid-col-name:             'col' !default;
-
-$grid-col-margin--tablet:   20px; // decouple [class*="col-"] + [class*="col-"] margin top as it is a vertical spacing unrelated to the horizontal gutters

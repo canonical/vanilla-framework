@@ -5,15 +5,17 @@ $nav-border-bottom-thickness: $px;
 // Default header styling
 @mixin vf-p-navigation {
   @include vf-navigation-default;
-  // @include vf-navigation-sidebar;
+  @include vf-navigation-sidebar;
 }
 
 @mixin vf-navigation-default {
-  @include vf-navigation-pattern (
-    $background-color: $color-navigation-background,
-    $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
-    $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
-  );
+  .p-navigation {
+    @include vf-navigation-pattern (
+      $background-color: $color-navigation-background,
+      $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
+      $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
+    );
+  }
 }
 
 @mixin vf-navigation-sidebar {
@@ -23,18 +25,19 @@ $nav-border-bottom-thickness: $px;
       $border-color: $color-mid-light,
       $text-color: $color-dark
     );
-    border-bottom: 0;
+
+    flex-direction: column;
     height: auto;
 
-    .p-navigation__logo {
-      margin: 0 map-get($sph, default) 0 0;
-    }
+    // .p-navigation__logo {
+    //   margin: 0 $sph-intra 0 0;
+    // }
 
-    .p-navigation__tagline {
-      color: $color-mid-dark;
-      display: inline-block;
-      margin-top: .2rem;
-    }
+    // .p-navigation__tagline {
+    //   color: $color-mid-dark;
+    //   display: inline-block;
+    //   margin-top: .2rem;
+    // }
 
     .sidebar__cta {
       margin-top: 0;
@@ -54,8 +57,6 @@ $nav-border-bottom-thickness: $px;
 
     .sidebar__content {
       background: $color-x-light;
-      margin-top: $sp-small;
-      padding-bottom: $sp-medium;
       width: 100%;
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
@@ -145,72 +146,73 @@ $nav-border-bottom-thickness: $px;
 }
 
 @mixin vf-navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
-  .p-navigation {
-    background-color: $background-color;
+  background-color: $background-color;
+  display: flex;
+  flex-shrink: 0;
+  position: relative;
+
+  @media (max-width: $breakpoint-navigation-threshold) {
+    flex-direction: column;
+  }
+
+  a {
     color: $text-color;
+    text-decoration: none;
+  }
+
+  // line under menu
+  &::after {
+    background: $border-color;
+    bottom: 0;
+    content: '';
+    height: $nav-border-bottom-thickness;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  &__banner {
     display: flex;
-    position: relative;
-    
+    justify-content: space-between;
+
     @media (max-width: $breakpoint-navigation-threshold) {
-      flex-direction: column;
+      flex: 0 0 100%;
     }
+
     @media (min-width: $breakpoint-navigation-threshold + 1) {
-      flex-direction: row;
+      flex: 0 0 auto;
     }
+  }
 
-    a {
-      color: $color-dark;
-      text-decoration: none;
-    }
+  &__image {
+    vertical-align: top; // remvoe gapp added by default "baseline"
+  }
 
-    // line under menu
-    &::after {
-      background: $border-color;
-      bottom: 0;
-      content: '';
-      height: $nav-border-bottom-thickness;
-      left: 0;
-      position: absolute;
-      right: 0;
-    }
-
-    &__banner {
-      display: flex;
-      justify-content: space-between;
+  &__link {
+    & > a {
+      display: block;
+      margin-bottom: 0;
+      position: relative;
 
       @media (max-width: $breakpoint-navigation-threshold) {
-        flex: 0 1 100%;
+        padding: $spv-intra--expanded $grid-margin-width;
+
+        &::before {
+          background: $border-color;
+          content: '';
+          height: $nav-border-bottom-thickness;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
       }
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
-        flex: 0 0 auto;
-      }
-    }
+        border-left: 1px solid $border-color;
+        padding: $spv-intra--expanded $sph-intra;
 
-    &__image {
-        vertical-align: top; // remvoe gapp added by default "baseline"
-    }
-
-    &__link {
-      & > a {
-        $menu-item-padding-top: 1.5 * map-get($spv, unit);
-  
-        @extend %small-text;
-
-        display: block;
-        margin-bottom: 0;
-        position: relative;
-
-        @media (max-width: $breakpoint-navigation-threshold) {
-          padding: $menu-item-padding-top map-get($sph, half);
-        }
-        
-        @media (min-width: $breakpoint-navigation-threshold + 1) {
-          border-left: 1px solid $color-mid-light;
-          padding: $menu-item-padding-top map-get($sph, default);
-        }
-  
-        &::after {
+        &::before {
           background: $border-color;
           bottom: 0;
           content: '';
@@ -219,119 +221,126 @@ $nav-border-bottom-thickness: $px;
           position: absolute;
           right: 0;
         }
-
-        &:hover {
-          background-color: $color-light;
-        }
       }
 
-      &.is-selected > a {
-        @extend %current-indicator;
+      &:hover {
+        background-color: $color-light;
       }
     }
 
-    &__links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        flex-wrap: wrap;
-        display: flex;
-      }
-    }
-
-    &__logo {
-      display: flex;
-      margin: 0 map-get($sph, quad) map-get($spv, unit) 0;
-      padding-top: map-get($spv, unit);
-    }
-
-    &__nav {
-      display: none;
-
-      @media (max-width: $breakpoint-navigation-threshold) {
-        flex-direction: column;
-      }
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        width: 100%;
-      }
-
-      > .p-search-box {
-        // align-self: center;
-        margin-left: auto;
-        // margin-top: 0;
-        max-width: 20rem;
-        order: 1;
-        width: 100%;
-
-        @media (max-width: $breakpoint-navigation-threshold) {
-          max-width: inherit;
-          order: -1;
-          // top: 0;
-        }
-
-        > .p-search-box__input,
-        .p-search-box__button,
-        .p-search-box__reset {
-          @media (max-width: $breakpoint-navigation-threshold) {
-            border-bottom: 0;
-          }
-        }
-      }
-    }
-
-    &__row {
-      display: flex;
-      width: 100%;
-      
-      @media (max-width: $breakpoint-navigation-threshold) {
-        flex-direction: column;
-      }
-    }
-
-    &:target {
-      .p-navigation__nav {
-        display: flex;
-      }
-
-      .p-navigation__toggle--open {
-        display: none;
-      }
-
-      .p-navigation__toggle--close {
-        @media (max-width: $breakpoint-navigation-threshold) {
-          display: block;
-        }
-      }
-    }
-
-    &__toggle {
-      &--open,
-      &--close {        
-        @extend %small-text;
-
-        margin-bottom: 0;
-        display: none;
-      }
-
-      &--open {
-        @media (max-width: $breakpoint-navigation-threshold) {
-          display: block;
-        }
-      }
-    }
-
-    .u-image-position .u-image-position--right {
-      // XXX: patch - override utility, as it positions absolutely, which leads to overlap on smaller screens. 
-      // Should use flex instead; But that will require changing the markup
-      position: relative;
-      margin: inherit;
-      right: unset;
+    &.is-selected > a {
+      @extend %current-indicator;
     }
   }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @media (max-width: $breakpoint-navigation-threshold) {
+      margin-top: -1px; // prevents bottom border of nav from moving 1px
+    }
+    @media (min-width: $breakpoint-navigation-threshold + 1) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex: 0 0 auto;
+    margin: $spv-intra--expanded $sph-intra auto $grid-margin-width;
+
+    img {
+      height: 24px;
+      width: auto;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      flex-direction: column;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold + 1) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  .p-search-box {
+    min-width: 10em;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      flex: 1 0 auto;
+      margin: -1px $grid-margin-width $spv-intra $grid-margin-width;
+      order: -1;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold + 1) {
+      // align baselines of menu items and input text
+      $input-gap-top: $spv-intra--expanded - $spv-nudge;
+      display: flex;
+      flex: 1 1 auto;
+      margin: $input-gap-top $sph-intra auto auto;
+      max-width: 20rem;
+      order: 1;
+    }
+  }
+
+  &__row {
+    display: flex;
+    // XXX: these zero out the default row padding to avoid doubling.
+    // I think a more robust soljution would be to wrap the nav in a row, rather than nest one ins it and override it.
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      flex-direction: column;
+    }
+  }
+
+  &:target {
+    .p-navigation__nav {
+      display: flex;
+    }
+
+    .p-navigation__toggle--open {
+      display: none;
+    }
+
+    .p-navigation__toggle--close {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        display: block;
+      }
+    }
+  }
+
+  &__toggle {
+    &--open,
+    &--close {
+      display: none;
+      margin: 0 $grid-margin-width auto $sph-intra;
+      padding: $spv-intra--expanded 0;
+    }
+
+    &--open {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        display: block;
+      }
+    }
+  }
+
+  .u-image-position .u-image-position--right {
+    order: 2; // ensure it is to the right of search
+    // XXX: patch - override utility, as it positions absolutely, which leads to overlap on smaller screens. 
+    // Should use flex instead; But that will require changing the markup
+    position: relative;
+    right: unset;
+  }
+
 }

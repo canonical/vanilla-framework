@@ -5,7 +5,7 @@
   table {
     border: 0;
     border-collapse: collapse;
-    margin-bottom: map-get($spv, outer);
+    margin-bottom: $spv-inter--scaleable;
     overflow-x: auto;
     table-layout: fixed;
     width: 100%;
@@ -22,7 +22,7 @@
 
     @media screen and (min-width: $breakpoint-medium) {
       &:not(:last-of-type) {
-        padding-right: map-get($sph, default);
+        padding-right: $sph-intra;
       }
     }
   }
@@ -34,15 +34,14 @@
   thead {
     tr {
       border-bottom: 1px solid $color-dark;
+      vertical-align: top;
     }
   }
 
   tbody {
     tr {
-      border-bottom: 1px solid $color-mid-light;
-
-      &:last-child {
-        border-bottom: 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-mid-light;
       }
     }
   }

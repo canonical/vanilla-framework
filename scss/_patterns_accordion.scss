@@ -19,10 +19,10 @@
     &__tab {
       @extend %single-border-text-vpadding--scaling;
 
-      $calculated-height: $multi * map-get($spv, half) * 2 - $px + map-get($line-heights, default-text);
+      $calculated-height: $multi * $spv-intra--condensed * 2 - $px + map-get($line-heights, default-text);
       $offset-top: ($calculated-height - $icon-size) * .5;
       background: {
-        position: top $offset-top right map-get($sph, unit);
+        position: top $offset-top right $sph-intra;
         repeat: no-repeat;
       }
       background-color: inherit;
@@ -30,8 +30,8 @@
       border-radius: 0;
       //XXX remove !important once this is fixed https://github.com/vanilla-framework/vanilla-framework/issues/1495
       margin-bottom: 0 !important;
-      padding-left: map-get($sph, default);
-      padding-right: map-get($sph, default);
+      padding-left: $sph-intra;
+      padding-right: $sph-intra;
       text-align: left;
       transition-duration: 0s;
       width: 100%;
@@ -58,7 +58,7 @@
       border-bottom: 1px solid $color-mid-light;
       margin: 0;
       overflow: auto; // include child margins into its height
-      padding-left: map-get($sph, default);
+      padding-left: $sph-intra;
 
       // Hides panel content
       &[aria-hidden='true'] {

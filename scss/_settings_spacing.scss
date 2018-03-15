@@ -1,28 +1,9 @@
-$sticky-footer: false;
+$sticky-footer: true;
 
-//type scale ratio
-// $ms-ratio: 1.3333333;
-$ms-ratio: 16 / 14; //1.14285714286; // 1.30612244899; //(this is 16/14 squared, so 14 is on the scale as well);
-// $ms-ratio: 1.316074012952492460819218901796999055160068590205822176731;
+$ms-ratio: 16 / 14;
 $sp-unit-ratio: .5;
-$dense: true;
 $sp-unit: 1rem * $sp-unit-ratio;
-$px: .0625rem; // 1px expressed as rem; useful in calculations where sizes are defined in rems. 
-$sp-xx-small: $sp-unit * .25 !default;
-$sp-x-small: $sp-unit * .5 !default;
-$sp-small: $sp-unit !default;
-$sp-medium: $sp-unit * 2 !default;
-$sp-large: $sp-unit * 3 !default;
-$sp-x-large: $sp-unit * 4 !default;
-$sp-xx-large: $sp-unit * 5 !default;
-$sp-xxx-large: $sp-unit * 6 !default;
-$sp-xxxx-large: $sp-unit * 8 !default;
-$sp-xxxxx-large: $sp-unit * 12 !default;
-
-// Maps containing values used to snap text at given font size to the nearest baseline.
-// format: map name: $baselin-offset-at- followed by base unit (12px);
-//   key name: pow followed by the power $ms-ratio has been raised to; 
-//  (font-sizes are 1rem * $ms-ratio taken to powers 0 - 4)
+$px: .0625rem; // 1px as rem; useful in calculations where sizes are defined in rems. 
 
 $line-heights: (
   h1: 6 * $sp-unit,
@@ -42,15 +23,46 @@ $nudges: (
   nudge--small: .45rem
 );
 
-// baseline nudges for type scale ratio of 1.3333
-// $nudges: (
-//   nudge--h1: .6rem,
-//   nudge--h2: .6rem,
-//   nudge--h3: .55rem,
-//   nudge--h4: .45rem,
-//   nudge--p: .35rem,
-//   14px: .45rem
-// );
+//scaling factor
+$multi: 2;
+
+////////////////////////////////////////////////////////
+
+$spv-nudge-negative-offset: 0 * $sp-unit;
+// Variables connecting spacings that should match beteween components
+
+//top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
+$spv-nudge: map-get($nudges, nudge--p);
+$spv-nudge-compensation: $sp-unit - $spv-nudge;
+
+// vertical spacing inside components
+$spv-intra: $sp-unit;
+$spv-intra--scaleable: $spv-intra * $multi;
+
+$spv-intra--condensed: $spv-intra * .5; // buttons margins inside table, 
+$spv-intra--condensed--scaleable: $spv-intra--condensed * $multi; // buttons margins inside table, 
+
+$spv-intra--expanded: $spv-intra * 1.5;
+
+// vertical spacing between components
+$spv-inter: $sp-unit * 3;
+$spv-inter--scaleable: $spv-inter * $multi;
+
+$spv-inter--condensed: $sp-unit * 1;
+$spv-inter--condensed-scaleable: $sp-unit * $multi;
+
+// spacing between a group of components and its wrapper - strips, views, entire page
+$spv-inter--expanded: $sp-unit * 5;
+$spv-inter--expanded-scaleable: $spv-inter--expanded * $multi;
+
+// horizontal spacing inside components
+$sph-intra--condensed: $sp-unit; // input-elements,
+$sph-intra: $sp-unit * 2; // buttons, accordions, tabs, menu, card padding
+
+// horizontal spacing outside components
+$sph-inter--default: $sph-intra;
+
+////////////////////////////////////////////////////////
 
 // space before element on desktop
 $sp-before--desktop: (
@@ -65,39 +77,32 @@ $sp-before--desktop: (
 
 // space after element on desktop
 $sp-after--desktop: (
-  h1: 4 * $sp-unit,
-  h2: 4 * $sp-unit,
-  h3: 4 * $sp-unit,
-  h4: 4 * $sp-unit,
-  h5: 3 * $sp-unit,
-  h6: 3 * $sp-unit,
-  p: 3 * $sp-unit,
-  default-text: 1
-);
-
-//scaling factor (1: desne; 2: regular)
-$multi: 1;
-
-// These are draft settings, precise values for dense and regular vanilla will be dialed in (and connected to a multiplier) later
-$spv: (
-  section: $sp-unit * $multi * 4,
-  outer: $sp-unit * $multi * 2,
-  inner: $sp-unit * $multi,
-  quad: $sp-unit * 4,
-  default: $sp-unit * 2,
-  unit: $sp-unit,
-  half: $sp-unit * .5,
-  quarter: $sp-unit * .25
-);
-
-$sph: (
-  quad: $sp-unit * 4,
-  default: $sp-unit * 2,
-  unit: $sp-unit,
-  half: $sp-unit * .5,
-  quarter: $sp-unit * .25
+  h1: $spv-inter + $sp-unit,
+  h2: $spv-inter + $sp-unit,
+  h3: $spv-inter + $sp-unit,
+  h4: $spv-inter,
+  h5: $spv-inter,
+  h6: $spv-inter,
+  p: $spv-inter,
+  default-text: $sp-unit
 );
 
 $icon-sizes: (
   default: 1.5 * $sp-unit
 );
+
+
+
+
+
+// old units that will be replaced
+$sp-xx-small: $sp-unit * .25 !default;
+$sp-x-small: $sp-unit * .5 !default;
+$sp-small: $sp-unit !default;
+$sp-medium: $sp-unit * 2 !default;
+$sp-large: $sp-unit * 3 !default;
+$sp-x-large: $sp-unit * 4 !default;
+$sp-xx-large: $sp-unit * 5 !default;
+$sp-xxx-large: $sp-unit * 6 !default;
+$sp-xxxx-large: $sp-unit * 8 !default;
+$sp-xxxxx-large: $sp-unit * 12 !default;

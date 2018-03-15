@@ -9,33 +9,30 @@
 
 %button-pattern {
   @extend %bordered-text-vertical-padding;
-  @include vf-animation(
-    $property: #{background-color, border-color},
-    $duration: fast,
-    $easing: in
-  );
+  @include vf-animation (#{background-color, border-color}, fast, in);
   @include vf-focus;
   border-radius: $border-radius;
   border-style: solid;
   border-width: 1px;
-  box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  margin: 0 0 $sp-unit 0 !important;
-  padding-left: map-get($sph, default);
-  padding-right: map-get($sph, default);
+  margin-bottom: $spv-inter--scaleable + $spv-nudge-compensation * 2 !important;
+  padding-left: $sph-intra;
+  padding-right: $sph-intra;
   text-align: center;
   text-decoration: none;
   width: 100%;
 
   table & {
-    margin: 0 0 (map-get($spv, unit) - map-get($nudges, nudge--p)) 0 !important;
-    padding: (map-get($nudges, nudge--p) - $sp-unit * .5 - $px) map-get($sph, default);
+    margin-bottom: $spv-nudge-compensation !important;
+    padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
+    padding-top: $spv-nudge - $sp-unit * .5 - $px;
   }
 
+  // this generates a lot of rules
   & + & {
     @media (min-width: $breakpoint-x-small) {
-      margin-right: $sp-medium;
+      margin-left: $sph-inter--default;
     }
   }
 

@@ -150,17 +150,17 @@
   color: $color-dark;
   font-family: unquote($font-base-family);
   font-weight: 300;
-  // margin-bottom: map-get($sp-after--desktop, p) - map-get($nudges, nudge--p);
+  // margin-bottom: map-get($sp-after--desktop, p) - $spv-nudge;
   outline: none;
-  padding-left: map-get($sph, unit);
-  padding-right: map-get($sph, unit);
+  padding-left: $sph-intra--condensed;
+  padding-right: $sph-intra--condensed;
   vertical-align: baseline;
   width: 100%;
 
 
   table & {
-    margin: 0 0 (map-get($spv, unit) - map-get($nudges, nudge--p)) 0 !important;
-    padding: (map-get($nudges, nudge--p) - $px) - map-get($spv, half) map-get($sph, default);
+    margin: 0 0 ($spv-intra - $spv-nudge) 0 !important;
+    padding: ($spv-nudge - $px) - $spv-intra--condensed $sph-intra;
   }
 
   &:active {
@@ -191,7 +191,7 @@
   }
 }
 
-$p-computed-height: map-get($nudges, nudge--p) * 2 + map-get($line-heights, default-text);
+$p-computed-height: $spv-nudge * 2 + map-get($line-heights, default-text);
 
 // Default form checkbox and radio styles
 @mixin vf-tick-elements {
