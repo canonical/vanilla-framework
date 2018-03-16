@@ -5,6 +5,12 @@
     // threshold value for $multi; if less, space between cards, and padding on tdable cells are set to zero; 
     $td-threshold: 2;
 
+    //placed outside the media query, because it errors out saying you can't extend from within
+    td::before,
+    tbody th::before {
+      @extend %muted-heading;
+    }
+
     @media screen and (max-width: $breakpoint-large) {
       thead {
         display: none;
@@ -18,28 +24,29 @@
 
       tr {
         $conditional-multi: if($multi > $td-threshold, $multi - 1, 0);
-        // align-items: flex-end;
-        // background: $color-x-light;
-        border: 1px solid $color-mid-light;
-        border-radius: $border-radius;
-        // box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
-        // margin-bottom: 0 * $conditional-multi * $spv-inters;
-        padding: $spv-intra--condensed - $px $sph-intra $spv-intra - $px;
+        border-top: 1px solid $color-mid-light;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: -1px;
+        // padding: $spv-intra--condensed - $px $spv-intra;
+        width: 100%;
       }
 
       td,
       tbody th {
         $td-padding-bottom: if($multi > $td-threshold, $spv-nudge-compensation, 0);
         $td-padding-top:  if($multi > $td-threshold, $spv-nudge, 0);
-
+        align-items: flex-start;
         display: flex;
+        flex: 0 1 auto;
+        flex-direction: column;
         justify-content: left !important;
         margin: 0;
         overflow: visible;
         padding-bottom: $td-padding-bottom;
         padding-top: $td-padding-top;
         text-align: left !important;
-        width: 100%;
+        width: 25%;
 
         &[aria-label] {
           text-align: right;
@@ -48,10 +55,7 @@
             content: attr(aria-label);
             display: block;
             flex: 0 1 auto;
-            font-weight: 400;
-            margin: auto 1rem auto 0;
-            // text-align: right !important;
-            width: 50%;
+            width: 100%;
           }
         }
 
@@ -112,24 +116,6 @@
             margin-top: $sp-x-small;
           }
         }
-      }
-    }
-  }
-
-  // single card on mobile
-  @media screen and (max-width: $breakpoint-small) {
-    .p-table--mobile-card {
-      tr {
-        width: 100%;
-      }
-    }
-  }
-
-  //two cards on wider mobile
-  @media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-large) {
-    .p-table--mobile-card {
-      tr {
-        width: 50%;
       }
     }
   }

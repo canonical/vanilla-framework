@@ -20,11 +20,12 @@ $nudges: (
   nudge--h3: .4rem,
   nudge--h4: .3rem,
   nudge--p: .4rem,
-  nudge--small: .45rem
+  nudge--small: .45rem,
+  nudge--muted: 0
 );
 
 //scaling factor
-$multi: 2;
+$multi: 1;
 
 ////////////////////////////////////////////////////////
 
@@ -45,15 +46,16 @@ $spv-intra--condensed--scaleable: $spv-intra--condensed * $multi; // buttons mar
 $spv-intra--expanded: $spv-intra * 1.5;
 
 // vertical spacing between components
+$spv-inter--condensed: $sp-unit * 1;
+$spv-inter--condensed-scaleable: $spv-inter--condensed * $multi;
+
 $spv-inter: $sp-unit * 3;
 $spv-inter--scaleable: $spv-inter * $multi;
-
-$spv-inter--condensed: $sp-unit * 1;
-$spv-inter--condensed-scaleable: $sp-unit * $multi;
 
 // spacing between a group of components and its wrapper - strips, views, entire page
 $spv-inter--expanded: $sp-unit * 5;
 $spv-inter--expanded-scaleable: $spv-inter--expanded * $multi;
+
 
 // horizontal spacing inside components
 $sph-intra--condensed: $sp-unit; // input-elements,
@@ -84,7 +86,8 @@ $sp-after--desktop: (
   h5: $spv-inter,
   h6: $spv-inter,
   p: $spv-inter,
-  default-text: $sp-unit
+  default-text: $sp-unit,
+  muted: $spv-inter
 );
 
 $icon-sizes: (

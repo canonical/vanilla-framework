@@ -27,11 +27,11 @@
     }
   }
 
-  th {
-    font-weight: 400;
-  }
-
   thead {
+    th {
+      @extend %muted-heading;
+    }
+
     tr {
       border-bottom: 1px solid $color-dark;
       vertical-align: top;
@@ -39,6 +39,10 @@
   }
 
   tbody {
+    th {
+      font-weight: 400;
+    }
+
     tr {
       &:not(:last-child) {
         border-bottom: 1px solid $color-mid-light;
