@@ -4,13 +4,13 @@ $color-strip-height: 3 * $px;
 // The mixin for basic notification styling
 @mixin vf-notification {
   background-color: $color-light;
-  border: 1px solid ¢color-x-light;
+  border: 30;
   border-radius: $border-radius;
   border-top: $color-strip-height solid $color-mid-dark;
   // box-shadow: 0 1px 5px 1px transparentize($color-x-dark, .8);
   // color: $color-dark;
   // display: flex;
-  margin-bottom: $spv-inter;
+  margin-bottom: $spv-inter--condensed-scaleable;
   overflow: hidden;
 }
 
@@ -29,13 +29,12 @@ $color-strip-height: 3 * $px;
     @include vf-notification;
 
     &__response {
-      // @extend %default-text;
+      @extend %default-text;
 
       background-position: 1rem .5rem;
       background-repeat: no-repeat;
       background-size: map-get($icon-sizes, notifications);
-      // margin: 0;
-      padding: ($spv-nudge - $color-strip-height) $sph-intra 0 $sph-intra;
+      padding: ($spv-nudge + $spv-intra--condensed - $color-strip-height) $sph-intra ($spv-nudge-compensation + $spv-intra--condensed) $sph-intra;
     }
 
     &__status {
