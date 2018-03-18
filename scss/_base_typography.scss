@@ -1,3 +1,4 @@
+
 @import 'settings';
 
 // Typographic element styles
@@ -280,9 +281,13 @@
   max-width: 25em;
 }
 
+%max-width--p {
+  max-width: 38em;
+}
+
 // Optimal max-width for body copy
 @mixin p-max-width {
-  max-width: 35em;
+  @extend %max-width--p;
 }
 
 // Relaxed max-width for cases like notifications, where minimizing vertical height is
@@ -297,7 +302,7 @@
   font-size: pow($ms-ratio, 8) * 1rem;
   font-weight: 300;
   line-height: map-get($line-heights, h1);
-  margin-bottom: map-get($sp-after--desktop, h1) - $baseline-nudge-h1;
+  margin-bottom: map-get($sp-after, h1) - $baseline-nudge-h1;
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
   padding-top: $baseline-nudge-h1;
 }
@@ -308,7 +313,7 @@
   font-size: pow($ms-ratio, 6) * 1rem;
   font-weight: 300;
   line-height: map-get($line-heights, h2);
-  margin-bottom: map-get($sp-after--desktop, h2) - $baseline-nudge-h2;
+  margin-bottom: map-get($sp-after, h2) - $baseline-nudge-h2;
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
   padding-top: $baseline-nudge-h2;
 }
@@ -319,7 +324,7 @@
   font-size: pow($ms-ratio, 4) * 1rem;
   font-weight: 300;
   line-height: map-get($line-heights, h3);
-  margin-bottom: map-get($sp-after--desktop, h3) - $baseline-nudge-h3;
+  margin-bottom: map-get($sp-after, h3) - $baseline-nudge-h3;
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
   padding-top: $baseline-nudge-h3;
 }
@@ -331,7 +336,7 @@
   font-size: pow($ms-ratio, 2) * 1rem;
   font-weight: 300;
   line-height: map-get($line-heights, h4);
-  margin-bottom: map-get($sp-after--desktop, h4) - $baseline-nudge-h4;
+  margin-bottom: map-get($sp-after, h4) - $baseline-nudge-h4;
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
   padding-top: $baseline-nudge-h4;
 }
