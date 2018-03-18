@@ -4,11 +4,13 @@
 @mixin vf-p-code-snippet {
   // Default code snippet
   .p-code-snippet {
+    @extend %max-width--p;
     background-color: $color-x-light;
     border: 1px solid $color-mid-light;
     border-radius: $border-radius;
     color: $color-dark;
     display: flex;
+    margin-bottom: $spv-inter - $spv-nudge;
     overflow: hidden;
     position: relative;
     transition: border .2s, background-color .2s;
@@ -26,6 +28,7 @@
       font-family: unquote($font-monospace);
       font-size: 1em;
       font-weight: 300;
+      margin-bottom: 0;
       padding: 8px 8px 8px 32px;
       width: 100%;
     }
