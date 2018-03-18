@@ -59,7 +59,9 @@
 
 @mixin vf-p-strip-bordered {
   [class^='p-strip'].is-bordered {
-    @extend %pseudo-border--bottom;
+    border-bottom: 1px solid $color-mid-light;
+    margin-bottom: -1px; //border compensation
+    // @extend %pseudo-border--bottom;
     // position: relative; // this breaks sticky elements
   }
 }
