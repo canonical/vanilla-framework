@@ -49,8 +49,8 @@ $spv-intra--expanded: $spv-intra * 1.5;
 $spv-inter--condensed: $sp-unit * 1;
 $spv-inter--condensed-scaleable: $spv-inter--condensed * $multi;
 
-$spv-inter: $sp-unit * 2;
-$spv-inter--scaleable: $spv-inter * (1 + $multi);
+$spv-inter: $sp-unit * 3;
+$spv-inter--scaleable: $sp-unit * (1 + $multi);
 
 // spacing between a group of components and its wrapper - strips, views, entire page
 $spv-inter--expanded: $sp-unit * 5;
@@ -79,15 +79,13 @@ $sp-before--desktop: (
 
 // space after element on desktop
 $sp-after: (
-  h1: $spv-inter + $sp-unit,
-  h2: $spv-inter + $sp-unit,
-  h3: $spv-inter + $sp-unit,
-  h4: $spv-inter,
-  h5: $spv-inter,
-  h6: $spv-inter,
-  p: $spv-inter,
+  h1: $spv-inter--scaleable,
+  h2: $spv-inter--scaleable,
+  h3: $spv-inter--scaleable,
+  h4: $spv-inter--scaleable,
+  p: $spv-inter--scaleable,
   default-text: $sp-unit,
-  muted: $spv-inter
+  muted: $spv-inter--scaleable
 );
 
 $icon-sizes: (
