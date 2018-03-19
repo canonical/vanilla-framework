@@ -14,6 +14,7 @@
 @mixin vf-p-media-object {
   .p-media-object {
     display: flex;
+    flex-shrink: 0;
 
     &__details {
       margin-top: 0;
@@ -75,21 +76,17 @@
     }
 
     &--large {
-      display: flex;
-
       .p-media-object {
-        &__image {
-          max-height: $sp-xxx-large + $sp-large;
-          max-width: $sp-xxx-large + $sp-large;
+        margin-bottom: $spv-inter;
 
-          @media (min-width: $breakpoint-medium) {
-            max-height: 2 * $sp-xxx-large;
-            max-width: 2 * $sp-xxx-large;
-          }
+        &__image {
+          max-height: $sp-unit * 1;
+          max-width: $sp-unit * 1;
         }
 
         &__title {
           @include vf-heading-1;
+          margin-bottom: map-get($nudges, h1);
         }
 
         &__content {
