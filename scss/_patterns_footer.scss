@@ -23,6 +23,10 @@
 
     &__nav {
       margin-top: 0;
+
+      p + & {
+        margin-top: -$sp-unit * 2;
+      }
     }
 
     &__item {
@@ -60,10 +64,9 @@
           content: '\00b7'; // Adds a middle dot
           display: inline-block;
           font-size: $sp-large;
-          line-height: 1.5rem;
           position: absolute;
           right: - $sp-unit * 1.5;
-          top: map-get($nudges, nudge--p) - $spv-intra--condensed;
+          top: map-get($nudges, nudge--p);
         }
       }
 
