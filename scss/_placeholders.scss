@@ -6,19 +6,19 @@ $baseline-nudge-h4: map-get($nudges, nudge--h4);
 $baseline-nudge-p: map-get($nudges, nudge--p);
 
 %default-text {
-  margin-bottom: map-get($sp-after--desktop, default-text) - $baseline-nudge-p;
+  margin-bottom: map-get($sp-after, default-text) - $baseline-nudge-p;
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
   padding-top: $baseline-nudge-p;
 }
 
 %paragraph {
   @extend %default-text;
-  margin-bottom: map-get($sp-after--desktop, p) - $baseline-nudge-p;
+  margin-bottom: map-get($sp-after, p) - $baseline-nudge-p;
 }
 
 %small-text {
   font-size: 1rem / pow($ms-ratio, 1);
-  margin-bottom: map-get($sp-after--desktop, p) - map-get($nudges, nudge--small);
+  margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--small);
   padding-top: map-get($nudges, nudge--small);
 }
 
@@ -27,7 +27,7 @@ $baseline-nudge-p: map-get($nudges, nudge--p);
   color: $color-mid-dark;
   font-size: 1rem / pow($ms-ratio, 2);
   font-weight: 400;
-  margin-bottom:  map-get($sp-after--desktop, p) - $nudge--muted;
+  margin-bottom:  map-get($sp-after, p) - $nudge--muted;
   padding-top: $nudge--muted;
   text-transform: uppercase;
 }

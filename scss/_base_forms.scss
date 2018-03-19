@@ -5,6 +5,7 @@
   label {
     cursor: pointer;
     display: block;
+    margin-bottom: $spv-inter--condensed + $spv-nudge-compensation;
 
     @each $state, $color in $states {
       &.has-#{$state} {
@@ -140,6 +141,7 @@
 // Default form input element styles
 @mixin vf-input-elements {
   @extend %bordered-text-vertical-padding;
+  @extend %max-width--p;
   @include vf-focus;
 
   appearance: textfield;
@@ -151,16 +153,17 @@
   font-family: unquote($font-base-family);
   font-weight: 300;
   margin-bottom: $spv-inter - $spv-nudge;
+  min-width: 10em;
   outline: none;
   padding-left: $sph-intra--condensed;
   padding-right: $sph-intra--condensed;
   vertical-align: baseline;
   width: 100%;
 
-
   table & {
     margin: 0 0 ($spv-intra - $spv-nudge) 0 !important;
-    padding: ($spv-nudge - $px) - $spv-intra--condensed $sph-intra;
+    padding-bottom: ($spv-nudge - $px) - $spv-intra--condensed;
+    padding-top: ($spv-nudge - $px) - $spv-intra--condensed;
   }
 
   &:active {
@@ -191,7 +194,7 @@
   }
 }
 
-$p-computed-height: $spv-nudge * 2 + map-get($line-heights, default-text);
+$p-computed-height: map-get($line-heights, default-text);
 
 // Default form checkbox and radio styles
 @mixin vf-tick-elements {
