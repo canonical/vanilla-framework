@@ -12,7 +12,8 @@
 
   code {
     @extend %default-text;
-    margin-bottom: - $baseline-nudge-p;
+    margin-bottom: $spv-nudge-compensation - 2 * $px; // compensates for the borders around <pre>
+    white-space: pre-wrap;
   }
 
   pre,
@@ -21,7 +22,6 @@
     display: block;
     hyphens: none;
     tab-size: 4;
-    white-space: pre-wrap;
     word-spacing: normal;
     word-wrap: break-word;
   }
@@ -31,12 +31,13 @@
     border: 1px solid $color-mid-light;
     border-radius: $border-radius;
     color: $color-dark;
-    margin-bottom: $sp-unit * 4 - $px; // border compensations
-    margin-top: -1px;
+    margin-bottom: $spv-inter;
+    margin-top: 0;
     overflow: auto;
-    padding-left: $sp-medium;
-    padding-right: $sp-medium;
+    padding-left: $sph-intra;
+    padding-right: $sph-intra;
     text-align: left;
     text-shadow: none;
+    white-space: nowrap;
   }
 }
