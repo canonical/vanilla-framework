@@ -1,6 +1,6 @@
 @import 'settings';
 
-@mixin vf-strip {
+%vf-strip {
   @extend %section-padding--default;
   clear: both;
   width: 100%;
@@ -17,16 +17,16 @@
 
 @mixin vf-p-strip-default {
   .p-strip {
-    @include vf-strip;
+    @extend %vf-strip;
     background-color: transparent;
 
     &--light {
-      @include vf-strip;
+      @extend %vf-strip;
       background-color: $color-light;
     }
 
     &--dark {
-      @include vf-strip;
+      @extend %vf-strip;
       background-color: $color-dark;
       color: $color-light;
     }
@@ -35,7 +35,7 @@
 
 @mixin vf-p-strip-accent {
   .p-strip--accent {
-    @include vf-strip;
+    @extend %vf-strip;
     background-color: $color-accent-background;
     color: vf-determine-text-color($color-accent-background);
   }
@@ -43,7 +43,7 @@
 
 @mixin vf-p-strip-image {
   .p-strip--image {
-    @include vf-strip;
+    @extend %vf-strip;
     background-repeat: no-repeat;
     background-size: cover;
 
