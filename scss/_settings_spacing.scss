@@ -95,18 +95,27 @@ $icon-sizes: (
 
 
 // spacing utilities - to be moved to separate file
-$slug: u-sv !default;
 
 %u-vertical-spacer {
-    content: '';
-    display: block;
-    position: relative;
+  content: '';
+  display: block;
+  position: relative;
 }
+$slug: u-sv !default;
+// @each u-sv1
+// @extend %u-vertical-spacer;
+// @for $i from 1 through 3 {
+//   .u-sv--#{$i} {
+//     padding-top: $sp-unit * $i;
+//   }
+// }
 
-@for $i from 1 through 3 {
-  .#{$slug}--#{$i} {
-    @extend %u-vertical-spacer;
-    padding-top: $sp-unit * $i;
+
+@for $i from 1 through 1 { 
+  div:nth-child(#{$i})::after {
+    content: "$i == #{$i}";
+    // multiply by 10 for larger hue increments
+    background: hsl($i * 10, 50%, 50%);
   }
 }
 
