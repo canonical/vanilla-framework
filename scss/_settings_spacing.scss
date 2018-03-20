@@ -93,32 +93,6 @@ $icon-sizes: (
   default: 2 * $sp-unit
 );
 
-
-// spacing utilities - to be moved to separate file
-
-%u-vertical-spacer {
-  content: '';
-  display: block;
-  position: relative;
-}
-$slug: u-sv !default;
-// @each u-sv1
-// @extend %u-vertical-spacer;
-// @for $i from 1 through 3 {
-//   .u-sv--#{$i} {
-//     padding-top: $sp-unit * $i;
-//   }
-// }
-
-
-@for $i from 1 through 1 { 
-  div:nth-child(#{$i})::after {
-    content: "$i == #{$i}";
-    // multiply by 10 for larger hue increments
-    background: hsl($i * 10, 50%, 50%);
-  }
-}
-
 // old units that will be replaced
 $sp-xx-small: $sp-unit * .25 !default;
 $sp-x-small: $sp-unit * .5 !default;
