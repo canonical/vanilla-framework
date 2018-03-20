@@ -62,7 +62,7 @@
   }
 
   // Checkbox and radio inputs
-  [type='checkbox'],
+  // [type='checkbox'],
   [type='radio'] {
     @include vf-tick-elements;
     min-height: $sp-large;
@@ -106,6 +106,8 @@
 
       option {
         font-weight: 300;
+        line-height: $sp-unit * 2 - 2 * $px;
+        padding: $spv-intra $sph-intra--condensed;
       }
     }
   }
@@ -201,6 +203,59 @@ $p-computed-height: map-get($line-heights, default-text);
     + label {
       @include vf-disabled-element;
     }
+  }
+}
+
+// Accessible checkbox technique from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
+input[type="checkbox"] {
+  $box-size: 1rem;
+  $box-offset-top: map-get($nudges, nudge--p) + (map-get($line-heights, default-text) - $box-size) * .5;
+  $tick-offset-top: $box-offset-top + 3 * $px;
+  opacity: 0;
+
+  & + label {
+    @include vf-focus;
+
+    $label-offset--left: $sph-inter--expanded + $box-size;
+    padding-left: $label-offset--left;
+    position: relative;
+
+    // box
+    &::before {
+      border: 1px solid $color-mid-light;
+      border-radius: $border-radius;
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      left: 0;
+      top: $box-offset-top;
+      width: 1rem;
+    }
+
+    // tick
+    &::after {
+      border-bottom: 2px solid;
+      border-left: 2px solid;
+      content: none;
+      display: inline-block;
+      height: 7px;
+      left: 2px;
+      top: 12px;
+      transform: rotate(-45deg);
+      width: 11px;
+    }
+
+    &::before,
+    &::after {
+      // Needed for the line-height to take effect
+      display: inline-block;
+
+      position: absolute;
+    }
+  }
+
+  &:checked + label::after {
+    content: "";
   }
 }
 
