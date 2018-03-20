@@ -28,9 +28,9 @@ $nudges: (
 $multi: 2;
 
 ////////////////////////////////////////////////////////
+// Variables connecting spacings that should match beteween components
 
 $spv-nudge-negative-offset: 0 * $sp-unit;
-// Variables connecting spacings that should match beteween components
 
 //top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge: map-get($nudges, nudge--p);
@@ -60,9 +60,9 @@ $spv-inter--expanded-scaleable: $spv-inter--expanded * $multi;
 // horizontal spacing inside components
 $sph-intra--condensed: $sp-unit; // input-elements,
 $sph-intra: $sp-unit * 2; // buttons, accordions, tabs, menu, card padding
-
 // horizontal spacing outside components
 $sph-inter--default: $sph-intra;
+$sph-inter--expanded: $sp-unit * 3; // checboxes, radios etc. - test settings
 
 ////////////////////////////////////////////////////////
 
@@ -94,8 +94,21 @@ $icon-sizes: (
 );
 
 
+// spacing utilities - to be moved to separate file
+$slug: u-sv !default;
 
+%u-vertical-spacer {
+    content: '';
+    display: block;
+    position: relative;
+}
 
+@for $i from 1 through 3 {
+  .#{$slug}--#{$i} {
+    @extend %u-vertical-spacer;
+    padding-top: $sp-unit * $i;
+  }
+}
 
 // old units that will be replaced
 $sp-xx-small: $sp-unit * .25 !default;
