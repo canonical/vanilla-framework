@@ -5,7 +5,6 @@
     // threshold value for $multi; if less, space between cards, and padding on tdable cells are set to zero; 
     $td-threshold: 2;
 
-    //placed outside the media query, because it errors out saying you can't extend from within
     td::before,
     tbody th::before {
       @extend %muted-heading;
@@ -23,12 +22,10 @@
       }
 
       tr {
-        $conditional-multi: if($multi > $td-threshold, $multi - 1, 0);
         border-top: 1px solid $color-mid-light;
         display: flex;
         flex-wrap: wrap;
-        margin-top: -1px;
-        // padding: $spv-intra--condensed - $px $spv-intra;
+        margin: -1px 0 $spv-inter--condensed;
         width: 100%;
       }
 
@@ -55,6 +52,7 @@
             content: attr(aria-label);
             display: block;
             flex: 0 1 auto;
+            margin-bottom: - map-get($nudges, nudge--muted);
             width: 100%;
           }
         }
