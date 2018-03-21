@@ -86,15 +86,17 @@
 
         .p-form__control {
           display: inline-block;
-          margin: 0;
         }
 
         .p-form-validation__message,
         .p-form-help-text {
           clear: both;
-          // margin-top: $sp-xx-small;
           min-width: 100%; // Sets the width to the minimum width of the parent
           width: 0; // Removes any block level width
+        }
+
+        .p-form-validation__message + .p-form-help-text {
+          margin-top: - $sp-unit;
         }
       }
     }
