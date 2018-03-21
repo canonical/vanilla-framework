@@ -12,9 +12,8 @@
     @include vf-validation-wrapper;
 
     .p-form-validation__input { // Not using parent selector here as two classes are required to override atribute selectors in reset
-      background-position: calc(100% - #{$sp-medium}) $sp-small;
+      background-position: calc(100% - #{$spv-intra}) $sph-intra;
       background-repeat: no-repeat;
-      padding: $sp-x-small $sp-xx-large $sp-x-small $sp-small;
     }
 
     .p-form-validation__icon {
@@ -29,14 +28,17 @@
 
     &__message {
       @extend %small-text;
-      margin-top: - $spv-inter;
+
+      input + & {
+        margin-top: - $spv-intra;
+      }
     }
   }
 
   .is-error {
-
     .p-form-validation__input {
       background-image: url('#{$assets-path}4b0cd7fc-icon-error.svg');
+      background-position: right $sph-intra--condensed top 50%;
       border-color: $color-negative;
     }
   }
