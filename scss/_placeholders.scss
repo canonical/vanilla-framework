@@ -18,17 +18,18 @@ $baseline-nudge-p: map-get($nudges, nudge--p);
 }
 
 %small-text {
-  font-size: 1rem / pow($ms-ratio, 1);
+  font-size: 1rem / pow($ms-ratio, 1) !important; //because of the reset
   margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--small);
   padding-top: map-get($nudges, nudge--small);
 }
 
 %muted-heading {
+  @extend %bold;
+
   $nudge--muted: map-get($nudges, nudge--muted);
   color: $color-mid-dark;
   font-size: 1rem / pow($ms-ratio, 2);
-  font-weight: 400;
-  margin-bottom:  map-get($sp-after, p) - $nudge--muted;
+  margin-bottom:  map-get($sp-after, muted) - $nudge--muted;
   padding-top: $nudge--muted;
   text-transform: uppercase;
 }
@@ -51,6 +52,10 @@ $baseline-nudge-p: map-get($nudges, nudge--p);
 
 %sp--ph5 {
   padding-top: $baseline-nudge-p + map-get($sp-before--desktop, h5);
+}
+
+%sp--pmuted {
+  padding-top: map-get($nudges, nudge--muted) + map-get($sp-before--desktop, muted);
 }
 
 //buttons, inputs
