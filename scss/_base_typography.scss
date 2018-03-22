@@ -216,6 +216,10 @@
     @extend %sp--ph5;
   }
 
+  p + .p-muted-heading {
+    @extend %sp--pmuted;
+  }
+
   // blockquotes
   blockquote {
     margin-bottom: 0;
@@ -235,16 +239,16 @@
 
   // misc
   strong {
-    font-weight: 400;
+    @extend %bold;
   }
 
   small {
-    font-size: .875rem;
+    @extend %small-text;
   }
 
   sub,
   sup {
-    font-size: .75em;
+    @extend %small-text;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -252,6 +256,10 @@
 
   .text {
     @extend %default-text;
+  }
+
+  .small-text {
+    @extend %small-text;
   }
 }
 
