@@ -16,8 +16,10 @@ $tick-height: .875rem; //14px value from svg as rem so it can be used in calcula
 $sp-list-item-inner--top: map-get($nudges, nudge--p);
 $sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges, nudge--p);
 @mixin vf-list-item {
-  padding-bottom: 0;
-  padding-top: 0;
+  @if($pad-lists) {
+    padding-bottom: $multi * $spv-intra--condensed;
+    padding-top: $multi * $spv-intra--condensed;
+  }
 }
 
 @mixin vf-list-item-divided {
