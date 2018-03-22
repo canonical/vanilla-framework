@@ -1,7 +1,7 @@
 @import 'settings';
 
-$numbered-bullet-width: 3rem;
-$numbered-bullet-margin-right: 1rem;
+$numbered-bullet-width: $sp-unit * 5;
+$numbered-bullet-margin-right: $sph-intra;
 $tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
 
 // Default list styling
@@ -104,9 +104,11 @@ $sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges, nudge--p);
 
 // Displays item with a tick bullet
 @mixin vf-p-list-item-state {
+  $bg-pos-y: if($pad-lists, $multi * $spv-intra--condensed + (map-get($line-heights, default-text) - $tick-height) * .5, (map-get($line-heights, default-text) - $tick-height) * .5);
+
   .is-ticked {
     background-image: svg-tick($color-accent);
-    background-position-y: (map-get($line-heights, default-text) - $tick-height) * .5;
+    background-position-y: $bg-pos-y;
     background-repeat: no-repeat;
     padding-left: 2rem;
   }
@@ -198,6 +200,11 @@ $sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges, nudge--p);
       position: absolute;
       text-align: center;
       width: $numbered-bullet-width;
+
+      // margin-top: -.25rem;
+      // position: absolute;
+      // text-align: center;
+      // width: 2.5rem;
 
       @media (min-width: $breakpoint-large) {
         margin-top: -.15em;
