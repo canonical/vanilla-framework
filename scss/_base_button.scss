@@ -23,22 +23,6 @@
   text-decoration: none;
   width: 100%;
 
-  table & {
-    margin-bottom: $spv-nudge-compensation !important;
-    padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
-    padding-top: $spv-nudge - $sp-unit * .5 - $px;
-  }
-
-  & + & {
-    @media (min-width: $breakpoint-x-small) {
-      margin-left: $sph-inter--default;
-    }
-  }
-
-  @media only screen and (min-width: $breakpoint-x-small) {
-    width: auto;
-  }
-
   &:active,
   &:focus,
   &:hover {
@@ -49,6 +33,36 @@
   &.is--disabled {
     cursor: not-allowed;
     opacity: .5;
+  }
+
+  @media only screen and (min-width: $breakpoint-x-small) {
+    width: auto;
+  }
+
+  & + & {
+    @media (min-width: $breakpoint-x-small) {
+      margin-left: $sph-inter--default;
+    }
+  }
+
+  table & {
+    margin-bottom: $spv-nudge-compensation !important;
+    padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
+    padding-top: $spv-nudge - $sp-unit * .5 - $px;
+  }
+
+  // this addresses buttons nested in <p>'s;
+  // remove when no longer needed
+
+  p & {
+    margin-bottom: $spv-nudge-compensation * 2 !important; // because of reset
+    margin-top: - $spv-nudge;
+  }
+
+  @media only screen and (max-width: $breakpoint-x-small) {
+    p & + & {
+      margin-top: $spv-inter--scaleable !important; // because of reset
+    }
   }
 }
 
