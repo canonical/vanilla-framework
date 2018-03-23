@@ -3,7 +3,7 @@
 // List Grid
 @mixin vf-p-matrix {
   .p-matrix {
-    $matrix-img-width: map-get($icon-sizes, thumb);
+    $matrix-img-width: map-get($icon-sizes, thumb--small);
     $matrix-img-gutter: $sph-inter--default;
 
     display: flex;
@@ -69,6 +69,7 @@
 
         &:nth-child(3n+3) {
           border-right: 0;
+          padding-right: 0;
         }
 
         &:nth-last-child(1),
@@ -108,7 +109,7 @@
       display: flex;
       flex: 1 1 auto;
       flex-direction: column;
-      padding-right: $grid-margin-width;
+      padding-right: $sph-intra;
 
       @media (min-width: $breakpoint-large) {
         width: calc(100% - #{$matrix-img-width + $matrix-img-gutter});
