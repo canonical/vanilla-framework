@@ -28,15 +28,18 @@
       flex-basis: inherit;
       flex-shrink: 0;
       margin-right: $sp-medium;
-      max-height: $sp-unit * 7;
-      max-width: $sp-unit * 7;
+      max-height: map-get($icon-sizes, thumb);
+      max-width: map-get($icon-sizes, thumb);
       vertical-align: middle;
       width: auto;
 
-      @media (min-width: $breakpoint-medium) {
-        max-height: $sp-unit * 9;
-        max-width: $sp-unit * 9;
+      &:not(.is-round) {
+        margin-top: $sp-unit;
       }
+      // @media (min-width: $breakpoint-medium) {
+      //   max-height: map-get($icon-sizes, thumb);
+      //   max-width: map-get($icon-sizes, thumb);
+      // }
     }
 
     &__content {
@@ -81,8 +84,8 @@
       @extend %p-media-object;
 
       .p-media-object__image {
-        max-height: $sp-unit * 12;
-        max-width: $sp-unit * 12;
+        max-height: map-get($icon-sizes, thumb--large);
+        max-width: map-get($icon-sizes, thumb--large);
       }
 
       .p-media-object__title {

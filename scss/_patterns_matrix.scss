@@ -3,63 +3,75 @@
 // List Grid
 @mixin vf-p-matrix {
   .p-matrix {
+    display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @media (min-width: $breakpoint-small) {
-      display: flex;
-      flex-wrap: wrap;
-    }
+    flex-wrap: wrap;
+    margin-left: 0;
+    padding-left: 0;
 
     &__item {
-      @extend %clearfix;
-      border-bottom: 1px solid $color-mid-light;
-      border-top: 0;
+      border-top: 1px solid $color-mid-light;
       display: flex;
-      flex-direction: row;
-      margin-top: 0;
-      padding: $sp-medium 0;
+      flex: 1 1 auto;
+      padding-bottom: $spv-intra--scaleable;
+      padding-top: $spv-intra--scaleable - $px;
 
-      &:empty {
-        display: none; // hide orphans
+      @media (min-width: $breakpoint-small) {
+        display: flex;
+        flex-wrap: wrap;
+        width: 33.333%;
       }
 
-      @media (min-width: $breakpoint-small) { // 3 items per row
+      @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) {
+        flex-direction: column;
+      }
+
+      @media (min-width: $breakpoint-medium) {
         border-right: 1px solid $color-mid-light;
-        margin-bottom: 0;
-        padding: $sp-medium;
+        padding-left: $spv-intra--scaleable;
+        padding-right: $spv-intra--scaleable;
         width: 33.333%;
 
         &:empty {
           display: block; // hide orphans
         }
 
-        &:first-child,
-        &:nth-child(3n+1) { // 1st column
+        &:nth-child(3n+1) {
           padding-left: 0;
         }
 
-        &:last-child {
-          border-bottom: 0;
-        }
-
-        &:nth-child(3n+1) { // 1st column
-          &:nth-last-child(2),
-          &:nth-last-child(3) {
-            border-bottom: 0;
-          }
-        }
-
-        &:nth-child(3n+2) { // 2nd column
-          &:nth-last-child(2) {
-            border-bottom: 0;
-          }
-        }
-
-        &:nth-child(3n) { // 3rd column
+        &:nth-child(3n+3) {
           border-right: 0;
-          padding-right: 0;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          border-top: 0;
+        }
+      }
+
+      @media (min-width: $breakpoint-large) { // 3 items per row
+        border-right: 1px solid $color-mid-light;
+        padding: $spv-intra--scaleable;
+        width: 33.333%;
+
+        &:empty {
+          display: block; // hide orphans
+        }
+
+        &:nth-child(3n+1) {
+          padding-left: 0;
+        }
+
+        &:nth-child(3n+3) {
+          border-right: 0;
+        }
+
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3) {
+          border-bottom: 0;
         }
       }
     }
@@ -70,8 +82,9 @@
     }
 
     &__img {
-      margin-right: $sp-medium;
-      max-width: 3.75rem;
+      margin-bottom: 0;
+      margin-right: $sph-inter--default;
+      max-width: map-get($icon-sizes, thumb);
     }
 
     &__content {
@@ -83,6 +96,10 @@
     &__title {
       @include vf-heading-4;
       margin-bottom: - map-get($nudges, nudge--h4);
+    }
+
+    &__desc {
+      margin-bottom: $spv-nudge-compensation;
     }
   }
 }

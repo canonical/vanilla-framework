@@ -42,31 +42,29 @@ $spv-nudge-negative-offset: 0 * $sp-unit;
 $spv-nudge: map-get($nudges, nudge--p);
 $spv-nudge-compensation: $sp-unit - $spv-nudge;
 
-// vertical spacing inside components
+// 1. VERTICAL SPACING
+// 1.1 Vertical spacing inside components
+$spv-intra--condensed: $sp-unit * .5; // buttons margins inside table, 
+$spv-intra--condensed--scaleable: $spv-intra--condensed * $multi;
 $spv-intra: $sp-unit;
 $spv-intra--scaleable: $spv-intra * $multi;
+$spv-intra--expanded: $spv-intra * 1.5; //vertical padding in: navigation, tabs
 
-$spv-intra--condensed: $spv-intra * .5; // buttons margins inside table, 
-$spv-intra--condensed--scaleable: $spv-intra--condensed * $multi;
-
-$spv-intra--expanded: $spv-intra * 1.5;
-
-// vertical spacing between components
+// 1.2 Vertical spacing between components
 $spv-inter--condensed: $sp-unit * 1;
 $spv-inter--condensed-scaleable: $spv-inter--condensed * $multi;
-
 $spv-inter: $sp-unit * 3;
 $spv-inter--scaleable: $sp-unit * (1 + $multi);
 
-// spacing between a group of components and its wrapper - strips, views, entire page
+// 1.3 Vertical spacing between a group of components and its wrapper - strips, views, entire page
 $spv-inter--expanded: $sp-unit * 5;
 $spv-inter--expanded-scaleable: $spv-inter * (2 + $multi);
 
-
-// horizontal spacing inside components
+// 2. HORIZONTAL SPACING
+// 2.1 Horizontal spacing inside components
 $sph-intra--condensed: $sp-unit; // input-elements,
 $sph-intra: $sp-unit * 2; // buttons, accordions, tabs, menu, card padding, stepped-list bullet offset
-// horizontal spacing outside components
+// 2.2 Horizontal spacing outside components
 $sph-inter--default: $sph-intra;
 $sph-inter--expanded: $sp-unit * 3; // checboxes, radios etc. - test settings
 
@@ -97,7 +95,9 @@ $sp-after: (
 
 $icon-sizes: (
   accordion: 1.5 * $sp-unit,
-  default: 2 * $sp-unit
+  default: 2 * $sp-unit,
+  thumb: $sp-unit * 8,
+  thumb--large: $sp-unit * 12
 );
 
 // old units 
