@@ -60,7 +60,6 @@
 @mixin vf-p-strip-bordered {
   [class^='p-strip'].is-bordered {
     border-bottom: 1px solid $color-mid-light;
-    margin-bottom: -1px; //border compensation
   }
 }
 
@@ -70,7 +69,7 @@
 
   @media only screen and (min-width: $breakpoint-large) {
     padding-bottom: $spv-inter--scaleable * 2 + $sp-unit;
-    padding-top: $spv-inter--scaleable * 2;
+    padding-top: $spv-inter--scaleable * 2 - $px; //border compensation
   }
 }
 

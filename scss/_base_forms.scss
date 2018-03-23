@@ -212,11 +212,13 @@ input[type="checkbox"] {
   $box-offset-top: map-get($nudges, nudge--p) + (map-get($line-heights, default-text) - $box-size) * .5;
   $tick-offset-top: $box-offset-top + 3 * $px;
   opacity: 0;
+  position: absolute;
 
   & + label {
     @include vf-focus;
 
     $label-offset--left: $sph-inter--expanded + $box-size;
+    margin-top: - map-get($nudges, nudge--p);
     padding-left: $label-offset--left;
     position: relative;
 
