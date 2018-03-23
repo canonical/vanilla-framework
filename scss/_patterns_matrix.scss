@@ -7,8 +7,8 @@
     $matrix-img-gutter: $sph-inter--default;
 
     display: flex;
-    list-style: none;
     flex-wrap: wrap;
+    list-style: none;
     margin-left: 0;
     padding-left: 0;
 
@@ -79,14 +79,14 @@
       }
 
       &::before {
-          content: '';
-          display: block;
-          flex: 0 0 auto;
-          margin-bottom: $spv-intra--scaleable;
-          margin-right: $matrix-img-gutter;
-          position: relative;
-          height: $matrix-img-width;
-          width: $matrix-img-width;
+        content: '';
+        display: block;
+        flex: 0 0 auto;
+        height: $matrix-img-width;
+        margin-bottom: $spv-intra--scaleable;
+        margin-right: $matrix-img-gutter;
+        position: relative;
+        width: $matrix-img-width;
       }
     }
 
@@ -96,9 +96,12 @@
     }
 
     &__img {
+      // maintain image aspect ratio, but ensure it doesn't overflow in either direction
       height: auto;
+      max-height: $matrix-img-width;
+      max-width: $matrix-img-width;
       position: absolute;
-      width: $matrix-img-width;
+      width: auto;
     }
 
     &__content {
@@ -114,7 +117,7 @@
 
     &__title {
       @include vf-heading-4;
-      margin-bottom: - map-get($nudges, nudge--h4);
+      margin-bottom: $sp-unit - map-get($nudges, nudge--h4);
     }
 
     &__desc {
