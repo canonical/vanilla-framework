@@ -26,9 +26,12 @@ $color-brand: #ffffff;
 
 // Import the theme
 @import 'vanilla-framework/scss/vanilla';
+
+// Include all of Vanilla Framework
+@include vanilla;
 ```
 
-If you don't need the whole framework, you can just include specific parts, e.g. `@include vf-b-forms`.
+Note: If you don't need the whole framework, you can just include specific parts, e.g. `@include vf-b-forms`.
 
 ### Hotlink
 
