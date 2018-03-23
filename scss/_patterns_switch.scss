@@ -2,14 +2,14 @@
 
 @mixin vf-p-switch {
   .p-switch {
+    $knob-size: $sp-unit * 3;
     align-items: stretch;
     border: 0;
     display: inline-flex;
-    font-size: .875rem;
-    height: 2rem;
+    height: $knob-size;
     padding: initial;
     position: relative;
-    width: 4rem;
+    width: $knob-size * 2;
 
     &:focus {
       outline: 1px solid $color-link;
@@ -19,7 +19,7 @@
     :first-child,
     :last-child {
       box-shadow: inset 0 2px 5px 0 transparentize($color-dark, .8);
-      line-height: 2rem;
+      line-height: $knob-size;
       margin: 0;
       text-align: center;
       width: 50%;
@@ -54,10 +54,13 @@
     }
 
     &[aria-checked='true'] {
-
       &::before {
         left: 50%;
       }
+    }
+
+    & span {
+      @extend %u-hide-text;
     }
   }
 }
