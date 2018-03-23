@@ -53,14 +53,13 @@
 
   // this addresses buttons nested in <p>'s;
   // remove when no longer needed
-
   p & {
-    margin-bottom: $spv-nudge-compensation * 2 !important; // because of reset
     margin-top: - $spv-nudge;
   }
 
   @media only screen and (max-width: $breakpoint-x-small) {
     p & + & {
+      margin-bottom: $spv-nudge-compensation * 2 !important; // because of reset
       margin-top: $spv-inter--scaleable !important; // because of reset
     }
   }
