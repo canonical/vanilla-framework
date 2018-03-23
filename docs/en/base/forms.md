@@ -104,7 +104,7 @@ Adding the ```[disabled="disabled"]``` attribute to an input will prevent user i
 
 Applying the classes ```.is-error```, ```.is-caution``` or ```.is-success``` to an input will style that element differently to provide visual feedback in case there is an error, caution or success notification related to the element.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/forms/form-validation/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/forms/form-validation/"
     class="js-example">
     View example of form validation patterns
 </a>
