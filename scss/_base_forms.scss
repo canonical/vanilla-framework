@@ -133,15 +133,8 @@
 }
 
 // Default form input element styles
-@mixin vf-input-elements {
-  .temp {
-    width: auto;
-  }
-}
-
 %vf-input-elements {
   @extend %bordered-text-vertical-padding;
-  // @extend %max-width--p;
   @include vf-focus;
 
   appearance: textfield;
@@ -192,13 +185,11 @@
   }
 }
 
-$p-computed-height: map-get($line-heights, default-text);
-
 // Default form checkbox and radio styles
 %vf-tick-elements {
   @include vf-focus($offset: 0);
   float: left;
-  height: $p-computed-height;
+  height: map-get($line-heights, default-text);
   margin-bottom: 0;
   margin-right: $sph-inter--expanded;
   padding: 0;
