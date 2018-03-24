@@ -64,7 +64,7 @@
   // Checkbox and radio inputs
   // [type='checkbox'],
   [type='radio'] {
-    @include vf-tick-elements;
+    @extend %vf-tick-elements;
     min-height: $sp-large;
 
     + label {
@@ -134,56 +134,60 @@
 
 // Default form input element styles
 @mixin vf-input-elements {
-  %vf-input-elements {
-    @extend %bordered-text-vertical-padding;
-    // @extend %max-width--p;
-    @include vf-focus;
+  .temp {
+    width: auto;
+  }
+}
 
-    appearance: textfield;
-    background-color: $color-x-light;
-    border: 1px solid $color-mid-light;
-    border-radius: $border-radius;
-    box-shadow: inset 0 1px 1px $color-input-shadow;
+%vf-input-elements {
+  @extend %bordered-text-vertical-padding;
+  // @extend %max-width--p;
+  @include vf-focus;
+
+  appearance: textfield;
+  background-color: $color-x-light;
+  border: 1px solid $color-mid-light;
+  border-radius: $border-radius;
+  box-shadow: inset 0 1px 1px $color-input-shadow;
+  color: $color-dark;
+  font-family: unquote($font-base-family);
+  font-weight: 300;
+  min-width: 10em;
+  padding-left: $sph-intra--condensed;
+  padding-right: $sph-intra--condensed;
+  vertical-align: baseline;
+  width: 100%;
+
+  table & {
+    margin: 0 0 ($spv-intra - $spv-nudge) 0 !important;
+    padding-bottom: ($spv-nudge - $px) - $spv-intra--condensed;
+    padding-top: ($spv-nudge - $px) - $spv-intra--condensed;
+  }
+
+  &:active {
+    border-color: $color-mid-dark;
     color: $color-dark;
-    font-family: unquote($font-base-family);
-    font-weight: 300;
-    min-width: 10em;
-    padding-left: $sph-intra--condensed;
-    padding-right: $sph-intra--condensed;
-    vertical-align: baseline;
-    width: 100%;
+    outline: none;
+  }
 
-    table & {
-      margin: 0 0 ($spv-intra - $spv-nudge) 0 !important;
-      padding-bottom: ($spv-nudge - $px) - $spv-intra--condensed;
-      padding-top: ($spv-nudge - $px) - $spv-intra--condensed;
-    }
+  &::placeholder {
+    color: $color-mid-dark;
+    opacity: 1;
+  }
 
-    &:active {
-      border-color: $color-mid-dark;
-      color: $color-dark;
-      outline: none;
-    }
+  &[disabled],
+  &[disabled='disabled'] {
+    @extend %vf-disabled-element;
+  }
 
-    &::placeholder {
-      color: $color-mid-dark;
-      opacity: 1;
-    }
+  &[readonly],
+  &[readonly='readonly'] {
+    @extend %vf-readonly-element;
+  }
 
-    &[disabled],
-    &[disabled='disabled'] {
-      @include vf-disabled-element;
-    }
-
-    &[readonly],
-    &[readonly='readonly'] {
-      @include vf-readonly-element;
-    }
-
-    @each $state, $color in $states {
-      &.has-#{$state} {
-        border: 1px solid $color;
-      }
+  @each $state, $color in $states {
+    &.has-#{$state} {
+      border: 1px solid $color;
     }
   }
 }
@@ -191,7 +195,7 @@
 $p-computed-height: map-get($line-heights, default-text);
 
 // Default form checkbox and radio styles
-@mixin vf-tick-elements {
+%vf-tick-elements {
   @include vf-focus($offset: 0);
   float: left;
   height: $p-computed-height;
@@ -204,7 +208,7 @@ $p-computed-height: map-get($line-heights, default-text);
   &[disabled],
   &[disabled='disabled'] {
     + label {
-      @include vf-disabled-element;
+      @extend %vf-disabled-element;
     }
   }
 }
@@ -265,13 +269,13 @@ input[type="checkbox"] {
 }
 
 // Disabled form elements
-@mixin vf-disabled-element {
+%vf-disabled-element {
   cursor: not-allowed;
   opacity: .5;
 }
 
 // Readonly form elements
-@mixin vf-readonly-element {
+%vf-readonly-element {
   color: $color-mid-light;
   cursor: default;
 
