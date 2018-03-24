@@ -4,7 +4,7 @@ $color-strip-height: 3 * $px;
 $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-strip-height;
 
 // The mixin for basic notification styling
-@mixin vf-notification {
+%vf-notification {
   background-color: $color-x-light;
   border: 0;
   border-radius: $border-radius;
@@ -28,7 +28,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 // Default notification styling
 @mixin vf-notifications-default {
   .p-notification {
-    @include vf-notification;
+    @extend %vf-notification;
 
     &__response {
       @extend %default-text;
@@ -41,16 +41,11 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 
     &__status {
       @extend %bold;
-
-      &::after {
-        content: ' ';
-      }
     }
 
-    &__action {
-      &::before {
-        content: ' ';
-      }
+    &__status::after,
+    &__action::before {
+      content: ' ';
     }
 
     .p-icon--close {
@@ -72,7 +67,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 // Positive notification styling
 @mixin vf-notifications-positive {
   .p-notification--positive {
-    @include vf-notification;
+    @extend %vf-notification;
     border-top-color: $color-positive;
 
     .p-notification__response {
@@ -85,7 +80,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 // Caution notification styling
 @mixin vf-notifications-caution {
   .p-notification--caution {
-    @include vf-notification;
+    @extend %vf-notification;
     border-top-color: $color-caution;
 
     .p-notification__response {
@@ -99,7 +94,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 @mixin vf-notifications-warning {
   @include deprecate('2.0.0', 'Use .p-notifications--caution instead') {
     .p-notification--warning {
-      @include vf-notification;
+      @extend %vf-notification;
       border-top-color: $color-warning;
 
       .p-notification__response {
@@ -113,7 +108,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 // Negative notification styling
 @mixin vf-notifications-negative {
   .p-notification--negative {
-    @include vf-notification;
+    @extend %vf-notification;
     border-top-color: $color-negative;
 
     .p-notification__response {
@@ -126,7 +121,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 // Information notification styling
 @mixin vf-notifications-information {
   .p-notification--information {
-    @include vf-notification;
+    @extend %vf-notification;
     border-top-color: $color-information;
   }
 }

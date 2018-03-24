@@ -10,21 +10,21 @@
     text-align: left;
   }
 
-  code {
-    @extend %default-text;
-    margin-bottom: $spv-nudge-compensation - 2 * $px; // compensates for the borders around <pre>
-    padding-bottom: $spv-intra;
-    white-space: pre-wrap;
-  }
 
   pre,
   code {
     direction: ltr;
-    display: block;
     hyphens: none;
     tab-size: 4;
     word-spacing: normal;
     word-wrap: break-word;
+  }
+
+  code {
+    @extend %default-text;
+    display: inline-block;
+    margin-bottom: $spv-nudge-compensation - 2 * $px; // compensates for the borders around <pre>
+    white-space: pre-wrap;
   }
 
   pre {
@@ -32,6 +32,7 @@
     border: 1px solid $color-mid-light;
     border-radius: $border-radius;
     color: $color-dark;
+    display: block;
     margin-bottom: $spv-inter--scaleable;
     margin-top: 0;
     overflow: auto;
