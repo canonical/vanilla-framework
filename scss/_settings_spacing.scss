@@ -31,7 +31,7 @@ $nudges: (
 );
 
 //scaling factor
-$multi: 2;
+$multi: 3;
 
 ////////////////////////////////////////////////////////
 // Variables connecting spacings that should match beteween components
@@ -52,33 +52,32 @@ $spv-intra--expanded: $spv-intra * 1.5; //vertical padding in: navigation, tabs
 
 // 1.2 Vertical spacing between components
 $spv-inter--condensed: $sp-unit * 1; //labels
-$spv-inter--condensed-scaleable: $spv-inter--condensed * $multi;
-$spv-inter: $sp-unit * 3;
+$spv-inter--condensed-scaleable: $sp-unit * ($multi);
 $spv-inter--scaleable: $sp-unit * (1 + $multi);
 
 // 1.3 Vertical spacing between a group of components and its wrapper - strips, views, entire page
-$spv-inter--expanded-scaleable: $spv-inter * (2 + $multi);
+$spv-inter--expanded-scaleable: $sp-unit * 2 * (3 + $multi);
 
 // 2. HORIZONTAL SPACING
 // 2.1 Horizontal spacing inside components
 $sph-intra--condensed: $sp-unit; // input-elements,
 $sph-intra: $sp-unit * 2; // buttons, accordions, tabs, menu, card padding, stepped-list bullet offset
 // 2.2 Horizontal spacing outside components
-$sph-inter--default: $sph-intra;
+$sph-inter: $sph-intra;
 $sph-inter--expanded: $sp-unit * 3; // checboxes, radios etc. - test settings
 
 ////////////////////////////////////////////////////////
 
 // space before element on desktop
 $sp-before--desktop: (
-  h1: 3 * $sp-unit,
-  h2: 3 * $sp-unit,
-  h3: 3 * $sp-unit,
-  h4: 2 * $sp-unit,
-  h5: 2 * $sp-unit,
-  h6: 2 * $sp-unit,
-  p: 2 * $sp-unit,
-  muted: 2 * $sp-unit
+  h1: $spv-inter--scaleable,
+  h2: $spv-inter--scaleable,
+  h3: $spv-inter--scaleable,
+  h4: $spv-inter--scaleable,
+  h5: $spv-inter--scaleable,
+  h6: $spv-inter--scaleable,
+  p: $spv-inter--scaleable,
+  muted: $spv-inter--scaleable
 );
 
 // space after element on desktop
@@ -87,7 +86,7 @@ $sp-after: (
   h2: $spv-inter--scaleable + $sp-unit,
   h3: $spv-inter--scaleable + $sp-unit,
   h4: $spv-inter--scaleable,
-  p: $spv-inter--scaleable + $sp-unit,
+  p: $spv-inter--scaleable - $sp-unit,
   default-text: $sp-unit,
   muted: $spv-inter--scaleable - $sp-unit * 2
 );

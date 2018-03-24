@@ -13,13 +13,12 @@ $tick-height: .875rem; //14px value from svg as rem so it can be used in calcula
 }
 
 // Mixin for list items
-$sp-list-item-inner--top: map-get($nudges, nudge--p);
-$sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges, nudge--p);
+$spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
 
 @mixin vf-list-item {
   @if($pad-lists) {
-    padding-bottom: $multi * $spv-intra--condensed;
-    padding-top: $multi * $spv-intra--condensed;
+    padding-bottom: $spv-list-item--inner;
+    padding-top: $spv-list-item--inner;
   }
 }
 
@@ -105,7 +104,7 @@ $sp-list-item-inner--bottom: 2 * $sp-unit - map-get($nudges, nudge--p);
 
 // Displays item with a tick bullet
 @mixin vf-p-list-item-state {
-  $bg-pos-y: if($pad-lists, $multi * $spv-intra--condensed + (map-get($line-heights, default-text) - $tick-height) * .5, (map-get($line-heights, default-text) - $tick-height) * .5);
+  $bg-pos-y: if($pad-lists, $spv-list-item--inner + (map-get($line-heights, default-text) - $tick-height) * .5, (map-get($line-heights, default-text) - $tick-height) * .5);
 
   .is-ticked {
     background-image: svg-tick($color-accent);

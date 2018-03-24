@@ -14,10 +14,10 @@
 
   ol,
   ul {
-    margin-bottom: $spv-inter;
-    margin-left: $sph-inter--default;
+    margin-bottom: $spv-inter--scaleable;
+    margin-left: $sph-inter;
     margin-top: 0;
-    padding-left: $sph-inter--default;
+    padding-left: $sph-inter;
 
     nav & {
       list-style: none;
@@ -32,6 +32,9 @@
   }
 
   dt {
+    @extend %default-text;
+    @extend %bold;
+
     border-top: 1px dotted $color-mid-dark;
 
     &:first-of-type {
@@ -40,15 +43,7 @@
   }
 
   dd {
-    margin-left: $sph-intra;
-  }
-
-  dt {
-    @extend %default-text;
-    @extend %bold;
-  }
-
-  dd {
     @extend %paragraph;
+    margin-left: $sph-intra;
   }
 }

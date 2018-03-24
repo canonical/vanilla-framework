@@ -10,9 +10,8 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
   border-radius: $border-radius;
   border-top: $color-strip-height solid $color-mid-dark;
   box-shadow: 0 1px 5px 0 transparentize($color-x-dark, .8);
-  // color: $color-dark;
   display: flex;
-  margin-bottom: $spv-inter--condensed;
+  margin-bottom: $spv-inter--scaleable;
   overflow: hidden;
 }
 
@@ -29,6 +28,10 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
+
+    & + & {
+      margin-top: $spv-inter--scaleable; // negate bottom margin
+    }
 
     &__response {
       @extend %default-text;
