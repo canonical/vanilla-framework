@@ -6,68 +6,69 @@
     @extend %button-pattern;
     @include vf-button-pattern;
   }
-}
 
-%button-pattern {
-  @extend %bordered-text-vertical-padding;
-  @include vf-animation (#{background-color, border-color}, fast, in);
-  @include vf-focus;
-  border-radius: $border-radius;
-  border-style: solid;
-  border-width: 1px;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: map-get($line-heights, default-text);
-  margin-bottom: $spv-inter--scaleable !important;
-  padding-left: $sph-intra;
-  padding-right: $sph-intra;
-  text-align: center;
-  text-decoration: none;
-
-  &:active,
-  &:focus,
-  &:hover {
+  %button-pattern {
+    @extend %bordered-text-vertical-padding;
+    @include vf-animation (#{background-color, border-color}, fast, in);
+    @include vf-focus;
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: $spv-inter--scaleable !important;
+    padding-left: $sph-intra;
+    padding-right: $sph-intra;
+    text-align: center;
     text-decoration: none;
-  }
 
-  &:disabled,
-  &.is--disabled {
-    cursor: not-allowed;
-    opacity: .5;
-  }
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
 
-  @media only screen and (max-width: $breakpoint-x-small) {
-    width: 100%;
+    &:disabled,
+    &.is--disabled {
+      cursor: not-allowed;
+      opacity: .5;
+    }
 
-    p & + & {
+    @media only screen and (max-width: $breakpoint-x-small) {
+      width: 100%;
+
+      p & + & {
+        margin-bottom: $spv-nudge-compensation !important; // because of reset
+        margin-top: - $spv-inter--scaleable !important; // because of reset
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-x-small) {
+      width: auto;
+
+      & + & {
+        margin-left: $sph-inter;
+      }
+    }
+
+    table & {
+      margin-bottom: $spv-nudge-compensation !important;
+      padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
+      padding-top: $spv-nudge - $sp-unit * .5 - $px;
+    }
+
+    // this addresses buttons nested in <p>'s;
+    // remove when no longer needed
+    p & {
       margin-bottom: $spv-nudge-compensation !important; // because of reset
-      margin-top: - $spv-inter--scaleable !important; // because of reset
+      margin-top: - $spv-nudge;
     }
-  }
-
-  @media only screen and (min-width: $breakpoint-x-small) {
-    width: auto;
-
-    & + & {
-      margin-left: $sph-inter;
-    }
-  }
-
-  table & {
-    margin-bottom: $spv-nudge-compensation !important;
-    padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
-    padding-top: $spv-nudge - $sp-unit * .5 - $px;
-  }
-
-  // this addresses buttons nested in <p>'s;
-  // remove when no longer needed
-  p & {
-    margin-bottom: $spv-nudge-compensation !important; // because of reset
-    margin-top: - $spv-nudge;
   }
 }
+
 
 /// mixin for all the buttons
 /// there are sensible defaults, but you can

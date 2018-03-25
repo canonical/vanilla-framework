@@ -3,20 +3,21 @@
 $color-strip-height: 3 * $px;
 $notificaiton-response-padding-top: $spv-intra--condensed--scaleable + $spv-nudge - $color-strip-height;
 
-// The mixin for basic notification styling
-%vf-notification {
-  background-color: $color-x-light;
-  border: 0;
-  border-radius: $border-radius;
-  border-top: $color-strip-height solid $color-mid-dark;
-  box-shadow: 0 1px 5px 0 transparentize($color-x-dark, .8);
-  display: flex;
-  margin-bottom: $spv-inter--scaleable;
-  overflow: hidden;
-}
-
 // Notification style patterns
 @mixin vf-p-notification {
+
+  // The mixin for basic notification styling
+  %vf-notification {
+    background-color: $color-x-light;
+    border: 0;
+    border-radius: $border-radius;
+    border-top: $color-strip-height solid $color-mid-dark;
+    box-shadow: 0 1px 5px 0 transparentize($color-x-dark, .8);
+    display: flex;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: hidden;
+  }
+
   @include vf-notifications-default;
   @include vf-notifications-positive;
   @include vf-notifications-caution;

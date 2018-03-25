@@ -2,6 +2,106 @@
 
 // Form element styles
 @mixin vf-b-forms {
+  // Used in buttons, inputs
+  %bordered-text-vertical-padding {
+    margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
+    padding-bottom: $spv-nudge - $px;
+    padding-top: $spv-nudge - $px;
+  }
+
+  // Default form input element styles
+  %vf-input-elements {
+    @extend %bordered-text-vertical-padding;
+    @include vf-focus;
+
+    appearance: textfield;
+    background-color: $color-x-light;
+    border: 1px solid $color-mid-light;
+    border-radius: $border-radius;
+    box-shadow: inset 0 1px 1px $color-input-shadow;
+    color: $color-dark;
+    font-family: unquote($font-base-family);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: map-get($line-heights, default-text);
+    min-width: 10em;
+    padding-left: $sph-intra--condensed;
+    padding-right: $sph-intra--condensed;
+    vertical-align: baseline;
+    width: 100%;
+
+    table & {
+      margin: 0 0 ($spv-intra - $spv-nudge) 0 !important;
+      padding-bottom: ($spv-nudge - $px) - $spv-intra--condensed;
+      padding-top: ($spv-nudge - $px) - $spv-intra--condensed;
+    }
+
+    &:active {
+      border-color: $color-mid-dark;
+      color: $color-dark;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-mid-dark;
+      opacity: 1;
+    }
+
+    &[disabled],
+    &[disabled='disabled'] {
+      @extend %vf-disabled-element;
+    }
+
+    &[readonly],
+    &[readonly='readonly'] {
+      @extend %vf-readonly-element;
+    }
+
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        border: 1px solid $color;
+      }
+    }
+  }
+
+  // Default form checkbox and radio styles
+  %vf-tick-elements {
+    @include vf-focus($offset: 0);
+    float: left;
+    height: map-get($line-heights, default-text);
+    margin-bottom: 0;
+    margin-right: $sph-inter--expanded;
+    padding: 0;
+    vertical-align: middle;
+    width: auto;
+
+    &[disabled],
+    &[disabled='disabled'] {
+      + label {
+        @extend %vf-disabled-element;
+      }
+    }
+  }
+
+  // Disabled form elements
+  %vf-disabled-element {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+
+  // Readonly form elements
+  %vf-readonly-element {
+    color: $color-mid-light;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      border-color: $color-mid-dark;
+      outline: none;
+    }
+  }
+
+
   label {
     cursor: pointer;
     display: block;
@@ -130,151 +230,60 @@
   label {
     @extend %default-text;
   }
-}
 
-// Default form input element styles
-%vf-input-elements {
-  @extend %bordered-text-vertical-padding;
-  @include vf-focus;
+  // Accessible checkbox technique from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
+  input[type="checkbox"] {
+    $box-size: 1rem;
+    $box-offset-top: map-get($nudges, nudge--p) + (map-get($line-heights, default-text) - $box-size) * .5;
+    $tick-offset-top: $box-offset-top + 3 * $px;
+    opacity: 0;
+    position: absolute;
 
-  appearance: textfield;
-  background-color: $color-x-light;
-  border: 1px solid $color-mid-light;
-  border-radius: $border-radius;
-  box-shadow: inset 0 1px 1px $color-input-shadow;
-  color: $color-dark;
-  font-family: unquote($font-base-family);
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: map-get($line-heights, default-text);
-  min-width: 10em;
-  padding-left: $sph-intra--condensed;
-  padding-right: $sph-intra--condensed;
-  vertical-align: baseline;
-  width: 100%;
+    & + label {
+      @include vf-focus;
 
-  table & {
-    margin: 0 0 ($spv-intra - $spv-nudge) 0 !important;
-    padding-bottom: ($spv-nudge - $px) - $spv-intra--condensed;
-    padding-top: ($spv-nudge - $px) - $spv-intra--condensed;
-  }
+      $label-offset--left: $sph-inter--expanded + $box-size;
+      margin-top: - map-get($nudges, nudge--p);
+      padding-left: $label-offset--left;
+      position: relative;
 
-  &:active {
-    border-color: $color-mid-dark;
-    color: $color-dark;
-    outline: none;
-  }
+      // box
+      &::before {
+        border: 1px solid $color-mid-light;
+        border-radius: $border-radius;
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        left: 0;
+        top: $box-offset-top;
+        width: 1rem;
+      }
 
-  &::placeholder {
-    color: $color-mid-dark;
-    opacity: 1;
-  }
+      // tick
+      &::after {
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        content: none;
+        display: inline-block;
+        height: 7px;
+        left: 2px;
+        top: 12px;
+        transform: rotate(-45deg);
+        width: 11px;
+      }
 
-  &[disabled],
-  &[disabled='disabled'] {
-    @extend %vf-disabled-element;
-  }
+      &::before,
+      &::after {
+        // Needed for the line-height to take effect
+        display: inline-block;
 
-  &[readonly],
-  &[readonly='readonly'] {
-    @extend %vf-readonly-element;
-  }
-
-  @each $state, $color in $states {
-    &.has-#{$state} {
-      border: 1px solid $color;
+        position: absolute;
+      }
     }
-  }
-}
 
-// Default form checkbox and radio styles
-%vf-tick-elements {
-  @include vf-focus($offset: 0);
-  float: left;
-  height: map-get($line-heights, default-text);
-  margin-bottom: 0;
-  margin-right: $sph-inter--expanded;
-  padding: 0;
-  vertical-align: middle;
-  width: auto;
-
-  &[disabled],
-  &[disabled='disabled'] {
-    + label {
-      @extend %vf-disabled-element;
-    }
-  }
-}
-
-// Accessible checkbox technique from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
-input[type="checkbox"] {
-  $box-size: 1rem;
-  $box-offset-top: map-get($nudges, nudge--p) + (map-get($line-heights, default-text) - $box-size) * .5;
-  $tick-offset-top: $box-offset-top + 3 * $px;
-  opacity: 0;
-  position: absolute;
-
-  & + label {
-    @include vf-focus;
-
-    $label-offset--left: $sph-inter--expanded + $box-size;
-    margin-top: - map-get($nudges, nudge--p);
-    padding-left: $label-offset--left;
-    position: relative;
-
-    // box
-    &::before {
-      border: 1px solid $color-mid-light;
-      border-radius: $border-radius;
+    &:checked + label::after {
       content: "";
-      display: inline-block;
-      height: 1rem;
-      left: 0;
-      top: $box-offset-top;
-      width: 1rem;
     }
-
-    // tick
-    &::after {
-      border-bottom: 2px solid;
-      border-left: 2px solid;
-      content: none;
-      display: inline-block;
-      height: 7px;
-      left: 2px;
-      top: 12px;
-      transform: rotate(-45deg);
-      width: 11px;
-    }
-
-    &::before,
-    &::after {
-      // Needed for the line-height to take effect
-      display: inline-block;
-
-      position: absolute;
-    }
-  }
-
-  &:checked + label::after {
-    content: "";
   }
 }
 
-// Disabled form elements
-%vf-disabled-element {
-  cursor: not-allowed;
-  opacity: .5;
-}
-
-// Readonly form elements
-%vf-readonly-element {
-  color: $color-mid-light;
-  cursor: default;
-
-  &:hover,
-  &:active {
-    border-color: $color-mid-dark;
-    outline: none;
-  }
-}

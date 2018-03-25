@@ -6,32 +6,6 @@ $numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
 $tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
 $spv-list-item--inner: .5 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text.
 
-%ol-numbered {
-  counter-reset: li;
-  list-style: none;
-  margin-left: $numbered-bullet-offset;
-  padding-left: 0;
-}
-
-%li-numbered {
-  &::before {
-    @extend %vf-heading-3;
-    background-color: $color-mid-dark;
-    border-radius: 100%;
-    color: $color-x-light;
-    content: counter(li);
-    counter-increment: li;
-    direction: rtl;
-    display: inline-block;
-    margin-left: - $numbered-bullet-offset;
-    margin-top: map-get($nudges, nudge--h3) * .75; // move nudge from padding to top, as padding enlarges the background circle
-    padding: map-get($nudges, nudge--h3) * .25 0 map-get($nudges, nudge--h3) * .25;
-    position: absolute;
-    text-align: center;
-    width: $numbered-bullet-width + map-get($nudges, nudge--h3) * .5;
-  }
-}
-
 // Default list styling
 // Mixin for basic styled lists
 @mixin vf-list {
@@ -258,6 +232,31 @@ $spv-list-item--inner: .5 * $spv-inter--condensed-scaleable; // padding top and 
 }
 
 @mixin vf-p-lists {
+  %ol-numbered {
+    counter-reset: li;
+    list-style: none;
+    margin-left: $numbered-bullet-offset;
+    padding-left: 0;
+  }
+
+  %li-numbered {
+    &::before {
+      @extend %vf-heading-3;
+      background-color: $color-mid-dark;
+      border-radius: 100%;
+      color: $color-x-light;
+      content: counter(li);
+      counter-increment: li;
+      direction: rtl;
+      display: inline-block;
+      margin-left: - $numbered-bullet-offset;
+      margin-top: map-get($nudges, nudge--h3) * .75; // move nudge from padding to top, as padding enlarges the background circle
+      padding: map-get($nudges, nudge--h3) * .25 0 map-get($nudges, nudge--h3) * .25;
+      position: absolute;
+      text-align: center;
+      width: $numbered-bullet-width + map-get($nudges, nudge--h3) * .5;
+    }
+  }
   @include vf-p-list;
   @include vf-p-list-divided;
   @include vf-p-list-item-state;

@@ -164,27 +164,27 @@
 
   // headings
   h1 {
-    @extend %vf-heading-1;
+    @include vf-heading-1;
   }
 
   h2 {
-    @extend %vf-heading-2;
+    @include vf-heading-2;
   }
 
   h3 {
-    @extend %vf-heading-3;
+    @include vf-heading-3;
   }
 
   h4 {
-    @extend %vf-heading-4;
+    @include vf-heading-4;
   }
 
   h5 {
-    @extend %vf-heading-5;
+    @include vf-heading-5;
   }
 
   h6 {
-    @extend %vf-heading-6;
+    @include vf-heading-6;
   }
 
   // override default spacing for specific combinations of elements
@@ -259,6 +259,139 @@
   .small-text {
     @extend %small-text;
   }
+
+  %vf-heading-1 {
+    @include align-text;
+    @include heading-max-width--short;
+    font-size: pow($ms-ratio, 8) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h1);
+    margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
+    margin-top: - $spv-nudge-negative-offset;
+    padding-top: map-get($nudges, nudge--h1);
+  }
+
+  %vf-heading-2 {
+    @include align-text;
+    @include heading-max-width--short;
+    font-size: pow($ms-ratio, 6) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h2);
+    margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
+    margin-top: - $spv-nudge-negative-offset;
+    padding-top: map-get($nudges, nudge--h2);
+  }
+
+  %vf-heading-3 {
+    @include align-text;
+    @include heading-max-width--long;
+    font-size: pow($ms-ratio, 4) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h3);
+    margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
+    margin-top: - $spv-nudge-negative-offset;
+    padding-top: map-get($nudges, nudge--h3);
+  }
+
+  %vf-heading-4 {
+    @include align-text;
+    @include heading-max-width--long;
+    font-size: pow($ms-ratio, 2) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h4);
+    margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
+    margin-top: - $spv-nudge-negative-offset;
+    padding-top: map-get($nudges, nudge--h4);
+  }
+
+  %vf-heading-5 {
+    @extend %paragraph;
+    @include align-text;
+    @include p-max-width;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  %vf-heading-6 {
+    @extend %paragraph;
+    @include align-text;
+    @include p-max-width;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  %default-text {
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
+    margin-top: - $sp-unit; //$spv-nudge-negative-offset;
+    padding-top: map-get($nudges, nudge--p);
+  }
+
+  %paragraph {
+    @extend %default-text;
+    margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
+  }
+
+  %small-text {
+    font-size: 1rem / pow($ms-ratio, 1) !important; //because of the reset
+    margin-bottom: map-get($sp-after, small) - map-get($nudges, nudge--small);
+    padding-top: map-get($nudges, nudge--small);
+  }
+
+  %muted-heading {
+    @extend %bold;
+
+    $nudge--muted: map-get($nudges, nudge--muted);
+    color: $color-mid-dark;
+    font-size: 1rem / pow($ms-ratio, 2);
+    margin-bottom:  map-get($sp-after, muted) - $nudge--muted;
+    padding-top: $nudge--muted;
+    text-transform: uppercase;
+  }
+
+  %sp--ph1 {
+    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before--desktop, h1);
+  }
+
+  %sp--ph2 {
+    padding-top: map-get($nudges, nudge--h2) + map-get($sp-before--desktop, h2);
+  }
+
+  %sp--ph3 {
+    padding-top: map-get($nudges, nudge--h3) + map-get($sp-before--desktop, h3);
+  }
+
+  %sp--ph4 {
+    padding-top: map-get($nudges, nudge--h4) + map-get($sp-before--desktop, h4);
+  }
+
+  %sp--ph5 {
+    padding-top: map-get($nudges, nudge--p) + map-get($sp-before--desktop, h5);
+  }
+
+  %sp--pmuted {
+    padding-top: map-get($nudges, nudge--muted) + map-get($sp-before--desktop, muted);
+  }
+
+  %max-width--p {
+    max-width: 38em;
+  }
+
+  //expose measure aa a class
+  %measure--p,
+  .measure--p {
+    @extend %max-width--p;
+  }
+
+  %bold {
+    font-weight: 400;
+  }
 }
 
 @mixin align-text {
@@ -286,16 +419,6 @@
   max-width: 25em;
 }
 
-%max-width--p {
-  max-width: 38em;
-}
-
-//expose measure aa a class
-%measure--p,
-.measure--p {
-  @extend %max-width--p;
-}
-
 // Optimal max-width for body copy
 @mixin p-max-width {
   @extend %max-width--p;
@@ -306,73 +429,6 @@
 @mixin p-max-width--long {
   max-width: 60em;
 }
-
-%vf-heading-1 {
-  @include align-text;
-  @include heading-max-width--short;
-  font-size: pow($ms-ratio, 8) * 1rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: map-get($line-heights, h1);
-  margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
-  margin-top: - $spv-nudge-negative-offset;
-  padding-top: map-get($nudges, nudge--h1);
-}
-
-%vf-heading-2 {
-  @include align-text;
-  @include heading-max-width--short;
-  font-size: pow($ms-ratio, 6) * 1rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: map-get($line-heights, h2);
-  margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
-  margin-top: - $spv-nudge-negative-offset;
-  padding-top: map-get($nudges, nudge--h2);
-}
-
-%vf-heading-3 {
-  @include align-text;
-  @include heading-max-width--long;
-  font-size: pow($ms-ratio, 4) * 1rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: map-get($line-heights, h3);
-  margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
-  margin-top: - $spv-nudge-negative-offset;
-  padding-top: map-get($nudges, nudge--h3);
-}
-
-%vf-heading-4 {
-  @include align-text;
-  @include heading-max-width--long;
-  font-size: pow($ms-ratio, 2) * 1rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: map-get($line-heights, h4);
-  margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
-  margin-top: - $spv-nudge-negative-offset;
-  padding-top: map-get($nudges, nudge--h4);
-}
-
-%vf-heading-5 {
-  @extend %paragraph;
-  @include align-text;
-  @include p-max-width;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-}
-
-%vf-heading-6 {
-  @extend %paragraph;
-  @include align-text;
-  @include p-max-width;
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: 300;
-}
-
 
 // For compatibility with other sites which rely on these mixins
 @mixin vf-heading-1 {

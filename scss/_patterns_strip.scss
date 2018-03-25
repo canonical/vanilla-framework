@@ -1,36 +1,37 @@
 @import 'settings';
 
-%section-padding--default--max-bp-large {
-  @media only screen and (max-width: $breakpoint-large) {
-    padding-bottom: $spv-inter--scaleable;
-    padding-top: $spv-inter--scaleable;
-  }
-}
-
-%section-padding--default--min-bp-large {
-  @media only screen and (min-width: $breakpoint-large) {
-    padding-bottom: $spv-inter--scaleable * 2;
-    padding-top: $spv-inter--scaleable * 2 - $px; //border compensation
-  }
-}
-
-%section-padding--default {
-  @extend %section-padding--default--max-bp-large;
-  @extend %section-padding--default--min-bp-large;
-}
-
-%section-padding--shallow {
-  padding-bottom: $spv-inter--condensed-scaleable;
-  padding-top: $spv-inter--condensed-scaleable;
-}
-
-%vf-strip {
-  @extend %section-padding--default;
-  clear: both;
-  width: 100%;
-}
 
 @mixin vf-p-strip {
+  %section-padding--default--max-bp-large {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--scaleable;
+      padding-top: $spv-inter--scaleable;
+    }
+  }
+
+  %section-padding--default--min-bp-large {
+    @media only screen and (min-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--scaleable * 2;
+      padding-top: $spv-inter--scaleable * 2 - $px; //border compensation
+    }
+  }
+
+  %section-padding--default {
+    @extend %section-padding--default--max-bp-large;
+    @extend %section-padding--default--min-bp-large;
+  }
+
+  %section-padding--shallow {
+    padding-bottom: $spv-inter--condensed-scaleable;
+    padding-top: $spv-inter--condensed-scaleable;
+  }
+
+  %vf-strip {
+    @extend %section-padding--default;
+    clear: both;
+    width: 100%;
+  }
+
   @include vf-p-strip-default;
   @include vf-p-strip-accent;
   @include vf-p-strip-image;
