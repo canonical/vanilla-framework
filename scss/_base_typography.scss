@@ -310,12 +310,12 @@
 %vf-heading-1 {
   @include align-text;
   @include heading-max-width--short;
-  font-size: pow($ms-ratio, 8) * 1rem;
+  font-size: pow($ms-ratio, 8) * 1rem !important; //because of the reset file
   font-style: normal;
   font-weight: 300;
   line-height: map-get($line-heights, h1);
-  margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
-  margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
+  margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1) !important;
+  margin-top: - $spv-nudge-negative-offset !important;
   padding-top: map-get($nudges, nudge--h1);
 }
 
@@ -327,7 +327,7 @@
   font-weight: 300;
   line-height: map-get($line-heights, h2);
   margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
-  margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
+  margin-top: - $spv-nudge-negative-offset;
   padding-top: map-get($nudges, nudge--h2);
 }
 
@@ -339,10 +339,9 @@
   font-weight: 300;
   line-height: map-get($line-heights, h3);
   margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
-  margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
+  margin-top: - $spv-nudge-negative-offset;
   padding-top: map-get($nudges, nudge--h3);
 }
-
 
 %vf-heading-4 {
   @include align-text;
@@ -352,7 +351,7 @@
   font-weight: 300;
   line-height: map-get($line-heights, h4);
   margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
-  margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
+  margin-top: - $spv-nudge-negative-offset;
   padding-top: map-get($nudges, nudge--h4);
 }
 
