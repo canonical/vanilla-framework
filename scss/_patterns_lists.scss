@@ -1,8 +1,35 @@
 @import 'settings';
 
-$numbered-bullet-width: $sp-unit * 5;
-$numbered-bullet-margin-right: $sph-intra;
+$numbered-bullet-width: $sp-unit * 4;
+$numbered-bullet-margin-right: $sph-inter--expanded;
 $tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
+$spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text. 
+
+%ol-numbered {
+    counter-reset: li;
+    list-style: none;
+    margin-left: $numbered-bullet-width + $numbered-bullet-margin-right;
+}
+
+%li-numbered {
+    &::before {
+      @extend %vf-heading-3;
+      background-color: $color-mid-dark;
+      border-radius: 100%;
+      color: $color-x-light;
+      content: counter(li);
+      counter-increment: li;
+      direction: rtl;
+      display: inline-block;
+      margin-left: -$numbered-bullet-width - $numbered-bullet-margin-right;
+      padding-bottom: map-get($nudges, nudge--h3) * .25;
+      padding-top: map-get($nudges, nudge--h3) * .25;
+      position: absolute;
+      text-align: center; 
+      margin-top: map-get($nudges, nudge--h3) * .75; // move nudge from padding to top, as padding enlarges the background circle
+      width: $numbered-bullet-width + map-get($nudges, nudge--h3) * .5;
+    }
+}
 
 // Default list styling
 // Mixin for basic styled lists
@@ -12,9 +39,8 @@ $tick-height: .875rem; //14px value from svg as rem so it can be used in calcula
   padding-left: 0;
 }
 
-// Mixin for list items
-$spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
 
+// Mixin for list items
 @mixin vf-list-item {
   @if($pad-lists) {
     padding-bottom: $spv-list-item--inner;
@@ -53,17 +79,6 @@ $spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
   .last-item {
     margin-right: 0;
   }
-}
-
-@mixin vf-p-lists {
-  @include vf-p-list;
-  @include vf-p-list-divided;
-  @include vf-p-list-item-state;
-  @include vf-p-inline-list;
-  @include vf-p-inline-list-middot;
-  @include vf-p-stepped-list;
-  @include vf-p-stepped-list-detailed;
-  @include vf-p-list-split;
 }
 
 @function svg-tick($color) {
@@ -164,9 +179,12 @@ $spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
 // Displays a step by step list of instructions
 @mixin vf-p-stepped-list {
   .p-list-step {
-    list-style: none;
-    margin-left: $numbered-bullet-width + $numbered-bullet-margin-right;
+    @extend %ol-numbered;
     padding: 0;
+
+    >li {
+      @extend %li-numbered;
+    }
 
     &__title {
       position: relative;
@@ -175,35 +193,11 @@ $spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
     &__item {
       clear: both;
       margin-left: 0;
-      margin-top: $sp-large;
       width: 100%;
-
-      &:first-child {
-        margin-top: $sp-small;
-
-        @media only screen and (min-width: $breakpoint-large) {
-          margin-top: 0;
-        }
-      }
     }
 
     &__bullet {
-      background-color: $color-mid-dark;
-      border-radius: 50%;
-      color: $color-x-light;
-      display: inline-block;
-      font-size: $sp-large;
-      height: $numbered-bullet-width;
-      line-height: $numbered-bullet-width;
-      margin-left: -$numbered-bullet-width - $numbered-bullet-margin-right;
-      margin-top: -.4em;
-      position: absolute;
-      text-align: center;
-      width: $numbered-bullet-width;
-
-      @media (min-width: $breakpoint-large) {
-        margin-top: -.15em;
-      }
+      display: none;
     }
   }
 }
@@ -211,11 +205,14 @@ $spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
     @extend %clearfix;
+    @extend %ol-numbered;
+
     list-style: none;
     margin-left: 0;
     padding: 0 2rem 0 $numbered-bullet-width + $numbered-bullet-margin-right;
-    @media (max-width: $grid-max-width) {
-      margin-top: $sp-xx-large;
+
+    >li {
+      @extend %li-numbered;
     }
 
     .p-list-step__item {
@@ -230,19 +227,6 @@ $spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
         >:nth-child(2n+1) {
           @include column(6, $grid-columns, true);
         }
-      }
-    }
-
-    .p-list-step__title {
-      @media (min-width: $breakpoint-medium) {
-        padding-top: $sp-xx-large;
-      }
-    }
-
-    .p-list-step__content {
-      @media (min-width: $breakpoint-medium) {
-        border-bottom: 1px solid $color-mid-light;
-        padding: $sp-xx-large 0;
       }
     }
   }
@@ -277,4 +261,15 @@ $spv-list-item--inner: $multi * .5 * $spv-intra--condensed;
       }
     }
   }
+}
+
+@mixin vf-p-lists {
+  @include vf-p-list;
+  @include vf-p-list-divided;
+  @include vf-p-list-item-state;
+  @include vf-p-inline-list;
+  @include vf-p-inline-list-middot;
+  @include vf-p-stepped-list;
+  @include vf-p-stepped-list-detailed;
+  @include vf-p-list-split;
 }

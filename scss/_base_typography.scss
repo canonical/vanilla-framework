@@ -3,7 +3,6 @@
 
 // Typographic element styles
 @mixin vf-b-typography {
-
   @if str-index($font-base-family, 'Ubuntu') {
     @font-face {
       font-family: 'Ubuntu';
@@ -164,34 +163,28 @@
   }
 
   // headings
-  h1,
-  .p-heading--one {
-    @include vf-heading-1;
+  h1 {
+    @extend %vf-heading-1;
   }
 
-  h2,
-  .p-heading--two {
-    @include vf-heading-2;
+  h2 {
+    @extend %vf-heading-2;
   }
 
-  h3,
-  .p-heading--three {
-    @include vf-heading-3;
+  h3 {
+    @extend %vf-heading-3;
   }
 
-  h4,
-  .p-heading--four {
-    @include vf-heading-4;
+  h4 {
+    @extend %vf-heading-4;
   }
 
-  h5,
-  .p-heading--five {
-    @include vf-heading-5;
+  h5 {
+    @extend %vf-heading-5;
   }
 
-  h6,
-  .p-heading--six {
-    @include vf-heading-6;
+  h6 {
+    @extend %vf-heading-6;
   }
 
   // override default spacing for specific combinations of elements
@@ -314,56 +307,56 @@
   max-width: 60em;
 }
 
-@mixin vf-heading-1 {
+%vf-heading-1 {
   @include align-text;
   @include heading-max-width--short;
   font-size: pow($ms-ratio, 8) * 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: map-get($line-heights, h1);
-  margin-bottom: map-get($sp-after, h1) - $baseline-nudge-h1;
+  margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
-  padding-top: $baseline-nudge-h1;
+  padding-top: map-get($nudges, nudge--h1);
 }
 
-@mixin vf-heading-2 {
+%vf-heading-2 {
   @include align-text;
   @include heading-max-width--short;
   font-size: pow($ms-ratio, 6) * 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: map-get($line-heights, h2);
-  margin-bottom: map-get($sp-after, h2) - $baseline-nudge-h2;
+  margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
-  padding-top: $baseline-nudge-h2;
+  padding-top: map-get($nudges, nudge--h2);
 }
 
-@mixin vf-heading-3 {
+%vf-heading-3 {
   @include align-text;
   @include heading-max-width--long;
   font-size: pow($ms-ratio, 4) * 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: map-get($line-heights, h3);
-  margin-bottom: map-get($sp-after, h3) - $baseline-nudge-h3;
+  margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
-  padding-top: $baseline-nudge-h3;
+  padding-top: map-get($nudges, nudge--h3);
 }
 
 
-@mixin vf-heading-4 {
+%vf-heading-4 {
   @include align-text;
   @include heading-max-width--long;
   font-size: pow($ms-ratio, 2) * 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: map-get($line-heights, h4);
-  margin-bottom: map-get($sp-after, h4) - $baseline-nudge-h4;
+  margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
   margin-top: - $spv-nudge-negative-offset; //XXX: verify this doesn't cause margin-collapse
-  padding-top: $baseline-nudge-h4;
+  padding-top: map-get($nudges, nudge--h4);
 }
 
-@mixin vf-heading-5 {
+%vf-heading-5 {
   @extend %paragraph;
   @include align-text;
   @include p-max-width;
@@ -372,7 +365,7 @@
   font-weight: 500;
 }
 
-@mixin vf-heading-6 {
+%vf-heading-6 {
   @extend %paragraph;
   @include align-text;
   @include p-max-width;

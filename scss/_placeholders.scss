@@ -1,20 +1,15 @@
 //typography
-$baseline-nudge-h1: map-get($nudges, nudge--h1);
-$baseline-nudge-h2: map-get($nudges, nudge--h2);
-$baseline-nudge-h3: map-get($nudges, nudge--h3);
-$baseline-nudge-h4: map-get($nudges, nudge--h4);
-$baseline-nudge-p: map-get($nudges, nudge--p);
 
 %default-text {
   line-height: map-get($line-heights, default-text);
-  margin-bottom: map-get($sp-after, default-text) - $baseline-nudge-p;
+  margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
   margin-top: - $spv-nudge-negative-offset;
-  padding-top: $baseline-nudge-p;
+  padding-top: map-get($nudges, nudge--p);
 }
 
 %paragraph {
   @extend %default-text;
-  margin-bottom: map-get($sp-after, p) - $baseline-nudge-p;
+  margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
 }
 
 %small-text {
@@ -35,23 +30,23 @@ $baseline-nudge-p: map-get($nudges, nudge--p);
 }
 
 %sp--ph1 {
-  padding-top: $baseline-nudge-h1 + map-get($sp-before--desktop, h1);
+  padding-top: map-get($nudges, nudge--h1) + map-get($sp-before--desktop, h1);
 }
 
 %sp--ph2 {
-  padding-top: $baseline-nudge-h2 + map-get($sp-before--desktop, h2);
+  padding-top: map-get($nudges, nudge--h2) + map-get($sp-before--desktop, h2);
 }
 
 %sp--ph3 {
-  padding-top: $baseline-nudge-h3 + map-get($sp-before--desktop, h3);
+  padding-top: map-get($nudges, nudge--h3) + map-get($sp-before--desktop, h3);
 }
 
 %sp--ph4 {
-  padding-top: $baseline-nudge-h4 + map-get($sp-before--desktop, h4);
+  padding-top: map-get($nudges, nudge--h4) + map-get($sp-before--desktop, h4);
 }
 
 %sp--ph5 {
-  padding-top: $baseline-nudge-p + map-get($sp-before--desktop, h5);
+  padding-top: map-get($nudges, nudge--p) + map-get($sp-before--desktop, h5);
 }
 
 %sp--pmuted {
