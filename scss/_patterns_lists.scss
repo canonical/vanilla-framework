@@ -1,6 +1,6 @@
 @import 'settings';
-
-$numbered-bullet-width: $sp-unit * 4;
+$bullet-padding: map-get($nudges, nudge--h3) * 0;
+$numbered-bullet-width: map-get($line-heights, h3) + $bullet-padding * 2;
 $numbered-bullet-margin-right: $sph-inter--expanded;
 $numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
 $tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
@@ -168,6 +168,10 @@ $spv-list-item--inner: .5 * $spv-inter--condensed-scaleable; // padding top and 
       width: 100%;
     }
 
+    &__content {
+      margin-top: 0;
+    }
+
     &__bullet {
       display: none;
     }
@@ -250,11 +254,11 @@ $spv-list-item--inner: .5 * $spv-inter--condensed-scaleable; // padding top and 
       direction: rtl;
       display: inline-block;
       margin-left: - $numbered-bullet-offset;
-      margin-top: map-get($nudges, nudge--h3) * .75; // move nudge from padding to top, as padding enlarges the background circle
-      padding: map-get($nudges, nudge--h3) * .25 0 map-get($nudges, nudge--h3) * .25;
+      margin-top: map-get($nudges, nudge--h3);
+      padding: $bullet-padding 0 $bullet-padding;
       position: absolute;
       text-align: center;
-      width: $numbered-bullet-width + map-get($nudges, nudge--h3) * .5;
+      width: $numbered-bullet-width;
     }
   }
   @include vf-p-list;

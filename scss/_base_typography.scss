@@ -187,38 +187,6 @@
     @include vf-heading-6;
   }
 
-  // override default spacing for specific combinations of elements
-  p + h1,
-  p + .p-heading--two {
-    @extend %sp--ph1;
-  }
-
-  p + h2,
-  p + .p-heading--two {
-    @extend %sp--ph2;
-  }
-
-  p + h3,
-  p + .p-heading--three {
-    @extend %sp--ph3;
-  }
-
-  p + h4,
-  p + .p-heading--four {
-    @extend %sp--ph4;
-  }
-
-  p + h5,
-  p + .p-heading--five,
-  p + h6,
-  p + .p-heading--six {
-    @extend %sp--ph5;
-  }
-
-  p + .p-muted-heading {
-    @extend %sp--pmuted;
-  }
-
   // blockquotes
   blockquote {
     margin-bottom: 0;
@@ -258,6 +226,37 @@
 
   .small-text {
     @extend %small-text;
+  }
+
+  p,
+  h5,
+  h6 {
+    & + & {
+    }
+  }
+
+  p + p,
+  h5 + p,
+  h5 + h5,
+  h5 + h6,
+  h5 + .p-heading--five,
+  .p-heading--five + p,
+  .p-heading--five + h5,
+  .p-heading--five + h6,
+  .p-heading--five + .p-heading--five,
+  .p-heading--five + .p-heading--six,
+  h6 + p,
+  h6 + h5,
+  h6 + h6,
+  h6 + .p-heading--five,
+  h6 + .p-heading--six,
+  .p-heading--six + p,
+  .p-heading--six + h5,
+  .p-heading--six + h6,
+  .p-heading--six + .p-heading--five,
+  .p-heading--six + .p-heading--six
+  {
+    margin-top: -$sp-unit;
   }
 
   %vf-heading-1 {
@@ -329,7 +328,7 @@
   %default-text {
     line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
-    margin-top: - $sp-unit; //$spv-nudge-negative-offset;
+    margin-top: 0;
     padding-top: map-get($nudges, nudge--p);
   }
 
@@ -353,30 +352,6 @@
     margin-bottom:  map-get($sp-after, muted) - $nudge--muted;
     padding-top: $nudge--muted;
     text-transform: uppercase;
-  }
-
-  %sp--ph1 {
-    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before--desktop, h1);
-  }
-
-  %sp--ph2 {
-    padding-top: map-get($nudges, nudge--h2) + map-get($sp-before--desktop, h2);
-  }
-
-  %sp--ph3 {
-    padding-top: map-get($nudges, nudge--h3) + map-get($sp-before--desktop, h3);
-  }
-
-  %sp--ph4 {
-    padding-top: map-get($nudges, nudge--h4) + map-get($sp-before--desktop, h4);
-  }
-
-  %sp--ph5 {
-    padding-top: map-get($nudges, nudge--p) + map-get($sp-before--desktop, h5);
-  }
-
-  %sp--pmuted {
-    padding-top: map-get($nudges, nudge--muted) + map-get($sp-before--desktop, muted);
   }
 
   %max-width--p {
