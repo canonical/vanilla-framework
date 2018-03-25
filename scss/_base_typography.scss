@@ -310,12 +310,12 @@
 %vf-heading-1 {
   @include align-text;
   @include heading-max-width--short;
-  font-size: pow($ms-ratio, 8) * 1rem !important; //because of the reset file
+  font-size: pow($ms-ratio, 8) * 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: map-get($line-heights, h1);
-  margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1) !important;
-  margin-top: - $spv-nudge-negative-offset !important;
+  margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
+  margin-top: - $spv-nudge-negative-offset;
   padding-top: map-get($nudges, nudge--h1);
 }
 
@@ -371,4 +371,30 @@
   font-size: 1rem;
   font-style: italic;
   font-weight: 300;
+}
+
+
+// For compatibility with other sites which rely on these mixins
+@mixin vf-heading-1 {
+  @extend %vf-heading-1;
+}
+
+@mixin vf-heading-2 {
+  @extend %vf-heading-2;
+}
+
+@mixin vf-heading-3 {
+  @extend %vf-heading-3;
+}
+
+@mixin vf-heading-4 {
+  @extend %vf-heading-4;
+}
+
+@mixin vf-heading-5 {
+  @extend %vf-heading-5;
+}
+
+@mixin vf-heading-6 {
+  @extend %vf-heading-6;
 }
