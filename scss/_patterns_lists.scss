@@ -2,33 +2,34 @@
 
 $numbered-bullet-width: $sp-unit * 4;
 $numbered-bullet-margin-right: $sph-inter--expanded;
+$numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
 $tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
 $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text. 
 
 %ol-numbered {
-    counter-reset: li;
-    list-style: none;
-    margin-left: $numbered-bullet-width + $numbered-bullet-margin-right;
+  counter-reset: li;
+  list-style: none;
+  margin-left: $numbered-bullet-offset;
+  padding-left: 0;
 }
 
 %li-numbered {
-    &::before {
-      @extend %vf-heading-3;
-      background-color: $color-mid-dark;
-      border-radius: 100%;
-      color: $color-x-light;
-      content: counter(li);
-      counter-increment: li;
-      direction: rtl;
-      display: inline-block;
-      margin-left: -$numbered-bullet-width - $numbered-bullet-margin-right;
-      padding-bottom: map-get($nudges, nudge--h3) * .25;
-      padding-top: map-get($nudges, nudge--h3) * .25;
-      position: absolute;
-      text-align: center; 
-      margin-top: map-get($nudges, nudge--h3) * .75; // move nudge from padding to top, as padding enlarges the background circle
-      width: $numbered-bullet-width + map-get($nudges, nudge--h3) * .5;
-    }
+  &::before {
+    @extend %vf-heading-3;
+    background-color: $color-mid-dark;
+    border-radius: 100%;
+    color: $color-x-light;
+    content: counter(li);
+    counter-increment: li;
+    direction: rtl;
+    display: inline-block;
+    margin-left: - $numbered-bullet-offset;
+    margin-top: map-get($nudges, nudge--h3) * .75; // move nudge from padding to top, as padding enlarges the background circle
+    padding: map-get($nudges, nudge--h3) * .25 0 map-get($nudges, nudge--h3) * .25;
+    position: absolute;
+    text-align: center;
+    width: $numbered-bullet-width + map-get($nudges, nudge--h3) * .5;
+  }
 }
 
 // Default list styling
@@ -178,20 +179,18 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
 
 // Displays a step by step list of instructions
 @mixin vf-p-stepped-list {
+  @extend %clearfix;
+
   .p-list-step {
     @extend %ol-numbered;
-    padding: 0;
 
     >li {
       @extend %li-numbered;
     }
 
-    &__title {
-      position: relative;
-    }
-
     &__item {
-      clear: both;
+      // override unecessary col-8 class in markup; layout is handled with css below
+      float: none;
       margin-left: 0;
       width: 100%;
     }
@@ -206,10 +205,6 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
   .p-stepped-list--detailed {
     @extend %clearfix;
     @extend %ol-numbered;
-
-    list-style: none;
-    margin-left: 0;
-    padding: 0 2rem 0 $numbered-bullet-width + $numbered-bullet-margin-right;
 
     >li {
       @extend %li-numbered;
