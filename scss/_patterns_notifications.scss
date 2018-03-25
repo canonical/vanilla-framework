@@ -1,7 +1,7 @@
 @import 'settings';
 
 $color-strip-height: 3 * $px;
-$notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-strip-height;
+$notificaiton-response-padding-top: $spv-intra--condensed--scaleable + $spv-nudge - $color-strip-height;
 
 // The mixin for basic notification styling
 %vf-notification {
@@ -39,7 +39,7 @@ $notificaiton-response-padding-top: $spv-intra--condensed + $spv-nudge - $color-
       background-position: $sph-intra $notificaiton-response-padding-top + .5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
       background-repeat: no-repeat;
       background-size: map-get($icon-sizes, default);
-      padding: $notificaiton-response-padding-top $sph-intra ($spv-intra--condensed + $spv-nudge-compensation) $sph-intra;
+      padding: $notificaiton-response-padding-top $sph-intra ($spv-intra--condensed--scaleable - $spv-nudge) $sph-intra;
     }
 
     &__status {
