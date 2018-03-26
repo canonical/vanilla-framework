@@ -68,25 +68,15 @@ $sph-inter--expanded: $sp-unit * 3; // checboxes, radios, list bullets
 
 ////////////////////////////////////////////////////////
 
-// space before element on desktop
-$sp-before--desktop: (
-  h1: $spv-inter--scaleable - $sp-unit,
-  h2: $spv-inter--scaleable - $sp-unit,
-  h3: $spv-inter--scaleable - $sp-unit,
-  h4: $spv-inter--scaleable - $sp-unit,
-  h5: $spv-inter--scaleable - $sp-unit,
-  h6: $spv-inter--scaleable - $sp-unit,
-  p: $spv-inter--scaleable,
-  muted: $spv-inter--scaleable - $sp-unit * 2
-);
+$spv-offset-blocks: $sp-unit * 2 * 0;
 
 // space after element on desktop
 $sp-after: (
-  h1: $sp-unit * 3,
-  h2: $sp-unit * 3,
-  h3: $sp-unit * 3,
-  h4: $sp-unit * 3,
-  p: $sp-unit * 4,
+  h1: $sp-unit * 3 + $spv-offset-blocks,
+  h2: $sp-unit * 3 + $spv-offset-blocks,
+  h3: $sp-unit * 3 + $spv-offset-blocks,
+  h4: $sp-unit * 3 + $spv-offset-blocks,
+  p: $sp-unit * 3,
   default-text: $sp-unit,
   muted: $sp-unit,
   small: $sp-unit * 2
@@ -100,7 +90,7 @@ $icon-sizes: (
   thumb--large: $sp-unit * 12
 );
 
-// old units
+// generic units
 $sp-xx-small: $sp-unit * .25 !default;
 $sp-x-small: $sp-unit * .5 !default;
 $sp-small: $sp-unit !default;

@@ -228,28 +228,62 @@
     @extend %small-text;
   }
 
-  p + p,
-  h5 + p,
-  h5 + h5,
-  h5 + h6,
-  h5 + .p-heading--five,
-  .p-heading--five + p,
-  .p-heading--five + h5,
-  .p-heading--five + h6,
-  .p-heading--five + .p-heading--five,
-  .p-heading--five + .p-heading--six,
-  h6 + p,
-  h6 + h5,
-  h6 + h6,
-  h6 + .p-heading--five,
-  h6 + .p-heading--six,
-  .p-heading--six + p,
-  .p-heading--six + h5,
-  .p-heading--six + h6,
-  .p-heading--six + .p-heading--five,
-  .p-heading--six + .p-heading--six {
-    margin-top: -$sp-unit;
-  }
+  // margin-bottom on text elements has been enlarged to keep them well spaced
+  // when there is a block underneath; the following brings text elements up as they don't need to be spaced out so much.
+  // h1,
+  // h2,
+  // h3,
+  // .p-heading--one,
+  // .p-heading--two,
+  // .p-heading--three {
+  //   & + &,
+  //   & + p,
+  //   & + h5,
+  //   & + h6,
+  //   & + .p-heading--four,
+  //   & + .p-heading--five,
+  //   & + form {
+  //     margin-top: - $spv-offset-blocks;
+  //   }
+  // }
+
+  // h5,
+  // .p-heading--five,
+  // h6,
+  // .p-heading--six,
+  // h4 {
+  //   & + p,
+  //   & + h5,
+  //   & + h6 {
+  //     margin-top: - $sp-unit * 2;
+  //   }
+  // }
+
+  // h5,
+  // h6 {
+  //   & + .p-muted-heading {
+  //     margin-top: - $sp-unit * 2;
+  //   }
+  // }
+
+  // .p-muted-heading {
+  //   & + p {
+  //     margin-top: - $sp-unit * 1;
+  //   }
+  // }
+
+  // h4,
+  // .p-heading--four {
+  //   & + p {
+  //     margin-top: - $sp-unit * 3;
+  //   }
+  // }
+
+  // p {
+  //   & + p {
+  //     margin-top: -$sp-unit * 2;
+  //   }
+  // }
 
   %vf-heading-1 {
     @include align-text;
@@ -342,6 +376,7 @@
     color: $color-mid-dark;
     font-size: 1rem / pow($ms-ratio, 2);
     margin-bottom:  map-get($sp-after, muted) - $nudge--muted;
+    margin-top: 0;
     padding-top: $nudge--muted;
     text-transform: uppercase;
   }
