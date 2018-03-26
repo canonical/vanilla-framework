@@ -58,7 +58,7 @@
       border-bottom: 1px solid $color-mid-light;
       margin: 0;
       overflow: auto; // include child margins into its height
-      padding-left: $sph-intra;
+      padding-left: $sph-intra * 2;
 
       // Hides panel content
       &[aria-hidden='true'] {
@@ -67,7 +67,7 @@
     }
 
     p {
-      margin-bottom: map-get($sp-after, p) - $sp-unit - map-get($nudges, nudge--p);
+      margin-bottom: map-get($sp-after, p) - 2 * $sp-unit - map-get($nudges, nudge--p);
     }
   }
 }

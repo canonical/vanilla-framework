@@ -27,7 +27,16 @@
     border-radius: $border-radius;
     color: $color-dark;
     margin-bottom: $spv-inter--scaleable;
-    padding: $spv-intra--scaleable;
+    padding: $spv-intra--scaleable $spv-intra--scaleable 0;
+
+    h1 {
+      margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1) - 2 * $sp-unit;
+    }
+
+    h3,
+    .p-card__title {
+      margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3) - 2 * $sp-unit;
+    }
   }
 
   .p-card__header {
