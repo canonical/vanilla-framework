@@ -401,17 +401,15 @@
 
   %small-text {
     font-size: 1rem / pow($ms-ratio, 1);
+    line-height: map-get($line-heights, small);
     margin-bottom: map-get($sp-after, small) - map-get($nudges, nudge--small);
     padding-top: map-get($nudges, nudge--small);
   }
 
   %muted-heading {
-    $nudge--muted: map-get($nudges, nudge--muted);
+    @extend %small-text;
     color: $color-mid-dark;
-    font-size: 1rem / pow($ms-ratio, 1);
-    margin-bottom:  map-get($sp-after, muted) - $nudge--muted;
     margin-top: 0;
-    padding-top: $nudge--muted;
     text-transform: uppercase;
   }
 
