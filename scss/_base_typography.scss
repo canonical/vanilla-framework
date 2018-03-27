@@ -240,8 +240,12 @@
     }
   }
 
-  p:not(.p-muted-heading) + p:not(.p-muted-heading) {
-    margin-top: -$sp-unit * 3;
+  p + p:not(.p-muted-heading),
+  h5 + p:not(.p-muted-heading),
+  h6 + p:not(.p-muted-heading),
+  .p-heading--five + p:not(.p-muted-heading),
+  .p-heading--six + p:not(.p-muted-heading) {
+    margin-top: -$sp-unit * 2;
   }
 
   // Increase space above headings that follow a paragraph.
