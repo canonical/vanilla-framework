@@ -9,18 +9,16 @@
     }
 
     &__block {
-      border-bottom: 1px solid $color-mid-light;
-
-      &:last-child {
-        border-bottom: 0;
-      }
-
       @media (max-width: $breakpoint-medium) {
-        padding-bottom: $sp-large;
+        padding-bottom: $spv-inter--scaleable;
+
+        &:not(:first-child) {
+          border-top: 1px solid $color-mid-light;
+          padding-top: $spv-intra--scaleable - $px; // border compensation
+        }
       }
 
       @media (min-width: $breakpoint-medium) {
-        border-bottom: 0;
         padding-right: 1rem;
 
         &:not(:nth-child(1))::before {

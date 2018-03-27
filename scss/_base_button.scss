@@ -3,11 +3,11 @@
 // Base button styles
 @mixin vf-b-button {
   button {
-    @extend %vf-button-pattern;
+    @extend %vf-button-base;
     @include vf-button-pattern;
   }
 
-  %vf-button-pattern {
+  %vf-button-base {
     @extend %bordered-text-vertical-padding;
     @include vf-animation (#{background-color, border-color}, fast, in);
     @include vf-focus;
@@ -19,7 +19,6 @@
     font-size: 1rem;
     font-weight: 300;
     line-height: map-get($line-heights, default-text);
-    margin-bottom: $spv-inter--scaleable;
     padding-left: $sph-intra;
     padding-right: $sph-intra;
     text-align: center;
@@ -65,6 +64,11 @@
     p & {
       margin-bottom: $spv-nudge-compensation;
       margin-top: $spv-nudge-compensation;
+    }
+
+    // keep intended spacing for buttons nesrted inside p's.
+    @at-root p + p > & {
+      margin-top: $sp-unit * 2;
     }
   }
 }

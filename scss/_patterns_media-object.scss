@@ -7,7 +7,7 @@
 
   %vf-meta-list-item {
     @extend %small-text;
-    color: $color-dark; // is this needed? should inherit from html
+    color: $color-dark;
     margin-bottom: $spv-nudge-compensation;
   }
 
@@ -27,23 +27,16 @@
       border-radius: $border-radius;
       flex-basis: inherit;
       flex-shrink: 0;
-      margin-right: $sp-medium;
+      margin-right: $sph-inter;
       max-height: map-get($icon-sizes, thumb);
       max-width: map-get($icon-sizes, thumb);
       vertical-align: middle;
       width: auto;
-
-      &:not(.is-round) {
-        margin-top: $sp-unit;
-      }
-      // @media (min-width: $breakpoint-medium) {
-      //   max-height: map-get($icon-sizes, thumb);
-      //   max-width: map-get($icon-sizes, thumb);
-      // }
     }
 
     &__content {
       margin-bottom: $spv-nudge-compensation;
+      margin-top: - $sp-unit * 2;
     }
 
     &__image.is-round {
@@ -52,7 +45,7 @@
 
     &__title {
       @extend %vf-heading-4;
-      margin-bottom: - map-get($nudges, nudge--h4);
+      margin-top: -$sp-unit;
     }
 
     &__meta-list {
@@ -90,8 +83,11 @@
 
       .p-media-object__title {
         @extend %vf-heading-1;
-        margin-bottom: $sp-unit - map-get($nudges, nudge--h1);
-        margin-top: -$sp-unit;
+        margin-top: - $sp-unit * 2;
+      }
+
+      .p-media-object__content {
+        margin-top: - $sp-unit * 5;
       }
     }
   }

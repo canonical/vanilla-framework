@@ -13,20 +13,21 @@ $px: .0625rem; // 1px as rem; useful in calculations where sizes are defined in 
 //
 $line-heights: (
   h1: 7 * $sp-unit,
-  h2: 6 * $sp-unit,
-  h3: 4 * $sp-unit,
-  h4: 3 * $sp-unit,
-  default-text: 3 * $sp-unit
+  h2: 5 * $sp-unit,
+  h3: 5 * $sp-unit,
+  h4: 4 * $sp-unit,
+  default-text: 3 * $sp-unit,
+  small: $sp-unit * 2.5
 );
 
 // baseline nudges for type scale ratio of (16/14) squared
 $nudges: (
-  nudge--h1: .45rem,
+  nudge--h1: .2rem,
   nudge--h2: .45rem,
-  nudge--h3: .4rem,
-  nudge--h4: .3rem,
+  nudge--h3: .1rem,
+  nudge--h4: .05rem,
   nudge--p: .4rem,
-  nudge--small: .45rem,
+  nudge--small: .05rem,
   nudge--muted: 0
 );
 
@@ -34,11 +35,9 @@ $nudges: (
 $multi: 2;
 
 ////////////////////////////////////////////////////////
-// Variables connecting spacings that should match beteween components
+// Variables connecting spacings that should be identical
 
-$spv-nudge-negative-offset: 0 * $sp-unit;
-
-//top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
+// top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge: map-get($nudges, nudge--p);
 $spv-nudge-compensation: $sp-unit - $spv-nudge;
 
@@ -66,41 +65,38 @@ $sph-intra: $sp-unit * 2; // buttons, accordions, tabs, menu, card padding, step
 $sph-inter: $sph-intra;
 $sph-inter--expanded: $sp-unit * 3; // checboxes, radios, list bullets
 
-////////////////////////////////////////////////////////
-
-// space before element on desktop
-$sp-before--desktop: (
-  h1: $spv-inter--scaleable - $sp-unit,
-  h2: $spv-inter--scaleable - $sp-unit,
-  h3: $spv-inter--scaleable - $sp-unit,
-  h4: $spv-inter--scaleable - $sp-unit,
-  h5: $spv-inter--scaleable - $sp-unit,
-  h6: $spv-inter--scaleable - $sp-unit,
-  p: $spv-inter--scaleable,
-  muted: $spv-inter--scaleable - $sp-unit * 2
+$sp-before: (
+  h1: $sp-unit * 4,
+  h2: $sp-unit * 4,
+  h3: $sp-unit * 4,
+  h4: $sp-unit * 3,
+  h5: $sp-unit * 2,
+  h6: $sp-unit * 2,
+  p: $sp-unit * 2,
+  muted: $sp-unit * 2
 );
 
 // space after element on desktop
 $sp-after: (
-  h1: $sp-unit * 3,
-  h2: $sp-unit * 3,
+  h1: $sp-unit * 5,
+  h2: $sp-unit * 5,
   h3: $sp-unit * 3,
-  h4: $sp-unit * 3,
-  p: $sp-unit * 4,
-  default-text: $sp-unit,
-  muted: $sp-unit,
-  small: $sp-unit * 2
+  h4: $sp-unit * 2,
+  p: $sp-unit * 3,
+  muted: $sp-unit * 2,
+  small: $sp-unit * 2,
+  default-text: $sp-unit
 );
 
 $icon-sizes: (
   accordion: 1.5 * $sp-unit,
   default: 2 * $sp-unit,
   thumb--small: $sp-unit * 6,
-  thumb: $sp-unit * 8,
+  thumb: $sp-unit * 10,
   thumb--large: $sp-unit * 12
 );
 
-// old units
+// generic units
 $sp-xx-small: $sp-unit * .25 !default;
 $sp-x-small: $sp-unit * .5 !default;
 $sp-small: $sp-unit !default;

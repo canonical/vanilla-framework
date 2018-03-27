@@ -163,15 +163,18 @@
   }
 
   // Checkbox and radio inputs
-  // [type='checkbox'],
+  [type='checkbox'],
   [type='radio'] {
     @extend %vf-tick-elements;
-    min-height: $sp-large;
 
     + label {
       vertical-align: middle;
       width: 100%;
     }
+  }
+
+  [type='radio'] {
+    margin-top: $spv-nudge;
   }
 
   [type='submit'] {
@@ -227,6 +230,7 @@
     background-color: $color-light;
     border: 0;
     border-radius: $border-radius;
+    color: $color-dark;
   }
 
   label {
@@ -245,6 +249,7 @@
       @include vf-focus;
 
       $label-offset--left: $sph-inter--expanded + $box-size;
+      margin-bottom: $spv-inter--scaleable;
       margin-top: - map-get($nudges, nudge--p);
       padding-left: $label-offset--left;
       position: relative;
@@ -278,7 +283,6 @@
       &::after {
         // Needed for the line-height to take effect
         display: inline-block;
-
         position: absolute;
       }
     }
