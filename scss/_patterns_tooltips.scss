@@ -5,16 +5,19 @@
     position: relative;
 
     &__message {
-      @extend .p-card--highlighted; // sass-lint:disable-line placeholder-in-extend
+      @extend %small-text;
       background-color: $color-dark;
       border: 0;
+      border-radius: $border-radius;
       color: $color-x-light;
       display: none;
-      font-size: .875rem;
       left: 0;
-      line-height: 1.5;
+      margin-bottom: 0;
       min-width: 155px;
-      padding: $sp-x-small $sp-small;
+      padding-bottom: $sp-unit * 2 - map-get($nudges, nudge--small);
+      padding-left: $spv-intra--scaleable;
+      padding-right: $spv-intra--scaleable;
+      padding-top: map-get($nudges, nudge--small) + $sp-unit;
       position: absolute;
       text-align: left;
       text-decoration: initial;
@@ -32,7 +35,7 @@
         bottom: 100%;
         content: '';
         height: 0;
-        left: $sp-small;
+        left: $sph-intra;
         pointer-events: none;
         position: absolute;
         width: 0;
