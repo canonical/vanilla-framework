@@ -145,7 +145,7 @@
 
   p {
     @extend %paragraph;
-    @include align-text;
+    @extend %align-text;
     @include p-max-width;
 
     &:empty {
@@ -318,7 +318,7 @@
   // Heading placeholders
 
   %vf-heading-1 {
-    @include align-text;
+    @extend %align-text;
     @include heading-max-width--short;
     font-size: pow($ms-ratio, 8) * 1rem;
     font-style: normal;
@@ -330,7 +330,7 @@
   }
 
   %vf-heading-2 {
-    @include align-text;
+    @extend %align-text;
     @include heading-max-width--short;
     font-size: pow($ms-ratio, 6) * 1rem;
     font-style: normal;
@@ -342,7 +342,7 @@
   }
 
   %vf-heading-3 {
-    @include align-text;
+    @extend %align-text;
     @include heading-max-width--long;
     font-size: pow($ms-ratio, 4) * 1rem;
     font-style: normal;
@@ -354,7 +354,7 @@
   }
 
   %vf-heading-4 {
-    @include align-text;
+    @extend %align-text;
     @include heading-max-width--long;
     font-size: pow($ms-ratio, 2) * 1rem;
     font-style: normal;
@@ -367,7 +367,7 @@
 
   %vf-heading-5 {
     @extend %paragraph;
-    @include align-text;
+    @extend %align-text;
     @include p-max-width;
     font-size: 1rem;
     font-style: normal;
@@ -376,7 +376,7 @@
 
   %vf-heading-6 {
     @extend %paragraph;
-    @include align-text;
+    @extend %align-text;
     @include p-max-width;
     font-size: 1rem;
     font-style: italic;
@@ -413,7 +413,7 @@
     max-width: 38em;
   }
 
-  //expose measure aa a class
+  //expose measure as a class
   %measure--p,
   .measure--p {
     @extend %max-width--p;
@@ -424,8 +424,8 @@
   }
 }
 
-@mixin align-text {
-  .u-align--center {
+%align-text {
+  .u-align--center & {
     margin-left: auto;
     margin-right: auto;
   }
