@@ -5,46 +5,50 @@
   table {
     border: 0;
     border-collapse: collapse;
+    margin-bottom: $spv-inter--scaleable;
     overflow-x: auto;
+    table-layout: fixed;
     width: 100%;
   }
 
-  th,
-  td {
-    padding: $sp-small 0;
-  }
-
-  td {
+  td,
+  th {
+    @extend %single-border-text-vpadding--scaling;
     font-weight: 300;
+    padding-left: 0;
     text-align: left;
-    vertical-align: middle;
+    text-overflow: ellipsis;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      &:not(:last-of-type) {
+        padding-right: $sph-intra;
+      }
+    }
   }
 
   thead {
     th {
-      border-collapse: separate;
-      border-spacing: 0 $sp-x-small;
-      font-weight: 400;
-      text-align: left;
+      @extend %muted-heading;
     }
 
     tr {
-      border-bottom: 1px solid $color-mid-dark;
+      border-bottom: 1px solid $color-dark;
+      vertical-align: top;
     }
   }
 
   tbody {
     tr {
-      border-bottom: 1px solid $color-mid-light;
-
-      &:last-child {
-        border-bottom: 0;
+      &:not(:first-child) {
+        border-top: 1px solid $color-mid-light;
       }
     }
+  }
 
-    th {
-      font-weight: 400;
-      text-align: left;
-    }
+  //accordion, table
+  %single-border-text-vpadding--scaling {
+    $bordered-text-padding-top: $multi * $spv-intra--condensed;
+    padding-bottom: $bordered-text-padding-top - $px;
+    padding-top: $bordered-text-padding-top;
   }
 }

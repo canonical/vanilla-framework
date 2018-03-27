@@ -1,54 +1,10 @@
 @import 'settings';
 
-%p-card {
-  background: $color-x-light;
-  border-radius: 2px;
-  color: $color-dark;
-  padding: 1.25rem;
-
-  .p-card__header {
-    border-bottom: 1px solid $color-mid-light;
-    margin-bottom: $sp-small;
-    padding-bottom: $sp-small;
-
-    >.p-link--soft {
-      //prevent height colapse due to display: inline
-      display: inline-block;
-      //include child margins into height
-      overflow: auto;
-    }
-
-    img {
-      max-height: $sp-x-large;
-    }
-  }
-
-  .p-card__title {
-    margin-top: 0;
-  }
-}
-
-%p-card--highlighted {
-  @extend %p-card;
-  box-shadow: 0 1px 2px 0 transparentize($color-dark, .8);
-}
-
-@mixin vf-p-card {
-  @include vf-p-card-default;
-  @include vf-p-card-highlighted;
-  @include vf-p-card-overlay;
-}
-
 @mixin vf-p-card-default {
   .p-card {
     @extend %p-card;
     border: 1px solid $color-mid-light;
-    margin-bottom: $sp-x-large;
-    margin-top: 0;
-
-    & & {
-      margin-top: 0;
-    }
+    padding: $spv-intra--scaleable - $px $spv-intra--scaleable $spv-intra--scaleable;
   }
 }
 
@@ -64,4 +20,39 @@
     background: transparentize($color-x-light, .1);
     border-radius: 0;
   }
+}
+
+@mixin vf-p-card {
+  %p-card {
+    background: $color-x-light;
+    border-radius: $border-radius;
+    color: $color-dark;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: auto; // prevent overflow of children margins
+    padding: $spv-intra--scaleable;
+
+    .p-card__content {
+      margin-top: - $sp-unit * 2;
+    }
+  }
+
+  .p-card__header {
+    border-bottom: 1px solid $color-mid-light;
+    margin-bottom: $spv-intra--scaleable;
+    padding-bottom: $spv-intra--scaleable - $px; // border compensation
+
+    >.p-link--soft {
+      display: inline-block;
+      overflow: auto;
+    }
+  }
+
+  %p-card--highlighted {
+    @extend %p-card;
+    box-shadow: 0 1px 2px 0 transparentize($color-dark, .8);
+  }
+
+  @include vf-p-card-default;
+  @include vf-p-card-highlighted;
+  @include vf-p-card-overlay;
 }

@@ -6,7 +6,7 @@
   $sidebar-width: 4.5rem;
 
   .p-code-numbered {
-    background: $color-x-light;
+    background: $color-light;
     color: $color-dark;
     counter-reset: line-numbering;
     padding: $sp-medium 0 0;
@@ -18,7 +18,6 @@
     }
 
     .code-line {
-      background: $color-light;
       color: $color-dark;
       display: block;
       margin: -#{$sp-large} 0 0 0;
@@ -27,12 +26,11 @@
 
       &:first-child,
       &:first-child::before {
-        padding-top: 1.25rem;
+        padding-top: $spv-intra;
       }
 
-      &:last-child,
-      &:last-child::before {
-        padding-bottom: $sp-medium;
+      &:last-child {
+        padding-bottom: $spv-intra;
       }
 
       &::before {

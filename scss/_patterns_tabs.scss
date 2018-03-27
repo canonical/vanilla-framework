@@ -2,27 +2,25 @@
 
 @mixin vf-p-tabs {
   .p-tabs {
-    @extend .p-card--highlighted; // sass-lint:disable-line placeholder-in-extend
     border-radius: 0;
     overflow: hidden;
     padding: 0;
     position: relative;
 
     &::before {
-      background: linear-gradient(to right, hsla(0, 0%, 100%, 0), $color-x-light 50%);// sass-lint:disable-line no-color-literals
       bottom: 0;
       color: $color-mid-dark;
       content: '\203A';
       display: block;
       font-size: 2rem;
-      height: $sp-xxx-large;
+      line-height: map-get($line-heights, default-text);
       padding-right: $sp-large;
       pointer-events: none;
       position: absolute;
-      right: 0;
+      right: $sp-unit;
       text-align: right;
-      top: 0;
-      width: 5rem;
+      top: 15%;
+      width: 1rem;
       z-index: 10;
 
       @media screen and (min-width: $breakpoint-medium) {
@@ -31,9 +29,10 @@
     }
 
     &__list {
-      margin: 0 auto;
-      overflow-x: auto;
-      padding: 0 0 0 $sp-large;
+      @extend %pseudo-border--bottom;
+      margin: 0 auto $spv-intra--scaleable;
+      overflow-x: scroll;
+      padding: 0;
       position: relative;
       white-space: nowrap;
       width: 100%;
@@ -41,7 +40,6 @@
       @media screen and (min-width: $breakpoint-medium) {
         max-width: $grid-max-width;
         overflow: hidden;
-        padding: 0 $sp-large;
       }
     }
 
@@ -66,25 +64,36 @@
     }
 
     &__link {
-      border-bottom: 3px solid transparent;
       color: $color-x-dark;
       display: inline-block;
-      font-size: .875rem;
-      padding: $sp-small;
+      padding: $spv-intra--expanded $sph-intra;
 
       &:visited,
-      &:active {
-        color: $color-x-dark;
-      }
-
+      &:active,
       &:hover {
-        border-bottom: 3px solid $color-mid-light;
+        color: $color-x-dark;
         text-decoration: none;
       }
 
+      &:hover,
       &[aria-selected="true"] {
-        border-bottom: 3px solid $color-mid-dark;
+        @extend %current-indicator;
       }
+    }
+  }
+
+  %current-indicator {
+    position: relative;
+
+    &::after {
+      background: $color-mid-dark;
+      bottom: 0;
+      content: '';
+      height: $bar-thickness;
+      left: -1px;
+      position: absolute;
+      right: -1px;
+      z-index: 1;
     }
   }
 }

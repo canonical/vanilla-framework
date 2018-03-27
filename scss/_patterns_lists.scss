@@ -1,7 +1,11 @@
 @import 'settings';
+$bullet-padding: map-get($nudges, nudge--h3) * 0;
+$numbered-bullet-width: map-get($line-heights, h3) + $bullet-padding * 2;
+$numbered-bullet-margin-right: $sph-inter--expanded;
+$numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
+$tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
+$spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text.
 
-$numbered-bullet-width: 3rem;
-$numbered-bullet-margin-right: 1rem;
 // Default list styling
 // Mixin for basic styled lists
 @mixin vf-list {
@@ -10,19 +14,33 @@ $numbered-bullet-margin-right: 1rem;
   padding-left: 0;
 }
 
+
 // Mixin for list items
 @mixin vf-list-item {
-  margin-top: 0;
-  padding-bottom: $sp-x-small;
-  padding-top: $sp-x-small;
+  @if($pad-lists) {
+    padding-bottom: $spv-list-item--inner;
+    padding-top: $spv-list-item--inner;
+  }
 }
 
 @mixin vf-list-item-divided {
-  border-bottom: 1px dotted $color-mid-light;
+  position: relative;
+
+  &::after {
+    border-bottom: 1px dotted $color-mid-light;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
 
   &:last-of-type,
   .last-item {
-    border-bottom: 0;
+    &::after {
+      border-bottom: 0;
+    }
   }
 }
 
@@ -36,17 +54,6 @@ $numbered-bullet-margin-right: 1rem;
   .last-item {
     margin-right: 0;
   }
-}
-
-@mixin vf-p-lists {
-  @include vf-p-list;
-  @include vf-p-list-divided;
-  @include vf-p-list-item-state;
-  @include vf-p-inline-list;
-  @include vf-p-inline-list-middot;
-  @include vf-p-stepped-list;
-  @include vf-p-stepped-list-detailed;
-  @include vf-p-list-split;
 }
 
 @function svg-tick($color) {
@@ -64,7 +71,7 @@ $numbered-bullet-margin-right: 1rem;
     @include vf-list;
 
     &__item {
-      margin-top: .6667rem;
+      @include vf-list-item;
     }
   }
 }
@@ -87,15 +94,13 @@ $numbered-bullet-margin-right: 1rem;
 
 // Displays item with a tick bullet
 @mixin vf-p-list-item-state {
+  $bg-pos-y: if($pad-lists, $spv-list-item--inner + (map-get($line-heights, default-text) - $tick-height) * .5, (map-get($line-heights, default-text) - $tick-height) * .5);
+
   .is-ticked {
     background-image: svg-tick($color-accent);
-    background-position: 0 .3rem;
+    background-position-y: $bg-pos-y;
     background-repeat: no-repeat;
-    padding-left: 25px;
-
-    .p-list--divided & {
-      background-position: 0 $sp-medium;
-    }
+    padding-left: 2rem;
   }
 }
 
@@ -149,47 +154,26 @@ $numbered-bullet-margin-right: 1rem;
 // Displays a step by step list of instructions
 @mixin vf-p-stepped-list {
   .p-list-step {
-    list-style: none;
-    margin-left: $numbered-bullet-width + $numbered-bullet-margin-right;
-    padding: 0;
+    @extend %clearfix;
+    @extend %ol-numbered;
 
-    &__title {
-      margin-top: 0;
-      position: relative;
+    > li {
+      @extend %li-numbered;
     }
 
     &__item {
-      clear: both;
+      // override unecessary col-8 class in markup; layout is handled with css below
+      float: none;
       margin-left: 0;
-      margin-top: $sp-large;
       width: 100%;
+    }
 
-      &:first-child {
-        margin-top: $sp-small;
-
-        @media only screen and (min-width: $breakpoint-large) {
-          margin-top: 0;
-        }
-      }
+    &__content {
+      margin-top: - $sp-unit * 2;
     }
 
     &__bullet {
-      background-color: $color-mid-dark;
-      border-radius: 50%;
-      color: $color-x-light;
-      display: inline-block;
-      font-size: $sp-large;
-      height: $numbered-bullet-width;
-      line-height: $numbered-bullet-width;
-      margin-left: -$numbered-bullet-width - $numbered-bullet-margin-right;
-      margin-top: -.4em;
-      position: absolute;
-      text-align: center;
-      width: $numbered-bullet-width;
-
-      @media (min-width: $breakpoint-large) {
-        margin-top: -.15em;
-      }
+      display: none;
     }
   }
 }
@@ -197,16 +181,13 @@ $numbered-bullet-margin-right: 1rem;
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
     @extend %clearfix;
-    list-style: none;
-    margin-left: 0;
-    padding: 0 2rem 0 $numbered-bullet-width + $numbered-bullet-margin-right;
-    @media (max-width: $grid-max-width) {
-      margin-top: $sp-xx-large;
+    @extend %ol-numbered;
+
+    >li {
+      @extend %li-numbered;
     }
 
     .p-list-step__item {
-      margin-bottom: $sp-xxx-large;
-
       @media (min-width: $breakpoint-medium) {
         display: flex;
         margin: 0;
@@ -218,24 +199,6 @@ $numbered-bullet-margin-right: 1rem;
         >:nth-child(2n+1) {
           @include column(6, $grid-columns, true);
         }
-      }
-    }
-
-    .p-list-step__title {
-      @media (min-width: $breakpoint-medium) {
-        padding-top: $sp-xx-large;
-      }
-      @media only screen and (min-width: $breakpoint-large) {
-        + * {
-          margin-top: 0;
-        }
-      }
-    }
-
-    .p-list-step__content {
-      @media (min-width: $breakpoint-medium) {
-        border-bottom: 1px solid $color-light;
-        padding: $sp-xx-large 0;
       }
     }
   }
@@ -270,4 +233,40 @@ $numbered-bullet-margin-right: 1rem;
       }
     }
   }
+}
+
+@mixin vf-p-lists {
+  %ol-numbered {
+    counter-reset: li;
+    list-style: none;
+    margin-left: $numbered-bullet-offset;
+    padding-left: 0;
+  }
+
+  %li-numbered {
+    &::before {
+      @extend %vf-heading-3;
+      background-color: $color-mid-dark;
+      border-radius: 100%;
+      color: $color-x-light;
+      content: counter(li);
+      counter-increment: li;
+      direction: rtl;
+      display: inline-block;
+      margin-left: - $numbered-bullet-offset;
+      margin-top: map-get($nudges, nudge--h3);
+      padding: $bullet-padding 0 $bullet-padding;
+      position: absolute;
+      text-align: center;
+      width: $numbered-bullet-width;
+    }
+  }
+  @include vf-p-list;
+  @include vf-p-list-divided;
+  @include vf-p-list-item-state;
+  @include vf-p-inline-list;
+  @include vf-p-inline-list-middot;
+  @include vf-p-stepped-list;
+  @include vf-p-stepped-list-detailed;
+  @include vf-p-list-split;
 }

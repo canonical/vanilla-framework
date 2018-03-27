@@ -3,95 +3,128 @@
 // List Grid
 @mixin vf-p-matrix {
   .p-matrix {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    $matrix-img-width: map-get($icon-sizes, thumb--small);
+    $matrix-img-gutter: $sph-inter;
 
-    @media (min-width: $breakpoint-small) {
-      display: flex;
-      flex-wrap: wrap;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: $spv-inter--scaleable;
+    margin-left: 0;
+    padding-left: 0;
 
     &__item {
-      @extend %clearfix;
-      border-bottom: 1px solid $color-mid-light;
-      border-top: 0;
+      border-top: 1px solid $color-mid-light;
       display: flex;
-      flex-direction: row;
-      margin-top: 0;
-      padding: $sp-medium 0;
+      flex: 1 1 auto;
+      padding-bottom: $spv-intra--scaleable;
+      padding-top: $spv-intra--scaleable - $px;
 
-      &:empty {
-        display: none; // hide orphans
+      @media (min-width: $breakpoint-small) {
+        display: flex;
+        flex-wrap: wrap;
+        width: 33.333%;
       }
 
-      @media (min-width: $breakpoint-small) { // 3 items per row
+      @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) {
+        flex-direction: column;
+      }
+
+      @media (min-width: $breakpoint-medium) {
         border-right: 1px solid $color-mid-light;
-        margin-bottom: 0;
-        padding: $sp-medium;
+        padding-left: $spv-intra--scaleable;
+        padding-right: $spv-intra--scaleable;
         width: 33.333%;
 
         &:empty {
           display: block; // hide orphans
         }
 
-        &:first-child,
-        &:nth-child(3n+1) { // 1st column
+        &:nth-child(3n+1) {
           padding-left: 0;
         }
 
-        &:last-child {
-          border-bottom: 0;
+        &:nth-child(3n+3) {
+          border-right: 0;
         }
 
-        &:nth-child(3n+1) { // 1st column
-          &:nth-last-child(2),
-          &:nth-last-child(3) {
-            border-bottom: 0;
-          }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          border-top: 0;
+        }
+      }
+
+      @media (min-width: $breakpoint-large) { // 3 items per row
+        border-right: 1px solid $color-mid-light;
+        padding: $spv-intra--scaleable;
+        width: 33.333%;
+
+        &:empty {
+          display: block; // hide orphans
         }
 
-        &:nth-child(3n+2) { // 2nd column
-          &:nth-last-child(2) {
-            border-bottom: 0;
-          }
+        &:nth-child(3n+1) {
+          padding-left: 0;
         }
 
-        &:nth-child(3n) { // 3rd column
+        &:nth-child(3n+3) {
           border-right: 0;
           padding-right: 0;
         }
+
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3) {
+          border-bottom: 0;
+        }
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        flex: 0 0 auto;
+        height: $matrix-img-width;
+        margin-bottom: $spv-intra--scaleable;
+        margin-right: $matrix-img-gutter;
+        position: relative;
+        width: $matrix-img-width;
       }
     }
 
     &__img,
     &__content {
       align-self: flex-start;
-      margin-top: 0;
     }
 
     &__img {
-      margin-right: $sp-medium;
-      max-width: 3.75rem;
+      // maintain image aspect ratio, but ensure it doesn't overflow in either direction
+      height: auto;
+      max-height: $matrix-img-width;
+      max-width: $matrix-img-width;
+      position: absolute;
+      width: auto;
     }
 
     &__content {
       display: flex;
+      flex: 1 1 auto;
       flex-direction: column;
-      justify-content: center;
+      padding-right: $sph-intra;
+
+      @media (min-width: $breakpoint-large) {
+        width: calc(100% - #{$matrix-img-width + $matrix-img-gutter});
+      }
     }
 
     &__title {
-      margin-bottom: $sp-x-small;
-      margin-top: 0;
+      @extend %vf-heading-4;
+      margin-top: -$sp-unit;
     }
 
     &__desc {
-      margin-top: 0;
-    }
-
-    &__link {
-      border-top: 0;
+      margin-bottom: $spv-nudge-compensation;
+      margin-top: - $sp-unit * 2;
     }
   }
 }
