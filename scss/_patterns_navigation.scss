@@ -55,9 +55,9 @@ $nav-border-bottom-thickness: $px;
     }
 
     .sidebar__link {
+      @extend %single-border-text-vpadding--scaling;
       color: $color-dark;
       display: block;
-      padding: $sp-x-small 0;
       position: relative;
 
       &:hover {
@@ -67,6 +67,27 @@ $nav-border-bottom-thickness: $px;
       &:focus {
         outline: 0;
       }
+    }
+
+    & .p-navigation__logo {
+      @extend %vf-heading-3;
+      display: flex;
+      flex: 0 0 auto;
+      // margin: $spv-intra--expanded $sph-intra $spv-inter--scaleable $grid-margin-width;
+
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
+        margin-left: 0;
+      }
+
+      .p-navigation__image {
+        height: 24px;
+        width: auto;
+      }
+    }
+
+    & .p-navigation__tagline {
+      @extend %default-text;
+      display: block;
     }
 
     .is-selected {
