@@ -228,65 +228,34 @@
     @extend %small-text;
   }
 
-  // margin-bottom on text elements has been enlarged to keep them well spaced
-  // when there is a block underneath; the following brings text elements up as they don't need to be spaced out so much.
-  h1,
-  h2,
-  h3,
-  .p-heading--one,
-  .p-heading--two,
-  .p-heading--three {
-    & + &,
-    & + p,
-    & + h5,
-    & + h6,
-    & + .p-heading--four,
-    & + .p-heading--five,
-    & + form {
-      margin-top: - $spv-offset-blocks;
-    }
-  }
-
   h5,
-  .p-heading--five,
   h6,
-  .p-heading--six,
-  h4 {
+  .p-heading--five,
+  .p-heading--six {
     & + p,
-    & + h5,
-    & + h6 {
-      margin-top: - $sp-unit * 2;
+    & + & {
+      margin-top: - map-get($sp-after, p) + $sp-unit * 3;
     }
   }
 
+  p,
   h5,
-  h6 {
-    & + .p-muted-heading {
-      margin-top: - $sp-unit * 2;
-    }
-  }
-
-  .p-muted-heading {
-    & + p {
-      margin-top: - $sp-unit * 1;
-    }
-  }
-
-  h4,
-  .p-heading--four {
-    & + p {
-      margin-top: - $sp-unit * 3;
-    }
-  }
-
-  p {
-    & + p {
+  h6,
+  .p-heading--five,
+  .p-heading--six {
+    .p-muted-heading + & {
       margin-top: -$sp-unit * 2;
     }
   }
 
+  p:not(.p-muted-heading) + p:not(.p-muted-heading) {
+    margin-top: -$sp-unit * 3;
+  }
+
+  // Increase space above headings that follow a paragraph.
+
   %sp--ph1 {
-    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1) + 10rem;
+    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
   }
 
   %sp--ph2 {
@@ -305,8 +274,54 @@
     padding-top: map-get($nudges, nudge--p) + map-get($sp-before, h5);
   }
 
+  %sp--pmuted {
+    padding-top: map-get($nudges, nudge--muted) + map-get($sp-before, muted);
+  }
+
+
+  p,
+  h5,
+  h6,
+  .p-heading--five,
+  .p-heading-6 {
+    & + h1,
+    & + h2,
+    & + .p-heading--one,
+    & + .p-heading--two {
+      @extend %sp--ph1;
+    }
+  }
+
+  p + h2,
+  p + .p-heading--two {
+    @extend %sp--ph2;
+  }
+
+  p + h3,
+  p + .p-heading--three {
+    @extend %sp--ph3;
+  }
+
+  p + h4,
+  p + .p-heading--four {
+    @extend %sp--ph4;
+  }
+
+  p + h5,
+  p + .p-heading--five,
+  p + h6,
+  p + .p-heading--six {
+    @extend %sp--ph5;
+  }
+
+  p + .p-muted-heading {
+    @extend %sp--pmuted;
+  }
+
+
+  // Heading placeholders
+
   %vf-heading-1 {
-    @extend %sp--ph1;
     @include align-text;
     @include heading-max-width--short;
     font-size: pow($ms-ratio, 8) * 1rem;
@@ -314,7 +329,7 @@
     font-weight: 300;
     line-height: map-get($line-heights, h1);
     margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
-    margin-top: - $spv-nudge-negative-offset;
+    margin-top: 0;
     padding-top: map-get($nudges, nudge--h1);
   }
 
@@ -326,7 +341,7 @@
     font-weight: 300;
     line-height: map-get($line-heights, h2);
     margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
-    margin-top: - $spv-nudge-negative-offset;
+    margin-top: 0;
     padding-top: map-get($nudges, nudge--h2);
   }
 
@@ -338,7 +353,7 @@
     font-weight: 300;
     line-height: map-get($line-heights, h3);
     margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
-    margin-top: - $spv-nudge-negative-offset;
+    margin-top: 0;
     padding-top: map-get($nudges, nudge--h3);
   }
 
@@ -350,7 +365,7 @@
     font-weight: 300;
     line-height: map-get($line-heights, h4);
     margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
-    margin-top: - $spv-nudge-negative-offset;
+    margin-top: 0;
     padding-top: map-get($nudges, nudge--h4);
   }
 
@@ -392,7 +407,6 @@
 
   %muted-heading {
     @extend %bold;
-
     $nudge--muted: map-get($nudges, nudge--muted);
     color: $color-mid-dark;
     font-size: 1rem / pow($ms-ratio, 2);
