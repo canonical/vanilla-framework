@@ -1,5 +1,6 @@
 @import 'settings';
 @import 'base';
+@import 'placeholders';
 
 // Patterns
 @import
@@ -43,7 +44,8 @@
 'patterns_tooltips',
 'patterns_table-expanding',
 'patterns_tooltips',
-'patterns_form-validation';
+'patterns_form-validation'
+;
 
 // Utilities
 @import
@@ -60,7 +62,11 @@
 'utilities_show',
 'utilities_hide',
 'utilities_image-position',
-'utilities_visibility';
+'utilities_visibility',
+'utilities_baseline-grid',
+'utilities_sticky-footer',
+'utilities_vertical-spacing'
+;
 
 // Include all the CSS
 @mixin vanilla {
@@ -89,7 +95,6 @@
   @include vf-p-links;
   @include vf-p-list-tree;
   @include vf-p-lists;
-  @include vf-p-tooltips;
   @include vf-p-icons;
   @include vf-p-tooltips;
   @include vf-p-inline-images;
@@ -122,4 +127,10 @@
   @include vf-u-off-screen;
   @include vf-u-vertically-center;
   @include vf-u-visibility;
+  @include vf-u-baseline-grid;
+  @include vf-u-vertical-spacing;
+
+  @if($sticky-footer) {
+    @include vf-u-sticky-footer;
+  }
 }

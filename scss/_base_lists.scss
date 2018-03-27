@@ -1,57 +1,49 @@
 @import 'settings';
 
 @mixin vf-b-lists {
+  li > ul,
+  li > ol {
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+
+  li > ul > li:last-of-type,
+  li > ol > li:last-of-type {
+    padding-bottom: 0;
+  }
+
   ol,
   ul {
     margin-bottom: 0;
-    margin-left: $sp-medium;
-    padding-left: $sp-medium;
-
-    ul,
-    ol {
-      margin-bottom: 0;
-    }
+    margin-left: $sph-inter;
+    margin-top: 0;
+    padding-left: $sph-inter;
 
     nav & {
       list-style: none;
       list-style-image: none;
     }
-
-    li {
-      + li {
-        margin-top: $sp-x-small;
-      }
-
-      > ul,
-      > ol {
-        margin-top: $sp-x-small;
-      }
-    }
   }
 
-  li {
-    margin: 0 0 $sp-x-small;
+  li,
+  dl {
+    margin: 0;
     padding: 0;
   }
 
-  dl {
-    margin-bottom: 0;
+  dd {
+    @extend %paragraph;
+    margin-left: $sph-intra;
   }
 
   dt {
+    @extend %default-text;
+    @extend %bold;
+
     border-top: 1px dotted $color-mid-dark;
-    font-size: $sp-medium;
-    font-weight: 400;
-    margin-top: $sp-medium;
-    padding-top: $sp-medium;
 
     &:first-of-type {
       border-top: 0;
     }
-  }
-
-  dd {
-    margin-left: $sp-medium;
-    margin-top: $sp-x-small;
   }
 }

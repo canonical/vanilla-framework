@@ -1,0 +1,47 @@
+@mixin vf-u-baseline-grid {
+  body {
+    position: relative;
+  }
+
+  .controls {
+    bottom: .5rem;
+    padding: .75rem;
+    position: fixed;
+    right: .5rem;
+    z-index: 101;
+  }
+
+  .u-baseline-container {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .u-baseline {
+    font-size: 0;
+    height: $sp-unit;
+    margin: 0;
+    pointer-events: none;
+    position: relative;
+    width: 100%;
+  }
+
+  $debug-baseline-colour: #f00;
+
+  .u-baseline::after {
+    border-bottom: 1px solid fade-out($debug-baseline-colour, .75);
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+}

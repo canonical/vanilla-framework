@@ -1,27 +1,36 @@
 @import 'settings';
 
 @mixin vf-p-accordion {
-  .p-accordion {
-    border-bottom: 1px solid $color-mid-light;
+  $icon-size: map-get($icon-sizes, accordion);
 
+  .p-accordion {
     &__list {
       list-style-type: none;
-      margin: 0;
+      margin: 0 0 $spv-inter--scaleable 0;
       padding: 0;
     }
 
     &__group {
-      border-top: 1px solid $color-mid-light;
-      margin: 0;
+      &:not(:last-child) .p-accordion__tab {
+        border-bottom: 1px solid $color-mid-light;
+      }
     }
 
     &__tab {
+      @extend %single-border-text-vpadding--scaling;
+
+      $calculated-height: $multi * $spv-intra--condensed * 2 - $px + map-get($line-heights, default-text);
+      $offset-top: ($calculated-height - $icon-size) * .5;
       background: {
-        position: top $sp-medium right $sp-medium;
+        position: top $offset-top right $sph-intra;
         repeat: no-repeat;
       }
+      background-color: inherit;
       border: 0;
-      padding: $sp-medium $sp-xx-large $sp-medium $sp-small;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding-left: $sph-intra;
+      padding-right: $sph-intra;
       text-align: left;
       transition-duration: 0s;
       width: 100%;
@@ -30,12 +39,12 @@
       // aria-selected controls the open and closed state for the accordion tab
       &[aria-expanded='true'] {
         @include vf-icon-minus(vf-url-friendly-color($color-mid-dark));
-        background-size: $sp-medium;
+        background-size: $icon-size;
       }
 
       &[aria-expanded='false'] {
         @include vf-icon-plus(vf-url-friendly-color($color-mid-dark));
-        background-size: $sp-medium;
+        background-size: $icon-size;
       }
 
       &:focus {
@@ -45,14 +54,19 @@
     }
 
     &__panel {
-      border-top: 1px solid $color-mid-light;
+      border-bottom: 1px solid $color-mid-light;
       margin: 0;
-      padding: $sp-small $sp-small $sp-small $sp-large;
+      overflow: auto; // include child margins into its height
+      padding-left: $sph-intra * 2;
 
       // Hides panel content
       &[aria-hidden='true'] {
         display: none;
       }
+    }
+
+    p {
+      margin-bottom: map-get($sp-after, p) - $sp-unit - map-get($nudges, nudge--p);
     }
   }
 }

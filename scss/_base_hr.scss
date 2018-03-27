@@ -2,10 +2,50 @@
 
 // Horizontal rule
 @mixin vf-b-hr {
+  %pseudo-border--bottom {
+    &::after {
+      background-color: $color-mid-light;
+      bottom: 1px;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  %pseudo-border--top {
+    &::after {
+      // border on pseudo element to avoid offsetting vertical rhythm
+      background: $color-mid-light;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
   hr {
+    background-color: $color-mid-light;
     border: 0;
-    border-top: 1px solid $color-mid-light;
-    height: 0;
-    margin: $sp-medium 0;
+    height: 1px;
+    margin-bottom: $spv-intra--scaleable - $px;
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .row.is-bordered {
+    position: relative;
+
+    &::before {
+      background: $color-mid-light;
+      content: '';
+      height: 1px;
+      margin-bottom: $spv-intra--scaleable - $px;
+      width: 100%;
+    }
   }
 }
