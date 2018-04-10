@@ -17,82 +17,74 @@
 {{ content }}
     </body>
     <script>
-        var vf = vf || {};
-        vf.ENV = "DEV";
-        if(vf.ENV === "DEV") {
-            vf.getDocumentHeight = function getDocumentHeight() {
-                var body = document.body,
-                    html = document.documentElement;
-                    return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-            }
-            vf.fragmentFromString = function fragmentFromString(strHTML) {
+        VF_ENV = "DEV";
+        if (VF_ENV === "DEV") {
+            fragmentFromString = function fragmentFromString(strHTML) {
                 var temp = document.createElement('template');
                 temp.innerHTML = strHTML;
                 return temp.content;
             }
-            vf.baselineGrid = class {
+            class baselineGrid {
                 constructor() {
-                    this.target = document.querySelector("body"),
+                    this.target = document.body,
                     this.baselineHeight = 8;
                     this.baselineContainerClassName = "u-baseline-container";
                     this.baselineRowClassName = "u-baseline";
-                    this.showGrid = true;
                     this.toggleGridClass = "u-hide";
+                    this.showGrid = true;
                 }
                 addBaselineGridToggle() {
-                    var controls = vf.fragmentFromString('<div class="controls"><button id="switch-on" class="p-switch js-baseline-toggle" type="button" role="switch" aria-checked="true" aria-labelledby="switch-on-label"><span>On</span><span>Off</span></button></div>');
+                    var controls = fragmentFromString('<div class="controls"><button id="switch-on" class="p-switch js-baseline-toggle" type="button" role="switch" aria-checked="true" aria-labelledby="switch-on-label"><span>On</span><span>Off</span></button></div>');
                     this.target.appendChild(controls);
                 }
                 appendBaselineRow(parent) {
                     var baseline = document.createElement('div');
-                    baseline.className += this.baselineRowClassName;
+                    baseline.classList.add(this.baselineRowClassName);
                     parent.appendChild(baseline);
                 }
                 baselineCount() {
-                    return Math.floor(vf.getDocumentHeight() / this.baselineHeight);
+                    return Math.floor(document.documentElement.scrollHeight / this.baselineHeight);
                 }
                 create() {
                     var baselineContainer = document.createElement('div'),
                         fragment = document.createDocumentFragment(),
-                        documentHeight = vf.getDocumentHeight(),
+                        documentHeight = document.documentElement.scrollHeight,
                         baselineCount = this.baselineCount(documentHeight);
 
                     baselineContainer.classList.add(this.baselineContainerClassName);
-                    if(!this.showGrid) {
+
+                    if (!this.showGrid) {
                         baselineContainer.classList.add(this.toggleGridClass);
                     }
-
-                    for(var i = 0; i < baselineCount; i++) {
+                    for (var i = 0; i < baselineCount; i++) {
                         this.appendBaselineRow(baselineContainer);
                     }
-
                     fragment.appendChild(baselineContainer);
                     this.target.appendChild(fragment);
+                    this.baselineContainer = document.querySelector('.u-baseline-container');
                 }
                 initGridToggle(switchBtn) {
                     var toggle = document.querySelector(switchBtn),
-                        hideClass = this.toggleGridClass,
                         that = this;
 
                     toggle.addEventListener('click', function (event) {
-                        var grid = document.querySelector('.' + that.baselineContainerClassName);
-                        if(!that.showGrid) {
-                            this.setAttribute('aria-checked', !this.getAttribute('aria-checked'));
-                            grid.classList.remove(hideClass);
+                        if (!that.showGrid) {
+                            this.setAttribute('aria-checked', true);
+                            that.baselineContainer.classList.remove(that.toggleGridClass);
                         } else {
-                            this.setAttribute('aria-checked', !this.getAttribute('aria-checked'));
-                            grid.classList.add(hideClass);
+                            this.setAttribute('aria-checked', false);
+                            that.baselineContainer.classList.add(that.toggleGridClass);
                         }
                         that.showGrid = !that.showGrid;
                     });
                 }
                 update() {
-                    document.querySelector('.' + this.baselineContainerClassName).remove();
+                    this.baselineContainer.remove();
                     this.create();
                 }
             }
 
-            var bg = new vf.baselineGrid();
+            var bg = new baselineGrid();
             document.addEventListener('DOMContentLoaded', () => {
                 bg.create();
                 bg.addBaselineGridToggle();
