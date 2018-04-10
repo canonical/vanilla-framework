@@ -2,10 +2,26 @@
 
 // Footer pattern styling
 @mixin vf-p-footer {
+
+  %footer-padding {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--condensed-scaleable;
+      padding-top: $spv-inter--condensed-scaleable;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--condensed-scaleable * 2;
+      padding-top: $spv-inter--condensed-scaleable * 2; //border compensation
+    }
+  }
+
   .p-footer {
-    @extend %section-padding--default;
+    @extend %footer-padding;
     border-top: 1px solid $color-mid-light;
     position: relative;
+
+    > p {
+      @extend %small-text;
+    }
 
     &__copy {
       margin-bottom: 0;
@@ -24,7 +40,7 @@
       margin-top: 0;
 
       p + & {
-        margin-top: -$sp-unit * 2;
+        margin-top: - $sp-unit * 1.5;
       }
     }
 
@@ -41,8 +57,7 @@
     }
 
     &__link {
-      @extend %paragraph;
-
+      @extend %small-text;
       border-bottom: 0;
       color: $color-dark;
       display: inline-block;
@@ -65,7 +80,7 @@
           font-size: $sp-large;
           position: absolute;
           right: - $sp-unit * 1.5;
-          top: map-get($nudges, nudge--p);
+          top: map-get($nudges, nudge--small);
         }
       }
 
