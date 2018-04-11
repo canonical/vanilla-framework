@@ -29,6 +29,10 @@ $nav-border-bottom-thickness: $px;
     flex-direction: column;
     height: auto;
 
+    .p-navigation__banner .row {
+      flex-direction: row;
+    }
+
     .sidebar__cta {
       margin-top: 0;
 
@@ -304,10 +308,9 @@ $nav-border-bottom-thickness: $px;
     }
   }
 
-  &__row {
+  &__row,
+  & .row {
     display: flex;
-    // XXX: these zero out the default row padding to avoid doubling.
-    // I think a more robust soljution would be to wrap the nav in a row, rather than nest one ins it and override it.
     padding-left: 0;
     padding-right: 0;
     width: 100%;
@@ -355,5 +358,4 @@ $nav-border-bottom-thickness: $px;
     position: relative;
     right: unset;
   }
-
 }
