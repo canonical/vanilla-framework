@@ -54,4 +54,4 @@ conjunction with a strip image.
 
 ### Design
 
-* [Card design](https://github.com/ubuntudesign/vanilla-design/tree/master/Card)
+* [Card design](https://github.com/ubuntudesign/vanilla-design/tree/master/Cards)
