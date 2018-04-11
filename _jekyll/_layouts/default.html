@@ -17,7 +17,7 @@
 {{ content }}
     </body>
     <script>
-        VF_ENV = "DEV";
+        var VF_ENV = "DEV";
         if (VF_ENV === "DEV") {
             fragmentFromString = function fragmentFromString(strHTML) {
                 var temp = document.createElement('template');
@@ -34,7 +34,7 @@
                     this.showGrid = false;
                 }
                 addBaselineGridToggle() {
-                    var controls = fragmentFromString('<div class="controls"><button id="switch-on" class="p-switch js-baseline-toggle" type="button" role="switch" aria-checked="true" aria-labelledby="switch-on-label"><span>On</span><span>Off</span></button></div>');
+                    var controls = fragmentFromString('<div class="controls"><button id="switch-on" class="p-switch js-baseline-toggle" type="button" role="switch" aria-checked="false" aria-labelledby="switch-on-label"><span>On</span><span>Off</span></button></div>');
                     this.target.appendChild(controls);
                 }
                 appendBaselineRow(parent) {
