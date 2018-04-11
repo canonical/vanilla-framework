@@ -3,15 +3,30 @@
 
 @mixin vf-p-strip {
 
+  %section-padding--shallow {
+    padding-bottom: $spv-inter--shallow-scaleable;
+    padding-top: $spv-inter--shallow-scaleable;
+  }
+
   // used in strips and footer
   %section-padding--default {
     @media only screen and (max-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--scaleable;
-      padding-top: $spv-inter--scaleable;
+      padding-bottom: $spv-inter--regular-scaleable * .5;
+      padding-top: $spv-inter--regular-scaleable * .5;
     }
     @media only screen and (min-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--scaleable * 2;
-      padding-top: $spv-inter--scaleable * 2; //border compensation
+      padding-bottom: $spv-inter--regular-scaleable;
+      padding-top: $spv-inter--regular-scaleable;
+    }
+  }
+
+  %section-padding--deep {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding: $spv-inter--deep-scaleable * .5 0 $spv-inter--deep-scaleable * .5;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      padding: $spv-inter--deep-scaleable 0;
     }
   }
 
@@ -79,19 +94,12 @@
 
 @mixin vf-p-strip-shallow {
   [class^='p-strip'].is-shallow {
-    padding-bottom: $spv-inter--condensed-scaleable;
-    padding-top: $spv-inter--condensed-scaleable;
+    @extend %section-padding--shallow;
   }
 }
 
 @mixin vf-p-strip-deep {
   [class^='p-strip'].is-deep {
-    @media only screen and (max-width: $breakpoint-large) {
-      padding: $spv-inter--expanded-scaleable * .5 0 $spv-inter--expanded-scaleable * .5;
-    }
-
-    @media only screen and (min-width: $breakpoint-large) {
-      padding: $spv-inter--expanded-scaleable 0;
-    }
+    @extend %section-padding--deep;
   }
 }
