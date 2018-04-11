@@ -73,6 +73,7 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
     height: map-get($line-heights, default-text);
     margin-bottom: 0;
     margin-right: $sph-inter--expanded;
+    margin-top: 0;
     padding: 0;
     vertical-align: middle;
     width: auto;
@@ -136,8 +137,8 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
   }
 
   [type='file'] {
+    @extend %bordered-text-vertical-padding;
     @include vf-focus;
-    margin-bottom: $spv-inter--scaleable;
     width: 100%;
   }
 
@@ -250,8 +251,8 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
     & + label {
       @include vf-focus;
 
-      $label-offset--left: $sph-inter--expanded + $box-size;
-      margin-bottom: $spv-inter--scaleable;
+      $label-offset--left: $sph-intra + $box-size;
+      margin-bottom: $spv-inter--condensed-scaleable;
       margin-top: - map-get($nudges, nudge--p);
       padding-left: $label-offset--left;
       position: relative;
