@@ -196,7 +196,9 @@ $nav-border-bottom-thickness: $px;
   }
 
   &__image {
-    vertical-align: top;
+    align-self: center;
+    max-height: 2rem;
+    min-height: 1.5rem;
   }
 
   &__link {
@@ -235,7 +237,7 @@ $nav-border-bottom-thickness: $px;
       }
 
       &:hover {
-        background-color: $color-light;
+        background-color: darken($color-navigation-background, 3%);
       }
     }
 
@@ -259,12 +261,12 @@ $nav-border-bottom-thickness: $px;
 
   &__logo {
     display: flex;
+    height: 3rem;
     flex: 0 0 auto;
-    margin: $spv-intra--expanded $sph-intra auto $grid-margin-width;
+    margin: 0 $sph-intra 0 $grid-margin-width;
 
-    .p-navigation__image {
-      height: 24px;
-      width: auto;
+    .p-navigation__link {
+      display: flex;
     }
   }
 
