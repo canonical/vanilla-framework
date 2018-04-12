@@ -127,6 +127,7 @@
 @mixin vf-p-icons {
 
   %icon {
+    @extend %u-hide-text;
     @include vf-icon-size($sp-medium);
     background: {
       position: center;
@@ -135,22 +136,17 @@
     }
     display: inline-block;
     margin: 0;
-    overflow: hidden;
     padding: 0;
     position: relative;
-    text-indent: 100%;
     top: -2px;
     vertical-align: sub;
-    white-space: nowrap;
   }
 
   %social-icon {
+    @extend %u-hide-text;
     display: inline-block;
-    height: 2.5rem;
-    overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
-    width: 2.5rem;
+    height: map-get($icon-sizes, social);
+    width: map-get($icon-sizes, social);
   }
 
   .p-icon {
