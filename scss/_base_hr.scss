@@ -2,27 +2,25 @@
 
 // Horizontal rule
 @mixin vf-b-hr {
+  %pseudo-border {
+    background-color: $color-mid-light;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
   %pseudo-border--bottom {
     &::after {
-      background-color: $color-mid-light;
-      bottom: 1px;
-      content: '';
-      height: 1px;
-      left: 0;
-      position: absolute;
-      right: 0;
+      @extend %pseudo-border;
+      bottom: 0;
     }
   }
 
   %pseudo-border--top {
     &::after {
-      // border on pseudo element to avoid offsetting vertical rhythm
-      background: $color-mid-light;
-      content: '';
-      height: 1px;
-      left: 0;
-      position: absolute;
-      right: 0;
+      @extend %pseudo-border;
       top: 0;
     }
   }
