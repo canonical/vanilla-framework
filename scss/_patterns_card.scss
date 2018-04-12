@@ -8,27 +8,28 @@
     margin-bottom: $spv-inter--scaleable;
     overflow: auto; // prevent overflow of children margins
     padding: $spv-intra--scaleable;
+
+    img {
+      vertical-align: top;
+      margin-bottom: $spv-inter--condensed-scaleable;
+    }
   }
 
   %highlight {
     box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
   }
 
-  p.p-card__content {
+  p.p-card__content { // sass-lint:disable-line no-qualifying-elements - this is because the class is applied to both divs and ps. ps have special rules to ring them closer to other text elements.
     margin-top: - $sp-unit * 2;
-  }
-
-  .p-card img {
-    vertical-align: top;
   }
 
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
     margin-bottom: $spv-intra--scaleable;
-    padding-bottom: $spv-intra--scaleable - $px; // border compensation
+    // padding-bottom: $spv-intra--scaleable - $px; // border compensation
 
-   .p-muted-heading {
-      margin-bottom: map-get($nudges, nudge--muted);
+    .p-muted-heading {
+      margin-bottom: map-get($nudges, nudge--muted) + $spv-inter--condensed;
     }
 
     > img {
@@ -39,10 +40,6 @@
       display: inline-block;
       overflow: auto;
     }
-  }
-
-  .p-card__header--borderless {
-    padding-bottom: 0; // border compensation
   }
 
   @include vf-p-card-default;
@@ -70,6 +67,26 @@
   .p-card--muted-header {
     @extend %highlight;
     @extend %p-card;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    position: relative;
+
+    &::before {
+      background-color: $color-brand;
+      content: '';
+      height: 3px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    > .p-card__footer {
+      @extend %pseudo-border--top;
+      margin-top: auto;
+      max-width: inherit;
+      position: relative;
+    }
   }
 }
 
