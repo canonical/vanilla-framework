@@ -1,27 +1,5 @@
 @import 'settings';
 
-@mixin vf-p-card-default {
-  .p-card {
-    @extend %p-card;
-    border: 1px solid $color-mid-light;
-    padding: $spv-intra--scaleable - $px $spv-intra--scaleable $spv-intra--scaleable;
-  }
-}
-
-@mixin vf-p-card-highlighted {
-  .p-card--highlighted {
-    @extend %p-card--highlighted;
-  }
-}
-
-@mixin vf-p-card-overlay {
-  .p-card--overlay {
-    @extend %p-card;
-    background: transparentize($color-x-light, .1);
-    border-radius: 0;
-  }
-}
-
 @mixin vf-p-card {
   %p-card {
     background: $color-x-light;
@@ -30,16 +8,28 @@
     margin-bottom: $spv-inter--scaleable;
     overflow: auto; // prevent overflow of children margins
     padding: $spv-intra--scaleable;
+  }
 
-    .p-card__content {
-      margin-top: - $sp-unit * 2;
-    }
+  %highlight {
+    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+  }
+
+  p.p-card__content {
+    margin-top: - $sp-unit * 2;
+  }
+
+  .p-card img {
+    vertical-align: top;
   }
 
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
     margin-bottom: $spv-intra--scaleable;
     padding-bottom: $spv-intra--scaleable - $px; // border compensation
+
+   .p-muted-heading {
+      margin-bottom: map-get($nudges, nudge--muted);
+    }
 
     > img {
       max-height: 2rem;
@@ -51,12 +41,42 @@
     }
   }
 
-  %p-card--highlighted {
-    @extend %p-card;
-    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+  .p-card__header--borderless {
+    padding-bottom: 0; // border compensation
   }
 
   @include vf-p-card-default;
   @include vf-p-card-highlighted;
+  @include vf-p-card-muted-header;
   @include vf-p-card-overlay;
+}
+
+@mixin vf-p-card-default {
+  .p-card {
+    @extend %p-card;
+    border: 1px solid $color-mid-light;
+    padding: $spv-intra--scaleable - $px $spv-intra--scaleable $spv-intra--scaleable;
+  }
+}
+
+@mixin vf-p-card-highlighted {
+  .p-card--highlighted {
+    @extend %highlight;
+    @extend %p-card;
+  }
+}
+
+@mixin vf-p-card-muted-header {
+  .p-card--muted-header {
+    @extend %highlight;
+    @extend %p-card;
+  }
+}
+
+@mixin vf-p-card-overlay {
+  .p-card--overlay {
+    @extend %p-card;
+    background: transparentize($color-x-light, .1);
+    border-radius: 0;
+  }
 }
