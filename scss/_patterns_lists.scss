@@ -12,16 +12,26 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
   list-style: none;
   margin-left: 0;
   padding-left: 0;
-}
 
+  // Mixin for list items
+  %vf-list-item {
+    @if($pad-lists) {
+      padding-bottom: $spv-list-item--inner;
+      padding-top: $spv-list-item--inner;
+    }
 
-// Mixin for list items
-@mixin vf-list-item {
-  @if($pad-lists) {
-    padding-bottom: $spv-list-item--inner;
-    padding-top: $spv-list-item--inner;
+    form & {
+      padding-bottom: 0;
+      padding-top: 0;
+
+      label {
+        margin-bottom: $spv-nudge-compensation;
+      }
+    }
   }
 }
+
+
 
 @mixin vf-list-item-divided {
   position: relative;
@@ -71,7 +81,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
     @include vf-list;
 
     &__item {
-      @include vf-list-item;
+      @extend %vf-list-item;
     }
   }
 }
@@ -82,7 +92,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
     @include vf-list;
 
     .p-list__item {
-      @include vf-list-item;
+      @extend %vf-list-item;
       @include vf-list-item-divided;
     }
 

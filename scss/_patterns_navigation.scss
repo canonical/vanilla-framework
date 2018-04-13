@@ -29,6 +29,10 @@ $nav-border-bottom-thickness: $px;
     flex-direction: column;
     height: auto;
 
+    .p-navigation__banner .row {
+      flex-direction: row;
+    }
+
     .sidebar__cta {
       margin-top: 0;
 
@@ -196,7 +200,9 @@ $nav-border-bottom-thickness: $px;
   }
 
   &__image {
-    vertical-align: top;
+    align-self: center;
+    max-height: 2rem;
+    min-height: 1.5rem;
   }
 
   &__link {
@@ -235,7 +241,7 @@ $nav-border-bottom-thickness: $px;
       }
 
       &:hover {
-        background-color: $color-light;
+        background-color: darken($color-navigation-background, 3%);
       }
     }
 
@@ -260,11 +266,11 @@ $nav-border-bottom-thickness: $px;
   &__logo {
     display: flex;
     flex: 0 0 auto;
-    margin: $spv-intra--expanded $sph-intra auto $grid-margin-width;
+    height: 3rem;
+    margin: 0 $sph-intra 0 $grid-margin-width;
 
-    .p-navigation__image {
-      height: 24px;
-      width: auto;
+    .p-navigation__link {
+      display: flex;
     }
   }
 
@@ -302,10 +308,9 @@ $nav-border-bottom-thickness: $px;
     }
   }
 
-  &__row {
+  &__row,
+  & .row {
     display: flex;
-    // XXX: these zero out the default row padding to avoid doubling.
-    // I think a more robust soljution would be to wrap the nav in a row, rather than nest one ins it and override it.
     padding-left: 0;
     padding-right: 0;
     width: 100%;
@@ -353,5 +358,4 @@ $nav-border-bottom-thickness: $px;
     position: relative;
     right: unset;
   }
-
 }
