@@ -8,33 +8,41 @@
     margin-bottom: $spv-inter--scaleable;
     overflow: auto; // prevent overflow of children margins
     padding: $spv-intra--scaleable;
-
-    img {
-      margin-bottom: $spv-inter--condensed-scaleable;
-      vertical-align: top;
-    }
   }
 
-  %highlight {
+  %has-round-corners {
+    border-radius: $border-radius;
+  }
+
+  %has-highlight {
     box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
   }
 
-  p.p-card__content { // sass-lint:disable-line no-qualifying-elements - this is because the class is applied to both divs and ps. ps have special rules to ring them closer to other text elements.
+  %is-bordered {
+    border: 1px solid $color-mid-light;
+  }
+
+  %bg--grey {
+    background-color: $color-light;
+  }
+
+  .p-card__image {
+    margin-bottom: $spv-inter--condensed-scaleable;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  .p-card__thumbnail {
+    max-height: map-get($icon-sizes, thumb--card);
+  }
+
+  .p-card__content {
     margin-top: - $sp-unit * 2;
   }
 
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
     margin-bottom: $spv-intra--scaleable;
-    // padding-bottom: $spv-intra--scaleable - $px; // border compensation
-
-    .p-muted-heading {
-      margin-bottom: map-get($nudges, nudge--muted) + $spv-inter--condensed;
-    }
-
-    > img {
-      max-height: 2rem;
-    }
 
     > .p-link--soft {
       display: inline-block;
@@ -43,6 +51,7 @@
   }
 
   @include vf-p-card-default;
+  @include vf-p-card-grey;
   @include vf-p-card-highlighted;
   @include vf-p-card-muted-header;
   @include vf-p-card-overlay;
@@ -50,22 +59,25 @@
 
 @mixin vf-p-card-default {
   .p-card {
+    @extend %is-bordered;
+    @extend %has-round-corners;
     @extend %p-card;
-    border: 1px solid $color-mid-light;
-    padding: $spv-intra--scaleable - $px $spv-intra--scaleable $spv-intra--scaleable;
+    padding: $spv-intra--scaleable - $px;
   }
 }
 
 @mixin vf-p-card-highlighted {
   .p-card--highlighted {
-    @extend %highlight;
+    @extend %has-highlight;
+    @extend %has-round-corners;
     @extend %p-card;
   }
 }
 
 @mixin vf-p-card-muted-header {
   .p-card--muted-header {
-    @extend %highlight;
+    @extend %has-highlight;
+    @extend %has-round-corners;
     @extend %p-card;
     display: flex;
     flex-direction: column;
@@ -95,6 +107,14 @@
   .p-card--overlay {
     @extend %p-card;
     background: transparentize($color-x-light, .1);
-    border-radius: 0;
+  }
+}
+
+@mixin vf-p-card-grey {
+  .p-card--grey {
+    @extend %bg--grey;
+    @extend %is-bordered;
+    @extend %has-round-corners;
+    @extend %p-card;
   }
 }
