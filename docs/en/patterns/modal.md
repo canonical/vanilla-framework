@@ -5,7 +5,7 @@ table_of_contents: true
 
 ## Modal
 
-The modal pattern can be useful to overlay and area of the screen which can contain a prompt, dialog or interaction.
+The modal pattern can be useful to overlay an area of the screen which can contain a prompt, dialog or interaction.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/modal/"
     class="js-example">
