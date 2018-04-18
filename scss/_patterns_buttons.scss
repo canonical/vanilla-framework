@@ -52,7 +52,7 @@
 }
 
 @mixin vf-button-positive {
-  .p-button--positive {
+  %p-button--positive {
     @extend %vf-button-base;
 
     @include vf-button-pattern (
@@ -64,6 +64,10 @@
       $button-disabled-background-color: $color-positive,
       $button-disabled-border-color: $color-positive
     );
+  }
+
+  .p-button--positive {
+    @extend %p-button--positive;
   }
 }
 
