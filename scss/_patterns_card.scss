@@ -2,29 +2,66 @@
 
 @mixin vf-p-card {
   %p-card {
-    background: $color-x-light;
-    border-radius: $border-radius;
-    color: $color-dark;
+    @extend %bg--x-light;
     margin-bottom: $spv-inter--scaleable;
-    overflow: auto; // prevent overflow of children margins
+    overflow: auto; // prevent overflow of child margins
     padding: $spv-intra--scaleable;
   }
 
-  %has-round-corners {
-    border-radius: $border-radius;
+  @include vf-p-card-default;
+  @include vf-p-card-highlighted;
+  @include vf-p-card-overlay;
+  @include vf-p-card-muted;
+  @include vf-p-card-specific-content;
+}
+
+@mixin vf-p-card-default {
+  .p-card {
+    @extend %bg--x-light;
+    @extend %is-bordered;
+    @extend %has-round-corners;
+    @extend %p-card;
+    padding: $spv-intra--scaleable - $px;
+  }
+}
+
+@mixin vf-p-card-highlighted {
+  %p-card--highlighted {
+    @extend %bg--x-light;
+    @extend %has-highlight;
+    @extend %has-round-corners;
+    @extend %p-card;
   }
 
-  %has-highlight {
-    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+  .p-card--highlighted {
+    @extend %p-card--highlighted;
   }
+}
 
-  %is-bordered {
-    border: 1px solid $color-mid-light;
+@mixin vf-p-card-overlay {
+  .p-card--overlay {
+    background: transparentize($color-x-light, .1);
+    color: $color-dark;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: auto;
+    padding: $spv-intra--scaleable;
   }
+}
 
-  %bg--grey {
-    background-color: $color-light;
+@mixin vf-p-card-muted {
+  .p-card--muted {
+    @extend %bg--light;
+    @extend %has-highlight;
+    @extend %has-round-corners;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: auto;
+    padding: $spv-intra--scaleable;
   }
+}
+
+@mixin vf-p-card-specific-content {
+  // p-card scoped rules should only be added if the required behaviour is not likely to be needed in any other pattern.
+  // If possible, please consider adding a modifier to a base pattern, so it can be used elsewhere too.
 
   .p-card__image {
     margin-bottom: $spv-inter--condensed-scaleable;
@@ -50,71 +87,21 @@
     }
   }
 
-  @include vf-p-card-default;
-  @include vf-p-card-grey;
-  @include vf-p-card-highlighted;
-  @include vf-p-card-muted-header;
-  @include vf-p-card-overlay;
-}
-
-@mixin vf-p-card-default {
-  .p-card {
-    @extend %is-bordered;
-    @extend %has-round-corners;
-    @extend %p-card;
-    padding: $spv-intra--scaleable - $px;
+  .p-card__thumbnail {
+    max-height: map-get($icon-sizes, thumb--card);
   }
-}
 
-@mixin vf-p-card-highlighted {
-  .p-card--highlighted {
-    @extend %has-highlight;
-    @extend %has-round-corners;
-    @extend %p-card;
+  .p-card__content {
+    margin-top: - $sp-unit * 2;
   }
-}
 
-@mixin vf-p-card-muted-header {
-  .p-card--muted-header {
-    @extend %has-highlight;
-    @extend %has-round-corners;
-    @extend %p-card;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 0;
-    position: relative;
+  .p-card__header {
+    border-bottom: 1px solid $color-mid-light;
+    margin-bottom: $spv-intra--scaleable;
 
-    &::before {
-      background-color: $color-brand;
-      content: '';
-      height: 3px;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
+    > .p-link--soft {
+      display: inline-block;
+      overflow: auto;
     }
-
-    > .p-card__footer {
-      @extend %pseudo-border--top;
-      margin-top: auto;
-      max-width: inherit;
-      position: relative;
-    }
-  }
-}
-
-@mixin vf-p-card-overlay {
-  .p-card--overlay {
-    @extend %p-card;
-    background: transparentize($color-x-light, .1);
-  }
-}
-
-@mixin vf-p-card-grey {
-  .p-card--grey {
-    @extend %bg--grey;
-    @extend %is-bordered;
-    @extend %has-round-corners;
-    @extend %p-card;
   }
 }

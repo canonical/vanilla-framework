@@ -2,29 +2,6 @@
 
 // Horizontal rule
 @mixin vf-b-hr {
-  %pseudo-border {
-    background-color: $color-mid-light;
-    content: '';
-    height: 1px;
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
-
-  %pseudo-border--bottom {
-    &::after {
-      @extend %pseudo-border;
-      bottom: 0;
-    }
-  }
-
-  %pseudo-border--top {
-    &::after {
-      @extend %pseudo-border;
-      top: 0;
-    }
-  }
-
   hr {
     background-color: $color-mid-light;
     border: 0;
@@ -33,6 +10,10 @@
     margin-top: 0;
     position: relative;
     width: 100%;
+
+    & + p {
+      margin-top: -$sp-unit;
+    }
   }
 
   .row.is-bordered {
