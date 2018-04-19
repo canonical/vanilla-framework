@@ -3,37 +3,18 @@
 @mixin vf-p-heading-icon {
 
   .p-heading-icon {
-    margin-bottom: $sp-x-large;
-
-    @media (min-width: $breakpoint-medium) {
-      margin-bottom: 0;
-    }
-
     &__header {
       display: flex;
-      margin-bottom: $sp-medium;
-
-      + p {
-        margin-top: 0;
-      }
-    }
-
-    &__title {
-      margin-bottom: 0;
-      margin-top: 0;
     }
 
     &__img {
       align-self: flex-start;
       flex-shrink: 0;
-      height: $sp-xx-large;
-      margin-right: $sp-medium;
-      width: $sp-xx-large;
-
-      @media (min-width: $breakpoint-medium) {
-        height: $sp-xxx-large + $sp-small;
-        width: $sp-xxx-large + $sp-small;
-      }
+      max-height: $sp-xx-large;
+      margin: auto $sph-inter auto 0  ;
+      max-height: map-get($icon-sizes, thumb);
+      max-width: map-get($icon-sizes, thumb);
+      padding-bottom: $spv-inter--regular; // sets white space under to the min white space under the smalllest heading that can sit next to it (muted-heading)
     }
   }
 }
