@@ -210,6 +210,10 @@
 
   small {
     @extend %small-text;
+
+    &.dense {
+      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    }
   }
 
   sub,
@@ -389,9 +393,11 @@
   }
 
   %small-text {
+    @extend %max-width--p;
+    display: inline-block;
     font-size: 1rem / pow($ms-ratio, 1);
     line-height: map-get($line-heights, small);
-    margin-bottom: + map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
     padding-top: map-get($nudges, nudge--small);
   }
 
