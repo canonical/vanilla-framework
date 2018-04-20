@@ -12,7 +12,7 @@
 }
 
 @mixin vf-button-plain {
-  .p-button {
+  %p-button {
     @extend %vf-button-base;
 
     @include vf-button-pattern (
@@ -20,10 +20,14 @@
       $button-disabled-border-color: $color-x-light
     );
   }
+
+  .p-button {
+    @extend %p-button;
+  }
 }
 
 @mixin vf-button-neutral {
-  .p-button--neutral {
+  %p-button--neutral {
     @extend %vf-button-base;
 
     @include vf-button-pattern (
@@ -33,10 +37,14 @@
       $button-hover-border-color: $color-mid-light
     );
   }
+
+  .p-button--neutral {
+    @extend %p-button--neutral;
+  }
 }
 
 @mixin vf-button-brand {
-  .p-button--brand {
+  %p-button--brand {
     @extend %vf-button-base;
 
     @include vf-button-pattern (
@@ -48,6 +56,10 @@
       $button-disabled-background-color: $color-brand,
       $button-disabled-border-color: $color-brand
     );
+  }
+
+  .p-button--brand {
+    @extend %p-button--brand;
   }
 }
 
@@ -72,7 +84,7 @@
 }
 
 @mixin vf-button-negative {
-  .p-button--negative {
+  %p-button--negative {
     @extend %vf-button-base;
 
     @include vf-button-pattern (
@@ -85,10 +97,14 @@
       $button-disabled-border-color: $color-negative
     );
   }
+
+  .p-button--negative {
+    @extend %p-button--negative;
+  }
 }
 
 @mixin vf-button-base {
-  .p-button--base {
+  %p-button--base {
     @extend %vf-button-base;
 
     @include vf-button-pattern (
@@ -98,6 +114,10 @@
       $button-hover-background-color: $color-light,
       $button-hover-border-color: $color-transparent
     );
+  }
+
+  .p-button--base {
+    @extend %p-button--base;
   }
 }
 
