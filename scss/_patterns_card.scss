@@ -1,14 +1,36 @@
 @import 'settings';
 
+@mixin vf-p-card {
+  %p-card {
+    @extend %bg--x-light;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: auto; // prevent overflow of child margins
+    padding: $spv-intra--scaleable;
+  }
+
+  @include vf-p-card-default;
+  @include vf-p-card-highlighted;
+  @include vf-p-card-overlay;
+  @include vf-p-card-muted;
+  @include vf-p-card-specific-content;
+}
+
 @mixin vf-p-card-default {
   .p-card {
+    @extend %is-bordered;
+    @extend %has-round-corners;
     @extend %p-card;
-    border: 1px solid $color-mid-light;
-    padding: $spv-intra--scaleable - $px $spv-intra--scaleable $spv-intra--scaleable;
+    padding: $spv-intra--scaleable - $px;
   }
 }
 
 @mixin vf-p-card-highlighted {
+  %p-card--highlighted {
+    @extend %has-highlight;
+    @extend %has-round-corners;
+    @extend %p-card;
+  }
+
   .p-card--highlighted {
     @extend %p-card--highlighted;
   }
@@ -16,34 +38,42 @@
 
 @mixin vf-p-card-overlay {
   .p-card--overlay {
-    @extend %p-card;
     background: transparentize($color-x-light, .1);
-    border-radius: 0;
+    color: $color-dark;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: auto;
+    padding: $spv-intra--scaleable;
   }
 }
 
-@mixin vf-p-card {
-  %p-card {
-    background: $color-x-light;
-    border-radius: $border-radius;
-    color: $color-dark;
+@mixin vf-p-card-muted {
+  .p-card--muted {
+    @extend %bg--light;
+    @extend %has-highlight;
+    @extend %has-round-corners;
     margin-bottom: $spv-inter--scaleable;
-    overflow: auto; // prevent overflow of children margins
+    overflow: auto;
     padding: $spv-intra--scaleable;
+  }
+}
 
-    .p-card__content {
-      margin-top: - $sp-unit * 2;
-    }
+@mixin vf-p-card-specific-content {
+  // p-card scoped rules should only be added if the required behaviour is not likely to be needed in any other pattern.
+  // If possible, please consider adding a modifier to a base pattern, so it can be used elsewhere too.
+
+  .p-card__image {
+    margin-bottom: $spv-inter--condensed-scaleable;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  .p-card__content {
+    margin-top: - $sp-unit * 2;
   }
 
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
     margin-bottom: $spv-intra--scaleable;
-    padding-bottom: $spv-intra--scaleable - $px; // border compensation
-
-    > img {
-      max-height: 2rem;
-    }
 
     > .p-link--soft {
       display: inline-block;
@@ -51,12 +81,21 @@
     }
   }
 
-  %p-card--highlighted {
-    @extend %p-card;
-    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+  .p-card__thumbnail {
+    max-height: map-get($icon-sizes, thumb--card);
   }
 
-  @include vf-p-card-default;
-  @include vf-p-card-highlighted;
-  @include vf-p-card-overlay;
+  .p-card__content {
+    margin-top: - $sp-unit * 2;
+  }
+
+  .p-card__header {
+    border-bottom: 1px solid $color-mid-light;
+    margin-bottom: $spv-intra--scaleable;
+
+    > .p-link--soft {
+      display: inline-block;
+      overflow: auto;
+    }
+  }
 }
