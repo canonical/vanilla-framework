@@ -24,7 +24,7 @@ Finally, reference it from your own Sass files, with optional settings:
 // Optionally override some settings
 $color-brand: #ffffff;
 
-// Import the theme
+// Import the framework
 @import 'vanilla-framework/scss/vanilla';
 
 // Include all of Vanilla Framework
