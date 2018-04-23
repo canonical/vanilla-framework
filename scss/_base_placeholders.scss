@@ -1,0 +1,71 @@
+@mixin vf-b-placeholders {
+  // Placeholders containing used rules in multiple base components and patterns
+
+  //Styling
+  %has-round-corners {
+    border-radius: $border-radius;
+  }
+
+  %has-highlight {
+    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+  }
+
+  %is-bordered {
+    border: 1px solid $color-mid-light;
+  }
+
+  %bg--light {
+    background-color: $color-light;
+    color: $color-dark;
+  }
+
+  %bg--x-light {
+    background-color: $color-x-light;
+    color: $color-dark;
+  }
+
+  // Bars and borders
+  %pseudo-border {
+    background-color: $color-mid-light;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  %pseudo-border--bottom {
+    &::after {
+      @extend %pseudo-border;
+      bottom: 0;
+    }
+  }
+
+  %pseudo-border--top {
+    &::after {
+      @extend %pseudo-border;
+      top: 0;
+    }
+  }
+
+  %pseudo-bar {
+    position: relative;
+
+    &::before {
+      content: '';
+      height: $bar-thickness;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+@mixin vf-m-category-bar ($bg-color: #f00) {
+  @extend %pseudo-bar;
+
+  &::before {
+    background-color: $bg-color;
+  }
+}
