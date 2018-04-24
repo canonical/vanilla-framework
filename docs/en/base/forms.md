@@ -114,8 +114,3 @@ Applying the classes ```.is-error```, ```.is-caution``` or ```.is-success``` to 
 ### Design
 
 * [Forms design](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms)
-
-### Related
-
-* [Forms layout pattern](/en/patterns/forms)
-* [Form validation pattern](/en/patterns/form-validation)
