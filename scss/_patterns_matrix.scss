@@ -13,7 +13,6 @@
     margin-left: 0;
     padding-left: 0;
 
-
     &__item {
       border-top: 1px solid $color-mid-light;
       display: flex;
@@ -82,32 +81,13 @@
       }
     }
 
-    &__img,
-    &__content {
-      align-self: flex-start;
-    }
-
-    &__img + &__content > * {
-      display: flex;
-
-      &::before {
-        content: '';
-        display: block;
-        flex: 0 0 auto;
-        margin-bottom: $spv-intra--scaleable;
-        margin-right: $matrix-img-gutter;
-        min-height: 1px;
-        position: relative;
-        width: $matrix-img-width;
-      }
-    }
-
     &__img {
       // maintain image aspect ratio, but ensure it doesn't overflow in either direction
       height: auto;
+      margin-bottom: $spv-intra--scaleable;
+      margin-right: $matrix-img-gutter;
       max-height: $matrix-img-width;
       max-width: $matrix-img-width;
-      position: absolute;
       width: auto;
     }
 
@@ -130,6 +110,14 @@
     &__desc {
       margin-bottom: $spv-nudge-compensation;
       margin-top: - $sp-unit * 2;
+
+      > p:last-child {
+        margin-bottom: 0;
+      }
+
+      & + & {
+        margin-top: 0; // Negate nudge compensation for multiple .p-matrix__desc
+      }
     }
   }
 }
