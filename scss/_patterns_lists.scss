@@ -193,21 +193,27 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
     @extend %clearfix;
     @extend %ol-numbered;
 
-    >li {
+    > li {
       @extend %li-numbered;
     }
 
-    .p-list-step__item {
-      @media (min-width: $breakpoint-medium) {
-        display: flex;
-        margin: 0;
-
-        >:nth-child(2n) {
-          @include column(6, $grid-columns);
+    @media (min-width: $breakpoint-medium) {
+      .p-list-step {
+        &__content {
+          margin-top: 0;
         }
 
-        >:nth-child(2n+1) {
-          @include column(6, $grid-columns, true);
+        &__item {
+          display: flex;
+          margin: 0;
+
+          >:nth-child(2n) {
+            @include column(6, $grid-columns);
+          }
+
+          >:nth-child(2n+1) {
+            @include column(6, $grid-columns, true);
+          }
         }
       }
     }
