@@ -1,5 +1,6 @@
 @mixin vf-b-placeholders {
   // Placeholders containing used rules in multiple base components and patterns
+  // Default settings can be found in _settings_placeholders
 
   //Styling
   %has-round-corners {
@@ -7,11 +8,11 @@
   }
 
   %has-highlight {
-    box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+    box-shadow: $box-shadow;
   }
 
   %is-bordered {
-    border: 1px solid $color-mid-light;
+    border: $border;
   }
 
   %bg--light {
@@ -28,7 +29,7 @@
   %pseudo-border {
     background-color: $color-mid-light;
     content: '';
-    height: 1px;
+    height: $px;
     left: 0;
     position: absolute;
     right: 0;
@@ -59,13 +60,5 @@
       right: 0;
       top: 0;
     }
-  }
-}
-
-@mixin vf-m-category-bar ($bg-color: #f00) {
-  @extend %pseudo-bar;
-
-  &::before {
-    background-color: $bg-color;
   }
 }
