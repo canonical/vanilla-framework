@@ -2,7 +2,7 @@
 
 @mixin vf-p-card {
   %p-card {
-    @extend %bg--x-light;
+    @extend %vf-bg--x-light;
     margin-bottom: $spv-inter--scaleable;
     overflow: auto; // prevent overflow of child margins
     padding: $spv-intra--scaleable;
@@ -17,8 +17,8 @@
 
 @mixin vf-p-card-default {
   .p-card {
-    @extend %is-bordered;
-    @extend %has-round-corners;
+    @extend %vf-is-bordered;
+    @extend %vf-has-round-corners;
     @extend %p-card;
     padding: $spv-intra--scaleable - $px;
   }
@@ -26,8 +26,8 @@
 
 @mixin vf-p-card-highlighted {
   %p-card--highlighted {
-    @extend %has-highlight;
-    @extend %has-round-corners;
+    @extend %vf-has-box-shadow;
+    @extend %vf-has-round-corners;
     @extend %p-card;
   }
 
@@ -48,9 +48,9 @@
 
 @mixin vf-p-card-muted {
   .p-card--muted {
-    @extend %bg--light;
-    @extend %has-highlight;
-    @extend %has-round-corners;
+    @extend %vf-bg--light;
+    @extend %vf-has-box-shadow;
+    @extend %vf-has-round-corners;
     margin-bottom: $spv-inter--scaleable;
     overflow: auto;
     padding: $spv-intra--scaleable;
