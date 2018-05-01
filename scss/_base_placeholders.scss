@@ -2,31 +2,31 @@
   // Placeholders containing used rules in multiple base components and patterns
   // Default settings can be found in _settings_placeholders
 
-  //Styling
-  %has-round-corners {
+  // Styling
+  %vf-has-round-corners {
     border-radius: $border-radius;
   }
 
-  %has-highlight {
+  %vf-has-box-shadow {
     box-shadow: $box-shadow;
   }
 
-  %is-bordered {
+  %vf-is-bordered {
     border: $border;
   }
 
-  %bg--light {
+  %vf-bg--light {
     background-color: $color-light;
     color: $color-dark;
   }
 
-  %bg--x-light {
+  %vf-bg--x-light {
     background-color: $color-x-light;
     color: $color-dark;
   }
 
   // Bars and borders
-  %pseudo-border {
+  %vf-pseudo-border {
     background-color: $color-mid-light;
     content: '';
     height: $px;
@@ -35,21 +35,21 @@
     right: 0;
   }
 
-  %pseudo-border--bottom {
+  %vf-pseudo-border--bottom {
     &::after {
-      @extend %pseudo-border;
+      @extend %vf-pseudo-border;
       bottom: 0;
     }
   }
 
-  %pseudo-border--top {
+  %vf-pseudo-border--top {
     &::after {
-      @extend %pseudo-border;
+      @extend %vf-pseudo-border;
       top: 0;
     }
   }
 
-  %pseudo-bar {
+  %vf-pseudo-bar {
     position: relative;
 
     &::before {
