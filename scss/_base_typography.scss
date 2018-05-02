@@ -223,6 +223,17 @@
     vertical-align: baseline;
   }
 
+  h3,
+  h4,
+  .p-heading--three,
+  .p-heading--four {
+    & + p {
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-top: - $sp-unit;
+      }
+    }
+  }
+
   h5,
   h6,
   .p-heading--five,
@@ -239,7 +250,7 @@
   .p-heading--five,
   .p-heading--six {
     .p-muted-heading + & {
-      margin-top: -$sp-unit * 2;
+      margin-top: - $sp-unit;
     }
   }
 
@@ -248,21 +259,33 @@
   h6 + p:not(.p-muted-heading),
   .p-heading--five + p:not(.p-muted-heading),
   .p-heading--six + p:not(.p-muted-heading) {
-    margin-top: -$sp-unit * 2;
+    margin-top: - $sp-unit * 2;
   }
 
   // Increase space above headings that follow a paragraph.
 
   %sp--ph1 {
     padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h1-mobile) + map-get($sp-before, h1-mobile);
+    }
   }
 
   %sp--ph2 {
     padding-top: map-get($nudges, nudge--h2) + map-get($sp-before, h2);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h2-mobile) + map-get($sp-before, h2-mobile);
+    }
   }
 
   %sp--ph3 {
     padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h3-mobile) + map-get($sp-before, h3-mobile);
+    }
   }
 
   %sp--ph4 {
@@ -329,6 +352,13 @@
     margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--h1);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 6) * 1rem;
+      line-height: map-get($line-heights, h1-mobile);
+      margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, nudge--h1-mobile);
+      padding-top: map-get($nudges, nudge--h1-mobile);
+    }
   }
 
   %vf-heading-2 {
@@ -340,6 +370,13 @@
     margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--h2);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: 1.83274rem; // pow($ms-ratio, 4.5) * 1rem
+      line-height: map-get($line-heights, h2-mobile);
+      margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, nudge--h2-mobile);
+      padding-top: map-get($nudges, nudge--h2-mobile);
+    }
   }
 
   %vf-heading-3 {
@@ -351,6 +388,13 @@
     margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--h3);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 3) * 1rem;
+      line-height: map-get($line-heights, h3-mobile);
+      margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, nudge--h3-mobile);
+      padding-top: map-get($nudges, nudge--h3-mobile);
+    }
   }
 
   %vf-heading-4 {
@@ -362,6 +406,13 @@
     margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--h4);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: 1.22176rem; // pow($ms-ratio, 1.5) * 1rem
+      line-height: map-get($line-heights, h4-mobile);
+      margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, nudge--h4-mobile);
+      padding-top: map-get($nudges, nudge--h4-mobile);
+    }
   }
 
   %vf-heading-5 {
@@ -393,7 +444,7 @@
   }
 
   %small-text {
-    font-size: 1rem / pow($ms-ratio, 1);
+    font-size: pow($ms-ratio, -1) * 1rem;
     line-height: map-get($line-heights, small);
     margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
     padding-top: map-get($nudges, nudge--small);

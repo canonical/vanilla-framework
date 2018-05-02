@@ -1,6 +1,6 @@
 @import 'settings';
-$bullet-padding: map-get($nudges, nudge--h3) * 0;
-$numbered-bullet-width: map-get($line-heights, h3) + $bullet-padding * 2;
+$numbered-bullet-width: map-get($line-heights, h3);
+$numbered-bullet-width--mobile: map-get($line-heights, h3-mobile);
 $numbered-bullet-margin-right: $sph-inter--expanded;
 $numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
 $tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
@@ -271,10 +271,15 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
       display: inline-block;
       margin-left: - $numbered-bullet-offset;
       margin-top: map-get($nudges, nudge--h3);
-      padding: $bullet-padding 0 $bullet-padding;
+      padding: 0;
       position: absolute;
       text-align: center;
       width: $numbered-bullet-width;
+
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-top: map-get($nudges, nudge--h3-mobile);
+        width: $numbered-bullet-width--mobile;
+      }
     }
   }
   @include vf-p-list;
