@@ -52,83 +52,77 @@
     </header>
     <div class="docs-wrapper">
       {% if navigation %}
-      <div class="col-2 sidebar-col u-no-margin--left">
-        <div class="p-navigation--sidebar">
-          <header id="navigation" role="banner">
-            <div class="p-navigation__banner">
-              <div class="row">
-                <div class="sidebar__cta u-align-text--right">
-                  <ul class="p-inline-list">
-                    <li class="p-inline-list__item">
-                      <i class="p-icon--menu js-sidebar-toggle" aria-hidden="false"></i>
-                      <i class="p-icon--close js-sidebar-toggle u-hide" aria-hidden="true"></i>
-                    </li>
-                  </ul>
-                </div>
+      <div class="col-2 p-navigation--sidebar u-no-margin--left">
+        <header id="navigation" role="banner">
+          <div class="p-navigation__banner">
+            <div class="row">
+              <div class="sidebar__cta u-align-text--right">
+                <ul class="p-inline-list">
+                  <li class="p-inline-list__item">
+                    <i class="p-icon--menu js-sidebar-toggle" aria-hidden="false"></i>
+                    <i class="p-icon--close js-sidebar-toggle u-hide" aria-hidden="true"></i>
+                  </li>
+                </ul>
               </div>
             </div>
-          </header>
-          <div class="sidebar__content js-sidebar-toggle u-hide" aria-hidden="true">
-            <select name="version-select" id="version-select">
-              <option value="latest">v1.7.0</option>
-            </select>
-            <form class="p-search-box" onsubmit="return false">
-              <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
-              <button type="reset" class="p-search-box__reset" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
-              <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
-            </form>
-            <ul id="docs-list-unsorted" class="p-list sidebar__first-level" data-js="sidebar-first-level">
-              {% for item in navigation %}
-              <li>
-                {% if item.location %}
-                <a class="sidebar__link" href="{{ item.location }}">{{ item.title }}</a>
-                {% elif item.children %}
-                <a class="sidebar__link {% for child in item.children %}{% if child.active %}is-selected{% endif %}{% endfor %}" href="#{{ item.title }}">{{ item.title }}<i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-                <ul class="sidebar__second-level">
-                  {% for child in item.children %}
-                  <li><a class="sidebar__link {% if child.active %}is-selected{% endif %}" href="{{ child.location }}">{{ child.title }}</a></li>
-                  {% endfor %}
-                </ul>
-                {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
-            <ul id="docs-list-sorted" class="p-list sidebar__first-level" data-js="sidebar-first-level" style="display: none;">
-              {% for item in navigation %}
-              {% for child in item.children %}
-              <li class="js-list-items"><a class="sidebar__link" href="{{ child.location }}">{{ child.title }}</a></li>
-              {% endfor %}
-              {% endfor %}
-            </ul>
           </div>
+        </header>
+        <div class="sidebar__content js-sidebar-toggle u-hide" aria-hidden="true">
+          <select name="version-select" id="version-select">
+            <option value="latest">v1.7.0</option>
+          </select>
+          <form class="p-search-box" onsubmit="return false">
+            <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
+            <button type="reset" class="p-search-box__reset" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
+            <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+          </form>
+          <ul id="docs-list-unsorted" class="p-list sidebar__first-level" data-js="sidebar-first-level">
+            {% for item in navigation %}
+            <li>
+              {% if item.location %}
+              <a class="sidebar__link" href="{{ item.location }}">{{ item.title }}</a>
+              {% elif item.children %}
+              <a class="sidebar__link {% for child in item.children %}{% if child.active %}is-selected{% endif %}{% endfor %}" href="#{{ item.title }}">{{ item.title }}<i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
+              <ul class="sidebar__second-level">
+                {% for child in item.children %}
+                <li><a class="sidebar__link {% if child.active %}is-selected{% endif %}" href="{{ child.location }}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+          <ul id="docs-list-sorted" class="p-list sidebar__first-level" data-js="sidebar-first-level" style="display: none;">
+            {% for item in navigation %}
+            {% for child in item.children %}
+            <li class="js-list-items"><a class="sidebar__link" href="{{ child.location }}">{{ child.title }}</a></li>
+            {% endfor %}
+            {% endfor %}
+          </ul>
         </div>
       </div>
       {% endif %}
-      <div class="col-8 main-col">
-        <main id="main-content">
-          <h1 class="u-off-screen">Vanilla framework documentation</h1>
-          {{ content }}
-        </main>
-      </div>
+      <main class="col-8 main-col" id="main-content">
+        <h1 class="u-off-screen">Vanilla framework documentation</h1>
+        {{ content }}
+      </main>
       {% if toc_items %}
-      <div class="col-2 toc-col">
-        <aside id="side-content" class="p-aside">
-          {% if toc_items %}
-          <div class="p-aside__section">
-            <h4 class="p-aside__header">Contents</h4>
-            <nav class="p-aside__nav">
-              <ul class="p-list">
-                {{ toc_items }}
-              </ul>
-            </nav>
-          </div>
-          {% endif %}
-        </aside>
-      </div>
-      {% endif %}
+      <aside id="side-content" class="col-2 p-aside">
+        {% if toc_items %}
+        <div class="p-aside__section">
+          <h4 class="p-aside__header">Contents</h4>
+          <nav class="p-aside__nav">
+            <ul class="p-list">
+              {{ toc_items }}
+            </ul>
+          </nav>
+        </div>
+        {% endif %}
+      </aside>
+    {% endif %}
     </div>
-    <footer class="p-footer u-no-margin--top" role="contentinfo">
-      <div class="row u-no-max-width">
+    <footer class="p-footer" role="contentinfo">
+      <div class="row">
         <div class="col-12">
           <p>&copy; Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
         </div>
