@@ -36,6 +36,10 @@
     &__content {
       margin-bottom: $spv-nudge-compensation + $sp-unit;
       margin-top: - $sp-unit * 2;
+
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-top: - $sp-unit;
+      }
     }
 
     &__image.is-round {
@@ -82,11 +86,15 @@
 
       .p-media-object__title {
         @extend %vf-heading-1;
-        margin-top: - $sp-unit * 2;
+        margin-top: - $sp-unit;
       }
 
       .p-media-object__content {
         margin-top: - $sp-unit * 5;
+
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-top: - $sp-unit * 3;
+        }
       }
     }
   }
