@@ -7,7 +7,7 @@ table_of_contents: true
 
 All text in Vanilla uses the Ubuntu typeface.
 
-Vanilla's typographic scale has a base font size of 16 pixels (1rem) and a font weight of 300.
+Vanilla's typographic scale has a base font-size of `1rem` (`16px`) and a font-weight of 300.
 The heading sizes h1-h4 follow a modular scale with a base value of 16/14 (~1.143). On large
 screens the ratio is 1:2 and on small to medium screens the ratio is 2:3. This means that the
 font size is calculated from
