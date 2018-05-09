@@ -49,7 +49,7 @@ Spacing variable | Formula | Default value
 
 ### Generic units
 
-There are also generic spacing units for backwards compatibility with components created with Vanilla before v1.7.0.
+There are also generic spacing units for backwards compatibility with components created with Vanilla before `v1.7.0`.
 
 Spacing variable | Formula | Default value
  ------------------- | ------------- |

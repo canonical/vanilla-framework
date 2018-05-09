@@ -10,7 +10,7 @@ Vanilla has several global functions used across multiple components or utilitie
 
 ### URL-friendly color
 
-This function is used to inject Vanilla color variables into inline SVGs by converting all `#` with the HTML encoded `%23`.
+This function is used to inject Vanilla color variables into inline vector graphics by converting all `#` with the HTML encoded `%23`.
 
 ``` scss
 @function vf-url-friendly-color($color) {
