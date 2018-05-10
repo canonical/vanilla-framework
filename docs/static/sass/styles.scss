@@ -6,10 +6,6 @@
 @import 'codehilite';
 @include codehilite;
 
-td, th {
-  padding: 1rem 0.75rem;
-}
-
 h2:nth-child(2) {
   display: inline-block;
   margin-bottom: $sp-medium;
@@ -17,6 +13,16 @@ h2:nth-child(2) {
 
 p {
   max-width: 52em;
+}
+
+p > iframe {
+  margin-top: $spv-inter--regular;
+}
+
+th:not(:first-child),
+td:not(:first-child) {
+  padding-left: $sph-intra--condensed;
+  padding-right: $sph-intra--condensed;
 }
 
 .main-col {
