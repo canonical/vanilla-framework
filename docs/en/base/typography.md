@@ -21,19 +21,19 @@ where _n_ is the point on the modular scale.
 |               | Small-Medium | Large |
 | ------------- | -----  | ------ |
 | <h1 class="u-no-margin--bottom">h1</h1> |        |        |
-| modular point | `8` | `6` |
+| modular point | `6` | `8` |
 | font size     | `2.22819rem` | `2.91029rem` |
 | line height   | `3rem` | `3.5rem` |
 | <h2 class="u-no-margin--bottom">h2</h2> |        |        |
-| modular point | `6` | `4.5` |
+| modular point | `4.5` | `6` |
 | font size     | `1.83274rem` | `2.22819rem` |
 | line height   | `2.5rem` | `3rem` |
 | <h3 class="u-no-margin--bottom">h3</h3> |        |        |
-| modular point | `4` | `3` |
+| modular point | `3` | `4` |
 | font size     | `1.49271rem` | `1.70596rem` |
 | line height   | `2rem` | `2.5rem` |
 | <h4 class="u-no-margin--bottom">h4</h4> |        |        |
-| modular point | `2` | `1.5` |
+| modular point | `1.5` | `2` |
 | font size     | `1.22176rem` | `1.30612rem` |
 | line height   | `1.5rem` | `2rem` |
 | <h5 class="u-no-margin--bottom">h5</h5> |        |        |
