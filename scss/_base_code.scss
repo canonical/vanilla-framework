@@ -16,15 +16,13 @@
     direction: ltr;
     hyphens: none;
     tab-size: 4;
+    white-space: pre-wrap;
     word-spacing: normal;
     word-wrap: break-word;
   }
 
   code {
-    @extend %default-text;
-    display: inline-block;
-    margin-bottom: $spv-intra + $spv-nudge-compensation - 2 * $px; // compensates for the borders around <pre>
-    white-space: pre-wrap;
+    display: inline;
   }
 
   pre {
@@ -36,10 +34,8 @@
     margin-bottom: $spv-inter--scaleable;
     margin-top: 0;
     overflow: auto;
-    padding-left: $sph-intra;
-    padding-right: $sph-intra;
+    padding: $spv-intra $sph-intra;
     text-align: left;
     text-shadow: none;
-    white-space: nowrap;
   }
 }
