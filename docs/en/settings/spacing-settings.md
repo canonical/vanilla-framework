@@ -34,7 +34,7 @@ Spacing variable | Formula | Default value
  ------------------- | ------------- |
 `$spv-inter--shallow-scaleable` | `$sp-unit * 4` | `2rem`
 `$spv-inter--regular-scaleable` | `$sp-unit * 6` | `3rem`
-`$spv-inter--shallow-scaleable` | `$sp-unit * 8` | `4rem`
+`$spv-inter--deep-scaleable` | `$sp-unit * 8` | `4rem`
 
 ### Horizontal spacing
 
