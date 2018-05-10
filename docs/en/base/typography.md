@@ -7,42 +7,47 @@ table_of_contents: true
 
 All text in Vanilla uses the Ubuntu typeface.
 
-Vanilla's typographic scale has a base font size of 15 pixels (screens smaller than 768 pixels)
-and a font weight of 300.  At the medium breakpoint, the base font size increases to 16
-pixels.
+Vanilla's typographic scale has a base font-size of `1rem` (`16px`) and a font-weight of 300.
+The heading sizes h1-h4 follow a modular scale with a base value of 16/14 (~1.143). On large
+screens the ratio is 1:2 and on small to medium screens the ratio is 2:3. This means that the
+font size is calculated from
+
+<p>(16/14)<sup><em>n</em></sup></p>
+
+where _n_ is the point on the modular scale.
 
 ### Typographic scale
 
-|               | Small  | Medium | Large  |
-| ------------- | -----  | ------ | -----  |
-| **p**         |        |        |        |
-| font size     | `16px` | `16px` | `16px` |
-| line height   | `24px` | `24px` | `24px` |
-| margin top    | `16px` | `16px` | `24px` |
-| <h1>h1</h1>   |        |        |        |
-| font size     | `32px` | `32px` | `48px` |
-| line height   | `42px` | `42px` | `60px` |
-| margin top    | `32px` | `32px` | `60px` |
-| <h2>h2</h2>   |        |        |        |
-| font size     | `28px` | `28px` | `36px` |
-| line height   | `36px` | `36px` | `48px` |
-| margin top    | `24px` | `24px` | `32px` |
-| <h3>h3</h3>   |        |        |        |
-| font size     | `24px` | `24px` | `28px` |
-| line height   | `32px` | `32px` | `36px` |
-| margin top    | `24px` | `24px` | `32px` |
-| <h4>h4</h4>   |        |        |        |
-| font size     | `22px` | `22px` | `24px` |
-| line height   | `28px` | `28px` | `32px` |
-| margin top    | `24px` | `24px` | `32px` |
-| <h5>h5</h5>   |        |        |        |
-| font size     | `18px` | `18px` | `20px` |
-| line height   | `24px` | `24px` | `28px` |
-| margin top    | `24px` | `24px` | `32px` |
-| <h6>h6</h6>   |        |        |        |
-| font size     | `16px` | `16px` | `16px` |
-| line height   | `24px` | `24px` | `24px` |
-| margin top    | `24px` | `24px` | `32px` |
+|               | Small-Medium | Large |
+| ------------- | -----  | ------ |
+| <h1 class="u-no-margin--bottom">h1</h1> |        |        |
+| modular point | `8` | `6` |
+| font size     | `2.22819rem` | `2.91029rem` |
+| line height   | `3rem` | `3.5rem` |
+| <h2 class="u-no-margin--bottom">h2</h2> |        |        |
+| modular point | `6` | `4.5` |
+| font size     | `1.83274rem` | `2.22819rem` |
+| line height   | `2.5rem` | `3rem` |
+| <h3 class="u-no-margin--bottom">h3</h3> |        |        |
+| modular point | `4` | `3` |
+| font size     | `1.49271rem` | `1.70596rem` |
+| line height   | `2rem` | `2.5rem` |
+| <h4 class="u-no-margin--bottom">h4</h4> |        |        |
+| modular point | `2` | `1.5` |
+| font size     | `1.22176rem` | `1.30612rem` |
+| line height   | `1.5rem` | `2rem` |
+| <h5 class="u-no-margin--bottom">h5</h5> |        |        |
+| modular point | `0` | `0` |
+| font size     | `1rem` | `1rem` |
+| line height   | `1.5rem` | `1.5rem` |
+| <h6 class="u-no-margin--bottom">h6</h6> |        |        |
+| modular point | `0` | `0` |
+| font size     | `1rem` | `1rem` |
+| line height   | `1.5rem` | `1.5rem` |
+| <p class="u-no-margin--bottom">p</p> |        |        |
+| modular point | `0` | `0` |
+| font size     | `1rem` | `1rem` |
+| line height   | `1.5rem` | `1.5rem` |
 
 ### Heading classes
 
