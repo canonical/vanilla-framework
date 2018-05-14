@@ -63,4 +63,14 @@
       top: 0;
     }
   }
+
+  // Utilities
+  %vf-hide-text {
+    overflow: hidden;
+    // rem value necessary because text indent in % does not work with padding;
+    // 10rem is bigger than any padding value on an element you'd hide text in (buttons, icons)
+    // but still smaller than 9999px so should have better performance
+    text-indent: calc(100% + 10rem);
+    white-space: nowrap;
+  }
 }
