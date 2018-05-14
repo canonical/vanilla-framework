@@ -75,6 +75,6 @@ If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we re
 
   <hr />
 
-  ### Design
+ ### Design
 
   * [Icons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons)
