@@ -3,17 +3,13 @@
 @mixin vf-quotes {
   color: $color-mid-light;
   display: inline-block;
-  font-size: 2.134rem;
+  font-size: 3rem;
   font-weight: bold;
-  line-height: $sp-medium;
   max-width: 1.25rem;
+  position: absolute;
 
-  @media (min-width: $breakpoint-medium)  {
-    font-size: $sp-xx-large;
-  }
-
-  @media (min-width: $breakpoint-large) {
-    font-size: $sp-xxx-large;
+  @media (max-width: $breakpoint-heading-threshold) {
+    font-size: 2.75rem;
   }
 }
 
@@ -24,30 +20,20 @@
     border: 0;
     margin: $spv-inter--scaleable 0 $spv-inter--scaleable + $sp-unit;
     overflow: visible;
-    padding-left: $sp-x-large;
-    padding-right: $sph-intra;
+    padding: 0 $sph-inter * 2;
     position: relative;
 
-    @media (min-width: $breakpoint-medium) {
-      margin: $sp-large 0 $sp-large;
-    }
-
     > p {
-      @extend %vf-heading-3;
-      font-style: normal;
+      @extend %vf-heading-4;
 
       &:first-of-type::before {
         @include vf-quotes;
         content: '\201C\2002'; // Unicode for left double quotation mark +  1/2 em space
-        margin-left: -1.5rem;
-        padding-right: $sp-large;
-        position: relative;
-        top: .1rem;
+        left: $spv-intra--condensed;
+        top: .05rem;
 
-        @media (min-width: $breakpoint-medium)  {
-          margin-left: -1.9rem;
-          padding-right: 1.9rem;
-          top: .4rem;
+        @media (max-width: $breakpoint-heading-threshold) {
+          top: .3rem;
         }
       }
 
@@ -58,19 +44,19 @@
       &:last-of-type::after {
         @include vf-quotes;
         content: '\2002\201E'; // Unicode for 1/2 em space + low double quotation mark
-        margin-left: $sp-x-small;
-        margin-top: -.5rem;
-        position: absolute;
+        margin-left: $spv-intra--condensed;
+        margin-top: -2.2rem;
+
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-top: -1.7rem;
+        }
       }
     }
 
     &__citation {
-      display: inline-block;
-      font-size: 1.25rem;
+      @extend %vf-heading-4;
       font-style: italic;
-      line-height: 1.5;
-      margin-top: $sp-small;
-      width: 100%;
+      margin-top: $spv-intra--condensed--scaleable;
     }
   }
 }
