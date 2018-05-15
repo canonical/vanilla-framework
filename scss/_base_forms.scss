@@ -181,7 +181,17 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
   }
 
   [type='submit'] {
-    @extend %p-button--positive;
+    @extend %vf-button-base;
+
+    @include vf-button-pattern (
+      $button-background-color: $color-positive,
+      $button-border-color: $color-positive,
+      $button-text-color: $color-x-light,
+      $button-hover-background-color: darken($color-positive, 10%),
+      $button-hover-border-color: darken($color-positive, 10%),
+      $button-disabled-background-color: $color-positive,
+      $button-disabled-border-color: $color-positive
+    );
   }
 
   // Select styles

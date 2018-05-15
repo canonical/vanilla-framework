@@ -65,10 +65,17 @@
   @return $value;
 }
 
-@mixin vf-m-category-bar ($bg-color: #f00) {
+@mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false) {
   @extend %vf-pseudo-bar;
 
   &::before {
     background-color: $bg-color;
+    #{$position}: 0;
+
+    @if $over-border == true {
+      left: -1px;
+      right: -1px;
+      z-index: 1;
+    }
   }
 }
