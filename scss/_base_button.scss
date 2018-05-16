@@ -8,7 +8,6 @@
   }
 
   %vf-button-base {
-    @extend %bordered-text-vertical-padding;
     @include vf-animation (#{background-color, border-color}, fast, in);
     @include vf-focus;
     border-radius: $border-radius;
@@ -19,8 +18,8 @@
     font-size: 1rem;
     font-weight: 300;
     line-height: map-get($line-heights, default-text);
-    padding-left: $sph-intra;
-    padding-right: $sph-intra;
+    margin-bottom: $spv-inter--scaleable + 2 * $spv-nudge-compensation;
+    padding: $spv-nudge - $px $sph-intra;
     text-align: center;
     text-decoration: none;
 
@@ -38,18 +37,13 @@
 
     @media only screen and (max-width: $breakpoint-x-small) {
       width: 100%;
-
-      p & + & {
-        margin-bottom: $spv-nudge-compensation;
-        margin-top: - $spv-inter--scaleable;
-      }
     }
 
-    @media only screen and (min-width: $breakpoint-x-small) {
+    @media only screen and (min-width: $breakpoint-x-small + 1) {
       width: auto;
 
-      & + & {
-        margin-left: $sph-inter;
+      &:not(:last-of-type):not(:only-of-type) {
+        margin-right: $sph-inter;
       }
     }
 
@@ -59,16 +53,20 @@
       padding-top: $spv-nudge - $sp-unit * .5 - $px;
     }
 
-    // this addresses buttons nested in <p>'s;
-    // remove when no longer needed
+    // The following three rules address buttons nested in <p>'s;
     p & {
-      margin-bottom: $spv-nudge-compensation;
-      margin-top: $spv-nudge-compensation;
+      margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
+      margin-top: - $spv-nudge;
     }
 
-    // keep intended spacing for buttons nesrted inside p's.
-    @at-root p + p > & {
-      margin-top: $sp-unit * 2;
+    p + p > & {
+      margin-top: $spv-inter--condensed-scaleable - $spv-nudge;
+    }
+
+    @media only screen and (max-width: $breakpoint-x-small) {
+      p & + & {
+        margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
+      }
     }
   }
 }
