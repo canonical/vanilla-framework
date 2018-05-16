@@ -39,7 +39,7 @@ category: _patterns
             <td role="gridcell" aria-label="Users" class="u-align--right">12</td>
             <td role="gridcell" aria-label="Units" class="u-align--right">23</td>
             <td role="gridcell" class="u-align--right">
-                <button class="u-toggle" aria-controls="#expanded-row-2" aria-expanded="false">Show</button>
+                <button class="u-toggle" aria-controls="#expanded-row-2" aria-expanded="false" data-shown-text="Hide" data-hidden-text="Show">Show</button>
             </td>
             <td id="expanded-row-2" class="p-table-expanding__panel" aria-hidden="true">
                 <div class="row">
@@ -58,7 +58,7 @@ category: _patterns
             <td role="gridcell" aria-label="Users" class="u-align--right">9</td>
             <td role="gridcell" aria-label="Units" class="u-align--right">17</td>
             <td role="gridcell" class="u-align--right">
-                <button class="u-toggle" aria-controls="#expanded-row-3" aria-expanded="false">Show</button>
+                <button class="u-toggle" aria-controls="#expanded-row-3" aria-expanded="false" data-shown-text="Hide" data-hidden-text="Show">Show</button>
             </td>
             <td id="expanded-row-3" class="p-table-expanding__panel" aria-hidden="true">
                 <div class="row">
@@ -108,9 +108,11 @@ category: _patterns
                 // control expanded to be true / false
                 if (target.getAttributeNode("aria-hidden").value == 'true') {
                     this.setAttribute('aria-expanded', 'true');
+                    this.innerHTML = this.getAttribute('data-shown-text');
                     target.setAttribute('aria-hidden', 'false');
                 } else {
                     this.setAttribute('aria-expanded', 'false');
+                    this.innerHTML = this.getAttribute('data-hidden-text');
                     target.setAttribute('aria-hidden', 'true');
                 }
             });
