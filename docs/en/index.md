@@ -37,7 +37,7 @@ Note: If you don't need the whole framework, you can just include specific parts
 
 Alternatively, you can add Vanilla directly to your markup:
 
-`<link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-1.7.0.min.css" />`
+`<link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-1.7.1.min.css" />`
 
 ### Download
 
