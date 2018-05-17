@@ -92,6 +92,24 @@ category: _patterns
         }
     }
 
+    function clickOutsideListener(selector) {
+        var toggles = document.querySelectorAll(selector);
+
+        document.addEventListener('click', function(event) {
+            toggles.forEach(function(toggle) {
+                var dropdown = document.querySelector(toggle.getAttribute('aria-controls'));
+                var clickOutside = !(toggle.contains(event.target) || dropdown.contains(event.target));
+
+                if (clickOutside) {
+                    toggle.setAttribute('aria-expanded', false);
+                    dropdown.setAttribute('aria-hidden', true);
+                }
+            })
+        });
+
+    }
+
     toggle('.p-contextual-menu__toggle');
+    clickOutsideListener('.p-contextual-menu__toggle');
 })()
 </script>
