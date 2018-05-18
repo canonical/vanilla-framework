@@ -59,6 +59,27 @@ This function raises a given number to a given power.
 }
 ```
 
+### Highlight bar
+
+This function adds a `3px` thick, coloured bar to the top or bottom of a component (for example in Notification, Navigation and Tab components). The `$over-border` argument determines whether the bar sits on top of a component with borders.
+
+``` scss
+@mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false) {
+  @extend %vf-pseudo-bar;
+
+  &::before {
+    background-color: $bg-color;
+    #{$position}: 0;
+
+    @if $over-border == true {
+      left: -1px;
+      right: -1px;
+      z-index: 1;
+    }
+  }
+}
+```
+
 ### Related
 
 * [Icons](/en/patterns/icons)
