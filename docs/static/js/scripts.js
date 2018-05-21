@@ -32,34 +32,6 @@ navSidebarLinks.forEach(function(el) {
   );
 });
 
-function insertAfter(newNode, referenceNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-
-// Append GitHub and Report a bug links
-function createLink(linkText, linkHref) {
-  var link = document.createElement('a');
-  link.className = 'header-actions__link';
-  link.appendChild(document.createTextNode(linkText));
-  link.href = linkHref;
-  return link;
-}
-
-var linksContainer = document.createElement('div');
-linksContainer.className = 'header-actions';
-
-var ghLink = createLink('View on GitHub', 'https://github.com/vanilla-framework/vanilla-framework');
-var bugLink = createLink('Report a bug', 'https://github.com/vanilla-framework/vanilla-framework/issues/new')
-
-linksContainer.appendChild(ghLink);
-linksContainer.appendChild(bugLink);
-
-var contentHeader = document.getElementById('main-content').children[1];
-insertAfter(linksContainer, contentHeader);
-
-var line = document.createElement('hr');
-insertAfter(line, linksContainer);
-
 // Add classes to links
 var links = document.querySelectorAll('a');
 links.forEach(function(link) {
