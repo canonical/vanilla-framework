@@ -12,24 +12,21 @@
 
     &__item {
       display: inline-block;
-      margin: 1.875rem;
-      max-height: 5.625rem;
-      max-width: 5.625rem;
+      margin: 1rem;
       overflow: hidden;
       text-align: center;
       vertical-align: middle;
 
-      @media (min-width: $breakpoint-medium) {
+      @media only screen and (min-width: $breakpoint-medium) {
         margin: 1.875rem;
-        max-height: 11.25rem;
-        max-width: 11.25rem;
       }
 
-      * {
+      img {
         max-height: map-get($icon-sizes, thumb--small);
         max-width: 7rem;
+        width: auto;
 
-        @media only screen and (min-width: $breakpoint-medium) {
+        @media screen and (min-width: $breakpoint-medium) {
           max-height: 5.5rem;
           max-width: 9rem;
         }
