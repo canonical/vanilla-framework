@@ -26,31 +26,30 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {% endif %}
-
-    <header id="navigation" class="p-navigation">
-      <div class="p-navigation__banner">
-        <div class="p-navigation__logo">
-          <a class="p-navigation__link" href="https://vanillaframework.io/">
-            <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla framework logo">
-          </a>
+    <div class="docs-container">
+      <header id="navigation" class="p-navigation">
+        <div class="p-navigation__banner">
+          <div class="p-navigation__logo">
+            <a class="p-navigation__link" href="{{ site_logo_href }}">
+              <img class="p-navigation__image" src="{{ site_logo_url }}" alt="{{ site_title }} logo">
+            </a>
+          </div>
+          <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+          <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
         </div>
-        <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-        <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
-      </div>
-      <nav class="p-navigation__nav">
-        <span class="u-off-screen">
-          <a href="#main-content">Jump to main content</a>
-        </span>
-        <ul class="p-navigation__links">
-          <li class="p-navigation__link is-selected"><a href="/">Docs</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/accessibility">Accessibility</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/browser-support">Browser support</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/coding-standards">Coding standards</a></li>
-          <li class="p-navigation__link"><a href="https://vanillaframework.io/contribute">Contribute</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="docs-wrapper">
+        <nav class="p-navigation__nav">
+          <span class="u-off-screen">
+            <a href="#main-content">Jump to main content</a>
+          </span>
+          <ul class="p-navigation__links">
+            <li class="p-navigation__link is-selected"><a href="/">Docs</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/accessibility">Accessibility</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/browser-support">Browser support</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/coding-standards">Coding standards</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/contribute">Contribute</a></li>
+          </ul>
+        </nav>
+      </header>
       {% if navigation %}
       <div class="col-2 p-navigation--sidebar u-no-margin--left">
         <header id="navigation" role="banner">
@@ -73,7 +72,7 @@
           </select>
           <form class="p-search-box" onsubmit="return false">
             <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
-            <button type="reset" class="p-search-box__reset" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
+            <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
             <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
           </form>
           <ul id="docs-list-unsorted" class="p-list sidebar__first-level" data-js="sidebar-first-level">
@@ -102,12 +101,24 @@
         </div>
       </div>
       {% endif %}
-      <main class="col-8 main-col" id="main-content">
-        <h1 class="u-off-screen">Vanilla framework documentation</h1>
-        {{ content }}
+      <main class="p-content" id="main-content">
+        {% if homepage %}
+        <div class="p-strip--image is-dark" style="background-image: url('https://assets.ubuntu.com/v1/e9a3f1af-vanilla-suru-background.png'); background-position: 75% 50%;">
+          <div class="p-content__row">
+            <h1 class="p-heading--stylized">Documentation</h1>
+            <p class="p-heading--four">Everything you need to get started with Vanilla</p>
+          </div>
+        </div>
+        {% endif %}
+        <div class="p-strip is-shallow">
+          <div class="p-content__row">
+            <h1 class="u-off-screen">{{ site_title }} documentation</h1>
+            {{ content }}
+          </div>
+        </div>
       </main>
       {% if toc_items %}
-      <aside id="side-content" class="col-2 p-aside">
+      <aside id="side-content" class="p-aside">
         {% if toc_items %}
         <div class="p-aside__section">
           <h4 class="p-aside__header">Contents</h4>
@@ -119,15 +130,31 @@
         </div>
         {% endif %}
       </aside>
-    {% endif %}
-    </div>
-    <footer class="p-footer" role="contentinfo">
-      <div class="row">
-        <div class="col-12">
-          <p>&copy; Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+      {% endif %}
+      <footer class="p-footer" role="contentinfo">
+        <div class="p-content__row u-no-margin--left">
+          <div class="col-12">
+            <p>&copy; 2018 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            <nav>
+              <ul class="p-inline-list--middot">
+                <li class="p-inline-list__item">
+                  <a href="https://www.ubuntu.com/legal">Legal info</a>
+                </li>
+                <li class="p-inline-list__item">
+                  <a href="https://github.com/canonical-websites/vanillaframework.io/issues/new">Report a bug with this site</a>
+                </li>
+                <li class="p-inline-list__item">
+                  <a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">Report a bug with Vanilla framework</a>
+                </li>
+              </ul>
+              <span class="u-off-screen">
+                <a href="#">Go to the top of the page</a>
+              </span>
+            </nav>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
     <script src="/static/js/scripts.js"></script>
     <script src="https://assets.ubuntu.com/v1/7db7c898-example-1.0.5.js"></script>
   </body>
