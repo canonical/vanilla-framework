@@ -68,14 +68,37 @@
 @mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false) {
   @extend %vf-pseudo-bar;
 
-  &::before {
-    background-color: $bg-color;
-    #{$position}: 0;
+  @if $position == top or $position == bottom {
+    &::before {
+      #{$position}: 0;
+      background-color: $bg-color;
+      height: $bar-thickness;
+      width: auto;
 
-    @if $over-border == true {
-      left: -1px;
-      right: -1px;
-      z-index: 1;
+      @if $over-border == true {
+        left: -1px;
+        right: -1px;
+        z-index: 1;
+      } @else {
+        left: 0;
+        right: 0;
+      }
+    }
+  } @else if $position == left or $position == right {
+    &::before {
+      background-color: $bg-color;
+      height: auto;
+      width: $bar-thickness;
+      #{$position}: 0;
+
+      @if $over-border == true {
+        bottom: -1px;
+        top: -1px;
+        z-index: 1;
+      } @else {
+        bottom: 0;
+        top: 0;
+      }
     }
   }
 }
