@@ -1,35 +1,11 @@
-// Sidebar menu overlay toggle
-var toggleElements = document.querySelectorAll('.js-sidebar-toggle');
-toggleElements.forEach(function(el) {
-  if (el.tagName === 'I') {
-    el.addEventListener(
-      "click",
-      function(e) {
-        e.stopPropagation();
-        toggleElements.forEach(function(el) {
-          el.classList.toggle("u-hide");
-          el.setAttribute('aria-hidden', el.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
-        });
-      },
-      false
-    );
-  }
-});
+// Toggle mobile sidebar nav
+var toggle = document.querySelector('.p-sidebar__toggle');
+var sidebarContent = document.querySelector('.p-sidebar__content');
 
-// Sidebar accordion sections
-var navSidebarLinks = document.querySelectorAll('.js-sidebar-toggle a');
-navSidebarLinks.forEach(function(el) {
-  el.addEventListener(
-    "click",
-    function(e) {
-      e.stopPropagation();
-      var item = this;
-      if (item.nextSibling) {
-        item.classList.toggle("is-selected");
-      }
-    },
-    false
-  );
+toggle.addEventListener('click', function(e) {
+  toggle.classList.toggle('p-icon--menu');
+  toggle.classList.toggle('p-icon--close');
+  sidebarContent.classList.toggle('u-hide--small');
 });
 
 // Add classes to links
@@ -44,8 +20,8 @@ links.forEach(function(link) {
 
 // Docs search functions
 function resetFilter() {
-  document.getElementById('docs-list-sorted').style.display = 'none';
-  document.getElementById('docs-list-unsorted').style.display = 'block';
+  document.getElementById('docs-list-sorted').classList.add('u-hide');
+  document.getElementById('docs-list-unsorted').classList.remove('u-hide');
 }
 
 function filterDocs() {
@@ -53,13 +29,17 @@ function filterDocs() {
   var filter = input.value.toLowerCase();
 
   if (filter) {
-    document.getElementById('docs-list-unsorted').style.display = 'none';
-    document.getElementById('docs-list-sorted').style.display = 'block';
+    document.getElementById('docs-list-unsorted').classList.add('u-hide');
+    document.getElementById('docs-list-sorted').classList.remove('u-hide');
 
-    var docsListItems = document.querySelectorAll('.js-list-items');
+    var docsListItems = document.querySelectorAll('#docs-list-sorted .p-sidebar-nav__item');
     docsListItems.forEach(function(item) {
       var text = item.firstElementChild.innerText.toLowerCase();
-      item.style.display = text.indexOf(filter) === 0 ? 'block' : 'none';
+      if (text.indexOf(filter) === 0) {
+        item.classList.remove('u-hide');
+      } else {
+        item.classList.add('u-hide');
+      }
     });
   } else {
     resetFilter();
