@@ -51,22 +51,11 @@
         </nav>
       </header>
       {% if navigation %}
-      <div class="col-2 p-navigation--sidebar u-no-margin--left">
-        <header id="navigation" role="banner">
-          <div class="p-navigation__banner">
-            <div class="row">
-              <div class="sidebar__cta u-align-text--right">
-                <ul class="p-inline-list">
-                  <li class="p-inline-list__item">
-                    <i class="p-icon--menu js-sidebar-toggle" aria-hidden="false"></i>
-                    <i class="p-icon--close js-sidebar-toggle u-hide" aria-hidden="true"></i>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </header>
-        <div class="sidebar__content js-sidebar-toggle u-hide" aria-hidden="true">
+      <aside class="p-sidebar" id="navigation">
+        <div class="p-sidebar__banner u-hide--medium u-hide--large">
+          <i class="p-sidebar__toggle p-icon--menu"></i>
+        </div>
+        <div class="p-sidebar__content u-hide--small">
           <select name="version-select" id="version-select">
             <option value="latest">v1.7.1</option>
           </select>
@@ -75,31 +64,45 @@
             <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
             <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
           </form>
-          <ul id="docs-list-unsorted" class="p-list sidebar__first-level" data-js="sidebar-first-level">
-            {% for item in navigation %}
-            <li>
-              {% if item.location %}
-              <a class="sidebar__link" href="{{ item.location }}">{{ item.title }}</a>
-              {% elif item.children %}
-              <a class="sidebar__link {% for child in item.children %}{% if child.active %}is-selected{% endif %}{% endfor %}" href="#{{ item.title }}">{{ item.title }}<i class="p-icon--plus"></i><i class="p-icon--minus"></i></a>
-              <ul class="sidebar__second-level">
-                {% for child in item.children %}
-                <li><a class="sidebar__link {% if child.active %}is-selected{% endif %}" href="{{ child.location }}">{{ child.title }}</a></li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-            </li>
-            {% endfor %}
-          </ul>
-          <ul id="docs-list-sorted" class="p-list sidebar__first-level" data-js="sidebar-first-level" style="display: none;">
-            {% for item in navigation %}
-            {% for child in item.children %}
-            <li class="js-list-items"><a class="sidebar__link" href="{{ child.location }}">{{ child.title }}</a></li>
-            {% endfor %}
-            {% endfor %}
-          </ul>
+          <nav class="p-sidebar-nav">
+            <ul class="p-sidebar-nav__list" id="docs-list-unsorted">
+              {% for item in navigation %}
+              <li class="p-sidebar-nav__item">
+                {% if item.location %}
+                  <a class="p-link--strong{% if item.active %} is-active{% endif %}" href="{{ item.location }}">{{ item.title }}</a>
+                {% else %}
+                  <strong>{{ item.title }}</strong>
+                {% endif %}
+                {% if item.children %}
+                <ul class="p-sidebar-nav__list">
+                  {% for child in item.children %}
+                    <li class="p-sidebar-nav__item">
+                      {% if child.location %}
+                        <a class="p-link--soft{% if child.active %} is-active{% endif %}" href="{{ child.location }}">{{ child.title }}</a>
+                      {% else %}
+                        {{ child.title }}
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+            <ul class="p-sidebar-nav__list u-hide" id="docs-list-sorted">
+              {% for item in navigation %}{% for child in item.children %}
+                <li class="p-sidebar-nav__item">
+                  {% if child.location %}
+                    <a class="p-link--soft" href="{{ child.location }}">{{ child.title }}</a>
+                  {% else %}
+                    {{ child.title }}
+                  {% endif %}
+                </li>
+              {% endfor %}{% endfor %}
+            </ul>
+          </nav>
         </div>
-      </div>
+      </aside>
       {% endif %}
       <main class="p-content" id="main-content">
         {% if homepage %}
@@ -116,6 +119,29 @@
             {{ content }}
           </div>
         </div>
+        <footer class="p-footer" role="contentinfo">
+          <div class="p-content__row u-no-margin--left">
+            <div class="col-12">
+              <p>&copy; 2018 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+              <nav>
+                <ul class="p-inline-list--middot">
+                  <li class="p-inline-list__item">
+                    <a href="https://www.ubuntu.com/legal">Legal info</a>
+                  </li>
+                  <li class="p-inline-list__item">
+                    <a href="https://github.com/canonical-websites/vanillaframework.io/issues/new">Report a bug with this site</a>
+                  </li>
+                  <li class="p-inline-list__item">
+                    <a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">Report a bug with Vanilla framework</a>
+                  </li>
+                </ul>
+                <span class="u-off-screen">
+                  <a href="#">Go to the top of the page</a>
+                </span>
+              </nav>
+            </div>
+          </div>
+        </footer>
       </main>
       {% if toc_items %}
       <aside id="side-content" class="p-aside">
@@ -131,29 +157,6 @@
         {% endif %}
       </aside>
       {% endif %}
-      <footer class="p-footer" role="contentinfo">
-        <div class="p-content__row u-no-margin--left">
-          <div class="col-12">
-            <p>&copy; 2018 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
-            <nav>
-              <ul class="p-inline-list--middot">
-                <li class="p-inline-list__item">
-                  <a href="https://www.ubuntu.com/legal">Legal info</a>
-                </li>
-                <li class="p-inline-list__item">
-                  <a href="https://github.com/canonical-websites/vanillaframework.io/issues/new">Report a bug with this site</a>
-                </li>
-                <li class="p-inline-list__item">
-                  <a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">Report a bug with Vanilla framework</a>
-                </li>
-              </ul>
-              <span class="u-off-screen">
-                <a href="#">Go to the top of the page</a>
-              </span>
-            </nav>
-          </div>
-        </div>
-      </footer>
     </div>
     <script src="/static/js/scripts.js"></script>
     <script src="https://assets.ubuntu.com/v1/7db7c898-example-1.0.5.js"></script>

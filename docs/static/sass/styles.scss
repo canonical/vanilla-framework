@@ -27,31 +27,43 @@ hr {
 /* --- */
 
 /* Sidebar navigation */
-.p-navigation--sidebar {
-  border-right: 1px solid $color-mid-light;
-  min-width: 18rem;
-  order: 0;
-  padding: 0 $sp-medium;
+.p-sidebar-nav {
 
-  &::after {
-    display: none;
+  &__list {
+    @extend .p-list;
+    margin-bottom: $spv-intra;
+    margin-top: -$spv-intra--condensed;
   }
 
-  .p-search-box {
-    margin: $sp-small 0;
-  }
+  &__item {
+    padding-bottom: $spv-intra--condensed / 2;
+    padding-top: $spv-intra--condensed / 2;
   
-  .row {
-    padding: $sp-medium 0 0 0;
+    &:first-of-type {
+      padding-top: $spv-intra;
+    }
+  
+    &:last-of-type {
+      padding-bottom: $spv-intra + $spv-intra--condensed;
+    }
+  
+    .is-active {
+      position: relative;
+
+      &::before {
+        background-color: $color-mid-light;
+        bottom: -$spv-intra--condensed;
+        content: '';
+        left: -$sph-intra;
+        position: absolute;
+        top: -$spv-intra--condensed;
+        width: $bar-thickness;
+      }
+    }
   }
 
-  .p-icon--minus,
-  .p-icon--plus {
-    right: $sp-small;
-  }
-
-  @media only screen and (max-width: $breakpoint-medium) {
-    border: 0;
+  &__item > &__list {
+    padding-left: $sph-intra;
   }
 }
 /* --- */
@@ -64,6 +76,33 @@ hr {
 
 .p-navigation {
   flex-basis: 100%;
+}
+
+.p-sidebar {
+  border-right: $border;
+  flex: 0 0 $sidebar-width;
+
+  @supports (position: sticky) {
+    height: 100vh;
+    overflow-y: scroll;
+    position: sticky;
+    top: 0;
+  }
+
+  &__banner {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__content {
+    padding: $sp-large;
+  }
+
+  &__toggle {
+    background-size: $sp-medium;
+    cursor: pointer;
+    padding: $sp-x-large;
+  }
 }
 
 .p-content {
@@ -81,6 +120,12 @@ hr {
   flex: 1;
   width: $toc-width;
 
+  @supports (position: sticky) {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+
   .p-toc__item {
     @extend .p-list__item;
   }
@@ -93,6 +138,19 @@ hr {
 @media only screen and (max-width: $breakpoint-medium) {
   .docs-container {
     display: block;
+  }
+
+  .p-sidebar {
+    border-bottom: $border;
+    border-right: 0;
+    flex: auto;
+    height: inherit;
+    position: static;
+    overflow: hidden;
+
+    &__content {
+      padding: 0 $sp-large $sp-large $sp-large;
+    }
   }
 
   .p-content {
