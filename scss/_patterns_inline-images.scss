@@ -20,16 +20,16 @@
       @media only screen and (min-width: $breakpoint-medium) {
         margin: 1.875rem;
       }
+    }
 
-      img {
-        max-height: map-get($icon-sizes, thumb--small);
-        max-width: 7rem;
-        width: auto;
+    &__logo {
+      max-height: map-get($icon-sizes, thumb--small);
+      max-width: 7rem;
+      width: auto;
 
-        @media screen and (min-width: $breakpoint-medium) {
-          max-height: 5.5rem;
-          max-width: 9rem;
-        }
+      @media screen and (min-width: $breakpoint-medium) {
+        max-height: 5.5rem;
+        max-width: 9rem;
       }
     }
 
@@ -46,6 +46,12 @@
           margin: $sp-xxx-large;
           max-width: 11.25rem;
         }
+      }
+    }
+
+    @include deprecate('2.0.0', 'Use .p-inline-images__logo instead') {
+      &__item img {
+        @extend .p-inline-images__logo; //sass-lint:disable-line placeholder-in-extend
       }
     }
   }
