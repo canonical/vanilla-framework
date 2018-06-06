@@ -36,6 +36,7 @@
     }
 
     @media only screen and (max-width: $breakpoint-x-small) {
+      margin-bottom: $spv-inter--condensed-scaleable + 2 * $spv-nudge-compensation;
       width: 100%;
     }
 
@@ -66,6 +67,16 @@
     @media only screen and (max-width: $breakpoint-x-small) {
       p & + & {
         margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
+      }
+    }
+
+    & + a {
+      margin-left: $sph-inter--expanded;
+
+      @media only screen and (max-width: $breakpoint-x-small) {
+        display: block;
+        margin-left: 0;
+        text-align: center;
       }
     }
   }
