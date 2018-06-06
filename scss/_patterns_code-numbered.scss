@@ -1,35 +1,24 @@
 @import 'settings';
+$sidebar-width: 4.5rem !default;
 
-// Code and pre styles
 @mixin vf-p-code-numbered {
-
-  $sidebar-width: 4.5rem;
-
   .p-code-numbered {
-    background: $color-light;
-    color: $color-dark;
     counter-reset: line-numbering;
-    padding: $sp-medium 0 0;
-    position: relative;
-
-    &::before {
-      background-color: $color-x-light;
-      width: $sidebar-width;
-    }
+    padding: 0;
 
     .code-line {
-      color: $color-dark;
-      display: block;
-      margin: -#{$sp-large} 0 0 0;
-      padding: $sp-x-small $sp-medium 0 #{$sidebar-width + $sp-medium};
+      display: inline-block;
+      padding: $spv-intra $sph-intra 0 ($sidebar-width + $sph-intra);
       position: relative;
+      width: 100%;
 
-      &:first-child,
-      &:first-child::before {
-        padding-top: $spv-intra;
+      &:empty {
+        display: block;
+        min-height: $sp-xx-large;
       }
 
-      &:last-child {
+      &:last-of-type,
+      &:last-of-type::before {
         padding-bottom: $spv-intra;
       }
 
@@ -40,11 +29,9 @@
         content: counter(line-numbering);
         counter-increment: line-numbering;
         display: inline-block;
-        height: 9999px; // infinity figure to ensure sidebar fills full height of each item
+        height: 100%;
         left: 0;
-        margin-right: $sp-medium;
-        max-height: 100%;
-        padding: $sp-x-small $sp-medium $sp-medium $sp-medium; // space after numbers
+        padding: $spv-intra $sph-intra 0 $sph-intra;
         pointer-events: none;
         position: absolute;
         text-align: right;
