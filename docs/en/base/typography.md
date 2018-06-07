@@ -52,12 +52,21 @@ where _n_ is the point on the modular scale.
 ### Heading classes
 
 Heading classes can be added to text elements to give them the same visual
-appearance as the base h1-h6 heading elements without sacrificing correct
+appearance as the base `h1`-`h6` heading elements without sacrificing correct
 heading order and semantics.
 
-Heading classes are not tied to elements and can be freely mixed, for example
-you can apply the `p-heading--one` class to an `h3` element if that better
-suits your document style and tree.
+In the following example, each heading is actually a `<p>` element that has been
+modified to look like a particular heading size.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/default/"
+    class="js-example">
+    View example of the heading pattern
+</a>
+
+### Mixed heading classes
+
+It is also possible to apply heading classes directly to heading elements if that
+better suits your document style and tree.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/mixed/"
     class="js-example">
