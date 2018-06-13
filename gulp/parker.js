@@ -98,21 +98,15 @@ gulp.task('parker:report', function() {
     })();
 
     console.log('\x1b[36m%s\x1b[0m', name);
-
-    if (benchmark || benchmark === 0) {
-      console.log('Benchmark: ' + benchmark);
-    }
-
-    if (threshold || threshold === 0) {
-      console.log('Threshold: ' + threshold);
-    }
-
+    console.log(
+      'Benchmark: ' + benchmark +
+      '\nThreshold: ' + threshold
+    );
     console.log(
       resultColour,
       'Result: ' + result +
       (selector ? '\nSelector: ' + selector : '')
     );
-
     console.log('------------------------------');
   });
 });
