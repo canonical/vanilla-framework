@@ -68,4 +68,4 @@ most cases it would be a strip. This only affects medium and large screen sizes.
 
 ### Design
 
-* [Image positioning design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image%20positioning)
+* [Image position design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image%20position)
