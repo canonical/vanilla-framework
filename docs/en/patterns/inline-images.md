@@ -16,4 +16,4 @@ The Inline images pattern can be used to showcase a group of related images, suc
 
 ### Design
 
-* [Image design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image)
+* [Inline images design](https://github.com/ubuntudesign/vanilla-design/tree/master/Inline%20images)
