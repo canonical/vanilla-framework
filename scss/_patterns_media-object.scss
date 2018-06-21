@@ -1,22 +1,25 @@
+@import 'settings';
+
+%p-media-object {
+  display: flex;
+  flex-shrink: 0;
+  margin-bottom: $spv-inter--scaleable;
+}
+
+%vf-meta-list-item {
+  @extend %small-text;
+  color: $color-dark;
+  padding-left: map-get($icon-sizes, default) + $sph-intra;
+}
+
+%vf-iconed-list-item {
+  @extend %vf-meta-list-item;
+  background-position: 0 75%;
+  background-repeat: no-repeat;
+  background-size: map-get($icon-sizes, default);
+}
+
 @mixin vf-p-media-object {
-  %p-media-object {
-    display: flex;
-    flex-shrink: 0;
-    margin-bottom: $spv-inter--scaleable;
-  }
-
-  %vf-meta-list-item {
-    @extend %small-text;
-    color: $color-dark;
-    padding-left: map-get($icon-sizes, default) + $sph-intra;
-  }
-
-  %vf-iconed-list-item {
-    @extend %vf-meta-list-item;
-    background-position: 0 75%;
-    background-repeat: no-repeat;
-    background-size: map-get($icon-sizes, default);
-  }
 
   .p-media-object {
     @extend %p-media-object;
