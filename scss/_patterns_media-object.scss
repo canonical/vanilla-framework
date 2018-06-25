@@ -1,23 +1,25 @@
+@import 'settings';
+
+%p-media-object {
+  display: flex;
+  flex-shrink: 0;
+  margin-bottom: $spv-inter--scaleable;
+}
+
+%vf-meta-list-item {
+  @extend %small-text;
+  color: $color-dark;
+  padding-left: map-get($icon-sizes, default) + $sph-intra;
+}
+
+%vf-iconed-list-item {
+  @extend %vf-meta-list-item;
+  background-position: 0 75%;
+  background-repeat: no-repeat;
+  background-size: map-get($icon-sizes, default);
+}
+
 @mixin vf-p-media-object {
-  %p-media-object {
-    display: flex;
-    flex-shrink: 0;
-    margin-bottom: $spv-inter--scaleable;
-  }
-
-  %vf-meta-list-item {
-    @extend %small-text;
-    color: $color-dark;
-    padding-left: map-get($icon-sizes, default) + $sph-intra;
-  }
-
-  %vf-iconed-list-item {
-    @extend %vf-meta-list-item;
-    background-position: 0 75%;
-    background-repeat: no-repeat;
-    background-size: map-get($icon-sizes, default);
-  }
-
   .p-media-object {
     @extend %p-media-object;
 
@@ -35,11 +37,7 @@
 
     &__content {
       margin-bottom: $spv-nudge-compensation + $sp-unit;
-      margin-top: - $sp-unit * 2;
-
-      @media (max-width: $breakpoint-heading-threshold) {
-        margin-top: - $sp-unit;
-      }
+      margin-top: 0;
     }
 
     &__image.is-round {
@@ -48,13 +46,19 @@
 
     &__title {
       @extend %vf-heading-4;
+      margin-bottom: $sp-unit - map-get($nudges, nudge--h4-mobile);
       margin-top: -$sp-unit;
+
+      @media only screen and (min-width: $breakpoint-heading-threshold) {
+        margin-bottom: - map-get($nudges, nudge--h4);
+      }
     }
 
     &__meta-list {
       list-style: none;
       margin: 0;
       padding-left: 0;
+      padding-top: $spv-intra;
     }
 
     &__meta-list-item {
@@ -86,14 +90,11 @@
 
       .p-media-object__title {
         @extend %vf-heading-1;
-        margin-top: - $sp-unit;
-      }
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h1-mobile);
+        margin-top: -$sp-unit;
 
-      .p-media-object__content {
-        margin-top: - $sp-unit * 5;
-
-        @media (max-width: $breakpoint-heading-threshold) {
-          margin-top: - $sp-unit * 3;
+        @media only screen and (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: - map-get($nudges, nudge--h1);
         }
       }
     }
