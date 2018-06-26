@@ -4,8 +4,8 @@
 // and replace with %23
 @function vf-url-friendly-color($color) {
   @if type-of($color) != 'color' {
-    @warn '#{$fill-color} is not a color.';
-    @return false;
+    @warn '#{$color} is not a color.';
+    @return $color;
   } @else {
     @return '%23' + str-slice('#{$color}', 2, -1);
   }
