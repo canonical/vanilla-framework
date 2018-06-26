@@ -4,8 +4,8 @@
 // and replace with %23
 @function vf-url-friendly-color($color) {
   @if type-of($color) != 'color' {
-    @warn '#{$fill-color} is not a color.';
-    @return false;
+    @warn '#{$color} is not a color.';
+    @return $color;
   } @else {
     @return '%23' + str-slice('#{$color}', 2, -1);
   }
@@ -66,12 +66,17 @@
 }
 
 @mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false) {
-  @extend %vf-pseudo-bar;
+  position: relative;
+
+  &::before {
+    #{$position}: 0;
+    background-color: $bg-color;
+    content: '';
+    position: absolute;
+  }
 
   @if $position == top or $position == bottom {
     &::before {
-      #{$position}: 0;
-      background-color: $bg-color;
       height: $bar-thickness;
       width: auto;
 
@@ -86,10 +91,8 @@
     }
   } @else if $position == left or $position == right {
     &::before {
-      background-color: $bg-color;
       height: auto;
       width: $bar-thickness;
-      #{$position}: 0;
 
       @if $over-border == true {
         bottom: -1px;
