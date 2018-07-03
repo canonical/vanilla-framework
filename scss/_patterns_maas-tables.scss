@@ -1,5 +1,14 @@
 
 @mixin patterns-maas-tables {
+  // checkbox fixes
+  input[type='checkbox'] + label {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: -0.4rem; // nudge-p + td padding-top
+    width: fit-content;
+    vertical-align: top;
+  }
+
   $breakpoint-second: 1360px;
   $breakpoint-first: 1160px;
 
@@ -28,10 +37,10 @@
         width: 15%;
       }
       @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second) {
-        width: 15%;
+        width: 20%;
       }
       @media (min-width: $breakpoint-second) {
-        width: 12%;
+        width: 15%;
       }
     }
 
@@ -82,10 +91,10 @@
 
     &--events {
       @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
-        width: 30%;
+        width: 25%;
       }
       @media (min-width: $breakpoint-second) {
-        width: 25%;
+        width: 22%;
       }
     }
 
@@ -258,21 +267,21 @@
 
   // potential new pattern for displaying FQDNs
   .p-domain {
-    display: block;
-    // font-size: 0; // remove white space between inline-block elements
-    // line-height: 0;
+    display: inline-block;
+
+    &__wrap {
+      display: inline-block;
+    }
 
     &__host {
       @extend %bold;
       @extend %default-text;
       color: $color-dark;
-      // display: inline-block;
     }
 
     &__suffix {
       @extend %small-text-min-margin;
       color: $color-mid-dark;
-      // display: inline-block;
     }
   }
 
