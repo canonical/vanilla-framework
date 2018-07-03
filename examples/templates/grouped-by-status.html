@@ -1,0 +1,294 @@
+---
+layout: default
+title: MAAS tables grouped by status
+category: _templates
+---
+<!-- <section class="p-strip--dark is-shallow">
+  <h1>MAAS table exploration: grouped  by owner</h1>
+  <ul class="p-inline-list">
+    <li class="p-inline-list__item"><a href="index.html">Basic</a></li>
+    <li class="p-inline-list__item"><a href="grouped-by-owner.html">Grouped by owner</a></li>
+    <li class="p-inline-list__item"><a href="grouped-by-status.html">Grouped by status</a></li>
+  </ul>
+</section> -->
+<section>
+  <table class="p-table p-table--machines" role="grid">
+    <colgroup>
+      <col class="p-table__col--name">
+      <col class="p-table__col--power">
+      <col class="p-table__col--ip show-from-breakpoint-first">
+      <col class="p-table__col--status">
+      <col class="p-table__col--events show-from-breakpoint-first">
+      <col class="p-table__col--owner">
+      <col class="p-table__col--cores">
+      <col class="p-table__col--ram">
+      <col class="p-table__col--disks">
+      <col class="p-table__col--storage">
+    </colgroup>
+    <thead>
+      <tr class="p-table__row">
+        <th class="p-table__header--name u-align--left">
+          <!--<div class="u-float--left">
+          <input class="checkbox" type="checkbox" id="check-all">
+          <label class="checkbox-label u-no-margin--top" for="check-all"></label>
+          </div>-->
+          <span class="is-active is-sorted sort-asc">FQDN</span> |
+          <span>MAC</span>
+          <span class="show-until-breakpoint-first"><br>IP</span>
+        </th>
+        <th class="p-table__header--power"><span class="detail-1">Power</span></th>
+        <th class="p-table__header--ip show-from-breakpoint-first">IP</th>
+        <th class="p-table__header--status">
+          Status
+          <span class="show-until-breakpoint-first"><br>Events</span>
+        </th>
+        <th class="p-table__header--events show-from-breakpoint-first">Events</th>
+        <th class="p-table__header--owner" >Owner</th>
+        <th class="p-table__header--cores u-align--right">Cores</th>
+        <th class="p-table__header--ram u-align--right" title="RAM (GiB)">RAM<span class="detail-1"> (GiB)</span></th>
+        <th class="p-table__header--disks u-align--right" title="Disks">Disks</th>
+        <th class="p-table__header--storage u-align--right" title="Storage (GB)">Storage<span class="detail-1"> (GB)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="group-heading">
+        <td class="group-heading__cell">Owner: alice</td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">eu-proxy-01<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.20.12</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.20.12</td>
+        <td class="p-table__cell--status">
+          Deploying<br>
+          <span class="show-until-breakpoint-first muted">Configuring boot loader</span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Configuring boot loader</td>
+        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">16<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">512<span class="detail-0 muted">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">eu-proxy-02<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.10.11</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.11</td>
+        <td class="p-table__cell--status">
+          Allocated<br>
+          <span class="show-until-breakpoint-first muted"></span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">16<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">512<span class="detail-0 muted">GB</span></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr class="group-heading">
+        <td class="group-heading__cell">Owner: bob</td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">dev-ci-01<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.10.38</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.38</td>
+        <td class="p-table__cell--status">
+          Allocated<br>
+          <span class="show-until-breakpoint-first muted"></span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">bob</td>
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">16<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">1</td>
+        <td class="p-table__cell--storage u-align--right">512<span class="detail-0 muted">GB</span></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr class="group-heading">
+        <td class="group-heading__cell">Owner: caroline</td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">db-01<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.10.26</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.26</td>
+        <td class="p-table__cell--status">
+          Allocated<br>
+          <span class="show-until-breakpoint-first muted"></span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--cores u-align--right">16</td>
+        <td class="p-table__cell--ram u-align--right">16<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">1</td>
+        <td class="p-table__cell--storage u-align--right">512<span class="detail-0 muted">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">caroline-test-box<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.10.08</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.08</td>
+        <td class="p-table__cell--status">
+          Deploying<br>
+          <span class="show-until-breakpoint-first muted">Partitioning disks</span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Partitioning disks</td>
+        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">8<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">1</td>
+        <td class="p-table__cell--storage u-align--right">1024<span class="detail-0 muted">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">legacy-web<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.11.56</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.11.56</td>
+        <td class="p-table__cell--status">
+          Deploying<br>
+          <span class="show-until-breakpoint-first muted">Rebooting into deployed OS</span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Rebooting into deployed OS</td>
+        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">8<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">256<span class="detail-0 muted">GB</span></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr class="group-heading">
+        <td class="group-heading__cell">Owner: danvir</td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">dev-ci-02<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.100.26</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-error"></span><span class="detail-1"> Error</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.100.26</td>
+        <td class="p-table__cell--status">
+          Failed testing<br>
+          <span class="show-until-breakpoint-first muted">Failed to power on</span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Failed to power on</td>
+        <td class="p-table__cell--owner">danvir</td>
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">16<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">1</td>
+        <td class="p-table__cell--storage u-align--right">512<span class="detail-0 muted">GB</span></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr class="group-heading">
+        <td class="group-heading__cell">Owner: etsumi</td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">backup<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.100.54</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.100.54</td>
+        <td class="p-table__cell--status">
+          Deploying<br>
+          <span class="show-until-breakpoint-first muted">Rebooting into deployed OS</span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Rebooting into deployed OS</td>
+        <td class="p-table__cell--owner">etsumi</td>
+        <td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">8<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">4096<span class="detail-0 muted">GB</span></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr class="group-heading">
+        <td class="group-heading__cell">Owner: none</td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell show-from-breakpoint-first"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+        <td class="group-heading__cell"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name">
+          <a class="p-domain">db-02<span class="p-domain__suffix">.maas</span></a><br>
+          <span class="show-until-breakpoint-first muted">10.68.10.24</span>
+        </td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-off"></span><span class="detail-1"> Off</span></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.24</td>
+        <td class="p-table__cell--status">
+          New<br>
+          <span class="show-until-breakpoint-first muted"></span>
+        </td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner"></td>
+        <td class="p-table__cell--cores u-align--right">16</td>
+        <td class="p-table__cell--ram u-align--right">16<span class="detail-0 muted">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">1</td>
+        <td class="p-table__cell--storage u-align--right">512<span class="detail-0 muted">GB</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

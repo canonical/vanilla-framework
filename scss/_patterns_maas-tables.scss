@@ -1,0 +1,331 @@
+
+@mixin patterns-maas-tables {
+  $breakpoint-second: 1160px;
+  $breakpoint-first: 1024px;
+
+  .p-table--machines {
+    .p-icon {
+      margin-right: $sph-intra;
+    }
+  }
+
+  // Machines table custom styles
+  .p-table--machines td {
+    vertical-align: top;
+  }
+
+  td:not(:last-child),
+  th:not(:last-child) {
+    @media (max-width: $breakpoint-medium) {
+      padding-right: $sph-intra;
+    }
+  }
+
+  // Columns
+  .p-table__col {
+    &--name {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 15%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second) {
+        width: 15%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 15%;
+      }
+    }
+
+    &--power {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 2%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second) {
+        width: 8%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 8%;
+      }
+    }
+
+    &--ip {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 12%;
+      }
+      @media (min-width: $breakpoint-first) and (min-width: $breakpoint-first) {
+        width: 12%;
+      }
+    }
+
+    &--status-icon {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 2%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 2%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 2%;
+      }
+    }
+
+    &--status {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 15%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 15%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 15%;
+      }
+    }
+
+    &--events {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 20%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 15%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 20%;
+      }
+    }
+
+    &--owner {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 4%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 4%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 4%;
+      }
+    }
+
+    &--cores {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 7%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 6%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 5%;
+      }
+    }
+
+    &--ram {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 6.5%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 6.5%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 7%;
+      }
+    }
+
+    &--disks {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 5%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 4%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 3%;
+      }
+    }
+
+    &--storage {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 5.5%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 5%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 5.5%;
+      }
+    }
+
+    &--gap-0 {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 0%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 0%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 3%;
+      }
+    }
+  }
+
+  // Headers
+  .p-table__header--storage,
+  .p-table__header--ram {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+  }
+
+  // Cells
+  .p-table__cell--name,
+  .p-table__cell--status,
+  .p-table__cell--events {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // ICONS
+  .p-icon--power-on {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2215%22%20width%3D%2214%22%3E%3Cpath%20d%3D%22M11.04%202.323l-.324%202.268a5.017%205.017%200%200%201%201.352%203.426c0%202.787-2.274%205.056-5.068%205.056s-5.067-2.269-5.067-5.056a5.02%205.02%200%200%201%201.351-3.426L2.96%202.323A6.935%206.935%200%200%200%200%208.017C0%2011.868%203.14%2015%207%2015s7-3.132%207-6.983a6.933%206.933%200%200%200-2.96-5.694zM6%200h2v7H6V0z%22%20fill%3D%22%230E8420%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  }
+
+  .p-icon--power-error {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2215%22%20width%3D%2214%22%3E%3Cpath%20d%3D%22M11.04%202.323l-.324%202.268a5.017%205.017%200%200%201%201.352%203.426c0%202.787-2.274%205.056-5.068%205.056s-5.067-2.269-5.067-5.056a5.02%205.02%200%200%201%201.351-3.426L2.96%202.323A6.935%206.935%200%200%200%200%208.017C0%2011.868%203.14%2015%207%2015s7-3.132%207-6.983a6.933%206.933%200%200%200-2.96-5.694zM6%200h2v7H6V0z%22%20fill%3D%22%23C7162B%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  }
+
+  .p-icon--power-off {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2215%22%20width%3D%2214%22%3E%3Cpath%20d%3D%22M11.04%202.323l-.324%202.268a5.017%205.017%200%200%201%201.352%203.426c0%202.787-2.274%205.056-5.068%205.056s-5.067-2.269-5.067-5.056a5.02%205.02%200%200%201%201.351-3.426L2.96%202.323A6.935%206.935%200%200%200%200%208.017C0%2011.868%203.14%2015%207%2015s7-3.132%207-6.983a6.933%206.933%200%200%200-2.96-5.694zM6%200h2v7H6V0z%22%20fill%3D%22%23CDCDCD%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  }
+
+  .p-icon--progress-75pct {
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='14px' height='15px' viewBox='0 0 14 15' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 50.2 %2855047%29 - http://www.bohemiancoding.com/sketch --%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cdefs%3E%3C/defs%3E%3Cg id='table-ideas-2' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='212' transform='translate%28-378.000000, -694.000000%29' fill='%23B2B1B1'%3E%3Cpath d='M378,704.651753 L385.149439,701.992337 L385.149439,694 C388.975003,694.257575 392,697.513318 392,701.49179 C392,705.63846 388.713821,709 384.660113,709 C381.709929,709 379.16627,707.219542 378,704.651753 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .p-icon--power-unknown {
+    background-image: url("data:image/svg+xml,%250A%253Csvg%2520width%253D%25229px%2522%2520height%253D%252215px%2522%2520viewBox%253D%25220%25200%25209%252015%2522%2520version%253D%25221.1%2522%253E%250A%2520%2520%2520%2520%253Cdesc%253ECreated%2520with%2520Sketch.%253C/desc%253E%250A%2520%2520%2520%2520%253Cdefs%253E%253C/defs%253E%250A%2520%2520%2520%2520%253Cg%2520id%253D%2522Page-1%2522%2520stroke%253D%2522none%2522%2520stroke-width%253D%25221%2522%2520fill%253D%2522none%2522%2520fill-rule%253D%2522evenodd%2522%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%253Cg%2520id%253D%2522power-icons-accessible%2522%2520transform%253D%2522translate%2528-598.000000%252C%2520-403.000000%2529%2522%2520fill%253D%2522%2523CDCDCD%2522%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cpath%2520d%253D%2522M601.819%252C405.942%2520C601.362998%252C405.942%2520600.932335%252C405.998999%2520600.527%252C406.113%2520C600.121665%252C406.227001%2520599.672002%252C406.410665%2520599.178%252C406.664%2520L598.38%252C404.517%2520C598.874002%252C404.200332%2520599.456663%252C403.956501%2520600.128%252C403.7855%2520C600.799337%252C403.614499%2520601.457997%252C403.529%2520602.104%252C403.529%2520C602.914671%252C403.529%2520603.582831%252C403.636666%2520604.1085%252C403.852%2520C604.634169%252C404.067334%2520605.048998%252C404.339665%2520605.353%252C404.669%2520C605.657002%252C404.998335%2520605.869166%252C405.359331%2520605.9895%252C405.752%2520C606.109834%252C406.144669%2520606.17%252C406.518332%2520606.17%252C406.873%2520C606.17%252C407.227668%2520606.116167%252C407.553832%2520606.0085%252C407.8515%2520C605.900833%252C408.149168%2520605.764667%252C408.424665%2520605.6%252C408.678%2520C605.435333%252C408.931335%2520605.245334%252C409.171999%2520605.03%252C409.4%2520C604.814666%252C409.628001%2520604.605668%252C409.843332%2520604.403%252C410.046%2520C604.250999%252C410.198001%2520604.092667%252C410.359499%2520603.928%252C410.5305%2520C603.763333%252C410.701501%2520603.614501%252C410.881999%2520603.4815%252C411.072%2520C603.348499%252C411.262001%2520603.237667%252C411.461499%2520603.149%252C411.6705%2520C603.060333%252C411.879501%2520603.016%252C412.091666%2520603.016%252C412.307%2520L603.016%252C412.535%2520C603.016%252C412.636334%2520603.022333%252C412.725%2520603.035%252C412.801%2520L600.527%252C412.801%2520C600.501667%252C412.674333%2520600.485833%252C412.531834%2520600.4795%252C412.3735%2520C600.473167%252C412.215166%2520600.47%252C412.079001%2520600.47%252C411.965%2520C600.47%252C411.610332%2520600.514333%252C411.290501%2520600.603%252C411.0055%2520C600.691667%252C410.720499%2520600.808833%252C410.454501%2520600.9545%252C410.2075%2520C601.100167%252C409.960499%2520601.267999%252C409.729334%2520601.458%252C409.514%2520C601.648001%252C409.298666%2520601.844332%252C409.089668%2520602.047%252C408.887%2520C602.338335%252C408.595665%2520602.604332%252C408.307501%2520602.845%252C408.0225%2520C603.085668%252C407.737499%2520603.206%252C407.411335%2520603.206%252C407.044%2520C603.206%252C406.739998%2520603.088835%252C406.480334%2520602.8545%252C406.265%2520C602.620165%252C406.049666%2520602.275002%252C405.942%2520601.819%252C405.942%2520Z%2520M603.586%252C415.499%2520C603.586%252C416.056336%2520603.405502%252C416.486998%2520603.0445%252C416.791%2520C602.683498%252C417.095002%2520602.275002%252C417.247%2520601.819%252C417.247%2520C601.362998%252C417.247%2520600.954502%252C417.095002%2520600.5935%252C416.791%2520C600.232498%252C416.486998%2520600.052%252C416.056336%2520600.052%252C415.499%2520C600.052%252C414.941664%2520600.232498%252C414.511002%2520600.5935%252C414.207%2520C600.954502%252C413.902998%2520601.362998%252C413.751%2520601.819%252C413.751%2520C602.275002%252C413.751%2520602.683498%252C413.902998%2520603.0445%252C414.207%2520C603.405502%252C414.511002%2520603.586%252C414.941664%2520603.586%252C415.499%2520Z%2522%2520id%253D%2522%253F%2522%253E%253C/path%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%253C/g%253E%250A%2520%2520%2520%2520%253C/g%253E%250A%253C/svg%253E");
+  }
+
+  // Viewports for density and compactness
+  // Classes used:
+  //   - .show-from-breakpoint-first: no compactness added, elements are using the most room
+  //   - .show-until-breakpoint-first: 1st level of compactness, stacking & grouping enabled
+  //   - .compact-2: 2nd lever of compactness, severe grouping & stacking, peotential removal of lower-priority elements
+  //   - .detail-0: just the basic information shown
+  //   - .detail-1: additional information shown
+
+  %visible-until-breakpoint-first {
+    @media (min-width: $breakpoint-first) {
+      display: none;
+    }
+  }
+
+  %visible-from-breakpoint-first {
+    @media (max-width: $breakpoint-first - 1px) {
+      display: none;
+    }
+  }
+
+  %visible-until-breakpoint-second {
+    @media (min-width: $breakpoint-first) {
+      display: none;
+    }
+  }
+
+  %visible-from-breakpoint-second {
+    @media (max-width: $breakpoint-first - 1px) {
+      display: none;
+    }
+  }
+
+  .show-from-breakpoint-first {
+    @extend %visible-from-breakpoint-first;
+  }
+
+  .show-until-breakpoint-first {
+    @extend %visible-until-breakpoint-first;
+  }
+
+  .detail-0 {
+    @extend %visible-until-breakpoint-second;
+  }
+
+  .detail-1 {
+    @extend %visible-from-breakpoint-second;
+  }
+
+  // TESTING
+
+  // grouping headers
+  .group-heading__cell {
+    background-color: $color-light;
+  }
+
+
+  // potential new pattern for displaying FQDNs
+  .p-domain {
+    display: block;
+    // font-size: 0; // remove white space between inline-block elements
+    // line-height: 0;
+
+    &__host {
+      @extend %bold;
+      @extend %default-text;
+      color: $color-dark;
+      // display: inline-block;
+    }
+
+    &__suffix {
+      @extend %small-text-min-margin;
+      color: $color-mid-dark;
+      // display: inline-block;
+    }
+  }
+
+  %ellipsis {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .p-table__second-row {
+    @extend %small-text-min-margin;
+    @extend %ellipsis;
+    color: $color-mid-dark;
+  }
+
+  .p-domain--off {
+    color: $color-mid-light;
+  }
+
+  %units {
+    &::before {
+      content: "\00a0";
+      position: relative;
+    }
+  }
+
+  .p-machines-table__memory-units {
+    @extend %de-emphasized-text;
+    @extend %units;
+  }
+
+  .p-machines-table__storage-units {
+    @extend %de-emphasized-text;
+    @extend %units;
+  }
+
+
+  // USEFUL FOR DEBUGGING COLUMN WIDTHS
+  // col {
+  //   &:nth-child(even) {
+  //     background-color: rgba(255, 0, 0, .05);
+  //   }
+
+  //   &:nth-child(odd) {
+  //     background-color: rgba(255, 0, 0, .01);
+  //   }
+  // }
+
+  // // DEMO ONLY
+  // .p-inline-list__item a {
+  //   color: #fff;
+  // }
+}

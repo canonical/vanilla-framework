@@ -432,10 +432,15 @@
   }
 
   %default-text {
+    font-size: 1rem;
     line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--p);
+  }
+
+  .default-text {
+    @extend %default-text;
   }
 
   %paragraph {
@@ -443,11 +448,28 @@
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
   }
 
-  %small-text {
+  %de-emphasized-text {
+    color: $color-mid-dark;
+  }
+
+  %small-text-min-margin {
     font-size: pow($ms-ratio, -1) * 1rem;
     line-height: map-get($line-heights, small);
-    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    margin-bottom: map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
     padding-top: map-get($nudges, nudge--small);
+  }
+
+  %small-text {
+    @extend %small-text-min-margin;
+    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+  }
+
+  %smallest-text {
+    font-size: pow($ms-ratio, -2) * 1rem;
+    font-weight: 400;
+    line-height: map-get($line-heights, smallest);
+    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, smallest) - map-get($nudges, nudge--smallest);
+    padding-top: map-get($nudges, nudge--smallest);
   }
 
   %muted-heading {
