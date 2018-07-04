@@ -10,8 +10,13 @@
     width: fit-content;
   }
 
-  $breakpoint-second: 1360px;
+  .faded {
+    opacity: .5;
+  }
+
   $breakpoint-first: 1160px;
+  $breakpoint-second: 1360px;
+  $breakpoint-third: 1920px;
 
   .p-table--machines {
     .p-icon {
@@ -132,6 +137,21 @@
       }
       @media (min-width: $breakpoint-second) {
         width: 4%;
+      }
+    }
+
+    &--location {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 0%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second - 1px) {
+        width: 0%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 0%;
+      }
+      @media (min-width: $breakpoint-third) {
+        width: 6.55%;
       }
     }
 
@@ -266,8 +286,22 @@
     }
   }
 
+  %visible-from-breakpoint-third {
+    @media (max-width: $breakpoint-third - 1px) {
+      display: none;
+    }
+  }
+
+  .p-table__cell--location {
+    @extend %visible-from-breakpoint-third;
+  }
+
   .show-from-breakpoint-first {
     @extend %visible-from-breakpoint-first;
+  }
+
+  .show-from-breakpoint-third {
+    @extend %visible-from-breakpoint-third;
   }
 
   .show-until-breakpoint-first {
