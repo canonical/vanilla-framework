@@ -4,9 +4,10 @@
   input[type='checkbox'] + label {
     display: inline-block;
     margin-bottom: 0;
-    margin-top: -0.4rem; // nudge-p + td padding-top
-    width: fit-content;
+    margin-left: $sp-unit;
+    margin-top: - .4rem; // nudge-p + td padding-top
     vertical-align: top;
+    width: fit-content;
   }
 
   $breakpoint-second: 1360px;
@@ -32,6 +33,30 @@
 
   // Columns
   .p-table__col {
+    &--checkbox--header {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 2%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second) {
+        width: 2%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 2%;
+      }
+    }
+
+    &--checkbox {
+      @media (max-width: $breakpoint-first - 1px) {
+        width: 3%;
+      }
+      @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second) {
+        width: 3%;
+      }
+      @media (min-width: $breakpoint-second) {
+        width: 3%;
+      }
+    }
+
     &--name {
       @media (max-width: $breakpoint-first - 1px) {
         width: 15%;
@@ -49,7 +74,7 @@
         width: 2%;
       }
       @media (min-width: $breakpoint-first) and (max-width: $breakpoint-second) {
-        width: 11%;
+        width: 12%;
       }
       @media (min-width: $breakpoint-second) {
         width: 10%;
@@ -154,7 +179,7 @@
         width: 5%;
       }
       @media (min-width: $breakpoint-second) {
-        width: 5.5%;
+        width: 4%;
       }
     }
 
