@@ -1,7 +1,69 @@
+@import 'settings';
+
+$default-icon-size: map-get($icon-sizes, default);
+$social-icon-size: map-get($icon-sizes, social);
+
+@mixin vf-p-icons {
+  @include vf-p-icon-plus;
+  @include vf-p-icon-minus;
+  @include vf-p-icon-expand;
+  @include vf-p-icon-collapse;
+  @include vf-p-icon-chevron;
+  @include vf-p-icon-close;
+  @include vf-p-icon-help;
+  @include vf-p-icon-info;
+  @include vf-p-icon-delete;
+  @include vf-p-icon-error;
+  @include vf-p-icon-warning;
+  @include vf-p-icon-external-link;
+  @include vf-p-icon-contextual-menu;
+  @include vf-p-icon-code;
+  @include vf-p-icon-menu;
+  @include vf-p-icon-copy;
+  @include vf-p-icon-search;
+  @include vf-p-icon-success;
+  @include vf-p-icon-share;
+  @include vf-p-icon-user;
+  @include vf-p-icon-question;
+  @include vf-p-icon-spinner;
+  @include vf-p-icon-facebook;
+  @include vf-p-icon-google;
+  @include vf-p-icon-twitter;
+  @include vf-p-icon-instagram;
+  @include vf-p-icon-linkedin;
+  @include vf-p-icon-youtube;
+  @include vf-p-icon-canonical;
+  @include vf-p-icon-ubuntu;
+  @include vf-p-icon-sizes;
+  @include vf-p-icon-in-button;
+}
+
 /// Icons
 @mixin vf-icon-size($size) {
   height: $size;
   width: $size;
+}
+
+%icon {
+  @extend %vf-hide-text;
+  @include vf-icon-size($default-icon-size);
+  background: {
+    position: center;
+    repeat: no-repeat;
+    size: contain;
+  }
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -2px;
+  vertical-align: sub;
+}
+
+%social-icon {
+  @extend %vf-hide-text;
+  @include vf-icon-size($social-icon-size);
+  display: inline-block;
 }
 
 @mixin vf-icon-plus($color) {
@@ -124,342 +186,361 @@
   background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill-rule='nonzero' fill='none'%3E%3Cpath d='M39.906 20.013c0 10.987-8.905 19.893-19.892 19.893C9.028 39.906.122 31 .122 20.013.122 9.028 9.028.122 20.014.122c10.987 0 19.892 8.905 19.892 19.891z' fill='#{vf-url-friendly-color($color)}'/%3E%3Cpath d='M9.69 20.013a2.558 2.558 0 1 1-5.116 0 2.558 2.558 0 0 1 5.116 0zM24.241 32.45a2.559 2.559 0 0 0 4.43-2.558 2.557 2.557 0 1 0-4.43 2.558zm4.429-22.313a2.557 2.557 0 1 0-4.43-2.556 2.557 2.557 0 0 0 4.43 2.556zm-8.656 2.584a7.292 7.292 0 0 1 7.265 6.648l3.701-.059a10.954 10.954 0 0 0-3.227-7.094 3.591 3.591 0 0 1-3.097-.24A3.592 3.592 0 0 1 22.9 9.41c-.92-.25-1.888-.384-2.886-.384-1.75 0-3.404.41-4.874 1.137l1.801 3.234a7.278 7.278 0 0 1 3.073-.677zm-7.294 7.293a7.283 7.283 0 0 1 3.102-5.967l-1.9-3.177a11.005 11.005 0 0 0-4.533 6.341 3.59 3.59 0 0 1 1.343 2.803 3.592 3.592 0 0 1-1.343 2.804 11.01 11.01 0 0 0 4.532 6.343l1.9-3.177a7.286 7.286 0 0 1-3.1-5.97zm7.294 7.295a7.267 7.267 0 0 1-3.073-.678l-1.8 3.234a10.938 10.938 0 0 0 4.873 1.137c.998 0 1.966-.132 2.886-.383a3.587 3.587 0 0 1 1.756-2.564 3.591 3.591 0 0 1 3.097-.24 10.958 10.958 0 0 0 3.227-7.096l-3.701-.058a7.293 7.293 0 0 1-7.265 6.648z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-@mixin vf-p-icons {
-
-  %icon {
-    @extend %vf-hide-text;
-    @include vf-icon-size($sp-medium);
-    background: {
-      position: center;
-      repeat: no-repeat;
-      size: contain;
-    }
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: -2px;
-    vertical-align: sub;
-  }
-
-  %social-icon {
-    @extend %vf-hide-text;
-    display: inline-block;
-    height: map-get($icon-sizes, social);
-    width: map-get($icon-sizes, social);
-  }
-
-  .p-icon {
-    // Base layout only
+@mixin vf-p-icon-plus {
+  .p-icon--plus {
     @extend %icon;
+    @include vf-icon-plus($color-mid-dark);
 
-    // Icon library
-    // Plus icon
-    &--plus {
-      @extend %icon;
-      @include vf-icon-plus($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-plus($color-mid-light);
-      }
-    }
-
-    // Minus icon
-    &--minus {
-      @extend %icon;
-      @include vf-icon-minus($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-minus($color-mid-light);
-      }
-    }
-
-    // Expand icon
-    &--expand {
-      @extend %icon;
-      @include vf-icon-expand($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-expand($color-mid-light);
-      }
-    }
-
-    // Collapse icon
-    &--collapse {
-      @extend %icon;
-      @include vf-icon-collapse($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-collapse($color-mid-light);
-      }
-    }
-
-    // Chevron icon
-    &--chevron {
-      @extend %icon;
-      @include vf-icon-chevron($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-chevron($color-mid-light);
-      }
-    }
-
-    // Close icon
-    &--close {
-      @extend %icon;
-      @include vf-icon-close($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-close($color-mid-light);
-      }
-    }
-
-    // Help icon
-    &--help {
-      @extend %icon;
-      @include vf-icon-help($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-help($color-mid-light);
-      }
-    }
-
-    // Information icon
-    &--information {
-      @extend %icon;
-      @include vf-icon-info($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-info($color-mid-light);
-      }
-    }
-
-    // Delete icon
-    &--delete {
-      @extend %icon;
-      @include vf-icon-delete($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-delete($color-mid-light);
-      }
-    }
-
-    // Error icon
-    &--error {
-      @extend %icon;
-      @include vf-icon-error($color-negative);
-    }
-
-    // Warning icon
-    &--warning {
-      @extend %icon;
-      @include vf-icon-warning($color-warning);
-    }
-
-    // External link icon
-    &--external-link {
-      @extend %icon;
-      @include vf-icon-external-link($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-external-link($color-mid-light);
-      }
-    }
-
-    // Contextual menu icon
-    &--contextual-menu {
-      @extend %icon;
-      @include vf-icon-contextual-menu($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-contextual-menu($color-mid-light);
-      }
-    }
-
-    // Menu icon
-    &--menu {
-      @extend %icon;
-      @include vf-icon-menu($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-menu($color-mid-light);
-      }
-    }
-
-    // Code icon
-    &--code {
-      @extend %icon;
-      @include vf-icon-code($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-code($color-mid-light);
-      }
-    }
-
-    // Copy icon
-    &--copy {
-      @extend %icon;
-      @include vf-icon-copy($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-copy($color-mid-light);
-      }
-    }
-
-    // Search icon
-    &--search {
-      @extend %icon;
-      @include vf-icon-search($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-search($color-mid-light);
-      }
-    }
-
-    // Success icon
-    &--success {
-      @extend %icon;
-      @include vf-icon-success($color-positive);
-    }
-
-    // Share icon
-    &--share {
-      @extend %icon;
-      @include vf-icon-share($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-share($color-mid-light);
-      }
-    }
-
-    // User icon
-    &--user {
-      @extend %icon;
-      @include vf-icon-user($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-user($color-mid-light);
-      }
-    }
-
-    // Question icon
-    &--question {
-      @extend %icon;
-      @include vf-icon-question($color-information);
-    }
-
-    // Spinner icon
-    &--spinner {
-      @extend %icon;
-      @include vf-icon-spinner($color-mid-dark);
-
-      [class$="--dark"] & {
-        @include vf-icon-spinner($color-mid-light);
-      }
-    }
-
-    // Facebook icon
-    &--facebook {
-      @extend %social-icon;
-      @include vf-icon-facebook($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-facebook(#3b5998);
-      }
-    }
-
-    // Google+ icon
-    &--google {
-      @extend %social-icon;
-      @include vf-icon-google($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-google(#dd4b39);
-      }
-    }
-
-    // Twitter icon
-    &--twitter {
-      @extend %social-icon;
-      @include vf-icon-twitter($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-twitter(#1da1f2);
-      }
-    }
-
-    // Instagram icon
-    &--instagram {
-      @extend %social-icon;
-      @include vf-icon-instagram($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-instagram(#fb3958);
-      }
-    }
-
-    // Linkedin icon
-    &--linkedin {
-      @extend %social-icon;
-      @include vf-icon-linkedin($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-linkedin(#0071a1);
-      }
-    }
-
-    // Youtube icon
-    &--youtube {
-      @extend %social-icon;
-      @include vf-icon-youtube($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-youtube(#d9252a);
-      }
-    }
-
-    // Canonical icon
-    &--canonical {
-      @extend %social-icon;
-      @include vf-icon-canonical($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-canonical(#772953);
-      }
-    }
-
-    // Ubuntu icon
-    &--ubuntu {
-      @extend %social-icon;
-      @include vf-icon-ubuntu($color-mid-dark);
-
-      &:hover {
-        @include vf-icon-ubuntu(#e95420);
-      }
-    }
-
-    // Set a specific icon size
-    &--medium {
-      @include vf-icon-size(1.25rem);
-    }
-
-    &--large {
-      @include vf-icon-size($sp-large);
-    }
-
-    &--x-large {
-      @include vf-icon-size(1.75rem);
-    }
-
-    &--x-large {
-      @include vf-icon-size(2.25rem);
-    }
-
-    &--xx-large {
-      @include vf-icon-size($sp-xxx-large);
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-plus($color-mid-light);
     }
   }
+}
 
+@mixin vf-p-icon-minus {
+  .p-icon--minus {
+    @extend %icon;
+    @include vf-icon-minus($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-minus($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-expand {
+  .p-icon--expand {
+    @extend %icon;
+    @include vf-icon-expand($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-expand($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-collapse {
+  .p-icon--collapse {
+    @extend %icon;
+    @include vf-icon-collapse($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-collapse($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-chevron {
+  .p-icon--chevron {
+    @extend %icon;
+    @include vf-icon-chevron($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-chevron($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-close {
+  .p-icon--close {
+    @extend %icon;
+    @include vf-icon-close($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-close($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-help {
+  .p-icon--help {
+    @extend %icon;
+    @include vf-icon-help($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-help($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-info {
+  .p-icon--information {
+    @extend %icon;
+    @include vf-icon-info($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-info($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-delete {
+  .p-icon--delete {
+    @extend %icon;
+    @include vf-icon-delete($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-delete($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-error {
+  .p-icon--error {
+    @extend %icon;
+    @include vf-icon-error($color-negative);
+  }
+}
+
+@mixin vf-p-icon-warning {
+  .p-icon--warning {
+    @extend %icon;
+    @include vf-icon-warning($color-warning);
+  }
+}
+
+@mixin vf-p-icon-external-link {
+  .p-icon--external-link {
+    @extend %icon;
+    @include vf-icon-external-link($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-external-link($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-contextual-menu {
+  .p-icon--contextual-menu {
+    @extend %icon;
+    @include vf-icon-contextual-menu($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-contextual-menu($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-code {
+  .p-icon--code {
+    @extend %icon;
+    @include vf-icon-code($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-code($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-menu {
+  .p-icon--menu {
+    @extend %icon;
+    @include vf-icon-menu($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-menu($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-copy {
+  .p-icon--copy {
+    @extend %icon;
+    @include vf-icon-copy($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-copy($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-search {
+  .p-icon--search {
+    @extend %icon;
+    @include vf-icon-search($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-search($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-success {
+  .p-icon--success {
+    @extend %icon;
+    @include vf-icon-success($color-positive);
+  }
+}
+
+@mixin vf-p-icon-share {
+  .p-icon--share {
+    @extend %icon;
+    @include vf-icon-share($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-share($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-user {
+  .p-icon--user {
+    @extend %icon;
+    @include vf-icon-user($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-user($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-question {
+  .p-icon--question {
+    @extend %icon;
+    @include vf-icon-question($color-information);
+  }
+}
+
+@mixin vf-p-icon-spinner {
+  .p-icon--spinner {
+    @extend %icon;
+    @include vf-icon-spinner($color-mid-dark);
+
+    [class*="--dark"] &,
+    &.is-light {
+      @include vf-icon-spinner($color-mid-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-facebook {
+  .p-icon--facebook {
+    @extend %social-icon;
+    @include vf-icon-facebook($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-facebook(#3b5998);
+    }
+  }
+}
+
+@mixin vf-p-icon-google {
+  .p-icon--google {
+    @extend %social-icon;
+    @include vf-icon-google($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-google(#dd4b39);
+    }
+  }
+}
+
+@mixin vf-p-icon-twitter {
+  .p-icon--twitter {
+    @extend %social-icon;
+    @include vf-icon-twitter($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-twitter(#1da1f2);
+    }
+  }
+}
+
+@mixin vf-p-icon-instagram {
+  .p-icon--instagram {
+    @extend %social-icon;
+    @include vf-icon-instagram($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-instagram(#fb3958);
+    }
+  }
+}
+
+@mixin vf-p-icon-linkedin {
+  .p-icon--linkedin {
+    @extend %social-icon;
+    @include vf-icon-linkedin($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-linkedin(#0071a1);
+    }
+  }
+}
+
+@mixin vf-p-icon-youtube {
+  .p-icon--youtube {
+    @extend %social-icon;
+    @include vf-icon-youtube($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-youtube(#d9252a);
+    }
+  }
+}
+
+@mixin vf-p-icon-canonical {
+  .p-icon--canonical {
+    @extend %social-icon;
+    @include vf-icon-canonical($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-canonical(#772953);
+    }
+  }
+}
+
+@mixin vf-p-icon-ubuntu {
+  .p-icon--ubuntu {
+    @extend %social-icon;
+    @include vf-icon-ubuntu($color-mid-dark);
+
+    &:hover {
+      @include vf-icon-ubuntu(#e95420);
+    }
+  }
+}
+
+@mixin vf-p-icon-sizes {
+  .p-icon--medium {
+    @include vf-icon-size(1.25rem);
+  }
+
+  .p-icon--large {
+    @include vf-icon-size($sp-large);
+  }
+
+  .p-icon--x-large {
+    @include vf-icon-size(1.75rem);
+  }
+
+  .p-icon--x-large {
+    @include vf-icon-size(2.25rem);
+  }
+
+  .p-icon--xx-large {
+    @include vf-icon-size($sp-xxx-large);
+  }
+}
+
+@mixin vf-p-icon-in-button {
   // Style overides for icons within a button
   [class*="p-button-"] {
     [class*="p-icon-"] {
