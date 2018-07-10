@@ -5,6 +5,7 @@
   @include vf-p-card-highlighted;
   @include vf-p-card-overlay;
   @include vf-p-card-muted;
+  @include vf-p-card-with-footer;
   @include vf-p-card-specific-content;
 }
 
@@ -47,6 +48,30 @@
     margin-bottom: $spv-inter--scaleable;
     overflow: auto;
     padding: $spv-intra--scaleable;
+  }
+}
+
+@mixin vf-p-card-with-footer {
+  .p-card--with-footer {
+    @extend %vf-card;
+    @extend %vf-is-bordered;
+    @extend %vf-has-round-corners;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+    padding: $spv-intra--scaleable - $px;
+  }
+
+  .p-card__footer {
+    @extend %vf-is-bordered;
+    @extend %vf-has-round-corners;
+    background-color: $color-light;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: $spv-inter--scaleable;
+    padding: $spv-intra--scaleable - $px;
   }
 }
 
