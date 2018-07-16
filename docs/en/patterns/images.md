@@ -23,4 +23,4 @@ table_of_contents: true
 
 ### Design
 
-* [Image design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image)
+* [Image design](https://github.com/ubuntudesign/vanilla-design/tree/master/Images)

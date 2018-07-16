@@ -16,81 +16,24 @@
 
 {{ content }}
     </body>
+    {% if site.env == 'development' %}
     <script>
-        var VF_ENV = "PRODUCTION";
-        if (VF_ENV === "DEV") {
-            fragmentFromString = function fragmentFromString(strHTML) {
-                var temp = document.createElement('template');
-                temp.innerHTML = strHTML;
-                return temp.content;
-            }
-            class baselineGrid {
-                constructor() {
-                    this.target = document.body,
-                    this.baselineHeight = 8;
-                    this.baselineContainerClassName = "u-baseline-container";
-                    this.baselineRowClassName = "u-baseline";
-                    this.toggleGridClass = "u-hide";
-                    this.showGrid = false;
-                }
-                addBaselineGridToggle() {
-                    var controls = fragmentFromString('<div class="controls"><button id="switch-on" class="p-switch js-baseline-toggle" type="button" role="switch" aria-checked="false" aria-labelledby="switch-on-label"><span>On</span><span>Off</span></button></div>');
-                    this.target.appendChild(controls);
-                }
-                appendBaselineRow(parent) {
-                    var baseline = document.createElement('div');
-                    baseline.classList.add(this.baselineRowClassName);
-                    parent.appendChild(baseline);
-                }
-                baselineCount() {
-                    return Math.floor(document.documentElement.scrollHeight / this.baselineHeight);
-                }
-                create() {
-                    var baselineContainer = document.createElement('div'),
-                        fragment = document.createDocumentFragment(),
-                        documentHeight = document.documentElement.scrollHeight,
-                        baselineCount = this.baselineCount(documentHeight);
-
-                    baselineContainer.classList.add(this.baselineContainerClassName);
-
-                    if (!this.showGrid) {
-                        baselineContainer.classList.add(this.toggleGridClass);
-                    }
-                    for (var i = 0; i < baselineCount; i++) {
-                        this.appendBaselineRow(baselineContainer);
-                    }
-                    fragment.appendChild(baselineContainer);
-                    this.target.appendChild(fragment);
-                    this.baselineContainer = document.querySelector('.u-baseline-container');
-                }
-                initGridToggle(switchBtn) {
-                    var toggle = document.querySelector(switchBtn),
-                        that = this;
-
-                    toggle.addEventListener('click', function (event) {
-                        if (!that.showGrid) {
-                            this.setAttribute('aria-checked', true);
-                            that.baselineContainer.classList.remove(that.toggleGridClass);
-                        } else {
-                            this.setAttribute('aria-checked', false);
-                            that.baselineContainer.classList.add(that.toggleGridClass);
-                        }
-                        that.showGrid = !that.showGrid;
-                    });
-                }
-                update() {
-                    this.baselineContainer.remove();
-                    this.create();
-                }
-            }
-
-            var bg = new baselineGrid();
-            document.addEventListener('DOMContentLoaded', () => {
-                bg.create();
-                bg.addBaselineGridToggle();
-                bg.initGridToggle('.p-switch.js-baseline-toggle');
-            });
-            window.addEventListener('resize', () => { bg.update(); });
+        function fragmentFromString(htmlString) {
+            var temp = document.createElement('template');
+            temp.innerHTML = htmlString;
+            return temp.content;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var body = document.body;
+            var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label>Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" /><div class="p-switch__slider"></div></label></div>');
+            body.appendChild(controls);
+
+            var toggle = document.querySelector('.js-baseline-toggle');
+            toggle.addEventListener('click', function (event) {
+                body.classList.toggle('u-baseline-grid');
+            });
+        });
     </script>
+    {% endif %}
 </html>

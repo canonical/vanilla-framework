@@ -115,31 +115,6 @@ $nav-border-bottom-thickness: $px;
       padding-bottom: $sp-x-small;
       padding-top: $sp-x-small;
 
-      @at-root {
-        .p-icon--minus {
-          display: none;
-        }
-
-        .is-selected {
-
-          .p-icon--minus {
-            display: block;
-          }
-
-          .p-icon--plus {
-            display: none;
-          }
-        }
-
-        .is-selected +  {
-
-          .sidebar__second-level,
-          .sidebar__third-level {
-            display: block;
-          }
-        }
-      }
-
       .is-deepest-level {
         background-color: $color-light;
       }
@@ -153,6 +128,29 @@ $nav-border-bottom-thickness: $px;
       right: $sp-medium;
       top: $sp-small;
       transition: all .5s ease-in-out; // sass-lint:disable-line no-transition-all
+    }
+
+    .p-icon--minus {
+      display: none;
+    }
+
+    .is-selected {
+
+      .p-icon--minus {
+        display: block;
+      }
+
+      .p-icon--plus {
+        display: none;
+      }
+    }
+
+    .is-selected +  {
+
+      .sidebar__second-level,
+      .sidebar__third-level {
+        display: block;
+      }
     }
   }
 }
@@ -188,15 +186,8 @@ $nav-border-bottom-thickness: $px;
 
   &__banner {
     display: flex;
+    flex: 0 0 auto;
     justify-content: space-between;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      flex: 0 0 100%;
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold + 1) {
-      flex: 0 0 auto;
-    }
   }
 
   &__image {
@@ -246,7 +237,9 @@ $nav-border-bottom-thickness: $px;
     }
 
     &.is-selected > a {
-      @include vf-highlight-bar($color-navigation-active-bar, bottom, true);
+      @media (min-width: $breakpoint-navigation-threshold + 1) {
+        @include vf-highlight-bar($color-navigation-active-bar, bottom, true);
+      }
     }
   }
 
