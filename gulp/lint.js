@@ -11,7 +11,6 @@ gulp.task('lint:sass', function() {
 
 gulp.task('lint:spellcheck', function(cb) {
   return exec('node_modules/markdown-spellcheck/bin/mdspell docs/en/**/*.md -r -n -a --en-gb', function (err, stdout, stderr) {
-    console.log(stdout);
     cb(err);
   });
 });
