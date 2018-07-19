@@ -52,13 +52,15 @@ function setupAccordionListener(accordionContainerSelector) {
     .querySelector(accordionContainerSelector)
     .addEventListener('click', e => {
       const target = e.target;
-      // Find any open panels within the container and close them.
-      e.currentTarget
-        .querySelectorAll('[aria-expanded=true]')
-        .forEach(element => toggle(element, false));
-      // Toggle the target.
       const isTargetOpen = target.getAttribute('aria-expanded') === 'true';
-      toggle(target, !isTargetOpen);
+      // Find any open panels within the container and close them.
+      if (target.classList.contains('p-accordion__tab')) {
+        e.currentTarget
+          .querySelectorAll('[aria-expanded=true]')
+          .forEach(element => toggle(element, false));
+        // Toggle the target.
+        toggle(target, !isTargetOpen);
+      }
     });
 }
 
