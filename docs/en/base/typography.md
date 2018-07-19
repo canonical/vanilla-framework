@@ -127,6 +127,13 @@ descriptions.
 
 <p>This text is <sub>subscripted</sub></p>
 
+### Abbreviation
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/abbr/"
+    class="js-example">
+    View example of the abbreviation pattern
+</a>
+
 ### Font weights
 
 If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
