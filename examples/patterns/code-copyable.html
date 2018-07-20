@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Code snippet / Default
+title: Code copyable
 category: _patterns
+redirect_from: "/examples/patterns/code-snippet/"
 ---
 
-<div class="p-code-snippet">
-  <input class="p-code-snippet__input" value="sudo apt-get update" readonly="readonly">
-  <button class="p-code-snippet__action">Copy to clipboard</button>
+<div class="p-code-copyable">
+  <input class="p-code-copyable__input" value="sudo apt-get update" readonly="readonly">
+  <button class="p-code-copyable__action">Copy to clipboard</button>
 </div>
 
 <script>
@@ -31,11 +32,11 @@ const copyToClipboard = str => {
   }
 };
 
-var codeSnippetActions = document.querySelectorAll(
-  '.p-code-snippet__action'
+var codeCopyableActions = document.querySelectorAll(
+  '.p-code-copyable__action'
 );
-for (var codeSnippetAction of codeSnippetActions) {
-  codeSnippetAction.addEventListener(
+for (var codeCopyableAction of codeCopyableActions) {
+  codeCopyableAction.addEventListener(
     'click',
     function(e) {
       const clipboardValue = this.previousSibling.previousSibling.value;
