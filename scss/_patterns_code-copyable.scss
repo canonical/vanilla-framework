@@ -1,0 +1,50 @@
+@import 'settings';
+@import 'patterns_icons';
+
+$cc-button-size: 36 * $px;
+
+@mixin vf-p-code-copyable {
+  .p-code-copyable {
+    @extend %bordered-text-vertical-padding;
+    @extend %vf-bg--x-light;
+    @extend %vf-has-round-corners;
+    @extend %vf-is-bordered;
+    display: flex;
+    position: relative;
+
+    & + & {
+      margin-top: 0; // overrides p + p
+    }
+
+    &__input {
+      @include vf-icon-code($color-mid-dark);
+      background-position: $sph-intra--condensed center;
+      background-repeat: no-repeat;
+      border: 0;
+      color: $color-mid-dark;
+      font-family: unquote($font-monospace);
+      line-height: map-get($line-heights, default-text);
+      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra * 2;
+      width: 100%;
+    }
+
+    &__action {
+      @extend %vf-hide-text;
+      @include vf-icon-copy($color-mid-dark);
+      @include vf-button-pattern (
+        $button-background-color: $color-light,
+        $button-hover-background-color: darken($color-light, 10%)
+      );
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 0;
+      border-left: $border;
+      border-radius: 0;
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: $cc-button-size;
+    }
+  }
+}
