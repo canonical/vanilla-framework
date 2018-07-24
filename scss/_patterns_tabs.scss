@@ -8,18 +8,19 @@
     position: relative;
 
     &::before {
-      bottom: 0;
+      background: linear-gradient(to right, $color-transparent 0%, $color-x-light 45%, $color-x-light 100%);
       color: $color-mid-dark;
       content: '\203A';
       display: block;
       font-size: 2rem;
-      line-height: map-get($line-heights, default-text);
+      line-height: calc(100% + 1rem - 3px);
+      padding-left: 1.5rem;
       padding-right: $sp-large;
       pointer-events: none;
       position: absolute;
-      right: $sp-unit;
+      right: 0;
       text-align: right;
-      top: 15%;
+      top: 0;
       width: 1rem;
       z-index: 10;
 
