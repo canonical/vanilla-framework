@@ -9,6 +9,7 @@
   @include vf-button-negative;
   @include vf-button-base;
   @include vf-button-inline;
+  @include vf-button-icon;
 }
 
 @mixin vf-button-plain {
@@ -122,11 +123,16 @@
 }
 
 @mixin vf-button-inline {
-  [class^="p-button"].is-inline {
-
+  [class~="p-button"].is-inline {
     @media (min-width: $breakpoint-medium) {
       margin-left: $sph-inter;
       width: auto;
     }
+  }
+}
+
+@mixin vf-button-icon {
+  [class~="p-button"].has-icon {
+    width: auto;
   }
 }

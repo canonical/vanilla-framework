@@ -63,6 +63,15 @@ Should you wish to place a button after a line of inline text, as a CTA for exam
     View example of the inline button pattern
 </a>
 
+### Icon button
+
+Should you wish to place an icon in a button. You will not want to button to become full width on small screens. Therefore, you can add the state class `has-icon` to the button.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/buttons/icon/"
+    class="js-example">
+    View example of the icon button pattern
+</a>
+
 <hr />
 
 ### Design
