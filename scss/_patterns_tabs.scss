@@ -31,36 +31,26 @@
 
     &__list {
       @extend %vf-pseudo-border--bottom;
+      display: flex;
+      font-size: 0;
       margin: 0 auto $spv-intra--scaleable;
-      overflow-x: scroll;
+      overflow-x: auto;
       padding: 0;
       position: relative;
       white-space: nowrap;
       width: 100%;
-
-      @media screen and (min-width: $breakpoint-medium) {
-        max-width: $grid-max-width;
-        overflow: hidden;
-      }
     }
 
     &__item {
       display: inline-block;
       float: none;
+      font-size: 1rem;
       margin: 0;
       padding: 0;
       width: auto;
 
-      @media screen and (min-width: $breakpoint-medium) {
-        float: left;
-      }
-
       &:last-child {
         margin-right: $sp-xxx-large;
-
-        @media screen and (min-width: $breakpoint-medium) {
-          margin-right: 0;
-        }
       }
     }
 
