@@ -1,0 +1,242 @@
+---
+layout: default
+title: MAAS layout
+category: _templates
+---
+<header id="navigation" class="p-navigation">
+  <div class="row p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__logo">
+        <a class="p-navigation__link" href="#">
+          <img src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="" class="p-navigation__image">
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav u-image-position">
+      <span class="u-off-screen">
+        <a href="#main-content">Jump to main content</a>
+      </span>
+      <ul class="p-navigation__links" role="menu">
+        <li class="p-navigation__link is-selected" role="menuitem">
+          <a href="#">Machines</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Devices</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Pods</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">AZs</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Switches</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Subnets</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">DNS</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Images</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Controllers</a>
+        </li>
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Settings</a>
+        </li>
+      </ul>
+      <ul class="p-navigation__links u-image-position--right" role="menu">
+        <li class="p-navigation__link" role="menuitem">
+          <a href="#">Maria</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="p-strip--light is-shallow">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="p-heading--three">Machines</h1>
+    </div>
+    <div class="col-4">
+      <div class="u-align--right">
+        <span class="p-contextual-menu">
+          <a href="#" class="p-button p-contextual-menu__toggle" aria-controls="#menu" aria-expanded="false" aria-haspopup="true">
+            Change pool <i class="p-icon--chevron"></i>
+          </a>
+          <span class="p-contextual-menu__dropdown" id="menu" aria-hidden="true" aria-label="submenu">
+            <span class="p-contextual-menu__group">
+              <a href="#" class="p-contextual-menu__link">Link</a>
+              <a href="#" class="p-contextual-menu__link">Link</a>
+              <a href="#" class="p-contextual-menu__link">Link</a>
+            </span>
+            <span class="p-contextual-menu__group">
+              <a href="#" class="p-contextual-menu__link">Link</a>
+              <a href="#" class="p-contextual-menu__link">Link</a>
+              <a href="#" class="p-contextual-menu__link">Link</a>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-strip is-shallow">
+    <nav class="p-tabs">
+      <div class="row">
+        <ul class="p-tabs__list" role="tablist">
+          <li class="p-tabs__item" role="presentation">
+            <a href="#section1" class="p-tabs__link" tabindex="0" role="tab" aria-controls="section1" aria-selected="true">Section 1</a>
+          </li>
+          <li class="p-tabs__item" role="presentation">
+            <a href="#section2" class="p-tabs__link" tabindex="-1" role="tab" aria-controls="section2">Section 2</a>
+          </li>
+          <li class="p-tabs__item" role="presentation">
+            <a href="#section3" class="p-tabs__link" tabindex="-1" role="tab" aria-controls="section3">Section 3</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <div class="row">
+    <div class="col-3">
+      <div class="">
+        <h4 class="u-sv-1">Filter by</h4>
+        <aside class="p-accordion" role="tablist" aria-multiselect="true">
+          <ul class="p-accordion__list">
+            <li class="p-accordion__group">
+              <button class="p-accordion__tab" id="owner-tab" role="tab" aria-controls="#owner" aria-expanded="false">Owner</button>
+              <section class="p-accordion__panel" id="owner" role="tabpanel" aria-hidden="true" aria-labelledby="owner-tab">
+                <p>Open panel</p>
+              </section>
+            </li>
+            <li class="p-accordion__group">
+              <button class="p-accordion__tab" id="status-tab" role="tab" aria-controls="#status" aria-expanded="false">Status</button>
+              <section class="p-accordion__panel" id="status" role="tabpanel" aria-hidden="true" aria-labelledby="status-tab">
+                <p>Closed panel</p>
+              </section>
+            </li>
+            <li class="p-accordion__group">
+              <button class="p-accordion__tab" id="tags-tab" role="tab" aria-controls="#tags" aria-expanded="false">Tags</button>
+              <section class="p-accordion__panel" id="tags" role="tabpanel" aria-hidden="true" aria-labelledby="tags-tab">
+                <p>Closed panel</p>
+              </section>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+    <div class="col-9">
+      <form class="p-search-box">
+        <input type="search" class="p-search-box__input" name="search" placeholder="Search" required>
+        <button type="reset" class="p-search-box__reset" alt="reset"><i class="p-icon--close"></i></button>
+        <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+      </form>
+      <table class="p-table--mobile-card">
+        <thead>
+          <tr>
+            <th scope="col">FQDN | MAC</th>
+            <th scope="col">Power</th>
+            <th scope="col">Status</th>
+            <th scope="col">Owner | Pool</th>
+            <th scope="col" class="u-align--right">Cores</th>
+            <th scope="col" class="u-align--right">RAM(GB)</th>
+            <th scope="col" class="u-align--right">Disks</th>
+            <th scope="col" class="u-align--right">Storage(GB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th aria-label="FQDN | MAC" scope="row">Machine 1</th>
+            <td aria-label="Power">Off</td>
+            <td aria-label="Status">Ready</td>
+            <td aria-label="Owner | Pool">Maria</td>
+            <td aria-label="Cores" class="u-align--right">8</td>
+            <td aria-label="RAM(GB)" class="u-align--right">16</td>
+            <td aria-label="Disks" class="u-align--right">2</td>
+            <td aria-label="Storage(GB)" class="u-align--right">2</td>
+          </tr>
+          <tr>
+            <th aria-label="FQDN | MAC" scope="row">Machine 1</th>
+            <td aria-label="Power">Off</td>
+            <td aria-label="Status">Ready</td>
+            <td aria-label="Owner | Pool">Maria</td>
+            <td aria-label="Cores" class="u-align--right">8</td>
+            <td aria-label="RAM(GB)" class="u-align--right">16</td>
+            <td aria-label="Disks" class="u-align--right">2</td>
+            <td aria-label="Storage(GB)" class="u-align--right">2</td>
+          </tr>
+          <tr>
+            <th aria-label="FQDN | MAC" scope="row">Machine 1</th>
+            <td aria-label="Power">Off</td>
+            <td aria-label="Status">Ready</td>
+            <td aria-label="Owner | Pool">Maria</td>
+            <td aria-label="Cores" class="u-align--right">8</td>
+            <td aria-label="RAM(GB)" class="u-align--right">16</td>
+            <td aria-label="Disks" class="u-align--right">2</td>
+            <td aria-label="Storage(GB)" class="u-align--right">2</td>
+          </tr>
+          <tr>
+            <th aria-label="FQDN | MAC" scope="row">Machine 1</th>
+            <td aria-label="Power">Off</td>
+            <td aria-label="Status">Ready</td>
+            <td aria-label="Owner | Pool">Maria</td>
+            <td aria-label="Cores" class="u-align--right">8</td>
+            <td aria-label="RAM(GB)" class="u-align--right">16</td>
+            <td aria-label="Disks" class="u-align--right">2</td>
+            <td aria-label="Storage(GB)" class="u-align--right">2</td>
+          </tr>
+          <tr>
+            <th aria-label="FQDN | MAC" scope="row">Machine 1</th>
+            <td aria-label="Power">Off</td>
+            <td aria-label="Status">Ready</td>
+            <td aria-label="Owner | Pool">Maria</td>
+            <td aria-label="Cores" class="u-align--right">8</td>
+            <td aria-label="RAM(GB)" class="u-align--right">16</td>
+            <td aria-label="Disks" class="u-align--right">2</td>
+            <td aria-label="Storage(GB)" class="u-align--right">2</td>
+          </tr>
+          <tr>
+            <th aria-label="FQDN | MAC" scope="row">Machine 1</th>
+            <td aria-label="Power">Off</td>
+            <td aria-label="Status">Ready</td>
+            <td aria-label="Owner | Pool">Maria</td>
+            <td aria-label="Cores" class="u-align--right">8</td>
+            <td aria-label="RAM(GB)" class="u-align--right">16</td>
+            <td aria-label="Disks" class="u-align--right">2</td>
+            <td aria-label="Storage(GB)" class="u-align--right">2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer class="p-footer p-strip--light">
+  <div class="row">
+    <p>© 2017 Company name and logo are registered trademarks of Company Ltd.</p>
+    <nav class="p-footer__nav">
+      <ul class="p-footer__links">
+        <li class="p-footer__item">
+          <a class="p-footer__link" href="#">Footer link 1</a>
+        </li>
+        <li class="p-footer__item">
+          <a class="p-footer__link" href="#">Footer link 2</a>
+        </li>
+        <li class="p-footer__item">
+          <a class="p-footer__link" href="#">Footer link 3</a>
+        </li>
+        <li class="p-footer__item">
+          <a class="p-footer__link" href="#">Footer link 4</a>
+        </li>
+      </ul>
+      <span class="u-off-screen">
+        <a href="#">Go to the top of the page</a>
+      </span>
+    </nav>
+  </div>
+</footer>

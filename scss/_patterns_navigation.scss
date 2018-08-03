@@ -115,31 +115,6 @@ $nav-border-bottom-thickness: $px;
       padding-bottom: $sp-x-small;
       padding-top: $sp-x-small;
 
-      @at-root {
-        .p-icon--minus {
-          display: none;
-        }
-
-        .is-selected {
-
-          .p-icon--minus {
-            display: block;
-          }
-
-          .p-icon--plus {
-            display: none;
-          }
-        }
-
-        .is-selected +  {
-
-          .sidebar__second-level,
-          .sidebar__third-level {
-            display: block;
-          }
-        }
-      }
-
       .is-deepest-level {
         background-color: $color-light;
       }
@@ -153,6 +128,29 @@ $nav-border-bottom-thickness: $px;
       right: $sp-medium;
       top: $sp-small;
       transition: all .5s ease-in-out; // sass-lint:disable-line no-transition-all
+    }
+
+    .p-icon--minus {
+      display: none;
+    }
+
+    .is-selected {
+
+      .p-icon--minus {
+        display: block;
+      }
+
+      .p-icon--plus {
+        display: none;
+      }
+    }
+
+    .is-selected +  {
+
+      .sidebar__second-level,
+      .sidebar__third-level {
+        display: block;
+      }
     }
   }
 }
