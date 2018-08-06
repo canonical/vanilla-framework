@@ -17,9 +17,9 @@
     display: inline-block;
     font-size: 1rem;
     font-weight: 300;
-    line-height: map-get($line-heights, default-text);
+    line-height: 1;
     margin-bottom: $spv-inter--scaleable + 2 * $spv-nudge-compensation;
-    padding: $spv-nudge - $px $sph-intra;
+    padding: $sp-unit * 1.5;
     text-align: center;
     text-decoration: none;
 
@@ -67,6 +67,10 @@
       p & + & {
         margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
       }
+    }
+
+    & [class*="p-icon"] + * {
+      margin-left: $sph-intra * .25;
     }
   }
 }
