@@ -66,15 +66,15 @@ Class name  |
 
 ### Share icons
 
-If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we recommend using these specific buttons:
+If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we recommend using the networks' official buttons:
 
-- **Twitter** - https://dev.twitter.com/web/tweet-button
-- **Facebook** - https://developers.facebook.com/docs/plugins/share-button/
-- **Google+** - https://developers.google.com/+/web/share/](https://developers.google.com/+/web/share/
-- **LinkedIn** - https://developer.linkedin.com/plugins/share](https://developer.linkedin.com/plugins/share
+- **Twitter** - [https://dev.twitter.com/web/tweet-button](https://dev.twitter.com/web/tweet-button)
+- **Facebook** - [https://developers.facebook.com/docs/plugins/share-button/](https://developers.facebook.com/docs/plugins/share-button/)
+- **Google+** - [https://developers.google.com/+/web/share/](https://developers.google.com/+/web/share/)
+- **LinkedIn** - [https://developer.linkedin.com/plugins/share](https://developer.linkedin.com/plugins/share)
 
-  <hr />
+<hr />
 
-  ### Design
+### Design
 
-  * [Icons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons)
+* [Icons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons)
