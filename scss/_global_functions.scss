@@ -4,8 +4,8 @@
 // and replace with %23
 @function vf-url-friendly-color($color) {
   @if type-of($color) != 'color' {
-    @warn '#{$fill-color} is not a color.';
-    @return false;
+    @warn '#{$color} is not a color.';
+    @return $color;
   } @else {
     @return '%23' + str-slice('#{$color}', 2, -1);
   }
@@ -45,5 +45,63 @@
   &:focus {
     outline: $width solid $color;
     outline-offset: $offset;
+  }
+}
+
+// Raises a number to a power (https://css-tricks.com/snippets/sass/power-function/) 
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false) {
+  position: relative;
+
+  &::before {
+    #{$position}: 0;
+    background-color: $bg-color;
+    content: '';
+    position: absolute;
+  }
+
+  @if $position == top or $position == bottom {
+    &::before {
+      height: $bar-thickness;
+      width: auto;
+
+      @if $over-border == true {
+        left: -1px;
+        right: -1px;
+        z-index: 1;
+      } @else {
+        left: 0;
+        right: 0;
+      }
+    }
+  } @else if $position == left or $position == right {
+    &::before {
+      height: auto;
+      width: $bar-thickness;
+
+      @if $over-border == true {
+        bottom: -1px;
+        top: -1px;
+        z-index: 1;
+      } @else {
+        bottom: 0;
+        top: 0;
+      }
+    }
   }
 }

@@ -1,12 +1,16 @@
 {
-    "scripts": {
-      "clean": "rm -rf node_modules yarn-error.log css static/css *.log *.sqlite build/ .extra templates",
-      "watch": "watch -p './**/*.md' -c 'yarn run build-css'",
-      "build": "documentation-builder --base-directory . --output-path templates --template-path template.html --tag-manager-code 'GTM-K92JCQ' --no-link-extensions --force",
-      "test": "",
-      "serve": "cd dist && FLASK_DEBUG=true FLASK_APP=app.py flask run -h 0.0.0.0 -p $PORT"
-    },
-    "dependencies": {
-      "watch-cli": "^0.2.2"
+  "scripts": {
+    "clean": "rm -rf node_modules yarn-error.log css static/css *.log *.sqlite build/ .extra templates",
+    "watch": "watch -p 'static/sass/**/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build-css'",
+    "build": "yarn run build-css && yarn run build-docs",
+    "build-css": "node-sass static/sass --output static/css",
+    "build-docs": "documentation-builder --base-directory . --output-path templates --template-path template.html --tag-manager-code 'GTM-K92JCQ' --no-link-extensions --force",
+    "test": "",
+    "serve": "cd dist && FLASK_DEBUG=true FLASK_APP=app.py flask run -h 0.0.0.0 -p $PORT"
+  },
+  "dependencies": {
+    "node-sass": "^4.5.3",
+    "vanilla-framework": "1.8.0",
+    "watch-cli": "^0.2.2"
   }
 }

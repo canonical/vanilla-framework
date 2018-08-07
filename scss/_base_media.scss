@@ -5,7 +5,7 @@
 
   img {
     border: 0;
-    border-radius: 2px;
+    border-radius: $border-radius;
     height: auto;
     max-width: 100%;
   }
@@ -16,23 +16,9 @@
   }
 
   figure {
-    margin-bottom: 0;
+    margin-bottom: $spv-inter--scaleable;
     margin-left: 0;
     width: 100%;
-
-    @at-root {
-      * + figure {
-        margin-top: 1.25rem;
-
-        @media screen and (min-width: #{$breakpoint-medium}) {
-          margin-top: 1.75rem;
-        }
-
-        @media screen and (min-width: #{$breakpoint-large}) {
-          margin-top: $sp-x-large;
-        }
-      }
-    }
 
     caption,
     figcaption {

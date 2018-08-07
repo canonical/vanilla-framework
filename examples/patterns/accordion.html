@@ -7,20 +7,20 @@ category: _patterns
 <aside class="p-accordion" role="tablist" aria-multiselect="true">
   <ul class="p-accordion__list">
     <li class="p-accordion__group">
-      <button class="p-accordion__tab" id="owner-tab" role="tab" aria-controls="#owner" aria-expanded="true">Owner</button>
-      <section class="p-accordion__panel" id="owner" role="tabpanel" aria-hidden="false" aria-labelledby="owner-tab">
+      <button type="button" class="p-accordion__tab" id="tab1" role="tab" aria-controls="#tab1-section" aria-expanded="true">Owner</button>
+      <section class="p-accordion__panel" id="tab1-section" role="tabpanel" aria-hidden="false" aria-labelledby="tab1-section">
         <p>Open panel</p>
       </section>
     </li>
     <li class="p-accordion__group">
-      <button class="p-accordion__tab" id="status-tab" role="tab" aria-controls="#status" aria-expanded="false">Status</button>
-      <section class="p-accordion__panel" id="status" role="tabpanel" aria-hidden="true" aria-labelledby="status-tab">
+      <button type="button" class="p-accordion__tab" id="tab2" role="tab" aria-controls="#tab2-section" aria-expanded="false">Status</button>
+      <section class="p-accordion__panel" id="tab2-section" role="tabpanel" aria-hidden="true" aria-labelledby="tab2-section">
         <p>Closed panel</p>
       </section>
     </li>
     <li class="p-accordion__group">
-      <button class="p-accordion__tab" id="tags-tab" role="tab" aria-controls="#tags" aria-expanded="false">Tags</button>
-      <section class="p-accordion__panel" id="tags" role="tabpanel" aria-hidden="true" aria-labelledby="tags-tab">
+      <button type="button" class="p-accordion__tab" id="tab3" role="tab" aria-controls="#tab3-section" aria-expanded="false">Tags</button>
+      <section class="p-accordion__panel" id="tab3-section" role="tabpanel" aria-hidden="true" aria-labelledby="tab3-section">
         <p>Closed panel</p>
       </section>
     </li>
@@ -28,46 +28,41 @@ category: _patterns
 </aside>
 
 <script>
-  (function() {
-
-    function accordionToggles(tabCtrl) {
-      let toggles = Array.prototype.slice.call(
-        document.querySelectorAll(tabCtrl)
-      );
-
-      function toggle (toggle, open) {
-        let button = toggle.getAttribute('aria-controls');
-        let panel = document.querySelector(button);
-
-        if (open) {
-          panel.setAttribute('aria-hidden', false);
-          toggle.setAttribute('aria-expanded', true);
-        } else {
-          panel.setAttribute('aria-hidden', true);
-          toggle.setAttribute('aria-expanded', false);
-        }
+/**
+  Attaches event listeners for the accordion open and close click events.
+  @param {String} accordionContainerSelector The selector of the accordion container.
+*/
+function setupAccordionListener(accordionContainerSelector) {
+  /**
+    Toggles the necessary values on the accordion panels and handles to show or
+    hide depending on the supplied values.
+    @param {HTMLElement} element The tab that acts as the handles for the
+      accordion panes.
+    @param {Boolean} show Whether to show or hide the accordion panel.
+  */
+  const toggle = (element, show) => {
+    element.setAttribute('aria-expanded', show);
+    document
+      .querySelector(element.getAttribute('aria-controls'))
+      .setAttribute('aria-hidden', !show);
+  }
+  // Set up an event listener on the container so that panels can be added
+  // and removed and events do not need to be managed separately.
+  document
+    .querySelector(accordionContainerSelector)
+    .addEventListener('click', e => {
+      const target = e.target;
+      const isTargetOpen = target.getAttribute('aria-expanded') === 'true';
+      // Find any open panels within the container and close them.
+      if (target.classList.contains('p-accordion__tab')) {
+        e.currentTarget
+          .querySelectorAll('[aria-expanded=true]')
+          .forEach(element => toggle(element, false));
+        // Toggle the target.
+        toggle(target, !isTargetOpen);
       }
+    });
+}
 
-      function toggleAll (event) {
-        let target = event.target;
-
-        // Filter through all toggles and toggle visiblity
-        toggles.forEach(panel => {
-          if (panel !== target) {
-            toggle(panel);
-          }
-        });
-
-        // Target toggle to be shown
-        let targetOpen = target.getAttribute('aria-expanded');
-        targetOpen === 'true' ? toggle(target, false) : toggle(target, true);
-      }
-
-      toggles.forEach(toggle => {
-        toggle.addEventListener('click', toggleAll);
-      });
-    }
-
-    accordionToggles('.p-accordion__tab');
-  })()
+setupAccordionListener('.p-accordion__list');
 </script>

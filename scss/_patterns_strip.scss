@@ -1,17 +1,46 @@
 @import 'settings';
 
-@mixin vf-strip {
-  clear: both;
-  margin-top: 0;
-  padding: $sp-x-large 0;
-  width: 100%;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    padding: 4rem 0;
-  }
-}
 
 @mixin vf-p-strip {
+  %section-padding--shallow {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--shallow-scaleable * .5;
+      padding-top: $spv-inter--shallow-scaleable * .5;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--shallow-scaleable;
+      padding-top: $spv-inter--shallow-scaleable;
+    }
+  }
+
+  // used in strips and footer
+  %section-padding--default {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--regular-scaleable * .5;
+      padding-top: $spv-inter--regular-scaleable * .5;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+      padding-bottom: $spv-inter--regular-scaleable;
+      padding-top: $spv-inter--regular-scaleable;
+    }
+  }
+
+  %section-padding--deep {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding: $spv-inter--deep-scaleable * .5 0 $spv-inter--deep-scaleable * .5;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      padding: $spv-inter--deep-scaleable 0;
+    }
+  }
+
+  %vf-strip {
+    @extend %section-padding--default;
+    clear: both;
+    width: 100%;
+  }
+
   @include vf-p-strip-default;
   @include vf-p-strip-accent;
   @include vf-p-strip-image;
@@ -22,16 +51,16 @@
 
 @mixin vf-p-strip-default {
   .p-strip {
-    @include vf-strip;
+    @extend %vf-strip;
     background-color: transparent;
 
     &--light {
-      @include vf-strip;
+      @extend %vf-strip;
       background-color: $color-light;
     }
 
     &--dark {
-      @include vf-strip;
+      @extend %vf-strip;
       background-color: $color-dark;
       color: $color-light;
     }
@@ -40,7 +69,7 @@
 
 @mixin vf-p-strip-accent {
   .p-strip--accent {
-    @include vf-strip;
+    @extend %vf-strip;
     background-color: $color-accent-background;
     color: vf-determine-text-color($color-accent-background);
   }
@@ -48,7 +77,7 @@
 
 @mixin vf-p-strip-image {
   .p-strip--image {
-    @include vf-strip;
+    @extend %vf-strip;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -65,25 +94,18 @@
 @mixin vf-p-strip-bordered {
   [class^='p-strip'].is-bordered {
     border-bottom: 1px solid $color-mid-light;
+    margin-bottom: - $px;
   }
 }
 
 @mixin vf-p-strip-shallow {
   [class^='p-strip'].is-shallow {
-    padding: $sp-large 0;
-
-    @media only screen and (min-width: $breakpoint-large) {
-      padding: $sp-xx-large 0;
-    }
+    @extend %section-padding--shallow;
   }
 }
 
 @mixin vf-p-strip-deep {
   [class^='p-strip'].is-deep {
-    padding: $sp-xxx-large 0;
-
-    @media only screen and (min-width: $breakpoint-large) {
-      padding: 6rem 0;
-    }
+    @extend %section-padding--deep;
   }
 }

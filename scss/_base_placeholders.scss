@@ -1,0 +1,76 @@
+@import 'settings';
+
+@mixin vf-b-placeholders {
+  // Placeholders containing used rules in multiple base components and patterns
+  // Default settings can be found in _settings_placeholders
+
+  // Styling
+  %vf-has-round-corners {
+    border-radius: $border-radius;
+  }
+
+  %vf-has-box-shadow {
+    box-shadow: $box-shadow;
+  }
+
+  %vf-is-bordered {
+    border: $border;
+  }
+
+  %vf-bg--light {
+    background-color: $color-light;
+    color: $color-dark;
+  }
+
+  %vf-bg--x-light {
+    background-color: $color-x-light;
+    color: $color-dark;
+  }
+
+  %vf-card {
+    @extend %vf-bg--x-light;
+    margin-bottom: $spv-inter--scaleable;
+    overflow: auto; // prevent overflow of child margins
+    padding: $spv-intra--scaleable;
+  }
+
+  // Bars and borders
+  %vf-pseudo-border {
+    background-color: $color-mid-light;
+    content: '';
+    height: $px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  %vf-pseudo-border--bottom {
+    &::after {
+      @extend %vf-pseudo-border;
+      bottom: 0;
+    }
+  }
+
+  %vf-pseudo-border--top {
+    &::after {
+      @extend %vf-pseudo-border;
+      top: 0;
+    }
+  }
+
+  // Utilities
+  %vf-hide-text {
+    overflow: hidden;
+    // rem value necessary because text indent in % does not work with padding;
+    // 10rem is bigger than any padding value on an element you'd hide text in (buttons, icons)
+    // but still smaller than 9999px so should have better performance
+    text-indent: calc(100% + 10rem);
+    white-space: nowrap;
+  }
+
+  %vf-clearfix::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}

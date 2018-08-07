@@ -3,7 +3,7 @@
 // Image grid to showcase group of images
 @mixin vf-p-inline-images {
   .p-inline-images {
-    @extend %clearfix;
+    @extend %vf-clearfix;
     display: block;
     list-style: none; // if list is used as wrapper
     margin-left: 0;
@@ -12,28 +12,24 @@
 
     &__item {
       display: inline-block;
-      margin: 1.875rem;
-      max-height: 5.625rem;
-      max-width: 5.625rem;
+      margin: 1rem;
       overflow: hidden;
       text-align: center;
       vertical-align: middle;
 
-      @media (min-width: $breakpoint-medium) {
+      @media only screen and (min-width: $breakpoint-medium) {
         margin: 1.875rem;
-        max-height: 11.25rem;
-        max-width: 11.25rem;
       }
+    }
 
-      * {
-        max-height: $sp-xxx-large;
-        max-width: 7rem;
-        width: 100%;
+    &__logo {
+      max-height: map-get($icon-sizes, thumb--small);
+      max-width: 7rem;
+      width: auto;
 
-        @media only screen and (min-width: $breakpoint-medium) {
-          max-height: 5.5rem;
-          max-width: 9rem;
-        }
+      @media screen and (min-width: $breakpoint-medium) {
+        max-height: 5.5rem;
+        max-width: 9rem;
       }
     }
 
@@ -50,6 +46,12 @@
           margin: $sp-xxx-large;
           max-width: 11.25rem;
         }
+      }
+    }
+
+    @include deprecate('2.0.0', 'Use .p-inline-images__logo instead') {
+      &__item img {
+        @extend .p-inline-images__logo; //sass-lint:disable-line placeholder-in-extend
       }
     }
   }

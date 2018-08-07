@@ -3,62 +3,74 @@
 // Base button styles
 @mixin vf-b-button {
   button {
+    @extend %vf-button-base;
     @include vf-button-pattern;
-    line-height:  $sp-medium;
-  }
-}
-
-%button-pattern {
-  @include vf-animation(
-    $property: #{background-color, border-color},
-    $duration: fast,
-    $easing: in
-  );
-  @include vf-focus;
-
-  border-radius: .125rem;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  font-family: unquote($font-base-family);
-  font-size: $sp-medium;
-  font-weight: 300;
-  line-height: $sp-medium;
-  outline: none;
-  padding: $sp-small $sp-large;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-
-  & + & {
-
-    @media (max-width: $breakpoint-x-small - 1) {
-      margin-top: $sp-medium;
-    }
-
-    @media (min-width: $breakpoint-x-small) {
-      margin-left: $sp-medium;
-    }
   }
 
-  @media only screen and (min-width: $breakpoint-x-small) {
-    width: auto;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
+  %vf-button-base {
+    @include vf-animation (#{background-color, border-color}, fast, in);
+    @include vf-focus;
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: $spv-inter--scaleable + 2 * $spv-nudge-compensation;
+    padding: $spv-nudge - $px $sph-intra;
+    text-align: center;
     text-decoration: none;
-  }
 
-  &:disabled,
-  &.is--disabled {
-    cursor: not-allowed;
-    opacity: .5;
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:disabled,
+    &.is--disabled {
+      cursor: not-allowed;
+      opacity: .5;
+    }
+
+    @media only screen and (max-width: $breakpoint-x-small) {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: $breakpoint-x-small + 1) {
+      width: auto;
+
+      &:not(:last-of-type):not(:only-of-type) {
+        margin-right: $sph-inter;
+      }
+    }
+
+    table & {
+      margin-bottom: $spv-nudge-compensation;
+      padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
+      padding-top: $spv-nudge - $sp-unit * .5 - $px;
+    }
+
+    // The following three rules address buttons nested in <p>'s;
+    p & {
+      margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
+      margin-top: - $spv-nudge;
+    }
+
+    p + p > & {
+      margin-top: $spv-inter--condensed-scaleable - $spv-nudge;
+    }
+
+    @media only screen and (max-width: $breakpoint-x-small) {
+      p & + & {
+        margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
+      }
+    }
   }
 }
+
 
 /// mixin for all the buttons
 /// there are sensible defaults, but you can
@@ -72,7 +84,6 @@
   $button-hover-background-color: $color-light,
   $button-hover-border-color: $color-mid-light
 ) {
-  @extend %button-pattern;
   background-color: $button-background-color;
   border-color: $button-border-color;
   color: $button-text-color;

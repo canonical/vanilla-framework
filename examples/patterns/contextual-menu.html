@@ -51,47 +51,50 @@ category: _patterns
 </span>, consectetur adipisicing elit. Modi natus atque eligendi deleniti hic, dolores veritatis reiciendis officiis illo, facere facilis accusamus similique nulla nesciunt. Nemo reprehenderit officia assumenda error enim. Recusandae reiciendis ipsum, mollitia illo iusto excepturi alias dolore fugit eligendi nostrum, unde architecto consequuntur similique quo! Maxime iusto facere, commodi iste fuga officiis.</p>
 
 <script>
-(function() {
-    /**
-     * Toggle target elements with aria controls, hidden and expanded
-     *
-     * @param {String} toggleCtrl
-     *
-     * @example
-     * <button class="p-contextual-menu__toggle" aria-controls="#menu" aria-expanded="false">Toggle</button>
-     * <div id="menu" aria-hidden="true">
-     *     <p>Example menu</p>
-     * </div>
-     *
-     */
-    function toggle(toggleCtrl) {
 
-        // Select all toggle control elements
-        var t = document.querySelectorAll(toggleCtrl);
+function toggleMenu(element, show) {
+  element.setAttribute('aria-expanded', show);
+  document
+    .querySelector(element.getAttribute('aria-controls'))
+    .setAttribute('aria-hidden', !show);
+}
 
-        // Loop through all toggle control elements
-        for(i = 0; i < t.length; i++) {
+function setupContextualMenuListeners(contextualMenuToggleSelector) {
+  const toggles = document.querySelectorAll(contextualMenuToggleSelector);
 
-            // Set click event to each toggle control element
-            t[i].addEventListener('click', function(event) {
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', e => {
+      e.preventDefault();
 
-                // Get toggle aria-control target
-                var target = document.querySelector(
-                    this.getAttribute('aria-controls'));
+      const target = e.target;
+      const menuAlreadyOpen = target.getAttribute('aria-expanded') === 'true';
 
-                // If target hidden is already true set to false and toggle
-                // control expanded to be true / false
-                if (target.getAttributeNode('aria-hidden').value == 'true') {
-                    this.setAttribute('aria-expanded', true);
-                    target.setAttribute('aria-hidden', false);
-                } else {
-                    this.setAttribute('aria-expanded', false);
-                    target.setAttribute('aria-hidden', true);
-                }
-            });
-        }
+      toggleMenu(target, !menuAlreadyOpen)
+    });
+  });
+
+  document.addEventListener('click', e => {
+    toggles.forEach(toggle => {
+      const contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
+      const clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
+
+      if (clickOutside) {
+        toggleMenu(toggle, false);
+      }
+    })
+  });
+
+  document.onkeydown = e => {
+    e = e || window.event;
+
+    if (e.keyCode === 27) {
+      toggles.forEach(toggle => {
+        toggleMenu(toggle, false);
+      });
     }
+  };
+}
 
-    toggle('.p-contextual-menu__toggle');
-})()
+setupContextualMenuListeners('.p-contextual-menu__toggle');
+
 </script>

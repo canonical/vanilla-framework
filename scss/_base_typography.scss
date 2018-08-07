@@ -1,8 +1,8 @@
+
 @import 'settings';
 
 // Typographic element styles
 @mixin vf-b-typography {
-
   @if str-index($font-base-family, 'Ubuntu') {
     @font-face {
       font-family: 'Ubuntu';
@@ -110,28 +110,22 @@
     }
   }
 
-  * {
+  html {
     // sass-lint:disable no-vendor-prefixes
     // These vendor prefixes are unique and cannot be added by autoprefixer
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     // sass-lint:enable no-vendor-prefixes
+    color: $color-dark;
+    font-family: unquote($font-base-family);
+    font-size: $font-base-size;
     // sass-lint:disable no-misspelled-properties
     font-smoothing: subpixel-antialiased;
     // sass-lint:enable no-misspelled-properties
-  }
-
-  html {
-    font-size: $font-base-size;
-  }
-
-  body {
-    color: $color-dark;
-    font-family: unquote($font-base-family);
     font-weight: 300;
-    line-height: 1.5;
+    // set default line height to match p
+    line-height: map-get($line-heights, default-text);
   }
-
 
   /// Base typography
   /// @section type
@@ -143,44 +137,20 @@
   h6,
   [class^="p-heading--"] {
     font-family: unquote($font-heading-family);
-    margin: 0;
   }
 
-  h1 {
-    + * {
-      margin-top: $sp-medium;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-large;
-      }
-    }
-  }
-
-
-  h5,
-  h6 {
-    + * {
-      margin-top: $sp-x-small;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-small;
-      }
-    }
+  cite {
+    @extend %default-text;
   }
 
   p {
+    @extend %paragraph;
     @include p-max-width;
-    @include align-text;
-    margin-bottom: 0;
-  }
 
-  p {
-    + p {
-      margin-top: $sp-medium;
-
-      @media screen and (min-width: #{$breakpoint-large}) {
-        margin-top: $sp-large;
-      }
+    &:empty {
+      line-height: 0;
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -216,56 +186,296 @@
     @include vf-heading-6;
   }
 
-  li {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
-  li > ul,
-  li > ol {
-    padding-top: 0;
-  }
-
-  li > ul > li:last-of-type,
-  li > ol > li:last-of-type {
-    padding-bottom: 0;
-  }
-
   // blockquotes
   blockquote {
     margin-bottom: 0;
     margin-left: 0;
+    margin-top: 0;
+    overflow: auto; // include margins of children into it's own height
     padding-left: $sp-large;
 
     > p {
-      font-size: $sp-medium;
       font-style: italic;
-      margin-top: $sp-small;
     }
 
     > cite {
-      font-size: $sp-medium;
       font-style: normal;
-      margin-top: $sp-small;
     }
   }
 
   // misc
   strong {
-    font-weight: 400;
+    @extend %bold;
   }
 
   small {
-    font-size: .875rem;
+    @extend %small-text;
+
+    &.dense {
+      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    }
   }
 
   sub,
   sup {
-    font-size: .75em;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
+  }
+
+  abbr[title] {
+    border-bottom: .1em dotted;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  h3,
+  h4,
+  .p-heading--three,
+  .p-heading--four {
+    & + p {
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-top: - $sp-unit;
+      }
+    }
+  }
+
+  h5,
+  h6,
+  .p-heading--five,
+  .p-heading--six {
+    & + p,
+    & + & {
+      margin-top: - map-get($sp-after, p) + $sp-unit * 3;
+    }
+  }
+
+  p,
+  h5,
+  h6,
+  .p-heading--five,
+  .p-heading--six {
+    .p-muted-heading + & {
+      margin-top: - $sp-unit;
+    }
+  }
+
+  p + p:not(.p-muted-heading),
+  h5 + p:not(.p-muted-heading),
+  h6 + p:not(.p-muted-heading),
+  .p-heading--five + p:not(.p-muted-heading),
+  .p-heading--six + p:not(.p-muted-heading) {
+    margin-top: - $sp-unit * 2;
+  }
+
+  // Increase space above headings that follow a paragraph.
+
+  %sp--ph1 {
+    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h1-mobile) + map-get($sp-before, h1-mobile);
+    }
+  }
+
+  %sp--ph2 {
+    padding-top: map-get($nudges, nudge--h2) + map-get($sp-before, h2);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h2-mobile) + map-get($sp-before, h2-mobile);
+    }
+  }
+
+  %sp--ph3 {
+    padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h3-mobile) + map-get($sp-before, h3-mobile);
+    }
+  }
+
+  %sp--ph4 {
+    padding-top: map-get($nudges, nudge--h4) + map-get($sp-before, h4);
+  }
+
+  %sp--ph5 {
+    padding-top: map-get($nudges, nudge--p) + map-get($sp-before, h5);
+  }
+
+  %sp--pmuted {
+    padding-top: map-get($nudges, nudge--muted) + map-get($sp-before, muted);
+  }
+
+  ul,
+  p,
+  h5,
+  h6,
+  .p-heading--five,
+  .p-heading-6 {
+    & + h1,
+    & + h2,
+    & + .p-heading--one,
+    & + .p-heading--two {
+      @extend %sp--ph1;
+    }
+  }
+
+  p + h2,
+  p + .p-heading--two {
+    @extend %sp--ph2;
+  }
+
+  p + h3,
+  p + .p-heading--three {
+    @extend %sp--ph3;
+  }
+
+  p + h4,
+  p + .p-heading--four {
+    @extend %sp--ph4;
+  }
+
+  p + h5,
+  p + .p-heading--five,
+  p + h6,
+  p + .p-heading--six {
+    @extend %sp--ph5;
+  }
+
+  p + .p-muted-heading {
+    @extend %sp--pmuted;
+  }
+
+
+  // Heading placeholders
+
+  %vf-heading-1 {
+    @include heading-max-width--short;
+    font-size: pow($ms-ratio, 8) * 1rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: map-get($line-heights, h1);
+    margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--h1);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 6) * 1rem;
+      line-height: map-get($line-heights, h1-mobile);
+      margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, nudge--h1-mobile);
+      padding-top: map-get($nudges, nudge--h1-mobile);
+    }
+  }
+
+  %vf-heading-2 {
+    @include heading-max-width--short;
+    font-size: pow($ms-ratio, 6) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h2);
+    margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--h2);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: 1.83274rem; // pow($ms-ratio, 4.5) * 1rem
+      line-height: map-get($line-heights, h2-mobile);
+      margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, nudge--h2-mobile);
+      padding-top: map-get($nudges, nudge--h2-mobile);
+    }
+  }
+
+  %vf-heading-3 {
+    @include heading-max-width--long;
+    font-size: pow($ms-ratio, 4) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h3);
+    margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--h3);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 3) * 1rem;
+      line-height: map-get($line-heights, h3-mobile);
+      margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, nudge--h3-mobile);
+      padding-top: map-get($nudges, nudge--h3-mobile);
+    }
+  }
+
+  %vf-heading-4 {
+    @include heading-max-width--long;
+    font-size: pow($ms-ratio, 2) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h4);
+    margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--h4);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: 1.22176rem; // pow($ms-ratio, 1.5) * 1rem
+      line-height: map-get($line-heights, h4-mobile);
+      margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, nudge--h4-mobile);
+      padding-top: map-get($nudges, nudge--h4-mobile);
+    }
+  }
+
+  %vf-heading-5 {
+    @extend %paragraph;
+    @include p-max-width;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  %vf-heading-6 {
+    @extend %paragraph;
+    @include p-max-width;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  %default-text {
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--p);
+  }
+
+  %paragraph {
+    @extend %default-text;
+    margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
+  }
+
+  %small-text {
+    font-size: pow($ms-ratio, -1) * 1rem;
+    line-height: map-get($line-heights, small);
+    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    padding-top: map-get($nudges, nudge--small);
+  }
+
+  %muted-heading {
+    @extend %small-text;
+    color: $color-mid-dark;
+    margin-bottom: - map-get($nudges, nudge--muted) + $spv-inter--condensed;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  %max-width--p {
+    max-width: 38em;
+  }
+
+  //expose measure as a class
+  %measure--p,
+  .measure--p {
+    @extend %max-width--p;
+  }
+
+  %bold {
+    font-weight: 400;
   }
 }
 
@@ -281,7 +491,7 @@
 
 // Optimal max-width for body copy
 @mixin p-max-width {
-  max-width: 35em;
+  @extend %max-width--p;
 }
 
 // Relaxed max-width for cases like notifications, where minimizing vertical height is
@@ -290,90 +500,27 @@
   max-width: 60em;
 }
 
-@mixin align-text {
-  .u-align--center & {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .u-align--left & {
-    margin-right: auto;
-  }
-
-  .u-align--right & {
-    margin-left: auto;
-  }
-}
-
+// For compatibility with other sites which rely on these mixins
 @mixin vf-heading-1 {
-  @include heading-max-width--short;
-  @include align-text;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.3125;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 3rem;
-    line-height: 1.25;
-  }
+  @extend %vf-heading-1;
 }
 
 @mixin vf-heading-2 {
-  @include heading-max-width--short;
-  @include align-text;
-  font-size: 1.75rem;
-  font-weight: 300;
-  line-height: 1.2857;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 2.25rem;
-    line-height: 1.333;
-  }
+  @extend %vf-heading-2;
 }
 
 @mixin vf-heading-3 {
-  @include heading-max-width--long;
-  @include align-text;
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.333;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.75rem;
-    line-height: 1.287;
-  }
+  @extend %vf-heading-3;
 }
 
 @mixin vf-heading-4 {
-  @include heading-max-width--long;
-  @include align-text;
-  font-size: 1.375rem;
-  font-weight: 300;
-  line-height: 1.2727;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.5rem;
-    line-height: 1.333;
-  }
+  @extend %vf-heading-4;
 }
 
 @mixin vf-heading-5 {
-  @include p-max-width;
-  @include align-text;
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.333;
-
-  @media only screen and (min-width: $breakpoint-large) {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
+  @extend %vf-heading-5;
 }
 
 @mixin vf-heading-6 {
-  @include p-max-width;
-  @include align-text;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  @extend %vf-heading-6;
 }

@@ -3,12 +3,7 @@
 // Force a parent to clear floated children
 @mixin vf-u-clearfix {
   .u-clearfix::after {
-    @extend %clearfix;
+    @extend %vf-clearfix;
   }
 }
 
-%clearfix::after {
-  clear: both;
-  content: '';
-  display: block;
-}
