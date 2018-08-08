@@ -7,6 +7,15 @@
     @include vf-button-pattern;
   }
 
+  %is-small {
+    padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
+    padding-top: $spv-nudge - $sp-unit * .5 - $px;
+  }
+
+  %is-v-condensed {
+    margin-bottom: $spv-nudge-compensation;
+  }
+
   %vf-button-base {
     @include vf-animation (#{background-color, border-color}, fast, in);
     @include vf-focus;
@@ -47,12 +56,6 @@
       }
     }
 
-    table & {
-      margin-bottom: $spv-nudge-compensation;
-      padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
-      padding-top: $spv-nudge - $sp-unit * .5 - $px;
-    }
-
     // The following three rules address buttons nested in <p>'s;
     p & {
       margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
@@ -67,6 +70,20 @@
       p & + & {
         margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
       }
+    }
+
+    &.is-small {
+      @extend %is-small;
+    }
+
+    &.is-v-condensed {
+      @extend %is-v-condensed;
+    }
+
+    th &,
+    td:not(.p-table-expanding__panel) & {
+      @extend %is-v-condensed;
+      @extend %is-small;
     }
   }
 }
