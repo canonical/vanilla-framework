@@ -8,6 +8,7 @@ import flask
 # Local packages
 import routing
 
+SITE_URL = 'https://docs.vanillaframework.io'
 
 application_root = ''
 base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -94,7 +95,14 @@ def find_file_or_redirect():
     )
 
     if os.path.isfile(app.template_folder + file_path):
-        return flask.render_template(file_path)
+        (_, _, remaining_path) = routing.split_path(
+            flask.request.path, languages, versions
+        )
+        canonical_url = SITE_URL + '/en' + remaining_path
+        context = {
+            "canonical_url": canonical_url
+        }
+        return flask.render_template(file_path, **context)
     else:
         new_path = template_finder.find_alternate_path(
             local_request_path,

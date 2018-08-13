@@ -15,6 +15,12 @@
     <meta charset="UTF-8" />
     <title>{{ title }} | {{ site_title if site_title else 'Documentation' }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% raw %}
+      {% if canonical_url %}
+        <link rel="canonical" href="{{ canonical_url }}" />
+      {% endif %}
+    {% endraw %}
+
     <link rel="icon" href="{{ site_favicon }}" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/styles.css" />
     <link rel="stylesheet" href="https://assets.ubuntu.com/v1/15be9af2-examplejs-1.1.0.css" />
