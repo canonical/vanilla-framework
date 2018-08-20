@@ -65,7 +65,7 @@ modified to look like a particular heading size.
 
 ### Sub-headings
 
-Sub-headings are used to visually convey importance beneath a heading or as a title when inserted as a divider between sections.
+Sub-headings visually convey importance beneath a heading, or a line of text that expands on the meaning of the heading immediately before it.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/sub-headings/"
     class="js-example">
