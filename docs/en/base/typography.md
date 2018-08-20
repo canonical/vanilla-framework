@@ -63,6 +63,15 @@ modified to look like a particular heading size.
     View example of the heading pattern
 </a>
 
+### Sub-headings
+
+Sub-headings are used to visually convey importance beneath a heading or as a title when inserted as a divider between sections.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/sub-headings/"
+    class="js-example">
+    View example of the heading pattern
+</a>
+
 ### Mixed heading classes
 
 It is also possible to apply heading classes directly to heading elements if that
