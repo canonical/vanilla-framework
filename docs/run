@@ -151,7 +151,7 @@ while [[ -n "${1:-}" ]] && [[ "${1:0:1}" == "-" ]]; do
             if [ ! -d "`pwd`/node_modules/$(basename ${2})" ]; then
                 mkdir -p "`pwd`/node_modules/$(basename ${2})"
             fi
-            module_volumes="${module_volumes} --volume=${2}:`pwd`/node_modules/$(basename ${2})"
+            module_volumes="${module_volumes} --volume=${2}:/srv/node_modules/$(basename ${2})"
             shift
         ;;
         -h|--help) echo "$USAGE"; exit ;;
@@ -190,8 +190,8 @@ docker_run () {
     docker run  \
         --name ${container_name}     `# Name the container` \
         --rm                         `# Remove the container once it's finished`  \
-        --volume "$(pwd):$(pwd)"     `# Mirror current directory inside container`  \
-        --workdir "$(pwd)"           `# Set current directory to the image's work directory`  \
+        --volume "$(pwd):/srv"     `# Mirror current directory inside container`  \
+        --workdir "/srv"           `# Set current directory to the image's work directory`  \
         --volume ${etc_volume}:/etc  `# Use etc with corresponding user added`  \
         --volume ${usr_local_volume}:/usr/local/       `# Bind local folder to volume`  \
         --volume ${cache_volume}:/home/shared/.cache/  `# Bind cache to volume` \
@@ -390,8 +390,8 @@ case $run_command in
             fi
         done
 
-        # Run the serve container, publishing the port, and detaching if required
-        run_as_user "--env PORT=${PORT} --publish ${PORT}:${PORT} ${publish_forward_ports} ${publish_extra_ports} ${detach} ${run_serve_docker_opts} ${module_volumes}" yarn run serve $*
+        # Run nginx to serve static files
+        docker run -ti -p 8104:8104 -v `pwd`/build:/srv -v `pwd`/redirects.map:/etc/nginx/redirects.map -v `pwd`/nginx.conf:/etc/nginx/conf.d/default.conf nginx
     ;;
     "stop")
         echo "Stopping all running containers for ${project}"
