@@ -37,7 +37,7 @@ When planning your pages, make sure there is an even distribution and well-balan
 <tr>
 <tr>
 <td>$color-mid-light</td>
-<td style="background-color: #cdcdcd; color: #ffffff;">#cdcdcd</td>
+<td style="background-color: #cdcdcd;">#cdcdcd</td>
 </tr>
 </tbody>
 </table>
@@ -55,7 +55,7 @@ When planning your pages, make sure there is an even distribution and well-balan
 <tbody>
 <tr>
 <td>$color-mid</td>
-<td style="background-color: #999999; color: #ffffff;">#999999</td>
+<td style="background-color: #999999;">#999999</td>
 </tr>
 <tr>
 <tr>
