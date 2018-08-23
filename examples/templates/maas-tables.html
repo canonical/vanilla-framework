@@ -3,21 +3,13 @@ layout: default
 title: MAAS tables
 category: _templates
 ---
-<!-- <section class="p-strip--dark is-shallow">
-  <h1>MAAS table exploration: basic</h1>
-  <ul class="p-inline-list">
-    <li class="p-inline-list__item"><a href="index.html">Basic</a></li>
-    <li class="p-inline-list__item"><a href="grouped-by-owner.html">Grouped by owner</a></li>
-    <li class="p-inline-list__item"><a href="grouped-by-status.html">Grouped by status</a></li>
-  </ul>
-</section> -->
-<section>
+
+<section class="p-strip">
   <table class="p-table p-table--machines" role="grid">
-    <colgroup>
+    <!-- <colgroup>
       <col class="p-table__col--name">
       <col class="p-table__col--power">
       <col class="p-table__col--gap-0">
-      <col class="p-table__col--status-icon">
       <col class="p-table__col--status">
       <col class="p-table__col--owner">
       <col class="p-table__col--gap-0">
@@ -25,15 +17,14 @@ category: _templates
       <col class="p-table__col--ram">
       <col class="p-table__col--disks">
       <col class="p-table__col--storage">
-    </colgroup>
+    </colgroup> -->
     <thead>
       <tr class="p-table__row">
         <th class="p-table__header--name u-align--left"><span class="is-active is-sorted sort-asc">FQDN</span>&nbsp;|&nbsp;<span>MAC</span><br><span class="">IP</span></th>
         <th class="p-table__header--power"><span class="detail-1">Power</span></th>
         <th class="p-table__cell--gap-0"></th>
-        <th class="p-table__header--status-icon"></th>
-        <th class="p-table__header--status">Status,<br><span class="">Events</span></th>
-        <th class="p-table__header--owner" >Owner</th>
+        <th class="p-table__header--status"><icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>Status,<br><span class="">Events</span></th>
+        <th class="p-table__header--owner" >Owner<br><span class="">Tags</span></th>
         <th class="p-table__cell--gap-0"></th>
         <th class="p-table__header--cores u-align--right">Cores</th>
         <th class="p-table__header--ram u-align--right" title="RAM (GiB)">RAM<span class="detail-1"> (GiB)</span></th>
@@ -43,12 +34,38 @@ category: _templates
     </thead>
     <tbody>
       <tr>
-        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">db-01</span> <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.26</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-unknown"></span><span class="detail-1"> Unknown</span></td>
+        <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">db-01</span> <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.26</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-unknown"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">Unknown</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"></td>
-        <td class="p-table__cell--status">New<p class=" p-table__second-row"></p></td>
-        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                New
+              </div>
+              <p class=" p-table__second-row"></p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          caroline
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">2</td>
         <td class="p-table__cell--ram u-align--right">4<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -57,11 +74,36 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">db-02</span><span class="p-domain__suffix">.maas</span> </a><p class=" p-table__second-row">10.68.10.24</p> </td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--error"></icon></td>
-        <td class="p-table__cell--status">Failed commisioning<p class=" p-table__second-row">Unable to access Ubuntu archive</p></td>
-        <td class="p-table__cell--owner"></td>
+        <td class="p-table__cell--status p-table__cell-double-row">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--error"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Failed commisioning
+              </div>
+              <p class=" p-table__second-row">Unable to access Ubuntu archive</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">4</td>
         <td class="p-table__cell--ram u-align--right">8<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -70,11 +112,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">eu-proxy-01</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.20.12</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--progress-75pct"></icon></td>
-        <td class="p-table__cell--status">Deploying<p class=" p-table__second-row">Configuring boot loader</p></td>
-        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Deploying
+              </div>
+              <p class=" p-table__second-row">Configuring boot loader</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          alice
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">8</td>
         <td class="p-table__cell--ram u-align--right">64<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -83,11 +151,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">eu-proxy-02</span>   <span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"></td>
-        <td class="p-table__cell--status">Allocated<p class=" p-table__second-row"></p></td>
-        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Allocated
+              </div>
+              <p class=" p-table__second-row"></p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          alice
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">6</td>
         <td class="p-table__cell--ram u-align--right">32<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -96,11 +190,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">dev-ci-01</span>   <span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-off"></span><span class="detail-1"> Off</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-off"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">Off</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"></td>
-        <td class="p-table__cell--status">Ready<p class=" p-table__second-row"></p></td>
-        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Ready
+              </div>
+              <p class=" p-table__second-row"></p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          alice
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">4</td>
         <td class="p-table__cell--ram u-align--right">64<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -109,11 +229,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">backup</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.54</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"><i class="p-icon--spinner u-animation--spin"></i></td>
-        <td class="p-table__cell--status">Commissioning<p class=" p-table__second-row">Rebooting into deployed OS</p></td>
-        <td class="p-table__cell--owner">etsumi</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--spinner u-animation--spin"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Commissioning
+              </div>
+              <p class=" p-table__second-row">Rebooting into deployed OS</p>
+            </div>
+          </div>
+          </td>
+        <td class="p-table__cell--owner">
+          etsumi
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">16</td>
         <td class="p-table__cell--ram u-align--right">256<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -122,11 +268,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"><a class="p-domain"> <span class="p-domain__host">dev-ci-02</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.26</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-error"></span><span class="detail-1"> Error</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-error"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">Error</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--error"></icon></td>
-        <td class="p-table__cell--status">Failed testing<p class=" p-table__second-row">Failed to power on</p></td>
-        <td class="p-table__cell--owner">danvir</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--error"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Failed testing
+              </div>
+              <p class=" p-table__second-row">Failed to power on</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          danvir
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">12</td>
         <td class="p-table__cell--ram u-align--right">256<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -135,11 +307,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">caroline-test-box</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.08</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+              <div class="p-double-row__rows">
+                <div class="p-table__first-row">
+                  <span class="detail-1">On</span>
+                </div>
+                <div class="p-table__second-row">
+                  Intel AMR
+                </div>
+              </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"></icon></td>
-        <td class="p-table__cell--status">Ubuntu 18.04 LTS<p class=" p-table__second-row">Ubuntu 18.04 LTS</p></td>
-        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Ubuntu 18.04 LTS
+              </div>
+              <p class=" p-table__second-row">Ubuntu 18.04 LTS</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          caroline
+          <div class="p-table__second-row">
+            retire-me
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">8</td>
         <td class="p-table__cell--ram u-align--right">128<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
@@ -148,11 +346,37 @@ category: _templates
       </tr>
       <tr>
         <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">legacy-web</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.11.56</p></td>
-        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+              <div class="p-double-row__rows">
+                <div class="p-table__first-row">
+                  <span class="detail-1">On</span>
+                </div>
+                <div class="p-table__second-row">
+                  Intel AMR
+                </div>
+              </div>
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
-        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--warning"></icon></td>
-        <td class="p-table__cell--status">Broken<p class=" p-table__second-row">Machine has failed hardware tests; Use with caution!</p></td>
-        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--warning"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Broken
+              </div>
+              <p class=" p-table__second-row">Machine has failed hardware tests; Use with caution!</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          caroline
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
         <td class="p-table__cell--gap-0"></td>
         <td class="p-table__cell--cores u-align--right">16</td>
         <td class="p-table__cell--ram u-align--right">256<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
