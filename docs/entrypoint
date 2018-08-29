@@ -1,5 +1,0 @@
-#! /usr/bin/env bash
-
-set -e
-
-talisker.gunicorn.gevent app:app --reload --log-level debug --timeout 9999 --access-logfile - --workers 3 --worker-class gevent --error-logfile - --bind $1
