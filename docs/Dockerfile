@@ -5,7 +5,7 @@ ENV LANG C.UTF-8
 WORKDIR /srv
 
 # System dependencies
-RUN apt-get update && apt-get install --yes nginx
+RUN apt-get update && apt-get install --yes nginx net-tools
 
 # Set git commit ID
 ARG COMMIT_ID
