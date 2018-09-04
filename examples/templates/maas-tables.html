@@ -4,14 +4,23 @@ title: MAAS tables
 category: _templates
 ---
 <form>
-  <input type="radio" name="radio" id="js-default" value="option1" checked="checked">
-  <label for="default">Default</label>
-  <input type="radio" name="radio" id="js-pajama" value="option2">
-  <label for="pajama">Pajama</label>
-  <input type="radio" name="radio" id="js-borderless" value="option3">
-  <label for="borderless">Borderless</label>
-  <input type="radio" name="radio" id="js-extra-padding" value="option3">
-  <label for="borderless">Extra padding</label>
+  <input type="radio" name="radio" id="js-lines" value="option1" checked="checked">
+  <label for="default">Lines</label>
+
+  <input type="radio" name="radio" id="js-lines-old" value="option1">
+  <label for="default">Lines-old</label>
+
+  <input type="radio" name="radio" id="js-pyjama" value="option2">
+  <label for="pajama">Pyjama</label>
+
+  <input type="radio" name="radio" id="js-no-lines--tight" value="option3">
+  <label for="borderless">No lines - tight</label>
+
+  <input type="radio" name="radio" id="js-no-lines" value="option3">
+  <label for="borderless">No lines</label>
+
+  <input type="radio" name="radio" id="js-no-lines--loose" value="option3">
+  <label for="borderless">No lines - loose</label>
 </form>
 
 <section class="p-strip">
@@ -35,7 +44,7 @@ category: _templates
     </thead>
     <tbody>
       <tr>
-        <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">db-01</span> <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.26</p></td>
+        <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">db-01</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.26</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-unknown"></span>
@@ -158,7 +167,7 @@ category: _templates
         <td class="p-table__cell--storage u-align--right">292<span class="p-machines-table__storage-units">GB</span></td>
       </tr>
       <tr>
-        <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">eu-proxy-02</span>   <span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
+        <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">eu-proxy-02</span><span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-on"></span>
@@ -199,7 +208,7 @@ category: _templates
         <td class="p-table__cell--storage u-align--right">292<span class="p-machines-table__storage-units">GB</span></td>
       </tr>
       <tr>
-        <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">dev-ci-01</span>   <span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
+        <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">dev-ci-01</span><span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-off"></span>
@@ -240,7 +249,7 @@ category: _templates
         <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
       </tr>
       <tr>
-        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">backup</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.54</p></td>
+        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">backup</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.54</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-on"></span>
@@ -281,7 +290,7 @@ category: _templates
         <td class="p-table__cell--storage u-align--right">6<span class="p-machines-table__storage-units">TB</span></td>
       </tr>
       <tr>
-        <td class="p-table__cell--name"><a class="p-domain"> <span class="p-domain__host">dev-ci-02</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.26</p></td>
+        <td class="p-table__cell--name"><a class="p-domain"> <span class="p-domain__host">dev-ci-02</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.26</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-error"></span>
@@ -323,7 +332,7 @@ category: _templates
         <td class="p-table__cell--storage u-align--right">3.8<span class="p-machines-table__storage-units">TB</span></td>
       </tr>
       <tr>
-        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">caroline-test-box</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.08</p></td>
+        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">caroline-test-box</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.08</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-on"></span>
@@ -365,7 +374,7 @@ category: _templates
         <td class="p-table__cell--storage u-align--right">2.4<span class="p-machines-table__storage-units">TB</span></td>
       </tr>
       <tr>
-        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">legacy-web</span>  <span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.11.56</p></td>
+        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">legacy-web</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.11.56</p></td>
         <td class="p-table__cell--power">
           <div class="p-double-row--with-icon">
             <span class="p-icon p-icon--power-on"></span>
@@ -410,30 +419,39 @@ category: _templates
   </table>
 </section>
 
-
 <script>
   var baseClass = "p-table--machines";
   var table = document.querySelector("." + baseClass);
-  const classes = ["p-table--borderless", "p-table--pajama", "p-table--extra-padding"];
+  const classes = ["p-table--lines--old", "p-table--no-lines--tight", "p-table--no-lines", "p-table--no-lines--loose", "p-table--pajama", "p-table--no-lines--loose"];
 
   (function() {
-      document.querySelector("#js-default").addEventListener("change", function() {
+      document.querySelector("#js-lines").addEventListener("change", function() {
           table.classList.remove(...classes);
       });
 
-      document.querySelector("#js-pajama").addEventListener("change", function() {
+      document.querySelector("#js-lines-old").addEventListener("change", function() {
+          table.classList.remove(...classes);
+          table.classList.add('p-table--lines--old');
+      });
+
+      document.querySelector("#js-pyjama").addEventListener("change", function() {
         table.classList.remove(...classes);
         table.classList.add('p-table--pajama');
       });
 
-      document.querySelector("#js-borderless").addEventListener("change", function() {
+      document.querySelector("#js-no-lines").addEventListener("change", function() {
         table.classList.remove(...classes);
-        table.classList.add('p-table--borderless');
+        table.classList.add('p-table--no-lines');
       });
 
-      document.querySelector("#js-extra-padding").addEventListener("change", function() {
+      document.querySelector("#js-no-lines--tight").addEventListener("change", function() {
         table.classList.remove(...classes);
-        table.classList.add('p-table--extra-padding');
+        table.classList.add('p-table--no-lines--tight');
+      });
+
+      document.querySelector("#js-no-lines--loose").addEventListener("change", function() {
+        table.classList.remove(...classes);
+        table.classList.add('p-table--no-lines--loose');
       });
   })();
 </script>
