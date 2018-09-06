@@ -63,6 +63,15 @@ modified to look like a particular heading size.
     View example of the heading pattern
 </a>
 
+### Sub-headings
+
+Sub-headings visually convey importance beneath a heading, or a line of text that expands on the meaning of the heading immediately before it.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/sub-headings/"
+    class="js-example">
+    View example of the heading pattern
+</a>
+
 ### Mixed heading classes
 
 It is also possible to apply heading classes directly to heading elements if that
