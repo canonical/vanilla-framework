@@ -22,7 +22,7 @@ Class name  |
 `p-icon--information` |
 `p-icon--delete` |
 `p-icon--external` |
-`p-icon--contextual-menu` |
+`p-icon--drag` |
 `p-icon--menu` |
 `p-icon--code` |
 `p-icon--copy` |
