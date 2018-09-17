@@ -16,7 +16,7 @@ Class name  |
 `p-icon--expand` |
 `p-icon--collapse` |
 `p-icon--spinner` |
-`p-icon--chevron` |
+`p-icon--contextual-menu` |
 `p-icon--close` |
 `p-icon--help` |
 `p-icon--information` |
