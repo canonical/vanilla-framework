@@ -10,7 +10,7 @@
   %vf-button-base {
     @include vf-animation (#{background-color, border-color}, fast, in);
     @include vf-focus;
-    border-radius: $border-radius;
+    border-radius: $border-radius-button;
     border-style: solid;
     border-width: 1px;
     cursor: pointer;
@@ -81,12 +81,15 @@
 /// override colors as desired
 @mixin vf-button-pattern (
   $button-background-color: $color-x-light,
-  $button-text-color: $color-dark,
+  $button-text-color: $color-link,
   $button-disabled-background-color: $color-transparent,
-  $button-disabled-border-color: $color-mid-light,
-  $button-border-color: $color-mid-light,
+  $button-disabled-border-color: $color-mid,
+  $button-border-color: $color-mid,
   $button-hover-background-color: $color-light,
-  $button-hover-border-color: $color-mid-light
+  $button-hover-border-color: $color-mid,
+  $button-active-background-color: darken($color-mid, 20%),
+  $button-active-border-color: $color-mid,
+  $button-active-outline: 1px solid $color-mid
 ) {
   background-color: $button-background-color;
   border-color: $button-border-color;
@@ -96,7 +99,12 @@
     color: $button-text-color;
   }
 
-  &:active,
+  &:active {
+    background-color: $button-background-color;
+    border-color: $button-border-color;
+    outline: 1px solid $button-background-color;
+  }
+
   &:hover {
     background-color: $button-hover-background-color;
     border-color: $button-hover-border-color;
