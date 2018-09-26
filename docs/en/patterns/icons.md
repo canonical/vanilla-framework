@@ -16,13 +16,13 @@ Class name  |
 `p-icon--expand` |
 `p-icon--collapse` |
 `p-icon--spinner` |
-`p-icon--chevron` |
+`p-icon--contextual-menu` |
 `p-icon--close` |
 `p-icon--help` |
 `p-icon--information` |
 `p-icon--delete` |
 `p-icon--external` |
-`p-icon--contextual-menu` |
+`p-icon--drag` |
 `p-icon--menu` |
 `p-icon--code` |
 `p-icon--copy` |
