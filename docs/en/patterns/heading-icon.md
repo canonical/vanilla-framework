@@ -10,6 +10,13 @@ title: Heading icon
   View example of the pattern heading icons
 </a>
 
+## Heading icon stacked
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-stacked/"
+  class="js-example">
+  View example of the pattern heading icon stacked
+</a>
+
 <hr />
 
 ### Design
