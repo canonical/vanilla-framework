@@ -26,8 +26,10 @@
 
     &__link {
       border-color: $color-mid;
+      border-radius: $border-radius;
       border-style: solid;
       border-width: 1px;
+      color: $color-x-dark;
       display: block;
       padding: $spv-intra $sph-intra;
       text-decoration: none;
@@ -56,6 +58,7 @@
 
       &--previous,
       &--next {
+        @extend .p-pagination__link; // sass-lint:disable-line placeholder-in-extend
         padding-left: $sph-intra--condensed;
         padding-right: $sph-intra--condensed;
       }
