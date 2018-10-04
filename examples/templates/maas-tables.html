@@ -1,0 +1,457 @@
+---
+layout: default
+title: MAAS tables
+category: _templates
+---
+<form>
+  <input type="radio" name="radio" id="js-lines" value="option1" checked="checked">
+  <label for="default">Lines</label>
+
+  <input type="radio" name="radio" id="js-lines-old" value="option1">
+  <label for="default">Lines-old</label>
+
+  <input type="radio" name="radio" id="js-pyjama" value="option2">
+  <label for="pajama">Pyjama</label>
+
+  <input type="radio" name="radio" id="js-no-lines--tight" value="option3">
+  <label for="borderless">No lines - tight</label>
+
+  <input type="radio" name="radio" id="js-no-lines" value="option3">
+  <label for="borderless">No lines</label>
+
+  <input type="radio" name="radio" id="js-no-lines--loose" value="option3">
+  <label for="borderless">No lines - loose</label>
+</form>
+
+<section class="p-strip">
+  <table class="p-table p-table--machines" role="grid">
+    <thead>
+      <tr class="p-table__row">
+        <th class="p-table__header--name u-align--left"><span class="is-active is-sorted sort-asc">FQDN</span>&nbsp;|&nbsp;<span>MAC</span><br><span class="">IP</span></th>
+        <th class="p-table__header--power"><icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon><span class="detail-1">Power</span></th>
+        <th class="p-table__cell--gap-0"></th>
+        <th class="p-table__header--status"><icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>Status,<br><span class="">Events</span></th>
+        <th class="p-table__header--owner" >Owner<br><span class="">Tags</span></th>
+        <th class="p-table__cell--gap-0"></th>
+        <th class="p-table__header--pool">Pool</th>
+        <th class="p-table__header--zone">Zone,<br>Location</th>
+        <th class="p-table__header--fabric">Fabric,<br>VLAN</th>
+        <th class="p-table__header--cores u-align--right">Cores</th>
+        <th class="p-table__header--ram u-align--right" title="RAM (GiB)">RAM<span class="detail-1"> (GiB)</span></th>
+        <th class="p-table__header--disks u-align--right" title="Disks">Disks</th>
+        <th class="p-table__header--storage u-align--right" title="Storage (GB)">Storage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">db-01</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.26</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-unknown"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">Unknown</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                New
+              </div>
+              <p class=" p-table__second-row"></p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          caroline
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">Mike's desk</p></td>
+        <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+        <td class="p-table__cell--cores u-align--right">2</td>
+        <td class="p-table__cell--ram u-align--right">4<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">db-02</span><span class="p-domain__suffix">.maas</span> </a><p class=" p-table__second-row">10.68.10.24</p> </td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status p-table__cell-double-row">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--error"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Failed commisioning
+              </div>
+              <p class=" p-table__second-row">Unable to access Ubuntu archive</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          etsumi
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+        <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+<td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">8<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain"><span class="p-domain__host">eu-proxy-01</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.20.12</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Deploying
+              </div>
+              <p class=" p-table__second-row">Configuring boot loader</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          alice
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+        <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+<td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">64<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">292<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">eu-proxy-02</span><span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Allocated
+              </div>
+              <p class=" p-table__second-row"></p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          alice
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+        <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+<td class="p-table__cell--cores u-align--right">6</td>
+        <td class="p-table__cell--ram u-align--right">32<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">292<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"> <a class="p-domain">   <span class="p-domain__host">dev-ci-01</span><span class="p-domain__suffix">.maas</span> </a> <p class=" p-table__second-row">10.68.10.11</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-off"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">Off</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Ready
+              </div>
+              <p class=" p-table__second-row"></p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          alice
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Green</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+        <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+<td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">64<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">backup</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.54</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">On</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--spinner u-animation--spin"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Commissioning
+              </div>
+              <p class=" p-table__second-row">Rebooting into deployed OS</p>
+            </div>
+          </div>
+          </td>
+        <td class="p-table__cell--owner">
+          etsumi
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Green</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+        <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+<td class="p-table__cell--cores u-align--right">16</td>
+        <td class="p-table__cell--ram u-align--right">256<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">3</td>
+        <td class="p-table__cell--storage u-align--right">6<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain"> <span class="p-domain__host">dev-ci-02</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.100.26</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-error"></span>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                <span class="detail-1">Error</span>
+              </div>
+              <div class="p-table__second-row">
+                Intel AMR
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--error"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Failed testing
+              </div>
+              <p class=" p-table__second-row">Failed to power on</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          danvir
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+                <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+
+        <td class="p-table__cell--cores u-align--right">12</td>
+        <td class="p-table__cell--ram u-align--right">256<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">4</td>
+        <td class="p-table__cell--storage u-align--right">3.8<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">caroline-test-box</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.10.08</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+              <div class="p-double-row__rows">
+                <div class="p-table__first-row">
+                  <span class="detail-1">On</span>
+                </div>
+                <div class="p-table__second-row">
+                  Intel AMR
+                </div>
+              </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--placeholder"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Ubuntu 18.04 LTS
+              </div>
+              <p class=" p-table__second-row">Ubuntu 18.04 LTS</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          caroline
+          <div class="p-table__second-row">
+            retire-me
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+                <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">128<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">4</td>
+        <td class="p-table__cell--storage u-align--right">2.4<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--name"><a class="p-domain">  <span class="p-domain__host">legacy-web</span><span class="p-domain__suffix">.maas</span></a><p class=" p-table__second-row">10.68.11.56</p></td>
+        <td class="p-table__cell--power">
+          <div class="p-double-row--with-icon">
+            <span class="p-icon p-icon--power-on"></span>
+              <div class="p-double-row__rows">
+                <div class="p-table__first-row">
+                  <span class="detail-1">On</span>
+                </div>
+                <div class="p-table__second-row">
+                  Intel AMR
+                </div>
+              </div>
+          </div>
+        </td>
+        <td class="p-table__cell--status">
+          <div class="p-double-row--with-icon">
+            <icon class="p-double-row__p-icon p-icon--v-aligned-with-text p-icon--warning"></icon>
+            <div class="p-double-row__rows">
+              <div class="p-table__first-row">
+                Broken
+              </div>
+              <p class=" p-table__second-row">Machine has failed hardware tests; Use with caution!</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-table__cell--owner">
+          caroline
+          <div class="p-table__second-row">
+            testNUC
+          </div>
+        </td>
+
+        <td class="p-table__cell--pool">Pink</td>
+        <td class="p-table__cell--zone">ldn-north <p class="p-table__second-row">F4 b7 r7 s12</p></td>
+                <td class="p-table__cell--fabric">cisco-S <p class="p-table__second-row">vlan005</p></td>
+
+        <td class="p-table__cell--cores u-align--right">16</td>
+        <td class="p-table__cell--ram u-align--right">256<span class="detail-0 p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">8</td>
+        <td class="p-table__cell--storage u-align--right">48<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<script>
+  var baseClass = "p-table--machines";
+  var table = document.querySelector("." + baseClass);
+  const classes = ["p-table--lines--old", "p-table--no-lines--tight", "p-table--no-lines", "p-table--no-lines--loose", "p-table--pajama", "p-table--no-lines--loose"];
+
+  (function() {
+      document.querySelector("#js-lines").addEventListener("change", function() {
+          table.classList.remove(...classes);
+      });
+
+      document.querySelector("#js-lines-old").addEventListener("change", function() {
+          table.classList.remove(...classes);
+          table.classList.add('p-table--lines--old');
+      });
+
+      document.querySelector("#js-pyjama").addEventListener("change", function() {
+        table.classList.remove(...classes);
+        table.classList.add('p-table--pajama');
+      });
+
+      document.querySelector("#js-no-lines").addEventListener("change", function() {
+        table.classList.remove(...classes);
+        table.classList.add('p-table--no-lines');
+      });
+
+      document.querySelector("#js-no-lines--tight").addEventListener("change", function() {
+        table.classList.remove(...classes);
+        table.classList.add('p-table--no-lines--tight');
+      });
+
+      document.querySelector("#js-no-lines--loose").addEventListener("change", function() {
+        table.classList.remove(...classes);
+        table.classList.add('p-table--no-lines--loose');
+      });
+  })();
+</script>

@@ -28,11 +28,15 @@
 
   thead {
     th {
-      @extend %muted-heading;
+      @extend %smallest-text;
+      color: $color-mid-dark;
+      padding-bottom: map-get($line-heights, default-text) - map-get($line-heights, smallest) - map-get($nudges, nudge--smallest);
+      padding-top: map-get($nudges, nudge--smallest);
+      text-transform: uppercase;
     }
 
     tr {
-      border-bottom: 1px solid $color-dark;
+      border-bottom: 1px solid $color-mid-light;
       vertical-align: top;
     }
   }
@@ -40,8 +44,12 @@
   tbody {
     tr {
       &:not(:first-child) {
-        border-top: 1px solid $color-mid-light;
+        border-top: 1px solid $color-light-new;
       }
+    }
+
+    & + & tr:first-child {
+      border-top: 1px solid $color-light-new;
     }
   }
 

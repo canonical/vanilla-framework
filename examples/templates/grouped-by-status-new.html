@@ -1,0 +1,274 @@
+---
+layout: default
+title: MAAS tables-by-status-new
+category: _templates
+---
+<!-- <section class="p-strip--dark is-shallow">
+  <h1>MAAS table exploration: basic</h1>
+  <ul class="p-inline-list">
+    <li class="p-inline-list__item"><a href="index.html">Basic</a></li>
+    <li class="p-inline-list__item"><a href="grouped-by-owner.html">Grouped by owner</a></li>
+    <li class="p-inline-list__item"><a href="grouped-by-status.html">Grouped by status</a></li>
+  </ul>
+</section> -->
+<section>
+  <table class="p-table p-table--machines" role="grid">
+    <colgroup>
+      <col class="p-table__col--checkbox--header">
+      <col class="p-table__col--checkbox">
+      <col class="p-table__col--name">
+      <col class="p-table__col--ip show-from-breakpoint-first">
+      <col class="p-table__col--power">
+      <col class="p-table__col--gap-0">
+      <col class="p-table__col--status-icon">
+      <col class="p-table__col--status">
+      <col class="p-table__col--events show-from-breakpoint-first">
+      <col class="p-table__col--owner">
+      <col class="p-table__col--location show-from-breakpoint-third">
+      <col class="p-table__col--cores">
+      <col class="p-table__col--ram">
+      <col class="p-table__col--disks">
+      <col class="p-table__col--storage">
+    </colgroup>
+    <thead>
+      <tr class="p-table__row">
+        <th class="p-table__header--checkbox--header"><input type="checkbox" id="checkExample0"><label for="checkExample0">&nbsp;</label></th>
+        <th class="p-table__header--checkbox"></th>
+        <th class="p-table__header--name u-align--left"><span class="is-active is-sorted sort-asc">FQDN</span>&nbsp;|&nbsp;<span>MAC</span><br><span class="show-until-breakpoint-first">IP</span></th>
+        <th class="p-table__header--ip show-from-breakpoint-first">IP</th>
+        <th class="p-table__header--power"><span class="detail-1">Power</span></th>
+        <th class="p-table__cell--gap-0"></th>
+        <th class="p-table__header--status-icon"></th>
+        <th class="p-table__header--status">Status,<br><span class="show-until-breakpoint-first">Events</span></th>
+        <th class="p-table__header--events show-from-breakpoint-first">Events</th>
+        <th class="p-table__header--owner" >Owner</th>
+        <th class="p-table__cell--location show-from-breakpoint-third">Location</th>
+        <th class="p-table__header--cores u-align--right">Cores</th>
+        <th class="p-table__header--ram u-align--right" title="RAM (GiB)">RAM</th>
+        <th class="p-table__header--disks u-align--right" title="Disks">Disks</th>
+        <th class="p-table__header--storage u-align--right" title="Storage (GB)">Storage</th>
+      </tr>
+    </thead>
+
+    <!-- new -->
+    <tbody>
+      <tr class="group-heading">
+          <td class="p-table__cell--checkbox group-heading__cell"><input type="checkbox" id="check-new-group"><label for="check-new-group">&nbsp;</label></td>
+          <td class="p-table__cell--checkbox group-heading__cell"></td>
+          <td class="group-heading__cell" colspan="10">New</td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-third"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample1"><label for="checkExample1">&nbsp;</label></td>
+        <td class="p-table__cell--name"><div class="p-domain__wrap"><a class="p-domain"><span class="p-domain__host">db-01</span> <span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.10.26</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first"></td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-unknown"></span><span class="detail-1"> Unknown</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"></td>
+        <td class="p-table__cell--status">New<p class="show-until-breakpoint-first p-table__second-row"></p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">2</td>
+        <td class="p-table__cell--ram u-align--right">4<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+    </tbody>
+
+    <!-- commissioning -->
+    <tbody>
+      <tr class="group-heading">
+          <td class="p-table__cell--checkbox group-heading__cell"><input type="checkbox" id="check-commissioning-group"><label for="check-commissioning-group">&nbsp;</label></td>
+          <td class="p-table__cell--checkbox group-heading__cell"></td>
+          <td class="group-heading__cell" colspan="10">Commissioning</td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-third"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample2"><label for="checkExample2">&nbsp;</label></td>
+        <td class="p-table__cell--name">  <div class="p-domain__wrap"> <a class="p-domain"><span class="p-domain__host">db-02</span><span class="p-domain__suffix">.maas</span> </a><p class="show-until-breakpoint-first p-table__second-row">10.68.10.24</p> </div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.24</td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--error"></icon></td>
+        <td class="p-table__cell--status">Failed commisioning<p class="show-until-breakpoint-first p-table__second-row">Unable to access Ubuntu archive</p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Unable to access Ubuntu archive</td>
+        <td class="p-table__cell--owner"></td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">8<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample6"><label for="checkExample6">&nbsp;</label></td>
+        <td class="p-table__cell--name">  <div class="p-domain__wrap"> <a class="p-domain">  <span class="p-domain__host">backup</span>  <span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.100.54</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.100.54</td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"><i class="p-icon--spinner u-animation--spin"></i></td>
+        <td class="p-table__cell--status">Commissioning<p class="show-until-breakpoint-first p-table__second-row">Rebooting into deployed OS</p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">etsumi</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">16</td>
+        <td class="p-table__cell--ram u-align--right">256<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">3</td>
+        <td class="p-table__cell--storage u-align--right">6<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr class="group-heading">
+          <td class="p-table__cell--checkbox group-heading__cell"><input type="checkbox" id="check-ready-group"><label for="check-ready-group">&nbsp;</label></td>
+          <td class="p-table__cell--checkbox group-heading__cell"></td>
+          <td class="group-heading__cell" colspan="10">Ready</td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-third"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample5"><label for="checkExample5">&nbsp;</label></td>
+        <td class="p-table__cell--name"><div class="p-domain__wrap"> <a class="p-domain"><span class="p-domain__host">dev-ci-01</span><span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.10.11</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first"></td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-off"></span><span class="detail-1"> Off</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"></td>
+        <td class="p-table__cell--status">Ready<p class="show-until-breakpoint-first p-table__second-row"></p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">4</td>
+        <td class="p-table__cell--ram u-align--right">64<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">600<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr class="group-heading">
+          <td class="p-table__cell--checkbox group-heading__cell"><input type="checkbox" id="check-alloc-group"><label for="check-alloc-group">&nbsp;</label></td>
+          <td class="p-table__cell--checkbox group-heading__cell"></td>
+          <td class="group-heading__cell" colspan="10">Allocated</td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-third"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample4"><label for="checkExample4">&nbsp;</label></td>
+        <td class="p-table__cell--name">   <div class="p-domain__wrap"> <a class="p-domain">   <span class="p-domain__host">eu-proxy-02</span>   <span class="p-domain__suffix">.maas</span> </a> <p class="show-until-breakpoint-first p-table__second-row">10.68.10.11</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.11</td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"></td>
+        <td class="p-table__cell--status">Allocated<p class="show-until-breakpoint-first p-table__second-row"></p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">6</td>
+        <td class="p-table__cell--ram u-align--right">32<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">292<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr class="group-heading">
+          <td class="p-table__cell--checkbox group-heading__cell"><input type="checkbox" id="check-deployed-group"><label for="check-deployed-group">&nbsp;</label></td>
+          <td class="p-table__cell--checkbox group-heading__cell"></td>
+          <td class="group-heading__cell" colspan="10">Deployed</td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-third"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample8"><label for="checkExample8">&nbsp;</label></td>
+        <td class="p-table__cell--name">  <div class="p-domain__wrap"> <a class="p-domain">  <span class="p-domain__host">caroline-test-box</span>  <span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.10.08</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.10.08</td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"></icon></td>
+        <td class="p-table__cell--status">Ubuntu 18.04 LTS<p class="show-until-breakpoint-first p-table__second-row">Ubuntu 18.04 LTS</p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first"></td>
+        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">128<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">4</td>
+        <td class="p-table__cell--storage u-align--right">2.4<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample3"><label for="checkExample3">&nbsp;</label></td>
+        <td class="p-table__cell--name">  <div class="p-domain__wrap"> <a class="p-domain"><span class="p-domain__host">eu-proxy-01</span><span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.20.12</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.20.12</td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--progress-75pct"></icon></td>
+        <td class="p-table__cell--status">Deploying<p class="show-until-breakpoint-first p-table__second-row">Configuring boot loader</p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Configuring boot loader</td>
+        <td class="p-table__cell--owner">alice</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">8</td>
+        <td class="p-table__cell--ram u-align--right">64<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">2</td>
+        <td class="p-table__cell--storage u-align--right">292<span class="p-machines-table__storage-units">GB</span></td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr class="group-heading">
+          <td class="p-table__cell--checkbox group-heading__cell"><input type="checkbox" id="check-broken-group"><label for="check-broken-group">&nbsp;</label></td>
+          <td class="p-table__cell--checkbox group-heading__cell"></td>
+          <td class="group-heading__cell" colspan="10">Broken</td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-first"></td>
+          <td class="group-heading__cell show-from-breakpoint-third"></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample9"><label for="checkExample9">&nbsp;</label></td>
+        <td class="p-table__cell--name">  <div class="p-domain__wrap"> <a class="p-domain">  <span class="p-domain__host">legacy-web</span>  <span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.11.56</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first"></td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-on"></span><span class="detail-1"> On</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--warning"></icon></td>
+        <td class="p-table__cell--status">Broken<p class="show-until-breakpoint-first p-table__second-row">Machine has failed hardware tests; Use with caution!</p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Machine has failed hardware tests; Use with caution!</td>
+        <td class="p-table__cell--owner">caroline</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">16</td>
+        <td class="p-table__cell--ram u-align--right">256<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">8</td>
+        <td class="p-table__cell--storage u-align--right">48<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+      <tr>
+        <td class="p-table__cell--checkbox--header"></td>
+        <td class="p-table__cell--checkbox"><input type="checkbox" id="checkExample7"><label for="checkExample7">&nbsp;</label></td>
+        <td class="p-table__cell--name">  <div class="p-domain__wrap"> <a class="p-domain"> <span class="p-domain__host">dev-ci-02</span>  <span class="p-domain__suffix">.maas</span></a><p class="show-until-breakpoint-first p-table__second-row">10.68.100.26</p></div></td>
+        <td class="p-table__cell--ip show-from-breakpoint-first">10.68.100.26</td>
+        <td class="p-table__cell--power"><span class="p-icon p-icon--power-error"></span><span class="detail-1"> Error</span></td>
+        <td class="p-table__cell--gap-0"></td>
+        <td class="p-table__cell--status-icon"><icon class="p-icon p-icon--error"></icon></td>
+        <td class="p-table__cell--status">Failed testing<p class="show-until-breakpoint-first p-table__second-row">Failed to power on</p></td>
+        <td class="p-table__cell--events show-from-breakpoint-first">Failed to power on</td>
+        <td class="p-table__cell--owner">danvir</td>
+        <td class="p-table__cell--location">F4 b7 r7 s12</td>
+        <td class="p-table__cell--cores u-align--right">12</td>
+        <td class="p-table__cell--ram u-align--right">256<span class="p-machines-table__memory-units">GiB</span></td>
+        <td class="p-table__cell--disks u-align--right">4</td>
+        <td class="p-table__cell--storage u-align--right">3.8<span class="p-machines-table__storage-units">TB</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
