@@ -6,7 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var util = require('util');
 var sourceFile = argv['source-file'] || null;
 var sourceDirectory = argv['source-dir'] || 'scss';
-var outputDirectory = argv['source-dir'] || 'tests/output'
+var outputDirectory = argv['source-dir'] || 'tests/output';
 var outputFile = argv['outputfile'] || null;
 var parkerOptions = argv['parker-options'] || null;
 var boilerplate = `
@@ -28,7 +28,7 @@ if (sourceFile) {
   fs.readdirSync(sourceDirectory).forEach(fileName => {
     if (fileName.startsWith('_patterns')) {
       var renderedCss = '';
-      var fileContents = fs.readFileSync(sourceDirectory + '/' + fileName, 'utf8', function (err,data) {
+      var fileContents = fs.readFileSync(sourceDirectory + '/' + fileName, 'utf8', function(err, data) {
         if (err) {
           return console.log(err);
         }
@@ -37,24 +37,26 @@ if (sourceFile) {
 
       components[fileName] = [];
       components[fileName]['sass'] = boilerplate + fileContents;
-      components[fileName]['css'] = sass.renderSync({
-        data: components[fileName]['sass'] ,
-        includePaths: ['scss/']
-      }).css.toString();
+      components[fileName]['css'] = sass
+        .renderSync({
+          data: components[fileName]['sass'],
+          includePaths: ['scss/']
+        })
+        .css.toString();
     }
   });
 }
 
 // run css through parker
 var parker = new Parker(metrics);
-for (fileName in components){
+for (fileName in components) {
   components[fileName]['report'] = parker.run(components[fileName]['css']);
   // Display sumamry / output to file
   console.log(fileName);
   console.log(components[fileName]['report']);
-  if (fs.writeFileSync(outputDirectory + "/" + fileName + ".report.json", util.inspect(components[fileName]['report'], false, 2, false))){
-    console.log("Report saved to: " + outputDirectory + fileName + ".report.json")
+  if (fs.writeFileSync(outputDirectory + '/' + fileName + '.report.json', util.inspect(components[fileName]['report'], false, 2, false))) {
+    console.log('Report saved to: ' + outputDirectory + fileName + '.report.json');
   } else {
-    console.log("Unable to write file.");
+    console.log('Unable to write file.');
   }
 }
