@@ -47,13 +47,15 @@
     }
   }
 
-  @supports (mask-size: 1em) or (-webkit-mask-size: 1em) { //sass-lint:disable-line no-vendor-prefixes
+  //sass-lint:disable no-vendor-prefixes
+  @supports (mask-size: 1em) or (-webkit-mask-size: 1em) {
     @include vf-mask-supported;
   }
 
-  @supports not ((mask-size: 1em) or (-webkit-mask-size: 1em)) { //sass-lint:disable-line no-vendor-prefixes
+  @supports not ((mask-size: 1em) or (-webkit-mask-size: 1em)) {
     @include vf-mask-unsupported;
   }
+  //sass-lint:enable no-vendor-prefixes
 
   .p-top {
     border-bottom: 1px dotted $color-mid-light;
@@ -68,23 +70,26 @@
       padding: 0 5px;
       position: relative;
       text-decoration: none;
-      top: -.725rem;
+      top: -0.725rem;
     }
   }
 }
 
 // For browsers that support CSS masks
+//sass-lint:disable no-vendor-prefixes
 @mixin vf-mask-supported {
   .p-link {
     // Used for links point at a different domain
     &--external {
       &::after {
-        -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M4.867 1.313C.6 1.32.067 1.443.067 4.51v6.4c0 3.2.533 3.2 5.333 3.2h2.133c4.8 0 5.334 0 5.334-3.2v-1.6h-1.6v1.068c0 2.133 0 2.133-4.267 2.133H5.933c-4.266 0-4.266 0-4.266-2.132V5.044c0-1.93.034-2.112 3.2-2.13v-1.6z'/%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M6.435 2.16c.11-.446 7.113-2.196 7.448-1.86.335.334-1.416 7.335-1.863 7.447-.447.112-5.697-5.14-5.586-5.586z'/%3E%3Cpath fill='%23111' d='M9.032 3.38L4.705 7.708l1.767 1.767L10.8 5.148'/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0 / cover; //sass-lint:disable-line no-vendor-prefixes
+        -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M4.867 1.313C.6 1.32.067 1.443.067 4.51v6.4c0 3.2.533 3.2 5.333 3.2h2.133c4.8 0 5.334 0 5.334-3.2v-1.6h-1.6v1.068c0 2.133 0 2.133-4.267 2.133H5.933c-4.266 0-4.266 0-4.266-2.132V5.044c0-1.93.034-2.112 3.2-2.13v-1.6z'/%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M6.435 2.16c.11-.446 7.113-2.196 7.448-1.86.335.334-1.416 7.335-1.863 7.447-.447.112-5.697-5.14-5.586-5.586z'/%3E%3Cpath fill='%23111' d='M9.032 3.38L4.705 7.708l1.767 1.767L10.8 5.148'/%3E%3C/g%3E%3C/svg%3E")
+          no-repeat 0 0 / cover;
         background-color: currentColor;
         content: '';
-        margin: 0 0 0 .25em;
-        mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M4.867 1.313C.6 1.32.067 1.443.067 4.51v6.4c0 3.2.533 3.2 5.333 3.2h2.133c4.8 0 5.334 0 5.334-3.2v-1.6h-1.6v1.068c0 2.133 0 2.133-4.267 2.133H5.933c-4.266 0-4.266 0-4.266-2.132V5.044c0-1.93.034-2.112 3.2-2.13v-1.6z'/%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M6.435 2.16c.11-.446 7.113-2.196 7.448-1.86.335.334-1.416 7.335-1.863 7.447-.447.112-5.697-5.14-5.586-5.586z'/%3E%3Cpath fill='%23111' d='M9.032 3.38L4.705 7.708l1.767 1.767L10.8 5.148'/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0 / cover;
-        padding-right: .75em;
+        margin: 0 0 0 0.25em;
+        mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M4.867 1.313C.6 1.32.067 1.443.067 4.51v6.4c0 3.2.533 3.2 5.333 3.2h2.133c4.8 0 5.334 0 5.334-3.2v-1.6h-1.6v1.068c0 2.133 0 2.133-4.267 2.133H5.933c-4.266 0-4.266 0-4.266-2.132V5.044c0-1.93.034-2.112 3.2-2.13v-1.6z'/%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='%23111' d='M6.435 2.16c.11-.446 7.113-2.196 7.448-1.86.335.334-1.416 7.335-1.863 7.447-.447.112-5.697-5.14-5.586-5.586z'/%3E%3Cpath fill='%23111' d='M9.032 3.38L4.705 7.708l1.767 1.767L10.8 5.148'/%3E%3C/g%3E%3C/svg%3E")
+          no-repeat 0 0 / cover;
+        padding-right: 0.75em;
       }
     }
 
@@ -95,6 +100,7 @@
     }
   }
 }
+//sass-lint:enable no-vendor-prefixes
 
 // For browsers that don't support CSS masks
 @mixin vf-mask-unsupported {
@@ -104,9 +110,9 @@
       @include vf-external-link-icon(vf-url-friendly-color($color-link));
       background-position: top right;
       background-repeat: no-repeat;
-      background-size: .75em;
-      margin-top: -.25em;
-      padding: .25em 1em 0 0;
+      background-size: 0.75em;
+      margin-top: -0.25em;
+      padding: 0.25em 1em 0 0;
 
       &.p-link--strong,
       &.p-link--soft,

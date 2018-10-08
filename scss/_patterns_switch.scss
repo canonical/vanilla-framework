@@ -28,7 +28,7 @@ $knob-size: $sp-unit * 3;
     &__slider {
       @extend %vf-has-round-corners;
       background: linear-gradient(to right, $color-information 50%, $color-mid-light 50%);
-      box-shadow: inset 0 2px 5px 0 transparentize($color-dark, .8);
+      box-shadow: inset 0 2px 5px 0 transparentize($color-dark, 0.8);
       height: $knob-size;
       margin: $spv-nudge-compensation 0 $spv-inter--condensed-scaleable 0;
       position: relative;
@@ -39,7 +39,7 @@ $knob-size: $sp-unit * 3;
         @extend %vf-has-box-shadow;
         @include vf-animation($duration: slow);
         background: $color-x-light;
-        content: "";
+        content: '';
         height: $knob-size;
         left: 0;
         position: absolute;
@@ -53,7 +53,8 @@ $knob-size: $sp-unit * 3;
   }
 
   @include deprecate('2.0.0', 'Use checkbox version of .p-switch') {
-    button.p-switch { // sass-lint:disable-line no-qualifying-elements
+    // sass-lint:disable-block no-qualifying-elements
+    button.p-switch {
       align-items: stretch;
       border: 0;
       display: inline-flex;
@@ -63,7 +64,7 @@ $knob-size: $sp-unit * 3;
 
       :first-child,
       :last-child {
-        box-shadow: inset 0 2px 5px 0 transparentize($color-dark, .8);
+        box-shadow: inset 0 2px 5px 0 transparentize($color-dark, 0.8);
         line-height: $knob-size;
         margin: 0;
         text-align: center;
@@ -86,7 +87,7 @@ $knob-size: $sp-unit * 3;
         background: inherit;
         background-color: $color-x-light;
         border-radius: $border-radius;
-        box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
+        box-shadow: 0 1px 5px 1px transparentize($color-dark, 0.8);
         content: '';
         display: block;
         height: 100%;

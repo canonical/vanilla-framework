@@ -10,7 +10,7 @@ $nav-border-bottom-thickness: $px;
 
 @mixin vf-navigation-default {
   .p-navigation {
-    @include vf-navigation-pattern (
+    @include vf-navigation-pattern(
       $background-color: $color-navigation-background,
       $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
       $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
@@ -20,11 +20,7 @@ $nav-border-bottom-thickness: $px;
 
 @mixin vf-navigation-sidebar {
   .p-navigation--sidebar {
-    @include vf-navigation-pattern (
-      $background-color: $color-x-light,
-      $border-color: $color-mid-light,
-      $text-color: $color-dark
-    );
+    @include vf-navigation-pattern($background-color: $color-x-light, $border-color: $color-mid-light, $text-color: $color-dark);
 
     flex-direction: column;
     height: auto;
@@ -40,7 +36,7 @@ $nav-border-bottom-thickness: $px;
         display: inline-block;
       }
 
-      [class^="p-icon"] {
+      [class^='p-icon'] {
         cursor: pointer;
       }
 
@@ -127,7 +123,7 @@ $nav-border-bottom-thickness: $px;
       position: absolute;
       right: $sp-medium;
       top: $sp-small;
-      transition: all .5s ease-in-out; // sass-lint:disable-line no-transition-all
+      transition: all 0.5s ease-in-out; // sass-lint:disable-line no-transition-all
     }
 
     .p-icon--minus {
@@ -135,7 +131,6 @@ $nav-border-bottom-thickness: $px;
     }
 
     .is-selected {
-
       .p-icon--minus {
         display: block;
       }
@@ -145,8 +140,7 @@ $nav-border-bottom-thickness: $px;
       }
     }
 
-    .is-selected +  {
-
+    .is-selected + {
       .sidebar__second-level,
       .sidebar__third-level {
         display: block;
@@ -155,7 +149,7 @@ $nav-border-bottom-thickness: $px;
   }
 }
 
-@mixin vf-navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
+@mixin vf-navigation-pattern($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
   background-color: $background-color;
   display: flex;
   flex-shrink: 0;
