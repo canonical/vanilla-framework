@@ -8,7 +8,7 @@
   }
 
   %vf-button-base {
-    @include vf-animation (#{background-color, border-color}, fast, in);
+    @include vf-animation(#{background-color, border-color}, fast, in);
     @include vf-focus;
     border-radius: $border-radius;
     border-style: solid;
@@ -32,7 +32,7 @@
     &:disabled,
     &.is--disabled {
       cursor: not-allowed;
-      opacity: .5;
+      opacity: 0.5;
     }
 
     @media only screen and (max-width: $breakpoint-x-small) {
@@ -49,14 +49,14 @@
 
     table & {
       margin-bottom: $spv-nudge-compensation;
-      padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
-      padding-top: $spv-nudge - $sp-unit * .5 - $px;
+      padding-bottom: $spv-nudge - $sp-unit * 0.5 - $px;
+      padding-top: $spv-nudge - $sp-unit * 0.5 - $px;
     }
 
     // The following three rules address buttons nested in <p>'s;
     p & {
       margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
-      margin-top: - $spv-nudge;
+      margin-top: -#{$spv-nudge};
     }
 
     p + p > & {
@@ -69,17 +69,16 @@
       }
     }
 
-    & [class*="p-icon"] + * {
-      margin-left: $sph-intra * .25;
+    & [class*='p-icon'] + * {
+      margin-left: $sph-intra * 0.25;
     }
   }
 }
 
-
 /// mixin for all the buttons
 /// there are sensible defaults, but you can
 /// override colors as desired
-@mixin vf-button-pattern (
+@mixin vf-button-pattern(
   $button-background-color: $color-x-light,
   $button-text-color: $color-x-dark,
   $button-disabled-background-color: $color-transparent,
@@ -89,7 +88,6 @@
   $button-hover-border-color: $color-mid,
   $button-active-background-color: darken($color-x-light, 15%),
   $button-active-border-color: $color-mid
-
 ) {
   background-color: $button-background-color;
   border-color: $button-border-color;
@@ -113,7 +111,6 @@
 
   &:disabled,
   &.is--disabled {
-
     &:active,
     &:hover {
       background-color: $button-disabled-background-color;
