@@ -17,15 +17,24 @@ $cc-button-size: 36 * $px;
     }
 
     &__input {
-      @include vf-icon-code($color-mid-dark);
-      background-position: $sph-intra--condensed center;
-      background-repeat: no-repeat;
       border: 0;
       color: $color-mid-dark;
       font-family: unquote($font-monospace);
       line-height: map-get($line-heights, default-text);
-      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra * 2;
+      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra * 1.5;
       width: 100%;
+    }
+
+    &::before {
+      color: $color-mid;
+      content: '$';
+      display: block;
+      left: 0;
+      line-height: map-get($line-heights, default-text);
+      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra--condensed;
+      position: absolute;
+      top: $spv-intra--condensed;
+      width: 1rem;
     }
 
     &__action {
