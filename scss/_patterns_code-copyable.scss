@@ -10,6 +10,7 @@ $cc-button-size: 36 * $px;
     @extend %vf-has-round-corners;
     @extend %vf-is-bordered;
     display: flex;
+    overflow: hidden;
     position: relative;
 
     & + & {
@@ -39,6 +40,7 @@ $cc-button-size: 36 * $px;
 
     &__action {
       @extend %vf-hide-text;
+      @extend %bordered-text-vertical-padding;
       @include vf-icon-copy($color-mid-dark);
       @include vf-button-pattern($button-background-color: $color-light, $button-hover-background-color: darken($color-light, 10%));
       background-position: center;
@@ -46,6 +48,7 @@ $cc-button-size: 36 * $px;
       border: 0;
       border-left: $border;
       border-radius: 0;
+      line-height: map-get($line-heights, default-text);
       margin: 0;
       position: absolute;
       right: 0;
