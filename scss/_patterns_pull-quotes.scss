@@ -28,10 +28,10 @@
       }
 
       &:last-of-type::after {
-        bottom: 3.25rem;
+        bottom: 4rem;
 
         @media (max-width: $breakpoint-heading-threshold) {
-          bottom: 2.75rem;
+          bottom: 3.5rem;
         }
       }
     }
@@ -53,7 +53,7 @@
       }
 
       &:last-of-type::after {
-        bottom: 2.5rem;
+        bottom: 3rem;
       }
     }
 
@@ -92,6 +92,11 @@
   .p-pull-quote--small,
   .p-pull-quote--large {
     @include vf-pull-quote;
+
+    .p-pull-quote__citation {
+      font-style: italic;
+      margin-top: $spv-intra--condensed--scaleable;
+    }
   }
 
   .p-pull-quote__quote {
@@ -115,10 +120,5 @@
       content: '\201E';
       margin-left: $spv-intra;
     }
-  }
-
-  .p-pull-quote__citation {
-    font-style: italic;
-    margin-top: $spv-intra--condensed--scaleable;
   }
 }
