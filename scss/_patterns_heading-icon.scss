@@ -12,7 +12,7 @@
       display: flex;
       margin-bottom: $spv-intra--expanded;
 
-      &--stacked {
+      &.is-stacked {
         display: inherit;
       }
     }
@@ -31,6 +31,18 @@
       @media (min-width: $breakpoint-medium) {
         height: map-get($icon-sizes, heading-icon);
         width: map-get($icon-sizes, heading-icon);
+      }
+    }
+  }
+
+  .p-heading-icon--small {
+    .p-heading-icon__img {
+      height: map-get($icon-sizes, heading-icon--x-small);
+      width: map-get($icon-sizes, heading-icon--x-small);
+
+      @media (min-width: $breakpoint-medium) {
+        height: map-get($icon-sizes, heading-icon--small);
+        width: map-get($icon-sizes, heading-icon--small);
       }
     }
   }
