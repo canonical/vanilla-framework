@@ -146,5 +146,17 @@
 @mixin vf-button-icon {
   [class~='p-button'].has-icon {
     width: auto;
+
+    & [class*='p-icon'] {
+      // Apply negative margins to make textless button icon a square
+      &:only-child {
+        margin-left: -($px * 2);
+        margin-right: -($px * 2);
+      }
+
+      + * {
+        margin-left: $sph-intra--condensed / 2;
+      }
+    }
   }
 }
