@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K92JCQ');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <meta charset="UTF-8" />
+    <title>Home | Vanilla framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="https://assets.ubuntu.com/v1/15be9af2-examplejs-1.1.0.css" />
+  </head>
+
+  <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K92JCQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="docs-container">
+      <header id="navigation" class="p-navigation">
+        <div class="p-navigation__banner">
+          <div class="p-navigation__logo">
+            <a class="p-navigation__link" href="https://vanillaframework.io/">
+              <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla framework logo">
+            </a>
+          </div>
+          <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+          <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+        </div>
+        <nav class="p-navigation__nav">
+          <span class="u-off-screen">
+            <a href="#main-content">Jump to main content</a>
+          </span>
+          <ul class="p-navigation__links">
+            <li class="p-navigation__link is-selected"><a href="/">Docs</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/accessibility">Accessibility</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/browser-support">Browser support</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/coding-standards">Coding standards</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/contribute">Contribute</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <aside class="p-sidebar" id="navigation">
+        <div class="p-sidebar__banner u-hide--medium u-hide--large">
+          <i class="p-sidebar__toggle p-icon--menu"></i>
+        </div>
+        <div class="p-sidebar__content u-hide--small">
+          <form class="p-search-box" onsubmit="return false">
+            <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
+            <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
+            <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+          </form>
+          <nav class="p-sidebar-nav">
+            <ul class="p-sidebar-nav__list" id="docs-list-unsorted">
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Welcome</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft is-active" href="index">Get started</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="building-vanilla">Building with Vanilla</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="customising-vanilla">Customising Vanilla</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Basics</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/color-settings">Color</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/functions">Functions</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/font-settings">Font</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/placeholder-settings">Placeholders</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="base/reset">Reset</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/spacing-settings">Spacing</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Global layout</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/breakpoint-settings">Breakpoints</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/grid">Grid</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/strip">Strip</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/layout-settings">Structure</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>One-off layout</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/align">Alignment</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/baseline-grid">Baseline grid</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/clearfix">Clearfix</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/equal-height">Equal height</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/floats">Floats</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/hide">Hide</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/margin-collapse">Margin collapse</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/off-screen">Off-screen elements</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/padding-collapse">Padding collapse</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/show">Show</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/vertically-center">Vertically center</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Navigation</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/accordion">Accordion</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/aside">Aside</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/breadcrumbs">Breadcrumbs</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/contextual-menu">Contextual menu</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/footer">Footer</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/navigation">Navigation</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/pagination">Pagination</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/tabs">Tabs</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Page structure</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/card">Cards</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/divider">Divider list</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/lists">Lists</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/matrix">Matrix</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/muted-heading">Muted heading</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Text</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="base/code">Code</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/code-copyable">Code copyable</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/code-numbered">Code numbered</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="base/typography">Typography</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/pull-quote">Quotes</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Tables</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="base/table">Table</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/table-sortable">Table sortable</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/table-expanding">Table expanding</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/table-mobile-card">Table mobile card</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Interactive elements</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/buttons">Buttons</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="base/forms">Forms</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/links">Links</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/list-tree">List tree</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/modal">Modal</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/notification">Notifications</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/search-box">Search box</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/slider">Slider</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/switch">Switch</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/tooltips">Tooltips</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+              <li class="p-sidebar-nav__item">
+
+                  <strong>Images and media</strong>
+
+
+                <ul class="p-sidebar-nav__list">
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/animation-settings">Animations</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="settings/assets-settings">Assets</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/embedded-media">Embedded media</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/heading-icon">Heading icon</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/icons">Icons</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/images">Images</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/image-position">Image position</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/inline-images">Inline images</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="patterns/media-object">Media object</a>
+
+                    </li>
+
+                    <li class="p-sidebar-nav__item">
+
+                        <a class="p-link--soft" href="utilities/spin">Spin</a>
+
+                    </li>
+
+                </ul>
+
+              </li>
+
+            </ul>
+            <ul class="p-sidebar-nav__list u-hide" id="docs-list-sorted">
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="index">Get started</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="building-vanilla">Building with Vanilla</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="customising-vanilla">Customising Vanilla</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/color-settings">Color</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/functions">Functions</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/font-settings">Font</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/placeholder-settings">Placeholders</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="base/reset">Reset</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/spacing-settings">Spacing</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/breakpoint-settings">Breakpoints</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/grid">Grid</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/strip">Strip</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/layout-settings">Structure</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/align">Alignment</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/baseline-grid">Baseline grid</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/clearfix">Clearfix</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/equal-height">Equal height</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/floats">Floats</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/hide">Hide</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/margin-collapse">Margin collapse</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/off-screen">Off-screen elements</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/padding-collapse">Padding collapse</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/show">Show</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/vertically-center">Vertically center</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/accordion">Accordion</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/aside">Aside</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/breadcrumbs">Breadcrumbs</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/contextual-menu">Contextual menu</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/footer">Footer</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/navigation">Navigation</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/pagination">Pagination</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/tabs">Tabs</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/card">Cards</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/divider">Divider list</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/lists">Lists</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/matrix">Matrix</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/muted-heading">Muted heading</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="base/code">Code</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/code-copyable">Code copyable</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/code-numbered">Code numbered</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="base/typography">Typography</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/pull-quote">Quotes</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="base/table">Table</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/table-sortable">Table sortable</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/table-expanding">Table expanding</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/table-mobile-card">Table mobile card</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/buttons">Buttons</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="base/forms">Forms</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/links">Links</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/list-tree">List tree</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/modal">Modal</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/notification">Notifications</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/search-box">Search box</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/slider">Slider</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/switch">Switch</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/tooltips">Tooltips</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/animation-settings">Animations</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="settings/assets-settings">Assets</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/embedded-media">Embedded media</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/heading-icon">Heading icon</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/icons">Icons</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/images">Images</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/image-position">Image position</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/inline-images">Inline images</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="patterns/media-object">Media object</a>
+
+                </li>
+
+                <li class="p-sidebar-nav__item">
+
+                    <a class="p-link--soft" href="utilities/spin">Spin</a>
+
+                </li>
+
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="p-content" id="main-content">
+
+        <div class="p-strip--image is-dark" style="background-image: url('https://assets.ubuntu.com/v1/775cc62b-vanilla-grad-background.png'); background-position: 75% 50%;">
+          <div class="p-content__row">
+            <h1 class="p-heading--stylized">Documentation</h1>
+            <p class="p-heading--four">Everything you need to get started with Vanilla</p>
+          </div>
+        </div>
+
+        <div class="p-strip is-shallow">
+          <div class="p-content__row">
+            <h1 class="u-off-screen">Vanilla framework documentation</h1>
+            <h2 id="get-started">Get started<a class="anchor" href="#get-started"></a></h2>
+<p>You can use Vanilla in your projects in a few different ways.</p>
+<p>See <a href="/en/building-vanilla">Building with Vanilla</a> and <a href="/en/customising-vanilla">Customising Vanilla</a> for more in-depth setup instructions.
+<hr class="is-deep">
+<h3>Install</h3>
+<div class="u-equal-height">
+    <div class="col-6">
+        <p>The recommended way to get Vanilla is with <a href="https://www.yarnpkg.com/" class="p-link--external">yarn</a>:</p>
+        <pre><code>yarn add vanilla-framework</code></pre>
+        <p>Or <a href="https://www.npmjs.com/" class="p-link--external">npm</a>:</p>
+        <pre><code>npm install vanilla-framework</code></pre>
+        <p>This will pull down the latest version into your local <code>node_modules</code> folder and save it into your project's dependencies in <code>package.json</code>.</p>
+    </div>
+    <div class="col-6">
+        <p>You can now reference Vanilla from your main Sass file - note that the path to <code>node_modules</code> might be different for your project:</p>
+        <pre><code>// Import the framework
+@import 'node_modules/vanilla-framework/scss/vanilla';</p>
+<p>// Include all of Vanilla Framework
+@include vanilla;</code></pre>
+        <p><em>For information on overriding settings and importing only parts of Vanilla, see <a href="/en/customising-vanilla">Customising Vanilla</a>.</em></p>
+    </div>
+</div>
+<hr class="is-deep">
+<div class="u-equal-height">
+    <div class="col-12">
+        <h3>Hotlink</h3>
+        <p>You can add Vanilla directly to your markup:</p>
+        <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-1.8.0.min.css" /&gt;</code></pre>
+    </div>
+</div>
+<hr class="is-deep">
+<div class="u-equal-height">
+    <div class="col-12">
+        <h3>Download</h3>
+        <p>Download the latest version of Vanilla from GitHub.</p>
+        <a href="https://github.com/vanilla-framework/vanilla-framework/archive/v1.8.0.zip" class="p-button--positive">Download v1.8.0</a>
+    </div>
+</div>
+<hr class="is-deep">
+<div class="u-equal-height">
+    <div class="col-6">
+        <h3>What's new</h3>
+        <ul class="p-list">
+            <li class="p-list__item--deep">
+                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.8.0">Release notes: v1.8.0</a>
+            </li>
+            <li class="p-list__item--deep">
+                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.7.1">Release notes: v1.7.1</a>
+            </li>
+            <li class="p-list__item--deep">
+                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.7.0">Release notes: v1.7.0</a>
+            </li>
+        </ul>
+    </div>
+    <hr class="is-deep u-hide--medium u-hide--large">
+    <div class="col-6">
+        <h3>Getting help</h3>
+        <ul class="p-list">
+            <li class="p-list__item">
+                <i class="p-list__icon--github"></i><a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">GitHub</a> <br />
+            </li>
+            <li class="p-list__item">
+                <i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Twitter</a>  <br />
+            </li>
+            <li class="p-list__item">
+                <i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Slack</a>  <br />
+            </li>
+        </ul>
+    </div>
+</div>
+<hr class="is-deep">
+<h3>Local development</h3>
+<p>To make improvements to Vanilla itself, please follow the instructions on the project’s <a href="https://github.com/vanilla-framework/vanilla-framework#vanilla-framework" class="p-link--external">README.md</a>.</p></p>
+          </div>
+        </div>
+        <footer class="p-footer" role="contentinfo">
+          <div class="p-content__row u-no-margin--left">
+            <div class="col-12">
+              <p>&copy; 2018 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+              <nav>
+                <ul class="p-inline-list--middot">
+                  <li class="p-inline-list__item">
+                    <a href="https://www.ubuntu.com/legal">Legal info</a>
+                  </li>
+                  <li class="p-inline-list__item">
+                    <a href="https://github.com/canonical-websites/vanillaframework.io/issues/new">Report a bug with this site</a>
+                  </li>
+                  <li class="p-inline-list__item">
+                    <a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">Report a bug with Vanilla framework</a>
+                  </li>
+                </ul>
+                <span class="u-off-screen">
+                  <a href="#">Go to the top of the page</a>
+                </span>
+              </nav>
+            </div>
+          </div>
+        </footer>
+      </main>
+
+    </div>
+    <script src="/static/js/scripts.js"></script>
+    <script src="https://assets.ubuntu.com/v1/24ef513e-example-1.1.0.js"></script>
+  </body>
+</html>
