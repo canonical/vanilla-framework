@@ -1,11 +1,10 @@
 @import 'settings';
 
-
 @mixin vf-p-strip {
   %section-padding--shallow {
     @media only screen and (max-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--shallow-scaleable * .5;
-      padding-top: $spv-inter--shallow-scaleable * .5;
+      padding-bottom: $spv-inter--shallow-scaleable * 0.5;
+      padding-top: $spv-inter--shallow-scaleable * 0.5;
     }
     @media only screen and (min-width: $breakpoint-large) {
       padding-bottom: $spv-inter--shallow-scaleable;
@@ -16,8 +15,8 @@
   // used in strips and footer
   %section-padding--default {
     @media only screen and (max-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--regular-scaleable * .5;
-      padding-top: $spv-inter--regular-scaleable * .5;
+      padding-bottom: $spv-inter--regular-scaleable * 0.5;
+      padding-top: $spv-inter--regular-scaleable * 0.5;
     }
     @media only screen and (min-width: $breakpoint-large) {
       padding-bottom: $spv-inter--regular-scaleable;
@@ -27,7 +26,7 @@
 
   %section-padding--deep {
     @media only screen and (max-width: $breakpoint-large) {
-      padding: $spv-inter--deep-scaleable * .5 0 $spv-inter--deep-scaleable * .5;
+      padding: $spv-inter--deep-scaleable * 0.5 0 $spv-inter--deep-scaleable * 0.5;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
@@ -94,7 +93,7 @@
 @mixin vf-p-strip-bordered {
   [class^='p-strip'].is-bordered {
     border-bottom: 1px solid $color-mid-light;
-    margin-bottom: - $px;
+    margin-bottom: -#{$px};
   }
 }
 

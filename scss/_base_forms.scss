@@ -3,7 +3,6 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
 
 // Form element styles
 @mixin vf-b-forms {
-
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
     margin-bottom: $input-margin-bottom;
@@ -18,7 +17,7 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
 
     appearance: textfield;
     background-color: $color-x-light;
-    border: 1px solid $color-mid-light;
+    border: 1px solid $color-mid;
     border-radius: $border-radius;
     box-shadow: inset 0 1px 1px $color-input-shadow;
     color: $color-dark;
@@ -49,6 +48,10 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
       opacity: 1;
     }
 
+    &:focus {
+      border-color: $color-mid-dark;
+    }
+
     &[disabled],
     &[disabled='disabled'] {
       @extend %vf-disabled-element;
@@ -68,15 +71,50 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
 
   // Default form checkbox and radio styles
   %vf-tick-elements {
-    @include vf-focus($offset: 0);
-    float: left;
-    height: map-get($line-heights, default-text);
-    margin-bottom: 0;
-    margin-right: $sph-inter--expanded;
-    margin-top: 0;
-    padding: 0;
-    vertical-align: middle;
-    width: auto;
+    $box-size: 1rem;
+    $box-offset-top: $spv-intra--condensed;
+    $label-offset--left: $sph-intra + $box-size;
+    $tick-offset-top: $box-offset-top + 3 * $px;
+    opacity: 0;
+    position: absolute;
+
+    & + label {
+      margin-bottom: $spv-inter--condensed-scaleable;
+      padding-left: $label-offset--left;
+      padding-top: 0;
+      position: relative;
+      vertical-align: middle;
+
+      // container
+      &::before {
+        border: 1px solid $color-mid-light;
+        content: '';
+        height: $box-size;
+        left: 0;
+        top: $box-offset-top;
+        width: $box-size;
+      }
+
+      // tick/circle
+      &::after {
+        content: '';
+        opacity: 0;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+      }
+    }
+
+    &:checked + label::after {
+      opacity: 1;
+    }
+
+    &:focus + label {
+      outline: 1px solid $color-focus;
+      outline-offset: 2px;
+    }
 
     &[disabled],
     &[disabled='disabled'] {
@@ -89,7 +127,7 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
   // Disabled form elements
   %vf-disabled-element {
     cursor: not-allowed;
-    opacity: .5;
+    opacity: 0.5;
   }
 
   // Readonly form elements
@@ -103,7 +141,6 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
       outline: none;
     }
   }
-
 
   label {
     cursor: pointer;
@@ -166,24 +203,60 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
   }
 
   // Checkbox and radio inputs
-  [type='checkbox'],
-  [type='radio'] {
+  [type='checkbox'] {
     @extend %vf-tick-elements;
 
-    + label {
-      vertical-align: middle;
-      width: 100%;
+    & + label {
+      &::before,
+      &::after {
+        transition: background-color 0.1s;
+      }
+
+      &::before {
+        border-radius: $border-radius;
+      }
+
+      &::after {
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        color: $color-x-light;
+        height: 6px;
+        left: 3px;
+        top: $sp-unit;
+        transform: rotate(-45deg);
+        width: 10px;
+      }
+    }
+
+    &:checked + label::before {
+      background-color: $color-information;
+      border-color: $color-information;
     }
   }
 
   [type='radio'] {
-    margin-top: $spv-nudge;
+    @extend %vf-tick-elements;
+
+    & + label {
+      &::before {
+        border-radius: 50%;
+      }
+
+      &::after {
+        background-color: $color-information;
+        border-radius: 50%;
+        height: 10px;
+        left: 3px;
+        top: 7px;
+        width: 10px;
+      }
+    }
   }
 
   [type='submit'] {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
+    @include vf-button-pattern(
       $button-background-color: $color-positive,
       $button-border-color: $color-positive,
       $button-text-color: $color-x-light,
@@ -199,13 +272,15 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
     -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     appearance: none;
-    background: $color-x-light url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjRweCIgd2lkdGg9IjEwcHgiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxMCA0Ij4gPHRpdGxlPmFjY29yZGlvbi1vcGVuPC90aXRsZT4gPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+IDxnIGlkPSJmaWx0ZXItcGFuZWwiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSIgZmlsbD0ibm9uZSI+ICA8ZyBpZD0iYWNjb3JkaW9uLW9wZW4iIGZpbGw9IiM4ODgiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiPiAgIDxwYXRoIGlkPSJjaGV2cm9uIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBkPSJtNi4zNjEgMC44NjIzYzAuNTE4IDAuMzY1IDEuMDUyIDAuNzc4MSAxLjYwMSAxLjIzOCAwLjU0OSAwLjQ1ODUgMS4wODkgMC45NTE4IDEuNjIxIDEuNDc3MiAwLjE0MiAwLjE0MDQgMC4yODEgMC4yODIxIDAuNDE1IDAuNDIyNWgtMS41NDFjLTAuMzA0LTAuMjg4OC0wLjYyLTAuNTcwOS0wLjk0Ny0wLjg0NjMtMC4xMzc5LTAuMTE2MS0wLjI3NjgtMC4yMjk3LTAuNDE2OC0wLjM0MDgtMC4xNjM2LTAuMTI5Ny0wLjMyODYtMC4yNTU4LTAuNDk1NC0wLjM3ODMtMC4wODUyLTAuMDYyNS0wLjE3MDgtMC4xMjQxLTAuMjU2OC0wLjE4NDYtMC4zOTctMC4yODIxLTAuOTM1LTAuNjI1Ny0xLjMxNS0wLjg0NzZoLTAuMDU0Yy0wLjM4IDAuMjIxOS0wLjkxOCAwLjU2NTUtMS4zMTUgMC44NDc2LTAuMzk4IDAuMjgwNy0wLjc4OCAwLjU4MjktMS4xNjkgMC45MDM3LTAuMzI3IDAuMjc1NC0wLjY0MyAwLjU1NzUtMC45NDcgMC44NDYzaC0xLjU0MWMwLjEzNS0wLjE0MDQgMC4yNzMtMC4yODIxIDAuNDE1LTAuNDIyNSAwLjUzMi0wLjUyNTQgMS4wNzItMS4wMTg3IDEuNjIxLTEuNDc3MiAwLjU1LTAuNDU5OSAxLjA4My0wLjg3MyAxLjYwMS0xLjIzOCAwLjUxOS0wLjM2NDk3IDAuOTczLTAuNjUyNDEgMS4zNjItMC44NjIzIDAuMzkgMC4yMDk4OSAwLjg0NCAwLjQ5NzMzIDEuMzYyIDAuODYyM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuOTk5IDIpIHJvdGF0ZSgxODApIHRyYW5zbGF0ZSgtNC45OTkgLTIpIi8+ICA8L2c+IDwvZz48L3N2Zz4=') no-repeat;
+    background: $color-x-light
+      url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjRweCIgd2lkdGg9IjEwcHgiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxMCA0Ij4gPHRpdGxlPmFjY29yZGlvbi1vcGVuPC90aXRsZT4gPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+IDxnIGlkPSJmaWx0ZXItcGFuZWwiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSIgZmlsbD0ibm9uZSI+ICA8ZyBpZD0iYWNjb3JkaW9uLW9wZW4iIGZpbGw9IiM4ODgiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiPiAgIDxwYXRoIGlkPSJjaGV2cm9uIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBkPSJtNi4zNjEgMC44NjIzYzAuNTE4IDAuMzY1IDEuMDUyIDAuNzc4MSAxLjYwMSAxLjIzOCAwLjU0OSAwLjQ1ODUgMS4wODkgMC45NTE4IDEuNjIxIDEuNDc3MiAwLjE0MiAwLjE0MDQgMC4yODEgMC4yODIxIDAuNDE1IDAuNDIyNWgtMS41NDFjLTAuMzA0LTAuMjg4OC0wLjYyLTAuNTcwOS0wLjk0Ny0wLjg0NjMtMC4xMzc5LTAuMTE2MS0wLjI3NjgtMC4yMjk3LTAuNDE2OC0wLjM0MDgtMC4xNjM2LTAuMTI5Ny0wLjMyODYtMC4yNTU4LTAuNDk1NC0wLjM3ODMtMC4wODUyLTAuMDYyNS0wLjE3MDgtMC4xMjQxLTAuMjU2OC0wLjE4NDYtMC4zOTctMC4yODIxLTAuOTM1LTAuNjI1Ny0xLjMxNS0wLjg0NzZoLTAuMDU0Yy0wLjM4IDAuMjIxOS0wLjkxOCAwLjU2NTUtMS4zMTUgMC44NDc2LTAuMzk4IDAuMjgwNy0wLjc4OCAwLjU4MjktMS4xNjkgMC45MDM3LTAuMzI3IDAuMjc1NC0wLjY0MyAwLjU1NzUtMC45NDcgMC44NDYzaC0xLjU0MWMwLjEzNS0wLjE0MDQgMC4yNzMtMC4yODIxIDAuNDE1LTAuNDIyNSAwLjUzMi0wLjUyNTQgMS4wNzItMS4wMTg3IDEuNjIxLTEuNDc3MiAwLjU1LTAuNDU5OSAxLjA4My0wLjg3MyAxLjYwMS0xLjIzOCAwLjUxOS0wLjM2NDk3IDAuOTczLTAuNjUyNDEgMS4zNjItMC44NjIzIDAuMzkgMC4yMDk4OSAwLjg0NCAwLjQ5NzMzIDEuMzYyIDAuODYyM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuOTk5IDIpIHJvdGF0ZSgxODApIHRyYW5zbGF0ZSgtNC45OTkgLTIpIi8+ICA8L2c+IDwvZz48L3N2Zz4=')
+      no-repeat;
     background-position: right $sph-intra--condensed center;
     background-size: map-get($icon-sizes, accordion);
     color: $color-dark;
     min-height: 24px;
     padding-right: $sph-intra--expanded;
-    text-indent: .01px;
+    text-indent: 0.01px;
     text-overflow: '';
 
     &:hover {
@@ -239,68 +314,12 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
     border: 1px solid $color-mid-light;
     border-radius: $border-radius;
     color: $color-dark;
-    padding: $spv-intra $sph-intra--condensed;
     margin-bottom: $spv-inter--scaleable;
+    padding: $spv-intra $sph-intra--condensed;
   }
 
   label {
     @extend %default-text;
     width: fit-content;
   }
-
-  // Accessible checkbox technique from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
-  input[type="checkbox"] {
-    $box-size: 1rem;
-    $box-offset-top: map-get($nudges, nudge--p) + (map-get($line-heights, default-text) - $box-size) * .5;
-    $tick-offset-top: $box-offset-top + 3 * $px;
-    opacity: 0;
-    position: absolute;
-
-    & + label {
-      @include vf-focus;
-
-      $label-offset--left: $sph-intra + $box-size;
-      margin-bottom: $spv-inter--condensed-scaleable;
-      margin-top: - map-get($nudges, nudge--p);
-      padding-left: $label-offset--left;
-      position: relative;
-
-      // box
-      &::before {
-        border: 1px solid $color-mid-light;
-        border-radius: $border-radius;
-        content: "";
-        display: inline-block;
-        height: 1rem;
-        left: 0;
-        top: $box-offset-top;
-        width: 1rem;
-      }
-
-      // tick
-      &::after {
-        border-bottom: 2px solid;
-        border-left: 2px solid;
-        content: none;
-        display: inline-block;
-        height: 7px;
-        left: 2px;
-        top: 12px;
-        transform: rotate(-45deg);
-        width: 11px;
-      }
-
-      &::before,
-      &::after {
-        // Needed for the line-height to take effect
-        display: inline-block;
-        position: absolute;
-      }
-    }
-
-    &:checked + label::after {
-      content: "";
-    }
-  }
 }
-

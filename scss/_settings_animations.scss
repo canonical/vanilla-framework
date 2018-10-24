@@ -1,19 +1,19 @@
 // Global animations settings
 $animation-duration: (
-  snap: .1s,
-  fast: .165s,
-  brisk: .333s,
-  slow: .5s,
+  snap: 0.1s,
+  fast: 0.165s,
+  brisk: 0.333s,
+  slow: 0.5s,
   sleepy: 1s
 );
 
 $animation-easing: (
-  out: cubic-bezier(.215, .61, .355, 1),
-  in: cubic-bezier(.55, .055, .675, .19)
+  out: cubic-bezier(0.215, 0.61, 0.355, 1),
+  in: cubic-bezier(0.55, 0.055, 0.675, 0.19)
 );
 
 @mixin vf-animation($property: all, $duration: brisk, $easing: out) {
   transition-duration: map-get($animation-duration, $duration);
   transition-property: $property;
   transition-timing-function: map-get($animation-easing, $easing);
-};
+}

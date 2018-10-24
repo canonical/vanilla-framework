@@ -1,77 +1,74 @@
-@import
-'settings',
-'base';
+@import 'settings';
+@import 'base';
 
 // Patterns
-@import
-'patterns_accordion',
-'patterns_aside',
-'patterns_breadcrumbs',
-'patterns_buttons',
-'patterns_card',
-'patterns_code-copyable',
-'patterns_code-numbered',
-'patterns_code-snippet',
-'patterns_contextual-menu',
-'patterns_divider',
-'patterns_footer',
-'patterns_form-help-text',
-'patterns_form-validation',
-'patterns_forms',
-'patterns_grid',
-'patterns_heading-icon',
-'patterns_headings',
-'patterns_icons',
-'patterns_image',
-'patterns_inline-images',
-'patterns_links',
-'patterns_list-tree',
-'patterns_lists',
-'patterns_matrix',
-'patterns_media-object',
-'patterns_modal',
-'patterns_muted-heading',
-'patterns_navigation',
-'patterns_notifications',
-'patterns_pagination',
-'patterns_pull-quotes',
-'patterns_search-box',
-'patterns_slider',
-'patterns_strip',
-'patterns_switch',
-'patterns_table-expanding',
-'patterns_table-mobile-card',
-'patterns_table-sortable',
-'patterns_tabs',
-'patterns_tooltips'
-;
+@import 'patterns_accordion';
+@import 'patterns_article-pagination';
+@import 'patterns_aside';
+@import 'patterns_breadcrumbs';
+@import 'patterns_buttons';
+@import 'patterns_card';
+@import 'patterns_code-copyable';
+@import 'patterns_code-numbered';
+@import 'patterns_code-snippet';
+@import 'patterns_contextual-menu';
+@import 'patterns_divider';
+@import 'patterns_footer';
+@import 'patterns_form-help-text';
+@import 'patterns_form-validation';
+@import 'patterns_forms';
+@import 'patterns_grid';
+@import 'patterns_heading-icon';
+@import 'patterns_headings';
+@import 'patterns_icons';
+@import 'patterns_image';
+@import 'patterns_inline-images';
+@import 'patterns_links';
+@import 'patterns_list-tree';
+@import 'patterns_lists';
+@import 'patterns_matrix';
+@import 'patterns_media-object';
+@import 'patterns_modal';
+@import 'patterns_muted-heading';
+@import 'patterns_navigation';
+@import 'patterns_notifications';
+@import 'patterns_pagination';
+@import 'patterns_pull-quotes';
+@import 'patterns_search-box';
+@import 'patterns_slider';
+@import 'patterns_strip';
+@import 'patterns_switch';
+@import 'patterns_table-expanding';
+@import 'patterns_table-mobile-card';
+@import 'patterns_table-sortable';
+@import 'patterns_tabs';
+@import 'patterns_tooltips';
 
 // Utilities
-@import
-'utilities_animations',
-'utilities_baseline-grid',
-'utilities_clearfix',
-'utilities_content-align',
-'utilities_embedded-media',
-'utilities_equal-height',
-'utilities_floats',
-'utilities_hide',
-'utilities_image-position',
-'utilities_margin-collapse',
-'utilities_off-screen',
-'utilities_padding-collapse',
-'utilities_show',
-'utilities_sticky-footer',
-'utilities_vertical-spacing',
-'utilities_vertically-center',
-'utilities_visibility'
-;
+@import 'utilities_animations';
+@import 'utilities_baseline-grid';
+@import 'utilities_clearfix';
+@import 'utilities_content-align';
+@import 'utilities_embedded-media';
+@import 'utilities_equal-height';
+@import 'utilities_floats';
+@import 'utilities_hide';
+@import 'utilities_image-position';
+@import 'utilities_margin-collapse';
+@import 'utilities_off-screen';
+@import 'utilities_padding-collapse';
+@import 'utilities_show';
+@import 'utilities_sticky-footer';
+@import 'utilities_vertical-spacing';
+@import 'utilities_vertically-center';
+@import 'utilities_visibility';
 
 // Include all the CSS
 @mixin vanilla {
   @include vf-base;
   // Patterns
   @include vf-p-accordion;
+  @include vf-p-article-pagination;
   @include vf-p-aside;
   @include vf-p-breadcrumbs;
   @include vf-p-buttons;
@@ -130,7 +127,7 @@
   @include vf-u-vertically-center;
   @include vf-u-visibility;
 
-  @if($sticky-footer) {
+  @if ($sticky-footer) {
     @include vf-u-sticky-footer;
   }
 }

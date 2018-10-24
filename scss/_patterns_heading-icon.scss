@@ -1,7 +1,6 @@
 @import 'settings';
 
 @mixin vf-p-heading-icon {
-
   .p-heading-icon {
     margin-bottom: $spv-inter--regular;
 
@@ -12,6 +11,10 @@
     &__header {
       display: flex;
       margin-bottom: $spv-intra--expanded;
+
+      &.is-stacked {
+        display: inherit;
+      }
     }
 
     &__title {
@@ -31,5 +34,16 @@
       }
     }
   }
-}
 
+  .p-heading-icon--small {
+    .p-heading-icon__img {
+      height: map-get($icon-sizes, heading-icon--x-small);
+      width: map-get($icon-sizes, heading-icon--x-small);
+
+      @media (min-width: $breakpoint-medium) {
+        height: map-get($icon-sizes, heading-icon--small);
+        width: map-get($icon-sizes, heading-icon--small);
+      }
+    }
+  }
+}

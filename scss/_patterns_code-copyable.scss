@@ -10,6 +10,7 @@ $cc-button-size: 36 * $px;
     @extend %vf-has-round-corners;
     @extend %vf-is-bordered;
     display: flex;
+    overflow: hidden;
     position: relative;
 
     & + & {
@@ -17,29 +18,37 @@ $cc-button-size: 36 * $px;
     }
 
     &__input {
-      @include vf-icon-code($color-mid-dark);
-      background-position: $sph-intra--condensed center;
-      background-repeat: no-repeat;
       border: 0;
       color: $color-mid-dark;
       font-family: unquote($font-monospace);
       line-height: map-get($line-heights, default-text);
-      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra * 2;
+      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra * 1.5;
       width: 100%;
+    }
+
+    &::before {
+      color: $color-mid;
+      content: '$';
+      display: block;
+      left: 0;
+      line-height: map-get($line-heights, default-text);
+      padding: 0 $cc-button-size + $sph-intra--condensed 0 $sph-intra--condensed;
+      position: absolute;
+      top: $spv-intra--condensed;
+      width: 1rem;
     }
 
     &__action {
       @extend %vf-hide-text;
+      @extend %bordered-text-vertical-padding;
       @include vf-icon-copy($color-mid-dark);
-      @include vf-button-pattern (
-        $button-background-color: $color-light,
-        $button-hover-background-color: darken($color-light, 10%)
-      );
+      @include vf-button-pattern($button-background-color: $color-light, $button-hover-background-color: darken($color-light, 10%));
       background-position: center;
       background-repeat: no-repeat;
       border: 0;
       border-left: $border;
       border-radius: 0;
+      line-height: map-get($line-heights, default-text);
       margin: 0;
       position: absolute;
       right: 0;

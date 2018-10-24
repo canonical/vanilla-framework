@@ -1,12 +1,11 @@
 {
   "scripts": {
-    "clean": "rm -rf node_modules yarn-error.log css static/css *.log *.sqlite build/ .extra templates",
-    "watch": "watch -p 'static/sass/**/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build-css'",
-    "build": "yarn run build-css && yarn run build-docs",
-    "build-css": "node-sass static/sass --output static/css",
-    "build-docs": "documentation-builder --base-directory . --output-path templates --template-path template.html --tag-manager-code 'GTM-K92JCQ' --no-link-extensions --force",
-    "test": "",
-    "serve": "./entrypoint 0.0.0.0:$PORT"
+    "clean": "rm -rf node_modules yarn-error.log *.log *.sqlite build/ .extra",
+    "watch": "watch -p 'sass/**/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build-css'",
+    "build": "yarn run build-css && yarn run build-js && yarn run build-docs",
+    "build-css": "node-sass sass --output build/css",
+    "build-js": "cp -r js build/js",
+    "build-docs": "documentation-builder --base-directory . --output-path build --template-path template.html --tag-manager-code 'GTM-K92JCQ' --no-link-extensions --force; rm -rf build/node_modules"
   },
   "dependencies": {
     "node-sass": "^4.5.3",

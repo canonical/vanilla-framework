@@ -24,7 +24,7 @@
       &::before,
       &::after {
         border: {
-          bottom: 8px solid transparentize($color-dark, .95);
+          bottom: 8px solid transparentize($color-dark, 0.95);
           left: 8px solid transparent;
           right: 8px solid transparent;
         }
@@ -43,11 +43,11 @@
           left: 6px solid transparent;
           right: 6px solid transparent;
         }
-        right: $sp-small + .1rem;
+        right: $sp-small + 0.1rem;
       }
 
       // When set to false will show the contextual menu
-      &[aria-hidden="false"] {
+      &[aria-hidden='false'] {
         display: block;
       }
     }
@@ -60,6 +60,10 @@
         border-top: 1px solid $color-mid-light;
         margin: 0;
       }
+    }
+
+    &__toggle {
+      margin-bottom: $spv-intra;
     }
 
     &__link {
@@ -96,7 +100,7 @@
         }
 
         &::after {
-          left: $sp-small + .1rem;
+          left: $sp-small + 0.1rem;
         }
       }
     }

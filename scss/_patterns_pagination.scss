@@ -1,93 +1,78 @@
 @import 'settings';
+@import 'patterns_icons';
+@include vf-p-icon-contextual-menu;
 
 @mixin vf-p-pagination {
-  %chevron-icon {
-    color: $color-mid-dark;
-    content: '\203A';
-    font-size: 2rem;
-    position: absolute;
-    top: 1rem;
+  %pagination-link {
+    border-color: $color-mid;
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: 1px;
+    color: $color-x-dark;
+    display: block;
+    padding: $spv-intra $sph-intra;
+    text-decoration: none;
+
+    &.is-disabled {
+      opacity: 0.5;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &.is-active {
+      background-color: darken($color-x-light, 10%);
+      border-color: $color-mid;
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: darken($color-x-light, 15%);
+      border-color: $color-mid;
+    }
   }
 
   .p-pagination {
     display: flex;
-    width: 100%;
+    flex-direction: row;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    &__item {
+      margin-right: $sph-intra--condensed;
+      width: auto;
+
+      &:first-child,
+      &:nth-last-child(2) {
+        margin-right: $sph-intra;
+      }
+
+      &--truncation {
+        margin: 0.3rem $sph-intra 0 $sph-intra--condensed;
+      }
+    }
 
     &__link {
-      margin-top: 0;
-      padding: $sp-medium;
-      position: relative;
-      width: 50%;
-
-      &:hover {
-        background: $color-light;
-        text-decoration: none;
-      }
-
-      &--previous {
-        @extend .p-pagination__link; // sass-lint:disable-line placeholder-in-extend
-        padding-left: $sp-xx-large;
-        text-align: left;
-
-        @media (max-width: $breakpoint-x-small) {
-          width: auto;
-
-          &:only-child {
-            width: 100%;
-          }
-
-          &:not(:only-child) * {
-            display: none;
-            max-width: $sp-x-small;
-            padding-left: $sp-large;
-          }
-        }
-
-        &::before {
-          @extend %chevron-icon;
-          left: $sp-small;
-          transform: scaleX(-1);
-        }
-      }
-
-      &--next {
-        @extend .p-pagination__link; // sass-lint:disable-line placeholder-in-extend
-        padding-right: $sp-xx-large;
-        text-align: right;
-
-        @media (max-width: $breakpoint-x-small) {
-          width: 100%;
-        }
-
-        &:only-child {
-          margin-left: auto;
-        }
-
-        &::after {
-          @extend %chevron-icon;
-          right: $sp-small;
-        }
-      }
+      @extend %pagination-link;
     }
 
-    &__label,
-    &__title {
-      color: $color-dark;
-      display: block;
-      margin-top: 0;
-      width: 100%;
+    &__link--previous,
+    &__link--next {
+      @extend %pagination-link;
+      padding-left: $sph-intra--condensed;
+      padding-right: $sph-intra--condensed;
     }
 
-    &__label {
-      margin-bottom: $sp-x-small;
+    &__link--previous .p-icon--contextual-menu {
+      transform: rotate(0.25turn);
     }
 
-    &__title {
-      font-size: 1.125rem;
-
-      @media (min-width: $breakpoint-small) {
-        font-size: 1.25rem;
-      }
+    &__link--next .p-icon--contextual-menu {
+      transform: rotate(-0.25turn);
     }
   }
 }

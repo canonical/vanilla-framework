@@ -1,4 +1,3 @@
-
 @import 'settings';
 
 // Typographic element styles
@@ -135,7 +134,7 @@
   h4,
   h5,
   h6,
-  [class^="p-heading--"] {
+  [class^='p-heading--'] {
     font-family: unquote($font-heading-family);
   }
 
@@ -224,7 +223,7 @@
   }
 
   abbr[title] {
-    border-bottom: .1em dotted;
+    border-bottom: 0.1em dotted;
     cursor: pointer;
     text-decoration: none;
   }
@@ -235,7 +234,7 @@
   .p-heading--four {
     & + p {
       @media (max-width: $breakpoint-heading-threshold) {
-        margin-top: - $sp-unit;
+        margin-top: -#{$sp-unit};
       }
     }
   }
@@ -246,7 +245,7 @@
   .p-heading--six {
     & + p,
     & + & {
-      margin-top: - map-get($sp-after, p) + $sp-unit * 3;
+      margin-top: -(map-get($sp-after, p)) + $sp-unit * 3;
     }
   }
 
@@ -256,7 +255,7 @@
   .p-heading--five,
   .p-heading--six {
     .p-muted-heading + & {
-      margin-top: - $sp-unit;
+      margin-top: -#{$sp-unit};
     }
   }
 
@@ -265,11 +264,10 @@
   h6 + p:not(.p-muted-heading),
   .p-heading--five + p:not(.p-muted-heading),
   .p-heading--six + p:not(.p-muted-heading) {
-    margin-top: - $sp-unit * 2;
+    margin-top: -#{$sp-unit * 2};
   }
 
   // Increase space above headings that follow a paragraph.
-
   %sp--ph1 {
     padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
 
@@ -346,9 +344,7 @@
     @extend %sp--pmuted;
   }
 
-
   // Heading placeholders
-
   %vf-heading-1 {
     @include heading-max-width--short;
     font-size: pow($ms-ratio, 8) * 1rem;
@@ -371,7 +367,7 @@
     @include heading-max-width--short;
     font-size: pow($ms-ratio, 6) * 1rem;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 100;
     line-height: map-get($line-heights, h2);
     margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
     margin-top: 0;
@@ -459,7 +455,7 @@
   %muted-heading {
     @extend %small-text;
     color: $color-mid-dark;
-    margin-bottom: - map-get($nudges, nudge--muted) + $spv-inter--condensed;
+    margin-bottom: -(map-get($nudges, nudge--muted)) + $spv-inter--condensed;
     margin-top: 0;
     text-transform: uppercase;
   }

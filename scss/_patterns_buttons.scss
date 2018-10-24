@@ -16,9 +16,11 @@
   %p-button {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
+    @include vf-button-pattern(
       $button-disabled-background-color: $color-x-light,
-      $button-disabled-border-color: $color-x-light
+      $button-disabled-border-color: $color-x-light,
+      $button-active-background-color: darken($color-light, 15%),
+      $button-active-border-color: $color-x-light
     );
   }
 
@@ -31,11 +33,13 @@
   %p-button--neutral {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
-      $button-disabled-border-color: $color-mid-light,
-      $button-border-color: $color-mid-light,
-      $button-hover-background-color: darken($color-light, 10%),
-      $button-hover-border-color: $color-mid-light
+    @include vf-button-pattern(
+      $button-disabled-border-color: $color-mid,
+      $button-border-color: $color-mid,
+      $button-hover-background-color: darken($color-x-light, 10%),
+      $button-hover-border-color: $color-mid,
+      $button-active-background-color: darken($color-x-light, 15%),
+      $button-active-border-color: $color-mid
     );
   }
 
@@ -48,14 +52,16 @@
   %p-button--brand {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
+    @include vf-button-pattern(
       $button-background-color: $color-brand,
       $button-border-color: $color-brand,
       $button-text-color: vf-contrast-text-color($color-brand),
       $button-hover-background-color: darken($color-brand, 10%),
       $button-hover-border-color: darken($color-brand, 10%),
       $button-disabled-background-color: $color-brand,
-      $button-disabled-border-color: $color-brand
+      $button-disabled-border-color: $color-brand,
+      $button-active-background-color: darken($color-brand, 15%),
+      $button-active-border-color: darken($color-brand, 15%)
     );
   }
 
@@ -68,14 +74,16 @@
   %p-button--positive {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
+    @include vf-button-pattern(
       $button-background-color: $color-positive,
       $button-border-color: $color-positive,
       $button-text-color: $color-x-light,
       $button-hover-background-color: darken($color-positive, 10%),
       $button-hover-border-color: darken($color-positive, 10%),
       $button-disabled-background-color: $color-positive,
-      $button-disabled-border-color: $color-positive
+      $button-disabled-border-color: $color-positive,
+      $button-active-background-color: darken($color-positive, 15%),
+      $button-active-border-color: darken($color-positive, 15%)
     );
   }
 
@@ -88,14 +96,16 @@
   %p-button--negative {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
+    @include vf-button-pattern(
       $button-background-color: $color-negative,
       $button-border-color: $color-negative,
       $button-text-color: $color-x-light,
       $button-hover-background-color: darken($color-negative, 10%),
       $button-hover-border-color: darken($color-negative, 10%),
       $button-disabled-background-color: $color-negative,
-      $button-disabled-border-color: $color-negative
+      $button-disabled-border-color: $color-negative,
+      $button-active-background-color: darken($color-negative, 15%),
+      $button-active-border-color: darken($color-negative, 15%)
     );
   }
 
@@ -108,12 +118,14 @@
   %p-button--base {
     @extend %vf-button-base;
 
-    @include vf-button-pattern (
+    @include vf-button-pattern(
       $button-background-color: $color-transparent,
       $button-border-color: $color-transparent,
-      $button-text-color: $color-dark,
-      $button-hover-background-color: $color-light,
-      $button-hover-border-color: $color-transparent
+      $button-text-color: $color-x-dark,
+      $button-hover-background-color: darken($color-x-light, 10%),
+      $button-hover-border-color: $color-transparent,
+      $button-active-background-color: darken($color-light, 15%),
+      $button-active-border-color: $color-transparent
     );
   }
 
@@ -123,7 +135,7 @@
 }
 
 @mixin vf-button-inline {
-  [class~="p-button"].is-inline {
+  [class~='p-button'].is-inline {
     @media (min-width: $breakpoint-medium) {
       margin-left: $sph-inter;
       width: auto;
@@ -132,7 +144,19 @@
 }
 
 @mixin vf-button-icon {
-  [class~="p-button"].has-icon {
+  [class~='p-button'].has-icon {
     width: auto;
+
+    & [class*='p-icon'] {
+      // Apply negative margins to make textless button icon a square
+      &:only-child {
+        margin-left: -($px * 2);
+        margin-right: -($px * 2);
+      }
+
+      + * {
+        margin-left: $sph-intra--condensed / 2;
+      }
+    }
   }
 }

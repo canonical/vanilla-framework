@@ -2,7 +2,7 @@
 
 @mixin vf-p-table-mobile-card {
   .p-table--mobile-card {
-    // threshold value for $multi; if less, space between cards, and padding on tdable cells are set to zero; 
+    // threshold value for $multi; if less, space between cards, and padding on tdable cells are set to zero;
     $td-threshold: 2;
 
     td::before,
@@ -32,7 +32,7 @@
       td,
       tbody th {
         $td-padding-bottom: if($multi > $td-threshold, $spv-nudge-compensation, 0);
-        $td-padding-top:  if($multi > $td-threshold, $spv-nudge, 0);
+        $td-padding-top: if($multi > $td-threshold, $spv-nudge, 0);
         align-items: flex-start;
         display: flex;
         flex: 0 1 auto;
@@ -52,7 +52,7 @@
             content: attr(aria-label);
             display: block;
             flex: 0 1 auto;
-            margin-bottom: - map-get($nudges, nudge--muted);
+            margin-bottom: -(map-get($nudges, nudge--muted));
             width: 100%;
           }
         }
@@ -67,7 +67,7 @@
         width: 100%;
 
         // Initial menu item for actions should be hidden
-        [role="menuitem"] {
+        [role='menuitem'] {
           display: none;
         }
 
@@ -95,7 +95,7 @@
         &__link {
           border: {
             color: $color-mid-light;
-            radius: .125rem;
+            radius: 0.125rem;
             style: solid;
             width: 1px;
           }

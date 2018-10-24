@@ -3,8 +3,8 @@ $numbered-bullet-width: map-get($line-heights, h3);
 $numbered-bullet-width--mobile: map-get($line-heights, h3-mobile);
 $numbered-bullet-margin-right: $sph-inter--expanded;
 $numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
-$tick-height: .875rem; //14px value from svg as rem so it can be used in calculations
-$spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text.
+$tick-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
+$spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text.
 
 // Default list styling
 // Mixin for basic styled lists
@@ -15,7 +15,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
 
   // Mixin for list items
   %vf-list-item {
-    @if($pad-lists) {
+    @if ($pad-lists) {
       padding-bottom: $spv-list-item--inner;
       padding-top: $spv-list-item--inner;
     }
@@ -31,13 +31,11 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
   }
 }
 
-
-
 @mixin vf-list-item-divided {
   position: relative;
 
   &::after {
-    border-bottom: 1px dotted $color-mid-light;
+    border-bottom: 1px solid $color-mid-light;
     bottom: 0;
     content: '';
     height: 1px;
@@ -71,7 +69,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
     @warn '#{$color} is not a color.';
     @return false;
   }
-  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Ccircle fill='" + vf-url-friendly-color($color) + "' cx='7' cy='7' r='7'/%3E%3Cpath fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z' /%3E%3C/svg%3E");
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Ccircle fill='"+vf-url-friendly-color($color)+"' cx='7' cy='7' r='7'/%3E%3Cpath fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z' /%3E%3C/svg%3E");
 }
 
 // List styling using list class
@@ -97,14 +95,14 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
     }
 
     &.is-split .p-list__item:last-of-type {
-      border-bottom: 1px dotted $color-mid-light;
+      border-bottom: 1px solid $color-mid-light;
     }
   }
 }
 
 // Displays item with a tick bullet
 @mixin vf-p-list-item-state {
-  $bg-pos-y: if($pad-lists, $spv-list-item--inner + (map-get($line-heights, default-text) - $tick-height) * .5, (map-get($line-heights, default-text) - $tick-height) * .5);
+  $bg-pos-y: if($pad-lists, $spv-list-item--inner + (map-get($line-heights, default-text) - $tick-height) * 0.5, (map-get($line-heights, default-text) - $tick-height) * 0.5);
 
   .is-ticked {
     background-image: svg-tick($color-accent);
@@ -143,8 +141,8 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
         font-size: 1.4em;
         line-height: 0;
         position: absolute;
-        right: -.5em;
-        top: .4em;
+        right: -0.5em;
+        top: 0.4em;
       }
 
       &:hover::after {
@@ -179,7 +177,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
     }
 
     &__content {
-      margin-top: - $sp-unit * 2;
+      margin-top: -#{$sp-unit * 2};
     }
 
     &__bullet {
@@ -207,11 +205,11 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
           display: flex;
           margin: 0;
 
-          >:nth-child(2n) {
+          > :nth-child(2n) {
             @include column(6, $grid-columns);
           }
 
-          >:nth-child(2n+1) {
+          > :nth-child(2n + 1) {
             @include column(6, $grid-columns, true);
           }
         }
@@ -223,7 +221,6 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
 // Adaptor class `is-split` to split the items of a list into two columns
 @mixin vf-p-list-split {
   [class*='p-list'].is-split {
-
     @media (min-width: $breakpoint-medium) {
       @supports (columns: 1) {
         column-gap: $sp-x-large;
@@ -240,7 +237,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
         flex-wrap: wrap;
 
         .p-list__item {
-          width: calc(50% - .5rem);
+          width: calc(50% - 0.5rem);
         }
       }
 
@@ -269,7 +266,7 @@ $spv-list-item--inner: .25 * $spv-inter--condensed-scaleable; // padding top and
       counter-increment: li;
       direction: rtl;
       display: inline-block;
-      margin-left: - $numbered-bullet-offset;
+      margin-left: -#{$numbered-bullet-offset};
       margin-top: map-get($nudges, nudge--h3);
       padding: 0;
       position: absolute;
