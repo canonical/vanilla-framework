@@ -8,7 +8,16 @@
     @extend %vf-has-box-shadow;
     @extend %vf-card;
     display: flex;
+    overflow: hidden;
     padding: 0;
+
+    .p-icon--close {
+      background-color: transparent;
+      background-size: map-get($icon-sizes, default);
+      border: 0;
+      margin: $sp-unit * 2 $sph-intra auto auto;
+      padding: $spv-intra;
+    }
   }
 
   @include vf-notifications-default;
@@ -43,14 +52,6 @@
     &__status::after,
     &__action::before {
       content: ' ';
-    }
-
-    .p-icon--close {
-      background-color: transparent;
-      background-size: map-get($icon-sizes, default);
-      border: 0;
-      margin: $sp-unit * 2 + $bar-thickness $sph-intra auto auto;
-      padding: $spv-intra;
     }
   }
 
