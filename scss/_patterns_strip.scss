@@ -26,7 +26,7 @@
 
   %section-padding--deep {
     @media only screen and (max-width: $breakpoint-large) {
-      padding: $spv-inter--deep-scaleable * 0.5 0 $spv-inter--deep-scaleable * 0.5;
+      padding: $spv-inter--deep-scaleable * 0.5 0;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
@@ -46,6 +46,7 @@
   @include vf-p-strip-bordered;
   @include vf-p-strip-shallow;
   @include vf-p-strip-deep;
+  @include vf-p-strip-slanted;
 }
 
 @mixin vf-p-strip-default {
@@ -106,5 +107,49 @@
 @mixin vf-p-strip-deep {
   [class^='p-strip'].is-deep {
     @extend %section-padding--deep;
+  }
+}
+
+@mixin vf-p-strip-slanted {
+  $assets-path: 'https://assets.ubuntu.com/v1/';
+  $horizontal-edge-padding: $spv-inter--regular-scaleable;
+  $slanted-edge-padding: $horizontal-edge-padding * 2; // coloured area takes half the rectangle surface area; to visually compensate, we multiply it by 2
+
+  [class^='p-strip'].is-slanted {
+    background-image: url('#{$assets-path}a3c29307-hero-bg-snapcraft-1--nowhite.svg'); // b04b115e-hero-bg-snapcraft-1-clean.svg
+    background-position: 50% 50%;
+    overflow: hidden;
+    position: relative;
+
+    @media (max-width: $breakpoint-large) {
+      background-size: cover;
+      padding: $spv-inter--regular-scaleable 0 $slanted-edge-padding;
+    }
+    @media (min-width: $breakpoint-large) {
+      background-size: 5000px 667px; // actual svg size
+      padding: $spv-inter--regular-scaleable 0 $slanted-edge-padding;
+    }
+
+    &::after {
+      $bleed: -3px; // stretch outside to compensate for aliasing; otherwise edge of image underneath becomes visible as you resize
+      background-image: url('#{$assets-path}9efd9fc5-hero-bg-mask-snapcraft--white-orange.svg');
+      background-position: 100% 100%;
+      background-repeat: no-repeat;
+      bottom: $bleed;
+      content: '';
+      left: $bleed;
+      position: absolute;
+      right: $bleed;
+      top: $bleed;
+      z-index: 1;
+
+      @media only screen and (max-width: $breakpoint-large) {
+        background-size: auto $slanted-edge-padding;
+      }
+
+      @media only screen and (min-width: $breakpoint-large) {
+        background-size: 100%;
+      }
+    }
   }
 }
