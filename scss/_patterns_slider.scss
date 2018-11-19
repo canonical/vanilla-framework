@@ -1,7 +1,7 @@
 @import 'settings';
 
 @mixin vf-p-slider {
-  $thumb-shadow: 0 0 2px 1px rgba(0, 0, 0, .2);
+  $thumb-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
   $thumb-size: 24px;
   $thumb-radius: 2px;
   $track-height: 5px;
@@ -76,7 +76,7 @@
       border-width: $thumb-size / 2;
       color: transparent;
       height: $track-height + 1;
-      width: calc(100% - ($thumb-size / 2));
+      width: calc(100% - (#{$thumb-size} / 2));
     }
 
     &::-ms-fill-lower {
@@ -129,7 +129,7 @@
     }
 
     &:disabled {
-      opacity: .5;
+      opacity: 0.5;
     }
 
     &__wrapper {

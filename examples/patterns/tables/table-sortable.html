@@ -7,10 +7,10 @@ category: _patterns
 <table class="p-table--sortable" role="grid">
   <thead>
     <tr role="row">
-      <th scope="col" role="columnheader" id="t-name" aria-sort="none">Name</th>
-      <th scope="col" role="columnheader" id="t-users" aria-sort="none" class="u-align--right">Users</th>
-      <th scope="col" role="columnheader" id="t-units" aria-sort="none" class="u-align--right">Units</th>
-      <th scope="col" role="columnheader" id="t-revenue" aria-sort="none" class="u-align--right">Revenue</th>
+      <th role="columnheader" id="t-name" aria-sort="none">Name</th>
+      <th role="columnheader" id="t-users" aria-sort="none" class="u-align--right">Users</th>
+      <th role="columnheader" id="t-units" aria-sort="none" class="u-align--right">Units</th>
+      <th role="columnheader" id="t-revenue" aria-sort="none" class="u-align--right">Revenue</th>
     </tr>
   </thead>
   <tbody>
@@ -36,7 +36,7 @@ category: _patterns
 </table>
 
 <script>
-  (function() {
+  (function () {
     /**
      * Sort a table by the column specified.
      *
@@ -81,7 +81,7 @@ category: _patterns
       if (direction === 0) {
         // Reset to the default order.
         newRows.sort(function (a, b) {
-          return  a.getAttribute('data-index') - b.getAttribute('data-index');
+          return a.getAttribute('data-index') - b.getAttribute('data-index');
         });
       } else {
         newRows.sort(function (a, b) {
@@ -111,7 +111,7 @@ category: _patterns
         });
       }
       // Append each row into the table, replacing the current elements.
-      for(var i = 0, ii = body.rows.length; i < ii; i += 1) {
+      for (var i = 0, ii = body.rows.length; i < ii; i += 1) {
         body.appendChild(newRows[i]);
       }
     }

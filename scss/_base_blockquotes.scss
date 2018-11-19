@@ -4,9 +4,24 @@
 @mixin vf-b-blockquotes {
   blockquote {
     border-left: 2px solid $color-mid-dark;
+    margin-bottom: $spv-intra--regular;
+    margin-left: 0;
+    margin-top: 0;
+    overflow: auto; // include margins of children into it's own height
+    padding-bottom: $spv-intra;
+    padding-left: $sp-large;
+
+    & > :last-child {
+      margin-bottom: $spv-nudge-compensation;
+    }
 
     > cite {
       display: block;
+      font-style: normal;
+    }
+
+    > p {
+      font-style: italic;
     }
   }
 }

@@ -1,62 +1,124 @@
 @import 'settings';
 
-@mixin vf-quotes {
-  color: $color-mid-light;
+@mixin vf-quote-mark {
+  color: $color-mid-dark;
   display: inline-block;
-  font-size: 3rem;
   font-weight: bold;
-  max-width: 1.25rem;
   position: absolute;
+}
 
-  @media (max-width: $breakpoint-heading-threshold) {
-    font-size: 2.75rem;
-  }
+@mixin vf-pull-quote {
+  border: 0;
+  margin: $spv-inter--scaleable 0 $spv-inter--scaleable + $sp-unit;
+  overflow: visible;
+  position: relative;
 }
 
 // Pull quote styling
 @mixin vf-p-pull-quotes {
-
   .p-pull-quote {
-    border: 0;
-    margin: $spv-inter--scaleable 0 $spv-inter--scaleable + $sp-unit;
-    overflow: visible;
     padding: 0 $sph-inter * 2;
-    position: relative;
 
-    > p {
+    .p-pull-quote__quote {
       @extend %vf-heading-4;
 
-      &:first-of-type::before {
-        @include vf-quotes;
-        content: '\201C\2002'; // Unicode for left double quotation mark +  1/2 em space
-        left: $spv-intra--condensed;
-        top: .05rem;
-
-        @media (max-width: $breakpoint-heading-threshold) {
-          top: .3rem;
-        }
-      }
-
-      &:last-of-type {
-        margin-bottom: 0;
+      &::before,
+      &::after {
+        font-size: 2em;
       }
 
       &:last-of-type::after {
-        @include vf-quotes;
-        content: '\2002\201E'; // Unicode for 1/2 em space + low double quotation mark
-        margin-left: $spv-intra--condensed;
-        margin-top: -2.2rem;
+        bottom: 4rem;
 
         @media (max-width: $breakpoint-heading-threshold) {
-          margin-top: -1.7rem;
+          bottom: 3.5rem;
         }
       }
     }
 
-    &__citation {
+    .p-pull-quote__citation {
       @extend %vf-heading-4;
+    }
+  }
+
+  .p-pull-quote--small {
+    padding: 0 $sph-inter * 1.5;
+
+    .p-pull-quote__quote {
+      @extend %default-text;
+
+      &::before,
+      &::after {
+        font-size: 1.5em;
+      }
+
+      &:last-of-type::after {
+        bottom: 3rem;
+      }
+    }
+
+    .p-pull-quote__citation {
+      @extend %default-text;
+    }
+  }
+
+  .p-pull-quote--large {
+    padding: 0 $sph-inter * 2.5;
+
+    .p-pull-quote__quote {
+      @extend %vf-heading-3;
+
+      &::before,
+      &::after {
+        font-size: 2em;
+        max-width: 1em;
+      }
+
+      &:last-of-type::after {
+        bottom: 4rem;
+
+        @media (max-width: $breakpoint-heading-threshold) {
+          bottom: 3.5rem;
+        }
+      }
+    }
+
+    .p-pull-quote__citation {
+      @extend %vf-heading-3;
+    }
+  }
+
+  .p-pull-quote,
+  .p-pull-quote--small,
+  .p-pull-quote--large {
+    @include vf-pull-quote;
+
+    .p-pull-quote__citation {
       font-style: italic;
       margin-top: $spv-intra--condensed--scaleable;
+    }
+  }
+
+  .p-pull-quote__quote {
+    &:first-of-type::before {
+      @include vf-quote-mark;
+      content: '\201C'; // Unicode for left double quotation mark +  1/2 em space
+      left: $spv-intra--condensed;
+      top: 0.5rem;
+
+      @media (max-width: $breakpoint-heading-threshold) {
+        top: 0.75rem;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:last-of-type::after {
+      @include vf-quote-mark;
+      content: '\201E';
+      margin-left: $spv-intra;
     }
   }
 }

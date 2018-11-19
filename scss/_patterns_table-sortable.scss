@@ -1,7 +1,6 @@
 @import 'settings';
 
 @mixin vf-p-table-sortable {
-
   %heading-icon {
     background: {
       image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='4' width='10' viewBox='0 0 10 4'%3E%3Cpath d='M3.637 3.138c-.518-.365-1.052-.778-1.6-1.238C1.486 1.44.946.948.414.423.273.283.135.14 0 0h1.54c.305.29.62.57.948.846.138.116.277.23.417.34.163.13.328.257.495.38.085.062.17.123.257.184.397.282.935.626 1.315.848h.054c.38-.222.918-.566 1.315-.848.4-.28.79-.583 1.17-.904C7.837.57 8.153.29 8.457 0h1.54c-.134.14-.272.282-.414.422C9.05.948 8.51 1.442 7.963 1.9c-.55.46-1.084.873-1.602 1.238S5.39 3.79 5 4c-.39-.21-.845-.497-1.363-.862z' fill='%23888' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -12,7 +11,7 @@
 
     content: '';
     display: inline-block;
-    height: .4rem;
+    height: 0.4rem;
     margin-left: $sp-x-small;
     vertical-align: middle;
     width: $sp-medium;
@@ -21,19 +20,18 @@
   .p-table--sortable {
     table-layout: fixed;
 
-    th[role="columnheader"] {
-
+    th[role='columnheader'] {
       &[aria-sort] {
         align-items: center;
         cursor: pointer;
         white-space: nowrap;
       }
 
-      &[aria-sort="ascending"]::after {
+      &[aria-sort='ascending']::after {
         @extend %heading-icon;
       }
 
-      &[aria-sort="descending"]::after {
+      &[aria-sort='descending']::after {
         @extend %heading-icon;
         transform: rotate(180deg);
       }
