@@ -1,8 +1,4 @@
 @import 'settings';
-$numbered-bullet-width: map-get($line-heights, h3);
-$numbered-bullet-width--mobile: map-get($line-heights, h3-mobile);
-$numbered-bullet-margin-right: $sph-inter--expanded;
-$numbered-bullet-offset: $numbered-bullet-width + $numbered-bullet-margin-right;
 $tick-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
 $spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top and bottom for lists containing loose text.
 
@@ -161,23 +157,20 @@ $spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top an
 
 // Displays a step by step list of instructions
 @mixin vf-p-stepped-list {
-  .p-list-step {
+  .p-stepped-list {
     @extend %vf-clearfix;
-    @extend %ol-numbered;
-
-    > li {
-      @extend %li-numbered;
-    }
+    @extend %numbered-step-container;
 
     &__item {
       // override unecessary col-8 class in markup; layout is handled with css below
       float: none;
       margin-left: 0;
+      position: relative;
       width: 100%;
     }
 
     &__content {
-      margin-top: -#{$sp-unit * 2};
+      margin-top: -#{$sp-unit};
     }
 
     &__bullet {
@@ -186,17 +179,45 @@ $spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top an
   }
 }
 
+.p-stepped-list__title {
+  @extend %numbered-step-title;
+}
+
+// Bullet sizes for each heading level
+@for $i from 6 through 1 {
+  $bullet-width: map-get($line-heights, default-text);
+  $bullet-width-mobile: map-get($line-heights, default-text);
+
+  @if $i < 5 {
+    $bullet-width: map-get($line-heights, h#{$i});
+    $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
+  }
+
+  // sass-lint:disable no-qualifying-elements
+  h#{$i}.p-stepped-list__title {
+    // sass-lint:enable no-qualifying-elements
+    margin-left: $bullet-width + $sph-intra;
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-left: $bullet-width-mobile + $sph-intra;
+    }
+
+    &::before {
+      width: $bullet-width;
+
+      @media (max-width: $breakpoint-heading-threshold) {
+        width: $bullet-width-mobile;
+      }
+    }
+  }
+}
+
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
     @extend %vf-clearfix;
-    @extend %ol-numbered;
-
-    > li {
-      @extend %li-numbered;
-    }
+    @extend %numbered-step-container;
 
     @media (min-width: $breakpoint-medium) {
-      .p-list-step {
+      .p-stepped-list {
         &__content {
           margin-top: 0;
         }
@@ -207,10 +228,12 @@ $spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top an
 
           > :nth-child(2n) {
             @include column(6, $grid-columns);
+            position: static;
           }
 
           > :nth-child(2n + 1) {
             @include column(6, $grid-columns, true);
+            position: static;
           }
         }
       }
@@ -249,16 +272,14 @@ $spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top an
 }
 
 @mixin vf-p-lists {
-  %ol-numbered {
+  %numbered-step-container {
     counter-reset: li;
     list-style: none;
-    margin-left: $numbered-bullet-offset;
     padding-left: 0;
   }
 
-  %li-numbered {
+  %numbered-step-title {
     &::before {
-      @extend %vf-heading-3;
       background-color: $color-mid-dark;
       border-radius: 100%;
       color: $color-x-light;
@@ -266,17 +287,10 @@ $spv-list-item--inner: 0.25 * $spv-inter--condensed-scaleable; // padding top an
       counter-increment: li;
       direction: rtl;
       display: inline-block;
-      margin-left: -#{$numbered-bullet-offset};
-      margin-top: map-get($nudges, nudge--h3);
+      left: 0;
       padding: 0;
       position: absolute;
       text-align: center;
-      width: $numbered-bullet-width;
-
-      @media (max-width: $breakpoint-heading-threshold) {
-        margin-top: map-get($nudges, nudge--h3-mobile);
-        width: $numbered-bullet-width--mobile;
-      }
     }
   }
   @include vf-p-list;
