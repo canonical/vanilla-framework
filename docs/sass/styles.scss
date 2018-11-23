@@ -28,7 +28,6 @@ hr {
 
 /* Sidebar navigation */
 .p-sidebar-nav {
-
   &__list {
     @extend .p-list;
     margin-bottom: $spv-intra;
@@ -38,15 +37,15 @@ hr {
   &__item {
     padding-bottom: $spv-intra--condensed / 2;
     padding-top: $spv-intra--condensed / 2;
-  
+
     &:first-of-type {
       padding-top: $spv-intra;
     }
-  
+
     &:last-of-type {
       padding-bottom: $spv-intra + $spv-intra--condensed;
     }
-  
+
     .is-active {
       position: relative;
 
@@ -72,10 +71,32 @@ hr {
 .docs-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .p-navigation {
+  background: #333;
   flex-basis: 100%;
+
+  &__link > a,
+  &__link > a::before {
+    border: none !important;
+  }
+
+  &::after {
+    background: #333;
+  }
+
+  &__row {
+    margin: 0 auto;
+  }
+
+  &__item {
+    border: none;
+  }
+  & a {
+    color: white !important;
+  }
 }
 
 .p-sidebar {
@@ -205,4 +226,23 @@ hr.is-deep {
 .p-list__item--deep {
   padding: $spv-intra 0;
 }
+
+$breakpoint-x-large: 1681px;
+$width-base: 1200 / 16 * 1rem;
+$fontsize-bigscreen: 1rem * 18 / 16;
+$gutters-total: 2 * 1.5 * 1rem;
+
+html {
+  @media (min-width: $breakpoint-x-large) {
+    font-size: $fontsize-bigscreen;
+  }
+}
+
+.row,
+.docs-container,
+.global-nav__header-row.global-nav__row[style] {
+  max-width: $width-base - $gutters_total !important;
+  margin: 0 auto;
+}
+
 /* --- */
