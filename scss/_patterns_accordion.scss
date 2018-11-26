@@ -21,6 +21,7 @@
 
     &__tab {
       @extend %single-border-text-vpadding--scaling;
+      @include vf-focus;
 
       $calculated-height: $multi * $spv-intra--condensed * 2 - $px + map-get($line-heights, default-text);
       $offset-top: ($calculated-height - $icon-size) * 0.5;
@@ -48,11 +49,6 @@
       &[aria-expanded='false'] {
         @include vf-icon-plus($color-mid-dark);
         background-size: $icon-size;
-      }
-
-      &:focus {
-        outline: 1px solid $color-link;
-        outline-offset: 2px;
       }
     }
 
