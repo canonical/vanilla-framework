@@ -226,7 +226,7 @@ $nav-border-bottom-thickness: $px;
       }
 
       &:hover {
-        background-color: darken($color-navigation-background, 3%);
+        background-color: if(lightness($color-navigation-background) > 50, darken($color-navigation-background, 3%), lighten($color-navigation-background, 15%));
       }
     }
 
