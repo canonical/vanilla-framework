@@ -1,0 +1,234 @@
+@mixin vf-b-text-styles {
+  // @section Heading definitions
+
+  %vf-heading-1 {
+    @include heading-max-width--short;
+    font-size: pow($ms-ratio, 8) * 1rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: map-get($line-heights, h1);
+    margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
+    margin-top: -$sp-unit * 1;
+    padding-top: map-get($nudges, nudge--h1);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 6) * 1rem;
+      line-height: map-get($line-heights, h1-mobile);
+      margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, nudge--h1-mobile);
+      padding-top: map-get($nudges, nudge--h1-mobile);
+    }
+  }
+
+  %vf-heading-2 {
+    @include heading-max-width--short;
+    font-size: pow($ms-ratio, 6) * 1rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: map-get($line-heights, h2);
+    margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
+    margin-top: -$sp-unit * 1;
+    padding-top: map-get($nudges, nudge--h2);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: 1.83274rem; // pow($ms-ratio, 4.5) * 1rem
+      line-height: map-get($line-heights, h2-mobile);
+      margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, nudge--h2-mobile);
+      padding-top: map-get($nudges, nudge--h2-mobile);
+    }
+  }
+
+  %vf-heading-3 {
+    @include heading-max-width--long;
+    font-size: pow($ms-ratio, 4) * 1rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: map-get($line-heights, h3);
+    margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
+    margin-top: -$sp-unit * 1;
+    padding-top: map-get($nudges, nudge--h3);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 3) * 1rem;
+      line-height: map-get($line-heights, h3-mobile);
+      margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, nudge--h3-mobile);
+      padding-top: map-get($nudges, nudge--h3-mobile);
+    }
+  }
+
+  %vf-heading-4 {
+    @include heading-max-width--long;
+    font-size: pow($ms-ratio, 2) * 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: map-get($line-heights, h4);
+    margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--h4);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      font-size: 1.22176rem; // pow($ms-ratio, 1.5) * 1rem
+      line-height: map-get($line-heights, h4-mobile);
+      margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, nudge--h4-mobile);
+      padding-top: map-get($nudges, nudge--h4-mobile);
+    }
+  }
+
+  %vf-heading-5 {
+    @include p-max-width;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: map-get($sp-after, h5) - map-get($nudges, nudge--p);
+    margin-top: -$sp-unit * 0;
+    padding-top: map-get($nudges, nudge--p);
+  }
+
+  %vf-heading-6 {
+    @include p-max-width;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: map-get($sp-after, h5) - map-get($nudges, nudge--p);
+    margin-top: -$sp-unit * 0;
+    padding-top: map-get($nudges, nudge--p);
+  }
+
+  %default-text {
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
+    margin-top: -$sp-unit * 1;
+    padding-top: map-get($nudges, nudge--p);
+  }
+
+  %paragraph {
+    @extend %default-text;
+    margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
+  }
+
+  %small-text {
+    font-size: pow($ms-ratio, -1) * 1rem;
+    line-height: map-get($line-heights, small);
+    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    padding-top: map-get($nudges, nudge--small);
+  }
+
+  %muted-heading {
+    @extend %small-text;
+    color: $color-mid-dark;
+    margin-bottom: -(map-get($nudges, nudge--muted)) + $spv-inter--condensed;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  // @section Adjustments to spacing between pairs of text elements e.g. p + h1
+  // Placeholder naming: $sp + -- + {preceding element} + {following element}, e.g. for p + h1: $sp--ph1
+
+  %sp--ph1 {
+    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h1-mobile) + map-get($sp-before, h1-mobile);
+    }
+  }
+
+  %sp--ph2 {
+    padding-top: map-get($nudges, nudge--h2) + map-get($sp-before, h2);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h2-mobile) + map-get($sp-before, h2-mobile);
+    }
+  }
+
+  %sp--ph3 {
+    padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h3-mobile) + map-get($sp-before, h3-mobile);
+    }
+  }
+
+  %sp--ph4 {
+    padding-top: map-get($nudges, nudge--h4) + map-get($sp-before, h4);
+  }
+
+  %sp--ph5 {
+    padding-top: map-get($nudges, nudge--p) + map-get($sp-before, h5);
+  }
+
+  %sp--pmuted {
+    padding-top: map-get($nudges, nudge--muted) + map-get($sp-before, muted);
+  }
+
+  // p,
+  // h5,
+  // h6,
+  // .p-heading--five,
+  // .p-heading--six {
+  //   .p-muted-heading + & {
+  //     margin-top: -#{$sp-unit};
+  //   }
+  // }
+
+  //@section Headings following a paragraph
+  p:not([class^='p-heading--']) + h1,
+  p:not([class^='p-heading--']) + .p-heading--one {
+    @extend %sp--ph1;
+  }
+
+  p:not([class^='p-heading--']) + h2,
+  p:not([class^='p-heading--']) + .p-heading--two {
+    @extend %sp--ph2;
+  }
+
+  p:not([class^='p-heading--']) + h3,
+  p:not([class^='p-heading--']) + .p-heading--three {
+    @extend %sp--ph3;
+  }
+
+  p:not([class^='p-heading--']) + h4,
+  p:not([class^='p-heading--']) + .p-heading--four {
+    @extend %sp--ph4;
+  }
+
+  p:not([class^='p-heading--']) + h5,
+  p:not([class^='p-heading--']) + .p-heading--five,
+  p:not([class^='p-heading--']) + h6,
+  p:not([class^='p-heading--']) + .p-heading--six {
+    @extend %sp--ph5;
+  }
+
+  p:not([class^='p-heading--']) + .p-muted-heading {
+    @extend %sp--pmuted;
+  }
+
+  // @section Paragraphs and headins at root font size following a paragraph
+  p {
+    // h5,
+    // h6,
+    // .p-heading--five,
+    // .p-heading--six {
+    & + & {
+      margin-top: -#{$sp-unit};
+    }
+  }
+
+  .has-eyebrow {
+    margin-top: -2 * $sp-unit;
+
+    p:not([class^='.p-heading-']) + & {
+      margin-top: -6 * $sp-unit;
+    }
+
+    // h1,
+    // h2,
+    // h3,
+    // h4,
+    // h5,
+    // h6,
+    // [class^='.p-heading-'] + & {
+    //   margin-top: - 1 * $sp-unit;
+    // }
+  }
+}
