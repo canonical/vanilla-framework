@@ -1,0 +1,32 @@
+@mixin vf-b-measure {
+  %max-width--p {
+    max-width: 38em;
+  }
+
+  //expose measure as a class
+  %measure--p,
+  .measure--p {
+    @extend %max-width--p;
+  }
+}
+
+// Optimal max-width for main headings (up to 2 lines of copy)
+@mixin heading-max-width--short {
+  max-width: 20em;
+}
+
+// Optimal max-width for headings (up to 3 lines of copy)
+@mixin heading-max-width--long {
+  max-width: 25em;
+}
+
+// Optimal max-width for body copy
+@mixin p-max-width {
+  @extend %max-width--p;
+}
+
+// Relaxed max-width for cases like notifications, where minimizing vertical height is
+// more important than maintaining the optimal max-width of 35em
+@mixin p-max-width--long {
+  max-width: 60em;
+}

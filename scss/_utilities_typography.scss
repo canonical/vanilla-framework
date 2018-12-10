@@ -1,0 +1,65 @@
+@mixin vf-u-min-bottom-margins {
+  .u-min-margin--bottom {
+    @at-root h1#{&} {
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h1-mobile);
+      }
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h1);
+      }
+    }
+
+    @at-root h2#{&} {
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h2-mobile);
+      }
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h2);
+      }
+    }
+
+    @at-root h3#{&} {
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h3-mobile);
+      }
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h3);
+      }
+    }
+
+    @at-root h4#{&} {
+      @media (max-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h4-mobile);
+      }
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-bottom: $sp-unit - map-get($nudges, nudge--h4);
+      }
+    }
+
+    @at-root h5#{&} {
+      margin-bottom: $sp-unit - map-get($nudges, nudge--p);
+    }
+
+    @at-root h6#{&} {
+      margin-bottom: $sp-unit - map-get($nudges, nudge--p);
+    }
+
+    @at-root p#{&} {
+      margin-bottom: $sp-unit - map-get($nudges, nudge--p);
+    }
+
+    @at-root button#{&} {
+      margin-bottom: 2 * $spv-nudge-compensation;
+    }
+  }
+
+  [class^='p-button-'] {
+    &.u-min-margin--bottom {
+      margin-bottom: 2 * $spv-nudge-compensation;
+    }
+  }
+}
