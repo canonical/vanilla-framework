@@ -17,16 +17,29 @@ If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> tog
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/code/"
     class="js-example">
-    View example of the base code block
+View example of the base code block
+</a>
+
+### Code copyable
+
+Code copyable should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-snippet/"
+    class="js-example">
+View example of the code copyable pattern
+</a>
+
+### Code numbered
+
+The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-numbered/"
+    class="js-example">
+View example of the code numbered pattern
 </a>
 
 <hr />
 
 ### Design
 
-* [Code design](https://github.com/ubuntudesign/vanilla-design/tree/master/Code)
-
-### Related
-
-* [Code numbered pattern](/en/patterns/code-numbered)
-* [Code snippet pattern](/en/patterns/code-snippet)
+- [Code design](https://github.com/ubuntudesign/vanilla-design/tree/master/Code)
