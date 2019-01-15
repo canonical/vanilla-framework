@@ -161,16 +161,6 @@
     padding-top: map-get($nudges, nudge--muted) + map-get($sp-before, muted);
   }
 
-  // p,
-  // h5,
-  // h6,
-  // .p-heading--five,
-  // .p-heading--six {
-  //   .p-muted-heading + & {
-  //     margin-top: -#{$sp-unit};
-  //   }
-  // }
-
   //@section Headings following a paragraph
   p:not([class^='p-heading--']) + h1,
   p:not([class^='p-heading--']) + .p-heading--one {
@@ -205,10 +195,6 @@
 
   // @section Paragraphs and headins at root font size following a paragraph
   p {
-    // h5,
-    // h6,
-    // .p-heading--five,
-    // .p-heading--six {
     & + & {
       margin-top: -#{$sp-unit};
     }
@@ -220,15 +206,5 @@
     p:not([class^='.p-heading-']) + & {
       margin-top: -6 * $sp-unit;
     }
-
-    // h1,
-    // h2,
-    // h3,
-    // h4,
-    // h5,
-    // h6,
-    // [class^='.p-heading-'] + & {
-    //   margin-top: - 1 * $sp-unit;
-    // }
   }
 }
