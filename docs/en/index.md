@@ -33,7 +33,7 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
     <div class="col-12">
         <h3>Hotlink</h3>
         <p>You can add Vanilla directly to your markup:</p>
-        <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-1.8.0.min.css" /&gt;</code></pre>
+        <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-1.8.1.min.css" /&gt;</code></pre>
     </div>
 </div>
 <hr class="is-deep">
@@ -41,7 +41,7 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
     <div class="col-12">
         <h3>Download</h3>
         <p>Download the latest version of Vanilla from GitHub.</p>
-        <a href="https://github.com/vanilla-framework/vanilla-framework/archive/v1.8.0.zip" class="p-button--positive">Download v1.8.0</a>
+        <a href="https://github.com/vanilla-framework/vanilla-framework/archive/v1.8.1.zip" class="p-button--positive">Download v1.8.1</a>
     </div>
 </div>
 <hr class="is-deep">
@@ -50,7 +50,7 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
         <h3>What's new</h3>
         <ul class="p-list">
             <li class="p-list__item--deep">
-                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.8.0">Release notes: v1.8.0</a>
+                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.8.1">Release notes: v1.8.1</a>
             </li>
             <li class="p-list__item--deep">
                 <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.7.1">Release notes: v1.7.1</a>
