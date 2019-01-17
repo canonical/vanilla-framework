@@ -10,22 +10,17 @@
 
     &__header {
       display: flex;
-      margin-bottom: $spv-intra--expanded;
 
       &.is-stacked {
         display: inherit;
       }
     }
 
-    &__title {
-      margin-bottom: 0;
-      padding-top: 0;
-    }
-
     &__img {
       flex-shrink: 0;
       height: map-get($icon-sizes, heading-icon--small);
       margin-right: $sph-intra;
+      margin-top: -#{$spv-intra};
       width: map-get($icon-sizes, heading-icon--small);
 
       @media (min-width: $breakpoint-medium) {
@@ -38,6 +33,7 @@
   .p-heading-icon--small {
     .p-heading-icon__img {
       height: map-get($icon-sizes, heading-icon--x-small);
+      margin-top: 0;
       width: map-get($icon-sizes, heading-icon--x-small);
 
       @media (min-width: $breakpoint-medium) {
