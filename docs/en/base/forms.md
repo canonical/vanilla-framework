@@ -113,6 +113,15 @@ Descriptive text relating to the element's validation status should use the clas
 View example of form validation patterns
 </a>
 
+### Required elements
+
+By applying the class `.is-required` the attribute specifies that an input field must be filled out before submitting the form.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/forms/forms-required/"
+    class="js-example">
+View example of an input required element
+</a>
+
 <hr />
 
 ### Design
