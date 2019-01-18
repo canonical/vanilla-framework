@@ -31,10 +31,100 @@ $shelves-column-name: $grid-col-name;
 }
 
 @mixin vf-p-css-grid {
+  [css-grid-demo] [class*='css-col-'] {
+    background: $color-mid-light;
+    margin-bottom: $spv-intra;
+  }
+
   .css-row {
     display: grid;
+    grid-gap: 0 $grid-gutter-width;
     grid-template-rows: auto;
-    grid-template-columns: 12;
-    grid-gap: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $grid-max-width;
+    padding-left: $grid-margin-width;
+    padding-right: $grid-margin-width;
+
+    @media (max-width: $breakpoint-medium) {
+      grid-template-columns: repeat($grid-columns-mobile, minmax(0, 1fr));
+    }
+
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      grid-template-columns: repeat($grid-columns-tablet, minmax(0, 1fr));
+    }
+
+    @media (min-width: $breakpoint-large) {
+      grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+    }
+  }
+
+  %span-mobile-grid {
+    @media (max-width: $breakpoint-medium) {
+      grid-column: auto / span $grid-columns-mobile; // set css-col-* to span full grid on mobile
+    }
+  }
+
+  %span-tablet-grid {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      grid-column: auto / span $grid-columns-tablet; // set css-col-* to span full grid on tablet
+    }
+  }
+
+  // mobile grid
+  @for $i from 1 through $grid-columns-mobile {
+    .css-mobile-col-#{$i} {
+      @extend %span-mobile-grid;
+      @extend %span-tablet-grid;
+    }
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    @for $i from 1 through $grid-columns-mobile {
+      // set css-col-* to span respective number of columns on desktop
+      .css-mobile-col-#{$i} {
+        grid-column: auto / span #{$i};
+      }
+    }
+  }
+
+  // tablet grid
+  @for $i from 1 through $grid-columns-tablet {
+    .css-tablet-col-#{$i} {
+      @extend %span-mobile-grid;
+      @extend %span-tablet-grid;
+    }
+  }
+
+  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+    @for $i from 1 through $grid-columns-tablet {
+      // set css-col-* to span respective number of columns on tablet
+      .css-tablet-col-#{$i} {
+        grid-column: auto / span #{$i};
+      }
+    }
+  }
+
+  // desktop grid
+  @for $i from 1 through $grid-columns {
+    .css-col-#{$i} {
+      @extend %span-mobile-grid;
+      @extend %span-tablet-grid;
+    }
+  }
+
+  @media (min-width: $breakpoint-large) {
+    @for $i from $grid-columns through 1 {
+      // set css-col-* to span respective number of columns on desktop
+      .css-col-#{$i} {
+        grid-column: auto / span #{$i};
+      }
+      .css-col-#{$i} .css-row {
+        display: grid;
+        grid-gap: 0 $grid-gutter-width;
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+        padding: 0;
+      }
+    }
   }
 }
