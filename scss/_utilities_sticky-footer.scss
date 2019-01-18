@@ -1,15 +1,17 @@
 @mixin vf-u-sticky-footer {
-  html,
-  body {
-    height: 100%;
-  }
+  @media screen and (min-width: $breakpoint-small) {
+    html,
+    body {
+      min-height: 100vh;
+    }
 
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .p-footer {
-    flex-shrink: 0;
+    .p-footer {
+      flex-shrink: 0;
+    }
   }
 }
