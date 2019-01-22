@@ -7,11 +7,11 @@ table_of_contents: true
 
 Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`
 
-### Default
+### Standard
 
 <section>
   <div class="p-strip is-shallow">
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--plus" style="margin-right: 1rem;"></i><code>p-icon--plus</code>
       </div>
@@ -23,7 +23,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--collapse" style="margin-right: 1rem;"></i><code>p-icon--collapse</code>
       </div>
@@ -31,11 +31,11 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
         <i class="p-icon--spinner" style="margin-right: 1rem;"></i><code>p-icon--spinner</code>
       </div>
       <div class="p-card col-4 u-vertically-center">
-        <i class="p-icon--contextual-menu" style="margin-right: 1rem;"></i><code>p-icon--contextual-menu</code>
+        <i class="p-icon--chevron" style="margin-right: 1rem;"></i><code>p-icon--chevron</code>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--close" style="margin-right: 1rem;"></i><code>p-icon--close</code>
       </div>
@@ -47,7 +47,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
       </div>
       </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--delete" style="margin-right: 1rem;"></i><code>p-icon--delete</code>
       </div>
@@ -55,11 +55,11 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
         <i class="p-icon--external-link" style="margin-right: 1rem;"></i><code>p-icon--external-link</code>
       </div>
       <div class="p-card col-4 u-vertically-center">
-        <i class="p-icon--drag" style="margin-right: 1rem;"></i><code>p-icon--drag</code>
+        <i class="p-icon--contextual-menu" style="margin-right: 1rem;"></i><code>p-icon--contextual-menu</code>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--menu" style="margin-right: 1rem;"></i><code>p-icon--menu</code>
       </div>
@@ -71,7 +71,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--search" style="margin-right: 1rem;"></i><code>p-icon--search</code>
       </div>
@@ -83,7 +83,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--question" style="margin-right: 1rem;"></i><code>p-icon--question</code>
       </div>
@@ -95,7 +95,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center">
         <i class="p-icon--warning" style="margin-right: 1rem;"></i><code>p-icon--warning</code>
       </div>
@@ -104,17 +104,104 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
   </div>
 </section>
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/icons/icons-light/"
-    class="js-example">
-View example of the icon set (light)
-</a>
+### Standard dark
 
 When placed within `.p-strip--dark`, icon colors are reverted to ensure legibility.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/icons/icons-dark/"
-    class="js-example">
-View example of the icon set (dark)
-</a>
+<section>
+  <div class="p-strip--dark is-shallow">
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--plus" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--plus</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--minus" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--minus</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--expand" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--expand</code>
+      </div>
+    </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--collapse" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--collapse</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--spinner" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--spinner</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--chevron" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--chevron</code>
+      </div>
+    </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--close" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--close</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--help" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--help</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--information" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--information</code>
+      </div>
+      </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--delete" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--delete</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--external-link" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--external-link</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--contextual-menu" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--contextual-menu</code>
+      </div>
+    </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--menu" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--menu</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--code" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--code</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--copy" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--copy</code>
+      </div>
+    </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--search" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--search</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--share" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--share</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--user" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--user</code>
+      </div>
+    </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--question" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--question</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--error" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--error</code>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--success" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--success</code>
+      </div>
+    </div>
+
+    <div class="row u-equal-height">
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <i class="p-icon--warning" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--warning</code>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 ### Social
 
