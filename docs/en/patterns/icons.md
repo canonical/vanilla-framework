@@ -109,7 +109,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
 When placed within `.p-strip--dark`, icon colors are reverted to ensure legibility.
 
 <section>
-  <div class="p-strip--dark is-shallow">
+<div class="p-strip--dark is-shallow" style="background-color: transparent;">
     <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
         <i class="p-icon--plus" style="margin-right: 1rem;"></i><code style="color: #fff">p-icon--plus</code>
@@ -242,11 +242,6 @@ When placed within `.p-strip--dark`, icon colors are reverted to ensure legibili
 
   </div>
 </section>
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/icons/icons-social/"
-    class="js-example">
-View example of the icon set (Social)
-</a>
 
 ### Share
 
