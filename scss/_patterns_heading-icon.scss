@@ -10,26 +10,29 @@
 
     &__header {
       display: flex;
-      margin-bottom: $spv-intra--expanded;
+      // Match adjustment of margin-top on paragraphs that are following a heading.
+      // Necessary because in this pattern the heading and paragraph are not in the same parent, so h3 + p rules do not apply
+      margin-bottom: $spv-p-after-heading-adjustment;
 
       &.is-stacked {
         display: inherit;
       }
     }
 
-    &__title {
-      margin-bottom: 0;
-      padding-top: 0;
-    }
-
     &__img {
       flex-shrink: 0;
       height: map-get($icon-sizes, heading-icon--small);
+      margin-bottom: $spv-intra;
       margin-right: $sph-intra;
       width: map-get($icon-sizes, heading-icon--small);
 
+      @media (max-width: $breakpoint-medium) {
+        margin-top: 0;
+      }
+
       @media (min-width: $breakpoint-medium) {
         height: map-get($icon-sizes, heading-icon);
+        margin-top: -#{$spv-intra};
         width: map-get($icon-sizes, heading-icon);
       }
     }
@@ -40,8 +43,13 @@
       height: map-get($icon-sizes, heading-icon--x-small);
       width: map-get($icon-sizes, heading-icon--x-small);
 
+      @media (max-width: $breakpoint-medium) {
+        margin-top: $spv-intra--condensed;
+      }
+
       @media (min-width: $breakpoint-medium) {
         height: map-get($icon-sizes, heading-icon--small);
+        margin-top: 0;
         width: map-get($icon-sizes, heading-icon--small);
       }
     }
