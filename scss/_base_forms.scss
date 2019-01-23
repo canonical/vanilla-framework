@@ -146,6 +146,13 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
     display: block;
     margin-bottom: $spv-inter--condensed + $spv-nudge-compensation;
 
+    &.is-required::after {
+      color: $color-negative;
+      content: '*';
+      left: $spv-intra--condensed;
+      position: relative;
+    }
+
     @each $state, $color in $states {
       &.has-#{$state} {
         color: $color;
