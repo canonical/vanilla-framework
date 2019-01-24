@@ -142,9 +142,11 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
   }
 
   label {
+    @extend %default-text;
     cursor: pointer;
     display: block;
     margin-bottom: $spv-inter--condensed + $spv-nudge-compensation;
+    width: fit-content;
 
     &.is-required::after {
       color: $color-negative;
@@ -319,10 +321,5 @@ $input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
     color: $color-dark;
     margin-bottom: $spv-inter--scaleable;
     padding: $spv-intra $sph-intra--condensed;
-  }
-
-  label {
-    @extend %default-text;
-    width: fit-content;
   }
 }
