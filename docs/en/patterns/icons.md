@@ -208,34 +208,34 @@ When placed within `.p-strip--dark`, icon colors are reverted to ensure legibili
 <section>
   <div class="p-strip is-shallow">
     <div class="row">
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--facebook" style="margin-right: 1rem;"></i><code>p-icon--facebook</code>
       </div>
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--google" style="margin-right: 1rem;"></i><code>p-icon--google</code>
       </div>
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--twitter" style="margin-right: 1rem;"></i><code>p-icon--twitter</code>
       </div>
     </div>
 
     <div class="row">
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--instagram" style="margin-right: 1rem;"></i><code>p-icon--instagram</code>
       </div>
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--linkedin" style="margin-right: 1rem;"></i><code>p-icon--linkedin</code>
       </div>
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--youtube" style="margin-right: 1rem;"></i><code>p-icon--youtube</code>
       </div>
     </div>
 
     <div class="row">
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--canonical" style="margin-right: 1rem;"></i><code>p-icon--canonical</code>
       </div>
-      <div class="p-card col-4 u-vertically-center">
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--ubuntu" style="margin-right: 1rem;"></i><code>p-icon--ubuntu</code>
       </div>
       </div>
