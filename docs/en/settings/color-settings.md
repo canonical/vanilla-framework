@@ -11,118 +11,109 @@ You can define a brand color (`$color-brand`) that can be used for call-to-actio
 
 When planning your pages, make sure there is an even distribution and well-balanced percentage of light and strong colors. Think of the screen as a whole: it shouldn't be top- or bottom-heavy.
 
-<div>
-<div>
-<h4>Low emphasis</h4>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$color-x-light</td>
-<td style="background-color: #ffffff;">#ffffff</td>
-</tr>
-<tr>
-<td>$color-light</td>
-<td style="background-color: #f7f7f7;">#f7f7f7</td>
-</tr>
-<tr>
-<td>$color-mid-x-light</td>
-<td style="background-color: #e5e5e5;">#e5e5e5</td>
-</tr>
-<tr>
-<tr>
-<td>$color-mid-light</td>
-<td style="background-color: #cdcdcd;">#cdcdcd</td>
-</tr>
-</tbody>
-</table>
+<div class="u-equal-height">
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #fff"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-x-light<br><span class="p-muted-heading">#fff</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #f7f7f7"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-light<br><span class="p-muted-heading">#f7f7f7</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #e5e5e5"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-mid-x-light<br><span class="p-muted-heading">#e5e5e5</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #cdcdcd"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-mid-light<br><span class="p-muted-heading">#cdcdcd</span>
+    </p>
+  </div>
 </div>
-
-<div>
-<h4>Medium emphasis</h4>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$color-mid</td>
-<td style="background-color: #999999;">#999999</td>
-</tr>
-<tr>
-<tr>
-<td>$color-mid-dark</td>
-<td style="background-color: #666666; color: #ffffff;">#666666</td>
-</tr>
-</tbody>
-</table>
+<div class="u-equal-height">
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #666"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-mid-dark<br><span class="p-muted-heading">#666</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #111"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-dark<br><span class="p-muted-heading">#111</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #000"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-x-dark<br><span class="p-muted-heading">#000</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #333"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-brand<br><span class="p-muted-heading">#333</span>
+    </p>
+  </div>
 </div>
-
-<div>
-<h4>High emphasis</h4>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$color-brand</td>
-<td style="background-color: #333333; color: #ffffff;">#333333</td>
-</tr>
-<tr>
-<td>$color-dark</td>
-<td style="background-color: #111111; color: #ffffff;">#111111</td>
-</tr>
-<tr>
-<td>$color-x-dark</td>
-<td style="background-color: #000000; color: #ffffff;">#000000</td>
-</tr>
-<tr>
-<td>$color-negative</td>
-<td style="background-color: #c7162b; color: #ffffff;">#c7162b</td>
-</tr>
-<tr>
-<td>$color-caution</td>
-<td style="background-color: #f99b11;">#f99b11</td>
-</tr>
-<tr>
-<td>$color-positive</td>
-<td style="background-color: #0e8420; color: #ffffff;">#0e8420</td>
-</tr>
-<tr>
-<td>$color-information</td>
-<td style="background-color: #335280; color: #ffffff;">#335280</td>
-</tr>
-<tr>
-<td>$color-link</td>
-<td style="background-color: #007aa6; color: #ffffff;">#007aa6</td>
-</tr>
-<tr>
-<td>$color-accent</td>
-<td style="background-color: #333333; color: #ffffff;">$color-brand</td>
-</tr>
-<tr>
-<td>$color-accent-background</td>
-<td style="background-color: #333333; color: #ffffff;">$color-brand</td>
-</tr>
-<tr>
-<td>$color-navigation-background</td>
-<td style="background-color: #ffffff; color: #000000;">$color-x-light</td>
-</tr>
-</tbody>
-</table>
+<div class="u-equal-height">
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #c7162b"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-negative<br><span class="p-muted-heading">#c7162b</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #f99b11"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-caution<br><span class="p-muted-heading">#f99b11</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #0e8420"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-positive<br><span class="p-muted-heading">#0e8420</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #335280"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-information<br><span class="p-muted-heading">#335280</span>
+    </p>
+  </div>
 </div>
+<div class="u-equal-height">
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #007aa6"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-link<br><span class="p-muted-heading">#007aa6</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #333"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-accent<br><span class="p-muted-heading">#333</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #333"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-accent-background<br><span class="p-muted-heading">#333</span>
+    </p>
+  </div>
+  <div class="col-3 p-card u-no-padding">
+    <div class="p-strip is-shallow is-bordered" style="background-color: #fff"></div>
+    <p class="p-card__content u-no-margin" style="padding: 1rem">
+      $color-navigation-background<br><span class="p-muted-heading">#fff</span>
+    </p>
+  </div>
 </div>
 
 <hr />
