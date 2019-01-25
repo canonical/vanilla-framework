@@ -29,12 +29,7 @@
   thead {
     th {
       @extend %muted-heading;
-
-      // XXX 23 01 2019 Lyubomir Popov: because of include order, to override the line height specificity needs to be increased;
-      // Once this is fixed the table part of the selector can be dropped: https://github.com/vanilla-framework/vanilla-framework/pull/2126
-      table & {
-        line-height: map-get($line-heights, table-headers);
-      }
+      line-height: map-get($line-heights, table-headers);
     }
 
     tr {
