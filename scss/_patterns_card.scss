@@ -54,14 +54,78 @@
   // p-card scoped rules should only be added if the required behaviour is not likely to be needed in any other pattern.
   // If possible, please consider adding a modifier to a base pattern, so it can be used elsewhere too.
 
+  [class*='p-card'] {
+    // Reduce margin-bottom of last text element in card to the minimum required to keep it on the baseline grid.
+    h1 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h1-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h1)};
+        }
+      }
+    }
+
+    h2 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h2-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h2)};
+        }
+      }
+    }
+
+    h3 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h3-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h3)};
+        }
+      }
+    }
+
+    h4 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h4-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h4)};
+        }
+      }
+    }
+
+    h5,
+    h6 {
+      &:last-child {
+        &:last-child {
+          margin-bottom: $spv-nudge-compensation;
+        }
+      }
+    }
+
+    p:not([class^='p-heading--']),
+    h5,
+    h6 {
+      &:last-child {
+        margin-bottom: $spv-nudge-compensation;
+      }
+
+      &:first-child {
+        margin-top: -#{$sp-unit};
+      }
+    }
+  }
+
   .p-card__image {
     margin-bottom: $spv-inter--condensed-scaleable;
     vertical-align: top;
     width: 100%;
-  }
-
-  .p-card__content {
-    margin-top: -#{$sp-unit * 2};
   }
 
   .p-card__header {
@@ -76,10 +140,6 @@
 
   .p-card__thumbnail {
     max-height: map-get($icon-sizes, thumb--card);
-  }
-
-  .p-card__content {
-    margin-top: -#{$sp-unit * 2};
   }
 
   .p-card__header {
