@@ -1,113 +1,14 @@
 @import 'settings';
+@import 'base_fontfaces';
+@import 'base_typography-definitions';
+@import 'base_typography-max-widths';
+@import 'base_typography-heading-mixins';
 
 // Typographic element styles
 @mixin vf-b-typography {
-  @if str-index($font-base-family, 'Ubuntu') {
-    @font-face {
-      font-family: 'Ubuntu';
-      font-style: normal;
-      font-weight: 300;
-      src: url('#{$assets-path}e8c07df6-Ubuntu-L_W.woff2') format('woff2'), url('#{$assets-path}8619add2-Ubuntu-L_W.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu';
-      font-style: normal;
-      font-weight: 400;
-      src: url('#{$assets-path}fff37993-Ubuntu-R_W.woff2') format('woff2'), url('#{$assets-path}7af50859-Ubuntu-R_W.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu';
-      font-style: italic;
-      font-weight: 300;
-      src: url('#{$assets-path}f8097dea-Ubuntu-LI_W.woff2') format('woff2'), url('#{$assets-path}8be89d02-Ubuntu-LI_W.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu';
-      font-style: italic;
-      font-weight: 400;
-      src: url('#{$assets-path}fca66073-ubuntu-ri-webfont.woff2') format('woff2'), url('#{$assets-path}f0898c72-ubuntu-ri-webfont.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu';
-      font-style: normal;
-      font-weight: 100;
-      src: url('#{$assets-path}7f100985-Ubuntu-Th_W.woff2') format('woff2'), url('#{$assets-path}502cc3a1-Ubuntu-Th_W.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu Mono';
-      font-style: normal;
-      font-weight: 300;
-      src: url('#{$assets-path}fdd692b9-UbuntuMono-R_W.woff2') format('woff2'), url('#{$assets-path}85edb898-UbuntuMono-R_W.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Ubuntu Mono';
-      font-style: normal;
-      font-weight: 400;
-      src: url('#{$assets-path}fdd692b9-UbuntuMono-R_W.woff2') format('woff2'), url('#{$assets-path}85edb898-UbuntuMono-R_W.woff') format('woff');
-    }
-
-    @if $font-allow-cyrillic-greek-latin {
-      // cyrillic-ext
-      @font-face {
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Ubuntu'), url('#{$font-import}ODszJI8YqNw8V2xPulzjO_esZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
-        unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
-      }
-
-      // cyrillic
-      @font-face {
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Ubuntu'), url('#{$font-import}iQ9VJx1UMASKNiGywyyCXvesZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-
-      // greek-ext
-      @font-face {
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Ubuntu'), url('#{$font-import}WkvQmvwsfw_KKeau9SlQ2_esZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-
-      // greek
-      @font-face {
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Ubuntu'), url('#{$font-import}gYAtqXUikkQjyJA1SnpDLvesZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-
-      // latin-ext
-      @font-face {
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Ubuntu'), url('#{$font-import}Wu5Iuha-XnKDBvqRwQzAG_esZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
-        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-      }
-
-      // latin
-      @font-face {
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Ubuntu'), url('#{$font-import}sDGTilo5QRsfWu6Yc11AXg.woff2') format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-      }
-    }
-  }
+  @include vf-b-typography-fontfaces;
+  @include vf-b-typography-definitions;
+  @include vf-b-typography-max-widths;
 
   html {
     // sass-lint:disable no-vendor-prefixes
@@ -126,132 +27,65 @@
     line-height: map-get($line-heights, default-text);
   }
 
-  /// Base typography
-  /// @section type
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  [class^='p-heading--'] {
-    font-family: unquote($font-heading-family);
+  // headings
+  h1 {
+    @extend %vf-heading-1;
   }
 
-  cite {
-    @extend %default-text;
+  h2 {
+    @extend %vf-heading-2;
+  }
+
+  h3 {
+    @extend %vf-heading-3;
+  }
+
+  h4 {
+    @extend %vf-heading-4;
+  }
+
+  h5 {
+    @extend %vf-heading-5;
+  }
+
+  h6 {
+    @extend %vf-heading-6;
   }
 
   p {
     @extend %paragraph;
     @include p-max-width;
+  }
 
-    &:empty {
-      line-height: 0;
-      margin: 0;
-      padding: 0;
+  // All text elements have extra margin-bottom to keep following block level elements at a comfortable distance.
+  // When a text element is followed by another text element, this extra space needs to be compensated for.
+  // Notably, the selectors below do not include rules for p + any heading, which usually indicates beginning of next heading/paragraphs group, which requires an increase in white space. This is handled further down.
+  h1,
+  .p-heading--one,
+  h2,
+  .p-heading--two,
+  h3,
+  .p-heading--three,
+  h4,
+  .p-heading--four,
+  h5,
+  .p-heading--five,
+  h6,
+  .p-heading--six,
+  .p-muted-heading {
+    & + h1,
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6,
+    & + p:not([class*='p-muted-heading']) {
+      @extend %sp--hp;
     }
   }
 
-  button,
-  input,
-  select,
-  textarea {
-    font-family: unquote($font-base-family);
-  }
-
-  // headings
-  h1 {
-    @include vf-heading-1;
-  }
-
-  h2 {
-    @include vf-heading-2;
-  }
-
-  h3 {
-    @include vf-heading-3;
-  }
-
-  h4 {
-    @include vf-heading-4;
-  }
-
-  h5 {
-    @include vf-heading-5;
-  }
-
-  h6 {
-    @include vf-heading-6;
-  }
-
-  // misc
-  strong {
-    @extend %bold;
-  }
-
-  small {
-    @extend %small-text;
-
-    &.dense {
-      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
-    }
-  }
-
-  sub,
-  sup {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-
-  abbr[title] {
-    border-bottom: 0.1em dotted;
-    cursor: help;
-    text-decoration: none;
-  }
-
-  // @section Adjustments to spacing between pairs of text elements e.g. p + h1
-  // Placeholder naming: $sp + -- + {preceding element} + {following element}, e.g. for p + h1: $sp--ph1
-
-  %sp--ph1 {
-    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h1-mobile) + map-get($sp-before, h1-mobile);
-    }
-  }
-
-  %sp--ph2 {
-    padding-top: map-get($nudges, nudge--h2) + map-get($sp-before, h2);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h2-mobile) + map-get($sp-before, h2-mobile);
-    }
-  }
-
-  %sp--ph3 {
-    padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h3-mobile) + map-get($sp-before, h3-mobile);
-    }
-  }
-
-  %sp--ph4 {
-    padding-top: map-get($nudges, nudge--h4) + map-get($sp-before, h4);
-  }
-
-  %sp--ph5 {
-    padding-top: map-get($nudges, nudge--p) + map-get($sp-before, h5);
-  }
-
-  %sp--pmuted {
-    padding-top: map-get($nudges, nudge--muted) + map-get($sp-before, muted);
-  }
-
-  //@section Adjusted spacing for headings following a paragraph
-  p:not([class^='p-heading--']) {
+  //@section Adjusted spacing for headings (or a p) following a paragraph
+  p:not([class*='p-heading--']):not([class*='p-muted-heading']) {
     & + h1,
     & + .p-heading--one {
       @extend %sp--ph1;
@@ -282,235 +116,46 @@
     & + .p-muted-heading {
       @extend %sp--pmuted;
     }
-  }
 
-  //@section Adjusted spacing for paragraphs following a heading
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p[class^='p-heading--'],
-  p {
-    & + p:not([class^='p-heading--']) {
-      margin-top: $spv-p-after-heading-adjustment;
-    }
-  }
-
-  // @section Adjusted spacing for adjacent root font size elements
-  h5,
-  .p-heading--five,
-  h6,
-  .p-heading--six,
-  p:not([class^='p-heading--']) {
-    .p-muted-heading + & {
-      margin-top: -$spv-p-after-heading-adjustment;
-    }
-  }
-
-  h5,
-  .p-heading--five,
-  h6,
-  .p-heading--six {
     & + & {
-      margin-top: -$spv-p-after-heading-adjustment;
+      @extend %sp--hp;
+    }
+
+    // N.B.: selector order matters here - the epmty selector must come after all other rules affecting paragraphs
+    &:empty {
+      line-height: 0;
+      margin: 0;
+      padding: 0;
     }
   }
 
-  //@section Heading styling in placeholders
-
-  %vf-heading-1 {
-    @include heading-max-width--short;
-    font-size: pow($ms-ratio, 8) * 1rem;
-    font-style: normal;
-    font-weight: 100;
-    line-height: map-get($line-heights, h1);
-    margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
-    margin-top: -#{$sp-unit};
-    padding-top: map-get($nudges, nudge--h1);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      font-size: pow($ms-ratio, 6) * 1rem;
-      line-height: map-get($line-heights, h1-mobile);
-      margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, nudge--h1-mobile);
-      padding-top: map-get($nudges, nudge--h1-mobile);
-    }
-  }
-
-  %vf-heading-2 {
-    @include heading-max-width--short;
-    font-size: pow($ms-ratio, 6) * 1rem;
-    font-style: normal;
-    font-weight: 100;
-    line-height: map-get($line-heights, h2);
-    margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
-    margin-top: -#{$sp-unit};
-    padding-top: map-get($nudges, nudge--h2);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      font-size: 1.83274rem; // pow($ms-ratio, 4.5) * 1rem
-      line-height: map-get($line-heights, h2-mobile);
-      margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, nudge--h2-mobile);
-      padding-top: map-get($nudges, nudge--h2-mobile);
-    }
-  }
-
-  %vf-heading-3 {
-    @include heading-max-width--long;
-    font-size: pow($ms-ratio, 4) * 1rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: map-get($line-heights, h3);
-    margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
-    margin-top: -#{$sp-unit};
-    padding-top: map-get($nudges, nudge--h3);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      font-size: pow($ms-ratio, 3) * 1rem;
-      line-height: map-get($line-heights, h3-mobile);
-      margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, nudge--h3-mobile);
-      padding-top: map-get($nudges, nudge--h3-mobile);
-    }
-  }
-
-  %vf-heading-4 {
-    @include heading-max-width--long;
-    font-size: pow($ms-ratio, 2) * 1rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: map-get($line-heights, h4);
-    margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
-    margin-top: 0;
-    padding-top: map-get($nudges, nudge--h4);
-
-    @media (max-width: $breakpoint-heading-threshold) {
-      font-size: 1.22176rem; // pow($ms-ratio, 1.5) * 1rem
-      line-height: map-get($line-heights, h4-mobile);
-      margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, nudge--h4-mobile);
-      padding-top: map-get($nudges, nudge--h4-mobile);
-    }
-  }
-
-  %vf-heading-5 {
-    @include p-max-width;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: map-get($line-heights, default-text);
-    margin-bottom: map-get($sp-after, h5) - map-get($nudges, nudge--p);
-    margin-top: 0;
-    padding-top: map-get($nudges, nudge--p);
-  }
-
-  %vf-heading-6 {
-    @include p-max-width;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: map-get($line-heights, default-text);
-    margin-bottom: map-get($sp-after, h5) - map-get($nudges, nudge--p);
-    margin-top: 0;
-    padding-top: map-get($nudges, nudge--p);
-  }
-
-  %default-text {
-    line-height: map-get($line-heights, default-text);
-    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
-    margin-top: 0;
-    padding-top: map-get($nudges, nudge--p);
-  }
-
-  %paragraph {
+  cite {
     @extend %default-text;
-    margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
   }
 
-  %small-text {
-    font-size: pow($ms-ratio, -1) * 1rem;
-    line-height: map-get($line-heights, small);
-    margin-bottom: map-get($sp-after, small) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
-    padding-top: map-get($nudges, nudge--small);
+  // misc
+  strong {
+    @extend %bold;
   }
 
-  %muted-heading {
+  small {
     @extend %small-text;
-    color: $color-mid-dark;
-    margin-bottom: -(map-get($nudges, nudge--muted)) + $spv-inter--condensed;
-    margin-top: 0;
-    text-transform: uppercase;
-  }
 
-  %max-width--p {
-    max-width: 38em;
-  }
-
-  //expose measure as a class
-  %measure--p,
-  .measure--p {
-    @extend %max-width--p;
-  }
-
-  %bold {
-    font-weight: 400;
-  }
-
-  .has-eyebrow {
-    margin-top: -2 * $sp-unit;
-
-    p:not([class^='.p-heading-']) + & {
-      margin-top: -6 * $sp-unit;
+    &.dense {
+      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
     }
   }
-}
 
-// Optimal max-width for main headings (up to 2 lines of copy)
-@mixin heading-max-width--short {
-  max-width: 20em;
-}
+  sub,
+  sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
 
-// Optimal max-width for headings (up to 3 lines of copy)
-@mixin heading-max-width--mid {
-  max-width: 25em;
-}
-
-// Optimal max-width for headings (up to 3 lines of copy)
-@mixin heading-max-width--long {
-  max-width: 30em;
-}
-
-// Optimal max-width for body copy
-@mixin p-max-width {
-  @extend %max-width--p;
-}
-
-// Relaxed max-width for cases like notifications, where minimizing vertical height is
-// more important than maintaining the optimal max-width of 35em
-@mixin p-max-width--long {
-  max-width: 60em;
-}
-
-// For compatibility with other sites which rely on these mixins
-@mixin vf-heading-1 {
-  @extend %vf-heading-1;
-}
-
-@mixin vf-heading-2 {
-  @extend %vf-heading-2;
-}
-
-@mixin vf-heading-3 {
-  @extend %vf-heading-3;
-}
-
-@mixin vf-heading-4 {
-  @extend %vf-heading-4;
-}
-
-@mixin vf-heading-5 {
-  @extend %vf-heading-5;
-}
-
-@mixin vf-heading-6 {
-  @extend %vf-heading-6;
+  abbr[title] {
+    border-bottom: 0.1em dotted;
+    cursor: help;
+    text-decoration: none;
+  }
 }

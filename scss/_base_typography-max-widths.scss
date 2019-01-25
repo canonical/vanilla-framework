@@ -1,0 +1,32 @@
+@mixin vf-b-typography-max-widths {
+  %max-width--p {
+    max-width: map-get($max-widths, default);
+  }
+
+  //expose measure as a class
+  %measure--p,
+  .measure--p {
+    @extend %max-width--p;
+  }
+}
+
+// Optimal max-width for body copy
+@mixin p-max-width {
+  @extend %max-width--p;
+}
+
+// Optimal max-width for main headings (up to 2 lines of copy)
+@mixin heading-max-width--short {
+  max-width: map-get($max-widths, heading--short);
+}
+
+// Optimal max-width for headings (up to 3 lines of copy)
+@mixin heading-max-width--long {
+  max-width: map-get($max-widths, heading--long);
+}
+
+// Relaxed max-width for cases like notifications, where minimizing vertical height is
+// more important than maintaining the optimal value
+@mixin p-max-width--long {
+  max-width: map-get($max-widths, long);
+}

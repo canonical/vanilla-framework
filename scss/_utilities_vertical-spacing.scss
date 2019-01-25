@@ -9,8 +9,6 @@
     position: relative;
   }
 
-  $slug: u-sv !default;
-
   @for $i from $start through $end {
     .u-sv#{$i} {
       &::after {
@@ -21,6 +19,16 @@
 
         margin-top: $sp-unit * $i - $px; // subtracting the element height, which is set to 1px above.
       }
+    }
+  }
+}
+
+@mixin vf-u-eyebrow {
+  .has-eyebrow {
+    margin-top: -2 * $sp-unit;
+
+    p:not([class*='-heading']) + & {
+      margin-top: -6 * $sp-unit;
     }
   }
 }
