@@ -20,8 +20,8 @@ $line-heights: (
   h3-mobile: 4 * $sp-unit,
   h4-mobile: 3 * $sp-unit,
   default-text: 3 * $sp-unit,
-  small: $sp-unit * 2.5,
-  table-headers: $sp-unit * 2
+  table-headers: $sp-unit * 2,
+  small: $sp-unit * 2
 ) !default;
 
 // baseline nudges for type scale ratio of (16/14) squared
@@ -35,8 +35,7 @@ $nudges: (
   nudge--h3-mobile: 0.5rem,
   nudge--h4-mobile: 0.3rem,
   nudge--p: 0.4rem,
-  nudge--small: 0.05rem,
-  nudge--muted: 0
+  nudge--small: 0.2rem
 ) !default;
 
 //scaling factor
@@ -83,15 +82,15 @@ $sp-before: (
   h2: $sp-unit * 3,
   h3: $sp-unit * 3,
   h4: $sp-unit * 3,
-  h5: $sp-unit * 3,
-  h6: $sp-unit * 3,
+  p: $sp-unit * 3,
   h1-mobile: $sp-unit * 3,
   h2-mobile: $sp-unit * 3,
   h3-mobile: $sp-unit * 3,
   h4-mobile: $sp-unit * 3,
-  p: $sp-unit * 2,
-  muted: $sp-unit * 2
+  muted: $sp-unit * 3
 ) !default;
+
+$spv-p-after-heading-adjustment: #{$sp-unit * -1};
 
 // space after element on desktop
 $sp-after: (
@@ -99,19 +98,22 @@ $sp-after: (
   h2: $sp-unit * 3,
   h3: $sp-unit * 3,
   h4: $sp-unit * 2,
-  h5: $sp-unit * 3,
   p: $sp-unit * 3,
   h1-mobile: $sp-unit * 2,
   h2-mobile: $sp-unit * 2,
   h3-mobile: $sp-unit * 2,
   h4-mobile: $sp-unit * 2,
-  muted: $sp-unit * 2,
-  small: $sp-unit * 1,
+  small: $sp-unit * 2,
   small--dense: $sp-unit * 2,
   default-text: $sp-unit
 ) !default;
 
-$spv-p-after-heading-adjustment: -#{$sp-unit};
+$max-widths: (
+  long: 60em,
+  default: 38em,
+  heading--long: 30em,
+  heading--short: 20em
+) !default;
 
 $icon-sizes: (
   accordion: $sp-unit * 1.5,
