@@ -18,13 +18,20 @@
     // sass-lint:enable no-vendor-prefixes
     color: $color-dark;
     font-family: unquote($font-base-family);
-    font-size: $font-base-size;
     // sass-lint:disable no-misspelled-properties
     font-smoothing: subpixel-antialiased;
     // sass-lint:enable no-misspelled-properties
     font-weight: 300;
     // set default line height to match p
     line-height: map-get($line-heights, default-text);
+
+    @media screen and (max-width: $breakpoint-x-large) {
+      font-size: map-get($fontsizes, base);
+    }
+
+    @media screen and (min-width: $breakpoint-x-large) {
+      font-size: map-get($fontsizes, big);
+    }
   }
 
   // headings
