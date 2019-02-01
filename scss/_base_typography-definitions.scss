@@ -146,7 +146,9 @@
   }
 
   %sp--ph3 {
-    padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
+    }
 
     @media (max-width: $breakpoint-heading-threshold) {
       padding-top: map-get($nudges, nudge--h3-mobile) + map-get($sp-before, h3-mobile);
@@ -154,7 +156,13 @@
   }
 
   %sp--ph4 {
-    padding-top: map-get($nudges, nudge--h4) + map-get($sp-before, h4);
+    @media (max-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h4-mobile) + map-get($sp-before, h4);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($nudges, nudge--h4) + map-get($sp-before, h4);
+    }
   }
 
   %sp--ph5 {
