@@ -25,12 +25,16 @@
     // set default line height to match p
     line-height: map-get($line-heights, default-text);
 
-    @media screen and (max-width: $breakpoint-x-large) {
-      font-size: map-get($fontsizes, base);
-    }
+    @if ($increase-fontsize-on-bigger-screens) {
+      @media screen and (max-width: $breakpoint-x-large) {
+        font-size: map-get($fontsizes, base);
+      }
 
-    @media screen and (min-width: $breakpoint-x-large) {
-      font-size: map-get($fontsizes, big);
+      @media screen and (min-width: $breakpoint-x-large) {
+        font-size: map-get($fontsizes, big);
+      }
+    } @else {
+      font-size: map-get($fontsizes, base);
     }
   }
 
