@@ -6,8 +6,8 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
     margin-bottom: $input-margin-bottom;
-    padding-bottom: $spv-nudge - $px;
-    padding-top: $spv-nudge - $px;
+    padding-bottom: calc(#{$spv-nudge} - 1px);
+    padding-top: calc(#{$spv-nudge} - 1px);
   }
 
   // Default form input element styles
@@ -33,8 +33,8 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
     table & {
       margin: 0 0 ($spv-inner--small - $spv-nudge) 0;
-      padding-bottom: ($spv-nudge - $px) - $spv-inner--x-small;
-      padding-top: ($spv-nudge - $px) - $spv-inner--x-small;
+      padding-bottom: calc(#{$spv-nudge - $spv-inner--x-small} - 1px);
+      padding-top: calc(#{$spv-nudge - $spv-inner--x-small} - 1px);
     }
 
     &:active {
@@ -74,7 +74,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     $box-size: 1rem;
     $box-offset-top: $spv-inner--x-small;
     $label-offset--left: $sph-inner + $box-size;
-    $tick-offset-top: $box-offset-top + 3 * $px;
+    $tick-offset-top: calc(#{$box-offset-top} + 3px);
     opacity: 0;
     position: absolute;
 
@@ -299,7 +299,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
       option {
         font-weight: 300;
-        line-height: $sp-unit * 2 - 2 * $px;
+        line-height: calc(#{$sp-unit * 2} - 2px);
         padding: $spv-inner--small $sph-inner--small;
       }
     }
