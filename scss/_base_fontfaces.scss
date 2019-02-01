@@ -1,0 +1,108 @@
+@mixin vf-b-typography-fontfaces {
+  @if str-index($font-base-family, 'Ubuntu') {
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 300;
+      src: url('#{$assets-path}e8c07df6-Ubuntu-L_W.woff2') format('woff2'), url('#{$assets-path}8619add2-Ubuntu-L_W.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 400;
+      src: url('#{$assets-path}fff37993-Ubuntu-R_W.woff2') format('woff2'), url('#{$assets-path}7af50859-Ubuntu-R_W.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 300;
+      src: url('#{$assets-path}f8097dea-Ubuntu-LI_W.woff2') format('woff2'), url('#{$assets-path}8be89d02-Ubuntu-LI_W.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: italic;
+      font-weight: 400;
+      src: url('#{$assets-path}fca66073-ubuntu-ri-webfont.woff2') format('woff2'), url('#{$assets-path}f0898c72-ubuntu-ri-webfont.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 100;
+      src: url('#{$assets-path}7f100985-Ubuntu-Th_W.woff2') format('woff2'), url('#{$assets-path}502cc3a1-Ubuntu-Th_W.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu Mono';
+      font-style: normal;
+      font-weight: 300;
+      src: url('#{$assets-path}fdd692b9-UbuntuMono-R_W.woff2') format('woff2'), url('#{$assets-path}85edb898-UbuntuMono-R_W.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Ubuntu Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('#{$assets-path}fdd692b9-UbuntuMono-R_W.woff2') format('woff2'), url('#{$assets-path}85edb898-UbuntuMono-R_W.woff') format('woff');
+    }
+
+    @if $font-allow-cyrillic-greek-latin {
+      // cyrillic-ext
+      @font-face {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Ubuntu'), url('#{$font-import}ODszJI8YqNw8V2xPulzjO_esZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
+        unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+      }
+
+      // cyrillic
+      @font-face {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Ubuntu'), url('#{$font-import}iQ9VJx1UMASKNiGywyyCXvesZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
+        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+
+      // greek-ext
+      @font-face {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Ubuntu'), url('#{$font-import}WkvQmvwsfw_KKeau9SlQ2_esZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
+        unicode-range: U+1F00-1FFF;
+      }
+
+      // greek
+      @font-face {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Ubuntu'), url('#{$font-import}gYAtqXUikkQjyJA1SnpDLvesZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
+        unicode-range: U+0370-03FF;
+      }
+
+      // latin-ext
+      @font-face {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Ubuntu'), url('#{$font-import}Wu5Iuha-XnKDBvqRwQzAG_esZW2xOQ-xsNqO47m55DA.woff2') format('woff2');
+        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      // latin
+      @font-face {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Ubuntu'), url('#{$font-import}sDGTilo5QRsfWu6Yc11AXg.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+      }
+    }
+  }
+}
