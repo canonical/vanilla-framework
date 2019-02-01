@@ -23,8 +23,8 @@
       @extend %single-border-text-vpadding--scaling;
       @include vf-focus;
 
-      $calculated-height: $multi * $spv-intra--condensed * 2 - $px + map-get($line-heights, default-text);
-      $offset-top: ($calculated-height - $icon-size) * 0.5;
+      $calculated-height: $multi * $spv-intra--condensed * 2 + map-get($line-heights, default-text);
+      $offset-top: calc(#{($calculated-height - $icon-size) * 0.5} - 1px);
       background: {
         position: top $offset-top right $sph-intra;
         repeat: no-repeat;
