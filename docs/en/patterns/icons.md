@@ -212,7 +212,7 @@ When placed within `.p-strip--dark`, icon colors are reverted to ensure legibili
         <i class="p-icon--facebook" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--facebook</code>
       </div>
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--google" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--google</code>
+        <i class="p-icon--instagram" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--instagram</code>
       </div>
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--twitter" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--twitter</code>
@@ -220,21 +220,18 @@ When placed within `.p-strip--dark`, icon colors are reverted to ensure legibili
     </div>
 
     <div class="row">
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--instagram" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--instagram</code>
-      </div>
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--linkedin" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--linkedin</code>
-      </div>
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--youtube" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--youtube</code>
-      </div>
+    <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
+      <i class="p-icon--linkedin" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--linkedin</code>
+    </div>
+    <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
+      <i class="p-icon--youtube" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--youtube</code>
+    </div>
+    <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
+      <i class="p-icon--canonical" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--canonical</code>
+    </div>
     </div>
 
     <div class="row">
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--canonical" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--canonical</code>
-      </div>
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--ubuntu" style="margin-right: 1rem; flex-shrink: 0;"></i><code>p-icon--ubuntu</code>
       </div>
@@ -249,7 +246,6 @@ If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we re
 
 - [**Twitter**](https://dev.twitter.com/web/tweet-button)
 - [**Facebook**](https://developers.facebook.com/docs/plugins/share-button/)
-- [**Google+**](https://developers.google.com/+/web/share/)
 - [**LinkedIn**](https://developer.linkedin.com/plugins/share)
 
 <hr />
