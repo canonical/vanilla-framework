@@ -1,0 +1,173 @@
+---
+layout: default
+title: Navigation / Sub Navigation
+category: _patterns
+---
+<header id="navigation" class="p-navigation">
+  <div class="p-navigation__banner">
+    <div class="p-navigation__logo">
+      <a class="p-navigation__link" href="#">
+        <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="" width="95" />
+      </a>
+    </div>
+    <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+    <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+  </div>
+  <nav class="p-navigation__nav">
+    <form class="p-search-box" action="/search">
+      <input type="search" class="p-search-box__input" name="q" placeholder="Search" required="">
+      <button type="reset" class="p-search-box__reset" alt="reset"><i class="p-icon--close"></i></button>
+      <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+    </form>
+    <span class="u-off-screen">
+      <a href="#main-content">Jump to main content</a>
+    </span>
+    <ul class="p-navigation__links" role="menu">
+      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="sweets">
+        <a href="#sweets-menu" class="p-subnav__toggle-link">
+          Sweets <i class="p-subnav__toggle-indicator"></i>
+        </a>
+        <ul class="p-subnav u-hide" id="sweets-menu" aria-hidden="true">
+          <li>
+            <a href="#" class="p-subnav__item">Toffee</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Chocolate</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Jelly beans</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Fudge</a>
+          </li>
+        </ul>
+      </li>
+      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="drinks">
+        <a href="#drinks-menu" class="p-subnav__toggle-link">
+          Drinks <i class="p-subnav__toggle-indicator"></i>
+        </a>
+        <ul class="p-subnav u-hide" id="drinks-menu" aria-hidden="true">
+          <li>
+            <a href="#" class="p-subnav__item">Cola</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Orange juice</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Coffee</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Water</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Iced tea</a>
+          </li>
+        </ul>
+      </li>
+      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="fruit">
+        <a href="#fruit-menu" class="p-subnav__toggle-link">
+          Fruit <i class="p-subnav__toggle-indicator"></i>
+        </a>
+        <ul class="p-subnav u-hide" id="fruit-menu" aria-hidden="true">
+          <li>
+            <a href="#" class="p-subnav__item">Apples</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Bananas</a>
+          </li>
+          <li>
+            <a href="#" class="p-subnav__item">Oranges</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+var dropdowns = document.querySelectorAll('.p-subnav');
+var dropdownToggles = document.querySelectorAll('.p-subnav__toggle');
+var dropdownToggleLinks = document.querySelectorAll('.p-subnav__toggle-link');
+
+dropdownToggleLinks.forEach(function(dropdownToggleLink) {
+  dropdownToggleLink.addEventListener('click', function(event) {
+    event.preventDefault();
+  });
+});
+
+dropdownToggles.forEach(function(dropdownToggle) {
+  dropdownToggle.addEventListener('click', function(event) {
+    event.stopPropagation();
+
+    var clickedDropdown = this;
+
+    dropdownToggles.forEach(function(dropdownToggle) {
+      var dropdownContent = document.getElementById(dropdownToggle.id + "-menu");
+      if (dropdownToggle === clickedDropdown) {
+        if (dropdownToggle.classList.contains('is-active')) {
+          closeMenu(dropdownToggle, dropdownContent);
+        } else {
+          dropdownToggle.classList.add('is-active');
+          showElement(dropdownContent);
+
+          if (window.history.pushState) {
+            window.history.pushState(null, null, '#' + dropdownToggle.id);
+          }
+        }
+      } else {
+        dropdownToggle.classList.remove('is-active');
+        hideElement(dropdownContent);
+      }
+    });
+  });
+});
+
+function closeMenu(dropdownToggle, dropdownContent) {
+  dropdownToggle.classList.remove('is-active');
+  hideElement(dropdownContent);
+  if (window.history.pushState) {
+    window.history.pushState(null, null, window.location.href.split('#')[0]);
+  }
+}
+
+if (window.location.hash) {
+  var tabId = window.location.hash.split('#')[1];
+  var tab = document.getElementById(tabId);
+  var tabContent = document.getElementById(tabId + '-menu');
+
+  if (tab) {
+    setTimeout(function() {
+      document.getElementById(tabId).click();
+    }, 0);
+  }
+}
+
+function closeMainMenu() {
+  dropdownToggles.forEach(function(element) {
+    element.classList.remove('is-active');
+  });
+  dropdowns.forEach(function(element) {
+    hideElement(element);
+  });
+}
+
+function hideElement(element) {
+  element.classList.add('u-hide');
+  element.setAttribute("aria-hidden", "true");
+}
+
+function showElement(element) {
+  element.classList.remove('u-hide');
+  element.setAttribute("aria-hidden", "false");
+}
+
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item a')) {
+    closeMainMenu();
+  }
+});
+
+</script>

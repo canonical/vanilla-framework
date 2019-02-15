@@ -20,7 +20,7 @@ The background color of a navigation pattern can be set via the
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/default/"
     class="js-example">
-    View example of the navigation pattern
+View example of the navigation pattern
 </a>
 
 Tip: You can change the breakpoint at which the menu changes to a small screen
@@ -36,12 +36,23 @@ set the layout. This pattern includes a tagline which sits next to the logo.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/sidebar/"
     class="js-example">
-    View example of the sidebar navigation pattern
+View example of the sidebar navigation pattern
+</a>
+
+### Sub-navigation
+
+Sub-navigation drop-down menus can be added to the navigation by including one
+or more `p-subnav` components. Note that this functionality requires JavaScipt
+to function.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/subnav"
+    class="js-example">
+View example of the sub-navigation pattern
 </a>
 
 <hr />
 
 ### Design
 
-* [Navigation design](https://github.com/ubuntudesign/vanilla-design/tree/master/Navigation)
-* [Sidebar navigation design](https://github.com/ubuntudesign/vanilla-design/tree/master/Sidebar%20navigation)
+- [Navigation design](https://github.com/ubuntudesign/vanilla-design/tree/master/Navigation)
+- [Sidebar navigation design](https://github.com/ubuntudesign/vanilla-design/tree/master/Sidebar%20navigation)
