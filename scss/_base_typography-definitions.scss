@@ -3,37 +3,49 @@
 
   %vf-heading-1 {
     @include heading-max-width--short;
-    font-size: pow($ms-ratio, 8) * 1rem;
     font-style: normal;
     font-weight: 100;
-    line-height: map-get($line-heights, h1);
-    margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
     margin-top: -#{$sp-unit};
-    padding-top: map-get($nudges, nudge--h1);
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: pow($ms-ratio, 6) * 1rem;
       line-height: map-get($line-heights, h1-mobile);
+      // line-height: (6 * $sp-unit-ratio) / pow($ms-ratio, 6) + 0.000;
       margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, nudge--h1-mobile);
       padding-top: map-get($nudges, nudge--h1-mobile);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 8) * 1rem;
+      line-height: map-get($line-heights, h1);
+      margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
+      padding-top: map-get($nudges, nudge--h1);
     }
   }
 
   %vf-heading-2 {
     @include heading-max-width--short;
-    font-size: pow($ms-ratio, 6) * 1rem;
     font-style: normal;
     font-weight: 100;
-    line-height: map-get($line-heights, h2);
-    margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
     margin-top: -#{$sp-unit};
-    padding-top: map-get($nudges, nudge--h2);
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: 1.83274rem; // pow($ms-ratio, 4.5) * 1rem
       line-height: map-get($line-heights, h2-mobile);
       margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, nudge--h2-mobile);
       padding-top: map-get($nudges, nudge--h2-mobile);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 6) * 1rem;
+      line-height: map-get($line-heights, h2);
+      margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
+      padding-top: map-get($nudges, nudge--h2);
+    }
+
+    @media (min-width: $breakpoint-x-large) {
+      margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2-largescreen);
+      padding-top: map-get($nudges, nudge--h2-largescreen);
     }
   }
 
