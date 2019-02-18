@@ -73,7 +73,7 @@ $nav-border-bottom-thickness: $px;
       @extend %vf-heading-3;
       display: flex;
       flex: 0 0 auto;
-      // margin: $spv-intra--expanded $sph-intra $spv-inter--scaleable $grid-margin-width;
+      // margin: $spv-inner--expanded $sph-inner $spv-inter--scaleable $grid-margin-width;
       margin-left: 0;
 
       .p-navigation__image {
@@ -197,7 +197,7 @@ $nav-border-bottom-thickness: $px;
       position: relative;
 
       @media (max-width: $breakpoint-navigation-threshold) {
-        padding: $spv-intra--expanded $grid-margin-width;
+        padding: $spv-inner--expanded $grid-margin-width;
 
         &::before {
           background: $border-color;
@@ -212,7 +212,7 @@ $nav-border-bottom-thickness: $px;
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
         border-left: 1px solid $border-color;
-        padding: $spv-intra--expanded $sph-intra;
+        padding: $spv-inner--expanded $sph-inner;
 
         &::before {
           background: $border-color;
@@ -254,7 +254,7 @@ $nav-border-bottom-thickness: $px;
     display: flex;
     flex: 0 0 auto;
     height: 3rem;
-    margin: 0 $sph-intra 0 $grid-margin-width;
+    margin: 0 $sph-inner 0 $grid-margin-width;
 
     .p-navigation__link {
       display: flex;
@@ -280,16 +280,16 @@ $nav-border-bottom-thickness: $px;
 
     @media (max-width: $breakpoint-navigation-threshold) {
       flex: 1 0 auto;
-      margin: -1px $grid-margin-width $spv-intra $grid-margin-width;
+      margin: -1px $grid-margin-width $spv-inner $grid-margin-width;
       order: -1;
     }
 
     @media (min-width: $breakpoint-navigation-threshold + 1) {
       // align baselines of menu items and input text
-      $input-gap-top: $spv-intra--expanded - $spv-nudge;
+      $input-gap-top: $spv-inner--expanded - $spv-nudge;
       display: flex;
       flex: 1 1 auto;
-      margin: $input-gap-top $sph-intra auto auto;
+      margin: $input-gap-top $sph-inner auto auto;
       max-width: 20rem;
       order: 1;
     }
@@ -327,8 +327,8 @@ $nav-border-bottom-thickness: $px;
     &--open,
     &--close {
       display: none;
-      margin: 0 $grid-margin-width auto $sph-intra;
-      padding: $spv-intra--expanded 0;
+      margin: 0 $grid-margin-width auto $sph-inner;
+      padding: $spv-inner--expanded 0;
     }
 
     &--open {
