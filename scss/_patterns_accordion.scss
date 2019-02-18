@@ -23,18 +23,18 @@
       @extend %single-border-text-vpadding--scaling;
       @include vf-focus;
 
-      $calculated-height: $multi * $spv-intra--condensed * 2 - $px + map-get($line-heights, default-text);
+      $calculated-height: $multi * $spv-inner--condensed * 2 - $px + map-get($line-heights, default-text);
       $offset-top: ($calculated-height - $icon-size) * 0.5;
       background: {
-        position: top $offset-top right $sph-intra;
+        position: top $offset-top right $sph-inner;
         repeat: no-repeat;
       }
       background-color: inherit;
       border: 0;
       border-radius: 0;
       margin-bottom: 0;
-      padding-left: $sph-intra;
-      padding-right: $sph-intra;
+      padding-left: $sph-inner;
+      padding-right: $sph-inner;
       text-align: left;
       transition-duration: 0s;
       width: 100%;
@@ -56,7 +56,7 @@
       border-bottom: 1px solid $color-mid-light;
       margin: 0;
       overflow: auto; // include child margins into its height
-      padding-left: $sph-intra * 2;
+      padding-left: $sph-inner * 2;
 
       // Hides panel content
       &[aria-hidden='true'] {
