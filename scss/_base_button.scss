@@ -18,7 +18,7 @@
     font-size: 1rem;
     font-weight: 300;
     line-height: map-get($line-heights, default-text);
-    margin-bottom: $spv-inter--scaleable + 2 * $spv-nudge-compensation;
+    margin-bottom: $spv-outer--scaleable + 2 * $spv-nudge-compensation;
     padding: $spv-nudge - $px $sph-inner--condensed * 1.5;
     text-align: center;
     text-decoration: none;
@@ -43,7 +43,7 @@
       width: auto;
 
       &:not(:last-of-type):not(:only-of-type) {
-        margin-right: $sph-inter;
+        margin-right: $sph-outer;
       }
     }
 
@@ -55,17 +55,17 @@
 
     // The following three rules address buttons nested in <p>'s;
     p & {
-      margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
+      margin-bottom: $spv-outer--condensed-scaleable - $spv-nudge;
       margin-top: -#{$spv-nudge};
     }
 
     p + p > & {
-      margin-top: $spv-inter--condensed - $spv-nudge;
+      margin-top: $spv-outer--condensed - $spv-nudge;
     }
 
     @media only screen and (max-width: $breakpoint-x-small) {
       p & + & {
-        margin-top: $spv-inter--condensed + $spv-nudge-compensation;
+        margin-top: $spv-outer--condensed + $spv-nudge-compensation;
       }
     }
   }
