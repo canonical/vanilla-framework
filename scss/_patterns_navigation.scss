@@ -199,7 +199,7 @@ $nav-border-bottom-thickness: $px;
         padding: $spv-inner--large $grid-margin-width;
 
         &::before {
-          background: $border-color;
+          background: $color-light;
           content: '';
           height: $nav-border-bottom-thickness;
           left: 0;
@@ -210,7 +210,6 @@ $nav-border-bottom-thickness: $px;
       }
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
-        border-left: 1px solid $border-color;
         padding: $spv-inner--large $sph-inner;
 
         &::before {
@@ -225,14 +224,18 @@ $nav-border-bottom-thickness: $px;
       }
 
       &:hover {
-        background-color: if(lightness($color-navigation-background) > 50, darken($color-navigation-background, 3%), lighten($color-navigation-background, 15%));
+        color: $color-navigation-selected;
+      }
+    }
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      &:first-child > a::before {
+        background: $border-color;
       }
     }
 
     &.is-selected > a {
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        @include vf-highlight-bar($color-navigation-active-bar, bottom, true);
-      }
+      color: $color-navigation-selected;
     }
   }
 
@@ -307,6 +310,10 @@ $nav-border-bottom-thickness: $px;
   }
 
   &:target {
+    &::after {
+      display: none;
+    }
+
     .p-navigation__nav {
       display: flex;
     }
