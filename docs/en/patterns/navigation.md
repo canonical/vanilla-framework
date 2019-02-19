@@ -42,8 +42,7 @@ View example of the sidebar navigation pattern
 ### Sub-navigation
 
 Sub-navigation drop-down menus can be added to the navigation by including one
-or more `p-subnav` components. Note that this functionality requires JavaScipt
-to function.
+or more `p-subnav` components. Note that this functionality requires JavaScript.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/subnav"
     class="js-example">
