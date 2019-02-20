@@ -42,7 +42,13 @@ View example of the sidebar navigation pattern
 ### Sub-navigation
 
 Sub-navigation drop-down menus can be added to the navigation by including one
-or more `p-subnav` components. Note that this functionality requires JavaScript.
+or more `p-subnav` components.
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span> This component's functionality requires JavaScript. The <a href="https://github.com/vanilla-framework/vanilla-framework/blob/develop/examples/patterns/navigation/subnav.html">sub-navigation example</a> provides an example implementation.
+  </p>
+</div>
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/subnav"
     class="js-example">
