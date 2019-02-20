@@ -95,7 +95,7 @@ dropdownToggles.forEach(function(dropdownToggle) {
     var clickedDropdown = this;
 
     dropdownToggles.forEach(function(dropdownToggle) {
-      var dropdownContent = document.getElementById(dropdownToggle.id + "-menu");
+      var dropdownContent = dropdownToggle.querySelector('.p-subnav__items');
       if (dropdownToggle === clickedDropdown) {
         if (dropdownToggle.classList.contains('is-active')) {
           closeMenu(dropdownToggle, dropdownContent);
@@ -114,18 +114,6 @@ dropdownToggles.forEach(function(dropdownToggle) {
 function closeMenu(dropdownToggle, dropdownContent) {
   dropdownToggle.classList.remove('is-active');
   hideElement(dropdownContent);
-}
-
-if (window.location.hash) {
-  var tabId = window.location.hash.split('#')[1];
-  var tab = document.getElementById(tabId);
-  var tabContent = document.getElementById(tabId + '-menu');
-
-  if (tab) {
-    setTimeout(function() {
-      document.getElementById(tabId).click();
-    }, 0);
-  }
 }
 
 function closeMainMenu() {
@@ -147,6 +135,7 @@ function showElement(element) {
   element.setAttribute("aria-hidden", "false");
 }
 
+// Close all menus if anything else on the page is clicked
 document.addEventListener('click', function(event) {
   if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item')) {
     closeMainMenu();
