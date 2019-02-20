@@ -106,10 +106,6 @@ dropdownToggles.forEach(function(dropdownToggle) {
         } else {
           dropdownToggle.classList.add('is-active');
           showElement(dropdownContent);
-
-          if (window.history.pushState) {
-            window.history.pushState(null, null, '#' + dropdownToggle.id);
-          }
         }
       } else {
         dropdownToggle.classList.remove('is-active');
@@ -122,9 +118,6 @@ dropdownToggles.forEach(function(dropdownToggle) {
 function closeMenu(dropdownToggle, dropdownContent) {
   dropdownToggle.classList.remove('is-active');
   hideElement(dropdownContent);
-  if (window.history.pushState) {
-    window.history.pushState(null, null, window.location.href.split('#')[0]);
-  }
 }
 
 if (window.location.hash) {
