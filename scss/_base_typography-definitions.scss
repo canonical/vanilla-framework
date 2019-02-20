@@ -17,8 +17,18 @@
     @media (min-width: $breakpoint-heading-threshold) {
       font-size: pow($ms-ratio, 8) * 1rem;
       line-height: map-get($line-heights, h1);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
       margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
       padding-top: map-get($nudges, nudge--h1);
+    }
+
+    @if ($increase-fontsize-on-bigger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1-large);
+        padding-top: map-get($nudges, nudge--h1-large);
+      }
     }
   }
 
@@ -63,19 +73,32 @@
 
   %vf-heading-4 {
     @include heading-max-width--long;
-    font-size: pow($ms-ratio, 2) * 1rem;
     font-style: normal;
     font-weight: 300;
-    line-height: map-get($line-heights, h4);
-    margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
     margin-top: 0;
-    padding-top: map-get($nudges, nudge--h4);
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: 1.22176rem; // pow($ms-ratio, 1.5) * 1rem
       line-height: map-get($line-heights, h4-mobile);
       margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, nudge--h4-mobile);
       padding-top: map-get($nudges, nudge--h4-mobile);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: pow($ms-ratio, 2) * 1rem;
+      line-height: map-get($line-heights, h4);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4);
+      padding-top: map-get($nudges, nudge--h4);
+    }
+
+    @if ($increase-fontsize-on-bigger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: map-get($sp-after, h4) - map-get($nudges, nudge--h4-large);
+        padding-top: map-get($nudges, nudge--h4-large);
+      }
     }
   }
 
