@@ -26,7 +26,7 @@ category: _patterns
       <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-1">
         <a href="#link-1-menu" class="p-subnav__toggle-link">Link 1</i>
         </a>
-        <ul class="p-subnav u-hide" id="link-1-menu" aria-hidden="true">
+        <ul class="p-subnav" id="link-1-menu" aria-hidden="true" style="display: none;">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -41,7 +41,7 @@ category: _patterns
       <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-2">
         <a href="#link-2-menu" class="p-subnav__toggle-link">Link 2</i>
         </a>
-        <ul class="p-subnav u-hide" id="link-2-menu" aria-hidden="true">
+        <ul class="p-subnav" id="link-2-menu" aria-hidden="true" style="display: none;">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -61,7 +61,7 @@ category: _patterns
       </li>
       <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-3">
         <a href="#link-3-menu" class="p-subnav__toggle-link">Link 3</a>
-        <ul class="p-subnav u-hide" id="link-3-menu" aria-hidden="true">
+        <ul class="p-subnav" id="link-3-menu" aria-hidden="true" style="display: none;">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -138,12 +138,12 @@ function closeMainMenu() {
 }
 
 function hideElement(element) {
-  element.classList.add('u-hide');
+  element.style.display = 'none';
   element.setAttribute("aria-hidden", "true");
 }
 
 function showElement(element) {
-  element.classList.remove('u-hide');
+  element.style.display = 'block';
   element.setAttribute("aria-hidden", "false");
 }
 
