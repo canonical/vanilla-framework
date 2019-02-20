@@ -23,11 +23,10 @@ category: _patterns
       <a href="#main-content">Jump to main content</a>
     </span>
     <ul class="p-navigation__links" role="menu">
-      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-1">
-        <a href="#link-1-menu" class="p-subnav__toggle-link">
-          Link 1 <i class="p-subnav__toggle-indicator"></i>
+      <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
+        <a href="#link-1-menu" class="p-subnav__toggle">Link 1</i>
         </a>
-        <ul class="p-subnav u-hide" id="link-1-menu" aria-hidden="true">
+        <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -39,11 +38,10 @@ category: _patterns
           </li>
         </ul>
       </li>
-      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-2">
-        <a href="#link-2-menu" class="p-subnav__toggle-link">
-          Link 2 <i class="p-subnav__toggle-indicator"></i>
+      <li class="p-navigation__link p-subnav" role="menuitem" id="link-2">
+        <a href="#link-2-menu" class="p-subnav__toggle">Link 2</i>
         </a>
-        <ul class="p-subnav u-hide" id="link-2-menu" aria-hidden="true">
+        <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -61,11 +59,9 @@ category: _patterns
           </li>
         </ul>
       </li>
-      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-3">
-        <a href="#link-3-menu" class="p-subnav__toggle-link">
-          Link 3 <i class="p-subnav__toggle-indicator"></i>
-        </a>
-        <ul class="p-subnav u-hide" id="link-3-menu" aria-hidden="true">
+      <li class="p-navigation__link p-subnav" role="menuitem" id="link-3">
+        <a href="#link-3-menu" class="p-subnav__toggle">Link 3</a>
+        <ul class="p-subnav__items" id="link-3-menu" aria-hidden="true">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -82,85 +78,68 @@ category: _patterns
 </header>
 
 <script>
-var dropdowns = document.querySelectorAll('.p-subnav');
-var dropdownToggles = document.querySelectorAll('.p-subnav__toggle');
-var dropdownToggleLinks = document.querySelectorAll('.p-subnav__toggle-link');
+var subnavContainers = document.querySelectorAll('.p-subnav__items');
+var subnavs = document.querySelectorAll('.p-subnav');
+var subnavToggles = document.querySelectorAll('.p-subnav__toggle');
 
-dropdownToggleLinks.forEach(function(dropdownToggleLink) {
-  dropdownToggleLink.addEventListener('click', function(event) {
+subnavToggles.forEach(function(subnavToggle) {
+  subnavToggle.addEventListener('click', function(event) {
     event.preventDefault();
   });
 });
 
-dropdownToggles.forEach(function(dropdownToggle) {
-  dropdownToggle.addEventListener('click', function(event) {
+subnavs.forEach(function(currentSubnav) {
+  currentSubnav.addEventListener('click', function(event) {
     event.stopPropagation();
 
     var clickedDropdown = this;
 
-    dropdownToggles.forEach(function(dropdownToggle) {
-      var dropdownContent = document.getElementById(dropdownToggle.id + "-menu");
-      if (dropdownToggle === clickedDropdown) {
-        if (dropdownToggle.classList.contains('is-active')) {
-          closeMenu(dropdownToggle, dropdownContent);
+    subnavs.forEach(function(subnav) {
+      var subnavContent = subnav.querySelector('.p-subnav__items');
+      if (subnav === clickedDropdown) {
+        if (subnav.classList.contains('is-active')) {
+          closeSubnav(subnav, subnavContent);
         } else {
-          dropdownToggle.classList.add('is-active');
-          showElement(dropdownContent);
-
-          if (window.history.pushState) {
-            window.history.pushState(null, null, '#' + dropdownToggle.id);
-          }
+          openSubnav(subnav, subnavContent)
         }
       } else {
-        dropdownToggle.classList.remove('is-active');
-        hideElement(dropdownContent);
+        closeSubnav(subnav, subnavContent);
       }
     });
   });
 });
 
-function closeMenu(dropdownToggle, dropdownContent) {
-  dropdownToggle.classList.remove('is-active');
+function openSubnav(subnav, subnavContent) {
+  subnav.classList.add('is-active');
+  showElement(subnavContent);
+}
+
+function closeSubnav(subnav, dropdownContent) {
+  subnav.classList.remove('is-active');
   hideElement(dropdownContent);
-  if (window.history.pushState) {
-    window.history.pushState(null, null, window.location.href.split('#')[0]);
-  }
 }
 
-if (window.location.hash) {
-  var tabId = window.location.hash.split('#')[1];
-  var tab = document.getElementById(tabId);
-  var tabContent = document.getElementById(tabId + '-menu');
-
-  if (tab) {
-    setTimeout(function() {
-      document.getElementById(tabId).click();
-    }, 0);
-  }
-}
-
-function closeMainMenu() {
-  dropdownToggles.forEach(function(element) {
+function closeAllSubnavs() {
+  subnavs.forEach(function(element) {
     element.classList.remove('is-active');
   });
-  dropdowns.forEach(function(element) {
+  subnavContainers.forEach(function(element) {
     hideElement(element);
   });
 }
 
 function hideElement(element) {
-  element.classList.add('u-hide');
   element.setAttribute("aria-hidden", "true");
 }
 
 function showElement(element) {
-  element.classList.remove('u-hide');
   element.setAttribute("aria-hidden", "false");
 }
 
+// Close all menus if anything else on the page is clicked
 document.addEventListener('click', function(event) {
-  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item a')) {
-    closeMainMenu();
+  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item')) {
+    closeAllSubnavs();
   }
 });
 
