@@ -23,10 +23,10 @@ category: _patterns
       <a href="#main-content">Jump to main content</a>
     </span>
     <ul class="p-navigation__links" role="menu">
-      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-1">
-        <a href="#link-1-menu" class="p-subnav__toggle-link">Link 1</i>
+      <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
+        <a href="#link-1-menu" class="p-subnav__toggle">Link 1</i>
         </a>
-        <ul class="p-subnav" id="link-1-menu" aria-hidden="true" style="display: none;">
+        <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true" style="display: none;">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -38,10 +38,10 @@ category: _patterns
           </li>
         </ul>
       </li>
-      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-2">
-        <a href="#link-2-menu" class="p-subnav__toggle-link">Link 2</i>
+      <li class="p-navigation__link p-subnav" role="menuitem" id="link-2">
+        <a href="#link-2-menu" class="p-subnav__toggle">Link 2</i>
         </a>
-        <ul class="p-subnav" id="link-2-menu" aria-hidden="true" style="display: none;">
+        <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true" style="display: none;">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -59,9 +59,9 @@ category: _patterns
           </li>
         </ul>
       </li>
-      <li class="p-navigation__link p-subnav__toggle" role="menuitem" id="link-3">
-        <a href="#link-3-menu" class="p-subnav__toggle-link">Link 3</a>
-        <ul class="p-subnav" id="link-3-menu" aria-hidden="true" style="display: none;">
+      <li class="p-navigation__link p-subnav" role="menuitem" id="link-3">
+        <a href="#link-3-menu" class="p-subnav__toggle">Link 3</a>
+        <ul class="p-subnav__items" id="link-3-menu" aria-hidden="true" style="display: none;">
           <li>
             <a href="#" class="p-subnav__item">Sub item 1</a>
           </li>
@@ -78,9 +78,9 @@ category: _patterns
 </header>
 
 <script>
-var dropdowns = document.querySelectorAll('.p-subnav');
-var dropdownToggles = document.querySelectorAll('.p-subnav__toggle');
-var dropdownToggleLinks = document.querySelectorAll('.p-subnav__toggle-link');
+var dropdowns = document.querySelectorAll('.p-subnav__items');
+var dropdownToggles = document.querySelectorAll('.p-subnav');
+var dropdownToggleLinks = document.querySelectorAll('.p-subnav__toggle');
 
 dropdownToggleLinks.forEach(function(dropdownToggleLink) {
   dropdownToggleLink.addEventListener('click', function(event) {
@@ -148,7 +148,7 @@ function showElement(element) {
 }
 
 document.addEventListener('click', function(event) {
-  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item a')) {
+  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item')) {
     closeMainMenu();
   }
 });
