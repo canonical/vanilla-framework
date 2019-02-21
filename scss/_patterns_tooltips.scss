@@ -1,4 +1,5 @@
 @import 'settings';
+$triangle-height: $sp-unit;
 
 @mixin vf-p-tooltips {
   .p-tooltip {
@@ -11,7 +12,7 @@
       border-radius: $border-radius;
       color: $color-x-light;
       display: none;
-      left: -$sph-inner;
+      left: -#{2 * $triangle-height};
       margin-bottom: 0;
       padding: $spv-inner--small $sph-inner;
       position: absolute;
@@ -24,9 +25,9 @@
 
       &::before {
         border: {
-          bottom: 8px solid $color-dark;
-          left: 8px solid transparent;
-          right: 8px solid transparent;
+          bottom: $triangle-height solid $color-dark;
+          left: $triangle-height solid transparent;
+          right: $triangle-height solid transparent;
         }
         bottom: 100%;
         content: '';
@@ -66,7 +67,7 @@
       .p-tooltip__message {
         bottom: inherit;
         left: initial;
-        right: -$sph-inner;
+        right: -#{2 * $triangle-height};
         top: 100%;
         transform: translateY(13px);
 
@@ -81,18 +82,18 @@
     &--top-left {
       .p-tooltip__message {
         bottom: 100%;
-        left: -$sph-inner;
+        left: -#{2 * $triangle-height};
         top: initial;
         transform: translateX(0%) translateY(-13px);
 
         &::before {
           border: {
-            bottom: 8px solid transparent;
-            left: 8px solid transparent;
-            right: 8px solid transparent;
-            top: 8px solid $color-dark;
+            bottom: $triangle-height solid transparent;
+            left: $triangle-height solid transparent;
+            right: $triangle-height solid transparent;
+            top: $triangle-height solid $color-dark;
           }
-          bottom: -$sph-inner;
+          bottom: -#{2 * $triangle-height};
           left: $sph-inner;
         }
       }
@@ -108,12 +109,12 @@
 
         &::before {
           border: {
-            bottom: 8px solid transparent;
-            left: 8px solid transparent;
-            right: 8px solid transparent;
-            top: 8px solid $color-dark;
+            bottom: $triangle-height solid transparent;
+            left: $triangle-height solid transparent;
+            right: $triangle-height solid transparent;
+            top: $triangle-height solid $color-dark;
           }
-          bottom: -$sph-inner;
+          bottom: -#{2 * $triangle-height};
           left: 50%;
           transform: translateX(-50%);
         }
@@ -125,18 +126,18 @@
       .p-tooltip__message {
         bottom: 100%;
         left: initial;
-        right: -$sph-inner;
+        right: -#{2 * $triangle-height};
         top: initial;
         transform: translateX(0%) translateY(-13px);
 
         &::before {
           border: {
-            bottom: 8px solid transparent;
-            left: 8px solid transparent;
-            right: 8px solid transparent;
-            top: 8px solid $color-dark;
+            bottom: $triangle-height solid transparent;
+            left: $triangle-height solid transparent;
+            right: $triangle-height solid transparent;
+            top: $triangle-height solid $color-dark;
           }
-          bottom: -$sph-inner;
+          bottom: -#{2 * $triangle-height};
           left: initial;
           right: $sph-inner;
         }
@@ -153,10 +154,10 @@
 
         &::before {
           border: {
-            bottom: 8px solid transparent;
-            left: 8px solid transparent;
-            right: 8px solid $color-dark;
-            top: 8px solid transparent;
+            bottom: $triangle-height solid transparent;
+            left: $triangle-height solid transparent;
+            right: $triangle-height solid $color-dark;
+            top: $triangle-height solid transparent;
           }
           bottom: inherit;
           left: 0;
@@ -176,10 +177,10 @@
 
         &::before {
           border: {
-            bottom: 8px solid transparent;
-            left: 8px solid $color-dark;
-            right: 8px solid transparent;
-            top: 8px solid transparent;
+            bottom: $triangle-height solid transparent;
+            left: $triangle-height solid $color-dark;
+            right: $triangle-height solid transparent;
+            top: $triangle-height solid transparent;
           }
           bottom: inherit;
           left: 100%;
