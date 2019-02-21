@@ -1,7 +1,7 @@
 @import 'settings';
 @import 'patterns_icons';
 
-$cc-button-size: 36 * $px;
+$cc-button-size: 36px;
 
 @mixin vf-p-code-copyable {
   .p-code-copyable {
@@ -22,7 +22,7 @@ $cc-button-size: 36 * $px;
       color: $color-mid-dark;
       font-family: unquote($font-monospace);
       line-height: map-get($line-heights, default-text);
-      padding: 0 $cc-button-size + $sph-inner--small 0 $sph-inner * 1.5;
+      padding: 0 calc(#{$cc-button-size} + #{$sph-inner--small}) 0 $sph-inner * 1.5;
       width: 100%;
     }
 
@@ -32,7 +32,7 @@ $cc-button-size: 36 * $px;
       display: block;
       left: 0;
       line-height: map-get($line-heights, default-text);
-      padding: 0 $cc-button-size + $sph-inner--small 0 $sph-inner--small;
+      padding: 0 calc(#{$cc-button-size} + #{$sph-inner--small}) 0 $sph-inner--small;
       position: absolute;
       top: $spv-inner--x-small;
       width: 1rem;
