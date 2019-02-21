@@ -23,10 +23,9 @@
       @extend %single-border-text-vpadding--scaling;
       @include vf-focus;
 
-      $calculated-height: $multi * $spv-inner--x-small * 2 - $px + map-get($line-heights, default-text);
-      $offset-top: ($calculated-height - $icon-size) * 0.5;
+      $calculated-height: $multi * $spv-inner--x-small * 2 + map-get($line-heights, default-text);
       background: {
-        position: top $offset-top right $sph-inner;
+        position: top 50% right $sph-inner;
         repeat: no-repeat;
       }
       background-color: inherit;
