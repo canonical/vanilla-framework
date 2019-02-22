@@ -62,7 +62,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Total media queries',
       benchmark: 14,
-      threshold: 23,
+      threshold: 50,
       result: results['total-media-queries']
     }
   ];
