@@ -123,14 +123,14 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 <div class="row">
    <div class="col-6">
    <div class="p-notification--positive">
-   <p class="p-notification__response"><span class="p-notification__status">Do:</span>Minimal contrast ratio: 4.5</p>
+   <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use a minimum contrast ratio of 4.5</p>
    </div>
    <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/9e60d838-basics-text-color-do.png" alt="text-color-do">
    <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/a55aa80e-basics-button-color-do.png" alt="button-color-do">
    </div>
   <div class="col-6">
   <div class="p-notification--negative">
-  <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Avoid using dark text that isn’t legible on dark backgrounds</p>
+  <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use dark text that isn’t legible on dark backgrounds</p>
   </div>
   <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/9f98d99d-basics-text-color-don%27t.png" alt="text-color-don't">
   <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/4b8dc06e-basics-button-color-don%27t.png" alt="button-color-don't">
@@ -138,5 +138,13 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 </div>
 
 ### Design
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 Click [here](https://github.com/ubuntudesign/vanilla-design/tree/master/Color) to view Color design spec, which includes build MD file and PNG image.
+=======
+=======
+
+>>>>>>> b0b77734... Add break
+For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
+>>>>>>> cd476359... Content changes
