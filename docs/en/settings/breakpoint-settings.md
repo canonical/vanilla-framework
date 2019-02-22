@@ -5,16 +5,16 @@ table_of_contents: true
 
 ## Breakpoints
 
-Vanilla uses four main breakpoints for screen sizes: `$breakpoint-x-small` and `$breakpoint-small` for mobile screen sizes, `$breakpoint-medium` for tablets, and `$breakpoint-large` for desktop/laptop screens.
+Vanilla uses four main breakpoints for screen sizes, below you can see the setting, default width and device examples at which the content will scale.
 
-Setting  | Default value
+Setting | Default value | Device example
  ------------- | -------------
-`$breakpoint-x-small`   | `460px`
-`$breakpoint-small`   | `620px`
-`$breakpoint-medium`   | `768px`
-`$breakpoint-large`   | `1030px`
-`$breakpoint-navigation-threshold`   | `$breakpoint-medium`
-`$breakpoint-heading-threshold`   | `$breakpoint-medium`
+`$breakpoint-x-small`                | `460px`              | Mobile
+`$breakpoint-small`                  | `620px`              | Mobile
+`$breakpoint-medium`                 | `768px`              | Tablet
+`$breakpoint-large`                  | `1030px`             | Desktop
+`$breakpoint-navigation-threshold`   | `$breakpoint-medium` | Tablet
+`$breakpoint-heading-threshold`      | `$breakpoint-medium` | Tablet
 
 ### Target extra small screens
 
@@ -50,10 +50,12 @@ Setting  | Default value
 
 ### Modifying the navigation breakpoint threshold
 
-The `$breakpoint-navigation-threshold` is the breakpoint in which the navigation switches from horizontal (large screen) navigation to a burger style menu (small screen).
+The `$breakpoint-navigation-threshold` is the breakpoint in which the navigation switches from horizontal (desktop devices) navigation to a burger style menu (mobile devices).
+
+<img class="p-image--bordered" src="https://assets.ubuntu.com/v1/68db306c-global-layout-breakpoint-navigation.png" alt="navigation-breakpoint">
 
 If you have a large number of menu items, you may consider overriding this value to a large breakpoint so the navigation snaps to a burger menu at a larger breakpoint.
 
 ### Modifying the heading breakpoint threshold
 
-`$breakpoint-heading-threshold` is the breakpoint in which the heading sizes switch from a 1:2 modular scale ratio (large screens) to a 2:3 ratio (small screens).
+`$breakpoint-heading-threshold` is the breakpoint in which the heading sizes switch from a 1:2 modular scale ratio (desktop devices) to a 2:3 ratio (mobile devices).
