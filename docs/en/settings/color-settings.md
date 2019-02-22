@@ -138,4 +138,5 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 </div>
 
 ### Design
+
 For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
