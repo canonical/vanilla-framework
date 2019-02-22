@@ -17,7 +17,7 @@ Read also: [Breakpoints](/en/settings/breakpoint-settings)
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/default/"
     class="js-example">
-    View example of the default grid
+View example of the default grid
 </a>
 
 ### Empty columns
@@ -32,7 +32,7 @@ By default, prefixes and suffixes only work on top level columns.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
     class="js-example">
-    View example of the empty columns within the grid
+View example of the empty columns within the grid
 </a>
 
 ### Nested columns
@@ -41,11 +41,11 @@ Columns can be nested infinitely by adding `.row` classes within columns. Basica
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/nested/"
     class="js-example">
-    View example of the nested columns within the grid
+View example of the nested columns within the grid
 </a>
 
 <hr />
 
 ### Design
 
-* [Grid design](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid)
+For more information [view the grid design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid), which includes the specification in markdown format and a PNG image.
