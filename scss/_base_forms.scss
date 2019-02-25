@@ -15,7 +15,12 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     @extend %bordered-text-vertical-padding;
     @include vf-focus;
 
+    // sass-lint:disable no-vendor-prefixes property-sort-order
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
     appearance: textfield;
+    // sass-lint:enable no-vendor-prefixes property-sort-order
+
     background-color: $color-x-light;
     border: 1px solid $color-mid;
     border-radius: $border-radius;
@@ -43,6 +48,9 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
       outline: none;
     }
 
+    &::-webkit-placeholder,
+    &::-ms-placeholder,
+    &:-ms-placeholder,
     &::placeholder {
       color: $color-mid-dark;
       opacity: 1;
