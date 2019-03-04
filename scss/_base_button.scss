@@ -19,7 +19,7 @@
     font-weight: 300;
     line-height: map-get($line-heights, default-text);
     margin-bottom: $spv-outer--scaleable + 2 * $spv-nudge-compensation;
-    padding: $spv-nudge - $px $sph-inner--small * 1.5;
+    padding: calc(#{$spv-nudge} - 1px) $sph-inner--small * 1.5;
     text-align: center;
     text-decoration: none;
 
@@ -49,8 +49,8 @@
 
     table & {
       margin-bottom: $spv-nudge-compensation;
-      padding-bottom: $spv-nudge - $sp-unit * 0.5 - $px;
-      padding-top: $spv-nudge - $sp-unit * 0.5 - $px;
+      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     }
 
     // The following three rules address buttons nested in <p>'s;
