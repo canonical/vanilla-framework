@@ -8,7 +8,7 @@ table_of_contents: true
 Vanilla uses four main breakpoints for screen sizes, below you can see the setting, default width and device examples at which the content will scale.
 
 Setting | Default value | Device example
- ------------- | -------------
+------------- | ------------- | -------------
 `$breakpoint-x-small`                | `460px`              | Mobile
 `$breakpoint-small`                  | `620px`              | Mobile
 `$breakpoint-medium`                 | `768px`              | Tablet
