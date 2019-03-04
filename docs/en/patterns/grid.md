@@ -48,4 +48,4 @@ Columns can be nested infinitely by adding `.row` classes within columns. Basica
 
 ### Design
 
-* [Grid design](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid)
+For more information [view the grid design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid), which includes the specification in markdown format and a PNG image.
