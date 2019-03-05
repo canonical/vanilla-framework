@@ -35,8 +35,11 @@
               <img class="p-navigation__image" src="{{ site_logo_url }}" alt="{{ site_title }} logo">
             </a>
           </div>
-          <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-          <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+          <div class="p-navigation__toggles">
+            <a href="#navigation" class="p-navigation__toggle--open" title="about menu">About</a>
+            <a href="#navigation-closed" class="p-navigation__toggle--close" title="close about menu">About</a>
+            <a class="p-sidebar__toggle u-hide--medium u-hide--large" href="#">Patterns</a>
+          </div>
         </div>
         <nav class="p-navigation__nav">
           <span class="u-off-screen">
@@ -52,11 +55,8 @@
         </nav>
       </header>
       {% if navigation %}
-      <aside class="p-sidebar" id="navigation">
-        <div class="p-sidebar__banner u-hide--medium u-hide--large">
-          <i class="p-sidebar__toggle p-icon--menu"></i>
-        </div>
-        <div class="p-sidebar__content u-hide--small">
+      <aside class="p-sidebar">
+        <div class="p-sidebar__content">
           <form class="p-search-box" onsubmit="return false">
             <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
             <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
