@@ -391,7 +391,10 @@ case $run_command in
         done
 
         # Run nginx to serve static files
-        docker run -ti -p 8104:8104 -v `pwd`/build:/srv -v `pwd`/redirects.map:/etc/nginx/redirects.map -v `pwd`/nginx.conf:/etc/nginx/conf.d/default.conf nginx
+        echo "==="
+        echo "Serve site on http://0.0.0.0:$PORT"
+        echo "==="
+        docker run -ti -p $PORT:$PORT -v `pwd`/build:/srv -v `pwd`/redirects.map:/etc/nginx/redirects.map -v `pwd`/nginx.conf:/etc/nginx/conf.d/default.conf nginx
     ;;
     "stop")
         echo "Stopping all running containers for ${project}"
