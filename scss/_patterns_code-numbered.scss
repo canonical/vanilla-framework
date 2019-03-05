@@ -23,6 +23,7 @@ $sidebar-width: 4.5rem !default;
       }
 
       &::before {
+        // sass-lint:disable no-vendor-prefixes property-sort-order
         background: $color-x-light;
         border-right: 1px solid $color-mid-light;
         color: $color-mid-dark;
@@ -36,7 +37,11 @@ $sidebar-width: 4.5rem !default;
         position: absolute;
         text-align: right;
         top: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
+        // sass-lint:enable no-vendor-prefixes property-sort-order
         width: $sidebar-width;
       }
     }
