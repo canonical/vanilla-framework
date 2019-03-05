@@ -18,13 +18,26 @@
     // sass-lint:enable no-vendor-prefixes
     color: $color-dark;
     font-family: unquote($font-base-family);
-    font-size: $font-base-size;
     // sass-lint:disable no-misspelled-properties
     font-smoothing: subpixel-antialiased;
     // sass-lint:enable no-misspelled-properties
     font-weight: 300;
     // set default line height to match p
     line-height: map-get($line-heights, default-text);
+
+    @if ($increase-fontsize-on-bigger-screens) {
+      @media screen and (max-width: $breakpoint-x-large) {
+        font-size: map-get($fontsizes, base);
+      }
+
+      @media screen and (min-width: $breakpoint-x-large) {
+        font-size: map-get($fontsizes, big);
+        //the rem value is not affected by the change in font-size; it needs to be multiplied by the ratio new font-size/default font-size
+        line-height: map-get($line-heights, default-text) * $fontsize-ratio--largescreen;
+      }
+    } @else {
+      font-size: map-get($fontsizes, base);
+    }
   }
 
   // headings
