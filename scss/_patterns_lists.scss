@@ -244,9 +244,11 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
 @mixin vf-p-list-split {
   [class*='p-list'].is-split {
     @media (min-width: $breakpoint-medium) {
-      @supports (columns: 1) {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      @supports ((-webkit-columns: 1) or (columns: 1)) {
         column-gap: $sp-x-large;
         columns: 2;
+        // sass-lint:enable no-vendor-prefixes property-sort-order
 
         .p-list__item {
           display: inline-block;
@@ -254,13 +256,15 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
         }
       }
 
-      @supports not (columns: 1) {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      @supports not ((-webkit-columns: 1) or (columns: 1)) {
         display: flex;
         flex-wrap: wrap;
 
         .p-list__item {
           width: calc(50% - 0.5rem);
         }
+        // sass-lint:enable no-vendor-prefixes property-sort-order
       }
 
       &:nth-child(2n-1) {
