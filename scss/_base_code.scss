@@ -20,14 +20,17 @@
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-    white-space: pre-wrap;
     word-spacing: normal;
     word-wrap: break-word;
     // sass-lint:enable no-vendor-prefixes property-sort-order
   }
 
   code {
-    display: inline;
+    pre & {
+      // Inside pre, code does not behave as an inline element;
+      // To ensure multiple lines adhere to the baseline grid, we need to make it a block element.
+      display: inline-block;
+    }
   }
 
   pre {
@@ -39,8 +42,9 @@
     margin-bottom: $spv-outer--scaleable;
     margin-top: 0;
     overflow: auto;
-    padding: $spv-inner--small $sph-inner;
+    padding: calc(#{map-get($nudges, nudge--p-ubuntumono)} - 1px) $sph-inner calc(#{map-get($nudges, nudge--p-ubuntumono)} - 1px);
     text-align: left;
     text-shadow: none;
+    white-space: pre;
   }
 }
