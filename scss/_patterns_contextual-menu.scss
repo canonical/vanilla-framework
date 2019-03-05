@@ -110,14 +110,18 @@
       @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
 
       .p-contextual-menu__dropdown {
+        // sass-lint:disable no-vendor-prefixes property-sort-order
         left: 50%;
+        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
 
         &::before,
         &::after {
           left: 50%;
           right: initial;
+          -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+          // sass-lint:enable no-vendor-prefixes property-sort-order
         }
       }
     }
