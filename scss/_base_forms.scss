@@ -89,7 +89,6 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     & + label {
       margin-bottom: $spv-outer--small-scaleable;
       padding-left: $label-offset--left;
-      padding-top: 0;
       position: relative;
 
       // container
@@ -111,6 +110,17 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
       &::before,
       &::after {
         position: absolute;
+      }
+
+      &.is-inline {
+        // removing padding-top is only needed when the label needs to align
+        // to inline elements like text inside a td
+        display: inline;
+        padding-top: 0;
+
+        &::before {
+          top: 0;
+        }
       }
     }
 
@@ -241,6 +251,10 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     &:checked + label::before {
       background-color: $color-information;
       border-color: $color-information;
+    }
+
+    &:checked + label.is-inline::after {
+      top: $sp-unit * 0.5;
     }
   }
 
