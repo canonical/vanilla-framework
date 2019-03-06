@@ -21,7 +21,8 @@ View example of the strip dark pattern
 
 ### Accent strip
 
-The purpose of the strip accent pattern displays content with a highlighted site accent strip style.
+The purpose of the strip accent pattern is to display content with a
+highlighted strip using the accent colour.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/accent/"
   class="js-example">
@@ -34,7 +35,7 @@ This pattern allows for an image background to be appear as a background on a st
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>Declare the background-image as an inline style attribute in the HTML markup.
+    <span class="p-notification__status">Note:</span>Declare the background-image as an inline style attribute in the HTML.
   </p>
 </div>
 
