@@ -1,11 +1,16 @@
 // Toggle mobile sidebar nav
-var toggle = document.querySelector('.p-sidebar__toggle');
+var sidebarToggle = document.querySelector('.p-sidebar__toggle');
 var sidebarContent = document.querySelector('.p-sidebar__content');
+var openMainNav = document.querySelector('.p-navigation__toggle--open');
 
-toggle.addEventListener('click', function(e) {
-  toggle.classList.toggle('p-icon--menu');
-  toggle.classList.toggle('p-icon--close');
-  sidebarContent.classList.toggle('u-hide--small');
+sidebarToggle.addEventListener('click', function(e) {
+  sidebarToggle.classList.toggle('is-active');
+  sidebarContent.classList.toggle('is-active');
+});
+
+openMainNav.addEventListener('click', function(e) {
+  sidebarToggle.classList.remove('is-active');
+  sidebarContent.classList.remove('is-active');
 });
 
 // Add classes to links
