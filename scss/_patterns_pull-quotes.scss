@@ -18,6 +18,13 @@
 @mixin vf-p-pull-quotes {
   .p-pull-quote {
     padding: 0 $sph-outer * 2;
+    position: relative;
+
+    .p-pull-quote__image {
+      height: $sp-x-large;
+      position: absolute;
+      top: -$spv-inner--x-large;
+    }
 
     .p-pull-quote__quote {
       @extend %vf-heading-4;
@@ -93,9 +100,23 @@
   .p-pull-quote--large {
     @include vf-pull-quote;
 
+    .p-pull-quote__image {
+      height: $sp-x-large;
+      position: absolute;
+      top: -$spv-inner--x-large;
+    }
+
     .p-pull-quote__citation {
       font-style: italic;
       margin-top: $spv-inner--x-small--scaleable;
+    }
+  }
+
+  .p-pull-quote,
+  .p-pull-quote--small,
+  .p-pull-quote--large {
+    &.has-image {
+      margin-top: calc(#{$spv-inner--x-large} + #{$spv-outer--scaleable});
     }
   }
 
