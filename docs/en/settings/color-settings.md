@@ -5,11 +5,7 @@ table_of_contents: true
 
 ## Color
 
-Vanilla works with a fairly neutral color palette consisting of a range of greys and a traffic light palette (red, yellow, green) plus blue.
-
-You can define a brand color (`$color-brand`) that can be used for call-to-action buttons and other highlights across the framework. The default Vanilla brand color is `$color-dark`.
-
-When planning your pages, make sure there is an even distribution and well-balanced percentage of light and strong colors. Think of the screen as a whole: it shouldn't be top- or bottom-heavy.
+These guidelines are the framework upon which we have built our system for how color is used in Vanilla, we use a fairly neutral color palette along with a traffic light palette.
 
 <div class="u-equal-height">
   <div class="col-3 p-card u-no-padding">
@@ -116,8 +112,31 @@ When planning your pages, make sure there is an even distribution and well-balan
   </div>
 </div>
 
-<hr />
+You can define a brand color (`$color-brand`) that can be used for call-to-action buttons and other highlights across the framework. The default Vanilla brand color is `$color-dark`.
+
+<img class="p-image--bordered" src="https://assets.ubuntu.com/v1/7446a44a-basics-brand-color.png" alt="brand-color">
+
+### Accessibility
+
+It’s important for us to meet all web accessibility standards. Vanilla encourages meeting the minimum contrast ratios specified by WCAG 2.1 Level AA for text, icons and background colors.
+
+<div class="row">
+   <div class="col-6">
+   <div class="p-notification--positive">
+   <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use a minimum contrast ratio of 4.5 for normal text and UI components</p>
+   </div>
+   <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/e1183cd5-basics-text-color-do.png" alt="text-color-do">
+   <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/92607803-basics-button-color-do.png" alt="button-color-do">
+   </div>
+  <div class="col-6">
+  <div class="p-notification--negative">
+  <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use dark text that isn’t legible on dark backgrounds</p>
+  </div>
+  <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/66aa056d-basics-text-color-don%27t.png" alt="text-color-don't">
+  <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/0929f834-basics-button-color-don%27t.png" alt="button-color-don't">
+  </div>
+</div>
 
 ### Design
 
-* [Color design](https://github.com/ubuntudesign/vanilla-design/tree/master/Color)
+For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
