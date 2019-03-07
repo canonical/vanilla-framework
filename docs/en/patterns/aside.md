@@ -9,11 +9,9 @@ An aside can be used to display a contextual menu within a page, such as a table
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/aside/"
     class="js-example">
-    View example of the aside pattern
+View example of the aside pattern
 </a>
-
-<hr />
 
 ### Design
 
-* [Aside design](https://github.com/ubuntudesign/vanilla-design/tree/master/Aside)
+For more information [view the aside design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Aside), which includes the specification in markdown format and a PNG image.
