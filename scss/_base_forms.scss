@@ -3,6 +3,10 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
 // Form element styles
 @mixin vf-b-forms {
+  //tick element variables
+  $box-size: 1rem;
+  $box-offset-top: $spv-nudge + $spv-inner--x-small; // center to x-height of adjacent text
+
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
     margin-bottom: $input-margin-bottom;
@@ -79,19 +83,18 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
   // Default form checkbox and radio styles
   %vf-tick-elements {
-    $box-size: 1rem;
-    $box-offset-top: $spv-inner--x-small;
-    $label-offset--left: $sph-inner + $box-size;
-    $tick-offset-top: calc(#{$box-offset-top} + 0.1875rem);
     opacity: 0;
     position: absolute;
 
     & + label {
-      margin-bottom: $spv-outer--small-scaleable;
-      padding-left: $label-offset--left;
-      padding-top: 0;
+      padding-left: $sph-inner + $box-size;
       position: relative;
-      vertical-align: middle;
+
+      &::before,
+      &::after {
+        @include vf-animation(all, brisk);
+        position: absolute;
+      }
 
       // container
       &::before {
@@ -109,9 +112,15 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
         opacity: 0;
       }
 
-      &::before,
-      &::after {
-        position: absolute;
+      &.is-inline-label {
+        // removing padding-top is only needed when the label needs to align
+        // to inline elements like text inside a td
+        display: inline;
+        padding-top: 0;
+
+        &::before {
+          top: 0;
+        }
       }
     }
 
@@ -150,10 +159,12 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
   }
 
   label {
-    @extend %default-text;
+    @include p-max-width;
     cursor: pointer;
     display: block;
+    margin-top: 0;
     margin-bottom: $spv-outer--small + $spv-nudge-compensation;
+    padding-top: map-get($nudges, nudge--p);
     width: fit-content;
 
     &.is-required::after {
@@ -213,27 +224,23 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     // sass-lint:enable no-vendor-prefixes
   }
 
-  // Checkbox and radio inputs
   [type='checkbox'] {
     @extend %vf-tick-elements;
 
     & + label {
-      &::before,
-      &::after {
-        transition: background-color 0.1s;
-      }
-
       &::before {
         border-radius: $border-radius;
       }
 
       &::after {
+        $tick-height: 0.375rem;
+        $tick-offset-top: $box-offset-top + 0.1875rem;
         border-bottom: 2px solid;
         border-left: 2px solid;
         color: $color-x-light;
-        height: 0.375rem;
-        left: 0.1875rem;
-        top: $sp-unit;
+        height: $tick-height;
+        left: $tick-height * 0.5;
+        top: $tick-offset-top;
         transform: rotate(-45deg);
         width: 0.625rem;
       }
@@ -243,23 +250,40 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
       background-color: $color-information;
       border-color: $color-information;
     }
+
+    &:checked + .is-inline-label::after {
+      top: $sp-unit * 0.5;
+    }
   }
 
   [type='radio'] {
     @extend %vf-tick-elements;
+    $inner-circle-diameter: 6px;
 
     & + label {
-      &::before {
+      &::before,
+      &::after {
         border-radius: 50%;
       }
 
       &::after {
-        background-color: $color-information;
+        background-color: $color-x-light;
         border-radius: 50%;
-        height: 0.65rem;
-        left: 0.1875rem;
-        top: 0.4375rem;
-        width: 0.65rem;
+        height: $inner-circle-diameter;
+        left: calc(#{$box-size * 0.5} - #{$inner-circle-diameter * 0.5});
+        top: calc(#{$box-offset-top + $box-size * 0.5} - #{$inner-circle-diameter * 0.5});
+        width: $inner-circle-diameter;
+      }
+    }
+
+    &:checked {
+      & + label::before {
+        background-color: $color-information;
+        border-color: $color-information;
+      }
+
+      & + .is-inline-label::after {
+        top: calc(#{$box-size * 0.5} - #{$inner-circle-diameter * 0.5});
       }
     }
   }

@@ -31,6 +31,15 @@ To give more prominence to a quote, there is also a large variant.
 View example of the small pull quote pattern
 </a>
 
+### Image header
+
+To add an image header to any size of pull-quote, add the class `has-image` and use the following markup for the image.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/default-image/"
+    class="js-example">
+View example of the small pull quote pattern with an image
+</a>
+
 <hr />
 
 ### Design
