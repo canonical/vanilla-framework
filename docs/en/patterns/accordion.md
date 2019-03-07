@@ -5,15 +5,15 @@ table_of_contents: true
 
 ## Accordion
 
-Sidebar accordion, used in listing pages or as navigation. Can hold multiple navigation items or to be used as a filter of content.
+The sidebar accordion, used in listing pages or as navigation, can hold multiple navigation items or to be used as a filter for content.
 
 Each tab styling can be changed to open or collapse using `aria-expanded`, set `true` for open and `false` to close. Using JS this can be changed and to point to what each tab controls via `aria-controls`.
 
-`.p-accordion__panel` visibility is effected by `aria-hidden` and again can be manipulated with JS.
+`.p-accordion__panel` visibility is a ffected by `aria-hidden` and again can be manipulated with JS.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>Use to hold filtering items (header and content if available), don't use to display page content.
+    <span class="p-notification__status">Note:</span>Clicking on the header toggles the display of accordion tabs. Accordion tabs should contain navigation or supplementary information, not main page content.
   </p>
 </div>
 
