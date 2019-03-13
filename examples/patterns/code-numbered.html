@@ -4,15 +4,11 @@ title: Code numbered
 category: _patterns
 ---
 
-<pre class="p-code-numbered"><code><span class="code-line">this is a code sample line 1 this is a code sample line 1 this is a code sample line 1 this is a code sample line 1 this is a code sample line 1 this is a code sample line 1 this is a code sample line 1</span>
-<span class="code-line">this is a code sample line 2</span>
-<span class="code-line">this is a code sample line 3</span>
-<span class="code-line">this is a code sample line 4</span>
-<span class="code-line">this is a code sample line 5</span>
-<span class="code-line">this is a code sample line 6 this is a code sample line 6 this is a code sample line 6 this is a code sample line 6 this is a code sample line 6 this is a code sample line 6 </span>
-<span class="code-line">this is a code sample line 7</span>
-<span class="code-line">this is a code sample line 8</span>
-<span class="code-line">this is a code sample line 9</span>
-<span class="code-line">this is a code sample line 10</span>
-<span class="code-line">this is a code sample line 11</span>
-<span class="code-line">this is a code sample line 12</span></code></pre>
+<pre class="p-code-numbered"><code><span class="code-line">#!/bin/bash</span>
+<span class="code-line">set -eu</span>
+<span class="code-line">. $CONJURE_UP_SPELLSDIR/sdk/common.sh</span>
+<span class="code-line">if [[ "$JUJU_PROVIDERTYPE" == "lxd" ]]; then
+    debug "Running pre-deploy for $CONJURE_UP_SPELL"
+    sed "s/##MODEL##/$JUJU_MODEL/" $(scriptPath)/lxd-profile.yaml | lxc profile edit "juju-$JUJU_MODEL" || exposeResult "Failed to set profile" $? "false"
+fi</span>
+<span class="code-line">exposeResult "Successful pre-deploy." 0 "true"</span></code></pre>
