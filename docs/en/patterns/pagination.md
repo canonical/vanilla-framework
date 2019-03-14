@@ -7,7 +7,7 @@ table_of_contents: true
 
 <hr>
 
-The pagination component should be used to navigate between pages of content, depending on the length provided, the pagination component will automatically scale.
+The pagination component should be used to navigate between pages of content. Depending on the length provided, the pagination component will automatically scale.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pagination/pagination"
     class="js-example">
