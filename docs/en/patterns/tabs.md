@@ -27,7 +27,7 @@ View example of the tabs pattern
    </div>
   <div class="col-6">
   <div class="p-notification--negative">
-  <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Mix tabs that contain only text, with tabs that contain only icons.</p>
+  <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Mix tabs that contain only text, with tabs that contain icons.</p>
   </div>
   <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/6a4ffc61-navigation-tabs-color-don%27t.png" alt="Tabs don't">
   </div>
