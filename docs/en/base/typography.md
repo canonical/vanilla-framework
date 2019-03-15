@@ -7,7 +7,7 @@ table_of_contents: true
 
 <hr>
 
-All text in Vanilla uses the [Ubuntu](https://design.ubuntu.com/font/) typeface, which can be used in your projects.
+All text in Vanilla uses the [Ubuntu typeface](https://design.ubuntu.com/font/) , which can be used in your projects.
 
 Vanilla's typographic scale has a base font-size of `1rem` (`16px`) and a font-weight of 300.
 The heading sizes h1-h4 follow a modular scale with a base value of 16/14 (~1.143).
