@@ -35,7 +35,7 @@ $line-heights: (
   small: $sp-unit * 2
 ) !default;
 
-// baseline nudges for type scale ratio of (16/14) squared
+// baseline nudges for type scale ratio of (16/14)^2
 $nudges: (
   nudge--h1-large: 0.15rem,
   nudge--h4-large: 0,
@@ -43,6 +43,8 @@ $nudges: (
   nudge--h2: 0.2rem,
   nudge--h3: 0.1rem,
   nudge--h4: 0.05rem,
+  nudge--h6: 0.338rem,
+  nudge--h6-large: 0.345rem,
   nudge--h1-mobile: 0.165rem,
   nudge--h2-mobile: 0.1rem,
   nudge--h3-mobile: 0.5rem,
@@ -50,6 +52,20 @@ $nudges: (
   nudge--p: 0.4rem,
   nudge--p-ubuntumono: 0.45rem,
   nudge--small: 0.2rem
+) !default;
+
+// Correct baseline drift due to browser rounding. (Visible in text > 1000 lines)
+// It is applied only to padding-top.
+$browser-rounding-compensations: (
+  small: 0.0005rem,
+  small-largescreen: 0.0006rem,
+  p: 0.0005rem,
+  h6: 0,
+  h5: 0.001rem,
+  h4: 0.001rem,
+  h3: 0.001rem,
+  h2: 0.001rem,
+  h1: 0.001rem
 ) !default;
 
 //scaling factor
