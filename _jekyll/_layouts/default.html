@@ -12,7 +12,7 @@
         {% endif %}
     </head>
 
-    <body style="margin: 1rem;">
+    <body style="margin: 1rem;" class="u-baseline-grid">
 
 {{ content }}
     </body>
@@ -27,12 +27,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             var body = document.body;
             var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label>Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" /><div class="p-switch__slider"></div></label></div>');
-            body.appendChild(controls);
+            // body.appendChild(controls);
 
             var toggle = document.querySelector('.js-baseline-toggle');
-            toggle.addEventListener('click', function (event) {
-                body.classList.toggle('u-baseline-grid');
-            });
+            // toggle.addEventListener('click', function (event) {
+            //     body.classList.toggle('u-baseline-grid');
+            // });
         });
     </script>
     {% endif %}

@@ -11,7 +11,7 @@ $sp-unit: 1rem * $sp-unit-ratio !default;
 
 $font-sizes: (
   small: pow($ms-ratio, -1),
-  root: 1,
+  default-text: 1,
   h4-mobile: 1.22176,
   h4: pow($ms-ratio, 2),
   h3-mobile: pow($ms-ratio, 3),
@@ -22,18 +22,59 @@ $font-sizes: (
   h1: pow($ms-ratio, 8)
 );
 
-$line-heights: (
-  h1: 7 * $sp-unit,
-  h2: 6 * $sp-unit,
-  h3: 5 * $sp-unit,
-  h4: 4 * $sp-unit,
-  h1-mobile: 6 * $sp-unit,
-  h2-mobile: 5 * $sp-unit,
-  h3-mobile: 4 * $sp-unit,
-  h4-mobile: 3 * $sp-unit,
-  default-text: 3 * $sp-unit,
-  small: $sp-unit * 2
+$line-height--units: (
+  small: 2,
+  default-text: 3,
+  h4-mobile: 3,
+  h4: 4,
+  h3-mobile: 4,
+  h3: 5,
+  h2-mobile: 5,
+  h2: 6,
+  h1-mobile: 6,
+  h1: 7
 ) !default;
+
+$line-height--rems: (
+  small: 1,
+  default-text: 1.5,
+  h4-mobile: 1.5,
+  h4: 2,
+  h3-mobile: 2,
+  h3: 2.5,
+  h2-mobile: 2.5,
+  h2: 3,
+  h1-mobile: 3,
+  h1: 73.5
+) !default;
+
+$line-heights: (
+  small: 1rem,
+  default-text: 1.5rem,
+  h4-mobile: 1.5rem,
+  h4: 2rem,
+  h3-mobile: 2rem,
+  h3: 2.5rem,
+  h2-mobile: 2.5rem,
+  h2: 3rem,
+  h1-mobile: 3rem,
+  h1: 3.5rem
+) !default;
+
+// Unitless line-heights are calculated as:
+// $line-height-value = ($sp-unit * $baseline-multiple) / $element-font-size
+$line-heights: (
+  small: #{map-get($line-height--rems, small) * map-get($font-sizes, small)},
+  default-text: #{map-get($line-height--rems, default-text) / map-get($font-sizes, default-text)},
+  h4-mobile: #{map-get($line-height--rems, h4-mobile) / map-get($font-sizes, h4-mobile)},
+  h4: #{map-get($line-height--rems, h4) / map-get($font-sizes, h4)},
+  h3-mobile: #{map-get($line-height--rems, h3-mobile) / map-get($font-sizes, h3-mobile)},
+  h3: #{map-get($line-height--rems, h3) / map-get($font-sizes, h3)},
+  h2-mobile: #{map-get($line-height--rems, h2-mobile) / map-get($font-sizes, h2-mobile)},
+  h2: #{map-get($line-height--rems, h2) / map-get($font-sizes, h2)},
+  h1-mobile: #{map-get($line-height--rems, h1-mobile) / map-get($font-sizes, h1-mobile)},
+  h1: #{map-get($line-height--rems, h1) / map-get($font-sizes, h1)}
+);
 
 // baseline nudges for type scale ratio of (16/14)^2
 $nudges: (
