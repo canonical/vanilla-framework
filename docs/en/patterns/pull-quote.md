@@ -5,6 +5,8 @@ table_of_contents: false
 
 ## Pull quote
 
+<hr>
+
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
 
@@ -31,21 +33,19 @@ To give more prominence to a quote, there is also a large variant.
 View example of the small pull quote pattern
 </a>
 
-### Image header
+### Image
 
-To add an image header to any size of pull-quote, add the class `has-image` and use the following markup for the image.
+To add an image to any size of pull-quote, add the class `has-image` and use the following markup for the image.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/default-image/"
     class="js-example">
 View example of the small pull quote pattern with an image
 </a>
 
-<hr />
-
 ### Design
 
-- [Pull quote design](https://github.com/ubuntudesign/vanilla-design/tree/master/Pull%20quote)
+For more information [view the quotes design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Pull%20quote), which includes the specification in markdown format and a PNG image.
 
 ### Related
 
-- [Blockquotes and citations in base typography](/en/base/typography#blockquotes-and-citations)
+For more typographic related information view the [blockquotes and citations](https://docs.vanillaframework.io/en/base/typography#blockquotes-and-citations) in base typography.
