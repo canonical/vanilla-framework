@@ -22,7 +22,7 @@ If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> tog
 View example of the base code block
 </a>
 
-### Snippet
+### Copyable
 
 Code copyable should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 
