@@ -19,20 +19,6 @@
       }
     }
 
-    &--strong {
-      color: currentColor;
-      font-weight: 400;
-
-      &:visited {
-        color: currentColor;
-      }
-
-      &:hover {
-        color: $color-link;
-        text-decoration: underline;
-      }
-    }
-
     &--inverted {
       color: $color-light;
       font-weight: 400;
@@ -108,7 +94,6 @@
       margin-top: -0.25em;
       padding: 0.25em 1em 0 0;
 
-      &.p-link--strong,
       &.p-link--soft,
       &.sidebar__link {
         @include vf-external-link-icon(vf-url-friendly-color($color-dark));
@@ -167,12 +152,6 @@
     &:hover {
       @include vf-external-link-icon(vf-url-friendly-color($color-link));
     }
-  }
-
-  .p-strip--dark * .p-link--external.p-link--strong,
-  .p-strip--accent * .p-link--external.p-link--strong,
-  .p-strip--image.is-dark * .p-link--external.p-link--strong {
-    @include vf-external-link-icon(vf-url-friendly-color($color-x-light));
   }
 }
 
