@@ -25,18 +25,18 @@
     // set default line height to match p
     line-height: map-get($line-heights, default-text);
 
-    @if ($increase-fontsize-on-bigger-screens) {
+    @if ($increase-font-size-on-larger-screens) {
       @media screen and (max-width: $breakpoint-x-large) {
-        font-size: map-get($fontsizes, base);
+        font-size: map-get($font-sizes, base);
       }
 
       @media screen and (min-width: $breakpoint-x-large) {
-        font-size: map-get($fontsizes, big);
+        font-size: map-get($font-sizes, big);
         //the rem value is not affected by the change in font-size; it needs to be multiplied by the ratio new font-size/default font-size
-        line-height: map-get($line-heights, default-text) * $fontsize-ratio--largescreen;
+        line-height: map-get($line-heights, default-text) * $font-size-ratio--largescreen;
       }
     } @else {
-      font-size: map-get($fontsizes, base);
+      font-size: map-get($font-sizes, base);
     }
   }
 
