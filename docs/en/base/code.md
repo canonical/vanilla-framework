@@ -26,7 +26,7 @@ View example of the base code block
 
 Code copyable should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-snippet/"
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-copyable/"
     class="js-example">
 View example of the code copyable pattern
 </a>
