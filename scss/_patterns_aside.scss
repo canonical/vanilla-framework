@@ -11,45 +11,45 @@
       border-top: 0;
       padding: 0 $sp-medium;
     }
+  }
 
-    &__header {
-      color: $color-mid-dark;
-      font-size: $sp-medium;
-      line-height: 1.5;
-      margin-bottom: $sp-medium;
-      text-transform: uppercase;
+  .p-aside__header {
+    color: $color-mid-dark;
+    font-size: $sp-medium;
+    line-height: 1.5;
+    margin-bottom: $sp-medium;
+    text-transform: uppercase;
+  }
+
+  .p-aside__section {
+    padding: $sp-medium 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px dotted $color-mid-light;
     }
+  }
 
-    &__section {
-      padding: $sp-medium 0;
+  .p-aside__nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-      &:not(:last-child) {
-        border-bottom: 1px dotted $color-mid-light;
-      }
-    }
+    .p-aside__link {
+      border-bottom: 0;
+      color: $color-dark;
+      margin-bottom: $sp-x-small;
 
-    &__nav {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      .p-aside__link {
-        border-bottom: 0;
+      &:visited {
         color: $color-dark;
-        margin-bottom: $sp-x-small;
+      }
 
-        &:visited {
-          color: $color-dark;
-        }
+      &:hover {
+        color: $color-link;
+      }
 
-        &:hover {
-          color: $color-link;
-        }
-
-        &.is-active {
-          font-weight: 400;
-          padding-left: $sp-x-small;
-        }
+      &.is-active {
+        font-weight: 400;
+        padding-left: $sp-x-small;
       }
     }
   }
