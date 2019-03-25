@@ -1,6 +1,7 @@
-@import "./shelves/functions";
-@import "./shelves/variables";
-@import "./shelves/mixins";
+@import './shelves/functions';
+@import './shelves/variables';
+@import './shelves/mixins';
+@import 'utilities_grid';
 
 @mixin vf-p-grid {
   @include shelves-base;
@@ -28,7 +29,7 @@
       }
 
       @include shelves-columns(
-        $extend: "shelves-mobile-column-base",
+        $extend: 'shelves-mobile-column-base',
         $prefixes: $shelves-mobile-prefixes,
         $suffixes: $shelves-mobile-suffixes,
         $pushes: $shelves-mobile-pushes,
@@ -65,7 +66,7 @@
       }
 
       @include shelves-columns(
-        $extend: "shelves-tablet-column-base",
+        $extend: 'shelves-tablet-column-base',
         $prefixes: $shelves-tablet-prefixes,
         $suffixes: $shelves-tablet-suffixes,
         $pushes: $shelves-tablet-pushes,
@@ -102,7 +103,7 @@
       }
 
       @include shelves-columns(
-        $extend: "shelves-desktop-column-base",
+        $extend: 'shelves-desktop-column-base',
         $prefixes: $shelves-prefixes,
         $suffixes: $shelves-suffixes,
         $pushes: $shelves-pushes,
@@ -123,7 +124,7 @@
             }
 
             @include shelves-columns(
-              $extend: "shelves-nested-column-#{$i}-base",
+              $extend: 'shelves-nested-column-#{$i}-base',
               $context: $i,
               $prefixes: $shelves-nested-prefixes,
               $suffixes: $shelves-nested-suffixes,
@@ -148,4 +149,6 @@
   @if $shelves-visibility {
     @include shelves-visibility-helpers;
   }
+
+  @include grid-first-col;
 }
