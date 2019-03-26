@@ -7,7 +7,7 @@ title: Heading icon
 
 <hr>
 
-A header can be formatted to emphasise an icon and supplementary text.
+A header can be emphasised by adding an icon alongside the text.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon/"
   class="js-example">
@@ -16,7 +16,7 @@ View example of the pattern heading icons
 
 ### Stacked
 
-Available as a vertical variant allowing for an alternate layout.
+This variant positions the icon vertically with the text content for an alternate layout.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-stacked/"
   class="js-example">
@@ -25,7 +25,7 @@ View example of the pattern heading icon stacked
 
 ### Small
 
-Available at a smaller size of 32 x 32 pixels rather than our default size of 60 x 60 pixels.
+The icon for this component is also available at a smaller size of 32 x 32 pixels rather than our default size of 60 x 60 pixels.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-small/"
   class="js-example">
