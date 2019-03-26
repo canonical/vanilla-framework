@@ -5,44 +5,44 @@
     display: inline-block;
     margin: 0;
     position: relative;
+  }
 
-    // Alignment extension to align the menu to the left
-    &--left {
-      @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
+  // Alignment extension to align the menu to the left
+  .p-contextual-menu--left {
+    @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
 
-      .p-contextual-menu__dropdown {
-        left: 0;
+    .p-contextual-menu__dropdown {
+      left: 0;
 
-        &::before,
-        &::after {
-          left: $sp-small;
-          right: initial;
-        }
+      &::before,
+      &::after {
+        left: $sp-small;
+        right: initial;
+      }
 
-        &::after {
-          left: $sp-small + 0.1rem;
-        }
+      &::after {
+        left: $sp-small + 0.1rem;
       }
     }
+  }
 
-    // Alignment extension to align the menu to the center of the parent
-    &--center {
-      @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
+  // Alignment extension to align the menu to the center of the parent
+  .p-contextual-menu--center {
+    @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
 
-      .p-contextual-menu__dropdown {
-        // sass-lint:disable no-vendor-prefixes property-sort-order
+    .p-contextual-menu__dropdown {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+
+      &::before,
+      &::after {
         left: 50%;
+        right: initial;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-
-        &::before,
-        &::after {
-          left: 50%;
-          right: initial;
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-          // sass-lint:enable no-vendor-prefixes property-sort-order
-        }
+        // sass-lint:enable no-vendor-prefixes property-sort-order
       }
     }
   }
