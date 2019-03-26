@@ -7,34 +7,34 @@
     @media (min-width: $breakpoint-medium) {
       margin-bottom: 0;
     }
+  }
 
-    &__header {
-      display: flex;
-      // Match adjustment of margin-top on paragraphs that are following a heading.
-      // Necessary because in this pattern the heading and paragraph are not in the same parent, so h3 + p rules do not apply
-      margin-bottom: $spv-p-after-heading-adjustment;
+  .p-heading-icon__header {
+    display: flex;
+    // Match adjustment of margin-top on paragraphs that are following a heading.
+    // Necessary because in this pattern the heading and paragraph are not in the same parent, so h3 + p rules do not apply
+    margin-bottom: $spv-p-after-heading-adjustment;
 
-      &.is-stacked {
-        display: inherit;
-      }
+    &.is-stacked {
+      display: inherit;
+    }
+  }
+
+  .p-heading-icon__img {
+    flex-shrink: 0;
+    height: map-get($icon-sizes, heading-icon--small);
+    margin-bottom: $spv-inner--small;
+    margin-right: $sph-inner;
+    width: map-get($icon-sizes, heading-icon--small);
+
+    @media (max-width: $breakpoint-medium) {
+      margin-top: 0;
     }
 
-    &__img {
-      flex-shrink: 0;
-      height: map-get($icon-sizes, heading-icon--small);
-      margin-bottom: $spv-inner--small;
-      margin-right: $sph-inner;
-      width: map-get($icon-sizes, heading-icon--small);
-
-      @media (max-width: $breakpoint-medium) {
-        margin-top: 0;
-      }
-
-      @media (min-width: $breakpoint-medium) {
-        height: map-get($icon-sizes, heading-icon);
-        margin-top: -#{$spv-inner--small};
-        width: map-get($icon-sizes, heading-icon);
-      }
+    @media (min-width: $breakpoint-medium) {
+      height: map-get($icon-sizes, heading-icon);
+      margin-top: -#{$spv-inner--small};
+      width: map-get($icon-sizes, heading-icon);
     }
   }
 

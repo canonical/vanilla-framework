@@ -5,43 +5,6 @@ $triangle-height: $sp-unit;
   .p-tooltip {
     position: relative;
 
-    &__message {
-      // sass-lint:disable no-vendor-prefixes property-sort-order
-      @extend %small-text;
-      background-color: $color-dark;
-      border: 0;
-      border-radius: $border-radius;
-      color: $color-x-light;
-      display: none;
-      left: -#{2 * $triangle-height};
-      margin-bottom: 0;
-      padding: $spv-inner--small $sph-inner;
-      position: absolute;
-      text-align: left;
-      text-decoration: initial;
-      top: 100%;
-      -webkit-transform: translateX(0%) translateY(13px);
-      transform: translateX(0%) translateY(13px);
-      // sass-lint:enable no-vendor-prefixes property-sort-order
-      white-space: pre;
-      z-index: 1;
-
-      &::before {
-        border: {
-          bottom: $triangle-height solid $color-dark;
-          left: $triangle-height solid transparent;
-          right: $triangle-height solid transparent;
-        }
-        bottom: 100%;
-        content: '';
-        height: 0;
-        left: $sph-inner;
-        pointer-events: none;
-        position: absolute;
-        width: 0;
-      }
-    }
-
     &:focus,
     &:hover {
       .p-tooltip__message {
@@ -49,178 +12,215 @@ $triangle-height: $sp-unit;
         text-decoration: initial;
       }
     }
+  }
 
-    // Bottom center tooltip
-    &--btm-center {
-      .p-tooltip__message {
+  .p-tooltip__message {
+    // sass-lint:disable no-vendor-prefixes property-sort-order
+    @extend %small-text;
+    background-color: $color-dark;
+    border: 0;
+    border-radius: $border-radius;
+    color: $color-x-light;
+    display: none;
+    left: -#{2 * $triangle-height};
+    margin-bottom: 0;
+    padding: $spv-inner--small $sph-inner;
+    position: absolute;
+    text-align: left;
+    text-decoration: initial;
+    top: 100%;
+    -webkit-transform: translateX(0%) translateY(13px);
+    transform: translateX(0%) translateY(13px);
+    // sass-lint:enable no-vendor-prefixes property-sort-order
+    white-space: pre;
+    z-index: 1;
+
+    &::before {
+      border: {
+        bottom: $triangle-height solid $color-dark;
+        left: $triangle-height solid transparent;
+        right: $triangle-height solid transparent;
+      }
+      bottom: 100%;
+      content: '';
+      height: 0;
+      left: $sph-inner;
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+    }
+  }
+
+  // Bottom center tooltip
+  .p-tooltip--btm-center {
+    .p-tooltip__message {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      bottom: inherit;
+      left: 50%;
+      top: 100%;
+      -webkit-transform: translateX(-50%) translateY(13px);
+      transform: translateX(-50%) translateY(13px);
+      // sass-lint:enable no-vendor-prefixes property-sort-order
+
+      &::before {
         // sass-lint:disable no-vendor-prefixes property-sort-order
-        bottom: inherit;
         left: 50%;
-        top: 100%;
-        -webkit-transform: translateX(-50%) translateY(13px);
-        transform: translateX(-50%) translateY(13px);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
         // sass-lint:enable no-vendor-prefixes property-sort-order
-
-        &::before {
-          // sass-lint:disable no-vendor-prefixes property-sort-order
-          left: 50%;
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-          // sass-lint:enable no-vendor-prefixes property-sort-order
-        }
       }
     }
+  }
 
-    // Bottom right tooltip
-    &--btm-right {
-      .p-tooltip__message {
-        // sass-lint:disable no-vendor-prefixes property-sort-order
-        bottom: inherit;
+  // Bottom right tooltip
+  .p-tooltip--btm-right {
+    .p-tooltip__message {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      bottom: inherit;
+      left: initial;
+      right: -#{2 * $triangle-height};
+      top: 100%;
+      -webkit-transform: translateY(13px);
+      transform: translateY(13px);
+      // sass-lint:enable no-vendor-prefixes property-sort-order
+
+      &::before {
         left: initial;
-        right: -#{2 * $triangle-height};
-        top: 100%;
-        -webkit-transform: translateY(13px);
-        transform: translateY(13px);
-        // sass-lint:enable no-vendor-prefixes property-sort-order
-
-        &::before {
-          left: initial;
-          right: $sph-inner;
-        }
+        right: $sph-inner;
       }
     }
+  }
 
-    // Top left tooltip
-    &--top-left {
-      .p-tooltip__message {
-        // sass-lint:disable no-vendor-prefixes property-sort-order
-        bottom: 100%;
-        left: -#{2 * $triangle-height};
-        top: initial;
-        -webkit-transform: translateX(0%) translateY(-13px);
-        transform: translateX(0%) translateY(-13px);
-        // sass-lint:enable no-vendor-prefixes property-sort-order
+  // Top left tooltip
+  .p-tooltip--top-left {
+    .p-tooltip__message {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      bottom: 100%;
+      left: -#{2 * $triangle-height};
+      top: initial;
+      -webkit-transform: translateX(0%) translateY(-13px);
+      transform: translateX(0%) translateY(-13px);
+      // sass-lint:enable no-vendor-prefixes property-sort-order
 
-        &::before {
-          border: {
-            bottom: $triangle-height solid transparent;
-            left: $triangle-height solid transparent;
-            right: $triangle-height solid transparent;
-            top: $triangle-height solid $color-dark;
-          }
-          bottom: -#{2 * $triangle-height};
-          left: $sph-inner;
+      &::before {
+        border: {
+          bottom: $triangle-height solid transparent;
+          left: $triangle-height solid transparent;
+          right: $triangle-height solid transparent;
+          top: $triangle-height solid $color-dark;
         }
+        bottom: -#{2 * $triangle-height};
+        left: $sph-inner;
       }
     }
+  }
 
-    // Top center tooltip
-    &--top-center {
-      .p-tooltip__message {
-        // sass-lint:disable no-vendor-prefixes property-sort-order
-        bottom: 100%;
+  // Top center tooltip
+  .p-tooltip--top-center {
+    .p-tooltip__message {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      bottom: 100%;
+      left: 50%;
+      top: initial;
+      -webkit-transform: translateX(-50%) translateY(-13px);
+      transform: translateX(-50%) translateY(-13px);
+
+      &::before {
+        border: {
+          bottom: $triangle-height solid transparent;
+          left: $triangle-height solid transparent;
+          right: $triangle-height solid transparent;
+          top: $triangle-height solid $color-dark;
+        }
+        bottom: -#{2 * $triangle-height};
         left: 50%;
-        top: initial;
-        -webkit-transform: translateX(-50%) translateY(-13px);
-        transform: translateX(-50%) translateY(-13px);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      // sass-lint:enable no-vendor-prefixes property-sort-order
+    }
+  }
 
-        &::before {
-          border: {
-            bottom: $triangle-height solid transparent;
-            left: $triangle-height solid transparent;
-            right: $triangle-height solid transparent;
-            top: $triangle-height solid $color-dark;
-          }
-          bottom: -#{2 * $triangle-height};
-          left: 50%;
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  // Top right tooltip
+  .p-tooltip--top-right {
+    .p-tooltip__message {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      bottom: 100%;
+      left: initial;
+      right: -#{2 * $triangle-height};
+      top: initial;
+      -webkit-transform: translateX(0%) translateY(-13px);
+      transform: translateX(0%) translateY(-13px);
+      // sass-lint:enabled no-vendor-prefixes property-sort-order
+
+      &::before {
+        border: {
+          bottom: $triangle-height solid transparent;
+          left: $triangle-height solid transparent;
+          right: $triangle-height solid transparent;
+          top: $triangle-height solid $color-dark;
         }
+        bottom: -#{2 * $triangle-height};
+        left: initial;
+        right: $sph-inner;
+      }
+    }
+  }
+
+  // Right tooltip
+  .p-tooltip--right {
+    .p-tooltip__message {
+      bottom: inherit;
+      left: 100%;
+      top: 50%;
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      -webkit-transform: translateX(14px) translateY(-50%);
+      transform: translateX(14px) translateY(-50%);
+      // sass-lint:enable no-vendor-prefixes property-sort-order
+
+      &::before {
+        // sass-lint:disable no-vendor-prefixes property-sort-order
+        border: {
+          bottom: $triangle-height solid transparent;
+          left: $triangle-height solid transparent;
+          right: $triangle-height solid $color-dark;
+          top: $triangle-height solid transparent;
+        }
+        bottom: inherit;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateX(-16px) translateY(-50%);
+        transform: translateX(-16px) translateY(-50%);
         // sass-lint:enable no-vendor-prefixes property-sort-order
       }
     }
+  }
 
-    // Top right tooltip
-    &--top-right {
-      .p-tooltip__message {
+  // Left tooltip
+  .p-tooltip--left {
+    .p-tooltip__message {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      bottom: inherit;
+      left: -16px;
+      top: 50%;
+      -webkit-transform: translateX(-100%) translateY(-50%);
+      transform: translateX(-100%) translateY(-50%);
+      // sass-lint:enable no-vendor-prefixes property-sort-order
+
+      &::before {
         // sass-lint:disable no-vendor-prefixes property-sort-order
-        bottom: 100%;
-        left: initial;
-        right: -#{2 * $triangle-height};
-        top: initial;
-        -webkit-transform: translateX(0%) translateY(-13px);
-        transform: translateX(0%) translateY(-13px);
-        // sass-lint:enabled no-vendor-prefixes property-sort-order
-
-        &::before {
-          border: {
-            bottom: $triangle-height solid transparent;
-            left: $triangle-height solid transparent;
-            right: $triangle-height solid transparent;
-            top: $triangle-height solid $color-dark;
-          }
-          bottom: -#{2 * $triangle-height};
-          left: initial;
-          right: $sph-inner;
+        border: {
+          bottom: $triangle-height solid transparent;
+          left: $triangle-height solid $color-dark;
+          right: $triangle-height solid transparent;
+          top: $triangle-height solid transparent;
         }
-      }
-    }
-
-    // Right tooltip
-    &--right {
-      .p-tooltip__message {
         bottom: inherit;
         left: 100%;
         top: 50%;
-        // sass-lint:disable no-vendor-prefixes property-sort-order
-        -webkit-transform: translateX(14px) translateY(-50%);
-        transform: translateX(14px) translateY(-50%);
+        -webkit-transform: translateX(0) translateY(-50%);
+        transform: translateX(0) translateY(-50%);
         // sass-lint:enable no-vendor-prefixes property-sort-order
-
-        &::before {
-          // sass-lint:disable no-vendor-prefixes property-sort-order
-          border: {
-            bottom: $triangle-height solid transparent;
-            left: $triangle-height solid transparent;
-            right: $triangle-height solid $color-dark;
-            top: $triangle-height solid transparent;
-          }
-          bottom: inherit;
-          left: 0;
-          top: 50%;
-          -webkit-transform: translateX(-16px) translateY(-50%);
-          transform: translateX(-16px) translateY(-50%);
-          // sass-lint:enable no-vendor-prefixes property-sort-order
-        }
-      }
-    }
-
-    // Left tooltip
-    &--left {
-      .p-tooltip__message {
-        // sass-lint:disable no-vendor-prefixes property-sort-order
-        bottom: inherit;
-        left: -16px;
-        top: 50%;
-        -webkit-transform: translateX(-100%) translateY(-50%);
-        transform: translateX(-100%) translateY(-50%);
-        // sass-lint:enable no-vendor-prefixes property-sort-order
-
-        &::before {
-          // sass-lint:disable no-vendor-prefixes property-sort-order
-          border: {
-            bottom: $triangle-height solid transparent;
-            left: $triangle-height solid $color-dark;
-            right: $triangle-height solid transparent;
-            top: $triangle-height solid transparent;
-          }
-          bottom: inherit;
-          left: 100%;
-          top: 50%;
-          -webkit-transform: translateX(0) translateY(-50%);
-          transform: translateX(0) translateY(-50%);
-          // sass-lint:enable no-vendor-prefixes property-sort-order
-        }
       }
     }
   }
