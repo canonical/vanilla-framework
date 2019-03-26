@@ -25,7 +25,7 @@ View example of the pattern heading icon stacked
 
 ### Small
 
-Available at a smaller size of 32x32 pixels rather than our default size of 60x60 pixels.
+Available at a smaller size of 32 x 32 pixels rather than our default size of 60 x 60 pixels.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-small/"
   class="js-example">
