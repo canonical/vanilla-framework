@@ -5,27 +5,33 @@ title: Heading icon
 
 ## Heading icon
 
+<hr>
+
+A header can be emphasised by adding an icon alongside the text.
+
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon/"
   class="js-example">
 View example of the pattern heading icons
 </a>
 
-## Heading icon stacked
+### Stacked
+
+This variant positions the icon vertically with the text content for an alternate layout.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-stacked/"
   class="js-example">
 View example of the pattern heading icon stacked
 </a>
 
-## Heading icon small
+### Small
+
+The icon for this component is also available at a smaller size of 32 x 32 pixels rather than our default size of 60 x 60 pixels.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-small/"
   class="js-example">
 View example of the pattern heading icon small
 </a>
 
-<hr />
-
 ### Design
 
-- [Heading icon design](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon)
+For more information view the [heading icon design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon) which includes the specification in markdown format and a PNG image.
