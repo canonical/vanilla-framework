@@ -5,9 +5,13 @@ table_of_contents: true
 
 ## Icons
 
-Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`
+<hr>
+
+Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`
 
 ### Standard
+
+Our icons have two predefined color styles: light and dark. The light variant is the default style.
 
 <section>
   <div class="p-strip is-shallow">
@@ -106,7 +110,7 @@ Icons can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>
 
 ### Standard dark
 
-When placed within `.p-strip--dark`, icon colors are reverted to ensure legibility.
+Our dark style of icons available when placed within `.p-strip--dark`, icon colors are reverted to ensure legibility.
 
 <section>
 <div class="p-strip--dark is-shallow" style="background-color: transparent;">
@@ -248,8 +252,6 @@ If you wish to add share icons for Twitter, Facebook, Google+ or LinkedIn, we re
 - [**Facebook**](https://developers.facebook.com/docs/plugins/share-button/)
 - [**LinkedIn**](https://developer.linkedin.com/plugins/share)
 
-<hr />
-
 ### Design
 
-- [Icons design](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons)
+For more information view the [icons design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons) which includes the specification in markdown format and a PNG image.
