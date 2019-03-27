@@ -5,67 +5,73 @@ title: Image position
 
 ## Image position
 
-Image position is a utility to position an image within a parent container. In
-most cases it would be a strip. This only affects medium and large screen sizes.
+<hr>
 
-### Position bottom
+Image position is a utility to position an image within a parent container, in
+most cases it would be a strip.
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>This only affects medium and large screen sizes.
+  </p>
+</div>
+
+### Bottom
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom/"
   class="js-example">
-  View example of the utilities image position bottom
+View example of the utilities image position bottom
 </a>
 
-### Position top
+### Top
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top/"
   class="js-example">
-  View example of the utilities image position top
+View example of the utilities image position top
 </a>
 
-### Position left
+### Left
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/left/"
   class="js-example">
-  View example of the utilities image position top
+View example of the utilities image position top
 </a>
 
-### Position right
+### Right
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/right/"
   class="js-example">
-  View example of the utilities image position top
+View example of the utilities image position top
 </a>
 
-### Position top-right
+### Top right
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top-right/"
   class="js-example">
-  View example of the utilities image position top right
+View example of the utilities image position top right
 </a>
 
-### Position top-left
+### Top left
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top-left/"
   class="js-example">
-  View example of the utilities image position top left
+View example of the utilities image position top left
 </a>
 
-### Position bottom-right
+### Bottom right
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom-right/"
   class="js-example">
-  View example of the utilities image position bottom right
+View example of the utilities image position bottom right
 </a>
 
-### Position bottom-left
+### Bottom left
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom-left/"
   class="js-example">
-  View example of the utilities image position bottom left
+View example of the utilities image position bottom left
 </a>
-
-<hr />
 
 ### Design
 
-* [Image position design](https://github.com/ubuntudesign/vanilla-design/tree/master/Image%20position)
+For more information view the [image position design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Image%20position) which includes the specification in markdown format and a PNG image.
