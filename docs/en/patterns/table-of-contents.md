@@ -7,7 +7,7 @@ table_of_contents: false
 
 <hr>
 
-An table of contents can be used to display supplementary links to a page.
+A table of contents can be used to display supplementary links to a page.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/table-of-contents/"
     class="js-example">
