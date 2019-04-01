@@ -7,11 +7,11 @@ table_of_contents: true
 
 <hr>
 
-Buttons are clickable items used to perform an action, you can apply `button` classes on buttons and link elements.
+Buttons are clickable elements used to perform an action, you can apply `button` classes on buttons and link elements.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>Avoid using more than two button styles together.
+    <span class="p-notification__status">Note:</span>Do not use multiple button classes on one HTML element.
   </p>
 </div>
 
