@@ -5,23 +5,27 @@ table_of_contents: true
 
 ## Forms
 
-Vanilla form controls have global styling defined at the HTML element level. Labels and most input types are 100% width of the `<form>` parent element.
+<hr>
+
+Form controls have global styling defined at the HTML element level. Labels and most input types are 100% width of the `<form>` parent element.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/form/"
     class="js-example">
 View example of a base form
 </a>
 
-### Input elements
+### Input
+
+An input field where the user can enter data, which can vary in many ways, depending on the type attribute.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/input/"
     class="js-example">
 View example of an input element
 </a>
 
-### HTML5 elements
+### HTML5
 
-Vanilla supports all HTML5 input types: `text`, `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `color`, `number`, `email`, `url`, `search` and `tel`.
+We support all HTML5 input types: `text`, `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `color`, `number`, `email`, `url`, `search` and `tel`.
 
 ### Textarea
 
@@ -34,14 +38,18 @@ View example of an input element
 
 Note: The attribute `readonly` disables the input but it still retains a default cursor.
 
-### Checkbox and radio button
+### Checkbox
 
-Use checkboxes and radio buttons to select one or more options.
+Use checkboxes to select one or more options, default checkboxes can appear in two states: selected and disabled, or unselected.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/checkboxes/"
     class="js-example">
 View example of the base checkboxes
 </a>
+
+### Radio button
+
+Use radio buttons to make a single selection, our radio buttons can appear in two states: selected and disabled, or unselected.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/radio-buttons/"
     class="js-example">
@@ -73,7 +81,7 @@ You can use the `<fieldset>` element to divide the form into different logical s
 View example of the base form fieldset
 </a>
 
-### Inline form
+### Inline
 
 By applying the class `.p-form--inline` and wrapping any form control in `.p-form__group` you can change the layout style of any form to be inline.
 
@@ -82,7 +90,7 @@ By applying the class `.p-form--inline` and wrapping any form control in `.p-for
 View examples of form inline patterns
 </a>
 
-### Stacked form
+### Stacked
 
 By applying the class `.p-form--stacked` and wrapping any form control in `.p-form__group` you can change the layout style of any form to be stacked.
 
@@ -91,16 +99,22 @@ By applying the class `.p-form--stacked` and wrapping any form control in `.p-fo
 View examples of form stacked patterns
 </a>
 
-### Disabled state
+### Disabled
 
-Adding the `[disabled="disabled"]` attribute to an input will prevent user interaction. All disabled inputs have an opacity of `0.5` and `not-allowed` cursor on hover.
+Adding the `[disabled="disabled"]` attribute to an input will prevent user interaction.
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>All disabled inputs have an opacity of `0.5` and `not-allowed` cursor on hover.
+  </p>
+</div>
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/disabled-input/"
     class="js-example">
 View example of a disabled input
 </a>
 
-### Validation classes
+### Validation
 
 To use form validation feedback - which includes feedback messages, icons and border colours - wrap individual input elements in a `p-form-validation` and additionally apply the `.is-error`, `.is-caution` or `.is-success` to the wrapper as appropriate.
 
@@ -113,7 +127,7 @@ Descriptive text relating to the element's validation status should use the clas
 View example of form validation patterns
 </a>
 
-### Required elements
+### Required
 
 By applying the class `.is-required` the attribute specifies that an input field must be filled out before submitting the form.
 
@@ -122,8 +136,6 @@ By applying the class `.is-required` the attribute specifies that an input field
 View example of an input required element
 </a>
 
-<hr />
-
 ### Design
 
-- [Forms design](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms)
+For more information [view the forms design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms), which includes the specification in markdown format and a PNG image.
