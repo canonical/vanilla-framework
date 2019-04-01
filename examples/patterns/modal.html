@@ -8,20 +8,30 @@ category: _patterns
 <div class="p-modal" id="modal">
   <div class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
     <header class="p-modal__header">
-      <h2 class="p-modal__title" id="modal-title">Modal title</h2>
+      <h2 class="p-modal__title" id="modal-title">Help</h2>
       <button class="p-modal__close" aria-label="Close active modal" onclick="showModal('modal')">Close</button>
     </header>
-    <p id="modal-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sed, distinctio, alias accusantium veritatis magni magnam sapiente amet possimus in quis nisi autem iste, ullam facilis, deleniti voluptas enim. Perspiciatis vero eius debitis deserunt beatae doloribus tenetur accusantium consectetur nesciunt, minus, magni pariatur. Autem ipsa excepturi quod ducimus debitis voluptas!</p>
+    <p id="modal-description">Learn how to operate production-ready clusters.</p>
+    <div class="p-heading-icon--small">
+      <div class="p-heading-icon__header">
+        <img class="p-heading-icon__img" src="https://api.jujucharms.com/charmstore/v5/~containers/kubernetes-master-55/icon.svg" />
+        <p><a class="p-heading-icon__title" href="https://tutorials.ubuntu.com/tutorial/get-started-canonical-kubernetes" width="24">Kubernetes tutorial</a></p>
+      </div>
+      <div class="p-heading-icon__header">
+        <img class="p-heading-icon__img" src="https://api.jujucharms.com/charmstore/v5/xenial/hadoop-client-8/icon.svg" />
+        <p><a class="p-heading-icon__title" href="https://tutorials.ubuntu.com/tutorial/get-started-hadoop-spark" width="24">Hadoop Spark tutorial</a></p>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-function showModal(target) {
-  var modal = document.getElementById(target);
-  if (modal.style.display === 'none') {
+  function showModal(target) {
+    var modal = document.getElementById(target);
+    if (modal.style.display === 'none') {
       modal.style.display = 'flex';
-  } else {
+    } else {
       modal.style.display = 'none';
+    }
   }
-}
 </script>
