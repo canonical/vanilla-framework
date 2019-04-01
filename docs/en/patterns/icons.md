@@ -207,6 +207,15 @@ Our dark style of icons available when placed within `.p-strip--dark`, icon colo
   </div>
 </section>
 
+### Animation
+
+Animate an element by spinning with the follow utility class.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/animations/spin/"
+    class="js-example">
+View example of the spin animation utility
+</a>
+
 ### Social
 
 <section>
