@@ -5,65 +5,70 @@ table_of_contents: false
 
 ## Notification
 
-### .p-notification
+<hr>
 
-Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, caution, negative or position. You can also include a close button using the `p-icon--close` pattern, although you will need to implement the click function yourself.
+Notifications are used to display global information, our notification variants consist of default, caution, negative or positive. You can also include a close button using the `p-icon--close` pattern, although you will need to implement the click function yourself.
+
+### Default
+
+The default variant should be used to display global information.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
     class="js-example">
-    View example of the default notification pattern
+View example of the default notification pattern
 </a>
 
+### Caution
 
-### .p-notification--caution
-
-This caution variant should be used to convey information that is not critical but the user should be aware of.
+The caution variant should be used to convey information that is not critical but the user should be aware of.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/caution/"
     class="js-example">
-    View example of the caution notification pattern
+View example of the caution notification pattern
 </a>
 
-### .p-notification--negative
+### Negative
 
-This negative variant should be used to convey information that is critical and the user should take action.
+The negative variant should be used to convey information that is critical and the user should take action.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/negative/"
     class="js-example">
-    View example of the negative notification pattern
+View example of the negative notification pattern
 </a>
 
-### .p-notification--positive
+### Positive
 
-This positive variant should be used to convey success or completion.
+The positive variant should be used to convey success or completion.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/positive/"
     class="js-example">
-    View example of the positive notification pattern
+View example of the positive notification pattern
 </a>
 
-### .p-notification--information
+### Information
 
-This information variant should be used to convey an information message.
+The information variant should be used to convey an information message.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/information/"
     class="js-example">
-    View example of the information notification pattern
+View example of the information notification pattern
 </a>
 
-### Adding actions
+### Actions
 
-Notifications have the ability to add an action link to them. These should appear inline with the notification response and will add margin between the link and content.
+Notifications have the ability to add an action link to them. These should appear inline with the notification response and will add a margin between the link and content.
 
-Note: All functionality must be developed in independently.
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>All functionality must be developed independently.
+  </p>
+</div>
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/action/"
     class="js-example">
-    View example of the caution notification pattern
+View example of the caution notification pattern
 </a>
-
-<hr />
 
 ### Design
 
-* [Notifications design](https://github.com/ubuntudesign/vanilla-design/tree/master/Notifications)
+For more information view the [notification design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Notifications) which includes the specification in markdown format and a PNG image.
