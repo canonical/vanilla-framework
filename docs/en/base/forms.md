@@ -49,7 +49,7 @@ View example of the base checkboxes
 
 ### Radio button
 
-Use radio buttons to make a single selection, our radio buttons can appear in two states: selected and disabled, or unselected.
+Use radio buttons to select one or more options, our radio buttons can appear in two states: selected and disabled, or unselected.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/radio-buttons/"
     class="js-example">
@@ -101,7 +101,7 @@ View examples of form stacked patterns
 
 ### Disabled
 
-Adding the `[disabled="disabled"]` attribute to an input will prevent user interaction.
+Adding the `disabled` attribute to an input will prevent user interaction.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
