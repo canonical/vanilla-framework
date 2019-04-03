@@ -7,11 +7,13 @@ table_of_contents: false
 
 <hr>
 
-Notifications are used to display global information, our notification variants consist of default, caution, negative or positive. You can also include a close button using the `p-icon--close` pattern, although you will need to implement the click function yourself.
+Notifications are used to display global information, our notification variants consist of default, caution, negative or positive.
+
+You can also include a close button using the `p-icon--close` pattern, although you will need to implement the click function yourself.
 
 ### Default
 
-The default variant should be used to display global information.
+The default variant should be used to display global messages.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
     class="js-example">
