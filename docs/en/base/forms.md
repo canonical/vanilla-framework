@@ -40,7 +40,7 @@ Note: The attribute `readonly` disables the input but it still retains a default
 
 ### Checkbox
 
-Use checkboxes to select one or more options, default checkboxes can appear in two states: selected and disabled, or unselected.
+Use checkboxes to select one or more options, default checkboxes can appear in four states: both selected, unselected and disabled.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/checkboxes/"
     class="js-example">
@@ -49,7 +49,7 @@ View example of the base checkboxes
 
 ### Radio button
 
-Use radio buttons to select one or more options, our radio buttons can appear in two states: selected and disabled, or unselected.
+Use radio buttons to select one or more options, our radio buttons can appear in four states: both selected, unselected and disabled.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/forms/radio-buttons/"
     class="js-example">
