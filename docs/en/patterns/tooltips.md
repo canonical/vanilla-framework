@@ -5,21 +5,28 @@ table_of_contents: true
 
 ## Tooltips
 
-Tooltips are text labels that appear when the user hovers over, focuses on, or touches an element on the screen. Can be used to provide information of concepts/terms/actions that are not self explanatory or well known. Can be introduced to provide information of a disabled actionable element, e.g. for disabled buttons provide information why why they are disabled.
+<hr>
 
-Avoid using tooltips to provide instructions or guidance. They shouldn't be used to show rich information including images and formatted text and avoid placing over plain text or other places where they are not discoverable.
+Tooltips are text labels that appear when the user hovers over, focuses on, or touches an element on the screen.
+
+- Can be used to provide information about concepts/terms/actions that are not self-explanatory or well known.
+- Can be introduced to provide information on a disabled actionable element, e.g. for disabled buttons provide information about why they are disabled.
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Avoid:</span>Using tooltips to provide instructions or guidance. They shouldn't be used to show rich information including images and formatted text and avoid placing over plain text or other places where they are not discoverable.
+  </p>
+</div>
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/tooltips/"
     class="js-example">
-    View example of the tooltips pattern
+View example of the tooltips pattern
 </a>
-
-<hr />
 
 ### Design
 
-* [Tooltips design](https://github.com/ubuntudesign/vanilla-design/tree/master/Tooltips)
+For more information [view the tooltips design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Tooltips), which includes the specification in markdown format and a PNG image.
 
 ### Related
 
-* [Contextual menu pattern](/en/patterns/contextual-menu)
+For an alternative way of displaying discoverable information [view our contextual menu component](/en/patterns/contextual-menu).
