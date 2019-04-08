@@ -9,8 +9,8 @@ table_of_contents: true
 
 Tooltips are text labels that appear when the user hovers over, focuses on, or touches an element on the screen.
 
-- Can be used to provide information about concepts/terms/actions that are not self-explanatory or well known.
-- Can be introduced to provide information on a disabled actionable element, e.g. for disabled buttons provide information about why they are disabled.
+- They can be used to provide information about concepts/terms/actions that are not self-explanatory or well known.
+- An alternative use of tooltips is to provide information on a disabled actionable element, e.g. for disabled buttons, providing information about why they are disabled.
 
 <div class="p-notification--caution">
   <p class="p-notification__response">
