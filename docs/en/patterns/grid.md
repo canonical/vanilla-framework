@@ -17,7 +17,7 @@ Read also: [Breakpoints](/en/settings/breakpoint-settings)
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/default/"
     class="js-example">
-    View example of the default grid
+View example of the default grid
 </a>
 
 ### Empty columns
@@ -32,7 +32,7 @@ By default, prefixes and suffixes only work on top level columns.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
     class="js-example">
-    View example of the empty columns within the grid
+View example of the empty columns within the grid
 </a>
 
 ### Nested columns
@@ -41,7 +41,18 @@ Columns can be nested infinitely by adding `.row` classes within columns. Basica
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/nested/"
     class="js-example">
-    View example of the nested columns within the grid
+View example of the nested columns within the grid
+</a>
+
+<hr />
+
+### Clear margin on first col
+
+Columns can wrap on multiple lines within the same `.row`. This is useful in responsive layouts. To ensure proper alignment, the gutter on the first column must be set to zero. We have grid utilities classes which do that:
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/column-wrapping/"
+    class="js-example">
+View example of the wrapping columns
 </a>
 
 <hr />
