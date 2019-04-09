@@ -38,7 +38,6 @@ $shelves-column-name: $grid-col-name;
 
   .css-row {
     display: grid;
-    grid-gap: 0 $grid-gutter-width;
     grid-template-rows: auto;
     margin-left: auto;
     margin-right: auto;
@@ -47,14 +46,17 @@ $shelves-column-name: $grid-col-name;
     padding-right: $grid-margin-width;
 
     @media (max-width: $breakpoint-medium) {
+      grid-gap: 0 map-get($grid-gutter-widths, small);
       grid-template-columns: repeat($grid-columns-mobile, minmax(0, 1fr));
     }
 
     @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      grid-gap: 0 map-get($grid-gutter-widths, medium);
       grid-template-columns: repeat($grid-columns-tablet, minmax(0, 1fr));
     }
 
     @media (min-width: $breakpoint-large) {
+      grid-gap: 0 map-get($grid-gutter-widths, large);
       grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
     }
   }
