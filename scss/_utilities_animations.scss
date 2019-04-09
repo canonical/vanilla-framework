@@ -1,5 +1,12 @@
 /// Animations
 @mixin vf-u-animations {
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
   .u-animation--spin {
     // sass-lint:disable no-vendor-prefixes property-sort-order
     -webkit-animation: spin map-get($animation-duration, sleepy) infinite linear;
