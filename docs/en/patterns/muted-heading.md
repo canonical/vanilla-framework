@@ -5,15 +5,15 @@ title: Muted heading
 
 ## Muted heading
 
-A Muted heading can be used to introduce a collection of icons or images.
+<hr>
+
+A muted heading can be used to introduce a collection of icons or images.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/muted/"
   class="js-example">
-  View example of the pattern muted heading
+View example of the pattern muted heading
 </a>
-
-<hr />
 
 ### Design
 
-* [Muted heading design](https://github.com/ubuntudesign/vanilla-design/tree/master/Muted%20heading)
+For more information [view the muted heading design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Muted%20heading), which includes the specification in markdown format and a PNG image.
