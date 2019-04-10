@@ -197,9 +197,13 @@ $shelves-column-name: $grid-col-name;
     }
 
     #{$query} {
-      @for $i from 2 through $col-count {
+      @for $i from 1 through $col-count {
         .row [class*='col-'].col-start-#{$label}-#{$i} {
           grid-column-start: #{$i};
+        }
+
+        .order-#{$label}-#{$i} {
+          order: #{$i};
         }
       }
     }
