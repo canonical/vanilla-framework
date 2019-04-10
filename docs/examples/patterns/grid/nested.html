@@ -4,80 +4,264 @@ title: Grid / Nested columns
 category: _patterns
 ---
 
-<div class="css-row" grid-outline grid-demo>
-    <div class="css-col-3"><p class="">.col-3</p><div class="css-row">
-      <div class="css-col-2"><p class="">.col-2</p><div class="css-row">
-        <div class="css-col-1"><p class="">.col-1</p></div><div class="css-col-1"><p class="">.col-1</p></div>
-      </div></div>
-      <div class="css-col-1"><p class="">.col-1</p></div>
-    </div></div>
+<div class="p-strip">
+  <div class="row">
+    <div class="mobile-col-4 tablet-col-6 col-12">
+      <h2>Nesting at every breakpoint</h2>
+    </div>
+  </div>
 
-    <div class="css-col-3"><p class="">.col-3</p><div class="css-row">
-      <div class="css-col-2"><p class="">.col-2</p><div class="css-row">
-        <div class="css-col-1"><p class="">.col-1</p></div><div class="css-col-1"><p class="">.col-1</p></div>
-      </div></div>
-      <div class="css-col-1"><p class="">.col-1</p></div>
-    </div></div>
-
-    <div class="css-col-3"><p class="">.col-3</p><div class="css-row">
-      <div class="css-col-2"><p class="">.col-2</p><div class="css-row">
-        <div class="css-col-1"><p class="">.col-1</p></div><div class="css-col-1"><p class="">.col-1</p></div>
-      </div></div>
-      <div class="css-col-1"><p class="">.col-1</p></div>
-    </div></div>
-</div>
-
-
-<div grid-demo grid-outline>
-  <div class="css-row">
-    <div class="css-col-6">
-      <span>.css-col-6</span>
-      <div class="css-row">
-        <div class="css-col-3">
-          <span>.css-col-3</span>
-          <div class="css-row">
-            <div class="css-col-1">
-              <span>.css-col-1</span>
+  <div class="row" css-grid-demo>
+    <div class="mobile-col-4 tablet-col-6 css-desktop-col-12">
+      mobile-col-4 .tablet-col-6 .css-desktop-col-12
+      <div class="row">
+        <div class="mobile-col-3 tablet-col-3 col-9">
+          mobile-col-3 .tablet-col-3 .col-9
+          <div class="row">
+            <div class="mobile-col-1 tablet-col-1 col-2">
+              mobile-col-1 tablet-col-1 col-2
             </div>
-            <div class="css-col-1">
-              <span>.css-col-1</span>
+            <div class="mobile-col-1 tablet-col-1 col-3">
+              mobile-col-1 tablet-col-1 col-2
             </div>
-            <div class="css-col-1">
-              <span>.css-col-1</span>
+            <div class="mobile-col-1 tablet-col-1 col-3">
+              mobile-col-1 tablet-col-1 col-2
             </div>
           </div>
         </div>
+        <div class="mobile-col-1 tablet-col-3 col-3">
+          mobile-col-2 tablet-col-3 col-3
+        </div>
       </div>
-    </div>
-    <div class="css-col-6">
-      <span>.css-col-6</span>
     </div>
   </div>
 </div>
 
-<div grid-demo grid-outline>
+<div class="p-strip">
   <div class="row">
-    <div class="col-6">
-      <span>.col-6</span>
-      <div class="row">
-        <div class="col-3">
-          <span>.col-3</span>
-          <div class="row">
-            <div class="col-1">
-              <span>.col-1</span>
+    <div class="mobile-col-4 tablet-col-6 col-12">
+      <h2>Nesting at breakpoints (resize to reveal)</h2>
+    </div>
+  </div>
+
+  <div class="u-hide--medium u-hide--large">
+    <div class="row">
+      <div class="mobile-col-4 tablet-col-6 col-12">
+        <h5>Nesting on mobile</h5>
+      </div>
+    </div>
+
+    <div class="row" css-grid-demo>
+      <div class="mobile-col-4">
+        mobile-col-4
+        <div class="row">
+          <div class="mobile-col-2">
+            mobile-col-2
+            <div class="row">
+              <div class="mobile-col-1">
+                mobile-col-1
+              </div>
+              <div class="mobile-col-1">
+                mobile-col-1
+              </div>
             </div>
-            <div class="col-1">
-              <span>.col-1</span>
+          </div>
+          <div class="mobile-col-2">
+            mobile-col-2
+          </div>
+        </div>
+      </div>
+      <div class="mobile-col-3">
+        mobile-col-3
+        <div class="row">
+          <div class="mobile-col-1">
+            mobile-col-1
+          </div>
+          <div class="mobile-col-1">
+            mobile-col-1
+          </div>
+          <div class="mobile-col-1">
+            mobile-col-1
+          </div>
+        </div>
+      </div>
+      <div class="mobile-col-1">
+        mobile-col-1
+      </div>
+      <div class="mobile-col-4">
+        <div class="row">
+          <div class="mobile-col-1">
+            mobile-col-1
+          </div>
+          <div class="mobile-col-2">
+            mobile-col-2
+            <div class="row">
+              <div class="mobile-col-1">
+                mobile-col-1
+              </div>
+              <div class="mobile-col-1">
+                mobile-col-1
+              </div>
             </div>
-            <div class="col-1">
-              <span>.col-1</span>
+          </div>
+          <div class="mobile-col-1">
+            mobile-col-1
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="u-hide--small u-hide--large">
+    <div class="row">
+      <div class="mobile-col-4 tablet-col-6 col-12">
+        <h5>Nesting on tablet</h5>
+      </div>
+    </div>
+
+    <div class="row" css-grid-demo>
+      <div class="tablet-col-6">
+        tablet-col-6
+        <div class="row">
+          <div class="tablet-col-3">
+            tablet-col-3
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+          </div>
+          <div class="tablet-col-3">
+            tablet-col-3
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
+            </div>
+            <div class="tablet-col-1">
+              tablet-col-1
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-6">
-      <span>.col-6</span>
+  </div>
+
+
+  <div class="u-hide--small u-hide--medium">
+    <div class="row">
+      <div class="mobile-col-4 tablet-col-6 col-12">
+        <h5>Nesting on desktop</h5>
+      </div>
+    </div>
+
+    <div class="row" css-grid-demo>
+      <div class="col-9">
+        col-9
+        <div class="row">
+          <div class="col-6">
+            col-3
+            <div class="row">
+              <div class="col-4">
+                col-4
+              </div>
+              <div class="col-2">
+                col-2
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            col-3
+            <div class="row">
+              <div class="col-2">
+                col-2
+              </div>
+              <div class="col-1">
+                col-1
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        col-3
+        <div class="row">
+          <div class="col-2">
+            col-2
+            <div class="row">
+              <div class="col-1">
+                col-1
+              </div>
+              <div class="col-1">
+                col-1
+              </div>
+            </div>
+          </div>
+          <div class="col-1">
+            col-1
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
+      <div class="col-1">
+        col-1
+      </div>
     </div>
   </div>
 </div>

@@ -19,24 +19,50 @@ $shelves-column-name: $grid-col-name;
   }
 
   // Demo helper
-  [grid-demo] [class*='col-'] {
+  [grid-demo] [class*='#{$grid-col-name}-'] {
     background: $color-mid-light;
     margin-bottom: $spv-inner--small;
   }
 
-  [grid-outline] [class*='col-'] {
+  [grid-outline] [class*='#{$grid-col-name}-'] {
     outline: 1px solid $color-x-light;
     padding: $spv-inner--small $sph-inner--small;
   }
 }
 
 @mixin vf-p-css-grid {
-  [css-grid-demo] [class*='css-col-'] {
-    background: $color-mid-light;
-    margin-bottom: $spv-inner--small;
+  %row-reset {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: $grid-max-width;
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  .css-row {
+  %span-full-grid-on-mobile {
+    @media (max-width: $breakpoint-medium) {
+      grid-column: 1 / span $grid-columns-mobile;
+    }
+  }
+
+  %span-full-grid-on-tablet {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      grid-column: 1 / span $grid-columns-tablet;
+    }
+  }
+
+  %span-full-grid-on-desktop {
+    @media (min-width: $breakpoint-large) {
+      grid-column: 1 / span $grid-columns;
+    }
+  }
+
+  [css-grid-demo] [class*='col-'] {
+    background: transparentize($color-negative, 0.9);
+    margin-bottom: $spv-outer--small;
+  }
+
+  .row {
     display: grid;
     grid-template-rows: auto;
     margin-left: auto;
@@ -45,89 +71,111 @@ $shelves-column-name: $grid-col-name;
     padding-left: $grid-margin-width;
     padding-right: $grid-margin-width;
 
+    & & {
+      @extend %row-reset;
+    }
+
+    [class*='col-'] {
+      grid-column-start: auto;
+    }
+
+    // set static gutter width per breakpoint
     @media (max-width: $breakpoint-medium) {
       grid-gap: 0 map-get($grid-gutter-widths, small);
       grid-template-columns: repeat($grid-columns-mobile, minmax(0, 1fr));
+
+      * {
+        grid-column-end: span $grid-columns-mobile;
+      }
     }
 
     @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
       grid-gap: 0 map-get($grid-gutter-widths, medium);
       grid-template-columns: repeat($grid-columns-tablet, minmax(0, 1fr));
+
+      * {
+        grid-column-end: span $grid-columns-tablet;
+      }
     }
 
     @media (min-width: $breakpoint-large) {
       grid-gap: 0 map-get($grid-gutter-widths, large);
       grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
-    }
-  }
 
-  %span-mobile-grid {
-    @media (max-width: $breakpoint-medium) {
-      grid-column: auto / span $grid-columns-mobile; // set css-col-* to span full grid on mobile
-    }
-  }
-
-  %span-tablet-grid {
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-      grid-column: auto / span $grid-columns-tablet; // set css-col-* to span full grid on tablet
+      * {
+        grid-column-end: span $grid-columns;
+      }
     }
   }
 
   // mobile grid
-  @for $i from 1 through $grid-columns-mobile {
-    .css-mobile-col-#{$i} {
-      @extend %span-mobile-grid;
-      @extend %span-tablet-grid;
-    }
-  }
-
   @media (max-width: $breakpoint-medium) {
     @for $i from 1 through $grid-columns-mobile {
-      // set css-col-* to span respective number of columns on desktop
-      .css-mobile-col-#{$i} {
-        grid-column: auto / span #{$i};
+      .#{$grid-mobile-col-prefix}#{$i} {
+        grid-column-end: span #{$i};
+
+        //nesting
+        @if $i > 1 {
+          & > .row {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+          }
+        }
       }
     }
   }
 
   // tablet grid
-  @for $i from 1 through $grid-columns-tablet {
-    .css-tablet-col-#{$i} {
-      @extend %span-mobile-grid;
-      @extend %span-tablet-grid;
-    }
-  }
-
   @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
     @for $i from 1 through $grid-columns-tablet {
-      // set css-col-* to span respective number of columns on tablet
-      .css-tablet-col-#{$i} {
-        grid-column: auto / span #{$i};
+      .#{$grid-tablet-col-prefix}#{$i} {
+        grid-column-end: span #{$i};
+
+        //nesting
+        @if $i > 1 {
+          & > .row {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+          }
+        }
       }
     }
   }
 
   // desktop grid
-  @for $i from 1 through $grid-columns {
-    .css-col-#{$i} {
-      @extend %span-mobile-grid;
-      @extend %span-tablet-grid;
+  @media (min-width: $breakpoint-large) {
+    @for $i from $grid-columns through 1 {
+      // set col-* to span respective number of columns on desktop
+      .#{$grid-desktop-col-prefix}#{$i} {
+        grid-column-end: span #{$i};
+
+        //nesting
+        @if $i > 1 {
+          & > .row {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+          }
+        }
+      }
     }
   }
 
-  @media (min-width: $breakpoint-large) {
-    @for $i from $grid-columns through 1 {
-      // set css-col-* to span respective number of columns on desktop
-      .css-col-#{$i} {
-        grid-column: auto / span #{$i};
-      }
+  // span full grid on other breakpoints; (to match block level element behaviour)
+  @for $i from 1 through $grid-columns-mobile {
+    .#{$grid-mobile-col-prefix}#{$i} {
+      @extend %span-full-grid-on-tablet;
+      @extend %span-full-grid-on-desktop;
+    }
+  }
 
-      .css-col-#{$i} .css-row {
-        display: grid;
-        grid-gap: 0 $grid-gutter-width;
-        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
-        padding: 0;
-      }
+  @for $i from 1 through $grid-columns-tablet {
+    .#{$grid-tablet-col-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %span-full-grid-on-desktop;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .#{$grid-desktop-col-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %span-full-grid-on-tablet;
     }
   }
 }
