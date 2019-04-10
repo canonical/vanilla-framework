@@ -178,4 +178,30 @@ $shelves-column-name: $grid-col-name;
       @extend %span-full-grid-on-tablet;
     }
   }
+
+  // offset columns
+  $offsets: (
+    (small, 0, $breakpoint-medium, $grid-columns-mobile - 1),
+    (medium, $breakpoint-medium, $breakpoint-large, $grid-columns-tablet - 1),
+    (large, $breakpoint-large, -1, $grid-columns - 1)
+  );
+
+  @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
+    $query: null;
+    @if $breakpoint-min == 0 {
+      $query: '@media (max-width: #{$breakpoint-max})';
+    } @else if $breakpoint-max == -1 {
+      $query: '@media (min-width: #{$breakpoint-min})';
+    } @else {
+      $query: '@media (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max})';
+    }
+
+    #{$query} {
+      @for $i from 2 through $col-count {
+        .row [class*='col-'].col-start-#{$label}-#{$i} {
+          grid-column-start: #{$i};
+        }
+      }
+    }
+  }
 }
