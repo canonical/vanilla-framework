@@ -5,10 +5,12 @@ table_of_contents: true
 
 ## Lists
 
-If you want to display lists in a way that is more visually distinctive than the
-standard `<ol>` and `<ul>`, Vanilla has 7 list styles at your disposal.
+<hr>
 
-### Simple list
+If you want to display lists in a way that is more visually distinctive than the
+standard `<ol>` and `<ul>`, we have 7 list styles at your disposal.
+
+### Default
 
 Use the class `.p-list` for a list without bullets and more spacing between
 items than the basic lists.
@@ -18,16 +20,22 @@ items than the basic lists.
 View example of the list pattern
 </a>
 
-### List with icon
+### Ticked
 
 Add the class `.is-ticked` to each list item to display tick icons.
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>The color of the tick icon is set by the <code>$color-accent</code> variable in <code>settings.scss</code>.
+  </p>
+</div>
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-ticked/"
     class="js-example">
 View example of the ticked list pattern
 </a>
 
-### List with dividers
+### Horizontal divider
 
 Use the class `.p-list--divided` to add horizontal lines between the items.
 
@@ -36,7 +44,7 @@ Use the class `.p-list--divided` to add horizontal lines between the items.
 View example of the divided list pattern
 </a>
 
-### List with icons and dividers
+### Ticked with horizontal divider
 
 You can combine both `.is-ticked` and `.p-list--divided` to style a
 list with horizontal dividers and tick icons.
@@ -46,7 +54,16 @@ list with horizontal dividers and tick icons.
 View example of the ticked divided list pattern
 </a>
 
-### Inline list
+### Vertical divider
+
+A divider is used to separate related content items.
+
+<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/divider/"
+  class="js-example">
+View example of the patterns divider
+</a>
+
+### Inline
 
 Apply the class `.p-inline-list` to display all the list items in one line.
 
@@ -55,7 +72,7 @@ Apply the class `.p-inline-list` to display all the list items in one line.
 View example of the inline list pattern
 </a>
 
-### Middot-separated inline list
+### Middot
 
 Apply the class `.p-inline-list--middot` to add a middot character between
 inline list items.
@@ -65,7 +82,7 @@ inline list items.
 View example of the middot list pattern
 </a>
 
-### Stepped list
+### Vertical stepped
 
 If you want to display a list of items that form a set of steps — like a
 tutorial or instructions — you can use the class `.p-stepped-list`.
@@ -75,9 +92,9 @@ tutorial or instructions — you can use the class `.p-stepped-list`.
 View example of the stepped list pattern
 </a>
 
-### Stepped list: detailed
+### Horizontal stepped
 
-Stepped list should be used for step by step instructions. This pattern is best
+The stepped list should be used for step by step instructions. This pattern is best
 used on a `.p-strip--light` as the description sections are displayed in a white
 box.
 
@@ -86,16 +103,7 @@ box.
 View example of the pattern stepped list detailed
 </a>
 
-### Ticked list
-
-The color of the tick icon is set by the `$color-accent` variable in `_settings.scss`.
-
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/lists/lists-ticked/"
-  class="js-example">
-View example of the pattern list ticked
-</a>
-
-### Split list
+### Split
 
 If you wish to split the items in a list into two columns above `$breakpoint-medium`, you can do so by adding the class `is-split` to the list element.
 
@@ -105,12 +113,10 @@ View example of the patterns list split
 
 </a>
 
-<hr />
-
 ### Design
 
-- [Lists design](https://github.com/ubuntudesign/vanilla-design/tree/master/Lists)
+For more information [view the lists design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Lists), which includes the specification in markdown format and a PNG image.
 
 ### Related
 
-- [List tree pattern](/en/patterns/list-tree)
+For a more interactive layered lists style [view the list tree component](/en/patterns/list-tree).
