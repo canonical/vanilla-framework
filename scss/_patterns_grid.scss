@@ -57,7 +57,7 @@ $shelves-column-name: $grid-col-name;
     }
   }
 
-  [css-grid-demo] [class*='col-'] {
+  [css-grid-demo] [class*='#{$grid-column-prefix}'] {
     background: transparentize($color-negative, 0.9);
     margin-bottom: $spv-outer--small;
   }
@@ -75,7 +75,7 @@ $shelves-column-name: $grid-col-name;
       @extend %row-reset;
     }
 
-    [class*='col-'] {
+    [class*='#{$grid-column-prefix}'] {
       grid-column-start: auto;
     }
 
@@ -111,7 +111,7 @@ $shelves-column-name: $grid-col-name;
   // mobile grid
   @media (max-width: $breakpoint-medium) {
     @for $i from 1 through $grid-columns-mobile {
-      .#{$grid-mobile-col-prefix}#{$i} {
+      .#{$grid-small-col-prefix}#{$i} {
         grid-column-end: span #{$i};
 
         //nesting
@@ -127,7 +127,7 @@ $shelves-column-name: $grid-col-name;
   // tablet grid
   @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
     @for $i from 1 through $grid-columns-tablet {
-      .#{$grid-tablet-col-prefix}#{$i} {
+      .#{$grid-col-medium-prefix}#{$i} {
         grid-column-end: span #{$i};
 
         //nesting
@@ -159,14 +159,14 @@ $shelves-column-name: $grid-col-name;
 
   // span full grid on other breakpoints; (to match block level element behaviour)
   @for $i from 1 through $grid-columns-mobile {
-    .#{$grid-mobile-col-prefix}#{$i} {
+    .#{$grid-small-col-prefix}#{$i} {
       @extend %span-full-grid-on-tablet;
       @extend %span-full-grid-on-desktop;
     }
   }
 
   @for $i from 1 through $grid-columns-tablet {
-    .#{$grid-tablet-col-prefix}#{$i} {
+    .#{$grid-col-medium-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-desktop;
     }
@@ -179,7 +179,7 @@ $shelves-column-name: $grid-col-name;
     }
   }
 
-  // offset columns
+  // column reordering
   $offsets: (
     (small, 0, $breakpoint-medium, $grid-columns-mobile - 1),
     (medium, $breakpoint-medium, $breakpoint-large, $grid-columns-tablet - 1),
@@ -198,11 +198,11 @@ $shelves-column-name: $grid-col-name;
 
     @media #{$query} {
       @for $i from 1 through $col-count {
-        .row [class*='col-'].col-start-#{$label}-#{$i} {
+        .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
           grid-column-start: #{$i};
         }
 
-        .order-#{$label}-#{$i} {
+        .#{$grid-column-prefix}order-#{$label}-#{$i} {
           order: #{$i};
         }
       }
