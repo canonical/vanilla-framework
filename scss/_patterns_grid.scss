@@ -189,14 +189,14 @@ $shelves-column-name: $grid-col-name;
   @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
     $query: null;
     @if $breakpoint-min == 0 {
-      $query: '@media (max-width: #{$breakpoint-max})';
+      $query: '(max-width: #{$breakpoint-max})';
     } @else if $breakpoint-max == -1 {
-      $query: '@media (min-width: #{$breakpoint-min})';
+      $query: '(min-width: #{$breakpoint-min})';
     } @else {
-      $query: '@media (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max})';
+      $query: '(min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max})';
     }
 
-    #{$query} {
+    @media #{$query} {
       @for $i from 1 through $col-count {
         .row [class*='col-'].col-start-#{$label}-#{$i} {
           grid-column-start: #{$i};
