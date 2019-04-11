@@ -7,7 +7,7 @@ title: Muted heading
 
 <hr>
 
-A muted heading can be used to introduce a collection of icons or images.
+A muted heading can be used to subtly provide context to content without the heading itself being too prominent.
 
 <a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/muted/"
   class="js-example">
