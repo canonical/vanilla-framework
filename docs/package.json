@@ -6,7 +6,7 @@
     "build-css": "node-sass static/sass --output static/css",
     "build-docs": "documentation-builder --base-directory . --output-path templates --template-path template.html --tag-manager-code 'GTM-K7ZB6FL' --no-link-extensions --force",
     "test": "",
-    "serve": "cd dist && FLASK_DEBUG=true FLASK_APP=app.py flask run -h 0.0.0.0 -p $PORT"
+    "serve": "cd dist && ./entrypoint 0.0.0.0:$PORT"
   },
   "dependencies": {
     "node-sass": "^4.5.3",
