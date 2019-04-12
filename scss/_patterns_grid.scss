@@ -80,7 +80,7 @@ $shelves-column-name: $grid-col-name;
     }
 
     // set static gutter width per breakpoint
-    @media (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-small) {
       grid-gap: 0 map-get($grid-gutter-widths, small);
       grid-template-columns: repeat($grid-columns-mobile, minmax(0, 1fr));
 
@@ -89,7 +89,7 @@ $shelves-column-name: $grid-col-name;
       }
     }
 
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
       grid-gap: 0 map-get($grid-gutter-widths, medium);
       grid-template-columns: repeat($grid-columns-tablet, minmax(0, 1fr));
 
@@ -98,7 +98,7 @@ $shelves-column-name: $grid-col-name;
       }
     }
 
-    @media (min-width: $breakpoint-large) {
+    @media (min-width: $breakpoint-medium) {
       grid-gap: 0 map-get($grid-gutter-widths, large);
       grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
 
@@ -109,7 +109,7 @@ $shelves-column-name: $grid-col-name;
   }
 
   // mobile grid
-  @media (max-width: $breakpoint-medium) {
+  @media (max-width: $breakpoint-small) {
     @for $i from 1 through $grid-columns-mobile {
       .#{$grid-small-col-prefix}#{$i} {
         grid-column-end: span #{$i};
@@ -125,7 +125,7 @@ $shelves-column-name: $grid-col-name;
   }
 
   // tablet grid
-  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+  @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
     @for $i from 1 through $grid-columns-tablet {
       .#{$grid-col-medium-prefix}#{$i} {
         grid-column-end: span #{$i};
@@ -141,7 +141,7 @@ $shelves-column-name: $grid-col-name;
   }
 
   // desktop grid
-  @media (min-width: $breakpoint-large) {
+  @media (min-width: $breakpoint-medium) {
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-desktop-col-prefix}#{$i} {
@@ -181,9 +181,9 @@ $shelves-column-name: $grid-col-name;
 
   // column reordering
   $offsets: (
-    (small, 0, $breakpoint-medium, $grid-columns-mobile - 1),
-    (medium, $breakpoint-medium, $breakpoint-large, $grid-columns-tablet - 1),
-    (large, $breakpoint-large, -1, $grid-columns - 1)
+    (small, 0, $breakpoint-small, $grid-columns-mobile - 1),
+    (medium, $breakpoint-small, $breakpoint-medium, $grid-columns-tablet - 1),
+    (large, $breakpoint-medium, -1, $grid-columns - 1)
   );
 
   @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
