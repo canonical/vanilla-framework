@@ -7,7 +7,7 @@ table_of_contents: true
 
 Embed media objects such as videos, maps and calendars.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/embedded-media/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/embedded-media/"
     class="js-example">
     View example of the embedded media utility
 </a>

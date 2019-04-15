@@ -7,7 +7,7 @@ table_of_contents: true
 
 The pagination component should be used to navigate from one article to the next or previous in a chronological fashion.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pagination/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/pagination/"
     class="js-example">
     View example of the pagination pattern
 </a>

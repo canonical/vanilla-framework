@@ -8,7 +8,7 @@ table_of_contents: false
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/pull-quotes/"
     class="js-example">
     View example of the pull quote pattern
 </a>

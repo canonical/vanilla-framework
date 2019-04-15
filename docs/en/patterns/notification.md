@@ -9,7 +9,7 @@ table_of_contents: false
 
 Notifications are used to display global information. A notification will display at the top and fill the full width of the page. A notification can be a default, caution, negative or position. You can also include a close button using the `p-icon--close` pattern, although you will need to implement the click function yourself.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/notifications/notifications/"
     class="js-example">
     View example of the default notification pattern
 </a>
@@ -19,7 +19,7 @@ Notifications are used to display global information. A notification will displa
 
 This caution variant should be used to convey information that is not critical but the user should be aware of.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/caution/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/notifications/caution/"
     class="js-example">
     View example of the caution notification pattern
 </a>
@@ -28,7 +28,7 @@ This caution variant should be used to convey information that is not critical b
 
 This negative variant should be used to convey information that is critical and the user should take action.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/negative/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/notifications/negative/"
     class="js-example">
     View example of the negative notification pattern
 </a>
@@ -37,7 +37,7 @@ This negative variant should be used to convey information that is critical and 
 
 This positive variant should be used to convey success or completion.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/positive/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/notifications/positive/"
     class="js-example">
     View example of the positive notification pattern
 </a>
@@ -46,7 +46,7 @@ This positive variant should be used to convey success or completion.
 
 This information variant should be used to convey an information message.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/information/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/notifications/information/"
     class="js-example">
     View example of the information notification pattern
 </a>
@@ -57,7 +57,7 @@ Notifications have the ability to add an action link to them. These should appea
 
 Note: All functionality must be developed in independently.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/notifications/action/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/notifications/action/"
     class="js-example">
     View example of the caution notification pattern
 </a>

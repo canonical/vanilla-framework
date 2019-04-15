@@ -11,7 +11,7 @@ This pattern should be used when a table requires configuration fields (add, edi
 
 Using `p-table-expanding__panel` it can be hidden using the `aria-hidden` attribute. The table must contain all table cells required.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/tables/table-expanding/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/tables/table-expanding/"
   class="js-example">
   View example of the expanding table pattern
 </a>

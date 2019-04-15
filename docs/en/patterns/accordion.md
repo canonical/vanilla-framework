@@ -12,7 +12,7 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
 
 `.p-accordion__panel` visibility is effected by `aria-hidden` and again can be manipulated with JS.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/accordion/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/accordion/"
     class="js-example">
     View example of the accordion pattern
 </a>

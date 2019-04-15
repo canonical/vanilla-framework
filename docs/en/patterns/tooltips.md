@@ -9,7 +9,7 @@ Tooltips are text labels that appear when the user hovers over, focuses on, or t
 
 Avoid using tooltips to provide instructions or guidance. They shouldn't be used to show rich information including images and formatted text and avoid placing over plain text or other places where they are not discoverable.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/tooltips/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/tooltips/"
     class="js-example">
     View example of the tooltips pattern
 </a>

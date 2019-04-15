@@ -15,7 +15,7 @@ Using direction modifiers will change the placement of the drop-down menu. By de
 .p-contextual-menu--center
 ```
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/contextual-menu/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/contextual-menu/"
   class="js-example">
   View example of the contextual menu pattern
 </a>

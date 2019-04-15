@@ -10,7 +10,7 @@ an `[aria-label]` to describe the cell on a mobile screen. We use the content to
 
 The `<thead>` element is completely hidden from  view on a smaller screen and if the table holds a `.p-contextual-menu` pattern all the children elements will be visible and be interactive.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/tables/table-mobile-card/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/tables/table-mobile-card/"
   class="js-example">
   View example of the patterns table mobile card
 </a>

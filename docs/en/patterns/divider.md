@@ -7,7 +7,7 @@ title: Divider
 
 A divider is used to separate related content items.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/divider/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/divider/"
   class="js-example">
   View example of the patterns divider
 </a>

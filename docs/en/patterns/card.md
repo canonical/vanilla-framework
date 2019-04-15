@@ -15,7 +15,7 @@ All card styles, but in particular the highlighted card, should be used sparingl
 
 The purpose of the basic card is to display information, without user interaction.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/default/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/card/default/"
     class="js-example">
     View example of the default card pattern
 </a>
@@ -24,7 +24,7 @@ The purpose of the basic card is to display information, without user interactio
 
 The purpose of the header card is to display information, grouped under a heading.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/header/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/card/header/"
     class="js-example">
     View example of the header card pattern
 </a>
@@ -34,7 +34,7 @@ The purpose of the header card is to display information, grouped under a headin
 
 The highlighted card should be used when you can interact with the content.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/highlighted/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/card/highlighted/"
     class="js-example">
     View example of the highlighted card pattern
 </a>
@@ -45,7 +45,7 @@ The highlighted card should be used when you can interact with the content.
 The purpose of the card overlay pattern is to make the text visible in
 conjunction with a strip image.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/card/overlay/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/card/overlay/"
   class="js-example">
   View example of the patterns card overlay
 </a>

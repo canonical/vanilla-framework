@@ -18,7 +18,7 @@ Note: You can constrain the width of the navigation to match the
 The background color of a navigation pattern can be set via the
 `$color-navigation-background` variable.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/default/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/navigation/default/"
     class="js-example">
     View example of the navigation pattern
 </a>
@@ -34,7 +34,7 @@ under section titles in an accordion. This example code will expand to fill the
 space available to it so it needs to be used in conjunction with the grid to
 set the layout. This pattern includes a tagline which sits next to the logo.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/sidebar/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/navigation/sidebar/"
     class="js-example">
     View example of the sidebar navigation pattern
 </a>

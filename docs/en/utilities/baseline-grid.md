@@ -7,7 +7,7 @@ table_of_contents: true
 
 You can apply this utility to an element (such as `<body>`) to give it a series of horizontal lines separated by one `$sp-unit`.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/baseline-grid/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/baseline-grid/"
     class="js-example">
     View example of the baseline grid utility
 </a>

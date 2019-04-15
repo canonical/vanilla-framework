@@ -12,7 +12,7 @@ x.onreadystatechange = function() {
 
 x.open(
     'GET',
-    'http://vanilla-framework.github.io/vanilla-framework/examples/base/code/',
+    'http://canonical-web-and-design.github.io/vanilla-framework/examples/base/code/',
     true
 );
 x.send(null);

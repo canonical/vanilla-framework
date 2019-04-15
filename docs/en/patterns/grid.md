@@ -15,7 +15,7 @@ Layouts can be created combining rows with different number of columns to an ide
 
 Read also: [Breakpoints](/en/settings/breakpoint-settings)
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/default/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/grid/default/"
     class="js-example">
     View example of the default grid
 </a>
@@ -30,7 +30,7 @@ To add some space to the right add a `.suffix-[n]` class.
 
 By default, prefixes and suffixes only work on top level columns.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
     class="js-example">
     View example of the empty columns within the grid
 </a>
@@ -39,7 +39,7 @@ By default, prefixes and suffixes only work on top level columns.
 
 Columns can be nested infinitely by adding `.row` classes within columns. Basically, just remember that all columns must be wrapped in `.row` classes, even when nested.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/grid/nested/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/grid/nested/"
     class="js-example">
     View example of the nested columns within the grid
 </a>

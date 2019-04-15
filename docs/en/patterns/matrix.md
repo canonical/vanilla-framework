@@ -9,7 +9,7 @@ The matrix pattern can be useful to display a selection of items in a format tha
 
 Matrix items will display in one column on small screens. At resolutions above ```$breakpoint-medium```, the matrix switches to three items per row.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/matrix/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/matrix/"
     class="js-example">
     View example of the matrix pattern
 </a>
