@@ -17,7 +17,7 @@ When you refer to code inline with other text, use the <code>&lt;code&gt;</code>
 
 If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> together with the <code>&lt;code&gt;</code> tag.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/base/code/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/base/code/"
     class="js-example">
 View example of the base code block
 </a>
@@ -26,7 +26,7 @@ View example of the base code block
 
 Code copyable should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-copyable/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/code-copyable/"
     class="js-example">
 View example of the code copyable pattern
 </a>
@@ -35,7 +35,7 @@ View example of the code copyable pattern
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/code-numbered/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/code-numbered/"
     class="js-example">
 View example of the code numbered pattern
 </a>

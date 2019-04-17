@@ -18,7 +18,7 @@ Tooltips are text labels that appear when the user hovers over, focuses on, or t
   </p>
 </div>
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/tooltips/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/tooltips/"
     class="js-example">
 View example of the tooltips pattern
 </a>

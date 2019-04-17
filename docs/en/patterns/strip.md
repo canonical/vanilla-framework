@@ -9,12 +9,12 @@ The strip pattern provides a full width strip container in which to wrap a row. 
 
 A `.p-strip` container should always be the parent of a `.row` (from the [Grid pattern](/en/patterns/grid/)) and never the other way around.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/strips-light/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/strips-light/"
     class="js-example">
 View example of the strip light pattern
 </a>
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/strips-dark/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/strips-dark/"
     class="js-example">
 View example of the strip dark pattern
 </a>
@@ -24,7 +24,7 @@ View example of the strip dark pattern
 The purpose of the strip accent pattern is to display content with a
 highlighted strip using the accent colour.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/accent/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/accent/"
   class="js-example">
 View example of the pattern strip accent
 </a>
@@ -42,7 +42,7 @@ This pattern allows for an image background to be appear as a background on a st
 You can also add the classes '.is-light' and '.is-dark' to the strips to describe the background image.
 These classes will then override the text color to ensure it remains visible.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/image/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/image/"
   class="js-example">
 View example of the pattern strip image
 </a>
@@ -57,7 +57,7 @@ This pattern is used to add a dividing border at the bottom of the strip.
   </p>
 </div>
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/is-bordered/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/is-bordered/"
   class="js-example">
 View example of the pattern strip is-bordered
 </a>
@@ -66,7 +66,7 @@ View example of the pattern strip is-bordered
 
 This state gives the strip larger vertical padding.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/deep/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/deep/"
   class="js-example">
 View example of the pattern strip is-deep
 </a>
@@ -75,7 +75,7 @@ View example of the pattern strip is-deep
 
 This state gives the strip smaller vertical padding.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/strips/shallow/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/strips/shallow/"
   class="js-example">
 View example of the pattern strip is-shallow
 </a>
