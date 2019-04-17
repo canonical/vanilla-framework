@@ -16,7 +16,7 @@ Vanilla uses a default spacing unit of `.5rem` (`8px`) as a basis to calculate s
 View example of the baseline grid utility
 </a>
 
-Thh example above shows headings sitting on the baseline grid, where the space between each red line is one `$sp-unit`.
+The example above shows headings sitting on the baseline grid, where the space between each red line is one `$sp-unit`.
 
 ### Scaling multiplier
 
