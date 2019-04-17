@@ -211,7 +211,7 @@ Our dark style of icons available when placed within `.p-strip--dark`, icon colo
 
 Add a spin animation to an element with the following utility class.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/animations/spin/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/animations/spin/"
     class="js-example">
 View example of the spin animation utility
 </a>

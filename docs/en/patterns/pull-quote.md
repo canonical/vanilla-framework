@@ -10,7 +10,7 @@ table_of_contents: false
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/default/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/pull-quotes/default/"
     class="js-example">
 View example of the pull quote pattern
 </a>
@@ -19,7 +19,7 @@ View example of the pull quote pattern
 
 A small variant is available which displays the quote text at the same size as normal paragraph text.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/small/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/pull-quotes/small/"
     class="js-example">
 View example of the small pull quote pattern
 </a>
@@ -28,7 +28,7 @@ View example of the small pull quote pattern
 
 To give more prominence to a quote, there is also a large variant.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/large/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/pull-quotes/large/"
     class="js-example">
 View example of the small pull quote pattern
 </a>
@@ -37,7 +37,7 @@ View example of the small pull quote pattern
 
 To add an image to any size of pull-quote, add the class `has-image` and use the following markup for the image.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/pull-quotes/default-image/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/pull-quotes/default-image/"
     class="js-example">
 View example of the small pull quote pattern with an image
 </a>

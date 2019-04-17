@@ -9,7 +9,7 @@ title: Heading icon
 
 A header can be emphasised by adding an icon alongside the text.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/heading-icon/"
   class="js-example">
 View example of the pattern heading icons
 </a>
@@ -18,7 +18,7 @@ View example of the pattern heading icons
 
 This variant positions the icon vertically with the text content for an alternate layout.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-stacked/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/heading-icon-stacked/"
   class="js-example">
 View example of the pattern heading icon stacked
 </a>
@@ -27,7 +27,7 @@ View example of the pattern heading icon stacked
 
 The icon for this component is also available at a smaller size of 32 x 32 pixels rather than our default size of 60 x 60 pixels.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/heading-icon-small/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/heading-icon-small/"
   class="js-example">
 View example of the pattern heading icon small
 </a>

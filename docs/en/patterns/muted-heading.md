@@ -9,7 +9,7 @@ title: Muted heading
 
 A muted heading can be used to subtly provide context to content without the heading itself being too prominent.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/headings/muted/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/headings/muted/"
   class="js-example">
 View example of the pattern muted heading
 </a>
