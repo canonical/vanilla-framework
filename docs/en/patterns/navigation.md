@@ -25,7 +25,7 @@ The background color of a navigation pattern can be set via the
 You can change the breakpoint at which the menu changes to a small screen menu
 by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.scss`.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/default/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/navigation/default/"
     class="js-example">
 View example of the navigation pattern
 </a>
@@ -41,7 +41,7 @@ or more `p-subnav` components.
   </p>
 </div>
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/navigation/subnav"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/navigation/subnav"
     class="js-example">
 View example of the sub-navigation pattern
 </a>

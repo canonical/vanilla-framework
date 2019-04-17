@@ -9,7 +9,7 @@ table_of_contents: true
 
 The modal component can be used to overlay an area of the screen which can contain a prompt, dialog or interaction.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/modal/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/modal/"
     class="js-example">
 View example of the modal pattern
 </a>
