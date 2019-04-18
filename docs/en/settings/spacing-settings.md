@@ -60,7 +60,7 @@ The `$sph-inner` variables are used to determine horizontal spacing inside compo
 | `$sph-inner--small`   | `$sp-unit`     | `0.5rem`      |
 | `$sph-inner`          | `$sp-unit * 2` | `1rem`        |
 | `$sph-inner--large`   | `$sp-unit * 3` | `1.5rem`      |
-| `$spg-inner--x-large` | `$sp-unit * 5` | `2.5rem`      |
+| `$sph-inner--x-large` | `$sp-unit * 5` | `2.5rem`      |
 | `$sph-outer`          | `$sp-unit`     | `0.5rem`      |
 | `$sph-outer--large`   | `$sp-unit * 3` | `1.5rem`      |
 
