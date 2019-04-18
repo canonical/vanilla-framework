@@ -11,7 +11,7 @@ Tabs organise and allow navigation between groups of content that are related an
 
 To select the active tab add the attribute `aria-selected="true"` and that list item will have the correct styling.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/tabs/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/tabs/"
     class="js-example">
 View example of the tabs pattern
 </a>
