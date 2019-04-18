@@ -13,7 +13,7 @@ Search boxes enable search functionality on a page and are typically used in a n
 
 The component expands to the full width of its container by default.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/search-box/default/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/search-box/default/"
     class="js-example">
 View examples of search box patterns
 </a>
@@ -22,7 +22,7 @@ View examples of search box patterns
 
 This component integrates with `.p-navigation__nav` for both small and large screens.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/search-box/navigation/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/search-box/navigation/"
     class="js-example">
 View examples of search box navigation patterns
 </a>

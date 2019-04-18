@@ -9,7 +9,7 @@ table_of_contents: false
 
 A table of contents can be used to display supplementary links to a page.
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/patterns/table-of-contents/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/table-of-contents/"
     class="js-example">
 View example of the table of contents pattern
 </a>

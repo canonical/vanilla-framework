@@ -18,56 +18,56 @@ most cases it would be a strip.
 
 ### Bottom
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/bottom/"
   class="js-example">
 View example of the utilities image position bottom
 </a>
 
 ### Top
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/top/"
   class="js-example">
 View example of the utilities image position top
 </a>
 
 ### Left
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/left/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/left/"
   class="js-example">
 View example of the utilities image position top
 </a>
 
 ### Right
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/right/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/right/"
   class="js-example">
 View example of the utilities image position top
 </a>
 
 ### Top right
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top-right/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/top-right/"
   class="js-example">
 View example of the utilities image position top right
 </a>
 
 ### Top left
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/top-left/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/top-left/"
   class="js-example">
 View example of the utilities image position top left
 </a>
 
 ### Bottom right
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom-right/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/bottom-right/"
   class="js-example">
 View example of the utilities image position bottom right
 </a>
 
 ### Bottom left
 
-<a href="https://vanilla-framework.github.io/vanilla-framework/examples/utilities/image-position/bottom-left/"
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/image-position/bottom-left/"
   class="js-example">
 View example of the utilities image position bottom left
 </a>
