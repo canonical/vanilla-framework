@@ -99,6 +99,21 @@ By applying the class `.p-form--stacked` and wrapping any form control in `.p-fo
 View examples of form stacked patterns
 </a>
 
+### Stacked with stacked inputs
+
+A variant use of the `.p-form--stacked` is to add `.is-stacked` to the `.p-form__group` elements. This stacks the labels above the form elements, which is required for some more compact designs.
+
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/forms/form-stacked-stacked-inputs/"
+    class="js-example">
+View examples of form stacked patterns with stacked inputs
+</a>
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span> Do not mix stacked and unstacked form groups within one form.
+  </p>
+</div>
+
 ### Disabled
 
 Adding the `disabled` attribute to an input will prevent user interaction.
