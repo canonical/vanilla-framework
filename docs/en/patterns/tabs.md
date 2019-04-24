@@ -11,7 +11,7 @@ Tabs organise and allow navigation between groups of content that are related an
 
 To select the active tab add the attribute `aria-selected="true"` and that list item will have the correct styling.
 
-To horizontally align the tablist with other content, the whole tabset can be contained within a `.row` element to provide correct gutters.
+To horizontally align the tab list with other content, the whole tab set can be contained within a `.row` element to provide correct gutters.
 
 <a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/tabs/"
     class="js-example">
