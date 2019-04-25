@@ -38,7 +38,7 @@
     margin-bottom: $spv-outer--small;
   }
 
-  .row {
+  %row {
     display: grid;
     grid-template-rows: auto;
     margin-left: auto;
@@ -82,6 +82,10 @@
         grid-column-end: span $grid-columns;
       }
     }
+  }
+
+  .row {
+    @extend %row;
   }
 
   // mobile grid
