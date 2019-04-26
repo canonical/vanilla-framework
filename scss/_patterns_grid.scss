@@ -7,28 +7,40 @@
 }
 
 @mixin vf-p-css-grid {
+  %row-reset-margin {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  %row-reset-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   %row-reset {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: $grid-max-width;
+    @extend %row-reset-margin;
+    @extend %row-reset-padding;
+  }
+
+  @mixin row-reset {
     padding-left: 0;
     padding-right: 0;
   }
 
   %span-full-grid-on-mobile {
-    @media (max-width: $breakpoint-large) {
+    @media (max-width: $threshold-4-6-col) {
       grid-column: 1 / span $grid-columns-small;
     }
   }
 
   %span-full-grid-on-tablet {
-    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-large) {
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
       grid-column: 1 / span $grid-columns-medium;
     }
   }
 
   %span-full-grid-on-desktop {
-    @media (min-width: $breakpoint-large) {
+    @media (min-width: $threshold-6-12-col) {
       grid-column: 1 / span $grid-columns;
     }
   }
@@ -48,7 +60,7 @@
     padding-right: $grid-margin-width;
 
     & & {
-      @extend %row-reset;
+      @include row-reset;
     }
 
     [class*='#{$grid-column-prefix}'] {
@@ -56,7 +68,7 @@
     }
 
     // set static gutter width per breakpoint
-    @media (max-width: $breakpoint-medium) {
+    @media (max-width: $threshold-4-6-col) {
       grid-gap: 0 map-get($grid-gutter-widths, small);
       grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
 
@@ -65,7 +77,7 @@
       }
     }
 
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
       grid-gap: 0 map-get($grid-gutter-widths, medium);
       grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
 
@@ -74,7 +86,7 @@
       }
     }
 
-    @media (min-width: $breakpoint-large) {
+    @media (min-width: $threshold-6-12-col) {
       grid-gap: 0 map-get($grid-gutter-widths, large);
       grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
 
@@ -89,7 +101,7 @@
   }
 
   // mobile grid
-  @media (max-width: $breakpoint-medium) {
+  @media (max-width: $threshold-4-6-col) {
     @for $i from 1 through $grid-columns-small {
       .#{$grid-small-col-prefix}#{$i} {
         grid-column-end: span #{$i};
@@ -105,7 +117,7 @@
   }
 
   // tablet grid
-  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from 1 through $grid-columns-medium {
       .#{$grid-col-medium-prefix}#{$i} {
         grid-column-end: span #{$i};
@@ -121,7 +133,7 @@
   }
 
   // desktop grid
-  @media (min-width: $breakpoint-large) {
+  @media (min-width: $threshold-6-12-col) {
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-desktop-col-prefix}#{$i} {
@@ -161,9 +173,9 @@
 
   // column reordering
   $offsets: (
-    (small, 0, $breakpoint-small, $grid-columns-small - 1),
-    (medium, $breakpoint-small, $breakpoint-large, $grid-columns-medium - 1),
-    (large, $breakpoint-large, -1, $grid-columns - 1)
+    (small, 0, $threshold-4-6-col, $grid-columns-small - 1),
+    (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium - 1),
+    (large, $threshold-6-12-col, -1, $grid-columns - 1)
   );
 
   @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
