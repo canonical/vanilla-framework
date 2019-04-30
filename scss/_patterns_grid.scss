@@ -5,27 +5,27 @@
     width: 100%;
 
     & & {
-      @extend %row-reset;
+      @include row-reset;
     }
   }
 }
 
-@mixin vf-p-css-grid {
-  %row-reset-margin {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+@mixin row-reset-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
 
-  %row-reset-padding {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+@mixin row-reset-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
 
-  %row-reset {
-    @extend %row-reset-margin;
-    @extend %row-reset-padding;
-  }
+@mixin row-reset {
+  @include row-reset-margin;
+  @include row-reset-padding;
+}
 
+@mixin vf-p-grid {
   %span-full-grid-on-mobile {
     @media (max-width: $threshold-4-6-col) {
       grid-column: 1 / span $grid-columns-small;
