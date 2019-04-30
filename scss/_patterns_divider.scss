@@ -1,6 +1,11 @@
 @import 'settings';
 
 @mixin vf-p-divider {
+  .p-divider {
+    @extend %row;
+    @extend %row-reset-padding;
+  }
+
   .p-divider__block {
     position: relative;
 
@@ -10,8 +15,8 @@
 
       &:not(:first-child) {
         &::before {
-          content: '';
           background-color: $color-mid-light;
+          content: '';
           height: 1px;
           left: 0;
           position: absolute;

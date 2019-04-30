@@ -182,8 +182,8 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
   @extend %numbered-step-title;
 }
 
-// Bullet sizes for each heading level
 @for $i from 6 through 1 {
+  // Bullet sizes for each heading level
   $bullet-width: map-get($line-heights, default-text);
   $bullet-width-mobile: map-get($line-heights, default-text);
 
@@ -195,16 +195,15 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
   // sass-lint:disable no-qualifying-elements
   h#{$i}.p-stepped-list__title {
     // sass-lint:enable no-qualifying-elements
-    margin-left: $bullet-width + $sph-inner;
-    @media (max-width: $breakpoint-heading-threshold) {
-      margin-left: $bullet-width-mobile + $sph-inner;
-    }
-
     &::before {
-      width: $bullet-width;
+      margin-right: $sph-inner;
 
       @media (max-width: $breakpoint-heading-threshold) {
         width: $bullet-width-mobile;
+      }
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        width: $bullet-width;
       }
     }
   }
@@ -212,27 +211,34 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
 
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
-    @extend %vf-clearfix;
+    // $bullet-offset:
     @extend %numbered-step-container;
 
-    @media (min-width: $breakpoint-medium) {
-      .p-stepped-list__content {
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-left: 0;
+    }
+
+    .p-stepped-list__content {
+      @media (min-width: $threshold-6-12-col) {
+        grid-column-end: span 6;
         margin-top: 0;
       }
+    }
 
-      .p-stepped-list__item {
-        display: flex;
-        margin: 0;
+    .p-stepped-list__title {
+      display: flex;
+      grid-column-end: span 6;
+      margin-left: 0;
+    }
 
-        > :nth-child(2n) {
-          grid-column-end: span 6;
-          position: static;
-        }
+    .p-stepped-list__item {
+      @extend %row;
+      @extend %row-reset-padding;
+      margin-left: auto;
+      width: 100%;
 
-        > :nth-child(2n + 1) {
-          grid-column-end: span 6;
-          position: static;
-        }
+      .row & {
+        @extend %row-reset;
       }
     }
   }
@@ -246,8 +252,8 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
       @supports ((-webkit-columns: 1) or (columns: 1)) {
         column-gap: $sp-x-large;
         columns: 2;
-        // sass-lint:enable no-vendor-prefixes property-sort-order
 
+        // sass-lint:enable no-vendor-prefixes property-sort-order
         .p-list__item {
           display: inline-block;
           width: 100%;
@@ -275,22 +281,22 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
 @mixin vf-p-lists {
   %numbered-step-container {
     counter-reset: li;
+    display: flex;
+    flex-direction: column;
     list-style: none;
     padding-left: 0;
   }
 
   %numbered-step-title {
+    display: flex;
     &::before {
-      background-color: $color-mid-dark;
+      align-self: start;
+      background-color: $color-mid-light;
       border-radius: 100%;
-      color: $color-x-light;
       content: counter(li);
       counter-increment: li;
       direction: rtl;
-      display: inline-block;
-      left: 0;
-      padding: 0;
-      position: absolute;
+      display: block;
       text-align: center;
     }
   }
