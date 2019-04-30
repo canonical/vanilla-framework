@@ -3,10 +3,6 @@
 @mixin vf-p-grid-modifications {
   .row {
     width: 100%;
-
-    & & {
-      @include row-reset;
-    }
   }
 }
 
@@ -50,7 +46,7 @@
   }
 
   %row {
-    display: grid;
+    display: grid !important;
     grid-template-rows: auto;
     margin-left: auto;
     margin-right: auto;
@@ -60,6 +56,10 @@
 
     [class*='#{$grid-column-prefix}'] {
       grid-column-start: auto;
+    }
+
+    & & {
+      @include row-reset;
     }
 
     // set static gutter width per breakpoint
