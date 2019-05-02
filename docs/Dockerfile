@@ -12,7 +12,7 @@ ARG COMMIT_ID
 RUN test -n "${COMMIT_ID}"
 
 # Copy over files
-ADD build .
+ADD _site/ ./
 ADD nginx.conf /etc/nginx/sites-enabled/default
 ADD redirects.map /etc/nginx/redirects.map
 RUN sed -i "s/~COMMIT_ID~/${COMMIT_ID}/" /etc/nginx/sites-enabled/default
