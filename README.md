@@ -66,30 +66,19 @@ The simplest way to run Vanilla framework is to first [install Docker](https://d
 ./run watch  # Dynamically watch for changes to the Sass files and build automatically
 ```
 
-### Viewing patterns in the browser
+### Viewing documentation
 
-The [examples directory](https://github.com/vanilla-framework/vanilla-framework/tree/develop/examples) contains example markup for each component of the framework.
+The documentation for the latest version of Vanilla framework is hosted at <https://docs.vanillaframework.io>.
 
-To view these examples in the browser, run the local server with:
+The documentation markdown files live in the [`docs` folder](/docs), and you can view this documentation in the browser by running:
 
 ```bash
 ./run serve
 ```
 
-Once the containers are setup, you can visit <http://0.0.0.0:8101/vanilla-framework/> in your browser to see the examples.
+Once the containers are setup, you can visit <http://0.0.0.0:8101/> in your browser to see the documentation.
 
-## Building documentation pages
-
-The documentation available at <https://docs.vanillaframework.io> is built from
-the markdown files located in the [`/docs/`](/docs) folder. You can also build the
-HTML documentation pages locally as follows:
-
-```bash
-snap install documentation-builder  # Install the documentation-builder tool
-documentation-builder --base-directory docs --output-path docs/build
-```
-
-Now open the `docs/build/en/index.html` file in your browser.
+The [examples directory](/docs/examples) contains example markup for each component of the framework, and these examples can be viewed in the browser at <http://0.0.0.0:8101/examples/>.
 
 ## Community
 
