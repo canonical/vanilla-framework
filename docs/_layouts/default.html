@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K7ZB6FL');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <title>{% if title %}{{ title }} | Vanilla documentation{% else %}Vanilla documentation{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://assets.ubuntu.com/v1/15be9af2-examplejs-1.1.0.css" />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7ZB6FL"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="docs-container">
+      <header id="navigation" class="p-navigation">
+        <div class="p-navigation__banner">
+          <div class="p-navigation__logo">
+            <a class="p-navigation__link" href="https://vanillaframework.io/">
+              <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla framework logo">
+            </a>
+          </div>
+          <div class="p-navigation__toggles">
+            <a href="#navigation" class="p-navigation__toggle--open" title="about menu">About</a>
+            <a href="#navigation-closed" class="p-navigation__toggle--close" title="close about menu">About</a>
+            <a class="p-sidebar__toggle u-hide--medium u-hide--large" href="#">Patterns</a>
+          </div>
+        </div>
+        <nav class="p-navigation__nav">
+          <span class="u-off-screen">
+            <a href="#main-content">Jump to main content</a>
+          </span>
+          <ul class="p-navigation__links">
+            <li class="p-navigation__link is-selected"><a href="/">Docs</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/accessibility">Accessibility</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/browser-support">Browser support</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/coding-standards">Coding standards</a></li>
+            <li class="p-navigation__link"><a href="https://vanillaframework.io/contribute">Contribute</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <aside class="p-sidebar">
+        <div class="p-sidebar__content">
+          <form class="p-search-box" onsubmit="return false">
+            <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
+            <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
+            <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+          </form>
+          <nav class="p-sidebar-nav">
+            <ul class="p-sidebar-nav__list" id="docs-list-unsorted">
+              <li class="p-sidebar-nav__item">
+                <strong>Welcome</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/' %}is-active{% endif %}" href="/">Get started</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/building-vanilla/' %}is-active{% endif %}" href="/building-vanilla/">Building with Vanilla</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/customising-vanilla/' %}is-active{% endif %}" href="/customising-vanilla/">Customising Vanilla</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Basics</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/color-settings/' %}is-active{% endif %}" href="/settings/color-settings/">Color</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/functions/' %}is-active{% endif %}" href="/utilities/functions/">Functions</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/font-settings/' %}is-active{% endif %}" href="/settings/font-settings/">Font</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/placeholder-settings/' %}is-active{% endif %}" href="/settings/placeholder-settings/">Placeholders</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/reset/' %}is-active{% endif %}" href="/base/reset/">Reset</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/spacing-settings/' %}is-active{% endif %}" href="/settings/spacing-settings/">Spacing</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Global layout</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/breakpoint-settings/' %}is-active{% endif %}" href="/settings/breakpoint-settings/">Breakpoints</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/grid/' %}is-active{% endif %}" href="/patterns/grid/">Grid</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/strip/' %}is-active{% endif %}" href="/patterns/strip/">Strip</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/layout-settings/' %}is-active{% endif %}" href="/settings/layout-settings/">Structure</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>One-off layout</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/align/' %}is-active{% endif %}" href="/utilities/align/">Alignment</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/baseline-grid/' %}is-active{% endif %}" href="/utilities/baseline-grid/">Baseline grid</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/clearfix/' %}is-active{% endif %}" href="/utilities/clearfix/">Clearfix</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/equal-height/' %}is-active{% endif %}" href="/utilities/equal-height/">Equal height</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/floats/' %}is-active{% endif %}" href="/utilities/floats/">Floats</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/hide/' %}is-active{% endif %}" href="/utilities/hide/">Hide</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/no-print/' %}is-active{% endif %}" href="/utilities/no-print/">No print</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/margin-collapse/' %}is-active{% endif %}" href="/utilities/margin-collapse/">Margin collapse</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/off-screen/' %}is-active{% endif %}" href="/utilities/off-screen/">Off-screen elements</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/padding-collapse/' %}is-active{% endif %}" href="/utilities/padding-collapse/">Padding collapse</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/show/' %}is-active{% endif %}" href="/utilities/show/">Show</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/vertically-center/' %}is-active{% endif %}" href="/utilities/vertically-center/">Vertically center</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Navigation</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/accordion/' %}is-active{% endif %}" href="/patterns/accordion/">Accordion</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/article-pagination/' %}is-active{% endif %}" href="/patterns/article-pagination/">Article pagination</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/breadcrumbs/' %}is-active{% endif %}" href="/patterns/breadcrumbs/">Breadcrumbs</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/contextual-menu/' %}is-active{% endif %}" href="/patterns/contextual-menu/">Contextual menu</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/navigation/' %}is-active{% endif %}" href="/patterns/navigation/">Navigation</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/pagination/' %}is-active{% endif %}" href="/patterns/pagination/">Pagination</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/tabs/' %}is-active{% endif %}" href="/patterns/tabs/">Tabs</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/table-of-contents/' %}is-active{% endif %}" href="/patterns/table-of-contents/">Table of contents</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Page structure</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/card/' %}is-active{% endif %}" href="/patterns/card/">Cards</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/lists/' %}is-active{% endif %}" href="/patterns/lists/">Lists</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/matrix/' %}is-active{% endif %}" href="/patterns/matrix/">Matrix</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/muted-heading/' %}is-active{% endif %}" href="/patterns/muted-heading/">Muted heading</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Text</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/code/' %}is-active{% endif %}" href="/base/code/">Code</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/typography/' %}is-active{% endif %}" href="/base/typography/">Typography</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/pull-quote/' %}is-active{% endif %}" href="/patterns/pull-quote/">Quotes</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Interactive elements</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/buttons/' %}is-active{% endif %}" href="/patterns/buttons/">Buttons</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/forms/' %}is-active{% endif %}" href="/base/forms/">Forms</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/links/' %}is-active{% endif %}" href="/patterns/links/">Links</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/list-tree/' %}is-active{% endif %}" href="/patterns/list-tree/">List tree</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/modal/' %}is-active{% endif %}" href="/patterns/modal/">Modal</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/notification/' %}is-active{% endif %}" href="/patterns/notification/">Notifications</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/search-box/' %}is-active{% endif %}" href="/patterns/search-box/">Search box</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/slider/' %}is-active{% endif %}" href="/patterns/slider/">Slider</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/switch/' %}is-active{% endif %}" href="/patterns/switch/">Switch</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/tooltips/' %}is-active{% endif %}" href="/patterns/tooltips/">Tooltips</a></li>
+                </ul>
+              </li>
+            
+              <li class="p-sidebar-nav__item">
+                <strong>Images and media</strong>
+                <ul class="p-sidebar-nav__list">
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/animation-settings/' %}is-active{% endif %}" href="/settings/animation-settings/">Animations</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/assets-settings/' %}is-active{% endif %}" href="/settings/assets-settings/">Assets</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/embedded-media/' %}is-active{% endif %}" href="/utilities/embedded-media/">Embedded media</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/heading-icon/' %}is-active{% endif %}" href="/patterns/heading-icon/">Heading icon</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/icons/' %}is-active{% endif %}" href="/patterns/icons/">Icons</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/images/' %}is-active{% endif %}" href="/patterns/images/">Images</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/image-position/' %}is-active{% endif %}" href="/utilities/image-position/">Image position</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/inline-images/' %}is-active{% endif %}" href="/patterns/inline-images/">Inline images</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/media-object/' %}is-active{% endif %}" href="/patterns/media-object/">Media object</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="p-content" id="main-content">
+        {% if page.homepage %}
+        <div class="p-strip--image is-dark" style="background-image: url('https://assets.ubuntu.com/v1/775cc62b-vanilla-grad-background.png'); background-position: 75% 50%;">
+          <div class="p-content__row">
+            <h1 class="p-heading--stylized">Documentation</h1>
+            <p class="p-heading--four">Everything you need to get started with Vanilla</p>
+          </div>
+        </div>
+        {% endif %}
+        <div class="p-strip is-shallow">
+          <div class="p-content__row">
+            {{ content }}
+          </div>
+        </div>
+        <footer class="p-footer" role="contentinfo">
+          <div class="p-content__row u-no-margin--left">
+            <div class="col-12">
+              <p>&copy; 2019 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+              <nav>
+                <ul class="p-inline-list--middot">
+                  <li class="p-inline-list__item">
+                    <a href="https://www.ubuntu.com/legal">Legal info</a>
+                  </li>
+                  <li class="p-inline-list__item">
+                    <a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">Report a bug</a>
+                  </li>
+                </ul>
+                <span class="u-off-screen">
+                  <a href="#">Go to the top of the page</a>
+                </span>
+              </nav>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script src="/js/scripts.js"></script>
+    <script src="https://assets.ubuntu.com/v1/24ef513e-example-1.1.0.js"></script>
+    <!-- begin usabilla live embed code -->
+    <script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"///"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/4f2e23c6debc.js");
+/*]]>{/literal}*/</script>
+<!-- end usabilla live embed code -->
+  </body>
+</html>
