@@ -213,6 +213,42 @@
           </div>
         </footer>
       </main>
+
+      <aside id="side-content" class="p-aside js-contents" style="display: none">
+        <div class="p-aside__section">
+          <h4 class="p-aside__header">Contents</h4>
+          <nav class="p-aside__nav">
+            <ul class="p-list js-contents-list"></ul>
+          </nav>
+        </div>
+      </aside>
+
+      <script>
+        let aside = document.querySelector('.js-contents');
+        let list = aside.querySelector('.js-contents-list');
+
+        let item = document.createElement('li');
+        let anchor = document.createElement('a'); 
+        anchor.classList.add('p-toc__link');
+        item.classList.add('p-toc__item');
+
+        // Add all H3s with IDs to the "Contents" list
+        document.querySelectorAll('main h3[id]').forEach(
+          function(heading) {
+            let thisItem = item.cloneNode();
+            let thisAnchor = anchor.cloneNode();
+            thisAnchor.setAttribute('href', '#' + heading.id);
+            thisAnchor.textContent = heading.textContent;
+            thisItem.appendChild(thisAnchor);
+            list.appendChild(thisItem);
+          }
+        )
+
+        // Display the "Contents" list, if there are items
+        if (list.querySelectorAll('li').length > 0) {
+          aside.style.display = 'block';
+        }
+      </script>
     </div>
     <script src="/js/scripts.js"></script>
     <script src="https://assets.ubuntu.com/v1/24ef513e-example-1.1.0.js"></script>
