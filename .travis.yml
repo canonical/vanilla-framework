@@ -13,8 +13,7 @@ before_script:
 script:
   - yarn run test
   - yarn run build-docs
-  - percy snapshot --widths "375,1280" docs/_site/ --baseurl "/examples"
-  - sass --no-cache --sourcemap=none scss/build.scss build/css/build.css
+  - percy snapshot --widths "375,1280" docs/_site/
 notifications:
   irc:
     channels:
