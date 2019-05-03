@@ -1,0 +1,114 @@
+---
+layout: examples
+title: Contextual menu
+category: _patterns
+---
+
+<span class="p-contextual-menu--left">
+    <button href="#" class="p-contextual-menu__toggle" aria-controls="#menu-3" aria-expanded="false" aria-haspopup="true">Take action</button>
+    <span class="p-contextual-menu__dropdown" id="menu-3" aria-hidden="true" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+            <a href="#" class="p-contextual-menu__link">Commission</a>
+            <a href="#" class="p-contextual-menu__link">Aquire</a>
+            <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+            <a href="#" class="p-contextual-menu__link">Test harware</a>
+            <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+            <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+    </span>
+</span>
+
+<p>Lorem ipsum dolor sit amet consectetur adipiscing elit <span class="p-contextual-menu--left">
+    <a href="#" class="p-contextual-menu__toggle" aria-controls="#menu-4" aria-expanded="false" aria-haspopup="true">take action left</a>
+    <span class="p-contextual-menu__dropdown" id="menu-4" aria-hidden="true" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Commission</a>
+          <a href="#" class="p-contextual-menu__link">Aquire</a>
+          <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Test harware</a>
+          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+          <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+    </span>
+</span> nunc dolor. Arcu molestie non arcu porttitor <span class="p-contextual-menu--center">
+    <a href="#" class="p-contextual-menu__toggle" aria-controls="#menu-5" aria-expanded="false" aria-haspopup="true">take action center</a>
+    <span class="p-contextual-menu__dropdown" id="menu-5" aria-hidden="true" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Commission</a>
+          <a href="#" class="p-contextual-menu__link">Aquire</a>
+          <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Test harware</a>
+          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+          <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+    </span>
+</span> volutpat rutrum ipsum nunc lacus ligula ornare et diam <span class="p-contextual-menu">
+    <a href="#" class="p-contextual-menu__toggle" aria-controls="#menu-6" aria-expanded="false" aria-haspopup="true">take action right</a>
+    <span class="p-contextual-menu__dropdown" id="menu-6" aria-hidden="true" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Commission</a>
+          <a href="#" class="p-contextual-menu__link">Aquire</a>
+          <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Test harware</a>
+          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+          <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+    </span>
+</span> vel eu.</p>
+
+<script>
+
+function toggleMenu(element, show) {
+  element.setAttribute('aria-expanded', show);
+  document
+    .querySelector(element.getAttribute('aria-controls'))
+    .setAttribute('aria-hidden', !show);
+}
+
+function setupContextualMenuListeners(contextualMenuToggleSelector) {
+  const toggles = document.querySelectorAll(contextualMenuToggleSelector);
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', e => {
+      e.preventDefault();
+
+      const target = e.target;
+      const menuAlreadyOpen = target.getAttribute('aria-expanded') === 'true';
+
+      toggleMenu(target, !menuAlreadyOpen)
+    });
+  });
+
+  document.addEventListener('click', e => {
+    toggles.forEach(toggle => {
+      const contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
+      const clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
+
+      if (clickOutside) {
+        toggleMenu(toggle, false);
+      }
+    })
+  });
+
+  document.onkeydown = e => {
+    e = e || window.event;
+
+    if (e.keyCode === 27) {
+      toggles.forEach(toggle => {
+        toggleMenu(toggle, false);
+      });
+    }
+  };
+}
+
+setupContextualMenuListeners('.p-contextual-menu__toggle');
+
+</script>

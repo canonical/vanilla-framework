@@ -4,7 +4,6 @@ node_js:
 before_install:
   - rvm install 2.4.0
 install:
-  - gem install jekyll
   - gem install percy-cli
   - gem install sass
   - bundle install
@@ -13,9 +12,8 @@ before_script:
   - yarn run build
 script:
   - yarn run test
-  - yarn run build-examples
-  - percy snapshot --widths "375,1280" _jekyll/_site/ --baseurl "/vanilla-framework"
-  - sass --no-cache --sourcemap=none scss/build.scss build/css/build.css
+  - yarn run build-docs
+  - percy snapshot --widths "375,1280" docs/_site/
 notifications:
   irc:
     channels:
