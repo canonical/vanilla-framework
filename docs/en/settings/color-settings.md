@@ -139,13 +139,4 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 ### Design
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-# Click [here](https://github.com/ubuntudesign/vanilla-design/tree/master/Color) to view Color design spec, which includes build MD file and PNG image.
-
-=======
-
-> > > > > > > b0b77734... Add break
-> > > > > > > For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
-> > > > > > > cd476359... Content changes
+For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
