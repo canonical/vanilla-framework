@@ -16,7 +16,7 @@ Vanilla has a responsive grid with the following columns and gutters:
 - All content must be within columns (`.col-*`)
 - Only columns should be direct children of a row
 
-Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column should span a minimum of 3 columns.
+Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column containing text should span a minimum of 3 columns.
 
 Read also: [Breakpoints](/en/settings/breakpoint-settings)
 
@@ -28,9 +28,10 @@ View example of the default grid
 ### Nested columns
 
 Columns can be nested infinitely by adding `.row` classes within columns. When nesting, remember to:
-• keep track of the context (available columns), which is equal to the number of columns spanned by the parent element. • Ensure `.col-*` classes are direct descendants of `.row` classes, even when nested.
+• keep track of the context (available columns), which is equal to the number of columns spanned by the parent element.
+• Ensure `.col-*` classes are direct descendants of `.row` classes. Failing to do so will result in a broken layout.
 
-<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/grid/nested/"
+<a href="/examples/patterns/grid/nested/"
     class="js-example">
 View example of the nested columns within the grid
 </a>
@@ -48,7 +49,7 @@ View example of the empty columns within the grid
 
 Please note, specifying a value that exceeds the available number of columns will result in incorect offsets. This happens because the grid implicitly creates additional columns to accomodate the grid-column-start property. You should always keep track of how many available columns you have, especially when nesting. In the example below, we are indicating we want a div to span 3 columns, and start at position 7. This requires 10 total columns inside a div spanning only 4.
 
-<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/patterns/grid/empty-columns/"
+<a href="/examples/patterns/grid/incorrect-usage-of-empty-columns/"
     class="js-example">
 View example of the incorrect column offset within a nested grid
 </a>
