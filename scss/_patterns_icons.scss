@@ -67,6 +67,10 @@ $social-icon-size: map-get($icon-sizes, social);
   display: inline-block;
 }
 
+@mixin vf-icon-chevron($color: $color-mid-dark) {
+  background-image: url("data:image/svg+xml, %3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='chevron_down' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpolygon id='chevron' fill='#{vf-url-friendly-color($color)}' transform='translate(8.000000, 8.193853) rotate(90.000000) translate(-8.000000, -8.193853) ' points='4.80614657 14.3333333 8.64539007 8.17730496 4.80614657 2.05437352 6.16312057 1.19385343 11.1938534 8.17730496 6.16312057 15.1938534'%3E%3C/polygon%3E%3C/g%3E%3C/svg%3E");
+}
+
 @mixin vf-icon-anchor($color) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M9.002 13.974a11.19 11.19 0 0 0 2.801-.574 12.166 12.166 0 0 0 3.273-1.702l.926 1.405a12.636 12.636 0 0 1-3.653 2.116c-1.356.518-2.805.777-4.347.777-1.543 0-2.998-.26-4.364-.777a12.695 12.695 0 0 1-3.636-2.116l.925-1.405c.98.727 2.066 1.295 3.256 1.702.893.306 1.833.498 2.819.574V5.996h-3v-1h3V3.733a1.999 1.999 0 1 1 2-.004v1.267h2.997v1H9.002v7.978z' fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero'/%3E%3C/svg%3E");
 }
