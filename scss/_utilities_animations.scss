@@ -1,16 +1,30 @@
 /// Animations
 @mixin vf-u-animations {
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
   .u-animation--spin {
+    // sass-lint:disable no-vendor-prefixes property-sort-order
+    -webkit-animation: spin map-get($animation-duration, sleepy) infinite linear;
     animation: spin map-get($animation-duration, sleepy) infinite linear;
+    // sass-lint:enable no-vendor-prefixes property-sort-order
   }
 
   @keyframes spin {
+    // sass-lint:disable no-vendor-prefixes property-sort-order
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
     }
 
     100% {
+      -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
+    // sass-lint:enable no-vendor-prefixes property-sort-order
   }
 }

@@ -1,0 +1,59 @@
+@import 'settings';
+@import 'patterns_icons';
+
+$cc-button-size: 36px;
+
+@mixin vf-p-code-copyable {
+  .p-code-copyable {
+    @extend %bordered-text-vertical-padding;
+    @extend %vf-bg--x-light;
+    @extend %vf-has-round-corners;
+    @extend %vf-is-bordered;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+
+    & + & {
+      margin-top: 0; // overrides p + p
+    }
+
+    &::before {
+      color: $color-mid;
+      content: '$';
+      display: block;
+      left: 0;
+      line-height: map-get($line-heights, default-text);
+      padding: 0 calc(#{$cc-button-size} + #{$sph-inner--small}) 0 $sph-inner--small;
+      position: absolute;
+      top: $spv-inner--x-small;
+      width: 1rem;
+    }
+  }
+
+  .p-code-copyable__input {
+    border: 0;
+    color: $color-mid-dark;
+    font-family: unquote($font-monospace);
+    line-height: map-get($line-heights, default-text);
+    padding: 0 calc(#{$cc-button-size} + #{$sph-inner--small}) 0 $sph-inner * 1.5;
+    width: 100%;
+  }
+
+  .p-code-copyable__action {
+    @extend %vf-hide-text;
+    @extend %bordered-text-vertical-padding;
+    @include vf-icon-copy($color-mid-dark);
+    @include vf-button-pattern($button-background-color: $color-light, $button-hover-background-color: darken($color-light, 10%));
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    border-left: $border;
+    border-radius: 0;
+    line-height: map-get($line-heights, default-text);
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $cc-button-size;
+  }
+}

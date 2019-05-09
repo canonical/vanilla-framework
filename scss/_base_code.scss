@@ -5,24 +5,36 @@
   code,
   samp,
   kbd {
+    background-color: $color-mid-x-light;
+    box-shadow: 0 0 0 0.25rem $color-mid-x-light;
     font-family: unquote($font-monospace);
     font-weight: 300;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
     text-align: left;
   }
 
-
   pre,
   code {
+    // sass-lint:disable no-vendor-prefixes property-sort-order
     direction: ltr;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
     hyphens: none;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
     tab-size: 4;
-    white-space: pre-wrap;
     word-spacing: normal;
     word-wrap: break-word;
+    // sass-lint:enable no-vendor-prefixes property-sort-order
   }
 
   code {
-    display: inline;
+    pre & {
+      // Inside pre, code does not behave as an inline element;
+      // To ensure multiple lines adhere to the baseline grid, we need to make it a block element.
+      display: inline-block;
+    }
   }
 
   pre {
@@ -31,11 +43,19 @@
     border-radius: $border-radius;
     color: $color-dark;
     display: block;
-    margin-bottom: $spv-inter--scaleable;
+    margin-bottom: $spv-outer--scaleable;
     margin-top: 0;
     overflow: auto;
-    padding: $spv-intra $sph-intra;
+    padding: calc(#{map-get($nudges, nudge--p-ubuntumono)} - 1px) $sph-inner calc(#{map-get($nudges, nudge--p-ubuntumono)} - 1px);
     text-align: left;
     text-shadow: none;
+    white-space: pre;
+  }
+
+  pre code {
+    background: none;
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

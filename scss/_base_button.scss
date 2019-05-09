@@ -8,7 +8,7 @@
   }
 
   %vf-button-base {
-    @include vf-animation (#{background-color, border-color}, fast, in);
+    @include vf-animation(#{background-color, border-color}, fast, in);
     @include vf-focus;
     border-radius: $border-radius;
     border-style: solid;
@@ -18,8 +18,8 @@
     font-size: 1rem;
     font-weight: 300;
     line-height: map-get($line-heights, default-text);
-    margin-bottom: $spv-inter--scaleable + 2 * $spv-nudge-compensation;
-    padding: $spv-nudge - $px $sph-intra;
+    margin: 0 0 $spv-outer--scaleable + 2 * $spv-nudge-compensation 0;
+    padding: calc(#{$spv-nudge} - 1px) $sph-inner--small * 1.5;
     text-align: center;
     text-decoration: none;
 
@@ -32,7 +32,7 @@
     &:disabled,
     &.is--disabled {
       cursor: not-allowed;
-      opacity: .5;
+      opacity: 0.5;
     }
 
     @media only screen and (max-width: $breakpoint-x-small) {
@@ -43,46 +43,47 @@
       width: auto;
 
       &:not(:last-of-type):not(:only-of-type) {
-        margin-right: $sph-inter;
+        margin-right: $sph-outer;
       }
     }
 
     table & {
       margin-bottom: $spv-nudge-compensation;
-      padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
-      padding-top: $spv-nudge - $sp-unit * .5 - $px;
+      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     }
 
     // The following three rules address buttons nested in <p>'s;
     p & {
-      margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
-      margin-top: - $spv-nudge;
+      margin-bottom: $spv-outer--small-scaleable - $spv-nudge;
+      margin-top: -#{$spv-nudge};
     }
 
     p + p > & {
-      margin-top: $spv-inter--condensed-scaleable - $spv-nudge;
+      margin-top: $spv-outer--small - $spv-nudge;
     }
 
     @media only screen and (max-width: $breakpoint-x-small) {
       p & + & {
-        margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
+        margin-top: $spv-outer--small + $spv-nudge-compensation;
       }
     }
   }
 }
 
-
 /// mixin for all the buttons
 /// there are sensible defaults, but you can
 /// override colors as desired
-@mixin vf-button-pattern (
+@mixin vf-button-pattern(
   $button-background-color: $color-x-light,
-  $button-text-color: $color-dark,
+  $button-text-color: $color-x-dark,
   $button-disabled-background-color: $color-transparent,
-  $button-disabled-border-color: $color-mid-light,
-  $button-border-color: $color-mid-light,
-  $button-hover-background-color: $color-light,
-  $button-hover-border-color: $color-mid-light
+  $button-disabled-border-color: $color-mid,
+  $button-border-color: $color-mid,
+  $button-hover-background-color: darken($color-x-light, 10%),
+  $button-hover-border-color: $color-mid,
+  $button-active-background-color: darken($color-x-light, 15%),
+  $button-active-border-color: $color-mid
 ) {
   background-color: $button-background-color;
   border-color: $button-border-color;
@@ -93,6 +94,12 @@
   }
 
   &:active,
+  &:active:hover {
+    background-color: $button-active-background-color;
+    border-color: $button-active-border-color;
+    transition-duration: 0s;
+  }
+
   &:hover {
     background-color: $button-hover-background-color;
     border-color: $button-hover-border-color;
@@ -100,7 +107,6 @@
 
   &:disabled,
   &.is--disabled {
-
     &:active,
     &:hover {
       background-color: $button-disabled-background-color;

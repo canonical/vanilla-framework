@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
+    <link rel="stylesheet" type="text/css" href="/build/css/build.css" />
+  </head>
+
+  <body {% if page.url != '/' %}style="margin: 1rem;"{% endif %}>
+    {{ content }}
+
+    <script>
+      function inIframe () {
+        try {
+          return window.self !== window.top;
+        } catch (e) {
+          return true;
+        }
+      }
+
+      function fragmentFromString(htmlString) {
+        var temp = document.createElement('template');
+        temp.innerHTML = htmlString;
+        return temp.content;
+      }
+
+      if (!inIframe()) {
+        document.addEventListener('DOMContentLoaded', function() {
+          var body = document.body;
+          var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label>Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" /><div class="p-switch__slider"></div></label></div>');
+          body.appendChild(controls);
+
+          var toggle = document.querySelector('.js-baseline-toggle');
+          toggle.addEventListener('click', function (event) {
+            body.classList.toggle('u-baseline-grid');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

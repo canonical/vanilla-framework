@@ -2,7 +2,7 @@
 
 @mixin vf-p-list-tree {
   %list-tree-icon {
-    $icon-size: .9375rem; // 15px
+    $icon-size: 0.9375rem; // 15px
     background: {
       position: center;
       repeat: no-repeat;
@@ -10,10 +10,10 @@
     content: ' ';
     display: block;
     height: $icon-size;
-    left: -.75rem;
+    left: -0.75rem;
     pointer-events: none;
     position: absolute;
-    top: .4rem;
+    top: 0.4rem;
     width: $icon-size;
   }
 
@@ -23,64 +23,64 @@
     margin-left: $sp-medium;
     padding: 0 0 0 $sp-x-small;
 
-    &__item {
-      margin-top: $sp-xx-small;
-      padding-left: .8rem;
-      position: relative;
-
-      &::before {
-        background: $color-mid-light;
-        content: ' ';
-        display: block;
-        height: 1px;
-        left: -$sp-x-small;
-        pointer-events: none;
-        position: absolute;
-        top: .8rem;
-        width: .625rem;
-      }
-
-      &--group::after {
-        @extend %list-tree-icon;
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='15' width='15' viewBox='0 0 15 15'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h15v15H0z'/%3E%3C/defs%3E%3Cg fill-rule='evenodd' fill='none'%3E%3Cuse xlink:href='%23a' fill='%23FFF'/%3E%3Cpath stroke='%23888' d='M.5.5h14v14H.5z'/%3E%3Cpath fill='%23888' d='M7 4h1v7H7z'/%3E%3Cpath fill='%23888' d='M4 8V7h7v1z'/%3E%3C/g%3E%3C/svg%3E");
-      }
-    }
-
-    &__toggle {
-      background: transparent;
-      border: 0;
-      font-weight: normal;
-      margin: 0 0 0 -1.75rem;
-      padding: 0 0 0 1.75rem;
-      transition-duration: 0s;
-      width: auto;
-
-      &:hover {
-        background: transparent;
-        color: $color-link;
-        text-decoration: underline;
-      }
-
-      &:focus {
-        background: transparent;
-        outline: 1px dotted $color-mid-light;
-      }
-    }
-
     .p-list-tree {
       display: none;
       margin-left: 0;
 
-      &[aria-hidden="false"] {
+      &[aria-hidden='false'] {
         display: block;
       }
 
-      &[aria-hidden="false"]::after {
+      &[aria-hidden='false']::after {
         @extend %list-tree-icon;
         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='15' width='15' viewBox='0 0 15 15'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h15v15H0z'/%3E%3C/defs%3E%3Cg fill-rule='evenodd' fill='none'%3E%3Cuse xlink:href='%23a' fill='%23FFF'/%3E%3Cpath stroke='%23888' d='M.5.5h14v14H.5z'/%3E%3Cpath fill='%23888' d='M4 8V7h7v1z'/%3E%3C/g%3E%3C/svg%3E");
         // At this point we need to push this icon above the --group icon.
         z-index: 1;
       }
+    }
+  }
+
+  .p-list-tree__item {
+    margin-top: $sp-xx-small;
+    padding-left: 0.8rem;
+    position: relative;
+
+    &::before {
+      background: $color-mid-light;
+      content: ' ';
+      display: block;
+      height: 1px;
+      left: -$sp-x-small;
+      pointer-events: none;
+      position: absolute;
+      top: 0.8rem;
+      width: 0.625rem;
+    }
+  }
+
+  .p-list-tree__item--group::after {
+    @extend %list-tree-icon;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='15' width='15' viewBox='0 0 15 15'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h15v15H0z'/%3E%3C/defs%3E%3Cg fill-rule='evenodd' fill='none'%3E%3Cuse xlink:href='%23a' fill='%23FFF'/%3E%3Cpath stroke='%23888' d='M.5.5h14v14H.5z'/%3E%3Cpath fill='%23888' d='M7 4h1v7H7z'/%3E%3Cpath fill='%23888' d='M4 8V7h7v1z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .p-list-tree__toggle {
+    background: transparent;
+    border: 0;
+    font-weight: normal;
+    margin: 0 0 0 -1.75rem;
+    padding: 0 0 0 1.75rem;
+    transition-duration: 0s;
+    width: auto;
+
+    &:hover {
+      background: transparent;
+      color: $color-link;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background: transparent;
+      outline: 1px dotted $color-mid-light;
     }
   }
 }

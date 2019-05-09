@@ -1,14 +1,25 @@
 // Options
-$sticky-footer: false !default; // include sticky footer styling. Sets body to display: flex;
 $pad-lists: true !default; // Adds padding to list items
 
 // Typographic scale settings
 $ms-ratio: 16 / 14 !default;
-$sp-unit-ratio: .5 !default;
+$sp-unit-ratio: 0.5 !default;
 
 // Baseline grid settings
 $sp-unit: 1rem * $sp-unit-ratio !default;
-$px: .0625rem !default; // 1px as rem; useful in calculations where sizes are defined in rems.
+
+$font-sizes: (
+  small: pow($ms-ratio, -1),
+  root: 1,
+  h4-mobile: 1.22176,
+  h4: pow($ms-ratio, 2),
+  h3-mobile: pow($ms-ratio, 3),
+  h3: pow($ms-ratio, 4),
+  h2-mobile: 1.83274,
+  h2: pow($ms-ratio, 6),
+  h1-mobile: pow($ms-ratio, 6),
+  h1: pow($ms-ratio, 8)
+);
 
 $line-heights: (
   h1: 7 * $sp-unit,
@@ -20,22 +31,40 @@ $line-heights: (
   h3-mobile: 4 * $sp-unit,
   h4-mobile: 3 * $sp-unit,
   default-text: 3 * $sp-unit,
-  small: $sp-unit * 2.5
+  small: $sp-unit * 2
 ) !default;
 
-// baseline nudges for type scale ratio of (16/14) squared
+// baseline nudges for type scale ratio of (16/14)^2
 $nudges: (
-  nudge--h1: .2rem,
-  nudge--h2: .2rem,
-  nudge--h3: .1rem,
-  nudge--h4: .05rem,
-  nudge--h1-mobile: .2rem,
-  nudge--h2-mobile: .1rem,
-  nudge--h3-mobile: 0,
-  nudge--h4-mobile: .3rem,
-  nudge--p: .4rem,
-  nudge--small: .05rem,
-  nudge--muted: 0
+  nudge--h1-large: 0.15rem,
+  nudge--h4-large: 0,
+  nudge--h1: 0.2rem,
+  nudge--h2: 0.2rem,
+  nudge--h3: 0.1rem,
+  nudge--h4: 0.05rem,
+  nudge--h6: 0.338rem,
+  nudge--h6-large: 0.345rem,
+  nudge--h1-mobile: 0.165rem,
+  nudge--h2-mobile: 0.1rem,
+  nudge--h3-mobile: 0.5rem,
+  nudge--h4-mobile: 0.3rem,
+  nudge--p: 0.4rem,
+  nudge--p-ubuntumono: 0.45rem,
+  nudge--small: 0.2rem
+) !default;
+
+// Correct baseline drift due to browser rounding. (Visible in text > 1000 lines)
+// It is applied only to padding-top.
+$browser-rounding-compensations: (
+  small: 0.0005rem,
+  small-largescreen: 0.0006rem,
+  p: 0.0005rem,
+  h6: 0,
+  h5: 0.001rem,
+  h4: 0.001rem,
+  h3: 0.001rem,
+  h2: 0.001rem,
+  h1: 0.001rem
 ) !default;
 
 //scaling factor
@@ -50,79 +79,89 @@ $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
 
 // 1. VERTICAL SPACING
 // 1.1 Vertical spacing inside components
-$spv-intra--condensed: $sp-unit * .5 !default; // buttons margins inside table,
-$spv-intra--condensed--scaleable: $spv-intra--condensed * $multi !default;
-$spv-intra: $sp-unit !default;
-$spv-intra--scaleable: $spv-intra * $multi !default;
-$spv-intra--expanded: $spv-intra * 1.5 !default; //vertical padding in: navigation, tabs
+$spv-inner--x-small: $sp-unit * 0.5 !default; // buttons margins inside table,
+$spv-inner--x-small--scaleable: $spv-inner--x-small * $multi !default;
+$spv-inner--small: $sp-unit !default;
+$spv-inner--scaleable: $sp-unit * $multi !default;
+$spv-inner--medium: $sp-unit * 1.5 !default; //vertical padding in: navigation, tabs
+$spv-inner--large: $sp-unit * 2;
+$spv-inner--x-large: $sp-unit * 5.5;
 
 // 1.2 Vertical spacing between components
-$spv-inter--condensed: $sp-unit * 1 !default; //labels
-$spv-inter--condensed-scaleable: $sp-unit * $multi !default;
-$spv-inter--regular: $sp-unit * 2 !default;
-$spv-inter--scaleable: $sp-unit * (1 + $multi) !default;
+$spv-outer--small: $sp-unit * 1 !default; //labels
+$spv-outer--small-scaleable: $sp-unit * $multi !default;
+$spv-outer--medium: $sp-unit * 2 !default;
+$spv-outer--scaleable: $sp-unit * (1 + $multi) !default;
 
 // 1.3 Vertical spacing between a group of components and its wrapper - strips, views, entire page
-$spv-inter--shallow-scaleable: $sp-unit * 2 * $multi !default;
-$spv-inter--regular-scaleable: $sp-unit * 2 * (2 + $multi) !default;
-$spv-inter--deep-scaleable: $sp-unit * 2 * (4 + $multi) !default;
+$spv-outer--shallow-scaleable: $sp-unit * 2 * $multi !default;
+$spv-outer--regular-scaleable: $sp-unit * 2 * (2 + $multi) !default;
+$spv-outer--deep-scaleable: $sp-unit * 2 * (4 + $multi) !default;
 
 // 2. HORIZONTAL SPACING
 // 2.1 Horizontal spacing inside components
-$sph-intra--condensed: $sp-unit !default; // input-elements,
-$sph-intra: $sp-unit * 2 !default; // buttons, accordions, tabs, menu, card padding, stepped-list bullet offset
-$sph-intra--expanded: $sp-unit * 3 !default;
+$sph-inner--small: $sp-unit !default; // input-elements,
+$sph-inner: $sp-unit * 2 !default; // buttons, accordions, tabs, menu, card padding, stepped-list bullet offset
+$sph-inner--large: $sp-unit * 3 !default;
+$sph-inner--x-large: $sp-unit * 5 !default;
 // 2.2 Horizontal spacing outside components
-$sph-inter: $sph-intra !default;
-$sph-inter--expanded: $sp-unit * 3 !default; // checboxes, radios, list bullets
+$sph-outer: $sph-inner !default;
+$sph-outer--large: $sp-unit * 3 !default; // checboxes, radios, list bullets
 
 $sp-before: (
-  h1: $sp-unit * 4,
-  h2: $sp-unit * 4,
-  h3: $sp-unit * 4,
+  h1: $sp-unit * 3,
+  h2: $sp-unit * 3,
+  h3: $sp-unit * 3,
   h4: $sp-unit * 3,
-  h5: $sp-unit * 2,
-  h6: $sp-unit * 2,
+  p: $sp-unit * 3,
   h1-mobile: $sp-unit * 3,
   h2-mobile: $sp-unit * 3,
   h3-mobile: $sp-unit * 3,
   h4-mobile: $sp-unit * 3,
-  p: $sp-unit * 2,
-  muted: $sp-unit * 2
+  muted: $sp-unit * 3
 ) !default;
+
+$spv-p-after-heading-adjustment: #{$sp-unit * -1};
 
 // space after element on desktop
 $sp-after: (
-  h1: $sp-unit * 5,
-  h2: $sp-unit * 4,
+  h1: $sp-unit * 3,
+  h2: $sp-unit * 3,
   h3: $sp-unit * 3,
   h4: $sp-unit * 2,
-  h1-mobile: $sp-unit * 4,
-  h2-mobile: $sp-unit * 3,
+  p: $sp-unit * 3,
+  h1-mobile: $sp-unit * 2,
+  h2-mobile: $sp-unit * 2,
   h3-mobile: $sp-unit * 2,
   h4-mobile: $sp-unit * 2,
-  p: $sp-unit * 3,
-  muted: $sp-unit * 2,
-  small: $sp-unit * 1,
+  small: $sp-unit * 2,
   small--dense: $sp-unit * 2,
   default-text: $sp-unit
 ) !default;
 
+$max-widths: (
+  long: 60em,
+  default: 40em,
+  heading--long: 30em,
+  heading--short: 20em
+) !default;
+
 $icon-sizes: (
-  accordion: 1.5 * $sp-unit,
-  default: 2 * $sp-unit,
-  thumb--card: 4 * $sp-unit,
-  social: 5 * $sp-unit,
-  heading-icon--small: $sp-unit * 5,
+  accordion: $sp-unit * 1.5,
+  default: $sp-unit * 2,
+  heading-icon--small: $sp-unit * 4,
+  heading-icon--x-small: $sp-unit * 3,
+  heading-icon: $sp-unit * 5,
+  social: $sp-unit * 4,
+  thumb--card: $sp-unit * 4,
+  thumb--large: $sp-unit * 12,
   thumb--small: $sp-unit * 6,
-  heading-icon: $sp-unit * 7.5,
-  thumb: $sp-unit * 10,
-  thumb--large: $sp-unit * 12
+  thumb: $sp-unit * 6
 ) !default;
 
 // generic units
-$sp-xx-small: $sp-unit * .25 !default;
-$sp-x-small: $sp-unit * .5 !default;
+$sp-xx-small: $sp-unit * 0.25 !default;
+$sp-x-small: $sp-unit * 0.5 !default;
 $sp-small: $sp-unit !default;
 $sp-medium: $sp-unit * 2 !default;
 $sp-large: $sp-unit * 3 !default;

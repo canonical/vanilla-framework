@@ -1,16 +1,15 @@
 @import 'settings';
 
-$nav-border-bottom-thickness: $px;
+$nav-border-bottom-thickness: 1px;
 
 // Default header styling
 @mixin vf-p-navigation {
   @include vf-navigation-default;
-  @include vf-navigation-sidebar;
 }
 
 @mixin vf-navigation-default {
   .p-navigation {
-    @include vf-navigation-pattern (
+    @include vf-navigation-pattern(
       $background-color: $color-navigation-background,
       $border-color: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent),
       $text-color: if(lightness($color-navigation-background) > 70, $color-dark, $color-light)
@@ -18,148 +17,12 @@ $nav-border-bottom-thickness: $px;
   }
 }
 
-@mixin vf-navigation-sidebar {
-  .p-navigation--sidebar {
-    @include vf-navigation-pattern (
-      $background-color: $color-x-light,
-      $border-color: $color-mid-light,
-      $text-color: $color-dark
-    );
-
-    flex-direction: column;
-    height: auto;
-
-    .p-navigation__banner .row {
-      flex-direction: row;
-    }
-
-    .sidebar__cta {
-      margin-top: 0;
-
-      .p-inline-list {
-        display: inline-block;
-      }
-
-      [class^="p-icon"] {
-        cursor: pointer;
-      }
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        display: none;
-      }
-    }
-
-    .sidebar__content {
-      background: $color-x-light;
-      width: 100%;
-
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        display: block !important; // important to override u-hide util
-      }
-    }
-
-    .sidebar__link {
-      @extend %single-border-text-vpadding--scaling;
-      color: $color-dark;
-      display: block;
-      position: relative;
-
-      &:hover {
-        color: $color-link;
-      }
-
-      &:focus {
-        outline: 0;
-      }
-    }
-
-    & .p-navigation__logo {
-      @extend %vf-heading-3;
-      display: flex;
-      flex: 0 0 auto;
-      // margin: $spv-intra--expanded $sph-intra $spv-inter--scaleable $grid-margin-width;
-      margin-left: 0;
-
-      .p-navigation__image {
-        height: 24px;
-        width: auto;
-      }
-    }
-
-    & .p-navigation__tagline {
-      @extend %default-text;
-      display: block;
-    }
-
-    .is-selected {
-      font-weight: bold;
-    }
-
-    .sidebar__first-level {
-      padding-left: 0;
-    }
-
-    .sidebar__third-level {
-      background-color: $color-mid-dark;
-      margin-right: -4rem;
-      padding-left: 4rem;
-      position: relative;
-      right: 3rem;
-    }
-
-    .sidebar__second-level,
-    .sidebar__third-level {
-      display: none;
-      list-style: none;
-      margin-left: 0;
-      padding-bottom: $sp-x-small;
-      padding-top: $sp-x-small;
-
-      .is-deepest-level {
-        background-color: $color-light;
-      }
-    }
-
-    .p-icon--plus,
-    .p-icon--minus {
-      perspective: 800px;
-      perspective-origin: 50% 100px;
-      position: absolute;
-      right: $sp-medium;
-      top: $sp-small;
-      transition: all .5s ease-in-out; // sass-lint:disable-line no-transition-all
-    }
-
-    .p-icon--minus {
-      display: none;
-    }
-
-    .is-selected {
-
-      .p-icon--minus {
-        display: block;
-      }
-
-      .p-icon--plus {
-        display: none;
-      }
-    }
-
-    .is-selected +  {
-
-      .sidebar__second-level,
-      .sidebar__third-level {
-        display: block;
-      }
-    }
-  }
-}
-
-@mixin vf-navigation-pattern ($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
+@mixin vf-navigation-pattern($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
   background-color: $background-color;
   display: flex;
   flex-shrink: 0;
   position: relative;
+  z-index: 10;
 
   @media (max-width: $breakpoint-navigation-threshold) {
     flex-direction: column;
@@ -167,9 +30,13 @@ $nav-border-bottom-thickness: $px;
 
   a,
   a:visited,
-  a:hover,
   a:focus {
     color: $text-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $color-navigation-selected;
     text-decoration: none;
   }
 
@@ -203,10 +70,10 @@ $nav-border-bottom-thickness: $px;
       position: relative;
 
       @media (max-width: $breakpoint-navigation-threshold) {
-        padding: $spv-intra--expanded $grid-margin-width;
+        padding: $spv-inner--medium $grid-margin-width;
 
         &::before {
-          background: $border-color;
+          background: $color-light;
           content: '';
           height: $nav-border-bottom-thickness;
           left: 0;
@@ -217,8 +84,7 @@ $nav-border-bottom-thickness: $px;
       }
 
       @media (min-width: $breakpoint-navigation-threshold + 1) {
-        border-left: 1px solid $border-color;
-        padding: $spv-intra--expanded $sph-intra;
+        padding: $spv-inner--medium $sph-inner;
 
         &::before {
           background: $border-color;
@@ -232,14 +98,18 @@ $nav-border-bottom-thickness: $px;
       }
 
       &:hover {
-        background-color: darken($color-navigation-background, 3%);
+        color: $color-navigation-selected;
+      }
+    }
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      &:first-child > a::before {
+        background: $border-color;
       }
     }
 
     &.is-selected > a {
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
-        @include vf-highlight-bar($color-navigation-active-bar, bottom, true);
-      }
+      color: $color-navigation-selected;
     }
   }
 
@@ -260,7 +130,7 @@ $nav-border-bottom-thickness: $px;
     display: flex;
     flex: 0 0 auto;
     height: 3rem;
-    margin: 0 $sph-intra 0 $grid-margin-width;
+    margin: 0 $sph-inner 0 $grid-margin-width;
 
     .p-navigation__link {
       display: flex;
@@ -286,16 +156,16 @@ $nav-border-bottom-thickness: $px;
 
     @media (max-width: $breakpoint-navigation-threshold) {
       flex: 1 0 auto;
-      margin: -1px $grid-margin-width $spv-intra $grid-margin-width;
+      margin: -1px $grid-margin-width $spv-inner--small $grid-margin-width;
       order: -1;
     }
 
     @media (min-width: $breakpoint-navigation-threshold + 1) {
       // align baselines of menu items and input text
-      $input-gap-top: $spv-intra--expanded - $spv-nudge;
+      $input-gap-top: $spv-inner--medium - $spv-nudge;
       display: flex;
       flex: 1 1 auto;
-      margin: $input-gap-top $sph-intra auto auto;
+      margin: $input-gap-top $sph-inner auto auto;
       max-width: 20rem;
       order: 1;
     }
@@ -314,6 +184,10 @@ $nav-border-bottom-thickness: $px;
   }
 
   &:target {
+    &::after {
+      display: none;
+    }
+
     .p-navigation__nav {
       display: flex;
     }
@@ -333,8 +207,8 @@ $nav-border-bottom-thickness: $px;
     &--open,
     &--close {
       display: none;
-      margin: 0 $grid-margin-width auto $sph-intra;
-      padding: $spv-intra--expanded 0;
+      margin: 0 $grid-margin-width auto $sph-inner;
+      padding: $spv-inner--medium 0;
     }
 
     &--open {

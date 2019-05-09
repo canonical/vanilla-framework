@@ -10,49 +10,85 @@
   .p-form-validation {
     @include vf-validation-wrapper;
 
-    .p-form-validation__input { // Not using parent selector here as two classes are required to override atribute selectors in reset
-      background-position: calc(100% - #{$sph-intra--condensed}) 50%;
+    :not(select).p-form-validation__input {
+      // Not using parent selector here as two classes are required to override atribute selectors in reset
+      background-position: calc(100% - #{$sph-inner--small}) 50%;
       background-repeat: no-repeat;
     }
+  }
 
-    .p-form-validation__icon {
-      position: relative;
+  .p-form-validation__message {
+    @extend %small-text;
+    margin-top: -$sp-unit;
+  }
 
-      &::after {
-        position: absolute;
-        right: $sp-small;
-        top: calc(50% - #{$sp-x-small});
-      }
+  .p-form-validation__icon {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      right: $sp-small;
+      top: calc(50% - #{$sp-x-small});
+    }
+  }
+
+  .is-error .p-form-validation__select-wrapper,
+  .is-caution .p-form-validation__select-wrapper,
+  .is-success .p-form-validation__select-wrapper {
+    $icon-size: map-get($icon-sizes, default);
+    min-width: 10em;
+    position: relative;
+
+    &::after {
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: ' ';
+      display: block;
+      height: $icon-size;
+      pointer-events: none;
+      position: absolute;
+      right: $sp-x-large;
+      //top: $sp-unit * 1.3;
+      top: calc(50% - (#{$icon-size} / 2) - (#{$input-margin-bottom} / 2));
+      width: $icon-size;
+      z-index: 100;
     }
 
-    &__message {
-      @extend %small-text;
-
-      input + &,
-      .p-form-help-text & {
-        margin-top: $spv-intra--condensed--scaleable - $input-margin-bottom; //negates input margin and adds the condensed margin
-      }
+    .p-form-validation__input {
+      padding-right: $sp-xxxx-large;
     }
   }
 
   .is-error {
     .p-form-validation__input {
-      background-image: url('#{$assets-path}4b0cd7fc-icon-error.svg');
       border-color: $color-negative;
+    }
+
+    :not(select).p-form-validation__input,
+    .p-form-validation__select-wrapper::after {
+      background-image: url('#{$assets-path}4b0cd7fc-icon-error.svg');
     }
   }
 
   .is-success {
     .p-form-validation__input {
-      background-image: url('#{$assets-path}94949185-icon-success.svg');
       border-color: $color-positive;
+    }
+
+    :not(select).p-form-validation__input,
+    .p-form-validation__select-wrapper::after {
+      background-image: url('#{$assets-path}94949185-icon-success.svg');
     }
   }
 
   .is-caution {
     .p-form-validation__input {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h16v16H0z'/%3E%3Cpath stroke-linejoin='round' fill='#{vf-url-friendly-color($color-caution)}' transform='matrix%282.28 0 0 2.437 -2180.8 -490.52%29' stroke='#{vf-url-friendly-color($color-caution)}' stroke-width='.848' d='M963.07 207.03h-6.15l3.08-5.33z'/%3E%3Cpath d='M7 5v5h2V5H7zm0 6v2h2v-2H7z' fill='%23111'/%3E%3C/g%3E%3C/svg%3E");
       border-color: $color-caution;
+    }
+
+    :not(select).p-form-validation__input,
+    .p-form-validation__select-wrapper::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h16v16H0z'/%3E%3Cpath stroke-linejoin='round' fill='#{vf-url-friendly-color($color-caution)}' transform='matrix%282.28 0 0 2.437 -2180.8 -490.52%29' stroke='#{vf-url-friendly-color($color-caution)}' stroke-width='.848' d='M963.07 207.03h-6.15l3.08-5.33z'/%3E%3Cpath d='M7 5v5h2V5H7zm0 6v2h2v-2H7z' fill='%23111'/%3E%3C/g%3E%3C/svg%3E");
     }
   }
 }
