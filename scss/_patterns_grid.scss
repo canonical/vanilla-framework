@@ -1,31 +1,202 @@
 @import 'settings';
 
-// This file imports Shelves Grid framework
-// http://shelvesgrid.org/
-// The settings below can be changed in _settings_grid.scss
-$shelves-max-width: $grid-max-width;
-$shelves-columns: $grid-columns;
-$shelves-margin: $grid-margin-width;
-$shelves-gutter: $grid-gutter-width;
-$shelves-tablet-breakpoint: $breakpoint-medium;
-$shelves-mobile-breakpoint: $breakpoint-small;
-$shelves-column-name: $grid-col-name;
-
-@import 'grid/shelves-grid';
-
 @mixin vf-p-grid-modifications {
   .row {
     width: 100%;
   }
+}
 
-  // Demo helper
-  [grid-demo] [class*='col-'] {
-    background: $color-mid-light;
-    margin-bottom: $spv-inner--small;
+@mixin row-reset-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@mixin row-reset-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@mixin row-reset {
+  @include row-reset-margin;
+  @include row-reset-padding;
+}
+
+@mixin vf-p-grid {
+  %span-full-grid-on-mobile {
+    @media (max-width: $threshold-4-6-col) {
+      grid-column: 1 / span $grid-columns-small;
+    }
   }
 
-  [grid-outline] [class*='col-'] {
-    outline: 1px solid $color-x-light;
-    padding: $spv-inner--small $sph-inner--small;
+  %span-full-grid-on-tablet {
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+      grid-column: 1 / span $grid-columns-medium;
+    }
+  }
+
+  %span-full-grid-on-desktop {
+    @media (min-width: $threshold-6-12-col) {
+      grid-column: 1 / span $grid-columns;
+    }
+  }
+
+  .grid-demo [class*='#{$grid-column-prefix}'] {
+    background: transparentize($color-negative, 0.9);
+    margin-bottom: $spv-outer--small;
+  }
+
+  %row {
+    display: grid;
+    grid-template-rows: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $grid-max-width;
+
+    [class*='#{$grid-column-prefix}'] {
+      grid-column-start: auto;
+    }
+
+    & & {
+      @include row-reset;
+    }
+
+    // set static gutter width per breakpoint
+    @media (max-width: $threshold-4-6-col) {
+      grid-gap: 0 map-get($grid-gutter-widths, small);
+      grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
+      padding-left: map-get($grid-margin-widths, small);
+      padding-right: map-get($grid-margin-widths, small);
+
+      * {
+        grid-column-end: span $grid-columns-small;
+      }
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+      grid-gap: 0 map-get($grid-gutter-widths, medium);
+      grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
+      padding-left: map-get($grid-margin-widths, medium);
+      padding-right: map-get($grid-margin-widths, medium);
+
+      * {
+        grid-column-end: span $grid-columns-medium;
+      }
+    }
+
+    @media (min-width: $threshold-6-12-col) {
+      grid-gap: 0 map-get($grid-gutter-widths, large);
+      grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+      padding-left: map-get($grid-margin-widths, large);
+      padding-right: map-get($grid-margin-widths, large);
+
+      * {
+        grid-column-end: span $grid-columns;
+      }
+    }
+  }
+
+  .row {
+    @extend %row;
+  }
+
+  // mobile grid
+  @media (max-width: $threshold-4-6-col) {
+    @for $i from 1 through $grid-columns-small {
+      .#{$grid-small-col-prefix}#{$i} {
+        grid-column-end: span #{$i};
+
+        //nesting
+        @if $i > 1 {
+          & > .row {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+          }
+        }
+      }
+    }
+  }
+
+  // tablet grid
+  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+    @for $i from 1 through $grid-columns-medium {
+      .#{$grid-col-medium-prefix}#{$i} {
+        grid-column-end: span #{$i};
+
+        //nesting
+        @if $i > 1 {
+          & > .row {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+          }
+        }
+      }
+    }
+  }
+
+  // desktop grid
+  @media (min-width: $threshold-6-12-col) {
+    @for $i from $grid-columns through 1 {
+      // set col-* to span respective number of columns on desktop
+      .#{$grid-desktop-col-prefix}#{$i} {
+        grid-column-end: span #{$i};
+
+        //nesting
+        @if $i > 1 {
+          & > .row {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+          }
+        }
+      }
+    }
+  }
+
+  // span full grid on other breakpoints; (to match block level element behaviour)
+  @for $i from 1 through $grid-columns-small {
+    .#{$grid-small-col-prefix}#{$i} {
+      @extend %span-full-grid-on-tablet;
+      @extend %span-full-grid-on-desktop;
+    }
+  }
+
+  @for $i from 1 through $grid-columns-medium {
+    .#{$grid-col-medium-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %span-full-grid-on-desktop;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .#{$grid-desktop-col-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %span-full-grid-on-tablet;
+    }
+  }
+
+  // column reordering
+  $offsets: (
+    (small, 0, $threshold-4-6-col, $grid-columns-small - 1),
+    (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium - 1),
+    (large, $threshold-6-12-col, -1, $grid-columns - 1)
+  );
+
+  @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
+    $query: null;
+    @if $breakpoint-min == 0 {
+      $query: '(max-width: #{$breakpoint-max})';
+    } @else if $breakpoint-max == -1 {
+      $query: '(min-width: #{$breakpoint-min})';
+    } @else {
+      $query: '(min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max})';
+    }
+
+    @media #{$query} {
+      @for $i from 1 through $col-count {
+        .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
+          grid-column-start: #{$i};
+        }
+
+        .#{$grid-column-prefix}order-#{$label}-#{$i} {
+          order: #{$i};
+        }
+      }
+    }
   }
 }
