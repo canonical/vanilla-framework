@@ -1,8 +1,7 @@
 @mixin vf-p-search-box {
-
   %search-box-button {
     background: $color-x-light;
-    border: 1px solid $color-mid-light;
+    border: 1px solid $color-mid;
     display: block;
     height: 100%;
     margin: 0;
@@ -23,33 +22,32 @@
   .p-search-box {
     box-shadow: inset 0 1px 2px $color-input-shadow;
     display: flex;
-    margin-bottom: $spv-inter--scaleable + $spv-nudge-compensation * 2;
+    margin-bottom: $spv-outer--scaleable + $spv-nudge-compensation * 2;
     position: relative;
+  }
 
-    &__input {
-      box-shadow: none;
-      flex-grow: 2;
-      margin-bottom: 0; // XXX patch it stretches a box shadow and the search button.
+  .p-search-box__input {
+    flex-grow: 2;
+    margin-bottom: 0; // XXX patch it stretches a box shadow and the search button.
 
-      &::-webkit-search-cancel-button {
-        -webkit-appearance: none;  // sass-lint:disable-line no-vendor-prefixes
-      }
-
-      &:not(:valid) ~ .p-search-box__reset {
-        display: none;
-      }
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     }
 
-    &__button {
-      @extend %search-box-button;
-      right: 0;
+    &:not(:valid) ~ .p-search-box__reset {
+      display: none;
     }
+  }
 
-    &__reset {
-      @extend %search-box-button;
-      border-left: 0;
-      border-right: 0;
-      right: $sp-xx-large;
-    }
+  .p-search-box__button {
+    @extend %search-box-button;
+    right: 0;
+  }
+
+  .p-search-box__reset {
+    @extend %search-box-button;
+    border-left: 0;
+    border-right: 0;
+    right: $sp-xx-large;
   }
 }

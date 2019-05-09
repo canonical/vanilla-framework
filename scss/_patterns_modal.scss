@@ -3,7 +3,7 @@
 @mixin vf-p-modal {
   .p-modal {
     align-items: center;
-    background: transparentize($color-dark, .15);
+    background: transparentize($color-dark, 0.15);
     content: '';
     display: flex;
     height: 100vh;
@@ -15,59 +15,58 @@
     position: absolute;
     top: 0;
     width: 100%;
+  }
 
-    &__dialog {
-      @extend %vf-card;
-      @extend %vf-has-box-shadow;
-      @extend %vf-has-round-corners;
-      bottom: $sp-large;
-      left: $sp-large;
-      max-width: $grid-max-width;
-      overflow: scroll;
-      position: absolute;
-      right: $sp-large;
-      top: $sp-large;
-      width: auto;
+  .p-modal__dialog {
+    @extend %vf-card;
+    @extend %vf-has-box-shadow;
+    @extend %vf-has-round-corners;
+    bottom: $sp-large;
+    left: $sp-large;
+    max-width: $grid-max-width;
+    overflow: scroll;
+    position: absolute;
+    right: $sp-large;
+    top: $sp-large;
+    width: auto;
 
-      @media screen and (min-width: $breakpoint-medium) {
-        bottom: initial;
-        left: initial;
-        overflow: visible;
-        position: relative;
-        right: initial;
-        top: initial;
-      }
+    @media screen and (min-width: $breakpoint-medium) {
+      bottom: initial;
+      left: initial;
+      overflow: visible;
+      position: relative;
+      right: initial;
+      top: initial;
     }
+  }
 
-    &__header {
-      display: flex;
-      justify-content: space-between;
+  .p-modal__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .p-modal__title {
+    @extend %vf-heading-4;
+    align-self: flex-end;
+  }
+
+  .p-modal__close {
+    background: {
+      image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='90' width='90'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h90v90H0z'/%3E%3Cpath d='M14.52 6L6 14.52 36.48 45 6 75.49 14.52 84 45 53.52 75.48 84 84 75.49 53.52 45 84 14.52 75.48 6 45 36.49z' fill='%23888'/%3E%3C/g%3E%3C/svg%3E");
+      position: center;
+      repeat: no-repeat;
+      size: $sp-medium;
     }
+    border: 0;
+    box-sizing: content-box;
+    height: $sp-medium;
+    margin: -#{$sp-medium} -#{$sp-medium} 0 0;
+    padding: $sp-medium;
+    text-indent: -999em;
+    width: $sp-medium;
 
-    &__title {
-      @extend %vf-heading-4;
-      align-self: flex-end;
-    }
-
-    &__close {
-      background: {
-        image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='90' width='90'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h90v90H0z'/%3E%3Cpath d='M14.52 6L6 14.52 36.48 45 6 75.49 14.52 84 45 53.52 75.48 84 84 75.49 53.52 45 84 14.52 75.48 6 45 36.49z' fill='%23888'/%3E%3C/g%3E%3C/svg%3E");
-        position: center;
-        repeat: no-repeat;
-        size: $sp-medium;
-      }
-      border: 0;
-      box-sizing: content-box;
-      height: $sp-medium;
-      margin: -#{$sp-medium} -#{$sp-medium} 0 0;
-      padding: $sp-medium;
-      text-indent: -999em;
-      width: $sp-medium;
-
-      &:focus {
-        outline: 1px solid $color-link;
-        outline-offset: 2px;
-      }
+    &:focus {
+      outline: 2px solid $color-focus;
     }
   }
 }

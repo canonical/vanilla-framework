@@ -17,100 +17,37 @@ $knob-size: $sp-unit * 3;
     }
 
     &:focus {
-      outline: 0;
+      outline: none;
 
       + .p-switch__slider {
-        outline: 1px solid $color-focus;
-        outline-offset: 2px;
-      }
-    }
-
-    &__slider {
-      @extend %vf-has-round-corners;
-      background: linear-gradient(to right, $color-information 50%, $color-mid-light 50%);
-      box-shadow: inset 0 2px 5px 0 transparentize($color-dark, .8);
-      height: $knob-size;
-      margin: $spv-nudge-compensation 0 $spv-inter--condensed-scaleable 0;
-      position: relative;
-      width: $knob-size * 2;
-
-      &::before {
-        @extend %vf-has-round-corners;
-        @extend %vf-has-box-shadow;
-        @include vf-animation($duration: slow);
-        background: $color-x-light;
-        content: "";
-        height: $knob-size;
-        left: 0;
-        position: absolute;
-        width: $knob-size;
-      }
-
-      & span {
-        @extend %vf-hide-text;
+        outline: 2px solid $color-focus;
       }
     }
   }
 
-  @include deprecate('2.0.0', 'Use checkbox version of .p-switch') {
-    button.p-switch { // sass-lint:disable-line no-qualifying-elements
-      align-items: stretch;
-      border: 0;
-      display: inline-flex;
+  .p-switch__slider {
+    @extend %vf-has-round-corners;
+    background: linear-gradient(to right, $color-information 50%, $color-mid-light 50%);
+    box-shadow: inset 0 2px 5px 0 transparentize($color-dark, 0.8);
+    height: $knob-size;
+    margin: $spv-nudge-compensation 0 $spv-outer--small-scaleable 0;
+    position: relative;
+    width: $knob-size * 2;
+
+    &::before {
+      @extend %vf-has-round-corners;
+      @extend %vf-has-box-shadow;
+      @include vf-animation($duration: slow);
+      background: $color-x-light;
+      content: '';
       height: $knob-size;
-      padding: initial;
-      width: $knob-size * 2;
+      left: 0;
+      position: absolute;
+      width: $knob-size;
+    }
 
-      :first-child,
-      :last-child {
-        box-shadow: inset 0 2px 5px 0 transparentize($color-dark, .8);
-        line-height: $knob-size;
-        margin: 0;
-        text-align: center;
-        width: 50%;
-      }
-
-      :first-child {
-        background-color: $color-information;
-        border-radius: 2px 0 0 2px;
-        color: $color-x-light;
-      }
-
-      :last-child {
-        background-color: $color-mid-light;
-        border-radius: 0 2px 2px 0;
-      }
-
-      &::before {
-        @include vf-animation($duration: slow);
-        background: inherit;
-        background-color: $color-x-light;
-        border-radius: $border-radius;
-        box-shadow: 0 1px 5px 1px transparentize($color-dark, .8);
-        content: '';
-        display: block;
-        height: 100%;
-        left: 0;
-        max-height: $sp-x-large;
-        padding: 0;
-        position: absolute;
-        top: 0;
-        width: 50%;
-      }
-
-      &::after {
-        display: none;
-      }
-
-      &[aria-checked='true'] {
-        &::before {
-          left: 50%;
-        }
-      }
-
-      & span {
-        @extend %vf-hide-text;
-      }
+    & span {
+      @extend %vf-hide-text;
     }
   }
 }

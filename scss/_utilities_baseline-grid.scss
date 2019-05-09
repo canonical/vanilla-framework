@@ -9,10 +9,10 @@
     position: relative;
 
     &::after {
-      background: linear-gradient(to top, transparentize($baseline-color, .7), transparentize($baseline-color, .7) 1px, transparent 1px, transparent);
+      background: linear-gradient(to top, transparentize($baseline-color, 0.7), transparentize($baseline-color, 0.7) 1px, transparent 1px, transparent);
       background-size: 100% $baseline-size;
       bottom: 0;
-      content: "";
+      content: '';
       display: block;
       left: 0;
       pointer-events: none;
@@ -21,12 +21,12 @@
       top: $baseline-offset;
       z-index: 100;
     }
+  }
 
-    &__toggle {
-      bottom: $spv-inter--scaleable;
-      position: fixed;
-      right: $sph-inter--expanded;
-      z-index: 101;
-    }
+  .u-baseline-grid__toggle {
+    bottom: $spv-outer--scaleable;
+    position: fixed;
+    right: $sph-outer--large;
+    z-index: 101;
   }
 }

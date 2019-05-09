@@ -9,50 +9,28 @@
     margin-left: 0;
     padding-left: 0;
     text-align: center;
+  }
 
-    &__item {
-      display: inline-block;
-      margin: 1rem;
-      overflow: hidden;
-      text-align: center;
-      vertical-align: middle;
+  .p-inline-images__item {
+    display: inline-block;
+    margin: 1rem;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
 
-      @media only screen and (min-width: $breakpoint-medium) {
-        margin: 1.875rem;
-      }
+    @media only screen and (min-width: $breakpoint-medium) {
+      margin: 1.875rem;
     }
+  }
 
-    &__logo {
-      max-height: map-get($icon-sizes, thumb--small);
-      max-width: 7rem;
-      width: auto;
+  .p-inline-images__logo {
+    max-height: map-get($icon-sizes, thumb--small);
+    max-width: 7rem;
+    width: auto;
 
-      @media screen and (min-width: $breakpoint-medium) {
-        max-height: 5.5rem;
-        max-width: 9rem;
-      }
-    }
-
-    @include deprecate('2.0.0', 'Use .p-inline-images__item instead') {
-      &__img {
-        display: inline-block;
-        margin: $sp-x-large;
-        max-width: 6rem;
-        text-align: center;
-        vertical-align: middle;
-        width: 100%;
-
-        @media (min-width: $breakpoint-medium) {
-          margin: $sp-xxx-large;
-          max-width: 11.25rem;
-        }
-      }
-    }
-
-    @include deprecate('2.0.0', 'Use .p-inline-images__logo instead') {
-      &__item img {
-        @extend .p-inline-images__logo; //sass-lint:disable-line placeholder-in-extend
-      }
+    @media screen and (min-width: $breakpoint-medium) {
+      max-height: 5.5rem;
+      max-width: 9rem;
     }
   }
 }

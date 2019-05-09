@@ -1,43 +1,43 @@
 @import 'settings';
 
-
 @mixin vf-p-strip {
   %section-padding--shallow {
     @media only screen and (max-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--shallow-scaleable * .5;
-      padding-top: $spv-inter--shallow-scaleable * .5;
+      padding-bottom: $spv-outer--shallow-scaleable * 0.5;
+      padding-top: $spv-outer--shallow-scaleable * 0.5;
     }
     @media only screen and (min-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--shallow-scaleable;
-      padding-top: $spv-inter--shallow-scaleable;
+      padding-bottom: $spv-outer--shallow-scaleable;
+      padding-top: $spv-outer--shallow-scaleable;
     }
   }
 
   // used in strips and footer
   %section-padding--default {
     @media only screen and (max-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--regular-scaleable * .5;
-      padding-top: $spv-inter--regular-scaleable * .5;
+      padding-bottom: $spv-outer--regular-scaleable * 0.5;
+      padding-top: $spv-outer--regular-scaleable * 0.5;
     }
     @media only screen and (min-width: $breakpoint-large) {
-      padding-bottom: $spv-inter--regular-scaleable;
-      padding-top: $spv-inter--regular-scaleable;
+      padding-bottom: $spv-outer--regular-scaleable;
+      padding-top: $spv-outer--regular-scaleable;
     }
   }
 
   %section-padding--deep {
     @media only screen and (max-width: $breakpoint-large) {
-      padding: $spv-inter--deep-scaleable * .5 0 $spv-inter--deep-scaleable * .5;
+      padding: $spv-outer--deep-scaleable * 0.5 0 $spv-outer--deep-scaleable * 0.5;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
-      padding: $spv-inter--deep-scaleable 0;
+      padding: $spv-outer--deep-scaleable 0;
     }
   }
 
   %vf-strip {
     @extend %section-padding--default;
     clear: both;
+    position: relative;
     width: 100%;
   }
 
@@ -93,8 +93,7 @@
 
 @mixin vf-p-strip-bordered {
   [class^='p-strip'].is-bordered {
-    border-bottom: 1px solid $color-mid-light;
-    margin-bottom: - $px;
+    @extend %vf-pseudo-border--bottom;
   }
 }
 

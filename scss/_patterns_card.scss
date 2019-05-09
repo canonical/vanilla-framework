@@ -13,7 +13,7 @@
     @extend %vf-card;
     @extend %vf-is-bordered;
     @extend %vf-has-round-corners;
-    padding: $spv-intra--scaleable - $px;
+    padding: calc(#{$spv-inner--large} - 1px);
   }
 }
 
@@ -31,11 +31,11 @@
 
 @mixin vf-p-card-overlay {
   .p-card--overlay {
-    background: transparentize($color-x-light, .1);
+    background: transparentize($color-x-light, 0.1);
     color: $color-dark;
-    margin-bottom: $spv-inter--scaleable;
+    margin-bottom: $spv-outer--scaleable;
     overflow: auto;
-    padding: $spv-intra--scaleable;
+    padding: $spv-inner--large;
   }
 }
 
@@ -44,9 +44,9 @@
     @extend %vf-bg--light;
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
-    margin-bottom: $spv-inter--scaleable;
+    margin-bottom: $spv-outer--scaleable;
     overflow: auto;
-    padding: $spv-intra--scaleable;
+    padding: $spv-inner--large;
   }
 }
 
@@ -54,19 +54,83 @@
   // p-card scoped rules should only be added if the required behaviour is not likely to be needed in any other pattern.
   // If possible, please consider adding a modifier to a base pattern, so it can be used elsewhere too.
 
+  [class*='p-card'] {
+    // Reduce margin-bottom of last text element in card to the minimum required to keep it on the baseline grid.
+    h1 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h1-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h1)};
+        }
+      }
+    }
+
+    h2 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h2-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h2)};
+        }
+      }
+    }
+
+    h3 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h3-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h3)};
+        }
+      }
+    }
+
+    h4 {
+      &:last-child {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h4-mobile)};
+        }
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-bottom: -#{map-get($nudges, nudge--h4)};
+        }
+      }
+    }
+
+    h5,
+    h6 {
+      &:last-child {
+        &:last-child {
+          margin-bottom: $spv-nudge-compensation;
+        }
+      }
+    }
+
+    p:not([class^='p-heading--']),
+    h5,
+    h6 {
+      &:last-child {
+        margin-bottom: $spv-nudge-compensation;
+      }
+
+      &:first-child {
+        margin-top: -#{$sp-unit};
+      }
+    }
+  }
+
   .p-card__image {
-    margin-bottom: $spv-inter--condensed-scaleable;
+    margin-bottom: $spv-outer--small-scaleable;
     vertical-align: top;
     width: 100%;
   }
 
-  .p-card__content {
-    margin-top: - $sp-unit * 2;
-  }
-
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
-    margin-bottom: $spv-intra--scaleable;
+    margin-bottom: $spv-inner--large;
 
     > .p-link--soft {
       display: inline-block;
@@ -78,13 +142,9 @@
     max-height: map-get($icon-sizes, thumb--card);
   }
 
-  .p-card__content {
-    margin-top: - $sp-unit * 2;
-  }
-
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
-    margin-bottom: $spv-intra--scaleable;
+    margin-bottom: $spv-inner--large;
 
     > .p-link--soft {
       display: inline-block;

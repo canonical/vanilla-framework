@@ -1,21 +1,24 @@
 FROM ubuntu:bionic
 
-# Setup environment
+# Set up environment
 ENV LANG C.UTF-8
 WORKDIR /srv
 
 # System dependencies
-RUN apt-get update && apt-get install --yes python3-pip
+RUN apt-get update && apt-get install --yes nginx net-tools
 
 # Set git commit ID
-ARG TALISKER_REVISION_ID
-RUN test -n "${TALISKER_REVISION_ID}"
-ENV TALISKER_REVISION_ID=${TALISKER_REVISION_ID}
+ARG COMMIT_ID
+RUN test -n "${COMMIT_ID}"
 
-# Import code, install code dependencies
-ADD . .
-RUN pip3 install -r requirements.txt
+# Copy over files
+ADD _site/ ./
+ADD nginx.conf /etc/nginx/sites-enabled/default
+ADD redirects.map /etc/nginx/redirects.map
+RUN sed -i "s/~COMMIT_ID~/${COMMIT_ID}/" /etc/nginx/sites-enabled/default
+RUN sed -i "s/8104/80/" /etc/nginx/sites-enabled/default
 
-# Setup commands to run server
-ENTRYPOINT ["./entrypoint"]
-CMD ["0.0.0.0:80"]
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
+

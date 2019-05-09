@@ -1,0 +1,18 @@
+{
+  "extends": ["config:base", "schedule:monthly", "group:all"],
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "extends": [":automergeMinor"]
+    },
+    {
+      "packageNames": ["vanilla-framework"],
+      "minor": {
+        "automerge": false
+      },
+      "patch": {
+        "automerge": false
+      }
+    }
+  ]
+}

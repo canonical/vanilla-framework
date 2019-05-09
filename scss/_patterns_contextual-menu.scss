@@ -5,117 +5,125 @@
     display: inline-block;
     margin: 0;
     position: relative;
+  }
 
-    // Dropdown element for contextual menu
-    &__dropdown {
-      @extend %vf-card;
-      @extend %vf-has-box-shadow;
-      @extend %vf-has-round-corners;
-      display: none;
-      margin: 0;
-      max-width: 21rem;
-      min-width: 10rem;
-      padding: 0;
-      position: absolute;
-      right: 0;
-      top: calc(100% + #{$sp-x-small});
-      z-index: 1;
+  // Alignment extension to align the menu to the left
+  .p-contextual-menu--left {
+    @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
+
+    .p-contextual-menu__dropdown {
+      left: 0;
 
       &::before,
       &::after {
-        border: {
-          bottom: 8px solid transparentize($color-dark, .95);
-          left: 8px solid transparent;
-          right: 8px solid transparent;
-        }
-        bottom: 100%;
-        content: '';
-        height: 0;
-        pointer-events: none;
-        position: absolute;
-        right: $sp-small;
-        width: 0;
+        left: $sp-small;
+        right: initial;
       }
 
       &::after {
-        border: {
-          bottom: 6px solid $color-x-light;
-          left: 6px solid transparent;
-          right: 6px solid transparent;
-        }
-        right: $sp-small + .1rem;
-      }
-
-      // When set to false will show the contextual menu
-      &[aria-hidden="false"] {
-        display: block;
+        left: $sp-small + 0.1rem;
       }
     }
+  }
 
-    &__group {
-      display: block;
-      padding: $sp-xx-small 0;
+  // Alignment extension to align the menu to the center of the parent
+  .p-contextual-menu--center {
+    @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
 
-      + .p-contextual-menu__group {
-        border-top: 1px solid $color-mid-light;
-        margin: 0;
-      }
-    }
+    .p-contextual-menu__dropdown {
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
 
-    &__link {
-      border: 0;
-      clear: both;
-      color: $color-dark;
-      display: block;
-      line-height: 1.5rem;
-      margin: 0;
-      overflow: hidden;
-      padding: $sp-xx-small $sp-small;
-      text-align: left;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 100%;
-
-      &:hover {
-        background-color: $color-light;
-        text-decoration: none;
-      }
-    }
-
-    // Alignment extension to align the menu to the left
-    &--left {
-      @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
-
-      .p-contextual-menu__dropdown {
-        left: 0;
-
-        &::before,
-        &::after {
-          left: $sp-small;
-          right: initial;
-        }
-
-        &::after {
-          left: $sp-small + .1rem;
-        }
-      }
-    }
-
-    // Alignment extension to align the menu to the center of the parent
-    &--center {
-      @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
-
-      .p-contextual-menu__dropdown {
+      &::before,
+      &::after {
         left: 50%;
+        right: initial;
+        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-
-        &::before,
-        &::after {
-          left: 50%;
-          right: initial;
-          transform: translateX(-50%);
-        }
+        // sass-lint:enable no-vendor-prefixes property-sort-order
       }
+    }
+  }
+
+  // Dropdown element for contextual menu
+  .p-contextual-menu__dropdown {
+    @extend %vf-card;
+    @extend %vf-has-box-shadow;
+    @extend %vf-has-round-corners;
+    display: none;
+    margin: 0;
+    max-width: 21rem;
+    min-width: 10rem;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: calc(100% + #{$sp-x-small});
+    z-index: 1;
+
+    &::before,
+    &::after {
+      border: {
+        bottom: 8px solid transparentize($color-dark, 0.95);
+        left: 8px solid transparent;
+        right: 8px solid transparent;
+      }
+      bottom: 100%;
+      content: '';
+      height: 0;
+      pointer-events: none;
+      position: absolute;
+      right: $sp-small;
+      width: 0;
+    }
+
+    &::after {
+      border: {
+        bottom: 6px solid $color-x-light;
+        left: 6px solid transparent;
+        right: 6px solid transparent;
+      }
+      right: $sp-small + 0.1rem;
+    }
+
+    // When set to false will show the contextual menu
+    &[aria-hidden='false'] {
+      display: block;
+    }
+  }
+
+  .p-contextual-menu__group {
+    display: block;
+    padding: $sp-xx-small 0;
+
+    + .p-contextual-menu__group {
+      border-top: 1px solid $color-mid-light;
+      margin: 0;
+    }
+  }
+
+  .p-contextual-menu__toggle {
+    margin-bottom: $spv-inner--small + ($spv-nudge-compensation * 2);
+  }
+
+  .p-contextual-menu__link {
+    border: 0;
+    clear: both;
+    color: $color-dark;
+    display: block;
+    line-height: 1.5rem;
+    margin: 0;
+    overflow: hidden;
+    padding: $sp-xx-small $sp-small;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+
+    &:hover {
+      background-color: $color-light;
+      text-decoration: none;
     }
   }
 }

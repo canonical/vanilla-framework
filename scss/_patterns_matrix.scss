@@ -2,125 +2,126 @@
 
 // List Grid
 @mixin vf-p-matrix {
-  .p-matrix {
-    $matrix-img-width: map-get($icon-sizes, thumb--small);
-    $matrix-img-gutter: $sph-inter;
+  $matrix-img-width: map-get($icon-sizes, thumb--small);
+  $matrix-img-gutter: $sph-outer;
 
+  .p-matrix {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin-bottom: $spv-inter--scaleable;
+    margin-bottom: $spv-outer--scaleable;
     margin-left: 0;
     padding-left: 0;
 
-    &__item {
-      border-top: 1px solid $color-mid-light;
-      display: flex;
-      flex: 1 1 auto;
-      padding-bottom: $spv-intra--scaleable;
-      padding-top: $spv-intra--scaleable - $px;
-
-      @media (min-width: $breakpoint-small) {
-        display: flex;
-        flex-wrap: wrap;
-        width: 33.333%;
-      }
-
-      @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) {
-        flex-direction: column;
-      }
-
-      @media (min-width: $breakpoint-medium) {
-        border-right: 1px solid $color-mid-light;
-        padding-left: $spv-intra--scaleable;
-        padding-right: $spv-intra--scaleable;
-        width: 33.333%;
-
-        &:empty {
-          display: block; // hide orphans
-        }
-
-        &:nth-child(3n+1) {
-          padding-left: 0;
-        }
-
-        &:nth-child(3n+3) {
-          border-right: 0;
-        }
-
-        &:nth-child(1),
-        &:nth-child(2),
-        &:nth-child(3) {
-          border-top: 0;
-        }
-      }
-
-      @media (min-width: $breakpoint-large) { // 3 items per row
-        border-right: 1px solid $color-mid-light;
-        padding: $spv-intra--scaleable;
-        width: 33.333%;
-
-        &:empty {
-          display: block; // hide orphans
-        }
-
-        &:nth-child(3n+1) {
-          padding-left: 0;
-        }
-
-        &:nth-child(3n+3) {
-          border-right: 0;
-          padding-right: 0;
-        }
-
-        &:nth-last-child(1),
-        &:nth-last-child(2),
-        &:nth-last-child(3) {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    &__img {
-      align-self: flex-start;
-      margin-bottom: $spv-intra--scaleable;
-      margin-right: $matrix-img-gutter;
-      max-height: $matrix-img-width;
-      max-width: $matrix-img-width;
-      width: auto;
-    }
-
-    &__content {
-      display: flex;
-      flex: 1 1 auto;
-      flex-direction: column;
-      padding-right: $sph-intra;
-
-      @media (min-width: $breakpoint-large) {
-        width: calc(100% - #{$matrix-img-width + $matrix-img-gutter});
-      }
-    }
-
-    &__title {
-      @extend %vf-heading-4;
-      margin-top: -$sp-unit;
-    }
-
-    &__desc {
+    > p:last-child {
       margin-bottom: $spv-nudge-compensation;
-      margin-top: - $sp-unit * 2;
+    }
+  }
 
-      > p:last-child {
-        margin-bottom: 0;
+  .p-matrix__item {
+    border-top: 1px solid $color-mid-light;
+    display: flex;
+    flex: 1 1 auto;
+    padding-bottom: $spv-inner--scaleable;
+    padding-top: calc(#{$spv-inner--scaleable} - 1px);
+
+    @media (min-width: $breakpoint-small) {
+      display: flex;
+      flex-wrap: wrap;
+      width: 33.333%;
+    }
+
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) {
+      flex-direction: column;
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      border-right: 1px solid $color-mid-light;
+      padding-left: $spv-inner--scaleable;
+      padding-right: $spv-inner--scaleable;
+      width: 33.333%;
+
+      &:empty {
+        display: block; // hide orphans
       }
 
-      & + & {
-        margin-top: 0; // Negate nudge compensation for multiple .p-matrix__desc
+      &:nth-child(3n + 1) {
+        padding-left: 0;
       }
 
-      @media (max-width: $breakpoint-heading-threshold) {
-        margin-top: - $sp-unit;
+      &:nth-child(3n + 3) {
+        border-right: 0;
       }
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        border-top: 0;
+      }
+    }
+
+    @media (min-width: $breakpoint-large) {
+      // 3 items per row
+      border-right: 1px solid $color-mid-light;
+      width: 33.333%;
+
+      &:empty {
+        display: block; // hide orphans
+      }
+
+      &:nth-child(3n + 1) {
+        padding-left: 0;
+      }
+
+      &:nth-child(3n + 3) {
+        border-right: 0;
+        padding-right: 0;
+      }
+
+      &:nth-last-child(1),
+      &:nth-last-child(2),
+      &:nth-last-child(3) {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .p-matrix__img {
+    align-self: flex-start;
+    margin-bottom: $spv-inner--scaleable;
+    margin-right: $matrix-img-gutter;
+    max-height: $matrix-img-width;
+    max-width: $matrix-img-width;
+    width: auto;
+  }
+
+  .p-matrix__content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding-right: $sph-inner;
+
+    @media (min-width: $breakpoint-large) {
+      width: calc(100% - #{$matrix-img-width + $matrix-img-gutter});
+    }
+  }
+
+  .p-matrix__title {
+    @extend %vf-heading-4;
+  }
+
+  .p-matrix__desc {
+    &:last-child {
+      @extend %sp--hp;
+      margin-bottom: $spv-nudge-compensation;
+    }
+
+    > p:last-child {
+      margin-bottom: $spv-nudge-compensation;
+    }
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-top: -#{$sp-unit};
     }
   }
 }
