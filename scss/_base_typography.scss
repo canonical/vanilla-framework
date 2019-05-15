@@ -3,12 +3,14 @@
 @import 'base_typography-definitions';
 @import 'base_typography-max-widths';
 @import 'base_typography-heading-mixins';
+@import 'base_typography-min-margins';
 
 // Typographic element styles
 @mixin vf-b-typography {
   @include vf-b-typography-fontfaces;
   @include vf-b-typography-definitions;
   @include vf-b-typography-max-widths;
+  @include vf-b-typography-min-margins;
 
   html {
     // sass-lint:disable no-vendor-prefixes
@@ -68,6 +70,19 @@
   p {
     @extend %paragraph;
     @include p-max-width;
+  }
+
+  .p-text--default {
+    @extend %default-text;
+  }
+
+  small,
+  .p-text--small {
+    @extend %small-text;
+
+    &.dense {
+      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    }
   }
 
   // All text elements have extra margin-bottom to keep following block level elements at a comfortable distance.
@@ -149,14 +164,6 @@
   // misc
   strong {
     @extend %bold;
-  }
-
-  small {
-    @extend %small-text;
-
-    &.dense {
-      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
-    }
   }
 
   sub,

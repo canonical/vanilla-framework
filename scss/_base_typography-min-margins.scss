@@ -1,0 +1,61 @@
+@mixin vf-b-typography-min-margins {
+  %u-min-margin--bottom--h1 {
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h1-mobile)};
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h1)};
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($nudges, nudge--h1-large)};
+      }
+    }
+  }
+
+  %u-min-margin--bottom--h2 {
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h2-mobile)};
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h2)};
+    }
+  }
+
+  %u-min-margin--bottom--h3 {
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h3-mobile)};
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h3)};
+    }
+  }
+
+  %u-min-margin--bottom--h4 {
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h4-mobile)};
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h4)};
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($nudges, nudge--h4-large)};
+      }
+    }
+  }
+
+  %u-min-margin--bottom--default-text {
+    margin-bottom: $sp-unit - map-get($nudges, nudge--p);
+  }
+
+  %u-min-margin--bottom--small {
+    margin-bottom: -#{map-get($nudges, nudge--small)};
+  }
+}
