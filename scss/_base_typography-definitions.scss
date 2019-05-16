@@ -28,7 +28,7 @@
       }
     }
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--h1;
     }
   }
@@ -53,7 +53,7 @@
       padding-top: map-get($nudges, nudge--h2) + map-get($browser-rounding-compensations, h2);
     }
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--h2;
     }
   }
@@ -78,7 +78,7 @@
       padding-top: map-get($nudges, nudge--h3) + map-get($browser-rounding-compensations, h3);
     }
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--h3;
     }
   }
@@ -110,7 +110,7 @@
       }
     }
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--h4;
     }
   }
@@ -125,7 +125,7 @@
     margin-top: 0;
     padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, h5);
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--default-text;
     }
   }
@@ -146,7 +146,7 @@
       }
     }
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--default-text;
     }
   }
@@ -156,15 +156,17 @@
     margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, p);
-
-    &.u-min-margin--bottom {
-      @extend %u-min-margin--bottom--default-text;
-    }
   }
 
   %paragraph {
-    @extend %default-text;
+    line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, p);
+
+    &.u-no-margin--bottom {
+      @extend %u-min-margin--bottom--default-text;
+    }
   }
 
   %small-text {
@@ -179,7 +181,7 @@
       }
     }
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--small;
     }
   }
@@ -192,7 +194,7 @@
     padding-top: map-get($nudges, nudge--small);
     text-transform: uppercase;
 
-    &.u-min-margin--bottom {
+    &.u-no-margin--bottom {
       @extend %u-min-margin--bottom--small;
     }
   }
