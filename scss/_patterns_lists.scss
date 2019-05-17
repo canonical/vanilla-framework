@@ -214,9 +214,7 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
     // $bullet-offset:
     @extend %numbered-step-container;
 
-    @media (max-width: $breakpoint-heading-threshold) {
-      margin-left: 0;
-    }
+    margin-left: auto;
 
     .p-stepped-list__content {
       @media (min-width: $threshold-6-12-col) {
@@ -233,9 +231,6 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
 
     .p-stepped-list__item {
       @extend %row;
-      @include row-reset-padding;
-      margin-left: auto;
-      width: 100%;
 
       .row & {
         @include row-reset;

@@ -27,6 +27,10 @@
         padding-top: map-get($nudges, nudge--h1-large) + map-get($browser-rounding-compensations, h1);
       }
     }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h1;
+    }
   }
 
   %vf-heading-2 {
@@ -48,23 +52,34 @@
       margin-bottom: map-get($sp-after, h2) - map-get($nudges, nudge--h2);
       padding-top: map-get($nudges, nudge--h2) + map-get($browser-rounding-compensations, h2);
     }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h2;
+    }
   }
 
   %vf-heading-3 {
     @include heading-max-width--long;
-    font-size: #{map-get($font-sizes, h3)}rem;
     font-style: normal;
     font-weight: 300;
-    line-height: map-get($line-heights, h3);
-    margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
     margin-top: -#{$sp-unit};
-    padding-top: map-get($nudges, nudge--h3) + map-get($browser-rounding-compensations, h3);
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: #{map-get($font-sizes, h3-mobile)}rem;
       line-height: map-get($line-heights, h3-mobile);
       margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, nudge--h3-mobile);
       padding-top: map-get($nudges, nudge--h3-mobile);
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: #{map-get($font-sizes, h3)}rem;
+      line-height: map-get($line-heights, h3);
+      margin-bottom: map-get($sp-after, h3) - map-get($nudges, nudge--h3);
+      padding-top: map-get($nudges, nudge--h3) + map-get($browser-rounding-compensations, h3);
+    }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h3;
     }
   }
 
@@ -94,6 +109,10 @@
         padding-top: map-get($nudges, nudge--h4-large) + map-get($browser-rounding-compensations, h4);
       }
     }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h4;
+    }
   }
 
   %vf-heading-5 {
@@ -105,6 +124,10 @@
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, h5);
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--default-text;
+    }
   }
 
   %vf-heading-6 {
@@ -122,18 +145,30 @@
         padding-top: map-get($nudges, nudge--h6-large) + map-get($browser-rounding-compensations, h6);
       }
     }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--default-text;
+    }
   }
 
-  %default-text {
+  %common-default-text-properties {
     line-height: map-get($line-heights, default-text);
-    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, p);
   }
 
+  %default-text {
+    @extend %common-default-text-properties;
+    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
+  }
+
   %paragraph {
-    @extend %default-text;
+    @extend %common-default-text-properties;
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--default-text;
+    }
   }
 
   %small-text {
@@ -147,6 +182,10 @@
         padding-top: map-get($nudges, nudge--small) + map-get($browser-rounding-compensations, small-largescreen);
       }
     }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--small;
+    }
   }
 
   %muted-heading {
@@ -156,6 +195,10 @@
     margin-top: 0;
     padding-top: map-get($nudges, nudge--small);
     text-transform: uppercase;
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--small;
+    }
   }
 
   %bold {
