@@ -77,4 +77,18 @@
   .p-card__thumbnail {
     max-height: map-get($icon-sizes, thumb--card);
   }
+
+  [class*='p-card'] {
+    p:not([class^='p-heading--']),
+    h5,
+    h6 {
+      &:last-child {
+        margin-bottom: $spv-nudge-compensation;
+      }
+
+      &:first-child {
+        margin-top: -#{$sp-unit};
+      }
+    }
+  }
 }
