@@ -2,6 +2,12 @@
 
 // Collapse margins
 @mixin vf-u-margin-collapse {
+  %u-no-margin--bottom {
+    &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(p):not(small):not([class*='p-heading']) {
+      margin-bottom: 0 !important;
+    }
+  }
+
   .u-no-margin {
     margin: 0 !important;
 
@@ -14,9 +20,7 @@
     }
 
     &--bottom {
-      &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(p):not(small):not([class*='p-heading']) {
-        margin-bottom: 0 !important;
-      }
+      @extend %u-no-margin--bottom;
     }
 
     &--left {
