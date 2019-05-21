@@ -31,6 +31,9 @@ $grid-border-style: 1px dotted $color-mid-light !default;
 
 // for _patterns_navigation.scss
 $color-navigation-background: $color-x-light !default;
+$color-navigation-border: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent) !default;
+$color-navigation-text: if(lightness($color-navigation-background) > 70, $color-dark, $color-light) !default;
+
 $color-navigation-selected: #757575 !default;
 
 // for _patterns_tabs.scss
