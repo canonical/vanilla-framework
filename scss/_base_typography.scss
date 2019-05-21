@@ -70,6 +70,19 @@
     @include p-max-width;
   }
 
+  .p-text--default {
+    @extend %default-text;
+  }
+
+  small,
+  .p-text--small {
+    @extend %small-text;
+
+    &.dense {
+      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
+    }
+  }
+
   // All text elements have extra margin-bottom to keep following block level elements at a comfortable distance.
   // When a text element is followed by another text element, this extra space needs to be compensated for.
   // Notably, the selectors below do not include rules for p + any heading, which usually indicates beginning of next heading/paragraphs group, which requires an increase in white space. This is handled further down.
@@ -149,14 +162,6 @@
   // misc
   strong {
     @extend %bold;
-  }
-
-  small {
-    @extend %small-text;
-
-    &.dense {
-      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
-    }
   }
 
   sub,
