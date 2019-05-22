@@ -2,7 +2,7 @@
 $triangle-height: $sp-unit;
 
 @mixin vf-p-tooltips {
-  .p-tooltip {
+  %tooltip {
     position: relative;
 
     &:focus,
@@ -12,6 +12,10 @@ $triangle-height: $sp-unit;
         text-decoration: initial;
       }
     }
+  }
+
+  .p-tooltip {
+    @extend %tooltip;
   }
 
   .p-tooltip__message {
@@ -53,6 +57,8 @@ $triangle-height: $sp-unit;
 
   // Bottom center tooltip
   .p-tooltip--btm-center {
+    @extend %tooltip;
+
     .p-tooltip__message {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       bottom: inherit;
@@ -74,6 +80,8 @@ $triangle-height: $sp-unit;
 
   // Bottom right tooltip
   .p-tooltip--btm-right {
+    @extend %tooltip;
+
     .p-tooltip__message {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       bottom: inherit;
@@ -93,6 +101,8 @@ $triangle-height: $sp-unit;
 
   // Top left tooltip
   .p-tooltip--top-left {
+    @extend %tooltip;
+
     .p-tooltip__message {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       bottom: 100%;
@@ -117,6 +127,8 @@ $triangle-height: $sp-unit;
 
   // Top center tooltip
   .p-tooltip--top-center {
+    @extend %tooltip;
+
     .p-tooltip__message {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       bottom: 100%;
@@ -143,6 +155,8 @@ $triangle-height: $sp-unit;
 
   // Top right tooltip
   .p-tooltip--top-right {
+    @extend %tooltip;
+
     .p-tooltip__message {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       bottom: 100%;
@@ -169,6 +183,8 @@ $triangle-height: $sp-unit;
 
   // Right tooltip
   .p-tooltip--right {
+    @extend %tooltip;
+
     .p-tooltip__message {
       bottom: inherit;
       left: 100%;
@@ -198,6 +214,8 @@ $triangle-height: $sp-unit;
 
   // Left tooltip
   .p-tooltip--left {
+    @extend %tooltip;
+
     .p-tooltip__message {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       bottom: inherit;
