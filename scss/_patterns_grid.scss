@@ -45,6 +45,11 @@
     margin-bottom: $spv-outer--small;
   }
 
+  %display-block {
+    // make columns explicitly display:block; the use of a placeholder is to ensure the ruel appears only once in the compiled css
+    display: block;
+  }
+
   %row {
     @extend %fixed-width-container;
 
@@ -99,6 +104,7 @@
   @media (max-width: $threshold-4-6-col) {
     @for $i from 1 through $grid-columns-small {
       .#{$grid-small-col-prefix}#{$i} {
+        @extend %display-block;
         grid-column-end: span #{$i};
 
         //nesting
@@ -115,6 +121,7 @@
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from 1 through $grid-columns-medium {
       .#{$grid-col-medium-prefix}#{$i} {
+        @extend %display-block;
         grid-column-end: span #{$i};
 
         //nesting
@@ -132,6 +139,7 @@
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-desktop-col-prefix}#{$i} {
+        @extend %display-block;
         grid-column-end: span #{$i};
 
         //nesting
