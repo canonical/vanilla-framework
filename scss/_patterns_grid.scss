@@ -45,6 +45,11 @@
     margin-bottom: $spv-outer--small;
   }
 
+  %display-block {
+    // make columns explicitly display:block; the use of a placeholder is to ensure the rule appears only once in the compiled css
+    display: block;
+  }
+
   %row {
     @extend %fixed-width-container;
 
@@ -149,6 +154,7 @@
     .#{$grid-small-col-prefix}#{$i} {
       @extend %span-full-grid-on-tablet;
       @extend %span-full-grid-on-desktop;
+      @extend %display-block;
     }
   }
 
@@ -156,6 +162,7 @@
     .#{$grid-col-medium-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-desktop;
+      @extend %display-block;
     }
   }
 
@@ -163,6 +170,7 @@
     .#{$grid-desktop-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-tablet;
+      @extend %display-block;
     }
   }
 
