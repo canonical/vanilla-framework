@@ -104,7 +104,6 @@
   @media (max-width: $threshold-4-6-col) {
     @for $i from 1 through $grid-columns-small {
       .#{$grid-small-col-prefix}#{$i} {
-        @extend %display-block;
         grid-column-end: span #{$i};
 
         //nesting
@@ -121,7 +120,6 @@
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from 1 through $grid-columns-medium {
       .#{$grid-col-medium-prefix}#{$i} {
-        @extend %display-block;
         grid-column-end: span #{$i};
 
         //nesting
@@ -139,7 +137,6 @@
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-desktop-col-prefix}#{$i} {
-        @extend %display-block;
         grid-column-end: span #{$i};
 
         //nesting
@@ -157,6 +154,7 @@
     .#{$grid-small-col-prefix}#{$i} {
       @extend %span-full-grid-on-tablet;
       @extend %span-full-grid-on-desktop;
+      @extend %display-block;
     }
   }
 
@@ -164,6 +162,7 @@
     .#{$grid-col-medium-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-desktop;
+      @extend %display-block;
     }
   }
 
@@ -171,6 +170,7 @@
     .#{$grid-desktop-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-tablet;
+      @extend %display-block;
     }
   }
 
