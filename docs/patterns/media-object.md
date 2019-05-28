@@ -16,7 +16,7 @@ View example of the pattern media object
 
 ### Circular
 
-You can add an `is-round` state to the `.p-media-object__image` element to create a circular image style, which we recommend to be used for head shots of people.
+You can add an `is-round` state to the `.p-media-object__image` element to create a circular image style, which we recommend to be used for head shots of people. In order for this variant to work, the original image must be square.
 
 <a href="/examples/patterns/media-object/media-object-circ-img/"
   class="js-example">
