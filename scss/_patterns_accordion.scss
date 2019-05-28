@@ -13,8 +13,10 @@
   }
 
   .p-accordion__group {
-    &:not(:last-child) .p-accordion__tab {
-      border-bottom: 1px solid $color-mid-light;
+    position: relative;
+
+    & + &::after {
+      @extend %vf-pseudo-border--top;
     }
   }
 
@@ -31,7 +33,7 @@
     border: 0;
     border-radius: 0;
     margin-bottom: 0;
-    padding-left: $sph-inner--x-large;
+    padding-left: $sph-inner + $icon-size + $sph-inner;
     padding-right: $sph-inner;
     text-align: left;
     transition-duration: 0s;
@@ -51,18 +53,13 @@
   }
 
   .p-accordion__panel {
-    border-bottom: 1px solid $color-mid-light;
     margin: 0;
     overflow: auto; // include child margins into its height
-    padding-left: $sph-inner * 4;
+    padding-left: $sph-inner + $icon-size + $sph-inner * 2;
 
     // Hides panel content
     &[aria-hidden='true'] {
       display: none;
     }
-  }
-
-  .p-accordion p {
-    margin-bottom: map-get($sp-after, p) - $sp-unit - map-get($nudges, nudge--p);
   }
 }
