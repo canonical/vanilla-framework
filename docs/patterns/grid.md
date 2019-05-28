@@ -36,9 +36,11 @@ Columns can be nested infinitely by adding `.row` classes within columns. When n
 
 ### Empty columns
 
-To leave gap columns, use col-start-{breakpoint}{index}, e.g.: col-start-large-2.
-{breakpoint} - "small", "medium", "large".
-{index} - an integer between 1 and the available columns.
+To leave gap columns, use `col-start-{breakpoint}{index}`, e.g.: `col-start-large-2`.
+
+`{breakpoint}` options: "`small`", "`medium`", "`large`".
+
+`{index}` options: an integer between 1 and the available columns.
 
 <a href="/examples/patterns/grid/empty-columns/" class="js-example">
     View example of the empty columns within the grid
