@@ -30,7 +30,7 @@
     "build": "gulp build",
     "build-docs-css": "node-sass --include-path node_modules docs/sass --source-map true --output-style compressed --output docs/css",
     "build-docs-site": "bundle exec jekyll build --source docs --destination docs/_site",
-    "build-docs": "yarn run build-docs-css && yarn run build-docs-site",
+    "build-docs": "yarn run build && yarn run build-docs-css && yarn run build-docs-site",
     "serve": "yarn run build-docs && bundle exec jekyll serve --source docs --destination docs/_site --port ${PORT} -H 0.0.0.0",
     "test": "gulp test",
     "watch": "gulp develop",
