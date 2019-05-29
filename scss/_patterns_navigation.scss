@@ -64,10 +64,16 @@ $nav-border-bottom-thickness: 1px;
   }
 
   &__link {
+    $nav-link-max-width: 20em !default;
+    max-width: $nav-link-max-width;
+
     & > a {
       display: block;
       margin-bottom: 0;
+      overflow: hidden;
       position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       @media (max-width: $breakpoint-navigation-threshold) {
         padding: $spv-inner--medium $grid-margin-width;
