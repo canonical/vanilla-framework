@@ -8,6 +8,10 @@ $nav-border-bottom-thickness: 1px;
 }
 
 @mixin vf-navigation-default {
+  $color-navigation-background: $color-x-light !default;
+  $color-navigation-border: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent) !default;
+  $color-navigation-text: if(lightness($color-navigation-background) > 70, $color-dark, $color-light) !default;
+
   .p-navigation {
     @include vf-navigation-pattern($background-color: $color-navigation-background, $border-color: $color-navigation-border, $text-color: $color-navigation-text);
   }
