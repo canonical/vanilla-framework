@@ -5,7 +5,7 @@
   @include vf-p-forms-inline;
 
   form + [class*='p-button'] {
-    margin-top: $sp-large;
+    margin-top: $spv-outer--scaleable;
   }
 }
 
@@ -16,35 +16,10 @@
     .p-form__group {
       @media screen and (min-width: $breakpoint-medium) {
         align-items: baseline;
-        display: flex;
-        flex-flow: wrap;
 
         + .p-form__group {
-          margin-top: $sp-small;
+          margin-top: $spv-inner--small;
         }
-      }
-    }
-
-    .p-form__label {
-      @media screen and (min-width: $breakpoint-medium) {
-        flex: {
-          basis: 25%;
-          grow: 1;
-        }
-        margin: 0;
-        max-width: 25%;
-        padding-right: $sp-small;
-      }
-    }
-
-    .p-form__control {
-      @media screen and (min-width: $breakpoint-medium) {
-        flex: {
-          basis: 75%;
-          grow: 1;
-        }
-        margin: 0;
-        max-width: 75%;
       }
     }
   }
@@ -64,12 +39,12 @@
 
     .p-form__group {
       @media screen and (min-width: $breakpoint-medium) {
-        display: inline-flex;
+        display: flex;
         width: auto;
 
         + .p-form__group,
         + [class*='p-button'] {
-          margin-left: $sp-large;
+          margin-left: $sph-inner--large;
         }
 
         .p-form__label,
@@ -81,7 +56,7 @@
 
         .p-form__label {
           flex-shrink: 0;
-          padding-right: $sp-medium;
+          padding-right: $sph-inner;
         }
 
         .p-form__control {
