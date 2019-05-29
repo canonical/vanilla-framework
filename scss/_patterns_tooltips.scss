@@ -25,6 +25,7 @@ $triangle-height: $sp-unit;
     border: 0;
     border-radius: $border-radius;
     color: $color-x-light;
+    cursor: initial;
     display: none;
     left: -#{2 * $triangle-height};
     margin-bottom: 0;
@@ -35,6 +36,7 @@ $triangle-height: $sp-unit;
     top: 100%;
     -webkit-transform: translateX(0%) translateY(13px);
     transform: translateX(0%) translateY(13px);
+    user-select: text;
     // sass-lint:enable no-vendor-prefixes property-sort-order
     white-space: pre;
     z-index: 1;
@@ -52,6 +54,16 @@ $triangle-height: $sp-unit;
       pointer-events: none;
       position: absolute;
       width: 0;
+    }
+
+    &::after {
+      content: '';
+      cursor: initial;
+      height: #{2 * $triangle-height};
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -#{2 * $triangle-height};
     }
   }
 
@@ -122,6 +134,11 @@ $triangle-height: $sp-unit;
         bottom: -#{2 * $triangle-height};
         left: $sph-inner;
       }
+
+      &::after {
+        bottom: -#{2 * $triangle-height};
+        top: initial;
+      }
     }
   }
 
@@ -148,6 +165,11 @@ $triangle-height: $sp-unit;
         left: 50%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
+      }
+
+      &::after {
+        bottom: -#{2 * $triangle-height};
+        top: initial;
       }
       // sass-lint:enable no-vendor-prefixes property-sort-order
     }
@@ -177,6 +199,11 @@ $triangle-height: $sp-unit;
         bottom: -#{2 * $triangle-height};
         left: initial;
         right: $sph-inner;
+      }
+
+      &::after {
+        bottom: -#{2 * $triangle-height};
+        top: initial;
       }
     }
   }
@@ -209,6 +236,14 @@ $triangle-height: $sp-unit;
         transform: translateX(-16px) translateY(-50%);
         // sass-lint:enable no-vendor-prefixes property-sort-order
       }
+
+      &::after {
+        bottom: 0;
+        height: 100%;
+        left: -#{2 * $triangle-height};
+        top: 0;
+        width: #{2 * $triangle-height};
+      }
     }
   }
 
@@ -239,6 +274,15 @@ $triangle-height: $sp-unit;
         -webkit-transform: translateX(0) translateY(-50%);
         transform: translateX(0) translateY(-50%);
         // sass-lint:enable no-vendor-prefixes property-sort-order
+      }
+
+      &::after {
+        bottom: 0;
+        height: 100%;
+        left: initial;
+        right: -#{2 * $triangle-height};
+        top: 0;
+        width: #{2 * $triangle-height};
       }
     }
   }
