@@ -1,0 +1,21 @@
+%fixed-width-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $grid-max-width;
+  width: 100%;
+  // set static gutter width per breakpoint
+  @media (max-width: $threshold-4-6-col) {
+    padding-left: map-get($grid-margin-widths, small);
+    padding-right: map-get($grid-margin-widths, small);
+  }
+
+  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+    padding-left: map-get($grid-margin-widths, medium);
+    padding-right: map-get($grid-margin-widths, medium);
+  }
+
+  @media (min-width: $threshold-6-12-col) {
+    padding-left: map-get($grid-margin-widths, large);
+    padding-right: map-get($grid-margin-widths, large);
+  }
+}
