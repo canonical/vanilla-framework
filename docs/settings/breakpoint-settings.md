@@ -10,8 +10,9 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 | ---------------------------------- | -------------------- | -------------- |
 | `$breakpoint-x-small`              | `460px`              | Mobile         |
 | `$breakpoint-small`                | `620px`              | Mobile         |
-| `$breakpoint-medium`               | `768px`              | Tablet         |
-| `$breakpoint-large`                | `1030px`             | Desktop        |
+| `$breakpoint-medium`               | `772px`              | Tablet         |
+| `$breakpoint-large`                | `1036px`             | Desktop        |
+| `$breakpoint-large`                | `1680px`             | Large desktop  |
 | `$breakpoint-navigation-threshold` | `$breakpoint-medium` | Tablet         |
 | `$breakpoint-heading-threshold`    | `$breakpoint-medium` | Tablet         |
 
@@ -43,6 +44,14 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 
 ```css
 @media screen and (min-width: $breakpoint-large) {
+  //css
+}
+```
+
+### Target extra large screens
+
+```css
+@media screen and (min-width: $breakpoint-x-large) {
   //css
 }
 ```
