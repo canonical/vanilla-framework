@@ -26,7 +26,7 @@
         return temp.content;
       }
 
-      if (!inIframe()) {
+      if (inIframe()) {
         document.addEventListener('DOMContentLoaded', function() {
           var body = document.body;
           var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label>Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" /><div class="p-switch__slider"></div></label></div>');
