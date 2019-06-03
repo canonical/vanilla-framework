@@ -4,6 +4,7 @@
 
   .gn-container {
     line-height: 1.5rem;
+    max-height: 3rem;
     position: relative;
     z-index: 10000;
   }
@@ -133,7 +134,13 @@
 
   .gn-secondary-nav {
     background: $color-x-light;
-    position: relative;
+    position: absolute;
+    top: 3rem;
+    width: 100%;
+
+    .gn-small & {
+      top: 2rem;
+    }
   }
 
   .gn-secondary-nav__row {
@@ -192,23 +199,27 @@
   }
 
   .gn-dropdown {
-    display: none;
+    @include vf-animation($property: transform, $duration: brisk);
+    position: relative;
+    transform: translateY(-100%);
+    z-index: 9998;
 
     &.is-open {
-      display: block;
+      transform: translateY(0);
     }
   }
 
   .gn-dropdown__container {
+    @include vf-animation($property: transform, $duration: brisk);
     background: $color-light;
-    display: none;
+    height: 0;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 9998;
 
     &.is-open {
-      display: block;
+      height: auto;
 
       &::after {
         background-color: $color-mid-light;
@@ -358,16 +369,18 @@
   }
 
   .gn-overlay {
+    @include vf-animation($property: opacity, $duration: brisk);
     background-color: $color-dark;
-    display: none;
     height: 100vh;
-    opacity: 0.5;
+    opacity: 0;
+    pointer-events: none;
     position: fixed;
     width: 100vw;
     z-index: 9997;
 
     &.is-open {
-      display: block;
+      opacity: 0.5;
+      pointer-events: all;
     }
   }
 
@@ -377,8 +390,13 @@
 
   %suru-base {
     background-color: $color-mid-light;
+    display: none;
     opacity: 0.25;
     position: absolute;
+
+    .gn-dropdown.is-open & {
+      display: block;
+    }
   }
 
   .gn-suru--1 {
