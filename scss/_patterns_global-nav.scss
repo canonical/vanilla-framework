@@ -32,6 +32,8 @@
   @if $anchor == bottom-left {
     bottom: 0;
     left: 0;
+    top: inherit;
+    right: inherit;
     transform: rotate($angle);
     transform-origin: 0 0;
   }
@@ -39,6 +41,8 @@
   @if $anchor == bottom-right {
     bottom: 0;
     right: 0;
+    top: inherit;
+    left: inherit;
     transform: rotate(#{-$angle});
     transform-origin: 100% 0;
   }
@@ -46,6 +50,8 @@
   @if $anchor == top-left {
     left: 0;
     top: 0;
+    bottom: inherit;
+    right: inherit;
     transform: rotate(#{-$angle});
     transform-origin: 0 100%;
   }
@@ -53,6 +59,8 @@
   @if $anchor == top-right {
     right: 0;
     top: 0;
+    bottom: inherit;
+    left: inherit;
     transform: rotate($angle);
     transform-origin: 100% 100%;
   }
@@ -520,17 +528,6 @@
     display: flex;
   }
 
-  %suru-base {
-    background-color: $color-mid-light;
-    display: none;
-    opacity: 0.25;
-    position: absolute;
-
-    .gn-dropdown.is-open & {
-      display: block;
-    }
-  }
-
   .gn-suru--1 {
     @include vf-p-suru($anchor: bottom-left, $height: 25rem, $angle: 25deg);
   }
@@ -548,11 +545,11 @@
   }
 
   .gn-suru--5 {
-    @include vf-p-suru($anchor: top-left, $height: 15rem, $angle: 45deg);
+    @include vf-p-suru($anchor: bottom-right, $height: 26rem, $angle: 21deg);
   }
 
   .gn-suru--6 {
-    @include vf-p-suru($anchor: bottom-right, $height: 26rem, $angle: 21deg);
+    @include vf-p-suru($anchor: top-left, $height: 15rem, $angle: 45deg);
   }
 
   .gn-suru--7 {
@@ -569,6 +566,97 @@
 
   .gn-suru--10 {
     @include vf-p-suru($anchor: bottom-right, $height: 10rem, $angle: 5deg);
+  }
+
+  %animated-suru-base {
+    @include vf-animation(
+      $property: (
+        height,
+        transform,
+        width
+      ),
+      $duration: sleepy
+    );
+  }
+
+  .gn-animated-suru--1 {
+    @extend %animated-suru-base;
+
+    .products & {
+      @include vf-p-suru($anchor: bottom-left, $height: 25rem, $angle: 25deg);
+    }
+
+    .partners & {
+      @include vf-p-suru($anchor: bottom-left, $height: 48.5rem, $angle: 45deg);
+    }
+
+    .careers & {
+      @include vf-p-suru($anchor: bottom-left, $height: 48rem, $angle: 65deg);
+    }
+  }
+
+  .gn-animated-suru--2 {
+    @extend %animated-suru-base;
+
+    .products & {
+      @include vf-p-suru($anchor: bottom-right, $height: 30rem, $angle: 50deg);
+    }
+
+    .partners & {
+      @include vf-p-suru($anchor: bottom-right, $height: 26rem, $angle: 21deg);
+    }
+
+    .careers & {
+      @include vf-p-suru($anchor: bottom-right, $height: 38rem, $angle: 55deg);
+    }
+  }
+
+  .gn-animated-suru--3 {
+    @extend %animated-suru-base;
+
+    .products & {
+      @include vf-p-suru($anchor: bottom-right, $height: 17rem, $angle: 8deg);
+    }
+
+    .partners & {
+      @include vf-p-suru($anchor: bottom-right, $height: 1px, $angle: 1deg);
+    }
+
+    .careers & {
+      @include vf-p-suru($anchor: bottom-right, $height: 10rem, $angle: 5deg);
+    }
+  }
+
+  .gn-animated-suru--4 {
+    @extend %animated-suru-base;
+
+    .products & {
+      @include vf-p-suru($anchor: top-left, $height: 1px, $angle: 181deg);
+    }
+
+    .partners & {
+      @include vf-p-suru($anchor: top-left, $height: 15rem, $angle: 45deg);
+    }
+
+    .careers & {
+      @include vf-p-suru($anchor: top-left, $height: 1px, $angle: 181deg);
+    }
+  }
+
+  .gn-animated-suru--5 {
+    @extend %animated-suru-base;
+
+    .products & {
+      @include vf-p-suru($anchor: top-right, $height: 1px, $angle: 91deg);
+    }
+
+    .partners & {
+      @include vf-p-suru($anchor: top-right, $height: 38rem, $angle: 45deg);
+    }
+
+    .careers & {
+      @include vf-p-suru($anchor: top-right, $height: 1px, $angle: 91deg);
+    }
   }
 }
 
