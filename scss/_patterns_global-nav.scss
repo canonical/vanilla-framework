@@ -1,3 +1,63 @@
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0 {
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return $fact;
+}
+
+@function rad($angle) {
+  $pi: 3.14159265359;
+  @return $angle / 180deg * $pi;
+}
+
+@function sin($angle) {
+  $a: rad($angle);
+  $sin: $a;
+  @for $n from 1 through 10 {
+    $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1)) * pow($a, (2 * $n + 1));
+  }
+  @return $sin;
+}
+
+@mixin vf-p-suru($anchor: bottom-left, $height: 25rem, $angle: 25deg, $color: $color-mid-light, $opacity: 0.25) {
+  background-color: $color;
+  height: $height;
+  opacity: $opacity;
+  position: absolute;
+  width: #{abs((1 / sin($angle))) * $height};
+
+  @if $anchor == bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate($angle);
+    transform-origin: 0 0;
+  }
+
+  @if $anchor == bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(#{-$angle});
+    transform-origin: 100% 0;
+  }
+
+  @if $anchor == top-left {
+    left: 0;
+    top: 0;
+    transform: rotate(#{-$angle});
+    transform-origin: 0 100%;
+  }
+
+  @if $anchor == top-right {
+    right: 0;
+    top: 0;
+    transform: rotate($angle);
+    transform-origin: 100% 100%;
+  }
+}
+
 @mixin vf-p-global-nav {
   $color-primary-row: #2c001e;
   $color-primary-row-small: #262626;
@@ -472,103 +532,43 @@
   }
 
   .gn-suru--1 {
-    @extend %suru-base;
-    bottom: 0;
-    height: 26rem;
-    left: 0;
-    transform: rotate(16deg);
-    transform-origin: 0 0;
-    width: 95rem;
+    @include vf-p-suru($anchor: bottom-left, $height: 25rem, $angle: 25deg);
   }
 
   .gn-suru--2 {
-    @extend %suru-base;
-    height: 30rem;
-    right: 0;
-    top: 12rem;
-    transform: rotate(-50deg);
-    transform-origin: 100% 0;
-    width: 43rem;
+    @include vf-p-suru($anchor: bottom-right, $height: 30rem, $angle: 50deg);
   }
 
   .gn-suru--3 {
-    @extend %suru-base;
-    bottom: 0;
-    height: 17rem;
-    right: 0;
-    transform: rotate(-8deg);
-    transform-origin: 100% 0;
-    width: 127rem;
+    @include vf-p-suru($anchor: bottom-right, $height: 17rem, $angle: 8deg);
   }
 
   .gn-suru--4 {
-    @extend %suru-base;
-    bottom: 0;
-    left: 0;
-    top: 0;
-    transform: rotate(45deg);
-    transform-origin: 0 0;
-    width: 81rem;
+    @include vf-p-suru($anchor: bottom-left, $height: 48.5rem, $angle: 45deg);
   }
 
   .gn-suru--5 {
-    @extend %suru-base;
-    height: 15rem;
-    left: 0;
-    top: 0;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-    width: 25rem;
+    @include vf-p-suru($anchor: top-left, $height: 15rem, $angle: 45deg);
   }
 
   .gn-suru--6 {
-    @extend %suru-base;
-    bottom: 0;
-    height: 26rem;
-    right: 0;
-    transform: rotate(-21deg);
-    transform-origin: 100% 0;
-    width: 73rem;
+    @include vf-p-suru($anchor: bottom-right, $height: 26rem, $angle: 21deg);
   }
 
   .gn-suru--7 {
-    @extend %suru-base;
-    height: 58rem;
-    right: 0;
-    top: 0;
-    transform: rotate(-45deg);
-    transform-origin: 0 0;
-    width: 40rem;
+    @include vf-p-suru($anchor: top-right, $height: 38rem, $angle: 45deg);
   }
 
   .gn-suru--8 {
-    @extend %suru-base;
-    bottom: 0;
-    height: 47rem;
-    left: 0;
-    transform: rotate(65deg);
-    transform-origin: 0 0;
-    width: 53rem;
+    @include vf-p-suru($anchor: bottom-left, $height: 48rem, $angle: 65deg);
   }
 
   .gn-suru--9 {
-    @extend %suru-base;
-    bottom: 0;
-    height: 40rem;
-    right: 0;
-    transform: rotate(-55deg);
-    transform-origin: 100% 0;
-    width: 53rem;
+    @include vf-p-suru($anchor: bottom-right, $height: 38rem, $angle: 55deg);
   }
 
   .gn-suru--10 {
-    @extend %suru-base;
-    bottom: 0;
-    height: 12rem;
-    right: 0;
-    transform: rotate(-5deg);
-    transform-origin: 100% 0;
-    width: 130rem;
+    @include vf-p-suru($anchor: bottom-right, $height: 10rem, $angle: 5deg);
   }
 }
 
