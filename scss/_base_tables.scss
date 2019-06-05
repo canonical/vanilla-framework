@@ -44,15 +44,19 @@
   tbody {
     tr {
       &:not(:first-child) {
-        border-top: 1px solid $color-mid-light;
+        @extend %table-row-border;
       }
     }
   }
 
   tfoot {
     tr {
-      border-top: 1px solid $color-mid-light;
+      @extend %table-row-border;
     }
+  }
+
+  %table-row-border {
+    border-top: 1px solid $color-mid-light;
   }
 
   //accordion, table
