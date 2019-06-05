@@ -78,7 +78,7 @@
 
   .gn-container {
     line-height: 1.5rem;
-    max-height: 2rem;
+    max-height: 3rem;
     position: sticky;
     top: 0;
     z-index: 10000;
@@ -87,10 +87,11 @@
       @include vf-animation($property: all, $duration: brisk);
       font-size: 0.875rem;
       top: 3rem;
+      z-index: 1000;
 
       .p-navigation__logo {
         @include vf-animation($property: all, $duration: brisk);
-        background-color: $color-nav-bg;
+        background-color: $color-ubuntu-orange;
         height: 2rem;
       }
 
@@ -114,16 +115,17 @@
 
     ~ .p-navigation--secondary {
       @include vf-animation($property: all, $duration: brisk);
-      top: 5rem;
+      z-index: 1000;
     }
 
     &.gn-small {
+      max-height: 2rem;
+
       ~ .p-navigation {
         font-size: 1rem;
         top: 2rem;
 
         .p-navigation__logo {
-          background-color: $color-ubuntu-orange;
           height: 3rem;
         }
 
@@ -140,6 +142,38 @@
           font-size: 1rem;
           height: 36.8px;
         }
+      }
+    }
+
+    &.gn-1 {
+      ~ .p-navigation .p-navigation__logo {
+        background-color: $color-nav-bg;
+      }
+
+      ~ .p-navigation--secondary {
+        top: 5rem;
+      }
+    }
+
+    &.gn-1.gn-small {
+      ~ .p-navigation .p-navigation__logo {
+        background-color: $color-ubuntu-orange;
+      }
+    }
+
+    &.gn-2 {
+      ~ .p-navigation {
+        top: -2rem;
+      }
+
+      ~ .p-navigation--secondary {
+        top: 3rem;
+      }
+    }
+
+    &.gn-2.gn-small {
+      ~ .p-navigation--secondary {
+        top: 2rem;
       }
     }
   }
@@ -697,6 +731,16 @@
     }
   }
 
+  .gn-controls {
+    background: $color-x-light;
+    border: 1px solid $color-mid-light;
+    bottom: 0.5rem;
+    padding: 0 1rem;
+    position: fixed;
+    right: 0.5rem;
+    z-index: 100000;
+  }
+
   .gn-display-flex {
     display: flex;
   }
@@ -1147,6 +1191,7 @@
 
       &__banner {
         background-color: $color-ubuntu-orange;
+        border-bottom: 1px solid $color-ubuntu-orange;
         float: left;
         font-weight: 300;
 
@@ -1457,4 +1502,35 @@ h2,
 .p-button--small {
   @extend %small-text;
   padding-top: $sp-unit * 0.5 + map-get($nudges, nudge--small);
+}
+
+$color-ubuntu-orange: #e95420;
+
+.p-tabs.p-sticky-nav {
+  @include vf-animation($property: top, $duration: brisk);
+  background-color: $color-x-light;
+  border-bottom: 1px solid $color-mid-light;
+  border-top: 1px solid $color-mid-light;
+  position: sticky;
+  top: 5.5625rem;
+  z-index: 100;
+
+  .p-tabs__list {
+    margin-bottom: 0;
+    max-width: $grid-max-width;
+    overflow: auto;
+    padding: 0 0.5rem;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .p-tabs__link:hover::before {
+    background-color: $color-ubuntu-orange;
+  }
+
+  .gn-small ~ .content & {
+    top: 4.5625rem;
+  }
 }
