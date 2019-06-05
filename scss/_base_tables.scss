@@ -19,6 +19,7 @@
     padding-left: 0;
     text-align: left;
     text-overflow: ellipsis;
+    vertical-align: top;
 
     @media screen and (min-width: $breakpoint-medium) {
       &:not(:last-child) {
@@ -48,9 +49,15 @@
     }
   }
 
+  tfoot {
+    tr {
+      border-top: 1px solid $color-mid-light;
+    }
+  }
+
   //accordion, table
   %single-border-text-vpadding--scaling {
-    padding-bottom: calc(#{$spv-inner--x-small--scaleable} - 1px);
-    padding-top: $spv-inner--x-small--scaleable;
+    padding-bottom: $spv-inner--x-small--scaleable;
+    padding-top: calc(#{$spv-inner--x-small--scaleable} - 1px);
   }
 }
