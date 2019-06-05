@@ -29,38 +29,42 @@
   position: absolute;
   width: #{abs((1 / sin($angle))) * $height};
 
+  .gn-2 & {
+    display: none;
+  }
+
   @if $anchor == bottom-left {
     bottom: 0;
     left: 0;
-    top: inherit;
     right: inherit;
+    top: inherit;
     transform: rotate($angle);
     transform-origin: 0 0;
   }
 
   @if $anchor == bottom-right {
     bottom: 0;
+    left: inherit;
     right: 0;
     top: inherit;
-    left: inherit;
     transform: rotate(#{-$angle});
     transform-origin: 100% 0;
   }
 
   @if $anchor == top-left {
-    left: 0;
-    top: 0;
     bottom: inherit;
+    left: 0;
     right: inherit;
+    top: 0;
     transform: rotate(#{-$angle});
     transform-origin: 0 100%;
   }
 
   @if $anchor == top-right {
-    right: 0;
-    top: 0;
     bottom: inherit;
     left: inherit;
+    right: 0;
+    top: 0;
     transform: rotate($angle);
     transform-origin: 100% 100%;
   }
@@ -177,7 +181,6 @@
   }
 
   %primary-nav-clickable {
-    @include vf-animation($property: all, $duration: brisk);
     color: $color-x-light;
     margin-top: 0.25rem;
     padding: 0.6rem 1rem 0.65rem 1rem;
@@ -189,14 +192,22 @@
       color: $color-dark;
     }
 
-    &:visited:not(.is-active):not(.is-open) {
+    &:visited {
       color: $color-x-light;
     }
 
     &:hover {
       text-decoration: none;
+    }
 
-      &:not(.is-active):not(.is-open)::after {
+    .gn-1 & {
+      @include vf-animation($property: all, $duration: brisk);
+
+      &:hover:not(.is-active):not(.is-open) {
+        background-color: transparent;
+      }
+
+      &:hover:not(.is-active):not(.is-open)::after {
         background-color: $color-ubuntu-orange;
         bottom: 0;
         content: '';
@@ -208,15 +219,57 @@
       }
     }
 
+    .gn-2 & {
+      @include vf-animation(
+        $property: (
+          font-size,
+          padding,
+          margin
+        ),
+        $duration: brisk
+      );
+
+      &:hover {
+        color: $color-mid-light;
+      }
+
+      &.is-active:hover,
+      &.is-open:hover {
+        color: $color-mid-dark;
+      }
+    }
+
     .gn-small & {
       font-size: 0.875rem;
       padding-bottom: 0.25rem;
       padding-top: 0;
     }
+
+    .gn-small.gn-2 & {
+      color: $color-mid-light;
+
+      &:hover {
+        color: $color-x-light;
+      }
+
+      &.is-active,
+      &.is-open {
+        color: $color-dark;
+      }
+
+      &.is-active:hover,
+      &.is-open:hover {
+        color: $color-mid-dark;
+      }
+    }
   }
 
   .gn-primary-nav__link {
     @extend %primary-nav-clickable;
+
+    .gn-2 & {
+      font-size: 0.875rem;
+    }
   }
 
   .gn-primary-nav__button {
@@ -225,49 +278,89 @@
     border: 0;
     border-radius: 0;
     margin: 0.25rem 0 0 0 !important;
+    padding-right: 2.25rem;
 
-    &:not(.is-active) {
-      padding-right: 2.25rem;
+    &:hover,
+    &:active,
+    &:hover:active {
+      background-color: transparent;
+    }
 
-      &:hover {
-        background-color: transparent;
-      }
+    &::before {
+      background-image: url("data:image/svg+xml, %3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='chevron_down' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpolygon id='chevron' fill='#{vf-url-friendly-color($color-x-light)}' transform='translate(8.000000, 8.193853) rotate(90.000000) translate(-8.000000, -8.193853) ' points='4.80614657 14.3333333 8.64539007 8.17730496 4.80614657 2.05437352 6.16312057 1.19385343 11.1938534 8.17730496 6.16312057 15.1938534'%3E%3C/polygon%3E%3C/g%3E%3C/svg%3E");
+      background-size: 0.75rem;
+      content: '';
+      height: 0.75rem;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      width: 0.75rem;
+    }
+
+    &.is-open {
+      background: $color-light;
+      color: $color-dark;
+      margin-top: 0 !important;
+      padding-top: 0.85rem;
 
       &::before {
-        @include vf-animation($property: all, $duration: brisk);
-        background-image: url("data:image/svg+xml, %3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='chevron_down' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpolygon id='chevron' fill='#{vf-url-friendly-color($color-x-light)}' transform='translate(8.000000, 8.193853) rotate(90.000000) translate(-8.000000, -8.193853) ' points='4.80614657 14.3333333 8.64539007 8.17730496 4.80614657 2.05437352 6.16312057 1.19385343 11.1938534 8.17730496 6.16312057 15.1938534'%3E%3C/polygon%3E%3C/g%3E%3C/svg%3E");
-        background-size: 0.75rem;
-        content: '';
-        height: 0.75rem;
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        width: 0.75rem;
+        background-image: url("data:image/svg+xml, %3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='chevron_down' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpolygon id='chevron' fill='#{vf-url-friendly-color($color-dark)}' transform='translate(8.000000, 8.193853) rotate(90.000000) translate(-8.000000, -8.193853) ' points='4.80614657 14.3333333 8.64539007 8.17730496 4.80614657 2.05437352 6.16312057 1.19385343 11.1938534 8.17730496 6.16312057 15.1938534'%3E%3C/polygon%3E%3C/g%3E%3C/svg%3E");
+        top: 1.25rem;
+        transform: rotate(180deg);
+      }
 
-        .gn-small & {
-          top: 0.5rem;
-        }
+      &:hover,
+      &:active,
+      &:hover:active {
+        background-color: $color-light;
+      }
+    }
+
+    &.is-active {
+      padding-right: 1rem;
+
+      &::before {
+        content: none;
+      }
+
+      &:hover,
+      &:active,
+      &:hover:active {
+        background-color: $color-x-light;
+      }
+    }
+
+    .gn-small & {
+      &::before {
+        top: 0.5rem;
       }
 
       &.is-open {
-        background: $color-light;
-        color: $color-dark;
-        margin-top: 0 !important;
-        padding-top: 0.85rem;
+        padding-top: 0.25rem;
+      }
 
-        &::before {
-          background-image: url("data:image/svg+xml, %3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='chevron_down' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpolygon id='chevron' fill='#{vf-url-friendly-color($color-dark)}' transform='translate(8.000000, 8.193853) rotate(90.000000) translate(-8.000000, -8.193853) ' points='4.80614657 14.3333333 8.64539007 8.17730496 4.80614657 2.05437352 6.16312057 1.19385343 11.1938534 8.17730496 6.16312057 15.1938534'%3E%3C/polygon%3E%3C/g%3E%3C/svg%3E");
-          top: 1.25rem;
-          transform: rotate(180deg);
+      &.is-open::before {
+        top: 0.75rem;
+      }
+    }
 
-          .gn-small & {
-            top: 0.75rem;
-          }
-        }
+    .gn-1 & {
+      &::before {
+        @include vf-animation($property: all, $duration: brisk);
+      }
+    }
 
-        .gn-small & {
-          padding-top: 0.25rem;
-        }
+    .gn-2 & {
+      &::before {
+        @include vf-animation($property: top, $duration: brisk);
+      }
+
+      &.is-open:hover {
+        color: $color-mid-dark;
+      }
+
+      &:not(.is-open)::before {
+        opacity: 0.5;
       }
     }
   }
@@ -289,7 +382,6 @@
     margin-left: auto;
     margin-right: auto;
     max-width: $grid-max-width;
-    padding: 0 1.5rem;
 
     &.is-active {
       display: flex;
@@ -304,12 +396,18 @@
       position: absolute;
       right: 0;
     }
+
+    .gn-1 & {
+      padding: 0 1.5rem;
+    }
+
+    .gn-2 & {
+      padding: 0 1rem 0 0.5rem;
+    }
   }
 
   .gn-secondary-nav__link {
     color: $color-dark;
-    margin-right: 2rem;
-    padding: 0.5rem 0;
     position: relative;
 
     &:visited {
@@ -333,8 +431,31 @@
       }
     }
 
-    &.is-active {
-      font-weight: 400;
+    .gn-1 & {
+      margin-right: 2rem;
+      padding: 0.5rem 0;
+
+      &.is-active {
+        font-weight: 400;
+      }
+
+      &.is-active::after,
+      &:hover::after,
+      &:focus::after {
+        left: -0.5rem;
+        right: -0.5rem;
+      }
+    }
+
+    .gn-2 & {
+      padding: 0.5rem 1rem;
+
+      &.is-active::after,
+      &:hover::after,
+      &:focus::after {
+        left: 0;
+        right: 0;
+      }
     }
   }
 
@@ -458,9 +579,36 @@
     }
   }
 
+  .gn-heading-link {
+    .gn-1 & {
+      @extend %vf-heading-4;
+      margin-bottom: 0.25rem;
+    }
+
+    .gn-2 & {
+      @extend %vf-heading-5;
+      margin-bottom: 0.6rem;
+      padding-top: 0;
+    }
+  }
+
   .gn-subtitle {
     font-size: 0.875rem;
-    font-weight: 400;
+
+    .gn-1 & {
+      font-weight: 400;
+      margin-bottom: 0;
+      margin-top: 1rem;
+    }
+
+    .gn-2 & {
+      color: $color-mid-dark;
+      line-height: 1rem;
+      margin-bottom: 0.3rem;
+      margin-top: 1.5rem;
+      padding-top: 0.2rem;
+      text-transform: uppercase;
+    }
   }
 
   .gn-divided-row {
@@ -504,8 +652,33 @@
     font-size: 0.875rem;
   }
 
+  .gn-muted-text {
+    .gn-1 & {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .gn-2 & {
+      @extend %muted-heading;
+      margin-bottom: 0.5rem;
+    }
+  }
+
   .gn-heading {
-    margin-bottom: 0.5rem;
+    .gn-1 & {
+      @extend %vf-heading-3;
+      margin-bottom: 0.5rem;
+
+      &.gn-opportunities {
+        @extend %small-text;
+        font-weight: 400;
+        margin-top: 0.5rem;
+      }
+    }
+
+    .gn-2 & {
+      @extend %vf-heading-4;
+    }
   }
 
   .gn-overlay {

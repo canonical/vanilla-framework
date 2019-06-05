@@ -3,7 +3,7 @@ layout: examples
 title: Canonical nav
 category: _templates
 ---
-<header class="gn-container">
+<header class="gn-container gn-2">
   <div class="gn-overlay"></div>
   <div class="gn-primary-nav">
     <div class="gn-primary-nav__row">
@@ -117,7 +117,7 @@ category: _templates
             </div>
           </li>
         </ul>
-        <h3 class="gn-subtitle u-no-margin--bottom">Also from Canonical</h3>
+        <h3 class="gn-subtitle">Also from Canonical</h3>
         <ul class="gn-matrix">
           <li class="gn-matrix__item">
             <a class="gn-link">
@@ -349,35 +349,35 @@ category: _templates
             <p class="gn-small-text">Your approach is consultative, you are results and goal oriented, and you know how to choose where to invest your time to maximise the benefit for the company and customers.</p>
           </div>
           <div class="gn-divided-row__item">
-            <h3 style="margin: 6px 0 3px; font-weight: 300;" class="gn-subtitle">Explore opportunities in</h3>
+            <h3 class="gn-heading gn-opportunities">Explore opportunities in</h3>
             <ul class="gn-list">
               <li>
-                <h4 style="margin-bottom: .125rem">
+                <h4 class="gn-heading-link">
                   <a class="gn-link">Marketing&nbsp;&rsaquo;</a>
                 </h4>
               </li>
               <li>
-                <h4 style="margin-bottom: .125rem">
+                <h4 class="gn-heading-link">
                   <a class="gn-link">Design&nbsp;&rsaquo;</a>
                 </h4>
               </li>
               <li>
-                <h4 style="margin-bottom: .125rem">
+                <h4 class="gn-heading-link">
                   <a class="gn-link">Finance&nbsp;&rsaquo;</a>
                 </h4>
               </li>
               <li>
-                <h4 style="margin-bottom: .125rem">
+                <h4 class="gn-heading-link">
                   <a class="gn-link">Legal&nbsp;&rsaquo;</a>
                 </h4>
               </li>
               <li>
-                <h4 style="margin-bottom: .125rem">
+                <h4 class="gn-heading-link">
                   <a class="gn-link">Admin&nbsp;&rsaquo;</a>
                 </h4>
               </li>
               <li>
-                <h4 style="margin-bottom: .125rem">
+                <h4 class="gn-heading-link">
                   <a class="gn-link">HR&nbsp;&rsaquo;</a>
                 </h4>
               </li>
@@ -400,25 +400,25 @@ category: _templates
         </div>
         <div class="gn-divided-row">
           <div class="gn-divided-row__item">
-            <p style="margin-bottom: .5rem" class="gn-small-text">EMEA | Americas | Asia-Pacific</p>
+            <p class="gn-muted-text">EMEA | Americas | Asia-Pacific</p>
             <h4 class="u-no-padding--top">
               <a>Apply now&nbsp;&rsaquo;</a>
             </h4>
           </div>
           <div class="gn-divided-row__item">
-            <p style="margin-bottom: .5rem" class="gn-small-text">EMEA | Americas | Asia-Pacific</p>
+            <p class="gn-muted-text">EMEA | Americas | Asia-Pacific</p>
             <h4 class="u-no-padding--top">
               <a>Apply now&nbsp;&rsaquo;</a>
             </h4>
           </div>
           <div class="gn-divided-row__item">
-            <p style="margin-bottom: .5rem" class="gn-small-text">EMEA | Americas | Asia-Pacific</p>
+            <p class="gn-muted-text">EMEA | Americas | Asia-Pacific</p>
             <h4 class="u-no-padding--top">
               <a>Apply now&nbsp;&rsaquo;</a>
             </h4>
           </div>
           <div class="gn-divided-row__item">
-            <p style="margin-bottom: .5rem" class="gn-small-text">In every time zone</p>
+            <p class="gn-muted-text">In every time zone</p>
             <h4 class="u-no-padding--top">
               <a>See all open roles&nbsp;&rsaquo;</a>
             </h4>
@@ -510,6 +510,11 @@ category: _templates
     <option value="partners">Partners</option>
     <option value="careers">Careers</option>
   </select>
+  <label for="iteration">Iteration</label>
+  <select id="iteration">
+    <option value="gn-2" selected="">Iteration 2</option>
+    <option value="gn-1">Iteration 1</option>
+  </select>
 </div>
 
 <script>
@@ -522,6 +527,7 @@ category: _templates
   const secondaryLinks = globalNav.querySelectorAll('.gn-secondary-nav__link');
   const smallToggle = document.querySelector('.js-small-switch');
   const secondarySelect = document.querySelector('#secondary-active');
+  const iterationSelect = document.querySelector('#iteration');
 
   const closeMenu = () => {
     primaryButtons.forEach(button => button.classList.remove('is-open'));
@@ -580,6 +586,11 @@ category: _templates
       thisButton.classList.add('is-active');
       thisRow.classList.add('is-active');
     }
+  });
+
+  iterationSelect.addEventListener('change', e => {
+    globalNav.classList.remove('gn-1', 'gn-2');
+    globalNav.classList.add(e.target.value);
   });
 
   secondaryLinks.forEach(link => {
