@@ -33,7 +33,9 @@
     "build-docs-site": "bundle exec jekyll build --source docs --destination docs/_site",
     "build-docs": "yarn run build && yarn run build-docs-css && yarn run build-docs-site",
     "serve": "yarn run build-docs && bundle exec jekyll serve --source docs --destination docs/_site --port ${PORT} -H 0.0.0.0",
-    "test": "gulp test",
+    "$test": "gulp test",
+    "test": "yarn run lint-scss",
+    "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
     "watch": "gulp develop",
     "clean": "rm -rf build docs/css docs/_site node_modules/ yarn-error.log .bundle",
     "report": "gulp report"
@@ -59,6 +61,7 @@
     "node-sass": "4.11.0",
     "parker": "0.0.10",
     "postcss-cli": "6.1.2",
+    "sass-lint": "1.12.1",
     "prettier": "1.14.3",
     "pretty-quick": "1.10.0",
     "wrench": "1.5.9"
