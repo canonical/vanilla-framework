@@ -534,17 +534,19 @@
     .gn-3 & {
       padding: 0.5rem 1rem;
 
-      &.is-active,
-      &:hover,
-      &:focus {
+      &.is-active {
         text-decoration: none;
       }
     }
 
     .gn-3.gn-orange-active & {
-      &.is-active,
       &:hover,
       &:focus {
+        color: $color-link;
+        text-decoration: underline;
+      }
+
+      &.is-active {
         color: $color-ubuntu-orange;
       }
     }
@@ -1594,6 +1596,7 @@ $color-ubuntu-orange: #e95420;
 .p-tabs.p-sticky-nav {
   @include vf-animation($property: top, $duration: brisk);
   background-color: $color-x-light;
+  border-bottom: 1px solid $color-mid-light;
   border-top: 1px solid $color-mid-light;
   position: sticky;
   z-index: 100;
@@ -1603,6 +1606,10 @@ $color-ubuntu-orange: #e95420;
     max-width: $grid-max-width;
     overflow: auto;
     padding: 0 0.5rem;
+
+    &::after {
+      content: none;
+    }
   }
 
   .p-tabs__link:hover::before {
@@ -1610,12 +1617,7 @@ $color-ubuntu-orange: #e95420;
   }
 
   .gn-2 ~ .content & {
-    border-bottom: 1px solid $color-mid-light;
     top: 5.5625rem;
-
-    .p-tabs__list::after {
-      content: none;
-    }
   }
 
   .gn-2.gn-small ~ .content & {
