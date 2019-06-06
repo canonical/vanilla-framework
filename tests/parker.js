@@ -84,26 +84,3 @@ module.exports.parkerTest = function() {
 
   if (failedTest) process.exit(1);
 };
-
-module.exports.parkerReport = function() {
-  var metrics = generateMetrics(filepath, parkerMetrics);
-
-  metrics.forEach(function(metric) {
-    var name = metric.name;
-    var benchmark = metric.benchmark;
-    var threshold = metric.threshold;
-    var selector = metric.selector;
-    var result = metric.result;
-
-    var resultColour = (function() {
-      if (result > threshold) return '\x1b[31m%s\x1b[0m';
-      if (result > benchmark) return '\x1b[33m%s\x1b[0m';
-      return '\x1b[32m%s\x1b[0m';
-    })();
-
-    console.log('\x1b[36m%s\x1b[0m', name);
-    console.log('Benchmark: ' + benchmark + '\nThreshold: ' + threshold);
-    console.log(resultColour, 'Result: ' + result + (selector ? '\nSelector: ' + selector : ''));
-    console.log('------------------------------');
-  });
-};
