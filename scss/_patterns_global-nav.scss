@@ -191,6 +191,15 @@
         }
       }
     }
+
+    &.gn-3.gn-drop-in {
+      @include vf-animation($property: all, $duration: brisk);
+      top: 0;
+    }
+
+    &.gn-3.gn-drop-in.gn-hidden {
+      top: -3rem;
+    }
   }
 
   .gn-primary-nav {
@@ -1630,5 +1639,13 @@ $color-ubuntu-orange: #e95420;
 
   .gn-3.gn-small ~ .content & {
     top: 2rem;
+  }
+
+  .gn-3.gn-drop-in ~ .content & {
+    top: 3rem;
+  }
+
+  .gn-3.gn-drop-in.gn-hidden ~ .content & {
+    top: 0;
   }
 }

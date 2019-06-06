@@ -3,7 +3,7 @@ layout: examples
 title: Canonical and Ubuntu navs
 category: _templates
 ---
-<header class="gn-container gn-small gn-3 gn-orange-active">
+<header class="gn-container gn-small gn-3 gn-orange-active gn-drop-in gn-hidden">
   <div class="gn-overlay"></div>
   <div class="gn-primary-nav">
     <div class="gn-primary-nav__row">
@@ -1100,12 +1100,20 @@ category: _templates
   </style>
 </div>
 <div class="gn-controls">
-  <label for="iteration-select">Iteration</label>
-  <select id="iteration-select">
-    <option value="gn-3" selected="">Iteration 3</option>
-    <option value="gn-2">Iteration 2</option>
-    <option value="gn-1">Iteration 1</option>
-  </select>
+  <div>
+    <label for="iteration-select">Iteration</label>
+    <select id="iteration-select">
+      <option value="gn-3" selected="">Iteration 3</option>
+      <option value="gn-2">Iteration 2</option>
+      <option value="gn-1">Iteration 1</option>
+    </select>
+  </div>
+  <label id="drop-in-toggle">
+    Drop in
+    <input type="checkbox" class="p-switch" checked="">
+    <div class="p-switch__slider"></div>
+  </label>
+</div>
 </div>
 
 <script>
@@ -1117,6 +1125,7 @@ category: _templates
   const iterationSelect = document.querySelector('#iteration-select');
   const iterationContent1 = document.querySelector('#iteration-content-1');
   const iterationContent2 = document.querySelector('#iteration-content-2');
+  const dropInToggle = document.querySelector('#drop-in-toggle');
 
   const closeMenu = () => {
     primaryButtons.forEach(button => button.classList.remove('is-open'));
@@ -1178,11 +1187,20 @@ category: _templates
     } else {
       thisContent = iterationContent2;
     }
+    if (value === "gn-3") {
+      dropInToggle.classList.remove("u-hide");
+    } else {
+      dropInToggle.classList.add("u-hide");
+    }
     iterationContent1.classList.add('u-hide');
     iterationContent2.classList.add('u-hide');
     globalNav.classList.remove('gn-1', 'gn-2', 'gn-3');
     globalNav.classList.add(e.target.value);
     thisContent.classList.remove('u-hide');
+  });
+
+  dropInToggle.addEventListener('input', () => {
+    globalNav.classList.toggle('gn-drop-in');
   });
 
   const canonicalContent1 = document.querySelector('#canonical-content-1');
@@ -1195,6 +1213,15 @@ category: _templates
     if (globalNav.classList.contains('gn-1')) {
       if (scrollPos > (canonicalContent1.offsetTop - window.innerHeight / 2)) {
         globalNav.classList.remove('gn-small');
+      } else {
+        globalNav.classList.add('gn-small');
+      }
+    } else if (globalNav.classList.contains('gn-3') && globalNav.classList.contains('gn-drop-in')) {
+      if (scrollPos > (canonicalContent2.offsetTop - (window.innerHeight * 2)) && scrollPos < (canonicalContent2.offsetTop - window.innerHeight / 2)) {
+        globalNav.classList.remove('gn-small');
+        globalNav.classList.add('gn-hidden');
+      } else if (scrollPos > (canonicalContent2.offsetTop - window.innerHeight / 2)) {
+        globalNav.classList.remove('gn-hidden');
       } else {
         globalNav.classList.add('gn-small');
       }
