@@ -26,6 +26,7 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
 
 // Include all of Vanilla Framework
 @include vanilla;</code></pre>
+
 <p><em>For information on overriding settings and importing only parts of Vanilla, see <a href="/en/customising-vanilla">Customising Vanilla</a>.</em></p>
 </div>
 
@@ -43,7 +44,7 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
     <div class="col-12">
         <h3>Download</h3>
         <p>Download the latest version of Vanilla from GitHub.</p>
-        <a href="https://github.com/vanilla-framework/vanilla-framework/archive/v1.8.1.zip" class="p-button--positive">Download v1.8.1</a>
+        <a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v1.8.1.zip" class="p-button--positive">Download v1.8.1</a>
     </div>
 </div>
 <hr class="is-deep">
@@ -52,13 +53,13 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
         <h3>What's new</h3>
         <ul class="p-list">
             <li class="p-list__item--deep">
-                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.8.1">Release notes: v1.8.1</a>
+                <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.8.1">Release notes: v1.8.1</a>
             </li>
             <li class="p-list__item--deep">
-                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.7.1">Release notes: v1.7.1</a>
+                <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.7.1">Release notes: v1.7.1</a>
             </li>
             <li class="p-list__item--deep">
-                <a href="https://github.com/vanilla-framework/vanilla-framework/releases/tag/v1.7.0">Release notes: v1.7.0</a>
+                <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.7.0">Release notes: v1.7.0</a>
             </li>
         </ul>
     </div>
@@ -67,17 +68,17 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
         <h3>Getting help</h3>
         <ul class="p-list">
             <li class="p-list__item">
-                <i class="p-list__icon--github"></i><a href="https://github.com/vanilla-framework/vanilla-framework/issues/new">GitHub</a>   
+                <i class="p-list__icon--github"></i><a href="https://github.com/canonical-web-and-design/vanilla-framework/issues/new">GitHub</a>
             </li>
             <li class="p-list__item">
-                <i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Twitter</a>    
+                <i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Twitter</a>
             </li>
             <li class="p-list__item">
-                <i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Slack</a>    
+                <i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Slack</a>
             </li>
         </ul>
     </div>
 </div>
 <hr class="is-deep">
 <h3>Local development</h3>
-<p>To make improvements to Vanilla itself, please follow the instructions on the project’s <a href="https://github.com/vanilla-framework/vanilla-framework#vanilla-framework" class="p-link--external">README.md</a>.</p>
+<p>To make improvements to Vanilla itself, please follow the instructions on the project’s <a href="https://github.com/canonical-web-and-design/vanilla-framework#vanilla-framework" class="p-link--external">README.md</a>.</p>
