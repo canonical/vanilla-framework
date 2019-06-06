@@ -27,16 +27,13 @@
     "url": "https://github.com/canonical-web-and-design/vanilla-framework"
   },
   "scripts": {
-    "$build": "gulp build",
     "build": "node-sass --include-paths node_modules scss --source-map true --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
     "build-docs-css": "node-sass --include-path node_modules docs/sass --source-map true --output-style compressed --output docs/css",
     "build-docs-site": "bundle exec jekyll build --source docs --destination docs/_site",
     "build-docs": "yarn run build && yarn run build-docs-css && yarn run build-docs-site",
     "serve": "yarn run build-docs && bundle exec jekyll serve --source docs --destination docs/_site --port ${PORT} -H 0.0.0.0",
-    "$test": "gulp test",
     "test": "yarn run lint-scss && mdspell docs/**/*.md -r -n -a --en-gb && node -e 'require(\"./tests/parker\").parkerTest()'",
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
-    "$watch": "gulp develop",
     "watch": "watch -p 'scss/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build'",
     "clean": "rm -rf build docs/css docs/_site node_modules/ yarn-error.log .bundle"
   },
@@ -47,15 +44,6 @@
   "devDependencies": {
     "vanilla-framework": "1.8.1",
     "autoprefixer": "9.5.0",
-    "es6-promise": "4.2.6",
-    "gulp": "3.9.1",
-    "gulp-autoprefixer": "4.1.0",
-    "gulp-cssnano": "2.1.3",
-    "gulp-rename": "1.4.0",
-    "gulp-sass": "3.2.1",
-    "gulp-sass-lint": "1.4.0",
-    "gulp-shell": "0.6.5",
-    "gulp-sourcemaps": "2.6.5",
     "husky": "1.3.1",
     "markdown-spellcheck": "1.3.1",
     "node-sass": "4.11.0",
@@ -64,8 +52,7 @@
     "sass-lint": "1.12.1",
     "prettier": "1.14.3",
     "pretty-quick": "1.10.0",
-    "watch-cli": "0.2.3",
-    "wrench": "1.5.9"
+    "watch-cli": "0.2.3"
   },
   "husky": {
     "hooks": {
