@@ -40,6 +40,14 @@
     }
   }
 
+  @if ($increase-font-size-on-larger-screens) {
+    @media screen and (min-width: $breakpoint-x-large) {
+      *:not(html) {
+        line-height: map-get($line-heights, default-text);
+      }
+    }
+  }
+
   // headings
   h1 {
     @extend %vf-heading-1;
