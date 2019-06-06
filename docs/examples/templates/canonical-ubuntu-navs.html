@@ -3,7 +3,7 @@ layout: examples
 title: Canonical and Ubuntu navs
 category: _templates
 ---
-<header class="gn-container gn-2 gn-small">
+<header class="gn-container gn-small gn-3 gn-orange-active">
   <div class="gn-overlay"></div>
   <div class="gn-primary-nav">
     <div class="gn-primary-nav__row">
@@ -401,25 +401,25 @@ category: _templates
         <div class="gn-divided-row">
           <div class="gn-divided-row__item">
             <p class="gn-muted-text">EMEA | Americas | Asia-Pacific</p>
-            <h4 class="u-no-padding--top">
+            <h4 class="gn-heading-link">
               <a>Apply now&nbsp;&rsaquo;</a>
             </h4>
           </div>
           <div class="gn-divided-row__item">
             <p class="gn-muted-text">EMEA | Americas | Asia-Pacific</p>
-            <h4 class="u-no-padding--top">
+            <h4 class="gn-heading-link">
               <a>Apply now&nbsp;&rsaquo;</a>
             </h4>
           </div>
           <div class="gn-divided-row__item">
             <p class="gn-muted-text">EMEA | Americas | Asia-Pacific</p>
-            <h4 class="u-no-padding--top">
+            <h4 class="gn-heading-link">
               <a>Apply now&nbsp;&rsaquo;</a>
             </h4>
           </div>
           <div class="gn-divided-row__item">
             <p class="gn-muted-text">In every time zone</p>
-            <h4 class="u-no-padding--top">
+            <h4 class="gn-heading-link">
               <a>See all open roles&nbsp;&rsaquo;</a>
             </h4>
           </div>
@@ -1102,7 +1102,8 @@ category: _templates
 <div class="gn-controls">
   <label for="iteration-select">Iteration</label>
   <select id="iteration-select">
-    <option value="gn-2" selected="">Iteration 2</option>
+    <option value="gn-3" selected="">Iteration 3</option>
+    <option value="gn-2">Iteration 2</option>
     <option value="gn-1">Iteration 1</option>
   </select>
 </div>
@@ -1170,10 +1171,16 @@ category: _templates
   });
 
   iterationSelect.addEventListener('change', e => {
-    const thisContent = document.querySelector(`#iteration-content-${e.target.value.split('-')[1]}`);
+    const { value } = e.target;
+    let thisContent;
+    if (value === "gn-1") {
+      thisContent = iterationContent1;
+    } else {
+      thisContent = iterationContent2;
+    }
     iterationContent1.classList.add('u-hide');
     iterationContent2.classList.add('u-hide');
-    globalNav.classList.remove('gn-1', 'gn-2');
+    globalNav.classList.remove('gn-1', 'gn-2', 'gn-3');
     globalNav.classList.add(e.target.value);
     thisContent.classList.remove('u-hide');
   });

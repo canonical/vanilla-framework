@@ -24,13 +24,14 @@
 
 @mixin vf-p-suru($anchor: bottom-left, $height: 25rem, $angle: 25deg, $color: $color-mid-light, $opacity: 0.25) {
   background-color: $color;
+  display: none;
   height: $height;
   opacity: $opacity;
   position: absolute;
   width: #{abs((1 / sin($angle))) * $height};
 
-  .gn-2 & {
-    display: none;
+  .gn-1 & {
+    display: block;
   }
 
   @if $anchor == bottom-left {
@@ -176,6 +177,20 @@
         top: 2rem;
       }
     }
+
+    &.gn-3 {
+      ~ .p-navigation {
+        position: static;
+      }
+
+      ~ .p-navigation--secondary {
+        position: static;
+
+        .breadcrumbs__link {
+          font-size: 1rem;
+        }
+      }
+    }
   }
 
   .gn-primary-nav {
@@ -253,7 +268,8 @@
       }
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       @include vf-animation(
         $property: (
           font-size,
@@ -267,9 +283,12 @@
         color: $color-mid-light;
       }
 
-      &.is-active:hover,
       &.is-open:hover {
         color: $color-mid-dark;
+      }
+
+      &.is-active:hover {
+        color: $color-dark;
       }
     }
 
@@ -279,7 +298,8 @@
       padding-top: 0;
     }
 
-    .gn-small.gn-2 & {
+    .gn-small.gn-2 &,
+    .gn-small.gn-3 & {
       color: $color-mid-light;
 
       &:hover {
@@ -301,7 +321,8 @@
   .gn-primary-nav__link {
     @extend %primary-nav-clickable;
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       font-size: 0.875rem;
     }
   }
@@ -384,7 +405,8 @@
       }
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       &::before {
         @include vf-animation($property: top, $duration: brisk);
       }
@@ -400,6 +422,7 @@
   }
 
   .gn-secondary-nav {
+    @include vf-animation($property: all, $duration: brisk);
     background: $color-x-light;
     position: absolute;
     top: 3rem;
@@ -435,8 +458,20 @@
       padding: 0 1.5rem;
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       padding: 0 1rem 0 0.5rem;
+    }
+
+    .gn-3.gn-two-lines & {
+      max-width: #{$grid-max-width - 1rem};
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+
+      &::after {
+        content: none;
+      }
     }
   }
 
@@ -448,23 +483,6 @@
       color: $color-dark;
     }
 
-    &.is-active,
-    &:hover,
-    &:focus {
-      text-decoration: none;
-
-      &::after {
-        background-color: $color-ubuntu-orange;
-        bottom: 0;
-        content: '';
-        height: 1px;
-        left: -0.5rem;
-        position: absolute;
-        right: -0.5rem;
-        z-index: 1;
-      }
-    }
-
     .gn-1 & {
       margin-right: 2rem;
       padding: 0.5rem 0;
@@ -473,22 +491,74 @@
         font-weight: 400;
       }
 
-      &.is-active::after,
-      &:hover::after,
-      &:focus::after {
-        left: -0.5rem;
-        right: -0.5rem;
+      &.is-active,
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        &::after {
+          background-color: $color-ubuntu-orange;
+          bottom: 0;
+          content: '';
+          height: 1px;
+          left: -0.5rem;
+          position: absolute;
+          right: -0.5rem;
+          z-index: 1;
+        }
       }
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3.gn-two-lines & {
       padding: 0.5rem 1rem;
 
-      &.is-active::after,
-      &:hover::after,
-      &:focus::after {
-        left: 0;
-        right: 0;
+      &.is-active,
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        &::after {
+          background-color: $color-ubuntu-orange;
+          bottom: 0;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
+          z-index: 2;
+        }
+      }
+    }
+
+    .gn-3 & {
+      padding: 0.5rem 1rem;
+
+      &.is-active,
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
+    .gn-3.gn-orange-active & {
+      &.is-active,
+      &:hover,
+      &:focus {
+        color: $color-ubuntu-orange;
+      }
+    }
+
+    .gn-3.gn-two-lines & {
+      &::after {
+        background-color: $color-mid-light;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: -100vh;
+        position: absolute;
+        right: -100vh;
+        z-index: 1;
       }
     }
   }
@@ -614,6 +684,8 @@
   }
 
   .gn-heading-link {
+    padding-top: 0 !important;
+
     .gn-1 & {
       @extend %vf-heading-4;
       margin-bottom: 0.25rem;
@@ -623,6 +695,16 @@
       @extend %vf-heading-5;
       margin-bottom: 0.6rem;
       padding-top: 0;
+    }
+
+    .gn-3 & {
+      @extend %default-text;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+
+      & .gn-link {
+        color: $color-link;
+      }
     }
   }
 
@@ -635,7 +717,8 @@
       margin-top: 1rem;
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       color: $color-mid-dark;
       line-height: 1rem;
       margin-bottom: 0.3rem;
@@ -692,7 +775,8 @@
       margin-bottom: 0.5rem;
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       @extend %muted-heading;
       margin-bottom: 0.5rem;
     }
@@ -710,7 +794,8 @@
       }
     }
 
-    .gn-2 & {
+    .gn-2 &,
+    .gn-3 & {
       @extend %vf-heading-4;
     }
   }
@@ -1509,10 +1594,8 @@ $color-ubuntu-orange: #e95420;
 .p-tabs.p-sticky-nav {
   @include vf-animation($property: top, $duration: brisk);
   background-color: $color-x-light;
-  border-bottom: 1px solid $color-mid-light;
   border-top: 1px solid $color-mid-light;
   position: sticky;
-  top: 5.5625rem;
   z-index: 100;
 
   .p-tabs__list {
@@ -1520,17 +1603,30 @@ $color-ubuntu-orange: #e95420;
     max-width: $grid-max-width;
     overflow: auto;
     padding: 0 0.5rem;
-
-    &::after {
-      content: none;
-    }
   }
 
   .p-tabs__link:hover::before {
     background-color: $color-ubuntu-orange;
   }
 
-  .gn-small ~ .content & {
+  .gn-2 ~ .content & {
+    border-bottom: 1px solid $color-mid-light;
+    top: 5.5625rem;
+
+    .p-tabs__list::after {
+      content: none;
+    }
+  }
+
+  .gn-2.gn-small ~ .content & {
     top: 4.5625rem;
+  }
+
+  .gn-3 ~ .content & {
+    top: 3rem;
+  }
+
+  .gn-3.gn-small ~ .content & {
+    top: 2rem;
   }
 }
