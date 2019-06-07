@@ -3,7 +3,7 @@ layout: examples
 title: Canonical nav
 category: _templates
 ---
-<header class="gn-container gn-3 gn-orange-active">
+<header class="gn-container gn-3 gn-orange-active gn-full-height">
   <div class="gn-overlay"></div>
   <div class="gn-primary-nav">
     <div class="gn-primary-nav__row">
@@ -514,8 +514,15 @@ category: _templates
       <option value="careers">Careers</option>
     </select>
   </div>
+  <div>
+    <label for="secondary-active-style">Secondary active style</label>
+    <select id="secondary-active-style">
+      <option value="gn-full-height" selected="">Full-height</option>
+      <option value="gn-truncated">Truncated</option>
+    </select>
+  </div>
   <div id="secondary-style-container">
-    <label for="secondary-style">Secondary nav style</label>
+    <label for="secondary-style">Secondary link style</label>
     <select id="secondary-style">
       <option value="gn-orange-active" selected="">Orange active</option>
       <option value="gn-two-lines">Two lines</option>
@@ -529,6 +536,8 @@ category: _templates
       <option value="gn-1">Iteration 1</option>
     </select>
   </div>
+  <p><a href="/examples/templates/canonical-ubuntu-navs">Ubuntu interaction</a></p>
+  <p><a href="/examples/templates/animated-suru">Animated suru</a></p>
 </div>
 
 <script>
@@ -541,6 +550,7 @@ category: _templates
   const secondaryLinks = globalNav.querySelectorAll('.gn-secondary-nav__link');
   const smallToggle = document.querySelector('.js-small-switch');
   const secondarySelect = document.querySelector('#secondary-active');
+  const secondaryStyleSelect = document.querySelector('#secondary-active-style');
   const iterationSelect = document.querySelector('#iteration');
   const secondaryStyleContainer = document.querySelector('#secondary-style-container');
   const secondaryStyle = document.querySelector('#secondary-style');
@@ -607,6 +617,12 @@ category: _templates
   secondaryStyle.addEventListener('change', e => {
     const { value } = e.target;
     globalNav.classList.remove('gn-orange-active', 'gn-two-lines');
+    globalNav.classList.add(value);
+  });
+
+  secondaryStyleSelect.addEventListener('change', e => {
+    const { value } = e.target;
+    globalNav.classList.remove('gn-full-height', 'gn-truncated');
     globalNav.classList.add(value);
   });
 

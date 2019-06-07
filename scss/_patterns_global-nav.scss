@@ -30,7 +30,8 @@
   position: absolute;
   width: #{abs((1 / sin($angle))) * $height};
 
-  .gn-1 & {
+  .gn-1 &,
+  .gn-animated-suru & {
     display: block;
   }
 
@@ -426,6 +427,23 @@
 
       &:not(.is-open)::before {
         opacity: 0.5;
+      }
+    }
+
+    .gn-full-height & {
+      margin-top: 0 !important;
+      padding-top: 0.85rem !important;
+
+      &::before {
+        top: 1.25rem;
+      }
+    }
+
+    .gn-full-height.gn-small & {
+      padding-top: 0.15rem !important;
+
+      &::before {
+        top: 0.7rem;
       }
     }
   }
@@ -890,10 +908,12 @@
       ),
       $duration: sleepy
     );
+    transition-duration: 1.5s;
   }
 
   .gn-animated-suru--1 {
     @extend %animated-suru-base;
+    @include vf-p-suru($anchor: bottom-left, $height: 20rem, $angle: 40deg);
 
     .products & {
       @include vf-p-suru($anchor: bottom-left, $height: 25rem, $angle: 25deg);
@@ -910,6 +930,7 @@
 
   .gn-animated-suru--2 {
     @extend %animated-suru-base;
+    @include vf-p-suru($anchor: bottom-right, $height: 20rem, $angle: 35deg);
 
     .products & {
       @include vf-p-suru($anchor: bottom-right, $height: 30rem, $angle: 50deg);
@@ -926,13 +947,14 @@
 
   .gn-animated-suru--3 {
     @extend %animated-suru-base;
+    @include vf-p-suru($anchor: bottom-right, $height: 8rem, $angle: 7deg);
 
     .products & {
       @include vf-p-suru($anchor: bottom-right, $height: 17rem, $angle: 8deg);
     }
 
     .partners & {
-      @include vf-p-suru($anchor: bottom-right, $height: 1px, $angle: 1deg);
+      @include vf-p-suru($anchor: bottom-right, $height: 1px, $angle: 10deg);
     }
 
     .careers & {
@@ -942,9 +964,10 @@
 
   .gn-animated-suru--4 {
     @extend %animated-suru-base;
+    @include vf-p-suru($anchor: top-left, $height: 5rem, $angle: 40deg);
 
     .products & {
-      @include vf-p-suru($anchor: top-left, $height: 1px, $angle: 181deg);
+      @include vf-p-suru($anchor: top-left, $height: 1px, $angle: 45deg);
     }
 
     .partners & {
@@ -952,12 +975,13 @@
     }
 
     .careers & {
-      @include vf-p-suru($anchor: top-left, $height: 1px, $angle: 181deg);
+      @include vf-p-suru($anchor: top-left, $height: 1px, $angle: 45deg);
     }
   }
 
   .gn-animated-suru--5 {
     @extend %animated-suru-base;
+    @include vf-p-suru($anchor: top-right, $height: 10px, $angle: 30deg);
 
     .products & {
       @include vf-p-suru($anchor: top-right, $height: 1px, $angle: 91deg);
