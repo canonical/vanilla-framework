@@ -4,6 +4,8 @@ layout: default
 
 ## Floats
 
+<hr>
+
 The float utilities allow you to float an element left or right.
 
 ### All screens

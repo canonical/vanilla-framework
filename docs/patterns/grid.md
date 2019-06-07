@@ -4,6 +4,8 @@ layout: default
 
 ## Grid
 
+<hr>
+
 Vanilla has a responsive grid with the following columns and gutters:
 
 | Screen size (px)                       | Columns | Grid gap (gutters) | Outer margins |

@@ -5,6 +5,8 @@ layout: default
 
 ## No print
 
+<hr>
+
 Add the class `u-no-print` to elements you want to hide when the page is printed.
 
 Use your browser's print preview to see the following example working.

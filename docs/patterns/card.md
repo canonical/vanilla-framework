@@ -4,6 +4,8 @@ layout: default
 
 ## Cards
 
+<hr>
+
 There are four card styles available to use in Vanilla: default, header, highlighted and overlay. Our card component will expand to fill the full width of its parent container.
 
 ### Default
