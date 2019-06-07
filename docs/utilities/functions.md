@@ -4,6 +4,8 @@ layout: default
 
 ## Functions
 
+<hr>
+
 Vanilla has several global functions used across multiple components or utilities, which can be also be used when building custom components.
 
 ### URL-friendly color

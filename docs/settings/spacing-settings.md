@@ -4,6 +4,8 @@ layout: default
 
 ## Spacing
 
+<hr>
+
 Vanilla uses numerous spacing variables across the codebase in order to ensure consistency in spacing between components, and to ensure typographic elements sit on the baseline grid.
 
 ### Spacing unit
