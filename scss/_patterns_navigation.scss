@@ -64,8 +64,10 @@ $nav-border-bottom-thickness: 1px;
   }
 
   &__link {
-    $nav-link-max-width: 20em !default;
-    max-width: $nav-link-max-width;
+    @media (min-width: $breakpoint-navigation-threshold) {
+      $nav-link-max-width: 20em !default;
+      max-width: $nav-link-max-width;
+    }
 
     & > a {
       display: block;
