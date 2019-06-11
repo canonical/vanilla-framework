@@ -4,9 +4,9 @@ layout: default
 
 ## Building with Vanilla
 
-Here you will find information on how you can use different tools to build Vanilla into production CSS.
+<hr>
 
----
+Here you will find information on how you can use different tools to build Vanilla into production CSS.
 
 ### node-sass
 
