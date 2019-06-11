@@ -4,9 +4,9 @@ layout: default
 
 ## Customising Vanilla
 
-Here you will find information on customising Vanilla to suit your project.
+<hr>
 
----
+Here you will find information on customising Vanilla to suit your project.
 
 ### Overriding default settings
 

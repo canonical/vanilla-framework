@@ -19,6 +19,9 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 | `$font-base-size`      | `1rem`                                                |
 | `$font-heading-family` | `$font-base-family`                                   |
 
+<br>
+<hr>
+
 ### Design
 
 - [Typography design](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography)
