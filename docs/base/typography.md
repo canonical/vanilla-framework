@@ -49,6 +49,8 @@ This means that the font size is calculated from (16/14)<sup><em>n</em></sup> wh
 | font size                               | `1rem`       | `1rem`       |
 | line height                             | `1.5rem`     | `1.5rem`     |
 
+<br>
+
 ### Heading classes
 
 Heading classes can be added to text elements to give them the same visual

@@ -14,6 +14,8 @@ Vanilla has a responsive grid with the following columns and gutters:
 | $breakpoint-small - $breakpoint-medium | 6       | 2.0rem             | 1.5rem        |
 | above $breakpoint-medium               | 12      | 2.5rem             | 1.5rem        |
 
+<br>
+
 - The page structure must be laid out using rows (`.row`)
 - All content must be within columns (`.col-*`)
 - Only columns should be direct children of a row

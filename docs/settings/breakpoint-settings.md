@@ -18,6 +18,8 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 | `$breakpoint-navigation-threshold` | `$breakpoint-medium` | Tablet         |
 | `$breakpoint-heading-threshold`    | `$breakpoint-medium` | Tablet         |
 
+<br>
+
 ### Target extra small screens
 
 ```css
