@@ -35,54 +35,57 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
 
 <hr class="is-deep">
 <div class="u-equal-height">
-    <div class="col-12">
-        <h3>Hotlink</h3>
-        <p>You can add Vanilla directly to your markup:</p>
-        <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-2.0.1.min.css" /&gt;</code></pre>
-    </div>
+  <div class="col-12">
+    <h3>Hotlink</h3>
+    <p>You can add Vanilla directly to your markup:</p>
+    <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-2.0.1.min.css" /&gt;</code></pre>
+  </div>
 </div>
 
 <hr class="is-deep">
 
 <div class="u-equal-height">
-    <div class="col-12">
-        <h3>Download</h3>
-        <p>Download the latest version of Vanilla from GitHub.</p>
-        <a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v2.0.1.zip" class="p-button--positive">Download v2.0.1</a>
-    </div>
+  <div class="col-12">
+    <h3>Download</h3>
+    <p>Download the latest version of Vanilla from GitHub.</p>
+    <a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v2.0.1.zip" class="p-button--positive">Download v2.0.1</a>
+  </div>
 </div>
 
 <hr class="is-deep">
-<div class="u-equal-height">
-    <div class="col-6">
-        <h3>What's new</h3>
-        <ul class="p-list">
-            <li class="p-list__item--deep">
-                <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.1">Release notes: v2.0.1</a>
-            </li>
-            <li class="p-list__item--deep">
-                <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.8.1">Release notes: v1.8.1</a>
-            </li>
-            <li class="p-list__item--deep">
-                <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.7.1">Release notes: v1.7.1</a>
-            </li>
-        </ul>
-    </div>
-    <hr class="is-deep u-hide--medium u-hide--large">
-    <div class="col-6">
-        <h3>Getting help</h3>
-        <ul class="p-list">
-            <li class="p-list__item">
-                <i class="p-list__icon--github"></i><a href="https://github.com/canonical-web-and-design/vanilla-framework/issues/new">GitHub</a>
-            </li>
-            <li class="p-list__item">
-                <i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Twitter</a>
-            </li>
-            <li class="p-list__item">
-                <i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Slack</a>
-            </li>
-        </ul>
-    </div>
+
+<div class="row">
+  <div class="col-6">
+    <h3>What's new</h3>
+    <ul class="p-list">
+      <li class="p-list__item--deep">
+        <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.1">Release notes: v2.0.1</a>
+      </li>
+      <li class="p-list__item--deep">
+        <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.8.1">Release notes: v1.8.1</a>
+      </li>
+      <li class="p-list__item--deep">
+        <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v1.7.1">Release notes: v1.7.1</a>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="is-deep u-hide--medium u-hide--large">
+  
+  <div class="col-6">
+    <h3>Getting help</h3>
+    <ul class="p-list">
+      <li class="p-list__item">
+        <i class="p-list__icon--github"></i><a href="https://github.com/canonical-web-and-design/vanilla-framework/issues/new">GitHub</a>
+      </li>
+      <li class="p-list__item">
+        <i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Twitter</a>
+      </li>
+      <li class="p-list__item">
+        <i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Slack</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <hr class="is-deep">
