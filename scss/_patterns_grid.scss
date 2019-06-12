@@ -137,7 +137,7 @@
   @media (min-width: $threshold-6-12-col) {
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
-      .#{$grid-big-col-prefix}#{$i} {
+      .#{$grid-large-col-prefix}#{$i} {
         grid-column-end: span #{$i};
 
         //nesting
@@ -168,7 +168,7 @@
   }
 
   @for $i from 1 through $grid-columns {
-    .#{$grid-big-col-prefix}#{$i} {
+    .#{$grid-large-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-tablet;
       @extend %display-block;
