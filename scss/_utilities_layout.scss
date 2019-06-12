@@ -4,4 +4,14 @@
   .u-fixed-width {
     @extend %fixed-width-container;
   }
+
+  @if ($table-layout != 'fixed') {
+    .u-table-layout--fixed {
+      table-layout: fixed;
+    }
+  } @else {
+    .u-table-layout--auto {
+      table-layout: auto;
+    }
+  }
 }

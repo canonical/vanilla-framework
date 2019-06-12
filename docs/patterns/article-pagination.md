@@ -4,6 +4,8 @@ layout: default
 
 ## Article pagination
 
+<hr>
+
 The article pagination component should be used to navigate from one article to the next, or previous, in chronological order.
 
 <a href="/examples/patterns/article-pagination"

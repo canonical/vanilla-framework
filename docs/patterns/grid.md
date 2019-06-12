@@ -4,6 +4,8 @@ layout: default
 
 ## Grid
 
+<hr>
+
 Vanilla has a responsive grid with the following columns and gutters:
 
 | Screen size (px)                       | Columns | Grid gap (gutters) | Outer margins |
@@ -12,13 +14,15 @@ Vanilla has a responsive grid with the following columns and gutters:
 | $breakpoint-small - $breakpoint-medium | 6       | 2.0rem             | 1.5rem        |
 | above $breakpoint-medium               | 12      | 2.5rem             | 1.5rem        |
 
+<br>
+
 - The page structure must be laid out using rows (`.row`)
 - All content must be within columns (`.col-*`)
 - Only columns should be direct children of a row
 
 Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column containing text should span a minimum of 3 columns.
 
-Read also: [Breakpoints](/en/settings/breakpoint-settings)
+Read also: [Breakpoints](/settings/breakpoint-settings)
 
 <a href="/examples/patterns/grid/default/" class="js-example">
     View example of the default grid
