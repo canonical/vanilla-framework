@@ -4,6 +4,8 @@ layout: default
 
 ## Functions
 
+<hr>
+
 Vanilla has several global functions used across multiple components or utilities, which can be also be used when building custom components.
 
 ### URL-friendly color
@@ -106,6 +108,6 @@ This function adds a `3px` thick, coloured bar to one side of a component (for e
 
 ### Related
 
-- [Icons](/en/patterns/icons)
-- [Strip](/en/patterns/strip)
-- [Typography](/en/base/typography)
+- [Icons](/patterns/icons)
+- [Strip](/patterns/strip)
+- [Typography](/base/typography)
