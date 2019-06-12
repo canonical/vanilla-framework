@@ -22,7 +22,7 @@ Vanilla has a responsive grid with the following columns and gutters:
 
 Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column containing text should span a minimum of 3 columns.
 
-Read also: [Breakpoints](/en/settings/breakpoint-settings)
+Read also: [Breakpoints](/settings/breakpoint-settings)
 
 <a href="/examples/patterns/grid/default/" class="js-example">
     View example of the default grid

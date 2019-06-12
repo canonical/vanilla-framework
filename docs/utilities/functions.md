@@ -108,6 +108,6 @@ This function adds a `3px` thick, coloured bar to one side of a component (for e
 
 ### Related
 
-- [Icons](/en/patterns/icons)
-- [Strip](/en/patterns/strip)
-- [Typography](/en/base/typography)
+- [Icons](/patterns/icons)
+- [Strip](/patterns/strip)
+- [Typography](/base/typography)

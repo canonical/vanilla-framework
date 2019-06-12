@@ -32,4 +32,4 @@ For more information [view the search design spec](https://github.com/ubuntudesi
 
 ### Related
 
-For more interactive information adding search [view the navigation component](/en/patterns/navigation).
+For more interactive information adding search [view the navigation component](/patterns/navigation).

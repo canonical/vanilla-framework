@@ -118,4 +118,4 @@ For more information [view the lists design spec](https://github.com/ubuntudesig
 
 ### Related
 
-For a more interactive layered lists style [view the list tree component](/en/patterns/list-tree).
+For a more interactive layered lists style [view the list tree component](/patterns/list-tree).

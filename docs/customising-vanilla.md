@@ -52,11 +52,11 @@ Your project may not warrant including all of Vanilla, in which case you can inc
 
 ### Related
 
-- [Animation settings](/en/settings/animation-settings)
-- [Assets settings](/en/settings/assets-settings)
-- [Breakpoint settings](/en/settings/breakpoint-settings)
-- [Color settings](/en/settings/color-settings)
-- [Font settings](/en/settings/font-settings)
-- [Layout settings](/en/settings/layout-settings)
-- [Placeholder settings](/en/settings/placeholder-settings)
-- [Spacing settings](/en/settings/spacing-settings)
+- [Animation settings](/settings/animation-settings)
+- [Assets settings](/settings/assets-settings)
+- [Breakpoint settings](/settings/breakpoint-settings)
+- [Color settings](/settings/color-settings)
+- [Font settings](/settings/font-settings)
+- [Layout settings](/settings/layout-settings)
+- [Placeholder settings](/settings/placeholder-settings)
+- [Spacing settings](/settings/spacing-settings)

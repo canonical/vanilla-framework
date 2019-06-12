@@ -17,4 +17,4 @@ Vanilla uses several global placeholders to share common styles between componen
 
 ### Related
 
-- [Spacing settings](/en/settings/spacing-settings)
+- [Spacing settings](/settings/spacing-settings)
