@@ -27,6 +27,8 @@ animation.
 | `slow`   | `.5s`         |
 | `sleepy` | `1s`          |
 
+<br>
+
 ### Easing
 
 Vanilla's easing can be `easeInCubic` or `easeOutCubic`.
@@ -35,6 +37,8 @@ Vanilla's easing can be `easeInCubic` or `easeOutCubic`.
 | ------- | ------------------------------------ |
 | `out`   | `cubic-bezier(.215, .61, .355, 1)`   |
 | `in`    | `cubic-bezier(.55, .055, .675, .19)` |
+
+<br>
 
 ### Usage
 

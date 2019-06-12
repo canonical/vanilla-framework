@@ -4,6 +4,8 @@ layout: default
 
 ## Spacing
 
+<hr>
+
 Vanilla uses numerous spacing variables across the codebase in order to ensure consistency in spacing between components, and to ensure typographic elements sit on the baseline grid.
 
 ### Spacing unit
@@ -35,12 +37,16 @@ The `$spv-inner` variables are used to determine vertical spacing inside compone
 | `$spv-inner--large`              | `$sp-unit * 2`                 | `1rem`        |
 | `$spv-inner--x-large`            | `$sp-unit * 5.5`               | `2.75rem`     |
 
+<br>
+
 | Spacing variable              | Formula                   | Default value |
 | ----------------------------- | ------------------------- | ------------- |
 | `$spv-outer--small`           | `$sp-unit`                | `0.5rem`      |
 | `$spv-outer--small-scaleable` | `$sp-unit * $multi`       | `1rem`        |
 | `$spv-outer--medium`          | `$sp-unit * 2`            | `1rem`        |
 | `$spv-outer--scaleable`       | `$sp-unit * (1 + $multi)` | `1.5rem`      |
+
+<br>
 
 The following vertical spacing variables are used between a group of components and its wrapper, for example in strips. The names of these variables are based on "depth" rather than the size-based terms of the other variables to give a distinction in their intended use.
 
@@ -49,6 +55,8 @@ The following vertical spacing variables are used between a group of components 
 | `$spv-outer--shallow-scaleable` | `$sp-unit * 2 * $multi`     | `2rem`        |
 | `$spv-outer--regular-scaleable` | `$sp-unit 2 * (2 + $multi)` | `4rem`        |
 | `$spv-outer--deep-scaleable`    | `$sp-unit 2 * (4 + $multi)` | `6rem`        |
+
+<br>
 
 ### Horizontal spacing
 
@@ -62,6 +70,8 @@ The `$sph-inner` variables are used to determine horizontal spacing inside compo
 | `$sph-inner--x-large` | `$sp-unit * 5` | `2.5rem`      |
 | `$sph-outer`          | `$sp-unit`     | `0.5rem`      |
 | `$sph-outer--large`   | `$sp-unit * 3` | `1.5rem`      |
+
+<br>
 
 ### Generic units
 
