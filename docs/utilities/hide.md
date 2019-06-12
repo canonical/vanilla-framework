@@ -4,6 +4,8 @@ layout: default
 
 ## Hide
 
+<hr>
+
 Hide an element within a certain breakpoint.
 
 <a href="/examples/utilities/hide/"

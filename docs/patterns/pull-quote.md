@@ -47,4 +47,4 @@ For more information [view the quotes design spec](https://github.com/ubuntudesi
 
 ### Related
 
-For more typographic related information view the [blockquotes and citations](https://docs.vanillaframework.io/en/base/typography#blockquotes-and-citations) in base typography.
+For more typographic related information view the [blockquotes and citations](https://docs.vanillaframework.io/base/typography#blockquotes-and-citations) in base typography.
