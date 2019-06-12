@@ -18,36 +18,36 @@ This means that the font size is calculated from (16/14)<sup><em>n</em></sup> wh
 
 ### Typographic scale
 
-|                                         | Small-Medium | Large        |
-| --------------------------------------- | ------------ | ------------ |
-| <h1 class="u-no-margin--bottom">h1</h1> |              |              |
-| modular point                           | `6`          | `8`          |
-| font size                               | `2.22819rem` | `2.91029rem` |
-| line height                             | `3rem`       | `3.5rem`     |
-| <h2 class="u-no-margin--bottom">h2</h2> |              |              |
-| modular point                           | `4.5`        | `6`          |
-| font size                               | `1.83274rem` | `2.22819rem` |
-| line height                             | `2.5rem`     | `3rem`       |
-| <h3 class="u-no-margin--bottom">h3</h3> |              |              |
-| modular point                           | `3`          | `4`          |
-| font size                               | `1.49271rem` | `1.70596rem` |
-| line height                             | `2rem`       | `2.5rem`     |
-| <h4 class="u-no-margin--bottom">h4</h4> |              |              |
-| modular point                           | `1.5`        | `2`          |
-| font size                               | `1.22176rem` | `1.30612rem` |
-| line height                             | `1.5rem`     | `2rem`       |
-| <h5 class="u-no-margin--bottom">h5</h5> |              |              |
-| modular point                           | `0`          | `0`          |
-| font size                               | `1rem`       | `1rem`       |
-| line height                             | `1.5rem`     | `1.5rem`     |
-| <h6 class="u-no-margin--bottom">h6</h6> |              |              |
-| modular point                           | `0`          | `0`          |
-| font size                               | `1rem`       | `1rem`       |
-| line height                             | `1.5rem`     | `1.5rem`     |
-| <p class="u-no-margin--bottom">p</p>    |              |              |
-| modular point                           | `0`          | `0`          |
-| font size                               | `1rem`       | `1rem`       |
-| line height                             | `1.5rem`     | `1.5rem`     |
+|               | Small-Medium | Large        |
+| ------------- | ------------ | ------------ |
+| _<h1>_        |              |              |
+| modular point | `6`          | `8`          |
+| font size     | `2.22819rem` | `2.91029rem` |
+| line height   | `3rem`       | `3.5rem`     |
+| _<h2>_        |              |              |
+| modular point | `4.5`        | `6`          |
+| font size     | `1.83274rem` | `2.22819rem` |
+| line height   | `2.5rem`     | `3rem`       |
+| _<h3>_        |              |              |
+| modular point | `3`          | `4`          |
+| font size     | `1.49271rem` | `1.70596rem` |
+| line height   | `2rem`       | `2.5rem`     |
+| _<h4>_        |              |              |
+| modular point | `1.5`        | `2`          |
+| font size     | `1.22176rem` | `1.30612rem` |
+| line height   | `1.5rem`     | `2rem`       |
+| _<h5>_        |              |              |
+| modular point | `0`          | `0`          |
+| font size     | `1rem`       | `1rem`       |
+| line height   | `1.5rem`     | `1.5rem`     |
+| _<h6>_        |              |              |
+| modular point | `0`          | `0`          |
+| font size     | `1rem`       | `1rem`       |
+| line height   | `1.5rem`     | `1.5rem`     |
+| _<p>_         |              |              |
+| modular point | `0`          | `0`          |
+| font size     | `1rem`       | `1rem`       |
+| line height   | `1.5rem`     | `1.5rem`     |
 
 <br>
 
