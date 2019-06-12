@@ -57,9 +57,9 @@ View example of the ticked divided list pattern
 
 A divider is used to separate related content items.
 
-<a href="/examples/patterns/divider/"
+<a href="/examples/patterns/lists/divider/"
   class="js-example">
-View example of the patterns divider
+View example of lists with a vertical divider
 </a>
 
 ### Inline
@@ -109,7 +109,6 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 <a href="/examples/patterns/lists/lists-split/"
   class="js-example">
 View example of the patterns list split
-
 </a>
 
 ### Design
