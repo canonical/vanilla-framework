@@ -7,7 +7,7 @@ homepage: true
 
 You can use Vanilla in your projects in a few different ways.
 
-See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/customising-vanilla) for more in-depth setup instructions.
+See [Building with Vanilla](/building-vanilla) and [Customising Vanilla](/customising-vanilla) for more in-depth setup instructions.
 
 <hr class="is-deep">
 
@@ -28,7 +28,7 @@ See [Building with Vanilla](/en/building-vanilla) and [Customising Vanilla](/en/
 // Include all of Vanilla Framework
 @include vanilla;</code></pre>
 
-    <p><em>For information on overriding settings and importing only parts of Vanilla, see <a href="/en/customising-vanilla">Customising Vanilla</a>.</em></p>
+    <p><em>For information on overriding settings and importing only parts of Vanilla, see <a href="/customising-vanilla">Customising Vanilla</a>.</em></p>
 
   </div>
 </div>
