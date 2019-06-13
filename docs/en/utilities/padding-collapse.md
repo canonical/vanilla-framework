@@ -1,0 +1,13 @@
+---
+title: Padding collapse
+table_of_contents: true
+---
+
+## Padding collapse
+
+Remove one or more paddings on an element.
+
+<a href="https://canonical-web-and-design.github.io/vanilla-framework/examples/utilities/padding-collapse/"
+    class="js-example">
+    View example of the padding collapse utility
+</a>
