@@ -997,6 +997,8 @@
   }
 }
 
+// Ubuntu.com navigation
+
 @mixin vf-p-ubuntu-nav {
   $breakpoint-medium: 875px;
   $viewport-threshold: 1281px;
@@ -1624,6 +1626,8 @@ h2,
   padding-top: $sp-unit * 0.5 + map-get($nudges, nudge--small);
 }
 
+// Ubuntu.com sticky tabs
+
 $color-ubuntu-orange: #e95420;
 
 .p-tabs.p-sticky-nav {
@@ -1672,4 +1676,324 @@ $color-ubuntu-orange: #e95420;
   .gn-3.gn-drop-in.gn-hidden ~ .content & {
     top: 0;
   }
+}
+
+// Ubuntu.com footer
+
+@mixin full-width-breakout {
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, 0);
+  width: 100vw;
+}
+
+@mixin footer-title {
+  color: $color-mid-dark;
+  line-height: 1.5;
+  margin-bottom: 0;
+
+  @media only screen and (max-width: $breakpoint-medium) {
+    cursor: pointer;
+  }
+}
+
+$color-shadow: rgba(0, 0, 0, 0.3);
+
+.p-footer {
+  border: 0;
+  box-shadow: 0 4px 4px -4px $color-shadow inset;
+  margin-bottom: 0;
+  padding: 0 0 $sp-xx-large 0;
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    padding: $sp-xx-large 0;
+  }
+
+  @media only screen and (max-width: $breakpoint-medium - 1) {
+    &__nav-col {
+      width: 100%;
+    }
+  }
+
+  &__nav {
+    border-bottom: 1px solid $color-mid-light;
+
+    @media only screen and (max-width: $breakpoint-medium - 1) {
+      margin-top: 0 !important;
+    }
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      border: 0;
+    }
+
+    &.u-clearfix {
+      @media only screen and (max-width: $breakpoint-medium - 1) {
+        padding-bottom: 0;
+      }
+    }
+
+    &-col.col-2 {
+      @media only screen and (max-width: $breakpoint-medium - 1) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__divider {
+    @include full-width-breakout;
+    border: 0;
+    border-bottom: 1px solid $color-mid-light;
+    border-collapse: separate;
+    height: 0;
+    margin-top: 2rem;
+
+    @media only screen and (max-width: $breakpoint-medium - 1px) {
+      display: none;
+    }
+  }
+
+  &__links {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 0;
+
+    @media only screen and (max-width: $breakpoint-medium - 1px) {
+      margin-top: 0;
+    }
+
+    + .p-footer__item {
+      @media only screen and (min-width: $breakpoint-medium) {
+        margin-top: $sp-large;
+      }
+    }
+  }
+
+  &__title {
+    @include footer-title;
+    background-image: url('#{$assets-path}7bd1bd7b-arrow_down_9fa097.svg');
+    background-position: calc(100% - 10px) 50%;
+    background-repeat: no-repeat;
+    background-size: 13px 13px;
+    border-top: 1px solid $color-mid-light;
+    font-size: 0.8125rem;
+    max-width: inherit;
+    padding: $sp-medium 0;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      background: none;
+      border: 0;
+      color: $color-dark;
+      padding: 0 0 $sp-x-small;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: 0.8125rem;
+    }
+
+    a:link,
+    a:visited {
+      color: $color-mid-dark;
+      padding-left: $sp-x-small;
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        color: $color-dark;
+        font-weight: normal;
+        padding-left: 0;
+      }
+    }
+
+    a::after {
+      content: ''; // hide the default > */
+    } /// open and close the primary/secondary navs
+
+    + .second-level-nav {
+      display: none;
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        display: block;
+      }
+    }
+
+    &.active {
+      background-image: url('#{$assets-path}43e2b367-arrow_up_9fa097.png');
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        background: none;
+      }
+
+      + .second-level-nav {
+        display: block;
+      }
+    }
+
+    &.p-footer__title-text {
+      @media only screen and (min-width: $breakpoint-medium) {
+        color: $color-dark;
+        font-weight: 400;
+      }
+
+      @media only screen and (max-width: $breakpoint-medium) {
+        padding-left: $sp-x-small;
+
+        a {
+          color: $color-mid-dark;
+        }
+      }
+    }
+  }
+
+  &__container {
+    @media only screen and (max-width: $breakpoint-medium - 1px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    &:hover {
+      color: $color-dark;
+    }
+  }
+
+  .link-to-top {
+    @include footer-title;
+    background-image: url('#{$assets-path}e4a5a8c0-picto-upload-warmgrey.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    border-bottom: 1px solid $color-mid-dark;
+    display: block;
+    left: auto;
+    margin-bottom: -1px;
+    max-width: inherit;
+    padding: $sp-small 0 $sp-small $sp-x-large;
+    position: relative;
+    z-index: 2;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      display: none;
+    }
+
+    a {
+      color: $color-mid-dark;
+    }
+  }
+
+  // second level nav - HTML for this can't be changed as it's used in the main nav also
+
+  .second-level-nav {
+    margin: 0;
+    padding: 0;
+
+    &.second-level-nav-small {
+      @media only screen and (max-width: $breakpoint-small) {
+        margin-left: -0.7rem;
+
+        li {
+          a {
+            color: $color-mid-dark;
+          }
+        }
+      }
+    }
+
+    li {
+      margin-bottom: 0;
+
+      @media only screen and (max-width: $breakpoint-medium) {
+        margin-top: 0;
+      }
+
+      a {
+        border-top: 1px solid $color-mid-light;
+        color: $color-dark;
+        display: block;
+        font-size: 0.8125rem;
+        padding: $sp-medium $sp-small $sp-medium;
+
+        @media only screen and (min-width: $breakpoint-medium) {
+          border: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.p-footer--secondary {
+  padding: $sp-large $sp-small 0;
+
+  &__content {
+    margin-bottom: $sp-xx-small;
+    max-width: inherit;
+  }
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    padding: 0;
+  }
+
+  @media only screen and (max-width: $breakpoint-medium - 1px) {
+    margin-top: 0;
+  }
+
+  a:hover {
+    color: currentColor;
+  }
+
+  .p-inline-list__item {
+    display: block;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      display: inline-block;
+    }
+
+    &::after {
+      @media only screen and (max-width: $breakpoint-medium - 1) {
+        display: none;
+      }
+    }
+  }
+}
+
+// social icons in footer
+.p-inline-list-icons {
+  @media (max-width: $breakpoint-medium) {
+    margin-left: 0;
+    margin-top: 1rem;
+    padding-left: 0;
+
+    .p-inline-list__item {
+      display: inline-block;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    float: right;
+    padding-left: 0;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-top: $sp-x-small;
+  }
+}
+
+.p-footer__item--spaced {
+  @media only screen and (min-width: $breakpoint-medium) {
+    margin-bottom: $sp-large;
+  }
+}
+
+.p-footer-list-single-child {
+  @media only screen and (max-width: $breakpoint-medium) {
+    margin-left: $sp-small;
+  }
+}
+
+.p-footer__nav {
+  display: flex;
+  justify-content: space-between;
 }
