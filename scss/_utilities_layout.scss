@@ -5,13 +5,13 @@
     @extend %fixed-width-container;
   }
 
-  @if ($table-layout != 'fixed') {
-    .u-table-layout--fixed {
-      table-layout: fixed;
-    }
-  } @else {
+  @if ($table-layout-fixed = 'true') {
     .u-table-layout--auto {
       table-layout: auto;
+    }
+  } @else {
+    .u-table-layout--fixed {
+      table-layout: fixed;
     }
   }
 }

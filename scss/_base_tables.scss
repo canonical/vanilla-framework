@@ -8,8 +8,13 @@
     line-height: map-get($line-heights, default-text);
     overflow-x: auto;
     padding-bottom: $spv-outer--scaleable;
-    table-layout: $table-layout;
     width: 100%;
+
+    @if ($table-layout-fixed) {
+      table-layout: fixed;
+    } @else {
+      table-layout: auto;
+    }
   }
 
   td,
