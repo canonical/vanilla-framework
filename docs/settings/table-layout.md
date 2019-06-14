@@ -4,7 +4,7 @@ layout: default
 
 ## Table layout
 
-By default, tables in vanilla use table-layout: fixed. It is faster, and ensures more predictable and controllable table behaviour, but requires setting widths explicitly on the first row of the table.
+By default, tables in Vanilla use `table-layout: fixed`.
 
 There are cases where you might want to use table-layout: auto - e.g. in automatically generated tables, where specifying column widths is not practical. To do this, you need to set the $table-layout variable to `auto`.
 
