@@ -34,7 +34,7 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--spinner" style="margin-right: 1rem;"></i>p-icon--spinner</p>
       </div>
       <div class="p-card col-4 u-vertically-center">
-        <p><i class="p-icon--chevron" style="margin-right: 1rem;"></i>p-icon--chevron</p>
+        <p><i class="p-icon--drag" style="margin-right: 1rem;"></i>p-icon--drag</p>
       </div>
     </div>
 
@@ -102,6 +102,9 @@ Our icons have two predefined color styles: light and dark. The light variant is
       <div class="p-card col-4 u-vertically-center">
         <p><i class="p-icon--warning" style="margin-right: 1rem;"></i>p-icon--warning</p>
       </div>
+      <div class="p-card col-4 u-vertically-center">
+        <p><i class="p-icon--anchor" style="margin-right: 1rem;"></i>p-icon--anchor</p>
+      </div>
     </div>
 
   </div>
@@ -133,7 +136,7 @@ Our dark style of icons available when placed within `.p-strip--dark`, icon colo
         <p style="color: #fff;"><i class="p-icon--spinner" style="margin-right: 1rem;"></i>p-icon--spinner</p>
       </div>
       <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
-        <p style="color: #fff;"><i class="p-icon--chevron" style="margin-right: 1rem;"></i>p-icon--chevron</p>
+        <p style="color: #fff;"><i class="p-icon--drag" style="margin-right: 1rem;"></i>p-icon--drag</p>
       </div>
     </div>
 
@@ -200,6 +203,9 @@ Our dark style of icons available when placed within `.p-strip--dark`, icon colo
     <div class="row u-equal-height">
       <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
         <p style="color: #fff;"><i class="p-icon--warning" style="margin-right: 1rem;"></i>p-icon--warning</p>
+      </div>
+      <div class="p-card col-4 u-vertically-center" style="background-color:#111;">
+        <p style="color: #fff;"><i class="p-icon--anchor" style="margin-right: 1rem;"></i>p-icon--anchor</p>
       </div>
     </div>
 
