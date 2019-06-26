@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Data tables
+## Tables
 
 <hr>
 
