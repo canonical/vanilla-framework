@@ -2,6 +2,30 @@
 $tick-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
 $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bottom for lists containing loose text.
 
+//Placeholders
+%numbered-step-container {
+  counter-reset: li;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+}
+
+%numbered-step-title {
+  display: flex;
+
+  &::before {
+    align-self: start;
+    background-color: $color-mid-x-light;
+    border-radius: 100%;
+    content: counter(li);
+    counter-increment: li;
+    direction: rtl;
+    display: block;
+    text-align: center;
+  }
+}
+
 // Default list styling
 // Mixin for basic styled lists
 @mixin vf-list {
@@ -274,28 +298,6 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
 }
 
 @mixin vf-p-lists {
-  %numbered-step-container {
-    counter-reset: li;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding-left: 0;
-  }
-
-  %numbered-step-title {
-    display: flex;
-
-    &::before {
-      align-self: start;
-      background-color: $color-mid-x-light;
-      border-radius: 100%;
-      content: counter(li);
-      counter-increment: li;
-      direction: rtl;
-      display: block;
-      text-align: center;
-    }
-  }
   @include vf-p-list;
   @include vf-p-list-divided;
   @include vf-p-list-item-state;
