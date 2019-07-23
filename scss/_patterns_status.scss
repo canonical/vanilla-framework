@@ -1,15 +1,15 @@
 @import 'settings';
 
-// Default status button styling
+// Default status label styling
 @mixin vf-p-status {
-  @include vf-p-button-validated;
-  @include vf-p-button-in-progress;
-  @include vf-p-button-new;
-  @include vf-p-button-updated;
-  @include vf-p-button-deprecated;
+  @include vf-p-status-validated;
+  @include vf-p-status-in-progress;
+  @include vf-p-status-new;
+  @include vf-p-status-updated;
+  @include vf-p-status-deprecated;
 }
 
-%p-button--status {
+%vf-status {
   border-radius: 0.125rem;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -20,41 +20,41 @@
 }
 
 // Override local variables
-@mixin vf-p-button-validated {
-  .p-button--validated {
-    @extend %p-button--status;
+@mixin vf-p-status-validated {
+  .p-status--validated {
+    @extend %vf-status;
     background-color: #006b75;
     color: $color-x-light;
   }
 }
 
-@mixin vf-p-button-in-progress {
-  .p-button--in-progress {
-    @extend %p-button--status;
+@mixin vf-p-status-in-progress {
+  .p-status--in-progress {
+    @extend %vf-status;
     background-color: $color-caution;
     color: $color-dark;
   }
 }
 
-@mixin vf-p-button-new {
-  .p-button--new {
-    @extend %p-button--status;
+@mixin vf-p-status-new {
+  .p-status--new {
+    @extend %vf-status;
     background-color: $color-positive;
     color: $color-x-light;
   }
 }
 
-@mixin vf-p-button-updated {
-  .p-button--updated {
-    @extend %p-button--status;
+@mixin vf-p-status-updated {
+  .p-status--updated {
+    @extend %vf-status;
     background-color: $color-information;
     color: $color-x-light;
   }
 }
 
-@mixin vf-p-button-deprecated {
-  .p-button--deprecated {
-    @extend %p-button--status;
+@mixin vf-p-status-deprecated {
+  .p-status--deprecated {
+    @extend %vf-status;
     background-color: $color-negative;
     color: $color-x-light;
   }
