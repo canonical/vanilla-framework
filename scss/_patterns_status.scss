@@ -1,0 +1,61 @@
+@import 'settings';
+
+// Default status button styling
+@mixin vf-p-status {
+  @include vf-p-button-validated;
+  @include vf-p-button-in-progress;
+  @include vf-p-button-new;
+  @include vf-p-button-updated;
+  @include vf-p-button-deprecated;
+}
+
+%p-button--status {
+  border-radius: 0.125rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px) $sph-inner--small * 1.5;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+// Override local variables
+@mixin vf-p-button-validated {
+  .p-button--validated {
+    @extend %p-button--status;
+    background-color: #006b75;
+    color: $color-x-light;
+  }
+}
+
+@mixin vf-p-button-in-progress {
+  .p-button--in-progress {
+    @extend %p-button--status;
+    background-color: $color-caution;
+    color: $color-dark;
+  }
+}
+
+@mixin vf-p-button-new {
+  .p-button--new {
+    @extend %p-button--status;
+    background-color: $color-positive;
+    color: $color-x-light;
+  }
+}
+
+@mixin vf-p-button-updated {
+  .p-button--updated {
+    @extend %p-button--status;
+    background-color: $color-information;
+    color: $color-x-light;
+  }
+}
+
+@mixin vf-p-button-deprecated {
+  .p-button--deprecated {
+    @extend %p-button--status;
+    background-color: $color-negative;
+    color: $color-x-light;
+  }
+}
