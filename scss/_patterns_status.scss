@@ -1,15 +1,15 @@
 @import 'settings';
 
-// Default status label styling
-@mixin vf-p-status {
-  @include vf-p-status-validated;
-  @include vf-p-status-in-progress;
-  @include vf-p-status-new;
-  @include vf-p-status-updated;
-  @include vf-p-status-deprecated;
+// Default label styling
+@mixin vf-p-label {
+  @include vf-p-label-validated;
+  @include vf-p-label-in-progress;
+  @include vf-p-label-new;
+  @include vf-p-label-updated;
+  @include vf-p-label-deprecated;
 }
 
-%vf-status {
+%vf-label {
   border-radius: 0.125rem;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -20,41 +20,41 @@
 }
 
 // Override local variables
-@mixin vf-p-status-validated {
-  .p-status--validated {
-    @extend %vf-status;
+@mixin vf-p-label-validated {
+  .p-label--validated {
+    @extend %vf-label;
     background-color: #006b75;
     color: $color-x-light;
   }
 }
 
-@mixin vf-p-status-in-progress {
-  .p-status--in-progress {
-    @extend %vf-status;
+@mixin vf-p-label-in-progress {
+  .p-label--in-progress {
+    @extend %vf-label;
     background-color: $color-caution;
     color: $color-dark;
   }
 }
 
-@mixin vf-p-status-new {
-  .p-status--new {
-    @extend %vf-status;
+@mixin vf-p-label-new {
+  .p-label--new {
+    @extend %vf-label;
     background-color: $color-positive;
     color: $color-x-light;
   }
 }
 
-@mixin vf-p-status-updated {
-  .p-status--updated {
-    @extend %vf-status;
+@mixin vf-p-label-updated {
+  .p-label--updated {
+    @extend %vf-label;
     background-color: $color-information;
     color: $color-x-light;
   }
 }
 
-@mixin vf-p-status-deprecated {
-  .p-status--deprecated {
-    @extend %vf-status;
+@mixin vf-p-label-deprecated {
+  .p-label--deprecated {
+    @extend %vf-label;
     background-color: $color-negative;
     color: $color-x-light;
   }
