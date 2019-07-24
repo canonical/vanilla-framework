@@ -11,19 +11,20 @@
 
 %vf-label {
   border-radius: 0.125rem;
+  display: inline-block;
   font-size: 1rem;
   line-height: 1.5rem;
   padding: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px) $sph-inner--small * 1.5;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
 }
 
 // Override local variables
 @mixin vf-p-label-validated {
   .p-label--validated {
     @extend %vf-label;
-    background-color: #006b75;
+    $color-validated: #006b75;
+    background-color: $color-validated;
     color: $color-x-light;
   }
 }
