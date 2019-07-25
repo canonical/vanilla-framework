@@ -6,7 +6,7 @@ layout: default
 
 <hr>
 
-Labels are static elements which you can apply to HTML elements to signify status, tags or any other information you find useful.
+Labels are static elements which you can apply to signify status, tags or any other information you find useful.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
@@ -20,7 +20,7 @@ Label to be used on newly released components, utilities or settings that are sa
 
 <a href="/examples/patterns/labels/new/"
     class="js-example">
-View example of the labels pattern
+View example of the new label pattern
 </a>
 
 ### Deprecated
@@ -29,7 +29,7 @@ Label to be used on components, utilities or settings are in the process of bein
 
 <a href="/examples/patterns/labels/deprecated/"
     class="js-example">
-View example of the labels pattern
+View example of the deprecated label pattern
 </a>
 
 ### In progress
@@ -38,7 +38,7 @@ Label to be used when a design spec and code implementation are not yet finished
 
 <a href="/examples/patterns/labels/in-progress/"
     class="js-example">
-View example of the labels pattern
+View example of the in progress label pattern
 </a>
 
 ### Updated
@@ -47,7 +47,7 @@ Label to be used on existing components, utilities or settings that have been up
 
 <a href="/examples/patterns/labels/updated/"
     class="js-example">
-View example of the labels pattern
+View example of the updated label pattern
 </a>
 
 ### Validated
@@ -56,7 +56,7 @@ Label to be used on a proposal approved in our bi-weekly meeting. A design spec 
 
 <a href="/examples/patterns/labels/validated/"
     class="js-example">
-View example of the labels pattern
+View example of the validated label pattern
 </a>
 
 ### Design
