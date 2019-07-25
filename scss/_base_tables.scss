@@ -6,9 +6,14 @@
     border: 0;
     border-collapse: collapse;
     line-height: map-get($line-heights, default-text);
+    margin-bottom: $spv-outer--scaleable;
     overflow-x: auto;
-    padding-bottom: $spv-outer--scaleable;
     width: 100%;
+
+    &::after {
+      content: '';
+      margin-bottom: $spv-outer--scaleable;
+    }
 
     @if ($table-layout-fixed) {
       table-layout: fixed;
