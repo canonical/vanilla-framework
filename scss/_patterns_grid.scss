@@ -103,13 +103,13 @@
 
   // mobile grid
   @media (max-width: $threshold-4-6-col) {
-    @for $i from 1 through $grid-columns-small {
+    @for $i from $grid-columns-small through 1 {
       .#{$grid-small-col-prefix}#{$i} {
         grid-column-end: span #{$i};
 
         //nesting
         @if $i > 1 {
-          & > .row {
+          & .row {
             grid-template-columns: repeat($i, minmax(0, 1fr));
           }
         }
@@ -119,13 +119,13 @@
 
   // tablet grid
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-    @for $i from 1 through $grid-columns-medium {
+    @for $i from $grid-columns-medium through 1 {
       .#{$grid-medium-col-prefix}#{$i} {
         grid-column-end: span #{$i};
 
         //nesting
         @if $i > 1 {
-          & > .row {
+          & .row {
             grid-template-columns: repeat($i, minmax(0, 1fr));
           }
         }
@@ -142,7 +142,7 @@
 
         //nesting
         @if $i > 1 {
-          & > .row {
+          & .row {
             grid-template-columns: repeat($i, minmax(0, 1fr));
           }
         }
