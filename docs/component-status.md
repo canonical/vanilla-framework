@@ -14,9 +14,9 @@ When we add, make significant updates, or deprecate a component we update their 
 <table>
   <thead>
     <tr>
-      <th>Component</th>
-      <th>Status</th>
-      <th>Notes</th>
+      <th style="width: 25%">Component</th>
+      <th style="width: 25%">Status</th>
+      <th style="width: 50%">Notes</th>
     </tr>
   </thead>
   <tbody>
