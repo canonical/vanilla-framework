@@ -39,7 +39,7 @@ Note: The attribute `readonly` disables the input but it still retains a default
 
 ### Checkbox
 
-Use checkboxes to select one or more options, default checkboxes can appear in four states: both selected, unselected and disabled.
+Use checkboxes to select one or more options, default checkboxes can appear in three states: selected, unselected and disabled.
 
 <a href="/examples/base/forms/checkboxes/"
     class="js-example">
