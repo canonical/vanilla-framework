@@ -46,7 +46,7 @@ Animations are preset to components. Components can be modified or extended to
 include animation by including the animation mixin.
 
 ```scss
-@include animation(property: all, duration: brisk, easing: out);
+@include vf-animation(property: all, duration: brisk, easing: out);
 ```
 
 ### Reduced motion
