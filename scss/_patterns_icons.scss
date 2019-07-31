@@ -2,6 +2,8 @@
 
 $default-icon-size: map-get($icon-sizes, default);
 $social-icon-size: map-get($icon-sizes, social);
+$color-social-icon-background: $color-mid-dark !default;
+$color-social-icon-foreground: $color-x-light !default;
 
 @mixin vf-p-icons {
   @include vf-p-icon-anchor;
@@ -163,36 +165,36 @@ $social-icon-size: map-get($icon-sizes, social);
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='M7.5 23.1a12 12 0 0 0 16.4-9.8l-1.1-.2a10.9 10.9 0 0 1-14.9 9l-.4 1zM5.3 22A12 12 0 0 1 5.3 2l.6 1a10.9 10.9 0 0 0 0 18l-.6 1zm18.6-11.2A12 12 0 0 0 7.5 1l.4 1a10.8 10.8 0 0 1 14.9 9l1-.2z' fill='#{vf-url-friendly-color($color)}'/%3E%3C/svg%3E");
 }
 
-@mixin vf-icon-facebook($color) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Ccircle id='a' cx='20' cy='20' r='20'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero' xlink:href='%23a'/%3E%3Cpath d='M30.037 10.001c-3.92 0-6.603 2.449-6.603 6.945v3.526H19v5.255h4.434V40c1.82-.246 3.6-.728 5.3-1.438V25.727h4.423l.66-5.255h-5.084V17.47c0-1.522.48-3.085 2.55-2.563H34v-4.7c-.47-.064-2.085-.207-3.963-.207v.001z' fill='%23FFF' fill-rule='nonzero' mask='url%28%23b%29'/%3E%3C/g%3E%3C/svg%3E");
+@mixin vf-icon-facebook($background, $foreground) {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Ccircle id='a' cx='20' cy='20' r='20'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse fill='#{vf-url-friendly-color($background)}' fill-rule='nonzero' xlink:href='%23a'/%3E%3Cpath d='M30.037 10.001c-3.92 0-6.603 2.449-6.603 6.945v3.526H19v5.255h4.434V40c1.82-.246 3.6-.728 5.3-1.438V25.727h4.423l.66-5.255h-5.084V17.47c0-1.522.48-3.085 2.55-2.563H34v-4.7c-.47-.064-2.085-.207-3.963-.207v.001z' fill='#{vf-url-friendly-color($foreground)}' fill-rule='nonzero' mask='url%28%23b%29'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @mixin vf-icon-google($color) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cpath d='M20 0C8.955 0 0 8.955 0 20s8.955 20 20 20 20-8.955 20-20S31.045 0 20 0zm-4.862 26.805A6.799 6.799 0 0 1 8.333 20a6.799 6.799 0 0 1 6.805-6.805c1.839 0 3.374.67 4.559 1.778l-1.845 1.78c-.507-.486-1.39-1.05-2.714-1.05-2.323 0-4.218 1.925-4.218 4.299 0 2.373 1.897 4.298 4.218 4.298 2.694 0 3.707-1.937 3.86-2.937h-3.86V19.03h6.425c.06.34.107.68.107 1.128.002 3.887-2.605 6.647-6.532 6.647zm16.529-5.833H28.75v2.916h-1.945v-2.916h-2.917v-1.944h2.917v-2.916h1.945v2.916h2.917v1.944z' fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero'/%3E%3C/svg%3E");
 }
 
-@mixin vf-icon-twitter($color) {
-  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill-rule='nonzero' fill='none'%3E%3Ccircle cx='20' cy='20' r='20' fill='#{vf-url-friendly-color($color)}'/%3E%3Cpath d='M16.34 30.55c8.87 0 13.72-7.35 13.72-13.72 0-.21 0-.42-.01-.62.94-.68 1.76-1.53 2.41-2.5-.86.38-1.79.64-2.77.76 1-.6 1.76-1.54 2.12-2.67-.93.55-1.96.95-3.06 1.17a4.799 4.799 0 0 0-3.52-1.52c-2.66 0-4.82 2.16-4.82 4.82 0 .38.04.75.13 1.1a13.68 13.68 0 0 1-9.94-5.04c-.41.71-.65 1.54-.65 2.42a4.8 4.8 0 0 0 2.15 4.01c-.79-.02-1.53-.24-2.18-.6v.06c0 2.34 1.66 4.28 3.87 4.73a4.807 4.807 0 0 1-2.18.08 4.815 4.815 0 0 0 4.5 3.35 9.693 9.693 0 0 1-7.14 1.99c2.11 1.38 4.65 2.18 7.37 2.18' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+@mixin vf-icon-twitter($background, $foreground) {
+  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill-rule='nonzero' fill='none'%3E%3Ccircle cx='20' cy='20' r='20' fill='#{vf-url-friendly-color($background)}'/%3E%3Cpath d='M16.34 30.55c8.87 0 13.72-7.35 13.72-13.72 0-.21 0-.42-.01-.62.94-.68 1.76-1.53 2.41-2.5-.86.38-1.79.64-2.77.76 1-.6 1.76-1.54 2.12-2.67-.93.55-1.96.95-3.06 1.17a4.799 4.799 0 0 0-3.52-1.52c-2.66 0-4.82 2.16-4.82 4.82 0 .38.04.75.13 1.1a13.68 13.68 0 0 1-9.94-5.04c-.41.71-.65 1.54-.65 2.42a4.8 4.8 0 0 0 2.15 4.01c-.79-.02-1.53-.24-2.18-.6v.06c0 2.34 1.66 4.28 3.87 4.73a4.807 4.807 0 0 1-2.18.08 4.815 4.815 0 0 0 4.5 3.35 9.693 9.693 0 0 1-7.14 1.99c2.11 1.38 4.65 2.18 7.37 2.18' fill='#{vf-url-friendly-color($foreground)}'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-@mixin vf-icon-instagram($color) {
-  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 28.479h28.473V.009H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='20' cy='20' r='20' fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero'/%3E%3Cg transform='translate%286 6%29'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M14.237.009c-3.867 0-4.352.016-5.87.086-1.515.069-2.55.31-3.456.661-.936.364-1.73.851-2.522 1.642A6.978 6.978 0 0 0 .747 4.92C.395 5.826.155 6.86.086 8.376.016 9.894 0 10.379 0 14.246c0 3.866.016 4.35.086 5.87.069 1.515.31 2.55.661 3.455.364.936.851 1.73 1.642 2.522a6.98 6.98 0 0 0 2.522 1.642c.906.352 1.94.592 3.456.661 1.518.07 2.003.086 5.87.086 3.866 0 4.35-.016 5.87-.086 1.515-.069 2.55-.31 3.455-.661a6.98 6.98 0 0 0 2.522-1.642 6.98 6.98 0 0 0 1.642-2.522c.352-.905.592-1.94.661-3.456.07-1.518.086-2.003.086-5.87 0-3.866-.016-4.35-.086-5.87-.069-1.514-.31-2.55-.661-3.455a6.98 6.98 0 0 0-1.642-2.522A6.978 6.978 0 0 0 23.562.756c-.905-.352-1.94-.592-3.456-.661-1.518-.07-2.003-.086-5.87-.086zm0 2.565c3.8 0 4.251.015 5.752.083 1.388.063 2.142.295 2.644.49a4.41 4.41 0 0 1 1.637 1.065 4.41 4.41 0 0 1 1.065 1.637c.195.502.427 1.256.49 2.644.068 1.501.083 1.951.083 5.753 0 3.8-.015 4.251-.083 5.752-.063 1.388-.295 2.142-.49 2.644a4.41 4.41 0 0 1-1.065 1.637 4.41 4.41 0 0 1-1.637 1.065c-.502.195-1.256.427-2.644.49-1.5.068-1.95.083-5.752.083-3.802 0-4.252-.015-5.753-.083-1.388-.063-2.142-.295-2.644-.49a4.41 4.41 0 0 1-1.637-1.065 4.411 4.411 0 0 1-1.065-1.637c-.195-.502-.427-1.256-.49-2.644-.068-1.5-.083-1.951-.083-5.752 0-3.802.015-4.252.083-5.753.063-1.388.295-2.142.49-2.644a4.41 4.41 0 0 1 1.065-1.637A4.41 4.41 0 0 1 5.84 3.147c.502-.195 1.256-.427 2.644-.49 1.501-.068 1.951-.083 5.753-.083z' fill='%23FFF' mask='url%28%23b%29'/%3E%3C/g%3E%3Cpath d='M20.24 24.991a4.746 4.746 0 1 1 0-9.49 4.746 4.746 0 0 1 0 9.49zm0-12.056a7.31 7.31 0 1 0 0 14.621 7.31 7.31 0 0 0 0-14.621zM29.54 12.646a1.708 1.708 0 1 1-3.416 0 1.708 1.708 0 0 1 3.417 0' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+@mixin vf-icon-instagram($background, $foreground) {
+  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 28.479h28.473V.009H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='20' cy='20' r='20' fill='#{vf-url-friendly-color($background)}' fill-rule='nonzero'/%3E%3Cg transform='translate%286 6%29'%3E%3Cmask id='b' fill='#{vf-url-friendly-color($foreground)}'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M14.237.009c-3.867 0-4.352.016-5.87.086-1.515.069-2.55.31-3.456.661-.936.364-1.73.851-2.522 1.642A6.978 6.978 0 0 0 .747 4.92C.395 5.826.155 6.86.086 8.376.016 9.894 0 10.379 0 14.246c0 3.866.016 4.35.086 5.87.069 1.515.31 2.55.661 3.455.364.936.851 1.73 1.642 2.522a6.98 6.98 0 0 0 2.522 1.642c.906.352 1.94.592 3.456.661 1.518.07 2.003.086 5.87.086 3.866 0 4.35-.016 5.87-.086 1.515-.069 2.55-.31 3.455-.661a6.98 6.98 0 0 0 2.522-1.642 6.98 6.98 0 0 0 1.642-2.522c.352-.905.592-1.94.661-3.456.07-1.518.086-2.003.086-5.87 0-3.866-.016-4.35-.086-5.87-.069-1.514-.31-2.55-.661-3.455a6.98 6.98 0 0 0-1.642-2.522A6.978 6.978 0 0 0 23.562.756c-.905-.352-1.94-.592-3.456-.661-1.518-.07-2.003-.086-5.87-.086zm0 2.565c3.8 0 4.251.015 5.752.083 1.388.063 2.142.295 2.644.49a4.41 4.41 0 0 1 1.637 1.065 4.41 4.41 0 0 1 1.065 1.637c.195.502.427 1.256.49 2.644.068 1.501.083 1.951.083 5.753 0 3.8-.015 4.251-.083 5.752-.063 1.388-.295 2.142-.49 2.644a4.41 4.41 0 0 1-1.065 1.637 4.41 4.41 0 0 1-1.637 1.065c-.502.195-1.256.427-2.644.49-1.5.068-1.95.083-5.752.083-3.802 0-4.252-.015-5.753-.083-1.388-.063-2.142-.295-2.644-.49a4.41 4.41 0 0 1-1.637-1.065 4.411 4.411 0 0 1-1.065-1.637c-.195-.502-.427-1.256-.49-2.644-.068-1.5-.083-1.951-.083-5.752 0-3.802.015-4.252.083-5.753.063-1.388.295-2.142.49-2.644a4.41 4.41 0 0 1 1.065-1.637A4.41 4.41 0 0 1 5.84 3.147c.502-.195 1.256-.427 2.644-.49 1.501-.068 1.951-.083 5.753-.083z' fill='#{vf-url-friendly-color($foreground)}' mask='url%28%23b%29'/%3E%3C/g%3E%3Cpath d='M20.24 24.991a4.746 4.746 0 1 1 0-9.49 4.746 4.746 0 0 1 0 9.49zm0-12.056a7.31 7.31 0 1 0 0 14.621 7.31 7.31 0 0 0 0-14.621zM29.54 12.646a1.708 1.708 0 1 1-3.416 0 1.708 1.708 0 0 1 3.417 0' fill='#{vf-url-friendly-color($foreground)}'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-@mixin vf-icon-linkedin($color) {
-  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero' cx='20' cy='20' r='20'/%3E%3Cg fill='%23FFFFFE'%3E%3Cpath d='M11.07 8.406a2.743 2.743 0 0 1 2.731 2.75c0 1.52-1.225 2.753-2.731 2.753a2.743 2.743 0 0 1-2.734-2.752 2.742 2.742 0 0 1 2.734-2.751zM8.712 31.268h4.713V15.997H8.712v15.271zM16.382 15.997h4.52v2.087h.064c.63-1.201 2.167-2.467 4.46-2.467 4.773 0 5.654 3.163 5.654 7.274v8.377h-4.71v-7.426c0-1.771-.032-4.05-2.45-4.05-2.452 0-2.828 1.93-2.828 3.921v7.555h-4.71V15.997'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+@mixin vf-icon-linkedin($background, $foreground) {
+  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='#{vf-url-friendly-color($background)}' fill-rule='nonzero' cx='20' cy='20' r='20'/%3E%3Cg fill='#{vf-url-friendly-color($foreground)}'%3E%3Cpath d='M11.07 8.406a2.743 2.743 0 0 1 2.731 2.75c0 1.52-1.225 2.753-2.731 2.753a2.743 2.743 0 0 1-2.734-2.752 2.742 2.742 0 0 1 2.734-2.751zM8.712 31.268h4.713V15.997H8.712v15.271zM16.382 15.997h4.52v2.087h.064c.63-1.201 2.167-2.467 4.46-2.467 4.773 0 5.654 3.163 5.654 7.274v8.377h-4.71v-7.426c0-1.771-.032-4.05-2.45-4.05-2.452 0-2.828 1.93-2.828 3.921v7.555h-4.71V15.997'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-@mixin vf-icon-youtube($color) {
-  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M.009 18.367V.006h26.06v18.36z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero' cx='20' cy='20' r='20'/%3E%3Cg transform='translate%287 11%29'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M25.524 2.868A3.275 3.275 0 0 0 23.22.548C21.187 0 13.034 0 13.034 0S4.882 0 2.85.548a3.275 3.275 0 0 0-2.305 2.32C0 4.914 0 9.183 0 9.183s0 4.27.545 6.316a3.276 3.276 0 0 0 2.305 2.32c2.032.548 10.184.548 10.184.548s8.153 0 10.185-.548a3.276 3.276 0 0 0 2.305-2.32c.545-2.047.545-6.316.545-6.316s0-4.269-.545-6.315' fill='%23FFF' mask='url%28%23b%29'/%3E%3C/g%3E%3Cpath fill='#{vf-url-friendly-color($color)}' d='M17.368 24.06l6.814-3.876-6.814-3.877v7.753'/%3E%3C/g%3E%3C/svg%3E");
+@mixin vf-icon-youtube($background, $foreground) {
+  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M.009 18.367V.006h26.06v18.36z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='#{vf-url-friendly-color($background)}' fill-rule='nonzero' cx='20' cy='20' r='20'/%3E%3Cg transform='translate%287 11%29'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M25.524 2.868A3.275 3.275 0 0 0 23.22.548C21.187 0 13.034 0 13.034 0S4.882 0 2.85.548a3.275 3.275 0 0 0-2.305 2.32C0 4.914 0 9.183 0 9.183s0 4.27.545 6.316a3.276 3.276 0 0 0 2.305 2.32c2.032.548 10.184.548 10.184.548s8.153 0 10.185-.548a3.276 3.276 0 0 0 2.305-2.32c.545-2.047.545-6.316.545-6.316s0-4.269-.545-6.315' fill='#{vf-url-friendly-color($foreground)}' mask='url%28%23b%29'/%3E%3C/g%3E%3Cpath fill='#{vf-url-friendly-color($background)}' d='M17.368 24.06l6.814-3.876-6.814-3.877v7.753'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @mixin vf-icon-canonical($color) {
   background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cpath d='M20 32.735c-7.036 0-12.736-5.7-12.736-12.736 0-7.034 5.7-12.734 12.736-12.734 7.036 0 12.736 5.7 12.736 12.734 0 7.036-5.7 12.736-12.736 12.736zM40 20c0 11.045-8.955 20-20 20S0 31.045 0 20C0 8.954 8.955 0 20 0s20 8.954 20 20zM20 4.865C11.636 4.865 4.864 11.642 4.864 20c0 8.36 6.772 15.135 15.136 15.135 8.364 0 15.136-6.775 15.136-15.135 0-8.358-6.772-15.135-15.136-15.135z' fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero'/%3E%3C/svg%3E");
 }
 
-@mixin vf-icon-ubuntu($color) {
-  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill-rule='nonzero' fill='none'%3E%3Cpath d='M39.906 20.013c0 10.987-8.905 19.893-19.892 19.893C9.028 39.906.122 31 .122 20.013.122 9.028 9.028.122 20.014.122c10.987 0 19.892 8.905 19.892 19.891z' fill='#{vf-url-friendly-color($color)}'/%3E%3Cpath d='M9.69 20.013a2.558 2.558 0 1 1-5.116 0 2.558 2.558 0 0 1 5.116 0zM24.241 32.45a2.559 2.559 0 0 0 4.43-2.558 2.557 2.557 0 1 0-4.43 2.558zm4.429-22.313a2.557 2.557 0 1 0-4.43-2.556 2.557 2.557 0 0 0 4.43 2.556zm-8.656 2.584a7.292 7.292 0 0 1 7.265 6.648l3.701-.059a10.954 10.954 0 0 0-3.227-7.094 3.591 3.591 0 0 1-3.097-.24A3.592 3.592 0 0 1 22.9 9.41c-.92-.25-1.888-.384-2.886-.384-1.75 0-3.404.41-4.874 1.137l1.801 3.234a7.278 7.278 0 0 1 3.073-.677zm-7.294 7.293a7.283 7.283 0 0 1 3.102-5.967l-1.9-3.177a11.005 11.005 0 0 0-4.533 6.341 3.59 3.59 0 0 1 1.343 2.803 3.592 3.592 0 0 1-1.343 2.804 11.01 11.01 0 0 0 4.532 6.343l1.9-3.177a7.286 7.286 0 0 1-3.1-5.97zm7.294 7.295a7.267 7.267 0 0 1-3.073-.678l-1.8 3.234a10.938 10.938 0 0 0 4.873 1.137c.998 0 1.966-.132 2.886-.383a3.587 3.587 0 0 1 1.756-2.564 3.591 3.591 0 0 1 3.097-.24 10.958 10.958 0 0 0 3.227-7.096l-3.701-.058a7.293 7.293 0 0 1-7.265 6.648z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+@mixin vf-icon-ubuntu($background, $foreground) {
+  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cg fill-rule='nonzero' fill='none'%3E%3Cpath d='M39.906 20.013c0 10.987-8.905 19.893-19.892 19.893C9.028 39.906.122 31 .122 20.013.122 9.028 9.028.122 20.014.122c10.987 0 19.892 8.905 19.892 19.891z' fill='#{vf-url-friendly-color($background)}'/%3E%3Cpath d='M9.69 20.013a2.558 2.558 0 1 1-5.116 0 2.558 2.558 0 0 1 5.116 0zM24.241 32.45a2.559 2.559 0 0 0 4.43-2.558 2.557 2.557 0 1 0-4.43 2.558zm4.429-22.313a2.557 2.557 0 1 0-4.43-2.556 2.557 2.557 0 0 0 4.43 2.556zm-8.656 2.584a7.292 7.292 0 0 1 7.265 6.648l3.701-.059a10.954 10.954 0 0 0-3.227-7.094 3.591 3.591 0 0 1-3.097-.24A3.592 3.592 0 0 1 22.9 9.41c-.92-.25-1.888-.384-2.886-.384-1.75 0-3.404.41-4.874 1.137l1.801 3.234a7.278 7.278 0 0 1 3.073-.677zm-7.294 7.293a7.283 7.283 0 0 1 3.102-5.967l-1.9-3.177a11.005 11.005 0 0 0-4.533 6.341 3.59 3.59 0 0 1 1.343 2.803 3.592 3.592 0 0 1-1.343 2.804 11.01 11.01 0 0 0 4.532 6.343l1.9-3.177a7.286 7.286 0 0 1-3.1-5.97zm7.294 7.295a7.267 7.267 0 0 1-3.073-.678l-1.8 3.234a10.938 10.938 0 0 0 4.873 1.137c.998 0 1.966-.132 2.886-.383a3.587 3.587 0 0 1 1.756-2.564 3.591 3.591 0 0 1 3.097-.24 10.958 10.958 0 0 0 3.227-7.096l-3.701-.058a7.293 7.293 0 0 1-7.265 6.648z' fill='#{vf-url-friendly-color($foreground)}'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @mixin vf-p-icon-anchor {
@@ -454,10 +456,10 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-facebook {
   .p-icon--facebook {
     @extend %social-icon;
-    @include vf-icon-facebook($color-mid-dark);
+    @include vf-icon-facebook($color-social-icon-background, $color-social-icon-foreground);
 
     &:hover {
-      @include vf-icon-facebook(#3b5998);
+      @include vf-icon-facebook(#3b5998, $color-social-icon-foreground);
     }
   }
 }
@@ -476,10 +478,10 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-twitter {
   .p-icon--twitter {
     @extend %social-icon;
-    @include vf-icon-twitter($color-mid-dark);
+    @include vf-icon-twitter($color-social-icon-background, $color-social-icon-foreground);
 
     &:hover {
-      @include vf-icon-twitter(#1da1f2);
+      @include vf-icon-twitter(#1da1f2, $color-social-icon-foreground);
     }
   }
 }
@@ -487,10 +489,10 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-instagram {
   .p-icon--instagram {
     @extend %social-icon;
-    @include vf-icon-instagram($color-mid-dark);
+    @include vf-icon-instagram($color-social-icon-background, $color-social-icon-foreground);
 
     &:hover {
-      @include vf-icon-instagram(#fb3958);
+      @include vf-icon-instagram(#fb3958, $color-social-icon-foreground);
     }
   }
 }
@@ -498,10 +500,10 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-linkedin {
   .p-icon--linkedin {
     @extend %social-icon;
-    @include vf-icon-linkedin($color-mid-dark);
+    @include vf-icon-linkedin($color-social-icon-background, $color-social-icon-foreground);
 
     &:hover {
-      @include vf-icon-linkedin(#0071a1);
+      @include vf-icon-linkedin(#0071a1, $color-social-icon-foreground);
     }
   }
 }
@@ -509,10 +511,10 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-youtube {
   .p-icon--youtube {
     @extend %social-icon;
-    @include vf-icon-youtube($color-mid-dark);
+    @include vf-icon-youtube($color-social-icon-background, $color-social-icon-foreground);
 
     &:hover {
-      @include vf-icon-youtube(#d9252a);
+      @include vf-icon-youtube(#d9252a, $color-social-icon-foreground);
     }
   }
 }
@@ -520,7 +522,7 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-canonical {
   .p-icon--canonical {
     @extend %social-icon;
-    @include vf-icon-canonical($color-mid-dark);
+    @include vf-icon-canonical($color-social-icon-background);
 
     &:hover {
       @include vf-icon-canonical(#772953);
@@ -531,10 +533,10 @@ $social-icon-size: map-get($icon-sizes, social);
 @mixin vf-p-icon-ubuntu {
   .p-icon--ubuntu {
     @extend %social-icon;
-    @include vf-icon-ubuntu($color-mid-dark);
+    @include vf-icon-ubuntu($color-social-icon-background, $color-social-icon-foreground);
 
     &:hover {
-      @include vf-icon-ubuntu(#e95420);
+      @include vf-icon-ubuntu(#e95420, $color-social-icon-foreground);
     }
   }
 }
