@@ -21,22 +21,42 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <tr>
-      <th>Menu button</th>
+      <th><a href="/patterns/menu-button">Menu button</a></th>
       <td><div class="p-label--in-progress">In progress</div></td>
       <td><a href="https://github.com/canonical-web-and-design/design-vanilla-framework/tree/master/Menu%20button">Design spec</a> created and ready for build</td>
+    </tr>
+    <tr>
+      <th><a href="/patterns/navigation/#sub-navigation">Sub-navigation</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>This component's functionality requires JavaScript</td>
+    </tr>
+    <tr>
+      <th><a href="/patterns/pagination/">Pagination</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>Should be used to navigate between pages of content</td>
+    </tr>
+    <tr>
+      <th><a href="/patterns/accordion">Accordion</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>Icons now appear on the left rather than the right</td>
+    </tr>
+    <tr>
+      <th><a href="/base/code/#inline">Code</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>Inline code elements now have a grey highlight to help them stand out from other text</td>
     </tr>
     <tr>
       <th>Footer</th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>Removed from release <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.0">v2.0.0</a></td>
     </tr>
+    <tr>
+      <th>Sidebar navigation</th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>Removed from release <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.0">v2.0.0</a></td>
+    </tr>
   </tbody>
   <tfoot>
-    <tr>
-      <th><a href="/patterns/navigation/#sub-navigation">Sub-navigation</a></th>
-      <td><div class="p-label--new">New</div></td>
-      <td>This component's functionality requires JavaScript</td>
-    </tr>
   </tfoot>
 </table>
 
