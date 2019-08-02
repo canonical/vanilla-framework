@@ -69,7 +69,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <p class="p-card__content">Newly released components, utilities or settings that are safe to use in projects.</p>
     </div>
   </div>
-  <div class="col-4">
+  <div class="col-4 u-equal-height">
   <div class="p-card--highlighted">
       <div class="p-label--deprecated">Deprecated</div>
       <p class="p-card__content">These components, utilities or settings are in the process of being removed and should no longer be used in projects.</p>
@@ -81,7 +81,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <p class="p-card__content">Design spec and code implementation are not yet finished.</p>
     </div>
   </div>
-  <div class="col-4">
+  <div class="col-4 u-equal-height">
   <div class="p-card--highlighted">
       <div class="p-label--updated">Updated</div>
       <p class="p-card__content">These are existing components, utilities or settings that have been updated either through design or code.</p>
