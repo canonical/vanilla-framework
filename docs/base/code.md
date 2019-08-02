@@ -8,7 +8,7 @@ layout: default
 
 Vanilla gives you multiple ways to display code using the standard HTML elements.
 
-### Inline
+### Inline <span class="p-label--updated" style="margin-left: 0.5rem;">Updated</span>
 
 When you refer to code inline with other text, use the <code>&lt;code&gt;</code> tag.
 

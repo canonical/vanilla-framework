@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Pagination
+## Pagination <span class="p-label--new" style="margin-left: 0.5rem;">New</span>
 
 <hr>
 
