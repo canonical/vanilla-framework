@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Menu button
+## Menu button <span class="p-label--in-progress" style="margin-left: 0.5rem;">In progress</span>
 
 <hr>
 
