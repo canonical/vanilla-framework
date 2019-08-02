@@ -29,7 +29,7 @@ by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.sc
 View example of the navigation pattern
 </a>
 
-### Sub-navigation
+### Sub-navigation <span class="p-label--new" style="margin-left: 0.5rem;">New</span>
 
 Sub-navigation drop-down menus can be added to the navigation by including one
 or more `p-subnav` components.
