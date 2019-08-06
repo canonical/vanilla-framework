@@ -32,7 +32,7 @@
   }
 
   dd {
-    @extend %paragraph;
+    @extend %default-text;
     margin-left: $sph-inner;
   }
 
@@ -44,6 +44,10 @@
 
     &:first-of-type {
       border-top: 0;
+    }
+
+    dd + & {
+      margin-top: $spv-outer--scaleable - $spv-nudge-compensation;
     }
   }
 }

@@ -1,6 +1,11 @@
 @import 'settings';
 $tick-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
-$spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bottom for lists containing loose text.
+$spv-list-item--inner: null;
+@if ($pad-lists) {
+  $spv-list-item--inner: $spv-inner--x-small--scaleable * 0.5; // padding top and bottom for lists containing loose text.
+} @else {
+  $spv-list-item--inner: 0;
+}
 
 //Placeholders
 %numbered-step-container {
@@ -35,10 +40,8 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
 
   // Mixin for list items
   %vf-list-item {
-    @if ($pad-lists) {
-      padding-bottom: $spv-list-item--inner;
-      padding-top: $spv-list-item--inner;
-    }
+    padding-bottom: $spv-list-item--inner;
+    padding-top: $spv-list-item--inner;
 
     form & {
       padding-bottom: 0;
@@ -192,7 +195,7 @@ $spv-list-item--inner: 0.25 * $spv-outer--small-scaleable; // padding top and bo
     float: none;
     margin-left: 0;
     overflow: visible;
-    padding-bottom: map-get($sp-before, h3);
+    padding-bottom: $spv-outer--scaleable;
     position: relative;
     width: 100%;
   }
