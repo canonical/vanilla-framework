@@ -6,7 +6,7 @@ layout: default
 
 <hr>
 
-Vanilla provides a choice of durations and easings for animating components.
+Vanilla provides a choice of duration and easing for animating components.
 
 ### Duration
 
