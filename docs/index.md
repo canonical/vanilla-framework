@@ -38,7 +38,7 @@ See [Building with Vanilla](/building-vanilla) and [Customising Vanilla](/custom
   <div class="col-12">
     <h3>Hotlink</h3>
     <p>You can add Vanilla directly to your markup:</p>
-    <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-2.2.0.min.css" /&gt;</code></pre>
+    <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-2.3.0.min.css" /&gt;</code></pre>
   </div>
 </div>
 
@@ -48,7 +48,7 @@ See [Building with Vanilla](/building-vanilla) and [Customising Vanilla](/custom
   <div class="col-12">
     <h3>Download</h3>
     <p>Download the latest version of Vanilla from GitHub.</p>
-    <a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v2.2.0.zip" class="p-button--positive">Download v2.2.0</a>
+    <a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v2.3.0.zip" class="p-button--positive">Download v2.3.0</a>
   </div>
 </div>
 
@@ -59,13 +59,13 @@ See [Building with Vanilla](/building-vanilla) and [Customising Vanilla](/custom
     <h3>What's new</h3>
     <ul class="p-list">
       <li class="p-list__item--deep">
+        <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0">Release notes: v2.3.0</a>
+      </li>
+      <li class="p-list__item--deep">
         <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.2.0">Release notes: v2.2.0</a>
       </li>
       <li class="p-list__item--deep">
         <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.1.0">Release notes: v2.1.0</a>
-      </li>
-      <li class="p-list__item--deep">
-        <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.1">Release notes: v2.0.1</a>
       </li>
     </ul>
   </div>
