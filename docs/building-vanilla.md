@@ -65,8 +65,6 @@ Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebu
 
 For more options on configuring `node-sass`, for example minification and autoprefixing, refer to [the README.md](https://github.com/sass/node-sass).
 
----
-
 ### Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile JavaScript modules, and can be used to inject Vanilla styles to the DOM. To get set up using Vanilla with Webpack, add the `webpack` and `vanilla-framework` packages to your project dependencies:
@@ -208,8 +206,6 @@ Your project's folder structure should now look something like this:
 
 For more options on configuring Webpack, for example minification and autoprefixing, refer to [the docs](https://webpack.js.org/concepts/).
 
----
-
 ### Gulp
 
 To get started with [gulp-sass](https://github.com/dlmanning/gulp-sass), add the following packages to your project:
@@ -272,8 +268,6 @@ Now run `gulp build-css`, which will convert any Sass files in the `src/` folder
 If you open an extra terminal and run `gulp watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
 
 For more options on configuring `gulp-sass`, for example minification and autoprefixing, refer to [the README.md](https://github.com/dlmanning/gulp-sass).
-
----
 
 ### Git submodules
 
