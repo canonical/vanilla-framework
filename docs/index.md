@@ -31,8 +31,6 @@ You can use Vanilla in your projects in a few different ways. See [Building with
   </div>
 </div>
 
-<br>
-
 <div class="row">
 <div class="u-equal-height">
   <div class="col-12">
