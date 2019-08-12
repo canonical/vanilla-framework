@@ -29,8 +29,6 @@ $grid-max-width: 1440px;
 @include vanilla;
 ```
 
----
-
 ### Importing individual components
 
 Your project may not warrant including all of Vanilla, in which case you can include components modularly. You must at least include `vf-base` as many components depend on the base styling. Below is an example of how to include Vanilla components on an as-needed basis:
@@ -48,15 +46,27 @@ Your project may not warrant including all of Vanilla, in which case you can inc
 @include vf-p-links;
 ```
 
----
+### Related settings
 
-### Related
-
-- [Animation settings](/settings/animation-settings)
-- [Assets settings](/settings/assets-settings)
-- [Breakpoint settings](/settings/breakpoint-settings)
-- [Color settings](/settings/color-settings)
-- [Font settings](/settings/font-settings)
-- [Layout settings](/settings/layout-settings)
-- [Placeholder settings](/settings/placeholder-settings)
-- [Spacing settings](/settings/spacing-settings)
+<div class="row">
+  <div class="col-4">
+  <ul class="p-list--divided">
+  <li class="p-list__item"><a href="/settings/animation-settings">Animation</a></li>
+  <li class="p-list__item"><a href="/settings/assets-settings">Assets</a></li>
+  <li class="p-list__item"><a href="/settings/breakpoint-settings">Breakpoint</a></li>
+  </ul>
+  </div>
+  <div class="col-4">
+  <ul class="p-list--divided">
+  <li class="p-list__item"><a href="/settings/color-settings">Color</a></li>
+  <li class="p-list__item"><a href="/settings/font-settings">Font</a></li>
+  <li class="p-list__item"><a href="/settings/layout-settings">Layout</a></li>
+  </ul>
+  </div>
+  <div class="col-4">
+  <ul class="p-list--divided">
+  <li class="p-list__item"><a href="/settings/placeholder-settings">Placeholder</a></li>
+  <li class="p-list__item"><a href="/settings/spacing-settings">Spacing</a></li>
+  </ul>
+  </div>
+</div>
