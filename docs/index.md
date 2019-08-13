@@ -32,7 +32,6 @@ You can use Vanilla in your projects in a few different ways. See [Building with
 </div>
 
 <div class="row">
-<div class="u-equal-height">
   <div class="col-12">
     <h3>Hotlink</h3>
     <p>You can add Vanilla directly to your markup:</p>
@@ -42,11 +41,11 @@ You can use Vanilla in your projects in a few different ways. See [Building with
 
 <br>
 
-<div class="row u-equal-height">
+<div class="row">
   <div class="col-12">
     <h3>Download</h3>
-    <span>Download the latest version of Vanilla from GitHub.</span>
-    <a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v2.3.0.zip" class="p-button--positive">Download v2.3.0</a>
+    <p>Download the latest version of Vanilla from GitHub.</p>
+    <button class="p-button--positive"><a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v2.3.0.zip">Download v2.3.0</a></button>
   </div>
 </div>
 
@@ -54,20 +53,16 @@ You can use Vanilla in your projects in a few different ways. See [Building with
 
 <div class="row">
 <h3>Release notes</h3>
-  <div class="col-6">
-    <ul class="p-list--divided">
+<div class="row">
+    <ul class="p-list--divided is-split">
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0">Release v2.3.0 - 9 August, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.2.0">Release v2.2.0 - 1 August, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.1.0">Release v2.1.0 - 9 July, 2019</a></li>
-    </ul>
-  </div>
-
-  <div class="col-6">
-    <ul class="p-list--divided">
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.1">Release v2.0.1 - 11 June, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.0">Release v2.0.0 - 10 June, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.1.0">Release v2.0.0-beta.1 - 30 May, 2019</a></li>
     </ul>
+  </div>
   </div>
 
   <br>
