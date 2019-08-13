@@ -36,7 +36,7 @@ or more `p-subnav` components.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span> This component's functionality requires JavaScript. The <a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/develop/examples/patterns/navigation/subnav.html">sub-navigation example</a> provides an example implementation.
+    <span class="p-notification__status">Note:</span> This component's functionality requires JavaScript. The <a href="https://docs.vanillaframework.io/examples/patterns/navigation/subnav/">sub-navigation example</a> provides an example implementation.
   </p>
 </div>
 
