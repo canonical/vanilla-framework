@@ -10,7 +10,9 @@
     border-width: 1px;
     color: $color-x-dark;
     display: block;
-    padding: calc(#{$spv-nudge} - 1px) $sph-inner--small * 1.5;
+    height: calc(#{2 * $spv-nudge + map-get($line-heights, default-text)});
+    padding: calc(#{$spv-nudge} - 1px) $sph-inner--small;
+    display: flex;
     text-decoration: none;
 
     &.is-disabled {
