@@ -15,6 +15,18 @@ Each directory can be opened or collapse using `aria-hidden`, set `true` for ope
 View example of the list tree pattern
 </a>
 
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
+
 ### Design
 
 For more information view the [list tree design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/List%20tree) which includes the specification in markdown format and a PNG image.
