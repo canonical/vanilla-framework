@@ -30,6 +30,13 @@ Code copyable should be used when presenting the user with a small snippet of co
 View example of the code copyable pattern
 </a>
 
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
+
 ### Numbered
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
