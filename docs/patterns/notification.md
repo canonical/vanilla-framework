@@ -19,6 +19,12 @@ The default variant should be used to display global messages.
 View example of the default notification pattern
 </a>
 
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
+
 ### Caution
 
 The caution variant should be used to convey information that is not critical but the user should be aware of.

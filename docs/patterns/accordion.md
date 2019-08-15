@@ -29,6 +29,10 @@ View example of the accordion pattern
   </p>
 </div>
 
+### Functionality
+
+Use toggle `aria-expanded` to reveal or conceal the content of an accordion.
+
 ### Design
 
 For more information [view the accordion design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Accordion), which includes the specification in markdown format and a PNG image.

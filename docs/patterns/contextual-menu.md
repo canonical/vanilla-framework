@@ -30,6 +30,16 @@ Using direction modifiers will change the placement of the drop-down menu. By de
 View example of the contextual menu pattern
 </a>
 
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
+
+### Functionality
+
+Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the contextual menu will be open by default. When clicking on the `p-contextual-menu__toggle`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the dropdown.
+
 ### Design
 
 For more information [view the contextual menu design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Contextual%20menu), which includes the specification in markdown format and a PNG image.
