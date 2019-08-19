@@ -10,11 +10,11 @@ Vanilla gives you multiple ways to display code using the standard HTML elements
 
 ### Inline <span class="p-label--updated" style="margin-left: 0.5rem;">Updated</span>
 
-When you refer to code inline with other text, use the <code>&lt;code&gt;</code> tag.
+When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
 ### Block
 
-If you want to refer to a larger piece of code, use <code>&lt;pre&gt;</code> together with the <code>&lt;code&gt;</code> tag.
+If you want to refer to a larger piece of code, use <code>&lt;pre></code> together with the <code>&lt;code></code> tag.
 
 <a href="/examples/base/code/"
     class="js-example">
