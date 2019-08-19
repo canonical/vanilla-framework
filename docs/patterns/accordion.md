@@ -33,12 +33,6 @@ View example of the accordion pattern
 
 Toggle `aria-expanded` to reveal or conceal the content of an accordion.
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
 ### Design
 
 For more information [view the accordion design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Accordion), which includes the specification in markdown format and a PNG image.
