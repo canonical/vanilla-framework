@@ -32,6 +32,12 @@ View example of the accordion pattern
 ### Functionality
 
 Toggle `aria-expanded` to reveal or conceal the content of an accordion.
+=======
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
 
 ### Design
 
