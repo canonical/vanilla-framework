@@ -105,6 +105,8 @@ Our icons have two predefined color styles: light and dark. The light variant is
 
 Our dark-themed icons are available when placed within `.p-strip--dark`, icon colors are reverted to ensure legibility as shown in our example.
 
+Alternatively to use light version of icons outside of the dark strip, add `is-light` class to the icon element (e.g. `p-icon--plus is-light`).
+
 <section>
 <div class="p-strip--dark is-shallow u-no-padding--top" style="background-color: transparent;">
     <div class="row u-equal-height">
