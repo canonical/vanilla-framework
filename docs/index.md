@@ -80,5 +80,4 @@ You can use Vanilla in your projects in a few different ways. See [Building with
     <li class="p-inline-list__item"><i class="p-list__icon--github"></i><a href="https://github.com/canonical-web-and-design/vanilla-framework/issues/new">Fork us on GitHub</a></li>
   </ul>
   </div>
-  </div>
 </div>
