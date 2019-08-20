@@ -25,16 +25,16 @@ View example of the base code block
 
 Code copyable should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
 
-<a href="/examples/patterns/code-copyable/"
-    class="js-example">
-View example of the code copyable pattern
-</a>
-
 <div class="p-notification--caution">
   <p class="p-notification__response">
     <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
   </p>
 </div>
+
+<a href="/examples/patterns/code-copyable/"
+    class="js-example">
+View example of the code copyable pattern
+</a>
 
 ### Functionality
 
