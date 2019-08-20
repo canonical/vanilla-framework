@@ -31,7 +31,7 @@ View example of the accordion pattern
 
 ### Functionality
 
-Toggle `aria-expanded` to reveal or conceal the content of an accordion.
+Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the accordion will be open by default. When clicking on the `accordion__tab`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the panel.
 
 ### Design
 
