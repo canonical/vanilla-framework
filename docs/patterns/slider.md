@@ -12,12 +12,6 @@ You can apply the slider component on `input type="range"` elements.
 
 The `p-slider` component allows a user to select from a specified range of values, where the precise value is not considered important.
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
 <a href="/examples/patterns/slider/slider/"
     class="js-example">
 View example of the slider pattern
@@ -26,12 +20,6 @@ View example of the slider pattern
 ### Input
 
 The `p-slider__wrapper` and `p-slider__input` classes should be used when you want to provide a numeric representation of the slider value, as well as allow the user to specify a value.
-
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
 
 <a href="/examples/patterns/slider/slider-input/"
     class="js-example">
