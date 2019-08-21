@@ -34,9 +34,17 @@ View example of the navigation pattern
 Sub-navigation drop-down menus can be added to the navigation by including one
 or more `p-subnav` components.
 
+To open the subnav-menu you need to set the `is-active` class on `p-subnav` element, but also set `aria-hidden` to `false` on `p-subnav__items`.
+
 <div class="p-notification--information">
   <p class="p-notification__response">
     <span class="p-notification__status">Note:</span> This component's functionality requires JavaScript. The <a href="https://docs.vanillaframework.io/examples/patterns/navigation/subnav/">sub-navigation example</a> provides an example implementation.
+  </p>
+</div>
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
   </p>
 </div>
 

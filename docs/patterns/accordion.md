@@ -18,16 +18,20 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
   </p>
 </div>
 
-<a href="/examples/patterns/accordion/"
-    class="js-example">
-View example of the accordion pattern
-</a>
-
 <div class="p-notification--caution">
   <p class="p-notification__response">
     <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
   </p>
 </div>
+
+<a href="/examples/patterns/accordion/"
+    class="js-example">
+View example of the accordion pattern
+</a>
+
+### Functionality
+
+Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the accordion will be open by default. When clicking on the `accordion__tab`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the panel.
 
 ### Design
 
