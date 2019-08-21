@@ -14,6 +14,12 @@ You can also include a close button using the `p-icon--close` pattern, although 
 
 The default variant should be used to display global messages.
 
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
+
 <a href="/examples/patterns/notifications/notifications/"
     class="js-example">
 View example of the default notification pattern
@@ -62,6 +68,12 @@ Notifications have the ability to add an action link to them. These should appea
 <div class="p-notification--information">
   <p class="p-notification__response">
     <span class="p-notification__status">Note:</span>All functionality must be developed independently.
+  </p>
+</div>
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
   </p>
 </div>
 
