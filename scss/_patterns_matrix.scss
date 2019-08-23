@@ -2,7 +2,7 @@
 
 // List Grid
 @mixin vf-p-matrix {
-  $matrix-img-width: map-get($icon-sizes, thumb--small);
+  $matrix-img-width: map-get($icon-sizes, heading-icon--small);
   $matrix-img-gutter: $sph-outer;
 
   .p-matrix {
@@ -88,11 +88,24 @@
 
   .p-matrix__img {
     align-self: flex-start;
-    margin-bottom: $spv-inner--scaleable;
+    height: auto;
+    margin-bottom: $spv-inner--small;
     margin-right: $matrix-img-gutter;
-    max-height: $matrix-img-width;
-    max-width: $matrix-img-width;
-    width: auto;
+    width: $matrix-img-width;
+
+    @media (max-width: $breakpoint-heading-threshold) {
+      margin-top: #{map-get($nudges, nudge--h4-mobile)};
+    }
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-top: -#{map-get($nudges, nudge--h4)};
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-top: -#{map-get($nudges, nudge--h4-large)};
+      }
+    }
   }
 
   .p-matrix__content {
@@ -108,18 +121,10 @@
 
   .p-matrix__title {
     @extend %vf-heading-4;
+    @extend %u-no-margin--bottom--h4;
   }
 
   .p-matrix__desc {
-    &:last-child {
-      @extend %sp--hp;
-      margin-bottom: $spv-nudge-compensation;
-    }
-
-    > p:last-child {
-      margin-bottom: $spv-nudge-compensation;
-    }
-
     @media (max-width: $breakpoint-heading-threshold) {
       margin-top: -#{$sp-unit};
     }

@@ -83,33 +83,6 @@
     }
   }
 
-  // All text elements have extra margin-bottom to keep following block level elements at a comfortable distance.
-  // When a text element is followed by another text element, this extra space needs to be compensated for.
-  // Notably, the selectors below do not include rules for p + any heading, which usually indicates beginning of next heading/paragraphs group, which requires an increase in white space. This is handled further down.
-  h1,
-  .p-heading--one,
-  h2,
-  .p-heading--two,
-  h3,
-  .p-heading--three,
-  h4,
-  .p-heading--four,
-  h5,
-  .p-heading--five,
-  h6,
-  .p-heading--six,
-  .p-muted-heading {
-    & + h1,
-    & + h2,
-    & + h3,
-    & + h4,
-    & + h5,
-    & + h6,
-    & + p:not([class*='p-muted-heading']) {
-      @extend %sp--hp;
-    }
-  }
-
   //@section Adjusted spacing for headings (or a p) following a paragraph
   p:not([class*='p-heading--']):not([class*='p-muted-heading']) {
     & + h1,
@@ -141,10 +114,6 @@
 
     & + .p-muted-heading {
       @extend %sp--pmuted;
-    }
-
-    & + & {
-      @extend %sp--hp;
     }
 
     // N.B.: selector order matters here - the epmty selector must come after all other rules affecting paragraphs
