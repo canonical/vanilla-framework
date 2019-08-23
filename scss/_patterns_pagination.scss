@@ -44,12 +44,14 @@
   }
 
   .p-pagination__item {
-    margin-right: $sph-inner--small;
     width: auto;
 
-    &:first-child,
-    &:nth-last-child(2) {
-      margin-right: $sph-inner;
+    & + & {
+      margin-left: $sph-inner--small;
+      &:nth-child(2),
+      &:nth-last-child(1) {
+        margin-left: $sph-outer;
+      }
     }
 
     &--truncation {
