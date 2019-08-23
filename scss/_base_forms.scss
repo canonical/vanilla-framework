@@ -9,7 +9,6 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
-    margin-bottom: $input-margin-bottom;
     padding-bottom: calc(#{$spv-nudge} - 1px);
     padding-top: calc(#{$spv-nudge} - 1px);
   }
@@ -34,6 +33,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     font-size: 1rem;
     font-weight: 300;
     line-height: map-get($line-heights, default-text);
+    margin-bottom: $input-margin-bottom;
     min-width: 10em;
     padding-left: $sph-inner--small;
     padding-right: $sph-inner--small;
@@ -92,7 +92,8 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
       &::before,
       &::after {
-        @include vf-animation(all, brisk);
+        $properties: #{background-color, border-color};
+        @include vf-animation($properties);
         position: absolute;
       }
 
@@ -102,6 +103,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
         content: '';
         height: $box-size;
         left: 0;
+        outline-offset: 1px;
         top: $box-offset-top;
         width: $box-size;
       }
@@ -128,7 +130,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
       opacity: 1;
     }
 
-    &:focus + label {
+    &:focus + label::before {
       outline: 2px solid $color-focus;
     }
 
@@ -202,6 +204,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
   [type='file'] {
     @extend %bordered-text-vertical-padding;
     @include vf-focus;
+    margin-bottom: $input-margin-bottom;
     width: 100%;
   }
 

@@ -88,13 +88,13 @@ $spv-inner--large: $sp-unit * 2;
 $spv-inner--x-large: $sp-unit * 5.5;
 
 // 1.2 Vertical spacing between components
-$spv-outer--small: $sp-unit * 1 !default; //labels
+$spv-outer--small: $sp-unit !default; //labels
 $spv-outer--small-scaleable: $sp-unit * $multi !default;
 $spv-outer--medium: $sp-unit * 2 !default;
 $spv-outer--scaleable: $sp-unit * (1 + $multi) !default;
 
 // 1.3 Vertical spacing between a group of components and its wrapper - strips, views, entire page
-$spv-outer--shallow-scaleable: $sp-unit * 2 * $multi !default;
+$spv-outer--shallow-scaleable: $spv-outer--scaleable !default;
 $spv-outer--regular-scaleable: $sp-unit * 2 * (2 + $multi) !default;
 $spv-outer--deep-scaleable: $sp-unit * 2 * (4 + $multi) !default;
 
@@ -108,34 +108,19 @@ $sph-inner--x-large: $sp-unit * 5 !default;
 $sph-outer: $sph-inner !default;
 $sph-outer--large: $sp-unit * 3 !default; // checboxes, radios, list bullets
 
-$sp-before: (
-  h1: $sp-unit * 3,
-  h2: $sp-unit * 3,
-  h3: $sp-unit * 3,
-  h4: $sp-unit * 3,
-  p: $sp-unit * 3,
-  h1-mobile: $sp-unit * 3,
-  h2-mobile: $sp-unit * 3,
-  h3-mobile: $sp-unit * 3,
-  h4-mobile: $sp-unit * 3,
-  muted: $sp-unit * 3
-) !default;
-
-$spv-p-after-heading-adjustment: #{$sp-unit * -1};
-
-// space after element on desktop
+// Space after text elements
 $sp-after: (
-  h1: $sp-unit * 3,
-  h2: $sp-unit * 3,
-  h3: $sp-unit * 3,
-  h4: $sp-unit * 2,
-  p: $sp-unit * 3,
-  h1-mobile: $sp-unit * 2,
-  h2-mobile: $sp-unit * 2,
-  h3-mobile: $sp-unit * 2,
-  h4-mobile: $sp-unit * 2,
-  small: $sp-unit * 2,
-  small--dense: $sp-unit * 2,
+  h1: $spv-outer--small-scaleable,
+  h2: $spv-outer--small-scaleable,
+  h3: $spv-outer--small-scaleable,
+  h4: $spv-outer--small-scaleable,
+  p: $spv-outer--scaleable,
+  h1-mobile: $spv-outer--small-scaleable,
+  h2-mobile: $spv-outer--small-scaleable,
+  h3-mobile: $spv-outer--small-scaleable,
+  h4-mobile: $spv-outer--small-scaleable,
+  small: $spv-outer--small-scaleable,
+  small--dense: $spv-outer--small-scaleable,
   default-text: $sp-unit
 ) !default;
 
@@ -149,14 +134,11 @@ $max-widths: (
 $icon-sizes: (
   accordion: $sp-unit * 1.5,
   default: $sp-unit * 2,
-  heading-icon--small: $sp-unit * 4,
   heading-icon--x-small: $sp-unit * 3,
+  heading-icon--small: $sp-unit * 4,
   heading-icon: $sp-unit * 5,
-  social: $sp-unit * 4,
-  thumb--card: $sp-unit * 4,
-  thumb--large: $sp-unit * 12,
-  thumb--small: $sp-unit * 6,
-  thumb: $sp-unit * 6
+  thumb: $sp-unit * 6,
+  thumb--large: $sp-unit * 12
 ) !default;
 
 // generic units

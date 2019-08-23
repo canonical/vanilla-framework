@@ -6,7 +6,7 @@
     @include heading-max-width--short;
     font-style: normal;
     font-weight: 100;
-    margin-top: -#{$sp-unit};
+    margin-top: 0;
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: #{map-get($font-sizes, h1-mobile)}rem;
@@ -38,7 +38,7 @@
     @include heading-max-width--short;
     font-style: normal;
     font-weight: 100;
-    margin-top: -#{$sp-unit};
+    margin-top: 0;
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: #{map-get($font-sizes, h2-mobile)}rem;
@@ -63,7 +63,7 @@
     @include heading-max-width--long;
     font-style: normal;
     font-weight: 300;
-    margin-top: -#{$sp-unit};
+    margin-top: 0;
 
     @media (max-width: $breakpoint-heading-threshold) {
       font-size: #{map-get($font-sizes, h3-mobile)}rem;
@@ -167,6 +167,10 @@
     @extend %common-default-text-properties;
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
 
+    & + & {
+      margin-top: -#{$sp-unit};
+    }
+
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--default-text;
     }
@@ -210,51 +214,46 @@
   // Placeholder naming: $sp + -- + {preceding element} + {following element}, e.g. for p + h1: $sp--ph1
 
   %sp--ph1 {
-    padding-top: map-get($nudges, nudge--h1) + map-get($sp-before, h1);
+    padding-top: map-get($nudges, nudge--h1) + $spv-outer--scaleable;
 
     @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h1-mobile) + map-get($sp-before, h1-mobile);
+      padding-top: map-get($nudges, nudge--h1-mobile) + $spv-outer--scaleable;
     }
   }
 
   %sp--ph2 {
-    padding-top: map-get($nudges, nudge--h2) + map-get($sp-before, h2);
+    padding-top: map-get($nudges, nudge--h2) + $spv-outer--scaleable;
 
     @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h2-mobile) + map-get($sp-before, h2-mobile);
+      padding-top: map-get($nudges, nudge--h2-mobile) + $spv-outer--scaleable;
     }
   }
 
   %sp--ph3 {
     @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h3-mobile) + map-get($sp-before, h3-mobile);
+      padding-top: map-get($nudges, nudge--h3-mobile) + $spv-outer--scaleable;
     }
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h3) + map-get($sp-before, h3);
+      padding-top: map-get($nudges, nudge--h3) + $spv-outer--scaleable;
     }
   }
 
   %sp--ph4 {
     @media (max-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h4-mobile) + map-get($sp-before, h4);
+      padding-top: map-get($nudges, nudge--h4-mobile) + $spv-outer--scaleable;
     }
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h4) + map-get($sp-before, h4);
+      padding-top: map-get($nudges, nudge--h4) + $spv-outer--scaleable;
     }
   }
 
   %sp--ph5 {
-    padding-top: map-get($nudges, nudge--p) + map-get($sp-before, p);
+    padding-top: map-get($nudges, nudge--p) + $spv-outer--scaleable;
   }
 
   %sp--pmuted {
-    padding-top: map-get($nudges, nudge--small) + map-get($sp-before, muted);
-  }
-
-  // any heading followed by a paragraph
-  %sp--hp {
-    margin-top: $spv-p-after-heading-adjustment;
+    padding-top: map-get($nudges, nudge--small) + $spv-outer--scaleable;
   }
 }
