@@ -17,7 +17,7 @@
       height: $spv-inner--large;
       pointer-events: none;
       position: absolute;
-      right: $sph-inner;
+      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns itr with any selects underneath
       text-indent: calc(100% + 10rem);
       top: $spv-inner--large;
       width: $sph-inner;
@@ -37,7 +37,7 @@
     // Can be updated with resolution of:
     // https://github.com/canonical-web-and-design/vanilla-framework/issues/2168
     > a {
-      padding-right: $sph-inner--x-large;
+      padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
     }
   }
 
