@@ -10,7 +10,7 @@
     border-width: 1px;
     color: $color-x-dark;
     display: block;
-    padding: $spv-inner--small $sph-inner;
+    padding: calc(#{$spv-nudge} - 1px) $sph-inner--small * 1.5;
     text-decoration: none;
 
     &.is-disabled {
@@ -44,16 +44,21 @@
   }
 
   .p-pagination__item {
-    margin-right: $sph-inner--small;
     width: auto;
 
-    &:first-child,
-    &:nth-last-child(2) {
-      margin-right: $sph-inner;
+    & + & {
+      &:not(:nth-child(2)):not(:nth-last-child(1)) {
+        margin-left: $sph-inner--small;
+      }
+
+      &:nth-child(2),
+      &:nth-last-child(1) {
+        margin-left: $sph-outer;
+      }
     }
 
     &--truncation {
-      margin: 0.3rem $sph-inner 0 $sph-inner--small;
+      padding: calc(#{$spv-nudge} - 1px) 0;
     }
   }
 
