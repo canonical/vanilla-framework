@@ -3,79 +3,90 @@ layout: examples
 title: Navigation / Sub Navigation
 category: _patterns
 ---
+
 <header id="navigation" class="p-navigation">
-  <div class="p-navigation__banner">
-    <div class="p-navigation__logo">
-      <a class="p-navigation__link" href="#">
-        <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/ac9a0e00-lxd_primary.svg" alt="" width="95" />
-      </a>
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__logo">
+        <a class="p-navigation__link" href="#">
+          <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/ac9a0e00-lxd_primary.svg" alt="" width="95" />
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
     </div>
-    <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-    <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    <nav class="p-navigation__nav">
+      <span class="u-off-screen">
+        <a href="#main-content">Jump to main content</a>
+      </span>
+      <ul class="p-navigation__links" role="menu">
+        <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
+          <a href="#link-1-menu" class="p-subnav__toggle">LXC</i>
+          </a>
+          <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-subnav__item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__link p-subnav" role="menuitem" id="link-2">
+          <a href="#link-2-menu" class="p-subnav__toggle">LXD</i>
+          </a>
+          <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-subnav__item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__link p-subnav" role="menuitem" id="link-3">
+          <a href="#link-3-menu" class="p-subnav__toggle">LXCFS</a>
+          <ul class="p-subnav__items" id="link-3-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-subnav__item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="p-navigation__links" role="menu">
+        <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
+          <a class="p-subnav__toggle" aria-controls="account-menu" aria-expanded="false">
+            My account
+          </a>
+          <ul class="p-subnav__items" id="account-menu" aria-hidden="true">
+            <li>
+              <a href="/logout" class="p-subnav__item">Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav class="p-navigation__nav">
-    <form class="p-search-box" action="/search">
-      <input type="search" class="p-search-box__input" name="q" placeholder="Search" required="">
-      <button type="reset" class="p-search-box__reset" alt="reset"><i class="p-icon--close"></i></button>
-      <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
-    </form>
-    <span class="u-off-screen">
-      <a href="#main-content">Jump to main content</a>
-    </span>
-    <ul class="p-navigation__links" role="menu">
-      <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
-        <a href="#link-1-menu" class="p-subnav__toggle">LXC</i>
-        </a>
-        <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true">
-          <li>
-            <a href="#" class="p-subnav__item">Introduction</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">News</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">Getting started</a>
-          </li>
-        </ul>
-      </li>
-      <li class="p-navigation__link p-subnav" role="menuitem" id="link-2">
-        <a href="#link-2-menu" class="p-subnav__toggle">LXD</i>
-        </a>
-        <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true">
-          <li>
-            <a href="#" class="p-subnav__item">Introduction</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">News</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">Getting started - Command line</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">Getting started - OpenStack</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">Getting started - OpenNebula</a>
-          </li>
-        </ul>
-      </li>
-      <li class="p-navigation__link p-subnav" role="menuitem" id="link-3">
-        <a href="#link-3-menu" class="p-subnav__toggle">LXCFS</a>
-        <ul class="p-subnav__items" id="link-3-menu" aria-hidden="true">
-          <li>
-            <a href="#" class="p-subnav__item">Introduction</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">News</a>
-          </li>
-          <li>
-            <a href="#" class="p-subnav__item">Getting started</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
 </header>
+<div class="u-fixed-width"><div class="u-align-right"><select name="" id=""></select></div></div>
 
 <script>
 var subnavContainers = document.querySelectorAll('.p-subnav__items');
