@@ -47,6 +47,7 @@
     @extend %vf-has-round-corners;
     display: none;
     margin: 0;
+    min-width: 100%;
     padding: 0;
     z-index: 5;
 
@@ -65,7 +66,14 @@
   .p-subnav__item {
     background-color: $color-navigation-background;
     display: block;
-    padding: $spv-inner--medium $grid-margin-width;
     white-space: nowrap;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      padding: $spv-inner--small $grid-margin-width;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding: $spv-inner--medium $sph-inner;
+    }
   }
 }
