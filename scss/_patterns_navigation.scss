@@ -170,12 +170,27 @@ $nav-border-bottom-thickness: 1px;
     }
   }
 
-  &__row {
+  %navigation-row {
     display: flex;
     @extend %fixed-width-container;
 
     @media (max-width: $breakpoint-navigation-threshold) {
       flex-direction: column;
+    }
+  }
+
+  &__row {
+    @extend %navigation-row;
+
+    &--full-width {
+      @extend %navigation-row;
+      max-width: 100%;
+    }
+  }
+
+  @include deprecate('2.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+    &.row {
+      @extend %navigation-row;
     }
   }
 
