@@ -144,7 +144,7 @@
 }
 
 @mixin vf-button-icon {
-  [class~='p-button'].has-icon {
+  [class^='p-button'].has-icon {
     width: auto;
 
     & [class*='p-icon'] {
@@ -158,5 +158,9 @@
         margin-left: $sph-inner--small / 2;
       }
     }
+  }
+
+  [class*='--positive'].has-icon [class*='p-icon'] {
+    @include vf-icon-plus($color-x-light);
   }
 }
