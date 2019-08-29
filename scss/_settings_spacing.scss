@@ -9,6 +9,7 @@ $sp-unit-ratio: 0.5 !default;
 $sp-unit: 1rem * $sp-unit-ratio !default;
 
 $font-sizes: (
+  x-small: pow($ms-ratio, -2),
   small: pow($ms-ratio, -1),
   root: 1,
   h4-mobile: 1.22176,
@@ -31,7 +32,8 @@ $line-heights: (
   h3-mobile: 4 * $sp-unit,
   h4-mobile: 3 * $sp-unit,
   default-text: 3 * $sp-unit,
-  small: $sp-unit * 2
+  small: $sp-unit * 2,
+  x-small: $sp-unit * 2
 ) !default;
 
 // baseline nudges for type scale ratio of (16/14)^2
@@ -50,7 +52,8 @@ $nudges: (
   nudge--h4-mobile: 0.3rem,
   nudge--p: 0.4rem,
   nudge--p-ubuntumono: 0.45rem,
-  nudge--small: 0.2rem
+  nudge--small: 0.2rem,
+  nudge--x-small: 0.25rem
 ) !default;
 
 // Correct baseline drift due to browser rounding. (Visible in text > 1000 lines)
@@ -120,6 +123,7 @@ $sp-after: (
   h4-mobile: $spv-outer--small-scaleable,
   small: $spv-outer--small-scaleable,
   small--dense: $spv-outer--small-scaleable,
+  x-small: $spv-outer--small-scaleable,
   default-text: $sp-unit
 ) !default;
 
