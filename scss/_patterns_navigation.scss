@@ -214,12 +214,12 @@ $nav-border-bottom-thickness: 1px;
       @extend %p-navigation--dark-theme;
     }
 
-    .p-navigation.is-white {
-      @extend %p-navigation--white-theme;
+    .p-navigation.is-light {
+      @extend %p-navigation--light-theme;
     }
   } @else {
     .p-navigation {
-      @extend %p-navigation--white-theme;
+      @extend %p-navigation--light-theme;
     }
 
     .p-navigation.is-dark {
@@ -258,8 +258,8 @@ $nav-border-bottom-thickness: 1px;
     }
   }
 
-  %p-navigation--white-theme {
-    background-color: map-get($colors--white-theme, background);
+  %p-navigation--light-theme {
+    background-color: map-get($colors--light-theme, background);
 
     .p-navigation__link > a,
     .p-navigation__toggle--close,
@@ -267,22 +267,22 @@ $nav-border-bottom-thickness: 1px;
       &,
       &:visited,
       &:focus {
-        color: map-get($colors--white-theme, text-default);
+        color: map-get($colors--light-theme, text-default);
       }
 
       &:hover {
-        color: map-get($colors--white-theme, text-hover);
+        color: map-get($colors--light-theme, text-hover);
       }
     }
 
     .p-navigation__link.is-selected > a {
-      color: map-get($colors--white-theme, text-hover);
+      color: map-get($colors--light-theme, text-hover);
     }
 
     .p-navigation__link > a::before {
       @media (max-width: $breakpoint-navigation-threshold) {
         // separator color on small screens
-        background: map-get($colors--white-theme, border-default);
+        background: map-get($colors--light-theme, border-default);
       }
     }
   }

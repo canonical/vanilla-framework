@@ -75,11 +75,11 @@
     }
   }
 
-  %search-box-input--white {
+  %search-box-input--light {
     //XXX: This should inherit from input color theming. Once that becomes available, delete this.
-    background-color: map-get($colors--white-theme, background);
-    border-color: map-get($colors--white-theme, border-high-contrast);
-    color: map-get($colors--white-theme, text-default);
+    background-color: map-get($colors--light-theme, background);
+    border-color: map-get($colors--light-theme, border-high-contrast);
+    color: map-get($colors--light-theme, text-default);
 
     &:active,
     &:focus,
@@ -89,8 +89,8 @@
     &:-webkit-autofill:focus,
     &:-internal-autofill-selected {
       // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-      background-color: map-get($colors--white-theme, background) !important;
-      border-color: map-get($colors--white-theme, border-high-contrast) !important;
+      background-color: map-get($colors--light-theme, background) !important;
+      border-color: map-get($colors--light-theme, border-high-contrast) !important;
     }
   }
 
@@ -118,15 +118,15 @@
       @extend %search-box-input--dark;
     }
 
-    .p-search-box.is-white {
+    .p-search-box.is-light {
       .p-search-box__input {
-        @extend %search-box-input--white;
+        @extend %search-box-input--light;
       }
     }
   } @else {
     .p-search-box {
       .p-search-box__input {
-        @extend %search-box-input--white;
+        @extend %search-box-input--light;
       }
     }
 

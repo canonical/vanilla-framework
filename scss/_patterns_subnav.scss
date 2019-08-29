@@ -64,7 +64,7 @@
   }
 
   .p-subnav__item {
-    @extend %subnav-item--white-theme;
+    @extend %subnav-item--light-theme;
     display: block;
     white-space: nowrap;
 
@@ -84,6 +84,7 @@
       text-decoration: none;
     }
 
+<<<<<<< HEAD
     %subnav-item--white-theme {
       background-color: map-get($colors--white-theme, background);
 
@@ -102,6 +103,25 @@
           // separator color on small screens
           background: map-get($colors--white-theme, border-default);
         }
+=======
+  %subnav-item--light-theme {
+    background-color: map-get($colors--light-theme, background);
+
+    &,
+    &:active,
+    &:focus &:visited {
+      color: map-get($colors--light-theme, text-default);
+    }
+
+    &:hover {
+      color: map-get($colors--light-theme, text-hover);
+    }
+
+    &::before {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        // separator color on small screens
+        background: map-get($colors--light-theme, border-default);
+>>>>>>> change light to white in theme naming
       }
     }
   }
