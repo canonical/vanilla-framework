@@ -7,33 +7,33 @@ $spv-list-item--inner: null;
   $spv-list-item--inner: 0;
 }
 
-//Placeholders
-%numbered-step-container {
-  counter-reset: li;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding-left: 0;
-}
-
-%numbered-step-title {
-  display: flex;
-
-  &::before {
-    align-self: start;
-    background-color: $color-mid-x-light;
-    border-radius: 100%;
-    content: counter(li);
-    counter-increment: li;
-    direction: rtl;
-    display: block;
-    text-align: center;
-  }
-}
-
 // Default list styling
 // Mixin for basic styled lists
 @mixin vf-list {
+  //Placeholders
+  %numbered-step-container {
+    counter-reset: li;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  %numbered-step-title {
+    display: flex;
+
+    &::before {
+      align-self: start;
+      background-color: $color-mid-x-light;
+      border-radius: 100%;
+      content: counter(li);
+      counter-increment: li;
+      direction: rtl;
+      display: block;
+      text-align: center;
+    }
+  }
+
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -203,35 +203,35 @@ $spv-list-item--inner: null;
   .p-stepped-list__bullet {
     display: none;
   }
-}
 
-.p-stepped-list__title {
-  @extend %numbered-step-title;
-}
-
-@for $i from 6 through 1 {
-  // Bullet sizes for each heading level
-  $bullet-width: map-get($line-heights, default-text);
-  $bullet-width-mobile: map-get($line-heights, default-text);
-
-  @if $i < 5 {
-    $bullet-width: map-get($line-heights, h#{$i});
-    $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
+  .p-stepped-list__title {
+    @extend %numbered-step-title;
   }
 
-  // sass-lint:disable no-qualifying-elements
-  h#{$i}.p-stepped-list__title {
-    // sass-lint:enable no-qualifying-elements
-    &::before {
-      flex-shrink: 0;
-      margin-right: $sph-inner;
+  @for $i from 6 through 1 {
+    // Bullet sizes for each heading level
+    $bullet-width: map-get($line-heights, default-text);
+    $bullet-width-mobile: map-get($line-heights, default-text);
 
-      @media (max-width: $breakpoint-heading-threshold) {
-        width: $bullet-width-mobile;
-      }
+    @if $i < 5 {
+      $bullet-width: map-get($line-heights, h#{$i});
+      $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
+    }
 
-      @media (min-width: $breakpoint-heading-threshold) {
-        width: $bullet-width;
+    // sass-lint:disable no-qualifying-elements
+    h#{$i}.p-stepped-list__title {
+      // sass-lint:enable no-qualifying-elements
+      &::before {
+        flex-shrink: 0;
+        margin-right: $sph-inner;
+
+        @media (max-width: $breakpoint-heading-threshold) {
+          width: $bullet-width-mobile;
+        }
+
+        @media (min-width: $breakpoint-heading-threshold) {
+          width: $bullet-width;
+        }
       }
     }
   }

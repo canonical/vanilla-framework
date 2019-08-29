@@ -2,21 +2,21 @@
 
 // Default label styling
 @mixin vf-p-label {
+  %vf-label {
+    @extend %x-small-text;
+    border-radius: $border-radius;
+    display: inline-block;
+    font-weight: 400;
+    padding: map-get($nudges, nudge--x-small) $sph-inner--small;
+    text-align: center;
+    text-decoration: none;
+  }
+
   @include vf-p-label-validated;
   @include vf-p-label-in-progress;
   @include vf-p-label-new;
   @include vf-p-label-updated;
   @include vf-p-label-deprecated;
-}
-
-%vf-label {
-  @extend %x-small-text;
-  border-radius: $border-radius;
-  display: inline-block;
-  font-weight: 400;
-  padding: map-get($nudges, nudge--x-small) $sph-inner--small;
-  text-align: center;
-  text-decoration: none;
 }
 
 // Override local variables
