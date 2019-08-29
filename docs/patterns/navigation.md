@@ -14,7 +14,7 @@ displayed horizontally on larger screens.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>You can constrain the width of the navigation to match the <code>$grid-max-width</code> by placing everything inside the header element within a <code>.row</code> wrapper.
+    <span class="p-notification__status">Note:</span>By default, the width of the navigation is constrained to <code>$grid-max-width</code>. To make the nav full width, replace <code>.p-navigation__row</code> with <code>.p-navigation__row--full-width</code>.
   </p>
 </div>
 

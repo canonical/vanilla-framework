@@ -17,7 +17,7 @@
       height: $spv-inner--large;
       pointer-events: none;
       position: absolute;
-      right: $sph-inner;
+      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns itr with any selects underneath
       text-indent: calc(100% + 10rem);
       top: $spv-inner--large;
       width: $sph-inner;
@@ -37,7 +37,7 @@
     // Can be updated with resolution of:
     // https://github.com/canonical-web-and-design/vanilla-framework/issues/2168
     > a {
-      padding-right: $sph-inner--x-large;
+      padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
     }
   }
 
@@ -47,6 +47,7 @@
     @extend %vf-has-round-corners;
     display: none;
     margin: 0;
+    min-width: 100%;
     padding: 0;
     z-index: 5;
 
@@ -65,7 +66,14 @@
   .p-subnav__item {
     background-color: $color-navigation-background;
     display: block;
-    padding: $spv-inner--medium $grid-margin-width;
     white-space: nowrap;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      padding: $spv-inner--small $grid-margin-width;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding: $spv-inner--medium $sph-inner;
+    }
   }
 }
