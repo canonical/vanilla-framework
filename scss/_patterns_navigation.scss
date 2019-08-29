@@ -78,10 +78,10 @@ $nav-border-bottom-thickness: 1px;
       white-space: nowrap;
 
       @media (max-width: $breakpoint-navigation-threshold) {
-        padding: $spv-inner--medium $grid-margin-width;
+        padding: $spv-inner--medium 0;
 
         &::before {
-          background: $color-light;
+          background: $color-mid-light;
           content: '';
           height: $nav-border-bottom-thickness;
           left: 0;
@@ -91,18 +91,8 @@ $nav-border-bottom-thickness: 1px;
         }
       }
 
-      @media (min-width: $breakpoint-navigation-threshold + 1) {
+      @media (min-width: $breakpoint-navigation-threshold) {
         padding: $spv-inner--medium $sph-inner;
-
-        &::before {
-          background: $border-color;
-          bottom: 0;
-          content: '';
-          height: $nav-border-bottom-thickness;
-          left: 0;
-          position: absolute;
-          right: 0;
-        }
       }
 
       &:hover {
@@ -128,7 +118,8 @@ $nav-border-bottom-thickness: 1px;
     @media (max-width: $breakpoint-navigation-threshold) {
       margin-top: -1px; // prevents bottom border of nav from moving 1px
     }
-    @media (min-width: $breakpoint-navigation-threshold + 1) {
+
+    @media (min-width: $breakpoint-navigation-threshold) {
       display: flex;
       flex-wrap: wrap;
     }
@@ -138,7 +129,7 @@ $nav-border-bottom-thickness: 1px;
     display: flex;
     flex: 0 0 auto;
     height: 3rem;
-    margin: 0 $sph-inner 0 $grid-margin-width;
+    margin: 0 $sph-inner 0 0;
 
     .p-navigation__link {
       display: flex;
@@ -164,7 +155,7 @@ $nav-border-bottom-thickness: 1px;
 
     @media (max-width: $breakpoint-navigation-threshold) {
       flex: 1 0 auto;
-      margin: -1px $grid-margin-width $spv-inner--small $grid-margin-width;
+      margin: -1px 0 $spv-inner--small 0;
       order: -1;
     }
 
@@ -173,21 +164,33 @@ $nav-border-bottom-thickness: 1px;
       $input-gap-top: $spv-inner--medium - $spv-nudge;
       display: flex;
       flex: 1 1 auto;
-      margin: $input-gap-top $sph-inner auto auto;
+      margin: $input-gap-top 0 auto auto;
       max-width: 20rem;
       order: 1;
     }
   }
 
-  &__row,
-  & .row {
+  %navigation-row {
+    @extend %fixed-width-container;
     display: flex;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
 
     @media (max-width: $breakpoint-navigation-threshold) {
       flex-direction: column;
+    }
+  }
+
+  &__row {
+    @extend %navigation-row;
+
+    &--full-width {
+      @extend %navigation-row;
+      max-width: 100%;
+    }
+  }
+
+  @include deprecate('2.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+    &.row {
+      @extend %navigation-row;
     }
   }
 
@@ -215,7 +218,7 @@ $nav-border-bottom-thickness: 1px;
     &--open,
     &--close {
       display: none;
-      margin: 0 $grid-margin-width auto $sph-inner;
+      margin: 0 0 auto $sph-inner;
       padding: $spv-inner--medium 0;
     }
 
