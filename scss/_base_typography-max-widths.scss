@@ -1,18 +1,6 @@
-@mixin vf-b-typography-max-widths {
-  %max-width--p {
-    max-width: map-get($max-widths, default);
-  }
-
-  //expose measure as a class
-  %measure--p,
-  .measure--p {
-    @extend %max-width--p;
-  }
-}
-
 // Optimal max-width for body copy
 @mixin p-max-width {
-  @extend %max-width--p;
+  max-width: map-get($max-widths, default);
 }
 
 // Optimal max-width for main headings (up to 2 lines of copy)
