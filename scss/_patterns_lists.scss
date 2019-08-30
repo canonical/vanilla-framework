@@ -7,11 +7,6 @@ $spv-list-item--inner: null;
   $spv-list-item--inner: 0;
 }
 
-// Default list styling
-// Mixin for basic styled lists
-@mixin vf-list {
-}
-
 @mixin vf-list-item-divided {
   position: relative;
 
@@ -57,7 +52,7 @@ $spv-list-item--inner: null;
 @mixin vf-p-list {
   .p-list {
     @extend %vf-clearfix;
-    @include vf-list;
+    @extend %vf-list;
 
     &__item {
       @extend %vf-list-item;
@@ -68,7 +63,7 @@ $spv-list-item--inner: null;
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
-    @include vf-list;
+    @extend %vf-list;
 
     .p-list__item {
       @extend %vf-list-item;
@@ -84,6 +79,7 @@ $spv-list-item--inner: null;
 // Displays item with a tick bullet
 @mixin vf-p-list-item-state {
   .is-ticked {
+    @extend %vf-list;
     background-image: svg-tick($color-accent);
     background-position-y: $spv-list-item--inner + map-get($nudges, nudge--p);
     background-repeat: no-repeat;
@@ -261,6 +257,14 @@ $spv-list-item--inner: null;
 
 @mixin vf-p-lists {
   //Placeholders
+
+  // Default list styling
+  %vf-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
   %numbered-step-container {
     counter-reset: li;
     display: flex;
@@ -302,6 +306,7 @@ $spv-list-item--inner: null;
     }
   }
 
+  @include vf-p-list;
   @include vf-p-list-divided;
   @include vf-p-list-item-state;
   @include vf-p-inline-list;
