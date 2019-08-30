@@ -39,6 +39,27 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   @include vf-p-icon-ubuntu;
   @include vf-p-icon-sizes;
   @include vf-p-icon-in-button;
+
+  %icon {
+    @extend %vf-hide-text;
+    @include vf-icon-size($default-icon-size);
+    background: {
+      position: center;
+      repeat: no-repeat;
+      size: contain;
+    }
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 2px;
+  }
+
+  %social-icon {
+    @extend %vf-hide-text;
+    @include vf-icon-size($social-icon-size);
+    display: inline-block;
+  }
 }
 
 /// Icons
@@ -46,27 +67,6 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   background-size: contain;
   height: $size;
   width: $size;
-}
-
-%icon {
-  @extend %vf-hide-text;
-  @include vf-icon-size($default-icon-size);
-  background: {
-    position: center;
-    repeat: no-repeat;
-    size: contain;
-  }
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 2px;
-}
-
-%social-icon {
-  @extend %vf-hide-text;
-  @include vf-icon-size($social-icon-size);
-  display: inline-block;
 }
 
 @mixin vf-icon-chevron($color: $color-mid-dark) {

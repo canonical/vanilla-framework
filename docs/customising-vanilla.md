@@ -31,7 +31,7 @@ $grid-max-width: 1440px;
 
 ### Importing individual components
 
-Your project may not warrant including all of Vanilla, in which case you can include components modularly. You must at least include `vf-base` as many components depend on the base styling. Below is an example of how to include Vanilla components on an as-needed basis:
+Your project may not warrant including all of Vanilla, in which case you can include components modularly. We recommend including `vf-base` as many components depend on the base styling. As a bare minimum, you need to include `vf-b-placeholders`, as many patterns extend these placeholders and will generate errors if they are missing. Below is an example of how to include Vanilla components on an as-needed basis:
 
 ```
 // Import Vanilla framework
