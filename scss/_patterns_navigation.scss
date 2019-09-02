@@ -4,236 +4,286 @@ $nav-border-bottom-thickness: 1px;
 
 // Default header styling
 @mixin vf-p-navigation {
-  @include vf-navigation-default;
-}
-
-@mixin vf-navigation-default {
-  $color-navigation-background: $color-x-light !default;
-  $color-navigation-border: if(lightness($color-navigation-background) > 50, $color-mid-light, transparent) !default;
-  $color-navigation-text: if(lightness($color-navigation-background) > 70, $color-dark, $color-light) !default;
-
+  // no colours
   .p-navigation {
-    @include vf-navigation-pattern($background-color: $color-navigation-background, $border-color: $color-navigation-border, $text-color: $color-navigation-text);
-  }
-}
-
-@mixin vf-navigation-pattern($background-color, $border-color: $color-x-light, $text-color: $color-x-dark) {
-  background-color: $background-color;
-  display: flex;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 10;
-
-  @media (max-width: $breakpoint-navigation-threshold) {
-    flex-direction: column;
-  }
-
-  a,
-  a:visited,
-  a:focus {
-    color: $text-color;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: $color-navigation-selected;
-    text-decoration: none;
-  }
-
-  // line under menu
-  &::after {
-    background: $border-color;
-    bottom: 0;
-    content: '';
-    height: $nav-border-bottom-thickness;
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
-
-  &__banner {
     display: flex;
-    flex: 0 0 auto;
-    justify-content: space-between;
-  }
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
 
-  &__image {
-    align-self: center;
-    max-height: 2rem;
-    min-height: 1.5rem;
-  }
-
-  &__link {
-    @media (min-width: $breakpoint-navigation-threshold) {
-      $nav-link-max-width: 20em !default;
-      max-width: $nav-link-max-width;
+    @media (max-width: $breakpoint-navigation-threshold) {
+      flex-direction: column;
     }
 
-    & > a {
-      display: block;
-      margin-bottom: 0;
-      overflow: hidden;
-      position: relative;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    &__banner {
+      display: flex;
+      flex: 0 0 auto;
+      justify-content: space-between;
+    }
 
-      @media (max-width: $breakpoint-navigation-threshold) {
-        padding: $spv-inner--medium 0;
+    &__image {
+      align-self: center;
+      max-height: 2rem;
+      min-height: 1.5rem;
+    }
+
+    &__link {
+      @media (min-width: $breakpoint-navigation-threshold) {
+        $nav-link-max-width: 20em !default;
+        max-width: $nav-link-max-width;
+      }
+
+      & > a {
+        @include vf-animation;
+        display: block;
+        margin-bottom: 0;
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @media (max-width: $breakpoint-navigation-threshold) {
+          padding: $spv-inner--medium 0;
+
+          &::before {
+            top: 0;
+          }
+        }
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          padding: $spv-inner--medium $sph-inner;
+
+          &::before {
+            bottom: 0;
+          }
+        }
 
         &::before {
-          background: $color-mid-light;
           content: '';
           height: $nav-border-bottom-thickness;
           left: 0;
           position: absolute;
           right: 0;
-          top: 0;
         }
+
+        &,
+        &:visited,
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &__links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @media (max-width: $breakpoint-navigation-threshold) {
+        margin-top: -1px; // prevents bottom border of nav from moving 1px
+      }
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__logo {
+      display: flex;
+      flex: 0 0 auto;
+      height: 3rem;
+      margin: 0 $sph-inner 0 0;
+
+      .p-navigation__link {
+        display: flex;
+      }
+    }
+
+    &__nav {
+      display: none;
+
+      @media (max-width: $breakpoint-navigation-threshold) {
+        flex-direction: column;
       }
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        padding: $spv-inner--medium $sph-inner;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+
+    .p-search-box {
+      min-width: 10em;
+
+      @media (max-width: $breakpoint-navigation-threshold) {
+        flex: 1 0 auto;
+        margin: -1px 0 $spv-inner--small 0;
+        order: -1;
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        // align baselines of menu items and input text
+        $input-gap-top: $spv-inner--medium - $spv-nudge;
+        display: flex;
+        flex: 1 1 auto;
+        margin: $input-gap-top 0 auto auto;
+        max-width: 20rem;
+        order: 1;
+      }
+    }
+
+    %navigation-row {
+      @extend %fixed-width-container;
+      display: flex;
+
+      @media (max-width: $breakpoint-navigation-threshold) {
+        flex-direction: column;
+      }
+    }
+
+    &__row {
+      @extend %navigation-row;
+
+      &--full-width {
+        @extend %navigation-row;
+        max-width: 100%;
+      }
+    }
+
+    @include deprecate('2.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+      &.row {
+        @extend %navigation-row;
+      }
+    }
+
+    &:target {
+      &::after {
+        display: none;
+      }
+
+      .p-navigation__nav {
+        display: flex;
+      }
+
+      .p-navigation__toggle--open {
+        display: none;
+      }
+
+      .p-navigation__toggle--close {
+        @media (max-width: $breakpoint-navigation-threshold) {
+          display: block;
+        }
+      }
+    }
+
+    &__toggle {
+      &--open,
+      &--close {
+        display: none;
+        margin: 0 0 auto $sph-inner;
+        padding: $spv-inner--medium 0;
+
+        &,
+        &:visited,
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &--open {
+        @media (max-width: $breakpoint-navigation-threshold) {
+          display: block;
+        }
+      }
+    }
+
+    .u-image-position .u-image-position--right {
+      order: 2; // ensure it is to the right of search
+      // XXX: patch - override utility, as it positions absolutely, which leads to overlap on smaller screens.
+      // Should use flex instead; But that will require changing the markup
+      position: relative;
+      right: unset;
+    }
+  }
+
+  // Theming
+  @if (map-get($theme-default--dark, nav) == true) {
+    .p-navigation {
+      @extend %p-navigation--dark-theme;
+    }
+
+    .p-navigation.is-light {
+      @extend %p-navigation--light-theme;
+    }
+  } @else {
+    .p-navigation {
+      @extend %p-navigation--light-theme;
+    }
+
+    .p-navigation.is-dark {
+      @extend %p-navigation--dark-theme;
+    }
+  }
+
+  %p-navigation--dark-theme {
+    background-color: map-get($colors--dark-theme, background);
+
+    .p-navigation__link > a,
+    .p-navigation__toggle--close,
+    .p-navigation__toggle--open {
+      &,
+      &:visited,
+      &:focus {
+        color: map-get($colors--dark-theme, text-default);
       }
 
       &:hover {
-        color: $color-navigation-selected;
+        color: map-get($colors--dark-theme, text-hover);
       }
     }
 
-    @media (max-width: $breakpoint-navigation-threshold) {
-      &:first-child > a::before {
-        background: $border-color;
+    @include deprecate('3.0.0', 'Selectors should use classes.') {
+      .p-navigation__link.is-selected > a {
+        color: map-get($colors--dark-theme, text-hover);
       }
     }
 
-    &.is-selected > a {
-      color: $color-navigation-selected;
+    // separator color on small screens
+    .p-navigation__link > a::before {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        background: map-get($colors--dark-theme, border-default);
+      }
     }
   }
 
-  &__links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    @media (max-width: $breakpoint-navigation-threshold) {
-      margin-top: -1px; // prevents bottom border of nav from moving 1px
-    }
+  %p-navigation--light-theme {
+    background-color: map-get($colors--light-theme, background);
 
-    @media (min-width: $breakpoint-navigation-threshold) {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-
-  &__logo {
-    display: flex;
-    flex: 0 0 auto;
-    height: 3rem;
-    margin: 0 $sph-inner 0 0;
-
-    .p-navigation__link {
-      display: flex;
-    }
-  }
-
-  &__nav {
-    display: none;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      flex-direction: column;
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold + 1) {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-  }
-
-  .p-search-box {
-    min-width: 10em;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      flex: 1 0 auto;
-      margin: -1px 0 $spv-inner--small 0;
-      order: -1;
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold + 1) {
-      // align baselines of menu items and input text
-      $input-gap-top: $spv-inner--medium - $spv-nudge;
-      display: flex;
-      flex: 1 1 auto;
-      margin: $input-gap-top 0 auto auto;
-      max-width: 20rem;
-      order: 1;
-    }
-  }
-
-  %navigation-row {
-    @extend %fixed-width-container;
-    display: flex;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      flex-direction: column;
-    }
-  }
-
-  &__row {
-    @extend %navigation-row;
-
-    &--full-width {
-      @extend %navigation-row;
-      max-width: 100%;
-    }
-  }
-
-  @include deprecate('2.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
-    &.row {
-      @extend %navigation-row;
-    }
-  }
-
-  &:target {
-    &::after {
-      display: none;
-    }
-
-    .p-navigation__nav {
-      display: flex;
-    }
-
+    .p-navigation__link > a,
+    .p-navigation__toggle--close,
     .p-navigation__toggle--open {
-      display: none;
-    }
+      &,
+      &:visited,
+      &:focus {
+        color: map-get($colors--light-theme, text-default);
+      }
 
-    .p-navigation__toggle--close {
-      @media (max-width: $breakpoint-navigation-threshold) {
-        display: block;
+      &:hover {
+        color: map-get($colors--light-theme, text-hover);
       }
     }
-  }
 
-  &__toggle {
-    &--open,
-    &--close {
-      display: none;
-      margin: 0 0 auto $sph-inner;
-      padding: $spv-inner--medium 0;
+    .p-navigation__link.is-selected > a {
+      color: map-get($colors--light-theme, text-hover);
     }
 
-    &--open {
+    .p-navigation__link > a::before {
       @media (max-width: $breakpoint-navigation-threshold) {
-        display: block;
+        // separator color on small screens
+        background: map-get($colors--light-theme, border-default);
       }
     }
-  }
-
-  .u-image-position .u-image-position--right {
-    order: 2; // ensure it is to the right of search
-    // XXX: patch - override utility, as it positions absolutely, which leads to overlap on smaller screens.
-    // Should use flex instead; But that will require changing the markup
-    position: relative;
-    right: unset;
   }
 }

@@ -1,5 +1,4 @@
 @import 'settings';
-$input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
 // Form element styles
 @mixin vf-b-forms {
@@ -255,7 +254,7 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
     }
 
     &:checked + .is-inline-label::after {
-      top: $sp-unit * 0.5;
+      top: $spv-inner--x-small;
     }
   }
 
@@ -289,20 +288,6 @@ $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
         top: calc(#{$box-size * 0.5} - #{$inner-circle-diameter * 0.5});
       }
     }
-  }
-
-  [type='submit'] {
-    @extend %vf-button-base;
-
-    @include vf-button-pattern(
-      $button-background-color: $color-positive,
-      $button-border-color: $color-positive,
-      $button-text-color: $color-x-light,
-      $button-hover-background-color: darken($color-positive, 10%),
-      $button-hover-border-color: darken($color-positive, 10%),
-      $button-disabled-background-color: $color-positive,
-      $button-disabled-border-color: $color-positive
-    );
   }
 
   // Select styles

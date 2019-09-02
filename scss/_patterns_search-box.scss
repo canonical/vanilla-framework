@@ -1,14 +1,13 @@
 @mixin vf-p-search-box {
+  $focus-border-thickness: 2px;
+  $input-border-thicknes: 1px;
+
   %search-box-button {
-    background: $color-x-light;
-    border: 1px solid $color-mid;
     display: block;
-    height: 100%;
-    margin: 0;
-    padding: 0 $sp-small;
-    position: absolute;
-    top: 0;
-    width: $sp-xx-large;
+    height: calc(#{2 * $spv-nudge + map-get($line-heights, default-text)} - #{2 * $focus-border-thickness}); // side padding + icon width - focus outline width * 2
+    margin: $focus-border-thickness 0;
+    position: relative;
+    width: auto;
 
     &:hover {
       background: inherit;
@@ -17,18 +16,26 @@
         cursor: not-allowed;
       }
     }
+
+    & [class*='p-icon'] {
+      &:only-child {
+        margin-left: -#{$sph-inner--small};
+        margin-right: -#{$sph-inner--small};
+      }
+    }
   }
 
   .p-search-box {
-    box-shadow: inset 0 1px 2px $color-input-shadow;
     display: flex;
-    margin-bottom: $spv-outer--scaleable + $spv-nudge-compensation * 2;
+    justify-content: flex-end;
+    margin-bottom: $input-margin-bottom;
     position: relative;
   }
 
   .p-search-box__input {
-    flex-grow: 2;
-    margin-bottom: 0; // XXX patch it stretches a box shadow and the search button.
+    flex: 1 1 100%;
+    margin-bottom: 0;
+    position: absolute;
 
     &::-webkit-search-cancel-button {
       -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
@@ -41,13 +48,92 @@
 
   .p-search-box__button {
     @extend %search-box-button;
-    right: 0;
+    @extend %transparent-button;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-radius: 0 $border-radius $border-radius 0;
+    margin-right: $focus-border-thickness;
   }
 
   .p-search-box__reset {
     @extend %search-box-button;
-    border-left: 0;
-    border-right: 0;
-    right: $sp-xx-large;
+    @extend %transparent-button;
+
+    &:not(:last-of-type):not(:only-of-type) {
+      margin-right: $focus-border-thickness;
+    }
+  }
+
+  // Theming
+  %transparent-button {
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: transparent !important; //XXX: remove important once buttons have been themified
+      border-width: 0;
+    }
+  }
+
+  %search-box-input--light {
+    //XXX: This should inherit from input color theming. Once that becomes available, delete this.
+    background-color: map-get($colors--light-theme, background);
+    border-color: map-get($colors--light-theme, border-high-contrast);
+    color: map-get($colors--light-theme, text-default);
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-internal-autofill-selected {
+      // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
+      background-color: map-get($colors--light-theme, background) !important;
+      border-color: map-get($colors--light-theme, border-high-contrast) !important;
+    }
+  }
+
+  %search-box-input--dark {
+    //XXX: This should inherit from input color theming. Once that becomes available, delete this.
+    background-color: map-get($colors--dark-theme, background);
+    border-color: map-get($colors--dark-theme, border-high-contrast);
+    color: map-get($colors--dark-theme, text-default);
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-internal-autofill-selected {
+      // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
+      background-color: map-get($colors--dark-theme, background) !important;
+      border-color: map-get($colors--dark-theme, border-high-contrast) !important;
+    }
+  }
+
+  @if (map-get($theme-default--dark, p-search-box) == true) {
+    .p-search-box__input {
+      @extend %search-box-input--dark;
+    }
+
+    .p-search-box.is-light {
+      .p-search-box__input {
+        @extend %search-box-input--light;
+      }
+    }
+  } @else {
+    .p-search-box {
+      .p-search-box__input {
+        @extend %search-box-input--light;
+      }
+    }
+
+    .p-search-box.is-dark {
+      .p-search-box__input {
+        @extend %search-box-input--dark;
+      }
+    }
   }
 }
