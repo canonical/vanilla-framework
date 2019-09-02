@@ -64,7 +64,7 @@
   }
 
   .p-subnav__item {
-    background-color: $color-navigation-background;
+    @extend %subnav-item--light-theme;
     display: block;
     white-space: nowrap;
 
@@ -74,6 +74,35 @@
 
     @media (min-width: $breakpoint-navigation-threshold) {
       padding: $spv-inner--medium $sph-inner;
+    }
+
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
+  %subnav-item--light-theme {
+    background-color: map-get($colors--light-theme, background);
+
+    &,
+    &:active,
+    &:focus &:visited {
+      color: map-get($colors--light-theme, text-default);
+    }
+
+    &:hover {
+      color: map-get($colors--light-theme, text-hover);
+    }
+
+    &::before {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        // separator color on small screens
+        background: map-get($colors--light-theme, border-default);
+      }
     }
   }
 }

@@ -3,7 +3,6 @@
 // Horizontal rule
 @mixin vf-b-hr {
   hr {
-    background-color: $color-mid-light;
     border: 0;
     height: 1px;
     margin-bottom: calc(#{$spv-inner--scaleable} - 1px);
@@ -14,6 +13,35 @@
     & + p {
       margin-top: -$sp-unit;
     }
+  }
+
+  // Theming
+  @if (map-get($theme-default--dark, hr) == true) {
+    hr {
+      @extend %hr--dark-theme;
+    }
+
+    // sass-lint:disable no-qualifying-elements
+    hr.is-light {
+      @extend %hr--light-theme;
+    }
+  } @else {
+    hr {
+      @extend %hr--light-theme;
+    }
+
+    // sass-lint:disable no-qualifying-elements
+    hr.is-dark {
+      @extend %hr--dark-theme;
+    }
+  }
+
+  %hr--dark-theme {
+    background: map-get($colors--dark-theme, border-default);
+  }
+
+  %hr--light-theme {
+    background: map-get($colors--light-theme, border-default);
   }
 
   .row.is-bordered {

@@ -76,10 +76,6 @@ $multi: 2 !default;
 ////////////////////////////////////////////////////////
 // Variables connecting spacings that should be identical
 
-// top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
-$spv-nudge: map-get($nudges, nudge--p) !default;
-$spv-nudge-compensation: $sp-unit - $spv-nudge !default;
-
 // 1. VERTICAL SPACING
 // 1.1 Vertical spacing inside components
 $spv-inner--x-small: $sp-unit * 0.5 !default; // buttons margins inside table,
@@ -126,6 +122,11 @@ $sp-after: (
   x-small: $spv-outer--small-scaleable,
   default-text: $sp-unit
 ) !default;
+
+// commonly occuring calculations available as variables
+$spv-nudge: map-get($nudges, nudge--p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
+$spv-nudge-compensation: $sp-unit - $spv-nudge !default;
+$input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
 $max-widths: (
   long: 60em,
