@@ -32,11 +32,10 @@ $spv-list-item--inner: null;
 @mixin vf-inline-list-item {
   display: inline;
   list-style: none;
-  margin-right: 1.25rem;
 
-  &:last-of-type,
-  .last-item {
-    margin-right: 0;
+  &:not(:last-of-type),
+  &:not(.last-item) {
+    margin-right: $sph-outer;
   }
 }
 
@@ -108,7 +107,6 @@ $spv-list-item--inner: null;
 
     .p-inline-list__item {
       @include vf-inline-list-item;
-      margin-right: 1.25em;
       position: relative;
 
       &::after {
@@ -117,7 +115,7 @@ $spv-list-item--inner: null;
         font-size: 1.4em;
         line-height: 0;
         position: absolute;
-        right: -0.5em;
+        right: #{-0.5 * $sph-outer};
         top: 0.4em;
       }
 
