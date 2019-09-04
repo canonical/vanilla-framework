@@ -135,6 +135,15 @@ By applying the class `.is-required` the attribute specifies that an input field
 View example of an input required element
 </a>
 
+### Dense form elements
+
+In contexts where vertical space is limited, e.g. inside a table row, you might prefer form elements with reduced vertical padding. Add class `.is-dense` to achieve that:
+
+<a href="/examples/patterns/forms/dense/"
+    class="js-example">
+View example of the dense form elements
+</a>
+
 ### Design
 
 For more information [view the forms design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms), which includes the specification in markdown format and a PNG image.
