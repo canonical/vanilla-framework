@@ -68,6 +68,15 @@ Should you wish to place a button after a line of inline text, as a CTA for exam
 View example of the inline button pattern
 </a>
 
+### Dense
+
+In contexts where vertical space is limited, you might want a button with reduced vertical padding. Add class `.is-dense` to achieve that:
+
+<a href="/examples/patterns/buttons/dense/"
+    class="js-example">
+View example of the dense button pattern
+</a>
+
 ### Icon
 
 Should you wish to place an icon in a button. You will not want to button to become full width on small screens. Therefore, you can add the state class `has-icon` to the button.
