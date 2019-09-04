@@ -46,6 +46,13 @@ Use checkboxes to select one or more options, default checkboxes can appear in t
 View example of the base checkboxes
 </a>
 
+By default, checkboxes are vertically aligned to the baseline of text wrapped in a `label`, `h5`, `h6`, or `p` tag. If you need to align it to other elements, use the classes below:
+
+<a href="/examples/base/forms/aligned-checkboxes/"
+    class="js-example">
+View example of the aligned checkboxes
+</a>
+
 ### Radio button
 
 Use radio buttons to select one or more options, our radio buttons can appear in four states: both selected, unselected and disabled.
@@ -53,6 +60,13 @@ Use radio buttons to select one or more options, our radio buttons can appear in
 <a href="/examples/base/forms/radio-buttons/"
     class="js-example">
 View example of the base radio buttons
+</a>
+
+By default, checkboxes are vertically aligned to the baseline of text wrapped in a `label`, `h5`, `h6`, or `p` tag. If you need to align it to other elements, use the classes below:
+
+<a href="/examples/base/forms/aligned-radio/"
+    class="js-example">
+View example of the aligned radio buttons
 </a>
 
 ### Select
