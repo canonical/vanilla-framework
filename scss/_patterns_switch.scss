@@ -5,7 +5,8 @@ $knob-size: $sp-unit * 3;
   .p-switch {
     height: $knob-size;
     margin: 0;
-    position: relative;
+    opacity: 0 !important; // override higher specificity of [type='checkbox'] selector
+    position: absolute !important; // override higher specificity of [type='checkbox'] selector
     width: $knob-size * 2;
 
     &:checked + .p-switch__slider::before {
