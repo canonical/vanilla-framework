@@ -36,7 +36,6 @@ $box-offsets-top: (
 
       // container
       &::before {
-        border: 1px solid $color-mid;
         content: '';
         height: $box-size;
         left: 0;
@@ -157,7 +156,6 @@ $box-offsets-top: (
       &.is-muted-inline-heading {
         @extend %muted-heading;
         display: inline;
-        margin-bottom: 0;
         padding-top: 0;
       }
     }
@@ -192,7 +190,6 @@ $box-offsets-top: (
         $tick-height: 0.375rem;
         border-bottom: 2px solid;
         border-left: 2px solid;
-        color: $color-x-light;
         height: $tick-height;
         left: $tick-height * 0.5;
         transform: rotate(-45deg);
@@ -298,7 +295,6 @@ $box-offsets-top: (
       }
 
       &::after {
-        background-color: $color-x-light;
         border-radius: 50%;
         height: $inner-circle-diameter;
         left: #{($box-size - $inner-circle-diameter) * 0.5};
@@ -395,6 +391,108 @@ $box-offsets-top: (
     & + label::before {
       background-color: $color-information;
       border-color: $color-information;
+    }
+  }
+
+  // Theming
+  // common properties
+  %vf-tick-elements--light-theme {
+    & + label {
+      color: map-get($colors--light-theme, text-default);
+
+      &::before {
+        border: 1px solid map-get($colors--light-theme, border-high-contrast);
+        background: map-get($colors--light-theme, background);
+      }
+    }
+  }
+
+  %vf-tick-elements--dark-theme {
+    & + label {
+      color: map-get($colors--dark-theme, text-default);
+
+      &::before {
+        border: 1px solid map-get($colors--dark-theme, border-high-contrast);
+        background: map-get($colors--dark-theme, background);
+      }
+    }
+  }
+
+  // checkbox specific properties
+  %vf-checkbox--light-theme {
+    & + label {
+      &::after {
+        color: map-get($colors--light-theme, background);
+      }
+    }
+  }
+
+  %vf-checkbox--dark-theme {
+    & + label {
+      &::after {
+        color: map-get($colors--dark-theme, text-default);
+      }
+    }
+  }
+
+  // radio specific properties
+  %vf-radio--light-theme {
+    & + label {
+      &::after {
+        background-color: map-get($colors--light-theme, background);
+      }
+    }
+  }
+
+  %vf-radio--dark-theme {
+    & + label {
+      &::after {
+        background-color: $color-x-light;
+      }
+    }
+  }
+
+  @if (map-get($theme-default--dark, forms) == true) {
+    [type='checkbox'] {
+      @extend %vf-tick-elements--dark-theme;
+      @extend %vf-checkbox--dark-theme;
+    }
+
+    [type='radio'] {
+      @extend %vf-tick-elements--dark-theme;
+      @extend %vf-radio--dark-theme;
+    }
+
+    // sass-lint:disable no-qualifying-elements
+    [type='checkbox'].is-light {
+      @extend %vf-tick-elements--light-theme;
+      @extend %vf-checkbox--light-theme;
+    }
+
+    [type='radio'].is-light {
+      @extend %vf-tick-elements--light-theme;
+      @extend %vf-radio--light-theme;
+    }
+  } @else {
+    [type='checkbox'] {
+      @extend %vf-tick-elements--light-theme;
+      @extend %vf-checkbox--light-theme;
+    }
+
+    [type='radio'] {
+      @extend %vf-tick-elements--light-theme;
+      @extend %vf-radio--light-theme;
+    }
+
+    // sass-lint:disable no-qualifying-elements
+    [type='checkbox'].is-dark {
+      @extend %vf-tick-elements--dark-theme;
+      @extend %vf-checkbox--dark-theme;
+    }
+
+    [type='radio'].is-dark {
+      @extend %vf-tick-elements--dark-theme;
+      @extend %vf-radio--dark-theme;
     }
   }
 }
