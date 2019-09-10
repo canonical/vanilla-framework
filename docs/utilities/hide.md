@@ -6,7 +6,11 @@ layout: default
 
 <hr>
 
-Hide an element within a certain breakpoint.
+To hide an element from the user, use the class `u-hide`.
+
+### Viewports
+
+To hide only at a specific viewport, add `--small`, `--medium` or `--large` modifiers to the `u-hide` class.
 
 <a href="/examples/utilities/hide/"
     class="js-example">
