@@ -76,7 +76,7 @@ category: _patterns
           <a class="p-subnav__toggle" aria-controls="account-menu" aria-expanded="false">
             My account
           </a>
-          <ul class="p-subnav__items" id="account-menu" aria-hidden="true">
+          <ul class="p-subnav__items--right" id="account-menu" aria-hidden="true">
             <li>
               <a href="/logout" class="p-subnav__item">Sign out</a>
             </li>
@@ -88,7 +88,7 @@ category: _patterns
 </header>
 
 <script>
-var subnavContainers = document.querySelectorAll('.p-subnav__items');
+var subnavContainers = document.querySelectorAll('[class^="p-subnav__items"]');
 var subnavs = document.querySelectorAll('.p-subnav');
 var subnavToggles = document.querySelectorAll('.p-subnav__toggle');
 
@@ -105,7 +105,7 @@ subnavs.forEach(function(currentSubnav) {
     var clickedDropdown = this;
 
     subnavs.forEach(function(subnav) {
-      var subnavContent = subnav.querySelector('.p-subnav__items');
+      var subnavContent = subnav.querySelector('[class^="p-subnav__items"]');
       if (subnav === clickedDropdown) {
         if (subnav.classList.contains('is-active')) {
           closeSubnav(subnav, subnavContent);
