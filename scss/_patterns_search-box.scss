@@ -1,11 +1,10 @@
 @mixin vf-p-search-box {
-  $focus-border-thickness: 2px;
   $input-border-thicknes: 1px;
 
   %search-box-button {
     display: block;
-    height: calc(#{2 * $spv-nudge + map-get($line-heights, default-text)} - #{2 * $focus-border-thickness}); // side padding + icon width - focus outline width * 2
-    margin: $focus-border-thickness 0;
+    height: calc(#{2 * $spv-nudge + map-get($line-heights, default-text)} - #{2 * $bar-thickness}); // side padding + icon width - focus outline width * 2
+    margin: $bar-thickness 0;
     position: relative;
     width: auto;
 
@@ -18,6 +17,8 @@
     }
 
     & [class*='p-icon'] {
+      top: 0;
+
       &:only-child {
         margin-left: -#{$sph-inner--small};
         margin-right: -#{$sph-inner--small};
@@ -52,7 +53,7 @@
     border-left-style: solid;
     border-left-width: 1px;
     border-radius: 0 $border-radius $border-radius 0;
-    margin-right: $focus-border-thickness;
+    margin-right: $bar-thickness;
   }
 
   .p-search-box__reset {
@@ -60,7 +61,7 @@
     @extend %transparent-button;
 
     &:not(:last-of-type):not(:only-of-type) {
-      margin-right: $focus-border-thickness;
+      margin-right: $bar-thickness;
     }
   }
 
