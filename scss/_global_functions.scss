@@ -41,9 +41,23 @@
 }
 
 // Adds visiual focus to elements on :focus
-@mixin vf-focus($color: $color-focus, $width: 2px) {
+@mixin vf-focus($color: $color-focus, $width: $bar-thickness, $has-validation: false) {
   &:focus {
     outline: $width solid $color;
+    outline-offset: -#{$width};
+  }
+  @if ($has-validation) {
+    .is-error &:focus {
+      outline-color: $color-negative;
+    }
+
+    .is-caution &:focus {
+      outline-color: $color-caution;
+    }
+
+    .is-success &:focus {
+      outline-color: $color-positive;
+    }
   }
 }
 
