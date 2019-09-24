@@ -7,8 +7,6 @@
     position: relative;
 
     &::after {
-      @include vf-icon-chevron;
-
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -42,9 +40,57 @@
     }
   }
 
+  // Theming
+  @if (map-get($theme-default--dark, nav) == true) {
+    .p-subnav::after {
+      @include vf-icon-chevron($color-light);
+    }
+
+    .p-subnav__item {
+      @extend %subnav-item--dark-theme;
+    }
+
+    .p-subnav.is-light {
+      &::after {
+        @include vf-icon-chevron;
+      }
+
+      .p-subnav__items,
+      .p-subnav__items--right {
+        @extend %vf-is-bordered;
+      }
+
+      .p-subnav__item {
+        @extend %subnav-item--light-theme;
+      }
+    }
+  } @else {
+    .p-subnav::after {
+      @include vf-icon-chevron($color-mid-light);
+    }
+
+    .p-subnav__items,
+    .p-subnav__items--right {
+      @extend %vf-is-bordered;
+    }
+
+    .p-subnav__item {
+      @extend %subnav-item--light-theme;
+    }
+
+    .p-subnav.is-dark {
+      &::after {
+        @include vf-icon-chevron;
+      }
+
+      .p-subnav__item {
+        @extend %subnav-item--dark-theme;
+      }
+    }
+  }
+
   .p-subnav__items,
   .p-subnav__items--right {
-    @extend %vf-is-bordered;
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
     display: none;
@@ -70,7 +116,6 @@
   }
 
   .p-subnav__item {
-    @extend %subnav-item--light-theme;
     display: block;
     white-space: nowrap;
 
@@ -108,6 +153,27 @@
       @media (max-width: $breakpoint-navigation-threshold) {
         // separator color on small screens
         background: map-get($colors--light-theme, border-default);
+      }
+    }
+  }
+
+  %subnav-item--dark-theme {
+    background-color: map-get($colors--dark-theme, background);
+
+    &,
+    &:active,
+    &:focus &:visited {
+      color: map-get($colors--dark-theme, text-default);
+    }
+
+    &:hover {
+      color: map-get($colors--dark-theme, text-hover);
+    }
+
+    &::before {
+      @media (max-width: $breakpoint-navigation-threshold) {
+        // separator color on small screens
+        background: map-get($colors--dark-theme, border-default);
       }
     }
   }
