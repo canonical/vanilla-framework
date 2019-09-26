@@ -5,39 +5,39 @@
 
   .p-subnav {
     position: relative;
+  }
 
+  .p-subnav::after {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: $spv-inner--large;
+    pointer-events: none;
+    position: absolute;
+    right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns itr with any selects underneath
+    text-indent: calc(100% + 10rem);
+    top: $spv-inner--large;
+    width: $sph-inner;
+  }
+
+  .p-subnav.is-active {
     &::after {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: '';
+      transform: rotate(180deg);
+    }
+
+    .p-subnav__items,
+    .p-subnav__items--right {
       display: block;
-      height: $spv-inner--large;
-      pointer-events: none;
-      position: absolute;
-      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns itr with any selects underneath
-      text-indent: calc(100% + 10rem);
-      top: $spv-inner--large;
-      width: $sph-inner;
     }
+  }
 
-    &.is-active {
-      &::after {
-        transform: rotate(180deg);
-      }
-
-      .p-subnav__items,
-      .p-subnav__items--right {
-        display: block;
-      }
-    }
-
-    // XXX: Fix required because of greedy rule in p-navigation
-    // Can be updated with resolution of:
-    // https://github.com/canonical-web-and-design/vanilla-framework/issues/2168
-    > a {
-      padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
-    }
+  // XXX: Fix required because of greedy rule in p-navigation
+  // Can be updated with resolution of:
+  // https://github.com/canonical-web-and-design/vanilla-framework/issues/2168
+  .p-subnav > a {
+    padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
   }
 
   // Theming
@@ -53,11 +53,6 @@
     .p-subnav.is-light {
       &::after {
         @include vf-icon-chevron;
-      }
-
-      .p-subnav__items,
-      .p-subnav__items--right {
-        @extend %vf-is-bordered;
       }
 
       .p-subnav__item {
