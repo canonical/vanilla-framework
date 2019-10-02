@@ -54,3 +54,23 @@ $colors--dark-theme: (
   text-hover: hsl(0, 0%, 56%),
   text-default: hsl(0, 0%, 100%)
 ) !default;
+
+@include deprecate('3.0.0', '$color-navigation-background will no longer be supported after the introduction of themes') {
+  /// XXX Fix for regression introduced in v2.4.0
+  /// Allows the variable $color-navigation-background to be used as explained in the docs
+  /// Note: This disables any theme-defined background colour
+  @if variable-exists(color-navigation-background) {
+    $colors--light-theme: map-merge(
+      $colors--light-theme,
+      (
+        background: $color-navigation-background
+      )
+    );
+    $colors--dark-theme: map-merge(
+      $colors--dark-theme,
+      (
+        background: $color-navigation-background
+      )
+    );
+  }
+}

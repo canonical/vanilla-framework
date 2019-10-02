@@ -152,9 +152,12 @@ $nav-border-bottom-thickness: 1px;
       }
     }
 
-    @include deprecate('2.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
       &.row {
         @extend %navigation-row;
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: flex;
+        }
       }
     }
 
