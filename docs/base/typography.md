@@ -160,6 +160,14 @@ If you are using the Ubuntu font, it comes in five weights; thin, light, regular
 View example of the Ubuntu font weights.
 </a>
 
+### Using a smaller set of Latin font faces
+
+The default Ubuntu fonts are fairly large as they contain glyphs for many languages. If you are building sites in; Afrikaans, Albanian, Catalan, Danish, Dutch, English, German, Icelandic, Italian, Norwegian, Portuguese, Spanish, Swedish or Zulu, you could use the subset of Latin fonts by setting the following variable to true:
+
+```sass
+$font-use-subset-latin: true;
+```
+
 ### Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
@@ -169,6 +177,16 @@ following font setting to true.
 ```sass
 $font-allow-cyrillic-greek-latin: true;
 ```
+
+### `font-display` options
+
+The css [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) option allows you to set a strategy for what backup font is shown while an external font is loading. This is a very subjective decision; however, if you set the following variable to the option you want, it will add it to the typography for you.
+
+```sass
+$font-display-option: <auto | block | swap | fallback | optional>;
+```
+
+The default is not to add a `font-display` descriptor.
 
 ### Design
 
