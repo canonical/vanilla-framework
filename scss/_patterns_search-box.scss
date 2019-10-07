@@ -78,9 +78,9 @@
 
   %search-box-input--light {
     //XXX: This should inherit from input color theming. Once that becomes available, delete this.
-    background-color: map-get($colors--light-theme, background);
-    border-color: map-get($colors--light-theme, border-high-contrast);
-    color: map-get($colors--light-theme, text-default);
+    background-color: $colors--light-theme__background;
+    border-color: $colors--light-theme__border-high-contrast;
+    color: $colors--light-theme__text-default;
 
     &:active,
     &:focus,
@@ -90,16 +90,16 @@
     &:-webkit-autofill:focus,
     &:-internal-autofill-selected {
       // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-      background-color: map-get($colors--light-theme, background) !important;
-      border-color: map-get($colors--light-theme, border-high-contrast) !important;
+      background-color: $colors--light-theme__background !important;
+      border-color: $colors--light-theme__border-high-contrast !important;
     }
   }
 
   %search-box-input--dark {
     //XXX: This should inherit from input color theming. Once that becomes available, delete this.
-    background-color: map-get($colors--dark-theme, background);
-    border-color: map-get($colors--dark-theme, border-high-contrast);
-    color: map-get($colors--dark-theme, text-default);
+    background-color: $colors--dark-theme__background;
+    border-color: $colors--dark-theme__border-high-contrast;
+    color: $colors--dark-theme__text-default;
 
     &:active,
     &:focus,
@@ -109,8 +109,8 @@
     &:-webkit-autofill:focus,
     &:-internal-autofill-selected {
       // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-      background-color: map-get($colors--dark-theme, background) !important;
-      border-color: map-get($colors--dark-theme, border-high-contrast) !important;
+      background-color: $colors--dark-theme__background !important;
+      border-color: $colors--dark-theme__border-high-contrast !important;
     }
   }
 
