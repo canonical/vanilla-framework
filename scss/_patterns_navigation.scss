@@ -2,6 +2,9 @@
 
 $nav-border-bottom-thickness: 1px;
 
+@mixin vf-navigation-default {
+} //only here to prevent a breaking change;
+
 // Default header styling
 @mixin vf-p-navigation {
   // no colours
@@ -209,8 +212,17 @@ $nav-border-bottom-thickness: 1px;
     }
   }
 
+  // Manually overriding the theming:
+  $color-navigation-background: null;
+  $color-navigation-text: null;
+  $color-navigation-text-hover: null;
+
   // Theming
   @if (map-get($theme-default--dark, nav) == true) {
+    // dark theme
+    $color-navigation-background: $colors--dark-theme__background-highlighted !default;
+    $color-navigation-text: if(lightness($color-navigation-background) < 70, blue, green) !default;
+
     .p-navigation {
       @extend %p-navigation--dark-theme;
     }
@@ -219,6 +231,11 @@ $nav-border-bottom-thickness: 1px;
       @extend %p-navigation--light-theme;
     }
   } @else {
+    // light theme
+    $color-navigation-background: rgb(92, 245, 72) !default;
+    // $color-navigation-text: if(lightness($color-navigation-background) > 70, map-get($colors--light-theme, text), $color-light) !default;
+    $color-navigation-text: blue !default;
+
     .p-navigation {
       @extend %p-navigation--light-theme;
     }
@@ -229,7 +246,7 @@ $nav-border-bottom-thickness: 1px;
   }
 
   %p-navigation--dark-theme {
-    background-color: map-get($colors--dark-theme, background-highlighted);
+    background-color: $color-navigation-background;
 
     .p-navigation__link > a,
     .p-navigation__toggle--close,
@@ -237,30 +254,31 @@ $nav-border-bottom-thickness: 1px;
       &,
       &:visited,
       &:focus {
-        color: map-get($colors--dark-theme, text-default);
+        color: $color-navigation-text;
       }
 
       &:hover {
-        color: map-get($colors--dark-theme, text-hover);
+        opacity: 0.5;
+        // color: $color-navigation-text-hover;
       }
     }
 
     @include deprecate('3.0.0', 'Selectors should use classes.') {
       .p-navigation__link.is-selected > a {
-        color: map-get($colors--dark-theme, text-hover);
+        color: $color-navigation-text;
       }
     }
 
     // separator color on small screens
     .p-navigation__link > a::before {
       @media (max-width: $breakpoint-navigation-threshold) {
-        background: map-get($colors--dark-theme, border-default);
+        background: $colors--dark-theme__border-default;
       }
     }
   }
 
   %p-navigation--light-theme {
-    background-color: map-get($colors--light-theme, background);
+    background-color: $color-navigation-background;
 
     .p-navigation__link > a,
     .p-navigation__toggle--close,
@@ -268,22 +286,25 @@ $nav-border-bottom-thickness: 1px;
       &,
       &:visited,
       &:focus {
-        color: map-get($colors--light-theme, text-default);
+        color: $color-navigation-text;
       }
 
       &:hover {
-        color: map-get($colors--light-theme, text-hover);
+        opacity: 0.5;
+        // color: $color-navigation-text-hover;
       }
     }
 
-    .p-navigation__link.is-selected > a {
-      color: map-get($colors--light-theme, text-hover);
+    @include deprecate('3.0.0', 'Selectors should use classes.') {
+      .p-navigation__link.is-selected > a {
+        color: $color-navigation-text;
+      }
     }
 
     .p-navigation__link > a::before {
       @media (max-width: $breakpoint-navigation-threshold) {
         // separator color on small screens
-        background: map-get($colors--light-theme, border-default);
+        background: $colors--light-theme__border-default;
       }
     }
   }
