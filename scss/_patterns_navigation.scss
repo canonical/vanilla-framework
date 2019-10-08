@@ -212,100 +212,109 @@ $nav-border-bottom-thickness: 1px;
     }
   }
 
-  // Manually overriding the theming:
-  $color-navigation-background: null;
-  $color-navigation-text: null;
-  $color-navigation-text-hover: null;
-
   // Theming
+  // Manually overriding the theming:
+  $color-navigation-background: null !default;
+  $color-navigation-text: null !default;
+  $lightness-threshold: 70;
+
   @if (map-get($theme-default--dark, nav) == true) {
     // dark theme
     $color-navigation-background: $colors--dark-theme__background-highlighted !default;
-    $color-navigation-text: if(lightness($color-navigation-background) < 70, blue, green) !default;
+    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme__text-default, $colors--dark-theme__text-default) !default;
 
     .p-navigation {
-      @extend %p-navigation--dark-theme;
+      @include p-navigation--dark-theme($color-navigation-background, $color-navigation-text, false);
     }
 
     .p-navigation.is-light {
-      @extend %p-navigation--light-theme;
+      @include p-navigation--light-theme($color-navigation-background, $color-navigation-text, true);
     }
   } @else {
     // light theme
-    $color-navigation-background: rgb(92, 245, 72) !default;
-    // $color-navigation-text: if(lightness($color-navigation-background) > 70, map-get($colors--light-theme, text), $color-light) !default;
-    $color-navigation-text: blue !default;
+    $color-navigation-background: $colors--light-theme__background !default;
+    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme__text-default, $colors--dark-theme__text-default) !default;
 
     .p-navigation {
-      @extend %p-navigation--light-theme;
+      @include p-navigation--light-theme($color-navigation-background, $color-navigation-text, false);
     }
 
     .p-navigation.is-dark {
-      @extend %p-navigation--dark-theme;
+      @include p-navigation--dark-theme($color-navigation-background, $color-navigation-text, true);
     }
   }
 
-  %p-navigation--dark-theme {
-    background-color: $color-navigation-background;
+  @debug lightness($color-navigation-background);
+}
 
-    .p-navigation__link > a,
-    .p-navigation__toggle--close,
-    .p-navigation__toggle--open {
-      &,
-      &:visited,
-      &:focus {
-        color: $color-navigation-text;
-      }
+@mixin p-navigation--light-theme($color-navigation-background, $color-navigation-text, $override-default: false) {
+  @if ($override-default) {
+    $color-navigation-background: $colors--light-theme__background;
+    $color-navigation-text: $colors--light-theme__text-default;
+  }
 
-      &:hover {
-        opacity: 0.5;
-        // color: $color-navigation-text-hover;
-      }
+  background-color: $color-navigation-background;
+
+  .p-navigation__link > a,
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    &,
+    &:visited,
+    &:focus {
+      color: $color-navigation-text;
     }
 
-    @include deprecate('3.0.0', 'Selectors should use classes.') {
-      .p-navigation__link.is-selected > a {
-        color: $color-navigation-text;
-      }
-    }
-
-    // separator color on small screens
-    .p-navigation__link > a::before {
-      @media (max-width: $breakpoint-navigation-threshold) {
-        background: $colors--dark-theme__border-default;
-      }
+    &:hover {
+      opacity: 0.6;
     }
   }
 
-  %p-navigation--light-theme {
-    background-color: $color-navigation-background;
+  @include deprecate('3.0.0', 'Selectors should use classes.') {
+    .p-navigation__link.is-selected > a {
+      color: $color-navigation-text;
+    }
+  }
 
-    .p-navigation__link > a,
-    .p-navigation__toggle--close,
-    .p-navigation__toggle--open {
-      &,
-      &:visited,
-      &:focus {
-        color: $color-navigation-text;
-      }
+  .p-navigation__link > a::before {
+    @media (max-width: $breakpoint-navigation-threshold) {
+      // separator color on small screens
+      background: $colors--light-theme__border-default;
+    }
+  }
+}
 
-      &:hover {
-        opacity: 0.5;
-        // color: $color-navigation-text-hover;
-      }
+@mixin p-navigation--dark-theme($color-navigation-background, $color-navigation-text, $override-default: false) {
+  @if ($override-default) {
+    $color-navigation-background: $colors--dark-theme__background-highlighted;
+    $color-navigation-text: $colors--dark-theme__text-default;
+  }
+
+  background-color: $color-navigation-background;
+
+  .p-navigation__link > a,
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    &,
+    &:visited,
+    &:focus {
+      color: $color-navigation-text;
     }
 
-    @include deprecate('3.0.0', 'Selectors should use classes.') {
-      .p-navigation__link.is-selected > a {
-        color: $color-navigation-text;
-      }
+    &:hover {
+      opacity: 0.6;
     }
+  }
 
-    .p-navigation__link > a::before {
-      @media (max-width: $breakpoint-navigation-threshold) {
-        // separator color on small screens
-        background: $colors--light-theme__border-default;
-      }
+  @include deprecate('3.0.0', 'Selectors should use classes.') {
+    .p-navigation__link.is-selected > a {
+      color: $color-navigation-text;
+    }
+  }
+
+  // separator color on small screens
+  .p-navigation__link > a::before {
+    @media (max-width: $breakpoint-navigation-threshold) {
+      background: $colors--dark-theme__border-default;
     }
   }
 }
