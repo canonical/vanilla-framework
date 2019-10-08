@@ -180,7 +180,7 @@ $font-allow-cyrillic-greek-latin: true;
 
 ### `font-display` options
 
-The css [font-display](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) option allows you to set a strategy for what backup font is shown while an external font is loading. This is a very subjective decision; however, if you set the following variable to the option you want, it will add it to the typography for you.
+The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) option allows you to set a strategy for what backup font is shown while an external font is loading. This is a very subjective decision; however, if you set the following variable to the option you want, it will add it to the typography for you.
 
 ```sass
 $font-display-option: <auto | block | swap | fallback | optional>;
