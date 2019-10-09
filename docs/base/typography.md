@@ -186,7 +186,7 @@ The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-
 $font-display-option: <auto | block | swap | fallback | optional>;
 ```
 
-The default is not to add a `font-display` descriptor.
+The `font-display` descriptor's default setting is `auto`.
 
 ### Design
 
