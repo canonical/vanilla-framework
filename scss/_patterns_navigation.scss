@@ -2,10 +2,6 @@
 
 $nav-border-bottom-thickness: 1px;
 
-@mixin vf-navigation-default {
-} //only here to prevent a breaking change;
-
-// Default header styling
 @mixin vf-p-navigation {
   // no colours
   .p-navigation {
@@ -155,7 +151,7 @@ $nav-border-bottom-thickness: 1px;
       }
     }
 
-    @include deprecate('2.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
       &.row {
         @extend %navigation-row;
       }
@@ -213,7 +209,6 @@ $nav-border-bottom-thickness: 1px;
   }
 
   // Theming
-  // Manually overriding the theming:
   $color-navigation-background: null !default;
   $color-navigation-text: null !default;
   $lightness-threshold: 70;

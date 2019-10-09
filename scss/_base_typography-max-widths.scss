@@ -3,10 +3,11 @@
     max-width: map-get($max-widths, default);
   }
 
-  //expose measure as a class
-  %measure--p,
-  .measure--p {
-    @extend %max-width--p;
+  @include deprecate('3.0.0', 'Use `%max-width--p` instead') {
+    %measure--p,
+    .measure--p {
+      @extend %max-width--p;
+    }
   }
 }
 
