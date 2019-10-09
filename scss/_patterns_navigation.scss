@@ -215,8 +215,8 @@ $nav-border-bottom-thickness: 1px;
 
   @if (map-get($theme-default--dark, nav) == true) {
     // dark theme
-    $color-navigation-background: $colors--dark-theme__background-highlighted !default;
-    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme__text-default, $colors--dark-theme__text-default) !default;
+    $color-navigation-background: $colors--dark-theme--background-highlighted !default;
+    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
 
     .p-navigation {
       @include p-navigation--dark-theme($color-navigation-background, $color-navigation-text, false);
@@ -227,8 +227,8 @@ $nav-border-bottom-thickness: 1px;
     }
   } @else {
     // light theme
-    $color-navigation-background: $colors--light-theme__background !default;
-    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme__text-default, $colors--dark-theme__text-default) !default;
+    $color-navigation-background: $colors--light-theme--background !default;
+    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
 
     .p-navigation {
       @include p-navigation--light-theme($color-navigation-background, $color-navigation-text, false);
@@ -242,8 +242,8 @@ $nav-border-bottom-thickness: 1px;
 
 @mixin p-navigation--light-theme($color-navigation-background, $color-navigation-text, $override-default: false) {
   @if ($override-default) {
-    $color-navigation-background: $colors--light-theme__background;
-    $color-navigation-text: $colors--light-theme__text-default;
+    $color-navigation-background: $colors--light-theme--background;
+    $color-navigation-text: $colors--light-theme--text-default;
   }
 
   background-color: $color-navigation-background;
@@ -271,15 +271,15 @@ $nav-border-bottom-thickness: 1px;
   .p-navigation__link > a::before {
     @media (max-width: $breakpoint-navigation-threshold) {
       // separator color on small screens
-      background: $colors--light-theme__border-default;
+      background: $colors--light-theme--border-default;
     }
   }
 }
 
 @mixin p-navigation--dark-theme($color-navigation-background, $color-navigation-text, $override-default: false) {
   @if ($override-default) {
-    $color-navigation-background: $colors--dark-theme__background-highlighted;
-    $color-navigation-text: $colors--dark-theme__text-default;
+    $color-navigation-background: $colors--dark-theme--background-highlighted;
+    $color-navigation-text: $colors--dark-theme--text-default;
   }
 
   background-color: $color-navigation-background;
@@ -307,7 +307,7 @@ $nav-border-bottom-thickness: 1px;
   // separator color on small screens
   .p-navigation__link > a::before {
     @media (max-width: $breakpoint-navigation-threshold) {
-      background: $colors--dark-theme__border-default;
+      background: $colors--dark-theme--border-default;
     }
   }
 }
