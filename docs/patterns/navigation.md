@@ -18,10 +18,10 @@ displayed horizontally on larger screens.
   </p>
 </div>
 
-The navigation pattern is on of the firsts to implement the new theming architecture in vanilla. By default, the nav is light. t`o switch to a dark nav, you can either:
+The navigation pattern is one of the first patterns to implement the new theming architecture in Vanilla. The default is light. But, to switch to a dark navigation, you can either:
 
 - Change the value of the `nav` key in the `$theme-default--dark` map (located in `_settings_themes.scss`) to `true`
-- Add the class `is-dark` when the default nav is light, or `is-light` when the default has been changed to dark
+- Add a state class to the `p-navigation` class: `is-dark` when the default nav is light, or `is-light` when the default has been changed to dark
 
 You can also manually override the background color of the nav using the variable `$color-navigation-background`. If the lightness of the background is above 70%, the text colour will switch to dark to improve readibility.
 
