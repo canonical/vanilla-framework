@@ -1,7 +1,6 @@
 @import 'settings';
 
-$nav-border-bottom-thickness: 1px;
-$hover-opacity: 0.58;
+$navigation-hover-opacity: 0.58;
 
 @mixin vf-p-navigation {
   // no colours
@@ -61,7 +60,7 @@ $hover-opacity: 0.58;
 
         &::before {
           content: '';
-          height: $nav-border-bottom-thickness;
+          height: 1px;
           left: 0;
           position: absolute;
           right: 0;
@@ -259,13 +258,13 @@ $hover-opacity: 0.58;
     }
 
     &:hover {
-      opacity: $hover-opacity;
+      opacity: $navigation-hover-opacity;
     }
   }
 
   @include deprecate('3.0.0', 'Selectors should use classes.') {
     .p-navigation__link.is-selected > a {
-      opacity: $hover-opacity;
+      opacity: $navigation-hover-opacity;
     }
   }
 
@@ -295,13 +294,13 @@ $hover-opacity: 0.58;
     }
 
     &:hover {
-      opacity: $hover-opacity;
+      opacity: $navigation-hover-opacity;
     }
   }
 
   @include deprecate('3.0.0', 'Selectors should use classes.') {
     .p-navigation__link.is-selected > a {
-      opacity: $hover-opacity;
+      opacity: $navigation-hover-opacity;
     }
   }
 
