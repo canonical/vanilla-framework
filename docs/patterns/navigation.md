@@ -20,7 +20,7 @@ displayed horizontally on larger screens.
 
 The navigation pattern is one of the first patterns to implement the new theming architecture in Vanilla. The default is light. But, to switch to a dark navigation, you can either:
 
-- Change the value of the `nav` key in the `$theme-default--dark` map (located in `_settings_themes.scss`) to `true`
+- Override the value of the `nav` key in the `$theme-default--dark` map (initially set in `_settings_themes.scss`) to `true`: `$theme-default--dark: map-merge($theme-default--dark, ("nav": true));`
 - Add a state class to the `p-navigation` class: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark
 
 You can also manually override the background color of the navigation using the variable `$color-navigation-background`. If the lightness of the background is above 70%, the text colour will switch to dark to improve readability.
