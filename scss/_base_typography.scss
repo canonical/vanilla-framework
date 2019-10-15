@@ -6,7 +6,10 @@
 // Typographic element styles
 @mixin vf-b-typography {
   @include vf-b-typography-fontfaces;
-  @include vf-b-typography-max-widths;
+
+  @include deprecate('3.0.0', 'The unused `vf-b-typography-max-widths` mixin will be removed') {
+    @include vf-b-typography-max-widths;
+  }
 
   html {
     // sass-lint:disable no-vendor-prefixes

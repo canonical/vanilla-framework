@@ -1,9 +1,9 @@
 @mixin vf-b-typography-max-widths {
-  %max-width--p {
-    max-width: map-get($max-widths, default);
-  }
+  @include deprecate('3.0.0', 'Use the `p-max-width` mixin instead') {
+    %max-width--p {
+      max-width: map-get($max-widths, default);
+    }
 
-  @include deprecate('3.0.0', 'Use `%max-width--p` instead') {
     %measure--p,
     .measure--p {
       @extend %max-width--p;
