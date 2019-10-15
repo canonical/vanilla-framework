@@ -79,7 +79,7 @@ View example of the dense button pattern
 
 ### Icon
 
-Should you wish to place an icon in a button. You will not want to button to become full width on small screens. Therefore, you can add the state class `has-icon` to the button.
+Should you wish to place an icon in a button. You will not want to button to become full width on small screens. Therefore, you can add the state class `has-icon` to the button. If the contrast between the icon chosen and the button background is not sufficient then the `is-dark` or `is-light` classes can be added to the icon where appropriate.
 
 <a href="/examples/patterns/buttons/icon/"
     class="js-example">
