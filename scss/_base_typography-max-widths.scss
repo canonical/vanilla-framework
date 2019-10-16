@@ -1,3 +1,16 @@
+@mixin vf-b-typography-max-widths {
+  @include deprecate('3.0.0', 'Use the `p-max-width` mixin instead') {
+    %max-width--p {
+      max-width: map-get($max-widths, default);
+    }
+
+    %measure--p,
+    .measure--p {
+      @extend %max-width--p;
+    }
+  }
+}
+
 // Optimal max-width for body copy
 @mixin p-max-width {
   max-width: map-get($max-widths, default);
