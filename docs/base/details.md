@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Code
+## Details
 
 <hr>
 
