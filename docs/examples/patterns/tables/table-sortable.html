@@ -6,11 +6,11 @@ category: _patterns
 
 <table class="p-table--sortable" role="grid">
   <thead>
-    <tr role="row">
-      <th role="columnheader" id="t-name" aria-sort="none">Status</th>
-      <th role="columnheader" id="t-users" aria-sort="none" class="u-align--right">Cores</th>
-      <th role="columnheader" id="t-units" aria-sort="none" class="u-align--right">RAM</th>
-      <th role="columnheader" id="t-revenue" aria-sort="none" class="u-align--right">Disks</th>
+    <tr>
+      <th id="t-name" aria-sort="none">Status</th>
+      <th id="t-users" aria-sort="none" class="u-align--right">Cores</th>
+      <th id="t-units" aria-sort="none" class="u-align--right">RAM</th>
+      <th id="t-revenue" aria-sort="none" class="u-align--right">Disks</th>
     </tr>
   </thead>
   <tbody>
@@ -122,7 +122,7 @@ category: _patterns
      */
     function createSortableTable(table) {
       // Select sortable column headers.
-      var clickableHeaders = table.querySelectorAll('[role="columnheader"][aria-sort]');
+      var clickableHeaders = table.querySelectorAll('th[aria-sort]');
       // For this example, assume only one tbody.
       var rows = table.tBodies[0].rows;
       // Set an index for the default order.
