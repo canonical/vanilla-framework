@@ -169,6 +169,10 @@ To set the default theme to dark on any of the elements / patterns listed above:
 - Go to `_settings_themes.scss`
 - Set the value of the respective variable in the table above to 'dark'
 
+#### Invoking a theme that is not currently a default
+
+Bersides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or pattern is `light`, or `is-light` if the default is dark.
+
 ### Design
 
 For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
