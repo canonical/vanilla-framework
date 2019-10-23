@@ -142,7 +142,7 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
   </div>
 </div>
 
-### Color theming <span class="p-label--in-progress" style="margin-left: 0.5rem;">In progress</span>
+### Color theming
 
 Starting with the 2.3 release, Vanilla framework introduces a theming mechanism. The current default for all patterns is referred to as the light theme. A subset of elements and patterns now offer a dark theme:
 
