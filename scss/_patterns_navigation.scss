@@ -213,7 +213,7 @@ $navigation-hover-opacity: 0.58;
   $color-navigation-text: null !default;
   $lightness-threshold: 70;
 
-  @if (map-get($theme-default--dark, nav) == true) {
+  @if ($theme-default-nav == 'dark') {
     // dark theme
     $color-navigation-background: $colors--dark-theme--background-highlighted !default;
     $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;

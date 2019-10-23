@@ -142,6 +142,37 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
   </div>
 </div>
 
+### Color theming
+
+Starting with the 2.3 release, Vanilla framework introduces a theming mechanism. The current default for all patterns is referred to as the light theme. A subset of elements and patterns now offer a dark theme:
+
+- `checkbox`
+- `hr`
+- `radio`
+- navigation pattern
+- search box pattern
+
+| Element / Pattern | Variable                      | Default value |
+| ----------------- | ----------------------------- | ------------- |
+| checkbox          | `$theme-default-forms`        | 'light'       |
+| radio             | `$theme-default-forms`        | 'light'       |
+| hr                | `$theme-default-hr`           | 'light'       |
+| Navigation        | `$theme-default-nav`          | 'light'       |
+| Search box        | `$theme-default-p-search-box` | 'light'       |
+
+Future releases will expand this list to include all elements and patterns.
+
+#### Setting the default color theme per element / pattern
+
+To set the default theme to dark on any of the elements / patterns listed above:
+
+- Go to `_settings_themes.scss`
+- Set the value of the respective variable in the table above to 'dark'
+
+#### Invoking a theme that is not currently a default
+
+Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or pattern is `light`, or `is-light` if the default is dark.
+
 ### Design
 
 For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
