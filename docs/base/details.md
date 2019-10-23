@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Details
+## Details <span class="p-label--new" style="margin-left: 0.5rem;">New</span>
 
 <hr>
 
