@@ -144,34 +144,36 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 ### Color theming
 
-Starting with the 2.3 release, Vanilla framework introduces a theming mechanism. The current default for all patterns is referred to as the light theme. A subset of elements and patterns now offer a dark theme:
+<span class="p-label--in-progress">In progress</span>
+
+Starting with the [v2.3.0](https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
 
 - `checkbox`
 - `hr`
 - `radio`
-- navigation pattern
-- search box pattern
+- <a href="/patterns/navigation">navigation</a>
+- search box
 
-| Element / Pattern | Variable                      | Default value |
-| ----------------- | ----------------------------- | ------------- |
-| checkbox          | `$theme-default-forms`        | 'light'       |
-| radio             | `$theme-default-forms`        | 'light'       |
-| hr                | `$theme-default-hr`           | 'light'       |
-| Navigation        | `$theme-default-nav`          | 'light'       |
-| Search box        | `$theme-default-p-search-box` | 'light'       |
+| Element / Component | Variable                      | Default value |
+| ------------------- | ----------------------------- | ------------- |
+| checkbox            | `$theme-default-forms`        | `light`       |
+| radio               | `$theme-default-forms`        | `light`       |
+| hr                  | `$theme-default-hr`           | `light`       |
+| Navigation          | `$theme-default-nav`          | `light`       |
+| Search box          | `$theme-default-p-search-box` | `light`       |
 
-Future releases will expand this list to include all elements and patterns.
+Future releases will expand this list to include all elements and components.
 
-#### Setting the default color theme per element / pattern
+#### Setting the default color theme per element / component
 
-To set the default theme to dark on any of the elements / patterns listed above:
+To set the default theme to dark on any of the elements / components listed above:
 
 - Go to `_settings_themes.scss`
 - Set the value of the respective variable in the table above to 'dark'
 
 #### Invoking a theme that is not currently a default
 
-Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or pattern is `light`, or `is-light` if the default is dark.
+Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or component is `light`, or `is-light` if the default is dark.
 
 ### Design
 
