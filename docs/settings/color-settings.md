@@ -134,7 +134,7 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
      </div>
     <div class="col-6">
       <div class="p-notification--negative">
-        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use low-contrast text and background combinations. e.g., dark text on a dark background.</p>
+        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use low-contrast text and background combinations.</p>
       </div>
       <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/66aa056d-basics-text-color-don%27t.png" alt="text-color-don't">
       <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/0929f834-basics-button-color-don%27t.png" alt="button-color-don't">
