@@ -13,8 +13,14 @@ The article pagination component should be used to navigate from one article to 
 View example of the pagination pattern
 </a>
 
-<hr />
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_article-pagination';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 
-- [Pagination design](https://github.com/ubuntudesign/vanilla-design/tree/master/Pagination)
+For more information [view the pagination design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Pagination), which includes the specification in markdown format and a PNG image.
