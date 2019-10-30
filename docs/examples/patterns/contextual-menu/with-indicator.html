@@ -1,0 +1,65 @@
+---
+layout: examples
+title: Contextual menu / With indicator
+category: _patterns
+---
+
+<span class="p-contextual-menu--left">
+  <button href="#" class="p-button--positive p-contextual-menu__toggle has-icon" aria-controls="#menu-3" aria-expanded="false" aria-haspopup="true"><i class="p-icon--contextual-menu is-light p-contextual-menu__indicator"></i><span>Take action</span></button>
+  <span class="p-contextual-menu__dropdown" id="menu-3" aria-hidden="true" aria-label="submenu">
+    <span class="p-contextual-menu__group">
+      <a href="#" class="p-contextual-menu__link">Commission</a>
+      <a href="#" class="p-contextual-menu__link">Aquire</a>
+      <a href="#" class="p-contextual-menu__link">Deploy</a>
+    </span>
+    <span class="p-contextual-menu__group">
+      <a href="#" class="p-contextual-menu__link">Test harware</a>
+      <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+      <a href="#" class="p-contextual-menu__link">Mark broken</a>
+    </span>
+  </span>
+</span>
+
+
+
+<script>
+  function toggleMenu(element, show) {
+    element.setAttribute('aria-expanded', show);
+    document.querySelector(element.getAttribute('aria-controls')).setAttribute('aria-hidden', !show);
+  }
+
+  function setupContextualMenuListeners(contextualMenuToggleSelector) {
+    var toggles = document.querySelectorAll(contextualMenuToggleSelector);
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = e.target;
+        var menuAlreadyOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggleMenu(toggle, !menuAlreadyOpen);
+      });
+    });
+    document.addEventListener('click', function (e) {
+      toggles.forEach(function (toggle) {
+        var contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
+        var clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
+
+        if (clickOutside) {
+          toggleMenu(toggle, false);
+        }
+      });
+    });
+
+    document.onkeydown = function (e) {
+      e = e || window.event;
+
+      if (e.keyCode === 27) {
+        // Capture Esc presses to close menu
+        toggles.forEach(function (toggle) {
+          toggleMenu(toggle, false);
+        });
+      }
+    };
+  }
+
+  setupContextualMenuListeners('.p-contextual-menu__toggle');
+</script>
