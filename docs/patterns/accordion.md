@@ -29,6 +29,14 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
 View example of the accordion pattern
 </a>
 
+### Import
+
+To import this individual component into your project, copy the snippet and include it in your main Sass file.
+
+<pre><code>@import 'patterns_accordion';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Functionality
 
 Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the accordion will be open by default. When clicking on the `accordion__tab`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the panel.
