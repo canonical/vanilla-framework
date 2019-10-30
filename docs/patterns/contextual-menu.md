@@ -31,7 +31,7 @@ Using direction modifiers will change the placement of the drop-down menu. By de
   </p>
 </div>
 
-<a href="/examples/patterns/contextual-menu/contextual-menu"
+<a href="/examples/patterns/contextual-menu/default"
   class="js-example">
 View example of the contextual menu pattern
 </a>
@@ -48,7 +48,7 @@ If you require a drop-down button with a state indicator then the `p-contextual-
   </p>
 </div>
 
-<a href="/examples/patterns/contextual-menu/contextual-menu-indicator"
+<a href="/examples/patterns/contextual-menu/with-indicator"
   class="js-example">
 View example of the contextual menu pattern
 </a>
