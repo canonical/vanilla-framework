@@ -31,7 +31,7 @@ View example of the accordion pattern
 
 ### Import
 
-To import this individual component into your project, copy the snippet and include it in your main Sass file.
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 <pre><code>@import 'patterns_accordion';</code></pre>
 
