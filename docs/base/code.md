@@ -51,6 +51,15 @@ The code numbered pattern can be used when displaying large blocks of code to en
 View example of the code numbered pattern
 </a>
 
+### Import
+
+To import just code copyable or numbered component into your project, copy either or both snippets below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_code-copyable';</code></pre>
+<pre><code>@import 'patterns_code-numbered';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the code design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Code), which includes the specification in markdown format and a PNG image.

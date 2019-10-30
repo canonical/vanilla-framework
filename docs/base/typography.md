@@ -188,6 +188,14 @@ $font-display-option: <auto | block | swap | fallback | optional>;
 
 The `font-display` descriptor's default setting is `auto`.
 
+### Import
+
+To import just this base element into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_headings';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the typography design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography), which includes the specification in markdown format and a PNG image.

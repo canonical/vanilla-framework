@@ -44,6 +44,14 @@ The purpose of the overlay card is to make the text visible in conjunction with 
 View example of the patterns card overlay
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_card';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the cards design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Cards), which includes the specification in markdown format and a PNG image.

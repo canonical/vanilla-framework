@@ -32,6 +32,14 @@ The icon for this component is also available at a smaller size of 32 x 32 pixel
 View example of the pattern heading icon small
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_heading-icon';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information view the [heading icon design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon) which includes the specification in markdown format and a PNG image.

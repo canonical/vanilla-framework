@@ -33,7 +33,6 @@ View example of the table sortable pattern
   </p>
 </div>
 
-
 ### Expanding
 
 Using `.p-table-expanding` in conjunction with the `<table>` element will allow expanding and hidden table cells which take up the full width of the table row element.
@@ -53,7 +52,6 @@ View example of the expanding table pattern
   </p>
 </div>
 
-
 ### Responsive
 
 Applying the class `.p-table--mobile-card` will give any table a new responsive card view when on smaller screens. Each cell will require
@@ -65,6 +63,16 @@ The `<thead>` element is completely hidden from view on a smaller screen and if 
   class="js-example">
 View example of the patterns table mobile card
 </a>
+
+### Import
+
+To import either or all of these components into your project, copy the snippets below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_table-expanding';</code></pre>
+<pre><code>@import 'patterns_table-mobile-card';</code></pre>
+<pre><code>@import 'patterns_table-sortable';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

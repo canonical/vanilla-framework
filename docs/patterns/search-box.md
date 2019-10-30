@@ -26,6 +26,14 @@ This component integrates with `.p-navigation__nav` for both small and large scr
 View examples of search box navigation patterns
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_search-box';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the search design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Search), which includes the specification in markdown format and a PNG image.

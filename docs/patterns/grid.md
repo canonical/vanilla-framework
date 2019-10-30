@@ -55,7 +55,13 @@ Please note, specifying a value that exceeds the available number of columns wil
 View example of the incorrect column offset within a nested grid
 </a>
 
-<hr>
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_grid';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

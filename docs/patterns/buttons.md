@@ -86,6 +86,14 @@ Should you wish to place an icon in a button. You will not want to button to bec
 View example of the icon button pattern
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_buttons';</code></pre>
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information view the [buttons design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Buttons) which includes the specification in markdown format and a PNG image.
