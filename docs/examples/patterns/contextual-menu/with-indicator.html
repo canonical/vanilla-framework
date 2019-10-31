@@ -41,10 +41,12 @@ category: _patterns
     document.addEventListener('click', function (e) {
       toggles.forEach(function (toggle) {
         var contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
-        var clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
+          if (contextualMenu === null) {
+          var clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
 
-        if (clickOutside) {
-          toggleMenu(toggle, false);
+          if (clickOutside) {
+            toggleMenu(toggle, false);
+          }
         }
       });
     });
