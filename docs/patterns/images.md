@@ -30,7 +30,9 @@ View example of image with shadow
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_image';</code></pre>
+```scss
+@import 'patterns_image';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

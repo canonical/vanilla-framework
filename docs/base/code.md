@@ -55,8 +55,13 @@ View example of the code numbered pattern
 
 To import just code copyable or numbered component into your project, copy either or both snippets below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_code-copyable';</code></pre>
-<pre><code>@import 'patterns_code-numbered';</code></pre>
+```scss
+@import 'patterns_code-copyable';
+```
+
+```scss
+@import 'patterns_code-numbered';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

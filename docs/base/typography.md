@@ -192,7 +192,9 @@ The `font-display` descriptor's default setting is `auto`.
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_headings';</code></pre>
+```scss
+@import 'patterns_headings';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

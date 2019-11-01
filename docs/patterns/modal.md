@@ -33,7 +33,9 @@ On `p-modal` set display to `display:flex` or `display:none` to toggle the visib
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_modal';</code></pre>
+```scss
+@import 'patterns_modal';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

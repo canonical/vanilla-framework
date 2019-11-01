@@ -45,7 +45,9 @@ View example of the small pull quote pattern with an image
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_pull-quotes';</code></pre>
+```scss
+@import 'patterns_pull-quotes';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

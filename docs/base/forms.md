@@ -168,8 +168,13 @@ To import just this base element into your project, copy the snippet below and i
 
 To add form help text or validation into your project, copy either or both snippets below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_form-help-text';</code></pre>
-<pre><code>@import 'patterns_form-validation';</code></pre>
+```scss
+@import 'patterns_form-help-text';
+```
+
+```scss
+@import 'patterns_form-validation';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

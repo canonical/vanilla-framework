@@ -30,7 +30,9 @@ View example of the slider pattern
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_slider';</code></pre>
+```scss
+@import 'patterns_slider';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
