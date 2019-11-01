@@ -41,6 +41,16 @@ To add an image to any size of pull-quote, add the class `has-image` and use the
 View example of the small pull quote pattern with an image
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_pull-quotes';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the quotes design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Pull%20quote), which includes the specification in markdown format and a PNG image.

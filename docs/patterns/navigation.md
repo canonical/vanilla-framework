@@ -55,6 +55,20 @@ By default the sub-navigation menus are left-aligned with their parent, if you'd
 View example of the sub-navigation pattern
 </a>
 
+### Import
+
+To import just navigation or sub-navigation component into your project, copy either or both snippets below and include it in your main Sass file.
+
+```scss
+@import 'patterns_navigation';
+```
+
+```scss
+@import 'patterns_subnav';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the navigation and sub-navigation design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Navigation), which includes the specification in markdown format and a PNG image.

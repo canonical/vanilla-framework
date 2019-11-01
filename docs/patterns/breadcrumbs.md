@@ -15,7 +15,15 @@ you don't have to include them manually.
 View example of the breadcrumbs pattern
 </a>
 
-<hr />
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_breadcrumbs';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

@@ -59,6 +59,16 @@ Label to be used on a proposal approved in our bi-weekly meeting. A design spec 
 View example of the validated label pattern
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_label';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information view the [labels design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Labels) which includes the specification in markdown format and a PNG image.
