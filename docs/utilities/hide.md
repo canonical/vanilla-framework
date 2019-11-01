@@ -16,3 +16,13 @@ To hide only at a specific viewport, add `--small`, `--medium` or `--large` modi
     class="js-example">
 View example of the Hide utility
 </a>
+
+### Import
+
+To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'utilities_hide';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.

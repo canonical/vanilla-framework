@@ -44,3 +44,13 @@ You can limit floats to only small screen sizes using the following example.
     class="js-example">
 View example of the small screen floats utility
 </a>
+
+### Import
+
+To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'utilities_floats';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
