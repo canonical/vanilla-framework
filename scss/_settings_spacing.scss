@@ -128,19 +128,24 @@ $spv-nudge: map-get($nudges, nudge--p) !default; // top: nudge; bottom: unit - n
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
 $input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
 
+$max-width--default: 40em !default;
+
+@include deprecate('3.0.0', 'The map $max-widths will be removed in version 3.0. Use variable $max-width--default instead') {
+}
+
 $max-widths: (
-  long: 60em,
-  default: 40em,
-  heading--long: 30em,
-  heading--short: 20em
+  long: $max-width--default,
+  default: $max-width--default,
+  heading--long: $max-width--default,
+  heading--short: $max-width--default
 ) !default;
 
 $icon-sizes: (
   accordion: $sp-unit * 1.5,
   default: $sp-unit * 2,
-  heading-icon--x-small: $sp-unit * 3,
+  heading-icon--x-small: $sp-unit * 4,
   heading-icon--small: $sp-unit * 4,
-  heading-icon: $sp-unit * 5,
+  4 heading-icon: $sp-unit * 5,
   thumb: $sp-unit * 6,
   thumb--large: $sp-unit * 12
 ) !default;

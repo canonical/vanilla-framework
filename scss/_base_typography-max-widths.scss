@@ -11,23 +11,26 @@
   }
 }
 
-// Optimal max-width for body copy
 @mixin p-max-width {
-  max-width: map-get($max-widths, default);
+  @include deprecate('3.0.0', 'Max-widths should not be based on font-size. Use map-get($max-widths, default) instead.') {
+    max-width: map-get($max-widths, default);
+  }
 }
 
-// Optimal max-width for main headings (up to 2 lines of copy)
 @mixin heading-max-width--short {
-  max-width: map-get($max-widths, heading--short);
+  @include deprecate('3.0.0', 'Max-widths should not be based on font-size. Use map-get($max-widths, default) instead.') {
+    max-width: map-get($max-widths, default);
+  }
 }
 
-// Optimal max-width for headings (up to 3 lines of copy)
 @mixin heading-max-width--long {
-  max-width: map-get($max-widths, heading--long);
+  @include deprecate('3.0.0', 'Max-widths should not be based on font-size. Use map-get($max-widths, default) instead.') {
+    max-width: map-get($max-widths, default);
+  }
 }
 
-// Relaxed max-width for cases like notifications, where minimizing vertical height is
-// more important than maintaining the optimal value
 @mixin p-max-width--long {
-  max-width: map-get($max-widths, long);
+  @include deprecate('3.0.0', 'Max-widths should not be based on font-size. Use map-get($max-widths, default) instead.') {
+    max-width: map-get($max-widths, default);
+  }
 }
