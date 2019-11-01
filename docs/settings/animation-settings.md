@@ -57,8 +57,28 @@ Currently, Vanilla's implementation of this feature is a simple media query wher
 Animations are preset to components. Components can be modified or extended to
 include animation by including the animation mixin.
 
+The format is as follows:
+
 ```scss
-@include vf-animation(property: all, duration: brisk, easing: out);
+@include vf-animation(PROPERTY, DURATION, EASING);
+```
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span> The list of valid `DURATION` and `EASING` options are shown in the <a href="#duration">duration</a> and <a href="#easing">easing</a> sections of the documentation.
+  </p>
+</div>
+
+A valid use could be, for example:
+
+```scss
+@include vf-animation(height, brisk, out);
+```
+
+If you require multiple properties then the list must be interpolated as shown in the following example:
+
+```scss
+@include vf-animation(#{height, width}, brisk, out);
 ```
 
 ### Design
