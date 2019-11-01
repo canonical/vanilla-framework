@@ -99,7 +99,7 @@ View example of how to unset max-width
 Overriding or unsetting the `max-width` is reasonable in certain cases:
 
 - to avoid an <a href="https://en.wikipedia.org/wiki/Widows_and_orphans">orphan</a> in some fixed, high-profile text, like a promotional banner or notification.
-- when content is wrapped in a text element unintentionally, and fixing the markup is not possible. For example, a cms or a documentation service might insert `<p>` after every line break, resulting in `<div>`'s or `<iframe>`'s wrapped in `<p>`'s.
+- when content is wrapped in a text element unintentionally, and fixing the markup is not possible. For example, a CMS or a documentation service might insert `<p>` after every line break, resulting in `<div>`'s or `<iframe>`'s wrapped in `<p>`'s.
 
 ### Ordered list
 
