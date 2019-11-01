@@ -111,6 +111,22 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 View example of the patterns list split
 </a>
 
+### Import
+
+To import just this base element into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_lists';
+```
+
+To add dividers into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_divider';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the lists design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Lists), which includes the specification in markdown format and a PNG image.

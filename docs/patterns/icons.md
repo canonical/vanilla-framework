@@ -208,6 +208,16 @@ If you wish to add share icons for Twitter, Facebook or LinkedIn, we recommend u
   </div>
 </div>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_icons';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information view the [icons design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons) which includes the specification in markdown format and a PNG image.

@@ -160,6 +160,24 @@ In contexts where vertical space is limited, e.g. inside a table row, you might 
 View example of the dense form elements
 </a>
 
+### Import
+
+To import just this base element into your project, copy the snippet below and include it in your main Sass file.
+
+<pre><code>@import 'patterns_forms';</code></pre>
+
+To add form help text or validation into your project, copy either or both snippets below and include it in your main Sass file.
+
+```scss
+@import 'patterns_form-help-text';
+```
+
+```scss
+@import 'patterns_form-validation';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information [view the forms design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms), which includes the specification in markdown format and a PNG image.

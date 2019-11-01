@@ -32,6 +32,16 @@ Use a large variant of the component to display details of a single object on a 
 View example of the pattern media object large
 </a>
 
+### Import
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_media-object';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information view the [media object design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Media%20object) which includes the specification in markdown format and a PNG image.
