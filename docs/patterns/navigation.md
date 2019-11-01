@@ -59,8 +59,13 @@ View example of the sub-navigation pattern
 
 To import just navigation or sub-navigation component into your project, copy either or both snippets below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_navigation';</code></pre>
-<pre><code>@import 'patterns_subnav';</code></pre>
+```scss
+@import 'patterns_navigation';
+```
+
+```scss
+@import 'patterns_subnav';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

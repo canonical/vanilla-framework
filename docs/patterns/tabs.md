@@ -39,7 +39,9 @@ View example of the tabs pattern
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_tabs';</code></pre>
+```scss
+@import 'patterns_tabs';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

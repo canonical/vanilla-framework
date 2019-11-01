@@ -59,7 +59,9 @@ View example of the incorrect column offset within a nested grid
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_grid';</code></pre>
+```scss
+@import 'patterns_grid';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

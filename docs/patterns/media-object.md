@@ -36,7 +36,9 @@ View example of the pattern media object large
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_media-object';</code></pre>
+```scss
+@import 'patterns_media-object';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

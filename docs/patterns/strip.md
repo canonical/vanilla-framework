@@ -85,7 +85,9 @@ View example of the pattern strip is-shallow
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_strip';</code></pre>
+```scss
+@import 'patterns_strip';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

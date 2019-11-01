@@ -68,9 +68,17 @@ View example of the patterns table mobile card
 
 To import either or all of these components into your project, copy the snippets below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_table-expanding';</code></pre>
-<pre><code>@import 'patterns_table-mobile-card';</code></pre>
-<pre><code>@import 'patterns_table-sortable';</code></pre>
+```scss
+@import 'patterns_table-expanding';
+```
+
+```scss
+@import 'patterns_table-mobile-card';
+```
+
+```scss
+@import 'patterns_table-sortable';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

@@ -115,7 +115,9 @@ View example of the patterns list split
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_lists';</code></pre>
+```scss
+@import 'patterns_lists';
+```
 
 To add dividers into your project, copy the snippet below and include it in your main Sass file.
 

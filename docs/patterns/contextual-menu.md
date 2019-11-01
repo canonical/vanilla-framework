@@ -44,7 +44,9 @@ Please ensure the `aria-control` attribute matches an ID of an element. If `aria
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_contextual-menu';</code></pre>
+```scss
+@import 'patterns_contextual-menu';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

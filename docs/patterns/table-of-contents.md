@@ -17,7 +17,9 @@ View example of the table of contents pattern
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_table-of-contents';</code></pre>
+```scss
+@import 'patterns_table-of-contents';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
