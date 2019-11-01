@@ -72,6 +72,16 @@ View example of the utilities image position bottom right
 View example of the utilities image position bottom left
 </a>
 
+### Import
+
+To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'utilities_image-position';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
 ### Design
 
 For more information view the [image position design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Image%20position) which includes the specification in markdown format and a PNG image.

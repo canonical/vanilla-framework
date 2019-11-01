@@ -12,3 +12,13 @@ To ensure two or more elements have an equal height regardless of their content,
     class="js-example">
 View example of the equal height utility
 </a>
+
+### Import
+
+To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'utilities_equal-height';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
