@@ -25,18 +25,33 @@ View example of the base code block
 
 ### Copyable
 
-Code copyable should be used when presenting the user with a small snippet of code that they will likely want to copy and paste.
+This component should be used when displaying a single line of code, accompanied by a copy icon, which allows users to copy the provided code to their clipboard.
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
+<div class="p-strip is-shallow">
+  <div class="row">
+     <div class="col-6">
+       <div class="p-notification--positive">
+        <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use for single line terminal commands, functions or instructions.</p>
+       </div>
+     </div>
+    <div class="col-6">
+      <div class="p-notification--negative">
+        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use more than two lines of code, if required, it's recommended you use code <a href="#block" class="p-notification__action">block</a>.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <a href="/examples/patterns/code-copyable/"
     class="js-example">
 View example of the code copyable pattern
 </a>
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
+  </p>
+</div>
 
 ### Functionality
 
