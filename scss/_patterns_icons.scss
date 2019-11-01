@@ -1,6 +1,6 @@
 @import 'settings';
 
-$default-icon-size: map-get($icon-sizes, default);
+$default-icon-size: 1rem; // map-get($icon-sizes, default);
 $social-icon-size: map-get($icon-sizes, heading-icon--small);
 $color-social-icon-background: $color-mid-dark !default;
 $color-social-icon-foreground: $color-mid-x-light !default;
@@ -52,7 +52,8 @@ $color-social-icon-foreground: $color-mid-x-light !default;
     margin: 0;
     padding: 0;
     position: relative;
-    top: 2px;
+    top: 0;
+    vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
   }
 
   %social-icon {
@@ -567,8 +568,7 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   // Style overides for icons within a button
   [class*='p-button-'] {
     [class*='p-icon-'] {
-      top: -1px;
-      vertical-align: middle;
+      top: 0;
     }
   }
 }
