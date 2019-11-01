@@ -95,3 +95,13 @@ There are also generic spacing units for backwards compatibility with components
 | `$sp-xxx-large`   | `$sp-unit * 6`    | `3rem`        |
 | `$sp-xxxx-large`  | `$sp-unit * 8`    | `4rem`        |
 | `$sp-xxxxx-large` | `$sp-unit * 12`   | `6rem`        |
+
+### Import
+
+To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'utilities_vertical-spacing';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
