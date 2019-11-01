@@ -16,3 +16,13 @@ In the example below, the parent wrapping container does not collapse even thoug
     class="js-example">
 View example of the clearfix utility
 </a>
+
+### Import
+
+To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'utilities_clearfix';
+```
+
+For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
