@@ -121,7 +121,9 @@ To import just this base element into your project, copy the snippet below and i
 
 To add dividers into your project, copy the snippet below and include it in your main Sass file.
 
-<pre><code>@import 'patterns_divider';</code></pre>
+```scss
+@import 'patterns_divider';
+```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
