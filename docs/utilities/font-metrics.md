@@ -6,13 +6,13 @@ layout: default
 
 <hr>
 
-Being able to visualise the baseline position, cap-height and x-height of a typeface can help precisely align  inline-block elements (for example icons) to text. For an example of how to do this, you can inspect th
+Being able to visualise the baseline position, cap-height and x-height of a typeface can help precisely align inline-block elements (for example icons) to text.
 
 These properties are not directly accessible via css, but can be obtained from font-editing software like FontForge. The values (for the Ubuntu font family) are stored in `_settings_font.scss`. If you want to use this utility with another font, you will need to change the default values to match your font.
 
 <a href="/examples/utilities/font-metrics/"
     class="js-example">
-  View an example of the font metrics utility
+View an example of the font metrics utility
 </a>
 
 ### Import
