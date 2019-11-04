@@ -600,11 +600,13 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   }
 }
 
-@mixin vf-p-icon-in-button {
-  // Style overides for icons within a button
-  [class*='p-button-'] {
-    [class*='p-icon-'] {
-      top: 0;
+@include deprecate('3.0.0', 'No longer necessary') {
+  @mixin vf-p-icon-in-button {
+    // Style overides for icons within a button
+    [class*='p-button-'] {
+      [class*='p-icon-'] {
+        top: 0;
+      }
     }
   }
 }
