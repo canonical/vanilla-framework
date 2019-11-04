@@ -1,6 +1,6 @@
 @import 'settings';
 
-$default-icon-size: 1rem;
+$default-icon-size: map-get($icon-sizes, default);
 $social-icon-size: map-get($icon-sizes, heading-icon--small);
 $color-social-icon-background: $color-mid-dark !default;
 $color-social-icon-foreground: $color-mid-x-light !default;
@@ -43,7 +43,7 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   %icon {
     @extend %vf-hide-text;
     @include vf-icon-size($default-icon-size);
-    $vertical-offset: .5px;
+    $vertical-offset: 0.5px;
     background: {
       position: center;
       repeat: no-repeat;
