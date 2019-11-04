@@ -6,7 +6,7 @@ layout: default
 
 <hr>
 
-You can apply this utility to an element (such as `<body>`) to visualise the .5rem baseline grid to which text elements adhere.
+You can apply this utility to an element (such as `<body>`) to visualise the `.5rem` baseline grid to which text elements adhere.
 
 <a href="/examples/utilities/baseline-grid/"
     class="js-example">
