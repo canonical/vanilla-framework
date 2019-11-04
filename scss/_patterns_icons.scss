@@ -1,6 +1,6 @@
 @import 'settings';
 
-$default-icon-size: 1rem; // map-get($icon-sizes, default);
+$default-icon-size: 1rem;
 $social-icon-size: map-get($icon-sizes, heading-icon--small);
 $color-social-icon-background: $color-mid-dark !default;
 $color-social-icon-foreground: $color-mid-x-light !default;
@@ -43,17 +43,59 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   %icon {
     @extend %vf-hide-text;
     @include vf-icon-size($default-icon-size);
+    $vertical-offset: .5px;
     background: {
       position: center;
       repeat: no-repeat;
       size: contain;
     }
     display: inline-block;
+    font-size: inherit; // allow icons to match size of parent text element, when set in em
     margin: 0;
     padding: 0;
     position: relative;
-    top: 0;
-    vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+    vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+  }
+
+  h1,
+  .p-heading--one,
+  .u-match-h1 {
+    [class*='p-icon'] {
+      @include vf-icon-size($x-height);
+      vertical-align: 0;
+    }
+  }
+
+  h2,
+  .p-heading--two,
+  .u-match-h2 {
+    [class*='p-icon'] {
+      @include vf-icon-size($x-height);
+      vertical-align: 0;
+    }
+  }
+
+  h3,
+  .p-heading--three,
+  .u-match-h3 {
+    [class*='p-icon'] {
+      @include vf-icon-size($default-icon-size);
+      vertical-align: 0;
+    }
+  }
+
+  h4,
+  .p-heading--four,
+  .u-match-h4 {
+    [class*='p-icon'] {
+      vertical-align: 0;
+    }
+  }
+
+  .match-h1 {
+    --icon-size: --cap-height;
+    --cap-height: $cap-height;
+    @include vf-icon-size(--icon-size);
   }
 
   %social-icon {
