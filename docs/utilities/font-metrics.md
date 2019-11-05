@@ -24,9 +24,7 @@ To import just this utility into your project, copy the snippet below and includ
 @include vf-u-visualise-baseline($horisontal-bleed: 2rem);
 ```
 
-```html
 Wrap an anonimous string of text in a span with class `u-visualise-font-metrics`.
-```
 
 The `$horisontal-bleed` variable (default value `2rem`) makes the lines protrude on either side of the element, in order to help align adjacent elements. To hide the bleed, use `@include vf-u-visualise-baseline(0)`.
 
