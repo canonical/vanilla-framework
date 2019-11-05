@@ -43,16 +43,53 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   %icon {
     @extend %vf-hide-text;
     @include vf-icon-size($default-icon-size);
+    $vertical-offset: 0.5px;
     background: {
       position: center;
       repeat: no-repeat;
       size: contain;
     }
     display: inline-block;
+    font-size: inherit; // allow icons to match size of parent text element, when set in em
     margin: 0;
     padding: 0;
     position: relative;
-    top: 2px;
+    vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+  }
+
+  h1,
+  .p-heading--one,
+  .u-match-h1 {
+    [class*='p-icon'] {
+      @include vf-icon-size($x-height);
+      vertical-align: 0;
+    }
+  }
+
+  h2,
+  .p-heading--two,
+  .u-match-h2 {
+    [class*='p-icon'] {
+      @include vf-icon-size($x-height);
+      vertical-align: 0;
+    }
+  }
+
+  h3,
+  .p-heading--three,
+  .u-match-h3 {
+    [class*='p-icon'] {
+      @include vf-icon-size($default-icon-size);
+      vertical-align: 0;
+    }
+  }
+
+  h4,
+  .p-heading--four,
+  .u-match-h4 {
+    [class*='p-icon'] {
+      vertical-align: 0;
+    }
   }
 
   %social-icon {
@@ -564,11 +601,12 @@ $color-social-icon-foreground: $color-mid-x-light !default;
 }
 
 @mixin vf-p-icon-in-button {
-  // Style overides for icons within a button
-  [class*='p-button-'] {
-    [class*='p-icon-'] {
-      top: -1px;
-      vertical-align: middle;
+  @include deprecate('3.0.0', 'No longer necessary') {
+    // Style overides for icons within a button
+    [class*='p-button-'] {
+      [class*='p-icon-'] {
+        top: 0;
+      }
     }
   }
 }

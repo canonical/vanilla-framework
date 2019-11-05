@@ -2,11 +2,11 @@
 layout: default
 ---
 
-## Baseline grid
+## Font metrics
 
 <hr>
 
-You can apply this utility to an element (such as `<body>`) to give it a series of horizontal lines separated by one `$sp-unit`.
+You can apply this utility to an element (such as `<body>`) to visualise the `.5rem` baseline grid to which text elements adhere.
 
 <a href="/examples/utilities/baseline-grid/"
     class="js-example">
