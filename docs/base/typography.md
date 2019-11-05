@@ -50,15 +50,15 @@ Heading sizes are obtained by taking the ratio to a specified `power` listed in 
 | font size   | `1.22176rem` | `1.30612rem` |
 | line height | `1.5rem`     | `2rem`       |
 | _<h5>_      |              |              |
-| `power`     | `0`          | `0`          |
+| `power`     | `1`          | `1`          |
 | font size   | `1rem`       | `1rem`       |
 | line height | `1.5rem`     | `1.5rem`     |
 | _<h6>_      |              |              |
-| `power`     | `0`          | `0`          |
+| `power`     | `1`          | `1`          |
 | font size   | `1rem`       | `1rem`       |
 | line height | `1.5rem`     | `1.5rem`     |
 | _<p>_       |              |              |
-| `power`     | `0`          | `0`          |
+| `power`     | `1`          | `1`          |
 | font size   | `1rem`       | `1rem`       |
 | line height | `1.5rem`     | `1.5rem`     |
 
