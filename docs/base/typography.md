@@ -14,9 +14,9 @@ Vanilla's typographic scale has a base font-size of `1rem`.
 
 The pixel value of `1rem` depends on the browser (in most cases, `16px`) and the user's browser settings.
 
-In addition to that, Vanilla multiplies that value by `$font-size-ratio--largescreen` (`1.125`) on resolutions above a certain threshold (<a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">$font-size-largescreen</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
+In addition to that, Vanilla multiplies that value by `$font-size-ratio--largescreen` (`1.125`) on resolutions above a certain threshold (<a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">`$font-size-largescreen`</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
 
-To disable this behaviour, include the following after you import and include the framework in your scss:
+To disable this behaviour, include the following after you import and include the framework in your `scss`:
 
 ```scss
 $increase-font-size-on-larger-screens: false;
