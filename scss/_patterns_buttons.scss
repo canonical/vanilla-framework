@@ -148,17 +148,15 @@
     width: auto;
 
     & [class*='p-icon'] {
-      height: map-get($line-heights, default-text); // so height matches that of text inside buttons
-      margin-left: -#{$sph-inner--small};
-      top: 0;
+      margin-left: $sph-inner--small;
+      margin-right: $sph-inner--small;
 
-      // Apply negative margins to make textless button icon a square
-      &:only-child {
-        margin-right: -#{$sph-inner--small};
+      &:first-child {
+        margin-left: -#{$sph-inner--small};
       }
 
-      + * {
-        margin-left: $sph-inner--small;
+      &:last-child {
+        margin-right: -#{$sph-inner--small};
       }
     }
   }
