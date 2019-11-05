@@ -26,7 +26,7 @@ To import just this utility into your project, copy the snippet below and includ
 
 Then insert a `span` with class `u-visualise-font-metrics` in a heading, paragraph or button.
 
-The `$horisontal-bleed` variable (default value `2rem`) makes the lines protrude on either side of the element, in order to help align adjacent elements. To hide the bleed, use `@include vf-u-visualise-baseline(0)`.
+The `$horisontal-bleed` variable (default value `2rem`) makes the lines protrude on either side of the element, in order to help align adjacent elements. To remove the bleed, use `@include vf-u-visualise-baseline(0)`.
 
 For more information on font metrics, this <a class="p-link--external" href="http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align">blog post</a> gives a good overview.
 
