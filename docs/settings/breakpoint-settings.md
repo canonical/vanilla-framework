@@ -14,7 +14,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 | `$breakpoint-small`                | `620px`              | Mobile         |
 | `$breakpoint-medium`               | `772px`              | Tablet         |
 | `$breakpoint-large`                | `1036px`             | Desktop        |
-| `$breakpoint-large`                | `1680px`             | Large desktop  |
+| `$breakpoint-x-large`              | `1681px`             | Large desktop  |
 | `$breakpoint-navigation-threshold` | `$breakpoint-medium` | Tablet         |
 | `$breakpoint-heading-threshold`    | `$breakpoint-medium` | Tablet         |
 

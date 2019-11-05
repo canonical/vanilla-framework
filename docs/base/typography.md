@@ -8,48 +8,59 @@ layout: default
 
 All text in Vanilla uses the [Ubuntu typeface](https://design.ubuntu.com/font/) , which can be used in your projects.
 
-Vanilla's typographic scale has a base font-size of `1rem` (`16px`) and a font-weight of 300.
-The heading sizes h1-h4 follow a modular scale with a base value of 16/14 (~1.143).
+Vanilla's typographic scale has a base font-size of `1rem`.
 
-- On small to medium screens the ratio is 2:3
-- On large screens the ratio is 1:2
+### The value of `1rem`
 
-This means that the font size is calculated from (16/14)<sup><em>n</em></sup> where _n_ is the point on the modular scale.
+The pixel value of `1rem` depends on the browser (in most cases, `16px`) and the user's browser settings.
+
+In addition to that, Vanilla multiplies that value by `$font-size-ratio--largescreen` (`1.125`) on resolutions above a certain threshold (<a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">$font-size-largescreen</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
+
+To disable this behaviour, include the following after you import and include the framework in your scss:
+
+```scss
+$increase-font-size-on-larger-screens: false;
+```
+
+Text elements in vanilla adhere to a type scale:
+
+- The base of the scale is the paragraph font-size (`1rem`)
+- The ratio of the scale is `1.14285714286` (16/14, so both 14 and 16 are members of the scale)
+
+Heading sizes are obtained by taking the ratio to a specified `power` listed in the table below.
 
 ### Typographic scale
 
-|               | Small-Medium | Large        |
-| ------------- | ------------ | ------------ |
-| _<h1>_        |              |              |
-| modular point | `6`          | `8`          |
-| font size     | `2.22819rem` | `2.91029rem` |
-| line height   | `3rem`       | `3.5rem`     |
-| _<h2>_        |              |              |
-| modular point | `4.5`        | `6`          |
-| font size     | `1.83274rem` | `2.22819rem` |
-| line height   | `2.5rem`     | `3rem`       |
-| _<h3>_        |              |              |
-| modular point | `3`          | `4`          |
-| font size     | `1.49271rem` | `1.70596rem` |
-| line height   | `2rem`       | `2.5rem`     |
-| _<h4>_        |              |              |
-| modular point | `1.5`        | `2`          |
-| font size     | `1.22176rem` | `1.30612rem` |
-| line height   | `1.5rem`     | `2rem`       |
-| _<h5>_        |              |              |
-| modular point | `0`          | `0`          |
-| font size     | `1rem`       | `1rem`       |
-| line height   | `1.5rem`     | `1.5rem`     |
-| _<h6>_        |              |              |
-| modular point | `0`          | `0`          |
-| font size     | `1rem`       | `1rem`       |
-| line height   | `1.5rem`     | `1.5rem`     |
-| _<p>_         |              |              |
-| modular point | `0`          | `0`          |
-| font size     | `1rem`       | `1rem`       |
-| line height   | `1.5rem`     | `1.5rem`     |
-
-<br>
+|             | Small-Medium | Large        |
+| ----------- | ------------ | ------------ |
+| _<h1>_      |              |              |
+| `power`     | `6`          | `8`          |
+| font size   | `2.22819rem` | `2.91029rem` |
+| line height | `3rem`       | `3.5rem`     |
+| _<h2>_      |              |              |
+| `power`     | `4.5`        | `6`          |
+| font size   | `1.83274rem` | `2.22819rem` |
+| line height | `2.5rem`     | `3rem`       |
+| _<h3>_      |              |              |
+| `power`     | `3`          | `4`          |
+| font size   | `1.49271rem` | `1.70596rem` |
+| line height | `2rem`       | `2.5rem`     |
+| _<h4>_      |              |              |
+| `power`     | `1.5`        | `2`          |
+| font size   | `1.22176rem` | `1.30612rem` |
+| line height | `1.5rem`     | `2rem`       |
+| _<h5>_      |              |              |
+| `power`     | `0`          | `0`          |
+| font size   | `1rem`       | `1rem`       |
+| line height | `1.5rem`     | `1.5rem`     |
+| _<h6>_      |              |              |
+| `power`     | `0`          | `0`          |
+| font size   | `1rem`       | `1rem`       |
+| line height | `1.5rem`     | `1.5rem`     |
+| _<p>_       |              |              |
+| `power`     | `0`          | `0`          |
+| font size   | `1rem`       | `1rem`       |
+| line height | `1.5rem`     | `1.5rem`     |
 
 ### Heading classes
 
