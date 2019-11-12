@@ -182,7 +182,10 @@ Our social icons are used to drive users to social content.
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--ubuntu" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--ubuntu
       </div>
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
       </div>
+    </div>
     </div>
 
   </div>
