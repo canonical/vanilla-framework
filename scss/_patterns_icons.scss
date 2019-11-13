@@ -30,7 +30,6 @@ $color-social-icon-foreground: $color-mid-x-light !default;
   @include vf-p-icon-question;
   @include vf-p-icon-spinner;
   @include vf-p-icon-facebook;
-  @include vf-p-icon-google;
   @include vf-p-icon-twitter;
   @include vf-p-icon-instagram;
   @include vf-p-icon-linkedin;
@@ -205,10 +204,6 @@ $color-social-icon-foreground: $color-mid-x-light !default;
 
 @mixin vf-icon-facebook($background, $foreground) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Ccircle id='a' cx='20' cy='20' r='20'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse fill='#{vf-url-friendly-color($background)}' fill-rule='nonzero' xlink:href='%23a'/%3E%3Cpath d='M30.037 10.001c-3.92 0-6.603 2.449-6.603 6.945v3.526H19v5.255h4.434V40c1.82-.246 3.6-.728 5.3-1.438V25.727h4.423l.66-5.255h-5.084V17.47c0-1.522.48-3.085 2.55-2.563H34v-4.7c-.47-.064-2.085-.207-3.963-.207v.001z' fill='#{vf-url-friendly-color($foreground)}' fill-rule='nonzero' mask='url%28%23b%29'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-@mixin vf-icon-google($color) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' %3E%3Cpath d='M20 0C8.955 0 0 8.955 0 20s8.955 20 20 20 20-8.955 20-20S31.045 0 20 0zm-4.862 26.805A6.799 6.799 0 0 1 8.333 20a6.799 6.799 0 0 1 6.805-6.805c1.839 0 3.374.67 4.559 1.778l-1.845 1.78c-.507-.486-1.39-1.05-2.714-1.05-2.323 0-4.218 1.925-4.218 4.299 0 2.373 1.897 4.298 4.218 4.298 2.694 0 3.707-1.937 3.86-2.937h-3.86V19.03h6.425c.06.34.107.68.107 1.128.002 3.887-2.605 6.647-6.532 6.647zm16.529-5.833H28.75v2.916h-1.945v-2.916h-2.917v-1.944h2.917v-2.916h1.945v2.916h2.917v1.944z' fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero'/%3E%3C/svg%3E");
 }
 
 @mixin vf-icon-twitter($background, $foreground) {
@@ -502,17 +497,6 @@ $color-social-icon-foreground: $color-mid-x-light !default;
 
     &:hover {
       @include vf-icon-facebook(#3b5998, $color-social-icon-foreground);
-    }
-  }
-}
-
-@mixin vf-p-icon-google {
-  .p-icon--google {
-    @extend %social-icon;
-    @include vf-icon-google($color-mid-dark);
-
-    &:hover {
-      @include vf-icon-google(#dd4b39);
     }
   }
 }
