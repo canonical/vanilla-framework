@@ -2,9 +2,6 @@
 
 @mixin vf-p-table-mobile-card {
   .p-table--mobile-card {
-    // threshold value for $multi; if less, space between cards, and padding on table cells are set to zero;
-    $td-threshold: 2;
-
     td::before,
     tbody th::before {
       @extend %muted-heading;
@@ -35,12 +32,8 @@
       td,
       tbody th {
         align-items: flex-start;
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: column;
-        justify-content: left !important;
         margin: 0;
-        overflow: visible;
+        overflow: hidden;
         padding-bottom: $spv-nudge-compensation;
         padding-left: calc(50% + #{0.5 * $sph-inner});
         padding-right: 0;
