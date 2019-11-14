@@ -22,7 +22,7 @@
         border: $border;
         border-radius: $border-radius;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         margin-bottom: $spv-outer--scaleable;
         overflow: auto; // prevent overflow of child margins
         padding: 0 $sph-inner--large calc(#{$spv-inner--large} - 1px);
@@ -31,15 +31,16 @@
 
       td,
       tbody th {
-        align-items: flex-start;
-        margin: 0;
+        display: flex;
+        min-width: 100%;
         overflow: hidden;
         padding-bottom: $spv-nudge-compensation;
-        padding-left: calc(50% + #{0.5 * $sph-inner});
+        padding-left: calc(50%);
         padding-right: 0;
         padding-top: $spv-nudge;
         position: relative;
         text-align: left !important;
+        text-overflow: ellipsis;
         width: 100%;
 
         &[aria-label] {
@@ -49,12 +50,14 @@
             content: attr(aria-label);
             display: block;
             flex: 0 0 auto;
-            left: 0;
             margin-bottom: $spv-inner--small - map-get($nudges, nudge--small);
+            margin-left: -100%;
             padding-top: $sp-unit - map-get($nudges, nudge--small);
-            position: absolute;
+            padding-right: #{0.5 * $sph-inner};
+            overflow: hidden;
             text-align: right;
-            width: calc(50% - #{0.5 * $sph-inner});
+            text-overflow: ellipsis;
+            width: 100%;
           }
         }
 
