@@ -7,6 +7,8 @@
 
 // form validation styling for form inputs
 @mixin vf-p-form-validation {
+  $icon-size: map-get($icon-sizes, default);
+
   .p-form-validation {
     @include vf-validation-wrapper;
 
@@ -32,10 +34,17 @@
     }
   }
 
+  .is-success,
+  .is-error,
+  .is-caution {
+    .p-form-validation__input {
+      padding-right: $sph-inner--small * 2 + $icon-size;
+    }
+  }
+
   .is-error .p-form-validation__select-wrapper,
   .is-caution .p-form-validation__select-wrapper,
   .is-success .p-form-validation__select-wrapper {
-    $icon-size: map-get($icon-sizes, default);
     min-width: 10em;
     position: relative;
 
@@ -55,7 +64,7 @@
     }
 
     .p-form-validation__input {
-      padding-right: $sp-xxxx-large;
+      padding-right: $sph-inner--small * 2 + $icon-size * 2;
     }
   }
 
