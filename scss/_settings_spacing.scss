@@ -1,3 +1,6 @@
+// Density multiplier
+$multi: 2 !default;
+
 // Options
 $pad-lists: true !default; // Adds padding to list items
 
@@ -70,9 +73,6 @@ $browser-rounding-compensations: (
   h1: 0.001rem
 ) !default;
 
-//scaling factor
-$multi: 2 !default;
-
 ////////////////////////////////////////////////////////
 // Variables connecting spacings that should be identical
 
@@ -126,7 +126,7 @@ $sp-after: (
 // commonly occuring calculations available as variables
 $spv-nudge: map-get($nudges, nudge--p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
-$input-margin-bottom: $spv-outer--scaleable - $spv-nudge * 2;
+$input-margin-bottom: $spv-outer--scaleable + $sp-unit - $spv-nudge * 2;
 
 $max-width--default: 40em !default;
 
