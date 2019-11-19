@@ -16,6 +16,8 @@ When applied to individual elements within a parent, e.g. a table cell, only tho
 View example of the truncate utility
 </a>
 
+Note: `u-truncate` will affect any tooltips placed inside.
+
 ### Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
