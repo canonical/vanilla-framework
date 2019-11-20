@@ -22,10 +22,13 @@
     appearance: textfield;
     // sass-lint:enable no-vendor-prefixes property-sort-order
 
-    background-color: $color-x-light;
-    border: 1px solid $color-mid;
-    border-radius: $border-radius;
-    box-shadow: inset 0 1px 1px $color-input-shadow;
+    background-color: $colors--light-theme--input-background;
+    border-top: 1px solid transparent;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $colors--light-theme--border-high-contrast;
+    border-radius: 0 * $border-radius;
+    // box-shadow: inset 0 1px 1px $color-input-shadow;
     color: $color-dark;
     font-family: unquote($font-base-family);
     font-size: 1rem;
@@ -33,8 +36,8 @@
     line-height: map-get($line-heights, default-text);
     margin-bottom: $input-margin-bottom;
     min-width: 10em;
-    padding-left: $sph-inner--small;
-    padding-right: $sph-inner--small;
+    padding-left: $sph-inner;
+    padding-right: $sph-inner;
     vertical-align: baseline;
     width: 100%;
 
@@ -170,14 +173,13 @@
     -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     appearance: none;
-    background-color: $color-x-light;
-    background-position: right $sph-inner--small center;
+    background-position: right $sph-inner center;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
     color: $color-dark;
     min-height: map-get($line-heights, default-text);
-    padding-right: calc(#{$default-icon-size} + #{2 * $sph-inner--small});
+    padding-right: calc(#{$default-icon-size} + #{2 * $sph-inner});
     text-indent: 0.01px;
     text-overflow: '';
 
@@ -194,7 +196,7 @@
       option {
         font-weight: 300;
         line-height: calc(#{$sp-unit * 2} - 2px);
-        padding: $spv-inner--small $sph-inner--small;
+        padding: $spv-inner--small $sph-inner;
       }
     }
   }
@@ -209,11 +211,11 @@
 
   // Fieldset styles
   fieldset {
-    background-color: $color-light;
+    // background-color: $color-light;
     border: 1px solid $color-mid-light;
     border-radius: $border-radius;
     color: $color-dark;
     margin-bottom: $spv-outer--scaleable;
-    padding: calc(#{$spv-inner--small} - 1px) $sph-inner--small;
+    padding: calc(#{$spv-inner--small} - 1px) $sph-inner;
   }
 }

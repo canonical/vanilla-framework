@@ -3,7 +3,7 @@ layout: examples
 title: Forms / Tick elements
 category: _templates
 ---
-<div class="p-strip is-shallow u-no-padding--top">
+<div class="p-strip is-shallow">
   <div class="row">
   </div>
   <div class="row">
@@ -47,7 +47,7 @@ category: _templates
       <label for="Radio2">Radio option 2</label>
     </div>
     <div class="col-3">
-      <input type="radio" name="RadioOptions" id="Radio3" value="option3" >
+      <input type="radio" name="RadioOptions" id="Radio3" value="option3">
       <label for="Radio3">Radio option 3</label>
       <input type="radio" name="RadioOptions" id="Radio4" value="option4">
       <label for="Radio4">Radio option 4</label>
@@ -61,60 +61,332 @@ category: _templates
 <div class="p-strip is-shallow u-no-padding--top">
   <div class="row">
     <hr>
-    <p>In padded containers (table cells, some list items), checkboxes and labels need to align with text not wrapped in a tag. Use class "is-inline-label" on the label to achieve that.</p>
+    <p>In padded containers (table cells, some list items), checkboxes and labels need to align with text not wrapped in
+      a tag. Use class "is-inline-label" on the label to achieve that.</p>
   </div>
 </div>
 <div class="p-strip is-shallow u-no-padding--top">
   <div class="row">
-    <table class="p-table--mobile-card">
+    <table class="u-truncate">
       <thead>
-        <tr>
+        <tr role="row">
           <th>
             <form>
-              <input type="checkbox" id="checkExample5" checked="">
-              <label for="checkExample5" class="is-inline-label">label</label>
+              <input type="checkbox" id="checkExample6" checked="">
+              <label for="checkExample6" class="is-inline-label">FQDN</label>
             </form>
           </th>
           <th>Power</th>
           <th>Status</th>
-          <th>Owner | Pool</th>
+          <th>Owner</th>
+          <th>Zone</th>
           <th class="u-align--right">Cores</th>
-          <th class="u-align--right">RAM(GB)</th>
+          <th class="u-align--right">RAM</th>
           <th class="u-align--right">Disks</th>
-          <th class="u-align--right">Storage(GB)</th>
+          <th class="u-align--right">Storage</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th aria-label="FQDN | MAC">
-            <form>
-              <input type="checkbox" id="checkExample6" checked="">
-              <label for="checkExample6" class="is-inline-label">label</label>
-            </form>
-          </th>
-          <td aria-label="Power">Off</td>
-          <td aria-label="Status">Ready</td>
-          <td aria-label="Owner | Pool">Maria</td>
-          <td aria-label="Cores" class="u-align--right">8</td>
-          <td aria-label="RAM(GB)" class="u-align--right">16</td>
-          <td aria-label="Disks" class="u-align--right">2</td>
-          <td aria-label="Storage(GB)" class="u-align--right">2</td>
+        <tr role="row">
+          <td role="rowheader" aria-label="FQDN">
+          <input type="checkbox" id="checkExample6" checked="">
+          <label for="checkExample6" class="is-inline-label">small-horse</label>
+
+          </td>
+          <td role="gridcell" aria-label="Power">On</td>
+          <td role="gridcell" aria-label="Status">Failed testing</td>
+          <td role="gridcell" aria-label="Owner">Caleb</td>
+          <td role="gridcell" aria-label="Zone">london</td>
+          <td class="u-align--right" role="gridcell" aria-label="Cores">4</td>
+          <td class="u-align--right" role="gridcell" aria-label="RAM">2 GiB</td>
+          <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+          <td class="u-align--right" role="gridcell" aria-label="Storagelongenoughtocauseellipsis">2TB</td>
         </tr>
-        <tr>
-          <th aria-label="FQDN | MAC">
-            <form>
-              <input type="radio" name="RadioOptions" id="Radio5" value="option1" checked>
-              <label for="Radio5" class="is-inline-label">label</label>
-            </form>
-          </th>
-          <td aria-label="Power">Off</td>
-          <td aria-label="Status">Ready</td>
-          <td aria-label="Owner | Pool">Maria</td>
-          <td aria-label="Cores" class="u-align--right">8</td>
-          <td aria-label="RAM(GB)" class="u-align--right">16</td>
-          <td aria-label="Disks" class="u-align--right">2</td>
-          <td aria-label="Storage(GB)" class="u-align--right">2</td>
+        <tr role="row">
+          <td role="rowheader" aria-label="FQDN">
+          <input type="checkbox" id="checkExample6" checked="">
+          <label for="checkExample6" class="is-inline-label">slow-muscox</label>
+
+          </td>
+          <td role="gridcell" aria-label="Power">Off</td>
+          <td role="gridcell" aria-label="Status">Allocated</td>
+          <td role="gridcell" aria-label="Owner">sparkiegeek</td>
+          <td role="gridcell" aria-label="Zone">london</td>
+          <td class="u-align--right" role="gridcell" aria-label="Cores">6</td>
+          <td class="u-align--right" role="gridcell" aria-label="RAM">4 GiB</td>
+          <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+          <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">500GB
+          </td>
+        </tr>
+        <tr role="row">
+          <td role="rowheader" aria-label="FQDN">
+          <input type="checkbox" id="checkExample6" checked="">
+          <label for="checkExample6" class="is-inline-label">actual-moose</label>
+
+          </td>
+          <td role="gridcell" aria-label="Power">On</td>
+          <td role="gridcell" aria-label="Status">Failed to enter rescue mode</td>
+          <td role="gridcell" aria-label="Owner">admin</td>
+          <td role="gridcell" aria-label="Zone">london</td>
+          <td class="u-align--right" role="gridcell" aria-label="Cores">8</td>
+          <td class="u-align--right" role="gridcell" aria-label="RAM">16 GiB</td>
+          <td class="u-align--right" role="gridcell" aria-label="Disks">3</td>
+          <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">6TB</td>
+        </tr>
+        <tr role="row">
+          <td role="rowheader" aria-label="FQDN">
+          <input type="checkbox" id="checkExample6" checked="">
+          <label for="checkExample6" class="is-inline-label">real-buffalo</label>
+
+          </td>
+          <td role="gridcell" aria-label="Power">Off</td>
+          <td role="gridcell" aria-label="Status">Broken</td>
+          <td role="gridcell" aria-label="Owner">&mdash;</td>
+          <td role="gridcell" aria-label="Zone">london</td>
+          <td class="u-align--right" role="gridcell" aria-label="Cores">2</td>
+          <td class="u-align--right" role="gridcell" aria-label="RAM">1 GiB</td>
+          <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+          <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">240GB
+          </td>
         </tr>
       </tbody>
     </table>
+    <table class="p-table--mobile-card u-table-layout--auto" role="grid">
+        <thead>
+          <tr role="row">
+            <th>FQDN</th>
+            <th>Power</th>
+            <th>Status</th>
+            <th>Owner</th>
+            <th>Zone</th>
+            <th class="u-align--right">Cores</th>
+            <th class="u-align--right">RAM</th>
+            <th class="u-align--right">Disks</th>
+            <th class="u-align--right">Storage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">LongEnoughToCauseEllipsis</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed testing</td>
+            <td role="gridcell" aria-label="Owner">Caleb</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">4</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">2 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storagelongenoughtocauseellipsis">2TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">upward-muskox</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Allocated</td>
+            <td role="gridcell" aria-label="Owner">sparkiegeek</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">6</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">4 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">500GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">first-cattle</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed to enter rescue mode</td>
+            <td role="gridcell" aria-label="Owner">admin</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">8</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">16 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">3</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">6TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">golden-rodent</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Broken</td>
+            <td role="gridcell" aria-label="Owner">&mdash;</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">2</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">1 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">240GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">LongEnoughToCauseEllipsis</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed testing</td>
+            <td role="gridcell" aria-label="Owner">Caleb</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">4</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">2 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storagelongenoughtocauseellipsis">2TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">upward-muskox</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Allocated</td>
+            <td role="gridcell" aria-label="Owner">sparkiegeek</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">6</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">4 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">500GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">first-cattle</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed to enter rescue mode</td>
+            <td role="gridcell" aria-label="Owner">admin</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">8</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">16 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">3</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">6TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">golden-rodent</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Broken</td>
+            <td role="gridcell" aria-label="Owner">&mdash;</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">2</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">1 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">240GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">LongEnoughToCauseEllipsis</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed testing</td>
+            <td role="gridcell" aria-label="Owner">Caleb</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">4</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">2 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storagelongenoughtocauseellipsis">2TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">upward-muskox</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Allocated</td>
+            <td role="gridcell" aria-label="Owner">sparkiegeek</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">6</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">4 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">500GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">first-cattle</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed to enter rescue mode</td>
+            <td role="gridcell" aria-label="Owner">admin</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">8</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">16 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">3</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">6TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">golden-rodent</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Broken</td>
+            <td role="gridcell" aria-label="Owner">&mdash;</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">2</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">1 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">240GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">LongEnoughToCauseEllipsis</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed testing</td>
+            <td role="gridcell" aria-label="Owner">Caleb</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">4</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">2 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storagelongenoughtocauseellipsis">2TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">upward-muskox</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Allocated</td>
+            <td role="gridcell" aria-label="Owner">sparkiegeek</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">6</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">4 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">500GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">first-cattle</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed to enter rescue mode</td>
+            <td role="gridcell" aria-label="Owner">admin</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">8</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">16 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">3</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">6TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">golden-rodent</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Broken</td>
+            <td role="gridcell" aria-label="Owner">&mdash;</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">2</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">1 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">240GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">LongEnoughToCauseEllipsis</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed testing</td>
+            <td role="gridcell" aria-label="Owner">Caleb</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">4</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">2 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storagelongenoughtocauseellipsis">2TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">upward-muskox</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Allocated</td>
+            <td role="gridcell" aria-label="Owner">sparkiegeek</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">6</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">4 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">500GB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">first-cattle</td>
+            <td role="gridcell" aria-label="Power">On</td>
+            <td role="gridcell" aria-label="Status">Failed to enter rescue mode</td>
+            <td role="gridcell" aria-label="Owner">admin</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">8</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">16 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">3</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">6TB</td>
+          </tr>
+          <tr role="row">
+            <td role="rowheader" aria-label="FQDN">golden-rodent</td>
+            <td role="gridcell" aria-label="Power">Off</td>
+            <td role="gridcell" aria-label="Status">Broken</td>
+            <td role="gridcell" aria-label="Owner">&mdash;</td>
+            <td role="gridcell" aria-label="Zone">london</td>
+            <td class="u-align--right" role="gridcell" aria-label="Cores">2</td>
+            <td class="u-align--right" role="gridcell" aria-label="RAM">1 GiB</td>
+            <td class="u-align--right" role="gridcell" aria-label="Disks">1</td>
+            <td class="u-align--right" role="gridcell" aria-label="Storage this is long enough to cause wrapping">240GB</td>
+          </tr>
+        </tbody>
+
+      </table>
   </div>
