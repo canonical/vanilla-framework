@@ -113,10 +113,8 @@ $spv-list-item--inner: null;
     .p-inline-list__item {
       @include vf-inline-list-item;
 
-      &:not(:last-of-type):not(.last-item) {
-        &::after {
-          content: '\00a0\2022\00a0';
-        }
+      &:not(:last-of-type):not(.last-item)::after {
+        content: '\00a0\2022\00a0';
       }
     }
   }
