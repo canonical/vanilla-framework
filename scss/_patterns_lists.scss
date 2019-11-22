@@ -30,12 +30,18 @@ $spv-list-item--inner: null;
 
 // Mixin for inline list items
 @mixin vf-inline-list-item {
-  display: inline-flex;
+  display: inline;
   list-style: none;
+
+  & + & {
+    margin-left: -#{$strut-width};
+  }
 
   &:not(:last-of-type),
   &:not(.last-item) {
-    margin-right: $sph-outer;
+    &::after {
+      content: '\00a0';
+    }
   }
 }
 
@@ -107,26 +113,10 @@ $spv-list-item--inner: null;
 
     .p-inline-list__item {
       @include vf-inline-list-item;
-      position: relative;
 
-      &::after {
-        color: $color-mid-dark;
-        content: '\00b7';
-        font-size: 1.4em;
-        line-height: 0;
-        position: absolute;
-        right: #{-0.5 * $sph-outer};
-        top: 0.4em;
-      }
-
-      &:hover::after {
-        color: $color-mid-dark;
-      }
-
-      &:last-of-type,
-      .last-item {
+      &:not(:last-of-type):not(.last-item) {
         &::after {
-          content: '';
+          content: '\00a0\2022\00a0';
         }
       }
     }
