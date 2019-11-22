@@ -185,6 +185,9 @@ Our social icons are used to drive users to social content.
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
       </div>
+      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--email" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--email
+      </div>
     </div>
     </div>
 
