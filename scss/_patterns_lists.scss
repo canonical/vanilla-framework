@@ -30,10 +30,10 @@ $spv-list-item--inner: null;
 
 // Mixin for inline list items
 @mixin vf-inline-list-item {
+  @extend %increase-font-size-on-larger-screens;
+
   display: inline;
   list-style: none;
-
-  @extend %increase-font-size-on-larger-screens;
 
   & + & {
     margin-left: -#{$strut-width};

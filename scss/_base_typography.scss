@@ -12,6 +12,8 @@
   }
 
   html {
+    @extend %increase-font-size-on-larger-screens;
+
     // sass-lint:disable no-vendor-prefixes
     // These vendor prefixes are unique and cannot be added by autoprefixer
     -moz-osx-font-smoothing: grayscale;
@@ -25,8 +27,6 @@
     font-weight: 300;
     // set default line height to match p
     line-height: map-get($line-heights, default-text);
-
-    @extend %increase-font-size-on-larger-screens;
   }
 
   // headings
