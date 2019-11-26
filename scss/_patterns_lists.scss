@@ -33,6 +33,8 @@ $spv-list-item--inner: null;
   display: inline;
   list-style: none;
 
+  @extend %increase-font-size-on-larger-screens;
+
   & + & {
     margin-left: -#{$strut-width};
   }
@@ -95,6 +97,7 @@ $spv-list-item--inner: null;
 // Displays a list inline with spacing
 @mixin vf-p-inline-list {
   .p-inline-list {
+    font-size: 0;
     margin-left: 0;
     padding-left: 0;
   }
@@ -107,6 +110,7 @@ $spv-list-item--inner: null;
 // Displays a list inline with items separated by dots
 @mixin vf-p-inline-list-middot {
   .p-inline-list--middot {
+    font-size: 0;
     margin-left: 0;
     padding-left: 0;
 
@@ -114,7 +118,7 @@ $spv-list-item--inner: null;
       @include vf-inline-list-item;
 
       &:not(:last-of-type):not(.last-item)::after {
-        content: '\00a0\00a0\00b7\00a0\00a0';
+        content: '\00a0\00a0\00a0\00b7\00a0\00a0\00a0';
         margin-left: -#{$strut-width};
       }
     }

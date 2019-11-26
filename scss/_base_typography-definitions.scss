@@ -1,4 +1,21 @@
 @mixin vf-b-typography-definitions {
+
+  %increase-font-size-on-larger-screens {
+    @if ($increase-font-size-on-larger-screens) {
+      @media screen and (max-width: $breakpoint-x-large) {
+        font-size: map-get($base-font-sizes, base);
+      }
+
+      @media screen and (min-width: $breakpoint-x-large) {
+        font-size: map-get($base-font-sizes, large);
+        line-height: map-get($line-heights, default-text) * $font-size-ratio--largescreen;
+      }
+
+    } @else {
+      font-size: map-get($base-font-sizes, base);
+    }
+  }
+
   //@section Heading styling in placeholders
   %vf-heading-1 {
     @include heading-max-width--short;
