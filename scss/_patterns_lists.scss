@@ -40,8 +40,10 @@ $spv-list-item--inner: null;
   }
 
   &:not(:last-of-type):not(.last-item) {
+    padding-right: $sph-outer;
+
     &::after {
-      content: '\00a0\00a0\00a0';
+      content: '';
     }
   }
 }
@@ -116,10 +118,11 @@ $spv-list-item--inner: null;
 
     .p-inline-list__item {
       @include vf-inline-list-item;
+      padding-right: $sph-inner * 2;
 
       &:not(:last-of-type):not(.last-item)::after {
-        content: '\00a0\00a0\00a0\00b7\00a0\00a0\00a0';
-        margin-left: -#{$strut-width};
+        content: '\00b7';
+        margin-left: calc(#{$sph-inner} - #{$strut-width});
       }
     }
   }
