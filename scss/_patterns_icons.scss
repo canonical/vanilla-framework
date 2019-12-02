@@ -35,6 +35,7 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
   @include vf-p-icon-canonical;
   @include vf-p-icon-ubuntu;
   @include vf-p-icon-rss;
+  @include vf-p-icon-email;
   @include vf-p-icon-sizes;
   @include vf-p-icon-in-button;
 
@@ -230,6 +231,10 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
 
 @mixin vf-icon-rss {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cg fill='none'%3E%3Crect width='40' height='40' fill='%23EA7819' rx='5' transform='rotate(180 20 20)'/%3E%3Cpath fill='%23FFF' d='M6.34 6.274c15.07 0 27.332 12.314 27.332 27.452H28.41c0-12.236-9.9-22.19-22.07-22.19zM6.334 15.6c9.95 0 18.044 8.128 18.044 18.119h-5.261c0-3.44-1.33-6.671-3.747-9.097a12.657 12.657 0 00-9.036-3.76zm3.639 10.805a3.645 3.645 0 110 7.29 3.645 3.645 0 010-7.29z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-email {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cg fill='none'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23666'/%3E%3Cpath fill='%23FFF' d='M13.688 20.68a.312.312 0 01.432 0l2.888 2.752A4.344 4.344 0 0020 24.624l.238-.006a4.344 4.344 0 002.754-1.186l2.864-2.752a.312.312 0 01.432 0l7.92 7.92a.312.312 0 01-.224.528h-28a.312.312 0 01-.216-.528zM33.8 13.184a.304.304 0 01.512.224V26.52a.304.304 0 01-.52.224l-6.664-6.728a.304.304 0 010-.432zm-27.608 0l6.664 6.4a.296.296 0 010 .432l-6.664 6.728a.304.304 0 01-.52-.224V13.408a.312.312 0 01.52-.224zm27.696-2.328a.352.352 0 01.24.608L22.544 22.496A3.688 3.688 0 0120 23.512l-.218-.006a3.656 3.656 0 01-2.326-1.01L5.864 11.464a.352.352 0 01.24-.608z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @mixin vf-p-icon-anchor {
@@ -541,6 +546,13 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
   .p-icon--rss {
     @extend %social-icon;
     @include vf-icon-rss;
+  }
+}
+
+@mixin vf-p-icon-email {
+  .p-icon--email {
+    @extend %social-icon;
+    @include vf-icon-email;
   }
 }
 
