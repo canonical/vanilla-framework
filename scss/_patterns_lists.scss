@@ -185,6 +185,16 @@ $spv-list-item--inner: null;
           width: $bullet-width;
         }
       }
+
+      & + .p-stepped-list__content {
+        @media (max-width: $breakpoint-heading-threshold) {
+          margin-left: $bullet-width-mobile + $sph-inner;
+        }
+
+        @media (min-width: $breakpoint-heading-threshold) {
+          margin-left: $bullet-width + $sph-inner;
+        }
+      }
     }
   }
 }
@@ -211,10 +221,7 @@ $spv-list-item--inner: null;
 
     .p-stepped-list__item {
       @extend %row;
-
-      .row & {
-        @include row-reset;
-      }
+      @include row-reset;
     }
   }
 }
