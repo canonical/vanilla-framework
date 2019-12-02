@@ -174,17 +174,11 @@ Our social icons are used to drive users to social content.
       <i class="p-icon--youtube" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--youtube
     </div>
     <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-      <i class="p-icon--canonical" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--canonical
+      <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
     </div>
     </div>
 
     <div class="row">
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--ubuntu" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--ubuntu
-      </div>
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
-      </div>
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--email" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--email
       </div>
