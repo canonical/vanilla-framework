@@ -35,12 +35,8 @@ $spv-list-item--inner: null;
   display: inline;
   list-style: none;
 
-  & + & {
-    margin-left: -#{$strut-width};
-  }
-
   &:not(:last-of-type):not(.last-item) {
-    padding-right: $sph-outer;
+    padding-right: calc(#{$sph-outer} - #{$strut-width});
 
     &::after {
       content: '';
