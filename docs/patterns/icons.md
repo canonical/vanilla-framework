@@ -151,8 +151,6 @@ Our alert icons are used to indicate the status of a message in a notification.
 
 ### Social
 
-<span class="p-label--deprecated">Deprecated</span>
-
 Our social icons are used to drive users to social content.
 
 <section>
@@ -186,6 +184,8 @@ Our social icons are used to drive users to social content.
       </div>
     </div>
     </div>
+
+Removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0. <span class="p-label--deprecated">Deprecated</span>
 
   </div>
 </section>
