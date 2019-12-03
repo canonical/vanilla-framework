@@ -77,14 +77,14 @@
 /// override colors as desired
 @mixin vf-button-pattern(
   $button-background-color: $color-x-light,
-  $button-text-color: $color-x-dark,
+  $button-text-color: $colors--light-theme--text-link,
   $button-disabled-background-color: $color-transparent,
-  $button-disabled-border-color: $color-mid,
-  $button-border-color: $color-mid,
-  $button-hover-background-color: darken($color-x-light, 10%),
-  $button-hover-border-color: $color-mid,
-  $button-active-background-color: darken($color-x-light, 15%),
-  $button-active-border-color: $color-mid
+  $button-disabled-border-color: opacify($colors--light-theme--text-link, 0.5),
+  $button-border-color: $colors--light-theme--text-link,
+  $button-hover-background-color: transparentize($colors--light-theme--text-link, 0.95),
+  $button-hover-border-color: $colors--light-theme--text-link,
+  $button-active-background-color: transparentize($colors--light-theme--text-link, 0.9),
+  $button-active-border-color: $colors--light-theme--text-link
 ) {
   background-color: $button-background-color;
   border-color: $button-border-color;
