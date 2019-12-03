@@ -55,6 +55,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>Removed from release <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.0">v2.0.0</a></td>
     </tr>
+    <tr>
+      <th><a href="/patterns/icons/#social">Social icons</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>Removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from social icon set</td>
+    </tr>
   </tbody>
   <tfoot>
   </tfoot>
