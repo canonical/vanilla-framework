@@ -151,6 +151,8 @@ Our alert icons are used to indicate the status of a message in a notification.
 
 ### Social
 
+<span class="p-label--deprecated">Deprecated</span>
+
 Our social icons are used to drive users to social content.
 
 <section>
