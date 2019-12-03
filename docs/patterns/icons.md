@@ -185,7 +185,7 @@ Our social icons are used to drive users to social content.
     </div>
     </div>
 
-Removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0. <span class="p-label--deprecated">Deprecated</span>
+<span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0. 
 
   </div>
 </section>
