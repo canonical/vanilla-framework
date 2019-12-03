@@ -76,7 +76,7 @@ View example of the inline list pattern
 Apply the class `.p-inline-list--middot` to add a middot character between
 inline list items.
 
-As with any inline/inline-block element, any amount of white space (one or more spaces, tabs, etc.) in the markup is rendered as a single white space character. Vanilla uses the <a href="https://css-tricks.com/fighting-the-space-between-inline-block-elements/">font size method</a> to eliminate white space within a `p-inline-list--middot`, that is not inside a `p-inline-list__item`. White space within the `p-inline-list__item` however will displace the dot.
+As with any inline/inline-block element, any amount of white space (one or more spaces, tabs, etc.) in the markup is rendered as a single white space character. Vanilla uses the <a href="https://css-tricks.com/fighting-the-space-between-inline-block-elements/" target="_blank">font size method</a> to eliminate white space within a `p-inline-list--middot`, that is not inside a `p-inline-list__item`. White space within the `p-inline-list__item` however will displace the dot.
 
 <a href="/examples/patterns/lists/lists-mid-dot/"
     class="js-example">
