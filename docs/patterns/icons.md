@@ -174,22 +174,18 @@ Our social icons are used to drive users to social content.
       <i class="p-icon--youtube" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--youtube
     </div>
     <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-      <i class="p-icon--canonical" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--canonical
+      <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
     </div>
     </div>
 
     <div class="row">
       <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--ubuntu" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--ubuntu
-      </div>
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
-      </div>
-      <div class="p-card col-4 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--email" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--email
       </div>
     </div>
     </div>
+
+<span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0. 
 
   </div>
 </section>
