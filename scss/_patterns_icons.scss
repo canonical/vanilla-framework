@@ -529,16 +529,20 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
 }
 
 @mixin vf-p-icon-canonical {
-  .p-icon--canonical {
-    @extend %social-icon;
-    @include vf-icon-canonical;
+  @include deprecate('3.0.0', 'Removing icon from framework please use an alternative icon from our social set') {
+    .p-icon--canonical {
+      @extend %social-icon;
+      @include vf-icon-canonical;
+    }
   }
 }
 
 @mixin vf-p-icon-ubuntu {
-  .p-icon--ubuntu {
-    @extend %social-icon;
-    @include vf-icon-ubuntu;
+  @include deprecate('3.0.0', 'Removing icon from framework please use an alternative icon from our social set') {
+    .p-icon--ubuntu {
+      @extend %social-icon;
+      @include vf-icon-ubuntu;
+    }
   }
 }
 
