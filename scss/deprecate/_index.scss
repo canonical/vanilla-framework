@@ -28,7 +28,18 @@ $deprecate-mode: 'sensible' !default;
 @function _d-to-number($value) {
   $result: 0;
   $digits: 0;
-  $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+  $numbers: (
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9
+  );
 
   @for $i from 1 through str-length($value) {
     $character: str-slice($value, $i, $i);
@@ -101,7 +112,7 @@ $deprecate-mode: 'sensible' !default;
   @if ('disabled' == $deprecate-mode) {
     @content;
   } @else {
-    @if not ('silent' == $deprecate-mode) {
+    @if not('silent' == $deprecate-mode) {
       // Assume we found code that is (or is about to be) deprecated
       $deprecation-found: true;
 
