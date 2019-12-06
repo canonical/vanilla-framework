@@ -21,44 +21,19 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <tr>
-      <th><a href="/patterns/menu-button">Menu button</a></th>
-      <td><div class="p-label--in-progress">In progress</div></td>
-      <td><a href="https://github.com/canonical-web-and-design/design-vanilla-framework/tree/master/Menu%20button">Design spec</a> created and ready for build</td>
-    </tr>
-    <tr>
-      <th><a href="/patterns/navigation/#sub-navigation">Sub-navigation</a></th>
+      <th><a href="/patterns/contextual-menu/#indicator">Contextual menu</a></th>
       <td><div class="p-label--new">New</div></td>
-      <td>This component's functionality requires JavaScript</td>
+      <td>Optional state indicator was added to contextual menu</td>
     </tr>
     <tr>
-      <th><a href="/patterns/pagination/">Pagination</a></th>
-      <td><div class="p-label--new">New</div></td>
-      <td>Should be used to navigate between pages of content</td>
-    </tr>
-    <tr>
-      <th><a href="/patterns/accordion">Accordion</a></th>
+      <th><a href="/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
-      <td>Icons now appear on the left rather than the right</td>
-    </tr>
-    <tr>
-      <th><a href="/base/code/#inline">Code</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>Inline code elements now have a grey highlight to help them stand out from other text</td>
-    </tr>
-    <tr>
-      <th>Footer</th>
-      <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>Removed from release <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.0">v2.0.0</a></td>
-    </tr>
-    <tr>
-      <th>Sidebar navigation</th>
-      <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>Removed from release <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.0.0">v2.0.0</a></td>
+      <td>Updated style of social icons. Added new <code>.p-icon--rss</code> and <code>p-icon--email</code> icons.</td>
     </tr>
     <tr>
       <th><a href="/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>Removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from social icon set</td>
+      <td>We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from social icon set in future release v3.0</td>
     </tr>
   </tbody>
   <tfoot>
