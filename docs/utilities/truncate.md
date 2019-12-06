@@ -4,6 +4,8 @@ layout: default
 
 ## Truncation
 
+<span class="p-label--new">New</span>
+
 <hr>
 
 To truncate text, use the class `u-truncate`.
