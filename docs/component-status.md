@@ -36,6 +36,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added <code>$max-width--default</code> variable and <code>u-no-max-width</code> utility to control line length</td>
     </tr>
     <tr>
+      <th><a href="/utilities/table-cell-padding-overlap/">Table cell padding overlap</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>Added <code>u-table-cell-padding-overlap</code> utility to overlap table cell padding</td>
+    </tr>
+    <tr>
       <th><a href="/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>Updated style of social icons. Added new <code>.p-icon--rss</code> and <code>p-icon--email</code> icons.</td>
