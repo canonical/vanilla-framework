@@ -10,8 +10,6 @@ Vanilla gives you multiple ways to display code using the standard HTML elements
 
 ### Inline
 
-<span class="p-label--updated">Updated</span>
-
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
 ### Block
