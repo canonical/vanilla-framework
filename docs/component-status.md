@@ -26,6 +26,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Optional state indicator was added to contextual menu</td>
     </tr>
     <tr>
+      <th><a href="/utilities/font-metrics/">Font metrics</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>Added <code>u-visualise-font-metrics</code> utility to visualise font metrics</td>
+    </tr>
+    <tr>
       <th><a href="/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>Updated style of social icons. Added new <code>.p-icon--rss</code> and <code>p-icon--email</code> icons.</td>
