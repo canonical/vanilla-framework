@@ -35,8 +35,6 @@ View example of the navigation pattern
 
 ### Sub-navigation
 
-<span class="p-label--new">New</span>
-
 Sub-navigation drop-down menus can be added to the navigation by including one
 or more `p-subnav` components.
 
