@@ -41,6 +41,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added <code>u-table-cell-padding-overlap</code> utility to overlap table cell padding</td>
     </tr>
     <tr>
+      <th><a href="/utilities/truncate/">Truncation</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>Added <code>u-truncate</code> utility to truncate text with ellipsis</td>
+    </tr>
+    <tr>
       <th><a href="/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>Updated style of social icons. Added new <code>.p-icon--rss</code> and <code>p-icon--email</code> icons.</td>
