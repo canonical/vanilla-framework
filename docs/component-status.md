@@ -31,6 +31,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added <code>u-visualise-font-metrics</code> utility to visualise font metrics</td>
     </tr>
     <tr>
+      <th><a href="/base/typography/#line-length">Line length</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>Added <code>$max-width--default</code> variable and <code>u-no-max-width</code> utility to control line length</td>
+    </tr>
+    <tr>
       <th><a href="/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>Updated style of social icons. Added new <code>.p-icon--rss</code> and <code>p-icon--email</code> icons.</td>
