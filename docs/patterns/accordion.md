@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Accordion <span class="p-label--updated" style="margin-left: 0.5rem;">Updated</span>
+## Accordion
 
 <hr>
 
