@@ -4,12 +4,13 @@ title: Modal
 category: _patterns
 ---
 
-<button onclick="showModal('modal')">Show modal</button>
+<button id="showModal">Show modal</button>
+
 <div class="p-modal" id="modal">
   <div class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
     <header class="p-modal__header">
       <h2 class="p-modal__title" id="modal-title">Help</h2>
-      <button class="p-modal__close" aria-label="Close active modal" onclick="showModal('modal')">Close</button>
+      <button class="p-modal__close" aria-label="Close active modal">Close</button>
     </header>
     <p id="modal-description">Learn how to operate production-ready clusters.</p>
     <div class="p-heading-icon--small">
@@ -34,4 +35,16 @@ category: _patterns
       modal.style.display = 'none';
     }
   }
+
+  var showModalButton = document.getElementById('showModal');
+
+  showModalButton.addEventListener('click', function() {
+    showModal('modal');
+  });
+
+  var modal = document.getElementById('modal');
+  var closeModalButton = modal.querySelector('.p-modal__close')
+    .addEventListener('click', function() {
+      showModal('modal');
+    });
 </script>
