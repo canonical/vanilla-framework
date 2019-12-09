@@ -65,50 +65,49 @@ category: _patterns
 </span> vel eu.</p>
 
 <script>
-
 function toggleMenu(element, show) {
   element.setAttribute('aria-expanded', show);
-  document
-    .querySelector(element.getAttribute('aria-controls'))
-    .setAttribute('aria-hidden', !show);
+  document.querySelector(element.getAttribute('aria-controls')).setAttribute('aria-hidden', !show);
+}
+
+function initToggle(toggle) {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = e.target;
+    var menuAlreadyOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggleMenu(toggle, !menuAlreadyOpen);
+  });
 }
 
 function setupContextualMenuListeners(contextualMenuToggleSelector) {
-  const toggles = document.querySelectorAll(contextualMenuToggleSelector);
+  var toggles = document.querySelectorAll(contextualMenuToggleSelector);
 
-  toggles.forEach(toggle => {
-    toggle.addEventListener('click', e => {
-      e.preventDefault();
+  for (var i = 0, l = toggles.length; i < l; i++) {
+    initToggle(toggles[i]);
+  }
 
-      const target = e.target;
-      const menuAlreadyOpen = target.getAttribute('aria-expanded') === 'true';
-
-      toggleMenu(target, !menuAlreadyOpen)
-    });
-  });
-
-  document.addEventListener('click', e => {
-    toggles.forEach(toggle => {
-      const contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
-      const clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
+  document.addEventListener('click', function(e) {
+    for (var i = 0, l = toggles.length; i < l; i++) {
+      var toggle = toggles[i];
+      var contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
+      var clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
 
       if (clickOutside) {
         toggleMenu(toggle, false);
       }
-    })
+    }
   });
 
-  document.onkeydown = e => {
+  document.addEventListener('keydown', function(e) {
     e = e || window.event;
 
     if (e.keyCode === 27) {
-      toggles.forEach(toggle => {
-        toggleMenu(toggle, false);
-      });
+      for (var i = 0, l = toggles.length; i < l; i++) {
+        toggleMenu(toggles[i], false);
+      }
     }
-  };
+  });
 }
 
 setupContextualMenuListeners('.p-contextual-menu__toggle');
-
 </script>
