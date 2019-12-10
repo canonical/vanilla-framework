@@ -92,32 +92,33 @@ var subnavContainers = document.querySelectorAll('[class^="p-subnav__items"]');
 var subnavs = document.querySelectorAll('.p-subnav');
 var subnavToggles = document.querySelectorAll('.p-subnav__toggle');
 
-subnavToggles.forEach(function(subnavToggle) {
-  subnavToggle.addEventListener('click', function(event) {
+for (var i = 0, l = subnavToggles.length; i < l; i++) {
+  subnavToggles[i].addEventListener('click', function(event) {
     event.preventDefault();
   });
-});
+}
 
-subnavs.forEach(function(currentSubnav) {
-  currentSubnav.addEventListener('click', function(event) {
+for (i = 0, l = subnavs.length; i < l; i++) {
+  subnavs[i].addEventListener('click', function(event) {
     event.stopPropagation();
 
     var clickedDropdown = this;
 
-    subnavs.forEach(function(subnav) {
+    for (var i = 0, l = subnavs.length; i < l; i++) {
+      var subnav = subnavs[i];
       var subnavContent = subnav.querySelector('[class^="p-subnav__items"]');
       if (subnav === clickedDropdown) {
         if (subnav.classList.contains('is-active')) {
           closeSubnav(subnav, subnavContent);
         } else {
-          openSubnav(subnav, subnavContent)
+          openSubnav(subnav, subnavContent);
         }
       } else {
         closeSubnav(subnav, subnavContent);
       }
-    });
+    }
   });
-});
+}
 
 function openSubnav(subnav, subnavContent) {
   subnav.classList.add('is-active');
@@ -130,27 +131,40 @@ function closeSubnav(subnav, dropdownContent) {
 }
 
 function closeAllSubnavs() {
-  subnavs.forEach(function(element) {
-    element.classList.remove('is-active');
-  });
-  subnavContainers.forEach(function(element) {
-    hideElement(element);
-  });
+  for (var i = 0, l = subnavs.length; i < l; i++) {
+    subnavs[i].classList.remove('is-active');
+  }
+
+  for (i = 0, l = subnavContainers.length; i < l; i++) {
+    subnavs[i].classList.remove('is-active');
+  }
 }
 
 function hideElement(element) {
-  element.setAttribute("aria-hidden", "true");
+  element.setAttribute('aria-hidden', 'true');
 }
 
 function showElement(element) {
-  element.setAttribute("aria-hidden", "false");
+  element.setAttribute('aria-hidden', 'false');
 }
 
 // Close all menus if anything else on the page is clicked
 document.addEventListener('click', function(event) {
-  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item')) {
+  var target = event.target;
+
+  if (target.closest) {
+    if (!target.closest('.p-subnav__toggle') && !target.closest('.p-subnav__item')) {
+      closeAllSubnavs();
+    }
+  } else if (target.msMatchesSelector) {
+    // IE friendly `Element.closest` equivalent
+    // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+    do {
+      if (target.msMatchesSelector('.p-subnav__toggle') || target.msMatchesSelector('.p-subnav__item')) return;
+      target = target.parentElement || target.parentNode;
+    } while (target !== null && target.nodeType === 1);
+
     closeAllSubnavs();
   }
 });
-
 </script>

@@ -51,7 +51,7 @@ function setupAccordionListener(accordionContainerSelector) {
       accordion panes.
     @param {Boolean} show Whether to show or hide the accordion panel.
   */
-  const toggle = (element, show) => {
+  var toggle = (element, show) => {
     element.setAttribute('aria-expanded', show);
     document
       .querySelector(element.getAttribute('aria-controls'))
@@ -62,13 +62,17 @@ function setupAccordionListener(accordionContainerSelector) {
   document
     .querySelector(accordionContainerSelector)
     .addEventListener('click', e => {
-      const target = e.target;
-      const isTargetOpen = target.getAttribute('aria-expanded') === 'true';
+      var target = e.target;
+      var isTargetOpen = target.getAttribute('aria-expanded') === 'true';
       // Find any open panels within the container and close them.
       if (target.classList.contains('p-accordion__tab')) {
-        e.currentTarget
-          .querySelectorAll('[aria-expanded=true]')
-          .forEach(element => toggle(element, false));
+        var openPanels = e.currentTarget
+          .querySelectorAll('[aria-expanded=true]');
+
+        for (var i = 0, l = openPanels.length; i < l; i++) {
+          toggle(openPanels[i], false);
+        }
+
         // Toggle the target.
         toggle(target, !isTargetOpen);
       }
