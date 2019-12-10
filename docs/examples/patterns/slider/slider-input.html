@@ -30,27 +30,17 @@ category: _patterns
       }
     }
 
-    var browser;
-    /Edge/i.test(navigator.userAgent) ? browser = 'Edge' :
-    /Chrome/i.test(navigator.userAgent) ? browser = 'Chrome' :
-    /Safari/i.test(navigator.userAgent) ? browser = 'Safari' :
-    /NET/i.test(navigator.userAgent) ? browser = 'IE' :
-    browser = 'Other';
-    var progressColour = '#335280';
-    var emptyColour = '#fff';
-    var sliders = Array.prototype.slice.call(document.querySelectorAll('.p-slider'));
-
-    sliders.forEach(function(slider) {
+    function initSlider(slider) {
       var input = document.getElementById(slider.id + '-input');
       renderSlider(slider, progressColour, emptyColour);
 
       if (input) {
         equaliseValues(input, slider);
-        input.oninput = function() {
+        input.addEventListener('input', function() {
           if (!input.value) input.value = 0;
           equaliseValues(slider, input);
           renderSlider(slider, progressColour, emptyColour);
-        }
+        });
       }
 
       // Fix for IE as it doesn't support 'oninput'
@@ -64,6 +54,20 @@ category: _patterns
           renderSlider(slider, progressColour, emptyColour);
         }
       }
-    });
+    }
+
+    var browser;
+    /Edge/i.test(navigator.userAgent) ? browser = 'Edge' :
+    /Chrome/i.test(navigator.userAgent) ? browser = 'Chrome' :
+    /Safari/i.test(navigator.userAgent) ? browser = 'Safari' :
+    /NET/i.test(navigator.userAgent) ? browser = 'IE' :
+    browser = 'Other';
+    var progressColour = '#335280';
+    var emptyColour = '#fff';
+    var sliders = document.querySelectorAll('.p-slider');
+
+    for (var i = 0, l = sliders.length; i < l; i++) {
+      initSlider(sliders[i]);
+    }
   })();
 </script>
