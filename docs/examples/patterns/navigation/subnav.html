@@ -150,7 +150,20 @@ function showElement(element) {
 
 // Close all menus if anything else on the page is clicked
 document.addEventListener('click', function(event) {
-  if (!event.target.closest('.p-subnav__toggle') && !event.target.closest('.p-subnav__item')) {
+  var target = event.target;
+
+  if (target.closest) {
+    if (!target.closest('.p-subnav__toggle') && !target.closest('.p-subnav__item')) {
+      closeAllSubnavs();
+    }
+  } else if (target.msMatchesSelector) {
+    // IE friendly `Element.closest` equivalent
+    // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+    do {
+      if (target.msMatchesSelector('.p-subnav__toggle') || target.msMatchesSelector('.p-subnav__item')) return;
+      target = target.parentElement || target.parentNode;
+    } while (target !== null && target.nodeType === 1);
+
     closeAllSubnavs();
   }
 });
