@@ -4,13 +4,13 @@ title: Modal
 category: _patterns
 ---
 
-<button id="showModal">Show modal</button>
+<button id="showModal" aria-controls="modal">Show modal</button>
 
 <div class="p-modal" id="modal">
   <div class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
     <header class="p-modal__header">
       <h2 class="p-modal__title" id="modal-title">Help</h2>
-      <button class="p-modal__close" aria-label="Close active modal">Close</button>
+      <button class="p-modal__close" aria-label="Close active modal" aria-controls="modal">Close</button>
     </header>
     <p id="modal-description">Learn how to operate production-ready clusters.</p>
     <div class="p-heading-icon--small">
@@ -27,24 +27,20 @@ category: _patterns
 </div>
 
 <script>
-  function showModal(target) {
-    var modal = document.getElementById(target);
-    if (modal.style.display === 'none') {
-      modal.style.display = 'flex';
-    } else {
-      modal.style.display = 'none';
-    }
+  var modalButtons = document.querySelectorAll("[aria-controls]");
+
+  for (var i = 0, l = modalButtons.length; i < l; i++) {
+    modalButtons[i].addEventListener('click', function(event) {
+      var target = event.target.getAttribute('aria-controls');
+      var modal = document.getElementById(target);
+
+      if (modal) {
+        if (modal.style.display === 'none') {
+          modal.style.display = 'flex';
+        } else {
+          modal.style.display = 'none';
+        }
+      }
+    })
   }
-
-  var showModalButton = document.getElementById('showModal');
-
-  showModalButton.addEventListener('click', function() {
-    showModal('modal');
-  });
-
-  var modal = document.getElementById('modal');
-  var closeModalButton = modal.querySelector('.p-modal__close')
-    .addEventListener('click', function() {
-      showModal('modal');
-    });
 </script>
