@@ -36,12 +36,13 @@
     container.classList.add('codepen-example');
 
     var codepenMetadata = {
+      head: '<style>body { margin: 1rem !important; }</style>',
       stylesheets: 'https://assets.ubuntu.com/v1/vanilla-framework-version-2.5.0.min.css',
       tags: ['Vanilla framework']
     };
 
     container.setAttribute('data-prefill', JSON.stringify(codepenMetadata));
-    container.setAttribute('data-theme-id', 'light');
+    container.setAttribute('data-theme-id', '38411');
     //container.setAttribute("data-default-tab", "html,result");
     //container.setAttribute("data-height", "600");
 
