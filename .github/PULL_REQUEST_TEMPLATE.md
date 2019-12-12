@@ -6,7 +6,7 @@
 
 - Pull code
 - Run `./run serve --watch`
-- Open http://0.0.0.0:8101/vanilla-framework/
+- Open http://0.0.0.0:8101/
 - [Add additional steps]
 
 ## Details
