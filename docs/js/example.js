@@ -5,6 +5,8 @@
   }
 
   var CODEPEN_PREFILL_CONFIG = {
+    title: 'Vanilla example',
+    head: "<meta name='viewport' content='width=device-width, initial-scale=1'>",
     stylesheets: [
       // link to latest Vanilla CSS
       'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
