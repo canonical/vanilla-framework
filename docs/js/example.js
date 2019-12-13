@@ -62,6 +62,8 @@
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
 
+    var height = placementElement.getAttribute('data-height') || CODEPEN_HEIGHT;
+
     var container = document.createElement('div');
 
     // Set attributes of code block to be parsed by CodePen embed script
@@ -77,7 +79,7 @@
     }
 
     container.setAttribute('data-prefill', JSON.stringify(config));
-    container.setAttribute('data-height', CODEPEN_HEIGHT);
+    container.setAttribute('data-height', height);
     // For more options see CodePen docs
     // https://blog.codepen.io/documentation/prefill-embeds/
     //
