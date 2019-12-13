@@ -24,40 +24,43 @@
 
       body {
         background-color: #fff;
+        margin: 1rem;
       }
     </style>
-  </head>
-
-  <body {% if page.url != '/' %}style="margin: 1rem; "{% endif %}>
-    {{ content }}
 
     <script>
-      function inIframe () {
-        try {
-          return window.self !== window.top;
-        } catch (e) {
-          return true;
+      (function() {
+        function inIframe () {
+          try {
+            return window.self !== window.top;
+          } catch (e) {
+            return true;
+          }
         }
-      }
 
-      function fragmentFromString(htmlString) {
-        var temp = document.createElement('template');
-        temp.innerHTML = htmlString;
-        return temp.content;
-      }
+        function fragmentFromString(htmlString) {
+          var temp = document.createElement('template');
+          temp.innerHTML = htmlString;
+          return temp.content;
+        }
 
-      if (!inIframe()) {
-        document.addEventListener('DOMContentLoaded', function() {
-          var body = document.body;
-          var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label>Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" /><div class="p-switch__slider"></div></label></div>');
-          body.appendChild(controls);
+        if (!inIframe()) {
+          document.addEventListener('DOMContentLoaded', function() {
+            var body = document.body;
+            var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label>Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" /><div class="p-switch__slider"></div></label></div>');
+            body.appendChild(controls);
 
-          var toggle = document.querySelector('.js-baseline-toggle');
-          toggle.addEventListener('click', function (event) {
-            body.classList.toggle('u-baseline-grid');
+            var toggle = document.querySelector('.js-baseline-toggle');
+            toggle.addEventListener('click', function (event) {
+              body.classList.toggle('u-baseline-grid');
+            });
           });
-        });
-      }
+        }
+      })();
     </script>
+  </head>
+
+  <body>
+    {{ content }}
   </body>
 </html>
