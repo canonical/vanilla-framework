@@ -16,18 +16,9 @@ On `p-modal` set display to `display:flex` or `display:none` to toggle the visib
   </p>
 </div>
 
-<div class="iframe-extension">
-  <a href="/examples/patterns/modal/"
-      class="js-example">
-  View example of the modal pattern
-  </a>
-</div>
-
-<style>
-  .iframe-extension iframe {
-    height: 350px;
-  }
-</style>
+<a href="/examples/patterns/modal/" class="js-example">
+View example of the modal pattern
+</a>
 
 ### Import
 

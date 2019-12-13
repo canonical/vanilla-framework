@@ -12,8 +12,7 @@ Vanilla uses numerous spacing variables across the codebase in order to ensure c
 
 Vanilla uses a default spacing unit of `.5rem` (`8px`) as a basis to calculate spacing inside and between components, as well as the line-heights of the different type sizes.
 
-<a href="/examples/utilities/baseline-grid/"
-    class="js-example">
+<a href="/examples/utilities/baseline-grid/" class="js-example">
 View example of the baseline grid utility
 </a>
 

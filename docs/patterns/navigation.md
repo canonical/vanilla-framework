@@ -28,8 +28,7 @@ You can also manually override the background color of the navigation using the 
 You can change the breakpoint at which the menu changes to a small screen menu
 by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.scss`.
 
-<a href="/examples/patterns/navigation/default/"
-    class="js-example">
+<a href="/examples/patterns/navigation/default/" class="js-example">
 View example of the navigation pattern
 </a>
 
@@ -48,8 +47,7 @@ By default the sub-navigation menus are left-aligned with their parent, if you'd
   </p>
 </div>
 
-<a href="/examples/patterns/navigation/subnav"
-    class="js-example">
+<a href="/examples/patterns/navigation/subnav" class="js-example">
 View example of the sub-navigation pattern
 </a>
 
