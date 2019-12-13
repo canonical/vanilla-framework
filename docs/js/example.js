@@ -1,6 +1,16 @@
+/* global VANILLA_VERSION */
 (function() {
+  if (!window.VANILLA_VERSION) {
+    throw Error('VANILLA_VERSION not specified.');
+  }
+
   var CODEPEN_PREFILL_CONFIG = {
-    stylesheets: ['https://assets.ubuntu.com/v1/vanilla-framework-version-2.5.0.min.css', 'https://assets.ubuntu.com/v1/4653d9ba-example.css'],
+    stylesheets: [
+      // link to latest Vanilla CSS
+      'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
+      // link to example stylesheet (to set margin on body)
+      'https://assets.ubuntu.com/v1/4653d9ba-example.css'
+    ],
     tags: ['Vanilla framework']
   };
 
