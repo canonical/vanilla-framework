@@ -53,8 +53,11 @@
   }
 
   function renderCodeBlocks(placementElement, html) {
-    var pattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
-    var bodyHTML = pattern.exec(html)[1].trim();
+    var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+    var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
+
+    var title = titlePattern.exec(html)[1].trim();
+    var bodyHTML = bodyPattern.exec(html)[1].trim();
 
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
@@ -66,7 +69,14 @@
     // hide code container by default, so it doesn't flash on page
     // before CodePen is rendered
     container.classList.add('codepen-example', 'u-hide');
-    container.setAttribute('data-prefill', JSON.stringify(CODEPEN_PREFILL_CONFIG));
+
+    var config = JSON.parse(JSON.stringify(CODEPEN_PREFILL_CONFIG));
+    // update title in the config with title of the example page
+    if (title) {
+      config.title = title;
+    }
+
+    container.setAttribute('data-prefill', JSON.stringify(config));
     container.setAttribute('data-height', CODEPEN_HEIGHT);
     // For more options see CodePen docs
     // https://blog.codepen.io/documentation/prefill-embeds/
