@@ -51,6 +51,7 @@ To leave gap columns, use `col-start-{breakpoint}{index}`, e.g.: `col-start-larg
 </a>
 
 Please note, specifying a value that exceeds the available number of columns will result in incorrect offsets. This happens because the grid implicitly creates additional columns to accommodate the grid-column-start property. You should always keep track of how many available columns you have, especially when nesting. In the example below, we are indicating we want a `div` to span 3 columns, and start at position 7. This requires 10 total columns inside a `div` spanning only 4.
+
 <a href="/examples/patterns/grid/incorrect-empty-columns/" class="js-example">
 View example of the incorrect column offset within a nested grid
 </a>

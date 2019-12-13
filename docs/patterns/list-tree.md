@@ -16,8 +16,7 @@ Each directory can be opened or collapse using `aria-hidden`, set `true` for ope
   </p>
 </div>
 
-<a href="/examples/patterns/list-tree/"
-    class="js-example">
+<a href="/examples/patterns/list-tree/" class="js-example">
 View example of the list tree pattern
 </a>
 
