@@ -41,12 +41,6 @@ To open the subnav-menu you need to set the `is-active` class on `p-subnav` elem
 
 By default the sub-navigation menus are left-aligned with their parent, if you'd prefer the menu to be positioned from the right, use the `p-subnav__items--right` modifier. This can be seen in the "My account" menu in the example.
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span> This component's functionality requires JavaScript. The <a href="https://docs.vanillaframework.io/examples/patterns/navigation/subnav/">sub-navigation example</a> provides an example implementation.
-  </p>
-</div>
-
 <a href="/examples/patterns/navigation/subnav" class="js-example">
 View example of the sub-navigation pattern
 </a>

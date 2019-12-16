@@ -25,12 +25,6 @@ Using the class `p-table--sortable` and assigning `role="columnheader"` and `ari
 View example of the table sortable pattern
 </a>
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
 ### Expanding
 
 Using `.p-table-expanding` in conjunction with the `<table>` element will allow expanding and hidden table cells which take up the full width of the table row element.
@@ -42,12 +36,6 @@ Using `p-table-expanding__panel` it can be hidden using the `aria-hidden` attrib
 <a href="/examples/patterns/tables/table-expanding/" class="js-example">
 View example of the expanding table pattern
 </a>
-
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
 
 ### Responsive
 

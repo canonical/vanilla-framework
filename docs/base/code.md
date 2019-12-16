@@ -43,12 +43,6 @@ This component should be used when displaying a single line of code, accompanied
 View example of the code copyable pattern
 </a>
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
 ### Functionality
 
 Please copy the entire JS in the example, for copy to clipboard functionality.
