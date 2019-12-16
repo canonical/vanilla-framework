@@ -12,12 +12,6 @@ You can apply this utility to an element (such as `<body>`) to visualise the `.5
 View example of the baseline grid utility
 </a>
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
 ### Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
