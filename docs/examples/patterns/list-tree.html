@@ -33,14 +33,36 @@ category: _patterns
 </ul>
 
 <script>
-  var listTreeToggle = document.querySelectorAll('.p-list-tree__toggle');
-  for (var i = 0; i < listTreeToggle.length; i++) {
-    listTreeToggle[i].addEventListener('click', function(e) {
-      e.preventDefault();
-      var listTree = this.nextElementSibling;
-      var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
-      this.setAttribute('aria-expanded', expand);
-      listTree.setAttribute('aria-hidden', !expand);
-    });
+/**
+  Toggles the necessary aria- attributes' values on the elements
+  to handle showing and hiding them.
+  @param {HTMLElement} element The toggle element controlling the visibility.
+  @param {Boolean} show Whether to show or hide the target.
+*/
+function toggleElement(element, show) {
+  var target = document.getElementById(element.getAttribute('aria-controls'));
+
+  if (target) {
+    element.setAttribute('aria-expanded', show);
+    target.setAttribute('aria-hidden', !show);
   }
+}
+
+/**
+  Attaches event listeners for the list tree toggle.
+  @param {HTMLElement} listTreeToggle The list tree toggle element.
+*/
+function setupListTreeToggle(listTreeToggle) {
+  listTreeToggle.addEventListener('click', function(event) {
+    event.preventDefault();
+    var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
+    toggleElement(listTreeToggle, expand);
+  });
+}
+
+// Set up all list trees on the page.
+var listTreeToggles = document.querySelectorAll('.p-list-tree__toggle');
+for (var i = 0, l = listTreeToggles.length; i < l; i++) {
+  setupListTreeToggle(listTreeToggles[i]);
+}
 </script>
