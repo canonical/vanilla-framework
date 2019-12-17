@@ -5,7 +5,7 @@ category: _patterns
 ---
 
 <span class="p-contextual-menu--left">
-    <button href="#" class="p-contextual-menu__toggle" aria-controls="#menu-3" aria-expanded="false" aria-haspopup="true">Take action</button>
+    <button href="#" class="p-contextual-menu__toggle" aria-controls="menu-3" aria-expanded="false" aria-haspopup="true">Take action</button>
     <span class="p-contextual-menu__dropdown" id="menu-3" aria-hidden="true" aria-label="submenu">
         <span class="p-contextual-menu__group">
             <a href="#" class="p-contextual-menu__link">Commission</a>
@@ -21,7 +21,7 @@ category: _patterns
 </span>
 
 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit <span class="p-contextual-menu--left">
-    <a href="#" class="p-contextual-menu__toggle" aria-controls="#menu-4" aria-expanded="false" aria-haspopup="true">take action left</a>
+    <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-4" aria-expanded="false" aria-haspopup="true">take action left</a>
     <span class="p-contextual-menu__dropdown" id="menu-4" aria-hidden="true" aria-label="submenu">
         <span class="p-contextual-menu__group">
           <a href="#" class="p-contextual-menu__link">Commission</a>
@@ -35,7 +35,7 @@ category: _patterns
         </span>
     </span>
 </span> nunc dolor. Arcu molestie non arcu porttitor <span class="p-contextual-menu--center">
-    <a href="#" class="p-contextual-menu__toggle" aria-controls="#menu-5" aria-expanded="false" aria-haspopup="true">take action center</a>
+    <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-5" aria-expanded="false" aria-haspopup="true">take action center</a>
     <span class="p-contextual-menu__dropdown" id="menu-5" aria-hidden="true" aria-label="submenu">
         <span class="p-contextual-menu__group">
           <a href="#" class="p-contextual-menu__link">Commission</a>
@@ -49,7 +49,7 @@ category: _patterns
         </span>
     </span>
 </span> volutpat rutrum ipsum nunc lacus ligula ornare et diam <span class="p-contextual-menu">
-    <a href="#" class="p-contextual-menu__toggle" aria-controls="#menu-6" aria-expanded="false" aria-haspopup="true">take action right</a>
+    <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-6" aria-expanded="false" aria-haspopup="true">take action right</a>
     <span class="p-contextual-menu__dropdown" id="menu-6" aria-hidden="true" aria-label="submenu">
         <span class="p-contextual-menu__group">
           <a href="#" class="p-contextual-menu__link">Commission</a>
@@ -65,32 +65,52 @@ category: _patterns
 </span> vel eu.</p>
 
 <script>
+/**
+  Toggles the necessary aria- attributes' values on the menus
+  and handles to show or hide them.
+  @param {HTMLElement} element The menu link or button.
+  @param {Boolean} show Whether to show or hide the menu.
+*/
 function toggleMenu(element, show) {
-  element.setAttribute('aria-expanded', show);
-  document.querySelector(element.getAttribute('aria-controls')).setAttribute('aria-hidden', !show);
+  var target = document.getElementById(element.getAttribute('aria-controls'));
+
+  if (target) {
+    element.setAttribute('aria-expanded', show);
+    target.setAttribute('aria-hidden', !show);
+  }
 }
 
-function initToggle(toggle) {
-  toggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    var target = e.target;
-    var menuAlreadyOpen = toggle.getAttribute('aria-expanded') === 'true';
-    toggleMenu(toggle, !menuAlreadyOpen);
+/**
+  Attaches event listeners for the menu toggle open and close click events.
+  @param {HTMLElement} menuToggle The menu container element.
+*/
+function setupContextualMenu(menuToggle) {
+  menuToggle.addEventListener('click', function(event) {
+    event.preventDefault();
+    var menuAlreadyOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    toggleMenu(menuToggle, !menuAlreadyOpen);
   });
 }
 
-function setupContextualMenuListeners(contextualMenuToggleSelector) {
+/**
+  Attaches event listeners for all the menu toggles in the document and
+  listeners to handle close when clicking outside the menu or using ESC key.
+  @param {String} contextualMenuToggleSelector The CSS selector matching menu toggle elements.
+*/
+function setupAllContextualMenus(contextualMenuToggleSelector) {
+  // Setup all menu toggles on the page.
   var toggles = document.querySelectorAll(contextualMenuToggleSelector);
 
   for (var i = 0, l = toggles.length; i < l; i++) {
-    initToggle(toggles[i]);
+    setupContextualMenu(toggles[i]);
   }
 
-  document.addEventListener('click', function(e) {
+  // Add handler for clicking outside the menu.
+  document.addEventListener('click', function(event) {
     for (var i = 0, l = toggles.length; i < l; i++) {
       var toggle = toggles[i];
-      var contextualMenu = document.querySelector(toggle.getAttribute('aria-controls'));
-      var clickOutside = !(toggle.contains(e.target) || contextualMenu.contains(e.target));
+      var contextualMenu = document.getElementById(toggle.getAttribute('aria-controls'));
+      var clickOutside = !(toggle.contains(event.target) || contextualMenu.contains(event.target));
 
       if (clickOutside) {
         toggleMenu(toggle, false);
@@ -98,6 +118,7 @@ function setupContextualMenuListeners(contextualMenuToggleSelector) {
     }
   });
 
+  // Add handler for closing menus using ESC key.
   document.addEventListener('keydown', function(e) {
     e = e || window.event;
 
@@ -109,5 +130,5 @@ function setupContextualMenuListeners(contextualMenuToggleSelector) {
   });
 }
 
-setupContextualMenuListeners('.p-contextual-menu__toggle');
+setupAllContextualMenus('.p-contextual-menu__toggle');
 </script>
