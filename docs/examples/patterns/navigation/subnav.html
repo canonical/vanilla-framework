@@ -21,8 +21,7 @@ category: _patterns
       </span>
       <ul class="p-navigation__links" role="menu">
         <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
-          <a href="#link-1-menu" class="p-subnav__toggle">LXC</i>
-          </a>
+          <a href="#link-1-menu" aria-controls="link-1-menu" class="p-subnav__toggle">LXC</a>
           <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true">
             <li>
               <a href="#" class="p-subnav__item">Introduction</a>
@@ -36,8 +35,7 @@ category: _patterns
           </ul>
         </li>
         <li class="p-navigation__link p-subnav" role="menuitem" id="link-2">
-          <a href="#link-2-menu" class="p-subnav__toggle">LXD</i>
-          </a>
+          <a href="#link-2-menu" aria-controls="link-2-menu" class="p-subnav__toggle">LXD</a>
           <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true">
             <li>
               <a href="#" class="p-subnav__item">Introduction</a>
@@ -57,7 +55,7 @@ category: _patterns
           </ul>
         </li>
         <li class="p-navigation__link p-subnav" role="menuitem" id="link-3">
-          <a href="#link-3-menu" class="p-subnav__toggle">LXCFS</a>
+          <a href="#link-3-menu" aria-controls="link-3-menu" class="p-subnav__toggle">LXCFS</a>
           <ul class="p-subnav__items" id="link-3-menu" aria-hidden="true">
             <li>
               <a href="#" class="p-subnav__item">Introduction</a>
@@ -73,12 +71,12 @@ category: _patterns
       </ul>
       <ul class="p-navigation__links" role="menu">
         <li class="p-navigation__link p-subnav" role="menuitem" id="link-1">
-          <a class="p-subnav__toggle" aria-controls="account-menu" aria-expanded="false">
+          <a class="p-subnav__toggle" aria-controls="account-menu">
             My account
           </a>
           <ul class="p-subnav__items--right" id="account-menu" aria-hidden="true">
             <li>
-              <a href="/logout" class="p-subnav__item">Sign out</a>
+              <a href="#" class="p-subnav__item">Sign out</a>
             </li>
           </ul>
         </li>
@@ -88,64 +86,64 @@ category: _patterns
 </header>
 
 <script>
-var subnavContainers = document.querySelectorAll('[class^="p-subnav__items"]');
-var subnavs = document.querySelectorAll('.p-subnav');
-var subnavToggles = document.querySelectorAll('.p-subnav__toggle');
-
-for (var i = 0, l = subnavToggles.length; i < l; i++) {
-  subnavToggles[i].addEventListener('click', function(event) {
-    event.preventDefault();
-  });
+/**
+  Opens a given subnav by applying is-active class to it
+  and setting aria-hidden attribute on dropdown contents.
+  @param {HTMLElement} subnav Root element of subnavigation to open.
+*/
+function openSubnav(subnav) {
+  subnav.classList.add('is-active');
+  var toggle = subnav.querySelector(".p-subnav__toggle");
+  var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
+  dropdown.setAttribute('aria-hidden', 'true');
 }
 
-for (i = 0, l = subnavs.length; i < l; i++) {
-  subnavs[i].addEventListener('click', function(event) {
+/**
+  Closes a given subnav by removing is-active class to it
+  and setting aria-hidden attribute on dropdown contents.
+  @param {HTMLElement} subnav Root element of subnavigation to open.
+*/
+function closeSubnav(subnav) {
+  subnav.classList.remove('is-active');
+  var toggle = subnav.querySelector(".p-subnav__toggle");
+  var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
+  dropdown.setAttribute('aria-hidden', 'false');
+}
+
+/**
+  Closes all subnavs on the page.
+*/
+function closeAllSubnavs() {
+  var subnavs = document.querySelectorAll('.p-subnav');
+  for (var i = 0, l = subnavs.length; i < l; i++) {
+    closeSubnav(subnavs[i]);
+  }
+}
+
+/**
+  Attaches click event listener to subnav toggle.
+  @param {HTMLElement} subnavToggle Toggle element of subnavigation.
+*/
+function setupSubnavToggle(subnavToggle) {
+  subnavToggle.addEventListener('click', function(event) {
+    event.preventDefault();
     event.stopPropagation();
 
-    var clickedDropdown = this;
+    var subnav = subnavToggle.parentElement;
+    var isActive = subnav.classList.contains('is-active');
 
-    for (var i = 0, l = subnavs.length; i < l; i++) {
-      var subnav = subnavs[i];
-      var subnavContent = subnav.querySelector('[class^="p-subnav__items"]');
-      if (subnav === clickedDropdown) {
-        if (subnav.classList.contains('is-active')) {
-          closeSubnav(subnav, subnavContent);
-        } else {
-          openSubnav(subnav, subnavContent);
-        }
-      } else {
-        closeSubnav(subnav, subnavContent);
-      }
+    closeAllSubnavs();
+    if (!isActive) {
+      openSubnav(subnav);
     }
   });
 }
 
-function openSubnav(subnav, subnavContent) {
-  subnav.classList.add('is-active');
-  showElement(subnavContent);
-}
+// Setup all subnav toggles on the page
+var subnavToggles = document.querySelectorAll('.p-subnav__toggle');
 
-function closeSubnav(subnav, dropdownContent) {
-  subnav.classList.remove('is-active');
-  hideElement(dropdownContent);
-}
-
-function closeAllSubnavs() {
-  for (var i = 0, l = subnavs.length; i < l; i++) {
-    subnavs[i].classList.remove('is-active');
-  }
-
-  for (i = 0, l = subnavContainers.length; i < l; i++) {
-    subnavs[i].classList.remove('is-active');
-  }
-}
-
-function hideElement(element) {
-  element.setAttribute('aria-hidden', 'true');
-}
-
-function showElement(element) {
-  element.setAttribute('aria-hidden', 'false');
+for (var i = 0, l = subnavToggles.length; i < l; i++) {
+  setupSubnavToggle(subnavToggles[i]);
 }
 
 // Close all menus if anything else on the page is clicked
@@ -160,7 +158,12 @@ document.addEventListener('click', function(event) {
     // IE friendly `Element.closest` equivalent
     // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
     do {
-      if (target.msMatchesSelector('.p-subnav__toggle') || target.msMatchesSelector('.p-subnav__item')) return;
+      if (
+        target.msMatchesSelector('.p-subnav__toggle') ||
+        target.msMatchesSelector('.p-subnav__item')
+      ) {
+        return;
+      }
       target = target.parentElement || target.parentNode;
     } while (target !== null && target.nodeType === 1);
 
