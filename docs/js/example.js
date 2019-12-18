@@ -5,7 +5,7 @@
   }
 
   var CODEPEN_PREFILL_CONFIG = {
-    title: 'Vanilla example',
+    title: 'Vanilla framework example',
     head: "<meta name='viewport' content='width=device-width, initial-scale=1'>",
     stylesheets: [
       // link to latest Vanilla CSS
