@@ -18,14 +18,7 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
   </p>
 </div>
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
-<a href="/examples/patterns/accordion/"
-    class="js-example">
+<a href="/examples/patterns/accordion/" class="js-example">
 View example of the accordion pattern
 </a>
 

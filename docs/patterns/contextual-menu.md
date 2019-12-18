@@ -25,14 +25,7 @@ Using direction modifiers will change the placement of the drop-down menu. By de
   </div>
 </div>
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
-
-<a href="/examples/patterns/contextual-menu/default"
-  class="js-example">
+<a href="/examples/patterns/contextual-menu/default" class="js-example">
 View example of the contextual menu pattern
 </a>
 
@@ -48,8 +41,7 @@ If you require a drop-down button with a state indicator then the `p-contextual-
   </p>
 </div>
 
-<a href="/examples/patterns/contextual-menu/with-indicator"
-  class="js-example">
+<a href="/examples/patterns/contextual-menu/with-indicator" class="js-example">
 View example of the contextual menu pattern
 </a>
 

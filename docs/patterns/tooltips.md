@@ -17,8 +17,7 @@ Tooltips are text labels that appear when the user hovers over, focuses on, or t
   </p>
 </div>
 
-<a href="/examples/patterns/tooltips/"
-    class="js-example">
+<a href="/examples/patterns/tooltips/" class="js-example">
 View example of the tooltips pattern
 </a>
 

@@ -8,16 +8,9 @@ layout: default
 
 You can apply this utility to an element (such as `<body>`) to visualise the `.5rem` baseline grid to which text elements adhere.
 
-<a href="/examples/utilities/baseline-grid/"
-    class="js-example">
+<a href="/examples/utilities/baseline-grid/" class="js-example">
 View example of the baseline grid utility
 </a>
-
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
 
 ### Import
 

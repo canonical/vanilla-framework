@@ -71,8 +71,7 @@ heading order and semantics.
 In the following example, each heading is actually a `<p>` element that has been
 modified to look like a particular heading size.
 
-<a href="/examples/patterns/headings/default/"
-    class="js-example">
+<a href="/examples/patterns/headings/default/" class="js-example">
 View example of the heading pattern
 </a>
 
@@ -80,8 +79,7 @@ View example of the heading pattern
 
 Sub-headings visually convey importance beneath a heading, or a line of text that expands on the meaning of the heading immediately before it.
 
-<a href="/examples/base/sub-headings/"
-    class="js-example">
+<a href="/examples/base/sub-headings/" class="js-example">
 View example of the heading pattern
 </a>
 
@@ -90,8 +88,7 @@ View example of the heading pattern
 It is also possible to apply heading classes directly to heading elements if that
 better suits your document style and tree.
 
-<a href="/examples/patterns/headings/mixed/"
-    class="js-example">
+<a href="/examples/patterns/headings/mixed/" class="js-example">
 View example of the mixed headings pattern
 </a>
 
@@ -104,8 +101,7 @@ Line length, measured in number of characters per line (CPL), has been shown to 
 The max-width of text elements in Vanilla Framework is limited using the `$max-width--default` variable, currently set to `40em`, or around 90 characters.
 
 Vanilla also includes a utility to unset the max-width where necessary &ndash; `u-no-max-width`:
-<a href="/examples/utilities/max-width-unset/"
-    class="js-example">
+<a href="/examples/utilities/max-width-unset/" class="js-example">
 View example of how to unset max-width
 </a>
 
@@ -118,8 +114,7 @@ Overriding or unsetting the `max-width` is reasonable in certain cases:
 
 Use an ordered list when the order of the items is important.
 
-<a href="/examples/base/lists/ordered-list/"
-    class="js-example">
+<a href="/examples/base/lists/ordered-list/" class="js-example">
 View example of the base ordered list
 </a>
 
@@ -127,8 +122,7 @@ View example of the base ordered list
 
 Use an unordered list when the order of the items isn't important.
 
-<a href="/examples/base/lists/unordered-list/"
-    class="js-example">
+<a href="/examples/base/lists/unordered-list/" class="js-example">
 View example of the base unordered list
 </a>
 
@@ -137,22 +131,19 @@ View example of the base unordered list
 Use a definition list when you want to list a group of one or more terms and
 descriptions.
 
-<a href="/examples/base/lists/definition-list/"
-    class="js-example">
+<a href="/examples/base/lists/definition-list/" class="js-example">
 View example of the base definition list
 </a>
 
 ### Blockquotes and citations
 
-<a href="/examples/base/blockquotes/"
-    class="js-example">
+<a href="/examples/base/blockquotes/" class="js-example">
 View example of the base blockquotes
 </a>
 
 ### Small text
 
-<a href="/examples/base/small/"
-    class="js-example">
+<a href="/examples/base/small/" class="js-example">
 View example of the small text
 </a>
 
@@ -162,22 +153,19 @@ View example of the small text
 
 ### Superscripted text
 
-<a href="/examples/base/sup/"
-    class="js-example">
+<a href="/examples/base/sup/" class="js-example">
 View example of the superscripted pattern
 </a>
 
 ### Subscripted text
 
-<a href="/examples/base/sub/"
-    class="js-example">
+<a href="/examples/base/sub/" class="js-example">
 View example of the subscripted pattern
 </a>
 
 ### Abbreviation
 
-<a href="/examples/base/abbr/"
-    class="js-example">
+<a href="/examples/base/abbr/" class="js-example">
 View example of the abbreviation pattern
 </a>
 
@@ -185,8 +173,7 @@ View example of the abbreviation pattern
 
 If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
 
-<a href="/examples/base/font-weights/"
-    class="js-example">
+<a href="/examples/base/font-weights/" class="js-example">
 View example of the Ubuntu font weights.
 </a>
 
