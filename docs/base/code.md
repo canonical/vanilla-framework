@@ -16,8 +16,7 @@ When you refer to code inline with other text, use the <code>&lt;code></code> ta
 
 If you want to refer to a larger piece of code, use <code>&lt;pre></code> together with the <code>&lt;code></code> tag.
 
-<a href="/examples/base/code/"
-    class="js-example">
+<a href="/examples/base/code/" class="js-example">
 View example of the base code block
 </a>
 
@@ -40,16 +39,9 @@ This component should be used when displaying a single line of code, accompanied
   </div>
 </div>
 
-<a href="/examples/patterns/code-copyable/"
-    class="js-example">
+<a href="/examples/patterns/code-copyable/" class="js-example">
 View example of the code copyable pattern
 </a>
-
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>This pattern requires JS to be functional.
-  </p>
-</div>
 
 ### Functionality
 
@@ -59,8 +51,7 @@ Please copy the entire JS in the example, for copy to clipboard functionality.
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
 
-<a href="/examples/patterns/code-numbered/"
-    class="js-example">
+<a href="/examples/patterns/code-numbered/" class="js-example">
 View example of the code numbered pattern
 </a>
 

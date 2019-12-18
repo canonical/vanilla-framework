@@ -8,8 +8,7 @@ layout: default
 
 The pagination component should be used to navigate between pages of content. Depending on the length provided, the pagination component will automatically scale.
 
-<a href="/examples/patterns/pagination/pagination"
-    class="js-example">
+<a href="/examples/patterns/pagination/pagination" class="js-example">
 View example of the pagination pattern
 </a>
 
@@ -17,8 +16,7 @@ View example of the pagination pattern
 
 When it is not possible to fit all pages into the component, a truncated option should be used to give the first, last and as many siblings of the current page as possible.
 
-<a href="/examples/patterns/pagination/pagination-truncated"
-    class="js-example">
+<a href="/examples/patterns/pagination/pagination-truncated" class="js-example">
 View example of the pagination pattern
 </a>
 
@@ -26,8 +24,7 @@ View example of the pagination pattern
 
 When a user is at the first or last item then the previous or next button, respectively, should be disabled.
 
-<a href="/examples/patterns/pagination/pagination-disabled"
-    class="js-example">
+<a href="/examples/patterns/pagination/pagination-disabled" class="js-example">
 View example of the pagination pattern
 </a>
 
