@@ -27,20 +27,25 @@ category: _patterns
 </div>
 
 <script>
-  var modalButtons = document.querySelectorAll("[aria-controls]");
-
-  for (var i = 0, l = modalButtons.length; i < l; i++) {
-    modalButtons[i].addEventListener('click', function(event) {
-      var target = event.target.getAttribute('aria-controls');
-      var modal = document.getElementById(target);
-
-      if (modal) {
-        if (modal.style.display === 'none') {
-          modal.style.display = 'flex';
-        } else {
-          modal.style.display = 'none';
-        }
-      }
-    })
+/**
+  Toggles visibility of modal dialog.
+  @param {HTMLElement} modal Modal dialog to show or hide.
+*/
+function toggleModal(modal) {
+  if (modal && modal.classList.contains('p-modal')) {
+    if (modal.style.display === 'none') {
+      modal.style.display = 'flex';
+    } else {
+      modal.style.display = 'none';
+    }
   }
+}
+
+// Add click handler for clicks on elements with aria-controls
+document.addEventListener('click', function(event) {
+  var targetControls = event.target.getAttribute('aria-controls');
+  if (targetControls) {
+    toggleModal(document.getElementById(targetControls));
+  }
+});
 </script>
