@@ -10,7 +10,7 @@ $navigation-hover-opacity: 0.58;
     position: relative;
     z-index: 10;
 
-    @media (max-width: $breakpoint-navigation-threshold) {
+    @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
       flex-direction: column;
     }
 
@@ -42,7 +42,7 @@ $navigation-hover-opacity: 0.58;
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        @media (max-width: $breakpoint-navigation-threshold) {
+        @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
           padding: $spv-inner--medium 0;
 
           &::before {
@@ -79,7 +79,7 @@ $navigation-hover-opacity: 0.58;
       list-style: none;
       margin: 0;
       padding: 0;
-      @media (max-width: $breakpoint-navigation-threshold) {
+      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
         margin-top: -1px; // prevents bottom border of nav from moving 1px
       }
       @media (min-width: $breakpoint-navigation-threshold) {
@@ -102,7 +102,7 @@ $navigation-hover-opacity: 0.58;
     &__nav {
       display: none;
 
-      @media (max-width: $breakpoint-navigation-threshold) {
+      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
         flex-direction: column;
       }
 
@@ -116,7 +116,7 @@ $navigation-hover-opacity: 0.58;
     .p-search-box {
       min-width: 10em;
 
-      @media (max-width: $breakpoint-navigation-threshold) {
+      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
         flex: 1 0 auto;
         margin: -1px 0 $spv-inner--small 0;
         order: -1;
@@ -137,7 +137,7 @@ $navigation-hover-opacity: 0.58;
       @extend %fixed-width-container;
       display: flex;
 
-      @media (max-width: $breakpoint-navigation-threshold) {
+      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
         flex-direction: column;
       }
     }
@@ -171,7 +171,7 @@ $navigation-hover-opacity: 0.58;
       }
 
       .p-navigation__toggle--close {
-        @media (max-width: $breakpoint-navigation-threshold) {
+        @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
           display: block;
         }
       }
@@ -193,7 +193,7 @@ $navigation-hover-opacity: 0.58;
       }
 
       &--open {
-        @media (max-width: $breakpoint-navigation-threshold) {
+        @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
           display: block;
         }
       }
@@ -269,7 +269,7 @@ $navigation-hover-opacity: 0.58;
   }
 
   .p-navigation__link > a::before {
-    @media (max-width: $breakpoint-navigation-threshold) {
+    @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
       // separator color on small screens
       background: $colors--light-theme--border-default;
     }
@@ -306,7 +306,7 @@ $navigation-hover-opacity: 0.58;
 
   // separator color on small screens
   .p-navigation__link > a::before {
-    @media (max-width: $breakpoint-navigation-threshold) {
+    @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
       background: $colors--dark-theme--border-default;
     }
   }
