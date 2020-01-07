@@ -6,12 +6,13 @@ $navigation-hover-opacity: 0.58;
   // no colours
   .p-navigation {
     display: flex;
+    flex-direction: column;
     flex-shrink: 0;
     position: relative;
     z-index: 10;
 
-    @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-      flex-direction: column;
+    @media (min-width: $breakpoint-navigation-threshold) {
+      flex-direction: row;
     }
 
     &__banner {
@@ -38,24 +39,13 @@ $navigation-hover-opacity: 0.58;
         line-height: map-get($line-heights, default-text);
         margin-bottom: 0;
         overflow: hidden;
+        padding: $spv-inner--medium 0;
         position: relative;
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-          padding: $spv-inner--medium 0;
-
-          &::before {
-            top: 0;
-          }
-        }
-
         @media (min-width: $breakpoint-navigation-threshold) {
           padding: $spv-inner--medium $sph-inner;
-
-          &::before {
-            bottom: 0;
-          }
         }
 
         &::before {
@@ -64,6 +54,16 @@ $navigation-hover-opacity: 0.58;
           left: 0;
           position: absolute;
           right: 0;
+          top: 0;
+
+          @media (min-width: $breakpoint-navigation-threshold) {
+            content: unset;
+            height: unset;
+            left: unset;
+            position: unset;
+            right: unset;
+            top: unset;
+          }
         }
 
         &,
@@ -77,12 +77,11 @@ $navigation-hover-opacity: 0.58;
 
     &__links {
       list-style: none;
-      margin: 0;
+      margin: -1px 0 0 0;
       padding: 0;
-      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-        margin-top: -1px; // prevents bottom border of nav from moving 1px
-      }
+
       @media (min-width: $breakpoint-navigation-threshold) {
+        margin-top: 0; // prevents bottom border of nav from moving 1px
         display: flex;
         flex-wrap: wrap;
       }
@@ -101,26 +100,21 @@ $navigation-hover-opacity: 0.58;
 
     &__nav {
       display: none;
-
-      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-        flex-direction: column;
-      }
+      flex-direction: column;
 
       @media (min-width: $breakpoint-navigation-threshold) {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         width: 100%;
       }
     }
 
     .p-search-box {
+      flex: 1 0 auto;
+      margin: -1px 0 $spv-inner--small 0;
       min-width: 10em;
-
-      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-        flex: 1 0 auto;
-        margin: -1px 0 $spv-inner--small 0;
-        order: -1;
-      }
+      order: -1;
 
       @media (min-width: $breakpoint-navigation-threshold) {
         // align baselines of menu items and input text
@@ -129,6 +123,7 @@ $navigation-hover-opacity: 0.58;
         flex: 1 1 auto;
         margin: $input-gap-top 0 auto auto;
         max-width: 20rem;
+        min-width: unset;
         order: 1;
       }
     }
@@ -136,9 +131,10 @@ $navigation-hover-opacity: 0.58;
     %navigation-row {
       @extend %fixed-width-container;
       display: flex;
+      flex-direction: column;
 
-      @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-        flex-direction: column;
+      @media (min-width: $breakpoint-navigation-threshold) {
+        flex-direction: row;
       }
     }
 
@@ -171,8 +167,10 @@ $navigation-hover-opacity: 0.58;
       }
 
       .p-navigation__toggle--close {
-        @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-          display: block;
+        display: block;
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: none;
         }
       }
     }
@@ -180,7 +178,6 @@ $navigation-hover-opacity: 0.58;
     &__toggle {
       &--open,
       &--close {
-        display: none;
         margin: 0 0 auto $sph-inner;
         padding: $spv-inner--medium 0;
 
@@ -192,9 +189,15 @@ $navigation-hover-opacity: 0.58;
         }
       }
 
+      &--close {
+        display: none;
+      }
+
       &--open {
-        @media (max-width: #{$breakpoint-navigation-threshold - 1px}) {
-          display: block;
+        display: block;
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: none;
         }
       }
     }
