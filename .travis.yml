@@ -1,12 +1,10 @@
 language: node_js
 node_js:
-  - '12.14.0'
+  - '10.15.3'
 before_install:
   - rvm install 2.4.0
-  # make sure bundler@1 is installed
-  # https://docs.travis-ci.com/user/languages/ruby/#bundler
-  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
-  - gem install bundler -v '< 2'
+  # specifically install bundler 1.16.6 (as per Gemfile)
+  - gem install bundler:1.16.6
 install:
   - gem install percy-cli
   - gem install sass
