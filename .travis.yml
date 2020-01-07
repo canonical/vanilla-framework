@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - '10.15.3'
+  # use the same version of node that we have on jenkins
+  # to make sure that the builds will pass on both travis and jenkins
+  - '8.10.0'
 before_install:
   - rvm install 2.4.0
   # specifically install bundler 1.16.6 (as per Gemfile)
