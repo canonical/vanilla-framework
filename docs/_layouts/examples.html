@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
 
+    {% if page.individual %}
+    <link rel="stylesheet" type="text/css" href="/build/css/individual/base.css" />
+    <link rel="stylesheet" type="text/css" href="/build/css/individual/{{ page.individual }}.css" />
+    {% else %}
     <link rel="stylesheet" type="text/css" href="/build/css/build.css" />
+    {% endif %}
+
     <style>
       html::after {
         background: linear-gradient(to top, rgba(255,0,0,0.15), rgba(255,0,0,0.15) 1px, rgba(255,0,0,0.05) 1px, rgba(255,0,0,0.05));
@@ -28,6 +34,7 @@
       }
     </style>
 
+    {% unless page.individual %}
     <script>
       (function() {
         function inIframe () {
@@ -58,6 +65,7 @@
         }
       })();
     </script>
+    {% endunless %}
   </head>
 
   <body>

@@ -85,3 +85,22 @@ layout: default
     </nav>
   </div>
 </div>
+<div class="row">
+  <div class="col-12">
+    <h3>Examples with individual CSS</h3>
+    <p>Examples below use CSS built with single pattern included instead of whole Vanilla framework CSS file.</p>
+  </div>
+  <div class="col-3">
+    <nav>
+      <ul class="p-list">
+        {% for page in sortedpages %} {% assign pageitems = page | split: '#' %} {% if pageitems[1] contains '/individual/' %}
+        <li class="p-list__item">
+          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
+            {{ pageitems[0] }}
+          </a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
