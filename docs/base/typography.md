@@ -149,7 +149,9 @@ View example of the small text
 
 ### Strong text
 
-<strong>This is some strong text</strong>
+<a href="/examples/base/strong/" class="js-example">
+View example of the strong text
+</a>
 
 ### Superscripted text
 
