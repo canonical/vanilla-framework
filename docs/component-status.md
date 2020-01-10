@@ -20,6 +20,31 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.6.0 -->
+    <tr>
+      <th><a href="/base/forms/#range">Range input</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
+    </tr>
+    <tr>
+      <th><a href="/patterns/slider">Slider</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla 2.5
+
+<table style="margin-bottom: 1rem;">
+  <thead>
+    <tr>
+      <th style="width: 25%">Component</th>
+      <th style="width: 25%">Status</th>
+      <th style="width: 50%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <th><a href="/patterns/contextual-menu/#indicator">Contextual menu</a></th>
       <td><div class="p-label--new">New</div></td>
@@ -56,8 +81,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from social icon set in future release v3.0</td>
     </tr>
   </tbody>
-  <tfoot>
-  </tfoot>
 </table>
 
 ### Status key
