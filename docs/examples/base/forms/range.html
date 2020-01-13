@@ -1,11 +1,11 @@
 ---
 layout: examples
-title: Slider / Default
-category: _patterns
+title: Forms / Range input
+category: _base
 ---
 
-<input class="p-slider" type="range" min="0" max="100" value="50" step="1" id="slider1">
-<input class="p-slider" type="range" min="0" max="100" value="50" step="1" id="slider2" disabled>
+<input type="range" min="0" max="100" value="50" step="1" />
+<input type="range" min="0" max="100" value="50" step="1" disabled />
 
 <script>
 var isWebkit =
@@ -43,7 +43,7 @@ function initSlider(slider) {
 // Fix for Chrome and Safari as they don't support CSS slider progress
 if (isWebkit) {
   // Setup all sliders on the page.
-  var sliders = document.querySelectorAll('.p-slider');
+  var sliders = document.querySelectorAll('input[type=range]');
 
   for (var i = 0, l = sliders.length; i < l; i++) {
     initSlider(sliders[i]);
