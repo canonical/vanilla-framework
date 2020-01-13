@@ -11,7 +11,7 @@ When we add, make significant updates, or deprecate a component we update their 
 
 ### Current status
 
-<table style="margin-bottom: 1rem;">
+<table>
   <thead>
     <tr>
       <th style="width: 25%">Component</th>
