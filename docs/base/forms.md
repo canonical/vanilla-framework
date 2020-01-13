@@ -78,6 +78,14 @@ Use the `multiple` attribute to create a multiple select control.
 View example of the base multiple selects
 </a>
 
+### Range
+
+The `<input type="range">` allows a user to select from a specified range of values, where the precise value is not considered important.
+
+<a href="/examples/base/forms/range/" class="js-example">
+View example of the slider pattern
+</a>
+
 ### Fieldset
 
 You can use the `<fieldset>` element to divide the form into different logical sections.
