@@ -36,7 +36,7 @@ When we add, make significant updates, or deprecate a component we update their 
 
 #### Previously in Vanilla 2.5
 
-<table style="margin-bottom: 1rem;">
+<table>
   <thead>
     <tr>
       <th style="width: 25%">Component</th>
