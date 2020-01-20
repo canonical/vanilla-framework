@@ -50,9 +50,15 @@
       @extend %subnav-item--dark-theme;
     }
 
-    .p-subnav.is-light {
+    .p-subnav.is-light,
+    .p-navigation.is-light .p-subnav {
       &::after {
         @include vf-icon-chevron;
+      }
+
+      .p-subnav__items,
+      .p-subnav__items--right {
+        @extend %vf-is-bordered;
       }
 
       .p-subnav__item {
@@ -73,9 +79,15 @@
       @extend %subnav-item--light-theme;
     }
 
-    .p-subnav.is-dark {
+    .p-subnav.is-dark,
+    .p-navigation.is-dark .p-subnav {
       &::after {
         @include vf-icon-chevron;
+      }
+
+      .p-subnav__items,
+      .p-subnav__items--right {
+        border: 0;
       }
 
       .p-subnav__item {
@@ -101,7 +113,7 @@
     }
 
     @media (max-width: $breakpoint-navigation-threshold) {
-      border: 0;
+      border: 0 !important; // fight specificity of `.p-navigation.is-dark .p-subnav .p-subnav__items` from theme support
       box-shadow: none;
     }
   }
