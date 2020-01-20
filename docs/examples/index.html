@@ -22,7 +22,7 @@ layout: default
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/base/' %}
+        {% if pageitems[1] contains '/examples/base/' %}
         <li class="p-list__item">
           <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
             {{ pageitems[0] }}
@@ -39,7 +39,7 @@ layout: default
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/patterns/' %}
+        {% if pageitems[1] contains '/examples/patterns/' %}
         <li class="p-list__item">
           <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
             {{ pageitems[0] }}
@@ -56,7 +56,7 @@ layout: default
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/utilities/' %}
+        {% if pageitems[1] contains '/examples/utilities/' %}
         <li class="p-list__item">
           <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
             {{ pageitems[0] }}
@@ -73,7 +73,7 @@ layout: default
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/templates/' %}
+        {% if pageitems[1] contains '/examples/templates/' %}
         <li class="p-list__item">
           <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
             {{ pageitems[0] }}
@@ -95,13 +95,32 @@ layout: default
   <div class="col-3">
     <nav>
       <ul class="p-list">
-        {% for page in sortedpages %} {% assign pageitems = page | split: '#' %} {% if pageitems[1] contains '/individual/' %}
+        {% for page in sortedpages %}
+        {% assign pageitems = page | split: '#' %}
+        {% if pageitems[1] contains '/examples/individual/base/' %}
         <li class="p-list__item">
           <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
             {{ pageitems[0] }}
           </a>
         </li>
-        {% endif %} {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  <div class="col-3">
+    <nav>
+      <ul class="p-list">
+        {% for page in sortedpages %}
+        {% assign pageitems = page | split: '#' %}
+        {% if pageitems[1] contains '/examples/individual/patterns/' %}
+        <li class="p-list__item">
+          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
+            {{ pageitems[0] }}
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
       </ul>
     </nav>
   </div>
