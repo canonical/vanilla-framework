@@ -46,6 +46,11 @@
       @include vf-icon-chevron($color-light);
     }
 
+    .p-subnav__items,
+    .p-subnav__items--right {
+      border-color: $colors--dark-theme--border-default;
+    }
+
     .p-subnav__item {
       @extend %subnav-item--dark-theme;
     }
@@ -58,7 +63,7 @@
 
       .p-subnav__items,
       .p-subnav__items--right {
-        @extend %vf-is-bordered;
+        border-color: $colors--light-theme--border-default;
       }
 
       .p-subnav__item {
@@ -72,7 +77,7 @@
 
     .p-subnav__items,
     .p-subnav__items--right {
-      @extend %vf-is-bordered;
+      border-color: $colors--light-theme--border-default;
     }
 
     .p-subnav__item {
@@ -87,7 +92,7 @@
 
       .p-subnav__items,
       .p-subnav__items--right {
-        border: 0;
+        border-color: $colors--dark-theme--border-default;
       }
 
       .p-subnav__item {
@@ -98,6 +103,7 @@
 
   .p-subnav__items,
   .p-subnav__items--right {
+    @extend %vf-is-bordered;
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
     display: none;
@@ -113,7 +119,7 @@
     }
 
     @media (max-width: $breakpoint-navigation-threshold) {
-      border: 0 !important; // fight specificity of `.p-navigation.is-dark .p-subnav .p-subnav__items` from theme support
+      border: 0;
       box-shadow: none;
     }
   }
