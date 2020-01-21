@@ -43,7 +43,7 @@
   // Theming
   @if ($theme-default-nav == 'dark') {
     .p-subnav::after {
-      @include vf-icon-chevron($color-light);
+      @include vf-icon-chevron($colors--dark-theme--border-high-contrast);
     }
 
     .p-subnav__items,
@@ -58,7 +58,7 @@
     .p-subnav.is-light,
     .p-navigation.is-light .p-subnav {
       &::after {
-        @include vf-icon-chevron;
+        @include vf-icon-chevron($colors--light-theme--border-high-contrast);
       }
 
       .p-subnav__items,
@@ -72,7 +72,7 @@
     }
   } @else {
     .p-subnav::after {
-      @include vf-icon-chevron($color-mid-light);
+      @include vf-icon-chevron($colors--light-theme--border-high-contrast);
     }
 
     .p-subnav__items,
@@ -87,7 +87,7 @@
     .p-subnav.is-dark,
     .p-navigation.is-dark .p-subnav {
       &::after {
-        @include vf-icon-chevron;
+        @include vf-icon-chevron($colors--dark-theme--border-high-contrast);
       }
 
       .p-subnav__items,
