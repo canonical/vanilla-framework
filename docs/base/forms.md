@@ -80,6 +80,8 @@ View example of the base multiple selects
 
 ### Range
 
+<span class="p-label--new">New</span>
+
 The `<input type="range">` allows a user to select from a specified range of values, where the precise value is not considered important.
 
 <a href="/examples/base/forms/range/" class="js-example">
