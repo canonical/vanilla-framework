@@ -4,11 +4,9 @@ layout: default
 
 <h2>Component examples</h2>
 
-<hr>
-
 {% capture pages %}
 {% for page in site.pages %}
-{% if page.url contains '/examples/' %}
+{% if page.title and page.url contains '/examples/' %}
 |{{ page.title }}#{{ page.url }}
 {% endif %}
 {% endfor %}
@@ -16,24 +14,15 @@ layout: default
 {% assign sortedpages = pages | split: '|' | sort %}
 
 <div class="row">
-  <div class="col-8">
-    <h3>Examples with full Vanilla framework CSS</h3>
-    <p>Examples below use CSS built full Vanilla framework including base styles, all components and utilities.</p>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-3">
-    <h4>Base elements</h4>
+    <h3>Base elements</h3>
     <nav>
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
         {% if pageitems[1] contains '/examples/base/' %}
         <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
-            {{ pageitems[0] }}
-          </a>
+          <a href="{{ pageitems[1] | prepend:site.baseurl | strip }}">{{ pageitems[0] }}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -41,16 +30,14 @@ layout: default
     </nav>
   </div>
   <div class="col-3">
-    <h4>Components</h4>
+    <h3>Components</h3>
     <nav>
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
         {% if pageitems[1] contains '/examples/patterns/' %}
         <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
-            {{ pageitems[0] }}
-          </a>
+          <a href="{{ pageitems[1] | prepend:site.baseurl | strip }}">{{ pageitems[0] }}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -58,16 +45,14 @@ layout: default
     </nav>
   </div>
   <div class="col-3">
-    <h4>Utilities</h4>
+    <h3>Utilities</h3>
     <nav>
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
         {% if pageitems[1] contains '/examples/utilities/' %}
         <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
-            {{ pageitems[0] }}
-          </a>
+          <a href="{{ pageitems[1] | prepend:site.baseurl | strip }}">{{ pageitems[0] }}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -75,16 +60,14 @@ layout: default
     </nav>
   </div>
   <div class="col-3">
-    <h4>Templates</h4>
+    <h3>Templates</h3>
     <nav>
       <ul class="p-list">
         {% for page in sortedpages %}
         {% assign pageitems = page | split: '#' %}
         {% if pageitems[1] contains '/examples/templates/' %}
         <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
-            {{ pageitems[0] }}
-          </a>
+          <a href="{{ pageitems[1] | prepend:site.baseurl | strip }}">{{ pageitems[0] }}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -92,45 +75,5 @@ layout: default
     </nav>
   </div>
 </div>
-<div class="row">
-  <div class="col-8">
-    <h3>Examples with individual CSS</h3>
-    <p>Examples below use CSS built with single pattern included with base styles instead of the whole Vanilla framework CSS file.</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-3">
-    <h4>Base elements</h4>
-    <nav>
-      <ul class="p-list">
-        {% for page in sortedpages %}
-        {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/examples/individual/base/' %}
-        <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
-            {{ pageitems[0] }}
-          </a>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-  <div class="col-3">
-    <h4>Components</h4>
-    <nav>
-      <ul class="p-list">
-        {% for page in sortedpages %}
-        {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/examples/individual/patterns/' %}
-        <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl }}" class="p-link">
-            {{ pageitems[0] }}
-          </a>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-</div>
+
+<p><a href="/examples/individual">Examples using standalone component CSS for testing/debugging</a></p>
