@@ -4,8 +4,6 @@ layout: default
 
 ## Font metrics
 
-<span class="p-label--new">New</span>
-
 <hr>
 
 Being able to visualise the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_(typography)">baseline</a> position, <a target="_blank" href="https://en.wikipedia.org/wiki/Cap_height">cap-height</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/X-height">x-height</a> of a typeface can be helpful, for example when trying to precisely align inline-block elements (like icons) to text.

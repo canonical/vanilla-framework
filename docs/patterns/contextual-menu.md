@@ -31,8 +31,6 @@ View example of the contextual menu pattern
 
 ### Indicator
 
-<span class="p-label--new">New</span>
-
 If you require a drop-down button with a state indicator then the `p-contextual-menu__toggle` class can be used alongside the `p-icon` and `p-button` components.
 
 <div class="p-notification--information">
