@@ -124,7 +124,6 @@ $navigation-hover-opacity: 0.58;
     }
 
     %navigation-row {
-      @extend %fixed-width-container;
       display: flex;
       flex-direction: column;
 
@@ -134,11 +133,13 @@ $navigation-hover-opacity: 0.58;
     }
 
     &__row {
+      @extend %fixed-width-container;
       @extend %navigation-row;
 
       &--full-width {
+        @extend %vf-grid-container-padding;
         @extend %navigation-row;
-        max-width: 100%;
+        width: 100%;
       }
     }
 
