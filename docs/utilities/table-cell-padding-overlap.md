@@ -4,8 +4,6 @@ layout: default
 
 ## Table cell padding overlap
 
-<span class="p-label--new">New</span>
-
 <hr>
 
 Vanilla applies padding-top and padding bottom to table cells. This is done to prevent row borders from getting too close to text that is not wrapped in a `<p>` or other text element.
