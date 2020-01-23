@@ -33,7 +33,8 @@
     "test": "yarn run lint-scss && mdspell docs/**/*.md -r -n -a --en-gb && node -e 'require(\"./tests/parker\").parkerTest()'",
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
     "watch": "watch -p 'scss/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build'",
-    "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log"
+    "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
+    "percy": "percy exec -- node snapshots.js"
   },
   "version": "2.6.0",
   "devDependenciesComments": {
@@ -41,6 +42,7 @@
     "pretty-quick": "keep pretty-quick on v1, pretty-quick@2 requires version of node that we can't install on jenkins"
   },
   "devDependencies": {
+    "@percy/script": "^1.0.3",
     "autoprefixer": "9.7.1",
     "husky": "3.0.9",
     "markdown-spellcheck": "1.3.1",
