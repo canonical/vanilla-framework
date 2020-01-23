@@ -1,17 +1,9 @@
----
-layout: default
----
+{% extends "_layouts/default.html" %}
 
+{% block content %}
 <h2>Standalone component examples</h2>
 
-{% capture pages %}
-{% for page in site.pages %}
-{% if page.title and page.url contains '/examples/standalone/' %}
-|{{ page.title }}#{{ page.url }}
-{% endif %}
-{% endfor %}
-{% endcapture %}
-{% assign sortedpages = pages | split: '|' | sort %}
+<hr>
 
 <div class="row">
   <div class="col-8">
@@ -23,13 +15,10 @@ layout: default
     <h3>Base elements</h3>
     <nav>
       <ul class="p-list">
-        {% for page in sortedpages %}
-        {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/examples/standalone/base/' %}
-        <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl | strip }}">{{ pageitems[0] }}</a>
-        </li>
-        {% endif %}
+        {% for path in child_paths("examples/standalone/base") %}
+          <li class="p-list__item">
+            <a href="/examples/standalone/base/{{ path }}" class="p-link">{{ path }}</a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
@@ -38,15 +27,13 @@ layout: default
     <h3>Components</h3>
     <nav>
       <ul class="p-list">
-        {% for page in sortedpages %}
-        {% assign pageitems = page | split: '#' %}
-        {% if pageitems[1] contains '/examples/standalone/patterns/' %}
-        <li class="p-list__item">
-          <a href="{{ pageitems[1] | prepend:site.baseurl | strip }}">{{ pageitems[0] }}</a>
-        </li>
-        {% endif %}
+        {% for path in child_paths("examples/standalone/patterns") %}
+          <li class="p-list__item">
+            <a href="/examples/standalone/patterns/{{ path }}" class="p-link">{{ path }}</a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
   </div>
 </div>
+{% endblock %}
