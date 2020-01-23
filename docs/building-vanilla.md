@@ -1,5 +1,5 @@
 ---
-layout: default
+wrapper_template: '_layouts/default.html'
 ---
 
 ## Building with Vanilla
