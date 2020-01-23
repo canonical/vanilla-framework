@@ -1,6 +1,7 @@
 # Code
 import datetime
 import json
+import os
 
 # Packages
 import flask
@@ -18,6 +19,34 @@ app = FlaskBase(
     template_500="500.html",
 )
 
+
+# Helpers
+# ===
+
+def child_paths(base_path):
+    """
+    Inspect the filesystem to get the list of example pages
+    """
+
+    paths = []
+
+    loader = flask.current_app.jinja_loader
+
+    for template_path in loader.list_templates():
+        if template_path.startswith(base_path + "/"):
+            remainder = template_path[len(base_path)+1:]
+            path = os.path.splitext(remainder)[0]
+
+            if path == "/index":
+                continue
+            elif path.endswith("/index"):
+                path = path[:-6]
+
+            paths.append(path)
+
+    return paths
+
+
 # Global context settings
 @app.context_processor
 def global_template_context():
@@ -27,7 +56,8 @@ def global_template_context():
     return {
         "version": version,
         "current_year": datetime.datetime.now().year,
-        "path": flask.request.path
+        "path": flask.request.path,
+        "child_paths": child_paths
     }
 
 
