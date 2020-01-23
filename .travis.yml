@@ -6,7 +6,6 @@ before_install:
   # specifically install bundler 1.16.6 (as per Gemfile)
   - gem install bundler:1.16.6
 install:
-  - gem install percy-cli
   - gem install sass
   - bundle install
   - yarn install
@@ -15,7 +14,9 @@ before_script:
 script:
   - yarn run test
   - yarn run build-docs
-  - percy snapshot --widths "375,1280" docs/_site/
+  - yarn run serve &
+  - sleep 5
+  - yarn run percy
 notifications:
   irc:
     channels:
