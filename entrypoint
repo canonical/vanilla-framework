@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+set -e
+
+RUN_COMMAND="talisker.gunicorn.gevent webapp.app:app --bind $1 --worker-class gevent --workers 1 --name talisker-`hostname`"
+
+if [ "${FLASK_DEBUG}" = true ] || [ "${FLASK_DEBUG}" = 1 ]; then
+    RUN_COMMAND="${RUN_COMMAND} --reload --log-level debug --timeout 9999"
+fi
+
+${RUN_COMMAND}
