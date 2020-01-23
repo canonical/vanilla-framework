@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
+    <title>{% block title %}{% endblock %} | Vanilla framework</title>
 
-    {% if page.individual %}
-    <link rel="stylesheet" type="text/css" href="/build/css/individual/{{ page.individual }}.css" />
+    {% if individual %}
+    <link rel="stylesheet" type="text/css" href="/build/css/individual/{{ individual }}.css" />
     <link rel="stylesheet" type="text/css" href="/build/css/individual/example.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/build/css/build.css" />
@@ -67,6 +67,6 @@
   </head>
 
   <body>
-    {{ content }}
+    {% block content %}{% endblock %}
   </body>
 </html>
