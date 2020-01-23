@@ -1,5 +1,5 @@
 ---
-layout: default
+wrapper_template: '_layouts/default.html'
 ---
 
 ## Lists
@@ -51,7 +51,7 @@ View example of the ticked divided list pattern
 
 ### Responsive divider
 
-A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-medium`), the divider lines appear horizontally. On screens bigger than $breakpoint-medium, the divider lines appear vertically, centered in the column gutters.
+A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-medium`), the divider lines appear horizontally. On screens bigger than \$breakpoint-medium, the divider lines appear vertically, centered in the column gutters.
 
 <a href="/examples/patterns/lists/divider/" class="js-example">
 View example of lists with a responsive divider
