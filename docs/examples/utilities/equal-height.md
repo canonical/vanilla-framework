@@ -1,0 +1,17 @@
+---
+wrapper_template: '_layouts/examples.html'
+context:
+  title: Equal height
+---
+
+<div class="u-equal-height">
+  <div class="p-card">
+    <p>This is a long piece of text This is a long piece of text This is a long piece of text This is a long piece of text This is a long piece of text This is a long piece of text This is a long piece of text This is a long piece of text This is a long piece of text</p>
+  </div>
+  <div class="p-card">
+    <p>This is a short piece of text</p>
+  </div>
+  <div class="p-card">
+    <p>This is a short piece of text</p>
+  </div>
+</div>

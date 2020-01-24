@@ -1,0 +1,21 @@
+---
+wrapper_template: '_layouts/examples.html'
+context:
+  title: Padding collapse
+---
+
+<div class="p-card u-no-padding">
+  This div has no padding
+</div>
+<div class="p-card u-no-padding--top">
+  This div has no top padding
+</div>
+<div class="p-card u-no-padding--right">
+  This div has no right padding
+</div>
+<div class="p-card u-no-padding--bottom">
+  This div has no bottom padding
+</div>
+<div class="p-card u-no-padding--left">
+  This div has no left padding
+</div>
