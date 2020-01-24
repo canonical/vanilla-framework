@@ -1,9 +1,8 @@
 ---
-layout: examples
-title: Baseline grid
-category: _utilities
+wrapper_template: '_layouts/examples.html'
+context:
+  title: Baseline grid
 ---
-
 <div class="u-baseline-grid" id="baseline">
   <h1>Heading one</h1>
   <h2>Heading two</h2>
@@ -16,7 +15,6 @@ category: _utilities
     <div class="p-switch__slider"></div>
   </label>
 </div>
-
 <script>
 /**
   Attaches event listener to switch baseline grid visibility on click.
@@ -24,18 +22,15 @@ category: _utilities
 */
 function setupBaselineGridSwitch(toggle) {
   var target = toggle.getAttribute('aria-controls');
-
   if (target) {
     target = document.getElementById(target);
   }
-
   if (target) {
     toggle.addEventListener('click', function () {
       target.classList.toggle('u-baseline-grid');
     });
   }
 }
-
 // Set up switch element on page
 var toggle = document.querySelector('.p-switch[aria-controls]');
 if (toggle) {

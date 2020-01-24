@@ -4,14 +4,15 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
+    <title>{% if title %}{{ title }} | {% endif %}Vanilla framework documentation</title>
 
-    {% if page.standalone %}
-    <link rel="stylesheet" type="text/css" href="/build/css/standalone/{{ page.standalone }}.css" />
+    {% if standalone %}
+    <link rel="stylesheet" type="text/css" href="/build/css/standalone/{{ standalone }}.css" />
     <link rel="stylesheet" type="text/css" href="/build/css/standalone/example.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/build/css/build.css" />
     {% endif %}
+
 
     <style>
       html::after {
@@ -67,6 +68,7 @@
   </head>
 
   <body>
-    {{ content }}
+    {{ example | safe }}
+    {{ content | safe }}
   </body>
 </html>
