@@ -35,9 +35,13 @@
     }
 
     th {
-      @extend %muted-heading;
-      line-height: map-get($line-heights, small);
-      padding-bottom: $spv-inner--large - map-get($nudges, nudge--small);
+      @extend %x-small-text;
+      color: $color-mid-dark;
+      font-weight: 400;
+      line-height: map-get($line-heights, x-small);
+      padding-top: map-get($nudges, nudge--x-small) + map-get($browser-rounding-compensations, small) + $sp-unit;
+      padding-bottom: $spv-inner--large - map-get($nudges, nudge--x-small);
+      text-transform: uppercase;
     }
 
     tr {
