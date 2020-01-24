@@ -14,7 +14,8 @@ $box-offsets-top: (
   default-text: 3.333,
   unpadded-text: 2.125,
   muted-heading: 2.333,
-  muted-inline-heading: 2
+  muted-inline-heading: 2,
+  table-header: 1.9
 ) !default;
 
 @mixin vf-b-tick-elements {
@@ -89,6 +90,11 @@ $box-offsets-top: (
         &.is-muted-inline-heading::before {
           top: #{$sp-unit * map-get($box-offsets-top, muted-inline-heading) - $box-size};
         }
+
+        &.is-table-header::before {
+          top: #{$sp-unit * map-get($box-offsets-top, table-header) - $box-size};
+        }
+
       }
 
       @media (min-width: $breakpoint-heading-threshold) {
@@ -128,6 +134,10 @@ $box-offsets-top: (
         &.is-muted-inline-heading::before {
           top: #{$sp-unit * map-get($box-offsets-top, muted-inline-heading) - $box-size};
         }
+
+        &.is-table-header::before {
+          top: #{$sp-unit * map-get($box-offsets-top, table-header) - $box-size};
+        }
       }
 
       // tick/circle
@@ -163,6 +173,12 @@ $box-offsets-top: (
 
       &.is-muted-inline-heading {
         @extend %muted-heading;
+        display: inline;
+        padding-top: 0;
+      }
+
+      &.is-table-header {
+        @extend %table-header-label;
         display: inline;
         padding-top: 0;
       }
@@ -244,6 +260,10 @@ $box-offsets-top: (
         &.is-muted-inline-heading::after {
           top: #{$tick-offset-top + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $box-size};
         }
+
+        &.is-table-header::after {
+          top: #{$tick-offset-top + $sp-unit * map-get($box-offsets-top, table-header) - $box-size};
+        }
       }
 
       @media (min-width: $breakpoint-heading-threshold) {
@@ -282,6 +302,10 @@ $box-offsets-top: (
 
         &.is-muted-inline-heading::after {
           top: #{$tick-offset-top + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $box-size};
+        }
+
+        &.is-table-header::after {
+          top: #{$tick-offset-top + $sp-unit * map-get($box-offsets-top, table-header) - $box-size};
         }
       }
     }
@@ -348,6 +372,11 @@ $box-offsets-top: (
         &.is-muted-inline-heading::after {
           top: #{$circle-offset-top + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $box-size};
         }
+
+        &.is-table-header::after {
+          top: #{$circle-offset-top + $sp-unit * map-get($box-offsets-top, table-header) - $box-size};
+        }
+
       }
 
       @media (min-width: $breakpoint-heading-threshold) {
@@ -386,6 +415,10 @@ $box-offsets-top: (
 
         &.is-muted-inline-heading::after {
           top: #{$circle-offset-top + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $box-size};
+        }
+
+        &.is-table-header::after {
+          top: #{$circle-offset-top + $sp-unit * map-get($box-offsets-top, table-header) - $box-size};
         }
       }
     }
