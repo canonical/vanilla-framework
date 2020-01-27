@@ -10,9 +10,9 @@ Vanilla has a responsive grid with the following columns and gutters:
 
 | Screen size (px)                       | Columns | Grid gap (gutters) | Outer margins |
 | -------------------------------------- | ------- | ------------------ | ------------- |
-| 0 - $breakpoint-small                  | 4       | 1.5rem             | 1.0rem        |
+| 0 - \$breakpoint-small                 | 4       | 1.5rem             | 1.0rem        |
 | $breakpoint-small - $breakpoint-medium | 6       | 2.0rem             | 1.5rem        |
-| above $breakpoint-medium               | 12      | 2.0rem             | 1.5rem        |
+| above \$breakpoint-medium              | 12      | 2.0rem             | 1.5rem        |
 
 <br>
 
@@ -26,6 +26,14 @@ Read also: [Breakpoints](/settings/breakpoint-settings)
 
 <a href="/examples/patterns/grid/default/" class="js-example">
     View example of the default grid
+</a>
+
+### Fixed width containers
+
+If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.row` with a single 12-column container inside:
+
+<a href="/examples/utilities/fixed-width-container/" class="js-example">
+    View example of a fixed width container
 </a>
 
 ### Nested columns
