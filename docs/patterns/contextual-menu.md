@@ -57,9 +57,12 @@ To import just this component into your project, copy the snippet below and incl
 @import 'patterns_contextual-menu';
 @include vf-p-contextual-menu;
 
-// when using indicator variant you need to include icons as well
+// when using the menu with dropdown button you need to include buttons and icon as well
+@import '../patterns_buttons';
+@include vf-p-buttons;
+
 @import '../patterns_icons';
-@include vf-p-icons;
+@include vf-p-icon-contextual-menu;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
