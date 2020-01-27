@@ -7,29 +7,3 @@ category: _utilities
 <div class="u-fixed-width">
   Content inside a container with the class `u-fixed-width` matches the width and position of content inside a grid.
 </div>
-
-<script>
-/**
-  Attaches event listener to switch baseline grid visibility on click.
-  @param {HTMLElement} toggle Switch element to toggle baseline grid.
-*/
-function setupBaselineGridSwitch(toggle) {
-  var target = toggle.getAttribute('aria-controls');
-
-  if (target) {
-    target = document.getElementById(target);
-  }
-
-  if (target) {
-    toggle.addEventListener('click', function () {
-      target.classList.toggle('u-baseline-grid');
-    });
-  }
-}
-
-// Set up switch element on page
-var toggle = document.querySelector('.p-switch[aria-controls]');
-if (toggle) {
-  setupBaselineGridSwitch(toggle);
-}
-</script>
