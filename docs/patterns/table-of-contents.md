@@ -21,7 +21,7 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-table-of-contents;
 
 // list component is used within table of contents, so you need to include it as well
-@import '../patterns_lists';
+@import 'patterns_lists';
 @include vf-p-lists;
 ```
 

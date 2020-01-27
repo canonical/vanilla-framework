@@ -87,7 +87,7 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-buttons;
 
 // when using icons within buttons you need to include icons as well
-@import '../patterns_icons';
+@import 'patterns_icons';
 @include vf-p-icons;
 ```
 

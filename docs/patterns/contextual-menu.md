@@ -58,10 +58,11 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-contextual-menu;
 
 // when using the menu with dropdown button you need to include buttons and icon as well
-@import '../patterns_buttons';
+@import 'patterns_buttons';
 @include vf-p-buttons;
 
-@import '../patterns_icons';
+@import 'patterns_icons';
+@include vf-p-icons-common;
 @include vf-p-icon-contextual-menu;
 ```
 
