@@ -32,9 +32,10 @@ To import just this component into your project, copy the snippet below and incl
 @import 'patterns_search-box';
 @include vf-p-search-box;
 
-// search box uses icons for its buttons, so you need to import icons as well
+// search box uses icons for its buttons, so you need to include them as well
 @import '../patterns_icons';
-@include vf-p-icons;
+@include vf-p-icon-close;
+@include vf-p-icon-search;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
