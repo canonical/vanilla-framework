@@ -27,6 +27,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
     </tr>
     <tr>
+      <th><a href="/base/forms/#checkbox">Checkbox, radio button</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>New `is-table-header` added to properly align checkboxes and radio buttons used in table headers.</td>
+    </tr>
+    <tr>
       <th><a href="/patterns/slider">Slider</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
