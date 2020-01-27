@@ -219,7 +219,7 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-icons;
 
 // for spin animation on the spinner icon you need to include animations utility
-@import '../utilities_animations';
+@import 'utilities_animations';
 @include vf-u-animations;
 ```
 
@@ -227,6 +227,9 @@ If you use a limited set of icons you may want to include them individually to r
 
 ```scss
 @import 'patterns_icons';
+
+// include common styles shared by all icons
+@include vf-p-icons-common;
 
 // include only the icons that you use in your project
 @include vf-p-icon-anchor;
