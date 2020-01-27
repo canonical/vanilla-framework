@@ -1,6 +1,11 @@
 @mixin vf-u-layout {
   .u-fixed-width {
     @extend %fixed-width-container;
+
+    & &,
+    .row & {
+      @include vf-b-row-reset;
+    }
   }
 
   @if ($table-layout-fixed) {
