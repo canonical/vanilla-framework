@@ -117,7 +117,7 @@ To add dividers into your project, copy the snippet below and include it in your
 @include vf-p-divider;
 
 // grid column classes are used within divider component, so you need to include grid pattern as well
-@import '../patterns_grid';
+@import 'patterns_grid';
 @include vf-p-grid;
 ```
 
