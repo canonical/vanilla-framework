@@ -20,6 +20,7 @@ To import just this component into your project, copy the snippet below and incl
 
 ```scss
 @import 'patterns_list-tree';
+@include vf-p-list-tree;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.

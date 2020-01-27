@@ -18,6 +18,11 @@ To import just this component into your project, copy the snippet below and incl
 
 ```scss
 @import 'patterns_table-of-contents';
+@include vf-p-table-of-contents;
+
+// list component is used within table of contents, so you need to include it as well
+@import '../patterns_lists';
+@include vf-p-lists;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.

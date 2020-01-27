@@ -51,7 +51,7 @@ View example of the ticked divided list pattern
 
 ### Responsive divider
 
-A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-medium`), the divider lines appear horizontally. On screens bigger than $breakpoint-medium, the divider lines appear vertically, centered in the column gutters.
+A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-medium`), the divider lines appear horizontally. On screens bigger than \$breakpoint-medium, the divider lines appear vertically, centered in the column gutters.
 
 <a href="/examples/patterns/lists/divider/" class="js-example">
 View example of lists with a responsive divider
@@ -107,12 +107,18 @@ To import just this base element into your project, copy the snippet below and i
 
 ```scss
 @import 'patterns_lists';
+@include vf-p-lists;
 ```
 
 To add dividers into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
 @import 'patterns_divider';
+@include vf-p-divider;
+
+// grid column classes are used within divider component, so you need to include grid pattern as well
+@import '../patterns_grid';
+@include vf-p-grid;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
