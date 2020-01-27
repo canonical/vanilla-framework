@@ -30,7 +30,7 @@ Read also: [Breakpoints](/settings/breakpoint-settings)
 
 ### Fixed width containers
 
-If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.row` with a single 12-column container inside:
+If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.row` with a single 12 column container inside:
 
 <a href="/examples/utilities/fixed-width-container/" class="js-example">
     View example of a fixed width container
