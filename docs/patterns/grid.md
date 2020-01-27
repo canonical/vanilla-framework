@@ -10,9 +10,9 @@ Vanilla has a responsive grid with the following columns and gutters:
 
 | Screen size (px)                       | Columns | Grid gap (gutters) | Outer margins |
 | -------------------------------------- | ------- | ------------------ | ------------- |
-| 0 - $breakpoint-small                  | 4       | 1.5rem             | 1.0rem        |
+| 0 - \$breakpoint-small                 | 4       | 1.5rem             | 1.0rem        |
 | $breakpoint-small - $breakpoint-medium | 6       | 2.0rem             | 1.5rem        |
-| above $breakpoint-medium               | 12      | 2.0rem             | 1.5rem        |
+| above \$breakpoint-medium              | 12      | 2.0rem             | 1.5rem        |
 
 <br>
 
@@ -62,6 +62,7 @@ To import just this component into your project, copy the snippet below and incl
 
 ```scss
 @import 'patterns_grid';
+@include vf-p-grid;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.

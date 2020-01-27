@@ -185,7 +185,7 @@ Our social icons are used to drive users to social content.
     </div>
     </div>
 
-<span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0. 
+<span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0.
 
   </div>
 </section>
@@ -216,6 +216,11 @@ To import just this component into your project, copy the snippet below and incl
 
 ```scss
 @import 'patterns_icons';
+@include vf-p-icons;
+
+// for spin animation on the spinner icon you need to include animations utility
+@import '../utilities_animations';
+@include vf-u-animations;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
