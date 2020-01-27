@@ -1,6 +1,7 @@
 @import 'settings';
 
 @mixin vf-p-icons {
+  @include vf-p-icons-common;
   @include vf-p-icon-anchor;
   @include vf-p-icon-plus;
   @include vf-p-icon-minus;
@@ -35,7 +36,9 @@
   @include vf-p-icon-email;
   @include vf-p-icon-sizes;
   @include vf-p-icon-in-button;
+}
 
+@mixin vf-p-icons-common {
   %icon {
     @extend %vf-hide-text;
     @include vf-icon-size($default-icon-size);
