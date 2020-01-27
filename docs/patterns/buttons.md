@@ -91,6 +91,8 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-icons;
 ```
 
+If you only need a small subset of the icons consider [including them individually](/patterns/icons/#import) to reduce the size of your CSS file.
+
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design

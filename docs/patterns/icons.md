@@ -223,6 +223,48 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-u-animations;
 ```
 
+If you use a limited set of icons you may want to include them individually to reduce the size of your CSS file.
+
+```scss
+@import 'patterns_icons';
+
+// include only the icons that you use in your project
+@include vf-p-icon-anchor;
+@include vf-p-icon-plus;
+@include vf-p-icon-minus;
+@include vf-p-icon-expand;
+@include vf-p-icon-collapse;
+@include vf-p-icon-contextual-menu;
+@include vf-p-icon-close;
+@include vf-p-icon-help;
+@include vf-p-icon-info;
+@include vf-p-icon-delete;
+@include vf-p-icon-error;
+@include vf-p-icon-warning;
+@include vf-p-icon-external-link;
+@include vf-p-icon-drag;
+@include vf-p-icon-code;
+@include vf-p-icon-menu;
+@include vf-p-icon-copy;
+@include vf-p-icon-search;
+@include vf-p-icon-success;
+@include vf-p-icon-share;
+@include vf-p-icon-user;
+@include vf-p-icon-question;
+@include vf-p-icon-spinner;
+@include vf-p-icon-facebook;
+@include vf-p-icon-twitter;
+@include vf-p-icon-instagram;
+@include vf-p-icon-linkedin;
+@include vf-p-icon-youtube;
+@include vf-p-icon-canonical;
+@include vf-p-icon-ubuntu;
+@include vf-p-icon-rss;
+@include vf-p-icon-email;
+@include vf-p-icon-sizes;
+@include vf-p-icon-in-button;
+```
+
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
