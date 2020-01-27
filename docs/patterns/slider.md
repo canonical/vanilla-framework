@@ -14,7 +14,7 @@ View example of the slider pattern
 </a>
 
 <span class="p-label--updated">Updated</span> In version 2.6.0 Vanilla framework added slider styling as default for
-all range inputs, so adding `p-slider` class just to style `<input type="range">` is not necessary anymore.
+all range inputs, so adding `p-slider` class just to style `<input type="range">` is not necessary any more.
 
 ### Import
 
