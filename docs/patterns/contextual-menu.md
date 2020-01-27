@@ -55,6 +55,11 @@ To import just this component into your project, copy the snippet below and incl
 
 ```scss
 @import 'patterns_contextual-menu';
+@include vf-p-contextual-menu;
+
+// when using indicator variant you need to include icons as well
+@import '../patterns_icons';
+@include vf-p-icons;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.

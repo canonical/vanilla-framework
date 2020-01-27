@@ -35,6 +35,7 @@ To import just this component into your project, copy the snippet below and incl
 
 ```scss
 @import 'patterns_heading-icon';
+@include vf-p-heading-icon;
 ```
 
 For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
