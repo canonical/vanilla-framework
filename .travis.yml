@@ -9,7 +9,7 @@ before_script:
   - yarn run build-docs-css
 script:
   - yarn run test
-  - yarn run serve &
+  - ./entrypoint 0.0.0.0:${PORT} &
   - sleep 5
   - yarn run percy
 notifications:
