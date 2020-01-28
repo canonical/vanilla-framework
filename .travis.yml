@@ -1,19 +1,14 @@
-language: node_js
-node_js:
-  - 12
+language: python
 before_install:
-  - rvm install 2.4.0
-  # specifically install bundler 1.16.6 (as per Gemfile)
-  - gem install bundler:1.16.6
+  - nvm install 12
 install:
-  - gem install sass
-  - bundle install
   - yarn install
+  - pip3 install -r requirements.txt
 before_script:
   - yarn run build
+  - yarn run build-docs-css
 script:
   - yarn run test
-  - yarn run build-docs
   - yarn run serve &
   - sleep 5
   - yarn run percy
