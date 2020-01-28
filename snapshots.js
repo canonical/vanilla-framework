@@ -11,7 +11,7 @@ PercyScript.run(async (page, percySnapshot) => {
     await page.goto(url);
 
     // ensure the page has loaded before capturing a snapshot
-    await page.waitFor('body');
+    await page.waitFor(1000);
 
     // create percy snapshot with path as a name
     const path = new URL(url).pathname.replace(/\/?$/, '/');
