@@ -28,8 +28,7 @@
   "scripts": {
     "build": "node-sass --include-paths node_modules scss --source-map true --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
     "build-docs-css": "node-sass --include-path node_modules docs/static/scss --source-map true --output-style compressed --output docs/static/css",
-    "build-docs-site": "bundle exec jekyll build --source docs --destination docs/_site",
-    "serve": "./entrypoint 0.0.0.0:${PORT}",
+    "serve": "yarn run build-docs-css && ./entrypoint 0.0.0.0:${PORT}",
     "test": "yarn run lint-scss && mdspell docs/**/*.md -r -n -a --en-gb && node -e 'require(\"./tests/parker\").parkerTest()'",
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
     "watch": "watch -p 'scss/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build'",
