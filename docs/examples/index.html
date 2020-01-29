@@ -10,9 +10,9 @@
     <h3>Base elements</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/base") %}
+        {% for key in examples["base"] %}
           <li class="p-list__item">
-            <a href="/examples/base/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="/examples/base/{{ key }}" class="p-link">{{ examples["base"][key].title }}</a>
           </li>
         {% endfor %}
       </ul>
@@ -22,9 +22,9 @@
     <h3>Components</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/patterns") %}
+        {% for key in examples["patterns"] %}
           <li class="p-list__item">
-            <a href="/examples/patterns/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="/examples/patterns/{{ key }}" class="p-link">{{ examples["patterns"][key].title }}</a>
           </li>
         {% endfor %}
       </ul>
@@ -34,9 +34,9 @@
     <h3>Utilities</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/utilities") %}
+        {% for key in examples["utilities"] %}
           <li class="p-list__item">
-            <a href="/examples/utilities/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="/examples/utilities/{{ key }}" class="p-link">{{ examples["utilities"][key].title }}</a>
           </li>
         {% endfor %}
       </ul>
@@ -46,9 +46,9 @@
     <h3>Templates</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/templates") %}
+        {% for key in examples["templates"] %}
           <li class="p-list__item">
-            <a href="/examples/templates/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="/examples/templates/{{ key }}" class="p-link">{{ examples["templates"][key].title }}</a>
           </li>
         {% endfor %}
       </ul>
