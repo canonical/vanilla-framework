@@ -1,8 +1,8 @@
 ---
-
-wrapper_template: '\_layouts/examples.html'
+wrapper_template: '_layouts/examples.html'
 context:
-title: Image position / Left
+  title: Image position / Left
+---
 
 <section class="p-strip u-image-position" style="border: 1px solid #cdcdcd;">
   <div class="row">
