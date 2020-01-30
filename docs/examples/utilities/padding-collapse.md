@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Padding collapse
----
-
 <div class="p-card u-no-padding">
   This div has no padding
 </div>

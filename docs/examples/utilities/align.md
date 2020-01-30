@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Align
----
-
 <div>
   <div class="u-align--center">
     <img src="http://placehold.it/160x100?text=Center" alt="" />

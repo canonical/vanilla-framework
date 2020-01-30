@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Image position / Bottom right
----
-
 <section class="p-strip u-image-position" style="border: 1px solid #cdcdcd;">
   <div class="row">
     <div class="col-6">
