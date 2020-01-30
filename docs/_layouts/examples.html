@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if title %}{{ title }} | {% endif %}Vanilla framework documentation</title>
 
-    {% if standalone %}
-    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/{{ standalone }}.css" />
-    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/example.css" />
-    {% else %}
-    <link rel="stylesheet" type="text/css" href="/static/build/css/build.css" />
-    {% endif %}
+    {% block styles %}{% endblock %}
+
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
 
 
