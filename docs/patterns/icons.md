@@ -12,7 +12,7 @@ Icons provide visual context and enhance usability, they can be added via an `<i
 
 For accessibility purposes, you can add text inside the icon element which will not be displayed to the user. E.g.
 
-`<i class"p-icon--contextual-menu">This text will not be displayed</i>`
+`<i class="p-icon--contextual-menu">This text will not be displayed</i>`
 
 ### Standard
 
