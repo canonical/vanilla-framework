@@ -13,7 +13,6 @@
         {% for example in examples.base %}
           <li class="p-list__item">
             <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
-            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
@@ -26,7 +25,6 @@
         {% for example in examples.patterns %}
           <li class="p-list__item">
             <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
-            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
@@ -39,7 +37,6 @@
         {% for example in examples.utilities %}
           <li class="p-list__item">
             <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
-            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
@@ -52,11 +49,12 @@
         {% for example in examples.templates %}
           <li class="p-list__item">
             <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
-            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
     </nav>
   </div>
 </div>
+
+<p><a href="/examples?standalone">Examples using standalone component CSS for testing/debugging</a></p>
 {% endblock %}

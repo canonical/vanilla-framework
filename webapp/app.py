@@ -70,7 +70,11 @@ def examples_view():
             }
         )
 
-    return flask.render_template("examples/index.html", examples=examples)
+    show_standalone = "standalone" in flask.request.args
+    if show_standalone:
+        return flask.render_template("examples/standalone.html", examples=examples)
+    else:
+        return flask.render_template("examples/index.html", examples=examples)
 
 
 app.add_url_rule("/", view_func=template_finder_view)
