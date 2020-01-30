@@ -1,3 +1,4 @@
+{% block content %}
 <pre class="p-code-numbered"><code><span class="p-code-numbered__line">#!/bin/bash</span>
 <span class="p-code-numbered__line">set -eu</span>
 <span class="p-code-numbered__line">. $CONJURE_UP_SPELLSDIR/sdk/common.sh</span>
@@ -6,3 +7,4 @@
     sed "s/##MODEL##/$JUJU_MODEL/" $(scriptPath)/lxd-profile.yaml | lxc profile edit "juju-$JUJU_MODEL" || exposeResult "Failed to set profile" $? "false"
 fi</span>
 <span class="p-code-numbered__line">exposeResult "Successful pre-deploy." 0 "true"</span></code></pre>
+{% endblock %}
