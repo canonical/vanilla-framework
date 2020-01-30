@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Forms / Tick elements
----
-
 <div class="p-strip is-shallow u-no-padding--top">
   <div class="row">
   </div>

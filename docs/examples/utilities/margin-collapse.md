@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Margin collapse
----
-
 <div class="p-card u-no-margin">
   This div has no margin
 </div>

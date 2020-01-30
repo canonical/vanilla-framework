@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Font metrics
----
-
 <h1>
   <i class="p-icon--success"></i>
   <span class="u-visualise-font-metrics">Xx</span>
