@@ -7,7 +7,7 @@
     <title>{% if title %}{{ title }} | {% endif %}Vanilla framework documentation</title>
 
     {% if is_standalone %}
-    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/{{ standalone }}.css" />
+    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/{% block standalone_css %}base{% endblock %}.css" />
     <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/example.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/static/build/css/build.css" />
