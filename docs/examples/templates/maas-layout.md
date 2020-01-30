@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: MAAS layout
----
-
 <header id="navigation" class="p-navigation">
   <div class="row p-navigation__row">
     <div class="p-navigation__banner">

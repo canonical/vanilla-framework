@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Table cell padding overlap
----
-
 <table>
   <tbody>
     <tr>

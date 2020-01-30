@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Baseline grid
----
-
 <div class="u-baseline-grid" id="baseline">
   <h1>Heading one</h1>
   <h2>Heading two</h2>

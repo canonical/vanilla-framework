@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Vertical spacing
----
-
 <div class="p-strip is-bordered is-deep">
   <div class="row">
     <div class="col-4">

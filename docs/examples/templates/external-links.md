@@ -1,9 +1,3 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: External links
----
-
 <div class="p-strip">
   <div class="row">
     <div class="col-12">
