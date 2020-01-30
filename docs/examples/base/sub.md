@@ -1,7 +1,0 @@
----
-wrapper_template: '_layouts/examples.html'
-context:
-  title: Sub
-markdown_includes:
-  example: '_includes/base/sub.html'
----

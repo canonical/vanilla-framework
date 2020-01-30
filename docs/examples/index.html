@@ -10,9 +10,10 @@
     <h3>Base elements</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/base") %}
+        {% for example in examples.base %}
           <li class="p-list__item">
-            <a href="/examples/base/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
+            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
@@ -22,9 +23,10 @@
     <h3>Components</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/patterns") %}
+        {% for example in examples.patterns %}
           <li class="p-list__item">
-            <a href="/examples/patterns/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
+            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
@@ -34,9 +36,10 @@
     <h3>Utilities</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/utilities") %}
+        {% for example in examples.utilities %}
           <li class="p-list__item">
-            <a href="/examples/utilities/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
+            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
@@ -46,15 +49,14 @@
     <h3>Templates</h3>
     <nav>
       <ul class="p-list">
-        {% for path in child_paths("examples/templates") %}
+        {% for example in examples.templates %}
           <li class="p-list__item">
-            <a href="/examples/templates/{{ path }}" class="p-link">{{ path }}</a>
+            <a href="{{ example.path }}" class="p-link">{{ example.friendly_name }}</a>
+            <small>(<a href="{{ example.path }}?standalone" class="p-link">standalone</a>)</small>
           </li>
         {% endfor %}
       </ul>
     </nav>
   </div>
 </div>
-
-<p><a href="/examples/standalone">Examples using standalone component CSS for testing/debugging</a></p>
 {% endblock %}
