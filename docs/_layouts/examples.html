@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if title %}{{ title }} | {% endif %}Vanilla framework documentation</title>
+    <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Vanilla framework documentation</title>
 
     {% if is_standalone %}
     <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/{% block standalone_css %}base{% endblock %}.css" />
