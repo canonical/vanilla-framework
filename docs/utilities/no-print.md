@@ -1,6 +1,8 @@
 ---
 collection: utilities
 wrapper_template: '_layouts/default.html'
+context:
+  title: No print
 ---
 
 ## No print
