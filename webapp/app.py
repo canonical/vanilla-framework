@@ -1,5 +1,4 @@
 # Code
-import datetime
 import glob
 import json
 import os
@@ -10,7 +9,11 @@ from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
 
 
-# Rename your project below
+# Constants
+with open("package.json") as package_json:
+    VANILLA_VERSION = json.load(package_json)["version"]
+
+
 app = FlaskBase(
     __name__,
     "docs.vanillaframework.io",
@@ -23,29 +26,36 @@ app = FlaskBase(
 
 # Helpers
 # ===
+def _get_title(title):
+    yield title
+
+
 def _get_examples():
     example_files = glob.glob("docs/examples/*/**/*.html", recursive=True)
     examples = {}
 
     for filepath in sorted(example_files):
-        # Remove "docs/examples/" prefix
-        prefix_length = len("docs/examples/")
-        example_path = filepath[prefix_length:]
-        # Remove extension
-        example_path = os.path.splitext(example_path)[0]
+        # Remove "docs/" prefix
+        docs_length = len("docs/")
 
-        name_parts = example_path.split(os.sep)
-        outermost_parent = name_parts.pop(0)
+        # Get template object
+        template_path = filepath[docs_length:]
+        template = flask.current_app.jinja_env.get_template(template_path)
 
-        # Make path parts sentence case
-        friendly_parts = []
-        for part in name_parts:
-            friendly_parts.append(
-                part.capitalize().replace("-", " ").replace("_", " ")
-            )
+        # Remove "examples/"
+        examples_length = len("examples/")
+        # Remove "examples/" and extension for the path
+        example_path = os.path.splitext(template_path[examples_length:])[0]
+
+        outermost_parent = example_path.split(os.sep).pop(0)
+
+        title = example_path
+
+        if "title" in template.blocks:
+            title = next(template.blocks["title"](template.new_context({})))
 
         examples.setdefault(outermost_parent, []).append(
-            {"path": example_path, "friendly_name": " / ".join(friendly_parts)}
+            {"path": example_path, "title": title}
         )
 
     return examples
@@ -54,14 +64,7 @@ def _get_examples():
 # Global context settings
 @app.context_processor
 def global_template_context():
-    with open("package.json") as package_json:
-        version = json.load(package_json)["version"]
-
-    return {
-        "version": version,
-        "current_year": datetime.datetime.now().year,
-        "path": flask.request.path,
-    }
+    return {"version": VANILLA_VERSION, "path": flask.request.path}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
