@@ -1,9 +1,7 @@
----
-layout: examples
-title: Truncate text
-category: _utilities
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Truncate text{% endblock %}
 
+{% block content %}
 <table>
     <thead>
       <tr>
@@ -30,12 +28,11 @@ category: _utilities
             </span>
           </td>
           <td>This text will not get truncated.</td>
-
           <td class="u-align--right">2 GiB</td>
           <td class="u-align--right">1</td>
           <td class="u-align--right">2TB</td>
         </tr>
     </tbody>
   </table>
-
   <p class="u-truncate">This sentence will truncate and reveal an ellipsis once it exceeds the paragraph's max-width.</p>
+{% endblock %}

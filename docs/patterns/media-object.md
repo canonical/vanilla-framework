@@ -1,6 +1,8 @@
 ---
 collection: patterns
-layout: default
+wrapper_template: '_layouts/default.html'
+context:
+  title: Media object
 ---
 
 ## Media object

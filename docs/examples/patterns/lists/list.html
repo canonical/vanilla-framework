@@ -1,7 +1,12 @@
----
-layout: examples
-title: Lists / Default
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Default{% endblock %}
 
-{% include patterns/lists/list.html %}
+{% block standalone_css %}patterns_lists{% endblock %}
+
+{% block content %}
+<ul class="p-list">
+  <li class="p-list__item">Digital signage</li>
+  <li class="p-list__item">Robotics</li>
+  <li class="p-list__item">Gateways</li>
+</ul>
+{% endblock %}

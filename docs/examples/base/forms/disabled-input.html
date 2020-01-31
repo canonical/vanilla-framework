@@ -1,7 +1,11 @@
----
-layout: examples
-title: Forms / Disabled input
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Disabled input{% endblock %}
 
-{% include base/forms/disabled-input.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<form>
+    <label for="disabled-input">Email address</label>
+    <input type="text" id="disabled-input" placeholder="example@canonical.com" disabled="disabled">
+</form>
+{% endblock %}

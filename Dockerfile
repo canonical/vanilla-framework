@@ -1,5 +1,14 @@
 # syntax=docker/dockerfile:experimental
 
+
+# Build stage: Install python dependencies
+# ===
+FROM ubuntu:bionic AS python-dependencies
+RUN apt-get update && apt-get install --no-install-recommends --yes python3-pip python3-setuptools
+ADD requirements.txt /tmp/requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip pip3 install --user --requirement /tmp/requirements.txt
+
+
 # Build stage: Install yarn dependencies
 # ===
 FROM node:12-slim AS yarn-dependencies
@@ -8,29 +17,18 @@ ADD package.json package.json
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install
 
 
+# Build stage: Build the CSS
+# ===
+FROM yarn-dependencies AS build-docs-css
+ADD docs/static/scss docs/static/scss
+RUN yarn run build-docs-css
+
+
 # Build stage: Build vanilla-framework itself
 # ===
 FROM yarn-dependencies AS build-vanilla
 ADD scss scss
 RUN yarn run build
-
-
-# Build stage: Build the static site with Jekyll
-# ===
-FROM ruby:2.6 AS build-docs-site
-WORKDIR /srv
-COPY --from=build-vanilla srv/build build
-ADD Gemfile Gemfile
-ADD docs docs
-RUN bundle install
-RUN bundle exec jekyll build --source docs --destination docs/_site
-
-
-# Build stage: Build the CSS
-# ===
-FROM yarn-dependencies AS build-docs-css
-ADD docs/sass docs/sass
-RUN yarn run build-docs-css
 
 
 # Build the production image
@@ -41,21 +39,23 @@ FROM ubuntu:bionic
 ENV LANG C.UTF-8
 WORKDIR /srv
 
-# Install nginx
-RUN apt-get update && apt-get install --no-install-recommends --yes nginx
+# Install python and import python dependencies
+RUN apt-get update && apt-get install --no-install-recommends --yes python3-lib2to3 python3-pkg-resources
+COPY --from=python-dependencies /root/.local/lib/python3.6/site-packages /root/.local/lib/python3.6/site-packages
+COPY --from=python-dependencies /root/.local/bin /root/.local/bin
+ENV PATH="/root/.local/bin:${PATH}"
 
 # Import code, build assets and mirror list
+ADD . .
 RUN rm -rf package.json yarn.lock .babelrc webpack.config.js
-COPY --from=build-docs-site srv/docs/_site .
-COPY --from=build-docs-css srv/docs/css css
+COPY --from=build-docs-css /srv/docs/static/css docs/static/css
+COPY --from=build-docs-css /srv/package.json package.json
+COPY --from=build-vanilla /srv/build docs/static/build
 
-# Create nginx config
+# Set revision ID
 ARG BUILD_ID
-ADD docs/nginx.conf /etc/nginx/sites-enabled/default
-RUN sed -i "s/~BUILD_ID~/${BUILD_ID}/" /etc/nginx/sites-enabled/default
-ADD docs/redirects.map /etc/nginx/redirects.map
-
-STOPSIGNAL SIGTERM
+ENV TALISKER_REVISION_ID "${BUILD_ID}"
 
 # Setup commands to run server
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["./entrypoint"]
+CMD ["0.0.0.0:80"]

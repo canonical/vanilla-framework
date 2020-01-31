@@ -1,0 +1,41 @@
+{% extends "_layouts/default.html" %}
+
+{% block title %}Standalone component examples{% endblock %}
+
+{% block content %}
+<h2>Standalone component examples</h2>
+
+<hr>
+
+<div class="row">
+  <div class="col-8">
+    <p>Examples below use CSS built with single pattern included with base styles instead of the whole Vanilla framework CSS file.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <h3>Base elements</h3>
+    <nav>
+      <ul class="p-list">
+        {% for example in examples.base %}
+          <li class="p-list__item">
+            <a href="/examples/standalone/{{ example.path }}" class="p-link">{{ example.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  <div class="col-3">
+    <h3>Components</h3>
+    <nav>
+      <ul class="p-list">
+        {% for example in examples.patterns %}
+          <li class="p-list__item">
+            <a href="/examples/standalone/{{ example.path }}" class="p-link">{{ example.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

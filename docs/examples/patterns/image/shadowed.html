@@ -1,7 +1,8 @@
----
-layout: examples
-title: Image / Shadow
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Image / Shadow{% endblock %}
 
-{% include patterns/image/shadowed.html %}
+{% block standalone_css %}patterns_image{% endblock %}
+
+{% block content %}
+<img class="p-image--shadowed" src="https://assets.ubuntu.com/v1/584903f3-iot-drone.png" alt="">
+{% endblock %}

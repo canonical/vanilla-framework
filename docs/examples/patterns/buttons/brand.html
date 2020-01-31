@@ -1,7 +1,9 @@
----
-layout: examples
-title: Buttons / Brand
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Buttons / Brand{% endblock %}
 
-{% include patterns/buttons/brand.html %}
+{% block standalone_css %}patterns_buttons{% endblock %}
+
+{% block content %}
+<button class="p-button--brand">Brand button</button>
+<button class="p-button--brand" disabled>Brand button disabled</button>
+{% endblock %}

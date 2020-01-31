@@ -1,7 +1,10 @@
----
-layout: examples
-title: Buttons / Icon
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Buttons / Icon{% endblock %}
 
-{% include patterns/buttons/icon.html %}
+{% block standalone_css %}patterns_buttons{% endblock %}
+
+{% block content %}
+<button class="p-button--positive has-icon"><i class="p-icon--minus is-light"></i></button>
+<button class="p-button has-icon"><i class="p-icon--plus"></i><span>Icon before text</span></button>
+<button class="p-button has-icon"><span>Icon after text</span><i class="p-icon--contextual-menu"></i></button>
+{% endblock %}

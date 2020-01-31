@@ -1,7 +1,9 @@
----
-layout: examples
-title: Buttons / Negative
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Buttons / Negative{% endblock %}
 
-{% include patterns/buttons/negative.html %}
+{% block standalone_css %}patterns_buttons{% endblock %}
+
+{% block content %}
+<button class="p-button--negative">Negative button</button>
+<button class="p-button--negative" disabled>Negative button disabled</button>
+{% endblock %}

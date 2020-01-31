@@ -1,7 +1,8 @@
----
-layout: examples
-title: Small text
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Small text{% endblock %}
 
-{% include base/small.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<small>This is some &lt;small&gt; text with a font size of 14 pixels.</small>
+{% endblock %}

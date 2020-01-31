@@ -1,7 +1,66 @@
----
-layout: examples
-title: Grid / Nesting - Small screens
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / Nesting - Small screens{% endblock %}
 
-{% include patterns/grid/nested-small.html %}
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+<div class="row grid-demo">
+  <div class="col-small-4">
+    col-small-4
+    <div class="row">
+      <div class="col-small-2">
+        col-small-2
+        <div class="row">
+          <div class="col-small-1">
+            col-small-1
+          </div>
+          <div class="col-small-1">
+            col-small-1
+          </div>
+        </div>
+      </div>
+      <div class="col-small-2">
+        col-small-2
+      </div>
+    </div>
+  </div>
+  <div class="col-small-3">
+    col-small-3
+    <div class="row">
+      <div class="col-small-1">
+        col-small-1
+      </div>
+      <div class="col-small-1">
+        col-small-1
+      </div>
+      <div class="col-small-1">
+        col-small-1
+      </div>
+    </div>
+  </div>
+  <div class="col-small-1">
+    col-small-1
+  </div>
+  <div class="col-small-4">
+    <div class="row">
+      <div class="col-small-1">
+        col-small-1
+      </div>
+      <div class="col-small-2">
+        col-small-2
+        <div class="row">
+          <div class="col-small-1">
+            col-small-1
+          </div>
+          <div class="col-small-1">
+            col-small-1
+          </div>
+        </div>
+      </div>
+      <div class="col-small-1">
+        col-small-1
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

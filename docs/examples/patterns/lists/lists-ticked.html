@@ -1,7 +1,12 @@
----
-layout: examples
-title: Lists / Ticked
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Ticked{% endblock %}
 
-{% include patterns/lists/lists-ticked.html %}
+{% block standalone_css %}patterns_lists{% endblock %}
+
+{% block content %}
+<ul class="p-list">
+  <li class="p-list__item is-ticked">Hardware guidance and sizing</li>
+  <li class="p-list__item is-ticked">Fixed-price deployment</li>
+  <li class="p-list__item is-ticked">Reference architecture</li>
+</ul>
+{% endblock %}
