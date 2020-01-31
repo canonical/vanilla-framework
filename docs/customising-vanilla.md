@@ -1,5 +1,7 @@
 ---
-layout: default
+wrapper_template: '_layouts/default.html'
+context:
+  title: Customising Vanilla
 ---
 
 ## Customising Vanilla

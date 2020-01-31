@@ -1,7 +1,19 @@
----
-layout: examples
-title: Lists / Unordered List
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Unordered List{% endblock %}
 
-{% include base/lists/unordered-list.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<ul>
+  <li>Operations</li>
+  <li>Design and build
+    <ul>
+      <li>Hardware specification</li>
+      <li>Tailor the architecture</li>
+      <li>Integration requirements</li>
+    </ul>
+  </li>
+  <li>We transfer control</li>
+  <li>We support your operations</li>
+</ul>
+{% endblock %}

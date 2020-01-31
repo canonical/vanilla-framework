@@ -1,5 +1,7 @@
 ---
-layout: default
+wrapper_template: '_layouts/default.html'
+context:
+  title: Table cell padding overlap
 ---
 
 ## Table cell padding overlap

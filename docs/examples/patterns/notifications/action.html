@@ -1,7 +1,12 @@
----
-layout: examples
-title: Notifications / Action
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Notifications / Action{% endblock %}
 
-{% include patterns/notifications/action.html %}
+{% block standalone_css %}patterns_notifications{% endblock %}
+
+{% block content %}
+<div class="p-notification">
+  <p class="p-notification__response">
+    The bundle author has not provided a getstarted.md file.<a href="#" class="p-notification__action">Dismiss</a>
+  </p>
+</div>
+{% endblock %}

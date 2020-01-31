@@ -1,7 +1,137 @@
----
-layout: examples
-title: Table / Expanding
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Table / Expanding{% endblock %}
 
-{% include patterns/tables/table-expanding.html %}
+{% block standalone_css %}patterns_table-expanding{% endblock %}
+
+{% block content %}
+<table class="p-table-expanding" role="grid">
+    <thead>
+        <tr role="row">
+            <th id="t-name" aria-sort="none">Name</th>
+            <th id="t-users" aria-sort="none">Mac address</th>
+            <th id="t-units" aria-sort="none">IP</th>
+            <th id="t-units" aria-sort="none">Rack</th>
+            <th id="t-units" aria-sort="none">Last seen</th>
+            <th id="t-revenue" aria-sort="none" class="u-align--right">Actions</th>
+            <th class="u-hide">
+                <!-- empty cell required for validation -->
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr role="row">
+            <td role="rowheader" aria-label="Name">Unknown</td>
+            <td role="gridcell" aria-label="Users">2c:44:fd:80:3f:25</td>
+            <td role="gridcell" aria-label="Units">10.249.0.1</td>
+            <td role="gridcell" aria-label="Units">karura</td>
+            <td role="gridcell" aria-label="Units">Thu, 25 Oct. 2018 13:55:21</td>
+            <td role="gridcell" class="u-align--right">
+                <button class="u-toggle is-dense" aria-controls="expanded-row" aria-expanded="false" data-shown-text="Hide"
+                    data-hidden-text="Show">Show</button>
+            </td>
+            <td id="expanded-row" class="p-table-expanding__panel" aria-hidden="true">
+                <div class="row">
+                    <div class="col-8">
+                        <h4>Expanding table cell</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dicta beatae
+                            nostrum eligendi similique earum, dolorem fuga quis, sequi voluptates architecto ipsa
+                            dolorum eaque rem expedita inventore voluptas odit aspernatur alias molestias facere.</p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr role="row">
+            <td role="rowheader" aria-label="Name">Unknown</td>
+            <td role="gridcell" aria-label="Users">52:54:00:3a:fe:e9</td>
+            <td role="gridcell" aria-label="Units">172.16.99.191</td>
+            <td role="gridcell" aria-label="Units">karura</td>
+            <td role="gridcell" aria-label="Units">Wed, 3 Oct. 2018 23:08:06</td>
+            <td role="gridcell" class="u-align--right">
+                <button class="u-toggle is-dense" aria-controls="expanded-row-2" aria-expanded="false" data-shown-text="Hide"
+                    data-hidden-text="Show">Show</button>
+            </td>
+            <td id="expanded-row-2" class="p-table-expanding__panel" aria-hidden="true">
+                <div class="row">
+                    <div class="col-8">
+                        <h4>Expanding table cell</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dicta beatae
+                            nostrum eligendi similique earum, dolorem fuga quis, sequi voluptates architecto ipsa
+                            dolorum eaque rem expedita inventore voluptas odit aspernatur alias molestias facere.</p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr role="row">
+            <td role="rowheader" aria-label="Name">Unknown</td>
+            <td role="gridcell" aria-label="Users">52:54:00:74:c2:10</td>
+            <td role="gridcell" aria-label="Units">172.16.99.192</td>
+            <td role="gridcell" aria-label="Units">karura</td>
+            <td role="gridcell" aria-label="Units">Wed, 17 Oct. 2018 12:18:18</td>
+            <td role="gridcell" class="u-align--right">
+                <button class="u-toggle is-dense" aria-controls="expanded-row-3" aria-expanded="false" data-shown-text="Hide"
+                    data-hidden-text="Show">Show</button>
+            </td>
+            <td id="expanded-row-3" class="p-table-expanding__panel" aria-hidden="true">
+                <div class="row">
+                    <div class="col-8">
+                        <h4>Expanding table cell</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum dicta beatae
+                            nostrum eligendi similique earum, dolorem fuga quis, sequi voluptates architecto ipsa
+                            dolorum eaque rem expedita inventore voluptas odit aspernatur alias molestias facere.</p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+/**
+  Toggles the necessary aria- attributes' values on the table panels
+  to show or hide them.
+  @param {HTMLElement} element The tab that acts as the handles.
+  @param {Boolean} show Whether to show or hide the expanded row panel.
+*/
+function toggleExpanded(element, show) {
+  var target = document.getElementById(element.getAttribute('aria-controls'));
+
+  if (target) {
+    element.setAttribute('aria-expanded', show);
+
+    // Adjust the text of the toggle button
+    if (show) {
+      element.innerHTML = element.getAttribute('data-shown-text');
+    } else {
+      element.innerHTML = element.getAttribute('data-hidden-text');
+    }
+
+    target.setAttribute('aria-hidden', !show);
+  }
+}
+
+/**
+  Attaches event listeners for the expandable table open and close click events.
+  @param {HTMLElement} table The expandable table container element.
+*/
+function setupExpandableTable(table) {
+  // Set up an event listener on the container so that panels can be added
+  // and removed and events do not need to be managed separately.
+  table.addEventListener('click', function(event) {
+    var target = event.target;
+    var isTargetOpen = target.getAttribute('aria-expanded') === 'true';
+
+    if (target.classList.contains('u-toggle')) {
+      // Toggle visibility of the target panel.
+      toggleExpanded(target, !isTargetOpen);
+    }
+  });
+}
+
+// Setup all expandable tables on the page.
+var tables = document.querySelectorAll('.p-table-expanding');
+
+for (var i = 0, l = tables.length; i < l; i++) {
+  setupExpandableTable(tables[i]);
+}
+</script>
+{% endblock %}

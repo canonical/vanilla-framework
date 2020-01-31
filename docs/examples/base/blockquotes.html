@@ -1,7 +1,11 @@
----
-layout: examples
-title: Blockquote
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Blockquote{% endblock %}
 
-{% include base/blockquotes.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<blockquote>
+  <p>“Ubuntu is an ancient African word meaning ‘humanity to others’. Ubuntu is an ancient African word meaning ‘humanity to others’.”</p>
+  <p><cite>Canonical</cite></p>
+</blockquote>
+{% endblock %}

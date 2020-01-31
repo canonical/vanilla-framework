@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script>VANILLA_VERSION = "{{ site.version }}";</script>
+    <script>VANILLA_VERSION = "{{ version }}";</script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,10 +11,10 @@
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
-    <title>{% if title %}{{ title }} | Vanilla documentation{% else %}Vanilla documentation{% endif %}</title>
+    <title>{% block title %}{{ title }}{% endblock %}{% if self.title() %} | {% endif %}Vanilla documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
   </head>
 
   <body>
@@ -28,7 +28,7 @@
         <div class="p-navigation__row">
           <div class="p-navigation__banner">
             <div class="p-navigation__logo">
-              <a class="p-navigation__link" href="https://vanillaframework.io/">
+              <a class="p-navigation__link" href="https://vanillaframework.io">
                 <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla framework logo">
               </a>
             </div>
@@ -43,8 +43,8 @@
               <a href="#main-content">Jump to main content</a>
             </span>
             <ul class="p-navigation__links">
-                <li class="p-navigation__link {% unless page.url contains '/examples' %}is-selected{% endunless %}"><a href="/">Docs</a></li>
-                <li class="p-navigation__link {% if page.url contains '/examples' %}is-selected{% endif %}"><a href="/examples">Examples</a></li>
+                <li class="p-navigation__link {% if '/examples' not in path %}is-selected{% endif %}"><a href="/">Docs</a></li>
+                <li class="p-navigation__link {% if '/examples' in path %}is-selected{% endif %}"><a href="/examples">Examples</a></li>
                 <li class="p-navigation__link"><a href="https://vanillaframework.io/accessibility">Accessibility</a></li>
               <li class="p-navigation__link"><a href="https://vanillaframework.io/browser-support">Browser support</a></li>
               <li class="p-navigation__link"><a href="https://vanillaframework.io/contribute">Contribute</a></li>
@@ -65,180 +65,180 @@
               <li class="p-sidebar-nav__item">
                 <strong>Welcome</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/' %}is-active{% endif %}" href="/">Get started</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/building-vanilla/' %}is-active{% endif %}" href="/building-vanilla/">Building with Vanilla</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/customising-vanilla/' %}is-active{% endif %}" href="/customising-vanilla/">Customising Vanilla</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/' %}is-active{% endif %}" href="/">Get started</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/building-vanilla' %}is-active{% endif %}" href="/building-vanilla">Building with Vanilla</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/customising-vanilla' %}is-active{% endif %}" href="/customising-vanilla">Customising Vanilla</a></li>
                 </ul>
               </li>
 
               <li class="p-sidebar-nav__item">
                 <strong>Base elements</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/code/' %}is-active{% endif %}" href="/base/code/">Code</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/forms/' %}is-active{% endif %}" href="/base/forms/">Forms</a><div class="p-label--new u-float-right u-no-margin--bottom">New</div></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/reset/' %}is-active{% endif %}" href="/base/reset/">Reset</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/tables/' %}is-active{% endif %}" href="/base/tables">Tables</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/typography/' %}is-active{% endif %}" href="/base/typography/">Typography</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/code' %}is-active{% endif %}" href="/base/code">Code</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/forms' %}is-active{% endif %}" href="/base/forms">Forms</a><div class="p-label--new u-float-right u-no-margin--bottom">New</div></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/reset' %}is-active{% endif %}" href="/base/reset">Reset</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/tables' %}is-active{% endif %}" href="/base/tables">Tables</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/typography' %}is-active{% endif %}" href="/base/typography">Typography</a></li>
                 </ul>
               </li>
 
               <li class="p-sidebar-nav__item">
                 <strong>Components</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/accordion/' %}is-active{% endif %}" href="/patterns/accordion/">Accordion</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/article-pagination/' %}is-active{% endif %}" href="/patterns/article-pagination/">Article pagination</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/breadcrumbs/' %}is-active{% endif %}" href="/patterns/breadcrumbs/">Breadcrumbs</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/buttons/' %}is-active{% endif %}" href="/patterns/buttons/">Buttons</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/card/' %}is-active{% endif %}" href="/patterns/card/">Cards</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/contextual-menu/' %}is-active{% endif %}" href="/patterns/contextual-menu/">Contextual menu</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/grid/' %}is-active{% endif %}" href="/patterns/grid/">Grid</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/heading-icon/' %}is-active{% endif %}" href="/patterns/heading-icon/">Heading icon</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/icons/' %}is-active{% endif %}" href="/patterns/icons/">Icons</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/images/' %}is-active{% endif %}" href="/patterns/images/">Images</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/inline-images/' %}is-active{% endif %}" href="/patterns/inline-images/">Inline images</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/labels/' %}is-active{% endif %}" href="/patterns/labels/">Labels</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/links/' %}is-active{% endif %}" href="/patterns/links/">Links</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/list-tree/' %}is-active{% endif %}" href="/patterns/list-tree/">List tree</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/lists/' %}is-active{% endif %}" href="/patterns/lists/">Lists</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/matrix/' %}is-active{% endif %}" href="/patterns/matrix/">Matrix</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/media-object/' %}is-active{% endif %}" href="/patterns/media-object/">Media object</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/modal/' %}is-active{% endif %}" href="/patterns/modal/">Modal</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/muted-heading/' %}is-active{% endif %}" href="/patterns/muted-heading/">Muted heading</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/navigation/' %}is-active{% endif %}" href="/patterns/navigation/">Navigation</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/notification/' %}is-active{% endif %}" href="/patterns/notification/">Notifications</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/pagination/' %}is-active{% endif %}" href="/patterns/pagination/">Pagination</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/pull-quote/' %}is-active{% endif %}" href="/patterns/pull-quote/">Quotes</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/search-box/' %}is-active{% endif %}" href="/patterns/search-box/">Search box</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/slider/' %}is-active{% endif %}" href="/patterns/slider/">Slider</a><div class="p-label--updated u-float-right u-no-margin--bottom">Updated</div></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/strip/' %}is-active{% endif %}" href="/patterns/strip/">Strip</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/switch/' %}is-active{% endif %}" href="/patterns/switch/">Switch</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/table-of-contents/' %}is-active{% endif %}" href="/patterns/table-of-contents/">Table of contents</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/tabs/' %}is-active{% endif %}" href="/patterns/tabs/">Tabs</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/tooltips/' %}is-active{% endif %}" href="/patterns/tooltips/">Tooltips</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/accordion' %}is-active{% endif %}" href="/patterns/accordion">Accordion</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/article-pagination' %}is-active{% endif %}" href="/patterns/article-pagination">Article pagination</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/breadcrumbs' %}is-active{% endif %}" href="/patterns/breadcrumbs">Breadcrumbs</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/buttons' %}is-active{% endif %}" href="/patterns/buttons">Buttons</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/card' %}is-active{% endif %}" href="/patterns/card">Cards</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/contextual-menu' %}is-active{% endif %}" href="/patterns/contextual-menu">Contextual menu</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/grid' %}is-active{% endif %}" href="/patterns/grid">Grid</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/heading-icon' %}is-active{% endif %}" href="/patterns/heading-icon">Heading icon</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/icons' %}is-active{% endif %}" href="/patterns/icons">Icons</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/images' %}is-active{% endif %}" href="/patterns/images">Images</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/inline-images' %}is-active{% endif %}" href="/patterns/inline-images">Inline images</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/labels' %}is-active{% endif %}" href="/patterns/labels">Labels</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/links' %}is-active{% endif %}" href="/patterns/links">Links</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/list-tree' %}is-active{% endif %}" href="/patterns/list-tree">List tree</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/lists' %}is-active{% endif %}" href="/patterns/lists">Lists</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/matrix' %}is-active{% endif %}" href="/patterns/matrix">Matrix</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/media-object' %}is-active{% endif %}" href="/patterns/media-object">Media object</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/modal' %}is-active{% endif %}" href="/patterns/modal">Modal</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/muted-heading' %}is-active{% endif %}" href="/patterns/muted-heading">Muted heading</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/navigation' %}is-active{% endif %}" href="/patterns/navigation">Navigation</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/notification' %}is-active{% endif %}" href="/patterns/notification">Notifications</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/pagination' %}is-active{% endif %}" href="/patterns/pagination">Pagination</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/pull-quote' %}is-active{% endif %}" href="/patterns/pull-quote">Quotes</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/search-box' %}is-active{% endif %}" href="/patterns/search-box">Search box</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/slider' %}is-active{% endif %}" href="/patterns/slider">Slider</a><div class="p-label--updated u-float-right u-no-margin--bottom">Updated</div></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/strip' %}is-active{% endif %}" href="/patterns/strip">Strip</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/switch' %}is-active{% endif %}" href="/patterns/switch">Switch</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/table-of-contents' %}is-active{% endif %}" href="/patterns/table-of-contents">Table of contents</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/tabs' %}is-active{% endif %}" href="/patterns/tabs">Tabs</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/tooltips' %}is-active{% endif %}" href="/patterns/tooltips">Tooltips</a></li>
                 </ul>
               </li>
 
               <li class="p-sidebar-nav__item">
                 <strong>Utilities</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/align/' %}is-active{% endif %}" href="/utilities/align/">Alignment</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/baseline-grid/' %}is-active{% endif %}" href="/utilities/baseline-grid/">Baseline grid</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/clearfix/' %}is-active{% endif %}" href="/utilities/clearfix/">Clearfix</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/embedded-media/' %}is-active{% endif %}" href="/utilities/embedded-media/">Embedded media</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/equal-height/' %}is-active{% endif %}" href="/utilities/equal-height/">Equal height</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/floats/' %}is-active{% endif %}" href="/utilities/floats/">Floats</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/font-metrics/' %}is-active{% endif %}" href="/utilities/font-metrics/">Font metrics</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/functions/' %}is-active{% endif %}" href="/utilities/functions/">Functions</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/hide/' %}is-active{% endif %}" href="/utilities/hide/">Hide</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/image-position/' %}is-active{% endif %}" href="/utilities/image-position/">Image position</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/margin-collapse/' %}is-active{% endif %}" href="/utilities/margin-collapse/">Margin collapse</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/no-print/' %}is-active{% endif %}" href="/utilities/no-print/">No print</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/off-screen/' %}is-active{% endif %}" href="/utilities/off-screen/">Off-screen</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/padding-collapse/' %}is-active{% endif %}" href="/utilities/padding-collapse/">Padding collapse</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/table-cell-padding-overlap/' %}is-active{% endif %}" href="/utilities/table-cell-padding-overlap/">Table cell padding overlap</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/truncate/' %}is-active{% endif %}" href="/utilities/truncate/">Truncation</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/show/' %}is-active{% endif %}" href="/utilities/show/">Show</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/vertically-center/' %}is-active{% endif %}" href="/utilities/vertically-center/">Vertically center</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/align' %}is-active{% endif %}" href="/utilities/align">Alignment</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/baseline-grid' %}is-active{% endif %}" href="/utilities/baseline-grid">Baseline grid</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/clearfix' %}is-active{% endif %}" href="/utilities/clearfix">Clearfix</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/embedded-media' %}is-active{% endif %}" href="/utilities/embedded-media">Embedded media</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/equal-height' %}is-active{% endif %}" href="/utilities/equal-height">Equal height</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/floats' %}is-active{% endif %}" href="/utilities/floats">Floats</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/font-metrics' %}is-active{% endif %}" href="/utilities/font-metrics">Font metrics</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/functions' %}is-active{% endif %}" href="/utilities/functions">Functions</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/hide' %}is-active{% endif %}" href="/utilities/hide">Hide</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/image-position' %}is-active{% endif %}" href="/utilities/image-position">Image position</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/margin-collapse' %}is-active{% endif %}" href="/utilities/margin-collapse">Margin collapse</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/no-print' %}is-active{% endif %}" href="/utilities/no-print">No print</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/off-screen' %}is-active{% endif %}" href="/utilities/off-screen">Off-screen</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/padding-collapse' %}is-active{% endif %}" href="/utilities/padding-collapse">Padding collapse</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/table-cell-padding-overlap' %}is-active{% endif %}" href="/utilities/table-cell-padding-overlap">Table cell padding overlap</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/truncate' %}is-active{% endif %}" href="/utilities/truncate">Truncation</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/show' %}is-active{% endif %}" href="/utilities/show">Show</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/vertically-center' %}is-active{% endif %}" href="/utilities/vertically-center">Vertically center</a></li>
                 </ul>
               </li>
 
               <li class="p-sidebar-nav__item">
                 <strong>Settings</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/animation-settings/' %}is-active{% endif %}" href="/settings/animation-settings/">Animations</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/assets-settings/' %}is-active{% endif %}" href="/settings/assets-settings/">Assets</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/breakpoint-settings/' %}is-active{% endif %}" href="/settings/breakpoint-settings/">Breakpoints</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/color-settings/' %}is-active{% endif %}" href="/settings/color-settings/">Color</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/font-settings/' %}is-active{% endif %}" href="/settings/font-settings/">Font</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/layout-settings/' %}is-active{% endif %}" href="/settings/layout-settings/">Layout</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/placeholder-settings/' %}is-active{% endif %}" href="/settings/placeholder-settings/">Placeholders</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/spacing-settings/' %}is-active{% endif %}" href="/settings/spacing-settings/">Spacing</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/table-layout/' %}is-active{% endif %}" href="/settings/table-layout/">Table layout</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/animation-settings' %}is-active{% endif %}" href="/settings/animation-settings">Animations</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/assets-settings' %}is-active{% endif %}" href="/settings/assets-settings">Assets</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/breakpoint-settings' %}is-active{% endif %}" href="/settings/breakpoint-settings">Breakpoints</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/color-settings' %}is-active{% endif %}" href="/settings/color-settings">Color</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/font-settings' %}is-active{% endif %}" href="/settings/font-settings">Font</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/layout-settings' %}is-active{% endif %}" href="/settings/layout-settings">Layout</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/placeholder-settings' %}is-active{% endif %}" href="/settings/placeholder-settings">Placeholders</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/spacing-settings' %}is-active{% endif %}" href="/settings/spacing-settings">Spacing</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/table-layout' %}is-active{% endif %}" href="/settings/table-layout">Table layout</a></li>
                 </ul>
               </li>
 
               <li class="p-sidebar-nav__item">
                 <strong>Resources</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/examples/' %}is-active{% endif %}" href="/examples/">Component examples</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/component-status/' %}is-active{% endif %}" href="/component-status/">Component status</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == 'https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch' %}is-active{% endif %}" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/examples' %}is-active{% endif %}" href="/examples">Component examples</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/component-status' %}is-active{% endif %}" href="/component-status">Component status</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == 'https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch' %}is-active{% endif %}" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></li>
                 </ul>
               </li>
             </ul>
 
             <ul class="p-sidebar-nav__list u-hide" id="docs-list-sorted">
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/accordion/' %}is-active{% endif %}" href="/patterns/accordion/">Accordion</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/align/' %}is-active{% endif %}" href="/utilities/align/">Alignment</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/examples/' %}is-active{% endif %}" href="/examples/">All component examples</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/animation-settings/' %}is-active{% endif %}" href="/settings/animation-settings/">Animations</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/article-pagination/' %}is-active{% endif %}" href="/patterns/article-pagination/">Article pagination</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/assets-settings/' %}is-active{% endif %}" href="/settings/assets-settings/">Assets</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/baseline-grid/' %}is-active{% endif %}" href="/utilities/baseline-grid/">Baseline grid</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/breadcrumbs/' %}is-active{% endif %}" href="/patterns/breadcrumbs/">Breadcrumbs</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/breakpoint-settings/' %}is-active{% endif %}" href="/settings/breakpoint-settings/">Breakpoints</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/building-vanilla/' %}is-active{% endif %}" href="/building-vanilla/">Building with Vanilla</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/buttons/' %}is-active{% endif %}" href="/patterns/buttons/">Buttons</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/card/' %}is-active{% endif %}" href="/patterns/card/">Cards</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/code/' %}is-active{% endif %}" href="/base/code/">Code</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/color-settings/' %}is-active{% endif %}" href="/settings/color-settings/">Color</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/contextual-menu/' %}is-active{% endif %}" href="/patterns/contextual-menu/">Contextual menu</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/clearfix/' %}is-active{% endif %}" href="/utilities/clearfix/">Clearfix</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/customising-vanilla/' %}is-active{% endif %}" href="/customising-vanilla/">Customising Vanilla</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == 'https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch' %}is-active{% endif %}" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/embedded-media/' %}is-active{% endif %}" href="/utilities/embedded-media/">Embedded media</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/equal-height/' %}is-active{% endif %}" href="/utilities/equal-height/">Equal height</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/floats/' %}is-active{% endif %}" href="/utilities/floats/">Floats</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/font-settings/' %}is-active{% endif %}" href="/settings/font-settings/">Font</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/forms/' %}is-active{% endif %}" href="/base/forms/">Forms</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/functions/' %}is-active{% endif %}" href="/utilities/functions/">Functions</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/' %}is-active{% endif %}" href="/">Get started</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/grid/' %}is-active{% endif %}" href="/patterns/grid/">Grid</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/heading-icon/' %}is-active{% endif %}" href="/patterns/heading-icon/">Heading icon</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/hide/' %}is-active{% endif %}" href="/utilities/hide/">Hide</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/icons/' %}is-active{% endif %}" href="/patterns/icons/">Icons</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/image-position/' %}is-active{% endif %}" href="/utilities/image-position/">Image position</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/images/' %}is-active{% endif %}" href="/patterns/images/">Images</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/inline-images/' %}is-active{% endif %}" href="/patterns/inline-images/">Inline images</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/labels/' %}is-active{% endif %}" href="/patterns/labels/">Labels</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/links/' %}is-active{% endif %}" href="/patterns/links/">Links</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/list-tree/' %}is-active{% endif %}" href="/patterns/list-tree/">List tree</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/lists/' %}is-active{% endif %}" href="/patterns/lists/">Lists</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/margin-collapse/' %}is-active{% endif %}" href="/utilities/margin-collapse/">Margin collapse</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/matrix/' %}is-active{% endif %}" href="/patterns/matrix/">Matrix</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/media-object/' %}is-active{% endif %}" href="/patterns/media-object/">Media object</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/modal/' %}is-active{% endif %}" href="/patterns/modal/">Modal</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/muted-heading/' %}is-active{% endif %}" href="/patterns/muted-heading/">Muted heading</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/navigation/' %}is-active{% endif %}" href="/patterns/navigation/">Navigation</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/no-print/' %}is-active{% endif %}" href="/utilities/no-print/">No print</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/notification/' %}is-active{% endif %}" href="/patterns/notification/">Notifications</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/off-screen/' %}is-active{% endif %}" href="/utilities/off-screen/">Off-screen elements</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/padding-collapse/' %}is-active{% endif %}" href="/utilities/padding-collapse/">Padding collapse</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/pagination/' %}is-active{% endif %}" href="/patterns/pagination/">Pagination</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/placeholder-settings/' %}is-active{% endif %}" href="/settings/placeholder-settings/">Placeholders</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/pull-quote/' %}is-active{% endif %}" href="/patterns/pull-quote/">Quotes</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/reset/' %}is-active{% endif %}" href="/base/reset/">Reset</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/search-box/' %}is-active{% endif %}" href="/patterns/search-box/">Search box</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/show/' %}is-active{% endif %}" href="/utilities/show/">Show</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/slider/' %}is-active{% endif %}" href="/patterns/slider/">Slider</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/strip/' %}is-active{% endif %}" href="/patterns/strip/">Strip</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/spacing-settings/' %}is-active{% endif %}" href="/settings/spacing-settings/">Spacing</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/layout-settings/' %}is-active{% endif %}" href="/settings/layout-settings/">Layout</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/switch/' %}is-active{% endif %}" href="/patterns/switch/">Switch</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/table-of-contents/' %}is-active{% endif %}" href="/patterns/table-of-contents/">Table of contents</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/settings/table-layout/' %}is-active{% endif %}" href="/settings/table-layout/">Table layout</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/tables/' %}is-active{% endif %}" href="/base/tables">Tables</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/tabs/' %}is-active{% endif %}" href="/patterns/tabs/">Tabs</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/patterns/tooltips/' %}is-active{% endif %}" href="/patterns/tooltips/">Tooltips</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/base/typography/' %}is-active{% endif %}" href="/base/typography/">Typography</a></li>
-              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if page.url == '/utilities/vertically-center/' %}is-active{% endif %}" href="/utilities/vertically-center/">Vertically center</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/accordion' %}is-active{% endif %}" href="/patterns/accordion">Accordion</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/align' %}is-active{% endif %}" href="/utilities/align">Alignment</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/examples' %}is-active{% endif %}" href="/examples">All component examples</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/animation-settings' %}is-active{% endif %}" href="/settings/animation-settings">Animations</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/article-pagination' %}is-active{% endif %}" href="/patterns/article-pagination">Article pagination</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/assets-settings' %}is-active{% endif %}" href="/settings/assets-settings">Assets</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/baseline-grid' %}is-active{% endif %}" href="/utilities/baseline-grid">Baseline grid</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/breadcrumbs' %}is-active{% endif %}" href="/patterns/breadcrumbs">Breadcrumbs</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/breakpoint-settings' %}is-active{% endif %}" href="/settings/breakpoint-settings">Breakpoints</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/building-vanilla' %}is-active{% endif %}" href="/building-vanilla">Building with Vanilla</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/buttons' %}is-active{% endif %}" href="/patterns/buttons">Buttons</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/card' %}is-active{% endif %}" href="/patterns/card">Cards</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/code' %}is-active{% endif %}" href="/base/code">Code</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/color-settings' %}is-active{% endif %}" href="/settings/color-settings">Color</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/contextual-menu' %}is-active{% endif %}" href="/patterns/contextual-menu">Contextual menu</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/clearfix' %}is-active{% endif %}" href="/utilities/clearfix">Clearfix</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/customising-vanilla' %}is-active{% endif %}" href="/customising-vanilla">Customising Vanilla</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == 'https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch' %}is-active{% endif %}" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/embedded-media' %}is-active{% endif %}" href="/utilities/embedded-media">Embedded media</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/equal-height' %}is-active{% endif %}" href="/utilities/equal-height">Equal height</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/floats' %}is-active{% endif %}" href="/utilities/floats">Floats</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/font-settings' %}is-active{% endif %}" href="/settings/font-settings">Font</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/forms' %}is-active{% endif %}" href="/base/forms">Forms</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/functions' %}is-active{% endif %}" href="/utilities/functions">Functions</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/' %}is-active{% endif %}" href="/">Get started</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/grid' %}is-active{% endif %}" href="/patterns/grid">Grid</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/heading-icon' %}is-active{% endif %}" href="/patterns/heading-icon">Heading icon</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/hide' %}is-active{% endif %}" href="/utilities/hide">Hide</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/icons' %}is-active{% endif %}" href="/patterns/icons">Icons</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/image-position' %}is-active{% endif %}" href="/utilities/image-position">Image position</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/images' %}is-active{% endif %}" href="/patterns/images">Images</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/inline-images' %}is-active{% endif %}" href="/patterns/inline-images">Inline images</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/labels' %}is-active{% endif %}" href="/patterns/labels">Labels</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/links' %}is-active{% endif %}" href="/patterns/links">Links</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/list-tree' %}is-active{% endif %}" href="/patterns/list-tree">List tree</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/lists' %}is-active{% endif %}" href="/patterns/lists">Lists</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/margin-collapse' %}is-active{% endif %}" href="/utilities/margin-collapse">Margin collapse</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/matrix' %}is-active{% endif %}" href="/patterns/matrix">Matrix</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/media-object' %}is-active{% endif %}" href="/patterns/media-object">Media object</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/modal' %}is-active{% endif %}" href="/patterns/modal">Modal</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/muted-heading' %}is-active{% endif %}" href="/patterns/muted-heading">Muted heading</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/navigation' %}is-active{% endif %}" href="/patterns/navigation">Navigation</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/no-print' %}is-active{% endif %}" href="/utilities/no-print">No print</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/notification' %}is-active{% endif %}" href="/patterns/notification">Notifications</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/off-screen' %}is-active{% endif %}" href="/utilities/off-screen">Off-screen elements</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/padding-collapse' %}is-active{% endif %}" href="/utilities/padding-collapse">Padding collapse</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/pagination' %}is-active{% endif %}" href="/patterns/pagination">Pagination</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/placeholder-settings' %}is-active{% endif %}" href="/settings/placeholder-settings">Placeholders</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/pull-quote' %}is-active{% endif %}" href="/patterns/pull-quote">Quotes</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/reset' %}is-active{% endif %}" href="/base/reset">Reset</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/search-box' %}is-active{% endif %}" href="/patterns/search-box">Search box</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/show' %}is-active{% endif %}" href="/utilities/show">Show</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/slider' %}is-active{% endif %}" href="/patterns/slider">Slider</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/strip' %}is-active{% endif %}" href="/patterns/strip">Strip</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/spacing-settings' %}is-active{% endif %}" href="/settings/spacing-settings">Spacing</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/layout-settings' %}is-active{% endif %}" href="/settings/layout-settings">Layout</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/switch' %}is-active{% endif %}" href="/patterns/switch">Switch</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/table-of-contents' %}is-active{% endif %}" href="/patterns/table-of-contents">Table of contents</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/settings/table-layout' %}is-active{% endif %}" href="/settings/table-layout">Table layout</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/tables' %}is-active{% endif %}" href="/base/tables">Tables</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/tabs' %}is-active{% endif %}" href="/patterns/tabs">Tabs</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/patterns/tooltips' %}is-active{% endif %}" href="/patterns/tooltips">Tooltips</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/base/typography' %}is-active{% endif %}" href="/base/typography">Typography</a></li>
+              <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/utilities/vertically-center' %}is-active{% endif %}" href="/utilities/vertically-center">Vertically center</a></li>
             </ul>
           </nav>
         </div>
       </aside>
 
       <main class="p-content" id="main-content">
-        {% if page.homepage %}
+        {% if path == "/" %}
         <div class="p-strip--image is-dark" style="background-image: url('https://assets.ubuntu.com/v1/775cc62b-vanilla-grad-background.png'); background-position: 75% 50%;">
           <div class="p-content__row">
             <h1>Vanilla documentation</h1>
@@ -248,7 +248,7 @@
         {% endif %}
         <div class="p-strip is-shallow">
           <div class="p-content__row">
-            {{ content }}
+            {% block content %}{{ content | safe }}{% endblock content %}
           </div>
         </div>
 
@@ -257,7 +257,7 @@
         <footer class="p-strip is-shallow" role="contentinfo">
           <div class="p-content__row">
             <div class="col-12">
-              &copy; {{ "now" | date: "%Y" }} Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.
+              &copy; {{ now("%Y") }} Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.
               <nav>
                 <ul class="p-inline-list--middot">
                   <li class="p-inline-list__item">
@@ -312,9 +312,9 @@
         }
       </script>
     </div>
-    <script src="/js/scripts.js"></script>
+    <script src="/static/js/scripts.js"></script>
     <script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
-    <script defer src="/js/example.js"></script>
+    <script defer src="/static/js/example.js"></script>
     <!-- begin usabilla live embed code -->
     <script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"///"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
 window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/4f2e23c6debc.js");

@@ -1,7 +1,9 @@
----
-layout: examples
-title: Sup
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Sup{% endblock %}
 
-{% include base/sup.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<h1>This is an example of sup<sup>&copy;</sup> in title</h1>
+<p>This is an example of sup<sup>&copy;</sup> in text</p>
+{% endblock %}

@@ -1,7 +1,11 @@
----
-layout: examples
-title: Card / Highlighted
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Card / Highlighted{% endblock %}
 
-{% include patterns/card/highlighted.html %}
+{% block standalone_css %}patterns_card{% endblock %}
+
+{% block content %}
+<div class="p-card--highlighted">
+  <h3 class="p-card__title">We'd love to have you join us as a partner.</h3>
+  <p class="p-card__content">If you are an independent software vendor or bundle author, it's easy to apply. You can find out more below.</p>
+</div>
+{% endblock %}

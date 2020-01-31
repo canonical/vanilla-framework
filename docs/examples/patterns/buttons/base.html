@@ -1,7 +1,9 @@
----
-layout: examples
-title: Buttons / Base
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Buttons / Base{% endblock %}
 
-{% include patterns/buttons/base.html %}
+{% block standalone_css %}patterns_buttons{% endblock %}
+
+{% block content %}
+<button class="p-button--base">Base</button>
+<button class="p-button--base" disabled>Base disabled</button>
+{% endblock %}

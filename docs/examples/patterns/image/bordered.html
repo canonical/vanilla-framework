@@ -1,7 +1,8 @@
----
-layout: examples
-title: Image / Border
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Image / Border{% endblock %}
 
-{% include patterns/image/bordered.html %}
+{% block standalone_css %}patterns_image{% endblock %}
+
+{% block content %}
+<img class="p-image--bordered" src="https://assets.ubuntu.com/v1/584903f3-iot-drone.png" alt="">
+{% endblock %}

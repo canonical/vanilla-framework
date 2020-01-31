@@ -1,7 +1,31 @@
----
-layout: examples
-title: Grid / Nesting - All screens
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / Nesting - All screens{% endblock %}
 
-{% include patterns/grid/nested.html %}
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+<div class="row grid-demo">
+  <div class="col-small-4 col-medium-6 col-12">
+    col-small-4 .col-medium-6 .col-12
+    <div class="row">
+      <div class="col-small-3 col-medium-3 col-9">
+        col-small-3 .col-medium-3 .col-9
+        <div class="row">
+          <div class="col-small-1 col-medium-1 col-2">
+            col-small-1 col-medium-1 col-2
+          </div>
+          <div class="col-small-1 col-medium-1 col-3">
+            col-small-1 col-medium-1 col-2
+          </div>
+          <div class="col-small-1 col-medium-1 col-3">
+            col-small-1 col-medium-1 col-2
+          </div>
+        </div>
+      </div>
+      <div class="col-small-1 col-medium-3 col-3">
+        col-small-2 col-medium-3 col-3
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

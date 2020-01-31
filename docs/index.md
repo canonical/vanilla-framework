@@ -1,6 +1,7 @@
 ---
-layout: default
-homepage: true
+wrapper_template: '_layouts/default.html'
+context:
+  title: Get started
 ---
 
 ## Get started
@@ -35,7 +36,7 @@ You can use Vanilla in your projects in a few different ways. See [Building with
   <div class="col-12">
     <h3>Hotlink</h3>
     <p>You can add Vanilla directly to your markup:</p>
-    <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-{{ site.version }}.min.css" /&gt;</code></pre>
+    <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-{{ version }}.min.css" /&gt;</code></pre>
   </div>
 </div>
 
@@ -45,7 +46,7 @@ You can use Vanilla in your projects in a few different ways. See [Building with
   <div class="col-12">
     <h3>Download</h3>
     <p>Download the latest version of Vanilla from GitHub.</p>
-    <button class="p-button--positive"><a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v{{ site.version }}.zip">Download v{{ site.version }}</a></button>
+    <button class="p-button--positive"><a href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v{{ version }}.zip">Download v{{ version }}</a></button>
   </div>
 </div>
 

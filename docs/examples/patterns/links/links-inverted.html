@@ -1,7 +1,10 @@
----
-layout: examples
-title: Links / Inverted
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Links / Inverted{% endblock %}
 
-{% include patterns/links/links-inverted.html %}
+{% block standalone_css %}patterns_links{% endblock %}
+
+{% block content %}
+<div class="p-strip--dark" style="background: #111">
+  <a href="#" class="p-link--inverted">Package & publish your app</a>
+</div>
+{% endblock %}

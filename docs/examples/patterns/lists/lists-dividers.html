@@ -1,7 +1,12 @@
----
-layout: examples
-title: Lists / Horizontal divider
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Horizontal divider{% endblock %}
 
-{% include patterns/lists/lists-dividers.html %}
+{% block standalone_css %}patterns_lists{% endblock %}
+
+{% block content %}
+<ul class="p-list--divided">
+  <li class="p-list__item">Single-command install and upgrade</li>
+  <li class="p-list__item">Postgres database for reliable state</li>
+  <li class="p-list__item">High availability for all services</li>
+</ul>
+{% endblock %}

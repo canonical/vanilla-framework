@@ -1,7 +1,14 @@
----
-layout: examples
-title: Forms / Help text
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Help text{% endblock %}
 
-{% include patterns/forms/form-help-text.html %}
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% block content %}
+<form>
+  <label for="exampleTextInputHelp">Email address</label>
+  <input class="p-form-validation__input" type="text" id="exampleTextInputHelp" placeholder="example@canonical.com" />
+  <p class="p-form-help-text">
+    A notification email will be sent to entered email address.
+  </p>
+</form>
+{% endblock %}

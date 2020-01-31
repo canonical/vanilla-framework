@@ -1,7 +1,21 @@
----
-layout: examples
-title: Media object / Circle
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Media object / Circle{% endblock %}
 
-{% include patterns/media-object/media-object-circ-img.html %}
+{% block standalone_css %}patterns_media-object{% endblock %}
+
+{% block content %}
+<div class="p-media-object">
+  <img src="https://assets.ubuntu.com/v1/0a529437-karlos.jpeg" class="p-media-object__image is-round">
+  <div class="p-media-object__details">
+    <h3 class="p-media-object__title">
+      <a href="#">Karl Waghorn-Moyce</a>
+    </h3>
+    <p class="p-media-object__content">Lead Visual Designer</p>
+    <ul class="p-media-object__meta-list">
+      <li class="p-media-object__meta-list-item--location">
+        <span class="u-off-screen">Location: </span>London, UK
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

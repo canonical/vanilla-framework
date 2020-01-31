@@ -1,6 +1,8 @@
 ---
 collection: utilities
-layout: default
+wrapper_template: '_layouts/default.html'
+context:
+  title: Image position
 ---
 
 ## Image position

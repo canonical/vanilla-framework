@@ -1,7 +1,8 @@
----
-layout: examples
-title: Strong text
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Strong text{% endblock %}
 
-{% include base/strong.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<p>The pastebin is <strong>blocked</strong>.</p>
+{% endblock %}

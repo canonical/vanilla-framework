@@ -1,7 +1,9 @@
----
-layout: examples
-title: Buttons / Positive
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Buttons / Positive{% endblock %}
 
-{% include patterns/buttons/positive.html %}
+{% block standalone_css %}patterns_buttons{% endblock %}
+
+{% block content %}
+<button class="p-button--positive">Positive button</button>
+<button class="p-button--positive" disabled>Positive button disabled</button>
+{% endblock %}

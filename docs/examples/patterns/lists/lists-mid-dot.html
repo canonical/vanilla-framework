@@ -1,7 +1,18 @@
----
-layout: examples
-title: Lists / Middot
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Middot{% endblock %}
 
-{% include patterns/lists/lists-mid-dot.html %}
+{% block standalone_css %}patterns_lists{% endblock %}
+
+{% block content %}
+<ul class="p-inline-list--middot">
+  <li class="p-inline-list__item">
+    Legal information
+  </li>
+  <li class="p-inline-list__item">
+    Data privacy
+  </li>
+  <li class="p-inline-list__item">
+    Report a bug on this site
+  </li>
+</ul>
+{% endblock %}

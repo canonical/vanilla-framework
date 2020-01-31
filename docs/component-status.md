@@ -1,6 +1,7 @@
 ---
-layout: default
-permalink: /component-status.html
+wrapper_template: '_layouts/default.html'
+context:
+  title: Component status
 ---
 
 ## Component status

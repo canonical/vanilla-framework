@@ -1,7 +1,27 @@
----
-layout: examples
-title: Switch
-category: _patterns
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Switch{% endblock %}
 
-{% include patterns/switch.html %}
+{% block standalone_css %}patterns_switch{% endblock %}
+
+{% block content %}
+<label>
+    On
+    <input type="checkbox" class="p-switch" checked />
+    <div class="p-switch__slider"></div>
+</label>
+<label>
+    Off
+    <input type="checkbox" class="p-switch" />
+    <div class="p-switch__slider"></div>
+</label>
+<label>
+    On disabled
+    <input type="checkbox" class="p-switch" checked disabled />
+    <div class="p-switch__slider"></div>
+</label>
+<label>
+    Off disabled
+    <input type="checkbox" class="p-switch" disabled />
+    <div class="p-switch__slider"></div>
+</label>
+{% endblock %}

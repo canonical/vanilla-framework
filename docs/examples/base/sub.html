@@ -1,7 +1,9 @@
----
-layout: examples
-title: Sub
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Sub{% endblock %}
 
-{% include base/sub.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<h1>The chemical formula of water: H<sub>2</sub>O</h1>
+<p>The chemical formula of water: H<sub>2</sub>O</p>
+{% endblock %}

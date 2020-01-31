@@ -1,7 +1,17 @@
----
-layout: examples
-title: Lists / Ordered List
-category: _base
----
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Ordered List{% endblock %}
 
-{% include base/lists/ordered-list.html %}
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<ol>
+  <li>Install LXD using the instructions for your OS</li>
+  <li>Install Conjure up using the instructions for your OS
+    <ol>
+      <li>Ubuntu</li>
+      <li>macOS</li>
+    </ol>
+  </li>
+  <li>Proceed with the relevant steps from the install instructions and choose localhost in the CHOOSE A CLOUD step.</li>
+</ol>
+{% endblock %}
