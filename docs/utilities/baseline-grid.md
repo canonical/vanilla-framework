@@ -1,5 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
+context:
+  title: Font metrics
 ---
 
 ## Font metrics
