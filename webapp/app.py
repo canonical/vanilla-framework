@@ -1,5 +1,4 @@
 # Code
-import datetime
 import glob
 import json
 import os
@@ -8,6 +7,11 @@ import os
 import flask
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
+
+
+# Constants
+with open("package.json") as package_json:
+    VANILLA_VERSION = json.load(package_json)["version"]
 
 
 app = FlaskBase(
@@ -60,10 +64,7 @@ def _get_examples():
 # Global context settings
 @app.context_processor
 def global_template_context():
-    with open("package.json") as package_json:
-        version = json.load(package_json)["version"]
-
-    return {"version": version, "path": flask.request.path}
+    return {"version": VANILLA_VERSION, "path": flask.request.path}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
