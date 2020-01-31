@@ -10,7 +10,6 @@ from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
 
 
-# Rename your project below
 app = FlaskBase(
     __name__,
     "docs.vanillaframework.io",
@@ -64,11 +63,7 @@ def global_template_context():
     with open("package.json") as package_json:
         version = json.load(package_json)["version"]
 
-    return {
-        "version": version,
-        "current_year": datetime.datetime.now().year,
-        "path": flask.request.path,
-    }
+    return {"version": version, "path": flask.request.path}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
