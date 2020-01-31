@@ -1,6 +1,8 @@
 ---
 collection: patterns
 wrapper_template: '_layouts/default.html'
+context:
+  title: Muted heading
 ---
 
 ## Muted heading

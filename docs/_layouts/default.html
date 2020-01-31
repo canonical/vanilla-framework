@@ -11,7 +11,7 @@
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
-    <title>{% if title %}{{ title }} | Vanilla documentation{% else %}Vanilla documentation{% endif %}</title>
+    <title>{% block title %}{{ title }}{% endblock %}{% if self.title() %} | {% endif %}Vanilla documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/styles.css" />

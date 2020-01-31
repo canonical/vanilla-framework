@@ -1,5 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
+context:
+  title: Off screen
 ---
 
 ## Off screen
