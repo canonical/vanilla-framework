@@ -1,0 +1,65 @@
+{% extends "_layouts/default.html" %}
+
+{% block title %}Search results{% if query %} for "{{query}}"{% endif %}{% endblock %}
+
+{% block content %}
+<section id="search">
+  <div class="row">
+    <form class="p-search-box u-no-margin--bottom" action="/search">
+      <input type="search" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search Vanilla docs" required/>
+      <button type="button" class="p-search-box__reset" alt="reset" onclick="this.previousElementSibling.value = '';this.previousElementSibling.focus()"><i class="p-icon--close">Reset</i></button>
+      <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
+    </form>
+  </div>
+</section>
+
+<div class="l-docs">
+  <div class="p-strip">
+    <div class="row">
+      <div class="col-12">
+        {% if results and results.entries %}
+          <h1 class="p-heading--two u-no-margin--bottom">We've found these results for your search <strong>"{{ query }}"</strong></h1>
+        {% else %}
+          <h1 class="p-heading--two u-no-margin--bottom">We haven't found any results for your search <strong>"{{ query }}"</strong>.</h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% if  results and results.entries %}
+    {% for item in results.entries %}
+      <div class="p-strip is-bordered is-shallow">
+        <div class="row">
+          <div class="col-12">
+            <h5><a href="{{ item.link }}" class="title-main">{{ item.htmlTitle | safe}}</a></h5>
+            <p>
+              {{ item.htmlSnippet | safe }}
+            </p>
+            <small><a href="{{ item.link }}">{{ item.htmlFormattedUrl | safe }}</a></small>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+      <div class="p-strip p-article-pagination">
+        {% if  results.queries and results.queries.previousPage %}
+          <a
+            class="p-article-pagination__link--previous"
+            href="/search?q={{ query }}&amp;start={{ results.queries.previousPage.0.startIndex }}{% if siteSearch %}&amp;siteSearch={{ siteSearch }}{% endif %}"
+          >
+            <span class="p-article-pagination__label">Previous</span>
+          </a>
+        {% endif %}
+        {% if results.queries and results.queries.nextPage %}
+          <a
+            class="p-article-pagination__link--next"
+            href="/search?q={{ query }}&amp;start={{ results.queries.nextPage.0.startIndex }}{% if siteSearch %}&amp;siteSearch={{ siteSearch }}{% endif %}"
+          >
+            <span class="p-article-pagination__label">Next</span>
+          </a>
+        {% endif %}
+      </div>
+    {% else %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
