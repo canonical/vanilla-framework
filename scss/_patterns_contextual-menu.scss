@@ -97,8 +97,8 @@
     display: block;
 
     + .p-contextual-menu__group {
-      border-top-width: 1px;
       border-top-style: solid;
+      border-top-width: 1px;
       margin: -1px 0 0 0;
     }
   }
@@ -137,53 +137,53 @@
   // Theming
   @if ($theme-default-p-contextual-menu == 'dark') {
     .p-contextual-menu__dropdown {
-      @extend %p-contextual-menu__dropdown--dark-theme;
+      @extend %p-contextual-menu--dropdown--dark-theme;
     }
 
     .p-contextual-menu__group {
-      @extend %p-contextual-menu__group--dark-theme;
+      @extend %p-contextual-menu--group--dark-theme;
     }
 
     .p-contextual-menu__link {
-      @extend %p-contextual-menu__link--dark-theme;
+      @extend %p-contextual-menu--link--dark-theme;
     }
 
     .p-contextual-menu__dropdown.is-light {
-      @extend %p-contextual-menu__dropdown--light-theme;
+      @extend %p-contextual-menu--dropdown--light-theme;
       .p-contextual-menu__group {
-        @extend %p-contextual-menu__group--light-theme;
+        @extend %p-contextual-menu--group--light-theme;
       }
 
       .p-contextual-menu__link {
-        @extend %p-contextual-menu__link--light-theme;
+        @extend %p-contextual-menu--link--light-theme;
       }
     }
   } @else {
     .p-contextual-menu__dropdown {
-      @extend %p-contextual-menu__dropdown--light-theme;
+      @extend %p-contextual-menu--dropdown--light-theme;
     }
     .p-contextual-menu__group {
-      @extend %p-contextual-menu__group--light-theme;
+      @extend %p-contextual-menu--group--light-theme;
     }
 
     .p-contextual-menu__link {
-      @extend %p-contextual-menu__link--light-theme;
+      @extend %p-contextual-menu--link--light-theme;
     }
 
     .p-contextual-menu__dropdown.is-dark {
-      @extend %p-contextual-menu__dropdown--dark-theme;
+      @extend %p-contextual-menu--dropdown--dark-theme;
 
       .p-contextual-menu__group {
-        @extend %p-contextual-menu__group--dark-theme;
+        @extend %p-contextual-menu--group--dark-theme;
       }
 
       .p-contextual-menu__link {
-        @extend %p-contextual-menu__link--dark-theme;
+        @extend %p-contextual-menu--link--dark-theme;
       }
     }
   }
 
-  %p-contextual-menu__dropdown--light-theme {
+  %p-contextual-menu--dropdown--light-theme {
     background: $colors--light-theme--background;
 
     &::after {
@@ -191,13 +191,13 @@
     }
   }
 
-  %p-contextual-menu__group--light-theme {
+  %p-contextual-menu--group--light-theme {
     & + & {
       border-top-color: $colors--light-theme--border-default;
     }
   }
 
-  %p-contextual-menu__link--light-theme {
+  %p-contextual-menu--link--light-theme {
     &,
     &:active,
     &:hover,
@@ -210,7 +210,7 @@
     }
   }
 
-  %p-contextual-menu__dropdown--dark-theme {
+  %p-contextual-menu--dropdown--dark-theme {
     background: $colors--dark-theme--background;
 
     &::after {
@@ -218,13 +218,13 @@
     }
   }
 
-  %p-contextual-menu__group--dark-theme {
+  %p-contextual-menu--group--dark-theme {
     & + & {
       border-top-color: $colors--dark-theme--border-default;
     }
   }
 
-  %p-contextual-menu__link--dark-theme {
+  %p-contextual-menu--link--dark-theme {
     &,
     &:active,
     &:hover,
