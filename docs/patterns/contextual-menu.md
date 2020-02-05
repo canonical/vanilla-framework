@@ -57,7 +57,7 @@ The contextual menu uses Vanilla's light theme by default. There are two ways to
 - Override the default by adding a state to `p-contextual-menu`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
 
 <a href="/examples/patterns/contextual-menu/dark" class="js-example">
-View example of the contextual menu with an is-light class
+View example of the contextual menu with an is-dark class
 </a>
 
 <a href="/examples/patterns/contextual-menu/light" class="js-example">
