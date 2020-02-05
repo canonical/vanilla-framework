@@ -1,48 +1,44 @@
 @import 'settings';
 
 @mixin vf-p-contextual-menu {
-  .p-contextual-menu {
+  %p-contextual-menu {
     display: inline-block;
     margin: 0;
     position: relative;
   }
 
+  .p-contextual-menu {
+    @extend %p-contextual-menu;
+  }
+
   // Alignment extension to align the menu to the left
   .p-contextual-menu--left {
-    @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
+    @extend %p-contextual-menu;
 
     .p-contextual-menu__dropdown {
       left: 0;
 
-      &::before,
       &::after {
-        left: $sp-small;
+        left: $sph-inner;
         right: initial;
-      }
-
-      &::after {
-        left: $sp-small + 0.1rem;
       }
     }
   }
 
   // Alignment extension to align the menu to the center of the parent
   .p-contextual-menu--center {
-    @extend .p-contextual-menu; // sass-lint:disable-line placeholder-in-extend
+    @extend %p-contextual-menu;
 
     .p-contextual-menu__dropdown {
       // sass-lint:disable no-vendor-prefixes property-sort-order
       left: 50%;
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
+      // sass-lint:enable no-vendor-prefixes property-sort-order
 
-      &::before,
       &::after {
         left: 50%;
         right: initial;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-        // sass-lint:enable no-vendor-prefixes property-sort-order
       }
     }
   }
@@ -61,30 +57,17 @@
     width: fit-content;
     z-index: 1;
 
-    &::before,
     &::after {
-      border: {
-        bottom-color: transparent;
-        bottom-style: solid;
-        bottom-width: 8px;
-        left: 8px solid transparent;
-        right: 8px solid transparent;
-      }
+      border: 0.25rem solid transparent;
       bottom: 100%;
       content: '';
       height: 0;
       pointer-events: none;
       position: absolute;
-      right: $sp-small;
       width: 0;
-    }
-
-    &::after {
-      border: {
-        left: 6px solid transparent;
-        right: 6px solid transparent;
-      }
-      right: $sp-small + 0.1rem;
+      right: $sph-inner;
+      transform: rotate(-45deg);
+      transform-origin: 100% 100%;
     }
 
     // When set to false will show the contextual menu
@@ -118,7 +101,7 @@
     display: block;
     margin: 0;
     overflow: hidden;
-    padding: $spv-inner--x-small $sp-small;
+    padding: $spv-inner--x-small $sph-inner;
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -148,8 +131,10 @@
       @extend %p-contextual-menu--link--dark-theme;
     }
 
-    .p-contextual-menu__dropdown.is-light {
-      @extend %p-contextual-menu--dropdown--light-theme;
+    [class*='p-contextual-menu'].is-light {
+      .p-contextual-menu__dropdown {
+        @extend %p-contextual-menu--dropdown--light-theme;
+      }
 
       .p-contextual-menu__group {
         @extend %p-contextual-menu--group--light-theme;
@@ -172,9 +157,10 @@
       @extend %p-contextual-menu--link--light-theme;
     }
 
-    .p-contextual-menu__dropdown.is-dark {
-      @extend %p-contextual-menu--dropdown--dark-theme;
-
+    [class*='p-contextual-menu'].is-dark {
+      .p-contextual-menu__dropdown {
+        @extend %p-contextual-menu--dropdown--dark-theme;
+      }
       .p-contextual-menu__group {
         @extend %p-contextual-menu--group--dark-theme;
       }
@@ -189,7 +175,8 @@
     background: $colors--light-theme--background;
 
     &::after {
-      border-bottom-color: $colors--light-theme--background;
+      border-color: $colors--light-theme--background $colors--light-theme--background transparent transparent;
+      box-shadow: 1px -1px 1.5px 0 transparentize($color-dark, 0.93);
     }
   }
 
@@ -217,6 +204,8 @@
 
     &::after {
       border-bottom-color: $colors--dark-theme--background;
+      border-color: $colors--dark-theme--background $colors--dark-theme--background transparent transparent;
+      box-shadow: 1px -1px 1.5px 0 transparentize($color-dark, 0.93);
     }
   }
 
