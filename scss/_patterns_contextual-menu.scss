@@ -90,6 +90,15 @@
     margin-bottom: $spv-inner--small + ($spv-nudge-compensation * 2);
   }
 
+  .p-contextual-menu__dropdown {
+    // sass-lint:disable no-qualifying-elements
+    button.p-contextual-menu__toggle + &,
+    [class*='p-button'] {
+      margin-top: -#{$input-margin-bottom};
+    }
+    // sass-lint:enable no-qualifying-elements
+  }
+
   .p-contextual-menu__link {
     @include vf-focus;
     border: 0;
