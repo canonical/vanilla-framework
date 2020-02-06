@@ -9,7 +9,7 @@ context:
 
 <hr>
 
-A contextual menu can be applied to any button, link or navigation item that requires a secondary menu. To interact with the menu it will require some javascript to hide/show each pattern. This achieved by finding the toggle element `p-contextual-menu__toggle` and what it controls `aria-controls`.
+A contextual menu can be applied to any button, link or navigation item that requires a secondary menu. To interact with the menu it will require some javascript to hide/show each pattern. This is achieved by finding the toggle element `p-contextual-menu__toggle` and what it controls `aria-controls`.
 
 The target element will be hidden or shown with `aria-hidden="true"` or `false`. The control element will change to `aria-expanded` so screen readers will know it's active.
 
@@ -48,6 +48,21 @@ View example of the contextual menu pattern
 ### Functionality
 
 Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the contextual menu will be open by default. When clicking on the `p-contextual-menu__toggle`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the drop-down.
+
+### Theming
+
+The contextual menu uses Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
+
+- Change the default: go to `_settings_themes.scss` and set `$theme-default-p-contextual-menu` to `dark`
+- Override the default by adding a state to `p-contextual-menu`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
+
+<a href="/examples/patterns/contextual-menu/dark" class="js-example">
+View example of the contextual menu with an is-dark class
+</a>
+
+<a href="/examples/patterns/contextual-menu/light" class="js-example">
+View example of the contextual menu with an is-light class
+</a>
 
 ### Import
 
