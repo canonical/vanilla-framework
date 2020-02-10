@@ -3,16 +3,6 @@
 {% block title %}Search results{% if query %} for "{{query}}"{% endif %}{% endblock %}
 
 {% block content %}
-<section id="search">
-  <div class="row">
-    <form class="p-search-box u-no-margin--bottom" action="/search">
-      <input type="search" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search Vanilla docs" required/>
-      <button type="button" class="p-search-box__reset" alt="reset" onclick="this.previousElementSibling.value = '';this.previousElementSibling.focus()"><i class="p-icon--close">Reset</i></button>
-      <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
-    </form>
-  </div>
-</section>
-
 <div class="u-fixed-width">
   <div class="p-strip is-shallow">
     {% if results and results.entries %}
