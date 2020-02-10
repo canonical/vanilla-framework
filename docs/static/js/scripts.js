@@ -27,29 +27,11 @@ links.forEach(function(link) {
 });
 
 // Docs search functions
-function resetFilter() {
-  document.getElementById('docs-list-sorted').classList.add('u-hide');
-  document.getElementById('docs-list-unsorted').classList.remove('u-hide');
-}
+var searchDocsReset = document.getElementById('search-docs-reset');
+var searchBox = document.getElementById('search-docs');
 
-function filterDocs() {
-  var input = document.getElementById('search-docs');
-  var filter = input.value.toLowerCase();
-
-  if (filter) {
-    document.getElementById('docs-list-unsorted').classList.add('u-hide');
-    document.getElementById('docs-list-sorted').classList.remove('u-hide');
-
-    var docsListItems = document.querySelectorAll('#docs-list-sorted .p-sidebar-nav__item');
-    docsListItems.forEach(function(item) {
-      var text = item.firstElementChild.innerText.toLowerCase();
-      if (text.indexOf(filter) === 0) {
-        item.classList.remove('u-hide');
-      } else {
-        item.classList.add('u-hide');
-      }
-    });
-  } else {
-    resetFilter();
-  }
-}
+searchDocsReset.addEventListener('click', function(e) {
+  searchBox.value = '';
+  searchBox.focus();
+  e.preventDefault();
+});
