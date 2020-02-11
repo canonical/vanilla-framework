@@ -76,10 +76,6 @@ hr {
   flex-wrap: wrap;
 }
 
-.p-navigation {
-  flex-basis: 100%;
-}
-
 .p-sidebar {
   background-color: $color-mid-x-light;
   flex: 0 0 18rem;
@@ -209,17 +205,6 @@ hr.is-deep {
 }
 
 /* Prototype sidebar + navigation toggles */
-.p-navigation__banner {
-  display: block;
-
-  @media only screen and (max-width: $breakpoint-medium) {
-    display: flex;
-  }
-
-  @media only screen and (min-width: $breakpoint-medium + 1px) {
-    max-width: 10.5rem;
-  }
-}
 
 .p-navigation__toggles {
   min-width: 15rem;
@@ -249,6 +234,23 @@ hr.is-deep {
   }
 }
 
+.p-sidebar__toggle {
+  &,
+  &:visited,
+  &:focus {
+    color: $colors--light-theme--text-default;
+  }
+
+  &:hover {
+    opacity: $navigation-hover-opacity;
+    text-decoration: none;
+  }
+
+  &.is-active:hover {
+    opacity: 1;
+  }
+}
+
 .p-sidebar__toggle.is-active,
 .p-navigation__toggle--close {
   &::after {
@@ -257,26 +259,10 @@ hr.is-deep {
 }
 
 .p-sidebar__toggle.is-active {
-  border-bottom: 1px solid $color-mid-x-light;
   background-color: $color-mid-x-light;
   z-index: 1;
 
   &:focus {
     outline: none;
   }
-}
-
-.p-navigation__toggle--close {
-  border-bottom: 1px solid $color-x-light;
-  z-index: 1;
-}
-
-.p-sidebar__toggle {
-  border-left: 1px solid $color-mid-light;
-}
-
-.p-navigation__toggle--open,
-.p-navigation__toggle--close {
-  border-left: 1px solid $color-mid-light;
-  border-right: 1px solid $color-mid-light;
 }
