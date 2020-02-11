@@ -25,12 +25,12 @@ When we add, make significant updates, or deprecate a component we update their 
     <tr>
       <th><a href="/base/typography#heading-classes">Heading classes</a></th>
       <td><div class="p-label--updated">Updated</div></td>
-      <td>New heading classes with numbers (<code>p-heading-1</code>, ...) were added for consistency with other class names we use.</td>
+      <td>New heading classes with numbers (<code>p-heading--1</code>, ...) were added for consistency with other class names we use.</td>
     </tr>
     <tr>
       <th><a href="/base/typography#heading-classes">Heading classes</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>Heading classes with numbers as words (<code>p-heading--one</code>, <code>--two</code>, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (<code>p-heading-1</code>, <code>-2</code>, ...) instead.</td>
+      <td>Heading classes with numbers as words (<code>p-heading--one</code>, <code>--two</code>, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (<code>p-heading--1</code>, <code>--2</code>, ...) instead.</td>
     </tr>
   </tbody>
 </table>

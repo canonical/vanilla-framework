@@ -79,7 +79,7 @@ modified to look like a particular heading size.
 View example of the heading pattern
 </a>
 
-<span class="p-label--deprecated">Deprecated</span> Heading classes with numbers as words (`p-heading--one`, `--two`, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (`p-heading-1`, `-2`, ...) instead.
+<span class="p-label--deprecated">Deprecated</span> Heading classes with numbers as words (`p-heading--one`, `--two`, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (`p-heading--1`, `--2`, ...) instead.
 
 ### Sub-headings
 
