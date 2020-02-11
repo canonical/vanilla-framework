@@ -66,6 +66,8 @@ Heading sizes are obtained by taking the ratio to a specified `power` listed in 
 
 ### Heading classes
 
+<span class="p-label--updated">Updated</span>
+
 Heading classes can be added to text elements to give them the same visual
 appearance as the base `h1`-`h6` heading elements without sacrificing correct
 heading order and semantics.
@@ -76,6 +78,8 @@ modified to look like a particular heading size.
 <a href="/examples/patterns/headings/default/" class="js-example">
 View example of the heading pattern
 </a>
+
+<span class="p-label--deprecated">Deprecated</span> Heading classes with numbers as words (`p-heading--one`, `--two`, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (`p-heading-1`, `-2`, ...) instead.
 
 ### Sub-headings
 
