@@ -21,7 +21,31 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.6.0 -->
+    <!-- 2.7.0 -->
+    <tr>
+      <th><a href="/base/typography#heading-classes">Heading classes</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>New heading classes with numbers (<code>p-heading--1</code>, ...) were added for consistency with other class names we use.</td>
+    </tr>
+    <tr>
+      <th><a href="/base/typography#heading-classes">Heading classes</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>Heading classes with numbers as words (<code>p-heading--one</code>, <code>--two</code>, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (<code>p-heading--1</code>, <code>--2</code>, ...) instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla 2.6
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25%">Component</th>
+      <th style="width: 25%">Status</th>
+      <th style="width: 50%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <th><a href="/base/forms/#range">Range input</a></th>
       <td><div class="p-label--new">New</div></td>
