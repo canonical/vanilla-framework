@@ -2,7 +2,7 @@
 collection: utilities
 wrapper_template: '_layouts/default.html'
 context:
-  title: Image position
+  title: Image position | Utilities
 ---
 
 ## Image position

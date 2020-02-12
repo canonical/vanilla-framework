@@ -2,7 +2,7 @@
 collection: patterns
 wrapper_template: '_layouts/default.html'
 context:
-  title: Heading icon
+  title: Heading icon | Components
 ---
 
 ## Heading icon

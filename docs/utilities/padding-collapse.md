@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Padding collapse
+  title: Padding collapse | Utilities
 ---
 
 ## Padding collapse

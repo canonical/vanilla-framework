@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: List tree
+  title: List tree | Components
 ---
 
 ## List tree
