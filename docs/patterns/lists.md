@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Lists
+  title: Lists | Components
 ---
 
 ## Lists

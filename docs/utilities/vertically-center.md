@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Vertically center
+  title: Vertically center | Utilities
 ---
 
 ## Vertically center

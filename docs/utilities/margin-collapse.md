@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Margin collapse
+  title: Margin collapse | Utilities
 ---
 
 ## Margin collapse

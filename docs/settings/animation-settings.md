@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Animations
+  title: Animations | Settings
 ---
 
 ## Animations
