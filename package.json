@@ -26,12 +26,14 @@
     "url": "https://github.com/canonical-web-and-design/vanilla-framework"
   },
   "scripts": {
-    "build": "node-sass --include-paths node_modules scss --source-map true --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
-    "build-docs-css": "node-sass --include-path node_modules docs/static/scss --source-map true --output-style compressed --output docs/static/css",
+    "build": "node-sass --include-paths node_modules scss --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
+    "build-docs-css": "node-sass --include-path node_modules docs/static/scss --output-style compressed --output docs/static/css",
     "serve": "yarn run build-docs-css && ./entrypoint 0.0.0.0:${PORT}",
     "test": "yarn run lint-scss && mdspell docs/**/*.md -r -n -a --en-gb && node -e 'require(\"./tests/parker\").parkerTest()'",
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
-    "watch": "watch -p 'scss/*.scss' -p 'node_modules/vanilla-framework/scss/*.scss' -c 'yarn run build'",
+    "watch:vanilla-scss": "node-sass --include-paths node_modules scss --output-style compressed --output build/css --watch",
+    "watch:docs-scss": "node-sass --include-path node_modules docs/static/scss --output-style compressed --output docs/static/css --watch",
+    "watch": "yarn build && yarn watch:vanilla-scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js"
   },
