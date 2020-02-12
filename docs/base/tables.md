@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Tables
+  title: Tables | Base elements
 ---
 
 ## Tables

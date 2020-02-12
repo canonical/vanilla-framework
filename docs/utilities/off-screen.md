@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Off screen
+  title: Off screen | Utilities
 ---
 
 ## Off screen

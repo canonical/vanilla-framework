@@ -2,7 +2,7 @@
 collection: patterns
 wrapper_template: '_layouts/default.html'
 context:
-  title: Contextual menu
+  title: Contextual menu | Components
 ---
 
 ## Contextual menu

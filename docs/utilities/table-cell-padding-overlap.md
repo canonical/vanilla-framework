@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Table cell padding overlap
+  title: Table cell padding overlap | Utilities
 ---
 
 ## Table cell padding overlap

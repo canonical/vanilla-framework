@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Functions
+  title: Functions | Utilities
 ---
 
 ## Functions

@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Equal height
+  title: Equal height | Utilities
 ---
 
 ## Equal height

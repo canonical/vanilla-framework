@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Cards
+  title: Cards | Components
 ---
 
 ## Cards
