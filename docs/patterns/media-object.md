@@ -2,7 +2,7 @@
 collection: patterns
 wrapper_template: '_layouts/default.html'
 context:
-  title: Media object
+  title: Media object | Components
 ---
 
 ## Media object

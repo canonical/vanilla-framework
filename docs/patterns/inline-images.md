@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Inline images
+  title: Inline images | Components
 ---
 
 ## Inline images

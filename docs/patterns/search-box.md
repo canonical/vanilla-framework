@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Search box
+  title: Search box | Components
 ---
 
 ## Search box

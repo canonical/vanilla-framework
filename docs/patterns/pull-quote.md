@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Pull quote
+  title: Pull quote | Components
 ---
 
 ## Pull quote

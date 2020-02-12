@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Article pagination
+  title: Article pagination | Components
 ---
 
 ## Article pagination

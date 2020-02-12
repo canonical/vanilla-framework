@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/default.html'
 context:
-  title: Tooltips
+  title: Tooltips | Components
 ---
 
 ## Tooltips
