@@ -81,14 +81,6 @@ Once the containers are setup, you can visit <http://0.0.0.0:8101/> in your brow
 
 The [examples directory](/docs/examples) contains example markup for each component of the framework, and these examples can be viewed in the browser at <http://0.0.0.0:8101/examples/>.
 
-To rebuild the styles for documentation website use:
-
-```bash
-./run exec yarn build-docs-css # Build the documentation styles
-# or
-./run exec yarn watch:docs-scss # Watch for changes to the documentation styles Sass files
-```
-
 ## Community
 
 Keep up to date with all new developments and upcoming changes with Vanilla.
