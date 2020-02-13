@@ -17,13 +17,6 @@ ADD package.json package.json
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install
 
 
-# Build stage: Build the CSS
-# ===
-FROM yarn-dependencies AS build-docs-css
-ADD docs/static/scss docs/static/scss
-RUN yarn run build-docs-css
-
-
 # Build stage: Build vanilla-framework itself
 # ===
 FROM yarn-dependencies AS build-vanilla
@@ -48,8 +41,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 # Import code, build assets and mirror list
 ADD . .
 RUN rm -rf package.json yarn.lock .babelrc webpack.config.js
-COPY --from=build-docs-css /srv/docs/static/css docs/static/css
-COPY --from=build-docs-css /srv/package.json package.json
+COPY --from=build-vanilla /srv/package.json package.json
 COPY --from=build-vanilla /srv/build docs/static/build
 
 # Set revision ID
