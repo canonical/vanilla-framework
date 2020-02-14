@@ -7,6 +7,8 @@ context:
 
 ## Contextual menu
 
+<span class="p-label--updated">Updated</span>
+
 <hr>
 
 A contextual menu can be applied to any button, link or navigation item that requires a secondary menu. To interact with the menu it will require some javascript to hide/show each pattern. This is achieved by finding the toggle element `p-contextual-menu__toggle` and what it controls `aria-controls`.
@@ -51,6 +53,8 @@ Please ensure the `aria-control` attribute matches an ID of an element. If `aria
 
 ### Theming
 
+<span class="p-label--new">New</span>
+
 The contextual menu uses Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
 - Change the default: go to `_settings_themes.scss` and set `$theme-default-p-contextual-menu` to `dark`
@@ -58,10 +62,6 @@ The contextual menu uses Vanilla's light theme by default. There are two ways to
 
 <a href="/examples/patterns/contextual-menu/dark" class="js-example">
 View example of the contextual menu with an is-dark class
-</a>
-
-<a href="/examples/patterns/contextual-menu/light" class="js-example">
-View example of the contextual menu with an is-light class
 </a>
 
 ### Import

@@ -10,7 +10,7 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### Current status
+### What's new in Vanilla 2.7
 
 <table>
   <thead>
@@ -22,6 +22,11 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <!-- 2.7.0 -->
+    <tr>
+      <th><a href="/patterns/contextual-menu#theming">Contextual menu</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>Added dark theme to contextual menu.</td>
+    </tr>
     <tr>
       <th><a href="/base/typography#heading-classes">Heading classes</a></th>
       <td><div class="p-label--updated">Updated</div></td>
