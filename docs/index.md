@@ -56,12 +56,12 @@ You can use Vanilla in your projects in a few different ways. See [Building with
 <h3>Release notes</h3>
 <div class="row">
     <ul class="p-list--divided is-split">
+      <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.7.0">Release v2.7.0 - 17 February, 2020</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.6.0">Release v2.6.0 - 28 January, 2020</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.5.0">Release v2.5.0 - 5 December, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.4.1">Release v2.4.1 - 23 October, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.4.0">Release v2.4.0 - 16 September, 2019</a></li>
       <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0">Release v2.3.0 - 9 August, 2019</a></li>
-      <li class="p-list__item"><a href="https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.2.0">Release v2.2.0 - 1 August, 2019</a></li>
     </ul>
   </div>
   </div>
