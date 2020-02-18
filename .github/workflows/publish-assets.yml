@@ -1,0 +1,28 @@
+name: Release to assets
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo snap install upload-assets
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo snap install upload-assets
+      - run: yarn build
+      - run: yarn test
+        
+  publish-assets:
+    needs: [install, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: upload-assets --url-path vanilla-framework-version-X.X.X.min.css build/css/build.css
+        env:
+          UPLOAD_ASSETS_API_TOKEN: ${{secrets.assets_token}}
