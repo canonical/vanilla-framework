@@ -13,7 +13,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,22 +26,41 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-  python:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v1
-      with:
-        python-version: '3.x' # Semantic version range syntax or exact version of a Python version
-    # You can test your matrix by printing the current Python version
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
-    - name: Install pip dependencies
-      run: pip3 install -r requirements.txt
-    - name: Run server
-      run: ./entrypoint 0.0.0.0:8666 &
-    - run: sleep 5
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: css
+          path: build/css
+  publish:
+     needs: [build]
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/setup-node@v1
+         with:
+           node-version: 12
+       - uses: actions/download-artifact@v1
+         with:
+           name: css
+       - run: cat css/build.css
+
+         
+          
+#   python:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Set up Python 3.x
+#       uses: actions/setup-python@v1
+#       with:
+#         python-version: '3.x' # Semantic version range syntax or exact version of a Python version
+#     # You can test your matrix by printing the current Python version
+#     - name: Display Python version
+#       run: python -c "import sys; print(sys.version)"
+#     - name: Install pip dependencies
+#       run: pip3 install -r requirements.txt
+#     - name: Run server
+#       run: ./entrypoint 0.0.0.0:8666 &
+#     - run: sleep 5
 #     - name: Install upload-assets
 #       run: sudo snap install upload-assets
 #     - name: Run upload-assets
