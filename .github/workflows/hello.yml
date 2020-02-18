@@ -55,8 +55,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v2.7.0-action.test1
-          release_name: Release v2.7.0-action.test
+          tag_name: v2.7.0-action.test2
+          release_name: Release v2.7.0-action.test2
           draft: false
           prerelease: true
       - uses: actions/download-artifact@v1
@@ -69,7 +69,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./css/build/css
+          asset_path: ./css/build.css
           asset_name: vanilla.css
           asset_content_type: text/css  
          
