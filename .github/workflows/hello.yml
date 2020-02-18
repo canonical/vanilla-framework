@@ -49,16 +49,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@master
-      - name: Create Release
+      - uses: release-drafter/release-drafter@v5
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v2.7.0-action.test2
-          release_name: Release v2.7.0-action.test2
-          draft: false
-          prerelease: true
+          # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
+          config-name: my-config.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Create Release
+#         id: create_release
+#         uses: actions/create-release@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+#         with:
+#           tag_name: v2.7.0-action.test2
+#           release_name: Release v2.7.0-action.test2
+#           draft: false
+#           prerelease: true
       - uses: actions/download-artifact@v1
         with:
           name: css  
