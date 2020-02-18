@@ -39,6 +39,9 @@ jobs:
       run: python -c "import sys; print(sys.version)"
     - name: Install pip dependencies
       run: pip3 install -r requirements.txt
+    - name: Run server
+      run: ./entrypoint 0.0.0.0:8666 &
+    - run: sleep 5
 #     - name: Install upload-assets
 #       run: sudo snap install upload-assets
 #     - name: Run upload-assets
