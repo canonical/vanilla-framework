@@ -26,7 +26,7 @@
     "url": "https://github.com/canonical-web-and-design/vanilla-framework"
   },
   "scripts": {
-    "build": "node-sass --include-paths node_modules scss --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
+    "build": "node-sass scss --functions sass-functions.js --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test": "yarn run lint-scss && mdspell docs/**/*.md -r -n -a --en-gb && node -e 'require(\"./tests/parker\").parkerTest()'",
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
