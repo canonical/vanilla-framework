@@ -6,13 +6,13 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
   build:
     runs-on: ubuntu-latest
     steps:
@@ -32,27 +32,27 @@ jobs:
           name: css
           path: build/css
   publish:
-     needs: [build]
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/setup-node@v1
-         with:
-           node-version: 12
-       - uses: actions/download-artifact@v1
-         with:
-           name: css
-       - run: cat css/build.css
-  release:
-    name: Create Release
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
-      - uses: release-drafter/release-drafter@v5
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - uses: actions/download-artifact@v1
+        with:
+          name: css
+      - run: cat css/build.css
+  # release:
+  #   name: Create Release
+  #   needs: [build]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@master
+  # - uses: release-drafter/release-drafter@v5
+  #   id: create_release
+  #   env:
+  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #       - name: Create Release
 #         id: create_release
 #         uses: actions/create-release@v1
@@ -63,21 +63,20 @@ jobs:
 #           release_name: Release v2.7.0-action.test2
 #           draft: false
 #           prerelease: true
-      - uses: actions/download-artifact@v1
-        with:
-          name: css  
-      - name: Upload Release Asset
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./css/build.css
-          asset_name: vanilla.css
-          asset_content_type: text/css  
-         
-          
+# - uses: actions/download-artifact@v1
+#   with:
+#     name: css
+# - name: Upload Release Asset
+#   id: upload-release-asset
+#   uses: actions/upload-release-asset@v1
+#   env:
+#     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#   with:
+#     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+#     asset_path: ./css/build.css
+#     asset_name: vanilla.css
+#     asset_content_type: text/css
+
 #   python:
 #     runs-on: ubuntu-latest
 #     steps:
