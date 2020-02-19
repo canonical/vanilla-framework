@@ -26,13 +26,13 @@ jobs:
       - run: yarn test
       - uses: actions/upload-artifact@v1
         with:
-          name: vanilla.css
-          path: build/css/build.css
+          name: css
+          path: build/css
       - name: Read Vanilla version from package.json
         run: node -p "require('./package.json').version" > VANILLA_VERSION
       - uses: actions/upload-artifact@v1
         with:
-          name: VANILLA_VERSION
+          name: env
           path: VANILLA_VERSION
 
   publish:
@@ -44,9 +44,12 @@ jobs:
           name: vanilla.css
       - uses: actions/download-artifact@v1
         with:
-          name: VANILLA_VERSION
-      - run: cp vanilla.css vanilla-framework-version-$(cat VANILLA_VERSION).min.css
-      - run: cat vanilla-framework-version-$(cat VANILLA_VERSION).min.css
+          name: env
+      - run: ls
+      - run: ls css
+      - run: ls env
+      - run: cp css/build.css vanilla-framework-version-$(cat env/VANILLA_VERSION).min.css
+      - run: cat vanilla-framework-version-$(cat env/VANILLA_VERSION).min.css
       - run: ls
 #       - name: Test
 #         run: yarn test
