@@ -1,0 +1,41 @@
+name: Publish Vanilla release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm publish --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-assets:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo snap install upload-assets
+      - run: echo $GITHUB_REF
+      # - run: upload-assets --url-path vanilla-framework-version-X.X.X.min.css build/css/build.css
+      #   env:
+      #     UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
