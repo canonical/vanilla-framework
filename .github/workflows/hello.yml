@@ -2,17 +2,17 @@ name: Hello
 
 on: [push]
 
-jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+# jobs:
+#   hello:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Run a one-line script
+#         run: echo Hello, world!
+#       - name: Run a multi-line script
+#         run: |
+#           echo Add other actions to build,
+#           echo test, and deploy your project.
   build:
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +27,7 @@ jobs:
       - run: node -p "require('./package.json').version" > VANILLA_VERSION
       - run: cp build/css/build.css vanilla-framework-version-$(cat VANILLA_VERSION).min.css
       - run: cat vanilla-framework-version-$(cat VANILLA_VERSION).min.css
+      - run: ls
 #       - name: Test
 #         run: yarn test
 #       - name: Upload artifact
