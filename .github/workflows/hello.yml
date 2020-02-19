@@ -23,25 +23,28 @@ jobs:
       - name: Install
         run: yarn install
       - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: css
-          path: build/css
-  publish:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - uses: actions/download-artifact@v1
-        with:
-          name: css
-      - run: cat css/build.css
+        run: yarn build 
+      - run: node -p "require('./package.json').version" > VANILLA_VERSION
+      - run: cp build/css/build.css vanilla-framework-version-$(cat VANILLA_VERSION).min.css
+      - run: cat vanilla-framework-version-$(cat VANILLA_VERSION).min.css
+#       - name: Test
+#         run: yarn test
+#       - name: Upload artifact
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: css
+#           path: build/css
+#   publish:
+#     needs: [build]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+#       - uses: actions/download-artifact@v1
+#         with:
+#           name: css
+#       - run: cat css/build.css
   # release:
   #   name: Create Release
   #   needs: [build]
