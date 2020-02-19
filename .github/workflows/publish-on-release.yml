@@ -15,6 +15,16 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
+      - uses: actions/upload-artifact@v1
+        with:
+          name: vanilla.css
+          path: build/css/build.css
+      - name: Read Vanilla version from package.json
+        run: node -p "require('./package.json').version" > VANILLA_VERSION
+      - uses: actions/upload-artifact@v1
+        with:
+          name: VANILLA_VERSION
+          path: VANILLA_VERSION
 
   publish-npm:
     needs: build
@@ -38,10 +48,11 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: sudo snap install upload-assets
-      - run: echo $GITHUB_REF
-      - run: node -p "require('./package.json').version" > VANILLA_VERSION
-      - run: echo $(cat VANILLA_VERSION)
-      - run: upload-assets --url-path vanilla-framework-version-$(cat VANILLA_VERSION).min.css build/css/build.css
+      - name: Install upload-assets snap
+        run: sudo snap install upload-assets
+      - name: Read Vanilla version from package.json
+        run: node -p "require('./package.json').version" > VANILLA_VERSION
+      - name: Upload
+        run: upload-assets --url-path vanilla-framework-version-$(cat VANILLA_VERSION).min.css build/css/build.css
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}

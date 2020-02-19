@@ -3,16 +3,16 @@ name: Hello
 on: [push]
 
 jobs:
-#   hello:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Run a one-line script
-#         run: echo Hello, world!
-#       - name: Run a multi-line script
-#         run: |
-#           echo Add other actions to build,
-#           echo test, and deploy your project.
+  #   hello:
+  #     runs-on: ubuntu-latest
+  #     steps:
+  #       - uses: actions/checkout@v2
+  #       - name: Run a one-line script
+  #         run: echo Hello, world!
+  #       - name: Run a multi-line script
+  #         run: |
+  #           echo Add other actions to build,
+  #           echo test, and deploy your project.
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,12 +20,30 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Install
-        run: yarn install
-      - name: Build
-        run: yarn build 
-      - run: node -p "require('./package.json').version" > VANILLA_VERSION
-      - run: cp build/css/build.css vanilla-framework-version-$(cat VANILLA_VERSION).min.css
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+      - uses: actions/upload-artifact@v1
+        with:
+          name: vanilla.css
+          path: build/css/build.css
+      - name: Read Vanilla version from package.json
+        run: node -p "require('./package.json').version" > VANILLA_VERSION
+      - uses: actions/upload-artifact@v1
+        with:
+          name: VANILLA_VERSION
+          path: VANILLA_VERSION
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: vanilla.css
+      - uses: actions/download-artifact@v1
+        with:
+          name: VANILLA_VERSION
+      - run: cp vanilla.css vanilla-framework-version-$(cat VANILLA_VERSION).min.css
       - run: cat vanilla-framework-version-$(cat VANILLA_VERSION).min.css
       - run: ls
 #       - name: Test
@@ -46,17 +64,17 @@ jobs:
 #         with:
 #           name: css
 #       - run: cat css/build.css
-  # release:
-  #   name: Create Release
-  #   needs: [build]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@master
-  # - uses: release-drafter/release-drafter@v5
-  #   id: create_release
-  #   env:
-  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# release:
+#   name: Create Release
+#   needs: [build]
+#   runs-on: ubuntu-latest
+#   steps:
+#     - name: Checkout code
+#       uses: actions/checkout@master
+# - uses: release-drafter/release-drafter@v5
+#   id: create_release
+#   env:
+#     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #       - name: Create Release
 #         id: create_release
 #         uses: actions/create-release@v1
