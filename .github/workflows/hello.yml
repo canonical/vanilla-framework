@@ -7,7 +7,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v2
-       - run: docker build --tag vf-test .
+       - run: DOCKER_BUILDKIT=1 docker build --tag vf-test .
   #   hello:
   #     runs-on: ubuntu-latest
   #     steps:
