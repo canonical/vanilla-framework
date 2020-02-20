@@ -7,11 +7,10 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v2
-       - run: |
-           DOCKER_BUILDKIT=1 docker build --tag vf-test .
-           docker run -p 8101:80 vf-test &
-           sleep 5
-           curl localhost:8101/_status/check
+       - run: DOCKER_BUILDKIT=1 docker build --tag vf-test .
+       - run: docker run -p 8101:80 vf-test &
+       - run: sleep 5
+       - run: curl localhost:8101/_status/check -I
   #   hello:
   #     runs-on: ubuntu-latest
   #     steps:
