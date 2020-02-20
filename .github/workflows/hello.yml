@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
      - uses: actions/checkout@v2
-     - run: ./run
+     - run: ./run build
+     - run: ./run exec yarn serve &
+     - run: sleep 10
+     - run: curl localhost:8101/_status/check -I
 
 #   docker_build:
 #      runs-on: ubuntu-latest
