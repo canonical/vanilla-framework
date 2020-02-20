@@ -23,7 +23,7 @@ jobs:
       - name: Read Vanilla version from package.json
         run: |
           node -p "require('./package.json').version" > VANILLA_VERSION
-          echo "Building Vanilla v${cat VANILLA_VERSION}"
+          echo "Building Vanilla v$(cat VANILLA_VERSION)"
       - run: yarn install
       - run: yarn build
       - run: yarn test
