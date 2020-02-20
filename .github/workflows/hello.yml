@@ -45,13 +45,13 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - run: npm publish --dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-assets:
     name: Publish to assets server
-    needs: build
+    needs: [build, publish-npm]
     runs-on: ubuntu-latest
     steps:
       - name: Get css from build job
