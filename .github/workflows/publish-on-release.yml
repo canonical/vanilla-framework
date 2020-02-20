@@ -42,7 +42,7 @@ jobs:
 
   publish-assets:
     name: Publish to assets server
-    needs: build
+    needs: [build, publish-npm]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v1
