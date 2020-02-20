@@ -14,6 +14,7 @@ jobs:
   #           echo Add other actions to build,
   #           echo test, and deploy your project.
   build:
+    name: Build Vanilla
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,7 +29,8 @@ jobs:
       - run: yarn build
       - run: yarn test
       - run: cp VANILLA_VERSION build/css
-      - uses: actions/upload-artifact@v1
+      - name: Store built files
+        uses: actions/upload-artifact@v1
         with:
           name: css
           path: build/css
@@ -48,16 +50,17 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-assets:
-    name: Publish to assets
+    name: Publish to assets server
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v1
+      - name: Get css from build job
+        uses: actions/download-artifact@v1
         with:
           name: css
       - name: Install upload-assets snap
         run: sudo snap install upload-assets
-      - name: Upload
+      - name: Upload to assets server
         run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
