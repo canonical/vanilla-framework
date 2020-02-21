@@ -1,13 +1,20 @@
-name: Build Docker
+name: Docker
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+env:
+  PORT: 8765
+
 jobs:
-  docker_build:
-    name: Build Docker image
+  docker:
+    name: Build and run Docker image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker image
-        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test .
+        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
+      - name: Run server with Docker
+        run: docker run -p ${PORT}:80 testrun &
+      - name: Check server status
+        run: curl localhost:${PORT}/_status/check -I
