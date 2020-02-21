@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
      - uses: actions/checkout@v2
-     - run: echo "Hello"
+     - run: echo "::set-output name=fruit::strawberry"
        id: hello
-     - run: echo "${{ steps.hello }} ${{ env.PORT }}"
+     - run: echo "${{ steps.hello.outputs.fruit }} ${{ env.PORT }}"
 
 #   docker_build:
 #      runs-on: ubuntu-latest
