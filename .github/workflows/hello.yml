@@ -3,23 +3,23 @@ name: Hello
 on: [push]
 
 jobs:
-  dotrun:
-    runs-on: ubuntu-latest
-    steps: 
-     - uses: actions/checkout@v2
-     - run: ./run build
-     - run: ./run exec yarn serve &
-     - run: sleep 10
-     - run: curl localhost:8101/_status/check -I
+#   dotrun:
+#     runs-on: ubuntu-latest
+#     steps: 
+#      - uses: actions/checkout@v2
+#      - run: ./run build
+#      - run: ./run exec yarn serve &
+#      - run: sleep 10
+#      - run: curl localhost:8101/_status/check -I
 
-#   docker_build:
-#      runs-on: ubuntu-latest
-#      steps:
-#        - uses: actions/checkout@v2
-#        - run: DOCKER_BUILDKIT=1 docker build --tag vf-test .
-#        - run: docker run -p 8101:80 vf-test &
-#        - run: sleep 5
-#        - run: curl localhost:8101/_status/check -I
+  docker_build:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+       - run: DOCKER_BUILDKIT=1 docker build --tag testrun .
+       - run: docker run -p 8765:80 testrun &
+#       - run: sleep 5
+       - run: curl localhost:8765/_status/check -I
 
   #   hello:
   #     runs-on: ubuntu-latest
