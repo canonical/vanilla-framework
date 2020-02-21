@@ -19,10 +19,12 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v2
+       - run: sudo apt install wait-for-it
        - name: Build Docker image
          run: DOCKER_BUILDKIT=1 docker build --tag testrun .
        - name: Run server with Docker
          run: docker run -p ${PORT}:80 testrun &
+       - run: wait-for-it localhost:${PORT}
        - name: Check server status
          run: curl localhost:${PORT}/_status/check -I
 
