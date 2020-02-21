@@ -21,7 +21,7 @@ jobs:
      - uses: actions/checkout@v2
      - run: echo "Hello"
        id: hello
-     - run: echo "${{ steps.hello.outputs }}"
+     - run: echo "${{ steps.hello }} ${{ env.PORT }}"
 
 #   docker_build:
 #      runs-on: ubuntu-latest
