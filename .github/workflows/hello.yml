@@ -2,6 +2,9 @@ name: Hello
 
 on: [push]
 
+env:
+  PORT: 8765
+  
 jobs:
 #   dotrun:
 #     runs-on: ubuntu-latest
@@ -16,17 +19,12 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v2
-       - run: DOCKER_BUILDKIT=1 docker build --tag testrun .
-       - run: docker run -p 8765:80 testrun &
-
-  docker_run:
-     runs-on: ubuntu-latest
-     needs: docker_build
-     steps:
-       - uses: actions/checkout@v2
-       - run: docker run -p 8765:80 testrun &
-#       - run: sleep 5
-       - run: curl localhost:8765/_status/check -I
+       - name: Build Docker image
+         run: DOCKER_BUILDKIT=1 docker build --tag testrun .
+       - name: Run server with Docker
+         run: docker run -p ${PORT}:80 testrun &
+       - name: Check server status
+         run: curl localhost:${PORT}/_status/check -I
 
   #   hello:
   #     runs-on: ubuntu-latest
