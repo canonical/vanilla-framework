@@ -18,10 +18,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps: 
-     - uses: actions/checkout@v2
-     - run: echo "::set-output name=fruit::strawberry"
-       id: hello
-     - run: echo "${{ steps.hello.outputs.fruit }} ${{ env.PORT }}"
+     #- uses: actions/checkout@v2
+     - run: echo "::set-output name=version::2.7.1"
+       id: package_json
+     - run: echo "::set-output name=version::2.7.0"
+       id: npm
+     - name: equal
+       if: steps.package_json.version == steps.npm.version
+       run: echo "${{ steps.package_json.version }} == ${{ steps.npm.version }}"
+     - name: not equal
+       if: steps.package_json.version != steps.npm.version
+       run: echo "${{ steps.package_json.version }} != ${{ steps.npm.version }}"
 
 #   docker_build:
 #      runs-on: ubuntu-latest
