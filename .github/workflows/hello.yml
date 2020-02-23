@@ -24,11 +24,11 @@ jobs:
      - run: echo "::set-output name=version::2.7.0"
        id: npm
      - name: equal
-       if: steps.package_json.version == steps.npm.version
-       run: echo "${{ steps.package_json.version }} == ${{ steps.npm.version }}"
+       if: steps.package_json.outputs.version == steps.npm.outputs.version
+       run: echo "${{ steps.package_json.outputs.version }} == ${{ steps.npm.outputs.version }}"
      - name: not equal
-       if: steps.package_json.version != steps.npm.version
-       run: echo "${{ steps.package_json.version }} != ${{ steps.npm.version }}"
+       if: steps.package_json.outputs.version != steps.npm.outputs.version
+       run: echo "${{ steps.package_json.outputs.version }} != ${{ steps.npm.outputs.version }}"
 
 #   docker_build:
 #      runs-on: ubuntu-latest
