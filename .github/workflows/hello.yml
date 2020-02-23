@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
      #- uses: actions/checkout@v2
-     - run: echo "::set-output name=version::2.7.1"
+     - run: echo "::set-output name=version::$( node -p "require('./package.json').version" )"
        id: package_json
-     - run: echo "::set-output name=version::2.7.0"
+     - run: echo "::set-output name=version::$( npm show vanilla-framework version )"
        id: npm
      - name: equal
        if: steps.package_json.outputs.version == steps.npm.outputs.version
