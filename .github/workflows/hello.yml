@@ -15,20 +15,31 @@ jobs:
 #      - run: sleep 10
 #      - run: curl localhost:8101/_status/check -I
 
-  test:
+# COMPARE VERSIONS
+#   test:
+#     runs-on: ubuntu-latest
+#     steps: 
+#      - uses: actions/checkout@v2
+#      - run: echo "::set-output name=version::$( node -p "require('./package.json').version" )"
+#        id: package_json
+#      - run: echo "::set-output name=version::$( npm show vanilla-framework version )"
+#        id: npm
+#      - name: equal
+#        if: steps.package_json.outputs.version == steps.npm.outputs.version
+#        run: echo "${{ steps.package_json.outputs.version }} == ${{ steps.npm.outputs.version }}"
+#      - name: not equal
+#        if: steps.package_json.outputs.version != steps.npm.outputs.version
+#        run: echo "${{ steps.package_json.outputs.version }} != ${{ steps.npm.outputs.version }}"
+
+  release:
     runs-on: ubuntu-latest
-    steps: 
-     - uses: actions/checkout@v2
-     - run: echo "::set-output name=version::$( node -p "require('./package.json').version" )"
-       id: package_json
-     - run: echo "::set-output name=version::$( npm show vanilla-framework version )"
-       id: npm
-     - name: equal
-       if: steps.package_json.outputs.version == steps.npm.outputs.version
-       run: echo "${{ steps.package_json.outputs.version }} == ${{ steps.npm.outputs.version }}"
-     - name: not equal
-       if: steps.package_json.outputs.version != steps.npm.outputs.version
-       run: echo "${{ steps.package_json.outputs.version }} != ${{ steps.npm.outputs.version }}"
+    steps:
+      - uses: dfreeman/release-drafter@24057173
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
 
 #   docker_build:
 #      runs-on: ubuntu-latest
