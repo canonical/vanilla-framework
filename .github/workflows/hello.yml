@@ -38,7 +38,7 @@ jobs:
        run: echo "${{ steps.package_json.outputs.version }} != ${{ steps.npm.outputs.version }}"
      # if version in package.json changed, publish next release
      - if: steps.package_json.outputs.version != steps.npm.outputs.version
-       name: Draft next release
+       name: Publish next release
        uses: dfreeman/release-drafter@24057173
        with:
          version: ${{ steps.package_json.outputs.version }} 
