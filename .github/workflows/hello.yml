@@ -16,30 +16,45 @@ jobs:
 #      - run: curl localhost:8101/_status/check -I
 
 # COMPARE VERSIONS
-#   test:
-#     runs-on: ubuntu-latest
-#     steps: 
-#      - uses: actions/checkout@v2
-#      - run: echo "::set-output name=version::$( node -p "require('./package.json').version" )"
-#        id: package_json
-#      - run: echo "::set-output name=version::$( npm show vanilla-framework version )"
-#        id: npm
-#      - name: equal
-#        if: steps.package_json.outputs.version == steps.npm.outputs.version
-#        run: echo "${{ steps.package_json.outputs.version }} == ${{ steps.npm.outputs.version }}"
-#      - name: not equal
-#        if: steps.package_json.outputs.version != steps.npm.outputs.version
-#        run: echo "${{ steps.package_json.outputs.version }} != ${{ steps.npm.outputs.version }}"
-
-  release:
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: dfreeman/release-drafter@24057173
-        with:
-          publish: true
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps: 
+     - uses: actions/checkout@v2
+     - run: echo "::set-output name=version::$( node -p "require('./package.json').version" )"
+       id: package_json
+     - run: echo "::set-output name=version::$( npm show vanilla-framework version )"
+       id: npm
+     - name: equal
+       if: steps.package_json.outputs.version == steps.npm.outputs.version
+       run: echo "${{ steps.package_json.outputs.version }} == ${{ steps.npm.outputs.version }}"
+     # if version didn't change, draft next release
+     - if: steps.package_json.outputs.version == steps.npm.outputs.version
+       name: Draft next release
+       uses: dfreeman/release-drafter@24057173
+       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     - name: not equal
+       if: steps.package_json.outputs.version != steps.npm.outputs.version
+       run: echo "${{ steps.package_json.outputs.version }} != ${{ steps.npm.outputs.version }}"
+     # if version in package.json changed, publish next release
+     - if: steps.package_json.outputs.version != steps.npm.outputs.version
+       name: Draft next release
+       uses: dfreeman/release-drafter@24057173
+       with:
+         version: ${{ steps.package_json.outputs.version }} 
+         publish: true
+       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#   release:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: dfreeman/release-drafter@24057173
+#         with:
+#           publish: true
+#         id: create_release
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
 
