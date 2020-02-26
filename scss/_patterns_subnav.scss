@@ -33,11 +33,19 @@
     }
   }
 
-  // XXX: Fix required because of greedy rule in p-navigation
-  // Can be updated with resolution of:
-  // https://github.com/canonical-web-and-design/vanilla-framework/issues/2168
-  .p-subnav > a {
+  %subnav-link {
     padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
+  }
+
+  .p-subnav > .p-navigation__link {
+    // remove nesting in 3.0 when deprecated __link styles are removed
+    @extend %subnav-link;
+  }
+
+  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    .p-subnav > a {
+      @extend %subnav-link;
+    }
   }
 
   // Theming
