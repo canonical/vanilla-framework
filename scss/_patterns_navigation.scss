@@ -3,6 +3,72 @@
 $navigation-hover-opacity: 0.58;
 
 @mixin vf-p-navigation {
+  // placeholders
+  %navigation-row {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      flex-direction: row;
+    }
+  }
+
+  %navigation-link {
+    $properties: #{background-color, color, opacity};
+    @include vf-animation($properties);
+    display: block;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: 0;
+    overflow: hidden;
+    padding: $spv-inner--medium 0;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding: $spv-inner--medium $sph-inner;
+    }
+
+    &::before {
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        content: none;
+      }
+    }
+
+    &,
+    &:visited,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  %navigation-items {
+    list-style: none;
+    margin: -1px 0 0 0;
+    padding: 0;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0; // prevents bottom border of nav from moving 1px
+    }
+  }
+
+  %navigation-item {
+    @media (min-width: $breakpoint-navigation-threshold) {
+      $nav-link-max-width: 20em !default;
+      max-width: $nav-link-max-width;
+    }
+  }
+
   // no colours
   .p-navigation {
     display: flex;
@@ -15,72 +81,29 @@ $navigation-hover-opacity: 0.58;
       flex-direction: row;
     }
 
+    // navigation row
+    &__row {
+      @extend %fixed-width-container;
+      @extend %navigation-row;
+
+      &--full-width {
+        @extend %vf-grid-container-padding;
+        @extend %navigation-row;
+        width: 100%;
+      }
+    }
+
+    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+      &.row {
+        @extend %navigation-row;
+      }
+    }
+
+    // navigation logo
     &__banner {
       display: flex;
       flex: 0 0 auto;
       justify-content: space-between;
-    }
-
-    &__image {
-      align-self: center;
-      max-height: 2rem;
-      min-height: 1.5rem;
-    }
-
-    &__link {
-      @media (min-width: $breakpoint-navigation-threshold) {
-        $nav-link-max-width: 20em !default;
-        max-width: $nav-link-max-width;
-      }
-
-      & > a {
-        $properties: #{background-color, color, opacity};
-        @include vf-animation($properties);
-        display: block;
-        line-height: map-get($line-heights, default-text);
-        margin-bottom: 0;
-        overflow: hidden;
-        padding: $spv-inner--medium 0;
-        position: relative;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          padding: $spv-inner--medium $sph-inner;
-        }
-
-        &::before {
-          content: '';
-          height: 1px;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-
-          @media (min-width: $breakpoint-navigation-threshold) {
-            content: none;
-          }
-        }
-
-        &,
-        &:visited,
-        &:focus,
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-
-    &__links {
-      list-style: none;
-      margin: -1px 0 0 0;
-      padding: 0;
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 0; // prevents bottom border of nav from moving 1px
-      }
     }
 
     &__logo {
@@ -94,6 +117,13 @@ $navigation-hover-opacity: 0.58;
       }
     }
 
+    &__image {
+      align-self: center;
+      max-height: 2rem;
+      min-height: 1.5rem;
+    }
+
+    // navigation items
     &__nav {
       display: none;
       flex-direction: column;
@@ -106,6 +136,19 @@ $navigation-hover-opacity: 0.58;
       }
     }
 
+    &__link {
+      @extend %navigation-item;
+
+      & > a {
+        @extend %navigation-link;
+      }
+    }
+
+    &__links {
+      @extend %navigation-items;
+    }
+
+    // p-search-box overrides
     .p-search-box {
       flex: 1 0 auto;
       margin: -1px 0 $spv-inner--small 0;
@@ -124,32 +167,7 @@ $navigation-hover-opacity: 0.58;
       }
     }
 
-    %navigation-row {
-      display: flex;
-      flex-direction: column;
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        flex-direction: row;
-      }
-    }
-
-    &__row {
-      @extend %fixed-width-container;
-      @extend %navigation-row;
-
-      &--full-width {
-        @extend %vf-grid-container-padding;
-        @extend %navigation-row;
-        width: 100%;
-      }
-    }
-
-    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
-      &.row {
-        @extend %navigation-row;
-      }
-    }
-
+    // small screen navigation toggles
     &:target {
       &::after {
         display: none;
