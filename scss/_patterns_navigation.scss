@@ -69,6 +69,10 @@ $navigation-hover-opacity: 0.58;
     }
   }
 
+  %navigation-item-in-logo {
+    display: flex;
+  }
+
   // no colours
   .p-navigation {
     display: flex;
@@ -112,8 +116,14 @@ $navigation-hover-opacity: 0.58;
       height: 3rem;
       margin: 0 $sph-inner 0 0;
 
-      .p-navigation__link {
-        display: flex;
+      .p-navigation__item {
+        @extend %navigation-item-in-logo;
+      }
+
+      @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link instead.') {
+        .p-navigation__link {
+          @extend %navigation-item-in-logo;
+        }
       }
     }
 
@@ -136,16 +146,31 @@ $navigation-hover-opacity: 0.58;
       }
     }
 
-    &__link {
+    &__items {
+      @extend %navigation-items;
+    }
+
+    &__item {
       @extend %navigation-item;
 
-      & > a {
+      // this needs to be nested in __item until in 3.0 we remove deprecated __link styles
+      .p-navigation__link {
         @extend %navigation-link;
       }
     }
 
-    &__links {
-      @extend %navigation-items;
+    @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+      &__link {
+        @extend %navigation-item;
+
+        & > a {
+          @extend %navigation-link;
+        }
+      }
+
+      &__links {
+        @extend %navigation-items;
+      }
     }
 
     // p-search-box overrides
@@ -266,9 +291,7 @@ $navigation-hover-opacity: 0.58;
 
   background-color: $color-navigation-background;
 
-  .p-navigation__link > a,
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open {
+  %navigation-link-light {
     &,
     &:visited,
     &:focus {
@@ -280,15 +303,42 @@ $navigation-hover-opacity: 0.58;
     }
   }
 
-  @include deprecate('3.0.0', 'Selectors should use classes.') {
-    .p-navigation__link.is-selected > a {
-      opacity: $navigation-hover-opacity;
-    }
+  %navigation-link-light-selected {
+    opacity: $navigation-hover-opacity;
   }
 
-  .p-navigation__link > a::before {
+  %navigation-link-light-before {
     // separator color on small screens
     background: $colors--light-theme--border-default;
+  }
+
+  .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    @extend %navigation-link-light;
+  }
+
+  .p-navigation__item.is-selected > .p-navigation__link {
+    @extend %navigation-link-light-selected;
+  }
+
+  .p-navigation__item > .p-navigation__link::before {
+    // remove nesting in 3.0 when deprecated __link styles are removed
+    @extend %navigation-link-light-before;
+  }
+
+  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    .p-navigation__link > a {
+      @extend %navigation-link-light;
+    }
+
+    .p-navigation__link.is-selected > a {
+      @extend %navigation-link-light-selected;
+    }
+
+    .p-navigation__link > a::before {
+      @extend %navigation-link-light-before;
+    }
   }
 }
 
@@ -300,9 +350,7 @@ $navigation-hover-opacity: 0.58;
 
   background-color: $color-navigation-background;
 
-  .p-navigation__link > a,
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open {
+  %navigation-link-dark {
     &,
     &:visited,
     &:focus {
@@ -314,14 +362,41 @@ $navigation-hover-opacity: 0.58;
     }
   }
 
-  @include deprecate('3.0.0', 'Selectors should use classes.') {
-    .p-navigation__link.is-selected > a {
-      opacity: $navigation-hover-opacity;
-    }
+  %navigation-link-dark-selected {
+    opacity: $navigation-hover-opacity;
   }
 
-  // separator color on small screens
-  .p-navigation__link > a::before {
+  %navigation-link-dark-before {
+    // separator color on small screens
     background: $colors--dark-theme--border-default;
+  }
+
+  .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    @extend %navigation-link-dark;
+  }
+
+  .p-navigation__item.is-selected > .p-navigation__link {
+    @extend %navigation-link-dark-selected;
+  }
+
+  .p-navigation__item > .p-navigation__link::before {
+    // remove nesting in 3.0 when deprecated __link styles are removed
+    @extend %navigation-link-dark-before;
+  }
+
+  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    .p-navigation__link > a {
+      @extend %navigation-link-dark;
+    }
+
+    .p-navigation__link.is-selected > a {
+      @extend %navigation-link-dark-selected;
+    }
+
+    .p-navigation__link > a::before {
+      @extend %navigation-link-dark-before;
+    }
   }
 }
