@@ -8,6 +8,8 @@ context:
 
 <hr>
 
+<span class="p-label--updated">Updated</span>
+
 Vanilla includes a simple navigation bar that you can add to the top of your
 sites.
 
@@ -33,6 +35,18 @@ by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.sc
 <a href="/examples/patterns/navigation/default/" class="js-example">
 View example of the navigation pattern
 </a>
+
+<span class="p-label--deprecated">Deprecated</span>
+
+In Vanilla 2.8 we deprecated the use of `p-navigation__links`, `p-navigation__link` and classless `<a>` in the navigation. Support for these classes will be removed in future version 3.0.
+
+You should use `p-navigation__items`, `p-navigation__item` and `<a class="p-navigation__link">` instead.
+
+To update to new class names:
+
+- rename all occurrences of `p-navigation__links` to `p-navigation__items`
+- rename all occurrences of `p-navigation__link` to `p-navigation__item`
+- add `p-navigation__link` class to all `<a>` elements that are direct child of `p-navigation__item`
 
 ### Sub-navigation
 
