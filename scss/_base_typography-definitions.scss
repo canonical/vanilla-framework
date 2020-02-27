@@ -167,7 +167,7 @@
     @extend %common-default-text-properties;
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
 
-    & + & {
+    &:not([class*='p-heading--']):not([class*='p-muted-heading']) + & {
       margin-top: -#{$sp-unit};
     }
 
