@@ -3,6 +3,76 @@
 $navigation-hover-opacity: 0.58;
 
 @mixin vf-p-navigation {
+  // placeholders
+  %navigation-row {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      flex-direction: row;
+    }
+  }
+
+  %navigation-link {
+    $properties: #{background-color, color, opacity};
+    @include vf-animation($properties);
+    display: block;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: 0;
+    overflow: hidden;
+    padding: $spv-inner--medium 0;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding: $spv-inner--medium $sph-inner;
+    }
+
+    &::before {
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        content: none;
+      }
+    }
+
+    &,
+    &:visited,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  %navigation-items {
+    list-style: none;
+    margin: -1px 0 0 0;
+    padding: 0;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0; // prevents bottom border of nav from moving 1px
+    }
+  }
+
+  %navigation-item {
+    @media (min-width: $breakpoint-navigation-threshold) {
+      $nav-link-max-width: 20em !default;
+      max-width: $nav-link-max-width;
+    }
+  }
+
+  %navigation-item-in-logo {
+    display: flex;
+  }
+
   // no colours
   .p-navigation {
     display: flex;
@@ -15,72 +85,29 @@ $navigation-hover-opacity: 0.58;
       flex-direction: row;
     }
 
+    // navigation row
+    &__row {
+      @extend %fixed-width-container;
+      @extend %navigation-row;
+
+      &--full-width {
+        @extend %vf-grid-container-padding;
+        @extend %navigation-row;
+        width: 100%;
+      }
+    }
+
+    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
+      &.row {
+        @extend %navigation-row;
+      }
+    }
+
+    // navigation logo
     &__banner {
       display: flex;
       flex: 0 0 auto;
       justify-content: space-between;
-    }
-
-    &__image {
-      align-self: center;
-      max-height: 2rem;
-      min-height: 1.5rem;
-    }
-
-    &__link {
-      @media (min-width: $breakpoint-navigation-threshold) {
-        $nav-link-max-width: 20em !default;
-        max-width: $nav-link-max-width;
-      }
-
-      & > a {
-        $properties: #{background-color, color, opacity};
-        @include vf-animation($properties);
-        display: block;
-        line-height: map-get($line-heights, default-text);
-        margin-bottom: 0;
-        overflow: hidden;
-        padding: $spv-inner--medium 0;
-        position: relative;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          padding: $spv-inner--medium $sph-inner;
-        }
-
-        &::before {
-          content: '';
-          height: 1px;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-
-          @media (min-width: $breakpoint-navigation-threshold) {
-            content: none;
-          }
-        }
-
-        &,
-        &:visited,
-        &:focus,
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-
-    &__links {
-      list-style: none;
-      margin: -1px 0 0 0;
-      padding: 0;
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 0; // prevents bottom border of nav from moving 1px
-      }
     }
 
     &__logo {
@@ -89,11 +116,24 @@ $navigation-hover-opacity: 0.58;
       height: 3rem;
       margin: 0 $sph-inner 0 0;
 
-      .p-navigation__link {
-        display: flex;
+      .p-navigation__item {
+        @extend %navigation-item-in-logo;
+      }
+
+      @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link instead.') {
+        .p-navigation__link {
+          @extend %navigation-item-in-logo;
+        }
       }
     }
 
+    &__image {
+      align-self: center;
+      max-height: 2rem;
+      min-height: 1.5rem;
+    }
+
+    // navigation items
     &__nav {
       display: none;
       flex-direction: column;
@@ -106,6 +146,34 @@ $navigation-hover-opacity: 0.58;
       }
     }
 
+    &__items {
+      @extend %navigation-items;
+    }
+
+    &__item {
+      @extend %navigation-item;
+
+      // this needs to be nested in __item until in 3.0 we remove deprecated __link styles
+      .p-navigation__link {
+        @extend %navigation-link;
+      }
+    }
+
+    @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+      &__link {
+        @extend %navigation-item;
+
+        & > a {
+          @extend %navigation-link;
+        }
+      }
+
+      &__links {
+        @extend %navigation-items;
+      }
+    }
+
+    // p-search-box overrides
     .p-search-box {
       flex: 1 0 auto;
       margin: -1px 0 $spv-inner--small 0;
@@ -124,32 +192,7 @@ $navigation-hover-opacity: 0.58;
       }
     }
 
-    %navigation-row {
-      display: flex;
-      flex-direction: column;
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        flex-direction: row;
-      }
-    }
-
-    &__row {
-      @extend %fixed-width-container;
-      @extend %navigation-row;
-
-      &--full-width {
-        @extend %vf-grid-container-padding;
-        @extend %navigation-row;
-        width: 100%;
-      }
-    }
-
-    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
-      &.row {
-        @extend %navigation-row;
-      }
-    }
-
+    // small screen navigation toggles
     &:target {
       &::after {
         display: none;
@@ -248,9 +291,7 @@ $navigation-hover-opacity: 0.58;
 
   background-color: $color-navigation-background;
 
-  .p-navigation__link > a,
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open {
+  %navigation-link-light {
     &,
     &:visited,
     &:focus {
@@ -262,15 +303,42 @@ $navigation-hover-opacity: 0.58;
     }
   }
 
-  @include deprecate('3.0.0', 'Selectors should use classes.') {
-    .p-navigation__link.is-selected > a {
-      opacity: $navigation-hover-opacity;
-    }
+  %navigation-link-light-selected {
+    opacity: $navigation-hover-opacity;
   }
 
-  .p-navigation__link > a::before {
+  %navigation-link-light-before {
     // separator color on small screens
     background: $colors--light-theme--border-default;
+  }
+
+  .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    @extend %navigation-link-light;
+  }
+
+  .p-navigation__item.is-selected > .p-navigation__link {
+    @extend %navigation-link-light-selected;
+  }
+
+  .p-navigation__item > .p-navigation__link::before {
+    // remove nesting in 3.0 when deprecated __link styles are removed
+    @extend %navigation-link-light-before;
+  }
+
+  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    .p-navigation__link > a {
+      @extend %navigation-link-light;
+    }
+
+    .p-navigation__link.is-selected > a {
+      @extend %navigation-link-light-selected;
+    }
+
+    .p-navigation__link > a::before {
+      @extend %navigation-link-light-before;
+    }
   }
 }
 
@@ -282,9 +350,7 @@ $navigation-hover-opacity: 0.58;
 
   background-color: $color-navigation-background;
 
-  .p-navigation__link > a,
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open {
+  %navigation-link-dark {
     &,
     &:visited,
     &:focus {
@@ -296,14 +362,41 @@ $navigation-hover-opacity: 0.58;
     }
   }
 
-  @include deprecate('3.0.0', 'Selectors should use classes.') {
-    .p-navigation__link.is-selected > a {
-      opacity: $navigation-hover-opacity;
-    }
+  %navigation-link-dark-selected {
+    opacity: $navigation-hover-opacity;
   }
 
-  // separator color on small screens
-  .p-navigation__link > a::before {
+  %navigation-link-dark-before {
+    // separator color on small screens
     background: $colors--dark-theme--border-default;
+  }
+
+  .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    @extend %navigation-link-dark;
+  }
+
+  .p-navigation__item.is-selected > .p-navigation__link {
+    @extend %navigation-link-dark-selected;
+  }
+
+  .p-navigation__item > .p-navigation__link::before {
+    // remove nesting in 3.0 when deprecated __link styles are removed
+    @extend %navigation-link-dark-before;
+  }
+
+  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    .p-navigation__link > a {
+      @extend %navigation-link-dark;
+    }
+
+    .p-navigation__link.is-selected > a {
+      @extend %navigation-link-dark-selected;
+    }
+
+    .p-navigation__link > a::before {
+      @extend %navigation-link-dark-before;
+    }
   }
 }
