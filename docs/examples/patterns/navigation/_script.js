@@ -1,25 +1,24 @@
 /**
-  Opens a given subnav by applying is-active class to it
+  Toggles visibility of given subnav by toggling is-active class to it
   and setting aria-hidden attribute on dropdown contents.
   @param {HTMLElement} subnav Root element of subnavigation to open.
 */
-function openSubnav(subnav) {
-  subnav.classList.add('is-active');
-  var toggle = subnav.querySelector('.p-subnav__toggle');
-  var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
-  dropdown.setAttribute('aria-hidden', 'true');
-}
+function toggleSubnav(subnav, open) {
+  if (open) {
+    subnav.classList.add('is-active');
+  } else {
+    subnav.classList.remove('is-active');
+  }
 
-/**
-  Closes a given subnav by removing is-active class to it
-  and setting aria-hidden attribute on dropdown contents.
-  @param {HTMLElement} subnav Root element of subnavigation to open.
-*/
-function closeSubnav(subnav) {
-  subnav.classList.remove('is-active');
   var toggle = subnav.querySelector('.p-subnav__toggle');
-  var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
-  dropdown.setAttribute('aria-hidden', 'false');
+
+  if (toggle) {
+    var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
+
+    if (dropdown) {
+      dropdown.setAttribute('aria-hidden', open ? 'true' : false);
+    }
+  }
 }
 
 /**
@@ -28,7 +27,7 @@ function closeSubnav(subnav) {
 function closeAllSubnavs() {
   var subnavs = document.querySelectorAll('.p-subnav');
   for (var i = 0, l = subnavs.length; i < l; i++) {
-    closeSubnav(subnavs[i]);
+    toggleSubnav(subnavs[i], false);
   }
 }
 
@@ -46,7 +45,7 @@ function setupSubnavToggle(subnavToggle) {
 
     closeAllSubnavs();
     if (!isActive) {
-      openSubnav(subnav);
+      toggleSubnav(subnav, true);
     }
   });
 }
