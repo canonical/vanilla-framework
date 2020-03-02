@@ -16,7 +16,7 @@ You can also include a close button using the `p-icon--close` pattern, although 
 
 The default variant should be used to display global messages.
 
-<a href="/examples/patterns/notifications/notifications/" class="js-example">
+<a href="/docs/examples/patterns/notifications/notifications/" class="js-example">
 View example of the default notification pattern
 </a>
 
@@ -24,7 +24,7 @@ View example of the default notification pattern
 
 The caution variant should be used to convey information that is not critical but the user should be aware of.
 
-<a href="/examples/patterns/notifications/caution/" class="js-example">
+<a href="/docs/examples/patterns/notifications/caution/" class="js-example">
 View example of the caution notification pattern
 </a>
 
@@ -32,7 +32,7 @@ View example of the caution notification pattern
 
 The negative variant should be used to convey information that is critical and the user should take action.
 
-<a href="/examples/patterns/notifications/negative/" class="js-example">
+<a href="/docs/examples/patterns/notifications/negative/" class="js-example">
 View example of the negative notification pattern
 </a>
 
@@ -40,7 +40,7 @@ View example of the negative notification pattern
 
 The positive variant should be used to convey success or completion.
 
-<a href="/examples/patterns/notifications/positive/" class="js-example">
+<a href="/docs/examples/patterns/notifications/positive/" class="js-example">
 View example of the positive notification pattern
 </a>
 
@@ -48,7 +48,7 @@ View example of the positive notification pattern
 
 The information variant should be used to convey an information message.
 
-<a href="/examples/patterns/notifications/information/" class="js-example">
+<a href="/docs/examples/patterns/notifications/information/" class="js-example">
 View example of the information notification pattern
 </a>
 
@@ -62,7 +62,7 @@ Notifications have the ability to add an action link to them. These should appea
   </p>
 </div>
 
-<a href="/examples/patterns/notifications/action/" class="js-example">
+<a href="/docs/examples/patterns/notifications/action/" class="js-example">
 View example of the caution notification pattern
 </a>
 
