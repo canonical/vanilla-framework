@@ -18,7 +18,7 @@ Items will display in one column on small screens. At resolutions above `$breakp
   </p>
 </div>
 
-<a href="/examples/patterns/matrix/" class="js-example">
+<a href="/docs/examples/patterns/matrix/" class="js-example">
 View example of the matrix pattern
 </a>
 

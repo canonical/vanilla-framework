@@ -32,7 +32,7 @@ You can also manually override the background color of the navigation using the 
 You can change the breakpoint at which the menu changes to a small screen menu
 by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.scss`.
 
-<a href="/examples/patterns/navigation/default/" class="js-example">
+<a href="/docs/examples/patterns/navigation/default/" class="js-example">
 View example of the navigation pattern
 </a>
 
@@ -57,7 +57,7 @@ To open the subnav-menu you need to set the `is-active` class on `p-subnav` elem
 
 By default the sub-navigation menus are left-aligned with their parent, if you'd prefer the menu to be positioned from the right, use the `p-subnav__items--right` modifier. This can be seen in the "My account" menu in the example.
 
-<a href="/examples/patterns/navigation/subnav" class="js-example">
+<a href="/docs/examples/patterns/navigation/subnav" class="js-example">
 View example of the sub-navigation pattern
 </a>
 

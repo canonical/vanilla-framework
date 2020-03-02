@@ -10,7 +10,7 @@ context:
 
 The article pagination component should be used to navigate from one article to the next, or previous, in chronological order.
 
-<a href="/examples/patterns/article-pagination" class="js-example">
+<a href="/docs/examples/patterns/article-pagination" class="js-example">
 View example of the pagination pattern
 </a>
 
