@@ -95,7 +95,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Optional state indicator was added to contextual menu</td>
     </tr>
     <tr>
-      <th><a href="/utilities/font-metrics/">Font metrics</a></th>
+      <th><a href="/docs/utilities/font-metrics/">Font metrics</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.5.0</td>
       <td>Added <code>u-visualise-font-metrics</code> utility to visualise font metrics</td>
@@ -107,13 +107,13 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added <code>$max-width--default</code> variable and <code>u-no-max-width</code> utility to control line length</td>
     </tr>
     <tr>
-      <th><a href="/utilities/table-cell-padding-overlap/">Table cell padding overlap</a></th>
+      <th><a href="/docs/utilities/table-cell-padding-overlap/">Table cell padding overlap</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.5.0</td>
       <td>Added <code>u-table-cell-padding-overlap</code> utility to overlap table cell padding</td>
     </tr>
     <tr>
-      <th><a href="/utilities/truncate/">Truncation</a></th>
+      <th><a href="/docs/utilities/truncate/">Truncation</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.5.0</td>
       <td>Added <code>u-truncate</code> utility to truncate text with ellipsis</td>
