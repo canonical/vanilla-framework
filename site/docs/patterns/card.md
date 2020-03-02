@@ -14,7 +14,7 @@ There are four card styles available to use in Vanilla: default, header, highlig
 
 The purpose of the default card is to display information, without user interaction.
 
-<a href="/examples/patterns/card/default/" class="js-example">
+<a href="/docs/examples/patterns/card/default/" class="js-example">
 View example of the default card pattern
 </a>
 
@@ -22,7 +22,7 @@ View example of the default card pattern
 
 The purpose of the header card is to display information, grouped under a heading.
 
-<a href="/examples/patterns/card/header/" class="js-example">
+<a href="/docs/examples/patterns/card/header/" class="js-example">
 View example of the header card pattern
 </a>
 
@@ -30,7 +30,7 @@ View example of the header card pattern
 
 The purpose of the highlighted card should be used when you can interact with the content.
 
-<a href="/examples/patterns/card/highlighted/" class="js-example">
+<a href="/docs/examples/patterns/card/highlighted/" class="js-example">
 View example of the highlighted card pattern
 </a>
 
@@ -38,7 +38,7 @@ View example of the highlighted card pattern
 
 The purpose of the overlay card is to make the text visible in conjunction with a strip image.
 
-<a href="/examples/patterns/card/overlay/" class="js-example">
+<a href="/docs/examples/patterns/card/overlay/" class="js-example">
 View example of the patterns card overlay
 </a>
 

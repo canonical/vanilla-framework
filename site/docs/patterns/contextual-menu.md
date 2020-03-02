@@ -29,7 +29,7 @@ Using direction modifiers will change the placement of the drop-down menu. By de
   </div>
 </div>
 
-<a href="/examples/patterns/contextual-menu/default" class="js-example">
+<a href="/docs/examples/patterns/contextual-menu/default" class="js-example">
 View example of the contextual menu pattern
 </a>
 
@@ -43,7 +43,7 @@ If you require a drop-down button with a state indicator then the `p-contextual-
   </p>
 </div>
 
-<a href="/examples/patterns/contextual-menu/with-indicator" class="js-example">
+<a href="/docs/examples/patterns/contextual-menu/with-indicator" class="js-example">
 View example of the contextual menu pattern
 </a>
 
@@ -60,7 +60,7 @@ The contextual menu uses Vanilla's light theme by default. There are two ways to
 - Change the default: go to `_settings_themes.scss` and set `$theme-default-p-contextual-menu` to `dark`
 - Override the default by adding a state to `p-contextual-menu`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
 
-<a href="/examples/patterns/contextual-menu/dark" class="js-example">
+<a href="/docs/examples/patterns/contextual-menu/dark" class="js-example">
 View example of the contextual menu with an is-dark class
 </a>
 

@@ -15,7 +15,7 @@ to the right by adding the class `.u-align--right` to each individual cell,
 as in the example that follows. This is considered good practice when formatting
 data tables as it makes it easier to scan and compare the values quickly.
 
-<a href="/examples/base/table/" class="js-example">
+<a href="/docs/examples/base/table/" class="js-example">
 View example of the base table
 </a>
 
@@ -23,7 +23,7 @@ View example of the base table
 
 Using the class `p-table--sortable` and assigning `role="columnheader"` and `aria-sort` to each `<th>` element will show each table column to be sortable. With javascript toggling between `ascending` and `descending` for the `aria-sort` attribute it will change the chevron icon in that direction.
 
-<a href="/examples/patterns/tables/table-sortable/" class="js-example">
+<a href="/docs/examples/patterns/tables/table-sortable/" class="js-example">
 View example of the table sortable pattern
 </a>
 
@@ -35,7 +35,7 @@ This pattern should be used when a table requires configuration fields (add, edi
 
 Using `p-table-expanding__panel` it can be hidden using the `aria-hidden` attribute. The table must contain all table cells required.
 
-<a href="/examples/patterns/tables/table-expanding/" class="js-example">
+<a href="/docs/examples/patterns/tables/table-expanding/" class="js-example">
 View example of the expanding table pattern
 </a>
 
@@ -46,7 +46,7 @@ an `[aria-label]` to describe the cell on a mobile screen. We use the content to
 
 The `<thead>` element is completely hidden from view on a smaller screen and if the table holds a `.p-contextual-menu` pattern all the children elements will be visible and be interactive.
 
-<a href="/examples/patterns/tables/table-mobile-card/" class="js-example">
+<a href="/docs/examples/patterns/tables/table-mobile-card/" class="js-example">
 View example of the patterns table mobile card
 </a>
 

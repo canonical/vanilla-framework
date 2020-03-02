@@ -20,7 +20,7 @@ Labels are static elements which you can apply to signify status, tags or any ot
 
 Label to be used on newly released components, utilities or settings that are safe to use in projects.
 
-<a href="/examples/patterns/labels/new/" class="js-example">
+<a href="/docs/examples/patterns/labels/new/" class="js-example">
 View example of the new label pattern
 </a>
 
@@ -28,7 +28,7 @@ View example of the new label pattern
 
 Label to be used on components, utilities or settings are in the process of being removed and should no longer be used in projects.
 
-<a href="/examples/patterns/labels/deprecated/" class="js-example">
+<a href="/docs/examples/patterns/labels/deprecated/" class="js-example">
 View example of the deprecated label pattern
 </a>
 
@@ -36,7 +36,7 @@ View example of the deprecated label pattern
 
 Label to be used when a design spec and code implementation are not yet finished.
 
-<a href="/examples/patterns/labels/in-progress/" class="js-example">
+<a href="/docs/examples/patterns/labels/in-progress/" class="js-example">
 View example of the in progress label pattern
 </a>
 
@@ -44,7 +44,7 @@ View example of the in progress label pattern
 
 Label to be used on existing components, utilities or settings that have been updated either through design or code.
 
-<a href="/examples/patterns/labels/updated/" class="js-example">
+<a href="/docs/examples/patterns/labels/updated/" class="js-example">
 View example of the updated label pattern
 </a>
 
@@ -52,7 +52,7 @@ View example of the updated label pattern
 
 Label to be used on a proposal approved in our bi-weekly meeting. A design spec is created and development starts ready for code review.
 
-<a href="/examples/patterns/labels/validated/" class="js-example">
+<a href="/docs/examples/patterns/labels/validated/" class="js-example">
 View example of the validated label pattern
 </a>
 

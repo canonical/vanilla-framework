@@ -20,49 +20,49 @@ most cases it would be a strip.
 
 ### Bottom
 
-<a href="/examples/utilities/image-position/bottom/" class="js-example">
+<a href="/docs/examples/utilities/image-position/bottom/" class="js-example">
 View example of the utilities image position bottom
 </a>
 
 ### Top
 
-<a href="/examples/utilities/image-position/top/" class="js-example">
+<a href="/docs/examples/utilities/image-position/top/" class="js-example">
 View example of the utilities image position top
 </a>
 
 ### Left
 
-<a href="/examples/utilities/image-position/left/" class="js-example">
+<a href="/docs/examples/utilities/image-position/left/" class="js-example">
 View example of the utilities image position top
 </a>
 
 ### Right
 
-<a href="/examples/utilities/image-position/right/" class="js-example">
+<a href="/docs/examples/utilities/image-position/right/" class="js-example">
 View example of the utilities image position top
 </a>
 
 ### Top right
 
-<a href="/examples/utilities/image-position/top-right/" class="js-example">
+<a href="/docs/examples/utilities/image-position/top-right/" class="js-example">
 View example of the utilities image position top right
 </a>
 
 ### Top left
 
-<a href="/examples/utilities/image-position/top-left/" class="js-example">
+<a href="/docs/examples/utilities/image-position/top-left/" class="js-example">
 View example of the utilities image position top left
 </a>
 
 ### Bottom right
 
-<a href="/examples/utilities/image-position/bottom-right/" class="js-example">
+<a href="/docs/examples/utilities/image-position/bottom-right/" class="js-example">
 View example of the utilities image position bottom right
 </a>
 
 ### Bottom left
 
-<a href="/examples/utilities/image-position/bottom-left/" class="js-example">
+<a href="/docs/examples/utilities/image-position/bottom-left/" class="js-example">
 View example of the utilities image position bottom left
 </a>
 

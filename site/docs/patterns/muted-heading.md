@@ -11,7 +11,7 @@ context:
 
 A muted heading can be used to subtly provide context to content without the heading itself being too prominent.
 
-<a href="/examples/patterns/headings/muted/" class="js-example">
+<a href="/docs/examples/patterns/headings/muted/" class="js-example">
 View example of the pattern muted heading
 </a>
 

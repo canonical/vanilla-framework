@@ -43,7 +43,7 @@ Recommended durations for easing can be `easeInCubic` or `easeOutCubic`.
 
 Add a spin animation to an element with the following utility class.
 
-<a href="/examples/utilities/animations/spin/" class="js-example">
+<a href="/docs/examples/utilities/animations/spin/" class="js-example">
 View example of the spin animation utility
 </a>
 
