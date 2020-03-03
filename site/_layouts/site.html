@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Vanilla Framework</title>
+    <title>{% block title %}{{ title }}{% endblock %}{% if self.title() %} | {% endif %}Vanilla framework</title>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -21,8 +21,9 @@
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% if self.description() %}
-    <meta name="description" content="{% block description %}{% endblock %}">    
+      <meta name="description" content="{% block description %}{% endblock %}">
     {% endif %}
+
     <link rel="icon" href="https://assets.ubuntu.com/v1/bbba0152-vanilla_favicon_16px.png" type="image/x-icon" />
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -39,9 +40,11 @@
     <meta name="apple-mobile-web-app-title" content="Vanilla Framework">
     <!-- Tile for Win8 -->
     <meta name="msapplication-TileColor" content="#E7542D">
+
     {% if self.copydoc() %}
       <meta name="copydoc" content="{% block copydoc %}{% endblock %}" />
     {% endif %}
+
     <!-- Register service worker for offline -->
     <script type="text/javascript">
       if ('serviceWorker' in navigator) {
