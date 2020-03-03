@@ -1,4 +1,22 @@
 /* global VANILLA_VERSION */
+
+var cssSource = `
+html {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  background: #fff;
+}
+
+body {
+/*background-color: white;*/
+margin: auto;
+padding: 1rem;
+}
+`;
+
+
 (function() {
   if (!window.VANILLA_VERSION) {
     throw Error('VANILLA_VERSION not specified.');
@@ -11,7 +29,7 @@
       // link to latest Vanilla CSS
       'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
       // link to example stylesheet (to set margin on body)
-      'https://assets.ubuntu.com/v1/4653d9ba-example.css'
+      'https://assets.ubuntu.com/v1/1af95dd8-codepen-example-styling.css'
     ],
     tags: ['Vanilla framework']
   };
@@ -92,6 +110,10 @@
 
     if (jsSource) {
       container.appendChild(createPreCode(jsSource, 'js'));
+    }
+
+    if (cssSource) {
+      container.appendChild(createPreCode(cssSource, 'css'));
     }
 
     placementElement.parentNode.insertBefore(container, placementElement);
