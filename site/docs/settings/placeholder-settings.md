@@ -19,4 +19,4 @@ Vanilla uses several global placeholders to share common styles between componen
 
 ### Related
 
-- [Spacing settings](/settings/spacing-settings)
+- [Spacing settings](/docs/settings/spacing-settings)
