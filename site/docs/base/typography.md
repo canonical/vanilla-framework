@@ -227,4 +227,4 @@ For more information [view the typography design spec](https://github.com/ubuntu
 
 ### Related
 
-For more typographic related information view the [code](/base/code) and [pull quote pattern](/patterns/pull-quote) component or our [font settings](/docs/settings/font-settings).
+For more typographic related information view the [code](/docs/base/code) and [pull quote pattern](/docs/patterns/pull-quote) component or our [font settings](/docs/settings/font-settings).

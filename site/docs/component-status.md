@@ -57,26 +57,26 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added dark theme to contextual menu.</td>
     </tr>
     <tr>
-      <th><a href="/base/typography#heading-classes">Heading classes</a></th>
+      <th><a href="/docs/base/typography#heading-classes">Heading classes</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.7.0</td>
       <td>New heading classes with numbers (<code>p-heading--1</code>, ...) were added for consistency with other class names we use.</td>
     </tr>
     <tr>
-      <th><a href="/base/typography#heading-classes">Heading classes</a></th>
+      <th><a href="/docs/base/typography#heading-classes">Heading classes</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.7.0</td>
       <td>Heading classes with numbers as words (<code>p-heading--one</code>, <code>--two</code>, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (<code>p-heading--1</code>, <code>--2</code>, ...) instead.</td>
     </tr>
 
     <tr>
-      <th><a href="/base/forms/#range">Range input</a></th>
+      <th><a href="/docs/base/forms/#range">Range input</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.6.0</td>
       <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
     </tr>
     <tr>
-      <th><a href="/base/forms/#checkbox">Checkbox, radio button</a></th>
+      <th><a href="/docs/base/forms/#checkbox">Checkbox, radio button</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.6.0</td>
       <td>New `is-table-header` added to properly align checkboxes and radio buttons used in table headers.</td>
@@ -101,7 +101,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added <code>u-visualise-font-metrics</code> utility to visualise font metrics</td>
     </tr>
     <tr>
-      <th><a href="/base/typography/#line-length">Line length</a></th>
+      <th><a href="/docs/base/typography/#line-length">Line length</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.5.0</td>
       <td>Added <code>$max-width--default</code> variable and <code>u-no-max-width</code> utility to control line length</td>

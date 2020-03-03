@@ -30,6 +30,6 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 
 ### Related
 
-- [Base typography](/base/typography)
-- [Code](/base/code)
+- [Base typography](/docs/base/typography)
+- [Code](/docs/base/code)
 - [Pull quote pattern](/patterns/pull-quote)
