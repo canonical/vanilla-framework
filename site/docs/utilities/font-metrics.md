@@ -31,4 +31,4 @@ The `$horisontal-bleed` variable (default value `2rem`) makes the lines protrude
 
 For more information on font metrics, this <a class="p-link--external" href="http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align">blog post</a> gives a good overview.
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.

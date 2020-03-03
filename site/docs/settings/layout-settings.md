@@ -24,4 +24,4 @@ To import just this utility into your project, copy the snippet below and includ
 @import 'utilities_layout';
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.

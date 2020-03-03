@@ -74,7 +74,7 @@ To import just navigation or sub-navigation component into your project, copy sn
 @include vf-p-subnav;
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

@@ -66,7 +66,7 @@ To import either or all of these components into your project, copy the snippets
 @import 'patterns_table-sortable';
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

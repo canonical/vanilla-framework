@@ -123,7 +123,7 @@ To add dividers into your project, copy the snippet below and include it in your
 @include vf-p-grid;
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 
