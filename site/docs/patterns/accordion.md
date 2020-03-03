@@ -37,7 +37,7 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-accordion;
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

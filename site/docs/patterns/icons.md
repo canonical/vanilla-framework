@@ -270,7 +270,7 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-in-button;
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

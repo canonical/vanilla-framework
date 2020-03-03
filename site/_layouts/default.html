@@ -42,7 +42,7 @@
             <a href="#main-content">Jump to main content</a>
           </span>
           <ul class="p-navigation__items">
-            <li class="p-navigation__item {% if '/examples' not in path %}is-selected{% endif %}"><a class="p-navigation__link" href="/">Docs</a></li>
+            <li class="p-navigation__item {% if path.startswith('/docs') %}is-selected{% endif %}"><a class="p-navigation__link" href="/docs">Docs</a></li>
             <li class="p-navigation__item {% if '/docs/examples' in path %}is-selected{% endif %}"><a class="p-navigation__link" href="/docs/examples">Examples</a></li>
             <li class="p-navigation__item"><a class="p-navigation__link" href="https://vanillaframework.io/accessibility">Accessibility</a></li>
             <li class="p-navigation__item"><a class="p-navigation__link" href="https://vanillaframework.io/browser-support">Browser support</a></li>
@@ -66,9 +66,9 @@
               <li class="p-sidebar-nav__item">
                 <strong>Welcome</strong>
                 <ul class="p-sidebar-nav__list">
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/' %}is-active{% endif %}" href="/">Get started</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/building-vanilla' %}is-active{% endif %}" href="/building-vanilla">Building with Vanilla</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/customising-vanilla' %}is-active{% endif %}" href="/customising-vanilla">Customising Vanilla</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/docs' %}is-active{% endif %}" href="/docs">Get started</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/docs/building-vanilla' %}is-active{% endif %}" href="/docs/building-vanilla">Building with Vanilla</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/docs/customising-vanilla' %}is-active{% endif %}" href="/docs/customising-vanilla">Customising Vanilla</a></li>
                   <li class="p-sidebar-nav__item"><a class="p-link--soft" href="https://github.com/canonical-web-and-design/vanilla-framework/releases/latest">What’s new in {{ version }}</a></li>
                 </ul>
               </li>
@@ -163,7 +163,7 @@
                 <strong>Resources</strong>
                 <ul class="p-sidebar-nav__list">
                   <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/docs/examples' %}is-active{% endif %}" href="/docs/examples">Component examples</a></li>
-                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/component-status' %}is-active{% endif %}" href="/component-status">Component status</a></li>
+                  <li class="p-sidebar-nav__item"><a class="p-link--soft {% if path == '/docs/component-status' %}is-active{% endif %}" href="/docs/component-status">Component status</a></li>
                   <li class="p-sidebar-nav__item"><a class="p-link--soft" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></li>
                 </ul>
               </li>
