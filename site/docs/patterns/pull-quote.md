@@ -56,4 +56,4 @@ For more information [view the quotes design spec](https://github.com/ubuntudesi
 
 ### Related
 
-For more typographic related information view the [blockquotes and citations](https://docs.vanillaframework.io/docs/base/typography#blockquotes-and-citations) in base typography.
+For more typographic related information view the [blockquotes and citations](/docs/base/typography#blockquotes-and-citations) in base typography.
