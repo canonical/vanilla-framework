@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+      - run: yarn install
       - name: Build Docker image
         run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
       - name: Run server with Docker
