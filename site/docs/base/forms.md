@@ -176,7 +176,7 @@ To add form help text or validation into your project, copy either or both snipp
 @import 'patterns_form-validation';
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 

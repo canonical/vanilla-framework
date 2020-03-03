@@ -12,7 +12,7 @@ Labels are static elements which you can apply to signify status, tags or any ot
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>These labels are used to inform <a href="/component-status" class="p-notification__action">status</a> of components in Vanilla.
+    <span class="p-notification__status">Note:</span>These labels are used to inform <a href="/docs/component-status" class="p-notification__action">status</a> of components in Vanilla.
   </p>
 </div>
 
@@ -65,7 +65,7 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-label;
 ```
 
-For more information see [Customising Vanilla](/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### Design
 
