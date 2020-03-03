@@ -23,13 +23,13 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <tr>
-      <th><a href="/patterns/navigation">Navigation</a></th>
+      <th><a href="/docs/patterns/navigation">Navigation</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.8.0</td>
       <td>New navigation classes (<code>p-navigation__items</code>, <code>p-navigation__item</code>, <code>p-navigation__link</code>) were added to replace existing (<code>p-navigation__links</code>, <code>p-navigation__link</code>, and classless <code>&lt;a&gt;</code>).</td>
     </tr>
     <tr>
-      <th><a href="/patterns/navigation">Navigation</a></th>
+      <th><a href="/docs/patterns/navigation">Navigation</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.8.0</td>
       <td>Navigation classes <code>p-navigation__links</code>, <code>p-navigation__link</code>, and classless <code>&lt;a&gt;</code> are deprecated and will be removed in future release v3.0. Please use new class names (<code>p-navigation__items</code>, <code>p-navigation__item</code>, <code>p-navigation__link</code>) instead.</td>
@@ -51,7 +51,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.7.0 -->
     <tr>
-      <th><a href="/patterns/contextual-menu#theming">Contextual menu</a></th>
+      <th><a href="/docs/patterns/contextual-menu#theming">Contextual menu</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.7.0</td>
       <td>Added dark theme to contextual menu.</td>
@@ -82,14 +82,14 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>New `is-table-header` added to properly align checkboxes and radio buttons used in table headers.</td>
     </tr>
     <tr>
-      <th><a href="/patterns/slider">Slider</a></th>
+      <th><a href="/docs/patterns/slider">Slider</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.6.0</td>
       <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
     </tr>
 
     <tr>
-      <th><a href="/patterns/contextual-menu/#indicator">Contextual menu</a></th>
+      <th><a href="/docs/patterns/contextual-menu/#indicator">Contextual menu</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.5.0</td>
       <td>Optional state indicator was added to contextual menu</td>
@@ -119,13 +119,13 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>Added <code>u-truncate</code> utility to truncate text with ellipsis</td>
     </tr>
     <tr>
-      <th><a href="/patterns/icons/#social">Social icons</a></th>
+      <th><a href="/docs/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.5.0</td>
       <td>Updated style of social icons. Added new <code>.p-icon--rss</code> and <code>p-icon--email</code> icons.</td>
     </tr>
     <tr>
-      <th><a href="/patterns/icons/#social">Social icons</a></th>
+      <th><a href="/docs/patterns/icons/#social">Social icons</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.5.0</td>
       <td>We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from social icon set in future release v3.0</td>

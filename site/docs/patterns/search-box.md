@@ -49,4 +49,4 @@ For more information [view the search design spec](https://github.com/ubuntudesi
 
 ### Related
 
-For more interactive information adding search [view the navigation component](/patterns/navigation).
+For more interactive information adding search [view the navigation component](/docs/patterns/navigation).

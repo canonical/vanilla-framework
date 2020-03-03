@@ -89,4 +89,4 @@ For more information [view the contextual menu design spec](https://github.com/u
 
 ### Related
 
-For more interactive elements that hide/show content[view the tooltips component](https://docs.vanillaframework.io/patterns/tooltips).
+For more interactive elements that hide/show content[view the tooltips component](https://docs.vanillaframework.io/docs/patterns/tooltips).
