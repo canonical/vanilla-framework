@@ -32,4 +32,4 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 
 - [Base typography](/docs/base/typography)
 - [Code](/docs/base/code)
-- [Pull quote pattern](/patterns/pull-quote)
+- [Pull quote pattern](/docs/patterns/pull-quote)

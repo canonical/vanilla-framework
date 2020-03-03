@@ -151,7 +151,7 @@ Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-fr
 - `checkbox`
 - `hr`
 - `radio`
-- <a href="/patterns/navigation">navigation</a>
+- <a href="/docs/patterns/navigation">navigation</a>
 - search box
 
 | Element / Component | Variable                      | Default value |

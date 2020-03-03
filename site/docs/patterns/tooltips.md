@@ -40,4 +40,4 @@ For more information [view the tooltips design spec](https://github.com/ubuntude
 
 ### Related
 
-For an alternative way of displaying discoverable information [view our contextual menu component](/patterns/contextual-menu).
+For an alternative way of displaying discoverable information [view our contextual menu component](/docs/patterns/contextual-menu).
