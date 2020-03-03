@@ -33,4 +33,4 @@ For more information view the [list tree design spec](https://github.com/ubuntud
 
 ### Related
 
-For alternative list style layouts [view our range of list components.](/patterns/lists)
+For alternative list style layouts [view our range of list components.](/docs/patterns/lists)
