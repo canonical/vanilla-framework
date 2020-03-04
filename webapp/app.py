@@ -17,7 +17,7 @@ with open("package.json") as package_json:
 
 app = FlaskBase(
     __name__,
-    "docs.vanillaframework.io",
+    "vanillaframework.io",
     template_folder="../site",
     static_folder="../site/static",
     template_404="404.html",
