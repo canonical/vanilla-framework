@@ -3,6 +3,7 @@ on:
   push:
     branches: [master]
   pull_request:
+    types: [opened, synchronize, reopened]
 
 env:
   PORT: 8765
@@ -11,6 +12,7 @@ jobs:
   percy:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.event.action }}
       - name: Checkout
         uses: actions/checkout@master
       - name: Install dependencies
