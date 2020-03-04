@@ -43,7 +43,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 ADD . .
 RUN rm -rf package.json yarn.lock .babelrc webpack.config.js
 COPY --from=build-vanilla /srv/package.json package.json
-COPY --from=build-vanilla /srv/build docs/static/build
+COPY --from=build-vanilla /srv/build build
 
 # Set revision ID
 ARG BUILD_ID
