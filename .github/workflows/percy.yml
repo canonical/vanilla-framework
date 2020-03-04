@@ -9,6 +9,7 @@ jobs:
   percy:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.event.action }}
       - name: Checkout
         uses: actions/checkout@master
       - name: Install dependencies
