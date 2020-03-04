@@ -23,7 +23,7 @@ jobs:
           command: yarn build
       - run:
           name: Run the site server
-          command: ./entrypoint 0.0.0.0:80
+          command: ./entrypoint 0.0.0.0:${PORT}
           background: true
       - run:
           name: Wait for development server
