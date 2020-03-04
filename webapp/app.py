@@ -97,7 +97,9 @@ app.add_url_rule(
     "/docs/search",
     "search",
     build_search_view(
-        site="vanillaframework.io/docs", template_path="docs/search.html"
+        # temporarly keep docs.vanillaframework.io until /docs are live and indexed
+        # change to vanillaframework.io/docs
+        site="docs.vanillaframework.io", template_path="docs/search.html"
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
