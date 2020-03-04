@@ -26,7 +26,6 @@
 
     <link rel="icon" href="https://assets.ubuntu.com/v1/bbba0152-vanilla_favicon_16px.png" type="image/x-icon" />
     <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
     <meta name="msapplication-navbutton-color" content="#E7542D">
     <meta name="msapplication-starturl" content="/">
     <!-- Chrome for Android theme color -->
@@ -44,18 +43,6 @@
     {% if self.copydoc() %}
       <meta name="copydoc" content="{% block copydoc %}{% endblock %}" />
     {% endif %}
-
-    <!-- Register service worker for offline -->
-    <script type="text/javascript">
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', {scope: '/'})
-          .then(function(reg) {
-            console.log('Registration succeeded. Scope is ' + reg.scope);
-          }).catch(function(error) {
-            console.log('Registration failed with ' + error);
-          });
-      }
-    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
