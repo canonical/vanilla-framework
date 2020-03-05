@@ -33,6 +33,7 @@
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
     "watch:vanilla-scss": "node-sass --include-paths node_modules scss --output-style compressed --output build/css --watch",
     "watch:vanilla-scss:skip-standalone": "node-sass --include-paths node_modules scss/build.scss --output-style compressed --output build/css --watch",
+    "watch:docs": "node-sass --include-paths node_modules scss/docs --output-style compressed --output build/css/docs --watch",
     "watch": "yarn build && yarn watch:vanilla-scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js"
