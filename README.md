@@ -9,7 +9,7 @@
 
 Vanilla Framework is a simple extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement its patterns.
 
-[Documentation](https://docs.vanillaframework.io) |
+[Documentation](https://vanillaframework.io/docs) |
 [Join the mailing list](http://canonical.us3.list-manage2.com/subscribe?u=56dac47c206ba0f58ec25f314&id=36f7d8394e)
 
 ## Hotlinking
@@ -69,7 +69,7 @@ The simplest way to run Vanilla framework is to first [install Docker](https://d
 
 ### Viewing documentation
 
-The documentation for the latest version of Vanilla framework is hosted at <https://docs.vanillaframework.io>.
+The documentation for the latest version of Vanilla framework is hosted at <https://vanillaframework.io/docs>.
 
 The documentation markdown files live in the [`docs` folder](/docs), and you can view this documentation in the browser by running:
 
