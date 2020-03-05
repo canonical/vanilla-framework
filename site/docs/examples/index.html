@@ -1,62 +1,71 @@
-{% extends "_layouts/default.html" %}
+{% extends "_layouts/site.html" %}
 
 {% block title %}Component examples{% endblock %}
 
 {% block content %}
-<h2>Component examples</h2>
+<div class="p-strip is-deep">
+  <div class="row">
+    <div class="col-3">
+        <h2>Base elements</h2>
+      <nav>
+        <ul class="p-list">
+          {% for example in examples.base %}
+          <li class="p-list__item">
+            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+    <div class="col-3">
+      <div class="col-3">
+        <h2>Components</h2>
+      </div>
+      <nav>
+        <ul class="p-list">
+          {% for example in examples.patterns %}
+          <li class="p-list__item">
+            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+    <div class="col-3">
+      <div class="col-3">
+        <h2>Utilities</h2>
+      </div>
+      <nav>
+        <ul class="p-list">
+          {% for example in examples.utilities %}
+          <li class="p-list__item">
+            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+    <div class="col-3">
+      <div class="col-3">
+        <h2>Templates</h2>
+      </div>
+      <nav>
+        <ul class="p-list">
+          {% for example in examples.templates %}
+          <li class="p-list__item">
+            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
 
-<hr>
-
-<div class="row">
-  <div class="col-3">
-    <h3>Base elements</h3>
-    <nav>
-      <ul class="p-list">
-        {% for example in examples.base %}
-          <li class="p-list__item">
-            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-  <div class="col-3">
-    <h3>Components</h3>
-    <nav>
-      <ul class="p-list">
-        {% for example in examples.patterns %}
-          <li class="p-list__item">
-            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-  <div class="col-3">
-    <h3>Utilities</h3>
-    <nav>
-      <ul class="p-list">
-        {% for example in examples.utilities %}
-          <li class="p-list__item">
-            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-  <div class="col-3">
-    <h3>Templates</h3>
-    <nav>
-      <ul class="p-list">
-        {% for example in examples.templates %}
-          <li class="p-list__item">
-            <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
+  <div class="row">
+    <div class="col-9 col-start-large-4">
+      <hr>
+      <p><a href="/docs/examples/standalone">Examples using standalone component CSS for testing/debugging</a></p>
+    </div>
   </div>
 </div>
-
-<p><a href="/docs/examples/standalone">Examples using standalone component CSS for testing/debugging</a></p>
 {% endblock %}

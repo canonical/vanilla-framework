@@ -2,7 +2,7 @@
 {% block title %}Get started{% endblock %}
 
 {% block banner %}
-<div class="p-strip--image is-deep is-dark" style="background-image: url('https://assets.ubuntu.com/v1/775cc62b-vanilla-grad-background.png'); background-position: 75% 50%;">
+<!-- <div class="p-strip--image is-deep is-dark" style="background-image: url('https://assets.ubuntu.com/v1/775cc62b-vanilla-grad-background.png'); background-position: 75% 50%;">
   <div class="row">
     <div class="col-9 col-start-large-4">
       <h1 class="p-heading--1">Vanilla documentation</h1>
@@ -10,51 +10,74 @@
     </div>
   </div>
 </div>
+-->
 {% endblock %}
 
 {% block content %}
-<h2>Get started</h2>
+<div class="p-strip is-deep u-no-padding--top">
+  <h2 class="p-heading--1">Get started</h2>
+  <p>You can use Vanilla in your projects in a few different ways. See <a href="/docs/building-vanilla">Building with
+      Vanilla</a> and <a href="/docs/customising-vanilla">Customising Vanilla</a> for more in-depth setup instructions.
+  </p>
+</div>
+<div class="p-strip is-deep u-no-padding--top">
+  <h3 class="p-heading--2">Install</h3>
+  <div class="row">
+    <div class="col-6">
+      <p>The recommended way to get Vanilla is with <a href="https://www.yarnpkg.com/"
+          class="p-link--external">yarn</a>:
+      </p>
+      <pre><code>yarn add vanilla-framework</code></pre>
+      <p>Or <a href="https://www.npmjs.com/" class="p-link--external">npm</a>:</p>
+      <pre><code>npm install vanilla-framework</code></pre>
+      <p>This will pull down the latest version into your local <code>node_modules</code> folder and save it into your
+        project's dependencies in <code>package.json</code>.</p>
+    </div>
+    <div class="col-6">
+      <p>You can now reference Vanilla from your main Sass file - note that the path to <code>node_modules</code> might
+        be
+        different for your project:</p>
+      <pre><code>// Import the framework
+  @import 'node_modules/vanilla-framework/scss/vanilla';
 
-<hr>
+  // Include all of Vanilla Framework
+  @include vanilla;</code></pre>
 
-<p>You can use Vanilla in your projects in a few different ways. See <a href="/docs/building-vanilla">Building with Vanilla</a> and <a href="/docs/customising-vanilla">Customising Vanilla</a> for more in-depth setup instructions.</p>
-
-<h3>Install</h3>
-<div class="row">
-  <div class="col-6">
-    <p>The recommended way to get Vanilla is with <a href="https://www.yarnpkg.com/" class="p-link--external">yarn</a>:</p>
-    <pre><code>yarn add vanilla-framework</code></pre>
-    <p>Or <a href="https://www.npmjs.com/" class="p-link--external">npm</a>:</p>
-    <pre><code>npm install vanilla-framework</code></pre>
-    <p>This will pull down the latest version into your local <code>node_modules</code> folder and save it into your project's dependencies in <code>package.json</code>.</p>
-  </div>
-  <div class="col-6">
-    <p>You can now reference Vanilla from your main Sass file - note that the path to <code>node_modules</code> might be different for your project:</p>
-    <pre><code>// Import the framework
-@import 'node_modules/vanilla-framework/scss/vanilla';
-
-// Include all of Vanilla Framework
-@include vanilla;</code></pre>
-
-    <p><em>For information on overriding settings and importing only parts of Vanilla, see <a href="/docs/customising-vanilla">Customising Vanilla</a>.</em></p>
+      <p><em>For information on overriding settings and importing only parts of Vanilla, see <a
+            href="/docs/customising-vanilla">Customising Vanilla</a>.</em></p>
+    </div>
   </div>
 </div>
-
-<h3>Hotlink</h3>
-<p>You can add Vanilla directly to your markup:</p>
-<pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-{{ version }}.min.css" /&gt;</code></pre>
-
-<h3>Download</h3>
-<p>Download the latest version of Vanilla from GitHub.</p>
-<p><a class="p-button--positive" href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v{{ version }}.zip">Download v{{ version }}</a></p>
-<p>See the <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases">release notes</a> for details on the latest updates.</p>
-
-<h3>Local development</h3>
-<p>To make improvements to Vanilla itself, please follow the instructions on the project’s <a href="https://github.com/canonical-web-and-design/vanilla-framework#vanilla-framework" class="p-link--external">README.md</a>.</p>
-<ul class="p-inline-list">
-  <li class="p-inline-list__item"><i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Join our channel</a></li>
-  <li class="p-inline-list__item"><i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Tweet us</a></li>
-  <li class="p-inline-list__item"><i class="p-list__icon--github"></i><a href="https://github.com/canonical-web-and-design/vanilla-framework/issues/new">Fork us on GitHub</a></li>
-</ul>
-
+<div class="p-strip is-deep u-no-padding--top">
+  <hr>
+  <h3 class="p-heading--2">Hotlink</h3>
+  <p>You can add Vanilla directly to your markup:</p>
+  <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-{{ version }}.min.css" /&gt;</code></pre>
+</div>
+<div class="p-strip is-deep u-no-padding--top">
+  <hr>
+  <h3 class="p-heading--2">Download</h3>
+  <p>Download the latest version of Vanilla from GitHub.</p>
+  <p><a class="p-button--positive"
+      href="https://github.com/canonical-web-and-design/vanilla-framework/archive/v{{ version }}.zip">Download
+      v{{ version }}</a></p>
+  <p>See the <a href="https://github.com/canonical-web-and-design/vanilla-framework/releases">release notes</a> for
+    details on the latest updates.</p>
+</div>
+<div class="p-strip is-deep u-no-padding--top">
+  <hr>
+  <h3 class="p-heading--2">Local development</h3>
+  <p>To make improvements to Vanilla itself, please follow the instructions on the project’s <a
+      href="https://github.com/canonical-web-and-design/vanilla-framework#vanilla-framework"
+      class="p-link--external">README.md</a>.</p>
+  <ul class="p-inline-list">
+    <li class="p-inline-list__item"><i class="p-list__icon--slack"></i><a
+        href="https://vanillaframework.slack.com/">Join
+        our channel</a></li>
+    <li class="p-inline-list__item"><i class="p-list__icon--twitter"></i><a
+        href="https://twitter.com/vanillaframewrk">Tweet us</a></li>
+    <li class="p-inline-list__item"><i class="p-list__icon--github"></i><a
+        href="https://github.com/canonical-web-and-design/vanilla-framework/issues/new">Fork us on GitHub</a></li>
+  </ul>
+</div>
 {% endblock %}
