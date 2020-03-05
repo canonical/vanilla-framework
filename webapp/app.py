@@ -17,9 +17,9 @@ with open("package.json") as package_json:
 
 app = FlaskBase(
     __name__,
-    "docs.vanillaframework.io",
-    template_folder="../docs",
-    static_folder="../docs/static",
+    "vanillaframework.io",
+    template_folder="../site",
+    static_folder="../site/static",
     template_404="404.html",
     template_500="500.html",
 )
@@ -32,20 +32,20 @@ def _get_title(title):
 
 
 def _get_examples():
-    example_files = glob.glob("docs/examples/*/**/*.html", recursive=True)
+    example_files = glob.glob("site/docs/examples/*/**/*.html", recursive=True)
     examples = {}
 
     for filepath in sorted(example_files):
-        # Remove "docs/" prefix
-        docs_length = len("docs/")
+        # Remove "site/" prefix
+        docs_length = len("site/")
 
         # Get template object
         template_path = filepath[docs_length:]
         template = flask.current_app.jinja_env.get_template(template_path)
 
-        # Remove "examples/"
-        examples_length = len("examples/")
-        # Remove "examples/" and extension for the path
+        # Remove "docs/examples/"
+        examples_length = len("docs/examples/")
+        # Remove "docs/examples/" and extension for the path
         example_path = os.path.splitext(template_path[examples_length:])[0]
 
         outermost_parent = example_path.split(os.sep).pop(0)
@@ -71,33 +71,35 @@ def global_template_context():
 template_finder_view = TemplateFinder.as_view("template_finder")
 
 
-@app.route("/examples")
+@app.route("/docs/examples")
 def examples_index():
     return flask.render_template(
-        "examples/index.html", examples=_get_examples()
+        "docs/examples/index.html", examples=_get_examples()
     )
 
 
-@app.route("/examples/standalone")
+@app.route("/docs/examples/standalone")
 def standalone_examples_index():
     return flask.render_template(
-        "examples/standalone.html", examples=_get_examples()
+        "docs/examples/standalone.html", examples=_get_examples()
     )
 
 
-@app.route("/examples/standalone/<path:example_path>")
+@app.route("/docs/examples/standalone/<path:example_path>")
 def standalone_example(example_path):
     return flask.render_template(
-        f"examples/{example_path}.html", is_standalone=True
+        f"docs/examples/{example_path}.html", is_standalone=True
     )
 
 
 app.add_url_rule("/", view_func=template_finder_view)
 app.add_url_rule(
-    "/search",
+    "/docs/search",
     "search",
     build_search_view(
-        site="docs.vanillaframework.io", template_path="search.html"
+        # temporarly keep docs.vanillaframework.io until /docs are live and indexed
+        # change to vanillaframework.io/docs
+        site="docs.vanillaframework.io", template_path="docs/search.html"
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
