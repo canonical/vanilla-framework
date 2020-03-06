@@ -1,6 +1,6 @@
 ---
 collection: utilities
-wrapper_template: '_layouts/default.html'
+wrapper_template: '_layouts/docs.html'
 context:
   title: Image position | Utilities
 ---
