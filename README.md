@@ -1,6 +1,6 @@
 # Vanilla Framework
 
-[![Build Status](https://travis-ci.org/canonical-web-and-design/vanilla-framework.svg?branch=master)](https://travis-ci.org/canonical-web-and-design/vanilla-framework)
+[![CircleCI build status](https://circleci.com/gh/canonical-web-and-design/vanilla-framework.svg?style=shield)](https://circleci.com/gh/canonical-web-and-design/vanilla-framework)
 [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 [![Downloads](http://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
 [![devDependency Status](https://david-dm.org/canonical-web-and-design/vanilla-framework/dev-status.svg)](https://david-dm.org/canonical-web-and-design/vanilla-framework#info=devDependencies)
