@@ -1,6 +1,6 @@
 ---
 collection: patterns
-wrapper_template: '_layouts/default.html'
+wrapper_template: '_layouts/docs.html'
 context:
   title: Media object | Components
 ---
