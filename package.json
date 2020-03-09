@@ -31,9 +31,9 @@
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test": "yarn run lint-scss && mdspell docs/**/*.md -r -n -a --en-gb && node -e 'require(\"./tests/parker\").parkerTest()'",
     "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
-    "watch:vanilla-scss": "node-sass --include-paths node_modules scss --output-style compressed --output build/css --watch",
-    "watch:vanilla-scss:skip-standalone": "node-sass --include-paths node_modules scss/build.scss --output-style compressed --output build/css --watch",
-    "watch": "yarn build && yarn watch:vanilla-scss",
+    "watch:scss": "node-sass scss --functions sass-functions.js --output-style compressed --output build/css --watch",
+    "watch:scss:skip-standalone": "node-sass  scss/docs --functions sass-functions.js --output-style compressed --output build/css/docs --watch",
+    "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js"
   },
