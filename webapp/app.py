@@ -18,8 +18,8 @@ with open("package.json") as package_json:
 app = FlaskBase(
     __name__,
     "vanillaframework.io",
-    template_folder="../site",
-    static_folder="../site/static",
+    template_folder="../templates",
+    static_folder="../templates/static",
     template_404="404.html",
     template_500="500.html",
 )
@@ -32,12 +32,12 @@ def _get_title(title):
 
 
 def _get_examples():
-    example_files = glob.glob("site/docs/examples/*/**/*.html", recursive=True)
+    example_files = glob.glob("templates/docs/examples/*/**/*.html", recursive=True)
     examples = {}
 
     for filepath in sorted(example_files):
-        # Remove "site/" prefix
-        docs_length = len("site/")
+        # Remove "templates/" prefix
+        docs_length = len("templates/")
 
         # Get template object
         template_path = filepath[docs_length:]
