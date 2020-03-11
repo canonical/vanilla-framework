@@ -2,6 +2,7 @@
 
 @mixin vf-p-side-navigation {
   .p-side-navigation {
+    // nudge from top to put text on baseline grid
     padding-top: 0.5 * $spv-inner--x-small;
   }
 
@@ -71,7 +72,7 @@
     color: $color-sidenav-text-default;
   }
 
-  .p-side-navigation__list:not(:last-child)::after {
+  .p-side-navigation__list::after {
     background: $color-sidenav-list-border;
   }
 
@@ -81,20 +82,19 @@
       color: $color-sidenav-text-default;
     }
 
-    &.is-active {
-      @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-
-      background: $color-sidenav-item-background-highlight;
-      color: $color-sidenav-text-active;
-    }
-
+    &:hover,
+    &.is-active,
     &.is-selected {
       color: $color-sidenav-text-active;
     }
 
-    &:hover {
+    &:hover,
+    &.is-active {
       background: $color-sidenav-item-background-highlight;
-      color: $color-sidenav-text-active;
+    }
+
+    &.is-active {
+      @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
     }
   }
 }
