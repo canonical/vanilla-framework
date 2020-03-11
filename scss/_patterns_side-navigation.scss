@@ -1,13 +1,13 @@
 @import 'settings';
 
 @mixin vf-p-side-navigation {
-  .p-side-navigation {
-    // nudge from top to put text on baseline grid
-    padding-top: 0.5 * $spv-inner--x-small;
-  }
-
   .p-side-navigation__list {
     @extend %vf-list;
+
+    .p-side-navigation > &:first-child {
+      // nudge from top to put text on baseline grid
+      padding-top: 0.5 * $spv-inner--x-small;
+    }
 
     & + & {
       @extend %vf-pseudo-border--top;
