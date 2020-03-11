@@ -1,25 +1,7 @@
 @import 'settings';
 
-// TODO:
-// - [ ] put colors definitions in theme mixin
-// - [x] remove px values for variables
-// - [x] duplicated stuff in placeholders
-// - [x] define colors at the beginning
-
 @mixin vf-p-side-navigation {
-  // color default text
-  $color-sidenav-text-default: $color-mid-dark;
-  // color active text
-  $color-sidenav-text-active: $color-dark;
-  // color highlight background
-  $color-sidenav-item-background-highlight: $color-light;
-  // color highlight border
-  $color-sidenav-item-border-highlight: $color-brand;
-  // color list border
-  $color-sidenav-list-border: $color-mid-x-light;
-
   .p-side-navigation {
-    color: $color-sidenav-text-default;
     padding-top: 0.5 * $spv-inner--x-small;
   }
 
@@ -30,7 +12,6 @@
       @extend %vf-pseudo-border--bottom;
 
       &::after {
-        background: $color-sidenav-list-border;
         bottom: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
         left: $sph-inner;
       }
@@ -57,10 +38,46 @@
   }
 
   .p-side-navigation__link {
+    @include vf-focus;
+
+    &.is-active,
+    &.is-selected {
+      font-weight: $font-weight-bold;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // default light theme
+  @include vf-side-navigation-theme;
+}
+
+// theme
+@mixin vf-side-navigation-theme(
+  // default text color in sidebar
+    $color-sidenav-text-default: $color-mid-dark,
+  // text color of highlighted items
+    $color-sidenav-text-active: $color-dark,
+  // background color of active/hovered items
+    $color-sidenav-item-background-highlight: $color-light,
+  // border color of active item
+    $color-sidenav-item-border-highlight: $color-brand,
+  // border color of items list
+    $color-sidenav-list-border: $color-mid-x-light
+) {
+  .p-side-navigation {
+    color: $color-sidenav-text-default;
+  }
+
+  .p-side-navigation__list:not(:last-child)::after {
+    background: $color-sidenav-list-border;
+  }
+
+  .p-side-navigation__link {
     &,
-    &:link,
     &:visited {
-      @include vf-focus;
       color: $color-sidenav-text-default;
     }
 
@@ -69,18 +86,15 @@
 
       background: $color-sidenav-item-background-highlight;
       color: $color-sidenav-text-active;
-      font-weight: $font-weight-bold;
     }
 
     &.is-selected {
       color: $color-sidenav-text-active;
-      font-weight: $font-weight-bold;
     }
 
     &:hover {
       background: $color-sidenav-item-background-highlight;
       color: $color-sidenav-text-active;
-      text-decoration: none;
     }
   }
 }
