@@ -28,6 +28,11 @@
     display: block;
     padding: $spv-inner--x-small $sph-inner--small $spv-inner--x-small $sph-inner;
 
+    &.is-active,
+    &.is-selected {
+      font-weight: $font-weight-bold;
+    }
+
     // nested 2 or 3 levels
     .p-side-navigation__item .p-side-navigation__item & {
       padding-left: 2 * $sph-inner;
@@ -40,11 +45,6 @@
 
   .p-side-navigation__link {
     @include vf-focus;
-
-    &.is-active,
-    &.is-selected {
-      font-weight: $font-weight-bold;
-    }
 
     &:hover {
       text-decoration: none;
@@ -74,6 +74,10 @@
 
   .p-side-navigation__list::after {
     background: $color-sidenav-list-border;
+  }
+
+  .p-side-navigation__text.is-selected {
+    color: $color-sidenav-text-active;
   }
 
   .p-side-navigation__link {
