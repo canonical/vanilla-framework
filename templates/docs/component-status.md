@@ -10,18 +10,40 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.8
+### What's new in Vanilla 2.9
 
 <table>
   <thead>
     <tr>
       <th style="width: 20%">Component</th>
-      <th style="width: 10%">Status</th>
+      <th style="width: 15%">Status</th>
       <th style="width: 10%">Version</th>
-      <th style="width: 60%">Notes</th>
+      <th style="width: 55%">Notes</th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.9.0</td>
+      <td>New side navigation component was added.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 2.8.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation">Navigation</a></th>
       <td><div class="p-label--updated">Updated</div></td>
@@ -34,21 +56,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.8.0</td>
       <td>Navigation classes <code>p-navigation__links</code>, <code>p-navigation__link</code>, and classless <code>&lt;a&gt;</code> are deprecated and will be removed in future release v3.0. Please use new class names (<code>p-navigation__items</code>, <code>p-navigation__item</code>, <code>p-navigation__link</code>) instead.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 10%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 60%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.7.0 -->
     <tr>
       <th><a href="/docs/patterns/contextual-menu#theming">Contextual menu</a></th>
