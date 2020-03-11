@@ -8,7 +8,7 @@ context:
 
 <hr>
 
-<span class="p-label--updated">Updated</span>
+### Global navigation
 
 Vanilla includes a simple navigation bar that you can add to the top of your
 sites.
@@ -61,6 +61,23 @@ By default the sub-navigation menus are left-aligned with their parent, if you'd
 View example of the sub-navigation pattern
 </a>
 
+### Side navigation
+
+<span class="p-label--new">New</span>
+
+Side navigation pattern can be used to provide more detailed navigation alongside your content.
+
+It provides grouping of the links and nesting them up to three levels.
+
+Current page in the side navigation should be highlighted by adding `is-active` class to
+`p-side-navigation__link` element. If current active page is nested in the navigation
+all relevant parent `p-side-navigation__link` or `p-side-navigation__text` elements
+should be highlighted using `is-selected` class to give a better view on the hierarchy.
+
+<a href="/docs/examples/patterns/side-navigation/docs" class="js-example">
+View example of the side navigation pattern
+</a>
+
 ### Import
 
 To import just navigation or sub-navigation component into your project, copy snippets below and include it in your main Sass file.
@@ -72,6 +89,13 @@ To import just navigation or sub-navigation component into your project, copy sn
 // sub-navigation is optional you can include it alongside navigation component
 @import 'patterns_subnav';
 @include vf-p-subnav;
+```
+
+To import side navigation, copy snippet below:
+
+```scss
+@import 'patterns_side-navigation';
+@include vf-p-side-navigation;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
