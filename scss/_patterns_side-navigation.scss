@@ -9,12 +9,12 @@
   .p-side-navigation__list {
     @extend %vf-list;
 
-    &:not(:last-child) {
-      @extend %vf-pseudo-border--bottom;
+    & + & {
+      @extend %vf-pseudo-border--top;
 
       &::after {
-        bottom: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
         left: $sph-inner;
+        top: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
       }
     }
   }
