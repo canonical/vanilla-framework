@@ -1,8 +1,9 @@
 @import 'settings';
 
 // TODO:
+// - [ ] put colors definitions in theme mixin
 // - [x] remove px values for variables
-// - [ ] duplicated stuff in placeholders
+// - [x] duplicated stuff in placeholders
 // - [x] define colors at the beginning
 
 @mixin vf-p-side-navigation {
@@ -14,8 +15,8 @@
   $color-sidenav-item-background-highlight: $color-light;
   // color highlight border
   $color-sidenav-item-border-highlight: $color-brand;
-  // color group border
-  $color-sidenav-group-border: $color-mid-x-light;
+  // color list border
+  $color-sidenav-list-border: $color-mid-x-light;
 
   .p-side-navigation {
     color: $color-sidenav-text-default;
@@ -24,11 +25,16 @@
 
   .p-side-navigation__list {
     @extend %vf-list;
-  }
 
-  .p-side-navigation__item,
-  .p-side-navigation__item--title {
-    display: block;
+    &:not(:last-child) {
+      @extend %vf-pseudo-border--bottom;
+
+      &::after {
+        background: $color-sidenav-list-border;
+        bottom: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
+        left: $sph-inner;
+      }
+    }
   }
 
   .p-side-navigation__item--title {
@@ -39,47 +45,42 @@
   .p-side-navigation__link {
     display: block;
     padding: $spv-inner--x-small $sph-inner--small $spv-inner--x-small $sph-inner;
-  }
 
-  .p-side-navigation__link,
-  .p-side-navigation__link:link,
-  .p-side-navigation__link:visited {
-    @include vf-focus;
-    color: $color-sidenav-text-default;
-  }
+    // nested 2 or 3 levels
+    .p-side-navigation__item .p-side-navigation__item & {
+      padding-left: 2 * $sph-inner;
+    }
 
-  .p-side-navigation__link.is-active {
-    @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-
-    background: $color-sidenav-item-background-highlight;
-    color: $color-sidenav-text-active;
-    font-weight: $font-weight-bold;
-  }
-
-  .p-side-navigation__link.is-selected {
-    color: $color-sidenav-text-active;
-    font-weight: $font-weight-bold;
-  }
-
-  .p-side-navigation__link:hover {
-    background: $color-sidenav-item-background-highlight;
-    color: $color-sidenav-text-active;
-    text-decoration: none;
-  }
-
-  .p-side-navigation__group:not(:last-child) {
-    @extend %vf-pseudo-border--bottom;
-
-    &::after {
-      background: $color-sidenav-group-border;
-      bottom: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
-      left: $sph-inner;
+    .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
+      padding-left: 3 * $sph-inner;
     }
   }
 
-  // nested
-  .p-side-navigation__item .p-side-navigation__item .p-side-navigation__text,
-  .p-side-navigation__item .p-side-navigation__item .p-side-navigation__link {
-    padding-left: 2 * $sph-inner;
+  .p-side-navigation__link {
+    &,
+    &:link,
+    &:visited {
+      @include vf-focus;
+      color: $color-sidenav-text-default;
+    }
+
+    &.is-active {
+      @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
+
+      background: $color-sidenav-item-background-highlight;
+      color: $color-sidenav-text-active;
+      font-weight: $font-weight-bold;
+    }
+
+    &.is-selected {
+      color: $color-sidenav-text-active;
+      font-weight: $font-weight-bold;
+    }
+
+    &:hover {
+      background: $color-sidenav-item-background-highlight;
+      color: $color-sidenav-text-active;
+      text-decoration: none;
+    }
   }
 }
