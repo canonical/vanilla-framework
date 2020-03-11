@@ -1,0 +1,106 @@
+@import 'settings';
+
+// TODO:
+// - [ ] remove px values for variables
+// - [ ] duplicated stuff in placeholders
+// - [x] define colors at the beginning
+
+@mixin vf-p-side-navigation {
+  // color default text
+  $color-sidenav-text-default: $color-mid-dark;
+  // color active text
+  $color-sidenav-text-active: $color-dark;
+  // color highlight background
+  $color-sidenav-item-background-highlight: $color-light;
+  // color highlight border
+  $color-sidenav-item-border-highlight: $color-brand;
+  // color group border
+  $color-sidenav-group-border: $color-mid-x-light;
+
+  .p-side-navigation {
+    color: $color-sidenav-text-default;
+    padding-top: 2px;
+  }
+
+  .p-side-navigation__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .p-side-navigation__item,
+  .p-side-navigation__item--title {
+    display: block;
+  }
+
+  .p-side-navigation__item--title {
+    font-weight: 400;
+  }
+
+  .p-side-navigation__text,
+  .p-side-navigation__link {
+    display: block;
+    padding: 4px 0 4px 16px;
+  }
+
+  .p-side-navigation__link,
+  .p-side-navigation__link:link,
+  .p-side-navigation__link:visited {
+    color: $color-sidenav-text-default;
+    display: block;
+    position: relative;
+  }
+
+  .p-side-navigation__link.is-active {
+    background: $color-sidenav-item-background-highlight;
+    color: $color-sidenav-text-active;
+    font-weight: 400;
+  }
+
+  .p-side-navigation__link.is-selected {
+    color: $color-sidenav-text-active;
+    font-weight: 400;
+  }
+
+  .p-side-navigation__link.is-active::before {
+    background: $color-sidenav-item-border-highlight;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 3px;
+  }
+
+  .p-side-navigation__link:hover {
+    background: $color-sidenav-item-background-highlight;
+    color: $color-sidenav-text-active;
+    text-decoration: none;
+  }
+
+  .p-side-navigation__group {
+    padding-bottom: 14px;
+    position: relative;
+  }
+
+  .p-side-navigation__group::after {
+    background: $color-sidenav-group-border;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 16px;
+    position: absolute;
+    right: 0;
+  }
+
+  .p-side-navigation__group + .p-side-navigation__group {
+    padding-top: 10px;
+  }
+
+  // nested
+  .p-side-navigation__item .p-side-navigation__item .p-side-navigation__text,
+  .p-side-navigation__item .p-side-navigation__item .p-side-navigation__link {
+    padding-left: 32px;
+  }
+}
