@@ -42,6 +42,13 @@
     padding-top: calc(#{$table-cell-vertical-padding} - 1px);
   }
 
+  // Default list styling
+  %vf-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
   // Bars and borders
   %vf-pseudo-border {
     background-color: $color-mid-light;
@@ -53,6 +60,8 @@
   }
 
   %vf-pseudo-border--bottom {
+    position: relative;
+
     &::after {
       @extend %vf-pseudo-border;
       bottom: 0;
@@ -60,6 +69,8 @@
   }
 
   %vf-pseudo-border--top {
+    position: relative;
+
     &::after {
       @extend %vf-pseudo-border;
       top: 0;
