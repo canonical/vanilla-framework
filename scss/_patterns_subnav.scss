@@ -54,11 +54,6 @@
       @include vf-icon-chevron($colors--dark-theme--border-high-contrast);
     }
 
-    .p-subnav__items,
-    .p-subnav__items--right {
-      border-color: $colors--dark-theme--border-default;
-    }
-
     .p-subnav__item {
       @extend %subnav-item--dark-theme;
     }
@@ -69,11 +64,6 @@
         @include vf-icon-chevron($colors--light-theme--border-high-contrast);
       }
 
-      .p-subnav__items,
-      .p-subnav__items--right {
-        border-color: $colors--light-theme--border-default;
-      }
-
       .p-subnav__item {
         @extend %subnav-item--light-theme;
       }
@@ -81,11 +71,6 @@
   } @else {
     .p-subnav::after {
       @include vf-icon-chevron($colors--light-theme--border-high-contrast);
-    }
-
-    .p-subnav__items,
-    .p-subnav__items--right {
-      border-color: $colors--light-theme--border-default;
     }
 
     .p-subnav__item {
@@ -98,11 +83,6 @@
         @include vf-icon-chevron($colors--dark-theme--border-high-contrast);
       }
 
-      .p-subnav__items,
-      .p-subnav__items--right {
-        border-color: $colors--dark-theme--border-default;
-      }
-
       .p-subnav__item {
         @extend %subnav-item--dark-theme;
       }
@@ -111,7 +91,6 @@
 
   .p-subnav__items,
   .p-subnav__items--right {
-    @extend %vf-is-bordered;
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
     display: none;
@@ -127,7 +106,6 @@
     }
 
     @media (max-width: $breakpoint-navigation-threshold) {
-      border: 0;
       box-shadow: none;
     }
   }
