@@ -28,11 +28,6 @@
     display: block;
     padding: $spv-inner--x-small $sph-inner--small $spv-inner--x-small $sph-inner;
 
-    &.is-active,
-    &.is-selected {
-      font-weight: $font-weight-bold;
-    }
-
     // nested 2 or 3 levels
     .p-side-navigation__item .p-side-navigation__item & {
       padding-left: 2 * $sph-inner;
@@ -76,10 +71,6 @@
     background: $color-sidenav-list-border;
   }
 
-  .p-side-navigation__text.is-selected {
-    color: $color-sidenav-text-active;
-  }
-
   .p-side-navigation__link {
     &,
     &:visited {
@@ -87,14 +78,9 @@
     }
 
     &:hover,
-    &.is-active,
-    &.is-selected {
-      color: $color-sidenav-text-active;
-    }
-
-    &:hover,
     &.is-active {
       background: $color-sidenav-item-background-highlight;
+      color: $color-sidenav-text-active;
     }
 
     &.is-active {
