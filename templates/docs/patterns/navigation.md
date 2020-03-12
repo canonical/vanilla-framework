@@ -65,14 +65,11 @@ View example of the sub-navigation pattern
 
 <span class="p-label--new">New</span>
 
-Side navigation pattern can be used to provide more detailed navigation alongside your content.
+The side navigation pattern can be used to provide more detailed navigation alongside your content.
 
-It provides grouping of the links and nesting them up to three levels.
+It allows grouping the links into navigation sections and nesting them up to three levels.
 
-Current page in the side navigation should be highlighted by adding `is-active` class to
-`p-side-navigation__link` element. If current active page is nested in the navigation
-all relevant parent `p-side-navigation__link` or `p-side-navigation__text` elements
-should be highlighted using `is-selected` class to give a better view on the hierarchy.
+Current page in the side navigation should be highlighted by adding `is-active` class to the corresponding `p-side-navigation__link` element.
 
 <a href="/docs/examples/patterns/side-navigation/docs" class="js-example">
 View example of the side navigation pattern
