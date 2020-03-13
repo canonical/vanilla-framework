@@ -1,13 +1,16 @@
 @import 'settings';
 
 @mixin vf-p-side-navigation {
-  .p-side-navigation__list {
-    @extend %vf-list;
-
-    .p-side-navigation > &:first-child {
+  .p-side-navigation,
+  .p-side-navigation--icons {
+    & > .p-side-navigation__list:first-child {
       // nudge from top to put text on baseline grid
       padding-top: 0.5 * $spv-inner--x-small;
     }
+  }
+
+  .p-side-navigation__list {
+    @extend %vf-list;
 
     & + & {
       @extend %vf-pseudo-border--top;
@@ -35,6 +38,27 @@
 
     .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
       padding-left: 3 * $sph-inner;
+    }
+
+    .p-side-navigation--icons & {
+      padding-left: 2 * $sph-inner + map-get($icon-sizes, default);
+      position: relative;
+    }
+
+    .p-side-navigation--icons .p-side-navigation__item .p-side-navigation__item & {
+      padding-left: 2 * $sph-inner + map-get($icon-sizes, default) + $sph-inner;
+    }
+
+    .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
+      padding-left: 2 * $sph-inner + map-get($icon-sizes, default) + 2 * $sph-inner;
+    }
+  }
+
+  .p-side-navigation--icons {
+    .p-side-navigation__icon {
+      left: $sph-inner;
+      position: absolute;
+      top: $sph-inner--small;
     }
   }
 
@@ -74,7 +98,8 @@
   // border color of items list
     $color-sidenav-list-border: $colors--light-theme--border-default
 ) {
-  .p-side-navigation {
+  .p-side-navigation,
+  .p-side-navigation--icons {
     color: $color-sidenav-text-default;
   }
 
