@@ -95,6 +95,13 @@ To import side navigation, copy snippet below:
 ```scss
 @import 'patterns_side-navigation';
 @include vf-p-side-navigation;
+
+// optionally add icons and/or labels if you use them in side navigation__nav
+@import 'patterns_label';
+@include vf-p-label;
+
+@import 'patterns_icons';
+@include vf-p-icons;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
