@@ -71,6 +71,8 @@ It allows grouping the links into navigation sections and nesting them up to thr
 
 Current page in the side navigation should be highlighted by adding `is-active` class to the corresponding `p-side-navigation__link` element.
 
+Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add status labels or icons on right side of navigation items.
+
 <a href="/docs/examples/patterns/side-navigation/docs" class="js-example">
 View example of the side navigation pattern
 </a>
