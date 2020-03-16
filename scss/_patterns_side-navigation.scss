@@ -41,6 +41,12 @@
   .p-side-navigation__link {
     @include vf-focus;
 
+    // vf-highlight-bar is rendered above focus outline
+    // so we need to hide it on focus
+    &:focus::before {
+      display: none;
+    }
+
     &:hover {
       text-decoration: none;
     }
