@@ -31,26 +31,32 @@
     display: flex;
     padding: $spv-inner--x-small $sph-inner $spv-inner--x-small $sph-inner;
 
-    // nested 2 or 3 levels
-    .p-side-navigation__item .p-side-navigation__item & {
-      padding-left: 2 * $sph-inner;
-    }
-
-    .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
-      padding-left: 3 * $sph-inner;
-    }
+    // space for the right hand icon with default inner spacing on the left
+    $icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
 
     .p-side-navigation--icons & {
-      padding-left: 2 * $sph-inner + map-get($icon-sizes, default);
+      padding-left: $sph-inner + $icon-spacing-width;
       position: relative;
     }
 
-    .p-side-navigation--icons .p-side-navigation__item .p-side-navigation__item & {
-      padding-left: 2 * $sph-inner + map-get($icon-sizes, default) + $sph-inner;
+    // nested 2nd level of navigation
+    .p-side-navigation__item .p-side-navigation__item & {
+      padding-left: 2 * $sph-inner;
+
+      // add spacing for variant with right side icons
+      .p-side-navigation--icons & {
+        padding-left: 2 * $sph-inner + $icon-spacing-width;
+      }
     }
 
+    // nested 3rd level of navigation
     .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
-      padding-left: 2 * $sph-inner + map-get($icon-sizes, default) + 2 * $sph-inner;
+      padding-left: 3 * $sph-inner;
+
+      // add spacing for variant with right side icons
+      .p-side-navigation--icons & {
+        padding-left: 3 * $sph-inner + $icon-spacing-width;
+      }
     }
   }
 
