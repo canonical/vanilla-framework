@@ -77,6 +77,18 @@ Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add
 View example of the side navigation pattern
 </a>
 
+To add icons on the left side of the items in side navigation use the `.p-side-navigation--items` class.
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>Icons should only be used on the items in the first level of side navigation.
+  </p>
+</div>
+
+<a href="/docs/examples/patterns/side-navigation/icons" class="js-example">
+View example of the side navigation pattern with icons
+</a>
+
 ### Import
 
 To import just navigation or sub-navigation component into your project, copy snippets below and include it in your main Sass file.
