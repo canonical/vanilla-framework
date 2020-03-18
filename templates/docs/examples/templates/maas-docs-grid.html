@@ -1,19 +1,8 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}MAAS docs / Custom docs layout{% endblock %}
+{% block title %}MAAS docs / Grid layout{% endblock %}
 
 {% block content %}
 <style>
-  .l-docs-wrapper {
-      border-bottom: 1px solid #cdcdcd
-  }
-
-  .l-docs {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 auto;
-      max-width: 72rem
-  }
-
   @media only screen and (min-width: 1030px) {
       .l-docs-title,.l-docs-title[class^='p-strip'] {
           background-color:transparent;
@@ -31,52 +20,6 @@
   .l-docs-title__heading {
       border-bottom: 1px solid #cdcdcd;
       padding-bottom: 1rem
-  }
-
-  .l-docs-sidebar {
-      border-right: 1px solid #cdcdcd;
-      flex: 0 0 18rem
-  }
-
-  @media only screen and (max-width: 772px) {
-      .l-docs-sidebar {
-          border-right:0;
-          flex: auto;
-          height: inherit;
-          overflow: hidden;
-          position: static;
-          width: 100%
-      }
-  }
-
-  .l-docs-content {
-      flex: 5;
-      margin-top: 0
-  }
-
-  @media only screen and (max-width: 772px) {
-      .l-docs-content {
-          flex:auto
-      }
-  }
-
-  .l-docs-content .meta {
-      display: none
-  }
-
-  .l-docs-content details+p,.l-docs-content details+h3 {
-      margin-top: 1.5rem
-  }
-
-  .l-docs-row {
-      margin-left: inherit;
-      padding: 0 3rem
-  }
-
-  @media only screen and (max-width: 772px) {
-      .l-docs-row {
-          padding-left:1.5rem
-      }
   }
 </style>
 
@@ -126,8 +69,8 @@
       </form>
     </div>
   </section>
-  <div class="l-docs">
-    <aside class="l-docs-sidebar" id="navigation">
+  <div class="row">
+    <aside class="col-3">
       <nav class="p-side-navigation">
         <ul class="p-side-navigation__list">
           <li class="p-side-navigation__item--title">
@@ -192,7 +135,7 @@
       </nav>
     </aside>
 
-    <main class="l-docs-content" id="main-content">
+    <main class="col-9" id="main-content">
       <div class="p-strip--light is-shallow l-docs-title">
         <div class="l-docs-row row">
           <h1 class="u-no-margin--bottom l-docs-title__heading">MAAS Documentation</h1>
