@@ -26,47 +26,6 @@ hr {
 }
 /* --- */
 
-/* Sidebar navigation */
-.p-sidebar-nav {
-  &__list {
-    @extend .p-list; // sass-lint:disable-line placeholder-in-extend
-    margin-bottom: $spv-inner--small;
-    margin-top: -$spv-inner--x-small;
-  }
-
-  &__item {
-    padding-bottom: $spv-inner--x-small / 2;
-    padding-top: $spv-inner--x-small / 2;
-
-    &:first-of-type {
-      padding-top: $spv-inner--small;
-    }
-
-    &:last-of-type {
-      padding-bottom: $spv-inner--small + $spv-inner--x-small;
-    }
-
-    .is-active {
-      position: relative;
-
-      &::before {
-        background-color: $color-accent;
-        bottom: -$spv-inner--x-small;
-        content: '';
-        left: -$sph-inner;
-        position: absolute;
-        top: -$spv-inner--x-small;
-        width: $bar-thickness;
-      }
-    }
-  }
-
-  &__item > &__list {
-    padding-left: $sph-inner;
-  }
-}
-/* --- */
-
 /* Flex layout */
 .docs-container {
   display: flex;
@@ -74,7 +33,7 @@ hr {
 }
 
 .p-sidebar {
-  background-color: $color-mid-x-light;
+  border-right: 1px solid $colors--light-theme--border-default;
   flex: 0 0 18rem;
 
   @supports (position: sticky) {
@@ -136,19 +95,14 @@ hr {
   .p-sidebar {
     border-bottom: $border;
     border-right: 0;
+    display: none;
     flex: auto;
     height: inherit;
     overflow: hidden;
     position: static;
 
-    &__content {
-      display: none;
-      padding: 0 $sp-large $sp-large $sp-large;
-
-      &.is-active {
-        display: block;
-        padding: $sp-large;
-      }
+    &.is-active {
+      display: block;
     }
   }
 
@@ -252,7 +206,6 @@ hr {
 }
 
 .p-sidebar__toggle.is-active {
-  background-color: $color-mid-x-light;
   z-index: 1;
 
   &:focus {
