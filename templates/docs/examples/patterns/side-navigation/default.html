@@ -1,90 +1,15 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Side navigation / Default{% endblock %}
+{% block title %}Side navigation / Variants{% endblock %}
 
 {% block standalone_css %}patterns_side-navigation{% endblock %}
 
 {% block content %}
-<div class="p-side-navigation">
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item--title">
-      <a class="p-side-navigation__link" href="#">Title that is a link</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">First level link</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">First level link with status<div class="p-side-navigation__status"><i class="p-icon--error"></i></div></a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">Link with children</a>
-      <ul class="p-side-navigation__list">
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Second level link<div class="p-side-navigation__status"><i class="p-icon--warning"></i></div></a>
-        </li>
-        <li class="p-side-navigation__item ">
-          <span class="p-side-navigation__text">Second level text</span>
-        </li>
-        <li class="p-side-navigation__item ">
-          <a class="p-side-navigation__link" href="#">Second level link with children</a>
-          <ul class="p-side-navigation__list">
-            <li class="p-side-navigation__item">
-              <span class="p-side-navigation__text">Third level text</span>
-            </li>
-            <li class="p-side-navigation__item ">
-              <a class="p-side-navigation__link is-active" href="#">Third level active link</a>
-            </li>
-            <li class="p-side-navigation__item ">
-              <a class="p-side-navigation__link" href="#">Third level link with status<div class="p-side-navigation__status"><i class="p-icon--success"></i></div></a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li class="p-side-navigation__item ">
-      <span class="p-side-navigation__text">First level item that is not a link</span>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">First level link with a label<div class="p-side-navigation__status"><span class="p-label--new">New</span></div></a>
-    </li>
-  </ul>
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item--title">
-      <span class="p-side-navigation__text">Title that is not a link</span>
-    </li>
-    <li class="p-side-navigation__item">
-      <span class="p-side-navigation__text">First level text</span>
-    </li>
-    <li class="p-side-navigation__item">
-      <span class="p-side-navigation__text">Text item with children</span>
-      <ul class="p-side-navigation__list">
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Second level link</a>
-        </li>
-        <li class="p-side-navigation__item ">
-          <span class="p-side-navigation__text">Second level text</span>
-        </li>
-        <li class="p-side-navigation__item ">
-          <span class="p-side-navigation__text">Second level text with children</span>
-          <ul class="p-side-navigation__list">
-            <li class="p-side-navigation__item">
-              <span class="p-side-navigation__text">Third level text</span>
-            </li>
-            <li class="p-side-navigation__item ">
-              <a class="p-side-navigation__link is-active" href="#">Third level active item</a>
-            </li>
-            <li class="p-side-navigation__item ">
-              <a class="p-side-navigation__link" href="#">Third level link</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li class="p-side-navigation__item ">
-      <span class="p-side-navigation__text">First level item that is not a link</span>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">First level link</a>
-    </li>
-  </ul>
+<div class="row">
+  <div class="col-4">
+      {% include "docs/examples/patterns/side-navigation/_default.html" %}
+  </div>
+  <div class="col-4">
+      {% include "docs/examples/patterns/side-navigation/_icons.html" %}
+  </div>
 </div>
 {% endblock %}
