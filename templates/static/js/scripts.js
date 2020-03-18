@@ -1,6 +1,6 @@
 // Toggle mobile sidebar nav
 var sidebarToggle = document.querySelector('.p-sidebar__toggle');
-var sidebarContent = document.querySelector('.p-sidebar__content');
+var sidebarContent = document.querySelector('.p-sidebar');
 var openMainNav = document.querySelector('.p-navigation__toggle--open');
 
 if (sidebarToggle) {
