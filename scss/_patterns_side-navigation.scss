@@ -1,6 +1,9 @@
 @import 'settings';
 
 @mixin vf-p-side-navigation {
+  // space for the right hand icon with default inner spacing on the left
+  $sp-sidenav--icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
+
   .p-side-navigation,
   .p-side-navigation--icons {
     & > .p-side-navigation__list:first-child {
@@ -19,6 +22,10 @@
         left: $sph-inner;
         top: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
       }
+
+      .p-side-navigation--icons &::after {
+        left: $sph-inner + $sp-sidenav--icon-spacing-width;
+      }
     }
   }
 
@@ -31,11 +38,8 @@
     display: flex;
     padding: $spv-inner--x-small $sph-inner $spv-inner--x-small $sph-inner;
 
-    // space for the right hand icon with default inner spacing on the left
-    $icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
-
     .p-side-navigation--icons & {
-      padding-left: $sph-inner + $icon-spacing-width;
+      padding-left: $sph-inner + $sp-sidenav--icon-spacing-width;
       position: relative;
     }
 
@@ -45,7 +49,7 @@
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        padding-left: 2 * $sph-inner + $icon-spacing-width;
+        padding-left: 2 * $sph-inner + $sp-sidenav--icon-spacing-width;
       }
     }
 
@@ -55,7 +59,7 @@
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        padding-left: 3 * $sph-inner + $icon-spacing-width;
+        padding-left: 3 * $sph-inner + $sp-sidenav--icon-spacing-width;
       }
     }
   }
