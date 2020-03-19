@@ -19,12 +19,12 @@
       @extend %vf-pseudo-border--top;
 
       &::after {
-        left: $sph-inner;
+        @include vf-side-navigation-spacing-left($prop: left);
         top: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
       }
 
       .p-side-navigation--icons &::after {
-        left: $sph-inner + $sp-sidenav--icon-spacing-width;
+        @include vf-side-navigation-spacing-left($prop: left, $offset: $sp-sidenav--icon-spacing-width);
       }
     }
   }
@@ -35,38 +35,42 @@
 
   .p-side-navigation__text,
   .p-side-navigation__link {
+    @include vf-side-navigation-spacing-left;
+
     display: flex;
-    padding: $spv-inner--x-small $sph-inner $spv-inner--x-small $sph-inner;
+    padding-bottom: $spv-inner--x-small;
+    padding-right: $sph-inner;
+    padding-top: $spv-inner--x-small;
 
     .p-side-navigation--icons & {
-      padding-left: $sph-inner + $sp-sidenav--icon-spacing-width;
+      @include vf-side-navigation-spacing-left($sp-sidenav--icon-spacing-width);
       position: relative;
     }
 
     // nested 2nd level of navigation
     .p-side-navigation__item .p-side-navigation__item & {
-      padding-left: 2 * $sph-inner;
+      @include vf-side-navigation-spacing-left($sph-inner);
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        padding-left: 2 * $sph-inner + $sp-sidenav--icon-spacing-width;
+        @include vf-side-navigation-spacing-left($sp-sidenav--icon-spacing-width + $sph-inner);
       }
     }
 
     // nested 3rd level of navigation
     .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
-      padding-left: 3 * $sph-inner;
+      @include vf-side-navigation-spacing-left(2 * $sph-inner);
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        padding-left: 3 * $sph-inner + $sp-sidenav--icon-spacing-width;
+        @include vf-side-navigation-spacing-left($sp-sidenav--icon-spacing-width + 2 * $sph-inner);
       }
     }
   }
 
   .p-side-navigation--icons {
     .p-side-navigation__icon {
-      left: $sph-inner;
+      @include vf-side-navigation-spacing-left($prop: left);
       position: absolute;
       top: $sph-inner--small;
     }
@@ -93,6 +97,24 @@
 
   // default light theme
   @include vf-side-navigation-theme;
+}
+
+// helper
+
+// elements in side nav should be aligned from left based on grid margin for given screen size
+// additional offset is added when icons are used or for nested navigation levels
+@mixin vf-side-navigation-spacing-left($offset: 0, $prop: padding-left) {
+  @media (max-width: $threshold-4-6-col) {
+    #{$prop}: map-get($grid-margin-widths, small) + $offset;
+  }
+
+  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+    #{$prop}: map-get($grid-margin-widths, medium) + $offset;
+  }
+
+  @media (min-width: $threshold-6-12-col) {
+    #{$prop}: map-get($grid-margin-widths, large) + $offset;
+  }
 }
 
 // theme
