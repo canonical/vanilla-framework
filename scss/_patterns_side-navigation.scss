@@ -43,27 +43,27 @@
     padding-top: $spv-inner--x-small;
 
     .p-side-navigation--icons & {
-      @include vf-side-navigation-spacing-left($sp-sidenav--icon-spacing-width);
+      @include vf-side-navigation-spacing-left($offset: $sp-sidenav--icon-spacing-width);
       position: relative;
     }
 
     // nested 2nd level of navigation
     .p-side-navigation__item .p-side-navigation__item & {
-      @include vf-side-navigation-spacing-left($sph-inner);
+      @include vf-side-navigation-spacing-left($multiplier: 2);
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        @include vf-side-navigation-spacing-left($sp-sidenav--icon-spacing-width + $sph-inner);
+        @include vf-side-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--icon-spacing-width);
       }
     }
 
     // nested 3rd level of navigation
     .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
-      @include vf-side-navigation-spacing-left(2 * $sph-inner);
+      @include vf-side-navigation-spacing-left($multiplier: 3);
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        @include vf-side-navigation-spacing-left($sp-sidenav--icon-spacing-width + 2 * $sph-inner);
+        @include vf-side-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--icon-spacing-width);
       }
     }
   }
@@ -103,17 +103,24 @@
 
 // elements in side nav should be aligned from left based on grid margin for given screen size
 // additional offset is added when icons are used or for nested navigation levels
-@mixin vf-side-navigation-spacing-left($offset: 0, $prop: padding-left) {
+@mixin vf-side-navigation-spacing-left(
+  // property to adjust spacing, defaults to `padding-left`
+    $prop: padding-left,
+  // how many times grid margin width should be multiplied (for nested navigation levels)
+    $multiplier: 1,
+  // offset to use for additional spacing (for icons)
+    $offset: 0
+) {
   @media (max-width: $threshold-4-6-col) {
-    #{$prop}: map-get($grid-margin-widths, small) + $offset;
+    #{$prop}: $multiplier * map-get($grid-margin-widths, small) + $offset;
   }
 
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-    #{$prop}: map-get($grid-margin-widths, medium) + $offset;
+    #{$prop}: $multiplier * map-get($grid-margin-widths, medium) + $offset;
   }
 
   @media (min-width: $threshold-6-12-col) {
-    #{$prop}: map-get($grid-margin-widths, large) + $offset;
+    #{$prop}: $multiplier * map-get($grid-margin-widths, large) + $offset;
   }
 }
 
