@@ -32,7 +32,8 @@ def _get_title(title):
 
 
 def _get_examples():
-    example_files = glob.glob("templates/docs/examples/*/**/*.html", recursive=True)
+    # get all example files (but ignore partials that start with _)
+    example_files = glob.glob("templates/docs/examples/*/**/[!_]*.html", recursive=True)
     examples = {}
 
     for filepath in sorted(example_files):
