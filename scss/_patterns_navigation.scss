@@ -1,6 +1,7 @@
 @import 'settings';
 
 $navigation-hover-opacity: 0.58;
+$lightness-threshold: 70;
 
 @mixin vf-p-navigation {
   // placeholders
@@ -252,46 +253,36 @@ $navigation-hover-opacity: 0.58;
   }
 
   // Theming
-  $color-navigation-background: null !default;
-  $color-navigation-text: null !default;
-  $lightness-threshold: 70;
-
   @if ($theme-default-nav == 'dark') {
-    // dark theme
-    $color-navigation-background: $colors--dark-theme--background-highlighted !default;
-    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
-
     .p-navigation {
-      @include p-navigation--dark-theme($color-navigation-background, $color-navigation-text, false);
+      @include vf-navigation-dark-theme;
     }
 
     .p-navigation.is-light {
-      @include p-navigation--light-theme($color-navigation-background, $color-navigation-text, true);
+      @include vf-navigation-light-theme(true);
     }
   } @else {
-    // light theme
-    $color-navigation-background: $colors--light-theme--background !default;
-    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
-
     .p-navigation {
-      @include p-navigation--light-theme($color-navigation-background, $color-navigation-text, false);
+      @include vf-navigation-light-theme;
     }
 
     .p-navigation.is-dark {
-      @include p-navigation--dark-theme($color-navigation-background, $color-navigation-text, true);
+      @include vf-navigation-dark-theme(true);
     }
   }
 }
 
-@mixin p-navigation--light-theme($color-navigation-background, $color-navigation-text, $override-default: false) {
-  @if ($override-default) {
-    $color-navigation-background: $colors--light-theme--background;
-    $color-navigation-text: $colors--light-theme--text-default;
-  }
-
+@mixin vf-navigation-theme(
+  // color for navigation separator on small screens
+    $color-navigation-separator,
+  // color for navigation background
+    $color-navigation-background,
+  // color for navigation text
+    $color-navigation-text
+) {
   background-color: $color-navigation-background;
 
-  %navigation-link-light {
+  %navigation-link-theme {
     &,
     &:visited,
     &:focus {
@@ -303,100 +294,81 @@ $navigation-hover-opacity: 0.58;
     }
   }
 
-  %navigation-link-light-selected {
+  %navigation-link-selected {
     opacity: $navigation-hover-opacity;
   }
 
-  %navigation-link-light-before {
+  %navigation-link-before {
     // separator color on small screens
-    background: $colors--light-theme--border-default;
+    background: $color-navigation-separator;
   }
 
   .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
   .p-navigation__toggle--close,
   .p-navigation__toggle--open {
-    @extend %navigation-link-light;
+    @extend %navigation-link-theme;
   }
 
   .p-navigation__item.is-selected > .p-navigation__link {
-    @extend %navigation-link-light-selected;
+    @extend %navigation-link-selected;
   }
 
   .p-navigation__item > .p-navigation__link::before {
     // remove nesting in 3.0 when deprecated __link styles are removed
-    @extend %navigation-link-light-before;
+    @extend %navigation-link-before;
   }
 
   @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
     .p-navigation__link > a {
-      @extend %navigation-link-light;
+      @extend %navigation-link-theme;
     }
 
     .p-navigation__link.is-selected > a {
-      @extend %navigation-link-light-selected;
+      @extend %navigation-link-selected;
     }
 
     .p-navigation__link > a::before {
-      @extend %navigation-link-light-before;
+      @extend %navigation-link-before;
     }
   }
 }
 
-@mixin p-navigation--dark-theme($color-navigation-background, $color-navigation-text, $override-default: false) {
+@mixin vf-navigation-light-theme($override-default: false) {
   @if ($override-default) {
-    $color-navigation-background: $colors--dark-theme--background-highlighted;
-    $color-navigation-text: $colors--dark-theme--text-default;
+    @include vf-navigation-theme(
+      $color-navigation-background: $colors--light-theme--background,
+      $color-navigation-text: $colors--light-theme--text-default,
+      $color-navigation-separator: $colors--light-theme--border-default
+    );
+  } @else {
+    // take $color-navigation-background (that can be overridden) into account
+    $color-navigation-background: $colors--light-theme--background !default;
+    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
+
+    @include vf-navigation-theme(
+      $color-navigation-background: $color-navigation-background,
+      $color-navigation-text: $color-navigation-text,
+      $color-navigation-separator: $colors--light-theme--border-default
+    );
   }
+}
 
-  background-color: $color-navigation-background;
+@mixin vf-navigation-dark-theme($override-default: false) {
+  @if ($override-default) {
+    @include vf-navigation-theme(
+      $color-navigation-background: $colors--dark-theme--background-highlighted,
+      $color-navigation-text: $colors--dark-theme--text-default,
+      $color-navigation-separator: $colors--dark-theme--border-default
+    );
+  } @else {
+    // take $color-navigation-background (that can be overridden) into account
+    $color-navigation-background: $colors--dark-theme--background-highlighted !default;
+    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
 
-  %navigation-link-dark {
-    &,
-    &:visited,
-    &:focus {
-      color: $color-navigation-text;
-    }
-
-    &:hover {
-      opacity: $navigation-hover-opacity;
-    }
-  }
-
-  %navigation-link-dark-selected {
-    opacity: $navigation-hover-opacity;
-  }
-
-  %navigation-link-dark-before {
-    // separator color on small screens
-    background: $colors--dark-theme--border-default;
-  }
-
-  .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open {
-    @extend %navigation-link-dark;
-  }
-
-  .p-navigation__item.is-selected > .p-navigation__link {
-    @extend %navigation-link-dark-selected;
-  }
-
-  .p-navigation__item > .p-navigation__link::before {
-    // remove nesting in 3.0 when deprecated __link styles are removed
-    @extend %navigation-link-dark-before;
-  }
-
-  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
-    .p-navigation__link > a {
-      @extend %navigation-link-dark;
-    }
-
-    .p-navigation__link.is-selected > a {
-      @extend %navigation-link-dark-selected;
-    }
-
-    .p-navigation__link > a::before {
-      @extend %navigation-link-dark-before;
-    }
+    @include vf-navigation-theme(
+      $color-navigation-background: $color-navigation-background,
+      $color-navigation-text: $color-navigation-text,
+      $color-navigation-separator: $colors--dark-theme--border-default
+    );
   }
 }
