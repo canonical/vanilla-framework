@@ -50,42 +50,22 @@
 
   // Theming
   @if ($theme-default-nav == 'dark') {
-    .p-subnav::after {
-      @include vf-icon-chevron($colors--dark-theme--border-high-contrast);
-    }
-
-    .p-subnav__item {
-      @extend %subnav-item--dark-theme;
+    .p-subnav {
+      @include vf-subnav-dark-theme;
     }
 
     .p-subnav.is-light,
     .p-navigation.is-light .p-subnav {
-      &::after {
-        @include vf-icon-chevron($colors--light-theme--border-high-contrast);
-      }
-
-      .p-subnav__item {
-        @extend %subnav-item--light-theme;
-      }
+      @include vf-subnav-light-theme;
     }
   } @else {
-    .p-subnav::after {
-      @include vf-icon-chevron($colors--light-theme--border-high-contrast);
-    }
-
-    .p-subnav__item {
-      @extend %subnav-item--light-theme;
+    .p-subnav {
+      @include vf-subnav-light-theme;
     }
 
     .p-subnav.is-dark,
     .p-navigation.is-dark .p-subnav {
-      &::after {
-        @include vf-icon-chevron($colors--dark-theme--border-high-contrast);
-      }
-
-      .p-subnav__item {
-        @extend %subnav-item--dark-theme;
-      }
+      @include vf-subnav-dark-theme;
     }
   }
 
@@ -133,48 +113,63 @@
       text-decoration: none;
     }
   }
+}
 
-  %subnav-item--light-theme {
-    background-color: $colors--light-theme--background;
+@mixin vf-subnav-theme(
+  // color of the subnav toggle chevron icon
+    $color-subnav-icon,
+  // color of the subnav items background
+    $color-subnav-background,
+  // color of the subnav items text
+    $color-subnav-text,
+  // color of the subnav items text on hover
+    $color-subnav-text-hover,
+  // color of the subnav items separator on small screens
+    $color-subnav-separator
+) {
+  &::after {
+    @include vf-icon-chevron($color-subnav-icon);
+  }
+
+  .p-subnav__item {
+    background-color: $color-subnav-background;
 
     &,
     &:active,
     &:focus,
     &:visited {
-      color: $colors--light-theme--text-default;
+      color: $color-subnav-text;
     }
 
     &:hover {
-      color: $colors--light-theme--text-hover;
+      color: $color-subnav-text-hover;
     }
 
     &::before {
-      @media (max-width: $breakpoint-navigation-threshold) {
+      @media (max-width: $color-subnav-text-hover) {
         // separator color on small screens
-        background: $colors--light-theme--border-default;
+        background: $color-subnav-separator;
       }
     }
   }
+}
 
-  %subnav-item--dark-theme {
-    background-color: $colors--dark-theme--background-highlighted;
+@mixin vf-subnav-light-theme {
+  @include vf-subnav-theme(
+    $color-subnav-icon: $colors--light-theme--border-high-contrast,
+    $color-subnav-background: $colors--light-theme--background,
+    $color-subnav-text: $colors--light-theme--text-default,
+    $color-subnav-text-hover: $colors--light-theme--text-hover,
+    $color-subnav-separator: $colors--light-theme--border-default
+  );
+}
 
-    &,
-    &:active,
-    &:focus,
-    &:visited {
-      color: $colors--dark-theme--text-default;
-    }
-
-    &:hover {
-      color: $colors--dark-theme--text-hover;
-    }
-
-    &::before {
-      @media (max-width: $breakpoint-navigation-threshold) {
-        // separator color on small screens
-        background: $colors--dark-theme--border-default;
-      }
-    }
-  }
+@mixin vf-subnav-dark-theme {
+  @include vf-subnav-theme(
+    $color-subnav-icon: $colors--dark-theme--border-high-contrast,
+    $color-subnav-background: $colors--dark-theme--background-highlighted,
+    $color-subnav-text: $colors--dark-theme--text-default,
+    $color-subnav-text-hover: $colors--dark-theme--text-hover,
+    $color-subnav-separator: $colors--dark-theme--border-default
+  );
 }
