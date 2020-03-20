@@ -4,6 +4,33 @@
   .row {
     width: 100%;
   }
+
+  .row.is-bordered {
+    position: relative;
+
+    &::before {
+      background: $color-mid-light;
+      content: '';
+      height: 1px;
+      margin-bottom: calc(#{$spv-inner--scaleable} - 1px);
+      position: absolute;
+
+      @media (max-width: $threshold-4-6-col) {
+        left: map-get($grid-margin-widths, small);
+        right: map-get($grid-margin-widths, small);
+      }
+
+      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+        left: map-get($grid-margin-widths, medium);
+        right: map-get($grid-margin-widths, medium);
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        left: map-get($grid-margin-widths, large);
+        right: map-get($grid-margin-widths, large);
+      }
+    }
+  }
 }
 
 @mixin vf-p-grid {
