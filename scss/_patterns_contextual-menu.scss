@@ -88,102 +88,66 @@
 
   // Theming
   @if ($theme-default-p-contextual-menu == 'dark') {
-    .p-contextual-menu__dropdown {
-      @extend %p-contextual-menu--dropdown--dark-theme;
-    }
-
-    .p-contextual-menu__group {
-      @extend %p-contextual-menu--group--dark-theme;
-    }
-
-    .p-contextual-menu__link {
-      @extend %p-contextual-menu--link--dark-theme;
-    }
+    @include vf-contextual-menu-dark-theme;
 
     [class*='p-contextual-menu'].is-light {
-      .p-contextual-menu__dropdown {
-        @extend %p-contextual-menu--dropdown--light-theme;
-      }
-
-      .p-contextual-menu__group {
-        @extend %p-contextual-menu--group--light-theme;
-      }
-
-      .p-contextual-menu__link {
-        @extend %p-contextual-menu--link--light-theme;
-      }
+      @include vf-contextual-menu-light-theme;
     }
   } @else {
-    .p-contextual-menu__dropdown {
-      @extend %p-contextual-menu--dropdown--light-theme;
-    }
-
-    .p-contextual-menu__group {
-      @extend %p-contextual-menu--group--light-theme;
-    }
-
-    .p-contextual-menu__link {
-      @extend %p-contextual-menu--link--light-theme;
-    }
+    @include vf-contextual-menu-light-theme;
 
     [class*='p-contextual-menu'].is-dark {
-      .p-contextual-menu__dropdown {
-        @extend %p-contextual-menu--dropdown--dark-theme;
-      }
-
-      .p-contextual-menu__group {
-        @extend %p-contextual-menu--group--dark-theme;
-      }
-
-      .p-contextual-menu__link {
-        @extend %p-contextual-menu--link--dark-theme;
-      }
+      @include vf-contextual-menu-dark-theme;
     }
   }
+}
 
-  %p-contextual-menu--dropdown--light-theme {
-    background: $colors--light-theme--background;
+@mixin vf-contextual-menu-theme(
+  // color of the contextual menu background
+    $color-contextual-menu-background,
+  // color of the contextual menu border between groups
+    $color-contextual-menu-border,
+  // color of the contextual menu item link text
+    $color-contextual-menu-text,
+  // color of the contextual menu item link hover background
+    $color-contextual-menu-hover-background
+) {
+  .p-contextual-menu__dropdown {
+    background: $color-contextual-menu-background;
   }
 
-  %p-contextual-menu--group--light-theme {
-    & + & {
-      border-top-color: $colors--light-theme--border-default;
-    }
+  .p-contextual-menu__group + .p-contextual-menu__group {
+    border-top-color: $color-contextual-menu-border;
   }
 
-  %p-contextual-menu--link--light-theme {
+  .p-contextual-menu__link {
     &,
     &:active,
     &:hover,
     &:visited {
-      color: $colors--light-theme--text-default;
+      color: $color-contextual-menu-text;
     }
 
     &:hover {
-      background-color: $colors--light-theme--background-highlighted;
+      background-color: $color-contextual-menu-hover-background;
     }
   }
+}
 
-  %p-contextual-menu--dropdown--dark-theme {
-    background: $colors--dark-theme--background;
-  }
+@mixin vf-contextual-menu-light-theme {
+  @include vf-contextual-menu-theme(
+    $color-contextual-menu-background: $colors--light-theme--background,
+    $color-contextual-menu-border: $colors--light-theme--border-default,
+    $color-contextual-menu-text: $colors--light-theme--text-default,
+    $color-contextual-menu-hover-background: $colors--light-theme--background-highlighted
+  );
+}
 
-  %p-contextual-menu--group--dark-theme {
-    & + & {
-      border-top-color: $colors--dark-theme--border-default;
-    }
-  }
-
-  %p-contextual-menu--link--dark-theme {
-    &,
-    &:active,
-    &:hover,
-    &:visited {
-      color: $colors--dark-theme--text-default;
-    }
-
-    &:hover {
-      background-color: $colors--dark-theme--background-highlighted;
-    }
-  }
+@mixin vf-contextual-menu-dark-theme {
+  @include vf-contextual-menu-theme(
+    $color-contextual-menu-background: $colors--dark-theme--background,
+    $color-contextual-menu-border: $colors--dark-theme--border-default,
+    $color-contextual-menu-text: $colors--dark-theme--text-default,
+    $color-contextual-menu-hover-background: $colors--dark-theme--background-highlighted
+  );
 }
