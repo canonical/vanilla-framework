@@ -18,30 +18,22 @@
   // Theming
   @if ($theme-default-hr == 'dark') {
     hr {
-      @extend %hr--dark-theme;
+      @include vf-hr-theme($colors--dark-theme--border-default);
     }
 
-    // sass-lint:disable no-qualifying-elements
+    // sass-lint:disable-block no-qualifying-elements
     hr.is-light {
-      @extend %hr--light-theme;
+      @include vf-hr-theme($colors--light-theme--border-default);
     }
   } @else {
     hr {
-      @extend %hr--light-theme;
+      @include vf-hr-theme($colors--light-theme--border-default);
     }
 
-    // sass-lint:disable no-qualifying-elements
+    // sass-lint:disable-block no-qualifying-elements
     hr.is-dark {
-      @extend %hr--dark-theme;
+      @include vf-hr-theme($colors--dark-theme--border-default);
     }
-  }
-
-  %hr--dark-theme {
-    background: $colors--dark-theme--border-default;
-  }
-
-  %hr--light-theme {
-    background: $colors--light-theme--border-default;
   }
 
   .row.is-bordered {
@@ -70,4 +62,11 @@
       }
     }
   }
+}
+
+@mixin vf-hr-theme(
+  // color of the horizontal rule line
+    $color-hr-line: $colors--light-theme--border-default
+) {
+  background: $color-hr-line;
 }
