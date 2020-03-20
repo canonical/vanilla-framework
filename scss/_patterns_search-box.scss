@@ -78,65 +78,62 @@
     }
   }
 
-  %search-box-input--light {
-    //XXX: This should inherit from input color theming. Once that becomes available, delete this.
-    background-color: $colors--light-theme--background;
-    border-color: $colors--light-theme--border-high-contrast;
-    color: $colors--light-theme--text-default;
-
-    &:active,
-    &:focus,
-    &:hover,
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-internal-autofill-selected {
-      // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-      background-color: $colors--light-theme--background !important;
-      border-color: $colors--light-theme--border-high-contrast !important;
-    }
-  }
-
-  %search-box-input--dark {
-    //XXX: This should inherit from input color theming. Once that becomes available, delete this.
-    background-color: $colors--dark-theme--background;
-    border-color: $colors--dark-theme--border-high-contrast;
-    color: $colors--dark-theme--text-default;
-
-    &:active,
-    &:focus,
-    &:hover,
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-internal-autofill-selected {
-      // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-      background-color: $colors--dark-theme--background !important;
-      border-color: $colors--dark-theme--border-high-contrast !important;
-    }
-  }
-
   @if ($theme-default-p-search-box == 'dark') {
     .p-search-box__input {
-      @extend %search-box-input--dark;
+      @include vf-search-box-dark-theme;
     }
 
     .p-search-box.is-light {
       .p-search-box__input {
-        @extend %search-box-input--light;
+        @include vf-search-box-light-theme;
       }
     }
   } @else {
     .p-search-box {
       .p-search-box__input {
-        @extend %search-box-input--light;
+        @include vf-search-box-light-theme;
       }
     }
 
     .p-search-box.is-dark {
       .p-search-box__input {
-        @extend %search-box-input--dark;
+        @include vf-search-box-dark-theme;
       }
     }
   }
+}
+
+@mixin vf-search-box-theme($color-search-box-background, $color-search-box-border, $color-search-box-text) {
+  //XXX: This should inherit from input color theming. Once that becomes available, delete this.
+  background-color: $color-search-box-background;
+  border-color: $color-search-box-border;
+  color: $color-search-box-text;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-internal-autofill-selected {
+    // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
+    background-color: $color-search-box-background !important;
+    border-color: $color-search-box-border !important;
+  }
+}
+
+@mixin vf-search-box-light-theme {
+  @include vf-search-box-theme(
+    $color-search-box-background: $colors--light-theme--background,
+    $color-search-box-border: $colors--light-theme--border-high-contrast,
+    $color-search-box-text: $colors--light-theme--text-default
+  );
+}
+
+@mixin vf-search-box-dark-theme {
+  @include vf-search-box-theme(
+    $color-search-box-background: $colors--dark-theme--background,
+    $color-search-box-border: $colors--dark-theme--border-high-contrast,
+    $color-search-box-text: $colors--dark-theme--text-default
+  );
 }
