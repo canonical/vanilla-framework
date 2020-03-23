@@ -29,7 +29,6 @@ hr {
 /* Flex layout */
 .docs-container {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .p-sidebar {
@@ -62,7 +61,11 @@ hr {
   margin-top: 0;
 
   &__row {
-    @extend .row; // sass-lint:disable-line placeholder-in-extend
+    @extend %fixed-width-container;
+    // FIXME: for some reason this makes the content behave as expected
+    // we should revisit it when working on docs layouts
+    display: grid;
+
     margin-left: inherit;
     padding: $content-padding;
   }
