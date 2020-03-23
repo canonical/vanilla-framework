@@ -8,23 +8,8 @@
   }
 }
 
-@mixin vf-grid-column($col, $screen: large) {
-  // on large screens provide flex box column implementation for IE
-  // on smaller screens let them display full width one under another
-  @if $screen == large {
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
-
-    // set static gutter width
-    margin-left: map-get($grid-gutter-widths, $screen);
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  // CSS grid implementation of columns for all screens sizes
+// CSS grid implementation of columns for all screens sizes
+@mixin vf-grid-column($col) {
   @supports (display: grid) {
     grid-column-end: span #{$col};
 
@@ -78,7 +63,7 @@
   @media (max-width: $threshold-4-6-col) {
     @for $i from $grid-columns-small through 1 {
       .#{$grid-small-col-prefix}#{$i} {
-        @include vf-grid-column($i, small);
+        @include vf-grid-column($i);
         width: 100%;
       }
     }
@@ -88,7 +73,7 @@
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from $grid-columns-medium through 1 {
       .#{$grid-medium-col-prefix}#{$i} {
-        @include vf-grid-column($i, medium);
+        @include vf-grid-column($i);
         width: 100%;
       }
     }
@@ -99,6 +84,9 @@
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-large-col-prefix}#{$i} {
+        // on large screens provide flex box column implementation for IE
+        // on smaller screens let them display full width one under another
+        @include vf-grid-flex-column;
         @include vf-grid-column($i);
       }
     }
