@@ -8,6 +8,39 @@
   }
 }
 
+@mixin vf-grid-column($col, $screen: large) {
+  // on large screens provide flex box column implementation for IE
+  // on smaller screens let them display full width one under another
+  @if $screen == large {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    // set static gutter width
+    margin-left: map-get($grid-gutter-widths, $screen);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  // CSS grid implementation of columns for all screens sizes
+  @supports (display: grid) {
+    grid-column-end: span #{$col};
+
+    // reset flex box fallback styles
+    margin-left: 0;
+    width: auto;
+
+    //nesting
+    @if $col > 1 {
+      & .row {
+        grid-template-columns: repeat($col, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
 @mixin vf-p-grid {
   %span-full-grid-on-mobile {
     @media (max-width: $threshold-4-6-col) {
@@ -45,14 +78,8 @@
   @media (max-width: $threshold-4-6-col) {
     @for $i from $grid-columns-small through 1 {
       .#{$grid-small-col-prefix}#{$i} {
-        grid-column-end: span #{$i};
-
-        //nesting
-        @if $i > 1 {
-          & .row {
-            grid-template-columns: repeat($i, minmax(0, 1fr));
-          }
-        }
+        @include vf-grid-column($i, small);
+        width: 100%;
       }
     }
   }
@@ -61,14 +88,8 @@
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from $grid-columns-medium through 1 {
       .#{$grid-medium-col-prefix}#{$i} {
-        grid-column-end: span #{$i};
-
-        //nesting
-        @if $i > 1 {
-          & .row {
-            grid-template-columns: repeat($i, minmax(0, 1fr));
-          }
-        }
+        @include vf-grid-column($i, medium);
+        width: 100%;
       }
     }
   }
@@ -78,14 +99,7 @@
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-large-col-prefix}#{$i} {
-        grid-column-end: span #{$i};
-
-        //nesting
-        @if $i > 1 {
-          & .row {
-            grid-template-columns: repeat($i, minmax(0, 1fr));
-          }
-        }
+        @include vf-grid-column($i);
       }
     }
   }

@@ -1,0 +1,47 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / Responsive{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+<style>
+[class*='col-']::before {
+  content: attr(class);
+}
+</style>
+
+<div class="grid-demo">
+  <div class="row">
+    <div class="col-2 col-medium-1 col-small-1">
+    </div>
+    <div class="col-2 col-medium-1 col-small-1">
+    </div>
+    <div class="col-2 col-medium-1 col-small-2">
+    </div>
+    <div class="col-2 col-medium-1 col-small-2">
+    </div>
+    <div class="col-2 col-medium-1 col-small-1">
+    </div>
+    <div class="col-2 col-medium-1 col-small-1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 col-medium-1 col-small-1">
+    </div>
+    <div class="col-3 col-medium-2 col-small-1">
+    </div>
+    <div class="col-3 col-medium-2 col-small-1">
+    </div>
+    <div class="col-3 col-medium-1 col-small-1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 col-medium-2 col-small-4">
+    </div>
+    <div class="col-4 col-medium-2 col-small-2">
+    </div>
+    <div class="col-4 col-medium-2 col-small-2">
+    </div>
+  </div>
+</div>
+{% endblock %}
