@@ -19,6 +19,7 @@
 
     // default to flexbox for IE
     display: flex;
+    flex-wrap: wrap;
 
     & & {
       @include vf-b-row-reset;
@@ -81,5 +82,20 @@
       padding-left: map-get($grid-margin-widths, large);
       padding-right: map-get($grid-margin-widths, large);
     }
+  }
+}
+
+// flexbox approximation of grid column styles for IE
+// this needs to be a @mixin rather than %placeholder because it's ised inside @media queries
+@mixin vf-grid-flex-column {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  // set static gutter width
+  margin-left: map-get($grid-gutter-widths, large);
+
+  &:first-child {
+    margin-left: 0;
   }
 }

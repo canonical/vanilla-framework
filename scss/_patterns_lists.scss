@@ -206,17 +206,27 @@ $spv-list-item--inner: null;
 
     margin-left: auto;
 
-    .p-stepped-list__content {
-      @media (min-width: $threshold-6-12-col) {
-        grid-column-end: span 6;
-        margin-top: 0;
+    // fallback for IE flex box grid implementation
+    @media (min-width: $threshold-6-12-col) {
+      .p-stepped-list__content,
+      .p-stepped-list__title {
+        @include vf-grid-flex-column;
       }
     }
 
-    .p-stepped-list__title {
-      display: flex;
-      grid-column-end: span 6;
-      margin-left: 0;
+    @supports (display: grid) {
+      .p-stepped-list__content {
+        @media (min-width: $threshold-6-12-col) {
+          grid-column-end: span 6;
+          margin-top: 0;
+        }
+      }
+
+      .p-stepped-list__title {
+        display: flex;
+        grid-column-end: span 6;
+        margin-left: 0;
+      }
     }
 
     .p-stepped-list__item {
