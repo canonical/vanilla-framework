@@ -39,8 +39,8 @@
       </div>
     </header>
 
+    <hr class="u-no-margin u-hide--small">
     <div class="docs-container">
-      <hr class="u-no-margin u-hide--small">
       <aside class="p-sidebar">
         <nav class="p-side-navigation">
 
@@ -181,7 +181,7 @@
         item.classList.add('p-toc__item');
 
         // Add all H3s with IDs to the "Contents" list
-        document.querySelectorAll('main h3[id]').forEach(
+        [].slice.call(document.querySelectorAll('main h3[id]')).forEach(
           function(heading) {
             let thisItem = item.cloneNode();
             let thisAnchor = anchor.cloneNode();
