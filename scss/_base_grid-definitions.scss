@@ -17,45 +17,50 @@
   %vf-row {
     @extend %fixed-width-container;
 
-    display: grid;
-    grid-template-rows: auto;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $grid-max-width;
-
-    [class*='#{$grid-column-prefix}'] {
-      grid-column-start: auto;
-    }
+    // default to flexbox for IE
+    display: flex;
 
     & & {
       @include vf-b-row-reset;
     }
 
-    // set static gutter width per breakpoint
-    @media (max-width: $threshold-4-6-col) {
-      grid-gap: 0 map-get($grid-gutter-widths, small);
-      grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
+    @supports (display: grid) {
+      display: grid;
+      grid-template-rows: auto;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: $grid-max-width;
 
-      & > * {
-        grid-column-end: span $grid-columns-small;
+      [class*='#{$grid-column-prefix}'] {
+        grid-column-start: auto;
       }
-    }
 
-    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-      grid-gap: 0 map-get($grid-gutter-widths, medium);
-      grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
+      // set static gutter width per breakpoint
+      @media (max-width: $threshold-4-6-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, small);
+        grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
 
-      & > * {
-        grid-column-end: span $grid-columns-medium;
+        & > * {
+          grid-column-end: span $grid-columns-small;
+        }
       }
-    }
 
-    @media (min-width: $threshold-6-12-col) {
-      grid-gap: 0 map-get($grid-gutter-widths, large);
-      grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, medium);
+        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
 
-      & > * {
-        grid-column-end: span $grid-columns;
+        & > * {
+          grid-column-end: span $grid-columns-medium;
+        }
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, large);
+        grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+
+        & > * {
+          grid-column-end: span $grid-columns;
+        }
       }
     }
   }
