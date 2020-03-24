@@ -17,9 +17,11 @@
   %vf-row {
     @extend %fixed-width-container;
 
-    // default to flexbox for IE
-    display: flex;
-    flex-wrap: wrap;
+    // default to flexbox for IE on large screens
+    // on small screens we let columns render one under another
+    @media (min-width: $threshold-6-12-col) {
+      display: flex;
+    }
 
     & & {
       @include vf-b-row-reset;
