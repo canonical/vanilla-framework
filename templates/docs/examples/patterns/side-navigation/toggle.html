@@ -1,0 +1,63 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Side navigation / Mobile toggle{% endblock %}
+
+{% block standalone_css %}patterns_side-navigation{% endblock %}
+
+{% block content %}
+<div class="p-menu-toggle u-show--small u-hide">
+  <button class="p-menu-toggle__button" aria-expanded="true" aria-controls="side-navigation" data-hide-class="u-hide--small">
+    <i class="p-icon--menu p-menu-toggle__button--show"></i>
+    <i class="p-icon--close p-menu-toggle__button--hide"></i>
+  </button>
+</div>
+{% include "docs/examples/patterns/side-navigation/_default.html" %}
+
+<script>
+  /**
+    Toggles the necessary aria- attributes' values on the menus
+    and handles to show or hide them.
+    @param {HTMLElement} element The menu link or button.
+    @param {Boolean} show Whether to show or hide the menu.
+    @param {Number} top Top offset in pixels where to show the menu.
+  */
+  function toggleMenu(element, show) {
+    var target = document.getElementById(element.getAttribute('aria-controls'));
+
+    if (target) {
+      element.setAttribute('aria-expanded', show);
+      target.setAttribute('aria-hidden', !show);
+      if (element.dataset.hideClass) {
+        target.classList.toggle(element.dataset.hideClass, !show)
+      }
+    }
+  }
+
+  /**
+    Attaches event listeners for the menu toggle open and close click events.
+    @param {HTMLElement} menuToggle The menu container element.
+  */
+  function setupMenuToggle(menuToggle) {
+    menuToggle.addEventListener('click', function(event) {
+      event.preventDefault();
+      var menuAlreadyOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+
+      toggleMenu(menuToggle, !menuAlreadyOpen);
+    });
+  }
+
+  /**
+    Attaches event listeners for all the menu toggles in the document.
+    @param {String} menuToggleSelector The CSS selector matching menu toggle elements.
+  */
+  function setupAllMenuToggles(menuToggleSelector) {
+    // Setup all menu toggles on the page.
+    var toggles = document.querySelectorAll(menuToggleSelector);
+
+    for (var i = 0, l = toggles.length; i < l; i++) {
+      setupMenuToggle(toggles[i]);
+    }
+  }
+
+  setupAllMenuToggles('.p-menu-toggle__button');
+</script>
+{% endblock %}

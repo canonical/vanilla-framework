@@ -1,0 +1,33 @@
+@mixin vf-p-menu-toggle {
+  .p-menu-toggle {
+    display: flex;
+  }
+
+  .p-menu-toggle__button {
+    // reset default button styling
+    background: none;
+    border: 0;
+    display: block;
+    line-height: inherit;
+    margin: 0;
+    margin-left: auto;
+    padding: 1rem;
+    width: auto;
+  }
+
+  .p-menu-toggle__button--hide {
+    display: none;
+
+    .p-menu-toggle__button[aria-expanded='true'] & {
+      display: block;
+    }
+  }
+
+  .p-menu-toggle__button--show {
+    display: block;
+
+    .p-menu-toggle__button[aria-expanded='true'] & {
+      display: none;
+    }
+  }
+}
