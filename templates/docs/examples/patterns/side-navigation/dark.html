@@ -1,0 +1,22 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Side navigation / Dark{% endblock %}
+
+{% block standalone_css %}patterns_side-navigation{% endblock %}
+
+{% block content %}
+{% set is_dark = True %}
+<style>body { background: #111 }</style>
+
+<div class="row">
+  <div class="col-4">
+      {% include "docs/examples/patterns/side-navigation/_default.html" %}
+  </div>
+  <div class="col-4" style="background: #003b4e">
+      {% include "docs/examples/patterns/side-navigation/_icons.html" %}
+  </div>
+</div>
+
+<script>
+  {% include "docs/examples/patterns/side-navigation/_script.js" %}
+</script>
+{% endblock %}
