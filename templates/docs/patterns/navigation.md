@@ -89,6 +89,16 @@ To add icons on the left side of the items in side navigation use the `.p-side-n
 View example of the side navigation pattern with icons
 </a>
 
+#### Menu toggle
+
+Side navigation can be closed on small screens using menu toggle component.
+
+Use responsive show/hide utilities' classes to control when the side navigation should be visible or controlled by the menu toggle.
+
+<a href="/docs/examples/patterns/side-navigation/toggle" class="js-example">
+View example of the side navigation pattern with menu toggle
+</a>
+
 ### Import
 
 To import just navigation or sub-navigation component into your project, copy snippets below and include it in your main Sass file.
