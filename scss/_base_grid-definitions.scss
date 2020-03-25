@@ -88,10 +88,10 @@
 }
 
 // flexbox approximation of grid column styles for IE
-// this needs to be a @mixin rather than %placeholder because it's ised inside @media queries
-@mixin vf-grid-flex-column {
+// this needs to be a @mixin rather than %placeholder because it's used inside @media queries
+@mixin vf-grid-flex-column($size: 1) {
   flex-basis: 0;
-  flex-grow: 1;
+  flex-grow: $size;
   flex-shrink: 1;
 
   // set static gutter width
