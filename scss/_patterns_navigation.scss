@@ -336,13 +336,13 @@ $lightness-threshold: 70;
 @mixin vf-navigation-light-theme($override-default: false) {
   @if ($override-default) {
     @include vf-navigation-theme(
-      $color-navigation-background: $colors--light-theme--background,
+      $color-navigation-background: $colors--light-theme--background-default,
       $color-navigation-text: $colors--light-theme--text-default,
       $color-navigation-separator: $colors--light-theme--border-default
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
-    $color-navigation-background: $colors--light-theme--background !default;
+    $color-navigation-background: $colors--light-theme--background-default !default;
     $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
 
     @include vf-navigation-theme(
