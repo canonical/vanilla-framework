@@ -95,13 +95,24 @@
     padding-left: $spv-inner--small;
   }
 
-  // default light theme
-  .p-side-navigation,
-  .p-side-navigation--icons {
-    @include vf-side-navigation-theme-light;
-
-    &.is-dark {
+  // Theming
+  @if ($theme-default-p-side-navigation == 'dark') {
+    .p-side-navigation,
+    .p-side-navigation--icons {
       @include vf-side-navigation-theme-dark;
+
+      &.is-light {
+        @include vf-side-navigation-theme-light;
+      }
+    }
+  } @else {
+    .p-side-navigation,
+    .p-side-navigation--icons {
+      @include vf-side-navigation-theme-light;
+
+      &.is-dark {
+        @include vf-side-navigation-theme-dark;
+      }
     }
   }
 }
