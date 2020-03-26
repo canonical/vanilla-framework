@@ -35,21 +35,46 @@ $states: (
   information: $color-information
 );
 
-$colors--light-theme--background: #fff !default;
-$colors--light-theme--background-alt: #f7f7f7 !default;
-$colors--light-theme--border-default: #cdcdcd !default;
-$colors--light-theme--border-high-contrast: #999 !default;
+// THEME COLORS
+// ==============
+//
+// Text colors:
+// --text-default    - default text color
+// --text-hover      - dimmed version of default text color, to be used in hover effects (when background doesn't change)
+// --text-disabled   - dimmed version of default text color, to be used on disabled controls
+// --text-muted      - muted version of default text color, to be used on elements with less prominence
+//
+// Background colors:
+// --background           - default background color
+// --background-alt       - alternative version of background color, to be used to diffrenciate given surface
+// --background-highlight - background used on highlighted elements (for example selected elements in the navigation)
+//
+// Border colors:
+// --border-default       - default border color
+// --border-high-contrast - high contrast version of border color, to be used when border needs more visibility
+
+// Light theme
+$colors--light-theme--text-default: #111 !default;
 $colors--light-theme--text-hover: #757575 !default;
 $colors--light-theme--text-disabled: #666 !default;
 $colors--light-theme--text-muted: #666 !default;
-$colors--light-theme--text-default: #111 !default;
 
-//text-hover: minimum contrast on primary that satisfies contrast checker AA
+$colors--light-theme--background: #fff !default;
+$colors--light-theme--background-alt: #f7f7f7 !default;
+$colors--light-theme--background-highlight: #f7f7f7 !default;
+
+$colors--light-theme--border-default: #cdcdcd !default;
+$colors--light-theme--border-high-contrast: #999 !default;
+
+// Dark theme
+$colors--dark-theme--text-default: hsl(0, 0%, 100%) !default;
+$colors--dark-theme--text-hover: hsl(0, 0%, 56%) !default; // minimum contrast on primary that satisfies contrast checker AA
+$colors--dark-theme--text-disabled: rgba($colors--dark-theme--text-default, 0.55) !default;
+$colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, 0.55) !default;
+
 $colors--dark-theme--background: hsl(0, 0%, 15%) !default;
 $colors--dark-theme--background-alt: hsl(0, 0%, 20%) !default;
-$colors--dark-theme--border-default: hsl(0, 0%, 27%) !default;
-$colors--dark-theme--border-high-contrast: hsl(0, 0%, 42%) !default;
-$colors--dark-theme--text-hover: hsl(0, 0%, 56%) !default;
-// TODO: add --text-disabled
-// TODO: add --text-muted
-$colors--dark-theme--text-default: hsl(0, 0%, 100%) !default;
+$colors--dark-theme--background-highlight: rgba($colors--dark-theme--text-default, 0.05) !default;
+
+$colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.05) !default;
+$colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.4) !default;
