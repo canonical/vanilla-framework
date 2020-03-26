@@ -165,8 +165,12 @@
 }
 
 @mixin vf-subnav-dark-theme {
+  // FIXME:
+  // $color-subnav-icon color should be $colors--dark-theme--text-muted,
+  // but vf-url-friendly-color doesn't support rgba(),
+  // so we are using #999 as fallback for now
   @include vf-subnav-theme(
-    $color-subnav-icon: $colors--dark-theme--text-muted,
+    $color-subnav-icon: #999,
     $color-subnav-background: $colors--dark-theme--background-alt,
     $color-subnav-text: $colors--dark-theme--text-default,
     $color-subnav-text-hover: $colors--dark-theme--text-hover,
