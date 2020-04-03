@@ -1,7 +1,13 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Documentation - Vanilla Grid{% endblock %}
+{% block title %}Documentation - Layout{% endblock %}
 
 {% block content %}
+<style>
+
+
+</style>
+<div class="l-docs">
+
 <header id="navigation" class="p-navigation is-dark">
   <div class="p-navigation__row">
     <div class="p-navigation__banner">
@@ -39,9 +45,9 @@
   </div>
 </section>
 
-<div class="p-strip">
-  <div class="row">
-    <aside class="col-3">
+
+  <div class="l-docs__wrapper">
+    <aside class="l-docs__sidebar">
       <nav class="p-side-navigation">
         <ul class="p-side-navigation__list">
           <li class="p-side-navigation__item--title">
@@ -92,7 +98,7 @@
       </nav>
     </aside>
 
-    <main class="col-9" id="main-content">
+    <main class="l-docs__content" id="main-content">
       <h1>Main documentation content</h1>
       <p>Main documentation content block is contained in grid <code>col-9</code>. Any standard base elements or Vanilla components can be used in the documentation pages.</p>
 
@@ -228,10 +234,158 @@
           </ul>
         </div>
       </div>
+
+      <div class="grid-demo">
+      <div class="row">
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+        <div class="col-1">
+          <span>.col-1</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <span>.col-2</span>
+        </div>
+        <div class="col-2">
+          <span>.col-2</span>
+        </div>
+        <div class="col-2">
+          <span>.col-2</span>
+        </div>
+        <div class="col-2">
+          <span>.col-2</span>
+        </div>
+        <div class="col-2">
+          <span>.col-2</span>
+        </div>
+        <div class="col-2">
+          <span>.col-2</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <span>.col-3</span>
+        </div>
+        <div class="col-3">
+          <span>.col-3</span>
+        </div>
+        <div class="col-3">
+          <span>.col-3</span>
+        </div>
+        <div class="col-3">
+          <span>.col-3</span>
+        </div>
+      </div>
+      </div>
     </main>
   </div>
-</div>
 
+<div class="p-strip grid-demo">
+  <div class="row">
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <span>.col-2</span>
+    </div>
+    <div class="col-2">
+      <span>.col-2</span>
+    </div>
+    <div class="col-2">
+      <span>.col-2</span>
+    </div>
+    <div class="col-2">
+      <span>.col-2</span>
+    </div>
+    <div class="col-2">
+      <span>.col-2</span>
+    </div>
+    <div class="col-2">
+      <span>.col-2</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <span>.col-3</span>
+    </div>
+    <div class="col-3">
+      <span>.col-3</span>
+    </div>
+    <div class="col-3">
+      <span>.col-3</span>
+    </div>
+    <div class="col-3">
+      <span>.col-3</span>
+    </div>
+  </div>
+</div>
 <footer class="p-strip--light">
   <nav class="row">
     <div class="has-cookie">
@@ -249,6 +403,7 @@
   </nav>
 </footer>
 
+</div>
 <script>
   {% include "docs/examples/patterns/side-navigation/_script.js" %}
 </script>

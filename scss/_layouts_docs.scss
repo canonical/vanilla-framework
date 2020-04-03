@@ -1,0 +1,34 @@
+/// Animations
+@mixin vf-l-docs {
+  //.l-docs {}
+
+  .l-docs__wrapper {
+    @extend %fixed-width-container;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .l-docs__sidebar {
+    background: transparentize($color-positive, 0.9);
+
+    flex-basis: 16rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: map-get($grid-gutter-widths, large);
+  }
+
+  .l-docs__content {
+    background: transparentize($color-positive, 0.9);
+
+    flex-basis: 0;
+    flex-grow: 3;
+    flex-shrink: 1;
+
+    .row {
+      padding: 0;
+    }
+  }
+}
