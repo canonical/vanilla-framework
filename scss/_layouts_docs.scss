@@ -1,34 +1,31 @@
-/// Animations
 @mixin vf-l-docs {
-  //.l-docs {}
+  .l-fixed-width--with-sidebar {
+    @extend %vf-row;
+  }
 
-  .l-docs__wrapper {
-    @extend %fixed-width-container;
+  .l-sidebar,
+  .l-content {
+    @extend %span-full-grid-on-mobile;
+    @extend %span-full-grid-on-tablet;
+    @extend %display-block;
+  }
 
-    @media (min-width: $breakpoint-navigation-threshold) {
-      display: flex;
-      flex-wrap: wrap;
+  @media (min-width: $threshold-6-12-col) {
+    .l-fixed-width--with-sidebar {
+      grid-template-areas: 'side side side main main main main main main main main main';
     }
-  }
 
-  .l-docs__sidebar {
-    background: transparentize($color-positive, 0.9);
+    .l-sidebar {
+      grid-area: side;
+    }
 
-    flex-basis: 16rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-right: map-get($grid-gutter-widths, large);
-  }
+    .l-content {
+      grid-area: main;
 
-  .l-docs__content {
-    background: transparentize($color-positive, 0.9);
-
-    flex-basis: 0;
-    flex-grow: 3;
-    flex-shrink: 1;
-
-    .row {
-      padding: 0;
+      // content area takes 9 columns, so we reset nested rows to use 9 columns as well
+      & .row {
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+      }
     }
   }
 }
