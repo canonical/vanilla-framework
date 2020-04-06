@@ -1,25 +1,35 @@
 @mixin vf-l-docs {
+  .l-docs .l-content,
   .l-fixed-width--with-sidebar {
     @extend %vf-row;
   }
 
-  .l-sidebar,
-  .l-content {
+  .l-aside,
+  .l-main {
     @extend %span-full-grid-on-mobile;
     @extend %span-full-grid-on-tablet;
     @extend %display-block;
   }
 
   @media (min-width: $threshold-6-12-col) {
+    .l-docs .l-content,
     .l-fixed-width--with-sidebar {
+      // we use 12 column grid from %vf-row
       grid-template-areas: 'side side side main main main main main main main main main';
     }
 
-    .l-sidebar {
+    .l-docs .l-aside, // FIXME: fighting specificity
+    .l-aside {
       grid-area: side;
+
+      // content area takes 3 columns, so we reset nested rows to use 9 columns as well
+      & .row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
-    .l-content {
+    .l-docs .l-main, // FIXME: fighting specificity
+    .l-main {
       grid-area: main;
 
       // content area takes 9 columns, so we reset nested rows to use 9 columns as well

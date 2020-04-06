@@ -1,7 +1,10 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Documentation - Layout{% endblock %}
+{% block title %}Documentation - Layout with regions{% endblock %}
 
+{% block body_class %}l-docs{% endblock %}
 {% block content %}
+<div class="l-header">
+
 <header id="navigation" class="p-navigation is-dark">
   <div class="p-navigation__row">
     <div class="p-navigation__banner">
@@ -29,6 +32,10 @@
   </div>
 </header>
 
+</div>
+
+<div class="l-hero">
+
 <section id="search-docs" class="p-strip--light is-shallow">
   <div class="row">
     <form class="p-search-box u-no-margin--bottom" action="#">
@@ -39,8 +46,11 @@
   </div>
 </section>
 
+</div>
 
-  <div class="l-fixed-width--with-sidebar">
+
+<div class="p-strip is-bordered">
+  <div class="l-content">
     <aside class="l-aside">
       <nav class="p-side-navigation">
         <ul class="p-side-navigation__list">
@@ -93,6 +103,11 @@
     </aside>
 
     <main class="l-main" id="main-content">
+      <h1>Documentation layout with regions and layout class on body</h1>
+
+      <p>In this example page is built of severaly regions (header, hero, content, footer). Each of the regions contains independent components.</p>
+      <p>Layout of content region depends on the class on body.</p>
+
       <h1>Main documentation content</h1>
       <p>Main documentation content block is contained in grid <code>col-9</code>. Any standard base elements or Vanilla components can be used in the documentation pages.</p>
 
@@ -295,7 +310,9 @@
       </div>
     </main>
   </div>
+</div>
 
+<div class="l-footer">
 <div class="p-strip grid-demo">
   <div class="row">
     <div class="col-1">
@@ -370,6 +387,8 @@
     </div>
   </div>
 </div>
+
+
 <footer class="p-strip--light">
   <nav class="row">
     <div class="has-cookie">
@@ -386,6 +405,8 @@
     </div>
   </nav>
 </footer>
+
+</div>
 
 <script>
   {% include "docs/examples/patterns/side-navigation/_script.js" %}
