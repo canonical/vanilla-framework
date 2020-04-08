@@ -1,0 +1,37 @@
+@mixin vf-p-row-with-aside {
+  .p-row-with-aside {
+    @extend %vf-row;
+  }
+
+  .p-row-with-aside__aside,
+  .p-row-with-aside__main {
+    @extend %span-full-grid-on-mobile;
+    @extend %span-full-grid-on-tablet;
+    @extend %display-block;
+  }
+
+  @media (min-width: $threshold-6-12-col) {
+    .p-row-with-aside {
+      // we use 12 column grid from %vf-row
+      grid-template-areas: 'side side side main main main main main main main main main';
+    }
+
+    .p-row-with-aside__aside {
+      grid-area: side;
+
+      // content area takes 3 columns, so we reset nested rows to use 9 columns as well
+      & .row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .p-row-with-aside__main {
+      grid-area: main;
+
+      // content area takes 9 columns, so we reset nested rows to use 9 columns as well
+      & .row {
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+      }
+    }
+  }
+}
