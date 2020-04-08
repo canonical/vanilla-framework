@@ -1,6 +1,7 @@
 @mixin vf-p-row-with-aside {
   .p-row-with-aside {
     @extend %vf-row;
+    position: relative;
   }
 
   .p-row-with-aside__aside,
@@ -8,6 +9,38 @@
     @extend %span-full-grid-on-mobile;
     @extend %span-full-grid-on-tablet;
     @extend %display-block;
+  }
+
+  @media (max-width: $breakpoint-medium - 1px) {
+    .p-row-with-aside__mobile-open,
+    .p-row-with-aside__mobile-close {
+      border-bottom: 1px solid $color-mid-light;
+      margin-bottom: $spv-outer--small;
+      padding: $spv-inner--small 0;
+    }
+
+    .p-row-with-aside__aside-content {
+      background: $color-x-light;
+      left: 0;
+      padding-left: map-get($grid-margin-widths, small);
+      padding-right: map-get($grid-margin-widths, small);
+      position: absolute;
+      top: 0;
+      transform: translateX(-100%);
+      transition: transform 200ms;
+      width: 100%;
+
+      &.is-expanded {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    .p-row-with-aside__mobile-open,
+    .p-row-with-aside__mobile-close {
+      display: none;
+    }
   }
 
   @media (min-width: $threshold-6-12-col) {

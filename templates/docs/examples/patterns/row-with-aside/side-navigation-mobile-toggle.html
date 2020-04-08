@@ -1,0 +1,51 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Row with aside / Mobile toggle{% endblock %}
+
+{% block content %}
+<div class="p-strip--light is-shallow">
+  <div class="u-fixed-width">
+    <h1> Some content above side navigation </h1>
+    <p>This is some content that may be above side navigation</p>
+  </div>
+</div>
+<div class="p-row-with-aside">
+  <aside class="p-row-with-aside__aside">
+    <div class="p-row-with-aside__mobile-open u-hide u-show--small">
+      <button class="p-button--base has-icon js-toggle u-no-margin "><i class="p-icon--menu"></i><span>Show side navigation</span></button>
+    </div>
+    <div class="p-row-with-aside__aside-content">
+      <div class="p-row-with-aside__mobile-close u-hide u-show--small">
+        <button class="p-button--base has-icon js-toggle u-no-margin "><i class="p-icon--close"></i><span>Hide side navigation</span></button>
+      </div>
+      <nav class="p-side-navigation">
+        <ul class="p-side-navigation__list">
+          <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Welcome</span></li>
+          <li class="p-side-navigation__item"><a class="p-side-navigation__link" href="#docs">Get started</a></li>
+          <li class="p-side-navigation__item"><a class="p-side-navigation__link" href="#docs/building-vanilla">Building with Vanilla</a></li>
+          <li class="p-side-navigation__item"><a class="p-side-navigation__link " href="#docs/customising-vanilla">Customising Vanilla</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <div class="p-row-with-aside__main">
+    <h2>Get started</h2>
+    <p>You can use Vanilla in your projects in a few different ways. See Building with Vanilla and Customising Vanilla for more in-depth setup instructions.</p>
+    <p>You can use Vanilla in your projects in a few different ways. See Building with Vanilla and Customising Vanilla for more in-depth setup instructions.</p>
+    <p>You can use Vanilla in your projects in a few different ways. See Building with Vanilla and Customising Vanilla for more in-depth setup instructions.</p>
+    <p>You can use Vanilla in your projects in a few different ways. See Building with Vanilla and Customising Vanilla for more in-depth setup instructions.</p>
+    <p>You can use Vanilla in your projects in a few different ways. See Building with Vanilla and Customising Vanilla for more in-depth setup instructions.</p>
+    <p>You can use Vanilla in your projects in a few different ways. See Building with Vanilla and Customising Vanilla for more in-depth setup instructions.</p>
+  </div>
+</div>
+<script>
+  document.querySelectorAll(".js-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      console.log("click");
+      document.querySelector(".p-row-with-aside__aside-content").classList.toggle("is-expanded")
+    })
+  });
+</script>
+<style>
+  body { margin: 0 }
+</style>
+{% endblock %}
