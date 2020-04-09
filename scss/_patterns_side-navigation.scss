@@ -1,15 +1,70 @@
 @import 'settings';
 
 @mixin vf-p-side-navigation {
+  .p-side-navigation__drawer {
+    background: $colors--light-theme--background-default; // TODO: to the theme
+    bottom: 0;
+
+    left: 0;
+    max-width: 20rem;
+    overflow: auto;
+    position: fixed;
+
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 200ms;
+    z-index: 12;
+  }
+
+  .p-side-navigation__overlay {
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 11;
+  }
+
+  .is-expanded {
+    display: block;
+    transform: translateX(0%);
+  }
+
+  .p-side-navigation__toggle,
+  .p-side-navigation__toggle--bordered {
+    padding-bottom: $spv-inner--small;
+    padding-top: $spv-inner--small;
+  }
+
+  .p-side-navigation__toggle--bordered {
+    background: $colors--light-theme--background-default;
+    border-bottom: 1px solid $colors--light-theme--border-default;
+    padding-left: $sph-inner--small;
+    position: sticky;
+    top: 0;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    .p-side-navigation__toggle,
+    .p-side-navigation__toggle--bordered {
+      display: none;
+    }
+
+    .p-side-navigation__drawer {
+      display: block;
+      position: static;
+      transform: translateX(0%);
+    }
+  }
+
   // space for the right hand icon with default inner spacing on the left
   $sp-sidenav--icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
 
-  .p-side-navigation,
-  .p-side-navigation--icons {
-    & > .p-side-navigation__list:first-child {
-      // nudge from top to put text on baseline grid
-      padding-top: 0.5 * $spv-inner--x-small;
-    }
+  .p-side-navigation__list:first-of-type {
+    // nudge from top to put text on baseline grid
+    padding-top: 0.5 * $spv-inner--x-small;
   }
 
   .p-side-navigation__list {
