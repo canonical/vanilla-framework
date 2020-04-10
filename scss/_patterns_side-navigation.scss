@@ -6,7 +6,6 @@
   .p-side-navigation__drawer {
     @include vf-animation(transform);
 
-    background: $colors--light-theme--background-default; // TODO: to the theme
     bottom: 0;
     left: 0;
     overflow: auto;
@@ -25,7 +24,6 @@
   }
 
   .p-side-navigation__overlay {
-    background: transparentize($color-dark, 0.15); // TODO: theme ?
     bottom: 0;
     display: none;
     left: 0;
@@ -40,8 +38,8 @@
   }
 
   .p-side-navigation__drawer-header {
-    background: $colors--light-theme--background-default; // theme
-    border-bottom: 1px solid $colors--light-theme--border-default; // theme
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
     padding-bottom: $spv-inner--small;
     padding-left: $sph-inner--small;
     padding-top: $spv-inner--small;
@@ -211,6 +209,10 @@
 @mixin vf-side-navigation-theme(
   // default text color in sidebar
     $color-sidenav-text-default,
+  // default background color (for the drawer)
+    $color-sidenav-background-default,
+  // background color the overlay
+    $color-sidenav-background-overlay,
   // text color of highlighted items
     $color-sidenav-text-active,
   // background color of active/hovered items
@@ -222,6 +224,19 @@
 ) {
   & {
     color: $color-sidenav-text-default;
+  }
+
+  .p-side-navigation__drawer {
+    background: $color-sidenav-background-default;
+  }
+
+  .p-side-navigation__overlay {
+    background: $color-sidenav-background-overlay;
+  }
+
+  .p-side-navigation__drawer-header {
+    background: $color-sidenav-background-default;
+    border-color: $color-sidenav-list-border;
   }
 
   .p-side-navigation__list::after {
@@ -249,6 +264,8 @@
 @mixin vf-side-navigation-theme-light {
   @include vf-side-navigation-theme(
     $color-sidenav-text-default: $colors--light-theme--text-muted,
+    $color-sidenav-background-default: $colors--light-theme--background-default,
+    $color-sidenav-background-overlay: $colors--light-theme--background-overlay,
     $color-sidenav-text-active: $colors--light-theme--text-default,
     $color-sidenav-item-background-highlight: $colors--light-theme--background-highlight,
     $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
@@ -259,6 +276,8 @@
 @mixin vf-side-navigation-theme-dark {
   @include vf-side-navigation-theme(
     $color-sidenav-text-default: $colors--dark-theme--text-muted,
+    $color-sidenav-background-default: $colors--dark-theme--background-default,
+    $color-sidenav-background-overlay: $colors--dark-theme--background-overlay,
     $color-sidenav-text-active: $colors--dark-theme--text-default,
     $color-sidenav-item-background-highlight: $colors--dark-theme--background-highlight,
     $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
