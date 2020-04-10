@@ -52,13 +52,19 @@
     <aside class="col-3">
       <nav class="p-side-navigation">
 
-        <button class="p-side-navigation__toggle p-button--neutral has-icon js-toggle-drawer"><i class="p-icon--contextual-menu" style="transform: rotate(-90deg)"></i><span>Toggle side navigation</span></button>
+        <button class="p-side-navigation__toggle p-button--neutral has-icon js-drawer-toggle" aria-controls="drawer">
+          <i class="p-icon--contextual-menu" style="transform: rotate(-90deg)"></i>
+          <span>Toggle side navigation</span>
+        </button>
 
-        <div class="p-side-navigation__overlay js-toggle-drawer"></div>
+        <div class="p-side-navigation__overlay js-drawer-toggle"></div>
 
-        <div class="p-side-navigation__drawer">
+        <div class="p-side-navigation__drawer" id="drawer">
           <div class="p-side-navigation__drawer-header">
-            <button class="p-side-navigation__toggle--in-drawer p-button--base has-icon js-toggle-drawer"><i class="p-icon--contextual-menu" style="transform: rotate(90deg)"></i><span>Toggle side navigation</span></button>
+            <button class="p-side-navigation__toggle--in-drawer p-button--base has-icon js-drawer-toggle" aria-controls="drawer">
+              <i class="p-icon--contextual-menu" style="transform: rotate(90deg)"></i>
+              <span>Toggle side navigation</span>
+            </button>
           </div>
 
           <ul class="p-side-navigation__list">
@@ -163,29 +169,10 @@
 </footer>
 
 <script>
-  {% include "docs/examples/patterns/side-navigation/_script.js" %}
+  {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
+  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
 </script>
 
-
-<script>
-  document.querySelectorAll(".js-toggle-drawer").forEach((button) => {
-    button.addEventListener("click", () => {
-      console.log("click");
-      // var top = document.querySelector(".p-side-navigation__drawer").getBoundingClientRect().top;
-      // document.documentElement.style.minHeight = "100%";
-      //
-      // var docHeight = document.documentElement.getBoundingClientRect().height;
-      // var sideBottom = document.querySelector(".p-side-navigation__drawer").getBoundingClientRect().bottom;
-
-      //var height = docHeight > sideBottom ? docHeight : sideBottom;
-
-      document.querySelector(".p-side-navigation__overlay").classList.toggle("is-expanded")
-      document.querySelector(".p-side-navigation__drawer").classList.toggle("is-expanded")
-      // document.querySelector(".p-side-navigation__drawer").style.minHeight = height - top + "px";
-      // document.querySelector(".p-side-navigation__overlay").style.minHeight = height - top + "px";
-    })
-  });
-</script>
 <style>
   body { margin: 0 }
 </style>
