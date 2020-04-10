@@ -2,27 +2,6 @@
 {% block title %}MAAS docs / Grid layout{% endblock %}
 
 {% block content %}
-<style>
-  @media only screen and (min-width: 1030px) {
-      .l-docs-title,.l-docs-title[class^='p-strip'] {
-          background-color:transparent;
-          padding-bottom: 0
-      }
-  }
-
-  @media only screen and (max-width: 1030px) {
-      .l-docs-title,.l-docs-title[class^='p-strip'] {
-          background-color:transparent;
-          padding-bottom: 0
-      }
-  }
-
-  .l-docs-title__heading {
-      border-bottom: 1px solid #cdcdcd;
-      padding-bottom: 1rem
-  }
-</style>
-
 <header id="navigation" class="p-navigation is-dark">
   <div class="p-navigation__row row">
     <div class="p-navigation__banner">
@@ -58,28 +37,30 @@
   </div>
 </header>
 
-<div class="u-no-margin--top l-docs-wrapper" id="main-content">
+<section id="search-docs" class="p-strip--image is-shallow" style="background-image: url('https://assets.ubuntu.com/v1/e54487e2-maas-docs-suru.png')">
+  <div class="row">
+    <form class="p-search-box u-no-margin--bottom" action="#">
+      <input type="search" class="p-search-box__input" name="q" placeholder="Search documentation" required="">
+      <button type="reset" class="p-search-box__reset" alt="reset"><i class="p-icon--close">Close</i></button>
+      <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
+    </form>
+  </div>
+</section>
 
-  <section id="search-docs" class="p-strip--image is-shallow" style="background-image: url('https://assets.ubuntu.com/v1/e54487e2-maas-docs-suru.png')">
-    <div class="row">
-      <form class="p-search-box u-no-margin--bottom" action="#">
-        <input type="search" class="p-search-box__input" name="q" placeholder="Search documentation" required="">
-        <button type="reset" class="p-search-box__reset" alt="reset"><i class="p-icon--close">Close</i></button>
-        <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
-      </form>
-    </div>
-  </section>
+<div class="p-strip is-shallow">
   <div class="row">
     <aside class="col-3">
       <nav class="p-side-navigation">
-        <div class="p-side-navigation__toggle">
-          <button class="p-button--base has-icon js-toggle"><i class="p-icon--contextual-menu" style="transform: rotate(-90deg)"></i><span>Toggle side navigation</span></button>
-        </div>
-        <div class="p-side-navigation__overlay"></div>
+
+        <button class="p-side-navigation__toggle p-button--neutral has-icon js-toggle-drawer"><i class="p-icon--contextual-menu" style="transform: rotate(-90deg)"></i><span>Toggle side navigation</span></button>
+
+        <div class="p-side-navigation__overlay js-toggle-drawer"></div>
+
         <div class="p-side-navigation__drawer">
-          <div class="p-side-navigation__toggle--bordered">
-            <button class="p-button--base has-icon js-toggle u-no-margin"><i class="p-icon--contextual-menu" style="transform: rotate(90deg)"></i><span>Toggle side navigation</span></button>
+          <div class="p-side-navigation__drawer-header">
+            <button class="p-side-navigation__toggle--in-drawer p-button--base has-icon js-toggle-drawer"><i class="p-icon--contextual-menu" style="transform: rotate(90deg)"></i><span>Toggle side navigation</span></button>
           </div>
+
           <ul class="p-side-navigation__list">
             <li class="p-side-navigation__item--title">
               <a class="p-side-navigation__link">Machines</a>
@@ -145,29 +126,21 @@
     </aside>
 
     <main class="col-9" id="main-content">
-      <div class="p-strip--light is-shallow l-docs-title">
-        <div class="l-docs-row row">
-          <h1 class="u-no-margin--bottom l-docs-title__heading">MAAS Documentation</h1>
-        </div>
-      </div>
+      <h1>MAAS Documentation</h1>
 
-      <div class="p-strip is-shallow">
-        <div class="l-docs-row row">
-          <p>MAAS is <strong>Metal As A Service</strong>, a service that lets you treat physical servers like virtual
-            machines – instances – in the cloud. No need to manage servers individually: MAAS turns your bare metal into
-            an elastic, cloud-like resource.</p>
-          <hr>
-          <p>Quick questions you might have:</p>
-          <ul>
-            <li><a href="#docs/what-is-maas">What is MAAS – and what does it really do for me?</a></li>
-            <li><a href="#docs/maas-example-config">Can you show me an example datacentre using MAAS?</a></li>
-            <li><a href="#docs/what-is-maas#heading--how-maas-works">How does MAAS work, in detail?</a></li>
-            <li><a href="#docs/concepts-and-terms">What concepts might I need to understand before starting?</a></li>
-            <li><a href="#docs/explore-maas">Can I just install it and try it for myself?</a></li>
-          </ul>
-          <hr>
-        </div>
-      </div>
+      <p>MAAS is <strong>Metal As A Service</strong>, a service that lets you treat physical servers like virtual
+        machines – instances – in the cloud. No need to manage servers individually: MAAS turns your bare metal into
+        an elastic, cloud-like resource.</p>
+      <hr>
+      <p>Quick questions you might have:</p>
+      <ul>
+        <li><a href="#docs/what-is-maas">What is MAAS – and what does it really do for me?</a></li>
+        <li><a href="#docs/maas-example-config">Can you show me an example datacentre using MAAS?</a></li>
+        <li><a href="#docs/what-is-maas#heading--how-maas-works">How does MAAS work, in detail?</a></li>
+        <li><a href="#docs/concepts-and-terms">What concepts might I need to understand before starting?</a></li>
+        <li><a href="#docs/explore-maas">Can I just install it and try it for myself?</a></li>
+      </ul>
+      <hr>
     </main>
   </div>
 </div>
@@ -195,7 +168,7 @@
 
 
 <script>
-  document.querySelectorAll(".js-toggle").forEach((button) => {
+  document.querySelectorAll(".js-toggle-drawer").forEach((button) => {
     button.addEventListener("click", () => {
       console.log("click");
       // var top = document.querySelector(".p-side-navigation__drawer").getBoundingClientRect().top;
