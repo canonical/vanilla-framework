@@ -1,23 +1,31 @@
 @import 'settings';
 
 @mixin vf-p-side-navigation {
+  // STYLING OF SIDE NAVIGATION RESPONSIVE DRAWER
+
   .p-side-navigation__drawer {
+    @include vf-animation(transform);
+
     background: $colors--light-theme--background-default; // TODO: to the theme
     bottom: 0;
-
     left: 0;
-    max-width: 20rem;
     overflow: auto;
     position: fixed;
-
     top: 0;
     transform: translateX(-100%);
-    transition: transform 200ms;
     z-index: 12;
+
+    &.is-expanded {
+      transform: translateX(0%);
+    }
+
+    @media (min-width: $breakpoint-x-small) {
+      max-width: 20rem;
+    }
   }
 
   .p-side-navigation__overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background: transparentize($color-dark, 0.15); // TODO: theme ?
     bottom: 0;
     display: none;
     left: 0;
@@ -25,30 +33,30 @@
     right: 0;
     top: 0;
     z-index: 11;
+
+    &.is-expanded {
+      display: block;
+    }
   }
 
-  .is-expanded {
-    display: block;
-    transform: translateX(0%);
-  }
-
-  .p-side-navigation__toggle,
-  .p-side-navigation__toggle--bordered {
+  .p-side-navigation__drawer-header {
+    background: $colors--light-theme--background-default; // theme
+    border-bottom: 1px solid $colors--light-theme--border-default; // theme
     padding-bottom: $spv-inner--small;
-    padding-top: $spv-inner--small;
-  }
-
-  .p-side-navigation__toggle--bordered {
-    background: $colors--light-theme--background-default;
-    border-bottom: 1px solid $colors--light-theme--border-default;
     padding-left: $sph-inner--small;
+    padding-top: $spv-inner--small;
     position: sticky;
     top: 0;
   }
 
+  .p-side-navigation__toggle--in-drawer {
+    margin-bottom: 0;
+  }
+
   @media (min-width: $breakpoint-medium) {
     .p-side-navigation__toggle,
-    .p-side-navigation__toggle--bordered {
+    .p-side-navigation__toggle--in-drawer,
+    .p-side-navigation__drawer-header {
       display: none;
     }
 
@@ -58,6 +66,8 @@
       transform: translateX(0%);
     }
   }
+
+  // STYLING OF SIDE NAVIGATION LINKS LIST
 
   // space for the right hand icon with default inner spacing on the left
   $sp-sidenav--icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
