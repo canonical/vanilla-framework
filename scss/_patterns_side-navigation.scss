@@ -4,8 +4,6 @@
   // STYLING OF SIDE NAVIGATION RESPONSIVE DRAWER
 
   .p-side-navigation__drawer {
-    @include vf-animation(transform);
-
     bottom: 0;
     left: 0;
     overflow: auto;
@@ -13,6 +11,11 @@
     top: 0;
     transform: translateX(-100%);
     z-index: 12;
+
+    &.is-collapsed,
+    &.is-expanded {
+      @include vf-animation(transform);
+    }
 
     &.is-expanded {
       transform: translateX(0%);

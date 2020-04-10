@@ -9,6 +9,7 @@ function toggleDrawer(drawer, show) {
 
   if (show) {
     if (drawer) {
+      drawer.classList.remove('is-collapsed');
       drawer.classList.add('is-expanded');
     }
     if (overlay) {
@@ -17,6 +18,7 @@ function toggleDrawer(drawer, show) {
   } else {
     if (drawer) {
       drawer.classList.remove('is-expanded');
+      drawer.classList.add('is-collapsed');
     }
     if (overlay) {
       overlay.classList.remove('is-expanded');
@@ -52,6 +54,16 @@ function setupSideNavigations(sideNavigationSelector) {
   var sideNavigations = [].slice.call(document.querySelectorAll(sideNavigationSelector));
 
   sideNavigations.forEach(setupSideNavigation);
+
+  // on resize event remove `is-collapsed` class from drawers to prevent them from animating back in
+  // TODO: this should probably be throttled
+  window.addEventListener('resize', function() {
+    var drawers = [].slice.call(document.querySelectorAll(sideNavigationSelector + '__drawer'));
+
+    drawers.forEach(function(drawer) {
+      drawer.classList.remove('is-collapsed');
+    });
+  });
 }
 
 setupSideNavigations('.p-side-navigation');
