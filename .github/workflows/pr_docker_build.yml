@@ -4,6 +4,7 @@ on: pull_request
 
 env:
   PORT: 8765
+  SECRET_KEY: insecure_test_key
 
 jobs:
   docker:
@@ -14,7 +15,7 @@ jobs:
       - name: Build Docker image
         run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
       - name: Run server with Docker
-        run: docker run -p ${PORT}:80 testrun &
+        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
       - name: Check server status
         run: curl localhost:${PORT}/_status/check -I
       - name: Install linkchecker
