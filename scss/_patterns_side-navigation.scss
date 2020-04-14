@@ -50,8 +50,19 @@
     top: 0;
   }
 
+  .p-side-navigation__toggle,
+  .p-side-navigation__toggle--in-drawer {
+    &::before {
+      @extend %icon;
+      @include vf-icon-chevron;
+
+      content: '';
+      margin-left: -#{$sph-inner--small};
+      margin-right: $sph-inner--small;
+    }
+  }
+
   // TODO: move to themes
-  // TODO: include icon in SCSS
   .p-side-navigation__toggle {
     @include vf-button-pattern(
       $button-background-color: $color-x-light,
@@ -64,6 +75,10 @@
       $button-active-background-color: darken($color-x-light, 15%),
       $button-active-border-color: $color-mid
     );
+
+    &::before {
+      transform: rotate(90deg);
+    }
   }
 
   .p-side-navigation__toggle--in-drawer {
@@ -76,6 +91,10 @@
       $button-active-background-color: darken($color-light, 15%),
       $button-active-border-color: $color-transparent
     );
+
+    &::before {
+      transform: rotate(-90deg);
+    }
   }
 
   .p-side-navigation__toggle--in-drawer {
