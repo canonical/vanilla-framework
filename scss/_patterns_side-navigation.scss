@@ -50,6 +50,34 @@
     top: 0;
   }
 
+  // TODO: move to themes
+  // TODO: include icon in SCSS
+  .p-side-navigation__toggle {
+    @include vf-button-pattern(
+      $button-background-color: $color-x-light,
+      $button-text-color: $color-x-dark,
+      $button-disabled-background-color: $color-transparent,
+      $button-disabled-border-color: $color-mid,
+      $button-border-color: $color-mid,
+      $button-hover-background-color: darken($color-x-light, 10%),
+      $button-hover-border-color: $color-mid,
+      $button-active-background-color: darken($color-x-light, 15%),
+      $button-active-border-color: $color-mid
+    );
+  }
+
+  .p-side-navigation__toggle--in-drawer {
+    @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-border-color: $color-transparent,
+      $button-text-color: $color-x-dark,
+      $button-hover-background-color: darken($color-x-light, 10%),
+      $button-hover-border-color: $color-transparent,
+      $button-active-background-color: darken($color-light, 15%),
+      $button-active-border-color: $color-transparent
+    );
+  }
+
   .p-side-navigation__toggle--in-drawer {
     margin-bottom: 0;
   }
