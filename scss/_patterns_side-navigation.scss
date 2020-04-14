@@ -54,7 +54,6 @@
   .p-side-navigation__toggle--in-drawer {
     &::before {
       @extend %icon;
-      @include vf-icon-chevron;
 
       content: '';
       margin-left: -#{$sph-inner--small};
@@ -62,36 +61,13 @@
     }
   }
 
-  // TODO: move to themes
   .p-side-navigation__toggle {
-    @include vf-button-pattern(
-      $button-background-color: $color-x-light,
-      $button-text-color: $color-x-dark,
-      $button-disabled-background-color: $color-transparent,
-      $button-disabled-border-color: $color-mid,
-      $button-border-color: $color-mid,
-      $button-hover-background-color: darken($color-x-light, 10%),
-      $button-hover-border-color: $color-mid,
-      $button-active-background-color: darken($color-x-light, 15%),
-      $button-active-border-color: $color-mid
-    );
-
     &::before {
       transform: rotate(90deg);
     }
   }
 
   .p-side-navigation__toggle--in-drawer {
-    @include vf-button-pattern(
-      $button-background-color: $color-transparent,
-      $button-border-color: $color-transparent,
-      $button-text-color: $color-x-dark,
-      $button-hover-background-color: darken($color-x-light, 10%),
-      $button-hover-border-color: $color-transparent,
-      $button-active-background-color: darken($color-light, 15%),
-      $button-active-border-color: $color-transparent
-    );
-
     &::before {
       transform: rotate(-90deg);
     }
@@ -274,10 +250,38 @@
   // border color of active item
     $color-sidenav-item-border-highlight,
   // border color of items list
-    $color-sidenav-list-border
+    $color-sidenav-list-border,
+  // color of toggle icon - needed because of lack of rgba support in icon mixin
+    $color-sidenav-toggle-icon
 ) {
   & {
     color: $color-sidenav-text-default;
+  }
+
+  // toggle to open side navigation is supposed to be in main content (on light background)
+  // it's using default 'neutral' button look regardless of the theme used by side navigation
+  .p-side-navigation__toggle {
+    @include vf-button-pattern;
+
+    &::before {
+      @include vf-icon-chevron;
+    }
+  }
+
+  .p-side-navigation__toggle--in-drawer {
+    @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-border-color: $color-transparent,
+      $button-text-color: $color-sidenav-text-default,
+      $button-hover-background-color: $color-sidenav-item-background-highlight,
+      $button-hover-border-color: $color-transparent,
+      $button-active-background-color: $color-sidenav-item-background-highlight,
+      $button-active-border-color: $color-transparent
+    );
+
+    &::before {
+      @include vf-icon-chevron($color-sidenav-toggle-icon);
+    }
   }
 
   .p-side-navigation__drawer {
@@ -323,11 +327,16 @@
     $color-sidenav-text-active: $colors--light-theme--text-default,
     $color-sidenav-item-background-highlight: $colors--light-theme--background-highlight,
     $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
-    $color-sidenav-list-border: $colors--light-theme--border-low-contrast
+    $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
+    $color-sidenav-toggle-icon: $colors--light-theme--text-muted
   );
 }
 
 @mixin vf-side-navigation-theme-dark {
+  // FIXME:
+  // $color-sidenav-toggle-icon color should be same as $color-sidenav-text-default,
+  // but vf-url-friendly-color doesn't support rgba(),
+  // so we are using #999 as fallback for now
   @include vf-side-navigation-theme(
     $color-sidenav-text-default: $colors--dark-theme--text-muted,
     $color-sidenav-background-default: $colors--dark-theme--background-default,
@@ -335,6 +344,7 @@
     $color-sidenav-text-active: $colors--dark-theme--text-default,
     $color-sidenav-item-background-highlight: $colors--dark-theme--background-highlight,
     $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
-    $color-sidenav-list-border: $colors--dark-theme--border-low-contrast
+    $color-sidenav-list-border: $colors--dark-theme--border-low-contrast,
+    $color-sidenav-toggle-icon: #999
   );
 }
