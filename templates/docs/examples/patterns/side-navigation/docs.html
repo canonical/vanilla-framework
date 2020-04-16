@@ -1,75 +1,94 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Side navigation / MAAS docs{% endblock %}
+{% block title %}Side navigation / Docs{% endblock %}
 
 {% block standalone_css %}patterns_side-navigation{% endblock %}
 
 {% block content %}
 <div class="p-side-navigation">
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item--title">
-      <a class="p-side-navigation__link" href="#">Introduction</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">About MAAS</a>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">Explore MAAS</a>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">Quick start<span class="p-side-navigation__status"><span class="p-label--new">New</span></span></a>
-    </li>
-  </ul>
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item--title">
-      <a class="p-side-navigation__link" href="#">Machines</a>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">Commission machines</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <span class="p-side-navigation__text">Testing</span>
-      <ul class="p-side-navigation__list">
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Hardware testings</a>
-        </li>
-        <li class="p-side-navigation__item ">
-          <a class="p-side-navigation__link" href="#">Network testing</a>
-        </li>
-        <li class="p-side-navigation__item ">
-          <a class="p-side-navigation__link is-active" href="#">Commissioning and hardware testing scripts</a>
-        </li>
-      </ul>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">Deploy machines</a>
-    </li>
-  </ul>
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item--title">
-      <a class="p-side-navigation__link">Concepts & terms</a>
-    </li>
-  </ul>
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item--title">
-      <a class="p-side-navigation__link">Troubleshoot</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">Getting help</a>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">MAAS 2.5 (and earlier) documentation</a>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">Upgrading MAAS</a>
-      <ul class="p-side-navigation__list">
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Upgrade from 2.3 to 2.4</a>
-        </li>
-        <li class="p-side-navigation__item ">
-          <a class="p-side-navigation__link" href="#">Upgrade from 1.9 to 2.x<span class="p-side-navigation__status"><i class="p-icon--warning"></i></span></a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <button class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
+    Toggle side navigation
+  </button>
+
+  <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer"></div>
+
+  <div class="p-side-navigation__drawer" id="drawer">
+    <div class="p-side-navigation__drawer-header">
+      <button class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
+        Toggle side navigation
+      </button>
+    </div>
+
+    <ul class="p-side-navigation__list">
+      <li class="p-side-navigation__item--title">
+        <a class="p-side-navigation__link" href="#">Introduction</a>
+      </li>
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link" href="#">About MAAS</a>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">Explore MAAS</a>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">Quick start<span class="p-side-navigation__status"><span class="p-label--new">New</span></span></a>
+      </li>
+    </ul>
+    <ul class="p-side-navigation__list">
+      <li class="p-side-navigation__item--title">
+        <a class="p-side-navigation__link" href="#">Machines</a>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">Commission machines</a>
+      </li>
+      <li class="p-side-navigation__item">
+        <span class="p-side-navigation__text">Testing</span>
+        <ul class="p-side-navigation__list">
+          <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">Hardware testings</a>
+          </li>
+          <li class="p-side-navigation__item ">
+            <a class="p-side-navigation__link" href="#">Network testing</a>
+          </li>
+          <li class="p-side-navigation__item ">
+            <a class="p-side-navigation__link is-active" href="#">Commissioning and hardware testing scripts</a>
+          </li>
+        </ul>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">Deploy machines</a>
+      </li>
+    </ul>
+    <ul class="p-side-navigation__list">
+      <li class="p-side-navigation__item--title">
+        <a class="p-side-navigation__link">Concepts & terms</a>
+      </li>
+    </ul>
+    <ul class="p-side-navigation__list">
+      <li class="p-side-navigation__item--title">
+        <a class="p-side-navigation__link">Troubleshoot</a>
+      </li>
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link" href="#">Getting help</a>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">MAAS 2.5 (and earlier) documentation</a>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">Upgrading MAAS</a>
+        <ul class="p-side-navigation__list">
+          <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">Upgrade from 2.3 to 2.4</a>
+          </li>
+          <li class="p-side-navigation__item ">
+            <a class="p-side-navigation__link" href="#">Upgrade from 1.9 to 2.x<span class="p-side-navigation__status"><i class="p-icon--warning"></i></span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
 </div>
+
+<script>
+  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+</script>
 {% endblock %}

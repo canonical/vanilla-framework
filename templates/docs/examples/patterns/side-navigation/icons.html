@@ -5,52 +5,71 @@
 
 {% block content %}
 <div class="p-side-navigation--icons">
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link is-active" href="#"><i class="p-icon--information p-side-navigation__icon"></i>Information</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#"><i class="p-icon--user p-side-navigation__icon"></i>Users</a>
-      <ul class="p-side-navigation__list">
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Anna von Example</a>
-        </li>
-        <li class="p-side-navigation__item ">
-          <a class="p-side-navigation__link" href="#">Bob Anonymous</a>
-        </li>
-      </ul>
-    </li>
-    <li class="p-side-navigation__item ">
-      <a class="p-side-navigation__link" href="#">
-        <i class="p-icon--help p-side-navigation__icon"></i>
-        Get help
-        <span class="p-side-navigation__status">
-          <span class="p-label--updated">Updated</span>
-        </span>
-      </a>
-    </li>
-  </ul>
-  <ul class="p-side-navigation__list">
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">Release notes</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">Contribute</a>
-    </li>
-    <li class="p-side-navigation__item">
-      <a class="p-side-navigation__link" href="#">Contact us</a>
-      <ul class="p-side-navigation__list">
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">IRC channel</a>
-        </li>
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Discourse forum</a>
-        </li>
-        <li class="p-side-navigation__item">
-          <a class="p-side-navigation__link" href="#">Contact form</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <button class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
+    Toggle side navigation
+  </button>
+
+  <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer"></div>
+
+  <div class="p-side-navigation__drawer" id="drawer">
+    <div class="p-side-navigation__drawer-header">
+      <button class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
+        Toggle side navigation
+      </button>
+    </div>
+
+    <ul class="p-side-navigation__list">
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link is-active" href="#"><i class="p-icon--information p-side-navigation__icon"></i>Information</a>
+      </li>
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link" href="#"><i class="p-icon--user p-side-navigation__icon"></i>Users</a>
+        <ul class="p-side-navigation__list">
+          <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">Anna von Example</a>
+          </li>
+          <li class="p-side-navigation__item ">
+            <a class="p-side-navigation__link" href="#">Bob Anonymous</a>
+          </li>
+        </ul>
+      </li>
+      <li class="p-side-navigation__item ">
+        <a class="p-side-navigation__link" href="#">
+          <i class="p-icon--help p-side-navigation__icon"></i>
+          Get help
+          <span class="p-side-navigation__status">
+            <span class="p-label--updated">Updated</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+    <ul class="p-side-navigation__list">
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link" href="#">Release notes</a>
+      </li>
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link" href="#">Contribute</a>
+      </li>
+      <li class="p-side-navigation__item">
+        <a class="p-side-navigation__link" href="#">Contact us</a>
+        <ul class="p-side-navigation__list">
+          <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">IRC channel</a>
+          </li>
+          <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">Discourse forum</a>
+          </li>
+          <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">Contact form</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
 </div>
+
+<script>
+  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+</script>
 {% endblock %}

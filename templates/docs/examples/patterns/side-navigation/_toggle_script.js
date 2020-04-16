@@ -58,7 +58,7 @@ function setupSideNavigations(sideNavigationSelector) {
   // on resize event remove `is-collapsed` class from drawers to prevent them from animating back in
   // TODO: this should probably be throttled
   window.addEventListener('resize', function() {
-    var drawers = [].slice.call(document.querySelectorAll(sideNavigationSelector + '__drawer'));
+    var drawers = [].slice.call(document.querySelectorAll('.p-side-navigation__drawer'));
 
     drawers.forEach(function(drawer) {
       drawer.classList.remove('is-collapsed');
@@ -67,3 +67,4 @@ function setupSideNavigations(sideNavigationSelector) {
 }
 
 setupSideNavigations('.p-side-navigation');
+setupSideNavigations('.p-side-navigation--icons');
