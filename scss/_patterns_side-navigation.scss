@@ -19,6 +19,8 @@
     }
 
     &.is-expanded {
+      @extend %vf-has-box-shadow;
+
       transform: translateX(0%);
     }
 
@@ -89,7 +91,9 @@
       display: none;
     }
 
-    .p-side-navigation__drawer {
+    .p-side-navigation__drawer,
+    .p-side-navigation__drawer.is-expanded {
+      box-shadow: none;
       display: block;
       max-width: none;
       overflow: visible;
