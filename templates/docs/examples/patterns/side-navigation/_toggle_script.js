@@ -1,27 +1,17 @@
 /**
-  Toggles the expanded class on drawer and overlay elements.
+  Toggles the expanded/collapsed classed on side navigation element.
 
-  @param {HTMLElement} drawer The side navigation drawer element.
+  @param {HTMLElement} sideNavigation The side navigation element.
   @param {Boolean} show Whether to show or hide the drawer.
 */
-function toggleDrawer(drawer, show) {
-  var overlay = drawer.parentNode.querySelector('.p-side-navigation__overlay');
-
-  if (show) {
-    if (drawer) {
-      drawer.classList.remove('is-collapsed');
-      drawer.classList.add('is-expanded');
-    }
-    if (overlay) {
-      overlay.classList.add('is-expanded');
-    }
-  } else {
-    if (drawer) {
-      drawer.classList.remove('is-expanded');
-      drawer.classList.add('is-collapsed');
-    }
-    if (overlay) {
-      overlay.classList.remove('is-expanded');
+function toggleDrawer(sideNavigation, show) {
+  if (sideNavigation) {
+    if (show) {
+      sideNavigation.classList.remove('is-collapsed');
+      sideNavigation.classList.add('is-expanded');
+    } else {
+      sideNavigation.classList.remove('is-expanded');
+      sideNavigation.classList.add('is-collapsed');
     }
   }
 }
@@ -36,10 +26,10 @@ function setupSideNavigation(sideNavigation) {
   toggles.forEach(function(toggle) {
     toggle.addEventListener('click', function(event) {
       event.preventDefault();
-      var drawer = document.getElementById(toggle.getAttribute('aria-controls'));
+      var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
 
-      if (drawer) {
-        toggleDrawer(drawer, !drawer.classList.contains('is-expanded'));
+      if (sideNav) {
+        toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
       }
     });
   });
@@ -56,5 +46,4 @@ function setupSideNavigations(sideNavigationSelector) {
   sideNavigations.forEach(setupSideNavigation);
 }
 
-setupSideNavigations('.p-side-navigation');
-setupSideNavigations('.p-side-navigation--icons');
+setupSideNavigations('[class*="p-side-navigation"]');
