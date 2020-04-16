@@ -9,13 +9,13 @@
     }
 
     100% {
-      transform: translate(0%);
+      transform: translate(0);
     }
   }
 
   @keyframes vf-p-side-navigation-collapse {
     0% {
-      transform: translate(0%);
+      transform: translate(0);
     }
 
     100% {
@@ -33,14 +33,14 @@
     width: 100%;
     z-index: 12;
 
-    &.is-expanded {
+    [class*='p-side-navigation'].is-expanded & {
       @extend %vf-has-box-shadow;
 
       animation: vf-p-side-navigation-expand map-get($animation-duration, brisk);
-      transform: translateX(0%);
+      transform: translateX(0);
     }
 
-    &.is-collapsed {
+    [class*='p-side-navigation'].is-collapsed & {
       animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
     }
 
@@ -61,7 +61,7 @@
     top: 0;
     z-index: 11;
 
-    &.is-expanded {
+    [class*='p-side-navigation'].is-expanded & {
       opacity: 1;
       pointer-events: all;
     }
@@ -116,13 +116,14 @@
     }
 
     .p-side-navigation__drawer,
-    .p-side-navigation__drawer.is-expanded {
+    // fight specificity of expanded version
+    [class*="p-side-navigation"].is-expanded .p-side-navigation__drawer {
       box-shadow: none;
       display: block;
       max-width: none;
       overflow: visible;
       position: static;
-      transform: translateX(0%);
+      transform: translateX(0);
     }
 
     .p-side-navigation__overlay {
