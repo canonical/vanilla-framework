@@ -63,7 +63,7 @@ View example of the sub-navigation pattern
 
 ### Side navigation
 
-<span class="p-label--new">New</span>
+<span class="p-label--updated">Updated</span>
 
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
 
@@ -88,6 +88,11 @@ To add icons on the left side of the items in side navigation use the `.p-side-n
 <a href="/docs/examples/patterns/side-navigation/icons" class="js-example">
 View example of the side navigation pattern with icons
 </a>
+
+#### JavaScript functionality
+
+On small screens side navigation is rendered off-screen as a drawer. To open the side navigation drawer, add `is-expanded` class to
+main `.p-side-navigation` element. To close the drawer (with the animation) remove `is-expanded` class and replace it with `is-collapsed` class.
 
 ### Import
 

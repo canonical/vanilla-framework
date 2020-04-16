@@ -10,7 +10,7 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.9
+### What's new in Vanilla 2.10
 
 <table>
   <thead>
@@ -24,9 +24,9 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
-      <td><div class="p-label--new">New</div></td>
-      <td>2.9.0</td>
-      <td>New side navigation component was added.</td>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.10.0</td>
+      <td>Side navigation was updated with responsive styles.</td>
     </tr>
   </tbody>
 </table>
@@ -43,6 +43,13 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.9.0 -->
+    <tr>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.9.0</td>
+      <td>New side navigation component was added.</td>
+    </tr>
     <!-- 2.8.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation">Navigation</a></th>
