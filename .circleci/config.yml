@@ -29,6 +29,9 @@ jobs:
           name: Wait for development server
           command: sleep 5
       - run:
+          name: Check server status
+          command: curl localhost:${PORT}/_status/check -I
+      - run:
           name: Snapshot screenshots
           command: yarn percy
 workflows:
