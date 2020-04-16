@@ -3,6 +3,26 @@
 @mixin vf-p-side-navigation {
   // STYLING OF SIDE NAVIGATION RESPONSIVE DRAWER
 
+  @keyframes vf-p-side-navigation-expand {
+    0% {
+      transform: translate(-100%);
+    }
+
+    100% {
+      transform: translate(0%);
+    }
+  }
+
+  @keyframes vf-p-side-navigation-collapse {
+    0% {
+      transform: translate(0%);
+    }
+
+    100% {
+      transform: translate(-100%);
+    }
+  }
+
   .p-side-navigation__drawer {
     bottom: 0;
     left: 0;
@@ -13,15 +33,15 @@
     width: 100%;
     z-index: 12;
 
-    &.is-collapsed,
-    &.is-expanded {
-      @include vf-animation(transform);
-    }
-
     &.is-expanded {
       @extend %vf-has-box-shadow;
 
+      animation: vf-p-side-navigation-expand map-get($animation-duration, brisk);
       transform: translateX(0%);
+    }
+
+    &.is-collapsed {
+      animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
     }
 
     @media (min-width: $breakpoint-x-small) {

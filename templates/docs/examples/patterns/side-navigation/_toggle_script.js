@@ -54,16 +54,6 @@ function setupSideNavigations(sideNavigationSelector) {
   var sideNavigations = [].slice.call(document.querySelectorAll(sideNavigationSelector));
 
   sideNavigations.forEach(setupSideNavigation);
-
-  // on resize event remove `is-collapsed` class from drawers to prevent them from animating back in
-  // TODO: this should probably be throttled
-  window.addEventListener('resize', function() {
-    var drawers = [].slice.call(document.querySelectorAll('.p-side-navigation__drawer'));
-
-    drawers.forEach(function(drawer) {
-      drawer.classList.remove('is-collapsed');
-    });
-  });
 }
 
 setupSideNavigations('.p-side-navigation');
