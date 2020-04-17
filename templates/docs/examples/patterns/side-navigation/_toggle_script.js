@@ -46,4 +46,4 @@ function setupSideNavigations(sideNavigationSelector) {
   sideNavigations.forEach(setupSideNavigation);
 }
 
-setupSideNavigations('[class*="p-side-navigation"]');
+setupSideNavigations('.p-side-navigation, .p-side-navigation--icons');
