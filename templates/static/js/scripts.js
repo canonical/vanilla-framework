@@ -3,16 +3,16 @@ var sidebarToggle = document.querySelector('.p-sidebar__toggle');
 var sidebarContent = document.querySelector('.p-sidebar');
 var openMainNav = document.querySelector('.p-navigation__toggle--open');
 
-if (sidebarToggle) {
-  sidebarToggle.addEventListener('click', function(e) {
-    sidebarToggle.classList.toggle('is-active');
-    sidebarContent.classList.toggle('is-active');
-  });
-}
+// if (sidebarToggle) {
+//   sidebarToggle.addEventListener('click', function(e) {
+//     sidebarToggle.classList.toggle('is-active');
+//     sidebarContent.classList.toggle('is-active');
+//   });
+// }
 
 if (openMainNav) {
   openMainNav.addEventListener('click', function(e) {
-    sidebarToggle.classList.remove('is-active');
+    //sidebarToggle.classList.remove('is-active');
     sidebarContent.classList.remove('is-active');
   });
 }
