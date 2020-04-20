@@ -20,9 +20,9 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
   </p>
 </div>
 
-<a href="/docs/examples/patterns/accordion/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/accordion/" class="js-example">
 View example of the accordion pattern
-</a>
+</a></div>
 
 ### Functionality
 

@@ -14,9 +14,9 @@ To select the active tab add the attribute `aria-selected="true"` and that list 
 
 To horizontally align the tab list with other content, the whole tab set can be contained within a `.row` element to provide correct gutters.
 
-<a href="/docs/examples/patterns/tabs/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tabs/" class="js-example">
 View example of the tabs pattern
-</a>
+</a></div>
 
 <div class="p-strip is-shallow">
   <h3>Usage</h3>

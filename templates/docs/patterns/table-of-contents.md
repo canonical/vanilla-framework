@@ -10,9 +10,9 @@ context:
 
 A table of contents can be used to display supplementary links to a page.
 
-<a href="/docs/examples/patterns/table-of-contents/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/table-of-contents/" class="js-example">
 View example of the table of contents pattern
-</a>
+</a></div>
 
 ### Import
 

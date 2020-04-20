@@ -14,17 +14,17 @@ Search boxes enable search functionality on a page and are typically used in a n
 
 The component expands to the full width of its container by default.
 
-<a href="/docs/examples/patterns/search-box/default/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/search-box/default/" class="js-example">
 View examples of search box patterns
-</a>
+</a></div>
 
 ### Navigation
 
 This component integrates with `.p-navigation__nav` for both small and large screens.
 
-<a href="/docs/examples/patterns/search-box/navigation/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/search-box/navigation/" class="js-example">
 View examples of search box navigation patterns
-</a>
+</a></div>
 
 ### Import
 

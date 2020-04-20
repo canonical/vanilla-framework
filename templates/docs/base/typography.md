@@ -75,9 +75,9 @@ heading order and semantics.
 In the following example, each heading is actually a `<p>` element that has been
 modified to look like a particular heading size.
 
-<a href="/docs/examples/patterns/headings/default/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/headings/default/" class="js-example">
 View example of the heading pattern
-</a>
+</a></div>
 
 <span class="p-label--deprecated">Deprecated</span> Heading classes with numbers as words (`p-heading--one`, `--two`, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (`p-heading--1`, `--2`, ...) instead.
 
@@ -85,18 +85,18 @@ View example of the heading pattern
 
 Sub-headings visually convey importance beneath a heading, or a line of text that expands on the meaning of the heading immediately before it.
 
-<a href="/docs/examples/base/sub-headings/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/sub-headings/" class="js-example">
 View example of the heading pattern
-</a>
+</a></div>
 
 ### Mixed heading classes
 
 It is also possible to apply heading classes directly to heading elements if that
 better suits your document style and tree.
 
-<a href="/docs/examples/patterns/headings/mixed/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/headings/mixed/" class="js-example">
 View example of the mixed headings pattern
-</a>
+</a></div>
 
 ### Line length
 
@@ -105,9 +105,10 @@ Line length, measured in number of characters per line (CPL), has been shown to 
 The max-width of text elements in Vanilla Framework is limited using the `$max-width--default` variable, currently set to `40em`, or around 90 characters.
 
 Vanilla also includes a utility to unset the max-width where necessary &ndash; `u-no-max-width`:
-<a href="/docs/examples/utilities/max-width-unset/" class="js-example">
+
+<div class="embedded-example"><a href="/docs/examples/utilities/max-width-unset/" class="js-example">
 View example of how to unset max-width
-</a>
+</a></div>
 
 Overriding or unsetting the `max-width` is reasonable in certain cases:
 
@@ -118,70 +119,70 @@ Overriding or unsetting the `max-width` is reasonable in certain cases:
 
 Use an ordered list when the order of the items is important.
 
-<a href="/docs/examples/base/lists/ordered-list/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/lists/ordered-list/" class="js-example">
 View example of the base ordered list
-</a>
+</a></div>
 
 ### Unordered list
 
 Use an unordered list when the order of the items isn't important.
 
-<a href="/docs/examples/base/lists/unordered-list/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/lists/unordered-list/" class="js-example">
 View example of the base unordered list
-</a>
+</a></div>
 
 ### Definition list
 
 Use a definition list when you want to list a group of one or more terms and
 descriptions.
 
-<a href="/docs/examples/base/lists/definition-list/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/lists/definition-list/" class="js-example">
 View example of the base definition list
-</a>
+</a></div>
 
 ### Blockquotes and citations
 
-<a href="/docs/examples/base/blockquotes/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/blockquotes/" class="js-example">
 View example of the base blockquotes
-</a>
+</a></div>
 
 ### Small text
 
-<a href="/docs/examples/base/small/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/small/" class="js-example">
 View example of the small text
-</a>
+</a></div>
 
 ### Strong text
 
-<a href="/docs/examples/base/strong/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/strong/" class="js-example">
 View example of the strong text
-</a>
+</a></div>
 
 ### Superscripted text
 
-<a href="/docs/examples/base/sup/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/sup/" class="js-example">
 View example of the superscripted pattern
-</a>
+</a></div>
 
 ### Subscripted text
 
-<a href="/docs/examples/base/sub/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/sub/" class="js-example">
 View example of the subscripted pattern
-</a>
+</a></div>
 
 ### Abbreviation
 
-<a href="/docs/examples/base/abbr/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/abbr/" class="js-example">
 View example of the abbreviation pattern
-</a>
+</a></div>
 
 ### Font weights
 
 If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
 
-<a href="/docs/examples/base/font-weights/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/font-weights/" class="js-example">
 View example of the Ubuntu font weights.
-</a>
+</a></div>
 
 ### Using a smaller set of Latin font faces
 

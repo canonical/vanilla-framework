@@ -20,41 +20,41 @@ Labels are static elements which you can apply to signify status, tags or any ot
 
 Label to be used on newly released components, utilities or settings that are safe to use in projects.
 
-<a href="/docs/examples/patterns/labels/new/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/labels/new/" class="js-example">
 View example of the new label pattern
-</a>
+</a></div>
 
 ### Deprecated
 
 Label to be used on components, utilities or settings are in the process of being removed and should no longer be used in projects.
 
-<a href="/docs/examples/patterns/labels/deprecated/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/labels/deprecated/" class="js-example">
 View example of the deprecated label pattern
-</a>
+</a></div>
 
 ### In progress
 
 Label to be used when a design spec and code implementation are not yet finished.
 
-<a href="/docs/examples/patterns/labels/in-progress/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/labels/in-progress/" class="js-example">
 View example of the in progress label pattern
-</a>
+</a></div>
 
 ### Updated
 
 Label to be used on existing components, utilities or settings that have been updated either through design or code.
 
-<a href="/docs/examples/patterns/labels/updated/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/labels/updated/" class="js-example">
 View example of the updated label pattern
-</a>
+</a></div>
 
 ### Validated
 
 Label to be used on a proposal approved in our bi-weekly meeting. A design spec is created and development starts ready for code review.
 
-<a href="/docs/examples/patterns/labels/validated/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/labels/validated/" class="js-example">
 View example of the validated label pattern
-</a>
+</a></div>
 
 ### Import
 

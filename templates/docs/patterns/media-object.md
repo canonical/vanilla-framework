@@ -11,25 +11,25 @@ context:
 
 A media object should be used to display events or articles.
 
-<a href="/docs/examples/patterns/media-object/media-object/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/media-object/media-object/" class="js-example">
 View example of the pattern media object
-</a>
+</a></div>
 
 ### Circular
 
 You can add an `is-round` state to the `.p-media-object__image` element to create a circular image style, which we recommend to be used for head shots of people. In order for this variant to work, the original image must be square.
 
-<a href="/docs/examples/patterns/media-object/media-object-circ-img/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/media-object/media-object-circ-img/" class="js-example">
 View example of the pattern media object
-</a>
+</a></div>
 
 ### Large
 
 Use a large variant of the component to display details of a single object on a page.
 
-<a href="/docs/examples/patterns/media-object/media-object-large/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/media-object/media-object-large/" class="js-example">
 View example of the pattern media object large
-</a>
+</a></div>
 
 ### Import
 

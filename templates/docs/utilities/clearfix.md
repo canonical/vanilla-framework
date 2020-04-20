@@ -14,9 +14,9 @@ The clearfix is a way to combat the zero-height container problem for floated el
 
 In the example below, the parent wrapping container does not collapse even though it's only two children are floated.
 
-<a href="/docs/examples/utilities/clearfix/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/utilities/clearfix/" class="js-example">
 View example of the clearfix utility
-</a>
+</a></div>
 
 ### Import
 
