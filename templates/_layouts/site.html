@@ -10,36 +10,8 @@
 {% endblock %}
 
 {% block body %}
-    <header id="navigation" class="p-navigation">
-      <div class="p-navigation__row">
-        <div class="p-navigation__banner">
-          <div class="p-navigation__logo" style="margin-bottom: 0">
-            <a class="p-navigation__link" href="/">
-              <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/d96d86b5-vanilla_black-orange_hex.svg" alt="Vanilla">
-            </a>
-          </div>
-          <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-          <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
-        </div>
-        <nav class="p-navigation__nav">
-          <span class="u-off-screen">
-            <a href="#main-content">Jump to main content</a>
-          </span>
-          <ul class="p-navigation__links">
-            <li class="p-navigation__link"><a href="/docs">Docs</a></li>
-            <li class="p-navigation__link"><a href="/docs/examples">Examples</a></li>
-            <li class="p-navigation__link{% if path == '/accessibility' %} is-selected{% endif %}"><a href="/accessibility">Accessibility</a></li>
-            <li class="p-navigation__link{% if path == '/browser-support' %} is-selected{% endif %}"><a href="/browser-support">Browser support</a></li>
-            <li class="p-navigation__link{% if path == '/contribute' %} is-selected{% endif %}"><a href="/contribute">Contribute</a></li>
-            <li class="p-navigation__link{% if path == '/showcase' %} is-selected{% endif %}"><a href="/showcase">Showcase</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
     {% block content %}{{ content | safe }}{% endblock content %}
 
+    {# TODO: this makes border above the footer, should be moved out of here #}
     <hr>
-
-    {% include "_layouts/_footer.html" %}
 {% endblock %}
