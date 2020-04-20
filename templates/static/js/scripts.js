@@ -1,43 +1,59 @@
-// Toggle mobile sidebar nav
-var sidebarToggle = document.querySelector('.p-sidebar__toggle');
-var sidebarContent = document.querySelector('.p-sidebar');
-var openMainNav = document.querySelector('.p-navigation__toggle--open');
+// Add table of contents to side navigation on documentation pages
 
-// if (sidebarToggle) {
-//   sidebarToggle.addEventListener('click', function(e) {
-//     sidebarToggle.classList.toggle('is-active');
-//     sidebarContent.classList.toggle('is-active');
-//   });
-// }
+// get all headings from page and add it to current highligted item in side navigation
+(function() {
+  let list = document.createElement('ul');
+  list.classList.add('p-side-navigation__list');
 
-if (openMainNav) {
-  openMainNav.addEventListener('click', function(e) {
-    //sidebarToggle.classList.remove('is-active');
-    sidebarContent.classList.remove('is-active');
+  let item = document.createElement('li');
+  item.classList.add('p-side-navigation__item');
+
+  let anchor = document.createElement('a');
+  anchor.classList.add('p-side-navigation__link');
+
+  // Add all H3s with IDs to the table of contents list
+  [].slice.call(document.querySelectorAll('main h3[id]')).forEach(function(heading) {
+    let thisItem = item.cloneNode();
+    let thisAnchor = anchor.cloneNode();
+    thisAnchor.setAttribute('href', '#' + heading.id);
+    thisAnchor.textContent = heading.textContent;
+    thisItem.appendChild(thisAnchor);
+    list.appendChild(thisItem);
   });
-}
 
-// Add classes to links
-var links = document.querySelectorAll('a');
-links.forEach(function(link) {
-  var parentClass = link.parentNode.classList;
-  var ignoreNav = !(parentClass.contains('p-navigation__logo') || parentClass.contains('p-navigation__link'));
+  // Add table of contents as nested list to side navigation
+  if (list.querySelectorAll('li').length > 0) {
+    let parent = document.querySelector('.p-side-navigation__link.is-active').parentNode;
 
-  var isInternal = link.href.indexOf('https://vanillaframework.io') === 0;
-
-  if (!isInternal && link.hostname && link.hostname != location.hostname && ignoreNav) {
-    link.className += ' p-link--external';
+    parent.appendChild(list);
   }
-});
+})();
+
+// Add class to exteral links
+(function() {
+  var links = document.querySelectorAll('a');
+  links.forEach(function(link) {
+    var parentClass = link.parentNode.classList;
+    var ignoreNav = !(parentClass.contains('p-navigation__logo') || parentClass.contains('p-navigation__link'));
+
+    var isInternal = link.href.indexOf('https://vanillaframework.io') === 0;
+
+    if (!isInternal && link.hostname && link.hostname != location.hostname && ignoreNav) {
+      link.className += ' p-link--external';
+    }
+  });
+})();
 
 // Docs search functions
-var searchDocsReset = document.getElementById('search-docs-reset');
-var searchBox = document.getElementById('search-docs');
+(function() {
+  var searchDocsReset = document.getElementById('search-docs-reset');
+  var searchBox = document.getElementById('search-docs');
 
-if (searchDocsReset) {
-  searchDocsReset.addEventListener('click', function(e) {
-    searchBox.value = '';
-    searchBox.focus();
-    e.preventDefault();
-  });
-}
+  if (searchDocsReset) {
+    searchDocsReset.addEventListener('click', function(e) {
+      searchBox.value = '';
+      searchBox.focus();
+      e.preventDefault();
+    });
+  }
+})();
