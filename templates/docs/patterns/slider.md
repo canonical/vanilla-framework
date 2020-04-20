@@ -11,9 +11,9 @@ context:
 The `p-slider__wrapper` and `p-slider__input` classes should be used with `<input type="range">` elements
 when you want to provide a numeric representation of the slider value, as well as allow the user to specify a value.
 
-<a href="/docs/examples/patterns/slider/slider-input/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/slider/slider-input/" class="js-example">
 View example of the slider pattern
-</a>
+</a></div>
 
 <span class="p-label--updated">Updated</span> In version 2.6.0 Vanilla framework added slider styling as default for
 all range inputs, so adding `p-slider` class just to style `<input type="range">` is not necessary any more.

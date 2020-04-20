@@ -10,9 +10,9 @@ context:
 
 You can use these utilities to force the content inside an element to align center, left or right.
 
-<a href="/docs/examples/utilities/align/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/utilities/align/" class="js-example">
 View example of the content align utility
-</a>
+</a></div>
 
 ### Import
 

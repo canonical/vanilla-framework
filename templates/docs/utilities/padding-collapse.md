@@ -10,9 +10,9 @@ context:
 
 Remove one or more paddings on an element.
 
-<a href="/docs/examples/utilities/padding-collapse/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/utilities/padding-collapse/" class="js-example">
 View example of the padding collapse utility
-</a>
+</a></div>
 
 ### Import
 

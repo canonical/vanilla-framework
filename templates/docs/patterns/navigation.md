@@ -32,9 +32,9 @@ You can also manually override the background color of the navigation using the 
 You can change the breakpoint at which the menu changes to a small screen menu
 by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.scss`.
 
-<a href="/docs/examples/patterns/navigation/default/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/default/" class="js-example">
 View example of the navigation pattern
-</a>
+</a></div>
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -57,9 +57,9 @@ To open the subnav-menu you need to set the `is-active` class on `p-subnav` elem
 
 By default the sub-navigation menus are left-aligned with their parent, if you'd prefer the menu to be positioned from the right, use the `p-subnav__items--right` modifier. This can be seen in the "My account" menu in the example.
 
-<a href="/docs/examples/patterns/navigation/subnav" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/subnav" class="js-example">
 View example of the sub-navigation pattern
-</a>
+</a></div>
 
 ### Side navigation
 
@@ -73,9 +73,9 @@ Current page in the side navigation should be highlighted by adding `is-active` 
 
 Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add status labels or icons on right side of navigation items.
 
-<a href="/docs/examples/patterns/side-navigation/docs" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/docs" class="js-example">
 View example of the side navigation pattern
-</a>
+</a></div>
 
 To add icons on the left side of the items in side navigation use the `.p-side-navigation--items` class.
 
@@ -85,9 +85,9 @@ To add icons on the left side of the items in side navigation use the `.p-side-n
   </p>
 </div>
 
-<a href="/docs/examples/patterns/side-navigation/icons" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/icons" class="js-example">
 View example of the side navigation pattern with icons
-</a>
+</a></div>
 
 #### JavaScript functionality
 

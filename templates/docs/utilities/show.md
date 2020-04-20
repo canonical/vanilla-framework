@@ -10,9 +10,9 @@ context:
 
 Show an element within a certain breakpoint.
 
-<a href="/docs/examples/utilities/show/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/utilities/show/" class="js-example">
 View example of the Show utility
-</a>
+</a></div>
 
 ### Import
 
