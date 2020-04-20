@@ -51,21 +51,21 @@ Your project may not warrant including all of Vanilla, in which case you can inc
 ### Related settings
 
 <div class="row">
-  <div class="col-4">
+  <div class="col-3">
   <ul class="p-list--divided">
   <li class="p-list__item"><a href="/docs/settings/animation-settings">Animation</a></li>
   <li class="p-list__item"><a href="/docs/settings/assets-settings">Assets</a></li>
   <li class="p-list__item"><a href="/docs/settings/breakpoint-settings">Breakpoint</a></li>
   </ul>
   </div>
-  <div class="col-4">
+  <div class="col-3">
   <ul class="p-list--divided">
   <li class="p-list__item"><a href="/docs/settings/color-settings">Color</a></li>
   <li class="p-list__item"><a href="/docs/settings/font-settings">Font</a></li>
   <li class="p-list__item"><a href="/docs/settings/layout-settings">Layout</a></li>
   </ul>
   </div>
-  <div class="col-4">
+  <div class="col-3">
   <ul class="p-list--divided">
   <li class="p-list__item"><a href="/docs/settings/placeholder-settings">Placeholder</a></li>
   <li class="p-list__item"><a href="/docs/settings/spacing-settings">Spacing</a></li>
