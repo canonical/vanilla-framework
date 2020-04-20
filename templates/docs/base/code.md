@@ -28,14 +28,14 @@ This component should be used when displaying a single line of code, accompanied
 
 <div class="p-strip is-shallow">
   <div class="row">
-     <div class="col-6">
+     <div class="col-4">
        <div class="p-notification--positive">
         <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use for single line terminal commands, functions or instructions.</p>
        </div>
      </div>
-    <div class="col-6">
+    <div class="col-4">
       <div class="p-notification--negative">
-        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use more than two lines of code, if required, it's recommended you use code <a href="#block" class="p-notification__action">block</a>.</p>
+        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use for multiline code. If needed, code <a href="#block" class="p-notification__action">block</a> should be used.</p>
       </div>
     </div>
   </div>

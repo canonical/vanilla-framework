@@ -18,13 +18,13 @@ The target element will be hidden or shown with `aria-hidden="true"` or `false`.
 Using direction modifiers will change the placement of the drop-down menu. By default alignment is to the right of the parent pattern.
 
 <div class="row">
-  <div class="col-4">
+  <div class="col-3">
   <pre><code>.p-contextual-menu</code></pre>
   </div>
-  <div class="col-4">
+  <div class="col-3">
   <pre><code>.p-contextual-menu--left</code></pre>
   </div>
-  <div class="col-4">
+  <div class="col-3">
   <pre><code>.p-contextual-menu--center</code></pre>
   </div>
 </div>
