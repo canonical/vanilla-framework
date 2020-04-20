@@ -11,33 +11,33 @@ context:
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
 
-<a href="/docs/examples/patterns/pull-quotes/default/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/pull-quotes/default/" class="js-example">
 View example of the pull quote pattern
-</a>
+</a></div>
 
 ### Small
 
 A small variant is available which displays the quote text at the same size as normal paragraph text.
 
-<a href="/docs/examples/patterns/pull-quotes/small/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/pull-quotes/small/" class="js-example">
 View example of the small pull quote pattern
-</a>
+</a></div>
 
 ### Large
 
 To give more prominence to a quote, there is also a large variant.
 
-<a href="/docs/examples/patterns/pull-quotes/large/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/pull-quotes/large/" class="js-example">
 View example of the small pull quote pattern
-</a>
+</a></div>
 
 ### Image
 
 To add an image to any size of pull-quote, add the class `has-image` and use the following markup for the image.
 
-<a href="/docs/examples/patterns/pull-quotes/default-image/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/pull-quotes/default-image/" class="js-example">
 View example of the small pull quote pattern with an image
-</a>
+</a></div>
 
 ### Import
 

@@ -14,9 +14,9 @@ To hide an element from the user, use the class `u-hide`.
 
 To hide only at a specific viewport, add `--small`, `--medium` or `--large` modifiers to the `u-hide` class.
 
-<a href="/docs/examples/utilities/hide/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/utilities/hide/" class="js-example">
 View example of the Hide utility
-</a>
+</a></div>
 
 ### Import
 

@@ -10,9 +10,9 @@ context:
 
 The Inline images pattern can be used to showcase a group of related images, such as a group of customer or partner logos.
 
-<a href="/docs/examples/patterns/inline-images/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/inline-images/" class="js-example">
 View example of the inline images pattern
-</a>
+</a></div>
 
 ### Import
 

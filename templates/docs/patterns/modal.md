@@ -12,9 +12,9 @@ The modal component can be used to overlay an area of the screen which can conta
 
 On `p-modal` set display to `display:flex` or `display:none` to toggle the visibility of the modal.
 
-<a href="/docs/examples/patterns/modal/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/modal/" class="js-example">
 View example of the modal pattern
-</a>
+</a></div>
 
 ### Import
 
