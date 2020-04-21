@@ -39,7 +39,7 @@
 <section id="search-docs" class="p-strip--image is-shallow" style="background-image: url('https://assets.ubuntu.com/v1/e54487e2-maas-docs-suru.png')">
   <div class="row">
     <form class="p-search-box u-no-margin--bottom" action="#">
-      <input type="search" class="p-search-box__input" name="q" placeholder="Search documentation" required="">
+      <input type="search" class="p-search-box__input" name="q" placeholder="Search documentation" required="" />
       <button type="reset" class="p-search-box__reset" alt="reset"><i class="p-icon--close">Close</i></button>
       <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
     </form>
@@ -50,7 +50,6 @@
   <div class="row">
     <aside class="col-3">
       <nav class="p-side-navigation" id="drawer">
-
         <button class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
           Toggle side navigation
         </button>
@@ -123,6 +122,78 @@
                 </li>
               </ul>
             </li>
+            <li class="p-side-navigation__item--title">
+              <a class="p-side-navigation__link">Troubleshoot</a>
+            </li>
+            <li class="p-side-navigation__item">
+              <a class="p-side-navigation__link" href="#">Getting help</a>
+            </li>
+            <li class="p-side-navigation__item ">
+              <a class="p-side-navigation__link" href="#">Non-snap MAAS installs</a>
+            </li>
+            <li class="p-side-navigation__item ">
+              <a class="p-side-navigation__link" href="#">MAAS 2.5 (and earlier) documentation</a>
+            </li>
+            <li class="p-side-navigation__item">
+              <a href="#" class="p-side-navigation__link is-selected">Upgrading MAAS</a>
+              <ul class="p-side-navigation__list">
+                <li class="p-side-navigation__item">
+                  <a class="p-side-navigation__link" href="#">Upgrade from 2.3 to 2.4</a>
+                </li>
+                <li class="p-side-navigation__item ">
+                  <a class="p-side-navigation__link" href="#">Upgrade from 1.9 to 2.x</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="p-side-navigation__list">
+            <li class="p-side-navigation__item--title">
+              <a class="p-side-navigation__link">Troubleshoot</a>
+            </li>
+            <li class="p-side-navigation__item">
+              <a class="p-side-navigation__link" href="#">Getting help</a>
+            </li>
+            <li class="p-side-navigation__item ">
+              <a class="p-side-navigation__link" href="#">Non-snap MAAS installs</a>
+            </li>
+            <li class="p-side-navigation__item ">
+              <a class="p-side-navigation__link" href="#">MAAS 2.5 (and earlier) documentation</a>
+            </li>
+            <li class="p-side-navigation__item">
+              <a href="#" class="p-side-navigation__link is-selected">Upgrading MAAS</a>
+              <ul class="p-side-navigation__list">
+                <li class="p-side-navigation__item">
+                  <a class="p-side-navigation__link" href="#">Upgrade from 2.3 to 2.4</a>
+                </li>
+                <li class="p-side-navigation__item ">
+                  <a class="p-side-navigation__link" href="#">Upgrade from 1.9 to 2.x</a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-side-navigation__item--title">
+              <a class="p-side-navigation__link">Troubleshoot</a>
+            </li>
+            <li class="p-side-navigation__item">
+              <a class="p-side-navigation__link" href="#">Getting help</a>
+            </li>
+            <li class="p-side-navigation__item ">
+              <a class="p-side-navigation__link" href="#">Non-snap MAAS installs</a>
+            </li>
+            <li class="p-side-navigation__item ">
+              <a class="p-side-navigation__link" href="#">MAAS 2.5 (and earlier) documentation</a>
+            </li>
+            <li class="p-side-navigation__item">
+              <a href="#" class="p-side-navigation__link is-selected">Upgrading MAAS</a>
+              <ul class="p-side-navigation__list">
+                <li class="p-side-navigation__item">
+                  <a class="p-side-navigation__link" href="#">Upgrade from 2.3 to 2.4</a>
+                </li>
+                <li class="p-side-navigation__item ">
+                  <a class="p-side-navigation__link" href="#">Upgrade from 1.9 to 2.x</a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </nav>
@@ -131,10 +202,11 @@
     <main class="col-9" id="main-content">
       <h1>MAAS Documentation</h1>
 
-      <p>MAAS is <strong>Metal As A Service</strong>, a service that lets you treat physical servers like virtual
-        machines – instances – in the cloud. No need to manage servers individually: MAAS turns your bare metal into
-        an elastic, cloud-like resource.</p>
-      <hr>
+      <p>
+        MAAS is <strong>Metal As A Service</strong>, a service that lets you treat physical servers like virtual machines – instances – in the cloud. No need to manage servers
+        individually: MAAS turns your bare metal into an elastic, cloud-like resource.
+      </p>
+      <hr />
       <p>Quick questions you might have:</p>
       <ul>
         <li><a href="#docs/what-is-maas">What is MAAS – and what does it really do for me?</a></li>
@@ -143,7 +215,99 @@
         <li><a href="#docs/concepts-and-terms">What concepts might I need to understand before starting?</a></li>
         <li><a href="#docs/explore-maas">Can I just install it and try it for myself?</a></li>
       </ul>
-      <hr>
+
+      <p>
+        The minimum requirements for the machines that run MAAS vary widely depending on local implementation and usage. Below, you will find resource estimates based on MAAS
+        components and operating system (Ubuntu Server). We consider both a test configuration (for proof of concept) and a production environment.
+      </p>
+
+      <hr />
+
+      <h4>Quick questions you might have:</h4>
+
+      <ul>
+        <li><a href="#docs/maas-requirements#heading--test-environment">What are the requirements for a test environment?</a></li>
+        <li><a href="#docs/maas-requirements#heading--production-environment">What are the requirements for a production environment?</a></li>
+      </ul>
+
+      <h2 id="heading--test-environment">Requirements for a test environment</h2>
+
+      <p>
+        Here is a proof of concept scenario, with all MAAS components installed on a single host. This scenario assumes <em>two</em> complete sets of images (latest two Ubuntu LTS
+        releases) for a <em>single</em> architecture (amd64).
+      </p>
+
+      <div class="md-table">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Memory (MB)</th>
+              <th>CPU (GHz)</th>
+              <th>Disk (GB)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://maas.io/docs/concepts-and-terms#heading--controllers" rel="nofollow noopener">Region controller</a> (minus PostgreSQL)</td>
+              <td>512</td>
+              <td>0.5</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>PostgreSQL</td>
+              <td>512</td>
+              <td>0.5</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td><a href="https://maas.io/docs/concepts-and-terms#heading--controllers" rel="nofollow noopener">Rack controller</a></td>
+              <td>512</td>
+              <td>0.5</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Ubuntu Server (including logs)</td>
+              <td>512</td>
+              <td>0.5</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Therefore, the approximate requirements for this scenario are 2 GB memory, 2 GHz CPU, and 20 GB of disk space.</p>
+      <h2 id="heading--production-environment">Requirements for a production environment</h2>
+      <p>
+        Here is a production scenario designed to handle a high number of sustained client connections. This scenario implements both high availability (region and rack) and load
+        balancing (region).
+      </p>
+      <p>MAAS reserves extra space for images (database and rack controller), some images such as those for Microsoft Windows may require a lot more, so plan accordingly.</p>
+      <p>Therefore, the approximate requirements for this scenario are:</p>
+      <ul>
+        <li>A region controller (including PostgreSQL) installed on one host, with 4.5 GB memory, 4.5 GHz CPU, and 45 GB of disk space.</li>
+        <li>A duplicate region controller (including PostgreSQL) on a second host, also with 4.5 GB memory, 4.5 GHz CPU, and 45 GB of disk space.</li>
+        <li>A rack controller installed on a third host, with 2.5 GB memory, 2.5 GHz CPU, and 40 GB of disk space.</li>
+        <li>A duplicate rack controller on a fourth host, also with 2.5 GB memory, 2.5 GHz CPU, and 40 GB of disk space.</li>
+      </ul>
+      <div class="p-notification">
+        <p class="p-notification__response">
+          The tables above refer to MAAS infrastructure only. They do not cover the resources needed by subsequently-added nodes. Note that machines should have IPMI-based BMC
+          controllers for power cycling, see [BMC power types][power-types].
+        </p>
+      </div>
+      <p>Examples of factors that influence hardware specifications include:</p>
+      <ul>
+        <li>the number of connecting clients (client activity)</li>
+        <li>how you decide to distribute services</li>
+        <li>whether or not you use <a href="https://maas.io/docs/high-availability" rel="nofollow noopener">high availability</a></li>
+        <li>whether or not you use <a href="https://maas.io/docs/high-availability#load-balancing-(optional)" rel="nofollow noopener">load balancing</a></li>
+        <li>the number of images that you choose to store (disk space affecting PostgreSQL and the rack controller)</li>
+      </ul>
+      <p>Also not taken into account is a possible local image mirror, which would be a large consumer of disk space.</p>
+      <p>
+        One rack controller should only service 1000 machines or less, regardless of how you distribute them across subnets. There is no load balancing at the rack level, so you
+        will need additional, independent rack controllers. Each controller must service its own subnet(s).
+      </p>
     </main>
   </div>
 </div>
@@ -171,7 +335,7 @@
 </script>
 
 <style>
-  body { margin: 0 }
+  body { margin: 0; }
 </style>
 
 {% endblock %}
