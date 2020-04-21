@@ -29,6 +29,23 @@
   }
 })();
 
+// scroll active side navigation item into view (without scrolling whole page)
+(function() {
+  let sideNav = document.querySelector('.p-side-navigation');
+  let currentItem = document.querySelector('.p-side-navigation__link.is-active');
+
+  // calculate scroll by comparing top of side nav and top of active item
+  let currentItemOffset = currentItem.getBoundingClientRect().top;
+  let offset = currentItemOffset - sideNav.getBoundingClientRect().top;
+
+  // only scroll if active link is off screen or close to bottom of the window
+  if (currentItemOffset > window.innerHeight * 0.7) {
+    setTimeout(function() {
+      sideNav.scrollTop = offset;
+    }, 0);
+  }
+})();
+
 // Add class to exteral links
 (function() {
   var links = document.querySelectorAll('a');
