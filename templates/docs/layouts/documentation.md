@@ -94,7 +94,7 @@ The Documentation page layout can be built using the Vanilla grid classes and co
 
 The Documentation layout splits the page into 3 horizontal areas that span the entire fixed width of the grid: header, content, footer.
 
-At the large breakpoint, the content area is further divided into an aside (4 columns) and a main content area (8 columns).
+At the large breakpoint, the content area is further divided into an aside (3 columns) and a main content area (9 columns).
 
 At smaller breakpoints, the aside is moved offscreen and shown / hidden using a toggle.
 
