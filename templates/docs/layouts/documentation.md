@@ -4,15 +4,70 @@ context:
   title: Documentation | Layouts
 ---
 
+<style>
+  .u-thumb-row {
+    --grid-gap: .5rem;
+    display: grid;
+    grid-gap: var(--grid-gap);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .u-thumb-aside {
+    grid-column-end: span 4;
+  }
+
+  .u-thumb-main-content {
+    grid-column-end: span 8;
+  }
+
+  .u-thumb-area {
+    --padding: .5rem;
+    --grid-gap: .5rem;
+    background: rgba(199, 22, 43, 0.1);
+    margin-bottom: var(--grid-gap);
+    padding: var(--padding) var(--padding) 0 var(--padding);
+    overflow: auto;
+  }
+
+  .u-thumb {
+
+  }
+</style>
+
 ## Documentation layout
 
 <hr>
 
-Documentation page layout can be build using Vanilla grid and common components. It consists of header with main navigation, optional hero strip (that may contain search field), grid based content area and a footer.
+The Documentation page layout can be built using the Vanilla grid classes and common components.
 
 ### Structure
 
-#### Heading
+<div class="u-thumb">
+  <header class="u-thumb-area">
+      <p class="-p-muted-heading">Header</p>
+  </header>
+  <section>
+    <div class="u-thumb-row">
+      <div class="u-thumb-area u-thumb-aside">
+        <p class="-p-muted-heading">Aside</p>
+      </div>
+      <div class="u-thumb-area u-thumb-main-content">
+        <p class="-p-muted-heading">Main content</p>
+      </div>
+    </div>
+  </section>
+  <footer class="u-thumb-area">
+    <p class="-p-muted-heading">Footer</p>
+  </footer>
+</div>
+
+The Documentation layout splits the page into 3 horizontal areas that span the entire fixed width of the grid: header, content, footer.
+
+At the large breakpoint, the content area is further divided into an aside (4 columns) and a main content area (8 columns).
+
+At smaller breakpoints, the aside is moved offscreen and shown / hidden using a toggle.
+
+#### Header
 
 Heading with the main navigation is build with [navigation component](/docs/patterns/navigation#global-navigation).
 
