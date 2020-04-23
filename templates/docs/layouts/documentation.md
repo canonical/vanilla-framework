@@ -5,60 +5,91 @@ context:
 ---
 
 <style>
-  .u-thumb-row {
-    --grid-gap: .5rem;
-    display: grid;
-    grid-gap: var(--grid-gap);
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
 
-  .u-thumb-aside {
-    grid-column-end: span 4;
-  }
+.u-thumb-row {
+  --grid-gap: 0.5rem;
+  display: grid;
+  grid-gap: var(--grid-gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 80%;
+}
 
-  .u-thumb-main-content {
-    grid-column-end: span 8;
-  }
+.u-thumb-aside {
+  grid-column-end: span 3;
+}
 
-  .u-thumb-area {
-    --padding: .5rem;
-    --grid-gap: .5rem;
-    background: rgba(199, 22, 43, 0.1);
-    margin-bottom: var(--grid-gap);
-    padding: var(--padding) var(--padding) 0 var(--padding);
-    overflow: auto;
-  }
+.u-thumb-main-content {
+  grid-column-end: span 9;
+}
 
-  .u-thumb {
+.u-thumb-fixed-width {
+  grid-column-end: span 12;
+}
 
-  }
+/* .u-thumb-viz {
+  border: 1px solid rgba(199, 22, 43, 0.2);
+  border-radius: 0.5rem;
+} */
+
+.u-thumb-area-viz,
+.u-thumb-container-viz {
+  margin-bottom: 1px;
+  overflow: auto;
+}
+
+.u-thumb-area-viz {
+  background: rgba(199, 22, 43, 0.1);
+  margin-bottom: 1px;
+  padding: .5rem .5rem 1.5rem .5rem;
+}
+
+.u-thumb-container-viz {
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1px;
+  padding: .5rem .5rem 0 .5rem;
+  overflow: auto;
+}
 </style>
 
 ## Documentation layout
 
 <hr>
 
-The Documentation page layout can be built using the Vanilla grid classes and common components.
-
 ### Structure
 
-<div class="u-thumb">
-  <header class="u-thumb-area">
-      <p class="-p-muted-heading">Header</p>
-  </header>
-  <section>
-    <div class="u-thumb-row">
-      <div class="u-thumb-area u-thumb-aside">
-        <p class="-p-muted-heading">Aside</p>
+The Documentation page layout can be built using the Vanilla grid classes and common components.
+
+<div class="p-strip is-shallow u-no-padding--top">
+  <div class="u-thumb-viz">
+    <header class="u-thumb-area-viz">
+    <p class="p-muted-heading">Header</p>
+      <div class="u-thumb-row">
+        <div class="u-thumb-fixed-width u-thumb-container-viz">
+          <p class="">Header fixed-width content</p>
+        </div>
       </div>
-      <div class="u-thumb-area u-thumb-main-content">
-        <p class="-p-muted-heading">Main content</p>
+    </header>
+    <section class="u-thumb-area-viz">
+      <p class="p-muted-heading">Content</p>
+      <div class="u-thumb-row">
+        <div class="u-thumb-container-viz u-thumb-aside">
+          <p class="-p-muted-heading">Aside</p>
+        </div>
+        <div class="u-thumb-container-viz u-thumb-main-content">
+          <p class="-p-muted-heading">Main content</p>
+        </div>
       </div>
-    </div>
-  </section>
-  <footer class="u-thumb-area">
-    <p class="-p-muted-heading">Footer</p>
-  </footer>
+    </section>
+    <footer class="u-thumb-area-viz">
+      <p class="p-muted-heading">Footer</p>
+      <div class="u-thumb-row">
+        <div class="u-thumb-fixed-width u-thumb-container-viz">
+          <p class="">Footer fixed-width content</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 </div>
 
 The Documentation layout splits the page into 3 horizontal areas that span the entire fixed width of the grid: header, content, footer.
@@ -75,15 +106,15 @@ Style and contents of documentation main navigation should be consistent with re
 
 Documentation pages may have an optional search box in the main navigation.
 
-#### Hero
+##### Hero
 
-Documentation pages can have a hero area above main content area. This part of the page will usually contain a search field.
+If you need to add a full-width area under the top navigation, but above the aside and main content, append it to the header.
 
-Hero area is build with strip component with grid row inside. Usually it would be shallow light strip (`.p-strip--light is-shallow`), but the specific styling can be customised to match the site branding or other design requirements.
+FOr example, to add a light gray hero section, use a strip component with a grid row inside. (`.p-strip--light is-shallow`).
 
 #### Content area
 
-Content area is placed inside a regular strip (`.p-strip`) and a grid row (`.row`). Within standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) reserved for main documentation content.
+The content area is can be implementedas a regular strip (`.p-strip`) with a grid row (`.row`) inside. Within the standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) reserved for main documentation content.
 
 Sidebar should contain only the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. Grouping and nesting of navigation items in side navigation component should be used to build the logical structure of documentation navigation. Side navigation component has built-in responsive functionality which makes the sidebar expandable on small screens.
 
