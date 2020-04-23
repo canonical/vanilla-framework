@@ -60,7 +60,7 @@ context:
 
 The Documentation page layout can be built using the Vanilla grid classes and common components.
 
-<div class="p-strip is-shallow u-no-padding--top">
+<div class="p-strip is-shallow u-no-padding--top" style="max-width: 40rem">
   <div class="u-thumb-viz">
     <header class="u-thumb-area-viz">
     <p class="p-muted-heading">Header</p>
