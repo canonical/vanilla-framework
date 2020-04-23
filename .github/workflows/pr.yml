@@ -1,4 +1,4 @@
-name: Docker
+name: PR
 
 on: pull_request
 
@@ -7,6 +7,18 @@ env:
   SECRET_KEY: insecure_test_key
 
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+
   docker:
     name: Build and run
     runs-on: ubuntu-latest
