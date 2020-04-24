@@ -8,31 +8,31 @@ context:
 
 <hr>
 
-Documentation page layout can be build using Vanilla grid and common components. It consists of header with main navigation, optional hero strip (that may contain search field), grid based content area and a footer.
+Documentation page layout can be built using the Vanilla frameworks grid and common components. It consists of a header containing main navigation, optional hero strip (that may contain search field), grid-based content area and a footer.
 
 ### Structure
 
 #### Heading
 
-Heading with the main navigation is build with [navigation component](/docs/patterns/navigation#global-navigation).
+The heading with the main navigation, built with the [navigation component](/docs/patterns/navigation#global-navigation).
 
-Style and contents of documentation main navigation should be consistent with rest of the site.
+Style and contents of the documentation main navigation should be consistent with rest of the site.
 
 Documentation pages may have an optional search box in the main navigation.
 
 #### Hero
 
-Documentation pages can have a hero area above main content area. This part of the page will usually contain a search field.
+Documentation pages can have a hero area above the main content area. This part of the page will usually contain a search field.
 
-Hero area is build with strip component with grid row inside. Usually it would be shallow light strip (`.p-strip--light is-shallow`), but the specific styling can be customised to match the site branding or other design requirements.
+The hero area is built with the [Strip component](/docs/patterns/strip) with grid row inside. Usually, it would be shallow light strip (`.p-strip--light is-shallow`), but the specific styling can be customised to match the site branding or other design requirements.
 
 #### Content area
 
-Content area is placed inside a regular strip (`.p-strip`) and a grid row (`.row`). Within standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) reserved for main documentation content.
+The content area is placed inside a regular strip (`.p-strip`) and a grid row (`.row`). Within the standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) is deadicated to the main documentation content.
 
 Sidebar should contain only the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. Grouping and nesting of navigation items in side navigation component should be used to build the logical structure of documentation navigation. Side navigation component has built-in responsive functionality which makes the sidebar expandable on small screens.
 
-Main navigation area is placed in `col-9` grid container. Within this area 9 grid columns are available. For most of documentation content standard flow of the document should be enough in the main content. Default base styling of Vanilla will provide proper spacing for the documentation content.
+The main content area is placed in `col-9` grid container. Within this area 9 grid columns are available. For most of the documentation content standard flow of the document should be enough in the main content. Default base styling of Vanilla will provide proper spacing for the documentation content.
 
 In cases when grid is used in documentation content for some specific layout, the maximum of 9 columns should be used.
 
