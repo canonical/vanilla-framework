@@ -16,7 +16,7 @@ Most labels and controls are 100% the width of the `<form>` parent element, unle
 View example of a base form
 </a></div>
 
-### Single-line text fields
+### Single-line text field
 
 `<input type="text">` is a single-line text field.
 
@@ -26,7 +26,7 @@ View example of a single-line text field
 
 Vanilla also styles HTML’s other single-line field types: `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `number`, `email`, `url`, `search` and `tel`. For the `search` type, see <a href="./patterns/search-box">Search box</a>.
 
-### Multi-line text fields
+### Multi-line text field
 
 `<textarea>` is a multi-line text field.
 
