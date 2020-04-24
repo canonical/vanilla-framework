@@ -8,30 +8,30 @@ context:
 
 <hr>
 
-Form controls have global styling defined at the HTML element level. Labels and most input types are 100% width of the `<form>` parent element.
+Form controls have global styling defined at the HTML element level.
+
+Most labels and controls are 100% the width of the `<form>` parent element, unless you [specify inline layout](#inline).
 
 <div class="embedded-example"><a href="/docs/examples/base/forms/form/" class="js-example">
 View example of a base form
 </a></div>
 
-### Input
+### Single-line text field
 
-An input field where the user can enter data, which can vary in many ways, depending on the type attribute.
+`<input type="text">` is a single-line text field.
 
 <div class="embedded-example"><a href="/docs/examples/base/forms/input/" class="js-example">
-View example of an input element
+View example of a single-line text field
 </a></div>
 
-### HTML5
+Vanilla also styles HTML’s other single-line field types: `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `number`, `email`, `url`, `search` and `tel`. For the `search` type, see <a href="../patterns/search-box">Search box</a>.
 
-We support all HTML5 input types: `text`, `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `color`, `number`, `email`, `url`, `search` and `tel`.
+### Multi-line text field
 
-### Textarea
-
-The `<textarea>` tag defines a multi-line text input control.
+`<textarea>` is a multi-line text field.
 
 <div class="embedded-example"><a href="/docs/examples/base/forms/textarea/" class="js-example">
-View example of an input element
+View example of a textarea
 </a></div>
 
 Note: The attribute `readonly` disables the input but it still retains a default cursor.
