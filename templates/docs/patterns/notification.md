@@ -54,7 +54,7 @@ View example of the information notification pattern
 
 ### Actions
 
-Notifications have the ability to add an action link to them. These should appear inline with the notification response and will add a margin between the link and content.
+Notifications have the ability to add an action link to them. These will appear inline with the notification response.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
