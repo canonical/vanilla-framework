@@ -12,7 +12,7 @@ context:
 
 The documentation layout is built using Vanilla grid classes and common components. It consists of 3 horizontal areas that span the entire fixed width of the grid: header, content, footer.
 
-![Documentation layout structure](https://assets.ubuntu.com/v1/cdf09557-Documentation+layout%401x.svg)
+![Documentation layout structure](https://assets.ubuntu.com/v1/2725610a-Documentation+layout+text+to+curves.svg)
 
 At the large breakpoint, the content area is further divided into an aside (3 columns) and a main content area (9 columns).
 
