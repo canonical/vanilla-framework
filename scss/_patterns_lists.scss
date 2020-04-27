@@ -79,6 +79,7 @@ $spv-list-item--inner: null;
 @mixin vf-p-list-item-state {
   .is-ticked {
     @extend %vf-list;
+
     background-image: svg-tick($color-accent);
     background-position-y: $spv-list-item--inner + map-get($nudges, nudge--p);
     background-repeat: no-repeat;
@@ -107,6 +108,7 @@ $spv-list-item--inner: null;
 
     .p-inline-list__item {
       @include vf-inline-list-item;
+
       position: relative;
 
       &::after {
@@ -138,6 +140,7 @@ $spv-list-item--inner: null;
   .p-stepped-list {
     @extend %vf-clearfix;
     @extend %numbered-step-container;
+
     margin-bottom: 0; // spacing has been moved onto __item; this ensures that the heading / paragraph spacing matches that of regular headings / paragraphs
     margin-left: 0;
   }

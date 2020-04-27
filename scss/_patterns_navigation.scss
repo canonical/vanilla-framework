@@ -17,6 +17,7 @@ $lightness-threshold: 70;
   %navigation-link {
     $properties: #{background-color, color, opacity};
     @include vf-animation($properties);
+
     display: block;
     line-height: map-get($line-heights, default-text);
     margin-bottom: 0;
@@ -66,6 +67,7 @@ $lightness-threshold: 70;
   %navigation-item {
     @media (min-width: $breakpoint-navigation-threshold) {
       $nav-link-max-width: 20em !default;
+
       max-width: $nav-link-max-width;
     }
   }
@@ -94,6 +96,7 @@ $lightness-threshold: 70;
       &--full-width {
         @extend %vf-grid-container-padding;
         @extend %navigation-row;
+
         width: 100%;
       }
     }
@@ -184,6 +187,7 @@ $lightness-threshold: 70;
       @media (min-width: $breakpoint-navigation-threshold) {
         // align baselines of menu items and input text
         $input-gap-top: $spv-inner--medium - $spv-nudge;
+
         display: flex;
         flex: 1 1 auto;
         margin: $input-gap-top 0 auto auto;
