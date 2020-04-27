@@ -33,10 +33,10 @@ Now ensure that your SASS builder is including modules from `node_modules`. E.g.
 
 ```javascript
 // gulpfile.js
-gulp.task('sass', function() {
+gulp.task('sass', function () {
   return gulp.src('[your-sass-directory]/**/*.scss').pipe(
     sass({
-      includePaths: ['node_modules']
+      includePaths: ['node_modules'],
     })
   );
 });
