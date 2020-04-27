@@ -33,7 +33,7 @@
     "test-spelling": "mdspell docs/**/*.md -r -n -a --en-gb",
     "test": "yarn lint-scss && yarn lint-prettier &&  yarn test-spelling && yarn test-scss",
     "lint-prettier": "prettier -c .",
-    "lint-scss": "sass-lint 'scss/**/*.scss' --verbose --no-exit --max-warnings=0",
+    "lint-scss": "stylelint 'scss/**/*.scss'",
     "watch:scss": "node-sass scss --functions sass-functions.js --output-style compressed --output build/css --watch",
     "watch:scss:skip-standalone": "node-sass  scss/docs --functions sass-functions.js --output-style compressed --output build/css/docs --watch",
     "watch": "yarn build && yarn watch:scss",
