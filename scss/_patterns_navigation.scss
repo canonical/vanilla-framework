@@ -107,6 +107,15 @@ $lightness-threshold: 70;
       }
     }
 
+    &__item {
+      @extend %navigation-item;
+
+      // this needs to be nested in __item until in 3.0 we remove deprecated __link styles
+      .p-navigation__link {
+        @extend %navigation-link;
+      }
+    }
+
     // navigation logo
     &__banner {
       display: flex;
@@ -154,15 +163,6 @@ $lightness-threshold: 70;
       @extend %navigation-items;
     }
 
-    &__item {
-      @extend %navigation-item;
-
-      // this needs to be nested in __item until in 3.0 we remove deprecated __link styles
-      .p-navigation__link {
-        @extend %navigation-link;
-      }
-    }
-
     @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
       &__link {
         @extend %navigation-item;
@@ -197,6 +197,33 @@ $lightness-threshold: 70;
       }
     }
 
+    &__toggle {
+      &--close {
+        display: none;
+      }
+
+      &--open {
+        display: block;
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: none;
+        }
+      }
+
+      &--open,
+      &--close {
+        margin: 0 0 auto $sph-inner;
+        padding: $spv-inner--medium 0;
+
+        &,
+        &:visited,
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
     // small screen navigation toggles
     &:target {
       &::after {
@@ -212,33 +239,6 @@ $lightness-threshold: 70;
       }
 
       .p-navigation__toggle--close {
-        display: block;
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          display: none;
-        }
-      }
-    }
-
-    &__toggle {
-      &--open,
-      &--close {
-        margin: 0 0 auto $sph-inner;
-        padding: $spv-inner--medium 0;
-
-        &,
-        &:visited,
-        &:focus,
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
-      &--close {
-        display: none;
-      }
-
-      &--open {
         display: block;
 
         @media (min-width: $breakpoint-navigation-threshold) {
