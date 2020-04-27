@@ -25,10 +25,10 @@ if (sourceFile) {
   console.log('Specifying individual files not yet supported.');
 } else {
   // Load all sass file(s)
-  fs.readdirSync(sourceDirectory).forEach(fileName => {
+  fs.readdirSync(sourceDirectory).forEach((fileName) => {
     if (fileName.startsWith('_patterns')) {
       var renderedCss = '';
-      var fileContents = fs.readFileSync(sourceDirectory + '/' + fileName, 'utf8', function(err, data) {
+      var fileContents = fs.readFileSync(sourceDirectory + '/' + fileName, 'utf8', function (err, data) {
         if (err) {
           return console.log(err);
         }
@@ -40,7 +40,7 @@ if (sourceFile) {
       components[fileName]['css'] = sass
         .renderSync({
           data: components[fileName]['sass'],
-          includePaths: ['scss/']
+          includePaths: ['scss/'],
         })
         .css.toString();
     }

@@ -23,8 +23,8 @@ function toggleDrawer(sideNavigation, show) {
 function setupSideNavigation(sideNavigation) {
   var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
 
-  toggles.forEach(function(toggle) {
-    toggle.addEventListener('click', function(event) {
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (event) {
       event.preventDefault();
       var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
 

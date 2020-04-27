@@ -13,65 +13,65 @@ function generateMetrics(file, metricsArray) {
       name: 'Stylesheet size',
       benchmark: 150000,
       threshold: 220000,
-      result: results['total-stylesheet-size']
+      result: results['total-stylesheet-size'],
     },
     {
       name: 'Top specificity',
       benchmark: 40,
       threshold: 60,
       result: results['top-selector-specificity'],
-      selector: results['top-selector-specificity-selector']
+      selector: results['top-selector-specificity-selector'],
     },
     {
       name: 'Declarations per rule',
       benchmark: 2.5,
       threshold: 3,
-      result: results['total-declarations'] / results['total-rules']
+      result: results['total-declarations'] / results['total-rules'],
     },
     {
       name: 'Selectors per rule',
       benchmark: 2,
       threshold: 2.5,
-      result: results['selectors-per-rule']
+      result: results['selectors-per-rule'],
     },
     {
       name: 'Identifiers per selectors',
       benchmark: 1.75,
       threshold: 2.5,
-      result: results['identifiers-per-selector']
+      result: results['identifiers-per-selector'],
     },
     {
       name: 'Specificity per selector',
       benchmark: 15,
       threshold: 20,
-      result: results['specificity-per-selector']
+      result: results['specificity-per-selector'],
     },
     {
       name: 'ID selectors',
       benchmark: 0,
       threshold: 0,
-      result: results['total-id-selectors']
+      result: results['total-id-selectors'],
     },
     {
       name: 'Total !important keywords',
       benchmark: 50,
       threshold: 90,
-      result: results['total-important-keywords']
+      result: results['total-important-keywords'],
     },
     {
       name: 'Total media queries',
       benchmark: 14,
       threshold: 50,
-      result: results['total-media-queries']
-    }
+      result: results['total-media-queries'],
+    },
   ];
 }
 
-module.exports.parkerTest = function() {
+module.exports.parkerTest = function () {
   var metrics = generateMetrics(filepath, parkerMetrics);
   var failedTest;
 
-  metrics.forEach(function(metric) {
+  metrics.forEach(function (metric) {
     var name = metric.name;
     var threshold = metric.threshold;
     var result = metric.result;
