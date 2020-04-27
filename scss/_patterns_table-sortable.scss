@@ -32,12 +32,10 @@
       }
 
       &[aria-sort='descending']::after {
-        // sass-lint:disable no-vendor-prefixes property-sort-order
         @extend %heading-icon;
 
-        -webkit-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg); // stylelint-disable-line property-no-vendor-prefix
         transform: rotate(180deg);
-        // sass-lint:enable no-vendor-prefixes property-sort-order
       }
 
       &[aria-sort]:hover {
