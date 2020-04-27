@@ -47,20 +47,20 @@
 
         &[aria-label] {
           text-align: right;
+        }
 
-          &::before {
-            content: attr(aria-label);
-            display: block;
-            flex: 0 0 auto;
-            margin-bottom: $spv-inner--small - map-get($nudges, nudge--small);
-            margin-left: -100%;
-            overflow: hidden;
-            padding-right: #{$sph-inner};
-            padding-top: $sp-unit - map-get($nudges, nudge--small);
-            text-align: right;
-            text-overflow: ellipsis;
-            width: 100%;
-          }
+        &[aria-label]::before {
+          content: attr(aria-label);
+          display: block;
+          flex: 0 0 auto;
+          margin-bottom: $spv-inner--small - map-get($nudges, nudge--small);
+          margin-left: -100%;
+          overflow: hidden;
+          padding-right: #{$sph-inner};
+          padding-top: $sp-unit - map-get($nudges, nudge--small);
+          text-align: right;
+          text-overflow: ellipsis;
+          width: 100%;
         }
 
         &.u-align--right {
