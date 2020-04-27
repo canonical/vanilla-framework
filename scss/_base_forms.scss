@@ -18,11 +18,11 @@
     @extend %bordered-text-vertical-padding;
     @include vf-focus($color-focus, $bar-thickness, true);
 
-    // sass-lint:disable no-vendor-prefixes property-sort-order
+    // stylelint-disable property-no-vendor-prefix
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
-    // sass-lint:enable no-vendor-prefixes property-sort-order
+    // stylelint-enable property-no-vendor-prefix
 
     background-color: $color-x-light;
     border: 1px solid $color-mid;
@@ -150,31 +150,33 @@
   }
 
   [type='search'] {
-    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    // stylelint-disable property-no-vendor-prefix
+    -moz-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
+    // stylelint-enable property-no-vendor-prefix
     border-radius: 0;
 
-    // sass-lint:disable no-vendor-prefixes
     // These vendor prefixes are unique and cannot be added by autoprefixer
     &::-webkit-search-results-decoration {
       display: none;
     }
 
     &::-webkit-search-cancel-button {
-      -webkit-appearance: searchfield-cancel-button;
+      -webkit-appearance: searchfield-cancel-button; // stylelint-disable-line property-no-vendor-prefix
       cursor: pointer;
     }
-    // sass-lint:enable no-vendor-prefixes
   }
 
   // Select styles
   select {
     @include vf-icon-chevron;
 
-    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    // stylelint-disable property-no-vendor-prefix
+    -moz-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
+    // stylelint-enable property-no-vendor-prefix
     background-color: $color-x-light;
     background-position: right $sph-inner--small center;
     background-repeat: no-repeat;
