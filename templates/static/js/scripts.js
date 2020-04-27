@@ -1,14 +1,14 @@
 // Setup toggling of side navigation drawer
-(function() {
+(function () {
   // throttling function calls, by Remy Sharp
   // http://remysharp.com/2010/07/21/throttling-function-calls/
-  var throttle = function(fn, delay) {
+  var throttle = function (fn, delay) {
     var timer = null;
-    return function() {
+    return function () {
       var context = this,
         args = arguments;
       clearTimeout(timer);
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         fn.apply(context, args);
       }, delay);
     };
@@ -45,8 +45,8 @@
   function setupSideNavigation(sideNavigation) {
     var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
 
-    toggles.forEach(function(toggle) {
-      toggle.addEventListener('click', function(event) {
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (event) {
         event.preventDefault();
         var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
 
@@ -62,7 +62,7 @@
 
     window.addEventListener(
       'resize',
-      throttle(function() {
+      throttle(function () {
         var drawerPosition = window.getComputedStyle(drawerEl).position;
 
         // when screen size changes from mobile (fixed drawer) to large screen
@@ -80,7 +80,7 @@
 })();
 
 // Add table of contents to side navigation on documentation pages
-(function() {
+(function () {
   // get all headings from page and add it to current highligted item in side navigation
   var list = document.createElement('ul');
   list.classList.add('p-side-navigation__list');
@@ -92,7 +92,7 @@
   anchor.classList.add('p-side-navigation__link');
 
   // Add all H3s with IDs to the table of contents list
-  [].slice.call(document.querySelectorAll('main h3[id]')).forEach(function(heading) {
+  [].slice.call(document.querySelectorAll('main h3[id]')).forEach(function (heading) {
     var thisItem = item.cloneNode();
     var thisAnchor = anchor.cloneNode();
     thisAnchor.setAttribute('href', '#' + heading.id);
@@ -110,7 +110,7 @@
 })();
 
 // scroll active side navigation item into view (without scrolling whole page)
-(function() {
+(function () {
   var sideNav = document.querySelector('.p-side-navigation');
   var currentItem = document.querySelector('.p-side-navigation__link.is-active');
 
@@ -120,16 +120,16 @@
 
   // only scroll if active link is off screen or close to bottom of the window
   if (currentItemOffset > window.innerHeight * 0.7) {
-    setTimeout(function() {
+    setTimeout(function () {
       sideNav.scrollTop = offset;
     }, 0);
   }
 })();
 
 // Add class to exteral links
-(function() {
+(function () {
   var links = document.querySelectorAll('a');
-  links.forEach(function(link) {
+  links.forEach(function (link) {
     var parentClass = link.parentNode.classList;
     var ignoreNav = !(parentClass.contains('p-navigation__logo') || parentClass.contains('p-navigation__link'));
 
@@ -142,12 +142,12 @@
 })();
 
 // Docs search functions
-(function() {
+(function () {
   var searchDocsReset = document.getElementById('search-docs-reset');
   var searchBox = document.getElementById('search-docs');
 
   if (searchDocsReset) {
-    searchDocsReset.addEventListener('click', function(e) {
+    searchDocsReset.addEventListener('click', function (e) {
       searchBox.value = '';
       searchBox.focus();
       e.preventDefault();
