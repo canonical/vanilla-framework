@@ -33,6 +33,15 @@
     position: relative;
   }
 
+  .p-search-box__reset {
+    @extend %search-box-button;
+    @extend %transparent-button;
+
+    &:not(:last-of-type):not(:only-of-type) {
+      margin-right: $bar-thickness;
+    }
+  }
+
   .p-search-box__input {
     flex: 1 1 100%;
     margin-bottom: 0;
@@ -57,15 +66,6 @@
     border-left-width: 1px;
     border-radius: 0 $border-radius $border-radius 0;
     margin-right: $bar-thickness;
-  }
-
-  .p-search-box__reset {
-    @extend %search-box-button;
-    @extend %transparent-button;
-
-    &:not(:last-of-type):not(:only-of-type) {
-      margin-right: $bar-thickness;
-    }
   }
 
   // Theming
@@ -113,10 +113,10 @@
   &:active,
   &:focus,
   &:hover,
+  &:-internal-autofill-selected,
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-internal-autofill-selected {
+  &:-webkit-autofill:focus {
     // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
     background-color: $color-search-box-background !important;
     border-color: $color-search-box-border !important;

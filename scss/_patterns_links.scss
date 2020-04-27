@@ -114,6 +114,11 @@ $external-icon-size--headings: #{map-get($icon-sizes, heading-icon--x-small)};
     background-size: #{$size};
     content: '\00A0';
 
+    &.sidebar__link {
+      display: inline-block;
+      padding: 0 1em 1em 0;
+    }
+
     &.p-link--soft,
     &.sidebar__link {
       @include vf-external-link-icon(vf-url-friendly-color($color-dark));
@@ -130,11 +135,6 @@ $external-icon-size--headings: #{map-get($icon-sizes, heading-icon--x-small)};
       &:visited {
         @include vf-external-link-icon(vf-url-friendly-color(darken($color-light, 10%)));
       }
-    }
-
-    &.sidebar__link {
-      display: inline-block;
-      padding: 0 1em 1em 0;
     }
   }
 
