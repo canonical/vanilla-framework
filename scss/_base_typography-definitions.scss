@@ -4,6 +4,7 @@
   //@section Heading styling in placeholders
   %vf-heading-1 {
     @include heading-max-width--short;
+
     font-style: normal;
     font-weight: 100;
     margin-top: 0;
@@ -36,6 +37,7 @@
 
   %vf-heading-2 {
     @include heading-max-width--short;
+
     font-style: normal;
     font-weight: 100;
     margin-top: 0;
@@ -61,6 +63,7 @@
 
   %vf-heading-3 {
     @include heading-max-width--long;
+
     font-style: normal;
     font-weight: 300;
     margin-top: 0;
@@ -86,6 +89,7 @@
 
   %vf-heading-4 {
     @include heading-max-width--long;
+
     font-style: normal;
     font-weight: 300;
     margin-top: 0;
@@ -118,6 +122,7 @@
 
   %vf-heading-5 {
     @include p-max-width;
+
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
@@ -133,6 +138,7 @@
 
   %vf-heading-6 {
     @include p-max-width;
+
     font-size: 1rem;
     font-style: italic;
     font-weight: 300;
@@ -160,11 +166,13 @@
 
   %default-text {
     @extend %common-default-text-properties;
+
     margin-bottom: map-get($sp-after, default-text) - map-get($nudges, nudge--p);
   }
 
   %paragraph {
     @extend %common-default-text-properties;
+
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
 
     &:not([class*='p-heading--']):not([class*='p-muted-heading']) + & {
@@ -212,12 +220,14 @@
 
   %table-header-label {
     @extend %x-small-text;
+
     color: $color-mid-dark;
     font-weight: 400;
   }
 
   %muted-heading {
     @extend %small-text;
+
     color: $color-mid-dark;
     margin-bottom: map-get($sp-after, small) - map-get($nudges, nudge--small);
     margin-top: 0;

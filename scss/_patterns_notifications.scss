@@ -9,6 +9,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     @extend %vf-has-round-corners;
     @extend %vf-has-box-shadow;
     @extend %vf-card;
+
     display: flex;
     overflow: hidden;
     padding: 0;
@@ -42,6 +43,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
   .p-notification__response {
     @extend %u-no-margin--bottom--default-text;
+
     background-position: $sph-inner $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
