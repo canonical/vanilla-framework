@@ -1,5 +1,5 @@
 /* global VANILLA_VERSION */
-(function() {
+(function () {
   if (!window.VANILLA_VERSION) {
     throw Error('VANILLA_VERSION not specified.');
   }
@@ -11,14 +11,14 @@
       // link to latest Vanilla CSS
       'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
       // link to example stylesheet (to set margin on body)
-      'https://assets.ubuntu.com/v1/4653d9ba-example.css'
+      'https://assets.ubuntu.com/v1/4653d9ba-example.css',
     ],
-    tags: ['Vanilla framework']
+    tags: ['Vanilla framework'],
   };
 
   var CODEPEN_HEIGHT = 400;
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var examples = document.querySelectorAll('.js-example');
     examples.forEach(renderExample);
   });
@@ -27,7 +27,7 @@
     var link = exampleElement.href;
     var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function() {
+    request.onreadystatechange = function () {
       if (request.status === 200 && request.readyState === 4) {
         var html = request.responseText;
         renderCodeBlocks(exampleElement, html);

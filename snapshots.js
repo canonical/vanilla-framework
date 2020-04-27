@@ -8,7 +8,7 @@ PercyScript.run(async (page, percySnapshot) => {
 
   // disable JS requests to prevent CodePen from rendering examples
   await page.setRequestInterception(true);
-  page.on('request', request => {
+  page.on('request', (request) => {
     if (request.resourceType() === 'script') request.abort();
     else request.continue();
   });

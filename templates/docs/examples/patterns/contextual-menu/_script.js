@@ -23,7 +23,7 @@ function toggleMenu(element, show, top) {
   @param {HTMLElement} menuToggle The menu container element.
 */
 function setupContextualMenu(menuToggle) {
-  menuToggle.addEventListener('click', function(event) {
+  menuToggle.addEventListener('click', function (event) {
     event.preventDefault();
     var menuAlreadyOpen = menuToggle.getAttribute('aria-expanded') === 'true';
 
@@ -51,7 +51,7 @@ function setupAllContextualMenus(contextualMenuToggleSelector) {
   }
 
   // Add handler for clicking outside the menu.
-  document.addEventListener('click', function(event) {
+  document.addEventListener('click', function (event) {
     for (var i = 0, l = toggles.length; i < l; i++) {
       var toggle = toggles[i];
       var contextualMenu = document.getElementById(toggle.getAttribute('aria-controls'));
@@ -64,7 +64,7 @@ function setupAllContextualMenus(contextualMenuToggleSelector) {
   });
 
   // Add handler for closing menus using ESC key.
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     e = e || window.event;
 
     if (e.keyCode === 27) {

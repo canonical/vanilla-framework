@@ -36,7 +36,7 @@ function closeAllSubnavs() {
   @param {HTMLElement} subnavToggle Toggle element of subnavigation.
 */
 function setupSubnavToggle(subnavToggle) {
-  subnavToggle.addEventListener('click', function(event) {
+  subnavToggle.addEventListener('click', function (event) {
     event.preventDefault();
     event.stopPropagation();
 
@@ -58,7 +58,7 @@ for (var i = 0, l = subnavToggles.length; i < l; i++) {
 }
 
 // Close all menus if anything else on the page is clicked
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
   var target = event.target;
 
   if (target.closest) {
