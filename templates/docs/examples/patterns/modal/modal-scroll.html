@@ -1,0 +1,115 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Modal / Scrollable{% endblock %}
+
+{% block standalone_css %}patterns_modal{% endblock %}
+
+{% block content %}
+<button id="showModal" aria-controls="modal">Show modal</button>
+
+<p>An <em>application</em> is typically a long-running service that is accessible over the network. Applications are the centre of a Juju deployment. Everything within the Juju ecosystem exists to facilitate them.</p>
+<p>It’s easiest to think of the term “application” in Juju in the same way you would think of using it day-to-day. Middleware such as database servers (PostgreSQL, MySQL, Percona Cluster, etcd, …), message queues (RabbitMQ) and other utilities (Nagios, Prometheus, …) are all applications. The term has a specialist meaning within the Juju community, however. It is broader than the ordinary use of the term in computing.</p>
+<h3>A Juju application is more than a software application</h3>
+<p>Juju takes care of ensuring that the compute node that they’re being deployed to satisfies the size constraints that you specify, installing them, increasing their scale, setting up their networking and storage capacity rules. This, and other functionality, is provided within software packages called charms.</p>
+<p>Alongside your application, Juju executes charm code when triggered.  Triggers are typically requests from the administrator, such as:</p>
+<ul>
+<li>
+<p>“The configuration needs to change” via <code>juju config</code>. The <a href="#jaas.ai/spark">spark charm</a> provides the ability to dynamically change the memory available to the driver and executors:  <code>juju config spark executor_memory=2g</code></p>
+</li>
+<li>
+<p>“Please scale-up this application” via <code>juju add-unit</code>. The <a href="#jaas.ai/postgresql">postgresql charm</a> can detect when its scale is more than 1 and automatically switches itself into a high-availability cluster: <code>juju add -unit --num-units 2 postgresql</code></p>
+</li>
+<li>
+<p>“Allocate a 20GB storage volume to the application unit 0” via <code>juju add-storage</code>. The <a href="#jaas.ai/etcd">etcd charm</a> can provide an SSD-backed volume on AWS to the etcd application with:  <code>juju add-storage etcd/0 data=ebs-ssd,20G</code></p>
+</li>
+</ul>
+<div class="p-notification">
+<p class="p-notification__response">The Juju project uses an active agent architecture. Juju software agents are running alongside your applications. They periodically execute commands that are provided in software packages called charms. </p>
+</div>
+<h3>Differences between a stock software application and a Juju application</h3>
+<h4>Applications are scale-independent</h4>
+<p>An application in the Juju ecosystem can span multiple operating system processes. An HTTP API would probably be considered a Juju application, but that might bundle together several other components.</p>
+<p>Some examples:</p>
+<ul>
+<li>A Ruby on Rails web application might be deployed behind Apache2 and Phusion Passenger.</li>
+<li>All workers within a Hadoop cluster are considered a single application, although each worker its own <em>unit</em>
+</li>
+</ul>
+<p>A Juju application can also span multiple compute nodes and/or containers.  Within the Juju community, we use the term <em>machine</em> to cover physical hardware, virtual machines and containers.</p>
+<p>To make this clearer, consider an analogy from the desktop. An Electron app is composed of an Internet browser, a node.js runtime and application code. Each of those components is distinct, but they exist as a single unit.  That unit is an application.</p>
+<p>A final iteration of scale-independence is that Juju will maintain a record for applications that have a scale of 0. Perhaps earlier in the application’s lifecycle it was wound down, but the business required that the storage volumes were to be retained.</p>
+<h4>Applications are active</h4>
+<p>Applications automatically negotiate their own configuration depending on their situation. Through the business logic encoded within charms,  two applications can create user accounts and passwords between themselves without leaking secrets.</p>
+<h4>Applications are responsive</h4>
+<p>Juju applications can indicate their status, run actions and provide metrics. An action is typically a script that is useful for running a management task.</p>
+
+
+
+<div class="p-modal" id="modal">
+  <div class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+    <header class="p-modal__header">
+      <h2 class="p-modal__title" id="modal-title">Help</h2>
+      <button class="p-modal__close" aria-label="Close active modal" aria-controls="modal">Close</button>
+    </header>
+    <p id="modal-description">Learn how to operate production-ready clusters.</p>
+    <p>An <em>application</em> is typically a long-running service that is accessible over the network. Applications are the centre of a Juju deployment. Everything within the Juju ecosystem exists to facilitate them.</p>
+    <p>It’s easiest to think of the term “application” in Juju in the same way you would think of using it day-to-day. Middleware such as database servers (PostgreSQL, MySQL, Percona Cluster, etcd, …), message queues (RabbitMQ) and other utilities (Nagios, Prometheus, …) are all applications. The term has a specialist meaning within the Juju community, however. It is broader than the ordinary use of the term in computing.</p>
+    <h3>A Juju application is more than a software application</h3>
+    <p>Juju takes care of ensuring that the compute node that they’re being deployed to satisfies the size constraints that you specify, installing them, increasing their scale, setting up their networking and storage capacity rules. This, and other functionality, is provided within software packages called charms.</p>
+    <p>Alongside your application, Juju executes charm code when triggered.  Triggers are typically requests from the administrator, such as:</p>
+    <ul>
+    <li>
+    <p>“The configuration needs to change” via <code>juju config</code>. The <a href="#jaas.ai/spark">spark charm</a> provides the ability to dynamically change the memory available to the driver and executors:  <code>juju config spark executor_memory=2g</code></p>
+    </li>
+    <li>
+    <p>“Please scale-up this application” via <code>juju add-unit</code>. The <a href="#jaas.ai/postgresql">postgresql charm</a> can detect when its scale is more than 1 and automatically switches itself into a high-availability cluster: <code>juju add -unit --num-units 2 postgresql</code></p>
+    </li>
+    <li>
+    <p>“Allocate a 20GB storage volume to the application unit 0” via <code>juju add-storage</code>. The <a href="#jaas.ai/etcd">etcd charm</a> can provide an SSD-backed volume on AWS to the etcd application with:  <code>juju add-storage etcd/0 data=ebs-ssd,20G</code></p>
+    </li>
+    </ul>
+    <div class="p-notification">
+    <p class="p-notification__response">The Juju project uses an active agent architecture. </p>
+    </div>
+    <h3>Differences between a stock software application and a Juju application</h3>
+    <h4>Applications are scale-independent</h4>
+    <p>An application in the Juju ecosystem can span multiple operating system processes. An HTTP API would probably be considered a Juju application, but that might bundle together several other components.</p>
+    <p>Some examples:</p>
+    <ul>
+    <li>A Ruby on Rails web application might be deployed behind Apache2 and Phusion Passenger.</li>
+    <li>All workers within a Hadoop cluster are considered a single application, although each worker its own <em>unit</em>
+    </li>
+    </ul>
+    <p>A Juju application can also span multiple compute nodes and/or containers.  Within the Juju community, we use the term <em>machine</em> to cover physical hardware, virtual machines and containers.</p>
+    <p>To make this clearer, consider an analogy from the desktop. An Electron app is composed of an Internet browser, a node.js runtime and application code. Each of those components is distinct, but they exist as a single unit.  That unit is an application.</p>
+    <p>A final iteration of scale-independence is that Juju will maintain a record for applications that have a scale of 0. Perhaps earlier in the application’s lifecycle it was wound down, but the business required that the storage volumes were to be retained.</p>
+    <h4>Applications are active</h4>
+    <p>Applications automatically negotiate their own configuration depending on their situation. Through the business logic encoded within charms,  two applications can create user accounts and passwords between themselves without leaking secrets.</p>
+    <h4>Applications are responsive</h4>
+    <p>Juju applications can indicate their status, run actions and provide metrics. An action is typically a script that is useful for running a management task.</p>
+  </div>
+</div>
+
+<script>
+/**
+  Toggles visibility of modal dialog.
+  @param {HTMLElement} modal Modal dialog to show or hide.
+*/
+function toggleModal(modal) {
+  if (modal && modal.classList.contains('p-modal')) {
+    if (modal.style.display === 'none') {
+      modal.style.display = 'flex';
+    } else {
+      modal.style.display = 'none';
+    }
+  }
+}
+
+// Add click handler for clicks on elements with aria-controls
+document.addEventListener('click', function(event) {
+  var targetControls = event.target.getAttribute('aria-controls');
+  if (targetControls) {
+    toggleModal(document.getElementById(targetControls));
+  }
+});
+</script>
+{% endblock %}
