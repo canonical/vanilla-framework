@@ -4,15 +4,15 @@
   .p-modal {
     align-items: center;
     background: transparentize($color-dark, 0.15);
-    content: '';
+    bottom: 0;
     display: flex;
     height: 100vh;
     justify-content: center;
     left: 0;
     margin: 0;
-    overflow: scroll;
-    padding: $sp-large;
-    position: absolute;
+    padding: $spv-inner--large;
+    position: fixed;
+    right: 0;
     top: 0;
     width: 100%;
   }
@@ -22,19 +22,19 @@
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
 
-    bottom: $sp-large;
-    left: $sp-large;
+    bottom: $spv-inner--large;
+    left: $sph-inner--large;
+    max-height: calc(100% - #{2 * $spv-inner--large});
     max-width: $grid-max-width;
     overflow: scroll;
     position: absolute;
-    right: $sp-large;
-    top: $sp-large;
+    right: $sph-inner--large;
+    top: $spv-inner--large;
     width: auto;
 
     @media screen and (min-width: $breakpoint-medium) {
       bottom: initial;
       left: initial;
-      overflow: visible;
       position: relative;
       right: initial;
       top: initial;
@@ -42,8 +42,11 @@
   }
 
   .p-modal__header {
+    @extend %vf-pseudo-border--bottom;
+
     display: flex;
     justify-content: space-between;
+    margin-bottom: $spv-inner--small;
   }
 
   .p-modal__title {
@@ -53,20 +56,22 @@
   }
 
   .p-modal__close {
+    $icon-size: map-get($icon-sizes, default);
+
     background: {
       image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='90' width='90'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h90v90H0z'/%3E%3Cpath d='M14.52 6L6 14.52 36.48 45 6 75.49 14.52 84 45 53.52 75.48 84 84 75.49 53.52 45 84 14.52 75.48 6 45 36.49z' fill='%23888'/%3E%3C/g%3E%3C/svg%3E");
       position: center;
       repeat: no-repeat;
-      size: $sp-medium;
+      size: $icon-size;
     }
 
     border: 0;
     box-sizing: content-box;
-    height: $sp-medium;
-    margin: -#{$sp-medium} -#{$sp-medium} 0 0;
-    padding: $sp-medium;
+    height: $icon-size;
+    margin: -#{$icon-size} -#{$icon-size} 0 0;
+    padding: $icon-size;
     text-indent: -999em;
-    width: $sp-medium;
+    width: $icon-size;
 
     &:focus {
       outline: 2px solid $color-focus;
