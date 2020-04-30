@@ -125,15 +125,17 @@
   var sideNav = document.querySelector('.p-side-navigation');
   var currentItem = document.querySelector('.p-side-navigation__link.is-active');
 
-  // calculate scroll by comparing top of side nav and top of active item
-  var currentItemOffset = currentItem.getBoundingClientRect().top;
-  var offset = currentItemOffset - sideNav.getBoundingClientRect().top;
+  if (sideNav && currentItem) {
+    // calculate scroll by comparing top of side nav and top of active item
+    var currentItemOffset = currentItem.getBoundingClientRect().top;
+    var offset = currentItemOffset - sideNav.getBoundingClientRect().top;
 
-  // only scroll if active link is off screen or close to bottom of the window
-  if (currentItemOffset > window.innerHeight * 0.7) {
-    setTimeout(function () {
-      sideNav.scrollTop = offset;
-    }, 0);
+    // only scroll if active link is off screen or close to bottom of the window
+    if (currentItemOffset > window.innerHeight * 0.7) {
+      setTimeout(function () {
+        sideNav.scrollTop = offset;
+      }, 0);
+    }
   }
 })();
 
