@@ -56,6 +56,17 @@
       });
     });
 
+    // close side navigation drawer when any link (anchor) inside it is clicked
+    sideNavigation.addEventListener('click', function (event) {
+      var target = event.target;
+      if (
+        sideNavigation.classList.contains('is-expanded') &&
+        (target.classList.contains('p-side-navigation__link') || (target.closest && target.closest('.p-side-navigation__link')))
+      ) {
+        toggleDrawer(sideNavigation, false);
+      }
+    });
+
     // improvements for side nav when resizing the window
     var sideNav = document.querySelector('.p-side-navigation');
     var drawerEl = document.querySelector('.p-side-navigation__drawer');
