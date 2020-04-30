@@ -10,7 +10,7 @@
     padding: 0;
     position: relative;
 
-    &::before {
+    &::after {
       background: linear-gradient(to right, $color-transparent 0%, $color-x-light 45%, $color-x-light 100%);
       color: $color-mid-dark;
       content: '\203A';
@@ -25,7 +25,6 @@
       text-align: right;
       top: 0;
       width: 1rem;
-      z-index: 10;
 
       @media screen and (min-width: $breakpoint-medium) {
         display: none;
@@ -46,6 +45,8 @@
     }
 
     &__item {
+      @extend %vf-pseudo-border--bottom;
+
       display: inline-block;
       float: none;
       font-size: 1rem;
