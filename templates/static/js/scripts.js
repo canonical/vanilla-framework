@@ -33,7 +33,7 @@
         sideNavigation.classList.add('is-collapsed');
 
         // enable scroll on body when drawer is open
-        document.body.style.overflow = null;
+        document.body.style.overflow = '';
       }
     }
   }
@@ -81,7 +81,7 @@
         if (drawerPosition !== 'fixed') {
           sideNav.classList.remove('is-expanded');
           sideNav.classList.remove('is-collapsed');
-          document.body.style.overflow = null;
+          document.body.style.overflow = '';
         }
       }, 200)
     );
@@ -139,7 +139,7 @@
 
 // Add class to exteral links
 (function () {
-  var links = document.querySelectorAll('a');
+  var links = [].slice.call(document.querySelectorAll('a'));
   links.forEach(function (link) {
     var parentClass = link.parentNode.classList;
     var ignoreNav = !(parentClass.contains('p-navigation__logo') || parentClass.contains('p-navigation__link'));
