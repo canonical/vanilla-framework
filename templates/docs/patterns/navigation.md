@@ -94,6 +94,15 @@ View example of the side navigation pattern with icons
 On small screens side navigation is rendered off-screen as a drawer. To open the side navigation drawer, add `is-expanded` class to
 main `.p-side-navigation` element. To close the drawer (with the animation) remove `is-expanded` class and replace it with `is-collapsed` class.
 
+#### Theming
+
+Light and dark color themes are available for side navigation and all colors used by side navigation are defined by the theme settings.
+Individual colors of particular elements of side navigation should not be redefined or overridden directly outside of the theme, as they are designed to provide accessible and consistent appearance.
+
+Light theme is used by default. It can be changed in theme settings or by using `is-dark` class name on side navigation element. For more details about themes in Vanilla check [Color theming](/docs/settings/color-settings#color-theming) section of color settings documentation.
+
+[See example of side navigation with dark theme](/docs/examples/patterns/side-navigation/dark).
+
 ### Import
 
 To import just navigation or sub-navigation component into your project, copy snippets below and include it in your main Sass file.

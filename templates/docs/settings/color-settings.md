@@ -127,14 +127,14 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 <div class="p-strip is-shallow">
   <div class="row">
-     <div class="col-6">
+     <div class="col-4">
        <div class="p-notification--positive">
         <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use a minimum contrast ratio of 4.5 for normal text and UI components</p>
        </div>
        <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/e1183cd5-basics-text-color-do.png" alt="text-color-do">
        <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/92607803-basics-button-color-do.png" alt="button-color-do">
      </div>
-    <div class="col-6">
+    <div class="col-4">
       <div class="p-notification--negative">
         <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use low-contrast text and background combinations.</p>
       </div>
@@ -148,19 +148,22 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
 
-- `checkbox`
-- `hr`
-- `radio`
-- <a href="/docs/patterns/navigation">navigation</a>
-- search box
+- [Checkbox](/docs/base/forms#checkbox) and [radio](/docs/base/forms#radio-button) form inputs
+- Horizontal rule element `<hr />`
+- [Contextual menu](/docs/patterns/contextual-menu)
+- [Navigation](/docs/patterns/navigation)
+- [Side navigation](/docs/patterns/navigation#side-navigation)
+- [Search box](/docs/patterns/search-box)
 
-| Element / Component | Variable                      | Default value |
-| ------------------- | ----------------------------- | ------------- |
-| checkbox            | `$theme-default-forms`        | `light`       |
-| radio               | `$theme-default-forms`        | `light`       |
-| hr                  | `$theme-default-hr`           | `light`       |
-| Navigation          | `$theme-default-nav`          | `light`       |
-| Search box          | `$theme-default-p-search-box` | `light`       |
+| Element / Component | Variable                           | Default value |
+| ------------------- | ---------------------------------- | ------------- |
+| checkbox            | `$theme-default-forms`             | `light`       |
+| radio               | `$theme-default-forms`             | `light`       |
+| hr                  | `$theme-default-hr`                | `light`       |
+| Contextual menu     | `$theme-default-p-contextual-menu` | `light`       |
+| Navigation          | `$theme-default-nav`               | `light`       |
+| Side navigation     | `$theme-default-p-side-navigation` | `light`       |
+| Search box          | `$theme-default-p-search-box`      | `light`       |
 
 Future releases will expand this list to include all elements and components.
 
