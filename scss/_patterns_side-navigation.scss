@@ -143,42 +143,69 @@
   // space for the right hand icon with default inner spacing on the left
   $sp-sidenav--icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
 
+  %side-navigation__list {
+    @extend %vf-list;
+    @extend %vf-pseudo-border--top;
+
+    &::after {
+      @include vf-side-navigation-spacing-left($prop: left);
+
+      top: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
+    }
+
+    .p-side-navigation--icons &::after {
+      @include vf-side-navigation-spacing-left($prop: left, $offset: $sp-sidenav--icon-spacing-width);
+    }
+
+    &:first-of-type::after {
+      content: none;
+    }
+  }
+
+  .p-side-navigation__list {
+    @extend %side-navigation__list;
+  }
+
   .p-side-navigation > .p-side-navigation__list:first-of-type,
   .p-side-navigation__drawer > .p-side-navigation__list:first-of-type {
     // nudge from top to put text on baseline grid
     padding-top: 0.5 * $spv-inner--x-small;
   }
 
-  .p-side-navigation__list {
-    @extend %vf-list;
-
-    & + & {
-      @extend %vf-pseudo-border--top;
-
-      &::after {
-        @include vf-side-navigation-spacing-left($prop: left);
-
-        top: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
-      }
-
-      .p-side-navigation--icons &::after {
-        @include vf-side-navigation-spacing-left($prop: left, $offset: $sp-sidenav--icon-spacing-width);
-      }
-    }
-  }
-
   .p-side-navigation__item--title {
     font-weight: $font-weight-bold;
   }
 
-  .p-side-navigation__text,
-  .p-side-navigation__link {
+  %side-navigation__text {
     @include vf-side-navigation-spacing-left;
 
     display: flex;
     padding-bottom: $spv-inner--x-small;
     padding-right: $sph-inner;
     padding-top: $spv-inner--x-small;
+  }
+
+  %side-navigation__link {
+    @include vf-focus;
+
+    // vf-highlight-bar is rendered above focus outline
+    // so we need to hide it on focus
+    &:focus::before {
+      display: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .p-side-navigation__link {
+    @extend %side-navigation__link;
+  }
+
+  .p-side-navigation__text,
+  .p-side-navigation__link {
+    @extend %side-navigation__text;
 
     .p-side-navigation--icons & {
       @include vf-side-navigation-spacing-left($offset: $sp-sidenav--icon-spacing-width);
@@ -216,29 +243,43 @@
     }
   }
 
-  .p-side-navigation__link {
-    @include vf-focus;
-
-    // vf-highlight-bar is rendered above focus outline
-    // so we need to hide it on focus
-    &:focus::before {
-      display: none;
-    }
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
   .p-side-navigation__status {
     margin-left: auto;
     padding-left: $spv-inner--small;
   }
 
+  // Styles for markup in Discourse docs variant
+  .p-side-navigation--discourse ul {
+    @extend %side-navigation__list;
+  }
+
+  .p-side-navigation--discourse li > a {
+    @extend %side-navigation__link;
+  }
+
+  .p-side-navigation--discourse li > span,
+  .p-side-navigation--discourse li > strong,
+  .p-side-navigation--discourse li > a {
+    @extend %side-navigation__text;
+  }
+
+  .p-side-navigation--discourse li li > span,
+  .p-side-navigation--discourse li li > strong,
+  .p-side-navigation--discourse li li > a {
+    @include vf-side-navigation-spacing-left($multiplier: 2);
+  }
+
+  .p-side-navigation--discourse li li li > span,
+  .p-side-navigation--discourse li li li > strong,
+  .p-side-navigation--discourse li li li > a {
+    @include vf-side-navigation-spacing-left($multiplier: 3);
+  }
+
   // Theming
   @if ($theme-default-p-side-navigation == 'dark') {
     .p-side-navigation,
-    .p-side-navigation--icons {
+    .p-side-navigation--icons,
+    .p-side-navigation--discourse {
       @include vf-side-navigation-theme-dark;
 
       &.is-light {
@@ -247,7 +288,8 @@
     }
   } @else {
     .p-side-navigation,
-    .p-side-navigation--icons {
+    .p-side-navigation--icons,
+    .p-side-navigation--discourse {
       @include vf-side-navigation-theme-light;
 
       &.is-dark {
@@ -344,11 +386,11 @@
     border-color: $color-sidenav-list-border;
   }
 
-  .p-side-navigation__list::after {
+  %theme-side-navigation__list {
     background: $color-sidenav-list-border;
   }
 
-  .p-side-navigation__link {
+  %theme-side-navigation__link {
     &,
     &:visited {
       color: $color-sidenav-text-default;
@@ -363,6 +405,23 @@
     &.is-active {
       @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
     }
+  }
+
+  .p-side-navigation__list::after {
+    @extend %theme-side-navigation__list;
+  }
+
+  .p-side-navigation__link {
+    @extend %theme-side-navigation__link;
+  }
+
+  // Theme for markup in Discourse docs variant
+  &.p-side-navigation--discourse li > a {
+    @extend %theme-side-navigation__link;
+  }
+
+  &.p-side-navigation--discourse ul::after {
+    @extend %theme-side-navigation__list;
   }
 }
 
