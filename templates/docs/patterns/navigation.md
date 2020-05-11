@@ -96,10 +96,14 @@ main `.p-side-navigation` element. To close the drawer (with the animation) remo
 
 #### Theming
 
-Light and dark color themes are available for side navigation and all colors used by side navigation are defined by the theme settings.
-Individual colors of particular elements of side navigation should not be redefined or overridden directly outside of the theme, as they are designed to provide accessible and consistent appearance.
+The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/7550549d1576046041db7e9594bd5675de0f448b/scss/_settings_colors.scss#L58).
+Overriding the colours of individual elements of the side navigation is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
 
-Light theme is used by default. It can be changed in theme settings or by using `is-dark` class name on side navigation element. For more details about themes in Vanilla check [Color theming](/docs/settings/color-settings#color-theming) section of color settings documentation.
+By default, the side navigation uses the light theme. To change the global default, set [`$theme-default-p-side-navigation`](https://github.com/canonical-web-and-design/vanilla-framework/blob/7550549d1576046041db7e9594bd5675de0f448b/scss/_settings_themes.scss#L4) to `dark`.
+
+To change the appearance of an individual instance of the sidenav, you can use the `is-dark` class.
+
+For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 
 [See example of side navigation with dark theme](/docs/examples/patterns/side-navigation/dark).
 
