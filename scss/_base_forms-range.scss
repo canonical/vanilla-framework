@@ -1,11 +1,11 @@
 @mixin vf-b-range {
-  $thumb-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  $thumb-shadow: 0 0 $bar-thickness 1px rgba(0, 0, 0, 0.2);
   $thumb-size: 24px;
-  $thumb-radius: 2px;
+  $thumb-radius: $bar-thickness;
   $track-height: 5px;
   $track-border-size: 1px;
   $track-border: $track-border-size solid $color-mid-light;
-  $track-radius: 2px;
+  $track-radius: $bar-thickness;
 
   // stylelint-disable-next-line selector-no-qualifying-type
   input[type='range'] {
@@ -104,7 +104,7 @@
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
-      margin: 0 2px;
+      margin: 0 $bar-thickness;
       width: $thumb-size;
 
       &:hover {
@@ -120,15 +120,15 @@
       outline: none;
 
       &::-webkit-slider-thumb {
-        outline: 2px solid $color-focus;
+        outline: $bar-thickness solid $color-focus;
       }
 
       &::-moz-range-thumb {
-        outline: 2px solid $color-focus;
+        outline: $bar-thickness solid $color-focus;
       }
 
       &::-ms-thumb {
-        outline: 2px solid $color-focus;
+        outline: $bar-thickness solid $color-focus;
       }
     }
 
