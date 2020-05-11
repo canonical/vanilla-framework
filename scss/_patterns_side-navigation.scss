@@ -33,14 +33,16 @@
     width: 100%;
     z-index: 12;
 
-    [class*='p-side-navigation'].is-expanded & {
+    .p-side-navigation.is-expanded &,
+    [class*='p-side-navigation--'].is-expanded & {
       @extend %vf-has-box-shadow;
 
       animation: vf-p-side-navigation-expand map-get($animation-duration, brisk);
       transform: translateX(0);
     }
 
-    [class*='p-side-navigation'].is-collapsed & {
+    .p-side-navigation.is-collapsed &,
+    [class*='p-side-navigation--'].is-collapsed & {
       animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
     }
 
@@ -61,7 +63,8 @@
     top: 0;
     z-index: 11;
 
-    [class*='p-side-navigation'].is-expanded & {
+    .p-side-navigation.is-expanded &,
+    [class*='p-side-navigation--'].is-expanded & {
       opacity: 1;
       pointer-events: all;
     }
@@ -124,7 +127,8 @@
 
     .p-side-navigation__drawer,
     // fight specificity of expanded version
-    [class*="p-side-navigation"].is-expanded .p-side-navigation__drawer {
+    .p-side-navigation.is-expanded .p-side-navigation__drawer,
+    [class*='p-side-navigation--'].is-expanded .p-side-navigation__drawer {
       box-shadow: none;
       display: block;
       max-width: none;
@@ -278,22 +282,36 @@
   // Theming
   @if ($theme-default-p-side-navigation == 'dark') {
     .p-side-navigation,
-    .p-side-navigation--icons,
-    .p-side-navigation--discourse {
+    [class*='p-side-navigation--'] {
       @include vf-side-navigation-theme-dark;
 
       &.is-light {
         @include vf-side-navigation-theme-light;
       }
     }
+
+    .p-side-navigation--discourse {
+      @include vf-side-navigation-discourse-theme-dark;
+
+      &.is-light {
+        @include vf-side-navigation-discourse-theme-light;
+      }
+    }
   } @else {
     .p-side-navigation,
-    .p-side-navigation--icons,
-    .p-side-navigation--discourse {
+    [class*='p-side-navigation--'] {
       @include vf-side-navigation-theme-light;
 
       &.is-dark {
         @include vf-side-navigation-theme-dark;
+      }
+    }
+
+    .p-side-navigation--discourse {
+      @include vf-side-navigation-discourse-theme-light;
+
+      &.is-light {
+        @include vf-side-navigation-discourse-theme-dark;
       }
     }
   }
@@ -414,15 +432,6 @@
   .p-side-navigation__link {
     @extend %theme-side-navigation__link;
   }
-
-  // Theme for markup in Discourse docs variant
-  &.p-side-navigation--discourse li > a {
-    @extend %theme-side-navigation__link;
-  }
-
-  &.p-side-navigation--discourse ul::after {
-    @extend %theme-side-navigation__list;
-  }
 }
 
 @mixin vf-side-navigation-theme-light {
@@ -452,5 +461,62 @@
     $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
     $color-sidenav-list-border: $colors--dark-theme--border-low-contrast,
     $color-sidenav-toggle-icon: #999
+  );
+}
+
+// Theme for markup in Discourse docs variant
+@mixin vf-side-navigation-discourse-theme(
+  // default text color in sidebar
+    $color-sidenav-text-default,
+  // text color of highlighted items
+    $color-sidenav-text-active,
+  // background color of active/hovered items
+    $color-sidenav-item-background-highlight,
+  // border color of active item
+    $color-sidenav-item-border-highlight,
+  // border color of items list
+    $color-sidenav-list-border
+) {
+  // stylelint-disable selector-no-qualifying-type
+  ul::after {
+    background: $color-sidenav-list-border;
+  }
+
+  li > a {
+    &,
+    &:visited {
+      color: $color-sidenav-text-default;
+    }
+
+    &:hover,
+    &.is-active {
+      background: $color-sidenav-item-background-highlight;
+      color: $color-sidenav-text-active;
+    }
+
+    &.is-active {
+      @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
+    }
+  }
+  // stylelint-enable selector-no-qualifying-type
+}
+
+@mixin vf-side-navigation-discourse-theme-light {
+  @include vf-side-navigation-discourse-theme(
+    $color-sidenav-text-default: $colors--light-theme--text-muted,
+    $color-sidenav-text-active: $colors--light-theme--text-default,
+    $color-sidenav-item-background-highlight: $colors--light-theme--background-highlight,
+    $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
+    $color-sidenav-list-border: $colors--light-theme--border-low-contrast
+  );
+}
+
+@mixin vf-side-navigation-discourse-theme-dark {
+  @include vf-side-navigation-discourse-theme(
+    $color-sidenav-text-default: $colors--dark-theme--text-muted,
+    $color-sidenav-text-active: $colors--dark-theme--text-default,
+    $color-sidenav-item-background-highlight: $colors--dark-theme--background-highlight,
+    $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
+    $color-sidenav-list-border: $colors--dark-theme--border-low-contrast
   );
 }
