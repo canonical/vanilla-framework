@@ -3,11 +3,13 @@
 // Base styling for links
 @mixin vf-b-links {
   a {
+    @include vf-focus;
+
     color: $color-link;
     text-decoration: none;
 
     &:focus {
-      outline: thin dotted $color-focus;
+      outline-offset: 0;
     }
 
     &:hover {
