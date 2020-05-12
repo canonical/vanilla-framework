@@ -10,11 +10,11 @@ context:
 
 Vanilla has a responsive grid with the following columns and gutters:
 
-| Screen size (px)                       | Columns | Grid gap (gutters) | Outer margins |
-| -------------------------------------- | ------- | ------------------ | ------------- |
-| Less than $breakpoint-small            | 4       | 1.5rem             | 1.0rem        |
-| $breakpoint-small - $breakpoint-medium | 6       | 2.0rem             | 1.5rem        |
-| Greater than $breakpoint-medium        | 12      | 2.0rem             | 1.5rem        |
+| Screen size (px)                           | Columns | Grid gap (gutters) | Outer margins |
+| ------------------------------------------ | ------- | ------------------ | ------------- |
+| Less than `$breakpoint-small`              | 4       | 1.5rem             | 1.0rem        |
+| `$breakpoint-small` - `$breakpoint-medium` | 6       | 2.0rem             | 1.5rem        |
+| Greater than `$breakpoint-medium`          | 12      | 2.0rem             | 1.5rem        |
 
 <br>
 
