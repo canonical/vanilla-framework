@@ -1,6 +1,6 @@
 // small script to make the example interactive
 // not intended to be used in projects
-var links = [].slice.call(document.querySelectorAll('.p-side-navigation__link'));
+var links = [].slice.call(document.querySelectorAll('.p-side-navigation__link, .p-side-navigation--discourse li > a'));
 
 links.forEach(function (link) {
   link.addEventListener('click', function () {
