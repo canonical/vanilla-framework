@@ -112,7 +112,7 @@
   @media (min-width: $breakpoint-medium) {
     // make whole navigation sticky on large screens
     .p-side-navigation,
-    .p-side-navigation--icons {
+    [class*='p-side-navigation--'] {
       max-height: 100vh;
       overflow-y: auto;
       position: sticky;
@@ -149,19 +149,19 @@
 
   %side-navigation__list {
     @extend %vf-list;
-    @extend %vf-pseudo-border--top;
+    @extend %vf-pseudo-border--bottom;
 
     &::after {
       @include vf-side-navigation-spacing-left($prop: left);
 
-      top: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
+      bottom: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
     }
 
     .p-side-navigation--icons &::after {
       @include vf-side-navigation-spacing-left($prop: left, $offset: $sp-sidenav--icon-spacing-width);
     }
 
-    &:first-of-type::after {
+    &:last-of-type::after {
       content: none;
     }
   }
@@ -253,30 +253,46 @@
   }
 
   // Styles for markup in Discourse docs variant
-  .p-side-navigation--discourse ul {
-    @extend %side-navigation__list;
-  }
+  .p-side-navigation--discourse {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @extend %side-navigation__text;
 
-  .p-side-navigation--discourse li > a {
-    @extend %side-navigation__link;
-  }
+      // reset heading styles
+      font-size: map-get($base-font-sizes, base);
+      font-weight: $font-weight-bold;
+      line-height: 1.5rem;
+      margin: 0;
+    }
 
-  .p-side-navigation--discourse li > span,
-  .p-side-navigation--discourse li > strong,
-  .p-side-navigation--discourse li > a {
-    @extend %side-navigation__text;
-  }
+    ul {
+      @extend %side-navigation__list;
+    }
 
-  .p-side-navigation--discourse li li > span,
-  .p-side-navigation--discourse li li > strong,
-  .p-side-navigation--discourse li li > a {
-    @include vf-side-navigation-spacing-left($multiplier: 2);
-  }
+    li > a {
+      @extend %side-navigation__link;
+    }
 
-  .p-side-navigation--discourse li li li > span,
-  .p-side-navigation--discourse li li li > strong,
-  .p-side-navigation--discourse li li li > a {
-    @include vf-side-navigation-spacing-left($multiplier: 3);
+    li > span,
+    li > strong,
+    li > a {
+      @extend %side-navigation__text;
+    }
+
+    li li > span,
+    li li > strong,
+    li li > a {
+      @include vf-side-navigation-spacing-left($multiplier: 2);
+    }
+
+    li li li > span,
+    li li li > strong,
+    li li li > a {
+      @include vf-side-navigation-spacing-left($multiplier: 3);
+    }
   }
 
   // Theming
