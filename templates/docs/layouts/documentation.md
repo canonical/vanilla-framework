@@ -36,7 +36,7 @@ The content area is implemented as a regular strip (`.p-strip`) with a grid row 
 
 The aside area should contain the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. Grouping and nesting of navigation items should be used to build the logical structure of the documentation navigation. The side navigation component has built-in responsive functionality which makes it appear / go offscreen using a toggle.
 
-If the backend that generates documentation navigation contents doesn't allow adding custom class names required by side navigation Vanilla component a [raw HTML variant of the pattern](/docs/patterns/navigation#raw-html) can be used to style basic HTML lists of links.
+If the contents of the side navigation are generated in a way that doesn't provide the specific class names required by Vanilla, use a [raw HTML variant of the pattern](/docs/patterns/navigation#raw-html) to style the basic HTML lists of links.
 
 The main content area is placed in a `col-9` grid container. Note that the number of columns available to use by content inside this container is equal to the number of columns the container spans. For the main content this means 9 available columns.
 
