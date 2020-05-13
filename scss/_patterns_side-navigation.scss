@@ -252,8 +252,8 @@
     padding-left: $spv-inner--small;
   }
 
-  // Styles for markup in Discourse docs variant
-  .p-side-navigation--discourse {
+  // Styles for markup in raw HTML docs variant
+  .p-side-navigation--raw-html {
     h2,
     h3,
     h4,
@@ -307,11 +307,11 @@
       }
     }
 
-    .p-side-navigation--discourse {
-      @include vf-side-navigation-discourse-theme-dark;
+    .p-side-navigation--raw-html {
+      @include vf-side-navigation-raw-html-theme-dark;
 
       &.is-light {
-        @include vf-side-navigation-discourse-theme-light;
+        @include vf-side-navigation-raw-html-theme-light;
       }
     }
   } @else {
@@ -324,11 +324,11 @@
       }
     }
 
-    .p-side-navigation--discourse {
-      @include vf-side-navigation-discourse-theme-light;
+    .p-side-navigation--raw-html {
+      @include vf-side-navigation-raw-html-theme-light;
 
       &.is-light {
-        @include vf-side-navigation-discourse-theme-dark;
+        @include vf-side-navigation-raw-html-theme-dark;
       }
     }
   }
@@ -481,8 +481,8 @@
   );
 }
 
-// Theme for markup in Discourse docs variant
-@mixin vf-side-navigation-discourse-theme(
+// Theme for markup in raw HTML docs variant
+@mixin vf-side-navigation-raw-html-theme(
   // default text color in sidebar
     $color-sidenav-text-default,
   // text color of highlighted items
@@ -518,8 +518,8 @@
   // stylelint-enable selector-no-qualifying-type
 }
 
-@mixin vf-side-navigation-discourse-theme-light {
-  @include vf-side-navigation-discourse-theme(
+@mixin vf-side-navigation-raw-html-theme-light {
+  @include vf-side-navigation-raw-html-theme(
     $color-sidenav-text-default: $colors--light-theme--text-muted,
     $color-sidenav-text-active: $colors--light-theme--text-default,
     $color-sidenav-item-background-highlight: $colors--light-theme--background-highlight,
@@ -528,8 +528,8 @@
   );
 }
 
-@mixin vf-side-navigation-discourse-theme-dark {
-  @include vf-side-navigation-discourse-theme(
+@mixin vf-side-navigation-raw-html-theme-dark {
+  @include vf-side-navigation-raw-html-theme(
     $color-sidenav-text-default: $colors--dark-theme--text-muted,
     $color-sidenav-text-active: $colors--dark-theme--text-default,
     $color-sidenav-item-background-highlight: $colors--dark-theme--background-highlight,
