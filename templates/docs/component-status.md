@@ -23,6 +23,12 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <tr>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.11.0</td>
+      <td>A no-JS fallback was added for the side navigation toggle functionality on small screens.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/navigation#raw-html">Side navigation</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.11.0</td>
