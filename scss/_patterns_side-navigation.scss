@@ -33,6 +33,8 @@
     width: 100%;
     z-index: 12;
 
+    .p-side-navigation:target &,
+    [class*='p-side-navigation--']:target &,
     .p-side-navigation.is-expanded &,
     [class*='p-side-navigation--'].is-expanded & {
       @extend %vf-has-box-shadow;
@@ -63,6 +65,8 @@
     top: 0;
     z-index: 11;
 
+    .p-side-navigation:target &,
+    [class*='p-side-navigation--']:target &,
     .p-side-navigation.is-expanded &,
     [class*='p-side-navigation--'].is-expanded & {
       opacity: 1;
@@ -83,6 +87,8 @@
 
   .p-side-navigation__toggle,
   .p-side-navigation__toggle--in-drawer {
+    @extend %vf-button-base;
+
     // override base button styles that extend button to full width on mobile
     width: auto;
 
@@ -127,6 +133,8 @@
 
     .p-side-navigation__drawer,
     // fight specificity of expanded version
+    .p-side-navigation:target .p-side-navigation__drawer,
+    [class*='p-side-navigation--']:target .p-side-navigation__drawer,
     .p-side-navigation.is-expanded .p-side-navigation__drawer,
     [class*='p-side-navigation--'].is-expanded .p-side-navigation__drawer {
       box-shadow: none;
