@@ -26,7 +26,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/navigation#raw-html">Side navigation</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.11.0</td>
-      <td>New raw HTML variant was added to the side navigation component.</td>
+      <td>A new raw HTML variant of the side navigation component.</td>
     </tr>
   </tbody>
 </table>
@@ -48,7 +48,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.10.0</td>
-      <td>Side navigation was updated with responsive styles.</td>
+      <td>Update to the responsive styling of the side navigation.</td>
     </tr>
     <!-- 2.9.0 -->
     <tr>
