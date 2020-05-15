@@ -69,7 +69,7 @@ The side navigation pattern can be used to provide more detailed navigation alon
 
 It allows grouping the links into navigation sections and nesting them up to three levels.
 
-Current page in the side navigation should be highlighted by adding `is-active` class to the corresponding `p-side-navigation__link` element.
+Current page in the side navigation should be highlighted by adding `aria-current="page"` attribute to the corresponding `p-side-navigation__link` element. Alternatively, if `aria-current` attribute cannot be set, the `is-active` class can be used instead.
 
 Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add status labels or icons on right side of navigation items.
 
