@@ -26,102 +26,113 @@
               </button>
             </div>
 
+            {% macro side_nav_item(url, title, label) -%}
+                <li class="p-side-navigation__item">
+                  <a class="p-side-navigation__link" href="{{ url }}" {% if path == url %}aria-current="page"{% endif %}>
+                    {{ title }}
+                    {% if label %}
+                      <span class="p-side-navigation__status"><span class="p-label--{{ label|lower }}">{{ label|capitalize }}</span></span>
+                    {% endif %}
+                  </a>
+                </li>
+            {%- endmacro %}
+
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Welcome</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs' %}is-active{% endif %}" href="/docs">Get started</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/building-vanilla' %}is-active{% endif %}" href="/docs/building-vanilla">Building with Vanilla</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/customising-vanilla' %}is-active{% endif %}" href="/docs/customising-vanilla">Customising Vanilla</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link" href="https://github.com/canonical-web-and-design/vanilla-framework/releases/latest">What’s new in {{ version }}</a></li>
+              {{ side_nav_item("/docs", "Get started") }}
+              {{ side_nav_item("/docs/building-vanilla", "Building with Vanilla") }}
+              {{ side_nav_item("/docs/customising-vanilla", "Customising Vanilla") }}
+              {{ side_nav_item("https://github.com/canonical-web-and-design/vanilla-framework/releases/latest", "What’s new in " ~ version) }}
             </ul>
 
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Base elements</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/base/code' %}is-active{% endif %}" href="/docs/base/code">Code</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/base/forms' %}is-active{% endif %}" href="/docs/base/forms">Forms</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/base/reset' %}is-active{% endif %}" href="/docs/base/reset">Reset</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/base/tables' %}is-active{% endif %}" href="/docs/base/tables">Tables</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/base/typography' %}is-active{% endif %}" href="/docs/base/typography">Typography</a></li>
+              {{ side_nav_item("/docs/base/code", "Code") }}
+              {{ side_nav_item("/docs/base/forms", "Forms") }}
+              {{ side_nav_item("/docs/base/reset", "Reset") }}
+              {{ side_nav_item("/docs/base/tables", "Tables") }}
+              {{ side_nav_item("/docs/base/typography", "Typography") }}
             </ul>
 
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Components</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/accordion' %}is-active{% endif %}" href="/docs/patterns/accordion">Accordion</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/article-pagination' %}is-active{% endif %}" href="/docs/patterns/article-pagination">Article pagination</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/breadcrumbs' %}is-active{% endif %}" href="/docs/patterns/breadcrumbs">Breadcrumbs</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/buttons' %}is-active{% endif %}" href="/docs/patterns/buttons">Buttons</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/card' %}is-active{% endif %}" href="/docs/patterns/card">Cards</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/contextual-menu' %}is-active{% endif %}" href="/docs/patterns/contextual-menu">Contextual menu</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/grid' %}is-active{% endif %}" href="/docs/patterns/grid">Grid</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/heading-icon' %}is-active{% endif %}" href="/docs/patterns/heading-icon">Heading icon</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/icons' %}is-active{% endif %}" href="/docs/patterns/icons">Icons</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/images' %}is-active{% endif %}" href="/docs/patterns/images">Images</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/inline-images' %}is-active{% endif %}" href="/docs/patterns/inline-images">Inline images</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/labels' %}is-active{% endif %}" href="/docs/patterns/labels">Labels</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/links' %}is-active{% endif %}" href="/docs/patterns/links">Links</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/list-tree' %}is-active{% endif %}" href="/docs/patterns/list-tree">List tree</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/lists' %}is-active{% endif %}" href="/docs/patterns/lists">Lists</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/matrix' %}is-active{% endif %}" href="/docs/patterns/matrix">Matrix</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/media-object' %}is-active{% endif %}" href="/docs/patterns/media-object">Media object</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/modal' %}is-active{% endif %}" href="/docs/patterns/modal">Modal</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/muted-heading' %}is-active{% endif %}" href="/docs/patterns/muted-heading">Muted heading</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/navigation' %}is-active{% endif %}" href="/docs/patterns/navigation">Navigation<span class="p-side-navigation__status"><span class="p-label--updated">Updated</span></span></a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/notification' %}is-active{% endif %}" href="/docs/patterns/notification">Notifications</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/pagination' %}is-active{% endif %}" href="/docs/patterns/pagination">Pagination</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/pull-quote' %}is-active{% endif %}" href="/docs/patterns/pull-quote">Quotes</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/search-box' %}is-active{% endif %}" href="/docs/patterns/search-box">Search box</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/slider' %}is-active{% endif %}" href="/docs/patterns/slider">Slider</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/strip' %}is-active{% endif %}" href="/docs/patterns/strip">Strip</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/switch' %}is-active{% endif %}" href="/docs/patterns/switch">Switch</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/table-of-contents' %}is-active{% endif %}" href="/docs/patterns/table-of-contents">Table of contents</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/tabs' %}is-active{% endif %}" href="/docs/patterns/tabs">Tabs</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/patterns/tooltips' %}is-active{% endif %}" href="/docs/patterns/tooltips">Tooltips</a></li>
+              {{ side_nav_item("/docs/patterns/accordion", "Accordion") }}
+              {{ side_nav_item("/docs/patterns/article-pagination", "Article pagination") }}
+              {{ side_nav_item("/docs/patterns/breadcrumbs", "Breadcrumbs") }}
+              {{ side_nav_item("/docs/patterns/buttons", "Buttons") }}
+              {{ side_nav_item("/docs/patterns/card", "Cards") }}
+              {{ side_nav_item("/docs/patterns/contextual-menu", "Contextual menu") }}
+              {{ side_nav_item("/docs/patterns/grid", "Grid") }}
+              {{ side_nav_item("/docs/patterns/heading-icon", "Heading icon") }}
+              {{ side_nav_item("/docs/patterns/icons", "Icons") }}
+              {{ side_nav_item("/docs/patterns/images", "Images") }}
+              {{ side_nav_item("/docs/patterns/inline-images", "Inline images") }}
+              {{ side_nav_item("/docs/patterns/labels", "Labels") }}
+              {{ side_nav_item("/docs/patterns/links", "Links") }}
+              {{ side_nav_item("/docs/patterns/list-tree", "List tree") }}
+              {{ side_nav_item("/docs/patterns/lists", "Lists") }}
+              {{ side_nav_item("/docs/patterns/matrix", "Matrix") }}
+              {{ side_nav_item("/docs/patterns/media-object", "Media object") }}
+              {{ side_nav_item("/docs/patterns/modal", "Modal") }}
+              {{ side_nav_item("/docs/patterns/muted-heading", "Muted heading") }}
+              {{ side_nav_item("/docs/patterns/navigation", "Navigation", "updated") }}
+              {{ side_nav_item("/docs/patterns/notification", "Notifications") }}
+              {{ side_nav_item("/docs/patterns/pagination", "Pagination") }}
+              {{ side_nav_item("/docs/patterns/pull-quote", "Quotes") }}
+              {{ side_nav_item("/docs/patterns/search-box", "Search box") }}
+              {{ side_nav_item("/docs/patterns/slider", "Slider") }}
+              {{ side_nav_item("/docs/patterns/strip", "Strip") }}
+              {{ side_nav_item("/docs/patterns/switch", "Switch") }}
+              {{ side_nav_item("/docs/patterns/table-of-contents", "Table of contents") }}
+              {{ side_nav_item("/docs/patterns/tabs", "Tabs") }}
+              {{ side_nav_item("/docs/patterns/tooltips", "Tooltips") }}
             </ul>
 
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Utilities</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/align' %}is-active{% endif %}" href="/docs/utilities/align">Alignment</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/baseline-grid' %}is-active{% endif %}" href="/docs/utilities/baseline-grid">Baseline grid</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/clearfix' %}is-active{% endif %}" href="/docs/utilities/clearfix">Clearfix</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/embedded-media' %}is-active{% endif %}" href="/docs/utilities/embedded-media">Embedded media</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/equal-height' %}is-active{% endif %}" href="/docs/utilities/equal-height">Equal height</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/floats' %}is-active{% endif %}" href="/docs/utilities/floats">Floats</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/font-metrics' %}is-active{% endif %}" href="/docs/utilities/font-metrics">Font metrics</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/functions' %}is-active{% endif %}" href="/docs/utilities/functions">Functions</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/hide' %}is-active{% endif %}" href="/docs/utilities/hide">Hide</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/image-position' %}is-active{% endif %}" href="/docs/utilities/image-position">Image position</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/margin-collapse' %}is-active{% endif %}" href="/docs/utilities/margin-collapse">Margin collapse</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/no-print' %}is-active{% endif %}" href="/docs/utilities/no-print">No print</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/off-screen' %}is-active{% endif %}" href="/docs/utilities/off-screen">Off-screen</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/padding-collapse' %}is-active{% endif %}" href="/docs/utilities/padding-collapse">Padding collapse</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/table-cell-padding-overlap' %}is-active{% endif %}" href="/docs/utilities/table-cell-padding-overlap">Table cell padding overlap</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/truncate' %}is-active{% endif %}" href="/docs/utilities/truncate">Truncation</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/show' %}is-active{% endif %}" href="/docs/utilities/show">Show</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/utilities/vertically-center' %}is-active{% endif %}" href="/docs/utilities/vertically-center">Vertically center</a></li>
+              {{ side_nav_item("/docs/utilities/align", "Alignment") }}
+              {{ side_nav_item("/docs/utilities/baseline-grid", "Baseline grid") }}
+              {{ side_nav_item("/docs/utilities/clearfix", "Clearfix") }}
+              {{ side_nav_item("/docs/utilities/embedded-media", "Embedded media") }}
+              {{ side_nav_item("/docs/utilities/equal-height", "Equal height") }}
+              {{ side_nav_item("/docs/utilities/floats", "Floats") }}
+              {{ side_nav_item("/docs/utilities/font-metrics", "Font metrics") }}
+              {{ side_nav_item("/docs/utilities/functions", "Functions") }}
+              {{ side_nav_item("/docs/utilities/hide", "Hide") }}
+              {{ side_nav_item("/docs/utilities/image-position", "Image position") }}
+              {{ side_nav_item("/docs/utilities/margin-collapse", "Margin collapse") }}
+              {{ side_nav_item("/docs/utilities/no-print", "No print") }}
+              {{ side_nav_item("/docs/utilities/off-screen", "Off-screen") }}
+              {{ side_nav_item("/docs/utilities/padding-collapse", "Padding collapse") }}
+              {{ side_nav_item("/docs/utilities/table-cell-padding-overlap", "Table cell padding overlap") }}
+              {{ side_nav_item("/docs/utilities/truncate", "Truncation") }}
+              {{ side_nav_item("/docs/utilities/show", "Show") }}
+              {{ side_nav_item("/docs/utilities/vertically-center", "Vertically center") }}
             </ul>
 
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Layouts</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/layouts/documentation' %}is-active{% endif %}" href="/docs/layouts/documentation">Documentation</a></li>
+              {{ side_nav_item("/docs/layouts/documentation", "Documentation") }}
             </ul>
 
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Settings</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/animation-settings' %}is-active{% endif %}" href="/docs/settings/animation-settings">Animations</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/assets-settings' %}is-active{% endif %}" href="/docs/settings/assets-settings">Assets</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/breakpoint-settings' %}is-active{% endif %}" href="/docs/settings/breakpoint-settings">Breakpoints</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/color-settings' %}is-active{% endif %}" href="/docs/settings/color-settings">Color</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/font-settings' %}is-active{% endif %}" href="/docs/settings/font-settings">Font</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/layout-settings' %}is-active{% endif %}" href="/docs/settings/layout-settings">Layout</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/placeholder-settings' %}is-active{% endif %}" href="/docs/settings/placeholder-settings">Placeholders</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/spacing-settings' %}is-active{% endif %}" href="/docs/settings/spacing-settings">Spacing</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/settings/table-layout' %}is-active{% endif %}" href="/docs/settings/table-layout">Table layout</a></li>
+              {{ side_nav_item("/docs/settings/animation-settings", "Animations") }}
+              {{ side_nav_item("/docs/settings/assets-settings", "Assets") }}
+              {{ side_nav_item("/docs/settings/breakpoint-settings", "Breakpoints") }}
+              {{ side_nav_item("/docs/settings/color-settings", "Color") }}
+              {{ side_nav_item("/docs/settings/font-settings", "Font") }}
+              {{ side_nav_item("/docs/settings/layout-settings", "Layout") }}
+              {{ side_nav_item("/docs/settings/placeholder-settings", "Placeholders") }}
+              {{ side_nav_item("/docs/settings/spacing-settings", "Spacing") }}
+              {{ side_nav_item("/docs/settings/table-layout", "Table layout") }}
             </ul>
 
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Resources</span></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/examples' %}is-active{% endif %}" href="/docs/examples">Component examples</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link {% if path == '/docs/component-status' %}is-active{% endif %}" href="/docs/component-status">Component status</a></li>
-              <li class="p-side-navigation__item"><a class="p-side-navigation__link" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download Sketch UI Kit</a></li>
+              {{ side_nav_item("/docs/examples", "Component examples") }}
+              {{ side_nav_item("/docs/component-status", "Component status") }}
+              {{ side_nav_item("https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch", "Download Sketch UI Kit") }}
             </ul>
 
           </div>
