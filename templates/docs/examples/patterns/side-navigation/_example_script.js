@@ -4,11 +4,12 @@ var links = [].slice.call(document.querySelectorAll('.p-side-navigation__link, .
 
 links.forEach(function (link) {
   link.addEventListener('click', function () {
-    var active = [].slice.call(document.querySelectorAll('.is-active'));
+    var active = [].slice.call(document.querySelectorAll('.is-active, [aria-current]'));
     active.forEach(function (link) {
       link.classList.remove('is-active');
+      link.removeAttribute('aria-current');
     });
-    this.classList.add('is-active');
+    this.setAttribute('aria-current', 'page');
     this.blur();
   });
 });
