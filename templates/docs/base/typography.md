@@ -184,6 +184,14 @@ If you are using the Ubuntu font, it comes in five weights; thin, light, regular
 View example of the Ubuntu font weights.
 </a></div>
 
+### Muted text
+
+To reduce the prominence of text, use class `u-text--muted`.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/muted-text/" class="js-example">
+View example of the muted-text
+</a></div>
+
 ### Using a smaller set of Latin font faces
 
 The default Ubuntu fonts are fairly large as they contain glyphs for many languages. If you are building sites in; Afrikaans, Albanian, Catalan, Danish, Dutch, English, German, Icelandic, Italian, Norwegian, Portuguese, Spanish, Swedish or Zulu, you could use the subset of Latin fonts by setting the following variable to true:

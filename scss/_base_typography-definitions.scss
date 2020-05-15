@@ -218,17 +218,21 @@
     }
   }
 
+  %muted-text {
+    color: $colors--light-theme--text-muted;
+  }
+
   %table-header-label {
+    @extend %muted-text;
     @extend %x-small-text;
 
-    color: $color-mid-dark;
-    font-weight: 400;
+    font-weight: $font-weight-bold;
   }
 
   %muted-heading {
     @extend %small-text;
+    @extend %muted-text;
 
-    color: $color-mid-dark;
     margin-bottom: map-get($sp-after, small) - map-get($nudges, nudge--small);
     margin-top: 0;
     padding-top: map-get($nudges, nudge--small);
