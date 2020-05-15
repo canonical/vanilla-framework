@@ -114,7 +114,7 @@
 
   // Add table of contents as nested list to side navigation
   if (list.querySelectorAll('li').length > 0) {
-    var parent = document.querySelector('.p-side-navigation__link.is-active').parentNode;
+    var parent = document.querySelector('.p-side-navigation__link[aria-current="page"]').parentNode;
 
     parent.appendChild(list);
   }
@@ -123,7 +123,7 @@
 // scroll active side navigation item into view (without scrolling whole page)
 (function () {
   var sideNav = document.querySelector('.p-side-navigation');
-  var currentItem = document.querySelector('.p-side-navigation__link.is-active');
+  var currentItem = document.querySelector('.p-side-navigation__link[aria-current="page"]');
 
   if (sideNav && currentItem) {
     // calculate scroll by comparing top of side nav and top of active item
