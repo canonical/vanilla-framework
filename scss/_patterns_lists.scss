@@ -199,9 +199,11 @@ $spv-list-item--inner: null;
       }
     }
 
-    .p-stepped-list--detailed h#{$i}.p-stepped-list__title + .p-stepped-list__content {
-      @media (min-width: $threshold-6-12-col) {
-        margin-left: 0;
+    .p-stepped-list__title {
+      .p-stepped-list--detailed & + .p-stepped-list__content {
+        @media (min-width: $threshold-6-12-col) {
+          margin-left: 0;
+        }
       }
     }
   }
