@@ -52,17 +52,17 @@
     }
 
     &__link {
-      @include vf-focus;
       @extend %vf-pseudo-border--bottom;
+      @include vf-focus;
 
       color: $color-x-dark;
       display: block;
       line-height: map-get($line-heights, default-text);
       padding: $spv-inner--medium $sph-inner;
 
-      &:visited,
       &:active,
-      &:hover {
+      &:hover,
+      &:visited {
         color: $color-x-dark;
         text-decoration: none;
       }
