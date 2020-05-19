@@ -33,7 +33,7 @@
 
     &__list {
       display: flex;
-      margin: 0 auto $spv-outer--scaleable;
+      margin: 0 auto calc($spv-outer--scaleable);
       overflow-x: auto;
       padding: 0;
       position: relative;
@@ -52,13 +52,13 @@
     }
 
     &__link {
-      @extend %vf-pseudo-border--bottom;
       @include vf-focus;
 
       color: $color-x-dark;
       display: block;
       line-height: map-get($line-heights, default-text);
       padding: $spv-inner--medium $sph-inner;
+      position: relative;
 
       &:active,
       &:hover,
@@ -67,9 +67,15 @@
         text-decoration: none;
       }
 
+      &::before {
+        @extend %vf-pseudo-border;
+
+        bottom: 0;
+      }
+
       &:hover,
       &[aria-selected='true'] {
-        @include vf-highlight-bar($color-tabs-active-bar, bottom, true);
+        @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
 
         &:focus::before,
         &:focus::after {
