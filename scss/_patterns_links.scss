@@ -34,12 +34,9 @@ $external-icon-size--headings: 1rem; // slghtly increased
     }
   }
 
+  // include external link styles only if CSS mask is supported
   @supports (mask-size: 1em) or (-webkit-mask-size: 1em) {
     @include vf-mask-supported;
-  }
-
-  @supports not ((mask-size: 1em) or (-webkit-mask-size: 1em)) {
-    @include vf-mask-unsupported;
   }
 
   .p-top {
@@ -100,104 +97,4 @@ $external-icon-size--headings: 1rem; // slghtly increased
       width: $external-icon-size--headings;
     }
   }
-}
-
-// For browsers that don't support CSS masks
-@mixin vf-mask-unsupported {
-  .p-link--external {
-    // Used for links that point to a different domain
-    @include vf-external-link-icon(vf-url-friendly-color($color-link));
-
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-size: #{$external-icon-size--default-text};
-    content: '\00A0';
-
-    &.sidebar__link {
-      display: inline-block;
-      padding: 0 1em 1em 0;
-    }
-
-    &.p-link--soft,
-    &.sidebar__link {
-      @include vf-external-link-icon(vf-url-friendly-color($color-dark));
-    }
-
-    &.p-link--soft:hover,
-    &.sidebar__link:hover {
-      @include vf-external-link-icon(vf-url-friendly-color($color-link));
-    }
-
-    &.p-link--inverted {
-      @include vf-external-link-icon(vf-url-friendly-color($color-light));
-
-      &:visited {
-        @include vf-external-link-icon(vf-url-friendly-color(darken($color-light, 10%)));
-      }
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  .p-heading--1,
-  .p-heading--2,
-  .p-heading--3,
-  .p-heading--one,
-  .p-heading--two,
-  .p-heading--three {
-    .p-link--external::after {
-      height: #{$external-icon-size--headings};
-      // stylelint-disable property-no-vendor-prefix
-      -webkit-mask: url("%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.157 3l-1.5 1.5H6a.5.5 0 00-.492.41L5.5 5v5a.5.5 0 00.41.492L6 10.5h5a.5.5 0 00.492-.41L11.5 10V8.538l1.5-1.5V10a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h3.157zm5.593-1.75V6h-1.5V3.81L8.5 8.56 7.44 7.5l4.748-4.75H10v-1.5h4.75z' fill='%23666' fill-rule='evenodd'/%3E%3C/svg%3E")
-        no-repeat 0 0 / #{$external-icon-size--headings};
-      // stylelint-enable property-no-vendor-prefix
-      mask: url("%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.157 3l-1.5 1.5H6a.5.5 0 00-.492.41L5.5 5v5a.5.5 0 00.41.492L6 10.5h5a.5.5 0 00.492-.41L11.5 10V8.538l1.5-1.5V10a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h3.157zm5.593-1.75V6h-1.5V3.81L8.5 8.56 7.44 7.5l4.748-4.75H10v-1.5h4.75z' fill='%23666' fill-rule='evenodd'/%3E%3C/svg%3E")
-        no-repeat 0 0 / #{$external-icon-size--headings};
-      padding-right: $external-icon-size--headings;
-    }
-  }
-
-  // Manual overrides of .p-link--external within other elements
-  .p-button {
-    .p-link--external,
-    &--neutral .p-link--external,
-    &--base .p-link--external {
-      @include vf-external-link-icon(vf-url-friendly-color($color-dark));
-
-      padding-top: 0;
-    }
-
-    &--positive .p-link--external {
-      @include vf-external-link-icon(vf-url-friendly-color(vf-contrast-text-color($color-positive)));
-
-      padding-top: 0;
-    }
-
-    &--negative .p-link--external {
-      @include vf-external-link-icon(vf-url-friendly-color(vf-contrast-text-color($color-negative)));
-
-      padding-top: 0;
-    }
-
-    &--brand .p-link--external {
-      @include vf-external-link-icon(vf-url-friendly-color(vf-contrast-text-color($color-brand)));
-
-      padding-top: 0;
-    }
-  }
-
-  .p-strip--dark * .p-link--external.p-link--soft,
-  .p-strip--accent * .p-link--external.p-link--soft,
-  .p-strip--image.is-dark * .p-link--external.p-link--soft {
-    @include vf-external-link-icon(vf-url-friendly-color($color-x-light));
-
-    &:hover {
-      @include vf-external-link-icon(vf-url-friendly-color($color-link));
-    }
-  }
-}
-
-@mixin vf-external-link-icon($color) {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0.75em' height='0.75em' viewBox='0 0 16 16' %3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='#{$color}' d='M4.867 1.313C.6 1.32.067 1.443.067 4.51v6.4c0 3.2.533 3.2 5.333 3.2h2.133c4.8 0 5.334 0 5.334-3.2v-1.6h-1.6v1.068c0 2.133 0 2.133-4.267 2.133H5.933c-4.266 0-4.266 0-4.266-2.132V5.044c0-1.93.034-2.112 3.2-2.13v-1.6z'/%3E%3Cpath d='M-1-1h16v16H-1'/%3E%3Cpath fill='#{$color}' d='M6.435 2.16c.11-.446 7.113-2.196 7.448-1.86.335.334-1.416 7.335-1.863 7.447-.447.112-5.697-5.14-5.586-5.586z'/%3E%3Cpath fill='#{$color}' d='M9.032 3.38L4.705 7.708l1.767 1.767L10.8 5.148'/%3E%3C/g%3E%3C/svg%3E");
 }
