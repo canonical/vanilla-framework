@@ -23,6 +23,18 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <tr>
+      <th><a href="/docs/patterns/icons">Icons</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.11.1</td>
+      <td>The icons have been updated to new style.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/icons#standard">Icons - Question</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.11.1</td>
+      <td>The <code>.p-icon--question</code> has been deprecated will be removed in future release v3.0. Please use existing `.p-icon--help` icon instead.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.11.0</td>

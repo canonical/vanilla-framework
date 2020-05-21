@@ -96,7 +96,9 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
 }
 
 @mixin vf-icon-question($color) {
-  @include vf-icon-help($color);
+  @include deprecate('3.0.0', 'Use the `vf-icon-help` mixin instead') {
+    @include vf-icon-help($color);
+  }
 }
 
 @mixin vf-icon-spinner($color) {
