@@ -1,8 +1,5 @@
 @import 'settings';
 
-$external-icon-size--default-text: 0.9rem; // original icon size
-$external-icon-size--headings: 1rem; // slghtly increased
-
 @mixin vf-p-links {
   .p-link--soft {
     color: $color-dark;
@@ -59,6 +56,8 @@ $external-icon-size--headings: 1rem; // slghtly increased
 
 // For browsers that support CSS masks
 @mixin vf-mask-supported {
+  $external-icon-size--default-text: 1rem;
+
   .p-link--external {
     // Used for links point at a different domain
     &::after {
@@ -75,26 +74,6 @@ $external-icon-size--headings: 1rem; // slghtly increased
         no-repeat 0 0 / #{$external-icon-size--default-text};
       vertical-align: calc(#{$baseline-position} - #{$external-icon-size--default-text} - 1px);
       width: $external-icon-size--default-text;
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  .p-heading--1,
-  .p-heading--2,
-  .p-heading--3,
-  .p-heading--one,
-  .p-heading--two,
-  .p-heading--three {
-    .p-link--external::after {
-      height: #{$external-icon-size--headings};
-      // stylelint-disable property-no-vendor-prefix
-      -webkit-mask-size: $external-icon-size--headings;
-      // stylelint-enable property-no-vendor-prefix
-      mask-size: $external-icon-size--headings;
-      vertical-align: calc(#{$baseline-position} - #{$external-icon-size--headings} - 1px);
-      width: $external-icon-size--headings;
     }
   }
 }
