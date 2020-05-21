@@ -6,6 +6,8 @@ context:
 
 ## Icons
 
+<span class="p-label--updated">Updated</span>
+
 <hr>
 
 Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`
@@ -95,19 +97,15 @@ Our icons have two predefined color styles: light and dark. The light variant is
     </div>
 
     <div class="row u-equal-height">
-      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
-      <i class="p-icon--share" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--share
-      </div>
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--anchor" style="margin-right: 1rem;"></i>p-icon--anchor</p>
-      </div>
-      <div class="p-card col-3 u-vertically-center">
-        <p><i class="p-icon--question" style="margin-right: 1rem;"></i>p-icon--question</p>
       </div>
     </div>
 
   </div>
 </section>
+
+<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` has been deprecated and will be removed in future version v3.0. Use an icon with `.p-icon--help` class name instead.
 
 ### Dark theme
 
