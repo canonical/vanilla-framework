@@ -79,9 +79,9 @@ $spv-list-item--inner: null;
 @mixin vf-p-list-item-state {
   .is-ticked {
     @extend %vf-list;
+    @include vf-icon-success($color-accent);
 
-    background-image: svg-tick($color-accent);
-    background-position-y: $spv-list-item--inner + map-get($nudges, nudge--p);
+    background-position-y: $spv-list-item--inner + 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
     background-repeat: no-repeat;
     background-size: $tick-height;
     padding-left: 2rem;
