@@ -105,11 +105,11 @@ Our icons have two predefined color styles: light and dark. The light variant is
   </div>
 </section>
 
-<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` has been deprecated and will be removed in future version v3.0. Use an icon with `.p-icon--help` class name instead.
+<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` class has been deprecated and will be removed in version 3.0. Use class `.p-icon--help` instead.
 
 ### Dark theme
 
-Our dark-themed icons are available when placed within `.p-strip--dark`, icon colors are reverted to ensure legibility as shown in our example.
+Our dark-themed icons are available when placed within `.p-strip--dark`, icon colors are inverted to ensure legibility as shown in our example.
 
 Alternatively to use light version of icons outside of the dark strip, add `is-light` class to the icon element (e.g. `p-icon--plus is-light`).
 
