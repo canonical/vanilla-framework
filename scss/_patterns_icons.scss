@@ -193,7 +193,8 @@
 }
 
 @mixin vf-p-icon-help {
-  .p-icon--help {
+  .p-icon--help,
+  .p-icon--question {
     @extend %icon;
     @include vf-icon-help($color-mid-dark);
 
@@ -346,9 +347,8 @@
 }
 
 @mixin vf-p-icon-question {
-  .p-icon--question {
-    @extend %icon;
-    @include vf-icon-question($color-information);
+  @include deprecate('3.0.0', 'Use the `p-icon--help` class instead') {
+    // moved to vf-p-icon-help
   }
 }
 
