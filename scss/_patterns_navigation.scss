@@ -17,6 +17,7 @@ $lightness-threshold: 70;
   %navigation-link {
     $properties: #{background-color, color, opacity};
     @include vf-animation($properties);
+    @include vf-focus;
 
     display: block;
     line-height: map-get($line-heights, default-text);
@@ -73,6 +74,8 @@ $lightness-threshold: 70;
   }
 
   %navigation-item-in-logo {
+    @include vf-focus;
+
     display: flex;
   }
 
@@ -212,6 +215,8 @@ $lightness-threshold: 70;
 
       &--open,
       &--close {
+        @include vf-focus;
+
         margin: 0 0 auto $sph-inner;
         padding: $spv-inner--medium 0;
 
