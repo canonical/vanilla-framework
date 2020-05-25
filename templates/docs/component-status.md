@@ -10,7 +10,7 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.11
+### What's new in Vanilla 2.12
 
 <table>
   <thead>
@@ -23,28 +23,22 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <tr>
+      <th><a href="/docs/base/typography#muted-text">Muted text</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.12.0</td>
+      <td>New <code>u-text--muted</code> utility class has been added.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/icons">Icons</a></th>
       <td><div class="p-label--updated">Updated</div></td>
-      <td>2.11.1</td>
+      <td>2.12.0</td>
       <td>The icons have been updated to new style.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/icons#standard">Icons - Question</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>2.11.1</td>
-      <td>The <code>.p-icon--question</code> has been deprecated will be removed in future release v3.0. Please use existing `.p-icon--help` icon instead.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.11.0</td>
-      <td>A no-JS fallback was added for the side navigation toggle functionality on small screens.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/patterns/navigation#raw-html">Side navigation</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.11.0</td>
-      <td>A new raw HTML variant of the side navigation component.</td>
+      <td>2.12.0</td>
+      <td>The <code>p-icon--question</code> has been deprecated will be removed in future release v3.0. Please use existing `.p-icon--help` icon instead.</td>
     </tr>
   </tbody>
 </table>
@@ -61,6 +55,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.11.0 -->
+    <tr>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.11.0</td>
+      <td>A no-JS fallback was added for the side navigation toggle functionality on small screens.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/navigation#raw-html">Side navigation</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.11.0</td>
+      <td>A new raw HTML variant of the side navigation component.</td>
+    </tr>
     <!-- 2.10.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
