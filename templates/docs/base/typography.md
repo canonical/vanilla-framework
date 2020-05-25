@@ -186,6 +186,8 @@ View example of the Ubuntu font weights.
 
 ### Muted text
 
+<span class="p-label--new">New</span>
+
 To reduce the prominence of text, use class `u-text--muted`.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/muted-text/" class="js-example">
