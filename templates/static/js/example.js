@@ -83,7 +83,7 @@
       config.title = title;
     }
 
-    container.setAttribute('data-prefill', JSON.stringify(config));
+    container.setAttribute('data-prefill', encodeURI(JSON.stringify(config)));
     container.setAttribute('data-height', height);
     // For more options see CodePen docs
     // https://blog.codepen.io/documentation/prefill-embeds/
