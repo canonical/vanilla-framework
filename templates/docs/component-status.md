@@ -180,6 +180,12 @@ When we add, make significant updates, or deprecate a component we update their 
   </tbody>
 </table>
 
+### Upgrade guide
+
+During the development of Vanilla v2 several CSS class names or SCSS mixins and placeholders have been deprecated and will be removed in the upcoming release v3.0.
+
+See [the upgrade guide](/docs/upgrade-guide-v3) to learn about all the breaking changes that will happen when these deprecated features are removed and how to update the code for a future version of Vanilla.
+
 ### Status key
 
 <div class="row">
