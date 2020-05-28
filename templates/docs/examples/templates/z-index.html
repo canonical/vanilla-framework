@@ -2,6 +2,8 @@
 {% block title %}Z-index{% endblock %}
 
 {% block content %}
+<button id="showModal" aria-controls="modal">Show modal</button>
+
 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit <span class="p-contextual-menu--left">
     <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-4" aria-expanded="true" aria-haspopup="true">take action left</a>
     <span class="p-contextual-menu__dropdown" id="menu-4" aria-hidden="false" aria-label="submenu">
@@ -100,4 +102,28 @@
     </li>
   </ul>
 </nav>
+
+<div class="p-modal" id="modal">
+  <div class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+    <header class="p-modal__header">
+      <h2 class="p-modal__title" id="modal-title">Help</h2>
+      <button class="p-modal__close" aria-label="Close active modal" aria-controls="modal">Close</button>
+    </header>
+    <p id="modal-description">Learn how to operate production-ready clusters.</p>
+    <div class="p-heading-icon--small">
+      <div class="p-heading-icon__header">
+        <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/b81a45e4-kubernetes.svg" />
+        <p><a class="p-heading-icon__title" href="#tutorial/get-started-canonical-kubernetes" width="24">Kubernetes tutorial</a></p>
+      </div>
+      <div class="p-heading-icon__header">
+        <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/5e3456e3-hadoop.svg" />
+        <p><a class="p-heading-icon__title" href="#tutorial/get-started-hadoop-spark" width="24">Hadoop Spark tutorial</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/modal/_script.js' %}
+</script>
 {% endblock %}
