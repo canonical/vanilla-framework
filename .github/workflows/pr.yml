@@ -12,23 +12,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: yarn install
-      - run: yarn build
-      - run: stat -c "%s" build/css/build.css
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 12
+      # - run: yarn install
+      # - run: yarn build
+      # - run: stat -c "%s" build/css/build.css
       - uses: actions/github-script@v1
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            core.warning(context);
-            github.issues.createComment({
-              issue_number: context.payload.pull_request.number,
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              body: '👋 Thanks for reporting!'
-            })
+            //core.warning(context);
+            var owner = context.payload.repository.owner.login;
+            var repo = context.payload.repository.name;
+            var issue_number = context.payload.pull_request.number;
+
+            core.warning(`${owner}/${repo}#${issue_number}`);
+            var comments = await github.issues.listComments({
+              owner: owner,
+              repo: repo,
+              issue_number: issue_number,
+            });
+            core.warning(comments);
+          # github.issues.createComment({
+          #   issue_number: context.payload.pull_request.number,
+          #   owner: context.payload.repository.owner.login,
+          #   repo: context.payload.repository.name,
+          #   body: '👋 Thanks for reporting!'
+          # })
   # test:
   #   name: Test
   #   runs-on: ubuntu-latest
