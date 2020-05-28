@@ -41,7 +41,7 @@ Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless 
 
 Also add `.p-navigation__link` to classless `<a>` links inside `.p-subnav` pattern.
 
-### Max width
+### Text element max-width
 
 Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `map-get($max-widths, default)` instead.
 
