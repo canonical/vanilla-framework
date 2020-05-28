@@ -25,8 +25,8 @@ jobs:
             core.warning(context);
             github.issues.createComment({
               issue_number: context.payload.pull_request.number,
-              owner: context.payload.pull_request.repository.owner.login,
-              repo: context.payload.pull_request.repository.name,
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
               body: '👋 Thanks for reporting!'
             })
   # test:
