@@ -7,6 +7,28 @@ env:
   SECRET_KEY: insecure_test_key
 
 jobs:
+  filesize:
+    name: Check filesize
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn build
+      - run: stat -c "%s" build/css/build.css
+      - uses: actions/github-script@v1
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            core.warning(context)
+          # github.issues.createComment({
+          #   issue_number: context.issue.number,
+          #   owner: context.repo.owner,
+          #   repo: context.repo.repo,
+          #   body: '👋 Thanks for reporting!'
+          # })
   test:
     name: Test
     runs-on: ubuntu-latest
