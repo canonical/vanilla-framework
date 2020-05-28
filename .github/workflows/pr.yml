@@ -34,12 +34,24 @@ jobs:
               issue_number: issue_number,
             });
             core.warning(comments);
-          # github.issues.createComment({
-          #   issue_number: context.payload.pull_request.number,
-          #   owner: context.payload.repository.owner.login,
-          #   repo: context.payload.repository.name,
-          #   body: '👋 Thanks for reporting!'
-          # })
+
+            comments = comments.data.filter(comment => comment.user.login.indexOf("github-actions") > -1);
+
+            if (comments.length) {
+              github.issues.updateComment({
+                comment_id: comments[0].id,
+                owner: context.payload.repository.owner.login,
+                repo: context.payload.repository.name,
+                body: '👋 Thanks for reporting! Again!'
+              })
+            } else {
+              github.issues.createComment({
+                issue_number: context.payload.pull_request.number,
+                owner: context.payload.repository.owner.login,
+                repo: context.payload.repository.name,
+                body: '👋 Thanks for reporting!'
+              })
+            }
   # test:
   #   name: Test
   #   runs-on: ubuntu-latest
