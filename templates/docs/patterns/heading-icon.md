@@ -9,7 +9,7 @@ context:
 
 <hr>
 
-A header can be emphasised by adding an icon alongside the text.
+A heading can be emphasised by adding an icon alongside the text.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon/" class="js-example">
 View example of the pattern heading icons
@@ -25,7 +25,7 @@ View example of the pattern heading icon stacked
 
 ### Small
 
-The icon for this component is also available at a smaller size of 32 x 32 pixels rather than our default size of 60 x 60 pixels.
+The icon for this component is also available at a smaller size of 32 × 32 pixels rather than our default size of 60 × 60 pixels.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-small/" class="js-example">
 View example of the pattern heading icon small
@@ -44,4 +44,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ### Design
 
-For more information view the [heading icon design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon) which includes the specification in markdown format and a PNG image.
+For more information view the [heading icon design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon), which includes the specification in Markdown format and a PNG image.
