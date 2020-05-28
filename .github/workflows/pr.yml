@@ -22,13 +22,13 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            core.warning(context)
-          # github.issues.createComment({
-          #   issue_number: context.issue.number,
-          #   owner: context.repo.owner,
-          #   repo: context.repo.repo,
-          #   body: '👋 Thanks for reporting!'
-          # })
+            core.warning(context);
+            github.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.payload.pull_request.repository.owner.login,
+              repo: context.payload.pull_request.repository.name,
+              body: '👋 Thanks for reporting!'
+            })
   test:
     name: Test
     runs-on: ubuntu-latest
