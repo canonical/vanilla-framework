@@ -29,30 +29,30 @@ jobs:
               repo: context.payload.pull_request.repository.name,
               body: '👋 Thanks for reporting!'
             })
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: yarn install
-      - run: yarn build
-      - run: yarn test
-
-  docker:
-    name: Build and run
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Docker image
-        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
-      - name: Run server with Docker
-        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
-      - name: Check server status
-        run: curl localhost:${PORT}/_status/check -I
-      - name: Install linkchecker
-        run: sudo apt update && sudo apt install linkchecker
-      - name: Check internal links
-        run: linkchecker --ignore-url /search http://localhost:${PORT}
+  # test:
+  #   name: Test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 12
+  #     - run: yarn install
+  #     - run: yarn build
+  #     - run: yarn test
+  #
+  # docker:
+  #   name: Build and run
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Build Docker image
+  #       run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
+  #     - name: Run server with Docker
+  #       run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
+  #     - name: Check server status
+  #       run: curl localhost:${PORT}/_status/check -I
+  #     - name: Install linkchecker
+  #       run: sudo apt update && sudo apt install linkchecker
+  #     - name: Check internal links
+  #       run: linkchecker --ignore-url /search http://localhost:${PORT}
