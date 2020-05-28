@@ -1,103 +1,191 @@
-{% extends "_layouts/examples.html" %}
-{% block title %}Z-index{% endblock %}
+{% extends "_layouts/examples.html" %} {% block title %}Z-index{% endblock %} {% block content %}
+<header id="navigation" class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__logo">
+        <a class="p-navigation__item" href="#">
+          <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/20673d9f-lxd_primary--for-dark-bg.svg" alt="" width="95" />
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav">
+      <span class="u-off-screen">
+        <a href="#main-content">Jump to main content</a>
+      </span>
+      <ul class="p-navigation__items" role="menu">
+        <li class="p-navigation__item p-subnav" role="menuitem" id="link-1">
+          <a href="#link-1-menu" aria-controls="link-1-menu" class="p-subnav__toggle p-navigation__link">LXC</a>
+          <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-subnav__item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item p-subnav" role="menuitem" id="link-2">
+          <a href="#link-2-menu" aria-controls="link-2-menu" class="p-subnav__toggle p-navigation__link">LXD</a>
+          <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-subnav__item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item p-subnav is-active" role="menuitem" id="link-3">
+          <a href="#link-3-menu" aria-controls="link-3-menu" class="p-subnav__toggle p-navigation__link">LXCFS</a>
+          <ul class="p-subnav__items" id="link-3-menu" aria-hidden="false">
+            <li>
+              <a href="#" class="p-subnav__item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-subnav__item">Getting started</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="p-navigation__items" role="menu">
+        <li class="p-navigation__item p-subnav" role="menuitem" id="link-1">
+          <a class="p-subnav__toggle p-navigation__link" aria-controls="account-menu">
+            My account
+          </a>
+          <ul class="p-subnav__items--right" id="account-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-subnav__item">Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-{% block content %}
-<p>Lorem ipsum dolor sit amet consectetur adipiscing elit <span class="p-contextual-menu--left">
-    <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-4" aria-expanded="true" aria-haspopup="true">take action left</a>
-    <span class="p-contextual-menu__dropdown" id="menu-4" aria-hidden="false" aria-label="submenu">
-        <span class="p-contextual-menu__group">
-          <a href="#" class="p-contextual-menu__link">Commission</a>
-          <a href="#" class="p-contextual-menu__link">Aquire</a>
-          <a href="#" class="p-contextual-menu__link">Deploy</a>
-        </span>
-        <span class="p-contextual-menu__group">
-          <a href="#" class="p-contextual-menu__link">Test harware</a>
-          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
-          <a href="#" class="p-contextual-menu__link">Mark broken</a>
-        </span>
-    </span>
-</span> nunc dolor. Arcu molestie non arcu porttitor <span class="p-contextual-menu--center">
-    <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-5" aria-expanded="false" aria-haspopup="true">take action center</a>
-    <span class="p-contextual-menu__dropdown" id="menu-5" aria-hidden="true" aria-label="submenu">
-        <span class="p-contextual-menu__group">
-          <a href="#" class="p-contextual-menu__link">Commission</a>
-          <a href="#" class="p-contextual-menu__link">Aquire</a>
-          <a href="#" class="p-contextual-menu__link">Deploy</a>
-        </span>
-        <span class="p-contextual-menu__group">
-          <a href="#" class="p-contextual-menu__link">Test harware</a>
-          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
-          <a href="#" class="p-contextual-menu__link">Mark broken</a>
-        </span>
-    </span>
-</span> volutpat rutrum ipsum nunc lacus ligula ornare et diam <span class="p-contextual-menu">
-    <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-6" aria-expanded="false" aria-haspopup="true">take action right</a>
-    <span class="p-contextual-menu__dropdown" id="menu-6" aria-hidden="true" aria-label="submenu">
-        <span class="p-contextual-menu__group">
-          <a href="#" class="p-contextual-menu__link">Commission</a>
-          <a href="#" class="p-contextual-menu__link">Aquire</a>
-          <a href="#" class="p-contextual-menu__link">Deploy</a>
-        </span>
-        <span class="p-contextual-menu__group">
-          <a href="#" class="p-contextual-menu__link">Test harware</a>
-          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
-          <a href="#" class="p-contextual-menu__link">Mark broken</a>
-        </span>
-    </span>
-</span> vel eu.</p>
+<div class="p-stripe is-shallow">
+  <button id="showModal" aria-controls="modal">Show modal</button>
 
-<nav class="p-tabs">
-  <ul class="p-tabs__list" role="tablist">
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section1"
-        class="p-tabs__link"
-        tabindex="0"
-        role="tab"
-        aria-controls="section1"
-        aria-selected="true">Machine summary</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section2"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section2">Interfaces</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section3"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section3">Storage</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section4"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section4">Commissioning</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section5"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section5">Hardware tests</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section6"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section6">Logs</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section7"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section7">Event</a>
-    </li>
-    <li class="p-tabs__item" role="presentation">
-      <a href="#section8"
-        class="p-tabs__link"
-        role="tab"
-        aria-controls="section8">Configuration</a>
-    </li>
-  </ul>
-</nav>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipiscing elit
+    <span class="p-contextual-menu--left">
+      <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-4" aria-expanded="true" aria-haspopup="true">take action left</a>
+      <span class="p-contextual-menu__dropdown" id="menu-4" aria-hidden="false" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Commission</a>
+          <a href="#" class="p-contextual-menu__link">Aquire</a>
+          <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Test harware</a>
+          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+          <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+      </span>
+    </span>
+    nunc dolor. Arcu molestie non arcu porttitor
+    <span class="p-contextual-menu--center">
+      <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-5" aria-expanded="false" aria-haspopup="true">take action center</a>
+      <span class="p-contextual-menu__dropdown" id="menu-5" aria-hidden="true" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Commission</a>
+          <a href="#" class="p-contextual-menu__link">Aquire</a>
+          <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Test harware</a>
+          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+          <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+      </span>
+    </span>
+    volutpat rutrum ipsum nunc lacus ligula ornare et diam
+    <span class="p-contextual-menu">
+      <a href="#" class="p-contextual-menu__toggle" aria-controls="menu-6" aria-expanded="false" aria-haspopup="true">take action right</a>
+      <span class="p-contextual-menu__dropdown" id="menu-6" aria-hidden="true" aria-label="submenu">
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Commission</a>
+          <a href="#" class="p-contextual-menu__link">Aquire</a>
+          <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+          <a href="#" class="p-contextual-menu__link">Test harware</a>
+          <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+          <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+      </span>
+    </span>
+    vel eu.
+  </p>
+
+  <nav class="p-tabs">
+    <ul class="p-tabs__list" role="tablist">
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section1" class="p-tabs__link" tabindex="0" role="tab" aria-controls="section1" aria-selected="true">Machine summary</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section2" class="p-tabs__link" role="tab" aria-controls="section2">Interfaces</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section3" class="p-tabs__link" role="tab" aria-controls="section3">Storage</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section4" class="p-tabs__link" role="tab" aria-controls="section4">Commissioning</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section5" class="p-tabs__link" role="tab" aria-controls="section5">Hardware tests</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section6" class="p-tabs__link" role="tab" aria-controls="section6">Logs</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section7" class="p-tabs__link" role="tab" aria-controls="section7">Event</a>
+      </li>
+      <li class="p-tabs__item" role="presentation">
+        <a href="#section8" class="p-tabs__link" role="tab" aria-controls="section8">Configuration</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="p-modal" id="modal">
+    <div class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+      <header class="p-modal__header">
+        <h2 class="p-modal__title" id="modal-title">Help</h2>
+        <button class="p-modal__close" aria-label="Close active modal" aria-controls="modal">Close</button>
+      </header>
+      <p id="modal-description">Learn how to operate production-ready clusters.</p>
+      <div class="p-heading-icon--small">
+        <div class="p-heading-icon__header">
+          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/b81a45e4-kubernetes.svg" />
+          <p><a class="p-heading-icon__title" href="#tutorial/get-started-canonical-kubernetes" width="24">Kubernetes tutorial</a></p>
+        </div>
+        <div class="p-heading-icon__header">
+          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/5e3456e3-hadoop.svg" />
+          <p><a class="p-heading-icon__title" href="#tutorial/get-started-hadoop-spark" width="24">Hadoop Spark tutorial</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/modal/_script.js' %}
+</script>
 {% endblock %}
