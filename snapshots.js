@@ -4,7 +4,13 @@ const GetSiteUrls = require('get-site-urls');
 const PORT = process.env.PORT || 8101;
 
 PercyScript.run(async (page, percySnapshot) => {
-  const links = await GetSiteUrls(`http://localhost:${PORT}/`);
+  let links = await GetSiteUrls(`http://localhost:${PORT}/`);
+
+  links = links.pages
+    // only snapshot examples, not the whole site
+    .filter((url) => url.includes('/docs/examples/'))
+    // remove standalone examples listing from screenshots
+    .filter((url) => !url.match(/examples\/standalone$/));
 
   // disable JS requests to prevent CodePen from rendering examples
   await page.setRequestInterception(true);
@@ -13,8 +19,8 @@ PercyScript.run(async (page, percySnapshot) => {
     else request.continue();
   });
 
-  for (var i = 0; i < links.pages.length; i++) {
-    const url = links.pages[i];
+  for (var i = 0; i < links.length; i++) {
+    const url = links[i];
     await page.goto(url);
 
     // ensure the page has loaded before capturing a snapshot
