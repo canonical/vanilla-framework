@@ -1,7 +1,7 @@
 @import 'settings';
 
 @mixin vf-p-accordion {
-  $icon-size: map-get($icon-sizes, accordion);
+  $icon-size: map-get($icon-sizes, default);
 
   .p-accordion__list {
     list-style-type: none;
@@ -15,13 +15,17 @@
     }
   }
 
-  .p-accordion__tab {
+  .p-accordion__tab,
+  [class*='p-accordion__tab--'] {
     @extend %single-border-text-vpadding--scaling;
     @include vf-focus;
 
-    $calculated-height: $multi * $spv-inner--x-small * 2 + map-get($line-heights, default-text);
+    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
+    // and offset to align it with baseline of accordion tab text element
+    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.25rem);
+
     background: {
-      position: top 50% left $sph-inner;
+      position: top $icon-top-position left $sph-inner;
       repeat: no-repeat;
     }
 
@@ -49,6 +53,22 @@
 
       background-size: $icon-size;
     }
+  }
+
+  .p-accordion__tab--h3 {
+    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
+    // and offset to align it with baseline of accordion tab h3 element
+    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.8rem);
+
+    background-position: top $icon-top-position left $sph-inner;
+  }
+
+  .p-accordion__tab--h4 {
+    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
+    // and offset to align it with baseline of accordion tab h4 element
+    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.5rem);
+
+    background-position: top $icon-top-position left $sph-inner;
   }
 
   .p-accordion__panel {
