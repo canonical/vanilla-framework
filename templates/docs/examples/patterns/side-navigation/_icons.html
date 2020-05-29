@@ -8,8 +8,8 @@
   {% if is_dark %}
   <!-- dark background color should be changed via color theme variables, inline style is used here for example purposes -->
   {% endif %}
-  <div class="p-side-navigation__drawer" {% if is_dark %}style="background: #003b4e"{% endif %}>
-    <div class="p-side-navigation__drawer-header" {% if is_dark %}style="background: #003b4e"{% endif %}>
+  <div class="p-side-navigation__drawer" style="background: {% if is_dark %}#003b4e{% else %}#f7f7f7{% endif %}">
+    <div class="p-side-navigation__drawer-header" style="background: {% if is_dark %}#003b4e{% else %}#f7f7f7{% endif %}">
       <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer-icons">
         Toggle side navigation
       </a>
