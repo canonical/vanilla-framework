@@ -16,18 +16,9 @@
   }
 
   .p-accordion__tab,
-  [class*='p-accordion__tab--'] {
+  .p-accordion__tab--with-title {
     @extend %single-border-text-vpadding--scaling;
     @include vf-focus;
-
-    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
-    // and offset to align it with baseline of accordion tab text element
-    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.25rem);
-
-    background: {
-      position: top $icon-top-position left $sph-inner;
-      repeat: no-repeat;
-    }
 
     background-color: inherit;
     border: 0;
@@ -40,6 +31,17 @@
     transition-duration: 0s;
     width: 100%;
     z-index: 2;
+  }
+
+  .p-accordion__tab {
+    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
+    // and offset to align it with baseline of accordion tab text element
+    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.25rem);
+
+    background: {
+      position: top $icon-top-position left $sph-inner;
+      repeat: no-repeat;
+    }
 
     // aria-selected controls the open and closed state for the accordion tab
     &[aria-expanded='true'] {
@@ -55,20 +57,44 @@
     }
   }
 
-  .p-accordion__tab--h3 {
-    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
-    // and offset to align it with baseline of accordion tab h3 element
-    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.8rem);
+  .p-accordion__title {
+    margin-bottom: 0;
+    padding-top: 0;
+    position: relative;
 
-    background-position: top $icon-top-position left $sph-inner;
+    &::before {
+      // attempt to align icon on the baseline
+      $icon-top-position: calc(#{$baseline-position} - #{$icon-size} + 0.25rem);
+
+      background-size: $icon-size;
+      content: '';
+      display: block;
+      height: $icon-size;
+      left: -$icon-size - $sph-inner;
+      position: absolute;
+      top: $icon-top-position;
+      width: $icon-size;
+    }
   }
 
-  .p-accordion__tab--h4 {
-    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
-    // and offset to align it with baseline of accordion tab h4 element
-    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.5rem);
+  // stylelint-disable-next-line selector-no-qualifying-type
+  h2.p-accordion__title::before {
+    $icon-size-h2: $x-height;
+    // attempt to align icon on the baseline
+    $icon-top-position: calc(#{$baseline-position} - #{$icon-size-h2} + 0.25rem);
 
-    background-position: top $icon-top-position left $sph-inner;
+    background-size: $icon-size-h2;
+    height: $icon-size-h2;
+    top: $icon-top-position;
+    width: $icon-size-h2;
+  }
+
+  .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
+    @include vf-icon-minus($color-mid-dark);
+  }
+
+  .p-accordion__tab--with-title[aria-expanded='false'] .p-accordion__title::before {
+    @include vf-icon-plus($color-mid-dark);
   }
 
   .p-accordion__panel {
