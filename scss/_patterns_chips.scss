@@ -1,17 +1,17 @@
 @import 'settings';
 
 // Default label styling
-@mixin vf-p-chip {
+@mixin vf-p-chips {
   %p-chip {
-    @extend %default-text;
+    @extend %small-text;
 
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 1rem;
     cursor: pointer;
     display: block;
-    margin-bottom: $spv-inner--small;
+    margin-bottom: $sp-unit + $spv-inner--small - 2 * map-get($nudges, nudge--small);
     margin-right: $sph-inner--small;
-    padding: $spv-inner--x-small $sph-inner;
+    padding: map-get($nudges, nudge--small) $sph-inner;
     white-space: nowrap;
 
     &:hover {
@@ -19,7 +19,11 @@
     }
 
     &.is-selected {
-      background-color: rgba(0, 0, 0, 0.15);
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.23);
+      }
     }
 
     &:active {
@@ -34,8 +38,11 @@
 
     &__category {
       @extend %muted-text;
+      @extend %vf-pseudo-border--top;
 
-      border-top: 1px solid $colors--light-theme--border-low-contrast;
+      &::after {
+        background-color: $colors--light-theme--border-low-contrast;
+      }
     }
 
     &__chips-list {
