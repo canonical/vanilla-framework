@@ -61,33 +61,36 @@
     margin-bottom: 0;
     padding-top: 0;
     position: relative;
+    text-indent: -$sph-inner - $icon-size;
 
     &::before {
-      // attempt to align icon on the baseline
-      $icon-top-position: calc(#{$baseline-position} - #{$icon-size} + 0.25rem);
-
       background-size: $icon-size;
       content: '';
-      display: block;
+      display: inline-block;
       height: $icon-size;
-      left: -$icon-size - $sph-inner;
-      position: absolute;
-      top: $icon-top-position;
+      margin-right: $sph-inner;
       width: $icon-size;
     }
   }
 
-  // stylelint-disable-next-line selector-no-qualifying-type
+  // stylelint-disable selector-no-qualifying-type
   h2.p-accordion__title::before {
+    // make icon bigger for h2 (same as p-icon)
     $icon-size-h2: $x-height;
-    // attempt to align icon on the baseline
-    $icon-top-position: calc(#{$baseline-position} - #{$icon-size-h2} + 0.25rem);
 
     background-size: $icon-size-h2;
     height: $icon-size-h2;
-    top: $icon-top-position;
     width: $icon-size-h2;
   }
+
+  h5.p-accordion__title::before,
+  h6.p-accordion__title::before {
+    // align icon within font metrics same as p-icon pattern
+    $vertical-offset: 0.5px;
+
+    vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $icon-size});
+  }
+  // stylelint-enable selector-no-qualifying-type
 
   .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
     @include vf-icon-minus($color-mid-dark);
