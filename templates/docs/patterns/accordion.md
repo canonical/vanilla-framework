@@ -24,6 +24,16 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
 View example of the accordion pattern
 </a></div>
 
+### Headings
+
+To use headings in the accordion buttons use `.p-accordion__tab--with-title` class on the button and `.p-accordion__title` on the heading element inside it.
+
+Heading levels from `h2` up to `h6` are supported in the accordion pattern. Heading `h1` should not be used in the accordion, as it's reserved for the top-level title of the page. Also, make sure to use the same level of heading in all accordion buttons to ensure the same level in the document hierarchy.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/accordion/headings/" class="js-example">
+View example of the accordion pattern with headings
+</a></div>
+
 ### Functionality
 
 Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the accordion will be open by default. When clicking on the `accordion__tab`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the panel.
