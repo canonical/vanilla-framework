@@ -1,4 +1,6 @@
 @import 'settings';
+$active-background-opacity-percentage: $active-background-opacity-amount * 100;
+$hover-background-opacity-percentage: $hover-background-opacity-amount * 100;
 
 // Default button styling
 @mixin vf-p-buttons {
@@ -44,11 +46,11 @@
       $button-background-color: $color-brand,
       $button-border-color: $color-brand,
       $button-text-color: vf-contrast-text-color($color-brand),
-      $button-hover-background-color: scale-color($color-brand, $lightness: -$hover-background-darken-amount * 100),
+      $button-hover-background-color: scale-color($color-brand, $lightness: -$hover-background-opacity-percentage),
       $button-disabled-background-color: $color-brand,
       $button-disabled-border-color: $color-brand,
-      $button-active-background-color: scale-color($color-brand, $lightness: -$active-background-darken-amount * 100),
-      $button-active-border-color: scale-color($color-brand, $lightness: -$active-background-darken-amount * 100)
+      $button-active-background-color: scale-color($color-brand, $lightness: -$active-background-opacity-percentage),
+      $button-active-border-color: scale-color($color-brand, $lightness: -$active-background-opacity-percentage)
     );
   }
 
@@ -65,10 +67,10 @@
       $button-background-color: $color-positive,
       $button-border-color: $color-positive,
       $button-text-color: $color-x-light,
-      $button-hover-background-color: scale-color($color-positive, $lightness: -$hover-background-darken-amount * 100),
+      $button-hover-background-color: scale-color($color-positive, $lightness: -$hover-background-opacity-percentage),
       $button-disabled-background-color: $color-positive,
       $button-disabled-border-color: $color-positive,
-      $button-active-background-color: scale-color($color-positive, $lightness: -$active-background-darken-amount * 100)
+      $button-active-background-color: scale-color($color-positive, $lightness: -$active-background-opacity-percentage)
     );
 
     @include vf-focus($color-focus-positive);
@@ -87,11 +89,11 @@
       $button-background-color: $color-negative,
       $button-border-color: $color-negative,
       $button-text-color: $color-x-light,
-      $button-hover-background-color: scale-color($color-negative, $lightness: -$hover-background-darken-amount * 100),
+      $button-hover-background-color: scale-color($color-negative, $lightness: -$hover-background-opacity-percentage),
       $button-disabled-background-color: $color-negative,
       $button-disabled-border-color: $color-negative,
-      $button-active-background-color: scale-color($color-negative, $lightness: -$hover-background-darken-amount * 100),
-      $button-active-border-color: scale-color($color-negative, $lightness: -$hover-background-darken-amount * 100)
+      $button-active-background-color: scale-color($color-negative, $lightness: -$active-background-opacity-percentage),
+      $button-active-border-color: scale-color($color-negative, $lightness: -$active-background-opacity-percentage)
     );
 
     @include vf-focus($color-focus-negative);
@@ -110,9 +112,9 @@
       $button-background-color: $color-transparent,
       $button-border-color: $color-transparent,
       $button-text-color: $color-dark,
-      $button-hover-background-color: scale-color($color-x-light, $lightness: -$hover-background-darken-amount * 100),
+      $button-hover-background-color: scale-color($color-x-light, $lightness: -$hover-background-opacity-percentage),
       $button-hover-border-color: $color-transparent,
-      $button-active-background-color: scale-color($color-x-light, $lightness: -$active-background-darken-amount * 100),
+      $button-active-background-color: scale-color($color-x-light, $lightness: -$active-background-opacity-percentage),
       $button-active-border-color: $color-transparent
     );
   }
