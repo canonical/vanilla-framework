@@ -377,8 +377,10 @@
     $color-sidenav-background-overlay,
   // text color of highlighted items
     $color-sidenav-text-active,
-  // background color of active/hovered items
-    $color-sidenav-item-background-highlight,
+  // background color of active items
+    $color-sidenav-item-background-active,
+  // background color of hovered items
+    $color-sidenav-item-background-hover,
   // border color of active item
     $color-sidenav-item-border-highlight,
   // border color of items list
@@ -405,9 +407,9 @@
       $button-background-color: $color-transparent,
       $button-border-color: $color-transparent,
       $button-text-color: $color-sidenav-text-default,
-      $button-hover-background-color: $color-sidenav-item-background-highlight,
+      $button-hover-background-color: $color-sidenav-item-background-hover,
       $button-hover-border-color: $color-transparent,
-      $button-active-background-color: $color-sidenav-item-background-highlight,
+      $button-active-background-color: $color-sidenav-item-background-active,
       $button-active-border-color: $color-transparent
     );
 
@@ -439,18 +441,22 @@
       color: $color-sidenav-text-default;
     }
 
-    &:hover,
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      background: $color-sidenav-item-background-highlight;
+    &:hover {
+      background: $color-sidenav-item-background-hover;
       color: $color-sidenav-text-active;
+    }
+
+    &:active {
+      background: $color-sidenav-item-background-active;
     }
 
     &.is-active,
     &[aria-current='page'],
     &[aria-current='true'] {
       @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
+
+      background: $color-sidenav-item-background-hover;
+      color: $color-sidenav-text-active;
     }
   }
 
@@ -469,7 +475,8 @@
     $color-sidenav-background-default: $colors--light-theme--background-default,
     $color-sidenav-background-overlay: $colors--light-theme--background-overlay,
     $color-sidenav-text-active: $colors--light-theme--text-default,
-    $color-sidenav-item-background-highlight: $colors--light-theme--background-highlight,
+    $color-sidenav-item-background-active: $colors--light-theme--background-active,
+    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
     $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
     $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
     $color-sidenav-toggle-icon: $colors--light-theme--text-muted
@@ -486,7 +493,8 @@
     $color-sidenav-background-default: $colors--dark-theme--background-default,
     $color-sidenav-background-overlay: $colors--dark-theme--background-overlay,
     $color-sidenav-text-active: $colors--dark-theme--text-default,
-    $color-sidenav-item-background-highlight: $colors--dark-theme--background-highlight,
+    $color-sidenav-item-background-active: $colors--dark-theme--background-active,
+    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
     $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
     $color-sidenav-list-border: $colors--dark-theme--border-low-contrast,
     $color-sidenav-toggle-icon: #999
@@ -499,8 +507,10 @@
     $color-sidenav-text-default,
   // text color of highlighted items
     $color-sidenav-text-active,
-  // background color of active/hovered items
-    $color-sidenav-item-background-highlight,
+  // background color of active items
+    $color-sidenav-item-background-active,
+  // background color of hovered items
+    $color-sidenav-item-background-hover,
   // border color of active item
     $color-sidenav-item-border-highlight,
   // border color of items list
@@ -517,18 +527,22 @@
       color: $color-sidenav-text-default;
     }
 
-    &:hover,
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      background: $color-sidenav-item-background-highlight;
+    &:hover {
+      background: $color-sidenav-item-background-hover;
       color: $color-sidenav-text-active;
+    }
+
+    &:active {
+      background: $color-sidenav-item-background-active;
     }
 
     &.is-active,
     &[aria-current='page'],
     &[aria-current='true'] {
       @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
+
+      background: $color-sidenav-item-background-hover;
+      color: $color-sidenav-text-active;
     }
   }
   // stylelint-enable selector-no-qualifying-type
@@ -538,7 +552,8 @@
   @include vf-side-navigation-raw-html-theme(
     $color-sidenav-text-default: $colors--light-theme--text-muted,
     $color-sidenav-text-active: $colors--light-theme--text-default,
-    $color-sidenav-item-background-highlight: $colors--light-theme--background-highlight,
+    $color-sidenav-item-background-active: $colors--light-theme--background-active,
+    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
     $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
     $color-sidenav-list-border: $colors--light-theme--border-low-contrast
   );
@@ -548,7 +563,8 @@
   @include vf-side-navigation-raw-html-theme(
     $color-sidenav-text-default: $colors--dark-theme--text-muted,
     $color-sidenav-text-active: $colors--dark-theme--text-default,
-    $color-sidenav-item-background-highlight: $colors--dark-theme--background-highlight,
+    $color-sidenav-item-background-active: $colors--dark-theme--background-active,
+    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
     $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
     $color-sidenav-list-border: $colors--dark-theme--border-low-contrast
   );
