@@ -10,7 +10,7 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.12
+### What's new in Vanilla 2.13
 
 <table>
   <thead>
@@ -22,6 +22,29 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.13 -->
+    <tr>
+      <th><a href="/docs/patterns/accordion#headings">Accordion</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.13.0</td>
+      <td>We updated accordion component with a new `.p-accordion__tab--with-title` variant that allows using headings in accordion buttons.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 2.12 -->
     <tr>
       <th><a href="/docs/base/typography#muted-text">Muted text</a></th>
       <td><div class="p-label--new">New</div></td>
@@ -40,21 +63,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.12.0</td>
       <td>The <code>p-icon--question</code> has been deprecated will be removed in future release v3.0. Please use existing `.p-icon--help` icon instead.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.11.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
