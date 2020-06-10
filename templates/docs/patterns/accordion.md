@@ -6,6 +6,8 @@ context:
 
 ## Accordion
 
+<span class="p-label--updated">Updated</span>
+
 <hr>
 
 The sidebar accordion, used in listing pages or as navigation, can hold multiple navigation items or to be used as a filter for content.
@@ -25,6 +27,8 @@ View example of the accordion pattern
 </a></div>
 
 ### Headings
+
+<span class="p-label--new">New</span>
 
 To use headings in the accordion buttons use `.p-accordion__tab--with-title` class on the button and `.p-accordion__title` on the heading element inside it.
 
