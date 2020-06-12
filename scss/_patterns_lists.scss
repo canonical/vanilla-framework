@@ -239,10 +239,22 @@ $spv-list-item--inner: null;
 
     .p-stepped-list__item {
       @extend %vf-row;
-      @extend %vf-pseudo-border--top;
       @include vf-b-row-reset;
 
-      padding-top: $sp-unit;
+      @media (min-width: $breakpoint-medium) {
+        padding-top: $sp-unit;
+        position: relative;
+
+        &::after {
+          background-color: $colors--light-theme--border-low-contrast;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
     }
   }
 }
