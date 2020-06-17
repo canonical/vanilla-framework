@@ -1,0 +1,35 @@
+domain: vanillaframework.io
+
+image: prod-comms.docker-registry.canonical.com/vanillaframework.io
+
+useProxy: false
+
+env:
+  - name: SEARCH_API_KEY
+    secretKeyRef:
+      key: google-custom-search-key
+      name: google-api
+
+extraHosts:
+  - domain: docs.vanillaframework.io
+
+production:
+  replicas: 5
+  nginxConfigurationSnippet: |
+    if ($host = 'docs.vanillaframework.io' ) {
+      rewrite ^ https://vanillaframework.io/docs$request_uri? permanent;
+    }
+    if ($host != 'vanillaframework.io' ) {
+      rewrite ^ https://vanillaframework.io$request_uri? permanent;
+    }
+
+    more_set_headers "Link: <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>; rel=preconnect";
+
+staging:
+  replicas: 3
+  nginxConfigurationSnippet: |
+    if ($host = 'docs.staging.vanillaframework.io' ) {
+      rewrite ^ https://staging.vanillaframework.io/docs$request_uri? permanent;
+    }
+    more_set_headers "X-Robots-Tag: noindex";
+    more_set_headers "Link: <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>; rel=preconnect";
