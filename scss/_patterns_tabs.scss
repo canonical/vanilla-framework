@@ -76,6 +76,16 @@
         z-index: 1;
       }
 
+      // make sure tab strip border doesn't overlap focus outline
+      &:focus {
+        z-index: 1;
+
+        &::before,
+        &::after {
+          content: none;
+        }
+      }
+
       &:hover,
       &[aria-selected='true'] {
         @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
