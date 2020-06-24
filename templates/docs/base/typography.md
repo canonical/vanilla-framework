@@ -220,7 +220,7 @@ The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-
 $font-display-option: <auto | block | swap | fallback | optional>;
 ```
 
-For the web fonts loaded by Vanilla we set `font-display` to `optional` by default.
+The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_base_fontfaces.scss) is set to `optional`.
 
 ### Import
 
