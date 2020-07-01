@@ -32,10 +32,11 @@ $spv-list-item--inner: null;
 @mixin vf-inline-list-item {
   display: inline;
   list-style: none;
+  margin-right: $sph-outer;
 
-  &:not(:last-of-type),
-  &:not(.last-item) {
-    margin-right: $sph-outer;
+  &.last-item,
+  &:last-of-type {
+    margin-right: 0;
   }
 }
 
@@ -131,6 +132,20 @@ $spv-list-item--inner: null;
           content: '';
         }
       }
+    }
+  }
+}
+
+@mixin vf-p-inline-list-stretch {
+  .p-inline-list--stretch {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    padding-left: 0;
+
+    .p-inline-list__item {
+      flex: 1 auto;
+      list-style: none;
     }
   }
 }
@@ -338,6 +353,7 @@ $spv-list-item--inner: null;
   @include vf-p-list-item-state;
   @include vf-p-inline-list;
   @include vf-p-inline-list-middot;
+  @include vf-p-inline-list-stretch;
   @include vf-p-stepped-list;
   @include vf-p-stepped-list-detailed;
   @include vf-p-list-split;
