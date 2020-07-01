@@ -76,6 +76,22 @@ inline list items.
 View example of the middot list pattern
 </a></div>
 
+### Inline stretched
+
+<span class="p-label--new">New</span>
+
+Apply the class `.p-inline-list--stretch` to stretch the list items along the whole width of the container.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-inline-stretch/" class="js-example">
+View example of the stretched list pattern
+</a></div>
+
+You can use align utilities to align content of the individual items.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-inline-stretch-align/" class="js-example">
+View example of the stretched list pattern with alignment
+</a></div>
+
 ### Vertical stepped
 
 If you want to display a list of items that form a set of steps — like a

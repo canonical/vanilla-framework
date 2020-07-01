@@ -10,7 +10,7 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.13
+### What's new in Vanilla 2.14
 
 <table>
   <thead>
@@ -22,12 +22,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.13 -->
+    <!-- 2.14 -->
     <tr>
-      <th><a href="/docs/patterns/accordion#headings">Accordion</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.13.0</td>
-      <td>We updated accordion component with a new `.p-accordion__tab--with-title` variant that allows using headings in accordion buttons.</td>
+      <th><a href="/docs/patterns/lists#inline-stretched">List inline stretched</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.14.0</td>
+      <td>We added new <code>.p-inline-list--stretch</code> list variant that can be used to lay out list items across whole width of their container.</td>
     </tr>
   </tbody>
 </table>
@@ -44,6 +44,13 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.13 -->
+    <tr>
+      <th><a href="/docs/patterns/accordion#headings">Accordion</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.13.0</td>
+      <td>We updated accordion component with a new <code>.p-accordion__tab--with-title</code> variant that allows using headings in accordion buttons.</td>
+    </tr>
     <!-- 2.12 -->
     <tr>
       <th><a href="/docs/base/typography#muted-text">Muted text</a></th>
