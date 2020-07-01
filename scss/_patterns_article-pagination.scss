@@ -34,7 +34,7 @@
     }
   }
 
-  .p-article-pagination__link {
+  %p-article-pagination__link {
     margin-top: 0;
     padding: $sp-medium;
     position: relative;
@@ -46,8 +46,12 @@
     }
   }
 
+  .p-article-pagination__link {
+    @extend %p-article-pagination__link;
+  }
+
   .p-article-pagination__link--previous {
-    @extend .p-article-pagination__link; // stylelint-disable-line scss/at-extend-no-missing-placeholder
+    @extend %p-article-pagination__link;
 
     padding-left: $sp-xx-large;
     text-align: left;
@@ -75,7 +79,7 @@
   }
 
   .p-article-pagination__link--next {
-    @extend .p-article-pagination__link; // stylelint-disable-line scss/at-extend-no-missing-placeholder
+    @extend %p-article-pagination__link;
 
     padding-right: $sp-xx-large;
     text-align: right;
