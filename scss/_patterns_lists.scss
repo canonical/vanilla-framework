@@ -7,6 +7,49 @@ $spv-list-item--inner: null;
   $spv-list-item--inner: 0;
 }
 
+@mixin vf-p-list-placeholders {
+  %numbered-step-container {
+    counter-reset: li;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  %numbered-step-title {
+    display: flex;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    &::before {
+      align-self: start;
+      background-color: $color-mid-x-light;
+      border-radius: 100%;
+      content: counter(li);
+      counter-increment: li;
+      direction: rtl;
+      display: block;
+      text-align: center;
+    }
+  }
+
+  // Mixin for list items
+  %vf-list-item {
+    padding-bottom: $spv-list-item--inner;
+    padding-top: $spv-list-item--inner;
+
+    form & {
+      padding-bottom: 0;
+      padding-top: 0;
+
+      label {
+        margin-bottom: $spv-nudge-compensation;
+      }
+    }
+  }
+}
+
 @mixin vf-list-item-divided {
   position: relative;
 
@@ -224,7 +267,6 @@ $spv-list-item--inner: null;
 
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
-    // $bullet-offset:
     @extend %numbered-step-container;
 
     margin-left: auto;
@@ -305,48 +347,7 @@ $spv-list-item--inner: null;
 }
 
 @mixin vf-p-lists {
-  //Placeholders
-
-  %numbered-step-container {
-    counter-reset: li;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding-left: 0;
-  }
-
-  %numbered-step-title {
-    display: flex;
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-
-    &::before {
-      align-self: start;
-      background-color: $color-mid-x-light;
-      border-radius: 100%;
-      content: counter(li);
-      counter-increment: li;
-      direction: rtl;
-      display: block;
-      text-align: center;
-    }
-  }
-
-  // Mixin for list items
-  %vf-list-item {
-    padding-bottom: $spv-list-item--inner;
-    padding-top: $spv-list-item--inner;
-
-    form & {
-      padding-bottom: 0;
-      padding-top: 0;
-
-      label {
-        margin-bottom: $spv-nudge-compensation;
-      }
-    }
-  }
+  @include vf-p-list-placeholders;
 
   @include vf-p-list;
   @include vf-p-list-divided;
