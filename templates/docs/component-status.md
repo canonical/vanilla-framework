@@ -27,7 +27,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/lists#inline-stretched">List inline stretched</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.14.0</td>
-      <td>We added new <code>.p-inline-list--stretch</code> list variant that can be used to lay out list items across whole width of their container.</td>
+      <td>We added the new <code>.p-inline-list--stretch</code> list variant that arranges items so they span the full width of the parent container.</td>
     </tr>
   </tbody>
 </table>
@@ -49,7 +49,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/accordion#headings">Accordion</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.13.0</td>
-      <td>We updated accordion component with a new <code>.p-accordion__tab--with-title</code> variant that allows using headings in accordion buttons.</td>
+      <td>We updated the accordion component with a new <code>.p-accordion__tab--with-title</code> variant that allows using headings in accordion buttons.</td>
     </tr>
     <!-- 2.12 -->
     <tr>
