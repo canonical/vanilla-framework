@@ -121,7 +121,7 @@ View example of the patterns list split
 
 ### Import
 
-To import just this base element into your project, copy the snippet below and include it in your main Sass file.
+To import list patterns into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
 @import 'patterns_lists';
@@ -137,6 +137,24 @@ To add dividers into your project, copy the snippet below and include it in your
 // grid column classes are used within divider component, so you need to include grid pattern as well
 @import 'patterns_grid';
 @include vf-p-grid;
+```
+
+To include individual list patterns you need to include the `vf-p-list-placeholders` mixin first.
+
+```scss
+@import 'patterns_lists';
+@include vf-p-list-placeholders;
+
+// choose individual list patterns to include
+@include vf-p-list;
+@include vf-p-list-divided;
+@include vf-p-list-item-state;
+@include vf-p-inline-list;
+@include vf-p-inline-list-middot;
+@include vf-p-inline-list-stretch;
+@include vf-p-stepped-list;
+@include vf-p-stepped-list-detailed;
+@include vf-p-list-split;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
