@@ -1,0 +1,48 @@
+@import 'settings';
+
+@mixin vf-p-chip {
+  .p-chip {
+    @extend %small-text;
+    background-color: rgba($color-x-dark, 0.05);
+    border-radius: 1rem;
+    display: inline-flex;
+    height: 1.25rem;
+    margin-bottom: 0;
+    margin-right: $sph-inner--small;
+    padding: 0 $sph-inner map-get($nudges, nudge--small);
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: rgba($color-x-dark, 0.08);
+    }
+
+    &.is-selected {
+      background-color: rgba($color-x-dark, 0.2);
+
+      &:hover {
+        background-color: rgba($color-x-dark, 0.23);
+      }
+    }
+
+    &:active {
+      background-color: rgba($color-x-dark, 0.2);
+    }
+
+    .p-chip__dismiss {
+      @include vf-button-pattern(
+        $button-background-color: transparent,
+        $button-border-color: transparent,
+        $button-hover-background-color: transparent,
+        $button-hover-border-color: transparent
+      );
+
+      height: 1rem;
+      left: $sph-inner--small / 2;
+      line-height: 1rem;
+      margin-bottom: 0;
+      padding: 0 $sp-xx-small;
+      position: relative;
+    }
+  }
+}
