@@ -1,0 +1,101 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Application{% endblock %}
+
+{% block content %}
+
+<div class="l-application">
+  <div class="l-navigation-bar">
+    <span class="js-menu-toggle">Menu</span>
+  </div>
+
+  <div class="l-navigation is-collapsed">
+    <div class="l-navigation__content">
+      <div class="poc-navigation-controls">
+        <button class="p-button--base has-icon u-no-margin poc-navigation__close js-menu-close"><i class="p-icon--close"></i></button>
+        <button class="p-button--base has-icon u-no-margin poc-navigation__pin js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
+      </div>
+      <div class="poc-side-navigation">
+        <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+        <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+        <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+        <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="l-main">
+    <h3>Content</h3>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content</p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+  </div>
+</div>
+
+<style>
+  body { margin: 0; }
+
+  /* proof of concept dummy styling for contents of side navigation components: */
+
+  .poc-side-navigation,
+  .poc-navigation-controls {
+    background: #111;
+    color: #FFF;
+    padding: 10px;
+  }
+
+  .poc-navigation-controls {
+    display: flex;
+    flex-direction: row-reverse;
+    position: sticky;
+    top: 0;
+  }
+
+  .poc-navigation__pin {
+    display: none;
+  }
+
+  @media (min-width: 620px) {
+    .poc-navigation__close {
+      display: none;
+    }
+
+    .poc-navigation__pin {
+      display: block;
+    }
+  }
+
+  .p-icon--pin {
+    background: url("https://assets.ubuntu.com/v1/5cca09bb-pin.svg");
+  }
+
+  @media (min-width: 1032px) {
+    .poc-navigation-controls {
+      display: none;
+    }
+  }
+
+</style>
+
+<script>
+  document.querySelector(".js-menu-toggle").addEventListener("click", function() {
+    document.querySelector(".l-navigation").classList.toggle("is-collapsed");
+  });
+  document.querySelector(".js-menu-close").addEventListener("click", function() {
+    document.querySelector(".l-navigation").classList.add("is-collapsed");
+  });
+
+  document.querySelector(".js-menu-pin").addEventListener("click", function() {
+    document.querySelector(".l-application").classList.toggle("has-pinned-navigation");
+    if (document.querySelector(".l-application").classList.contains("has-pinned-navigation")) {
+      document.querySelector(".js-menu-pin").querySelector('i').classList.remove('p-icon--pin');
+    } else {
+      document.querySelector(".js-menu-pin").querySelector('i').classList.add('p-icon--pin');
+    }
+  });
+</script>
+{% endblock %}
