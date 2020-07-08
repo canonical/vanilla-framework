@@ -1,0 +1,162 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Application{% endblock %}
+
+{% block content %}
+
+<div class="l-app">
+  <div class="l-toggle">
+    <span class="js-menu-toggle">Menu</span>
+  </div>
+  <div class="l-sidebar is-hidden">
+    <p class="pin" style="text-align: right"><span class="js-menu-pin">Pin</span></p>
+    <p class="toggle" style="text-align: right"><span class="js-menu-close">Close</span></p>
+    <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+    <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+    <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+    <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+
+
+  </div>
+  <div class="l-main">
+    <p>Content</p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+
+
+  </div>
+</div>
+
+<style>
+  body { margin: 0; }
+
+
+
+  .l-toggle {
+    color: #FFF;
+    background: #111;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 5px;
+  }
+
+  .l-sidebar .pin {
+    display: none;
+  }
+
+  @media (min-width: 800px) {
+    .l-sidebar .toggle,
+    .l-toggle {
+      display: none;
+    }
+  }
+
+  .l-app {
+    min-height: 100vh;
+  }
+
+  .l-sidebar {
+    color: #FFF;
+    background: #111;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+
+    padding: 10px;
+  }
+
+  @media (max-width: 300px) {
+    .l-sidebar {
+      width: 100%;
+    }
+  }
+
+  .l-main {
+    padding: 10px;
+  }
+
+  @media (min-width: 800px) {
+    .l-sidebar .pin {
+      display: block;
+    }
+
+    .l-sidebar {
+
+          width: 50px;
+          white-space: nowrap;
+          transition: width 100ms;
+    }
+
+    .l-sidebar:hover {
+      width: 200px;
+    }
+
+    .l-main {
+      margin-left: 50px;
+    }
+
+    .l-sidebar.is-pinned {
+      width: 200px;
+    }
+
+    .l-sidebar.is-pinned + .l-main {
+      margin-left: 200px;
+    }
+  }
+
+  .is-hidden {
+    display: none;
+  }
+
+  @media (min-width: 800px) {
+    .is-hidden {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .l-sidebar .pin {
+      display: none;
+    }
+
+    .l-sidebar {
+      width: 200px;
+    }
+
+    .l-sidebar + .l-main {
+      margin-left: 200px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelector(".js-menu-toggle").addEventListener("click", function() {
+    document.querySelector(".l-sidebar").classList.toggle("is-hidden");
+  });
+  document.querySelector(".js-menu-close").addEventListener("click", function() {
+    document.querySelector(".l-sidebar").classList.add("is-hidden");
+  });
+  document.querySelector(".js-menu-pin").addEventListener("click", function() {
+    document.querySelector(".l-sidebar").classList.toggle("is-pinned");
+    if (document.querySelector(".l-sidebar").classList.contains("is-pinned")) {
+      document.querySelector(".js-menu-pin").innerText = "Unpin"
+    } else {
+      document.querySelector(".js-menu-pin").innerText = "Pin"
+    }
+  });
+</script>
+{% endblock %}
