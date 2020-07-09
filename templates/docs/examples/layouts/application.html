@@ -19,6 +19,7 @@
   </div>
   <div class="l-main">
     <p>Content</p>
+    <button class="js-aside-toggle">Toggle aside panel</button>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
@@ -30,6 +31,17 @@
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
 
 
+  </div>
+
+  <div class="l-aside is-hidden">
+    <p>Right aside panel</p>
+    <button class="js-aside-close">Close aside panel</button>
+    <p>
+    <span class="js-resize-aside" style="cursor:grab; writing-mode: vertical-lr;">[Drag me to resize]</span>
+    </p>
+  </div>
+  <div class="l-status">
+    Status bar... <span class="js-resize" style="cursor:grab">[Drag me to resize]</span>
   </div>
 </div>
 
@@ -43,14 +55,21 @@
   /* small screen */
  .l-app {
    display: grid;
-   grid-template-columns: min-content 1fr;
+   grid-template-columns: min-content 1fr min-content;
    grid-template-rows: min-content 1fr min-content;
    grid-template-areas:
-    "side top"
-    "side main"
-    "side bottom";
+    "side top top"
+    "side main right"
+    "side bottom right";
    height: 100vh;
    width: 100vw;
+ }
+
+ .l-aside {
+   grid-area: right;
+   width: 300px;
+   background: #777;
+   padding: 10px;
  }
 
   .l-toggle {
@@ -80,6 +99,12 @@
     overflow-y: auto;
 
     padding: 10px;
+  }
+
+  .l-status {
+    background: #CCC;
+    height: 30px;
+    grid-area: bottom;
   }
 
   .is-hidden {
@@ -164,6 +189,14 @@
   document.querySelector(".js-menu-close").addEventListener("click", function() {
     document.querySelector(".l-sidebar").classList.add("is-hidden");
   });
+
+  document.querySelector(".js-aside-toggle").addEventListener("click", function() {
+    document.querySelector(".l-aside").classList.toggle("is-hidden");
+  });
+  document.querySelector(".js-aside-close").addEventListener("click", function() {
+    document.querySelector(".l-aside").classList.add("is-hidden");
+  });
+
   document.querySelector(".js-menu-pin").addEventListener("click", function() {
     document.querySelector(".l-app").classList.toggle("is-pinned");
     if (document.querySelector(".l-app").classList.contains("is-pinned")) {
@@ -172,5 +205,54 @@
       document.querySelector(".js-menu-pin").innerText = "Pin"
     }
   });
+
+  var statusBar = document.querySelector(".l-status");
+  var startX, startY, startHeight = 30;
+  document.querySelector(".js-resize").addEventListener('mousedown', initDrag, false);
+
+  function initDrag(e) {
+     startX = e.clientX;
+     startY = e.clientY;
+     startHeight = parseInt(document.defaultView.getComputedStyle(statusBar).height, 10);
+     document.documentElement.addEventListener('mousemove', doDrag, false);
+     document.documentElement.addEventListener('mouseup', stopDrag, false);
+  }
+
+  function doDrag(e) {
+     var h = (startHeight + startY - e.clientY);
+     if (h >= 30) {
+       statusBar.style.height = h + 'px';
+     }
+  }
+
+  function stopDrag(e) {
+      document.documentElement.removeEventListener('mousemove', doDrag, false);
+      document.documentElement.removeEventListener('mouseup', stopDrag, false);
+  }
+
+
+  var asidePanel = document.querySelector(".l-aside");
+  var startX, startY, startWidth = 100;
+  document.querySelector(".js-resize-aside").addEventListener('mousedown', initDragAside, false);
+
+  function initDragAside(e) {
+     startX = e.clientX;
+     startY = e.clientY;
+     startWidth = parseInt(document.defaultView.getComputedStyle(asidePanel).width, 10);
+     document.documentElement.addEventListener('mousemove', doDragAside, false);
+     document.documentElement.addEventListener('mouseup', stopDragAside, false);
+  }
+
+  function doDragAside(e) {
+     var w = (startWidth + startX - e.clientX);
+     if (w >= 100) {
+       asidePanel.style.width = w + 'px';
+     }
+  }
+
+  function stopDragAside(e) {
+      document.documentElement.removeEventListener('mousemove', doDragAside, false);
+      document.documentElement.removeEventListener('mouseup', stopDragAside, false);
+  }
 </script>
 {% endblock %}
