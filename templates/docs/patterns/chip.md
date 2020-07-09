@@ -10,7 +10,7 @@ context:
 
 Our chip component is to be used to display small actionable pieces of information.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
 View example of the default chip pattern
 </a></div>
 
