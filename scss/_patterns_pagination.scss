@@ -2,39 +2,8 @@
 
 @mixin vf-p-pagination {
   %pagination-link {
-    @include vf-focus;
-
-    border-color: $color-mid;
-    border-radius: $border-radius;
-    border-style: solid;
-    border-width: 1px;
-    color: $color-dark;
-    display: block;
-    padding: calc(#{$spv-nudge} - 1px) $sph-inner;
-    text-decoration: none;
-
-    &.is-disabled {
-      opacity: 0.5;
-
-      &:hover {
-        background-color: transparent;
-      }
-    }
-
-    &:hover,
-    &:focus,
-    &:visited,
-    &.is-active {
-      background-color: darken($color-x-light, 10%);
-      border-color: $color-mid;
-      color: $color-dark;
-      text-decoration: none;
-    }
-
-    &:active {
-      background-color: darken($color-x-light, 15%);
-      border-color: $color-mid;
-    }
+    @extend %vf-button-base;
+    @include vf-button-pattern;
   }
 
   .p-pagination {
@@ -71,16 +40,29 @@
   .p-pagination__link--previous,
   .p-pagination__link--next {
     @extend %pagination-link;
-
-    padding-left: $sph-inner--small;
-    padding-right: $sph-inner--small;
   }
 
-  .p-pagination__link--previous .p-icon--contextual-menu {
-    transform: rotate(0.25turn);
-  }
+  [class*='p-icon'] {
+    .p-pagination__link--next &,
+    .p-pagination__link--previous & {
+      margin-left: $sph-inner--small;
+      margin-right: $sph-inner--small;
 
-  .p-pagination__link--next .p-icon--contextual-menu {
-    transform: rotate(-0.25turn);
+      &:first-child {
+        margin-left: -#{$sph-inner--small};
+      }
+
+      &:last-child {
+        margin-right: -#{$sph-inner--small};
+      }
+    }
+
+    .p-pagination__link--previous & {
+      transform: rotate(0.25turn);
+    }
+
+    .p-pagination__link--next & {
+      transform: rotate(-0.25turn);
+    }
   }
 }

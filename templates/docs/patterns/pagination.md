@@ -8,7 +8,7 @@ context:
 
 <hr>
 
-The pagination component should be used to navigate between pages of content. Depending on the length provided, the pagination component will automatically scale.
+Use the pagination component to paginate large sets of data:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pagination/pagination" class="js-example">
 View example of the pagination pattern
@@ -16,21 +16,29 @@ View example of the pagination pattern
 
 ### Truncated
 
-When it is not possible to fit all pages into the component, a truncated option should be used to give the first, last and as many siblings of the current page as possible.
+Use the truncated version when the number of pages is too large to comfortably display a button for each page:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pagination/pagination-truncated" class="js-example">
 View example of the pagination pattern
 </a></div>
 
+### Previous / next buttons only
+
+If the total number of pages is not known, you may use the previous / next buttons only. Consider using text labels in addition to the chevrons:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/pagination/pagination-verbose" class="js-example">
+View example of the pagination pattern
+</a></div>
+
 ### Disabled controls
 
-When a user is at the first or last item then the previous or next button, respectively, should be disabled.
+Disable or omit the previous and next buttons when displaying the first or last page of the paginated set:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pagination/pagination-disabled" class="js-example">
 View example of the pagination pattern
 </a></div>
 
-### Import
+### Import the pagination component
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -44,8 +52,21 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-p-icon-contextual-menu;
 ```
 
+### Providing context
+
+In some cases, providing information about the previous / next item in the set may be more important than being able to quckly jump to an arbitrary page. Examples of this could be chronologically ordered blog posts, articles, a sequence of instructions that need to be performed in a sequence, etc. In those cases, consider using the article pagination pattern:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/article-pagination" class="js-example">
+View example of the article pagination pattern
+</a></div>
+
+### Import the article pagination component
+
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_article-pagination';
+@include vf-p-article-pagination;
+```
+
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
-
-### Design
-
-For more information [view the pagination design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Pagination), which includes the specification in markdown format and a PNG image.
