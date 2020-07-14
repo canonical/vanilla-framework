@@ -30,8 +30,8 @@ function generateMetrics(file, metricsArray) {
     },
     {
       name: 'Selectors per rule',
-      benchmark: 2,
-      threshold: 2.5,
+      benchmark: 3,
+      threshold: 3.5,
       result: results['selectors-per-rule'],
     },
     {
