@@ -7,6 +7,7 @@
   <div class="l-toggle">
     <span class="js-menu-toggle">Menu</span>
   </div>
+
   <div class="l-sidebar is-hidden">
     <p class="pin" style="text-align: right"><span class="js-menu-pin">Pin</span></p>
     <p class="toggle" style="text-align: right"><span class="js-menu-close">Close</span></p>
@@ -14,12 +15,15 @@
     <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
     <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
     <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
-
-
   </div>
+
   <div class="l-main">
     <p>Content</p>
     <button class="js-aside-toggle">Toggle aside panel</button>
+    <button class="js-overlay-toggle">Toggle overlay panel</button>
+    <p><button class="js-overlay-align-toggle">Toggle aligned overlay panel</button> Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p class='u-align--right'><button class="js-overlay-align-toggle">Toggle aligned overlay panel</button></p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content</p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
@@ -27,10 +31,20 @@
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+  </div>
 
-
+  <div class="l-main-overlay is-hidden">
+    <p>Overlay panel</p>
+    <button class="js-overlay-close">Close overlay panel</button>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
   </div>
 
   <div class="l-aside is-hidden">
@@ -40,6 +54,7 @@
     <span class="js-resize-aside" style="cursor:grab; writing-mode: vertical-lr;">[Drag me to resize]</span>
     </p>
   </div>
+
   <div class="l-status">
     Status bar... <span class="js-resize" style="cursor:grab">[Drag me to resize]</span>
   </div>
@@ -85,6 +100,22 @@
     grid-area: main;
     overflow-y: auto;
     padding: 10px;
+  }
+
+  .l-main-overlay {
+      grid-area: main;
+      justify-self: right;
+      max-width: 500px;
+      background: #f4f4f4;
+      box-shadow: rgba(0,0,0,0.5) 0 0 10px;
+      overflow-y: auto;
+      padding: 10px;
+  }
+
+  .l-main-overlay.is-aligned {
+    justify-self: initial;
+    max-width: none;
+    /* use margin-left to position left side of overlay panel */
   }
 
   .l-sidebar {
@@ -196,6 +227,28 @@
   document.querySelector(".js-aside-close").addEventListener("click", function() {
     document.querySelector(".l-aside").classList.add("is-hidden");
   });
+
+  document.querySelector(".js-overlay-toggle").addEventListener("click", function() {
+    document.querySelector(".l-main-overlay").classList.remove("is-aligned");
+    document.querySelector(".l-main-overlay").style.marginLeft = '';
+    document.querySelector(".l-main-overlay").classList.toggle("is-hidden");
+  });
+  document.querySelector(".js-overlay-close").addEventListener("click", function() {
+    document.querySelector(".l-main-overlay").classList.remove("is-aligned");
+    document.querySelector(".l-main-overlay").style.marginLeft = '';
+    document.querySelector(".l-main-overlay").classList.add("is-hidden");
+  });
+
+  document.querySelectorAll(".js-overlay-align-toggle").forEach((button) => {
+    button.addEventListener("click", function() {
+      document.querySelector(".l-main-overlay").classList.remove("is-hidden");
+      document.querySelector(".l-main-overlay").classList.add("is-aligned");
+      var offset = button.getBoundingClientRect().right - document.querySelector(".l-main").getBoundingClientRect().left;
+      document.querySelector(".l-main-overlay").style.marginLeft = offset + "px";
+    });
+  })
+
+
 
   document.querySelector(".js-menu-pin").addEventListener("click", function() {
     document.querySelector(".l-app").classList.toggle("is-pinned");
