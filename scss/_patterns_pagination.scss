@@ -4,12 +4,19 @@
   %pagination-link {
     @extend %vf-button-base;
     @include vf-button-pattern;
+
+    &.is-active {
+      background-color: scale-color($color-x-light, $lightness: -$active-background-opacity-amount * 100);
+      color: $color-dark;
+      text-decoration: none;
+    }
   }
 
   .p-pagination {
     display: flex;
     flex-direction: row;
     list-style: none;
+    margin-bottom: 0;
     margin-left: 0;
     padding-left: 0;
   }
