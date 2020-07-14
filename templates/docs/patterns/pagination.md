@@ -27,7 +27,7 @@ View example of the pagination pattern
 If the total number of pages is not known, you may use the previous / next buttons only. Consider using text labels in addition to the chevrons:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pagination/pagination-verbose" class="js-example">
-View example of the pagination pattern
+View example of the pagination with previous / next buttons only
 </a></div>
 
 ### Disabled controls
