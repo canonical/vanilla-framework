@@ -1,0 +1,107 @@
+@mixin vf-l-application {
+  .l-application {
+    display: grid;
+    grid-template-areas:
+      'nav  navbar navbar'
+      'nav  main   aside'
+      'nav  status aside';
+    grid-template-columns: min-content 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  // Top navigation bar to toggle side navigation on small screens
+  .l-navigation-bar {
+    background: #111;
+    color: #fff;
+    grid-area: navbar;
+    padding: 5px;
+    text-align: right;
+  }
+
+  // Navigation panel/drawer
+  .l-navigation {
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    @media (min-width: $breakpoint-x-small) {
+      width: auto;
+    }
+
+    &.is-collapsed {
+      width: 0;
+    }
+  }
+
+  $layout-navigation-collapsed-width: 3rem;
+  $layout-navigation-expanded-width: 15rem;
+
+  .l-navigation__content {
+    width: auto;
+
+    @media (min-width: $breakpoint-x-small) {
+      width: $layout-navigation-expanded-width;
+    }
+  }
+
+  @media (min-width: $breakpoint-small) {
+    .l-navigation-bar {
+      display: none;
+    }
+
+    .l-application {
+      grid-template-columns: $layout-navigation-collapsed-width 1fr min-content;
+    }
+
+    .l-navigation {
+      transition: width 100ms;
+      width: $layout-navigation-collapsed-width;
+
+      &.is-collapsed {
+        width: $layout-navigation-collapsed-width;
+      }
+    }
+
+    .l-navigation:hover {
+      width: $layout-navigation-expanded-width;
+    }
+
+    .l-application.has-pinned-navigation {
+      grid-template-columns: min-content 1fr min-content;
+
+      & .l-navigation {
+        grid-area: nav;
+        position: static;
+        width: $layout-navigation-expanded-width;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-large) {
+    .l-application {
+      grid-template-columns: min-content 1fr min-content;
+    }
+
+    .l-navigation {
+      grid-area: nav;
+      position: static;
+      width: $layout-navigation-expanded-width;
+
+      &.is-collapsed {
+        width: $layout-navigation-expanded-width;
+      }
+    }
+  }
+
+  .l-main {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 10px;
+  }
+}
