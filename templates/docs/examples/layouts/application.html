@@ -5,7 +5,9 @@
 
 <div class="l-application">
   <div class="l-navigation-bar">
-    <span class="js-menu-toggle">Menu</span>
+    <div class="poc-navigation-bar">
+      <span class="js-menu-toggle">Menu</span>
+    </div>
   </div>
 
   <div class="l-navigation is-collapsed">
@@ -24,15 +26,53 @@
   </div>
 
   <div class="l-main">
-    <h3>Content</h3>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content</p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-    <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <div class="row u-no-margin">
+      <div class="col-12">
+        <h3>Content</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Foundation Cloud</th>
+              <th>Foundation Cloud Plus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Expert delivery of an Ubuntu OpenStack cloud</th>
+              <td>Reference architecture</td>
+              <td>Custom architecture</td>
+            </tr>
+            <tr>
+              <th>Workshop and training</th>
+              <td>2-days</td>
+              <td>4-days</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>One-time price</th>
+              <td>$75,000</td>
+              <td>$150,000</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content</p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="l-status">
+    <div class="poc-status">Status bar</div>
   </div>
 </div>
 
@@ -40,6 +80,13 @@
   body { margin: 0; }
 
   /* proof of concept dummy styling for contents of side navigation components: */
+
+  .poc-navigation-bar {
+    background: #111;
+    color: #fff;
+    padding: 5px;
+    text-align: right;
+  }
 
   .poc-side-navigation,
   .poc-navigation-controls {
@@ -74,11 +121,15 @@
   }
 
   @media (min-width: 1032px) {
-    .poc-navigation-controls {
+    .poc-side-navigation__controls {
       display: none;
     }
   }
 
+  .poc-status {
+    padding: 10px;
+    background: #CCC;
+  }
 </style>
 
 <script>
