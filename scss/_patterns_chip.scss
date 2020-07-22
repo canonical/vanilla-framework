@@ -1,13 +1,84 @@
 @import 'settings';
 
 @mixin vf-p-chip {
+  $chip-height: map-get($line-heights, small) + 2 * map-get($nudges, nudge--small);
+  $chip-margin-bottom: $spv-outer--small-scaleable - 2 * map-get($nudges, nudge--small);
+
+  // XXX: the popover styles are just here to verify the popover works with the chip styles, will be removed
+  .search-and-filter {
+    [class*='p-contextual-menu'],
+    .p-contextual-menu__dropdown {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .p-contextual-menu__dropdown {
+      left: 0;
+      padding: 1rem;
+      top: 0;
+    }
+
+    .p-search-box {
+      margin: 0;
+    }
+
+    &__panel {
+      padding: 0;
+      transition: opacity 0.25s;
+
+      &[aria-hidden='true'] {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .filter-panel-section {
+    margin: 0 0 $spv-outer--scaleable - $chip-margin-bottom;
+
+    & + & {
+      border-top: 1px solid $color-mid-x-light;
+      padding-top: $sp-unit;
+    }
+
+    &__heading {
+      color: $color-mid-dark;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    &__chips {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-height: 2 * $chip-height + 2 * $chip-margin-bottom;
+      overflow: hidden;
+      padding-right: 1.25rem;
+      position: relative;
+    }
+
+    &__counter {
+      bottom: 0;
+      color: $color-information;
+      position: absolute;
+      right: 0.25rem;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  // end of popover styles
+
   .p-chip {
     @extend %small-text;
 
     background-color: rgba($color-x-dark, 0.05);
     border-radius: 1rem;
-    display: inline-flex;
-    margin-bottom: 0;
+    display: inline;
+    margin-bottom: $chip-margin-bottom;
     margin-right: $sph-inner--small;
     padding: map-get($nudges, nudge--small) $sph-inner;
     user-select: none;
@@ -30,14 +101,17 @@
     }
 
     .p-chip__lead {
-      font-size: #{map-get($font-sizes, x-small)}rem;
-      padding-right: $sph-inner--small / 2;
+      @extend %x-small-text;
+
+      display: inline;
       text-transform: uppercase;
     }
 
     .p-chip__value {
+      @extend %small-text;
+
+      display: inline;
       position: relative;
-      top: -1px;
     }
 
     .p-chip__dismiss {
@@ -48,13 +122,11 @@
         $button-hover-border-color: transparent
       );
 
-      height: 1rem;
-      left: $sph-inner--small / 2;
+      display: inline;
       line-height: 1rem;
-      margin-bottom: 0;
-      padding: 0 $sp-xx-small;
+      margin-right: -#{$sp-unit};
+      padding: 0;
       position: relative;
-      top: -0.1rem;
     }
   }
 }

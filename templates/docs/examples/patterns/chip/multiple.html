@@ -4,6 +4,7 @@
 {% block standalone_css %}patterns_chip{% endblock %}
 
 {% block content %}
+<p style="display:inline;">A paragraph</p>
 <div class="p-chip">
   <span class="p-chip__lead">Owner:</span>
   <span class="p-chip__value">Anna</span>
@@ -37,5 +38,43 @@
   <button class="p-chip__dismiss">
     <i class="p-icon--close">Dismiss</i>
   </button>
+</div>
+<div class="search-and-filter">
+  <form class="p-search-box"><label class="u-off-screen" for="search">Search and filter</label><input autocomplete="off" class="p-search-box__input" id="search" name="search" placeholder="Search and filter" type="search" value=""><button alt="search" class="p-search-box__button" type="submit"><i class="p-icon--search">Search</i></button></form>
+  <div class="search-and-filter__panel" aria-hidden="false">
+    <div><span class="p-contextual-menu--left"><span class="p-contextual-menu__dropdown" aria-hidden="true" aria-label="submenu">
+          <div class="filter-panel-section" aria-expanded="false">
+            <h3 class="p-muted-heading">Clouds</h3>
+            <div class="filter-panel-section__chips">
+              <div class="p-chip">Google</div>
+              <div class="p-chip">AWS</div>
+              <div class="p-chip">Azure</div>
+            </div>
+          </div>
+          <div class="filter-panel-section" aria-expanded="false">
+            <h3 class="p-muted-heading">Regions</h3>
+            <div class="filter-panel-section__chips">
+              <div class="p-chip">us-east1</div>
+              <div class="p-chip">us-north2</div>
+              <div class="p-chip">us-south3</div>
+              <div class="p-chip">us-north4</div>
+              <div class="p-chip">us-east5</div>
+              <div class="p-chip">us-south6</div>
+              <div class="p-chip">us-east7</div>
+              <div class="p-chip">us-east8</div>
+              <div class="p-chip">us-east9</div>
+              <div class="p-chip">us-east10</div><span class="filter-panel-section__counter" tabindex="0">+4</span>
+            </div>
+          </div>
+          <div class="filter-panel-section" aria-expanded="false">
+            <h3 class="p-muted-heading">Owner</h3>
+            <div class="filter-panel-section__chips">
+              <div class="p-chip">foo</div>
+              <div class="p-chip">bar</div>
+              <div class="p-chip">baz</div>
+            </div>
+          </div>
+        </span></span></div>
+  </div>
 </div>
 {% endblock %}
