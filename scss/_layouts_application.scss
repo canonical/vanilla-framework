@@ -25,6 +25,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 102; // consistent with side-navigation component, above global nav
 
     @media (min-width: $breakpoint-x-small) {
       width: auto;
@@ -108,5 +109,15 @@
     @extend %vf-has-box-shadow;
 
     grid-area: aside;
+    z-index: 101; // below side nav, above anything else
+  }
+
+  .l-overlay {
+    @extend %vf-has-box-shadow;
+
+    grid-area: main;
+    justify-self: right;
+    overflow-y: auto;
+    z-index: 101; // below side nav, above anything else
   }
 }
