@@ -65,6 +65,9 @@
         <p>
           <button class="js-aside-toggle">Toggle aside panel</button>
         </p>
+        <p>
+          <button class="js-overlay-toggle">Toggle overlay panel</button>
+        </p>
         <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content</p>
         <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
         <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
@@ -74,6 +77,22 @@
         <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
         <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
       </div>
+    </div>
+  </div>
+
+  <div class="l-overlay -u-hide">
+    <div class="poc-overlay-content">
+      <p>Overlay panel</p>
+      <button class="js-overlay-close">Close overlay panel</button>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
     </div>
   </div>
 
@@ -153,6 +172,14 @@
     width: 300px;
     padding: 10px;
     min-height: 100vh;
+    background: #FFF;
+  }
+
+  .poc-overlay-content {
+    max-width: 500px;
+    padding: 10px;
+    min-height: 100%;
+    background: #FFF;
   }
 </style>
 
@@ -169,6 +196,13 @@
   });
   document.querySelector(".js-aside-close").addEventListener("click", function() {
     document.querySelector(".l-aside").classList.add("u-hide");
+  });
+
+  document.querySelector(".js-overlay-toggle").addEventListener("click", function() {
+    document.querySelector(".l-overlay").classList.toggle("u-hide");
+  });
+  document.querySelector(".js-overlay-close").addEventListener("click", function() {
+    document.querySelector(".l-overlay").classList.add("u-hide");
   });
 
   document.querySelector(".js-menu-pin").addEventListener("click", function() {
