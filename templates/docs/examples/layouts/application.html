@@ -2,6 +2,7 @@
 {% block title %}Application{% endblock %}
 
 {% block content %}
+{% set is_dark = True %}
 
 <div class="l-application">
   <div class="l-navigation-bar">
@@ -10,89 +11,283 @@
     </div>
   </div>
 
-  <div class="l-navigation is-collapsed">
+  <div class="l-navigation has-brand-background is-collapsed">
+    <div class="l-navigation__header">
+          <a class="l-navigation__logo" href="#">
+            <img class="l-navigation__image" src="https://assets.ubuntu.com/v1/0b2b7bce-Vanilla-logo_88x24px_white.svg" alt="Vanilla framework logo" height="24">
+          </a>
+          <div class="poc-side-navigation__controls">
+            <button class="p-button--base has-icon u-no-margin poc-navigation__close js-menu-close"><i class="p-icon--close"></i></button>
+            <button class="p-button--base has-icon u-no-margin poc-navigation__pin js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
+          </div>
+        </li>
+      </ul>
+    </div>
     <div class="l-navigation__content">
       <div class="poc-side-navigation">
-        <div class="poc-side-navigation__controls">
-          <button class="p-button--base has-icon u-no-margin poc-navigation__close js-menu-close"><i class="p-icon--close"></i></button>
-          <button class="p-button--base has-icon u-no-margin poc-navigation__pin js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
-        </div>
         <div class="poc-side-navigation__items">
-          <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
-          <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
-          <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
-          <p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p><p>Menu item</p>
+          {% include "docs/examples/patterns/side-navigation/_icons.html" %}
         </div>
-
       </div>
     </div>
   </div>
 
   <div class="l-main">
-    <div class="row u-no-margin">
-      <div class="col-12">
-        <h3>Content</h3>
-
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Foundation Cloud</th>
-              <th>Foundation Cloud Plus</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Expert delivery of an Ubuntu OpenStack cloud</th>
-              <td>Reference architecture</td>
-              <td>Custom architecture</td>
-            </tr>
-            <tr>
-              <th>Workshop and training</th>
-              <td>2-days</td>
-              <td>4-days</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th>One-time price</th>
-              <td>$75,000</td>
-              <td>$150,000</td>
-            </tr>
-          </tfoot>
-        </table>
-
-        <p>
-          <button class="js-aside-toggle">Toggle aside panel</button>
-        </p>
-        <p>
-          <button class="js-overlay-toggle">Toggle overlay panel</button>
-        </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content</p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-        <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <div class="u-fixed-width">
+      <div class="l-main__header">
+        <h4 class="u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
+        <div>
+          <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
+          <button class="u-no-margin--bottom js-overlay-toggle">Toggle overlay</button>
+        </div>
+      </div>
+    </div>
+    <div class="l-main__content">
+      <div class="u-fixed-width">
+        <div class="status-group u-overflow--scroll">
+          <table role="grid" class="p-main-table">
+            <thead>
+              <tr role="row">
+                <th role="columnheader"><span class="status-icon is-blocked">Blocked (3)</span></th>
+                <th role="columnheader"></th>
+                <th role="columnheader">Owner</th>
+                <th role="columnheader">Cloud/Region</th>
+                <th role="columnheader">Credential</th>
+                <th role="columnheader">Controller</th>
+                <th role="columnheader" class="u-align--right">Last Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row" data-test-model-uuid="2f995dee-392e-4459-8eb9-839c501590af">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/gomboli@external/hadoopspark">hadoopspark</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>11</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>6</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-east1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">Algebra-json</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+              <tr role="row" data-test-model-uuid="d291b9ed-1e66-4023-84fe-57130e17a0b2">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/gomboli@external/mymodel4">mymodel4</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>7</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>11</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>11</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+              <tr role="row" data-test-model-uuid="5f612488-b60b-4256-814a-ba1abaa7db23">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/gomboli@external/testing">testing</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>2</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>2</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>4</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/europe-west1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+            </tbody>
+          </table>
+          <table role="grid" class="p-main-table">
+            <thead>
+              <tr role="row">
+                <th role="columnheader"><span class="status-icon is-alert">Alert (2)</span></th>
+                <th role="columnheader"></th>
+                <th role="columnheader">Owner</th>
+                <th role="columnheader">Cloud/Region</th>
+                <th role="columnheader">Credential</th>
+                <th role="columnheader">Controller</th>
+                <th role="columnheader" class="u-align--right">Last Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row" data-test-model-uuid="e1e81a64-3385-4779-8643-05e3d5ed4523">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/gomboli@external/canonical-kubernetes">canonical-kubernetes</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>6</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+              <tr role="row" data-test-model-uuid="7ffe956a-06ac-4ae9-8aac-04eba4a93da5">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/gomboli@external/mymodel">mymodel</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>6</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-east1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+            </tbody>
+          </table>
+          <table role="grid" class="p-main-table">
+            <thead>
+              <tr role="row">
+                <th role="columnheader"><span class="status-icon is-running">Running (3)</span></th>
+                <th role="columnheader"></th>
+                <th role="columnheader">Owner</th>
+                <th role="columnheader">Cloud/Region</th>
+                <th role="columnheader">Credential</th>
+                <th role="columnheader">Controller</th>
+                <th role="columnheader" class="u-align--right">Last Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row" data-test-model-uuid="57650e3c-815f-4540-89df-81fd5d70b7ef">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/hatch@external/group-test">group-test</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>9</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">hatch</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">admin</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+              <tr role="row" data-test-model-uuid="e6782960-fb0b-460e-82a1-64ee03f9a39b">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/hatch@external/new-search-aggregate">new-search-aggregate</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>2</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">hatch</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">jujuongce</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+              <tr role="row" data-test-model-uuid="930f4bb0-070a-462a-8d4e-19d9772c08f2">
+                <td role="gridcell" class="" data-test-column="name">
+                  <div><a href="/models/hatch@external/unplaced">unplaced</a></div>
+                </td>
+                <td role="gridcell" class="u-overflow--visible" data-test-column="summary">
+                  <div class="u-flex">
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/apps-icon.a62950aa.svg" alt="" class="p-icon"><span>5</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Applications</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/units-icon.271ea6ce.svg" alt="" class="p-icon"><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Units</span>
+                    </div>
+                    <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr">
+                      <div class="has-icon"><img src="/static/media/machines-icon.fe4dad8b.svg" alt="" class="p-icon"><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr">Machines</span>
+                    </div>
+                  </div>
+                </td>
+                <td role="gridcell" class="" data-test-column="owner"><a href="#_" class="p-link--soft">hatch</a></td>
+                <td role="gridcell" class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                <td role="gridcell" class="" data-test-column="credential"><a href="#_" class="p-link--soft">juju</a></td>
+                <td role="gridcell" class="" data-test-column="controller">JAAS</td>
+                <td role="gridcell" class="u-align--right" data-test-column="updated">2020-06-17</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="l-overlay -u-hide">
-    <div class="poc-overlay-content">
-      <p>Overlay panel</p>
-      <button class="js-overlay-close">Close overlay panel</button>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
-      <p>Content content content content contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent contentcontent content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+  <div class="l-overlay">
+    <div class="u-fixed-width">
+      <div class="l-overlay__header">
+        <h4 class="u-no-margin--bottom">Overlay panel</h4>
+        <button class="p-button--base js-overlay-close u-no-margin--bottom"><i class="p-icon--close"></i></button>
+      </div>
+    </div>
+    <div class="l-overlay__content">
+      {% include "docs/examples/patterns/forms/form-stacked.html" %}
     </div>
   </div>
 
@@ -101,9 +296,14 @@
   </div>
 
   <div class="l-aside u-hide">
-    <div class="poc-aside-content">
-      <p>Right aside panel</p>
-      <button class="js-aside-close">Close aside panel</button>
+    <div class="u-fixed-width">
+      <div class="l-aside__header">
+        <h4>Right aside panel</h4>
+        <button class="p-button--base js-aside-close"><i class="p-icon--close"></i></button>
+      </div>
+    </div>
+    <div class="l-aside__content">
+      {% include "docs/examples/patterns/forms/form-stacked.html" %}
     </div>
   </div>
 </div>
@@ -116,7 +316,6 @@
   .poc-navigation-bar {
     background: #111;
     color: #fff;
-    padding: 5px;
     text-align: right;
   }
 
@@ -126,13 +325,8 @@
     min-height: 100vh;
   }
 
-  .poc-side-navigation__items {
-    padding: 10px;
-  }
-
   .poc-side-navigation__controls {
     background: #111;
-    padding: 10px;
     display: flex;
     flex-direction: row-reverse;
     position: sticky;
@@ -163,11 +357,6 @@
     }
   }
 
-  .poc-status {
-    padding: 10px;
-    background: #CCC;
-  }
-
   .poc-aside-content {
     width: 300px;
     padding: 10px;
@@ -176,10 +365,10 @@
   }
 
   .poc-overlay-content {
-    max-width: 500px;
-    padding: 10px;
+    max-width: 33vw;
+    padding: 1.5rem;
     min-height: 100%;
-    background: #FFF;
+    background: #fff;
   }
 </style>
 
