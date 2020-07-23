@@ -77,7 +77,7 @@
     @extend %small-text;
 
     background-color: rgba($color-x-dark, 0.05);
-    border-radius: 1rem;
+    border-radius: $chip-height * 0.5;
     display: inline;
     margin-bottom: $chip-margin-bottom;
     margin-right: $sph-inner--small;
@@ -90,15 +90,15 @@
     }
 
     &.is-selected {
-      background-color: rgba($color-x-dark, 0.2);
+      background-color: rgba($color-x-dark, 0.15);
 
       &:hover {
-        background-color: rgba($color-x-dark, 0.23);
+        background-color: rgba($color-x-dark, 0.18);
       }
     }
 
     &:active {
-      background-color: rgba($color-x-dark, 0.2);
+      background-color: rgba($color-x-dark, 0.15);
     }
 
     .p-chip__lead {
@@ -130,6 +130,10 @@
       padding: 0;
       position: relative;
       top: 0.05rem;
+
+      @media only screen and (max-width: $breakpoint-x-small) {
+        width: auto;
+      }
     }
   }
 }
