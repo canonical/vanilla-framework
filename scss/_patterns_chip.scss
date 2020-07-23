@@ -1,8 +1,9 @@
 @import 'settings';
 
 @mixin vf-p-chip {
-  $chip-height: map-get($line-heights, small) + 2 * map-get($nudges, nudge--small);
-  $chip-margin-bottom: $spv-outer--small-scaleable - 2 * map-get($nudges, nudge--small);
+  $chip-vertical-padding: map-get($nudges, nudge--small);
+  $chip-height: map-get($line-heights, small) + 2 * $chip-vertical-padding;
+  $chip-margin-bottom: $spv-outer--small-scaleable - 2 * $chip-vertical-padding;
 
   // XXX: the popover styles are just here to verify the popover works with the chip styles, will be removed
   .search-and-filter {
@@ -80,7 +81,7 @@
     display: inline;
     margin-bottom: $chip-margin-bottom;
     margin-right: $sph-inner--small;
-    padding: map-get($nudges, nudge--small) $sph-inner;
+    padding: $chip-vertical-padding $sph-inner;
     user-select: none;
     white-space: nowrap;
 
