@@ -1,4 +1,17 @@
 @mixin vf-l-application {
+  $header-padding-bottom: $sp-unit * 6;
+
+  %panel-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $header-padding-bottom;
+    padding-top: $spv-outer--medium;
+  }
+
+  %panel-drop-shadow {
+    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+  }
+
   .l-application {
     display: grid;
     grid-template-areas:
@@ -9,6 +22,11 @@
     grid-template-rows: min-content 1fr min-content;
     height: 100vh;
     width: 100vw;
+
+    // temporary, as I don't want to change the global setting
+    & .u-fixed-width {
+      max-width: 95rem;
+    }
   }
 
   // Top navigation bar to toggle side navigation on small screens
@@ -33,6 +51,24 @@
 
     &.is-collapsed {
       width: 0;
+    }
+
+    &__header {
+      @extend %vf-grid-container-padding;
+      @extend %panel-header;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      display: block;
+      max-height: 1.5rem;
+      width: auto;
+    }
+
+    &.has-brand-background {
+      background: $color-brand-background;
     }
   }
 
@@ -99,25 +135,46 @@
   .l-main {
     grid-area: main;
     overflow-y: auto;
+
+    &__header {
+      @extend %panel-header;
+    }
   }
 
   .l-status {
+    @extend %vf-grid-container-padding;
+
+    background-color: $colors--light-theme--background-alt;
+    border-top: 1px solid $colors--light-theme--border-low-contrast;
+    display: flex;
     grid-area: status;
+    justify-content: space-between;
+    padding-bottom: $spv-inner--medium;
+    padding-top: $spv-inner--medium;
+    z-index: 103;
   }
 
   .l-aside {
-    @extend %vf-has-box-shadow;
-
+    border-left: 1px solid $colors--light-theme--border-low-contrast;
     grid-area: aside;
     z-index: 101; // below side nav, above anything else
+
+    &__header {
+      @extend %panel-header;
+    }
   }
 
   .l-overlay {
-    @extend %vf-has-box-shadow;
+    @extend %panel-drop-shadow;
 
+    background: $colors--light-theme--background-default;
     grid-area: main;
     justify-self: right;
     overflow-y: auto;
     z-index: 101; // below side nav, above anything else
+
+    &__header {
+      @extend %panel-header;
+    }
   }
 }
