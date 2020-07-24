@@ -1,0 +1,85 @@
+@mixin vf-l-application-panels {
+  $header-padding-bottom: $sp-unit * 6;
+
+  %panel-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $header-padding-bottom;
+    padding-top: $spv-outer--medium;
+  }
+
+  %panel-drop-shadow {
+    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+  }
+
+  .l-application {
+    // temporary, as I don't want to change the global setting
+    // TODO: should be in panel, not in application
+    & .u-fixed-width {
+      max-width: 95rem;
+    }
+  }
+
+  .l-header-toolbar {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+  }
+
+  // Navigation panel/drawer
+  .l-navigation {
+    &__header {
+      @extend %vf-grid-container-padding;
+      @extend %panel-header;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      display: block;
+      max-height: 1.5rem;
+      width: auto;
+    }
+
+    &.has-brand-background {
+      background: $color-brand-background;
+    }
+  }
+
+  .l-main {
+    &__header {
+      @extend %panel-header;
+    }
+  }
+
+  .l-status {
+    @extend %vf-grid-container-padding;
+
+    background-color: $colors--light-theme--background-alt;
+    border-top: 1px solid $colors--light-theme--border-low-contrast;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $spv-inner--medium;
+    padding-top: $spv-inner--medium;
+    z-index: 103;
+  }
+
+  .l-aside {
+    border-left: 1px solid $colors--light-theme--border-low-contrast;
+
+    &__header {
+      @extend %panel-header;
+    }
+  }
+
+  .l-overlay {
+    @extend %panel-drop-shadow;
+
+    background: $colors--light-theme--background-default;
+
+    &__header {
+      @extend %panel-header;
+    }
+  }
+}
