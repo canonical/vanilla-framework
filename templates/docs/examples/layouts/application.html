@@ -6,22 +6,22 @@
 
 <div class="l-application">
   <div class="l-navigation-bar">
-    <div class="poc-navigation-bar">
+    <div class="p-demo-navigation_bar">
       <span class="js-menu-toggle">Menu</span>
     </div>
   </div>
 
-  <div class="l-navigation has-brand-background is-collapsed">
-    <div class="l-navigation__header">
-      <a class="l-navigation__logo" href="#">
-        <img class="l-navigation__image" src="https://assets.ubuntu.com/v1/0b2b7bce-Vanilla-logo_88x24px_white.svg" alt="Vanilla framework logo" height="24">
-      </a>
-      <div class="poc-side-navigation__controls">
-        <button class="p-button--base has-icon u-no-margin poc-navigation__close js-menu-close"><i class="p-icon--close"></i></button>
-        <button class="p-button--base has-icon u-no-margin poc-navigation__pin js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
-      </div>
-    </div>
+  <div class="l-navigation p-panel--navigation has-brand-background is-collapsed">
     <div class="l-navigation__content">
+      <div class="p-panel__header">
+        <a class="p-panel__logo" href="#">
+          <img class="l-navigation__image" src="https://assets.ubuntu.com/v1/0b2b7bce-Vanilla-logo_88x24px_white.svg" alt="Vanilla framework logo" height="24">
+        </a>
+        <div class="p-demo-controls">
+          <button class="p-button--base has-icon u-no-margin p-demo-navigation__close js-menu-close"><i class="p-icon--close"></i></button>
+          <button class="p-button--base has-icon u-no-margin p-demo-navigation__pin js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
+        </div>
+      </div>
       <div class="poc-side-navigation">
         <div class="poc-side-navigation__items">
           {% include "docs/examples/patterns/side-navigation/_icons.html" %}
@@ -32,15 +32,15 @@
 
   <div class="l-main">
     <div class="u-fixed-width u-sv-2">
-      <div class="l-main__header">
+      <div class="p-panel__header">
         <h4 class="u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
-        <div class="l-header-toolbar">
+        <div class="p-demo-header-toolbar">
           <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
           <button class="u-no-margin--bottom js-overlay-toggle">Toggle overlay</button>
         </div>
       </div>
     </div>
-    <div class="l-main__content">
+    <div class="p-panel__content">
       <div class="u-fixed-width">
         <div class="status-group u-overflow--scroll">
           <table role="grid" class="p-main-table">
@@ -277,9 +277,9 @@
     </div>
   </div>
 
-  <div class="l-overlay">
+  <div class="l-overlay p-panel--demo-overlay">
     <div class="u-fixed-width u-sv-2">
-      <div class="l-overlay__header">
+      <div class="p-panel__header">
         <h4 class="u-no-margin--bottom">Overlay panel</h4>
         <button class="p-button--base js-overlay-close u-no-margin--bottom"><i class="p-icon--close"></i></button>
       </div>
@@ -289,13 +289,13 @@
     </div>
   </div>
 
-  <div class="l-status">
+  <div class="l-status p-demo-status">
     <div class="poc-status">Status bar</div>
   </div>
 
-  <div class="l-aside u-hide">
+  <div class="l-aside u-hide p-panel--demo-aside">
     <div class="u-fixed-width u-sv-2">
-      <div class="l-aside__header">
+      <div class="p-panel__header">
         <h4 class="u-no-margin--bottom">Right aside panel</h4>
         <button class="u-no-margin--bottom p-button--base js-aside-close"><i class="p-icon--close"></i></button>
       </div>
@@ -309,64 +309,8 @@
 <style>
   body { margin: 0; }
 
-  /* proof of concept dummy styling for contents of side navigation components: */
-
-  .poc-navigation-bar {
-    background: #111;
-    color: #fff;
-    text-align: right;
-  }
-
-  .poc-side-navigation {
-    background: #111;
-    color: #FFF;
-    min-height: 100vh;
-  }
-
-  .poc-side-navigation__controls {
-    background: #111;
-    display: flex;
-    flex-direction: row-reverse;
-    position: sticky;
-    top: 0;
-  }
-
-  .poc-navigation__pin {
-    display: none;
-  }
-
-  @media (min-width: 620px) {
-    .poc-navigation__close {
-      display: none;
-    }
-
-    .poc-navigation__pin {
-      display: block;
-    }
-  }
-
   .p-icon--pin {
     background: url("https://assets.ubuntu.com/v1/5cca09bb-pin.svg");
-  }
-
-  @media (min-width: 1032px) {
-    .poc-side-navigation__controls {
-      display: none;
-    }
-  }
-
-  .poc-aside-content {
-    width: 300px;
-    padding: 10px;
-    min-height: 100vh;
-    background: #FFF;
-  }
-
-  .poc-overlay-content {
-    max-width: 33vw;
-    padding: 1.5rem;
-    min-height: 100%;
-    background: #fff;
   }
 </style>
 
