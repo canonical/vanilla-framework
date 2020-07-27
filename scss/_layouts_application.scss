@@ -105,15 +105,15 @@
   }
 
   .l-aside {
-    grid-area: aside;
-    z-index: 101; // below side nav, above anything else
-  }
-
-  .l-overlay {
     grid-area: main;
     justify-self: right;
     overflow-y: auto;
     z-index: 101; // below side nav, above anything else
+
+    &.is-pinned {
+      grid-area: aside;
+      justify-self: auto;
+    }
   }
 
   @include vf-l-application-panels;

@@ -90,12 +90,14 @@
   }
 
   .p-panel--demo-aside {
-    border-left: 1px solid $colors--light-theme--border-low-contrast;
-  }
-
-  .p-panel--demo-overlay {
     @extend %panel-drop-shadow;
 
     background: $colors--light-theme--background-default;
+
+    // TODO: should it be on the same element or parent element?
+    &.is-pinned {
+      border-left: 1px solid $colors--light-theme--border-low-contrast;
+      box-shadow: none;
+    }
   }
 }
