@@ -51,11 +51,10 @@
 
   @media (min-width: $breakpoint-small) {
     .l-navigation-bar {
-      display: none;
-    }
-
-    .l-application {
-      grid-template-columns: $layout-navigation-collapsed-width 1fr min-content;
+      // use navigation bar as a grid spacer for collapsed navigation
+      grid-area: nav;
+      overflow: hidden;
+      width: $layout-navigation-collapsed-width;
     }
 
     .l-navigation {
@@ -71,20 +70,17 @@
       width: $layout-navigation-expanded-width;
     }
 
-    .l-application.has-pinned-navigation {
-      grid-template-columns: min-content 1fr min-content;
-
-      & .l-navigation {
-        grid-area: nav;
-        position: static;
-        width: $layout-navigation-expanded-width;
-      }
+    .l-navigation.is-pinned {
+      grid-area: nav;
+      position: static;
+      width: $layout-navigation-expanded-width;
     }
   }
 
   @media (min-width: $breakpoint-large) {
-    .l-application {
-      grid-template-columns: min-content 1fr min-content;
+    .l-navigation-bar {
+      // hide navigation bar completely when not needed
+      display: none;
     }
 
     .l-navigation {
