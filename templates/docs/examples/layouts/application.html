@@ -35,8 +35,8 @@
       <div class="p-panel__header">
         <h4 class="u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
         <div class="p-demo-header-toolbar">
+          <button class="u-no-margin--bottom js-aside-pinned-toggle">Toggle aside pinned</button>
           <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
-          <button class="u-no-margin--bottom js-overlay-toggle">Toggle overlay</button>
         </div>
       </div>
     </div>
@@ -277,32 +277,20 @@
     </div>
   </div>
 
-  <div class="l-overlay p-panel--demo-overlay">
+  <div class="l-aside is-pinned p-panel--demo-aside">
     <div class="u-fixed-width u-sv-2">
       <div class="p-panel__header">
-        <h4 class="u-no-margin--bottom">Overlay panel</h4>
-        <button class="p-button--base js-overlay-close u-no-margin--bottom"><i class="p-icon--close"></i></button>
+        <h4 class="u-no-margin--bottom">Aside panel</h4>
+        <button class="p-button--base js-aside-close u-no-margin--bottom"><i class="p-icon--close"></i></button>
       </div>
     </div>
-    <div class="l-overlay__content">
+    <div class="l-aside__content">
       {% include "docs/examples/patterns/forms/form-stacked.html" %}
     </div>
   </div>
 
   <div class="l-status p-demo-status">
     <div class="poc-status">Status bar</div>
-  </div>
-
-  <div class="l-aside u-hide p-panel--demo-aside">
-    <div class="u-fixed-width u-sv-2">
-      <div class="p-panel__header">
-        <h4 class="u-no-margin--bottom">Right aside panel</h4>
-        <button class="u-no-margin--bottom p-button--base js-aside-close"><i class="p-icon--close"></i></button>
-      </div>
-    </div>
-    <div class="l-aside__content">
-      {% include "docs/examples/patterns/forms/form-stacked.html" %}
-    </div>
   </div>
 </div>
 
@@ -322,18 +310,17 @@
     document.querySelector(".l-navigation").classList.add("is-collapsed");
   });
 
+  document.querySelector(".js-aside-pinned-toggle").addEventListener("click", function() {
+    document.querySelector(".l-aside").classList.add("is-pinned");
+    document.querySelector(".l-aside").classList.toggle("u-hide");
+  });
+
   document.querySelector(".js-aside-toggle").addEventListener("click", function() {
+    document.querySelector(".l-aside").classList.remove("is-pinned");
     document.querySelector(".l-aside").classList.toggle("u-hide");
   });
   document.querySelector(".js-aside-close").addEventListener("click", function() {
     document.querySelector(".l-aside").classList.add("u-hide");
-  });
-
-  document.querySelector(".js-overlay-toggle").addEventListener("click", function() {
-    document.querySelector(".l-overlay").classList.toggle("u-hide");
-  });
-  document.querySelector(".js-overlay-close").addEventListener("click", function() {
-    document.querySelector(".l-overlay").classList.add("u-hide");
   });
 
   document.querySelector(".js-menu-pin").addEventListener("click", function() {
