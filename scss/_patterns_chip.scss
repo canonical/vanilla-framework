@@ -1,18 +1,19 @@
 @import 'settings';
 
 @mixin vf-p-chip {
-  $chip-vertical-padding: map-get($nudges, nudge--small);
-  $chip-height: map-get($line-heights, small) + 2 * $chip-vertical-padding;
-  $chip-margin-bottom: $spv-outer--small-scaleable - 2 * $chip-vertical-padding;
+  $chip-line-height: map-get($line-heights, default-text);
+  $chip-vertical-padding: 0;
+  $chip-height: $chip-line-height + 2 * $chip-vertical-padding;
+  $chip-margin-top: map-get($nudges, nudge--p) - $chip-vertical-padding;
 
   .p-chip {
     @extend %small-text;
 
     background-color: rgba($color-x-dark, 0.05);
     border-radius: $chip-height * 0.5;
-    display: inline;
-    margin-bottom: $chip-margin-bottom;
-    margin-right: $sph-inner--small;
+    display: inline-block;
+    line-height: $chip-line-height;
+    margin: $chip-margin-top $sph-inner--small 0 0;
     padding: $chip-vertical-padding $sph-inner;
     user-select: none;
     white-space: nowrap;
@@ -37,6 +38,7 @@
       @extend %x-small-text;
 
       display: inline;
+      line-height: $chip-line-height;
       text-transform: uppercase;
     }
 
@@ -44,6 +46,7 @@
       @extend %small-text;
 
       display: inline;
+      line-height: $chip-line-height;
       position: relative;
     }
 
@@ -58,6 +61,7 @@
       display: inline;
       left: $sp-unit * 0.5;
       line-height: 1rem;
+      margin-bottom: 0;
       margin-right: -$sp-unit * 0.5;
       padding: 0;
       position: relative;
