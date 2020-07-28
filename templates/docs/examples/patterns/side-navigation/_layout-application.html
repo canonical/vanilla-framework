@@ -1,20 +1,9 @@
+{# used by the application layout example #}
+
 <div class="p-side-navigation--icons {% if is_dark %}is-dark{% endif %}" id="drawer-icons">
-  <a href="#drawer-icons" class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer-icons">
-    Toggle side navigation
-  </a>
-
-  <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer-icons"></div>
-
   {% if is_dark %}
   <!-- dark background color should be changed via color theme variables, inline style is used here for example purposes -->
   {% endif %}
-  <div class="p-side-navigation__drawer" style="background: {% if is_dark %}#003b4e{% else %}#f7f7f7{% endif %}">
-    <div class="p-side-navigation__drawer-header" style="background: {% if is_dark %}#003b4e{% else %}#f7f7f7{% endif %}">
-      <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer-icons">
-        Toggle side navigation
-      </a>
-    </div>
-
     <ul class="p-side-navigation__list">
       <li class="p-side-navigation__item--title">
         <a class="p-side-navigation__link" href="#">Title that is a link</a>
@@ -108,5 +97,4 @@
         <a class="p-side-navigation__link" href="#">First level link</a>
       </li>
     </ul>
-  </div>
 </div>
