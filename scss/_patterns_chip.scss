@@ -2,19 +2,21 @@
 
 @mixin vf-p-chip {
   $chip-line-height: map-get($line-heights, default-text);
-  $chip-vertical-padding: 0;
-  $chip-height: $chip-line-height + 2 * $chip-vertical-padding;
-  $chip-margin-top: map-get($nudges, nudge--p) - $chip-vertical-padding;
 
   .p-chip {
     @extend %small-text;
 
     background-color: rgba($color-x-dark, 0.05);
-    border-radius: $chip-height * 0.5;
+    border-radius: $chip-line-height * 0.5;
     display: inline-block;
     line-height: $chip-line-height;
-    margin: $chip-margin-top $sph-inner--small 0 0;
-    padding: $chip-vertical-padding $sph-inner;
+    margin: map-get($nudges, nudge--p) $sph-inner--small 0 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding-left: $sph-inner;
+    padding-right: $sph-inner;
+    padding-top: 0;
+    text-overflow: ellipsis;
     user-select: none;
     white-space: nowrap;
 
@@ -47,7 +49,6 @@
 
       display: inline;
       line-height: $chip-line-height;
-      position: relative;
     }
 
     .p-chip__dismiss {
