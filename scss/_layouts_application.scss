@@ -117,4 +117,46 @@
   }
 
   @include vf-l-application-panels;
+
+  // minimal demo styling
+  .l-application.app-demo {
+    & > [class*='l-'] {
+      background: $color-light;
+      border: 1px solid $color-negative;
+      padding: $sp-small;
+    }
+
+    & > .l-navigation {
+      padding: 0;
+
+      .l-navigation__content {
+        padding: $sp-small;
+      }
+    }
+
+    & > .l-aside {
+      max-width: 100vw;
+      width: 500px;
+    }
+
+    & > .l-main {
+      background: $color-x-light;
+      border: 1px solid $color-positive;
+    }
+
+    & > .l-status {
+      border: 1px solid $color-information;
+    }
+
+    & > .l-navigation:not(.is-pinned),
+    & > .l-aside:not(.is-pinned) {
+      box-shadow: 0 0 10px 5px transparentize($color-dark, 0.7);
+    }
+
+    @media (min-width: $breakpoint-large) {
+      & > .l-navigation {
+        box-shadow: none !important;
+      }
+    }
+  }
 }
