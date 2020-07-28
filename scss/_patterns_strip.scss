@@ -119,6 +119,11 @@
 @mixin vf-p-strip-suru {
   .p-strip--suru {
     @extend %vf-strip;
+    $brand-color: #333333;
+    $color-suru-start: lighten($brand-color, 10%);
+    $color-suru-middle: $brand-color;
+    $color-suru-end: darken($brand-color, 10%);
+
     background-blend-mode: multiply, multiply, normal, normal, normal;
     background-image:
       linear-gradient(
@@ -148,9 +153,9 @@
       ),
       linear-gradient(
         111deg,
-        #4e4e4e 10%,
-        #333333 37%,
-        #111111 100%
+        $color-suru-start 10%,
+        $color-suru-middle 37%,
+        $color-suru-end 100%
       );
     background-position: 0% 0%, top right, right 0 bottom 4rem, right bottom,
     0% 0%;
