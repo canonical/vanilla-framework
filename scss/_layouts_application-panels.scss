@@ -89,6 +89,24 @@
     padding-top: $spv-inner--medium;
   }
 
+  // overrides for side nav in app layout
+  .l-navigation__content {
+    .p-panel__header {
+      background: linear-gradient(to bottom, #{$color-brand-background} 0%, #{$color-brand-background} 70%, transparent 100%);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .p-side-navigation,
+    [class*='p-side-navigation--'] {
+      max-height: auto;
+      overflow-y: visible;
+      position: static;
+      top: auto;
+    }
+  }
+
   .p-panel--demo-aside {
     @extend %panel-drop-shadow;
 
