@@ -1,29 +1,36 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Application{% endblock %}
+{% block title %}Application / Panels{% endblock %}
 
 {% block content %}
-{% set is_dark = True %}
-
 <div class="l-application">
   <div class="l-navigation-bar">
-    <div class="p-demo-navigation_bar">
-      <span class="js-menu-toggle">Menu</span>
+    <div class="p-panel is-dark">
+      <div class="u-fixed-width u-align--right">
+        <span class="js-menu-toggle">Menu</span>
+      </div>
     </div>
   </div>
 
-  <div class="l-navigation p-panel--navigation has-brand-background is-collapsed">
-    <div class="l-navigation__content">
-      <div class="p-panel__header">
-        <a class="p-panel__logo" href="#">
-          <img class="l-navigation__image" src="https://assets.ubuntu.com/v1/0b2b7bce-Vanilla-logo_88x24px_white.svg" alt="Vanilla framework logo" height="24">
-        </a>
-        <div class="p-demo-controls">
-          <button class="p-button--base has-icon u-no-margin p-demo-navigation__close js-menu-close"><i class="p-icon--close"></i></button>
-          <button class="p-button--base has-icon u-no-margin p-demo-navigation__pin js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
+  <div class="l-navigation is-collapsed">
+    <div class="l-navigation__drawer">
+      <div class="p-panel is-dark">
+        <div class="p-panel__header--sticky">
+          <div class="u-fixed-width u-sv-2">
+            <div class="p-inline-list--stretch">
+              <div class="p-inline-list__item">
+                <a class="p-panel__logo" href="#">
+                  <img src="https://assets.ubuntu.com/v1/0b2b7bce-Vanilla-logo_88x24px_white.svg" alt="Vanilla framework logo" height="24">
+                </a>
+              </div>
+              <div class="p-inline-list__item u-align--right u-hide--large">
+                <button class="p-button--base has-icon u-no-margin u-hide--medium js-menu-close"><i class="p-icon--close"></i></button>
+                <button class="p-button--base has-icon u-no-margin u-hide--small js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="poc-side-navigation">
-        <div class="poc-side-navigation__items">
+        <div class="p-panel__content">
+          {% set is_dark = True %}
           {% include "docs/examples/patterns/side-navigation/_layout-application.html" %}
         </div>
       </div>
@@ -31,18 +38,20 @@
   </div>
 
   <div class="l-main">
-    <div class="u-fixed-width u-sv-2">
+    <div class="p-panel">
       <div class="p-panel__header">
-        <h4 class="u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
-        <div class="p-demo-header-toolbar">
-          <button class="u-no-margin--bottom js-aside-pinned-toggle">Toggle aside pinned</button>
-          <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
+        <div class="u-fixed-width u-sv-2">
+          <div class="p-inline-list--stretch">
+            <h4 class="p-inline-list__item u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
+            <div class="p-inline-list__item u-align--right">
+              <button class="u-no-margin--bottom js-aside-pinned-toggle">Toggle aside pinned</button>
+              <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="p-panel__content">
-      <div class="u-fixed-width">
-        <div class="status-group u-overflow--scroll">
+      <div class="p-panel__content">
+        <div class="u-fixed-width">
           <table role="grid" class="p-main-table">
             <thead>
               <tr role="row">
@@ -277,20 +286,26 @@
     </div>
   </div>
 
-  <div class="l-aside is-pinned p-panel--demo-aside">
-    <div class="u-fixed-width u-sv-2">
+  <div class="l-aside is-pinned">
+    <div class="p-panel--aside">
       <div class="p-panel__header">
-        <h4 class="u-no-margin--bottom">Aside panel</h4>
-        <button class="p-button--base js-aside-close u-no-margin--bottom"><i class="p-icon--close"></i></button>
+        <div class="u-fixed-width u-sv-2">
+          <div class="p-inline-list--stretch">
+            <h4 class="p-inline-list__item u-no-margin--bottom">Aside panel</h4>
+            <div class="p-inline-list__item u-align--right">
+              <button class="p-button--base js-aside-close u-no-margin--bottom"><i class="p-icon--close"></i></button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="l-aside__content">
-      {% include "docs/examples/patterns/forms/_form-stacked.html" %}
+      <div class="p-panel__content">
+        {% include "docs/examples/patterns/forms/_form-stacked.html" %}
+      </div>
     </div>
   </div>
 
-  <div class="l-status p-demo-status">
-    <div class="poc-status">Status bar</div>
+  <div class="l-status">
+    <div class="p-demo-status">Status bar</div>
   </div>
 </div>
 
