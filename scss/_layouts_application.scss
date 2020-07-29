@@ -41,7 +41,8 @@
   $layout-navigation-collapsed-width: 3rem;
   $layout-navigation-expanded-width: 15rem;
 
-  .l-navigation__content {
+  .l-navigation__drawer {
+    height: 100vh;
     width: auto;
 
     @media (min-width: $breakpoint-x-small) {
@@ -49,7 +50,7 @@
     }
   }
 
-  @media (min-width: $breakpoint-small) {
+  @media (min-width: $breakpoint-medium) {
     .l-navigation-bar {
       // use navigation bar as a grid spacer for collapsed navigation
       grid-area: nav;
@@ -129,7 +130,7 @@
     & > .l-navigation {
       padding: 0;
 
-      .l-navigation__content {
+      .l-navigation__drawer {
         padding: $sp-small;
       }
     }

@@ -1,18 +1,51 @@
 @mixin vf-l-application-panels {
   $header-padding-bottom: $sp-unit * 6;
 
-  %panel-header {
-    display: flex;
-    justify-content: space-between;
+  .p-panel,
+  .p-panel--aside {
+    background: $colors--light-theme--background-default;
+    color: $colors--light-theme--text-default;
+    min-height: 100%; // make sure it fills whole container even when has little content
+
+    &.is-dark {
+      background: $colors--dark-theme--background-default;
+      color: $colors--dark-theme--text-default;
+    }
+  }
+
+  .p-panel--aside {
+    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+
+    .is-pinned & {
+      border-left: 1px solid $colors--light-theme--border-low-contrast;
+      box-shadow: none;
+    }
+  }
+
+  .p-panel__header,
+  .p-panel__header--sticky {
     padding-bottom: $header-padding-bottom;
     padding-top: $spv-outer--medium;
   }
 
-  %panel-drop-shadow {
-    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+  .p-panel__header--sticky {
+    background: linear-gradient(to bottom, #{$colors--light-theme--background-default} 0%, #{$colors--light-theme--background-default} 70%, transparent 100%);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    .is-dark & {
+      background: linear-gradient(to bottom, #{$colors--dark-theme--background-default} 0%, #{$colors--dark-theme--background-default} 70%, transparent 100%);
+    }
   }
 
-  .l-application {
+  .p-panel__content {
+    // TODO: not needed for now?
+  }
+
+  // application layout demo styles
+
+  .l-main {
     // temporary, as I don't want to change the global setting
     // TODO: should be in panel, not in application
     & .u-fixed-width {
@@ -20,62 +53,11 @@
     }
   }
 
-  .p-panel__header {
-    @extend %panel-header;
-  }
-
-  .p-demo-header-toolbar {
-    display: flex;
-    flex: 0 0 auto;
-    justify-content: space-between;
-  }
-
-  .p-demo-navigation_bar {
-    background: $color-dark;
-    color: $color-light;
-    padding: $sp-small;
-    text-align: right;
-  }
-
   // Navigation panel/drawer
-  .p-panel--navigation {
-    .p-panel__header {
-      @extend %vf-grid-container-padding;
-      @extend %panel-header;
-
-      display: flex;
-      justify-content: space-between;
-
-      .p-demo-navigation__pin {
-        display: none;
-      }
-
-      @media (min-width: $breakpoint-small) {
-        .p-demo-navigation__close {
-          display: none;
-        }
-
-        .p-demo-navigation__pin {
-          display: block;
-        }
-      }
-
-      @media (min-width: $breakpoint-large) {
-        .p-demo-controls {
-          display: none;
-        }
-      }
-    }
-
-    .p-panel__logo {
-      display: block;
-      max-height: 1.5rem;
-      width: auto;
-    }
-
-    &.has-brand-background {
-      background: $color-brand-background;
-    }
+  .p-panel__logo {
+    display: block;
+    max-height: 1.5rem;
+    width: auto;
   }
 
   .p-demo-status {
@@ -90,32 +72,13 @@
   }
 
   // overrides for side nav in app layout
-  .l-navigation__content {
-    .p-panel__header {
-      background: linear-gradient(to bottom, #{$color-brand-background} 0%, #{$color-brand-background} 70%, transparent 100%);
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
+  .l-navigation__drawer {
     .p-side-navigation,
     [class*='p-side-navigation--'] {
-      max-height: auto;
+      max-height: none;
       overflow-y: visible;
       position: static;
       top: auto;
-    }
-  }
-
-  .p-panel--demo-aside {
-    @extend %panel-drop-shadow;
-
-    background: $colors--light-theme--background-default;
-
-    // TODO: should it be on the same element or parent element?
-    &.is-pinned {
-      border-left: 1px solid $colors--light-theme--border-low-contrast;
-      box-shadow: none;
     }
   }
 }
