@@ -13,15 +13,6 @@
     }
   }
 
-  .p-panel--aside {
-    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
-
-    .is-pinned & {
-      border-left: 1px solid $colors--light-theme--border-low-contrast;
-      box-shadow: none;
-    }
-  }
-
   .p-panel__header,
   .p-panel__header--sticky {
     padding-bottom: $header-padding-bottom;
@@ -41,44 +32,5 @@
 
   .p-panel__content {
     // TODO: not needed for now?
-  }
-
-  // application layout demo styles
-
-  .l-main {
-    // temporary, as I don't want to change the global setting
-    // TODO: should be in panel, not in application
-    & .u-fixed-width {
-      max-width: 95rem;
-    }
-  }
-
-  // Navigation panel/drawer
-  .p-panel__logo {
-    display: block;
-    max-height: 1.5rem;
-    width: auto;
-  }
-
-  .p-demo-status {
-    @extend %vf-grid-container-padding;
-
-    background-color: $colors--light-theme--background-alt;
-    border-top: 1px solid $colors--light-theme--border-low-contrast;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: $spv-inner--medium;
-    padding-top: $spv-inner--medium;
-  }
-
-  // overrides for side nav in app layout
-  .l-navigation__drawer {
-    .p-side-navigation,
-    [class*='p-side-navigation--'] {
-      max-height: none;
-      overflow-y: visible;
-      position: static;
-      top: auto;
-    }
   }
 }

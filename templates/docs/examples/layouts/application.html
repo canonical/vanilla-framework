@@ -305,15 +305,48 @@
   </div>
 
   <div class="l-status">
-    <div class="p-demo-status">Status bar</div>
+    <div class="p-panel demo-status">
+      <div class="u-fixed-width">
+        Status bar
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
   body { margin: 0; }
 
+  /* application layout demo styles */
   .p-icon--pin {
     background: url("https://assets.ubuntu.com/v1/5cca09bb-pin.svg");
+  }
+
+  .l-application .u-fixed-width {
+    /*  temporary, as I don't want to change the global setting */
+    max-width: 95rem;
+  }
+
+  .p-panel__logo {
+    display: block;
+    max-height: 1.5rem;
+    width: auto;
+  }
+
+  .demo-status {
+    background-color: #f7f7f7; /* $colors--light-theme--background-alt; */
+    padding-bottom: .75rem; /* $spv-inner--medium; */
+    padding-top: .75rem;
+  }
+
+  /* overrides for side nav in app layout */
+  .l-navigation__drawer {
+    .p-side-navigation,
+    [class*='p-side-navigation--'] {
+      max-height: none;
+      overflow-y: visible;
+      position: static;
+      top: auto;
+    }
   }
 
   /* demo JAAS CSS */
