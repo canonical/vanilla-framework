@@ -10,7 +10,29 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.14
+### What's new in Vanilla 2.15
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 2.15 -->
+    <tr>
+      <th><a href="/docs/patterns/chip">Chip</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.15.0</td>
+      <td>We added new <code>.p-chip</code> component to be used to display small actionable pieces of information.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
 
 <table>
   <thead>
@@ -29,21 +51,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.14.0</td>
       <td>We added the new <code>.p-inline-list--stretch</code> list variant that arranges items so they span the full width of the parent container.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.13 -->
     <tr>
       <th><a href="/docs/patterns/accordion#headings">Accordion</a></th>
