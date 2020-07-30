@@ -101,17 +101,21 @@
   }
 
   .l-status {
+    border-top: 1px solid $colors--light-theme--border-low-contrast;
     grid-area: status;
     z-index: 102;
   }
 
   .l-aside {
+    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
     grid-area: main;
     justify-self: right;
     overflow-y: auto;
     z-index: 101; // below side nav, above anything else
 
     &.is-pinned {
+      border-left: 1px solid $colors--light-theme--border-low-contrast;
+      box-shadow: none;
       grid-area: aside;
       justify-self: auto;
     }
@@ -147,17 +151,6 @@
 
     & > .l-status {
       border: 1px solid $color-information;
-    }
-
-    & > .l-navigation:not(.is-pinned),
-    & > .l-aside:not(.is-pinned) {
-      box-shadow: 0 0 10px 5px transparentize($color-dark, 0.7);
-    }
-
-    @media (min-width: $breakpoint-large) {
-      & > .l-navigation {
-        box-shadow: none !important;
-      }
     }
   }
 }
