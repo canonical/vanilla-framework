@@ -27,7 +27,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/chip">Chip</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.15.0</td>
-      <td>We added new <code>.p-chip</code> component to be used to display small actionable pieces of information.</td>
+      <td>We added the new <code>.p-chip</code> component to be used to display small actionable pieces of information.</td>
     </tr>
   </tbody>
 </table>
