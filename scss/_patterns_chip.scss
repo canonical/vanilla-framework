@@ -1,0 +1,97 @@
+@import 'settings';
+
+@mixin vf-p-chip {
+  $chip-line-height: 1rem;
+
+  .p-chip {
+    @extend %small-text;
+
+    background-color: rgba($color-x-dark, 0.05);
+    border-radius: $chip-line-height;
+    display: inline-flex;
+    line-height: $chip-line-height;
+    margin: map-get($nudges, nudge--p) $sph-inner--small 0 0;
+    max-width: 100%;
+    padding-bottom: 0.25rem;
+    padding-left: $sph-inner;
+    padding-right: $sph-inner;
+    padding-top: 0.25rem;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: rgba($color-x-dark, 0.08);
+    }
+
+    &.is-selected {
+      background-color: rgba($color-x-dark, 0.15);
+
+      &:hover {
+        background-color: rgba($color-x-dark, 0.18);
+      }
+    }
+
+    &:active {
+      background-color: rgba($color-x-dark, 0.15);
+    }
+
+    &__lead,
+    &__value {
+      margin-bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__lead {
+      $space-between-lead-and-value: 0.25rem;
+      @extend %x-small-text;
+
+      line-height: $chip-line-height;
+      padding-right: $space-between-lead-and-value * 2;
+      padding-top: 0.1rem;
+      position: relative;
+      text-transform: uppercase;
+
+      &::after {
+        content: '\00a0:';
+        position: absolute;
+        right: $space-between-lead-and-value;
+      }
+    }
+
+    &__value {
+      @extend %small-text;
+
+      line-height: $chip-line-height;
+      padding-top: 0.05rem;
+    }
+
+    &__dismiss {
+      @include vf-button-pattern(
+        $button-background-color: transparent,
+        $button-border-color: transparent,
+        $button-hover-background-color: transparent,
+        $button-hover-border-color: transparent
+      );
+
+      border: none;
+      display: block;
+      flex: 0 0 auto;
+      left: $sp-unit * 0.5;
+      line-height: 1rem;
+      margin-bottom: 0;
+      margin-right: -$sp-unit * 0.5;
+      padding: 0;
+      position: relative;
+      top: 0.05rem;
+
+      @media only screen and (max-width: $breakpoint-x-small) {
+        width: auto;
+      }
+
+      [class*='p-icon'] {
+        vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+      }
+    }
+  }
+}
