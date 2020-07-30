@@ -125,15 +125,16 @@ $color-suru-end: darken($color-brand, 10%) !default;
   .p-strip--suru {
     @extend %vf-strip;
 
-    background-blend-mode: multiply, multiply, normal, normal, normal;
-    background-image: linear-gradient(to bottom right, rgba(205, 205, 205, 0.55) 0%, rgba(205, 205, 205, 0.55) 49.8%, transparent 50%, transparent 100%),
-      linear-gradient(to bottom left, rgba(205, 205, 205, 0.55) 0%, rgba(205, 205, 205, 0.55) 49.8%, transparent 50%, transparent 100%),
-      linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(#fff 0%, #fff 100%),
+    background-image: linear-gradient(to bottom right, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49.8%, transparent 50%, transparent 100%),
+      linear-gradient(to bottom left, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49.8%, transparent 50%, transparent 100%),
+      linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(to top right, #fff 0%, #fff 100%),
       linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
-    @supports not (background-blend-mode: multiply) {
-      background-image: linear-gradient(to bottom right, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49.8%, transparent 50%, transparent 100%),
-        linear-gradient(to bottom left, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49.8%, transparent 50%, transparent 100%),
-        linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(to top right, #fff 0%, #fff 100%),
+    
+    @supports (background-blend-mode: multiply) {
+      background-blend-mode: multiply, multiply, normal, normal, normal;
+      background-image: linear-gradient(to bottom right, rgba(205, 205, 205, 0.55) 0%, rgba(205, 205, 205, 0.55) 49.8%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom left, rgba(205, 205, 205, 0.55) 0%, rgba(205, 205, 205, 0.55) 49.8%, transparent 50%, transparent 100%),
+        linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(#fff 0%, #fff 100%),
         linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
     }
 
@@ -181,16 +182,16 @@ $color-suru-end: darken($color-brand, 10%) !default;
   .p-strip--suru-topped {
     @extend %vf-strip;
 
-    background-blend-mode: multiply, multiply, normal, normal;
-    background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.5) 0%, rgba(229, 229, 229, 0.5) 49%, transparent 50%, transparent 100%),
-      linear-gradient(to bottom left, rgba(205, 205, 205, 0.16) 0%, rgba(205, 205, 205, 0.16) 49%, transparent 50%, transparent 100%),
-      linear-gradient(to bottom right, transparent 0%, transparent 49%, #fff 50%, #fff 100%),
+    background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.14) 0%, rgba(229, 229, 229, 0.14) 49%, transparent 50%, transparent 100%),
+      linear-gradient(to bottom left, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49%, transparent 50%, transparent 100%),
+      linear-gradient(to bottom right, transparent 0%, transparent 49%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%),
       linear-gradient(-75deg, $color-suru-start 2%, $color-suru-middle 28%, $color-suru-end 89%);
 
-    @supports not (background-blend-mode: multiply) {
-      background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.14) 0%, rgba(229, 229, 229, 0.14) 49%, transparent 50%, transparent 100%),
-        linear-gradient(to bottom left, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49%, transparent 50%, transparent 100%),
-        linear-gradient(to bottom right, transparent 0%, transparent 49%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%),
+    @supports (background-blend-mode: multiply) {
+      background-blend-mode: multiply, multiply, normal, normal;
+      background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.5) 0%, rgba(229, 229, 229, 0.5) 49%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom left, rgba(205, 205, 205, 0.16) 0%, rgba(205, 205, 205, 0.16) 49%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom right, transparent 0%, transparent 49%, #fff 50%, #fff 100%),
         linear-gradient(-75deg, $color-suru-start 2%, $color-suru-middle 28%, $color-suru-end 89%);
     }
 
