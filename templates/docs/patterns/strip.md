@@ -80,10 +80,7 @@ View example of the pattern strip is-shallow
 
 This is a patterned strip that is ideal for overview or main pages, and can be used with images.
 
-The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables.
-
-The classes '.is-light' and '.is-dark' can be added to describe the background colour - these will override the text colour to ensure it remains visible.
-The '.is-deep' and 'is-shallow' classes are also supported, which will respectively increase or decrease the vertical padding.
+The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables. A dark colour scheme is recommended, as the text colour is light by default. 
 
 <div class="embedded-example"><a href="/docs/examples/patterns/strips/suru/" class="js-example">
 View example of the pattern strip suru
