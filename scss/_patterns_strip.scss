@@ -106,7 +106,8 @@
 }
 
 @mixin vf-p-strip-shallow {
-  [class*='p-strip']:not([class*='suru']).is-shallow {
+  [class*='p-strip']:not([class*='-suru']).is-shallow {
+    // Suru strips were not designed to be shallow, so they are excluded
     @extend %section-padding--shallow;
   }
 }
