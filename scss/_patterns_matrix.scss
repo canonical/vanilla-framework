@@ -88,13 +88,14 @@
 
   .p-matrix__img {
     align-self: flex-start;
+    flex-shrink: 0;
     height: auto;
     margin-bottom: $spv-inner--small;
     margin-right: $matrix-img-gutter;
     width: $matrix-img-width;
 
     @media (max-width: $breakpoint-heading-threshold) {
-      margin-top: #{map-get($nudges, nudge--h4-mobile)};
+      margin-top: 0;
     }
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -121,7 +122,16 @@
 
   .p-matrix__title {
     @extend %vf-heading-4;
-    @extend %u-no-margin--bottom--h4;
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($nudges, nudge--h4)};
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($nudges, nudge--h4-large)};
+      }
+    }
   }
 
   .p-matrix__desc {
