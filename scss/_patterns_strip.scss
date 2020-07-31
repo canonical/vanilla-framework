@@ -106,7 +106,7 @@
 }
 
 @mixin vf-p-strip-shallow {
-  [class*='p-strip'].is-shallow {
+  [class*='p-strip']:not([class*="suru"]).is-shallow {
     @extend %section-padding--shallow;
   }
 }
@@ -141,18 +141,11 @@ $color-suru-end: darken($color-brand, 10%) !default;
     background-position: 0% 0%, top right, right 0 bottom 4rem, right bottom, 0% 0%;
     background-repeat: no-repeat;
     background-size: 100% calc(100% - 4rem), 50% 100%, 100% 4rem, 100% 4rem, auto;
+    color: $color-x-light;
     margin-bottom: -4rem;
     overflow: hidden;
     padding-bottom: 12rem;
     position: relative;
-
-    &.is-light {
-      color: $color-x-dark;
-    }
-
-    &.is-dark {
-      color: $color-x-light;
-    }
 
     &.is-deep {
       $padding: 3rem;
@@ -170,10 +163,6 @@ $color-suru-end: darken($color-brand, 10%) !default;
         margin-bottom: -$padding;
         padding-bottom: ($padding * 3) !important;
       }
-    }
-
-    &.is-shallow {
-      padding: 1.5rem 0 6rem 0;
     }
   }
 }
