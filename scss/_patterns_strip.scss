@@ -48,6 +48,8 @@
   @include vf-p-strip-bordered;
   @include vf-p-strip-shallow;
   @include vf-p-strip-deep;
+  @include vf-p-strip-suru;
+  @include vf-p-strip-suru-topped;
 }
 
 @mixin vf-p-strip-default {
@@ -112,5 +114,90 @@
 @mixin vf-p-strip-deep {
   [class*='p-strip'].is-deep {
     @extend %section-padding--deep;
+  }
+}
+
+$color-suru-start: lighten($color-brand, 10%) !default;
+$color-suru-middle: $color-brand !default;
+$color-suru-end: darken($color-brand, 10%) !default;
+
+@mixin vf-p-strip-suru {
+  .p-strip--suru {
+    @extend %vf-strip;
+
+    background-image: linear-gradient(to bottom right, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49.8%, transparent 50%, transparent 100%),
+      linear-gradient(to bottom left, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49.8%, transparent 50%, transparent 100%),
+      linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(to top right, #fff 0%, #fff 100%),
+      linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
+
+    @supports (background-blend-mode: multiply) {
+      background-blend-mode: multiply, multiply, normal, normal, normal;
+      background-image: linear-gradient(to bottom right, rgba(205, 205, 205, 0.55) 0%, rgba(205, 205, 205, 0.55) 49.8%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom left, rgba(205, 205, 205, 0.55) 0%, rgba(205, 205, 205, 0.55) 49.8%, transparent 50%, transparent 100%),
+        linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(#fff 0%, #fff 100%),
+        linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
+    }
+
+    background-position: 0% 0%, top right, right 0 bottom 4rem, right bottom, 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 100% calc(100% - 4rem), 50% 100%, 100% 4rem, 100% 4rem, auto;
+    color: $color-x-light;
+    margin-bottom: -4rem;
+    overflow: hidden;
+    padding-bottom: 12rem;
+    position: relative;
+
+    &.is-deep {
+      $padding: 3rem;
+
+      background-position: 0% 0%, top right, right 0 bottom $padding, right bottom, 0% 0%;
+      background-size: 100% calc(100% - #{$padding}), 100% 100%, 100% $padding, 100% $padding, auto;
+      margin-bottom: -$padding;
+      padding-bottom: ($padding * 3) !important;
+
+      @media (min-width: $breakpoint-medium) {
+        $padding: 6rem;
+
+        background-position: 0% 0%, top right, right 0 bottom $padding, right bottom, 0% 0%;
+        background-size: 100% calc(100% - #{$padding}), 50% 100%, 100% $padding, 100% $padding, auto;
+        margin-bottom: -$padding;
+        padding-bottom: ($padding * 3) !important;
+      }
+    }
+
+    &.is-shallow {
+      // Override is-shallow class with default padding, as Suru strips were not designed to be shallow
+      padding: 4rem 0 12rem 0;
+    }
+  }
+}
+
+@mixin vf-p-strip-suru-topped {
+  .p-strip--suru-topped {
+    @extend %vf-strip;
+
+    background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.14) 0%, rgba(229, 229, 229, 0.14) 49%, transparent 50%, transparent 100%),
+      linear-gradient(to bottom left, rgba(205, 205, 205, 0.14) 0%, rgba(205, 205, 205, 0.14) 49%, transparent 50%, transparent 100%),
+      linear-gradient(to bottom right, transparent 0%, transparent 49%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%),
+      linear-gradient(-75deg, $color-suru-start 2%, $color-suru-middle 28%, $color-suru-end 89%);
+
+    @supports (background-blend-mode: multiply) {
+      background-blend-mode: multiply, multiply, normal, normal;
+      background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.5) 0%, rgba(229, 229, 229, 0.5) 49%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom left, rgba(205, 205, 205, 0.16) 0%, rgba(205, 205, 205, 0.16) 49%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom right, transparent 0%, transparent 49%, #fff 50%, #fff 100%),
+        linear-gradient(-75deg, $color-suru-start 2%, $color-suru-middle 28%, $color-suru-end 89%);
+    }
+
+    background-position: top right, top right, top left, top left;
+    background-repeat: no-repeat;
+    background-size: 39.4% 6rem, 54% 4rem, 63% 4rem, 62.6% 4rem;
+    padding-bottom: 4rem;
+    padding-top: 6rem;
+
+    &.is-shallow {
+      // Override is-shallow class with default padding, as Suru strips were not designed to be shallow
+      padding: 6rem 0 4rem 0;
+    }
   }
 }
