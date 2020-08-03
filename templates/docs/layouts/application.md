@@ -50,10 +50,42 @@ It can also be pinned, similarly to the side navigation area, by adding `is-pinn
 
 The status area is positioned on the bottom of the screen and stretches over full width of main and aside areas. It's meant to contain status bar or similar short always-available information. Its height is defined by its contents.
 
-### Example
+### Example structure
+
+Below you can see an example of the full application layout structure with all the areas included.
 
 <div class="embedded-example"><a href="/docs/examples/layouts/application-structure/" class="js-example" data-height="600">
-View an example of the application layout
+View an example of the application layout structure
 </a></div>
 
 [View the full screen example of the application layout structure](/docs/examples/layouts/application-structure/).
+
+### Panels
+
+<span class="p-label--in-progress">In progress</span>
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">In progress:</span>Current implementation of panel component is created to provide minimal consistent styling of panels, but is still work in progress and may change in future when Vanilla framework fully supports application layout components.
+  </p>
+</div>
+
+As the layout areas provide only minimal styling (for example drop shadows on overlay areas) the contents of the areas need to provide any spacing, backgrounds and internal layout for the panels.
+
+To achieve consistent styling and positioning of all the application panels use the panel component (`p-panel`). It should be used as the only direct child of respective layout area (`l-navigation`, `l-main`, `l-aside`, ...). It consists of a header (`p-panel__header`) that may contain panel title, logo or any action buttons and the content of the panel in `p-panel__content`. Panel header can be optionally made sticky while scrolling with `p-panel__header--sticky`.
+
+### Panels example
+
+Below you can see an example of application layout with some basic panels applied.
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    The contents of the panels (most notably the navigation side bar) are custom built for the sake of the demo and are currently not part of Vanilla framework.
+  </p>
+</div>
+
+<div class="embedded-example"><a href="/docs/examples/layouts/application/" class="js-example" data-height="600">
+View an example of the application layout demo
+</a></div>
+
+[View the full screen example of the application layout panels](/docs/examples/layouts/application-structure/).
