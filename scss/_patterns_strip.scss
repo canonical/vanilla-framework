@@ -106,8 +106,7 @@
 }
 
 @mixin vf-p-strip-shallow {
-  [class*='p-strip']:not([class*='-suru']).is-shallow {
-    // Suru strips were not designed to be shallow, so they are excluded
+  [class*='p-strip'].is-shallow {
     @extend %section-padding--shallow;
   }
 }
@@ -165,6 +164,11 @@ $color-suru-end: darken($color-brand, 10%) !default;
         padding-bottom: ($padding * 3) !important;
       }
     }
+
+    &.is-shallow {
+      // Override is-shallow class with default padding, as Suru strips were not designed to be shallow
+      padding: 4rem 0 12rem 0;
+    }
   }
 }
 
@@ -190,5 +194,10 @@ $color-suru-end: darken($color-brand, 10%) !default;
     background-size: 39.4% 6rem, 54% 4rem, 63% 4rem, 62.6% 4rem;
     padding-bottom: 4rem;
     padding-top: 6rem;
+
+    &.is-shallow {
+      // Override is-shallow class with default padding, as Suru strips were not designed to be shallow
+      padding: 6rem 0 4rem 0;
+    }
   }
 }
