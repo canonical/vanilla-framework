@@ -76,6 +76,26 @@ This state gives the strip smaller vertical padding.
 View example of the pattern strip is-shallow
 </a></div>
 
+### Suru strip
+
+This is a patterned strip that is ideal for overview or main pages, and can be used with images.
+
+The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables. A dark colour scheme is recommended, as the text colour is light by default.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/strips/suru/" class="js-example">
+View example of the pattern strip suru
+</a></div>
+
+### Topped Suru strip
+
+This is a patterned strip that is ideal for content pages.
+
+The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/strips/suru-topped/" class="js-example">
+View example of the pattern strip suru-topped
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
