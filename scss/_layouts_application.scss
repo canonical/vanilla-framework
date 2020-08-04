@@ -125,32 +125,25 @@
 
   // minimal demo styling
   .l-application.app-demo {
-    & > [class*='l-'] {
-      background: $color-light;
-      border: 1px solid $color-negative;
+    & > .l-navigation .l-navigation__drawer,
+    & > .l-main,
+    & > .l-aside,
+    & > .l-status {
       padding: $sp-small;
     }
 
-    & > .l-navigation {
-      padding: 0;
-
-      .l-navigation__drawer {
-        padding: $sp-small;
-      }
+    & > .l-navigation .l-navigation__drawer {
+      background: $color-mid;
     }
 
     & > .l-aside {
-      max-width: 100vw;
-      width: 500px;
-    }
-
-    & > .l-main {
       background: $color-x-light;
-      border: 1px solid $color-positive;
+      max-width: 100vw;
+      width: 400px;
     }
 
     & > .l-status {
-      border: 1px solid $color-information;
+      background: $color-light;
     }
   }
 }
