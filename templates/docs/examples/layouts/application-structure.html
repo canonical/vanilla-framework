@@ -4,12 +4,15 @@
 {% block content %}
 <div class="l-application  app-demo">
   <div class="l-navigation-bar">
-    <div class="u-clearfix"><code>l-navigation-bar</code> <span class="u-float-right js-menu-toggle">Menu</span></div>
+    <div class="u-clearfix"><code>l-navigation-bar</code> <button class="u-float-right js-menu-toggle is-dense u-no-margin">Menu</button></div>
   </div>
 
   <div class="l-navigation">
     <div class="l-navigation__drawer">
-      <p class="demo-controls" style="text-align: right"><span class="js-menu-pin">Pin</span> <span class="js-menu-close">Close</span></p>
+      <p class="demo-controls u-hide--large u-align--right">
+        <button class="js-menu-pin is-dense u-no-margin u-hide--small">Pin</button>
+        <button class="js-menu-close is-dense u-no-margin u-hide--medium">Close</button>
+      </p>
       <code>l-navigation &gt;<br> l-navigation__drawer</code>
     </div>
   </div>
@@ -17,16 +20,46 @@
   <div class="l-main">
     <p><code>l-main</code></p>
     <p class="u-clearfix">
-      <button class="js-aside-pinned-toggle u-float-left">Toggle pinned aside</button>
-      <button class="js-aside-toggle u-float-right">Toggle aside panel</button>
+      <button class="js-aside-toggle">Toggle aside panel</button>
     </p>
-    <p>Content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Demo content</th>
+          <th>Demo content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Demo content</th>
+          <td>Demo content</td>
+          <td>Demo content</td>
+        </tr>
+        <tr>
+          <th>Demo content</th>
+          <td>Demo content</td>
+          <td>Demo content</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Demo content</th>
+          <td>Demo content</td>
+          <td>Demo content</td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 
   <div class="l-aside">
+    <p class="u-align--right">
+      <button class="js-aside-pin is-dense">Pin</button>
+      <button class="js-aside-close is-dense">Close</button>
+    </p>
     <p><code>l-aside</code></p>
-    <p><button class="js-aside-close">Close aside panel</button></p>
-    <p>Content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </p>
+    <p></p>
   </div>
 
   <div class="l-status">
@@ -40,26 +73,6 @@
 
 <style>
   body { margin: 0; }
-
-  .demo-controls .js-menu-pin {
-    display: none;
-  }
-
-  @media (min-width: 620px) {
-    .demo-controls .js-menu-pin {
-      display: initial;
-    }
-
-    .demo-controls .js-menu-close {
-      display: none;
-    }
-  }
-
-  @media (min-width: 1036px) {
-    .demo-controls {
-      display: none;
-    }
-  }
 </style>
 
 <script>
@@ -70,15 +83,10 @@
     document.querySelector(".l-navigation").classList.add("is-collapsed");
   });
 
-  document.querySelector(".js-aside-pinned-toggle").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.add("is-pinned");
+  document.querySelector(".js-aside-toggle").addEventListener("click", function() {
     document.querySelector(".l-aside").classList.toggle("u-hide");
   });
 
-  document.querySelector(".js-aside-toggle").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.remove("is-pinned");
-    document.querySelector(".l-aside").classList.toggle("u-hide");
-  });
   document.querySelector(".js-aside-close").addEventListener("click", function() {
     document.querySelector(".l-aside").classList.add("u-hide");
   });
@@ -89,6 +97,15 @@
       document.querySelector(".js-menu-pin").innerText = 'Unpin';
     } else {
       document.querySelector(".js-menu-pin").innerText = 'Pin';
+    }
+  });
+
+  document.querySelector(".js-aside-pin").addEventListener("click", function() {
+    document.querySelector(".l-aside").classList.toggle("is-pinned");
+    if (document.querySelector(".l-aside").classList.contains("is-pinned")) {
+      document.querySelector(".js-aside-pin").innerText = 'Unpin';
+    } else {
+      document.querySelector(".js-aside-pin").innerText = 'Pin';
     }
   });
 </script>
