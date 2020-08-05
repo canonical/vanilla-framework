@@ -1,34 +1,58 @@
 @import 'settings';
 
 @mixin vf-p-form-tick-elements {
-  %p-checkbox {
+  %p-tick-input {
+    position: relative;
+    top: 0.15rem; // nudge a bit below baseline (to correctly align with default text size)
+
+    // hide native element (but position in correct place for native validation tooltips)
+    [type='checkbox'],
+    [type='radio'] {
+      bottom: 0;
+      height: $form-tick-box-size;
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      width: $form-tick-box-size;
+    }
+
+    // prepare fake tick element
+    label {
+      margin: 0;
+
+      &::before {
+        bottom: 0;
+        top: auto;
+      }
+
+      &::after {
+        top: auto;
+      }
+    }
+
+    // position the tick in checkbox
+    [type='checkbox'] + label {
+      &::after {
+        bottom: $form-tick-box-size - $form-tick-height - $form-tick-offset-top;
+      }
+    }
+
+    // position the dot in radio
+    [type='radio'] + label {
+      &::after {
+        bottom: $form-radio-circle-offset;
+      }
+    }
+  }
+
+  %p-tick-element {
     align-items: baseline;
     display: flex;
 
+    // needs to be nested to fight specificity of base styles
+    .p-radio__input,
     .p-checkbox__input {
-      position: relative;
-      top: 0.15rem; // nudge a bit below baseline (to correctly align with default text size)
-
-      [type='checkbox'] {
-        bottom: 0;
-        height: $form-tick-box-size;
-        margin: 0;
-        width: $form-tick-box-size;
-      }
-
-      label {
-        margin: 0;
-
-        &::before {
-          bottom: 0;
-          top: auto;
-        }
-
-        &::after {
-          bottom: $form-tick-box-size - $form-tick-height - $form-tick-offset-top;
-          top: auto;
-        }
-      }
+      @extend %p-tick-input;
     }
 
     &.is-disabled .p-checkbox__label {
@@ -36,28 +60,34 @@
     }
   }
 
+  .p-radio,
   .p-checkbox {
-    @extend %p-checkbox;
+    @extend %p-tick-element;
   }
 
+  .p-radio--inline,
   .p-checkbox--inline {
-    @extend %p-checkbox;
+    @extend %p-tick-element;
 
     display: inline-flex;
 
+    .p-radio__label,
     .p-checkbox__label {
       margin: 0;
       padding: 0;
     }
   }
 
+  .p-radio--heading,
   .p-checkbox--heading {
-    @extend %p-checkbox;
+    @extend %p-tick-element;
 
+    .p-radio__label,
     .p-checkbox__input {
       top: 0;
     }
 
+    .p-radio__label,
     .p-checkbox__label {
       margin: 0;
       padding: 0;
