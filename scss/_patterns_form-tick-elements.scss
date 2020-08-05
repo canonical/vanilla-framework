@@ -1,0 +1,66 @@
+@import 'settings';
+
+@mixin vf-p-form-tick-elements {
+  %p-checkbox {
+    align-items: baseline;
+    display: flex;
+
+    .p-checkbox__input {
+      position: relative;
+      top: 0.15rem; // nudge a bit below baseline (to correctly align with default text size)
+
+      [type='checkbox'] {
+        bottom: 0;
+        height: $form-tick-box-size;
+        margin: 0;
+        width: $form-tick-box-size;
+      }
+
+      label {
+        margin: 0;
+
+        &::before {
+          bottom: 0;
+          top: auto;
+        }
+
+        &::after {
+          bottom: $form-tick-box-size - $form-tick-height - $form-tick-offset-top;
+          top: auto;
+        }
+      }
+    }
+
+    &.is-disabled .p-checkbox__label {
+      @extend %vf-disabled-element;
+    }
+  }
+
+  .p-checkbox {
+    @extend %p-checkbox;
+  }
+
+  .p-checkbox--inline {
+    @extend %p-checkbox;
+
+    display: inline-flex;
+
+    .p-checkbox__label {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .p-checkbox--heading {
+    @extend %p-checkbox;
+
+    .p-checkbox__input {
+      top: 0;
+    }
+
+    .p-checkbox__label {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
