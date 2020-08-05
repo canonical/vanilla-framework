@@ -13,6 +13,9 @@
     width: 100vw;
   }
 
+  $panel-drop-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+  $panel-drop-shadow-transparent: 0 0 0 0 transparent;
+
   // Top navigation bar to toggle side navigation on small screens
   .l-navigation-bar {
     grid-area: navbar;
@@ -21,6 +24,7 @@
   // Navigation panel/drawer
   .l-navigation {
     bottom: 0;
+    box-shadow: $panel-drop-shadow;
     height: 100vh;
     left: 0;
     overflow-y: auto;
@@ -59,7 +63,8 @@
     }
 
     .l-navigation {
-      transition: width 100ms;
+      box-shadow: $panel-drop-shadow-transparent;
+      transition: width 100ms, box-shadow 100ms;
       width: $layout-navigation-collapsed-width;
 
       &.is-collapsed {
@@ -68,10 +73,12 @@
     }
 
     .l-navigation:hover {
+      box-shadow: $panel-drop-shadow;
       width: $layout-navigation-expanded-width;
     }
 
     .l-navigation.is-pinned {
+      box-shadow: $panel-drop-shadow-transparent;
       grid-area: nav;
       position: static;
       width: $layout-navigation-expanded-width;
@@ -85,9 +92,14 @@
     }
 
     .l-navigation {
+      box-shadow: none;
       grid-area: nav;
       position: static;
       width: $layout-navigation-expanded-width;
+
+      &:hover {
+        box-shadow: none;
+      }
 
       &.is-collapsed {
         width: $layout-navigation-expanded-width;
@@ -107,7 +119,7 @@
   }
 
   .l-aside {
-    box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+    box-shadow: $panel-drop-shadow;
     grid-area: main;
     justify-self: right;
     overflow-y: auto;
