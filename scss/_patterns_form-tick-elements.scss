@@ -65,6 +65,15 @@
     @extend %p-tick-element;
   }
 
+  // when tick elements are following each other in the document
+  // keep them closer together by 1 baseline grid unit
+  .p-radio + .p-radio,
+  .p-checkbox + .p-checkbox,
+  .p-checkbox + .p-radio,
+  .p-radio + .p-checkbox {
+    margin-top: -$sp-unit;
+  }
+
   .p-radio--inline,
   .p-checkbox--inline {
     @extend %p-tick-element;
