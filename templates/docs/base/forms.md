@@ -72,7 +72,7 @@ The base element styling for checkbox inputs (`<input type="checkbox">`) outside
 
 This applies also to all modifier classes on checkbox elements, such as `is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
 
-Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-elements) to find equivalent usage of new `.p-checkbox` component.
+Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-checkbox` component.
 
 ### Radio button
 
@@ -110,7 +110,7 @@ The base element styling for radio inputs (`<input type="radio">`) outside of th
 
 This applies also to all modifier classes on checkbox elements, such as `is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
 
-Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-elements) to find equivalent usage of new `.p-radio` component.
+Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-radio` component.
 
 ### Select
 
