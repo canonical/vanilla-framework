@@ -9,7 +9,10 @@
     head: "<meta name='viewport' content='width=device-width, initial-scale=1'>",
     stylesheets: [
       // link to latest Vanilla CSS
-      'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
+      // if it's a demo, use local build.css for better QA, otherwise use latest published Vanilla
+      /demos\.haus$/.test(window.location.host)
+        ? `${window.location.origin}/static/build/css/build.css`
+        : 'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
       // link to example stylesheet (to set margin on body)
       'https://assets.ubuntu.com/v1/4653d9ba-example.css',
     ],
