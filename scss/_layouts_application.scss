@@ -63,8 +63,15 @@
     }
 
     .l-navigation {
+      @include vf-animation(
+        $property: (
+          width,
+          box-shadow,
+        ),
+        $duration: fast
+      );
+
       box-shadow: $panel-drop-shadow-transparent;
-      transition: width 100ms, box-shadow 100ms;
       width: $layout-navigation-collapsed-width;
 
       &.is-collapsed {
