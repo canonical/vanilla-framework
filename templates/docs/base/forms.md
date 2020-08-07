@@ -50,7 +50,7 @@ View example of the checkbox components
 
 #### Inline checkbox
 
-To use checkbox component in padded containers (table cells, some list items) use the `.p-checkbox--inline` variant of the component to make sure the checkbox and the label text are properly aligned with other inline text.
+When placing the checkbox component in padded containers (table cells, some list items), use the `.p-checkbox--inline` variant. It ensures the checkbox and the label text are properly aligned with other inline text.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox-inline/" class="js-example">
 View example of the inline checkbox components
@@ -88,7 +88,7 @@ View example of the radio components
 
 #### Inline radio button
 
-To use radio component in padded containers (table cells, some list items) use the `.p-radio--inline` variant of the component to make sure the radio button and the label text are properly aligned with other inline text.
+When placing the radio component in padded containers (table cells, some list items), use the `.p-radio--inline` variant of the component to make sure the radio button and the label text are properly aligned with other inline text.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/radio-inline/" class="js-example">
 View example of the inline radio components
