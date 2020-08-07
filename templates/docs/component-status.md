@@ -10,7 +10,35 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.15
+### What's new in Vanilla 2.16
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 2.16 -->
+    <tr>
+      <th><a href="/docs/layouts/application">Application layout</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.16.0</td>
+      <td>We added new layout styles for building responsive full-screen applications.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/strip#suru-strip">Suru strip</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.16.0</td>
+      <td>We added new strip variants <code>.p-strip--suru</code> and <code>.p-strip--suru-topped</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
 
 <table>
   <thead>
@@ -29,21 +57,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.15.0</td>
       <td>We added the new <code>.p-chip</code> component to be used to display small actionable pieces of information.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.14 -->
     <tr>
       <th><a href="/docs/patterns/lists#inline-stretched">List inline stretched</a></th>
