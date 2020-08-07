@@ -44,6 +44,8 @@ Use the checkbox component to select one or more options. To provide fully featu
 
 To disable the checkbox component a `disabled` property needs to be added on respective `<input type='checkbox'>` element and `.is-disabled` class needs to be used on the component root `.p-checkbox` element.
 
+The markup of the checkbox component uses 2 `<label>` elements. The one that follows the input inside `.p-checkbox__input` is used to render the styled checkbox, the other, marked with `.p-checkbox__label` class, is used to provide actual text label for the input. Both labels need to point their `for` attribute at the same checkbox input from their component.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox/" class="js-example">
 View example of the checkbox components
 </a></div>
@@ -81,6 +83,8 @@ Please refer to the [tick elements comparison example](/docs/examples/patterns/f
 Use radio buttons to select one of the given set of options. To provide fully featured Vanilla style and behaviour of the radio button a specific markup structure is needed around the radio button input (see example below).
 
 To disable the radio component a `disabled` property needs to be added on respective `<input type='radio'>` element and `.is-disabled` class needs to be used on the component root `.p-radio` element.
+
+The markup of the radio component uses 2 `<label>` elements. The one that follows the input inside `.p-radio__input` is used to render the styled radio button, the other, marked with `.p-radio__label` class, is used to provide actual text label for the input. Both labels need to point their `for` attribute at the same radio input from their component.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/radio/" class="js-example">
 View example of the radio components
