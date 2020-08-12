@@ -301,11 +301,11 @@ $lightness-threshold: 70;
     }
 
     &:hover {
-      @extend %navigation-link-selected;
+      @extend %navigation-link-hover;
     }
   }
 
-  %navigation-link-selected {
+  %navigation-link-hover {
     &::after {
       background-color: $color-background-hover;
       content: '';
@@ -315,6 +315,10 @@ $lightness-threshold: 70;
       right: 0;
       top: 0;
     }
+  }
+
+  %navigation-link-selected {
+    @extend %navigation-link-hover;
 
     &::before {
       background-color: $color-navigation-text;
