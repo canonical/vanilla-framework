@@ -306,26 +306,8 @@ $lightness-threshold: 70;
   }
 
   %navigation-link-selected {
-    &::after {
-      background-color: $color-background-hover;
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-
-    &::before {
-      background-color: $color-navigation-text;
-      content: '';
-      height: $bar-thickness;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 1;
-    }
+    background-color: $color-navigation-text;
+    color: $color-navigation-background;
   }
 
   %navigation-link-before {
@@ -369,7 +351,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $colors--light-theme--background-default,
       $color-navigation-text: $colors--light-theme--text-default,
       $color-navigation-separator: $colors--light-theme--border-default,
-      $color-background-hover: $colors--light-theme--background-hover
+      $color-background-hover: $colors--dark-theme--text-default
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -380,7 +362,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
       $color-navigation-separator: $colors--light-theme--border-default,
-      $color-background-hover: $colors--light-theme--background-hover
+      $color-background-hover: $colors--dark-theme--text-default
     );
   }
 }
@@ -391,7 +373,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $colors--dark-theme--background-alt,
       $color-navigation-text: $colors--dark-theme--text-default,
       $color-navigation-separator: $colors--dark-theme--border-default,
-      $color-background-hover: $colors--dark-theme--background-hover
+      $color-background-hover: $colors--dark-theme--text-default
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -402,7 +384,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
       $color-navigation-separator: $colors--dark-theme--border-default,
-      $color-background-hover: $colors--dark-theme--background-hover
+      $color-background-hover: $colors--dark-theme--text-default
     );
   }
 }
