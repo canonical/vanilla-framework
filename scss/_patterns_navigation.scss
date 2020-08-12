@@ -1,6 +1,5 @@
 @import 'settings';
 
-$navigation-hover-opacity: 0.58;
 $lightness-threshold: 70;
 
 @mixin vf-p-navigation {
@@ -283,15 +282,18 @@ $lightness-threshold: 70;
 
 @mixin vf-navigation-theme(
   // color for navigation separator on small screens
-  $color-navigation-separator,
+    $color-navigation-separator,
   // color for navigation background
-  $color-navigation-background,
+    $color-navigation-background,
   // color for navigation text
-  $color-navigation-text
+    $color-navigation-text,
+  // transparent color of selected and hovered menu item
+    $color-background-hover
 ) {
   background-color: $color-navigation-background;
 
   %navigation-link-theme {
+    position: relative;
     &,
     &:visited,
     &:focus {
@@ -299,12 +301,31 @@ $lightness-threshold: 70;
     }
 
     &:hover {
-      opacity: $navigation-hover-opacity;
+      @extend %navigation-link-selected;
     }
   }
 
   %navigation-link-selected {
-    opacity: $navigation-hover-opacity;
+    &::after {
+      background-color: $color-background-hover;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &::before {
+      background-color: $color-navigation-text;
+      content: '';
+      height: $bar-thickness;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
   }
 
   %navigation-link-before {
@@ -347,7 +368,8 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $colors--light-theme--background-default,
       $color-navigation-text: $colors--light-theme--text-default,
-      $color-navigation-separator: $colors--light-theme--border-default
+      $color-navigation-separator: $colors--light-theme--border-default,
+      $color-background-hover: $colors--light-theme--background-hover
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -357,7 +379,8 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
-      $color-navigation-separator: $colors--light-theme--border-default
+      $color-navigation-separator: $colors--light-theme--border-default,
+      $color-background-hover: $colors--light-theme--background-hover
     );
   }
 }
@@ -367,7 +390,8 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $colors--dark-theme--background-alt,
       $color-navigation-text: $colors--dark-theme--text-default,
-      $color-navigation-separator: $colors--dark-theme--border-default
+      $color-navigation-separator: $colors--dark-theme--border-default,
+      $color-background-hover: $colors--dark-theme--background-hover
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -377,7 +401,8 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
-      $color-navigation-separator: $colors--dark-theme--border-default
+      $color-navigation-separator: $colors--dark-theme--border-default,
+      $color-background-hover: $colors--dark-theme--background-hover
     );
   }
 }
