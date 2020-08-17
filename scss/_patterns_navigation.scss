@@ -329,7 +329,7 @@ $lightness-threshold: 70;
       left: 0;
       position: absolute;
       right: 0;
-      top: 0;
+      top: 1px;
       z-index: 1;
     }
   }
@@ -375,7 +375,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $colors--light-theme--background-default,
       $color-navigation-text: $colors--light-theme--text-default,
       $color-navigation-separator: $colors--light-theme--border-default,
-      $color-background-hover: $colors--light-theme--background-hover
+      $color-background-hover: rgba($colors--light-theme--text-default, $active-background-opacity-amount)
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -386,7 +386,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
       $color-navigation-separator: $colors--light-theme--border-default,
-      $color-background-hover: $colors--light-theme--background-hover
+      $color-background-hover: rgba($colors--light-theme--text-default, $active-background-opacity-amount)
     );
   }
 }
@@ -397,7 +397,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $colors--dark-theme--background-alt,
       $color-navigation-text: $colors--dark-theme--text-default,
       $color-navigation-separator: $colors--dark-theme--border-default,
-      $color-background-hover: $colors--dark-theme--background-hover
+      $color-background-hover: rgba($colors--dark-theme--text-default, $active-background-opacity-amount)
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -408,7 +408,7 @@ $lightness-threshold: 70;
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
       $color-navigation-separator: $colors--dark-theme--border-default,
-      $color-background-hover: $colors--dark-theme--background-hover
+      $color-background-hover: rgba($colors--dark-theme--text-default, $active-background-opacity-amount)
     );
   }
 }
