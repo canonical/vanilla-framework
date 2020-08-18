@@ -6,29 +6,145 @@ $form-tick-offset-top: 0.1875rem;
 $form-radio-inner-circle-diameter: 0.375rem;
 $form-radio-circle-offset: 0.5 * ($form-tick-box-size - $form-radio-inner-circle-diameter);
 
-// Offsets to align tick elements to the baseline of headings.
-$form-tick-box-offsets-top: (
-  h1-small-screens: 5,
-  h1: 6,
-  h2-small-screens: 4,
-  h2: 5,
-  h3-small-screens: 4,
-  h3: 4,
-  h4-small-screens: 3,
-  h4: 3,
-  default-text: 3.333,
-  unpadded-text: 2.125,
-  muted-heading: 2.333,
-  muted-inline-heading: 2,
-  table-header: 1.9,
-) !default;
-
 @mixin vf-b-tick-elements {
-  // Default form checkbox and radio styles
-  %vf-tick-elements {
+  // hide the difficult to style native input
+  %vf-hidden-tick-input {
+    bottom: 0;
+    height: $form-tick-box-size;
+    float: none;
+    margin: 0;
     opacity: 0;
     position: absolute;
+    width: $form-tick-box-size;
+  }
 
+  %vf-tick-wrapper {
+    align-items: baseline;
+    display: flex;
+    position: relative;
+  }
+
+  %vf-checkbox-label {
+    @extend %vf-tick-wrapper;
+
+    // container
+    &::before {
+      @extend %vf-pseudo-tick-container;
+    }
+
+    //tick
+    &::after {
+      @extend %vf-tick-checkmark;
+    }
+  }
+
+  %vf-ticked-checkbox-label {
+    &::after {
+      opacity: 1;
+    }
+
+    // container
+    &::before {
+      background-color: $color-link;
+      border-color: $color-link;
+    }
+  }
+
+  %vf-radio-label {
+    @extend %vf-tick-wrapper;
+
+    // container
+    &::before {
+      @extend %vf-pseudo-tick-container;
+      border-radius: 50%;
+    }
+
+    // tick/circle
+    &::after {
+      @extend %vf-radio-inner-circle;
+    }
+  }
+
+  %vf-ticked-radio-label {
+    // inner radio circle
+    &::after {
+      background-color: $color-x-light;
+      opacity: 1;
+    }
+
+    // container
+    &::before {
+      background-color: $color-link;
+      border-color: $color-link;
+    }
+  }
+
+  // container only properties
+  %vf-pseudo-tick-container {
+    $properties: #{background-color, border-color};
+    @include vf-animation($properties);
+
+    border: 1px solid $color-x-dark;
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    height: $form-tick-box-size;
+    left: 0;
+    outline-offset: 1px;
+    margin-right: $form-tick-box-size;
+    position: relative;
+    width: $form-tick-box-size;
+  }
+
+  %vf-radio-inner-circle {
+    $properties: #{background-color, border-color};
+    @include vf-animation($properties);
+
+    bottom: #{0.5 * ($form-tick-box-size - $form-radio-inner-circle-diameter)};
+    border-radius: 50%;
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    height: $form-radio-inner-circle-diameter;
+    left: #{($form-tick-box-size - $form-radio-inner-circle-diameter) * 0.5};
+    margin-right: -#{$form-radio-inner-circle-diameter};
+    position: relative;
+    opacity: 0;
+    order: -1;
+    width: $form-radio-inner-circle-diameter;
+    z-index: 1;
+  }
+
+  %vf-tick-checkmark {
+    $properties: #{background-color, border-color};
+    @include vf-animation($properties);
+
+    border-color: $color-x-light;
+    bottom: calc(#{0.5 * ($form-tick-box-size - $form-radio-inner-circle-diameter)} + 2px);
+    bottom: $form-tick-box-size - $form-tick-height - $form-tick-offset-top;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    height: $form-tick-height;
+    left: calc(#{($form-tick-box-size - 0.729rem) * 0.5 + $bar-thickness} + 2px);
+    margin-right: -#{$form-radio-inner-circle-diameter};
+    position: relative;
+    opacity: 0;
+    order: -1;
+    transform: rotate(-45deg);
+    width: 0.625rem;
+    z-index: 1;
+  }
+
+  %vf-focused-tick-container {
+    outline: $bar-thickness solid $color-focus;
+  }
+
+  // Default form checkbox and radio styles
+  [type='checkbox'],
+  [type='radio'] {
     label & {
       // some basic styling for checkboxes inside labels
       float: left;
@@ -36,137 +152,10 @@ $form-tick-box-offsets-top: (
       opacity: 1;
       position: static;
     }
+  }
 
+  %vf-tick-elements {
     & + label {
-      padding-left: $sph-inner + $form-tick-box-size;
-      position: relative;
-
-      &::before,
-      &::after {
-        $properties: #{background-color, border-color};
-        @include vf-animation($properties);
-
-        position: absolute;
-      }
-
-      // container
-      &::before {
-        content: '';
-        height: $form-tick-box-size;
-        left: 0;
-        outline-offset: 1px;
-        width: $form-tick-box-size;
-      }
-
-      // Align with different text styles
-      @media (max-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::before,
-        &:not(.is-h2)::before,
-        &:not(.is-h3)::before,
-        &:not(.is-h4)::before,
-        &:not(.is-muted-heading)::before,
-        &:not(.is-inline-label)::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h1-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h2::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h2-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h3::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h3-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h4::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h4-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::before,
-        &:not(.is-h2)::before,
-        &:not(.is-h3)::before,
-        &:not(.is-h4)::before,
-        &:not(.is-muted-heading)::before,
-        &:not(.is-inline-label)::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h1) - $form-tick-box-size};
-        }
-
-        &.is-h2::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h2) - $form-tick-box-size};
-        }
-
-        &.is-h3::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h3) - $form-tick-box-size};
-        }
-
-        &.is-h4::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, h4) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::before {
-          top: #{$sp-unit * map-get($form-tick-box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
-
-      // tick/circle
-      &::after {
-        content: '';
-        opacity: 0;
-      }
-
-      &.is-h1 {
-        @extend %vf-heading-1;
-      }
-
-      &.is-h2 {
-        @extend %vf-heading-2;
-      }
-
-      &.is-h3 {
-        @extend %vf-heading-3;
-      }
-
-      &.is-h4 {
-        @extend %vf-heading-4;
-      }
-
       &.is-inline-label {
         display: inline;
         padding-top: 0;
@@ -191,382 +180,181 @@ $form-tick-box-offsets-top: (
       }
     }
 
-    &:checked + label::after {
-      opacity: 1;
+    &[disabled],
+    &[disabled='disabled'] + label {
+      @extend %vf-disabled-element;
     }
 
     &:focus + label::before {
-      outline: $bar-thickness solid $color-focus;
-    }
-
-    &[disabled],
-    &[disabled='disabled'] {
-      + label {
-        @extend %vf-disabled-element;
-      }
+      @extend %vf-focused-tick-container;
     }
   }
 
   [type='checkbox'] {
+    @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
 
     // stylelint-disable selector-no-qualifying-type
     & + label {
-      // container
-      &::before {
-        border-radius: $border-radius;
-      }
-
-      //tick
-      &::after {
-        border-bottom: 2px solid;
-        border-left: 2px solid;
-        height: $form-tick-height;
-        left: $form-tick-height * 0.5;
-        transform: rotate(-45deg);
-        width: 0.625rem;
-      }
-
-      // Align with different text styles
-      @media (max-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::after,
-        &:not(.is-h2)::after,
-        &:not(.is-h3)::after,
-        &:not(.is-h4)::after,
-        &:not(.is-muted-heading)::after,
-        &:not(.is-inline-label)::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h1-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h2::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h2-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h3::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h3-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h4::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h4-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::after,
-        &:not(.is-h2)::after,
-        &:not(.is-h3)::after,
-        &:not(.is-h4)::after,
-        &:not(.is-muted-heading)::after,
-        &:not(.is-inline-label)::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h1) - $form-tick-box-size};
-        }
-
-        &.is-h2::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h2) - $form-tick-box-size};
-        }
-
-        &.is-h3::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h3) - $form-tick-box-size};
-        }
-
-        &.is-h4::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, h4) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($form-tick-box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
+      @extend %vf-checkbox-label;
     }
     // stylelint-enable selector-no-qualifying-type
 
     &:checked {
-      @extend %checked;
+      // tick / inner radio circle
+      & + label {
+        @extend %vf-ticked-checkbox-label;
+      }
     }
   }
 
   [type='radio'] {
+    @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
 
     // stylelint-disable selector-no-qualifying-type
     & + label {
-      &::before,
-      &::after {
-        border-radius: 50%;
-      }
-
-      &::after {
-        border-radius: 50%;
-        height: $form-radio-inner-circle-diameter;
-        left: #{($form-tick-box-size - $form-radio-inner-circle-diameter) * 0.5};
-        // top: #{$box-offset-top + 0.5 * ($form-tick-box-size - $form-radio-inner-circle-diameter)};
-        width: $form-radio-inner-circle-diameter;
-      }
-
-      // Align with different text styles
-      @media (max-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::after,
-        &:not(.is-h2)::after,
-        &:not(.is-h3)::after,
-        &:not(.is-h4)::after,
-        &:not(.is-muted-heading)::after,
-        &:not(.is-inline-label)::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h1-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h2::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h2-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h3::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h3-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-h4::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h4-small-screens) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::after,
-        &:not(.is-h2)::after,
-        &:not(.is-h3)::after,
-        &:not(.is-h4)::after,
-        &:not(.is-muted-heading)::after,
-        &:not(.is-inline-label)::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h1) - $form-tick-box-size};
-        }
-
-        &.is-h2::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h2) - $form-tick-box-size};
-        }
-
-        &.is-h3::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h3) - $form-tick-box-size};
-        }
-
-        &.is-h4::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, h4) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($form-tick-box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
+      @extend %vf-radio-label;
     }
     // stylelint-enable selector-no-qualifying-type
 
     &:checked {
-      @extend %checked;
-    }
-  }
-
-  %checked {
-    & + label::before {
-      background-color: $color-link;
-      border-color: $color-link;
-    }
-  }
-
-  // Theming
-  @if ($theme-default-forms == 'dark') {
-    [type='checkbox'] {
-      @include vf-checkbox-dark-theme;
-    }
-
-    [type='radio'] {
-      @include vf-radio-dark-theme;
-    }
-
-    [type='checkbox'].is-light {
-      @include vf-checkbox-light-theme;
-    }
-
-    [type='radio'].is-light {
-      @include vf-radio-light-theme;
-    }
-  } @else {
-    [type='checkbox'] {
-      @include vf-checkbox-light-theme;
-    }
-
-    [type='radio'] {
-      @include vf-radio-light-theme;
-    }
-
-    [type='checkbox'].is-dark {
-      @include vf-checkbox-dark-theme;
-    }
-
-    [type='radio'].is-dark {
-      @include vf-radio-dark-theme;
+      & + label {
+        @extend %vf-ticked-radio-label;
+      }
     }
   }
 }
+//   // Theming
+//   @if ($theme-default-forms == 'dark') {
+//     [type='checkbox'] {
+//       @include vf-checkbox-dark-theme;
+//     }
 
-// theme for common properties on radios and checkboxes
-@mixin vf-tick-elements-theme(
-  // color of the tick element label text
-    $color-tick-text,
-  // color of the tick element background
-    $color-tick-background,
-  // color of the tick element border
-    $color-tick-border: $colors--light-theme--border-high-contrast
-) {
-  & + label {
-    color: $color-tick-text;
+//     [type='radio'] {
+//       @include vf-radio-dark-theme;
+//     }
 
-    &::before {
-      background: $color-tick-background;
-      border: 1px solid $color-tick-border;
-    }
-  }
-}
+//     [type='checkbox'].is-light {
+//       @include vf-checkbox-light-theme;
+//     }
 
-// theme for checkbox (including common properties)
-@mixin vf-checkbox-theme(
-  // color of the tick element label text
-    $color-tick-text,
-  // color of the tick element background
-    $color-tick-background,
-  // color of the tick element border
-    $color-tick-border,
-  // color of the checkbox tick
-    $color-checkbox-tick
-) {
-  @include vf-tick-elements-theme($color-tick-text, $color-tick-background, $color-tick-border);
+//     [type='radio'].is-light {
+//       @include vf-radio-light-theme;
+//     }
+//   } @else {
+//     [type='checkbox'] {
+//       @include vf-checkbox-light-theme;
+//     }
 
-  & + label {
-    &::after {
-      color: $color-checkbox-tick;
-    }
-  }
-}
+//     [type='radio'] {
+//       @include vf-radio-light-theme;
+//     }
 
-@mixin vf-checkbox-light-theme {
-  @include vf-checkbox-theme(
-    $color-tick-text: $colors--light-theme--text-default,
-    $color-tick-background: $colors--light-theme--background-default,
-    $color-tick-border: $colors--light-theme--border-high-contrast,
-    $color-checkbox-tick: $colors--light-theme--background-default
-  );
-}
+//     [type='checkbox'].is-dark {
+//       @include vf-checkbox-dark-theme;
+//     }
 
-@mixin vf-checkbox-dark-theme {
-  @include vf-checkbox-theme(
-    $color-tick-text: $colors--dark-theme--text-default,
-    $color-tick-background: $colors--dark-theme--background-default,
-    $color-tick-border: $colors--dark-theme--border-high-contrast,
-    $color-checkbox-tick: $colors--dark-theme--text-default
-  );
-}
+//     [type='radio'].is-dark {
+//       @include vf-radio-dark-theme;
+//     }
+//   }
+// }
 
-// theme for radio (including common properties)
-@mixin vf-radio-theme(
-  // color of the tick element label text
-    $color-tick-text,
-  // color of the tick element background
-    $color-tick-background,
-  // color of the tick element border
-    $color-tick-border,
-  // color of the radio dot
-    $color-radio-dot
-) {
-  @include vf-tick-elements-theme($color-tick-text, $color-tick-background, $color-tick-border);
+// // theme for common properties on radios and checkboxes
+// @mixin vf-tick-elements-theme(
+//   // color of the tick element label text
+//     $color-tick-text,
+//   // color of the tick element background
+//     $color-tick-background,
+//   // color of the tick element border
+//     $color-tick-border: $colors--light-theme--border-high-contrast
+// ) {
+//   & + label,
+//   & + .p-checkbox__label {
+//     color: $color-tick-text;
 
-  & + label {
-    &::after {
-      background-color: $color-radio-dot;
-    }
-  }
-}
+//     &::before {
+//       background: $color-tick-background;
+//       border: 1px solid $color-tick-border;
+//     }
+//   }
+// }
 
-@mixin vf-radio-light-theme {
-  @include vf-radio-theme(
-    $color-tick-text: $colors--light-theme--text-default,
-    $color-tick-background: $colors--light-theme--background-default,
-    $color-tick-border: $colors--light-theme--border-high-contrast,
-    $color-radio-dot: $colors--light-theme--background-default
-  );
-}
+// // theme for checkbox (including common properties)
+// @mixin vf-checkbox-theme(
+//   // color of the tick element label text
+//     $color-tick-text,
+//   // color of the tick element background
+//     $color-tick-background,
+//   // color of the tick element border
+//     $color-tick-border,
+//   // color of the checkbox tick
+//     $color-checkbox-tick
+// ) {
+//   @include vf-tick-elements-theme($color-tick-text, $color-tick-background, $color-tick-border);
 
-@mixin vf-radio-dark-theme {
-  @include vf-radio-theme(
-    $color-tick-text: $colors--dark-theme--text-default,
-    $color-tick-background: $colors--dark-theme--background-default,
-    $color-tick-border: $colors--dark-theme--border-high-contrast,
-    $color-radio-dot: $colors--dark-theme--text-default
-  );
-}
+//   & + label,
+//   & + .p-checkbox__label {
+//     &::after {
+//       color: $color-checkbox-tick;
+//     }
+//   }
+// }
+
+// @mixin vf-checkbox-light-theme {
+//   @include vf-checkbox-theme(
+//     $color-tick-text: $colors--light-theme--text-default,
+//     $color-tick-background: $colors--light-theme--background-default,
+//     $color-tick-border: $colors--light-theme--border-high-contrast,
+//     $color-checkbox-tick: $colors--light-theme--background-default
+//   );
+// }
+
+// @mixin vf-checkbox-dark-theme {
+//   @include vf-checkbox-theme(
+//     $color-tick-text: $colors--dark-theme--text-default,
+//     $color-tick-background: $colors--dark-theme--background-default,
+//     $color-tick-border: $colors--dark-theme--border-high-contrast,
+//     $color-checkbox-tick: $colors--dark-theme--text-default
+//   );
+// }
+
+// // theme for radio (including common properties)
+// @mixin vf-radio-theme(
+//   // color of the tick element label text
+//     $color-tick-text,
+//   // color of the tick element background
+//     $color-tick-background,
+//   // color of the tick element border
+//     $color-tick-border,
+//   // color of the radio dot
+//     $color-radio-dot
+// ) {
+//   @include vf-tick-elements-theme($color-tick-text, $color-tick-background, $color-tick-border);
+
+//   & + label,
+//   & + .p-checkbox__label {
+//     &::after {
+//       background-color: $color-radio-dot;
+//     }
+//   }
+// }
+
+// @mixin vf-radio-light-theme {
+//   @include vf-radio-theme(
+//     $color-tick-text: $colors--light-theme--text-default,
+//     $color-tick-background: $colors--light-theme--background-default,
+//     $color-tick-border: $colors--light-theme--border-high-contrast,
+//     $color-radio-dot: $colors--light-theme--background-default
+//   );
+// }
+
+// @mixin vf-radio-dark-theme {
+//   @include vf-radio-theme(
+//     $color-tick-text: $colors--dark-theme--text-default,
+//     $color-tick-background: $colors--dark-theme--background-default,
+//     $color-tick-border: $colors--dark-theme--border-high-contrast,
+//     $color-radio-dot: $colors--dark-theme--text-default
+//   );
+// }

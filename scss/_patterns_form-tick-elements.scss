@@ -30,30 +30,23 @@
       }
     }
 
-    // position the tick in checkbox
-    [type='checkbox'] + label {
-      &::after {
-        bottom: $form-tick-box-size - $form-tick-height - $form-tick-offset-top;
-      }
-    }
+    // // position the tick in checkbox
+    // [type='checkbox'] + label {
+    //   &::after {
+    //     bottom: $form-tick-box-size - $form-tick-height - $form-tick-offset-top;
+    //   }
+    // }
 
-    // position the dot in radio
-    [type='radio'] + label {
-      &::after {
-        bottom: $form-radio-circle-offset;
-      }
-    }
+    // // position the dot in radio
+    // [type='radio'] + label {
+    //   &::after {
+    //     bottom: $form-radio-circle-offset;
+    //   }
+    // }
   }
 
   %p-tick-element {
-    align-items: baseline;
-    display: flex;
-
-    // needs to be nested to fight specificity of base styles
-    .p-radio__input,
-    .p-checkbox__input {
-      @extend %p-tick-input;
-    }
+    @extend %vf-tick-wrapper;
 
     &.is-disabled .p-checkbox__label {
       @extend %vf-disabled-element;
@@ -63,15 +56,48 @@
   .p-radio,
   .p-checkbox {
     @extend %p-tick-element;
+
+    // &__input {
+    //   @extend %p-tick-input;
+    // }
+
+    // when tick elements are following each other in the document
+    // keep them closer together by 1 baseline grid unit
+    & + .p-checkbox,
+    & + .p-radio {
+      margin-top: -$sp-unit;
+    }
   }
 
-  // when tick elements are following each other in the document
-  // keep them closer together by 1 baseline grid unit
-  .p-radio + .p-radio,
-  .p-checkbox + .p-checkbox,
-  .p-checkbox + .p-radio,
-  .p-radio + .p-checkbox {
-    margin-top: -$sp-unit;
+  [type='checkbox'].p-checkbox__input {
+    @extend %vf-hidden-tick-input;
+    @extend %vf-tick-elements;
+
+    & + .p-checkbox__label {
+      @extend %vf-checkbox-label;
+    }
+
+    &:checked {
+      // tick / inner radio circle
+      & + .p-checkbox__label {
+        @extend %vf-ticked-checkbox-label;
+      }
+    }
+  }
+
+  [type='radio'].p-radio__input {
+    @extend %vf-hidden-tick-input;
+    @extend %vf-tick-elements;
+
+    & + .p-radio__label {
+      @extend %vf-radio-label;
+    }
+
+    &:checked {
+      & + .p-radio__label {
+        @extend %vf-ticked-radio-label;
+      }
+    }
   }
 
   .p-radio--inline,
