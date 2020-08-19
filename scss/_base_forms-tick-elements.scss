@@ -154,50 +154,50 @@ $form-radio-circle-offset: 0.5 * ($form-tick-box-size - $form-radio-inner-circle
   }
 
   %vf-tick-elements {
-    & + label {
-      &.is-inline-label {
-        display: inline;
-        padding-top: 0;
-      }
+    // & + label {
+    //   &.is-inline-label {
+    //     display: inline;
+    //     padding-top: 0;
+    //   }
 
-      &.is-muted-heading {
-        @extend %muted-heading;
-      }
+    //   &.is-muted-heading {
+    //     @extend %muted-heading;
+    //   }
 
-      &.is-muted-inline-heading {
-        @extend %muted-heading;
+    //   &.is-muted-inline-heading {
+    //     @extend %muted-heading;
 
-        display: inline;
-        padding-top: 0;
-      }
+    //     display: inline;
+    //     padding-top: 0;
+    //   }
 
-      &.is-table-header {
-        @extend %table-header-label;
+    //   &.is-table-header {
+    //     @extend %table-header-label;
 
-        display: inline;
-        padding-top: 0;
-      }
-    }
+    //     display: inline;
+    //     padding-top: 0;
+    //   }
+    // }
 
     &[disabled],
     &[disabled='disabled'] + label {
       @extend %vf-disabled-element;
-    }
-
-    &:focus + label::before {
-      @extend %vf-focused-tick-container;
     }
   }
 
   [type='checkbox'] {
     @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
+    // stylelint-enable selector-no-qualifying-type
 
-    // stylelint-disable selector-no-qualifying-type
     & + label {
       @extend %vf-checkbox-label;
     }
-    // stylelint-enable selector-no-qualifying-type
+
+    &:focus + label::before {
+      @extend %vf-focused-tick-container;
+    }
+    // stylelint-disable selector-no-qualifying-type
 
     &:checked {
       // tick / inner radio circle
