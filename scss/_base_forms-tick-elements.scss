@@ -471,35 +471,35 @@ $box-offsets-top: (
 
   // Theming
   @if ($theme-default-forms == 'dark') {
-    [type='checkbox'] {
+    [type='checkbox'] + label {
       @include vf-checkbox-dark-theme;
     }
 
-    [type='radio'] {
+    [type='radio'] + label {
       @include vf-radio-dark-theme;
     }
 
-    [type='checkbox'].is-light {
+    [type='checkbox'].is-light + label {
       @include vf-checkbox-light-theme;
     }
 
-    [type='radio'].is-light {
+    [type='radio'].is-light + label {
       @include vf-radio-light-theme;
     }
   } @else {
-    [type='checkbox'] {
+    [type='checkbox'] + label {
       @include vf-checkbox-light-theme;
     }
 
-    [type='radio'] {
+    [type='radio'] + label {
       @include vf-radio-light-theme;
     }
 
-    [type='checkbox'].is-dark {
+    [type='checkbox'].is-dark + label {
       @include vf-checkbox-dark-theme;
     }
 
-    [type='radio'].is-dark {
+    [type='radio'].is-dark + label {
       @include vf-radio-dark-theme;
     }
   }
@@ -514,13 +514,11 @@ $box-offsets-top: (
   // color of the tick element border
     $color-tick-border: $colors--light-theme--border-high-contrast
 ) {
-  & + label {
-    color: $color-tick-text;
+  color: $color-tick-text;
 
-    &::before {
-      background: $color-tick-background;
-      border: 1px solid $color-tick-border;
-    }
+  &::before {
+    background: $color-tick-background;
+    border: 1px solid $color-tick-border;
   }
 }
 
@@ -537,10 +535,8 @@ $box-offsets-top: (
 ) {
   @include vf-tick-elements-theme($color-tick-text, $color-tick-background, $color-tick-border);
 
-  & + label {
-    &::after {
-      color: $color-checkbox-tick;
-    }
+  &::after {
+    color: $color-checkbox-tick;
   }
 }
 
@@ -575,10 +571,8 @@ $box-offsets-top: (
 ) {
   @include vf-tick-elements-theme($color-tick-text, $color-tick-background, $color-tick-border);
 
-  & + label {
-    &::after {
-      background-color: $color-radio-dot;
-    }
+  &::after {
+    background-color: $color-radio-dot;
   }
 }
 
