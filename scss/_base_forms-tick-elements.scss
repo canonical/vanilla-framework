@@ -62,6 +62,23 @@ $box-offsets-top: (
     }
   }
 
+  %vf-pseudo-tick-box-checked {
+    &::before {
+      background-color: $color-link;
+      border-color: $color-link;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  %vf-pseudo-tick-box-focused {
+    &::before {
+      outline: $bar-thickness solid $color-focus;
+    }
+  }
+
   %vf-pseudo-checkbox {
     // container
     &::before {
@@ -242,19 +259,17 @@ $box-offsets-top: (
       }
     }
 
-    &:checked + label::after {
-      opacity: 1;
+    &:checked + label {
+      @extend %vf-pseudo-tick-box-checked;
     }
 
-    &:focus + label::before {
-      outline: $bar-thickness solid $color-focus;
+    &:focus + label {
+      @extend %vf-pseudo-tick-box-focused;
     }
 
-    &[disabled],
-    &[disabled='disabled'] {
-      + label {
-        @extend %vf-disabled-element;
-      }
+    &[disabled] + label,
+    &[disabled='disabled'] + label {
+      @extend %vf-disabled-element;
     }
   }
 
@@ -354,18 +369,11 @@ $box-offsets-top: (
       }
     }
     // stylelint-enable selector-no-qualifying-type
-
-    &:checked {
-      @extend %checked;
-    }
   }
 
   [type='radio'] {
     @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
-
-    $form-radio-inner-circle-diameter: 0.375rem;
-    $form-radio-circle-offset: 0.5 * ($form-tick-box-size - $form-radio-inner-circle-diameter);
 
     // stylelint-disable selector-no-qualifying-type
     & + label {
@@ -459,17 +467,6 @@ $box-offsets-top: (
       }
     }
     // stylelint-enable selector-no-qualifying-type
-
-    &:checked {
-      @extend %checked;
-    }
-  }
-
-  %checked {
-    & + label::before {
-      background-color: $color-link;
-      border-color: $color-link;
-    }
   }
 
   // Theming
