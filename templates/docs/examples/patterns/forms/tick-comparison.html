@@ -1,0 +1,224 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Tick elements comparison{% endblock %}
+
+{% block standalone_css %}patterns_form-tick-elements{% endblock %}
+
+{% block content %}
+<form>
+
+<div class="row">
+  <div class="col-6">
+    <h3>Base checkbox</h3>
+
+    <input type="checkbox" id="checkExampleBase">
+    <label for="checkExampleBase">checkbox</label>
+
+    <input type="checkbox" id="checkExampleBaseChecked" checked>
+    <label for="checkExampleBaseChecked">checked</label>
+
+    <input type="checkbox" id="checkExampleBaseDisabled" disabled>
+    <label for="checkExampleBaseDisabled">disabled</label>
+
+    <input type="checkbox" id="checkExampleBaseRequired" required>
+    <label class="is-required" for="checkExampleBaseRequired">required</label>
+
+    <input type="checkbox" id="checkExampleBaseH1">
+    <label class="is-h1" for="checkExampleBaseH1">.is-h1</label>
+
+    <input type="checkbox" id="checkExampleBaseH2">
+    <label class="is-h2" for="checkExampleBaseH2">.is-h2</label>
+
+    <input type="checkbox" id="checkExampleBaseH3">
+    <label class="is-h3" for="checkExampleBaseH3">.is-h3</label>
+
+    <input type="checkbox" id="checkExampleBaseH4">
+    <label class="is-h4" for="checkExampleBaseH4">.is-h4</label>
+
+    <p>
+      <input type="checkbox" id="checkExampleBaseInline">
+      <label class="is-inline-label" for="checkExampleBaseInline">.is-inline-label</label>
+      alongside some text
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="checkExampleBaseTable">
+            <label class="is-table-header" for="checkExampleBaseTable">.is-table-header</label>
+          </th>
+          <th>
+            Text in adjacent cell
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="checkbox" id="checkExampleBaseTableCell">
+            <label class="is-inline-label" for="checkExampleBaseTableCell">.is-inline-label</label>
+          </td>
+          <td>
+            Text in adjacent cell
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="p-muted-heading">
+      <input type="checkbox" id="checkExampleBaseMuted">
+      <label class="is-muted-heading" for="checkExampleBaseMuted">.is-muted-heading</label>
+    </p>
+
+    <p>
+      <input type="checkbox" id="checkExampleBaseInlineMuted">
+      <label class="is-muted-inline-heading" for="checkExampleBaseInlineMuted">.is-muted-inline-heading</label>
+      alongside some text
+    </p>
+
+  </div>
+
+  <div class="col-6">
+    <h3>.p-checkbox component</h3>
+
+    <p><em>The <code>p-checkbox</code> markup improves spacing between consecutive checkboxes.</em></p>
+
+    {% include 'docs/examples/patterns/forms/_checkbox.html' %}
+
+    {% include 'docs/examples/patterns/forms/_checkbox-heading.html' %}
+
+    {% include 'docs/examples/patterns/forms/_checkbox-inline.html' %}
+
+    <p class="p-muted-heading">
+      <label class="p-checkbox--inline">
+        <input type="checkbox" class="p-checkbox__input" />
+        <span class="p-checkbox__label">.p-checkbox--inline in .p-muted-heading</span>
+      </label>
+    </p>
+
+    <p>
+      <span class="p-muted-heading">
+        <label class="p-checkbox--inline">
+          <input type="checkbox" class="p-checkbox__input" />
+          <span class="p-checkbox__label">.p-checkbox--inline in .p-muted-heading</span>
+        </label>
+      </span>
+      alongside text
+    </p>
+
+  </div>
+</div>
+
+<div class="u-fixed-width">
+  <input class="p-button--positive" type="submit" />
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <h3>Base radio</h3>
+
+    <input type="radio" id="radioExampleBase" name="radioBase">
+    <label for="radioExampleBase">radio</label>
+
+    <input type="radio" id="radioExampleBaseChecked" name="radioBase" checked>
+    <label for="radioExampleBaseChecked">checked</label>
+
+    <input type="radio" id="radioExampleBaseDisabled" name="radioBase" disabled>
+    <label for="radioExampleBaseDisabled">disabled</label>
+
+    <input type="radio" id="radioExampleBaseRequired" name="radioBase" required>
+    <label class="is-required" for="radioExampleBaseRequired">required</label>
+
+    <input type="radio" id="radioExampleBaseH1" name="radioBase">
+    <label class="is-h1" for="radioExampleBaseH1">.is-h1</label>
+
+    <input type="radio" id="radioExampleBaseH2" name="radioBase">
+    <label class="is-h2" for="radioExampleBaseH2">.is-h2</label>
+
+    <input type="radio" id="radioExampleBaseH3" name="radioBase">
+    <label class="is-h3" for="radioExampleBaseH3">.is-h3</label>
+
+    <input type="radio" id="radioExampleBaseH4" name="radioBase">
+    <label class="is-h4" for="radioExampleBaseH4">.is-h4</label>
+
+    <p>
+      <input type="radio" id="radioExampleBaseInline" name="radioBase">
+      <label class="is-inline-label" for="radioExampleBaseInline">.is-inline-label</label>
+      alongside some text
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="radio" id="radioExampleBaseTable" name="radioBase">
+            <label class="is-table-header" for="radioExampleBaseTable">.is-table-header</label>
+          </th>
+          <th>
+            Text in adjacent cell
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="radio" id="radioExampleBaseTableCell" name="radioBase">
+            <label class="is-inline-label" for="radioExampleBaseTableCell">.is-inline-label</label>
+          </td>
+          <td>
+            Text in adjacent cell
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="p-muted-heading">
+      <input type="radio" id="radioExampleBaseMuted" name="radioBase">
+      <label class="is-muted-heading" for="radioExampleBaseMuted">.is-muted-heading</label>
+    </p>
+
+    <p>
+      <input type="radio" id="radioExampleBaseInlineMuted" name="radioBase">
+      <label class="is-muted-inline-heading" for="radioExampleBaseInlineMuted">.is-muted-inline-heading</label>
+      alongside some text
+    </p>
+
+  </div>
+
+  <div class="col-6">
+    <h3>.p-radio component</h3>
+
+    <p><em>The <code>p-radio</code> markup improves spacing between consecutive radio buttons.</em></p>
+
+    {% include 'docs/examples/patterns/forms/_radio.html' %}
+
+    {% include 'docs/examples/patterns/forms/_radio-heading.html' %}
+
+    {% include 'docs/examples/patterns/forms/_radio-inline.html' %}
+
+    <p class="p-muted-heading">
+      <label class="p-radio--inline">
+        <input type="radio" class="p-radio__input" name="radioPattern" />
+        <span class="p-radio__label">.p-radio--inline in .p-muted-heading</span>
+      </label>
+    </p>
+
+    <p>
+      <span class="p-muted-heading">
+        <label class="p-radio--inline">
+          <input type="radio" class="p-radio__input" name="radioPattern" />
+          <span class="p-radio__label">.p-radio--inline in .p-muted-heading</span>
+        </label>
+      </span>
+      alongside text
+    </p>
+
+  </div>
+</div>
+
+<div class="u-fixed-width">
+  <input class="p-button--positive" type="submit" />
+</div>
+
+</form>
+{% endblock %}

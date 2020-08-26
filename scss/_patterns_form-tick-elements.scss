@@ -1,0 +1,65 @@
+@import 'settings';
+
+@mixin vf-p-form-tick-elements {
+  // specify both [type] and class to fight specificity of base `label [type]` styles
+  [type='checkbox'].p-checkbox__input,
+  [type='radio'].p-radio__input {
+    @extend %vf-hidden-tick-input;
+  }
+
+  .p-checkbox__label {
+    @extend %vf-pseudo-tick-box;
+    @extend %vf-pseudo-checkbox;
+    @include vf-checkbox-light-theme;
+  }
+
+  .p-radio__label {
+    @extend %vf-pseudo-tick-box;
+    @extend %vf-pseudo-radio;
+    @include vf-radio-light-theme;
+  }
+
+  // inline variants
+  .p-checkbox--heading,
+  .p-checkbox--inline,
+  .p-radio--heading,
+  .p-radio--inline {
+    display: inline;
+  }
+
+  // nudge ticks in headings back to the baseline
+  .p-checkbox--heading .p-checkbox__label,
+  .p-radio--heading .p-radio__label {
+    &::before,
+    &::after {
+      margin-top: -$form-tick-box-nudge;
+    }
+  }
+
+  // fake tick checked state
+  .p-checkbox__input:checked + .p-checkbox__label,
+  .p-radio__input:checked + .p-radio__label {
+    @extend %vf-pseudo-tick-box-checked;
+  }
+
+  // fake tick focused state
+  .p-checkbox__input:focus + .p-checkbox__label,
+  .p-radio__input:focus + .p-radio__label {
+    @extend %vf-pseudo-tick-box-focused;
+  }
+
+  // fake tick disabled state
+  .p-checkbox__input:disabled + .p-checkbox__label,
+  .p-radio__input:disabled + .p-radio__label {
+    @extend %vf-disabled-element;
+  }
+
+  // when tick elements are following each other in the document
+  // keep them closer together by 1 baseline grid unit
+  .p-radio + .p-radio,
+  .p-checkbox + .p-checkbox,
+  .p-checkbox + .p-radio,
+  .p-radio + .p-checkbox {
+    margin-top: -$sp-unit;
+  }
+}
