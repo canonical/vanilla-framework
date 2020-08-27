@@ -38,37 +38,79 @@ Note: The attribute `readonly` disables the input but it still retains a default
 
 ### Checkbox
 
-Use checkboxes to select one or more options, default checkboxes can appear in three states: selected, unselected and disabled.
+<span class="p-label--new">New</span>
 
-<div class="embedded-example"><a href="/docs/examples/base/forms/checkboxes/" class="js-example">
-View example of the base checkboxes
+Use the checkbox component to select one or more options. To provide fully featured Vanilla style and behaviour of the checkbox a specific markup structure is needed around the checkbox input (see example below).
+
+To disable the checkbox component a `disabled` property needs to be added on respective `<input type='checkbox'>` element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox/" class="js-example">
+View example of the checkbox components
 </a></div>
 
-<span class="p-label--updated">Updated</span>
+#### Inline checkbox
 
-By default, checkboxes are vertically aligned to the baseline of text wrapped in a `label`, `h5`, `h6`, or `p` tag. If you need to align them to other elements, use one of the following classes:
-`is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
+When placing the checkbox component in padded containers (table cells, some list items), use the `.p-checkbox--inline` variant. It ensures the checkbox and the label text are properly aligned with other inline text.
 
-<div class="embedded-example"><a href="/docs/examples/base/forms/aligned-checkboxes/" class="js-example">
-View example of checkboxes aligned to different headings
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox-inline/" class="js-example">
+View example of the inline checkbox components
 </a></div>
+
+#### Heading checkbox
+
+To use checkbox component in headings use the `.p-checkbox--heading` variant of the component to make sure the checkbox and the label text are properly aligned.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox-heading/" class="js-example">
+View example of the heading checkbox components
+</a></div>
+
+#### Deprecated base checkboxes
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The base element styling for checkbox inputs (`<input type="checkbox">`) outside of the `.p-checkbox` component is now deprecated and will be removed in a future version of Vanilla framework.
+
+This applies also to all modifier classes on checkbox elements, such as `is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
+
+Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-checkbox` component.
 
 ### Radio button
 
-Use radio buttons to select one or more options, our radio buttons can appear in four states: both selected, unselected and disabled.
+<span class="p-label--new">New</span>
 
-<div class="embedded-example"><a href="/docs/examples/base/forms/radio-buttons/" class="js-example">
-View example of the base radio buttons
+Use radio buttons to select one of the given set of options. To provide fully featured Vanilla style and behaviour of the radio button a specific markup structure is needed around the radio button input (see example below).
+
+To disable the radio component a `disabled` property needs to be added on respective `<input type='radio'>` element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/radio/" class="js-example">
+View example of the radio components
 </a></div>
 
-<span class="p-label--updated">Updated</span>
+#### Inline radio button
 
-By default, radio buttons are vertically aligned to the baseline of text wrapped in a `label`, `h5`, `h6`, or `p` tag. If you need to align them to other elements, use one of the following classes:
-`is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
+When placing the radio component in padded containers (table cells, some list items), use the `.p-radio--inline` variant of the component to make sure the radio button and the label text are properly aligned with other inline text.
 
-<div class="embedded-example"><a href="/docs/examples/base/forms/aligned-radio/" class="js-example">
-View example of the aligned radio buttons
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/radio-inline/" class="js-example">
+View example of the inline radio components
 </a></div>
+
+#### Heading radio button
+
+To use radio component in headings use the `.p-checkbox--heading` variant of the component to make sure the radio button and the label text are properly aligned.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/radio-heading/" class="js-example">
+View example of the heading radio components
+</a></div>
+
+#### Deprecated base radio buttons
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The base element styling for radio inputs (`<input type="radio">`) outside of the `.p-radio` component is now deprecated and will be removed in a future version of Vanilla framework.
+
+This applies also to all modifier classes on checkbox elements, such as `is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
+
+Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-radio` component.
 
 ### Select
 
