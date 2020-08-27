@@ -10,13 +10,11 @@
   .p-checkbox__label {
     @extend %vf-pseudo-tick-box;
     @extend %vf-pseudo-checkbox;
-    @include vf-checkbox-light-theme;
   }
 
   .p-radio__label {
     @extend %vf-pseudo-tick-box;
     @extend %vf-pseudo-radio;
-    @include vf-radio-light-theme;
   }
 
   // inline variants
@@ -61,5 +59,40 @@
   .p-checkbox + .p-radio,
   .p-radio + .p-checkbox {
     margin-top: -$sp-unit;
+  }
+
+  // Theming
+  @if ($theme-default-forms == 'dark') {
+    .p-checkbox__label {
+      @include vf-checkbox-dark-theme;
+    }
+
+    .p-radio__label {
+      @include vf-radio-dark-theme;
+    }
+
+    .p-checkbox.is-light .p-checkbox__label {
+      @include vf-checkbox-light-theme;
+    }
+
+    .p-radio.is-light .p-radio__label {
+      @include vf-radio-light-theme;
+    }
+  } @else {
+    .p-checkbox__label {
+      @include vf-checkbox-light-theme;
+    }
+
+    .p-radio__label {
+      @include vf-radio-light-theme;
+    }
+
+    .p-checkbox.is-dark .p-checkbox__label {
+      @include vf-checkbox-dark-theme;
+    }
+
+    .p-radio.is-dark .p-radio__label {
+      @include vf-radio-dark-theme;
+    }
   }
 }
