@@ -8,9 +8,10 @@ context:
 
 <hr>
 
-You can use the breadcrumbs pattern to indicate where the current page sits in
-the site's navigation. The separators between each item are added via CSS, so
-you don't have to include them manually.
+You can use the breadcrumbs pattern to indicate where the current page sits in the site's navigation.
+- A nav element with an `aria-label` "Breadcrumb" identifies the structure as a breadcrumb trail
+- The set of links is structured using an ordered list
+- The separators between each item are added via CSS, so you don't have to include them manually.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/breadcrumbs/" class="js-example">
 View example of the breadcrumbs pattern
