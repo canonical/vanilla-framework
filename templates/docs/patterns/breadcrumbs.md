@@ -20,7 +20,7 @@ View example of the breadcrumbs pattern
 
 ### Deprecated markup
 
-The breadcrumb markup has been updated for accessibility reasons. Support for the old markup shown in the example below may be removed in future versions of vanilla:
+The breadcrumb markup has been updated for accessibility reasons. Support for the old markup shown in the example below may be removed in future versions:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/breadcrumbs-deprecated/" class="js-example">
 View example of the deprecated breadcrumbs markup
