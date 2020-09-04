@@ -18,6 +18,14 @@ You can use the breadcrumbs pattern to indicate where the current page sits in t
 View example of the breadcrumbs pattern
 </a></div>
 
+### Deprecated markup
+
+The breadcrumb markup has been updated for accessibility reasons. Support for the old markup shown in the example below may be removed in future versions of vanilla:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/breadcrumbs-deprecated/" class="js-example">
+View example of the deprecated breadcrumbs markup
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
