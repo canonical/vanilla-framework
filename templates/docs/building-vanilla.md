@@ -144,7 +144,7 @@ Now run the command with `yarn build`, which will bundle the code and put in a a
 
 ```
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
