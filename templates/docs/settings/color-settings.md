@@ -119,7 +119,7 @@ These guidelines are the framework upon which we have built our system for how c
 
 You can define a brand color (`$color-brand`) that can be used for call-to-action buttons and other highlights across the framework. The default Vanilla brand color is `$color-dark`.
 
-<img class="p-image--bordered" src="https://assets.ubuntu.com/v1/7446a44a-basics-brand-color.png" alt="brand-color">
+<img class="p-image--bordered" src="https://assets.ubuntu.com/v1/7446a44a-basics-brand-color.png" alt="">
 
 ### Accessibility
 
