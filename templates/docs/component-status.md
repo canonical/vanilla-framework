@@ -10,7 +10,7 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.17
+### What's new in Vanilla 2.18
 
 <table>
   <thead>
@@ -22,24 +22,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.17 -->
+    <!-- 2.18 -->
     <tr>
       <th><a href="/docs/base/forms#checkbox">Breadcrumbs</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.18.0</td>
       <td>We updaed the markup of the `breadcrumbs` component to comply with accessibility requirements. The class `.p-breadcrumbs` is now moved onto a `nav` element, the unordered list has been changed to an ordered one that has a class `.p-breadcrumbs__items`. </td>
-    </tr>
-    <tr>
-      <th><a href="/docs/base/forms#checkbox">Checkbox and radio buttons components</a></th>
-      <td><div class="p-label--new">New</div></td>
-      <td>2.17.0</td>
-      <td>We introduced new <code>.p-checkbox</code> and <code>.p-radio</code> components. They replace the existing styling of base form inputs.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/base/forms#deprecated-base-checkboxes">Checkbox and radio buttons elements</a></th>
-      <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>2.17.0</td>
-      <td>Base styled checkboxes and radio buttons (on <code>&lt;input type="checkbox"&gt;</code> or <code>&lt;input type="radio"&gt;</code> elements) are deprecated and they will be reverted to native browser inputs in future version of Vanilla. Please use on bWe added new layout styles for building responsive full-screen applications.</td>
     </tr>
   </tbody>
 </table>
@@ -56,6 +44,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.17 -->
+    <tr>
+      <th><a href="/docs/base/forms#checkbox">Checkbox and radio buttons components</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.17.0</td>
+      <td>We introduced new <code>.p-checkbox</code> and <code>.p-radio</code> components. They replace the existing styling of base form inputs.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/forms#deprecated-base-checkboxes">Checkbox and radio buttons elements</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.17.0</td>
+      <td>Base styled checkboxes and radio buttons (on <code>&lt;input type="checkbox"&gt;</code> or <code>&lt;input type="radio"&gt;</code> elements) are deprecated and they will be reverted to native browser inputs in future version of Vanilla. Please use on bWe added new layout styles for building responsive full-screen applications.</td>
+    </tr>
     <!-- 2.16 -->
     <tr>
       <th><a href="/docs/layouts/application">Application layout</a></th>
