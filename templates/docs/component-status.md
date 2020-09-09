@@ -27,7 +27,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/base/forms#checkbox">Breadcrumbs</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.18.0</td>
-      <td>We updaed the markup of the `breadcrumbs` component to comply with accessibility requirements. The class `.p-breadcrumbs` is now moved onto a `nav` element, the unordered list has been changed to an ordered one that has a class `.p-breadcrumbs__items`. </td>
+      <td>We updated the markup of the breadcrumbs component to comply with accessibility requirements. The class <code>.p-breadcrumbs</code> is now moved onto a <code>&lt;nav&gt;</code> element, the unordered list has been changed to an ordered one that has a class <code>.p-breadcrumbs__items</code>. </td>
     </tr>
   </tbody>
 </table>
