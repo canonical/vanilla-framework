@@ -19,6 +19,18 @@ jobs:
       - run: yarn build
       - run: yarn test
 
+  dart:
+    name: Test build with dart-sass
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn add sass
+      - run: npx sass scss/build.scss
+
   docker:
     name: Build and run
     runs-on: ubuntu-latest
