@@ -31,7 +31,7 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
     <tr>
       <th><a href="/docs/base/forms#checkbox">Breadcrumbs</a></th>
-      <td><div class="p-label--updated">Deprecated</div></td>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.18.0</td>
       <td>Top level <code>&lt;ul&gt;</code> with a class <code>.p-breadcrumbs</code> is now deprecated for the Breadcrumbs pattern.</td>
     </tr>
