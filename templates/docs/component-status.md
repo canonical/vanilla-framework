@@ -24,7 +24,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.18 -->
     <tr>
-      <th><a href="/docs/base/forms#checkbox">Breadcrumbs</a></th>
+      <th><a href="/docs/patterns/breadcrumbs">Breadcrumbs</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.18.0</td>
       <td>We updated the markup of the breadcrumbs component to comply with accessibility requirements. The class <code>.p-breadcrumbs</code> is now moved onto a <code>&lt;nav&gt;</code> element, the unordered list has been changed to an ordered one that has a class <code>.p-breadcrumbs__items</code>. </td>
