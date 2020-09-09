@@ -30,7 +30,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We updated the markup of the breadcrumbs component to comply with accessibility requirements. The class <code>.p-breadcrumbs</code> is now moved onto a <code>&lt;nav&gt;</code> element, the unordered list has been changed to an ordered one that has a class <code>.p-breadcrumbs__items</code>. </td>
     </tr>
     <tr>
-      <th><a href="/docs/base/forms#checkbox">Breadcrumbs</a></th>
+      <th><a href="/docs/patterns/breadcrumbs#deprecated-markup">Breadcrumbs</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.18.0</td>
       <td>Top level <code>&lt;ul&gt;</code> with a class <code>.p-breadcrumbs</code> is now deprecated for the Breadcrumbs pattern.</td>
