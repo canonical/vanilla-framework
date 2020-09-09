@@ -22,6 +22,8 @@ View example of the breadcrumbs pattern
 
 ### Deprecated markup
 
+<span class="p-label--deprecated">Deprecated</span>
+
 The breadcrumb markup has been updated for accessibility reasons. Support for the <a href="/docs/examples/patterns/breadcrumbs-deprecated/">old markup</a> may be removed in future versions.
 
 ### Import
