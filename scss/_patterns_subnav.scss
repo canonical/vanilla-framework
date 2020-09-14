@@ -16,10 +16,21 @@
     height: $spv-inner--large;
     pointer-events: none;
     position: absolute;
-    right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns itr with any selects underneath
     text-indent: calc(100% + 10rem);
     top: $spv-inner--large;
-    width: $sph-inner;
+    width: map-get($icon-sizes, default);
+
+    @media (max-width: $threshold-4-6-col) {
+      right: map-get($grid-margin-widths, small);
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+      right: map-get($grid-margin-widths, medium);
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold + 1) {
+      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+    }
   }
 
   .p-subnav__items,
@@ -62,6 +73,31 @@
     padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
   }
 
+  .p-subnav__item {
+    @extend %navigation-link-responsive-padding-left;
+
+    display: block;
+    white-space: nowrap;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv-inner--small;
+      padding-top: $spv-inner--small;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv-inner--medium;
+      padding-top: $spv-inner--medium;
+    }
+
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
   .p-subnav > .p-navigation__link {
     // remove nesting in 3.0 when deprecated __link styles are removed
     @extend %subnav-link;
@@ -91,27 +127,6 @@
     .p-subnav.is-dark,
     .p-navigation.is-dark .p-subnav {
       @include vf-subnav-dark-theme;
-    }
-  }
-
-  .p-subnav__item {
-    display: block;
-    white-space: nowrap;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      padding: $spv-inner--small 0;
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      padding: $spv-inner--medium $sph-inner;
-    }
-
-    &,
-    &:active,
-    &:focus,
-    &:hover,
-    &:visited {
-      text-decoration: none;
     }
   }
 }
