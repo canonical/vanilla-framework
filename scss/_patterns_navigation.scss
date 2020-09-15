@@ -1,6 +1,5 @@
 @import 'settings';
 
-$navigation-hover-opacity: 0.58;
 $lightness-threshold: 70;
 
 @mixin vf-p-navigation {
@@ -14,23 +13,60 @@ $lightness-threshold: 70;
     }
   }
 
+  %navigation-link-responsive-padding-vertical {
+    padding-bottom: $spv-inner--medium;
+    padding-top: $spv-inner--medium;
+  }
+
+  %navigation-link-responsive-padding-left {
+    // follows grid padding to ensure nav items on small breakpoints align with grid padding
+    @media (max-width: $threshold-4-6-col) {
+      padding-left: map-get($grid-margin-widths, small);
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+      padding-left: map-get($grid-margin-widths, medium);
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-left: $sph-inner;
+    }
+  }
+
+  %navigation-link-responsive-padding-right {
+    // follows grid padding to ensure nav items on small breakpoints align with grid padding
+    @media (max-width: $threshold-4-6-col) {
+      padding-right: map-get($grid-margin-widths, small);
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+      padding-right: map-get($grid-margin-widths, medium);
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-right: $sph-inner;
+    }
+  }
+
+  %navigation-link-responsive-padding-horizontal {
+    @extend %navigation-link-responsive-padding-left;
+    @extend %navigation-link-responsive-padding-right;
+  }
+
   %navigation-link {
     $properties: #{background-color, color, opacity};
-    @include vf-animation($properties);
+    @extend %navigation-link-responsive-padding-horizontal;
+    @extend %navigation-link-responsive-padding-vertical;
+    @include vf-animation($properties, snap);
     @include vf-focus;
 
     display: block;
     line-height: map-get($line-heights, default-text);
     margin-bottom: 0;
     overflow: hidden;
-    padding: $spv-inner--medium 0;
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      padding: $spv-inner--medium $sph-inner;
-    }
 
     &::before {
       content: '';
@@ -79,6 +115,10 @@ $lightness-threshold: 70;
     display: flex;
   }
 
+  %vf-reset-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
   // no colours
   .p-navigation {
     display: flex;
@@ -95,9 +135,9 @@ $lightness-threshold: 70;
     &__row {
       @extend %fixed-width-container;
       @extend %navigation-row;
+      @extend %vf-reset-horizontal-padding;
 
       &--full-width {
-        @extend %vf-grid-container-padding;
         @extend %navigation-row;
 
         width: 100%;
@@ -121,9 +161,23 @@ $lightness-threshold: 70;
 
     // navigation logo
     &__banner {
+      @extend %navigation-link-responsive-padding-left;
+
       display: flex;
       flex: 0 0 auto;
       justify-content: space-between;
+
+      @media (max-width: $threshold-4-6-col) {
+        padding-right: 0;
+      }
+
+      @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+        padding-right: 0;
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        padding-left: map-get($grid-margin-widths, large);
+      }
     }
 
     &__logo {
@@ -158,6 +212,7 @@ $lightness-threshold: 70;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin-right: map-get($grid-margin-widths, large);
         width: 100%;
       }
     }
@@ -183,9 +238,19 @@ $lightness-threshold: 70;
     // p-search-box overrides
     .p-search-box {
       flex: 1 0 auto;
-      margin: -1px 0 $spv-inner--small 0;
+      margin-top: -1px;
       min-width: 10em;
       order: -1;
+
+      @media (max-width: $threshold-4-6-col) {
+        margin-left: map-get($grid-margin-widths, small);
+        margin-right: map-get($grid-margin-widths, small);
+      }
+
+      @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+        margin-left: map-get($grid-margin-widths, medium);
+        margin-right: map-get($grid-margin-widths, medium);
+      }
 
       @media (min-width: $breakpoint-navigation-threshold) {
         // align baselines of menu items and input text
@@ -215,10 +280,11 @@ $lightness-threshold: 70;
 
       &--open,
       &--close {
+        @extend %navigation-link-responsive-padding-horizontal;
+        @extend %navigation-link-responsive-padding-vertical;
         @include vf-focus;
 
-        margin: 0 0 auto $sph-inner;
-        padding: $spv-inner--medium 0;
+        margin: 0 0 auto 0;
 
         &,
         &:visited,
@@ -287,7 +353,9 @@ $lightness-threshold: 70;
   // color for navigation background
   $color-navigation-background,
   // color for navigation text
-  $color-navigation-text
+  $color-navigation-text,
+  $color-navigation-background--hover,
+  $color-navigation-text--hover
 ) {
   background-color: $color-navigation-background;
 
@@ -299,12 +367,13 @@ $lightness-threshold: 70;
     }
 
     &:hover {
-      opacity: $navigation-hover-opacity;
+      @extend %navigation-link-selected;
     }
   }
 
   %navigation-link-selected {
-    opacity: $navigation-hover-opacity;
+    background-color: $color-navigation-background--hover;
+    color: $color-navigation-text--hover;
   }
 
   %navigation-link-before {
@@ -347,7 +416,9 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $colors--light-theme--background-default,
       $color-navigation-text: $colors--light-theme--text-default,
-      $color-navigation-separator: $colors--light-theme--border-default
+      $color-navigation-separator: $colors--light-theme--border-default,
+      $color-navigation-background--hover: $colors--light-theme--background-alt,
+      $color-navigation-text--hover: $colors--light-theme--text-default
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -357,7 +428,9 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
-      $color-navigation-separator: $colors--light-theme--border-default
+      $color-navigation-separator: $colors--light-theme--border-default,
+      $color-navigation-background--hover: $colors--light-theme--background-alt,
+      $color-navigation-text--hover: $colors--light-theme--text-default
     );
   }
 }
@@ -367,7 +440,9 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $colors--dark-theme--background-alt,
       $color-navigation-text: $colors--dark-theme--text-default,
-      $color-navigation-separator: $colors--dark-theme--border-default
+      $color-navigation-separator: $colors--dark-theme--border-default,
+      $color-navigation-background--hover: $colors--dark-theme--text-default,
+      $color-navigation-text--hover: $colors--dark-theme--background-default
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -377,7 +452,9 @@ $lightness-threshold: 70;
     @include vf-navigation-theme(
       $color-navigation-background: $color-navigation-background,
       $color-navigation-text: $color-navigation-text,
-      $color-navigation-separator: $colors--dark-theme--border-default
+      $color-navigation-separator: $colors--dark-theme--border-default,
+      $color-navigation-background--hover: $colors--dark-theme--text-default,
+      $color-navigation-text--hover: $colors--dark-theme--background-default
     );
   }
 }
