@@ -115,6 +115,10 @@ $lightness-threshold: 70;
     display: flex;
   }
 
+  %vf-reset-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
   // no colours
   .p-navigation {
     display: flex;
@@ -131,13 +135,12 @@ $lightness-threshold: 70;
     &__row {
       @extend %fixed-width-container;
       @extend %navigation-row;
-
-      padding-left: 0;
-      padding-right: 0;
+      @extend %vf-reset-horizontal-padding;
 
       &--full-width {
         @extend %vf-grid-container-padding;
         @extend %navigation-row;
+        @extend %vf-reset-horizontal-padding;
 
         width: 100%;
       }
