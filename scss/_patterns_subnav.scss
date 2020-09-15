@@ -16,10 +16,21 @@
     height: $spv-inner--large;
     pointer-events: none;
     position: absolute;
-    right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns itr with any selects underneath
     text-indent: calc(100% + 10rem);
     top: $spv-inner--large;
-    width: $sph-inner;
+    width: map-get($icon-sizes, default);
+
+    @media (max-width: $threshold-4-6-col) {
+      right: map-get($grid-margin-widths, small);
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+      right: map-get($grid-margin-widths, medium);
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold + 1) {
+      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+    }
   }
 
   .p-subnav__items,
@@ -62,6 +73,31 @@
     padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
   }
 
+  .p-subnav__item {
+    @extend %navigation-link-responsive-padding-horizontal;
+
+    display: block;
+    white-space: nowrap;
+
+    @media (max-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv-inner--small;
+      padding-top: $spv-inner--small;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv-inner--medium;
+      padding-top: $spv-inner--medium;
+    }
+
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
   .p-subnav > .p-navigation__link {
     // remove nesting in 3.0 when deprecated __link styles are removed
     @extend %subnav-link;
@@ -93,27 +129,6 @@
       @include vf-subnav-dark-theme;
     }
   }
-
-  .p-subnav__item {
-    display: block;
-    white-space: nowrap;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      padding: $spv-inner--small 0;
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      padding: $spv-inner--medium $sph-inner;
-    }
-
-    &,
-    &:active,
-    &:focus,
-    &:hover,
-    &:visited {
-      text-decoration: none;
-    }
-  }
 }
 
 @mixin vf-subnav-theme(
@@ -123,6 +138,8 @@
   $color-subnav-background,
   // color of the subnav items text
   $color-subnav-text,
+  // color of the subnav items background on hover
+  $color-subnav-background-hover,
   // color of the subnav items text on hover
   $color-subnav-text-hover,
   // color of the subnav items separator on small screens
@@ -143,6 +160,7 @@
     }
 
     &:hover {
+      background-color: $color-subnav-background-hover;
       color: $color-subnav-text-hover;
     }
 
@@ -160,7 +178,8 @@
     $color-subnav-icon: $colors--light-theme--text-muted,
     $color-subnav-background: $colors--light-theme--background-default,
     $color-subnav-text: $colors--light-theme--text-default,
-    $color-subnav-text-hover: $colors--light-theme--text-hover,
+    $color-subnav-background-hover: $colors--light-theme--background-alt,
+    $color-subnav-text-hover: $colors--light-theme--text-default,
     $color-subnav-separator: $colors--light-theme--border-default
   );
 }
@@ -174,7 +193,8 @@
     $color-subnav-icon: #999,
     $color-subnav-background: $colors--dark-theme--background-alt,
     $color-subnav-text: $colors--dark-theme--text-default,
-    $color-subnav-text-hover: $colors--dark-theme--text-hover,
+    $color-subnav-text-hover: $colors--dark-theme--background-default,
+    $color-subnav-background-hover: $colors--dark-theme--text-default,
     $color-subnav-separator: $colors--dark-theme--border-default
   );
 }
