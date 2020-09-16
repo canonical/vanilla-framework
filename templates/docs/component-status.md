@@ -12,7 +12,7 @@ When we add, make significant updates, or deprecate a component we update their 
 
 ### What's new in Vanilla 2.18
 
-<table>
+<table aria-label="What's new in Vanilla 2.18">
   <thead>
     <tr>
       <th style="width: 20%">Component</th>
