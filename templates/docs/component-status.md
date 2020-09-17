@@ -10,7 +10,29 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.18
+### What's new in Vanilla 2.19
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 2.19 -->
+    <tr>
+      <th><a href="/docs/base/tables#icons">Table icons</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.19.0</td>
+      <td>We added a <code>p-table__cell--with-icon</code> class to properly align icons in table cells.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
 
 <table>
   <thead>
@@ -35,21 +57,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.18.0</td>
       <td>Top level <code>&lt;ul&gt;</code> with a class <code>.p-breadcrumbs</code> is now deprecated for the Breadcrumbs pattern.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.17 -->
     <tr>
       <th><a href="/docs/base/forms#checkbox">Checkbox and radio buttons components</a></th>
