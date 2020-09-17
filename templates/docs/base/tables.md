@@ -19,6 +19,16 @@ data tables as it makes it easier to scan and compare the values quickly.
 View example of the base table
 </a></div>
 
+### Icons
+
+<span class="p-label--new">New</span>
+
+All the cells (including headers) in columns that contain cells with an icon should have a `.p-table__cell--with-icon` class name to align the icons and cell content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tables/table-icons" class="js-example">
+View example of the base table
+</a></div>
+
 ### Sortable
 
 Using the class `p-table--sortable` and assigning `role="columnheader"` and `aria-sort` to each `<th>` element will show each table column to be sortable. With javascript toggling between `ascending` and `descending` for the `aria-sort` attribute it will change the chevron icon in that direction.
