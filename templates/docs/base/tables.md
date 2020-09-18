@@ -23,7 +23,7 @@ View example of the base table
 
 <span class="p-label--new">New</span>
 
-All the cells (including headers) in columns that contain cells with an icon should have a `.p-table__cell--with-icon` class name to align the icons and cell content.
+If any of the cells in a column has an icon, all cells in the same column (including headers) should have a `.p-table__cell--icon-placeholder` to ensure proper alignment of the text values.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tables/table-icons" class="js-example">
 View example of the base table
