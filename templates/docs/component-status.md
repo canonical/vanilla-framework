@@ -27,7 +27,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/base/tables#icons">Table icons</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.19.0</td>
-      <td>We added a <code>p-table__cell--with-icon</code> class to properly align icons in table cells.</td>
+      <td>We added a <code>p-table__cell--icon-placeholder</code> class to properly align icons in table cells.</td>
     </tr>
   </tbody>
 </table>
