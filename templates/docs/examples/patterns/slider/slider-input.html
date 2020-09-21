@@ -1,81 +1,103 @@
-{% extends "_layouts/examples.html" %}
-{% block title %}Slider / Input{% endblock %}
-
-{% block standalone_css %}patterns_slider{% endblock %}
-
-{% block content %}
-<div class="p-slider__wrapper">
-  <input class="p-slider" type="range" min="0" max="100" value="50" step="1" id="slider3">
-  <input class="p-slider__input" type="text" maxlength="3" id="slider3-input">
+{% extends "_layouts/examples.html" %} {% block title %}Slider / Input{% endblock %} {% block standalone_css %}patterns_slider{% endblock %} {% block content %} <div class="p-slider__wrapper">
+  <input class="p-slider"
+    type="range"
+    aria-value-min="0"
+    min="0"
+    aria-value-max="100"
+    max="100"
+    aria-value-now="50"
+    value="50"
+    step="1"
+    id="slider3"
+    aria-label="Example slider, range 0 to 100">
+  <input class="p-slider__input"
+    type="text"
+    maxlength="3"
+    id="slider3-input"
+  tabindex="0">
 </div>
 <div class="p-slider__wrapper">
-  <input class="p-slider" type="range" min="0" max="100" value="50" step="1" id="slider4" disabled>
-  <input class="p-slider__input" type="text" maxlength="3" id="slider4-input" disabled>
+  <input class="p-slider"
+    type="range"
+    aria-value-min="0"
+    min="0"
+    aria-value-max="100"
+    max="100"
+    aria-value-now="50"
+    value="50"
+    step="1"
+    id="slider4"
+    disabled
+    aria-label="Example of a disabled slider, range 0 to 100">
+  <input class="p-slider__input"
+    type="text"
+    maxlength="3"
+    id="slider4-input"
+    disabled
+    tabindex="0">
 </div>
-
 <script>
-var isWebkit =
-  /Chrome/i.test(navigator.userAgent) || /Safari/i.test(navigator.userAgent);
-var isIE = /NET/i.test(navigator.userAgent);
+  var isWebkit =
+    /Chrome/i.test(navigator.userAgent) || /Safari/i.test(navigator.userAgent);
+  var isIE = /NET/i.test(navigator.userAgent);
 
-var PROGRESS_COLOUR = '#06c';
-var EMPTY_COLOUR = '#fff';
+  var PROGRESS_COLOUR = '#06c';
+  var EMPTY_COLOUR = '#fff';
 
-/**
- Renders gradient to fake progress color in webkit browsers.
- @param {HTMLElement} slider Slider element to render background on.
-*/
-function renderSlider(slider) {
-  if (isWebkit) {
-    var value = (slider.value - slider.min) / (slider.max - slider.min);
-    slider.style.backgroundImage = (
-      '-webkit-gradient(linear, left top, right top, color-stop('
-      + value + ', ' + PROGRESS_COLOUR + '), color-stop('
-      + value + ', ' + EMPTY_COLOUR + '))'
-    );
+  /**
+   Renders gradient to fake progress color in webkit browsers.
+   @param {HTMLElement} slider Slider element to render background on.
+  */
+  function renderSlider(slider) {
+    if (isWebkit) {
+      var value = (slider.value - slider.min) / (slider.max - slider.min);
+      slider.style.backgroundImage = (
+        '-webkit-gradient(linear, left top, right top, color-stop('
+        + value + ', ' + PROGRESS_COLOUR + '), color-stop('
+        + value + ', ' + EMPTY_COLOUR + '))'
+      );
+    }
   }
-}
 
-function equaliseValues(receive, give) {
-  receive.value = give.value;
-  give.value = receive.value;
-}
+  function equaliseValues(receive, give) {
+    receive.value = give.value;
+    give.value = receive.value;
+  }
 
-/**
-  Attaches change listener to sliders to update their background color.
-  @param {HTMLElement} slider Slider element to render background on.
-*/
-function initSlider(slider) {
-  var input = document.getElementById(slider.id + '-input');
-  renderSlider(slider);
+  /**
+    Attaches change listener to sliders to update their background color.
+    @param {HTMLElement} slider Slider element to render background on.
+  */
+  function initSlider(slider) {
+    var input = document.getElementById(slider.id + '-input');
+    renderSlider(slider);
 
-  if (input) {
-    // Synchronise values of input and slider
-    equaliseValues(input, slider);
-    input.addEventListener('input', function() {
-      if (!input.value) {
-        input.value = 0;
+    if (input) {
+      // Synchronise values of input and slider
+      equaliseValues(input, slider);
+      input.addEventListener('input', function () {
+        if (!input.value) {
+          input.value = 0;
+        }
+        equaliseValues(slider, input);
+        renderSlider(slider);
+      });
+    }
+
+    // Attach change listener to slider to update input value
+    // Fix for IE as it doesn't support 'oninput'
+    slider.addEventListener(isIE ? 'change' : 'input', function () {
+      if (input) {
+        equaliseValues(input, slider);
       }
-      equaliseValues(slider, input);
       renderSlider(slider);
     });
   }
 
-  // Attach change listener to slider to update input value
-  // Fix for IE as it doesn't support 'oninput'
-  slider.addEventListener(isIE ? 'change' : 'input', function() {
-    if (input) {
-      equaliseValues(input, slider);
-    }
-    renderSlider(slider);
-  });
-}
+  // Setup all sliders on the page.
+  var sliders = document.querySelectorAll('.p-slider');
 
-// Setup all sliders on the page.
-var sliders = document.querySelectorAll('.p-slider');
-
-for (var i = 0, l = sliders.length; i < l; i++) {
-  initSlider(sliders[i]);
-}
-</script>
-{% endblock %}
+  for (var i = 0, l = sliders.length; i < l; i++) {
+    initSlider(sliders[i]);
+  }
+</script> {% endblock %}
