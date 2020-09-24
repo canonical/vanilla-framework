@@ -27,6 +27,7 @@
     z-index: 9; // to appear below main navigation dropdowns (that use z-index: 10)
 
     // When set to false will show the contextual menu
+    &.is-open,
     &[aria-hidden='false'] {
       display: block;
     }
@@ -84,6 +85,7 @@
     }
   }
 
+  .p-contextual-menu__toggle.is-expanded .p-contextual-menu__indicator,
   .p-contextual-menu__toggle[aria-expanded='true'] .p-contextual-menu__indicator {
     transform: rotate(180deg);
   }

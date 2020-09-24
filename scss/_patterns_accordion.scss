@@ -34,6 +34,8 @@
   }
 
   .p-accordion__tab {
+    @include vf-icon-plus($color-mid-dark);
+
     // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
     // and offset to align it with baseline of accordion tab text element
     $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.25rem);
@@ -41,17 +43,13 @@
     background: {
       position: top $icon-top-position left $sph-inner;
       repeat: no-repeat;
+      size: $icon-size;
     }
 
     // aria-selected controls the open and closed state for the accordion tab
+    &.is-expanded,
     &[aria-expanded='true'] {
       @include vf-icon-minus($color-mid-dark);
-
-      background-size: $icon-size;
-    }
-
-    &[aria-expanded='false'] {
-      @include vf-icon-plus($color-mid-dark);
 
       background-size: $icon-size;
     }
@@ -92,12 +90,13 @@
   }
   // stylelint-enable selector-no-qualifying-type
 
-  .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
-    @include vf-icon-minus($color-mid-dark);
+  .p-accordion__tab--with-title .p-accordion__title::before {
+    @include vf-icon-plus($color-mid-dark);
   }
 
-  .p-accordion__tab--with-title[aria-expanded='false'] .p-accordion__title::before {
-    @include vf-icon-plus($color-mid-dark);
+  .p-accordion__tab--with-title.is-expanded .p-accordion__title::before,
+  .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
+    @include vf-icon-minus($color-mid-dark);
   }
 
   .p-accordion__panel {
@@ -106,6 +105,7 @@
     padding-left: $sph-inner + $icon-size + $sph-inner * 2;
 
     // Hides panel content
+    &.is-closed,
     &[aria-hidden='true'] {
       display: none;
     }
