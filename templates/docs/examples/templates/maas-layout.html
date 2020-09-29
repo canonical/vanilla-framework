@@ -94,25 +94,26 @@
   <div class="row">
     <div class="col-3">
       <div class="">
-        <h4 class="u-sv-1">Filter by</h4>
-        <aside class="p-accordion" role="tablist" >
+        <h4 class="u-sv3">Filter by</h4>
+
+        <aside class="p-accordion">
           <ul class="p-accordion__list">
             <li class="p-accordion__group">
-              <button class="p-accordion__tab" id="owner" role="region" aria-controls="#owner" aria-expanded="false">Owner</button>
-              <section class="p-accordion__panel" id="owner" aria-hidden="true" aria-labelledby="owner">
-                <p>Open panel</p>
+              <button type="button" class="p-accordion__tab" id="owner" aria-controls="owner-section" aria-expanded="false">Owner</button>
+              <section class="p-accordion__panel" id="owner-section" aria-hidden="true" aria-labelledby="owner">
+                <p>Owner panel</p>
               </section>
             </li>
             <li class="p-accordion__group">
-              <button class="p-accordion__tab" id="status" role="region" aria-controls="#status" aria-expanded="false">Status</button>
-              <section class="p-accordion__panel" id="status" aria-hidden="true" aria-labelledby="status">
-                <p>Closed panel</p>
-              </section>
-            </li>
+              <button type="button" class="p-accordion__tab" id="status" aria-controls="status-section" aria-expanded="false">Status</button>
+              <section class="p-accordion__panel" id="status-section" aria-hidden="true" aria-labelledby="status">
+                <p>Status panel</p>
+              </li>
+            </section>
             <li class="p-accordion__group">
-              <button class="p-accordion__tab" id="tags" role="region" aria-controls="#tags" aria-expanded="false">Tags</button>
-              <section class="p-accordion__panel" id="tags" aria-hidden="true" aria-labelledby="tags">
-                <p>Closed panel</p>
+              <button type="button" class="p-accordion__tab" id="tags" aria-controls="tags-section" aria-expanded="false">Tags</button>
+              <section class="p-accordion__panel" id="tags-section" aria-hidden="true" aria-labelledby="tags">
+                <p>Tags panel</p>
               </section>
             </li>
           </ul>
@@ -229,4 +230,8 @@
     </nav>
   </div>
 </footer>
+
+<script>
+  {% include 'docs/examples/patterns/accordion/_script.js' %}
+</script>
 {% endblock %}
