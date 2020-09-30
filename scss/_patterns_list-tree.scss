@@ -43,6 +43,8 @@
   }
 
   .p-list-tree__item {
+    @include vf-focus;
+
     margin-top: $sp-xx-small;
     padding-left: 0.8rem;
     position: relative;
@@ -67,11 +69,13 @@
   }
 
   .p-list-tree__toggle {
+    @include vf-focus;
+
     background: transparent;
     border: 0;
     font-weight: normal;
-    margin: 0 0 0 -1.75rem;
-    padding: 0 0 0 1.75rem;
+    margin: 0 0.5rem 0 -1.75rem;
+    padding: 0 0.5rem 0 1.75rem;
     transition-duration: 0s;
     width: auto;
 
@@ -79,11 +83,6 @@
       background: transparent;
       color: $color-link;
       text-decoration: underline;
-    }
-
-    &:focus {
-      background: transparent;
-      outline: 1px dotted $color-mid-light;
     }
   }
 }
