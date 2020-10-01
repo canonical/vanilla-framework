@@ -27,7 +27,9 @@
   },
   "scripts": {
     "start": "yarn build && yarn serve",
-    "build": "yarn run build-js && node-sass scss --functions sass-functions.js --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
+    "build": "yarn build-scss && yarn build-js",
+    "build-scss": "yarn run build-js && node-sass scss --functions sass-functions.js --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
+    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
     "test-spelling": "mdspell docs/**/*.md -r -n -a --en-gb",
@@ -38,8 +40,7 @@
     "watch:scss:skip-standalone": "node-sass  scss/docs --functions sass-functions.js --output-style compressed --output build/css/docs --watch",
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
-    "percy": "percy exec -- node snapshots.js",
-    "build-js": "mkdir -p templates/static/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js templates/static/js/modules"
+    "percy": "percy exec -- node snapshots.js"
   },
   "version": "2.19.0",
   "files": [
