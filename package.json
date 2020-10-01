@@ -39,9 +39,7 @@
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js",
-    "build-js": "yarn run build-global-nav && yarn run build-cookie-policy",
-    "build-global-nav": "mkdir -p templates/static/js/modules && cp node_modules/@canonical/global-nav/dist/global-nav.js templates/static/js/modules",
-    "build-cookie-policy": "mkdir -p templates/static/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js templates/static/js/modules"
+    "build-js": "mkdir -p templates/static/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js templates/static/js/modules"
   },
   "version": "2.19.0",
   "files": [
@@ -50,7 +48,6 @@
     "!/scss/cookie-policy"
   ],
   "devDependencies": {
-    "@canonical/global-nav": "2.4.3",
     "@canonical/cookie-policy": "3.0.2",
     "@percy/script": "1.1.0",
     "autoprefixer": "10.0.1",
