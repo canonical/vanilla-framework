@@ -12,7 +12,7 @@ When we add, make significant updates, or deprecate a component we update their 
 
 ### What's new in Vanilla 2.19
 
-<table aria-label="What's new in Vanilla 2.18">
+<table aria-label="What's new in Vanilla 2.19">
   <thead>
     <tr>
       <th style="width: 20%">Component</th>
@@ -23,6 +23,12 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <!-- 2.19 -->
+    <tr>
+      <th><a href="/docs/base/tables#expanding">Expanding table column placeholder</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.20.0</td>
+      <td>We started using <code>aria-hidden="true"</code> attribute to hide the dummy table header in place of previously used <code>u-hide</code> utility.</td>
+    </tr>
     <tr>
       <th><a href="/docs/base/tables#icons">Table icons</a></th>
       <td><div class="p-label--new">New</div></td>

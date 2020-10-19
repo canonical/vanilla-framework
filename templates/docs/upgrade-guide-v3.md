@@ -54,3 +54,7 @@ Unnecessary mixin `vf-p-grid-modifications` will be removed. Any references to i
 ### Slider
 
 Adding `.p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `.p-slider__wrapper` and `.p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
+
+### Hidden cell in expanding table
+
+Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding) (`aria-hidden="true"`) instead.
