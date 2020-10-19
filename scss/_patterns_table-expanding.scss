@@ -6,7 +6,9 @@
     flex-flow: column nowrap;
     justify-content: space-between;
 
+    thead,
     tbody {
+      display: block; // for IE we need to force display block
       margin: 0;
     }
 
@@ -50,6 +52,10 @@
           padding: 0;
           width: 100%;
         }
+      }
+
+      &[aria-hidden='true'] {
+        display: none;
       }
     }
     // stylelint-enable selector-no-qualifying-type
