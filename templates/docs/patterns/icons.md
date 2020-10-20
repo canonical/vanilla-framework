@@ -109,7 +109,7 @@ Our icons have two predefined color styles: light and dark. The light variant is
 
 ### Dark theme
 
-Our dark-themed icons are available when placed within `.p-strip--dark`, icon colors are inverted to ensure legibility as shown in our example.
+Our dark-themed icons are available when placed within a container that has the suffix `--dark` ex) `help-container--dark`. Icon colors will then be inverted to ensure legibility as shown in our example.
 
 Alternatively to use light version of icons outside of the dark strip, add `is-light` class to the icon element (e.g. `p-icon--plus is-light`).
 
