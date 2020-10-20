@@ -3,20 +3,26 @@
 // Base code styles
 @mixin vf-b-code {
   code,
-  samp,
-  kbd {
-    background-color: $color-mid-x-light;
-    box-shadow: 0 0 0 0.25rem $color-mid-x-light;
+  kbd,
+  pre,
+  samp {
     font-family: unquote($font-monospace);
     font-weight: $font-weight-regular-text;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
     text-align: left;
+
+    b,
+    strong {
+      font-weight: bold;
+    }
   }
 
-  code b,
-  code strong {
-    font-weight: bold;
+  code,
+  kbd,
+  samp {
+    background-color: $color-mid-x-light;
+    box-shadow: 0 0 0 0.25rem $color-mid-x-light;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
   }
 
   code,
@@ -50,11 +56,10 @@
     border-radius: $border-radius;
     color: $color-dark;
     display: block;
-    font-family: unquote($font-monospace);
     margin-bottom: $spv-outer--scaleable;
     margin-top: 0;
     overflow: auto;
-    padding: calc(#{map-get($nudges, nudge--p-ubuntumono)} - 1px) $sph-inner calc(#{map-get($nudges, nudge--p-ubuntumono)} - 1px);
+    padding: map-get($nudges, nudge--p-ubuntumono) $sph-inner;
     text-align: left;
     text-shadow: none;
     white-space: pre;
