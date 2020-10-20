@@ -14,12 +14,12 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 
 [Read more about the Ubuntu typeface](http://font.ubuntu.com/)
 
-| Setting                | Default value                                         |
-| ---------------------- | ----------------------------------------------------- |
-| `$font-base-family`    | 'Ubuntu, Arial, "libra sans", sans-serif'             |
-| `$font-monospace`      | '"Ubuntu Mono", Consolas, Monaco, Courier, monospace' |
-| `$font-base-size`      | `1rem`                                                |
-| `$font-heading-family` | `$font-base-family`                                   |
+| Setting                | Default value                                       |
+| ---------------------- | --------------------------------------------------- |
+| `$font-base-family`    | Ubuntu, Arial, "libra sans", sans-serif             |
+| `$font-monospace`      | "Ubuntu Mono", Consolas, Monaco, Courier, monospace |
+| `$font-base-size`      | `1rem`                                              |
+| `$font-heading-family` | `$font-base-family`                                 |
 
 <br>
 <hr>
