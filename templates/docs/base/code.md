@@ -14,11 +14,23 @@ Vanilla gives you multiple ways to display code using the standard HTML elements
 
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
+<div class="embedded-example"><a href="/docs/examples/base/code-inline/" class="js-example">
+View example of inline code
+</a></div>
+
 ### Block
 
-If you want to refer to a larger piece of code, use <code>&lt;pre></code> together with the <code>&lt;code></code> tag.
+To create a preformatted block, use either `<pre>` (where preserving white space is important, but the text is not necesserily code) or `<pre><code>` (to indicate the contents are a piece of code):
 
-<div class="embedded-example"><a href="/docs/examples/base/code/" class="js-example">
+**Preformatted block:**
+
+<div class="embedded-example"><a href="/docs/examples/base/pre/" class="js-example">
+View example of the base pre block
+</a></div>
+
+**Preformatted code block:**
+
+<div class="embedded-example"><a href="/docs/examples/base/code-block/" class="js-example">
 View example of the base code block
 </a></div>
 
