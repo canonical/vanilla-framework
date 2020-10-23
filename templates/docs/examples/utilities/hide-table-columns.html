@@ -1,0 +1,28 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Hide / Table columns{% endblock %}
+
+{% block content %}
+<table class="p-table">
+    <thead>
+        <tr>
+            <th>Always visible</th>
+            <th class="u-hide--small">Hidden on small screens</th>
+            <th class="u-hide--medium">Hidden on medium screens</th>
+            <th class="u-hide--large">Hidden on large screens</th>
+            <th class="u-hide">Always hidden</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Always visible</td>
+            <td class="u-hide--small">Hidden on small screens</td>
+            <td class="u-hide--medium">Hidden on medium screens</td>
+            <td class="u-hide--large">Hidden on large screens</td>
+            <td class="u-hide">Always hidden</td>
+        </tr>
+        <tr>
+            <td colspan="5">Cells with <code>colspan</code> should work correctly regardless of hidden columns</th>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
