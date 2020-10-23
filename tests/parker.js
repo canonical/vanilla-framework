@@ -55,7 +55,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Total !important keywords',
       benchmark: 50,
-      threshold: 90,
+      threshold: 150,
       result: results['total-important-keywords'],
     },
     {
