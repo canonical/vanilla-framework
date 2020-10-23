@@ -1,22 +1,81 @@
 @import 'settings';
 
+// mixin for hiding table columns
+@mixin vf-hide-table-column {
+  display: table-cell !important; // override display: none from standard u-hide
+  opacity: 0 !important;
+  overflow: hidden !important; // make sure content doesn't overflow
+  padding: 0 !important;
+  white-space: nowrap !important; // prevent content from wrapping in 0 width column
+  width: 0 !important;
+}
+
 // Hide elements with explicit breakpoints
 @mixin vf-u-hide {
   .u-hide-text {
     @extend %vf-hide-text;
   }
 
+  // mixin for hiding using display none (for all breakpoints)
   .u-hide {
     display: none !important;
 
     &--small {
-      @media screen and (max-width: $breakpoint-medium) {
+      @media screen and (max-width: $breakpoint-medium - 1) {
         display: none !important;
       }
     }
 
     &--medium {
-      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
+        display: none !important;
+      }
+    }
+
+    &--large {
+      @media screen and (min-width: $breakpoint-large) {
+        display: none !important;
+      }
+    }
+  }
+
+  // stylelint-disable selector-no-qualifying-type
+  td.u-hide,
+  th.u-hide {
+    @include vf-hide-table-column;
+
+    &--small {
+      @media screen and (max-width: $breakpoint-medium - 1) {
+        @include vf-hide-table-column;
+      }
+    }
+
+    &--medium {
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
+        @include vf-hide-table-column;
+      }
+    }
+
+    &--large {
+      @media screen and (min-width: $breakpoint-large) {
+        @include vf-hide-table-column;
+      }
+    }
+  }
+  // stylelint-enable selector-no-qualifying-type
+
+  // expanding table uses flex layout, so use standard u-hide for it
+  .p-table-expanding .u-hide {
+    display: none !important;
+
+    &--small {
+      @media screen and (max-width: $breakpoint-medium - 1) {
+        display: none !important;
+      }
+    }
+
+    &--medium {
+      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
         display: none !important;
       }
     }
