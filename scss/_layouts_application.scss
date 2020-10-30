@@ -130,13 +130,20 @@
     grid-area: main;
     justify-self: right;
     overflow-y: auto;
+    width: 100%;
     z-index: 101; // below side nav, above anything else
 
-    &.is-pinned {
-      border-left: 1px solid $colors--light-theme--border-low-contrast;
-      box-shadow: none;
-      grid-area: aside;
-      justify-self: auto;
+    @media (min-width: $breakpoint-x-small) {
+      width: auto;
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      &.is-pinned {
+        border-left: 1px solid $colors--light-theme--border-low-contrast;
+        box-shadow: none;
+        grid-area: aside;
+        justify-self: auto;
+      }
     }
   }
 
