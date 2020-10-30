@@ -25,15 +25,9 @@
       if (show) {
         sideNavigation.classList.remove('is-collapsed');
         sideNavigation.classList.add('is-expanded');
-
-        // disable scroll on body when drawer is open
-        document.body.style.overflow = 'hidden';
       } else {
         sideNavigation.classList.remove('is-expanded');
         sideNavigation.classList.add('is-collapsed');
-
-        // enable scroll on body when drawer is open
-        document.body.style.overflow = '';
       }
     }
   }
@@ -77,11 +71,10 @@
         var drawerPosition = window.getComputedStyle(drawerEl).position;
 
         // when screen size changes from mobile (fixed drawer) to large screen
-        // enable scroll on body and reset any styles added by opening the drawer
+        // reset any styles added by opening the drawer
         if (drawerPosition !== 'fixed') {
           sideNav.classList.remove('is-expanded');
           sideNav.classList.remove('is-collapsed');
-          document.body.style.overflow = '';
         }
       }, 200)
     );
