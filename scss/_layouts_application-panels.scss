@@ -1,15 +1,27 @@
 @mixin vf-l-application-panels {
   $header-padding-bottom: $sp-unit * 6;
 
-  .p-panel,
-  .p-panel--aside {
+  .p-panel {
     background: $colors--light-theme--background-default;
     color: $colors--light-theme--text-default;
+    max-width: 100%;
     min-height: 100%; // make sure it fills whole container even when has little content
 
     &.is-dark {
       background: $colors--dark-theme--background-default;
       color: $colors--dark-theme--text-default;
+    }
+
+    &.is-wide {
+      width: 720px; // ~ col-8
+    }
+
+    &.is-medium {
+      width: 530px; // ~ col-6
+    }
+
+    &.is-narrow {
+      width: 340px; // ~ col-4
     }
   }
 
