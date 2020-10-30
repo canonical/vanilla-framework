@@ -49,6 +49,21 @@
     left: 1rem;
   }
 
+  @media (min-width: 772px) and (max-width: 1035px) {
+      .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list {
+        max-height: 0;
+        opacity: 0;
+        transition: opacity 300ms, max-height 300ms;
+      }
+
+      .l-navigaion.is-pinned .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation__drawer:focus-within .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation__drawer:hover .p-side-navigation__item .p-side-navigation__list {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+  }
   .l-navigation__drawer .u-fixed-width {
     padding-left: 1rem;
     padding-right: 1rem;
