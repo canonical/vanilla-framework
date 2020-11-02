@@ -382,7 +382,7 @@
   </main>
 
   <aside class="l-aside">
-    <div class="p-panel is-medium">
+    <div class="p-panel is-medium" id="aside-panel">
       <div class="p-panel__header">
         <div class="u-fixed-width u-sv-2">
           <div class="p-inline-list--stretch">
@@ -394,6 +394,10 @@
         </div>
       </div>
       <div class="p-panel__content">
+        <div class="u-fixed-width">
+          <p>Built-in panel widths: <button class="is-inline js-aside-resize" data-resize-class="is-narrow" aria-controls="aside-panel">narrow</button> <button class="is-inline js-aside-resize" data-resize-class="is-medium" aria-controls="aside-panel">medium</button> <button class="is-inline js-aside-resize" data-resize-class="is-wide" aria-controls="aside-panel">wide</button></p>
+        </div>
+
         {% include "docs/examples/patterns/forms/_form-stacked.html" %}
       </div>
     </div>
@@ -428,6 +432,19 @@
     document.querySelector(".l-aside").classList.add("u-hide");
   });
 
+  [].slice.call(document.querySelectorAll(".js-aside-resize")).forEach(function(button){
+    button.addEventListener("click", function() {
+      button.dataset.resizeClass
+      var panel = document.getElementById(button.getAttribute('aria-controls'));
+      if (panel) {
+        panel.classList.remove('is-narrow');
+        panel.classList.remove('is-medium');
+        panel.classList.remove('is-wide');
+        panel.classList.add(button.dataset.resizeClass);
+      }
+    });
+
+  });
   document.querySelector(".js-menu-pin").addEventListener("click", function() {
     document.querySelector(".l-navigation").classList.toggle("is-pinned");
     if (document.querySelector(".l-navigation").classList.contains("is-pinned")) {
