@@ -2,6 +2,7 @@
   Toggles visibility of given subnav by toggling is-active class to it
   and setting aria-hidden attribute on dropdown contents.
   @param {HTMLElement} subnav Root element of subnavigation to open.
+  @param {Boolean} open indicate whether we want to open or close the subnav.
 */
 function toggleSubnav(subnav, open) {
   if (open) {
@@ -16,7 +17,7 @@ function toggleSubnav(subnav, open) {
     var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
 
     if (dropdown) {
-      dropdown.setAttribute('aria-hidden', open ? 'true' : false);
+      dropdown.setAttribute('aria-hidden', open ? false : true);
     }
   }
 }
