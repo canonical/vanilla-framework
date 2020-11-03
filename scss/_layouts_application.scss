@@ -7,7 +7,7 @@
       'nav  navbar navbar'
       'nav  main   aside'
       'nav  status status';
-    grid-template-columns: min-content 1fr min-content;
+    grid-template-columns: min-content minmax(0, 1fr) minmax(0, min-content);
     grid-template-rows: min-content 1fr min-content;
     height: 100vh;
     width: 100vw;
@@ -135,7 +135,15 @@
 
     @media (min-width: $breakpoint-x-small) {
       max-width: 100%;
-      width: auto;
+      width: 45.3rem; // ~col-8
+
+      &.is-wide {
+        width: $grid-max-width; // full grid width: ~col-12
+      }
+
+      &.is-narrow {
+        width: 21.65rem; // ~col-4
+      }
     }
 
     @media (min-width: $breakpoint-medium) {
