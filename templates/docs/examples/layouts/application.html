@@ -36,37 +36,40 @@
     top: auto;
   }
 
-  .l-navigation__drawer .p-side-navigation--icons .p-side-navigation__text,
-  .l-navigation__drawer .p-side-navigation--icons .p-side-navigation__link {
-    padding-left: 3rem;
-  }
-
-  .l-navigation__drawer .p-side-navigation--icons .p-side-navigation__list::after {
-    left: 3rem;
-  }
-
-  .l-navigation__drawer .p-side-navigation--icons .p-side-navigation__icon {
-    left: 1rem;
-  }
-
   @media (min-width: 772px) and (max-width: 1035px) {
       .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list {
-        max-height: 0;
-        opacity: 0;
-        transition: opacity 300ms, max-height 300ms;
+        height: 0;
+        overflow: hidden;
       }
 
-      .l-navigaion.is-pinned .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation__drawer .p-side-navigation__item {
+        position: relative;
+      }
+
+      .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list .p-side-navigation__item,
+      .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list .p-side-navigation__link {
+        position: static;
+      }
+
+      .l-navigation.is-pinned .p-side-navigation__item .p-side-navigation__list,
       .l-navigation__drawer:focus-within .p-side-navigation__item .p-side-navigation__list,
       .l-navigation__drawer:hover .p-side-navigation__item .p-side-navigation__list {
-        max-height: 500px;
-        opacity: 1;
+        height: auto;
+        overflow: visible;
       }
 
-  }
-  .l-navigation__drawer .u-fixed-width {
-    padding-left: 1rem;
-    padding-right: 1rem;
+      .l-navigation.is-pinned .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation.is-pinned .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list .p-side-navigation__item,
+      .l-navigation.is-pinned .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list .p-side-navigation__link
+      .l-navigation__drawer:focus-within  .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation__drawer:focus-within  .p-side-navigation__item .p-side-navigation__list .p-side-navigation__item,
+      .l-navigation__drawer:focus-within  .p-side-navigation__item .p-side-navigation__list .p-side-navigation__link,
+      .l-navigation__drawer:hover  .p-side-navigation__item .p-side-navigation__list,
+      .l-navigation__drawer:hover  .p-side-navigation__item .p-side-navigation__list .p-side-navigation__item,
+      .l-navigation__drawer:hover  .p-side-navigation__item .p-side-navigation__list .p-side-navigation__link {
+        position: relative;
+      }
   }
 
   /* demo JAAS CSS */
