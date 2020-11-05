@@ -1,5 +1,8 @@
 @import 'layouts_application-panels';
 
+// max width of the pinned aside panel in the application layout
+$application-layout--aside-panel-max-width: 50vw !default;
+
 @mixin vf-l-application {
   .l-application {
     display: grid;
@@ -152,6 +155,7 @@
         box-shadow: none;
         grid-area: aside;
         justify-self: auto;
+        max-width: $application-layout--aside-panel-max-width;
       }
     }
   }
