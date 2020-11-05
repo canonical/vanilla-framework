@@ -37,6 +37,16 @@
   }
 
   @media (min-width: 772px) and (max-width: 1035px) {
+      .l-navigation__drawer {
+        transform: translate(-0.5rem, 0);
+        transition: transform 0.165s;
+      }
+
+      .l-navigation__drawer [aria-current='page']::before {
+        transform: translate(0.5rem, 0);
+        transition: transform 0.165s;
+      }
+
       .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list {
         height: 0;
         overflow: hidden;
@@ -57,6 +67,19 @@
       .l-navigation__drawer:hover .p-side-navigation__item .p-side-navigation__list {
         height: auto;
         overflow: visible;
+      }
+
+      .l-navigation.is-pinned .l-navigation__drawer,
+      .l-navigation__drawer:focus-within,
+      .l-navigation__drawer:hover
+       {
+        transform: translate(0, 0);
+      }
+
+      .l-navigation.is-pinned .l-navigation__drawer [aria-current='page']::before,
+      .l-navigation__drawer:focus-within [aria-current='page']::before,
+      .l-navigation__drawer:hover [aria-current='page']::before {
+        transform: translate(0, 0);
       }
 
       .l-navigation.is-pinned .l-navigation__drawer .p-side-navigation__item .p-side-navigation__list,
