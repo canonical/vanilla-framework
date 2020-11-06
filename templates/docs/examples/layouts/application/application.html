@@ -3,96 +3,7 @@
 
 {% block style %}
 <style>
-  body { margin: 0; }
-
-  /* application layout demo styles */
-  .p-icon--pin {
-    background: url("https://assets.ubuntu.com/v1/5cca09bb-pin.svg");
-  }
-
-  .l-application .u-fixed-width {
-    /*  temporary, as I don't want to change the global setting */
-    max-width: 95rem;
-  }
-
-  .p-panel__logo {
-    display: block;
-    max-height: 1.5rem;
-    width: auto;
-  }
-
-  .demo-status {
-    background-color: #f7f7f7; /* $colors--light-theme--background-alt; */
-    padding-bottom: .75rem; /* $spv-inner--medium; */
-    padding-top: .75rem;
-  }
-
-  /* overrides for side nav in app layout */
-  .l-navigation__drawer .p-side-navigation,
-  .l-navigation__drawer [class*='p-side-navigation--'] {
-      max-height: none;
-      overflow-y: visible;
-      position: static;
-      top: auto;
-    }
-
-  /* demo JAAS CSS */
-  .u-flex {
-    display: flex
-  }
-
-  .u-flex--block {
-      flex: 1 1 auto
-  }
-
-  .has-icon [class*="p-icon"]:first-child {
-      margin-right: .25rem;
-      margin-top: .25rem
-  }
-
-  .status-icon {
-      display: inline-block;
-      padding-left: 1.5rem;
-      position: relative
-  }
-
-  .status-icon::before {
-      content: "\00B7";
-      font-size: 5rem;
-      left: 0;
-      position: absolute;
-      top: -6px
-  }
-
-  .status-icon.is-blocked::before,.status-icon.is-down::before,.status-icon.is-error::before,.status-icon.is-provisioning::before {
-      color: #c7162b
-  }
-
-  .status-icon.is-alert::before,.status-icon.is-attention::before,.status-icon.is-maintenance::before,.status-icon.is-pending::before,.status-icon.is-stopped::before,.status-icon.is-waiting::before {
-      color: #f99b11
-  }
-
-  .status-icon.is-active::before,.status-icon.is-running::before,.status-icon.is-started::before {
-      color: #cdcdcd
-  }
-
-  .status-icon.is-unknown::before {
-      border: 1px solid #cdcdcd;
-      border-radius: 50%;
-      content: "";
-      height: .6rem;
-      left: .35rem;
-      top: .5rem;
-      width: .6rem
-  }
-
-  table thead::after {
-      content: none
-  }
-
-  td,th {
-      min-width: 150px
-  }
+{% include "docs/examples/layouts/application/_application-layout-styles.css" %}
 </style>
 {% endblock %}
 
@@ -139,7 +50,6 @@
           <div class="p-inline-list--stretch">
             <h4 class="p-inline-list__item u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
             <div class="p-inline-list__item u-align--right">
-              <button class="u-no-margin--bottom js-aside-pinned-toggle">Toggle aside pinned</button>
               <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
             </div>
           </div>
@@ -394,10 +304,6 @@
         </div>
       </div>
       <div class="p-panel__content">
-        <div class="u-fixed-width">
-          <p>Built-in panel widths: <button class="is-inline js-aside-resize" data-resize-class="is-narrow" aria-controls="aside-panel">narrow</button> <button class="is-inline js-aside-resize" data-resize-class="" aria-controls="aside-panel">default</button> <button class="is-inline js-aside-resize" data-resize-class="is-wide" aria-controls="aside-panel">wide</button></p>
-        </div>
-
         {% include "docs/examples/patterns/forms/_form-stacked.html" %}
       </div>
     </div>
@@ -412,46 +318,6 @@
   </aside>
 
 <script>
-  document.querySelector(".js-menu-toggle").addEventListener("click", function() {
-    document.querySelector(".l-navigation").classList.toggle("is-collapsed");
-  });
-  document.querySelector(".js-menu-close").addEventListener("click", function() {
-    document.querySelector(".l-navigation").classList.add("is-collapsed");
-  });
-
-  document.querySelector(".js-aside-pinned-toggle").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.add("is-pinned");
-    document.querySelector(".l-aside").classList.toggle("u-hide");
-  });
-
-  document.querySelector(".js-aside-toggle").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.remove("is-pinned");
-    document.querySelector(".l-aside").classList.toggle("u-hide");
-  });
-  document.querySelector(".js-aside-close").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.add("u-hide");
-  });
-
-  [].slice.call(document.querySelectorAll(".js-aside-resize")).forEach(function(button){
-    button.addEventListener("click", function() {
-      button.dataset.resizeClass
-      var panel = document.getElementById(button.getAttribute('aria-controls'));
-      if (panel) {
-        panel.classList.remove('is-narrow');
-        panel.classList.remove('is-medium');
-        panel.classList.remove('is-wide');
-        panel.classList.add(button.dataset.resizeClass);
-      }
-    });
-
-  });
-  document.querySelector(".js-menu-pin").addEventListener("click", function() {
-    document.querySelector(".l-navigation").classList.toggle("is-pinned");
-    if (document.querySelector(".l-navigation").classList.contains("is-pinned")) {
-      document.querySelector(".js-menu-pin").querySelector('i').classList.remove('p-icon--pin');
-    } else {
-      document.querySelector(".js-menu-pin").querySelector('i').classList.add('p-icon--pin');
-    }
-  });
+{% include "docs/examples/layouts/application/_application-layout-script.js" %}
 </script>
 {% endblock %}
