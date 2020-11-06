@@ -59,13 +59,13 @@
     </table>
   </main>
 
-  <aside class="l-aside">
-    <p class="u-align--right">
+  <aside class="l-aside" id="aside-panel">
+    <p>
       <button class="js-aside-pin is-dense">Pin</button>
       <button class="js-aside-close is-dense">Close</button>
     </p>
     <p><code>l-aside</code></p>
-    <p></p>
+    <p>Panel width: <button class="is-inline is-dense js-aside-resize" data-resize-class="is-narrow" aria-controls="aside-panel">narrow</button> <button class="is-dense is-inline js-aside-resize" data-resize-class="" aria-controls="aside-panel">default</button> <button class="is-dense is-inline js-aside-resize" data-resize-class="is-wide" aria-controls="aside-panel">wide</button></p>
   </aside>
 
   <aside class="l-status">
@@ -74,37 +74,6 @@
 </div>
 
 <script>
-  document.querySelector(".js-menu-toggle").addEventListener("click", function() {
-    document.querySelector(".l-navigation").classList.toggle("is-collapsed");
-  });
-  document.querySelector(".js-menu-close").addEventListener("click", function() {
-    document.querySelector(".l-navigation").classList.add("is-collapsed");
-  });
-
-  document.querySelector(".js-aside-toggle").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.toggle("u-hide");
-  });
-
-  document.querySelector(".js-aside-close").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.add("u-hide");
-  });
-
-  document.querySelector(".js-menu-pin").addEventListener("click", function() {
-    document.querySelector(".l-navigation").classList.toggle("is-pinned");
-    if (document.querySelector(".l-navigation").classList.contains("is-pinned")) {
-      document.querySelector(".js-menu-pin").innerText = 'Unpin';
-    } else {
-      document.querySelector(".js-menu-pin").innerText = 'Pin';
-    }
-  });
-
-  document.querySelector(".js-aside-pin").addEventListener("click", function() {
-    document.querySelector(".l-aside").classList.toggle("is-pinned");
-    if (document.querySelector(".l-aside").classList.contains("is-pinned")) {
-      document.querySelector(".js-aside-pin").innerText = 'Unpin';
-    } else {
-      document.querySelector(".js-aside-pin").innerText = 'Pin';
-    }
-  });
+{% include "docs/examples/layouts/application/_application-layout-script.js" %}
 </script>
 {% endblock %}
