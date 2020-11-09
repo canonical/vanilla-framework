@@ -1,6 +1,14 @@
 @import 'settings';
 $triangle-height: $sp-unit;
 
+// tooltip messages have a small overlay added to their
+// ::after psuedo element to keep the message visible when
+// moving the cursor over it. We use border-radius to shape the
+// psuedo element relative to the tooltip's position, so here
+// we've extracted some repeated values.
+$tooltip-overlay-bottom-border-radius: 100% 100% 0% 0%;
+$tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
+
 @mixin vf-p-tooltips {
   %tooltip {
     position: relative;
@@ -26,7 +34,7 @@ $triangle-height: $sp-unit;
     border-radius: $border-radius;
     color: $color-x-light;
     display: none;
-    left: -#{2 * $triangle-height};
+    left: -2 * $triangle-height;
     margin-bottom: 0;
     padding: $spv-inner--small $sph-inner;
     position: absolute;
@@ -38,6 +46,7 @@ $triangle-height: $sp-unit;
     white-space: pre;
     z-index: 1;
 
+    // tooltip
     &::before {
       border: {
         bottom: $triangle-height solid $color-dark;
@@ -53,6 +62,17 @@ $triangle-height: $sp-unit;
       position: absolute;
       width: 0;
     }
+
+    // hover overlay
+    &::after {
+      border-radius: 10% 90% 0% 100% / $tooltip-overlay-bottom-border-radius;
+      content: '';
+      height: 2 * $triangle-height;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -2 * $triangle-height;
+    }
   }
 
   // Bottom center tooltip
@@ -66,10 +86,17 @@ $triangle-height: $sp-unit;
       -webkit-transform: translateX(-50%) translateY(13px); // stylelint-disable-line property-no-vendor-prefix
       transform: translateX(-50%) translateY(13px);
 
+      // tooltip
       &::before {
         left: 50%;
         -webkit-transform: translateX(-50%); // stylelint-disable-line property-no-vendor-prefix
         transform: translateX(-50%);
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 50% 50% 0% 100% / $tooltip-overlay-bottom-border-radius;
+        height: 2 * $triangle-height;
       }
     }
   }
@@ -81,14 +108,21 @@ $triangle-height: $sp-unit;
     .p-tooltip__message {
       bottom: inherit;
       left: initial;
-      right: -#{2 * $triangle-height};
+      right: -2 * $triangle-height;
       top: 100%;
       -webkit-transform: translateY(13px); // stylelint-disable-line property-no-vendor-prefix
       transform: translateY(13px);
 
+      // tooltip
       &::before {
         left: initial;
         right: $sph-inner;
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 90% 10% 0% 100% / $tooltip-overlay-bottom-border-radius;
+        height: 2 * $triangle-height;
       }
     }
   }
@@ -99,11 +133,12 @@ $triangle-height: $sp-unit;
 
     .p-tooltip__message {
       bottom: 100%;
-      left: -#{2 * $triangle-height};
+      left: -2 * $triangle-height;
       top: initial;
       -webkit-transform: translateX(0%) translateY(-13px); // stylelint-disable-line property-no-vendor-prefix
       transform: translateX(0%) translateY(-13px);
 
+      // tooltip
       &::before {
         border: {
           bottom: $triangle-height solid transparent;
@@ -112,8 +147,16 @@ $triangle-height: $sp-unit;
           top: $triangle-height solid $color-dark;
         }
 
-        bottom: -#{2 * $triangle-height};
+        bottom: -2 * $triangle-height;
         left: $sph-inner;
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 0% 100% 90% 10% / $tooltip-overlay-top-border-radius;
+        bottom: -2 * $triangle-height;
+        height: 2 * $triangle-height;
+        top: auto;
       }
     }
   }
@@ -129,6 +172,7 @@ $triangle-height: $sp-unit;
       -webkit-transform: translateX(-50%) translateY(-13px); // stylelint-disable-line property-no-vendor-prefix
       transform: translateX(-50%) translateY(-13px);
 
+      // tooltip
       &::before {
         border: {
           bottom: $triangle-height solid transparent;
@@ -137,10 +181,18 @@ $triangle-height: $sp-unit;
           top: $triangle-height solid $color-dark;
         }
 
-        bottom: -#{2 * $triangle-height};
+        bottom: -2 * $triangle-height;
         left: 50%;
         -webkit-transform: translateX(-50%); // stylelint-disable-line property-no-vendor-prefix
         transform: translateX(-50%);
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 100% 0% 50% 50% / $tooltip-overlay-top-border-radius;
+        bottom: -2 * $triangle-height;
+        height: 2 * $triangle-height;
+        top: auto;
       }
     }
   }
@@ -152,11 +204,12 @@ $triangle-height: $sp-unit;
     .p-tooltip__message {
       bottom: 100%;
       left: initial;
-      right: -#{2 * $triangle-height};
+      right: -2 * $triangle-height;
       top: initial;
       -webkit-transform: translateX(0%) translateY(-13px); // stylelint-disable-line property-no-vendor-prefix
       transform: translateX(0%) translateY(-13px);
 
+      // tooltip
       &::before {
         border: {
           bottom: $triangle-height solid transparent;
@@ -165,9 +218,17 @@ $triangle-height: $sp-unit;
           top: $triangle-height solid $color-dark;
         }
 
-        bottom: -#{2 * $triangle-height};
+        bottom: -2 * $triangle-height;
         left: initial;
         right: $sph-inner;
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 100% 0% 10% 90% / $tooltip-overlay-top-border-radius;
+        bottom: -2 * $triangle-height;
+        height: 2 * $triangle-height;
+        top: auto;
       }
     }
   }
@@ -183,6 +244,7 @@ $triangle-height: $sp-unit;
       -webkit-transform: translateX(14px) translateY(-50%); // stylelint-disable-line property-no-vendor-prefix
       transform: translateX(14px) translateY(-50%);
 
+      // tooltip
       &::before {
         border: {
           bottom: $triangle-height solid transparent;
@@ -196,6 +258,17 @@ $triangle-height: $sp-unit;
         top: 50%;
         -webkit-transform: translateX(-16px) translateY(-50%); // stylelint-disable-line property-no-vendor-prefix
         transform: translateX(-16px) translateY(-50%);
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 0;
+        bottom: 0;
+        height: auto;
+        left: -2 * $triangle-height;
+        right: auto;
+        top: 0;
+        width: 2 * $triangle-height;
       }
     }
   }
@@ -211,6 +284,7 @@ $triangle-height: $sp-unit;
       -webkit-transform: translateX(-100%) translateY(-50%); // stylelint-disable-line property-no-vendor-prefix
       transform: translateX(-100%) translateY(-50%);
 
+      // tooltip
       &::before {
         border: {
           bottom: $triangle-height solid transparent;
@@ -224,6 +298,17 @@ $triangle-height: $sp-unit;
         top: 50%;
         -webkit-transform: translateX(0) translateY(-50%); // stylelint-disable-line property-no-vendor-prefix
         transform: translateX(0) translateY(-50%);
+      }
+
+      // hover overlay
+      &::after {
+        border-radius: 0;
+        bottom: 0;
+        height: auto;
+        left: auto;
+        right: -2 * $triangle-height;
+        top: 0;
+        width: 2 * $triangle-height;
       }
     }
   }
