@@ -54,11 +54,11 @@ The status area is positioned on the bottom of the screen and stretches over the
 
 Below you can see an example of the full application layout structure with all the areas included.
 
-<div class="embedded-example"><a href="/docs/examples/layouts/application-structure/" class="js-example" data-height="600">
+<div class="embedded-example"><a href="/docs/examples/layouts/application/application-structure/" class="js-example" data-height="600">
 View an example of the application layout structure
 </a></div>
 
-[View the full screen example of the application layout structure](/docs/examples/layouts/application-structure/).
+[View the full screen example of the application layout structure](/docs/examples/layouts/application/application-structure/).
 
 ### Panels
 
@@ -84,8 +84,8 @@ Below you can see an example of application layout with some basic panels applie
   </p>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/layouts/application/" class="js-example" data-height="600">
+<div class="embedded-example"><a href="/docs/examples/layouts/application/application/" class="js-example" data-height="600">
 View an example of the application layout demo
 </a></div>
 
-[View the full screen example of the application layout panels](/docs/examples/layouts/application-structure/).
+[View the full screen example of the application layout panels](/docs/examples/layouts/application/application/).
