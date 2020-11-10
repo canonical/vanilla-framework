@@ -63,12 +63,15 @@
   function renderCodeBlocks(placementElement, html) {
     var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
     var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
+    var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
 
     var title = titlePattern.exec(html)[1].trim();
     var bodyHTML = bodyPattern.exec(html)[1].trim();
+    var headHTML = headPattern.exec(html)[1].trim();
 
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
+    var cssSource = getStyleFromSource(headHTML);
 
     var height = placementElement.getAttribute('data-height') || CODEPEN_HEIGHT;
 
@@ -102,6 +105,10 @@
       container.appendChild(createPreCode(jsSource, 'js'));
     }
 
+    if (cssSource) {
+      container.appendChild(createPreCode(cssSource, 'css'));
+    }
+
     placementElement.parentNode.insertBefore(container, placementElement);
 
     if (window.__CPEmbed) {
@@ -111,6 +118,13 @@
       // or show the code blocks as a fallback
       container.classList.remove('u-hide');
     }
+  }
+
+  function getStyleFromSource(source) {
+    var div = document.createElement('div');
+    div.innerHTML = source;
+    var style = div.querySelector('style');
+    return style ? style.innerHTML.trim() : null;
   }
 
   function stripScriptsFromSource(source) {
