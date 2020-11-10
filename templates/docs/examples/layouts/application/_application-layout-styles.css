@@ -1,0 +1,103 @@
+body {
+  margin: 0 !important; /* override codepen embedded examples styles */
+}
+
+/* application layout demo styles */
+.p-icon--pin {
+  background: url('https://assets.ubuntu.com/v1/5cca09bb-pin.svg');
+}
+
+.l-application .u-fixed-width {
+  /*  temporary, as I don't want to change the global setting */
+  max-width: 95rem;
+}
+
+.p-panel__logo {
+  display: block;
+  max-height: 1.5rem;
+  width: auto;
+}
+
+.demo-status {
+  background-color: #f7f7f7; /* $colors--light-theme--background-alt; */
+  padding-bottom: 0.75rem; /* $spv-inner--medium; */
+  padding-top: 0.75rem;
+}
+
+/* overrides for side nav in app layout */
+.l-navigation__drawer .p-side-navigation,
+.l-navigation__drawer [class*='p-side-navigation--'] {
+  max-height: none;
+  overflow-y: visible;
+  position: static;
+  top: auto;
+}
+
+/* demo JAAS CSS */
+.u-flex {
+  display: flex;
+}
+
+.u-flex--block {
+  flex: 1 1 auto;
+}
+
+.has-icon [class*='p-icon']:first-child {
+  margin-right: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.status-icon {
+  display: inline-block;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.status-icon::before {
+  content: '\00B7';
+  font-size: 5rem;
+  left: 0;
+  position: absolute;
+  top: -6px;
+}
+
+.status-icon.is-blocked::before,
+.status-icon.is-down::before,
+.status-icon.is-error::before,
+.status-icon.is-provisioning::before {
+  color: #c7162b;
+}
+
+.status-icon.is-alert::before,
+.status-icon.is-attention::before,
+.status-icon.is-maintenance::before,
+.status-icon.is-pending::before,
+.status-icon.is-stopped::before,
+.status-icon.is-waiting::before {
+  color: #f99b11;
+}
+
+.status-icon.is-active::before,
+.status-icon.is-running::before,
+.status-icon.is-started::before {
+  color: #cdcdcd;
+}
+
+.status-icon.is-unknown::before {
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+  content: '';
+  height: 0.6rem;
+  left: 0.35rem;
+  top: 0.5rem;
+  width: 0.6rem;
+}
+
+table thead::after {
+  content: none;
+}
+
+td,
+th {
+  min-width: 150px;
+}
