@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" class="u-baseline-grid">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,33 +8,11 @@
 
     {% if is_standalone %}
     <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/{% block standalone_css %}base{% endblock %}.css" />
-    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/example.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/static/build/css/build.css" />
     {% endif %}
+    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/example.css" />
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
-
-
-    <style>
-      html::after {
-        background: linear-gradient(to top, rgba(255,0,0,0.15), rgba(255,0,0,0.15) 1px, rgba(255,0,0,0.05) 1px, rgba(255,0,0,0.05));
-        background-size: 100% .5em;
-        bottom: 0;
-        content: '';
-        display: block;
-        left: 0;
-        pointer-events: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: -1;
-      }
-
-      body {
-        background-color: #fff;
-        margin: 1rem;
-      }
-    </style>
 
     {% block style %}{% endblock %}
 
