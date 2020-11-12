@@ -72,6 +72,14 @@ In contexts where vertical space is limited, you might want a button with reduce
 View example of the dense button pattern
 </a></div>
 
+### Small
+
+If you are working with small text and need a suitably sized button, add class `.is-small`. It can be combined with `.is-dense` for an even tighter look:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/small/" class="js-example">
+View example of the small button pattern
+</a></div>
+
 ### Icon
 
 Should you wish to place an icon in a button. You will not want to button to become full width on small screens. Therefore, you can add the state class `has-icon` to the button. If the contrast between the icon chosen and the button background is not sufficient then the `is-dark` or `is-light` classes can be added to the icon where appropriate.
