@@ -31,20 +31,21 @@
       align-items: baseline;
       display: inline-flex;
       flex-direction: row;
+      flex-wrap: wrap;
 
       > * {
-        margin: 0;
+        margin-right: $sph-inner--large;
       }
     }
 
     .p-form__group {
       @media screen and (min-width: $breakpoint-medium) {
         display: flex;
+        flex-shrink: 1;
         width: auto;
 
-        + .p-form__group,
         + [class*='p-button'] {
-          margin-left: $sph-inner--large;
+          flex-shrink: 1;
         }
 
         .p-form__label,
