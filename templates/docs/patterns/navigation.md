@@ -132,7 +132,7 @@ View example of the side navigation pattern for raw HTML
 On small screens side navigation is rendered off-screen as a drawer. To open the side navigation drawer, add `is-expanded` class to
 main `.p-side-navigation` element. To close the drawer (with the animation) remove `is-expanded` class and replace it with `is-collapsed` class.
 
-To make sure side navigation toggle works without JavaScript the toggle button for opening the side navigation drawer should be an anchor with href linking to the id attribute of the side navigation element (for example: `<a href="#drawer" class="p-side-navigation__toggle">`).
+To make sure side navigation toggle works without JavaScript the toggle button for opening the side navigation drawer should be an anchor with `href` attribute pointing to the `id` attribute of the side navigation element (for example: `<a href="#drawer" class="p-side-navigation__toggle">`).
 
 #### Theming
 
@@ -141,7 +141,7 @@ Overriding the colours of individual elements of the side navigation is discoura
 
 By default, the side navigation uses the light theme. To change the global default, set `$theme-default-p-side-navigation` to `dark`.
 
-To change the appearance of an individual instance of the sidenav, you can use the `is-dark` class.
+To change the appearance of an individual instance of the side navigation, you can use the `is-dark` class.
 
 For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 

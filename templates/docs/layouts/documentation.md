@@ -16,7 +16,7 @@ The documentation layout is built using Vanilla grid classes and common componen
 
 At the large breakpoint, the content area is further divided into an aside (3 columns) and a main content area (9 columns).
 
-At smaller breakpoints, the aside is moved offscreen and shown / hidden using a toggle.
+At smaller breakpoints, the aside is moved off-screen and shown / hidden using a toggle.
 
 #### Header
 
@@ -32,9 +32,9 @@ Alternatively, a search can be added in a full-width area under the top navigati
 
 #### Content area
 
-The content area is implemented as a regular strip (`.p-strip`) with a grid row (`.row`) inside. Within the standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) is deadicated to the main documentation content.
+The content area is implemented as a regular strip (`.p-strip`) with a grid row (`.row`) inside. Within the standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) is dedicated to the main documentation content.
 
-The aside area should contain the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. Grouping and nesting of navigation items should be used to build the logical structure of the documentation navigation. The side navigation component has built-in responsive functionality which makes it appear / go offscreen using a toggle.
+The aside area should contain the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. Grouping and nesting of navigation items should be used to build the logical structure of the documentation navigation. The side navigation component has built-in responsive functionality which makes it appear / go off-screen using a toggle.
 
 If the contents of the side navigation are generated in a way that doesn't provide the specific class names required by Vanilla, use a [raw HTML variant of the pattern](/docs/patterns/navigation#raw-html) to style the basic HTML lists of links.
 

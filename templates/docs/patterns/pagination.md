@@ -40,7 +40,7 @@ View example of the pagination pattern
 
 ### Article pagination
 
-In some cases, providing information about the previous / next item in the set may be more important than being able to quckly jump to an arbitrary page. Examples of this could be chronologically ordered blog posts, articles, a sequence of instructions that need to be performed in a sequence, etc. In those cases, consider using the article pagination pattern:
+In some cases, providing information about the previous / next item in the set may be more important than being able to quickly jump to an arbitrary page. Examples of this could be chronologically ordered blog posts, articles, a sequence of instructions that need to be performed in a sequence, etc. In those cases, consider using the article pagination pattern:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/article-pagination" class="js-example">
 View example of the article pagination pattern
