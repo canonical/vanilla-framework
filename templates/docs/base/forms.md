@@ -42,7 +42,7 @@ Note: The attribute `readonly` disables the input but it still retains a default
 
 Use the checkbox component to select one or more options. To provide fully featured Vanilla style and behaviour of the checkbox a specific markup structure is needed around the checkbox input (see example below).
 
-To disable the checkbox component, add the `disabled` attribute to the respecitve respective `<input type='checkbox'>` element.
+To disable the checkbox component, add the `disabled` attribute to the respective `<input type='checkbox'>` element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox/" class="js-example">
 View example of the checkbox components
@@ -80,7 +80,7 @@ Please refer to the [tick elements comparison example](/docs/examples/patterns/f
 
 Use radio buttons to select one of the given set of options. To provide fully featured Vanilla style and behaviour of the radio button a specific markup structure is needed around the radio button input (see example below).
 
-To disable the radio component, add the `disabled` attribute to the respecitve `<input type='radio'>` element.
+To disable the radio component, add the `disabled` attribute to the respective `<input type='radio'>` element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/radio/" class="js-example">
 View example of the radio components

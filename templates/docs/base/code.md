@@ -20,15 +20,15 @@ View example of inline code
 
 ### Block
 
-To create a preformatted block, use either `<pre>` (where preserving white space is important, but the text is not necesserily code) or `<pre><code>` (to indicate the contents are a piece of code):
+To create a pre-formatted block, use either `<pre>` (where preserving white space is important, but the text is not necessarily code) or `<pre><code>` (to indicate the contents are a piece of code):
 
-**Preformatted block:**
+**Pre-formatted block:**
 
 <div class="embedded-example"><a href="/docs/examples/base/pre/" class="js-example">
 View example of the base pre block
 </a></div>
 
-**Preformatted code block:**
+**Pre-formatted code block:**
 
 <div class="embedded-example"><a href="/docs/examples/base/code-block/" class="js-example">
 View example of the base code block
