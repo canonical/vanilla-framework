@@ -3,7 +3,19 @@
 
 {% block style %}
 <style>
-{% include "docs/examples/layouts/application/_application-layout-styles.css" %}
+  {% include "docs/examples/layouts/application/_application-layout-styles.css" %}
+
+  @media (min-width: 772px) {
+    .l-aside.is-split {
+      max-width: calc((100vw - 3rem) / 2);
+    }
+  }
+
+  @media (min-width: 1036px) {
+    .l-aside.is-split {
+      max-width: calc((100vw - 15rem) / 2);
+    }
+  }
 </style>
 {% endblock %}
 
@@ -286,7 +298,7 @@
     </div>
   </main>
 
-  <aside class="l-aside is-pinned" id="aside-panel">
+  <aside class="l-aside is-pinned is-split" id="aside-panel">
     <div class="p-panel">
       <div class="p-panel__header">
         <div class="u-fixed-width u-sv-2">
