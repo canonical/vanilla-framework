@@ -89,3 +89,68 @@ View an example of the application layout demo
 </a></div>
 
 [View the full screen example of the application layout panels](/docs/examples/layouts/application/application/).
+
+### Responsive application layout
+
+Application layout is fully responsive and adapts to screen size. It's controlled by breakpoint variables that define the screen widths at which the layout should change.
+
+On smallest screens the side navigation panel (`l-navigation`) is not visible on the screen. Instead the top navigation bar (`l-navigation-bar`) is displayed on top of the screen. It should contain application logo and a button to toggle visibility of the side navigation panel. All content panels (`l-main`, `l-aside`) will occupy whole screen width. If aside panel is open it will overlay the contents of the main panel.
+
+On the screens wider than `$application-layout--breakpoint-side-nav-collapsed` (which defaults to the value of `$breakpoint-medium`: `772px`) application layout will render collapsed side navigation. The side navigation panel (`l-navigation`) will be always visible on screen as a collapsed vertical bar that when hovered or focused expands to its whole width and reveals side navigation contents. In this state side navigation panel (`l-navigation`) can be pinned (by adding `is-pinned` class) to make it temporary expanded.
+
+On the screens wider than `$application-layout--breakpoint-side-nav-expanded` (which defaults to the value of `$breakpoint-large`: `1036px`) application layout will render with side navigation panel expanded and always visible. Adding `is-pinned` class to `l-navigation` has no effect in this state (as the side navigation by default behaves as it was pinned).
+
+### Aside panel width
+
+Application layout provides built-in classes to control the desired width of the aside panel (`l-aside`). By default the aside panel will have width of 8 columns of standard Vanilla grid (like `col-8` element of the grid). Using `is-narrow` class name changes the width to equivalent of 4 grid columns (`col-4`) and `is-wide` variant has the width of full 12 column grid.
+
+While these built-in widths can be used to provide good fit for variety of content it's the best for application developers to create custom widths specific for the needs of their application. This is described in more detail in the following section.
+
+### Customizing the application layout
+
+Application layout can be customised by adjusting the values of one of the following setting variables.
+
+| Setting                                              | Default value        | Comment                                                                   |
+| ---------------------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
+| `$application-layout--breakpoint-side-nav-collapsed` | `$breakpoint-medium` | screen width breakpoint (min-width) at which side navigation is collapsed |
+| `$application-layout--breakpoint-side-nav-expanded`  | `$breakpoint-large`  | screen width breakpoint (min-width) at which side navigation is expanded  |
+| `$application-layout--side-nav-width-collapsed`      | `3rem`               | width of the collapsed side navigation                                    |
+| `$application-layout--side-nav-width-expanded`       | `15rem`              | width of the expanded side navigation                                     |
+| `$application-layout--aside-panel-max-width`         | `50vw`               | max width of the pinned aside panel                                       |
+
+Additionally custom size variants can be built for aside panel to provide the best fit for specific content in the application.
+We recommend using `calc()` and application layout variables to calculate the desired max-widths of the panel.
+
+For example to set the aside panel width to always be the same as main panel (to create 50-50 split) max-width should be calculated by subtracting side navigation width from full screen width (`100vw`) and dividing it by 2:
+
+```
+.l-aside.is-split {
+  @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
+    max-width: calc((100vw - $application-layout--side-nav-width-collapsed) / 2)
+  }
+
+  @media (min-width: $application-layout--breakpoint-side-nav-expanded) {
+    max-width: calc((100vw - $application-layout--side-nav-width-expanded) / 2)
+  }
+}
+```
+
+[View the full screen example of the application layout with custom split panels](/docs/examples/layouts/application/application-split/).
+
+If a certain width of main panel should always be in view it can be achieved by subtracting both side navigation width and desired visible space from full screen width:
+
+```
+$main-panel-visible-width: 20rem;
+
+.l-aside.is-jaas {
+  @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
+    max-width: calc(100vw - $application-layout--side-nav-width-collapsed - $main-panel-visible-width)
+  }
+
+  @media (min-width: $application-layout--breakpoint-side-nav-expanded) {
+    max-width: calc(100vw - $application-layout--side-nav-width-expanded - $main-panel-visible-width)
+  }
+}
+```
+
+[View the full screen example of the application layout with custom JAAS panels](/docs/examples/layouts/application/application-JAAS/).
