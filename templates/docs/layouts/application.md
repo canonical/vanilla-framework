@@ -24,7 +24,7 @@ To provide fully responsive behaviour for small and large screen navigation. The
 
 Element with `l-navigation-bar` class name represents a navigation bar on top of a small screen that is used to toggle the navigation sidebar drawer.
 
-Element with `l-navigation` represents the navigation sidebar. Its direct child needs to be a `l-navigation__drawer` element which represents the responsive collapsible side navigation drawer which has different behaviours on various screen sizes.
+Use `<header class="l-navigation">` element to represent the navigation sidebar to make sure it has necessary ARIA roles. Its direct child needs to be a `l-navigation__drawer` element which represents the responsive collapsible side navigation drawer which has different behaviours on various screen sizes. The navigation components that are placed within this area should use `<nav>` elements to wrap navigation items.
 
 On a small screen, the `l-navigation-bar` is visible on top of the screen and side navigation drawer renders as an off-canvas overlay from the left side of the screen. The drawer can be fully collapsed by adding `is-collapsed` class to the `l-navigation` element, which should be done by a button or a link in the `l-navigation-bar`.
 
@@ -36,11 +36,13 @@ On large screen sizes the side navigation drawer will be always expanded and the
 
 #### Main content area
 
-The main content area is an element with `l-main` class. On any screen size it's going to take all available space not occupied by other areas of the application layout.
+The main content area is an element with `l-main` class. Use `<main class="l-main">` element to make sure it has the necessary ARIA roles. Please note that there should be only one `<main>` element in the document.
+
+On any screen size it's going to take all available space not occupied by other areas of the application layout.
 
 #### Aside area
 
-The aside area is used to display additional content, usually triggered from within main content area. It is an element with `l-aside` class. By default it is rendered as an overlay on top of main content, aligned to the right side, stretched from top to bottom of the main content area. The width of the aside content area is flexible and determined by the width of its contents.
+The aside area is used to display additional content, usually triggered from within main content area. It is an element with `l-aside` class. Use `<aside class="l-aside">` element to make sure it has necessary ARIA roles. By default it is rendered as an overlay on top of main content, aligned to the right side, stretched from top to bottom of the main content area. The width of the aside content area is flexible and determined by the width of its contents.
 
 The aside content area can be detached from right, top or bottom by adding a respective margin to it with JavaScript.
 
@@ -48,7 +50,7 @@ It can also be pinned, similarly to the side navigation area, by adding `is-pinn
 
 #### Status area
 
-The status area is positioned on the bottom of the screen and stretches over the full width of main and aside areas. It's meant to contain a status bar or short always-available information. Its height is defined by its contents.
+The status area is positioned on the bottom of the screen and stretches over the full width of main and aside areas. Use `<aside class="l-status">` element to make sure it has necessary ARIA roles. It's meant to contain a status bar or short always-available information. Its height is defined by its contents.
 
 ### Example structure
 
