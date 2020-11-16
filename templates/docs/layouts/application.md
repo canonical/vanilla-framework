@@ -10,51 +10,62 @@ context:
 
 ### Structure
 
-The application layout is a full-screen grid (represented by a root element with `l-application` class) consisting of several areas (represented by elements with class names such as `l-navigation`, `l-main`, etc.). The application layout styling defines the positioning and size of all the areas on different screen sizes. An example of this would be, the navigation sidebar will be fully expanded on large screens, but collapsible on small screens.
+The application layout is a CSS grid based layout that occupies the entire window. Its root element has a class called `l-application`. The layout defines several areas represented by elements with class names such as `l-navigation`, `l-main`, etc.
 
-The minimal application layout should consist of the root element (`l-application`) and a navigation area (`l-navigation-bar`, `l-navigation`) with a main content area (`l-main`). The other areas (`l-aside` and `l-status`) are optional and may be added to provide additional information as required by given application use case.
+The application layout is responsive out of the box, aiming to provide a useable set of defaults. For example, the navigation sidebar is fully expanded on large screens, but collapses on small screens.
+
+The application layout requires a root element (`l-application`), a navigation area (`l-navigation-bar`, `l-navigation`) and a main content area (`l-main`).
+
+It also includes optional sidebars (`l-aside`) and a status bar (`l-status`).
 
 #### Root element
 
-The root of application layout, usually a direct child of the document `body` is an element with `l-application` class. This element defines the layout grid, all areas of the application layout need to be direct children.
+The root of the application layout is usually a direct child of the document `body`. It is denoted with the class `l-application`. This element defines the layout grid. All areas of the application layout need to be direct children of this root element.
 
 #### Navigation
 
-To provide fully responsive behaviour for small and large screen navigation. The navigation of this layout consists of two areas.
+The navigation of this layout consists of two areas:
 
-Element with `l-navigation-bar` class name represents a navigation bar on top of a small screen that is used to toggle the navigation sidebar drawer.
+An element with class `l-navigation-bar` which represents a horizontal navigation bar visible on small screens only. It toggles the navigation sidebar drawer. We recommend using the `<header>` tag for this element, as this ensures it acts as an <a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/region.html">ARIA region landmark</a>. E.g.: `<header class="l-navigation">`.
 
-Use `<header class="l-navigation">` element to represent the navigation sidebar to make sure it has necessary ARIA roles. Its direct child needs to be a `l-navigation__drawer` element which represents the responsive collapsible side navigation drawer which has different behaviours on various screen sizes. The navigation components that are placed within this area should use `<nav>` elements to wrap navigation items.
+Next, as a direct child, add an `l-navigation__drawer` element, which represents the responsive collapsible side navigation drawer. The drawer behaves differently depending on screen width.
 
-On a small screen, the `l-navigation-bar` is visible on top of the screen and side navigation drawer renders as an off-canvas overlay from the left side of the screen. The drawer can be fully collapsed by adding `is-collapsed` class to the `l-navigation` element, which should be done by a button or a link in the `l-navigation-bar`.
+Directly inside the drawer you can place one or more navigation components. They should be wrapped in `<nav>` tags, which act as region landmarks. Ensure appropriate ARIA labels for each `<nav>`.
 
-On medium or large screen sizes `l-navigation-bar` is not needed and is hidden, because side navigation is always visible on the left side of the screen.
+On a small screen, the `l-navigation-bar` appears horizontally at the top of the screen. It toggles the side navigation drawer, which is an off-canvas overlay on the left side of the screen. The drawer can be fully collapsed by adding the `is-collapsed` class to the `l-navigation` element. This behaviour can also be invoked using a button or a link in `l-navigation-bar`.
 
-On medium screens, the side navigation drawer will be collapsed to a width of `3rem`. Which expends with an overlay on hover. Users can also be given the option to pin the side navigation, which can be achieved by adding `is-pinned` class to the `l-navigation` element.
+On medium or large screen sizes `l-navigation-bar` is not meant to be used and is therefore hidden. Beyond `$breakpoint-medium` the side navigation is always visible on the left side of the screen.
 
-On large screen sizes the side navigation drawer will be always expanded and the `is-pinned` or `is-collapsed` classes will have no effect.
+On medium screens, the side navigation drawer is by default collapsed to a width of `3rem`. It expands on hover. It can be pinned by adding the `is-pinned` class to the `l-navigation` element.
+
+On large screens, the side navigation drawer will be always expanded and the `is-pinned` or `is-collapsed` classes have no effect.
 
 #### Main content area
 
-The main content area is an element with `l-main` class. Use `<main class="l-main">` element to make sure it has the necessary ARIA roles. Please note that there should be only one `<main>` element in the document.
+The main content area is an element with class `l-main`. Use `<main class="l-main">` element to make sure it acts as the ARIA region landmark `main`. Please note that there should be only one `<main>` element in the document.
 
-On any screen size it's going to take all available space not occupied by other areas of the application layout.
+The main area occupies all available space not taken by other areas of the application layout.
 
 #### Aside area
 
-The aside area is used to display additional content, usually triggered from within main content area. It is an element with `l-aside` class. Use `<aside class="l-aside">` element to make sure it has necessary ARIA roles. By default it is rendered as an overlay on top of main content, aligned to the right side, stretched from top to bottom of the main content area. The width of the aside content area is flexible and determined by the width of its contents.
+The aside area is used to display additional content, usually triggered from within the main content area. It is denoted with the class `l-aside`. Use `<aside class="l-aside">` tag to ensure it acts as an aside region landmark.
 
-The aside content area can be detached from right, top or bottom by adding a respective margin to it with JavaScript.
+By default, the aside area is rendered as an overlay on top of the main area. It is attached to the right edge of the screen, covering the entire height of the screen except for the status bar. The width of the aside content area is flexible and determined by the width of its contents.
 
-It can also be pinned, similarly to the side navigation area, by adding `is-pinned` class to the `l-aside` element. Pinned aside area is rendered to the right of the main content and makes the main content area narrower.
+The aside content area can be detached from right, top or bottom by adding a margin to it with JavaScript.
+
+It can also be pinned, similarly to the side navigation area, by adding class `is-pinned` to the `l-aside` element. Pinning the aside area transforms it from an overlay to split panel, making the main content area narrower.
 
 #### Status area
 
-The status area is positioned on the bottom of the screen and stretches over the full width of main and aside areas. Use `<aside class="l-status">` element to make sure it has necessary ARIA roles. It's meant to contain a status bar or short always-available information. Its height is defined by its contents.
+The status area is meant to contain a status bar or other information that needs to be visible regardless of scroll position.
+
+It is positioned at the bottom of the screen and spans the full width of the main and aside areas. The height is flexible, depending on content.
+Use `<aside class="l-status">` element to ensure it acts as a region landmark.
 
 ### Example structure
 
-Below you can see an example of the full application layout structure with all the areas included.
+Below you can see an example of the full application layout structure with all areas included.
 
 <div class="embedded-example"><a href="/docs/examples/layouts/application/structure/" class="js-example" data-height="600">
 View an example of the application layout structure
@@ -68,13 +79,13 @@ View an example of the application layout structure
 
 <div class="p-notification--caution">
   <p class="p-notification__response">
-    <span class="p-notification__status">In progress:</span>Current implementation of panel component is created to provide minimal consistent styling of panels, but is still work in progress and may change in future when Vanilla framework fully supports application layout components.
+    <span class="p-notification__status">In progress:</span> The current implementation of the panel component is created to provide minimal consistent styling of panels, but is still work in progress and may change in the future.
   </p>
 </div>
 
-As the layout areas provide only minimal styling (for example drop shadows on overlay areas) the contents of the areas need to provide any spacing, backgrounds and internal layout for the panels.
+The layout areas provide minimal styling (for example drop shadows on overlay areas). Spacing, background, should be defined by the content inside.
 
-To achieve consistent styling and positioning of all the application panels use the panel component (`p-panel`). It should be used as the only direct child of respective layout area (`l-navigation`, `l-main`, `l-aside`, ...). It consists of a header (`p-panel__header`) that may contain panel title, logo or any action buttons and the content of the panel in `p-panel__content`. Panel header can be optionally made sticky while scrolling with `p-panel__header--sticky`.
+The panel component is an integral part of the application layout (`p-panel`). It should be used as the only direct child of respective layout area (`l-navigation`, `l-main`, `l-aside`, ...). It consists of a header (`p-panel__header`) that may contain panel title, logo or any action buttons and the content of the panel in `p-panel__content`. Panel header can be optionally made sticky while scrolling with `p-panel__header--sticky`.
 
 ### Panels example
 
@@ -94,23 +105,25 @@ View an example of the application layout demo
 
 ### Responsive application layout
 
-Application layout is fully responsive and adapts to screen size. It's controlled by breakpoint variables that define the screen widths at which the layout should change.
+The application layout is fully responsive. It is controlled by breakpoint variables that define the screen widths at which layout change occur.
 
-On smallest screens the side navigation panel (`l-navigation`) is not visible on the screen. Instead the top navigation bar (`l-navigation-bar`) is displayed on top of the screen. It should contain application logo and a button to toggle visibility of the side navigation panel. All content panels (`l-main`, `l-aside`) will occupy whole screen width. If aside panel is open it will overlay the contents of the main panel.
+On smallest screens the side navigation panel (`l-navigation`) is not visible on the screen. Instead the top navigation bar (`l-navigation-bar`) is displayed on top of the screen. It should contain an application logo and a button to toggle visibility of the side navigation panel. All content panels (`l-main`, `l-aside`) will occupy whole screen width. If the aside panel is open it will overlay the contents of the main panel.
 
-On the screens wider than `$application-layout--breakpoint-side-nav-collapsed` (which defaults to the value of `$breakpoint-medium`: `772px`) application layout will render collapsed side navigation. The side navigation panel (`l-navigation`) will be always visible on screen as a collapsed vertical bar that when hovered or focused expands to its whole width and reveals side navigation contents. In this state side navigation panel (`l-navigation`) can be pinned (by adding `is-pinned` class) to make it temporary expanded.
+On screens wider than `$application-layout--breakpoint-side-nav-collapsed` (which defaults to the value of `$breakpoint-medium`: `772px`), the side navigation is collapsed. The side navigation panel (`l-navigation`) will be always visible on screen as a collapsed vertical bar that when hovered or focused expands to its whole width and reveals side navigation contents. In this state the side navigation panel (`l-navigation`) can be pinned (by adding `is-pinned` class) to make it temporary expanded.
 
-On the screens wider than `$application-layout--breakpoint-side-nav-expanded` (which defaults to the value of `$breakpoint-large`: `1036px`) application layout will render with side navigation panel expanded and always visible. Adding `is-pinned` class to `l-navigation` has no effect in this state (as the side navigation by default behaves as it was pinned).
+On screens wider than `$application-layout--breakpoint-side-nav-expanded` (which defaults to the value of `$breakpoint-large`: `1036px`) the side navigation panel is expanded and always visible. Adding `is-pinned` class to `l-navigation` has no effect in this state (as the side navigation by default behaves as it was pinned).
 
 ### Aside panel width
 
-Application layout provides built-in classes to control the desired width of the aside panel (`l-aside`). By default the aside panel will have width of 8 columns of standard Vanilla grid (like `col-8` element of the grid). Using `is-narrow` class name changes the width to equivalent of 4 grid columns (`col-4`) and `is-wide` variant has the width of full 12 column grid.
+Ideally, decisions about panel widths should be made once the content is known. That said, it is useful to have a few default values for prototyping purposes. The application layout provides 3 panel widths. These panel widths are derived from the static widths of 4, 8, 12 column containers as measured at window width bigger than `$grid-max-width`:
 
-While these built-in widths can be used to provide good fit for variety of content it's the best for application developers to create custom widths specific for the needs of their application. This is described in more detail in the following section.
+- narrow: Matches the width of a 4 column container. Invoked with class `is-narrow`.
+- default: Matches the width of an 8 column container. No need for additional classed.
+- wide: Matches the width of a 12 column container. Invoked with class `is-wide`.
 
 ### Customizing the application layout
 
-Application layout can be customised by adjusting the values of one of the following setting variables.
+The application layout can be customised. The following variables are exposed for customisation:
 
 | Setting                                              | Default value        | Comment                                                                   |
 | ---------------------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
@@ -120,10 +133,9 @@ Application layout can be customised by adjusting the values of one of the follo
 | `$application-layout--side-nav-width-expanded`       | `15rem`              | width of the expanded side navigation                                     |
 | `$application-layout--aside-panel-max-width`         | `50vw`               | max width of the pinned aside panel                                       |
 
-Additionally custom size variants can be built for aside panel to provide the best fit for specific content in the application.
-We recommend using `calc()` and application layout variables to calculate the desired max-widths of the panel.
+We also recommend deriving the width of any aside panels based on the specific circumstances of your app. For example, you could use `calc()` and application layout variables to calculate the desired max-widths of a panel.
 
-For example to set the aside panel width to always be the same as main panel (to create 50-50 split) max-width should be calculated by subtracting side navigation width from full screen width (`100vw`) and dividing it by 2:
+In the following example we set the aside panel's `max-width` to match the width of the main area, creating a 50-50 split panel interface):
 
 ```
 .l-aside.is-split {
@@ -139,7 +151,7 @@ For example to set the aside panel width to always be the same as main panel (to
 
 [View the full screen example of the application layout with custom split panels](/docs/examples/layouts/application/split/).
 
-If a certain width of main panel should always be in view it can be achieved by subtracting both side navigation width and desired visible space from full screen width:
+In this next example, the panel has a flexible width, but it leaves the same width available to the main area. This can be useful when you want to ensure certain elements in the main area are never overlapped:
 
 ```
 $main-panel-visible-width: 20rem;
