@@ -4,6 +4,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
 // Default button styling
 @mixin vf-p-buttons {
+  @include vf-button-white-success-icon;
   @include vf-button-plain;
   @include vf-button-neutral;
   @include vf-button-brand;
@@ -12,6 +13,14 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   @include vf-button-base;
   @include vf-button-inline;
   @include vf-button-icon;
+}
+
+@mixin vf-button-white-success-icon {
+  %vf-button-white-success-icon {
+    & .p-icon--success {
+      @include vf-icon-success($color-x-light, $color-transparent);
+    }
+  }
 }
 
 @mixin vf-button-plain {
@@ -56,6 +65,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
   .p-button--brand {
     @extend %p-button--brand;
+    @extend %vf-button-white-success-icon;
   }
 }
 
@@ -78,6 +88,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
   .p-button--positive {
     @extend %p-button--positive;
+    @extend %vf-button-white-success-icon;
   }
 }
 
@@ -101,6 +112,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
   .p-button--negative {
     @extend %p-button--negative;
+    @extend %vf-button-white-success-icon;
   }
 }
 
