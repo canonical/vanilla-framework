@@ -22,18 +22,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.19 -->
+    <!-- 2.20 -->
     <tr>
-      <th><a href="/docs/base/tables#expanding">Expanding table column placeholder</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.20.0</td>
-      <td>We started using <code>aria-hidden="true"</code> attribute to hide the dummy table header in place of previously used <code>u-hide</code> utility.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/base/tables#icons">Table icons</a></th>
+      <th><a href="/docs/patterns/buttons#small">Small buttons</a></th>
       <td><div class="p-label--new">New</div></td>
-      <td>2.19.0</td>
-      <td>We added a <code>p-table__cell--icon-placeholder</code> class to properly align icons in table cells.</td>
+      <td>2.20.0</td>
+      <td>We added an <code>is-small</code> modifier class for buttons, which can be combined with <code>is-dense</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -50,6 +44,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.19 -->
+    <tr>
+      <th><a href="/docs/base/tables#expanding">Expanding table column placeholder</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.19.2</td>
+      <td>We started using <code>aria-hidden="true"</code> attribute to hide the dummy table header in place of previously used <code>u-hide</code> utility.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/tables#icons">Table icons</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.19.0</td>
+      <td>We added a <code>p-table__cell--icon-placeholder</code> class to properly align icons in table cells.</td>
+    </tr>
     <!-- 2.18 -->
     <tr>
       <th><a href="/docs/patterns/breadcrumbs">Breadcrumbs</a></th>

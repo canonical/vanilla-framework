@@ -55,6 +55,19 @@
       padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     }
 
+    &.is-small {
+      font-size: #{map-get($font-sizes, small)}rem;
+      line-height: map-get($line-heights, small);
+      margin: 0 0 $input-margin-bottom - $sp-unit 0;
+      padding: calc(#{map-get($nudges, nudge--small)} - 1px) $sph-inner--small;
+    }
+
+    &.is-small.is-dense {
+      margin-bottom: $spv-nudge-compensation;
+      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+    }
+
     // The following three rules address buttons nested in <p>'s;
     p & {
       margin-bottom: $spv-outer--small-scaleable - $spv-nudge;
