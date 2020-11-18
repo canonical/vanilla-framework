@@ -88,6 +88,14 @@ Should you wish to place an icon in a button. You will not want to button to bec
 View example of the icon button pattern
 </a></div>
 
+### Active
+
+In cases where a button needs to indicate that an action is occurring (e.g. saving data, processing a payment) while also preventing user interaction, the state class `is-active` can be added to a disabled button to maintain full opacity.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/active/" class="js-example">
+View example of the active button pattern
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
