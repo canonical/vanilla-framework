@@ -29,6 +29,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.20.0</td>
       <td>We added an <code>is-small</code> modifier class for buttons, which can be combined with <code>is-dense</code>.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/patterns/buttons#small">Active buttons</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.20.0</td>
+      <td>We added an <code>is-active</code> state class for buttons, which can be combined with <code>disabled</code> when a button needs to indicate a process is occurring while also preventing user interaction.</td>
+    </tr>
   </tbody>
 </table>
 
