@@ -1,10 +1,23 @@
 @import 'settings';
 
 @mixin vf-p-form-tick-elements {
+  // contain the absolutely positioned input
+  .p-checkbox,
+  .p-checkbox--heading,
+  .p-checkbox--inline,
+  .p-radio,
+  .p-radio--heading,
+  .p-radio--inline {
+    position: relative;
+  }
+
   // specify both [type] and class to fight specificity of base `label [type]` styles
   [type='checkbox'].p-checkbox__input,
   [type='radio'].p-radio__input {
     @extend %vf-hidden-tick-input;
+
+    // adjust position of hidden inputs to place them approximately on the baseline
+    bottom: 0.2em;
   }
 
   .p-checkbox__label {
@@ -15,13 +28,6 @@
   .p-radio__label {
     @extend %vf-pseudo-tick-box;
     @extend %vf-pseudo-radio;
-  }
-
-  // contain the absolutely positioned input
-  .p-checkbox,
-  .p-checkbox--heading,
-  .p-checkbox--inline {
-    position: relative;
   }
 
   // inline variants
