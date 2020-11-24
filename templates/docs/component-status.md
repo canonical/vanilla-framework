@@ -10,9 +10,9 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.19
+### What's new in Vanilla 2.20
 
-<table aria-label="What's new in Vanilla 2.19">
+<table aria-label="What's new in Vanilla 2.20">
   <thead>
     <tr>
       <th style="width: 20%">Component</th>
@@ -23,6 +23,12 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <!-- 2.20 -->
+    <tr>
+      <th><a href="/docs/layouts/application#responsive-application-layout">Application layout panels</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.20.0</td>
+      <td>We updated the responsive styles of application layout panels and introduced some class names and variables for more flexible customization options.</td>
+    </tr>
     <tr>
       <th><a href="/docs/patterns/buttons#small">Small buttons</a></th>
       <td><div class="p-label--new">New</div></td>
