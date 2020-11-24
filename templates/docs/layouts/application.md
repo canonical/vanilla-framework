@@ -115,6 +115,8 @@ On screens wider than `$application-layout--breakpoint-side-nav-expanded` (which
 
 ### Aside panel width
 
+<span class="p-label--new">New</span>
+
 Ideally, decisions about panel widths should be made once the content is known. That said, it is useful to have a few default values for prototyping purposes. The application layout provides 3 panel widths. These panel widths are derived from the static widths of 4, 8, 12 column containers as measured at window width bigger than `$grid-max-width`:
 
 - narrow: Matches the width of a 4 column container. Invoked with class `is-narrow`.
@@ -122,6 +124,8 @@ Ideally, decisions about panel widths should be made once the content is known. 
 - wide: Matches the width of a 12 column container. Invoked with class `is-wide`.
 
 ### Customizing the application layout
+
+<span class="p-label--new">New</span>
 
 The application layout can be customised. The following variables are exposed for customisation:
 
