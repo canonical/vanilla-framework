@@ -58,12 +58,24 @@
   }
 }
 
-// Adds visiual focus to elements on :focus
+// Adds visual focus to elements on :focus-visible,
+// or :focus if the browser doesn't support the former
 @mixin vf-focus($color: $color-focus, $width: $bar-thickness, $has-validation: false) {
   &:focus {
     outline: $width solid $color;
     outline-offset: -#{$width};
   }
+
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: -#{$width};
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: 0;
+    outline-offset: 0;
+  }
+
   @if ($has-validation) {
     .is-error &:focus {
       outline-color: $color-negative;
