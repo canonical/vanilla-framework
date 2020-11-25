@@ -12,9 +12,9 @@
       {% include "docs/examples/patterns/side-navigation/_icons.html" %}
   </div>
   <div class="col-4">
-    {% set is_sticky = True %}
-    {% include "docs/examples/patterns/side-navigation/_default.html" %}
-    {% set is_sticky = False %}
+    {% with is_sticky = True %}
+      {% include "docs/examples/patterns/side-navigation/_default.html" %}
+    {% endwith %}
   </div>
 </div>
 
