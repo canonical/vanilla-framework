@@ -4,8 +4,10 @@
 {% block standalone_css %}patterns_side-navigation{% endblock %}
 
 {% block content %}
-{% set is_sticky = True %}
-{% include "docs/examples/patterns/side-navigation/_docs.html" %}
+
+{% with is_sticky = True %}
+  {% include "docs/examples/patterns/side-navigation/_docs.html" %}
+{% endwith %}
 
 <script>
   {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
