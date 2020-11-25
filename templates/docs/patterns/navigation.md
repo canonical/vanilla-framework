@@ -95,7 +95,7 @@ View example of the side navigation pattern with icons
 
 <span class="p-label--new">New</span>
 
-On pages with content significantly longer than the side navigation contents you can make the navigation sticky to keep in visible when scrolling by adding `.is-sticky` class to the root element of `.p-side-navigation`.
+On pages with content significantly longer than the side navigation contents you can make the navigation sticky to keep it visible when scrolling by adding `.is-sticky` class to the root element of `.p-side-navigation`.
 
 <div class="p-notification--caution">
   <p class="p-notification__response"><span class="p-notification__status">Breaking change:</span>Side navigation used to be sticky by default, but since Vanilla 2.21.0 <code>.is-sticky</code> class is needed to add this functionality.</p>
