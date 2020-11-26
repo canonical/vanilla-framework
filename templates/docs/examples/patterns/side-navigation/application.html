@@ -1,0 +1,22 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Side navigation / Application{% endblock %}
+
+{% block standalone_css %}patterns_side-navigation{% endblock %}
+
+{% block style %}
+<style>
+  /*
+    Making background dark for the sake of this example.
+    In the real application you would place the side navigation inside
+    the `l-navigation` panel that should provide the background color.
+  */
+  html, body { background: #111 }
+</style>
+{% endblock %}
+
+{% block content %}
+{% with is_dark=True %}
+  {% include "docs/examples/patterns/side-navigation/_layout-JAAS.html" %}
+{% endwith %}
+
+{% endblock %}

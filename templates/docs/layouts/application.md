@@ -103,6 +103,20 @@ View an example of the application layout demo
 
 [View the full screen example of the default panels in application layout](/docs/examples/layouts/application/default/).
 
+### Side navigation
+
+<span class="p-label--new">New</span>
+
+Use the [side navigation component](/docs/patterns/navigation#side-navigation) to build the contents of main navigation for the application layout. You can find detailed documentation in the ["Application layout" section of the Navigation page](/docs/patterns/navigation#application-layout).
+
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/application" class="js-example">
+View example of the side navigation pattern for raw HTML
+</a></div>
+
+Side navigation component has a built-in support for responsive collapsing and expanding of the side navigation. When proper HTML structure and element class names are used, the side navigation elements and icons will be correctly positioned, and unnecessary elements will fade out when navigation collapses.
+
+Additionally, if certain custom elements need to be hidden when navigation panel is collapsed, add the `.is-fading-when-collapsed` class to them.
+
 ### Responsive application layout
 
 The application layout is fully responsive. It is controlled by breakpoint variables that define the screen widths at which layout change occur.
