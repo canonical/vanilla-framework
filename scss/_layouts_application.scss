@@ -35,6 +35,8 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   // Navigation panel/drawer
   // -------------------------
   .l-navigation {
+    @include vf-animation(transform, fast);
+
     bottom: 0;
     box-shadow: $panel-drop-shadow;
     height: 100vh;
@@ -42,6 +44,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     overflow-y: auto;
     position: fixed;
     top: 0;
+    transform: translateX(0);
     width: 100%;
     z-index: 103; // consistent with side-navigation component, above global nav
 
@@ -50,7 +53,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     &.is-collapsed {
-      width: 0;
+      transform: translateX(-100%);
     }
   }
 
@@ -82,9 +85,11 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       );
 
       box-shadow: $panel-drop-shadow-transparent;
+      transform: translateX(0);
       width: $application-layout--side-nav-width-collapsed;
 
       &.is-collapsed {
+        transform: translateX(0);
         width: $application-layout--side-nav-width-collapsed;
       }
     }
@@ -119,6 +124,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       }
 
       &.is-collapsed {
+        transform: translateX(0);
         width: $application-layout--side-nav-width-expanded;
       }
     }
