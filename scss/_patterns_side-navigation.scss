@@ -153,7 +153,7 @@
   // STYLING OF SIDE NAVIGATION LINKS LIST
 
   // space for the right hand icon with default inner spacing on the left
-  $sp-sidenav--icon-spacing-width: map-get($icon-sizes, default) + $sph-inner;
+  $sp-sidenav--icon-width: map-get($icon-sizes, default);
 
   %side-navigation__list {
     @extend %vf-list;
@@ -166,7 +166,7 @@
     }
 
     .p-side-navigation--icons &::after {
-      @include vf-side-navigation-spacing-left($prop: left, $offset: $sp-sidenav--icon-spacing-width);
+      @include vf-side-navigation-spacing-left($prop: left, $multiplier: 2, $offset: $sp-sidenav--icon-width);
     }
 
     &:last-of-type::after {
@@ -220,7 +220,7 @@
     @extend %side-navigation__text;
 
     .p-side-navigation--icons & {
-      @include vf-side-navigation-spacing-left($offset: $sp-sidenav--icon-spacing-width);
+      @include vf-side-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--icon-width);
 
       position: relative;
     }
@@ -231,7 +231,7 @@
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        @include vf-side-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--icon-spacing-width);
+        @include vf-side-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--icon-width);
       }
     }
 
@@ -241,7 +241,7 @@
 
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
-        @include vf-side-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--icon-spacing-width);
+        @include vf-side-navigation-spacing-left($multiplier: 4, $offset: $sp-sidenav--icon-width);
       }
     }
   }
