@@ -146,6 +146,22 @@ main `.p-side-navigation` element. To close the drawer (with the animation) remo
 
 To make sure side navigation toggle works without JavaScript the toggle button for opening the side navigation drawer should be an anchor with `href` attribute pointing to the `id` attribute of the side navigation element (for example: `<a href="#drawer" class="p-side-navigation__toggle">`).
 
+#### Application layout
+
+<span class="p-label--new">New</span>
+
+For applications built with [the application layout](/docs/layouts/application) the size and positioning of the navigation panel is handled by the layout itself, so the side navigation component doesn't need it's own drawer, overlay or toggle buttons.
+
+To use side navigation in the application place `.p-side-navigation--icons` in the `l-navigation` element. You don't use `p-side-navigation__toggle`, `p-side-navigation__overlay` or `p-side-navigation__drawer` elements, just put the lists of the links `p-side-navigation__list` as direct children of `.p-side-navigation` element.
+
+Additionally, in order for application layout to fully control side navigation elements when expanding and collapsing you need to wrap the text of the side navigation items in `<span class="p-side-navigation__label">`. This will allow to fade them out when navigation collapses.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/application" class="js-example">
+View example of the side navigation pattern for raw HTML
+</a></div>
+
+For more information, read the dedicated [application layout documentation](/docs/layouts/application).
+
 #### Theming
 
 The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_settings_colors.scss).
