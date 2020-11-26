@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.21 -->
     <tr>
+      <th><a href="/docs/patterns/navigation#application-layout">Side navigation - Application</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.21.0</td>
+      <td>We implemented and documented improvements for [side navigation component](/docs/patterns/navigation#application-layout) for the [application layout](/docs/layouts/application#side-navigation).</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/navigation#sticky">Side navigation - Sticky</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.21.0</td>
