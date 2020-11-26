@@ -7,7 +7,7 @@ $application-layout--breakpoint-side-nav-collapsed: $breakpoint-medium !default;
 // screen width breakpoint (min-width) at which side navigation is in expanded mode
 $application-layout--breakpoint-side-nav-expanded: $breakpoint-large !default;
 // width of the collapsed side navigation
-$application-layout--side-nav-width-collapsed: 3rem !default;
+$application-layout--side-nav-width-collapsed: 4rem !default;
 // width of the expanded side navigation
 $application-layout--side-nav-width-expanded: 15rem !default;
 
@@ -33,6 +33,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   }
 
   // Navigation panel/drawer
+  // -------------------------
   .l-navigation {
     bottom: 0;
     box-shadow: $panel-drop-shadow;
@@ -67,6 +68,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       // use navigation bar as a grid spacer for collapsed navigation
       grid-area: nav;
       overflow: hidden;
+      visibility: hidden;
       width: $application-layout--side-nav-width-collapsed;
     }
 
@@ -122,6 +124,45 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
   }
 
+  // Fading elements when navigation panel is collapsed
+  %vf-application-layout--faded-when-collapsed {
+    // when app navigation panel is collapsed, fade out unnecessary elements
+    @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
+      @include vf-animation($property: opacity, $duration: snap);
+
+      opacity: 0;
+
+      // keep faded elements visible when navigation is expanded on hover or pinned
+      .l-navigation.is-pinned &,
+      .l-navigation:hover & {
+        opacity: 1;
+      }
+    }
+
+    // keep faded elements visible when app navigation is expanded on largest screens
+    @media (min-width: $application-layout--breakpoint-side-nav-expanded) {
+      opacity: 1;
+    }
+  }
+
+  .l-navigation .is-fading-when-collapsed {
+    @extend %vf-application-layout--faded-when-collapsed;
+  }
+
+  // Customisations of side navigation component
+  .l-navigation .p-side-navigation,
+  .l-navigation [class*='p-side-navigation--'] {
+    .p-side-navigation__label {
+      @extend %vf-application-layout--faded-when-collapsed;
+    }
+
+    .p-side-navigation__list::after {
+      @extend %vf-application-layout--faded-when-collapsed;
+    }
+  }
+
+  // Other panels
+  // --------------
   .l-main {
     grid-area: main;
     overflow-y: auto;

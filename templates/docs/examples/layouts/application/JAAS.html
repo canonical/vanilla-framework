@@ -41,13 +41,23 @@
   }
 
   /* custom JAAS background color */
-  .p-panel.is-jaas-background,
-  .p-panel__header--sticky.is-jaas-background {
+  .p-panel.is-jaas-background {
     background: #003b4e;
+  }
+
+  .p-panel__header--sticky.is-jaas-background {
+    background: linear-gradient(to bottom, #003b4e 0%, #003b4e 70%, transparent 100%);
   }
 
   .p-panel__content {
     overflow: hidden;
+  }
+
+  .p-panel__logo {
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    margin-left: -4px; /* logo size - icon size -> (24px - 16px) / 2 */
   }
 </style>
 {% endblock %}
@@ -55,9 +65,10 @@
 {% block content %}
 <div class="l-application" role="presentation">
   <div class="l-navigation-bar">
-    <div class="p-panel is-dark">
+    <div class="p-panel is-dark is-jaas-background">
+      <!-- TODO: these are temprorary custom styles, not a final Vanilla version -->
       <div class="u-fixed-width u-align--right">
-        <span class="js-menu-toggle">Menu</span>
+        <span class="js-menu-toggle" style="display: block; padding-top: 0.75rem; padding-bottom: 0.75rem">Menu</span>
       </div>
     </div>
   </div>
@@ -70,7 +81,8 @@
             <div class="p-inline-list--stretch">
               <div class="p-inline-list__item">
                 <a class="p-panel__logo" href="#">
-                  <img src="https://assets.ubuntu.com/v1/a9e0ed4a-jaas-logo1.svg" alt="Vanilla framework" width="80" style="margin-top: 4px">
+                  <img src="https://assets.ubuntu.com/v1/7144ec6d-logo-jaas-icon.svg" alt="" width="24" height="24">
+                  <img class="is-fading-when-collapsed" src="https://assets.ubuntu.com/v1/2e04d794-logo-jaas.svg" alt="JAAS" width="50" style="margin-left: 10px">
                 </a>
               </div>
               <div class="p-inline-list__item u-align--right u-hide--large">
@@ -82,7 +94,7 @@
         </div>
         <div class="p-panel__content">
           {% set is_dark = True %}
-          {% include "docs/examples/patterns/side-navigation/_layout-application.html" %}
+          {% include "docs/examples/patterns/side-navigation/_layout-JAAS.html" %}
         </div>
       </div>
     </div>
@@ -114,7 +126,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="background: rgba(0,0,0, 0.15)" data-test-model-uuid="2f995dee-392e-4459-8eb9-839c501590af">
+              <tr style="background: rgba(0,0,0, 0.1)" data-test-model-uuid="2f995dee-392e-4459-8eb9-839c501590af">
                 <td class="p-table__cell--icon-placeholder" data-test-column="name">
                   <div><a href="#/models/gomboli@external/hadoopspark">192.168.255.254</a></div>
                 </td>
