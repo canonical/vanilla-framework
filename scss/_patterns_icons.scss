@@ -38,6 +38,15 @@
   @include vf-p-icon-in-button;
 }
 
+@mixin vf-p-icons--application {
+  @include vf-p-icon-applications;
+  @include vf-p-icon-controllers;
+  @include vf-p-icon-fullscreen;
+  @include vf-p-icon-models;
+  @include vf-p-icon-machines;
+  @include vf-p-icon-units;
+}
+
 @mixin vf-p-icons-common {
   %icon {
     @extend %vf-hide-text;
@@ -456,6 +465,78 @@
       [class*='p-icon-'] {
         top: 0;
       }
+    }
+  }
+}
+
+@mixin vf-p-icon-applications {
+  .p-icon--applications {
+    @extend %icon;
+    @include vf-icon-applications($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-applications($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-controllers {
+  .p-icon--controllers {
+    @extend %icon;
+    @include vf-icon-controllers($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-controllers($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-fullscreen {
+  .p-icon--fullscreen {
+    @extend %icon;
+    @include vf-icon-fullscreen($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-fullscreen($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-models {
+  .p-icon--models {
+    @extend %icon;
+    @include vf-icon-models($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-models($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-machines {
+  .p-icon--machines {
+    @extend %icon;
+    @include vf-icon-machines($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-machines($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-units {
+  .p-icon--units {
+    @extend %icon;
+    @include vf-icon-units($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-units($color-mid-x-light);
     }
   }
 }
