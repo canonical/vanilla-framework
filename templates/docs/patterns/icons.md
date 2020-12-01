@@ -149,6 +149,39 @@ Our alert icons are used to indicate the status of a message in a notification.
   </div>
 </section>
 
+### Application
+
+Outside of the standard set, additional icons are available for application-based projects, and need to be explicitly imported using `@include vf-p-icons--application`.
+
+<section>
+  <div class="p-strip is-shallow u-no-padding--top">
+    <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--applications" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--applications
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--controllers" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--controllers
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--fullscreen" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--fullscreen
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--models" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--models
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--machines" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--machines
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--units" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--units
+      </div>
+    </div>
+
+  </div>
+</section>
+
 ### Social
 
 Our social icons are used to drive users to social content.
@@ -223,6 +256,13 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-u-animations;
 ```
 
+The [application](#application) set of icons is not included in Vanilla by default, if you require them you can add them to your project using the below include.
+
+```scss
+@import 'patterns_icons';
+@include vf-p-icons--application;
+```
+
 If you use a limited set of icons you may want to include them individually to reduce the size of your CSS file.
 
 ```scss
@@ -266,6 +306,14 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-email;
 @include vf-p-icon-sizes;
 @include vf-p-icon-in-button;
+
+// application icons
+@include vf-p-icon-applications;
+@include vf-p-icon-controllers;
+@include vf-p-icon-fullscreen;
+@include vf-p-icon-models;
+@include vf-p-icon-machines;
+@include vf-p-icon-units;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
