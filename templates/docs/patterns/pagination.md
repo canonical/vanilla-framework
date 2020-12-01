@@ -59,7 +59,7 @@ To import the pagination component into your project, copy the snippet below and
 // pagination uses icons for previous and next page buttons
 @import 'patterns_icons';
 @include vf-p-icons-common;
-@include vf-p-icon-contextual-menu;
+@include vf-p-icon-chevron;
 ```
 
 #### Article pagination component

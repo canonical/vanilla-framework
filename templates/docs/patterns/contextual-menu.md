@@ -78,7 +78,7 @@ To import just this component into your project, copy the snippet below and incl
 
 @import 'patterns_icons';
 @include vf-p-icons-common;
-@include vf-p-icon-contextual-menu;
+@include vf-p-icon-chevron;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
