@@ -32,7 +32,9 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
 }
 
 @mixin vf-icon-contextual-menu($color) {
-  @include vf-icon-chevron($color);
+  @include deprecate('3.0.0', 'Use the `vf-icon-chevron` mixin instead') {
+    @include vf-icon-chevron($color);
+  }
 }
 
 @mixin vf-icon-close($color) {
