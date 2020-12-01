@@ -178,6 +178,12 @@ Outside of the standard set, additional icons are available for application-base
         <i class="p-icon--machines" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--machines
       </div>
       <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--pin" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--pin
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--units" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--units
       </div>
     </div>
@@ -316,6 +322,7 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-fullscreen;
 @include vf-p-icon-models;
 @include vf-p-icon-machines;
+@include vf-p-icon-pin;
 @include vf-p-icon-units;
 ```
 

@@ -45,6 +45,7 @@
   @include vf-p-icon-fullscreen;
   @include vf-p-icon-models;
   @include vf-p-icon-machines;
+  @include vf-p-icon-pin;
   @include vf-p-icon-units;
 }
 
@@ -545,6 +546,18 @@
     [class*='--dark'] &,
     &.is-light {
       @include vf-icon-machines($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-pin {
+  .p-icon--pin {
+    @extend %icon;
+    @include vf-icon-pin($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-pin($color-mid-x-light);
     }
   }
 }
