@@ -41,23 +41,12 @@
   }
 
   /* custom JAAS background color */
-  .p-panel.is-jaas-background {
-    background: #003b4e;
+  .is-jaas-background {
+    background: #003b4e !important;
   }
 
   .p-panel__header--sticky.is-jaas-background {
     background: linear-gradient(to bottom, #003b4e 0%, #003b4e 70%, transparent 100%);
-  }
-
-  .p-panel__content {
-    overflow: hidden;
-  }
-
-  .p-panel__logo {
-    display: flex;
-    align-items: center;
-    padding-top: 0.5rem;
-    margin-left: -4px; /* logo size - icon size -> (24px - 16px) / 2 */
   }
 </style>
 {% endblock %}
@@ -66,9 +55,14 @@
 <div class="l-application" role="presentation">
   <div class="l-navigation-bar">
     <div class="p-panel is-dark is-jaas-background">
-      <!-- TODO: these are temprorary custom styles, not a final Vanilla version -->
-      <div class="u-fixed-width u-align--right">
-        <span class="js-menu-toggle" style="display: inline-block; cursor: pointer; padding-top: 0.75rem; padding-bottom: 0.75rem">Menu</span>
+      <div class="p-panel__header">
+        <a class="p-panel__logo" href="#">
+          <img class="p-panel__logo-icon" src="https://assets.ubuntu.com/v1/7144ec6d-logo-jaas-icon.svg" alt="" width="24" height="24">
+          <img class="p-panel__logo-name is-fading-when-collapsed" src="https://assets.ubuntu.com/v1/2e04d794-logo-jaas.svg" alt="JAAS" height="16">
+        </a>
+        <div class="p-panel__controls">
+          <span class="p-panel__toggle js-menu-toggle">Menu</span>
+        </div>
       </div>
     </div>
   </div>
@@ -77,19 +71,13 @@
     <div class="l-navigation__drawer">
       <div class="p-panel is-dark is-jaas-background">
         <div class="p-panel__header--sticky is-jaas-background">
-          <div class="u-fixed-width u-sv-2">
-            <div class="p-inline-list--stretch">
-              <div class="p-inline-list__item">
-                <a class="p-panel__logo" href="#">
-                  <img src="https://assets.ubuntu.com/v1/7144ec6d-logo-jaas-icon.svg" alt="" width="24" height="24">
-                  <img class="is-fading-when-collapsed" src="https://assets.ubuntu.com/v1/2e04d794-logo-jaas.svg" alt="JAAS" width="50" style="margin-left: 10px">
-                </a>
-              </div>
-              <div class="p-inline-list__item u-align--right u-hide--large">
-                <button class="p-button--base has-icon u-no-margin u-hide--medium js-menu-close"><i class="p-icon--close"></i></button>
-                <button class="p-button--base has-icon u-no-margin u-hide--small js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
-              </div>
-            </div>
+          <a class="p-panel__logo" href="#">
+            <img class="p-panel__logo-icon" src="https://assets.ubuntu.com/v1/7144ec6d-logo-jaas-icon.svg" alt="" width="24" height="24">
+            <img class="p-panel__logo-name is-fading-when-collapsed" src="https://assets.ubuntu.com/v1/2e04d794-logo-jaas.svg" alt="JAAS" height="16">
+          </a>
+          <div class="p-panel__controls u-hide--large">
+            <button class="p-button--base has-icon u-no-margin u-hide--medium js-menu-close"><i class="p-icon--close"></i></button>
+            <button class="p-button--base has-icon u-no-margin u-hide--small js-menu-pin"><i class="p-icon--close p-icon--pin"></i></button>
           </div>
         </div>
         <div class="p-panel__content">
@@ -103,13 +91,9 @@
   <main class="l-main">
     <div class="p-panel">
       <div class="p-panel__header">
-        <div class="u-fixed-width u-sv-2">
-          <div class="p-inline-list--stretch">
-            <h4 class="p-inline-list__item u-no-margin--bottom">8 models: 3 blocked, 2 alerts, 3 running</h4>
-            <div class="p-inline-list__item u-align--right">
-              <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
-            </div>
-          </div>
+        <h4 class="p-panel__title">8 models: 3 blocked, 2 alerts, 3 running</h4>
+        <div class="p-panel__controls">
+          <button class="u-no-margin--bottom js-aside-toggle">Toggle aside</button>
         </div>
       </div>
       <div class="p-panel__content">
@@ -244,13 +228,9 @@
   <aside class="l-aside is-jaas is-wide" id="aside-panel">
     <div class="p-panel">
       <div class="p-panel__header">
-        <div class="u-fixed-width u-sv-2">
-          <div class="p-inline-list--stretch">
-            <h4 class="p-inline-list__item u-no-margin--bottom">Details for 192.168.255.254</h4>
-            <div class="p-inline-list__item u-align--right">
-              <button class="p-button--base js-aside-close u-no-margin--bottom has-icon"><i class="p-icon--close"></i></button>
-            </div>
-          </div>
+        <h4 class="p-panel__title">Details for 192.168.255.254</h4>
+        <div class="p-panel__controls">
+          <button class="p-button--base js-aside-close u-no-margin--bottom has-icon"><i class="p-icon--close"></i></button>
         </div>
       </div>
       <div class="p-panel__content">

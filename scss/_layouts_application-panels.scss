@@ -1,6 +1,4 @@
 @mixin vf-l-application-panels {
-  $header-padding-bottom: $sp-unit * 6;
-
   .p-panel {
     background: $colors--light-theme--background-default;
     color: $colors--light-theme--text-default;
@@ -15,18 +13,62 @@
 
   .p-panel__header,
   .p-panel__header--sticky {
-    padding-bottom: $header-padding-bottom;
-    padding-top: $spv-outer--medium;
+    @extend %vf-grid-container-padding;
+
+    display: flex;
   }
 
   .p-panel__header--sticky {
-    background: linear-gradient(to bottom, #{$colors--light-theme--background-default} 0%, #{$colors--light-theme--background-default} 70%, transparent 100%);
     position: sticky;
     top: 0;
     z-index: 1;
+  }
 
-    .is-dark & {
-      background: linear-gradient(to bottom, #{$colors--dark-theme--background-default} 0%, #{$colors--dark-theme--background-default} 70%, transparent 100%);
+  .p-panel__content {
+    overflow: hidden;
+
+    .p-panel__header + &,
+    .p-panel__header--sticky + & {
+      padding-top: $spv-outer--regular-scaleable;
     }
+  }
+
+  .p-panel__logo {
+    align-items: center;
+    display: flex;
+    margin-bottom: 0.75rem;
+    // to center the logo inside the collapsed side navigation we have to move it a bit to the left
+    // so its position is aligned with the icons of side navigation
+    margin-left: -0.25rem; // (LOGO_SIZE - ICON_SIZE) / 2 = (1.5rem - 1rem) / 2 = 0.25rem
+    margin-top: 0.75rem;
+
+    .p-panel__logo-icon {
+      height: 1.5rem;
+    }
+
+    .p-panel__logo-name {
+      height: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .p-panel__title {
+    @extend %vf-heading-4;
+
+    margin: 0;
+    padding-bottom: $spv-inner--x-small;
+    padding-top: $spv-inner--small;
+  }
+
+  .p-panel__controls {
+    margin-left: auto;
+    padding-top: 0.5rem;
+  }
+
+  .p-panel__toggle {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 0.75rem;
+    margin-top: 0.25rem;
   }
 }
