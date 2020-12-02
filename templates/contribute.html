@@ -10,48 +10,53 @@
     <h1 class="u-no-margin--bottom">Contribute</h1>
   </div>
 </div>
+
 <div class="p-strip is-bordered">
   <div class="row">
     <h2>Meet the team</h2>
   </div>
   <div class="row">
-    <div class="col-3">
-      <div class="p-heading-icon--small">
-        <div class="p-heading-icon__header">
-          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/b943a4e7-ant.jpeg" alt="">
-          <h4 class="p-heading-icon__title"><a href="https://github.com/anthonydillon">anthonydillon</a></h4>
+    {% for team_member in team_members %}
+      <div class="col-3 p-media-object">
+        {% if team_member.avatar_url %}
+          <img src="{{ team_member.avatar_url }}" class="p-media-object__image is-round" alt="">
+        {% endif %}
+        <div class="p-media-object__details">
+          <h3 class="p-media-object__title">
+            <a href="https://github.com/{{ team_member.login }}">{{ team_member.login }}</a>
+          </h3>
+          <p class="p-media-object__content u-no-margin--bottom">{{ team_member.role }}</p>
+
+          {% if team_member.contributions %}
+            <small>Contributions: {{ team_member.contributions }}</small>
+          {% endif %}
         </div>
-        <p>Lead Web Developer</p>
       </div>
-    </div>
-    <div class="col-3">
-      <div class="p-heading-icon--small">
-        <div class="p-heading-icon__header">
-          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/fced2b0d-kwm14-avater.jpeg" alt="">
-          <h4 class="p-heading-icon__title"><a href="https://github.com/kwm14">kwm14</a></h4>
-        </div>
-        <p>Lead Visual Designer</p>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="p-heading-icon--small">
-        <div class="p-heading-icon__header">
-          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/9d912294-deadlight.jpeg" alt="">
-          <h4 class="p-heading-icon__title"><a href="https://github.com/deadlight">deadlight</a></h4>
-        </div>
-        <p>Web Developer</p>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="p-heading-icon--small">
-        <div class="p-heading-icon__header">
-          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/59a13d9e-lyubomir-popov-avater.jpeg" alt="">
-          <h4 class="p-heading-icon__title"><a href="https://github.com/lyubomir-popov">lyubomir-popov</a></h4>
-        </div>
-        <p>Senior Visual Designer</p>
-      </div>
-    </div>
+    {% endfor %}
   </div>
+
+  {% if contributors %}
+    <div class="row">
+      <h2>Contributors</h2>
+    </div>
+    <div class="row">
+      {% for contributor in contributors%}
+        <div class="col-3 p-media-object">
+          <img src="{{ contributor.avatar_url }}" class="p-media-object__image is-round" alt="">
+          <div class="p-media-object__details">
+            <h3 class="p-media-object__title">
+              <a href="https://github.com/{{ contributor.login }}">{{ contributor.login }}</a>
+            </h3>
+            <p class="p-media-object__content u-no-margin--bottom">{{ contributor.role }}</p>
+
+            {% if contributor.contributions %}
+              <small>Contributions: {{ contributor.contributions }}</small>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </div>
 <div class="p-strip is-bordered">
   <div class="row">
