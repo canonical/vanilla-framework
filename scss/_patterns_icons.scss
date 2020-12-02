@@ -7,6 +7,7 @@
   @include vf-p-icon-minus;
   @include vf-p-icon-expand;
   @include vf-p-icon-collapse;
+  @include vf-p-icon-chevron;
   @include vf-p-icon-contextual-menu;
   @include vf-p-icon-close;
   @include vf-p-icon-help;
@@ -36,6 +37,16 @@
   @include vf-p-icon-email;
   @include vf-p-icon-sizes;
   @include vf-p-icon-in-button;
+}
+
+@mixin vf-p-icons--application {
+  @include vf-p-icon-applications;
+  @include vf-p-icon-controllers;
+  @include vf-p-icon-fullscreen;
+  @include vf-p-icon-models;
+  @include vf-p-icon-machines;
+  @include vf-p-icon-pin;
+  @include vf-p-icon-units;
 }
 
 @mixin vf-p-icons-common {
@@ -168,14 +179,33 @@
   }
 }
 
-@mixin vf-p-icon-contextual-menu {
-  .p-icon--contextual-menu {
+@mixin vf-p-icon-chevron {
+  .p-icon--chevron-up {
+    transform: rotate(180deg);
+  }
+
+  .p-icon--chevron-down,
+  .p-icon--chevron-up {
     @extend %icon;
-    @include vf-icon-contextual-menu($color-mid-dark);
+    @include vf-icon-chevron($color-mid-dark);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-contextual-menu($color-mid-x-light);
+      @include vf-icon-chevron($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-contextual-menu {
+  @include deprecate('3.0.0', 'Use the `p-icon--chevron` class instead') {
+    .p-icon--contextual-menu {
+      @extend %icon;
+      @include vf-icon-contextual-menu($color-mid-dark);
+
+      [class*='--dark'] &,
+      &.is-light {
+        @include vf-icon-contextual-menu($color-mid-x-light);
+      }
     }
   }
 }
@@ -456,6 +486,90 @@
       [class*='p-icon-'] {
         top: 0;
       }
+    }
+  }
+}
+
+@mixin vf-p-icon-applications {
+  .p-icon--applications {
+    @extend %icon;
+    @include vf-icon-applications($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-applications($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-controllers {
+  .p-icon--controllers {
+    @extend %icon;
+    @include vf-icon-controllers($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-controllers($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-fullscreen {
+  .p-icon--fullscreen {
+    @extend %icon;
+    @include vf-icon-fullscreen($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-fullscreen($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-models {
+  .p-icon--models {
+    @extend %icon;
+    @include vf-icon-models($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-models($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-machines {
+  .p-icon--machines {
+    @extend %icon;
+    @include vf-icon-machines($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-machines($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-pin {
+  .p-icon--pin {
+    @extend %icon;
+    @include vf-icon-pin($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-pin($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-units {
+  .p-icon--units {
+    @extend %icon;
+    @include vf-icon-units($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-units($color-mid-x-light);
     }
   }
 }

@@ -24,10 +24,22 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.21 -->
     <tr>
+      <th><a href="/docs/patterns/icons#standard">Icons - Contextual Menu</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.21.0</td>
+      <td>The <code>p-icon--contextual-menu</code> has been deprecated and will be removed in future release v3.0. Please use existing <code>.p-icon--chevron-down</code> and <code>.p-icon--chevron-up</code> icons instead.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/icons#application">Icons - Application</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.21.0</td>
+      <td>We added a set of icons specifically for applications. This set is not included in Vanilla by default, but can be added to a project with <code>@include vf-p-icons--application</code>.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/navigation#application-layout">Side navigation - Application</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.21.0</td>
-      <td>We implemented and documented improvements for [side navigation component](/docs/patterns/navigation#application-layout) for the [application layout](/docs/layouts/application#side-navigation).</td>
+      <td>We implemented and documented improvements for <a href="/docs/patterns/navigation#application-layout">side navigation component</a> for the <a href="/docs/layouts/application#side-navigation">application layout</a>.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/navigation#sticky">Side navigation - Sticky</a></th>

@@ -16,7 +16,7 @@ Icons provide visual context and enhance usability, they can be added via an `<i
 
 For accessibility purposes, you can add text inside the icon element which will not be displayed to the user. E.g.
 
-`<i class="p-icon--contextual-menu">This text will not be displayed</i>`
+`<i class="p-icon--chevron-down">This text will not be displayed</i>`
 
 ### Standard
 
@@ -68,35 +68,38 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--external-link" style="margin-right: 1rem;"></i>p-icon--external-link</p>
       </div>
       <div class="p-card col-3 u-vertically-center">
-        <p><i class="p-icon--contextual-menu" style="margin-right: 1rem;"></i>p-icon--contextual-menu</p>
+        <p><i class="p-icon--chevron-down" style="margin-right: 1rem;"></i>p-icon--chevron-down</p>
       </div>
     </div>
 
     <div class="row u-equal-height">
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--chevron-up" style="margin-right: 1rem;"></i>p-icon--chevron-up</p>
+      </div>
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--menu" style="margin-right: 1rem;"></i>p-icon--menu</p>
       </div>
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--code" style="margin-right: 1rem;"></i>p-icon--code</p>
       </div>
-      <div class="p-card col-3 u-vertically-center">
-        <p><i class="p-icon--copy" style="margin-right: 1rem;"></i>p-icon--copy</p>
-      </div>
     </div>
 
     <div class="row u-equal-height">
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--copy" style="margin-right: 1rem;"></i>p-icon--copy</p>
+      </div>
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--search" style="margin-right: 1rem;"></i>p-icon--search</p>
       </div>
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--share" style="margin-right: 1rem;"></i>p-icon--share</p>
       </div>
-      <div class="p-card col-3 u-vertically-center">
-        <p><i class="p-icon--user" style="margin-right: 1rem;"></i>p-icon--user</p>
-      </div>
     </div>
 
     <div class="row u-equal-height">
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--user" style="margin-right: 1rem;"></i>p-icon--user</p>
+      </div>
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--anchor" style="margin-right: 1rem;"></i>p-icon--anchor</p>
       </div>
@@ -105,7 +108,7 @@ Our icons have two predefined color styles: light and dark. The light variant is
   </div>
 </section>
 
-<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` class has been deprecated and will be removed in version 3.0. Use class `.p-icon--help` instead.
+<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` class has been deprecated and will be removed in version 3.0. Use class `.p-icon--help` instead. We will also be removing <code>p-icon--contextual-menu</code>, please use <code>p-icon--chevron-down</code> instead.
 
 ### Dark theme
 
@@ -146,6 +149,45 @@ Our alert icons are used to indicate the status of a message in a notification.
         <p><i class="p-icon--success" style="margin-right: 1rem;"></i>p-icon--success</p>
       </div>
     </div>
+  </div>
+</section>
+
+### Application
+
+Outside of the standard set, additional icons are available for application-based projects, and need to be explicitly imported using `@include vf-p-icons--application`.
+
+<section>
+  <div class="p-strip is-shallow u-no-padding--top">
+    <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--applications" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--applications
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--controllers" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--controllers
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--fullscreen" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--fullscreen
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--models" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--models
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--machines" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--machines
+      </div>
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--pin" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--pin
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--units" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--units
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -223,6 +265,13 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-u-animations;
 ```
 
+The [application](#application) set of icons is not included in Vanilla by default, if you require them you can add them to your project using the below include.
+
+```scss
+@import 'patterns_icons';
+@include vf-p-icons--application;
+```
+
 If you use a limited set of icons you may want to include them individually to reduce the size of your CSS file.
 
 ```scss
@@ -237,7 +286,7 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-minus;
 @include vf-p-icon-expand;
 @include vf-p-icon-collapse;
-@include vf-p-icon-contextual-menu;
+@include vf-p-icon-chevron;
 @include vf-p-icon-close;
 @include vf-p-icon-help;
 @include vf-p-icon-info;
@@ -266,6 +315,15 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-email;
 @include vf-p-icon-sizes;
 @include vf-p-icon-in-button;
+
+// application icons
+@include vf-p-icon-applications;
+@include vf-p-icon-controllers;
+@include vf-p-icon-fullscreen;
+@include vf-p-icon-models;
+@include vf-p-icon-machines;
+@include vf-p-icon-pin;
+@include vf-p-icon-units;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
