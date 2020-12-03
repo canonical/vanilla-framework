@@ -4,7 +4,6 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
 // Default button styling
 @mixin vf-p-buttons {
-  @include vf-button-white-success-icon;
   @include vf-button-plain;
   @include vf-button-neutral;
   @include vf-button-brand;
@@ -17,10 +16,8 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-white-success-icon {
-  %vf-button-white-success-icon {
-    & .p-icon--success {
-      @include vf-icon-success($color-x-light, $color-transparent);
-    }
+  @include deprecate('3.0.0', 'vf-button-white-success-icon mixin will be removed, use @extend %vf-button-white-success-icon instead') {
+    //
   }
 }
 
