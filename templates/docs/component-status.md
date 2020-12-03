@@ -36,7 +36,13 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We added many more icons, outside of the base icon set. These icons are not included in Vanilla by default, but can be individually included as needed.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/navigation#application-layout">Side navigation - Application</a></th>
+      <th><a href="/docs/patterns/navigation#panels">Application layout - panels</a></th>
+      <td><div class="p-label--in-progress">In progress</div></td>
+      <td>2.21.0</td>
+      <td>We continue working on application layout panels styling. We improved the positioning of the logo, title and controls in panel headers.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/navigation#application-layout">Application layout - side navigation</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.21.0</td>
       <td>We implemented and documented improvements for <a href="/docs/patterns/navigation#application-layout">side navigation component</a> for the <a href="/docs/layouts/application#side-navigation">application layout</a>.</td>

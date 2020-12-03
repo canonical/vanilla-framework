@@ -85,17 +85,15 @@ View an example of the application layout structure
 
 The layout areas provide minimal styling (for example drop shadows on overlay areas). Spacing, background, should be defined by the content inside.
 
-The panel component is an integral part of the application layout (`p-panel`). It should be used as the only direct child of respective layout area (`l-navigation`, `l-main`, `l-aside`, ...). It consists of a header (`p-panel__header`) that may contain panel title, logo or any action buttons and the content of the panel in `p-panel__content`. Panel header can be optionally made sticky while scrolling with `p-panel__header--sticky`.
+The panel component (`p-panel`) is an integral part of the application layout. It should be used as the only direct child of respective layout area (`l-navigation`, `l-main`, `l-aside`, ...). It consists of a header (`p-panel__header`) and a content block (`p-panel__content`).
+
+#### Panel header
+
+The panel header (`p-panel__header`) may contain the panel title (`p-panel__title`) or logo (`p-pabel__logo`) on the left and any action buttons (`p-pabel__controls`) to the right. Panel header can be optionally made sticky while scrolling with `p-panel__header--sticky`.
 
 ### Panels example
 
 Below you can see an example of application layout with some basic panels applied.
-
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    The contents of the panels (most notably the navigation side bar) are custom built for the sake of the demo and are currently not part of Vanilla framework.
-  </p>
-</div>
 
 <div class="embedded-example"><a href="/docs/examples/layouts/application/default/" class="js-example" data-height="600">
 View an example of the application layout demo
