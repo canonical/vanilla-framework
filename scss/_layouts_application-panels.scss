@@ -11,25 +11,27 @@
     }
   }
 
-  .p-panel__header,
-  .p-panel__header--sticky {
+  .p-panel__header {
     @extend %vf-grid-container-padding;
 
     display: flex;
   }
 
-  .p-panel__header--sticky {
+  .p-panel__header.is-sticky {
     position: sticky;
     top: 0;
     z-index: 1;
+
+    .p-panel.is-dark & {
+      background: $colors--dark-theme--background-default;
+    }
   }
 
   .p-panel__content {
     overflow: hidden;
 
-    .p-panel__header + &,
-    .p-panel__header--sticky + & {
-      padding-top: $spv-outer--regular-scaleable;
+    .p-panel__header + & {
+      padding-top: 2rem;
     }
   }
 
