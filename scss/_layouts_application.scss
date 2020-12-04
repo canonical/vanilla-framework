@@ -11,6 +11,33 @@ $application-layout--side-nav-width-collapsed: 4rem !default;
 // width of the expanded side navigation
 $application-layout--side-nav-width-expanded: 15rem !default;
 
+@mixin vf-application-layout--when-collapsed() {
+  // when app navigation panel is collapsed
+  @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
+    .l-navigation & {
+      @content;
+    }
+  }
+}
+
+@mixin vf-application-layout--when-expanded() {
+  // when app navigation panel is collapsed, fade out unnecessary elements
+  @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
+    // keep faded elements visible when navigation is expanded on hover or pinned
+    .l-navigation.is-pinned &,
+    .l-navigation:hover & {
+      @content;
+    }
+  }
+
+  // keep faded elements visible when app navigation is expanded on largest screens
+  @media (min-width: $application-layout--breakpoint-side-nav-expanded) {
+    .l-navigation & {
+      @content;
+    }
+  }
+}
+
 @mixin vf-l-application {
   .l-application {
     display: grid;
@@ -139,20 +166,14 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   // Fading elements when navigation panel is collapsed
   %vf-application-layout--faded-when-collapsed {
     // when app navigation panel is collapsed, fade out unnecessary elements
-    @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
+    @include vf-application-layout--when-collapsed() {
       @include vf-animation($property: opacity, $duration: snap);
 
       opacity: 0;
-
-      // keep faded elements visible when navigation is expanded on hover or pinned
-      .l-navigation.is-pinned &,
-      .l-navigation:hover & {
-        opacity: 1;
-      }
     }
 
-    // keep faded elements visible when app navigation is expanded on largest screens
-    @media (min-width: $application-layout--breakpoint-side-nav-expanded) {
+    // keep faded elements visible when app navigation is expanded on hover, pin or largest screens
+    @include vf-application-layout--when-expanded() {
       opacity: 1;
     }
   }
@@ -170,6 +191,17 @@ $application-layout--side-nav-width-expanded: 15rem !default;
 
     .p-side-navigation__list::after {
       @extend %vf-application-layout--faded-when-collapsed;
+    }
+  }
+
+  // --when-collapsed and --when-expanded mixins nest selectors inslide l-navigation
+  // so we don't have to (and can't) nest it manually here
+  .p-side-navigation__list .p-side-navigation__list {
+    @include vf-application-layout--when-collapsed() {
+      display: none;
+    }
+    @include vf-application-layout--when-expanded() {
+      display: block;
     }
   }
 
