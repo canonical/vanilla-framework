@@ -11,11 +11,9 @@
   </div>
 </div>
 
-<div class="p-strip is-bordered">
+<div class="p-strip">
   <div class="row">
-    <h2>Meet the team</h2>
-  </div>
-  <div class="row">
+    <div class="p-strip u-no-padding--top"><h2>Meet the team</h2></div>
     {% for team_member in team_members %}
       <div class="col-3 p-media-object">
         {% if team_member.avatar_url %}
@@ -34,10 +32,14 @@
       </div>
     {% endfor %}
   </div>
-
-  {% if contributors %}
+</div>
+<div class="u-fixed-width">
+  <hr>
+</div>
+{% if contributors %}
+  <div class="p-strip">
     <div class="row">
-      <h2>Contributors</h2>
+      <div class="p-strip u-no-padding--top"><h2>Contributors</h2></div>
     </div>
     <div class="row">
       {% for contributor in contributors%}
@@ -58,9 +60,12 @@
     </div>
   {% endif %}
 </div>
-<div class="p-strip is-bordered">
+<div class="u-fixed-width">
+  <hr>
+</div>
+<div class="p-strip">
   <div class="row">
-    <h2>Contribute</h2>
+    <div class="p-strip u-no-padding--top"><h2>Contribute</h2></div>
   </div>
   <div class="row">
     <div class="col-6">
@@ -92,6 +97,9 @@
       </div>
     </div>
   </div>
+</div>
+<div class="u-fixed-width">
+  <hr>
 </div>
 <div class="p-strip">
   <div class="row">
