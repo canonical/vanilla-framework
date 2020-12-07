@@ -174,13 +174,16 @@ def contribute_index():
     team_members = list(_get_team_members(all_contributors))
     contributors = _filter_contributors(all_contributors)
 
-    print(contributors)
-
-    return flask.render_template(
-        "contribute.html",
-        team_members=team_members,
-        contributors=contributors,
+    response = flask.make_response(
+        flask.render_template(
+            "contribute.html",
+            team_members=team_members,
+            contributors=contributors,
+        )
     )
+
+    response.cache_control.max_age = 86400
+    return response
 
 
 app.add_url_rule("/", view_func=template_finder_view)
