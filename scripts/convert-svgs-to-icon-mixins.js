@@ -60,6 +60,8 @@ function printPatternMixins(svgs) {
     console.log('}');
     console.log('');
   });
+
+  console.log('// **Base and Pattern mixins accurate as of December 2020**');
 }
 
 function encodeSVG(data, colorVariables) {
