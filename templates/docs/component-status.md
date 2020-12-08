@@ -30,10 +30,10 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>The <code>p-icon--contextual-menu</code> has been deprecated and will be removed in future release v3.0. Please use existing <code>.p-icon--chevron-down</code> and <code>.p-icon--chevron-up</code> icons instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/icons#application">Icons - Application</a></th>
+      <th><a href="/docs/patterns/icons#additional">Icons - Additional</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.21.0</td>
-      <td>We added a set of icons specifically for applications. This set is not included in Vanilla by default, but can be added to a project with <code>@include vf-p-icons--application</code>.</td>
+      <td>We added many more icons, outside of the base icon set. These icons are not included in Vanilla by default, but can be individually included as needed.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/navigation#application-layout">Side navigation - Application</a></th>
