@@ -183,6 +183,8 @@ def contribute_index():
     )
 
     response.cache_control.max_age = 86400
+    response.cache_control.public = True
+   
     return response
 
 
