@@ -80,6 +80,39 @@
     }
   }
 
+  // Spacing
+  %section-padding--shallow {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv-outer--shallow-scaleable * 0.5;
+      padding-top: $spv-outer--shallow-scaleable * 0.5;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+      padding-bottom: $spv-outer--shallow-scaleable;
+      padding-top: $spv-outer--shallow-scaleable;
+    }
+  }
+
+  %section-padding--default {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv-outer--regular-scaleable * 0.5;
+      padding-top: $spv-outer--regular-scaleable * 0.5;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+      padding-bottom: $spv-outer--regular-scaleable;
+      padding-top: $spv-outer--regular-scaleable;
+    }
+  }
+
+  %section-padding--deep {
+    @media only screen and (max-width: $breakpoint-large) {
+      padding: $spv-outer--deep-scaleable * 0.5 0 $spv-outer--deep-scaleable * 0.5;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      padding: $spv-outer--deep-scaleable 0;
+    }
+  }
+
   // Utilities
   %vf-hide-text {
     overflow: hidden;
