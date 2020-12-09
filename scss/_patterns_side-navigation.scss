@@ -472,6 +472,27 @@
   .p-side-navigation__item--title .p-side-navigation__link {
     color: $color-sidenav-text-active;
   }
+
+  // styles applied when side nav is used in application layout
+  @if mixin-exists(vf-application-layout--when-collapsed) {
+    .p-side-navigation__item.has-active-child {
+      // parent element that has active child should be selected when navigation is collapsed
+      @include vf-application-layout--when-collapsed() {
+        @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
+
+        background: $color-sidenav-item-background-hover;
+        color: $color-sidenav-text-active;
+      }
+
+      // parent element with active child should not be selected when navigation is expanded
+      @include vf-application-layout--when-expanded() {
+        @include vf-highlight-bar(transparent, left);
+
+        background: transparent;
+        color: $color-sidenav-text-default;
+      }
+    }
+  }
 }
 
 @mixin vf-side-navigation-theme-light {
