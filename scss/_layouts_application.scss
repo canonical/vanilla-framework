@@ -85,6 +85,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       );
 
       box-shadow: $panel-drop-shadow-transparent;
+      overflow: hidden;
       transform: translateX(0);
       width: $application-layout--side-nav-width-collapsed;
 
@@ -94,16 +95,20 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       }
     }
 
+    .l-navigation:hover,
+    .l-navigation.is-pinned {
+      overflow-y: auto;
+      width: $application-layout--side-nav-width-expanded;
+    }
+
     .l-navigation:hover {
       box-shadow: $panel-drop-shadow;
-      width: $application-layout--side-nav-width-expanded;
     }
 
     .l-navigation.is-pinned {
       box-shadow: $panel-drop-shadow-transparent;
       grid-area: nav;
       position: static;
-      width: $application-layout--side-nav-width-expanded;
     }
   }
 
@@ -116,6 +121,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     .l-navigation {
       box-shadow: none;
       grid-area: nav;
+      overflow-y: auto;
       position: static;
       width: $application-layout--side-nav-width-expanded;
 
