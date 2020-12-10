@@ -196,12 +196,24 @@ $application-layout--side-nav-width-expanded: 15rem !default;
 
   // --when-collapsed and --when-expanded mixins nest selectors inslide l-navigation
   // so we don't have to (and can't) nest it manually here
+
+  // hide nested levels when side nav is collapsed
   .p-side-navigation__list .p-side-navigation__list {
     @include vf-application-layout--when-collapsed() {
       display: none;
     }
     @include vf-application-layout--when-expanded() {
       display: block;
+    }
+  }
+
+  // disable text wrapping when side nav is collapsed
+  .p-side-navigation__item {
+    @include vf-application-layout--when-collapsed() {
+      white-space: nowrap;
+    }
+    @include vf-application-layout--when-expanded() {
+      white-space: normal;
     }
   }
 
