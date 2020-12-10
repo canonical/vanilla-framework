@@ -5,8 +5,9 @@ if (document.querySelector('.js-menu-toggle')) {
 }
 
 if (document.querySelector('.js-menu-close')) {
-  document.querySelector('.js-menu-close').addEventListener('click', function () {
+  document.querySelector('.js-menu-close').addEventListener('click', function (e) {
     document.querySelector('.l-navigation').classList.add('is-collapsed');
+    document.activeElement.blur();
   });
 }
 
@@ -46,6 +47,7 @@ if (document.querySelector('.js-menu-pin')) {
     } else {
       document.querySelector('.js-menu-pin').querySelector('i').classList.add('p-icon--pin');
     }
+    document.activeElement.blur();
   });
 }
 
