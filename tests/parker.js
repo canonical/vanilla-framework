@@ -18,7 +18,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Top specificity',
       benchmark: 40,
-      threshold: 60,
+      threshold: 61,
       result: results['top-selector-specificity'],
       selector: results['top-selector-specificity-selector'],
     },
