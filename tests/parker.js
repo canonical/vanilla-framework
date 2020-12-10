@@ -37,7 +37,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Identifiers per selectors',
       benchmark: 1.75,
-      threshold: 2.5,
+      threshold: 2.6,
       result: results['identifiers-per-selector'],
     },
     {
