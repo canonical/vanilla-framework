@@ -25,6 +25,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
     // keep faded elements visible when navigation is expanded on hover or pinned
     .l-navigation.is-pinned &,
+    .l-navigation:focus-within &,
     .l-navigation:hover & {
       @content;
     }
@@ -82,6 +83,10 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     &.is-collapsed {
       transform: translateX(-100%);
     }
+
+    &.is-collapsed:focus-within {
+      transform: none;
+    }
   }
 
   .l-navigation__drawer {
@@ -123,6 +128,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     .l-navigation:hover,
+    .l-navigation:focus-within,
     .l-navigation.is-pinned {
       overflow-y: auto;
       width: $application-layout--side-nav-width-expanded;
