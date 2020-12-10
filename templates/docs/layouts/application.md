@@ -75,8 +75,6 @@ View an example of the application layout structure
 
 ### Panels
 
-<span class="p-label--in-progress">In progress</span>
-
 <div class="p-notification--caution">
   <p class="p-notification__response">
     <span class="p-notification__status">In progress:</span> The current implementation of the panel component is created to provide minimal consistent styling of panels, but is still work in progress and may change in the future.
@@ -108,12 +106,18 @@ View an example of the application layout demo
 Use the [side navigation component](/docs/patterns/navigation#side-navigation) to build the contents of main navigation for the application layout. You can find detailed documentation in the ["Application layout" section of the Navigation page](/docs/patterns/navigation#application-layout).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/application" class="js-example">
-View example of the side navigation pattern for raw HTML
+View example of the side navigation pattern in application layout
 </a></div>
 
 Side navigation component has a built-in support for responsive collapsing and expanding of the side navigation. When proper HTML structure and element class names are used, the side navigation elements and icons will be correctly positioned, and unnecessary elements will fade out when navigation collapses.
 
 Additionally, if certain custom elements need to be hidden when navigation panel is collapsed, add the `.is-fading-when-collapsed` class to them.
+
+#### Nested levels of navigation items
+
+When the navigation is collapsed to vertical bar, all nested navigation items are automatically hidden to remove the space between icons of first level items.
+
+In a case when one of nested items is highlighted as active, in order to preserve the visual indication of the active element when navigation is collapsed, a `has-active-child` class needs to be added on a top level navigation item when one of its children is active. This class name is used to highlight the top level item when only in collapsed view.
 
 ### Responsive application layout
 
