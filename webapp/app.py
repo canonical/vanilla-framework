@@ -7,6 +7,7 @@ import random
 # Packages
 import requests
 import flask
+import jinja2
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam.search import build_search_view
@@ -163,9 +164,12 @@ def standalone_examples_index():
 
 @app.route("/docs/examples/standalone/<path:example_path>")
 def standalone_example(example_path):
-    return flask.render_template(
-        f"docs/examples/{example_path}.html", is_standalone=True
-    )
+    try:
+        return flask.render_template(
+            f"docs/examples/{example_path}.html", is_standalone=True
+        )
+    except jinja2.exceptions.TemplateNotFound:
+        return flask.abort(404)
 
 
 @app.route("/contribute")
