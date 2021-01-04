@@ -116,10 +116,11 @@
   // Utilities
   %vf-hide-text {
     overflow: hidden;
-    // rem value necessary because text indent in % does not work with padding;
-    // 10rem is larger than any padding value on an element you'd hide text in (buttons, icons)
-    // but still smaller than 9999px so should have better performance
-    text-indent: calc(100% + 10rem);
+    // vw value necessary because text indent in % does not work with padding,
+    // and IE 11 does not support calc() on text-indent;
+    // 110vw ensures the text is off the screen, and in most cases will
+    // still be smaller than 9999px, so should have better performance
+    text-indent: 110vw;
     white-space: nowrap;
   }
 
