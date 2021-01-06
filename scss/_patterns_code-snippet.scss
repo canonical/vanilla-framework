@@ -1,0 +1,56 @@
+@import 'settings';
+
+@mixin vf-p-code-snippet {
+  .p-code-snippet {
+    .p-code-snippet__block,
+    .p-code-snippet__block--numbered {
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    .p-code-snippet__block--numbered {
+      counter-reset: line-numbering;
+      padding: $sph-inner--small 0;
+    }
+
+    .p-code-snippet__line {
+      padding-top: 0;
+
+      &::before {
+        background: transparent;
+        border: 0;
+        padding-top: 0;
+      }
+    }
+
+    .p-code-snippet__header {
+      background-color: rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 $sph-inner;
+    }
+
+    .p-code-snippet__title {
+      @extend %vf-heading-5;
+
+      margin-bottom: $sph-inner--small;
+    }
+
+    .p-code-snippet__dropdowns {
+      flex-shrink: 0;
+      margin-left: $sph-inner--small;
+    }
+
+    .p-code-snippet__toggle {
+      // this comes from the button pattern, but we want to
+      // move it to the base button styles
+      @extend %p-button--base;
+
+      margin: 0;
+      // these paddings taken from the .is-dense button modifier
+      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+    }
+  }
+}
