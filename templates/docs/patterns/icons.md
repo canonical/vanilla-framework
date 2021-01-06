@@ -567,7 +567,7 @@ If you wish to add share icons for Twitter, Facebook or LinkedIn, we recommend u
         <a href="https://developers.facebook.com/docs/plugins/share-button/">Facebook</a>
       </li>
       <li class="p-inline-list__item">
-        <a href="https://developer.linkedin.com/plugins/share">LinkedIn</a>
+        <a href="https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/plugins/share-plugin">LinkedIn</a>
       </li>
     </ul>
   </div>
