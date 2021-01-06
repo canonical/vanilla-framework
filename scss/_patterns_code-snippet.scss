@@ -28,15 +28,14 @@
       background-color: rgba(0, 0, 0, 0.08);
       display: flex;
       justify-content: space-between;
-      padding: 0 $sph-inner;
+      padding: $spv-inner--x-small--scaleable $sph-inner;
     }
 
     .p-code-snippet__title {
       @extend %vf-heading-5;
 
       margin-bottom: 0;
-      padding-bottom: $spv-inner--x-small--scaleable;
-      padding-top: $spv-inner--x-small--scaleable;
+      padding-top: 0;
     }
 
     .p-code-snippet__dropdowns {
@@ -49,8 +48,11 @@
       // move it to the base button styles
       @extend %p-button--base;
 
-      margin: 0;
-      // these paddings taken from the .is-dense button modifier
+      // taken from the .u-table-cell-padding-overlap utility
+      margin-bottom: -#{$table-cell-vertical-padding} !important;
+      margin-top: calc(-#{$table-cell-vertical-padding} - 1px) !important;
+
+      // taken from the .is-dense button modifier
       padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
       padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     }
