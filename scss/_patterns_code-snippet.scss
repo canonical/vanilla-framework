@@ -1,0 +1,29 @@
+@import 'settings';
+
+$color-snippet-heading-bg: rgba($color-x-dark, 0.08);
+$color-snippet-bg: rgba($color-x-dark, 0.03);
+
+@mixin vf-p-code-snippet {
+  .p-code-snippet {
+    .p-code-snippet__block {
+      background-color: $color-snippet-bg;
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    .p-code-snippet__header {
+      background-color: $color-snippet-heading-bg;
+      display: flex;
+      justify-content: space-between;
+      padding: $spv-inner--x-small--scaleable $sph-inner;
+    }
+
+    .p-code-snippet__title {
+      @extend %vf-heading-5;
+
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+  }
+}
