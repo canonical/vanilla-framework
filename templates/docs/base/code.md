@@ -18,20 +18,19 @@ When you refer to code inline with other text, use the <code>&lt;code></code> ta
 View example of inline code
 </a></div>
 
-### Block
+### Code Snippets
 
-To create a pre-formatted block, use either `<pre>` (where preserving white space is important, but the text is not necessarily code) or `<pre><code>` (to indicate the contents are a piece of code):
+A code snippet is composed of one or more related components, contained within a `.p-code-snippet` wrapper. Available components are:
 
-**Pre-formatted block:**
+<!-- more to come after this initial example: dropdowns, block--numbered, command prompt etc -->
 
-<div class="embedded-example"><a href="/docs/examples/base/pre/" class="js-example">
-View example of the base pre block
-</a></div>
+- `.p-code-snippet__header`, which should briefly describe the content it precedes.
+- `.p-code-snippet__block`, a class added to a `<pre>` element containing your pre-formatted content. If the content is code, use `<pre><code>`.
 
-**Pre-formatted code block:**
+**Code snippet:**
 
-<div class="embedded-example"><a href="/docs/examples/base/code-block/" class="js-example">
-View example of the base code block
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet" class="js-example">
+View example of the base code snippet
 </a></div>
 
 ### Copyable
