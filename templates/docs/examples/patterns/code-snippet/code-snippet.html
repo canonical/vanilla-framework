@@ -4,21 +4,7 @@
 {% block content %}
 <div class="p-code-snippet">
   <div class="p-code-snippet__header">
-    <h5 class="p-code-snippet__title">This is a title of the code snippet</h5>
-    <div class="p-code-snippet__dropdowns">
-      <span class="p-contextual-menu--left">
-        <button class="p-code-snippet__toggle p-contextual-menu__toggle has-icon" aria-controls="menu-1" aria-expanded="false" aria-haspopup="true">
-          <span>JS</span>
-          <i class="p-icon--chevron-down p-contextual-menu__indicator"></i>
-        </button>
-        
-        <span class="p-contextual-menu__dropdown" id="menu-1" aria-hidden="true">
-          <a href="#" class="p-contextual-menu__link">JS</a>
-          <a href="#" class="p-contextual-menu__link">CSS</a>
-          <a href="#" class="p-contextual-menu__link">HTML</a>
-        </span>
-      </span>
-    </div>
+    <h5 class="p-code-snippet__title">This is the code snippet title</h5>
   </div>
 
   <pre class="p-code-snippet__block"><code>something.test();</code></pre>
@@ -27,14 +13,14 @@
     <h5 class="p-code-snippet__title">Output</h5>
   </div>
 
-  <pre class="p-code-snippet__block--numbered p-code-numbered"><code><span class="p-code-snippet__line p-code-numbered__line">#!/bin/bash</span>
-<span class="p-code-snippet__line p-code-numbered__line">set -eu</span>
-<span class="p-code-snippet__line p-code-numbered__line">. $CONJURE_UP_SPELLSDIR/sdk/common.sh</span>
-<span class="p-code-snippet__line p-code-numbered__line">if [[ "$JUJU_PROVIDERTYPE" == "lxd" ]]; then</span>
-<span class="p-code-snippet__line p-code-numbered__line">    debug "Running pre-deploy for $CONJURE_UP_SPELL"</span>
-<span class="p-code-snippet__line p-code-numbered__line">    sed "s/##MODEL##/$JUJU_MODEL/" $(scriptPath)/lxd-profile.yaml | lxc profile edit "juju-$JUJU_MODEL" || exposeResult "Failed to set profile" $? "false"</span>
-<span class="p-code-snippet__line p-code-numbered__line">fi</span>
-<span class="p-code-snippet__line p-code-numbered__line">exposeResult "Successful pre-deploy." 0 "true"</span></code></pre>  
+  <pre class="p-code-snippet__block"><code>Test passed!</code></pre> 
+  
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Pre-formatted example</h5>
+  </div>
+
+  <pre class="p-code-snippet__block">This is
+    pre-formatted text.</pre>  
 </div>
 
 <script>
