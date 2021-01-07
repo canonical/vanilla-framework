@@ -36,17 +36,10 @@ View example of the base code block
 
 ### Code Snippets
 
-A code snippet is composed of one or more related components, contained within a `.p-code-snippet` wrapper. Available components are:
-
-<!-- more to come after this initial example: dropdowns, block--numbered, command prompt etc -->
-
-- `.p-code-snippet__header`, which should briefly describe the content it precedes.
-- `.p-code-snippet__block`, a class added to a `<pre>` element containing your pre-formatted content. If the content is code, use `<pre><code>`.
-
-**Code snippet:**
+The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet" class="js-example">
-View example of the base code snippet
+View example of the code snippet
 </a></div>
 
 ### Copyable
