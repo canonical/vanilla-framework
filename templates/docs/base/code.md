@@ -34,6 +34,14 @@ View example of the base pre block
 View example of the base code block
 </a></div>
 
+### Code Snippets
+
+The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet" class="js-example">
+View example of the code snippet
+</a></div>
+
 ### Copyable
 
 This component should be used when displaying a single line of code, accompanied by a copy icon, which allows users to copy the provided code to their clipboard.
