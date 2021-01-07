@@ -2,26 +2,10 @@
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
-    .p-code-snippet__block,
-    .p-code-snippet__block--numbered {
+    .p-code-snippet__block {
       border: 0;
       border-radius: 0;
       margin: 0;
-    }
-
-    .p-code-snippet__block--numbered {
-      counter-reset: line-numbering;
-      padding: $sph-inner--small 0;
-    }
-
-    .p-code-snippet__line {
-      padding-top: 0;
-
-      &::before {
-        background: transparent;
-        border: 0;
-        padding-top: 0;
-      }
     }
 
     .p-code-snippet__header {
@@ -36,25 +20,6 @@
 
       margin-bottom: 0;
       padding-top: 0;
-    }
-
-    .p-code-snippet__dropdowns {
-      flex-shrink: 0;
-      margin-left: $sph-inner--small;
-    }
-
-    .p-code-snippet__toggle {
-      // this comes from the button pattern, but we want to
-      // move it to the base button styles
-      @extend %p-button--base;
-
-      // taken from the .u-table-cell-padding-overlap utility
-      margin-bottom: -#{$table-cell-vertical-padding} !important;
-      margin-top: calc(-#{$table-cell-vertical-padding} - 1px) !important;
-
-      // taken from the .is-dense button modifier
-      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
-      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     }
   }
 }
