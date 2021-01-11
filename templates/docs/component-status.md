@@ -44,6 +44,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.22 -->
+    <tr>
+      <th><a href="/docs/examples/patterns/code-copyable">Code Copyable</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.22.0</td>
+      <td><code>.p-code-copyable</code> has been deprecated and will be removed in the v3.0 release. Please use <code>.p-code-snippet .p-code-snippet__block</code> instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.21 -->
     <tr>
       <th><a href="/docs/patterns/icons#standard">Icons - Contextual Menu</a></th>
