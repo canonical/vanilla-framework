@@ -4,6 +4,8 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
+    margin-bottom: $spv-inner--large;
+
     .p-code-snippet__block,
     .p-code-snippet__block--icon {
       margin: 0;
@@ -14,33 +16,28 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
       position: relative;
 
       &::before {
-        display: block;
+        @extend %icon;
+
+        content: '';
+        height: 1rem;
         left: $sph-inner;
         position: absolute;
+        top: 0.8rem;
+        width: 1rem;
       }
 
       &.is-linux-prompt::before {
-        content: '$';
-        font-family: unquote($font-monospace);
+        @include vf-icon-linux-prompt($color-mid-dark);
       }
 
       &.is-windows-prompt::before {
         @include vf-icon-chevron($color-mid-dark);
 
-        content: '';
-        height: 1rem;
-        top: 0.8rem;
         transform: rotate(270deg);
-        width: 1rem;
       }
 
       &.is-url::before {
         @include vf-icon-get-link($color-mid-dark);
-
-        content: '';
-        height: 1rem;
-        top: 0.8rem;
-        width: 1rem;
       }
     }
 
