@@ -10,9 +10,31 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.21
+### What's new in Vanilla 2.22
 
-<table aria-label="What's new in Vanilla 2.21">
+<table aria-label="What's new in Vanilla 2.22">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 2.22 -->
+    <tr>
+      <th><a href="/docs/base/separators">Separator</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.22.0</td>
+      <td>The new <code>p-separator</code> component has been added to be used as a separator between content blocks.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
   <thead>
     <tr>
       <th style="width: 20%">Component</th>
@@ -53,21 +75,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.21.0</td>
       <td>Side navigation component used to be sticky by default. We now introduced new <code>is-sticky</code> variant that should be used to optionally make side navigation sticky.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.20 -->
     <tr>
       <th><a href="/docs/layouts/application#responsive-application-layout">Application layout panels</a></th>

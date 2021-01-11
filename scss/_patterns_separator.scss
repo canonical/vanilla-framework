@@ -1,0 +1,13 @@
+@mixin vf-p-separator {
+  .p-separator {
+    // spacing based on %section-padding--default, but using margins on <hr>
+    @media only screen and (max-width: $breakpoint-large) {
+      margin-bottom: $spv-outer--regular-scaleable * 0.5;
+      margin-top: $spv-outer--regular-scaleable * 0.5;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+      margin-bottom: $spv-outer--regular-scaleable;
+      margin-top: $spv-outer--regular-scaleable;
+    }
+  }
+}
