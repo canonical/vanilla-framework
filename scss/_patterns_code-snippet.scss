@@ -4,8 +4,44 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
-    .p-code-snippet__block {
+    .p-code-snippet__block,
+    .p-code-snippet__block--icon {
       margin: 0;
+    }
+
+    .p-code-snippet__block--icon {
+      padding-left: 2.5rem;
+      position: relative;
+
+      &::before {
+        display: block;
+        left: $sph-inner;
+        position: absolute;
+      }
+
+      &.is-linux-prompt::before {
+        content: '$';
+        font-family: unquote($font-monospace);
+      }
+
+      &.is-windows-prompt::before {
+        @include vf-icon-chevron($color-mid-dark);
+
+        content: '';
+        height: 1rem;
+        top: 0.8rem;
+        transform: rotate(270deg);
+        width: 1rem;
+      }
+
+      &.is-url::before {
+        @include vf-icon-get-link($color-mid-dark);
+
+        content: '';
+        height: 1rem;
+        top: 0.8rem;
+        width: 1rem;
+      }
     }
 
     .p-code-snippet__header {
