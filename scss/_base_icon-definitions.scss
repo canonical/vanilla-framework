@@ -506,3 +506,28 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
 @mixin vf-icon-warning-grey($color) {
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.734.289a1 1 0 01.429.429l6.631 12.823A1 1 0 0114.906 15H1.643a1 1 0 01-.888-1.46L7.386.719a1 1 0 011.348-.43zm-.46 1.976L2.464 13.5h11.62L8.274 2.265zm.5 8.022a.5.5 0 01.492.41l.008.09v1a.5.5 0 01-.41.492l-.09.008h-1a.5.5 0 01-.491-.41l-.009-.09v-1a.5.5 0 01.41-.492l.09-.008h1zm.5-4.68V8.98h-2V5.608h2z' fill='#{vf-url-friendly-color($color)}'  fill-rule='nonzero'/%3E%3C/svg%3E");
 }
+
+%icon {
+  @extend %vf-hide-text;
+  @include vf-icon-size($default-icon-size);
+  $vertical-offset: 0.5px;
+  background: {
+    position: center;
+    repeat: no-repeat;
+    size: contain;
+  }
+
+  display: inline-block;
+  font-size: inherit; // allow icons to match size of parent text element, when set in em
+  margin: 0;
+  padding: 0;
+  position: relative;
+  vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+}
+
+%social-icon {
+  @extend %vf-hide-text;
+  @include vf-icon-size($social-icon-size);
+
+  display: inline-block;
+}
