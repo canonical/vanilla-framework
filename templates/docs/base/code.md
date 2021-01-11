@@ -38,7 +38,17 @@ View example of the base code block
 
 The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
 
+**Basic code snippet**
+
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet" class="js-example">
+View example of the code snippet
+</a></div>
+
+**Code snippet with icon**
+
+A code snippet block can include an icon by using the `.p-code-snippet__block--code` class in combination with one of `.is-linux-prompt`, `.is-windows-prompt` or `.is-url`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-icon" class="js-example">
 View example of the code snippet
 </a></div>
 
