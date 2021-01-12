@@ -28,7 +28,7 @@ View example of the separator component
 
 ### Bordered strips
 
-For the content contain in strips, use [the bordered strip variant](/docs/patterns/strip#bordered-strip).
+For content contained in strips, use [the bordered strip variant](/docs/patterns/strip#bordered-strip).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/strips/is-bordered/" class="js-example">
 View example of the pattern strip is-bordered
