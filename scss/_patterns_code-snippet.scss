@@ -12,18 +12,18 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
     }
 
     .p-code-snippet__block--icon {
-      padding-left: 2.5rem;
+      padding-left: #{$sph-inner + map-get($icon-sizes, default) + $sph-inner--small};
       position: relative;
 
       &::before {
         @extend %icon;
 
         content: '';
-        height: 1rem;
+        height: map-get($icon-sizes, default);
         left: $sph-inner;
         position: absolute;
         top: 0.8rem;
-        width: 1rem;
+        width: map-get($icon-sizes, default);
       }
 
       &.is-linux-prompt::before {
