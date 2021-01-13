@@ -24,8 +24,11 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
         position: absolute;
         top: 0.8rem;
 
-        @media (min-width: $breakpoint-x-large) {
-          top: 0.85rem;
+        @if ($increase-font-size-on-larger-screens) {
+          // stylelint-disable-next-line max-nesting-depth
+          @media (min-width: $breakpoint-x-large) {
+            top: 0.85rem;
+          }
         }
       }
 
