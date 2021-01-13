@@ -4,8 +4,44 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
-    .p-code-snippet__block {
+    margin-bottom: $spv-outer--scaleable;
+
+    .p-code-snippet__block,
+    .p-code-snippet__block--icon {
       margin: 0;
+    }
+
+    .p-code-snippet__block--icon {
+      padding-left: #{$sph-inner + map-get($icon-sizes, default) + $sph-inner--small};
+      position: relative;
+
+      &::before {
+        @extend %icon;
+        @include vf-icon-linux-prompt($color-mid-dark);
+
+        content: '';
+        left: $sph-inner;
+        position: absolute;
+        top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+        width: map-get($icon-sizes, default);
+
+        @if ($increase-font-size-on-larger-screens) {
+          // stylelint-disable-next-line max-nesting-depth
+          @media (min-width: $breakpoint-x-large) {
+            top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) * $font-size-ratio--largescreen - map-get($icon-sizes, default))};
+          }
+        }
+      }
+
+      &.is-windows-prompt::before {
+        @include vf-icon-chevron($color-mid-dark);
+
+        transform: rotate(270deg);
+      }
+
+      &.is-url::before {
+        @include vf-icon-get-link($color-mid-dark);
+      }
     }
 
     .p-code-snippet__header {
