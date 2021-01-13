@@ -1,11 +1,15 @@
 @import 'settings';
 
+$color-snippet-heading-bg: rgba($color-x-dark, 0.08);
+$sidebar-width: 4.5rem !default;
+
 @mixin vf-p-code-snippet {
   .p-code-snippet {
     margin-bottom: $spv-outer--scaleable;
 
     .p-code-snippet__block,
-    .p-code-snippet__block--icon {
+    .p-code-snippet__block--icon,
+    .p-code-snippet__block--numbered {
       margin: 0;
     }
 
@@ -32,6 +36,43 @@
 
       &.is-url::before {
         @include vf-icon-get-link($color-mid-dark);
+      }
+    }
+
+    .p-code-snippet__block--numbered {
+      counter-reset: line-numbering;
+      padding: $sph-inner--small 0;
+    }
+
+    .p-code-snippet__line {
+      display: inline-block;
+      padding: 0 $sph-inner 0 ($sidebar-width + $sph-inner);
+      position: relative;
+      white-space: pre-wrap;
+      width: 100%;
+
+      &:empty {
+        display: block;
+        min-height: $sp-xx-large;
+      }
+
+      &::before {
+        color: $color-mid-dark;
+        content: counter(line-numbering);
+        counter-increment: line-numbering;
+        height: 100%;
+        left: 0;
+        padding: 0 $sph-inner;
+        pointer-events: none;
+        position: absolute;
+        text-align: right;
+        // stylelint-disable property-no-vendor-prefix
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        // stylelint-enable property-no-vendor-prefix
+        width: $sidebar-width;
       }
     }
 

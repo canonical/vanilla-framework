@@ -34,7 +34,7 @@ View example of the base pre block
 View example of the base code block
 </a></div>
 
-### Code Snippets
+### Code snippet
 
 The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
 
@@ -52,6 +52,12 @@ A code snippet block can include an icon by using the `.p-code-snippet__block--c
 View example of the code snippet
 </a></div>
 
+**Code snippet with numbered lines**
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-numbered" class="js-example">
+View example of the code snippet
+</a></div>
+
 ### Copyable
 
 <span class="p-label--deprecated">Deprecated</span>
@@ -62,21 +68,11 @@ It is being replaced by the new [code snippet pattern](/docs/base/code#code-snip
 
 ### Numbered
 
-The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
+<span class="p-label--deprecated">Deprecated</span>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-numbered/" class="js-example">
-View example of the code numbered pattern
-</a></div>
+The code numbered pattern is now deprecated and will be removed in a future version of Vanilla.
 
-### Import
-
-To import just numbered component into your project, copy the snippet below and include it in your main Sass file.
-
-```scss
-@import 'patterns_code-numbered';
-```
-
-For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippets).
 
 ### Design
 
