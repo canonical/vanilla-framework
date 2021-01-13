@@ -46,7 +46,7 @@ View example of the code snippet
 
 **Code snippet with icon**
 
-A code snippet block can include an icon by using the `.p-code-snippet__block--code` class in combination with one of `.is-linux-prompt`, `.is-windows-prompt` or `.is-url`.
+A code snippet block can include an icon by using the `.p-code-snippet__block--code` class. By default, it will show the linux prompt icon, but other icon options available by using the `.is-windows-prompt` or `.is-url` classes.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-icon" class="js-example">
 View example of the code snippet

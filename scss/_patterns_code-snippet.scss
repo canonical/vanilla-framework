@@ -17,6 +17,7 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
 
       &::before {
         @extend %icon;
+        @include vf-icon-linux-prompt($color-mid-dark);
 
         content: '';
         height: map-get($icon-sizes, default);
@@ -24,10 +25,6 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
         position: absolute;
         top: 0.85rem;
         width: map-get($icon-sizes, default);
-      }
-
-      &.is-linux-prompt::before {
-        @include vf-icon-linux-prompt($color-mid-dark);
       }
 
       &.is-windows-prompt::before {
