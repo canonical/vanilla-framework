@@ -1,5 +1,9 @@
 @import 'settings';
 
+$color-pre-bg: rgba($color-x-dark, 0.03);
+$digit-width: 0.5rem; // measured width of one character in the monospaced font
+$code-sidebar-width: $sph-inner + (4 * $digit-width) + $sph-inner !default;
+
 // Base code styles
 @mixin vf-b-code {
   code,
@@ -74,5 +78,37 @@
     position: absolute;
     top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
     width: map-get($icon-sizes, default);
+  }
+}
+
+%code-numbered-line {
+  display: inline-block;
+  padding: 0 $sph-inner 0 $code-sidebar-width;
+  position: relative;
+  white-space: pre-wrap;
+  width: 100%;
+
+  &:empty {
+    display: block;
+    min-height: $sp-xx-large;
+  }
+
+  &::before {
+    color: $color-mid-dark;
+    content: counter(line-numbering);
+    counter-increment: line-numbering;
+    height: 100%;
+    left: 0;
+    padding: 0 $sph-inner;
+    pointer-events: none;
+    position: absolute;
+    text-align: right;
+    // stylelint-disable property-no-vendor-prefix
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    // stylelint-enable property-no-vendor-prefix
+    width: $code-sidebar-width;
   }
 }

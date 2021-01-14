@@ -1,5 +1,5 @@
 @import 'settings';
-$sidebar-width: 4.5rem !default;
+$sidebar-width: 3rem !default;
 
 @mixin vf-p-code-numbered {
   @include deprecate('3.0.0', 'p-code-numbered is being removed, use the code snippet block numbered variant instead.') {
@@ -9,37 +9,11 @@ $sidebar-width: 4.5rem !default;
     }
 
     .p-code-numbered__line {
-      display: inline-block;
-      padding: 0 $sph-inner 0 ($sidebar-width + $sph-inner);
-      position: relative;
-      white-space: pre-wrap;
-      width: 100%;
-
-      &:empty {
-        display: block;
-        min-height: $sp-xx-large;
-      }
+      @extend %code-numbered-line;
 
       &::before {
         background: transparent;
-        color: $color-mid-dark;
-        content: counter(line-numbering);
-        counter-increment: line-numbering;
-        display: inline-block;
-        height: 100%;
-        left: 0;
-        padding: 0 $sph-inner;
-        pointer-events: none;
-        position: absolute;
-        text-align: right;
         top: 0;
-        // stylelint-disable property-no-vendor-prefix
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        // stylelint-enable property-no-vendor-prefix
-        width: $sidebar-width;
       }
     }
   }
