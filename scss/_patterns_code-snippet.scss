@@ -1,8 +1,6 @@
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
-$digit-width: 0.5rem; // measured width of one character in the monospaced font
-$snippet-sidebar-width: $sph-inner + (4 * $digit-width) + $sph-inner !default;
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
@@ -46,35 +44,7 @@ $snippet-sidebar-width: $sph-inner + (4 * $digit-width) + $sph-inner !default;
     }
 
     .p-code-snippet__line {
-      display: inline-block;
-      padding: 0 $sph-inner 0 $snippet-sidebar-width;
-      position: relative;
-      white-space: pre-wrap;
-      width: 100%;
-
-      &:empty {
-        display: block;
-        min-height: $sp-xx-large;
-      }
-
-      &::before {
-        color: $color-mid-dark;
-        content: counter(line-numbering);
-        counter-increment: line-numbering;
-        height: 100%;
-        left: 0;
-        padding: 0 $sph-inner;
-        pointer-events: none;
-        position: absolute;
-        text-align: right;
-        // stylelint-disable property-no-vendor-prefix
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        // stylelint-enable property-no-vendor-prefix
-        width: $snippet-sidebar-width;
-      }
+      @extend %code-numbered-line;
     }
 
     .p-code-snippet__header {
