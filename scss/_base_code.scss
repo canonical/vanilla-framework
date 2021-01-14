@@ -2,7 +2,7 @@
 
 $color-pre-bg: rgba($color-x-dark, 0.03);
 $digit-width: 0.5rem; // measured width of one character in the monospaced font
-$code-sidebar-width: $sph-inner + (4 * $digit-width) + $sph-inner !default;
+$code-sidebar-width: $sph-inner + (4 * $digit-width) !default;
 
 // Base code styles
 @mixin vf-b-code {
@@ -99,7 +99,8 @@ $code-sidebar-width: $sph-inner + (4 * $digit-width) + $sph-inner !default;
     counter-increment: line-numbering;
     height: 100%;
     left: 0;
-    padding: 0 $sph-inner;
+    overflow: hidden;
+    padding-right: $sph-inner;
     pointer-events: none;
     position: absolute;
     text-align: right;
