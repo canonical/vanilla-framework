@@ -10,19 +10,12 @@
     }
 
     .p-code-snippet__block--icon {
+      @extend %leading-linux-prompt-icon;
+
       padding-left: #{$sph-inner + map-get($icon-sizes, default) + $sph-inner--small};
       position: relative;
 
       &::before {
-        @extend %icon;
-        @include vf-icon-linux-prompt($color-mid-dark);
-
-        content: '';
-        left: $sph-inner;
-        position: absolute;
-        top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
-        width: map-get($icon-sizes, default);
-
         @if ($increase-font-size-on-larger-screens) {
           // stylelint-disable-next-line max-nesting-depth
           @media (min-width: $breakpoint-x-large) {

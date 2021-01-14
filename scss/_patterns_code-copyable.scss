@@ -5,8 +5,9 @@ $cc-button-size: 36px;
 @mixin vf-p-code-copyable {
   @include deprecate('3.0.0', 'p-code-copyable is being removed, use the code snippet block instead.') {
     .p-code-copyable {
+      @extend %leading-linux-prompt-icon;
+
       background-color: $color-code-background;
-      display: flex;
       margin-bottom: $input-margin-bottom;
       overflow: hidden;
       padding: $spv-inner--x-small--scaleable $sph-inner;
@@ -14,17 +15,6 @@ $cc-button-size: 36px;
 
       & + & {
         margin-top: 0; // overrides p + p
-      }
-
-      &::before {
-        @extend %icon;
-        @include vf-icon-linux-prompt($color-mid-dark);
-
-        content: '';
-        left: $sph-inner;
-        position: absolute;
-        top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
-        width: map-get($icon-sizes, default);
       }
     }
 
