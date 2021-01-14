@@ -534,3 +534,16 @@ $social-icon-size: map-get($icon-sizes, heading-icon--small);
 
   display: inline-block;
 }
+
+%leading-linux-prompt-icon {
+  &::before {
+    @extend %icon;
+    @include vf-icon-linux-prompt($color-mid-dark);
+
+    content: '';
+    left: $sph-inner;
+    position: absolute;
+    top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+    width: map-get($icon-sizes, default);
+  }
+}
