@@ -15,6 +15,17 @@ $cc-button-size: 36px;
       & + & {
         margin-top: 0; // overrides p + p
       }
+
+      &::before {
+        @extend %icon;
+        @include vf-icon-linux-prompt($color-mid-dark);
+
+        content: '';
+        left: $sph-inner;
+        position: absolute;
+        top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+        width: map-get($icon-sizes, default);
+      }
     }
 
     .p-code-copyable__input {
@@ -24,7 +35,7 @@ $cc-button-size: 36px;
       line-height: map-get($line-heights, default-text);
       margin-bottom: 0;
       margin-top: 0;
-      padding: 0;
+      padding: 0 0 0 (map-get($icon-sizes, default) + $spv-inner--x-small--scaleable);
       width: 100%;
     }
 
