@@ -1,7 +1,8 @@
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
-$snippet-number-width: 3.5rem !default;
+$digit-width: 0.5rem; // measured width of one character in the monospaced font
+$snippet-sidebar-width: $sph-inner + (4 * $digit-width) + $sph-inner !default;
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
@@ -46,7 +47,7 @@ $snippet-number-width: 3.5rem !default;
 
     .p-code-snippet__line {
       display: inline-block;
-      padding: 0 $sph-inner 0 ($snippet-number-width + $sph-inner);
+      padding: 0 $sph-inner 0 $snippet-sidebar-width;
       position: relative;
       white-space: pre-wrap;
       width: 100%;
@@ -62,7 +63,7 @@ $snippet-number-width: 3.5rem !default;
         counter-increment: line-numbering;
         height: 100%;
         left: 0;
-        padding-left: $sph-inner;
+        padding: 0 $sph-inner;
         pointer-events: none;
         position: absolute;
         text-align: right;
@@ -72,7 +73,7 @@ $snippet-number-width: 3.5rem !default;
         -ms-user-select: none;
         user-select: none;
         // stylelint-enable property-no-vendor-prefix
-        width: $snippet-number-width;
+        width: $snippet-sidebar-width;
       }
     }
 
