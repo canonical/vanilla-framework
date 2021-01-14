@@ -60,10 +60,6 @@ The code copyable element is now deprecated and will be removed in a future vers
 
 It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippets).
 
-### Functionality
-
-Please copy the entire JS in the example, for copy to clipboard functionality.
-
 ### Numbered
 
 The code numbered pattern can be used when displaying large blocks of code to enable users to quickly reference a specific line.
