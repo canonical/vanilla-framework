@@ -64,7 +64,7 @@ View example of the code snippet
 
 The code copyable element is now deprecated and will be removed in a future version of Vanilla.
 
-It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippets).
+It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippet).
 
 ### Numbered
 
@@ -72,7 +72,7 @@ It is being replaced by the new [code snippet pattern](/docs/base/code#code-snip
 
 The code numbered pattern is now deprecated and will be removed in a future version of Vanilla.
 
-It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippets).
+It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippet).
 
 ### Design
 
