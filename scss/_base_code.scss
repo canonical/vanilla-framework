@@ -88,17 +88,12 @@ $code-sidebar-width: $sph-inner + (4 * $digit-width) !default;
   white-space: pre-wrap;
   width: 100%;
 
-  &:empty {
-    display: block;
-    min-height: $sp-xx-large;
-  }
-
   &::before {
     color: $color-mid-dark;
     content: counter(line-numbering);
     counter-increment: line-numbering;
     height: 100%;
-    left: 0;
+    left: -$digit-width;
     overflow: hidden;
     padding-right: $sph-inner;
     pointer-events: none;
@@ -110,6 +105,6 @@ $code-sidebar-width: $sph-inner + (4 * $digit-width) !default;
     -ms-user-select: none;
     user-select: none;
     // stylelint-enable property-no-vendor-prefix
-    width: $code-sidebar-width;
+    width: $code-sidebar-width + $digit-width;
   }
 }
