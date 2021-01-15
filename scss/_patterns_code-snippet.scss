@@ -1,11 +1,14 @@
 @import 'settings';
 
+$color-snippet-heading-bg: rgba($color-x-dark, 0.08);
+
 @mixin vf-p-code-snippet {
   .p-code-snippet {
     margin-bottom: $spv-outer--scaleable;
 
     .p-code-snippet__block,
-    .p-code-snippet__block--icon {
+    .p-code-snippet__block--icon,
+    .p-code-snippet__block--numbered {
       margin: 0;
     }
 
@@ -33,6 +36,14 @@
       &.is-url::before {
         @include vf-icon-get-link($color-mid-dark);
       }
+    }
+
+    .p-code-snippet__block--numbered {
+      counter-reset: line-numbering;
+    }
+
+    .p-code-snippet__line {
+      @extend %code-numbered-line;
     }
 
     .p-code-snippet__header {
