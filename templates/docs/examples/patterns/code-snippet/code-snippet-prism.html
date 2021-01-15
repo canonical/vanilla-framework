@@ -1,0 +1,124 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Code Snippet / Syntax highlight{% endblock %}
+
+{% block standalone_css %}patterns_code-snippet{% endblock %}
+
+{% block content %}
+<style>
+/*
+  http://prismjs.com/
+
+  prism.js theme based by theme by Edward Horsford for GOV.UK
+  https://github.com/alphagov/govuk_elements/blob/master/assets/sass/vendor/prism.scss
+*/
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation {
+  color: #6a7276; }
+
+.namespace {
+  opacity: .7; }
+
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.selector,
+.token.keyword {
+  color: #900b18; }
+
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.function,
+.token.property {
+  color: #1E8400; }
+
+.token.regex,
+.token.important,
+.token.atrule,
+.language-scss .token.keyword,
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #de272b; }
+
+.token.attr-value,
+.token.string,
+.token.variable {
+  color: #005ea5; }
+
+.language-scss .token.number,
+.language-css .token.number {
+  color: #0b0c0c; }
+
+.token.important,
+.token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }
+
+</style>
+<div class="p-code-snippet">
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Python</h5>
+  </div>
+<pre class="p-code-snippet__block language-python"><code>class DiscourseAPI:
+  """
+  Retrieve information from a Discourse installation
+  through its API
+  """
+
+  def __init__(self, base_url, session, api_key=None, api_username=None):
+      """
+      @param base_url: The Discourse URL (e.g. https://discourse.example.com)
+      """
+
+      self.base_url = base_url.rstrip("/")
+      self.session = session
+
+      if api_key and api_username:
+          self.session.headers = {
+              "Api-Key": api_key,
+              "Api-Username": api_username,
+          }</code></pre>
+
+<div class="p-code-snippet__header">
+  <h5 class="p-code-snippet__title">Yaml</h5>
+</div>
+<pre class="p-code-snippet__block--numbered language-yaml"><code><span class="p-code-snippet__line">name: super-cool-app</span>
+<span class="p-code-snippet__line">version: "1.0"</span>
+<span class="p-code-snippet__line">summary: Super Cool App</span>
+<span class="p-code-snippet__line">description: |</span>
+<span class="p-code-snippet__line">    Super Cool App that does everything! […]</span>
+<span class="p-code-snippet__line">confinement: strict</span>
+<span class="p-code-snippet__line">base: core18</span>
+<span class="p-code-snippet__line">parts:</span>
+<span class="p-code-snippet__line">  super-cool-app:</span>
+<span class="p-code-snippet__line">    plugin: flutter</span>
+<span class="p-code-snippet__line">    source: https://github.com/kenvandine/super-cool-app.git</span>
+<span class="p-code-snippet__line">    flutter-target: lib/main.dart</span>
+<span class="p-code-snippet__line">apps:</span>
+<span class="p-code-snippet__line">  super-cool-app:</span>
+<span class="p-code-snippet__line">    command: super_cool_app</span>
+<span class="p-code-snippet__line">    extensions: [flutter-dev]</span></code></pre>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/keep-markup/prism-keep-markup.min.js"></script>
+
+
+{% endblock %}
