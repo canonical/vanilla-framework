@@ -1,7 +1,5 @@
 @import 'settings';
 
-$color-pre-bg: rgba($color-x-dark, 0.03);
-
 // Base code styles
 @mixin vf-b-code {
   code,
@@ -53,7 +51,7 @@ $color-pre-bg: rgba($color-x-dark, 0.03);
   }
 
   pre {
-    background-color: $color-pre-bg;
+    background-color: $color-code-background;
     color: $color-dark;
     display: block;
     margin-bottom: $spv-outer--scaleable;
@@ -63,5 +61,18 @@ $color-pre-bg: rgba($color-x-dark, 0.03);
     text-align: left;
     text-shadow: none;
     white-space: pre;
+  }
+}
+
+%leading-linux-prompt-icon {
+  &::before {
+    @extend %icon;
+    @include vf-icon-linux-prompt($color-mid-dark);
+
+    content: '';
+    left: $sph-inner;
+    position: absolute;
+    top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+    width: map-get($icon-sizes, default);
   }
 }
