@@ -30,7 +30,13 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>The new <code>p-separator</code> component has been added to be used as a separator between content blocks.</td>
     </tr>
     <tr>
-      <th><a href="/docs/examples/patterns/code-copyable">Code Copyable</a></th>
+      <th><a href="/docs/examples/patterns/code-snippet/code-snippet">Code snippet</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.22.0</td>
+      <td>The new <code>.p-code-snippet</code> component has been added, to be used to display code examples in a number of different formats.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/examples/patterns/code-copyable">Code copyable</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.22.0</td>
       <td><code>.p-code-copyable</code> has been deprecated and will be removed in the v3.0 release. Please use <code>.p-code-snippet .p-code-snippet__block--icon</code> instead.</td>
