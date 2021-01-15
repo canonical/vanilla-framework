@@ -88,6 +88,11 @@ $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
   white-space: pre-wrap;
   width: 100%;
 
+  &:empty::after {
+    content: ' ';
+    user-select: none;
+  }
+
   &::before {
     color: $color-mid-dark;
     content: counter(line-numbering);
