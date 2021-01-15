@@ -1,8 +1,8 @@
 @import 'settings';
 
 $color-pre-bg: rgba($color-x-dark, 0.03);
-$digit-width: 0.5rem; // measured width of one character in the monospaced font
-$code-sidebar-width: $sph-inner + (4 * $digit-width) !default;
+$digit-width: 1ch; // measured width of one character in the monospaced font
+$code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
 
 // Base code styles
 @mixin vf-b-code {
@@ -105,6 +105,8 @@ $code-sidebar-width: $sph-inner + (4 * $digit-width) !default;
     -ms-user-select: none;
     user-select: none;
     // stylelint-enable property-no-vendor-prefix
-    width: $code-sidebar-width + $digit-width;
+    // We're adding a negative left position above of $digit-width,
+    // so the width here needs to take that into account
+    width: calc(#{$code-sidebar-width} + #{$digit-width});
   }
 }
