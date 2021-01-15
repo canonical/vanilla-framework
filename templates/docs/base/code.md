@@ -54,30 +54,11 @@ View example of the code snippet
 
 ### Copyable
 
-This component should be used when displaying a single line of code, accompanied by a copy icon, which allows users to copy the provided code to their clipboard.
+<span class="p-label--deprecated">Deprecated</span>
 
-<div class="p-strip is-shallow">
-  <div class="row">
-     <div class="col-4">
-       <div class="p-notification--positive">
-        <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use for single line terminal commands, functions or instructions.</p>
-       </div>
-     </div>
-    <div class="col-4">
-      <div class="p-notification--negative">
-        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Use for multiline code. If needed, code <a href="#block" class="p-notification__action">block</a> should be used.</p>
-      </div>
-    </div>
-  </div>
-</div>
+The code copyable element is now deprecated and will be removed in a future version of Vanilla.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-copyable/" class="js-example">
-View example of the code copyable pattern
-</a></div>
-
-### Functionality
-
-Please copy the entire JS in the example, for copy to clipboard functionality.
+It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippets).
 
 ### Numbered
 
@@ -89,11 +70,7 @@ View example of the code numbered pattern
 
 ### Import
 
-To import just code copyable or numbered component into your project, copy either or both snippets below and include it in your main Sass file.
-
-```scss
-@import 'patterns_code-copyable';
-```
+To import just numbered component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
 @import 'patterns_code-numbered';
