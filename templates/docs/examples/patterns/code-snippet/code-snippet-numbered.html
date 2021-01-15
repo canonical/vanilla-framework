@@ -1,0 +1,19 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Code snippet / Numbered{% endblock %}
+
+{% block standalone_css %}patterns_code-snippet{% endblock %}
+
+{% block content %}
+<div class="p-code-snippet">
+  <pre class="p-code-snippet__block--numbered"><code><span class="p-code-snippet__line">#!/bin/bash</span>
+<span class="p-code-snippet__line">set -eu</span>
+<span class="p-code-snippet__line">. $CONJURE_UP_SPELLSDIR/sdk/common.sh</span>
+<span class="p-code-snippet__line"></span>
+<span class="p-code-snippet__line">if [[ "$JUJU_PROVIDERTYPE" == "lxd" ]]; then</span>
+<span class="p-code-snippet__line">    debug "Running pre-deploy for $CONJURE_UP_SPELL"</span>
+<span class="p-code-snippet__line">    sed "s/##MODEL##/$JUJU_MODEL/" $(scriptPath)/lxd-profile.yaml | lxc profile edit "juju-$JUJU_MODEL" || exposeResult "Failed to set profile" $? "false"</span>
+<span class="p-code-snippet__line">fi</span>
+<span class="p-code-snippet__line"></span>
+<span class="p-code-snippet__line">exposeResult "Successful pre-deploy." 0 "true"</span></code></pre>
+</div>
+{% endblock %}
