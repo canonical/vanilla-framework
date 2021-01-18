@@ -20,6 +20,8 @@ View example of the horizontal line
 
 ### Separator
 
+<span class="p-label--new">New</span>
+
 To separate block sections of the page, use the separator component `<hr class="p-separator">`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/separator/" class="js-example">
