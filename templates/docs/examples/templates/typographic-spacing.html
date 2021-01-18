@@ -79,6 +79,10 @@
   background-color: #e5e5e5;
 }
 
+.p-separator--dense {
+  margin-bottom: calc(.0rem - 1px);
+}
+
 </style>
 {% endblock %}
 {% block content %}
@@ -86,17 +90,16 @@
   <div class="row">
     <div class="col-8 col-start-large-4">
       <h2>charms.openstack_dashboard.v2.db</h2>
-      <h4>Example module</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <div class="p-strip is-shallow -u-no-padding--top">
-        <hr>
-        <h4 class="p-code">
+      <h4 class="u-no-margin--bottom">Example module</h4>
+      <p class="u-no-margin--bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="p-strip is-shallow">
+        <h4 class="p-code u-no-margin--bottom">
           <span class="language-python">
             <span class="function">function </span> <span class="selector">test_function()</span>
           </span>
         </h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <div class="row">
+        <p class="u-no-margin--bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <div class="p-strip is-shallow row">
           <div class="col-1">
             <p class="p-label--capitals u-align-text--small-to-default u-no-margin--bottom">Returns</p>
           </div>
@@ -108,14 +111,14 @@
           </div>
         </div>
       </div>
-      <div class="p-strip is-shallow -u-no-padding--top">
-        <hr>
+      <div class="p-strip is-shallow u-no-padding--top">
+        <hr class="-p-separator--dense">
         <h4 class="p-code u-no-margin--bottom">
           <span class="function">class</span>
           <span class="selector">Person</span>
         </h4>
-        <p>A class to represent a person.</p>
-        <div class="p-strip is-shallow u-no-padding--top">
+        <p class="u-no-margin--bottom">A class to represent a person.</p>
+        <div class="p-strip is-shallow">
           <div class="row">
             <div class="col-1">
               <p class="p-label--capitals u-align-text--small-to-default">Arguments</p>
@@ -139,7 +142,7 @@
                 <span class="u-text--muted">str</span>
               </p>
               <p class="p-code">
-                <span class="u-text--muted">str</span>
+                <span class="u-text--muted">int</span>
               </p>
             </div>
             <div class="col-3">
@@ -148,85 +151,187 @@
               <p class="">Age of the person</p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-8">
-              <hr class="p-separator--light">
-            </div>
-          </div>
+          <hr class="p-separator--light p-separator--dense">
           <div class="row">
             <div class="col-1">
               <p class="p-label--capitals u-align-text--small-to-default">Attributes</p>
             </div>
-            <div class="col-2">
+            <div class="col-1">
               <p class="p-code u-no-margin--bottom">
                 <span class="attr-value">name</span>
-                <span class="u-text--muted">(str)</span>
               </p>
               <p class="p-code u-no-margin--bottom">
                 <span class="attr-value">surname</span>
-                <span class="u-text--muted">(str)</span>
+              </p>
+              <p class="p-code">
+                <span class="attr-value">age</span>
+              </p>
+            </div>
+            <div class="col-1">
+              <p class="p-code u-no-margin--bottom">
+                <span class="u-text--muted">str</span>
               </p>
               <p class="p-code u-no-margin--bottom">
-                <span class="attr-value">age</span>
-                <span class="u-text--muted">(int)</span>
+                <span class="u-text--muted">str</span>
+              </p>
+              <p class="p-code">
+                <span class="u-text--muted">int</span>
               </p>
             </div>
             <div class="col-3">
               <p class="u-no-margin--bottom">First name of the person</p>
               <p class="u-no-margin--bottom">Sirname name of the person</p>
-              <p class="u-no-margin--bottom">Age of the person</p>
+              <p>Age of the person</p>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-6 col-start-large-2">
-            <hr>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 col-start-large-2">
-            <p class="p-code u-no-margin--bottom u-sv-3">
-              <span class="selector">info</span>(<span class="property">self</span>, <span class="property">additional</span>):
-            </p>
-            <h6 class="u-no-margin--bottom">Prints the person's name and age.</h6>
-            <p> If the argument 'additional' is passed, then it is appended after the main info. </p>
-            <div class="p-strip is-shallow u-no-padding--top">
-              <div class="row">
-                <div class="col-6 col-start-large-2">
-                  <hr>
-                </div>
-              </div>
+          <hr class="p-separator--light p-separator--dense">
+          <div class="row">
+            <div class="col-1">
+              <p class="p-label--capitals u-align-text--small-to-default">Methods</p>
+            </div>
+            <div class="col-7">
+              <p class="p-code -u-no-margin--bottom">
+                <span class="selector">info</span>(<span class="property">self</span>, <span class="property">additional</span>):
+              </p>
+              <p class="-u-no-margin--bottom">
+                Prints the person's name and age.<br>
+                If the argument 'additional' is passed, then it is appended after the main info.
+              </p>
+              <hr class="p-separator--light p-separator--dense">
               <div class="row">
                 <div class="col-1">
                   <p class="p-label--capitals u-align-text--small-to-default">Arguments</p>
                 </div>
-                <div class="col-2">
+                <div class="col-1">
                   <p class="p-code u-no-margin--bottom">
                     <span class="property">additional</span>
-                    <span class="u-text--muted">(str)</span>
+                  </p>
+                </div>
+                <div class="col-1">
+                  <p class="p-code u-no-margin--bottom">
+                    <span class="u-text--muted">str</span>
                   </p>
                 </div>
                 <div class="col-3">
-                  <p class="u-no-margin--bottom">More info to be displayed. Defaults to None.</p>
+                  <p class="-u-no-margin--bottom">More info to be displayed. Defaults to None.</p>
+                </div>
+              </div>
+              <hr class="p-separator--light p-separator--dense">
+              <div class="row">
+                <div class="col-1">
+                  <p class="p-label--capitals u-align-text--small-to-default u-no-margin--bottom">Returns</p>
+                </div>
+                <div class="col-3 col-start-large-4">
+                  <p class="u-no-margin--bottom">None</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-strip is-shallow u-no-padding--top">
+        <hr class="-p-separator--dense">
+        <h4 class="p-code u-no-margin--bottom">
+          <span class="function">class</span>
+          <span class="selector">AnotherClass</span>
+        </h4>
+        <div class="p-strip is-shallow row">
+          <div class="col-1">
+            <p class="p-label--capitals u-align-text--small-to-default">Methods</p>
+          </div>
+          <div class="col-7 p-strip is-shallow u-no-padding--top">
+            <p class="p-code -u-no-margin--bottom">
+              <span class="selector">add_binary</span>(<span class="property">self</span>, <span class="property">a</span>, <span class="property">b</span>):
+            </p>
+            <p class="-u-no-margin--bottom">
+              Returns the sum of two decimal numbers in binary digits.
+            </p>
+            <hr class="p-separator--light p-separator--dense">
             <div class="row">
-              <div class="col-6 col-start-large-2">
-                <hr>
+              <div class="col-1">
+                <p class="p-label--capitals u-align-text--small-to-default">Arguments</p>
+              </div>
+              <div class="col-1">
+                <p class="p-code u-no-margin--bottom">
+                  <span class="property">a</span>
+                </p>
+                <p class="p-code u-no-margin--bottom">
+                  <span class="property">b</span>
+                </p>
+              </div>
+              <div class="col-1">
+                <p class="p-code u-no-margin--bottom">
+                  <span class="u-text--muted">int</span>
+                </p>
+                <p class="p-code u-no-margin--bottom">
+                  <span class="u-text--muted">int</span>
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="u-no-margin--bottom">A decimal integer</p>
+                <p class="-u-no-margin--bottom">Another decimal integer</p>
+              </div>
+            </div>
+            <hr class="p-separator--light p-separator--dense">
+            <div class="row">
+              <div class="col-1">
+                <p class="p-label--capitals u-align-text--small-to-default">Returns</p>
+              </div>
+              <div class="col-1 col-start-large-3">
+                <p class="p-code u-no-margin--bottom"><span class="u-text--muted">bool</span></p>
+              </div>
+              <div class="col-3">
+                <p>Binary string of the sum of a and b</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-7 col-start-large-2">
+            <p class="p-code -u-no-margin--bottom">
+              <span class="selector">add_binary</span>(<span class="property">self</span>, <span class="property">a</span>, <span class="property">b</span>):
+            </p>
+            <p class="-u-no-margin--bottom">
+              Returns the sum of two decimal numbers in binary digits.
+            </p>
+            <hr class="p-separator--light p-separator--dense">
+            <div class="row">
+              <div class="col-1">
+                <p class="p-label--capitals u-align-text--small-to-default">Arguments</p>
+              </div>
+              <div class="col-1">
+                <p class="p-code u-no-margin--bottom">
+                  <span class="property">a</span>
+                </p>
+                <p class="p-code u-no-margin--bottom">
+                  <span class="property">b</span>
+                </p>
+              </div>
+              <div class="col-1">
+                <p class="p-code u-no-margin--bottom">
+                  <span class="u-text--muted">int</span>
+                </p>
+                <p class="p-code u-no-margin--bottom">
+                  <span class="u-text--muted">int</span>
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="u-no-margin--bottom">A decimal integer</p>
+                <p class="-u-no-margin--bottom">Another decimal integer</p>
+              </div>
+            </div>
+            <hr class="p-separator--light p-separator--dense">
+            <div class="row">
+              <div class="col-1">
+                <p class="p-label--capitals u-align-text--small-to-default">Returns</p>
+              </div>
+              <div class="col-1 col-start-large-3">
+                <p class="p-code u-no-margin--bottom"><span class="u-text--muted">bool</span></p>
+              </div>
+              <div class="col-3">
+                <p>Binary string of the sum of a and b</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-1 col-start-large-2">
-            <p class="p-label--capitals u-align-text--small-to-default">Returns</p>
-          </div>
-          <div class="col-3">
-            <p>None</p>
-          </div>
-        </div>
-        <hr>
       </div>
     </div>
   </div>
