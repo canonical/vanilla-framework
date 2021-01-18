@@ -80,7 +80,11 @@
 }
 
 .p-separator--dense {
-  margin-bottom: calc(.0rem - 1px);
+  margin-bottom: -1px;
+}
+
+.p-separator--dense + p {
+  margin-top: 0;
 }
 
 </style>
@@ -99,19 +103,19 @@
           </span>
         </h4>
         <p class="u-no-margin--bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <div class="p-strip is-shallow row">
+        <div class="row">
           <div class="col-1">
-            <p class="p-label--capitals u-align-text--small-to-default u-no-margin--bottom">Returns</p>
+            <p class="p-label--capitals u-align-text--small-to-default -u-no-margin--bottom">Returns</p>
           </div>
           <div class="col-1">
-            <p class="u-no-margin--bottom u-text--muted u-no-margin--bottom">str</p>
+            <p class="u-no-margin--bottom u-text--muted -u-no-margin--bottom">str</p>
           </div>
           <div class="col-3">
-            <p class="u-no-margin--bottom">A string containing "foo"</p>
+            <p class="-u-no-margin--bottom">A string containing "foo"</p>
           </div>
         </div>
       </div>
-      <div class="p-strip is-shallow u-no-padding--top">
+      <div class="">
         <hr class="-p-separator--dense">
         <h4 class="p-code u-no-margin--bottom">
           <span class="function">class</span>
@@ -189,8 +193,9 @@
             <div class="col-1">
               <p class="p-label--capitals u-align-text--small-to-default">Methods</p>
             </div>
-            <div class="col-7">
-              <p class="p-code -u-no-margin--bottom">
+
+            <div class="col-7 p-strip is-shallow u-no-padding--top">
+              <p class="p-code u-no-margin--bottom">
                 <span class="selector">info</span>(<span class="property">self</span>, <span class="property">additional</span>):
               </p>
               <p class="-u-no-margin--bottom">
@@ -240,7 +245,7 @@
             <p class="p-label--capitals u-align-text--small-to-default">Methods</p>
           </div>
           <div class="col-7 p-strip is-shallow u-no-padding--top">
-            <p class="p-code -u-no-margin--bottom">
+            <p class="p-code u-no-margin--bottom">
               <span class="selector">add_binary</span>(<span class="property">self</span>, <span class="property">a</span>, <span class="property">b</span>):
             </p>
             <p class="-u-no-margin--bottom">
@@ -275,22 +280,23 @@
             <hr class="p-separator--light p-separator--dense">
             <div class="row">
               <div class="col-1">
-                <p class="p-label--capitals u-align-text--small-to-default">Returns</p>
+                <p class="p-label--capitals u-align-text--small-to-default u-no-margin--bottom">Returns</p>
               </div>
               <div class="col-1 col-start-large-3">
                 <p class="p-code u-no-margin--bottom"><span class="u-text--muted">bool</span></p>
               </div>
               <div class="col-3">
-                <p>Binary string of the sum of a and b</p>
+                <p class="u-no-margin--bottom">Binary string of the sum of a and b</p>
               </div>
             </div>
           </div>
           <div class="col-7 col-start-large-2">
-            <p class="p-code -u-no-margin--bottom">
-              <span class="selector">add_binary</span>(<span class="property">self</span>, <span class="property">a</span>, <span class="property">b</span>):
+            <hr class="p-separator--dense">
+            <p class="p-code u-no-margin--bottom">
+              <span class="selector">another_function</span>(<span class="property">self</span>, <span class="property">a</span>):
             </p>
             <p class="-u-no-margin--bottom">
-              Returns the sum of two decimal numbers in binary digits.
+              Returns a simple string.
             </p>
             <hr class="p-separator--light p-separator--dense">
             <div class="row">
@@ -321,13 +327,13 @@
             <hr class="p-separator--light p-separator--dense">
             <div class="row">
               <div class="col-1">
-                <p class="p-label--capitals u-align-text--small-to-default">Returns</p>
+                <p class="p-label--capitals u-align-text--small-to-default u-no-margin--bottom">Returns</p>
               </div>
               <div class="col-1 col-start-large-3">
                 <p class="p-code u-no-margin--bottom"><span class="u-text--muted">bool</span></p>
               </div>
               <div class="col-3">
-                <p>Binary string of the sum of a and b</p>
+                <p class="u-no-margin--bottom">Binary string of the sum of a and b</p>
               </div>
             </div>
           </div>
