@@ -74,13 +74,15 @@
 .entity {
 	cursor: help;
 }
+
+.p-separator--light {
+  background-color: #e5e5e5;
+}
+
 </style>
 {% endblock %}
 {% block content %}
-<!--script src="https://myCDN.com/prism@v1.x/components/prism-core.min.js"></script>
-<script src="https://myCDN.com/prism@v1.x/plugins/autoloader/prism-autoloader.min.js"></script-->
 <div class="p-strip">
-
   <div class="row">
     <div class="col-8 col-start-large-4">
       <h2>charms.openstack_dashboard.v2.db</h2>
@@ -90,45 +92,54 @@
         <hr>
         <h4 class="p-code">
           <span class="language-python">
-            <span class="function">function
-            </span> <span class="selector">test_function()</span>
+            <span class="function">function </span> <span class="selector">test_function()</span>
           </span>
         </h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <div class="row">
           <div class="col-1">
-            <p class="p-label--capitals u-align-text--small-to-default">Returns</p>
+            <p class="p-label--capitals u-align-text--small-to-default u-no-margin--bottom">Returns</p>
+          </div>
+          <div class="col-1">
+            <p class="u-no-margin--bottom u-text--muted u-no-margin--bottom">str</p>
           </div>
           <div class="col-3">
-            <p>A string containing "foo"</p>
+            <p class="u-no-margin--bottom">A string containing "foo"</p>
           </div>
         </div>
       </div>
       <div class="p-strip is-shallow -u-no-padding--top">
         <hr>
-        <h4 class="p-code">
-          <span class="language-python">
-            <span class="function">class
-            </span> <span class="selector">Person()</span>
-          </span>
+        <h4 class="p-code u-no-margin--bottom">
+          <span class="function">class</span>
+          <span class="selector">Person</span>
         </h4>
+        <p>A class to represent a person.</p>
         <div class="p-strip is-shallow u-no-padding--top">
           <div class="row">
             <div class="col-1">
               <p class="p-label--capitals u-align-text--small-to-default">Arguments</p>
             </div>
-            <div class="col-2">
+            <div class="col-1">
               <p class="p-code u-no-margin--bottom">
                 <span class="property">name</span>
-                <span class="u-text--muted">(str)</span>
               </p>
               <p class="p-code u-no-margin--bottom">
                 <span class="property">surname</span>
-                <span class="u-text--muted">(str)</span>
               </p>
               <p class="p-code">
                 <span class="property">age</span>
-                <span class="u-text--muted">(int)</span>
+              </p>
+            </div>
+            <div class="col-1">
+              <p class="p-code u-no-margin--bottom">
+                <span class="u-text--muted">str</span>
+              </p>
+              <p class="p-code u-no-margin--bottom">
+                <span class="u-text--muted">str</span>
+              </p>
+              <p class="p-code">
+                <span class="u-text--muted">str</span>
               </p>
             </div>
             <div class="col-3">
@@ -138,8 +149,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6 col-start-large-2">
-              <hr>
+            <div class="col-8">
+              <hr class="p-separator--light">
             </div>
           </div>
           <div class="row">
@@ -173,36 +184,12 @@
           </div>
         </div>
         <div class="row">
-          <!-- <div class="col-1">
-            <p class="p-label--capitals u-align-text--small-to-default">Methods</p>
-          </div> -->
           <div class="col-6 col-start-large-2">
-            <!-- <p class="p-code">
-              <span class="function">def</span>
-              <span class="selector">__init__</span>(<span class="property">self</span>,
-              <span class="property">name</span>,
-              <span class="property">surname</span>,
-              <span class="property">age</span>):
-            </p>
-            <p class="p-code u-indent-4">
-              self<span class="attr-value">.name</span> = <span class="property">name</span><br>
-              self<span class="attr-value">.surname</span> = <span class="property">surname</span><br>
-              self<span class="attr-value">.age</span> = <span class="property">age</span>
-            </p> -->
-
             <p class="p-code u-no-margin--bottom u-sv-3">
-              <!-- <span class="function">def</span> -->
-              <span class="selector">info</span>(<span class="property">self</span>,
-              <span class="property">additional</span>):
+              <span class="selector">info</span>(<span class="property">self</span>, <span class="property">additional</span>):
             </p>
             <h6 class="u-no-margin--bottom">Prints the person's name and age.</h6>
-            <p>
-              If the argument 'additional' is passed, then it is appended after the main info.
-            </p>
-            <!-- <p class="p-code u-indent-4">
-              <span class="function">print</span>(<span class="attr-value">f</span>"My name is <span>{self<span class="attr-value">.name</span>} {self<span class="attr-value">.surname</span>}. I am {self<span class="attr-value">.age</span>}" years old."</span> <br>
-              <span class="operator">for </span>i <span class="operator">in </span>s:
-            </p> -->
+            <p> If the argument 'additional' is passed, then it is appended after the main info. </p>
             <div class="p-strip is-shallow u-no-padding--top">
               <div class="row">
                 <div class="col-6 col-start-large-2">
