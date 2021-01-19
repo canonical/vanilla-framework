@@ -18,6 +18,8 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
+      - name: Check if import test file exists but is empty
+        run: test -f build/css/standalone/base.css -a ! -s build/css/standalone/base.css
 
   dart:
     name: Test build with dart-sass
