@@ -68,47 +68,47 @@ $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
     text-shadow: none;
     white-space: pre;
   }
-}
 
-%leading-linux-prompt-icon {
-  &::before {
-    @extend %icon;
-    @include vf-icon-linux-prompt($color-mid-dark);
+  %leading-linux-prompt-icon {
+    &::before {
+      @extend %icon;
+      @include vf-icon-linux-prompt($color-mid-dark);
 
-    content: '';
-    left: $sph-inner;
-    position: absolute;
-    top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
-    width: map-get($icon-sizes, default);
-  }
-}
-
-%code-numbered-line {
-  display: inline-block;
-  padding: 0 $sph-inner 0 $code-sidebar-width;
-  position: relative;
-  white-space: pre-wrap;
-  width: 100%;
-
-  &:empty::after {
-    content: ' ';
-    user-select: none;
+      content: '';
+      left: $sph-inner;
+      position: absolute;
+      top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+      width: map-get($icon-sizes, default);
+    }
   }
 
-  &::before {
-    color: $color-mid-dark;
-    content: counter(line-numbering);
-    counter-increment: line-numbering;
-    height: 100%;
-    left: -$digit-width;
-    overflow: hidden;
-    padding-right: $sph-inner;
-    pointer-events: none;
-    position: absolute;
-    text-align: right;
-    user-select: none;
-    // We're adding a negative left position above of $digit-width,
-    // so the width here needs to take that into account
-    width: calc(#{$code-sidebar-width} + #{$digit-width});
+  %code-numbered-line {
+    display: inline-block;
+    padding: 0 $sph-inner 0 $code-sidebar-width;
+    position: relative;
+    white-space: pre-wrap;
+    width: 100%;
+
+    &:empty::after {
+      content: ' ';
+      user-select: none;
+    }
+
+    &::before {
+      color: $color-mid-dark;
+      content: counter(line-numbering);
+      counter-increment: line-numbering;
+      height: 100%;
+      left: -$digit-width;
+      overflow: hidden;
+      padding-right: $sph-inner;
+      pointer-events: none;
+      position: absolute;
+      text-align: right;
+      user-select: none;
+      // We're adding a negative left position above of $digit-width,
+      // so the width here needs to take that into account
+      width: calc(#{$code-sidebar-width} + #{$digit-width});
+    }
   }
 }
