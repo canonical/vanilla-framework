@@ -195,4 +195,28 @@
   %u-no-margin--bottom--small {
     margin-bottom: -#{map-get($nudges, nudge--small)} !important;
   }
+
+  %icon {
+    @extend %vf-hide-text;
+    @include vf-icon-size($default-icon-size);
+    $vertical-offset: 0.5px;
+    background: {
+      position: center;
+      repeat: no-repeat;
+    }
+
+    display: inline-block;
+    font-size: inherit; // allow icons to match size of parent text element, when set in em
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+  }
+
+  %social-icon {
+    @extend %vf-hide-text;
+    @include vf-icon-size(map-get($icon-sizes, heading-icon--small));
+
+    display: inline-block;
+  }
 }
