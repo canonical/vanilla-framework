@@ -22,6 +22,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.23 -->
+    <tr>
+      <th><a href="/docs/base/code#code-snippet">Code snippet</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.23.0</td>
+      <td>We added a utility class for <code>.p-code-snippet__block</code> that allows content to wrap, rather than horizontally scroll: <code>.is-wrapped</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.22 -->
     <tr>
       <th><a href="/docs/base/separators">Separator</a></th>
@@ -47,21 +69,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.22.0</td>
       <td><code>.p-code-numbered</code> has been deprecated and will be removed in the v3.0 release. Please use <code>.p-code-snippet .p-code-snippet__block--numbered</code> instead.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.21 -->
     <tr>
       <th><a href="/docs/patterns/icons#standard">Icons - Contextual Menu</a></th>
