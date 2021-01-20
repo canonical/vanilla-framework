@@ -2,11 +2,15 @@
 @import 'settings_breakpoints';
 
 // Global grid settings
+$grid-max-width: 72rem !default;
+$grid-max-width--wide: 95rem;
+
 $grid-columns: 12 !default;
 $grid-columns-small: 4 !default;
 $grid-columns-medium: 6 !default;
 $threshold-4-6-col: $breakpoint-small !default;
 $threshold-6-12-col: $breakpoint-medium !default;
+$threshold-12-16-col: 1615px; //$grid-max-width--wide + 2 * $grid-margin-width !default;
 
 $grid-column-prefix: 'col-' !default;
 $grid-small-col-prefix: '#{$grid-column-prefix}small-' !default;
@@ -15,15 +19,14 @@ $grid-large-col-prefix: #{$grid-column-prefix} !default;
 
 $grid-gutter-widths: (
   small: $sp-unit * 3,
-  medium: $sp-unit * 4,
-  large: $sp-unit * 4,
-) !default;
-
-$grid-margin-widths: (
-  small: $sp-unit * 2,
   medium: $sp-unit * 3,
   large: $sp-unit * 3,
 ) !default;
 
+$grid-margin-widths: (
+  small: $sp-unit * 2,
+  medium: $sp-unit * 2,
+  large: $sp-unit * 3,
+) !default;
+
 $grid-margin-width: $sph-outer--large !default;
-$grid-max-width: 72rem !default;
