@@ -60,6 +60,14 @@ View example of the code snippet
 View example of the code snippet
 </a></div>
 
+**Toggling wrapping within a code snippet**
+
+By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-wrapping" class="js-example">
+View example of the code snippet
+</a></div>
+
 ### Copyable
 
 <span class="p-label--deprecated">Deprecated</span>
