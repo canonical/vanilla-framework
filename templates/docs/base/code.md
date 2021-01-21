@@ -68,6 +68,18 @@ By default, `<pre>` elements do not wrap content, but this can be overridden by 
 View example of the code snippet
 </a></div>
 
+### Syntax highlighting
+
+We recommend using Prism for syntax highlighting in code snippet. Vanilla framework provides a built-in Prism theme, so only JavaScript of Prism library needs to be added to the page, and `language-*` class name to the respective code blocks.
+
+Make sure to include language support for any required languages or the `autoloader` plug-in (that automatically loads needed languages based on used class names).
+
+To correctly support numbered variant of code snippet `keep-html` plug-in is needed to preserve `span` elements around the lines.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-prism" class="js-example">
+View example of the code snippet with syntax highlighting
+</a></div>
+
 ### Copyable
 
 <span class="p-label--deprecated">Deprecated</span>
