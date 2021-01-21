@@ -96,6 +96,17 @@
     }
   }
 
+  // large desktop - 16 column grid
+  @media (min-width: $threshold-12-16-col) {
+    @for $i from $grid-columns--16 through 1 {
+      // set col-* to span respective number of columns on desktop
+      .#{$grid-16-col-prefix}#{$i} {
+        @include vf-grid-flex-column($i);
+        @include vf-grid-column($i);
+      }
+    }
+  }
+
   // span full grid on other breakpoints; (to match block level element behaviour)
   @for $i from 1 through $grid-columns-small {
     .#{$grid-small-col-prefix}#{$i} {
@@ -125,7 +136,8 @@
   $offsets: (
     (small, 0, $threshold-4-6-col, $grid-columns-small - 1),
     (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium - 1),
-    (large, $threshold-6-12-col, -1, $grid-columns - 1)
+    (large, $threshold-6-12-col, -1, $grid-columns - 1),
+    (x-large, $threshold-12-16-col, -1, $grid-columns--16 - 1)
   );
 
   @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
@@ -140,7 +152,8 @@
 
     @media #{$query} {
       @for $i from 1 through $col-count {
-        .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
+        .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i},
+        .row-16 [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
           grid-column-start: #{$i};
         }
 
@@ -177,6 +190,52 @@
         left: map-get($grid-margin-widths, large);
         right: map-get($grid-margin-widths, large);
       }
+    }
+  }
+
+  .row-16 {
+    @extend %vf-row;
+    @extend %vf-row--16-col;
+
+    & > * {
+      // @media (min-width: $threshold-12-16-col) {
+      //   grid-column: span 2;
+      // }
+    }
+
+    .left {
+      order: -1;
+      grid-column: 1 / 3;
+
+      @media (min-width: $threshold-12-16-col) {
+        grid-column: 1 / 3;
+      }
+    }
+
+    .main-minus-first-2 {
+      // background-color: rgb(179, 157, 72);
+      display: grid;
+      grid-column: 3 / 13;
+      grid-gap: inherit;
+      grid-template-columns: repeat($grid-columns - 2, minmax(0, 1fr));
+
+      @media (min-width: $threshold-12-16-col) {
+        grid-column: 3 / 17;
+        grid-template-columns: repeat($grid-columns + 2, minmax(0, 1fr));
+      }
+
+      & > * {
+        grid-column: span 2;
+      }
+    }
+
+    .main {
+      grid-column: 3 / 12;
+    }
+
+    .bleed-right {
+      grid-column: 3;
+      grid-column-end: 16;
     }
   }
 }
