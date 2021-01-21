@@ -72,6 +72,7 @@
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
     var cssSource = getStyleFromSource(headHTML);
+    var externalScripts = getExternalScriptsFromSource(html);
 
     var height = placementElement.getAttribute('data-height') || CODEPEN_HEIGHT;
 
@@ -82,6 +83,11 @@
     // hide code container by default, so it doesn't flash on page
     // before CodePen is rendered
     container.classList.add('codepen-example', 'u-hide');
+
+    // pass any external scripts to CodePen
+    if (externalScripts.length) {
+      CODEPEN_PREFILL_CONFIG.scripts = externalScripts;
+    }
 
     var config = JSON.parse(JSON.stringify(CODEPEN_PREFILL_CONFIG));
     // update title in the config with title of the example page
@@ -143,5 +149,15 @@
     div.innerHTML = source;
     var script = div.querySelector('script');
     return script ? script.innerHTML.trim() : null;
+  }
+
+  function getExternalScriptsFromSource(source) {
+    var div = document.createElement('div');
+    div.innerHTML = source;
+    var scripts = div.querySelectorAll('script[src]');
+    scripts = [].slice.apply(scripts).map(function (s) {
+      return s.src;
+    });
+    return scripts;
   }
 })();
