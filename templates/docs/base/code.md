@@ -70,11 +70,15 @@ View example of the code snippet
 
 ### Syntax highlighting
 
-We recommend using Prism for syntax highlighting in code snippet. Vanilla framework provides a built-in Prism theme, so only JavaScript of Prism library needs to be added to the page, and `language-*` class name to the respective code blocks.
+We recommend using [Prism](https://prismjs.com/) for syntax highlighting in the code snippet. Vanilla framework provides a built-in Prism theme, so only JavaScript of Prism library needs to be added to the page, and `language-*` class names to the respective code blocks.
 
-Make sure to include language support for any required languages or the `autoloader` plug-in (that automatically loads needed languages based on used class names).
+Make sure to include [language support for any required languages](https://prismjs.com/index.html#supported-languages) or [the `autoloader` plug-in](https://prismjs.com/plugins/autoloader/) (that automatically loads needed languages based on used class names).
 
-To correctly support numbered variant of code snippet `keep-html` plug-in is needed to preserve `span` elements around the lines.
+To correctly support numbered variant of code snippet [the `keep-markup` plug-in](https://prismjs.com/plugins/keep-markup/) is needed to preserve `span` elements around the lines.
+
+JavaScript for [Prism can be downloaded from their download page](https://prismjs.com/download) where it can be bundled with any necessary languages and plug-ins. You can also use [Prism provided by CDN](https://prismjs.com/index.html#basic-usage-cdn).
+
+To avoid using JavaScript library for syntax highlighting you can prepare the code block content by manually wrapping the highlighted elements into `span`s with class names compatible with Prism theme (like `<span class="token keyword">` `<span class="token comment">`).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-prism" class="js-example">
 View example of the code snippet with syntax highlighting
