@@ -1,0 +1,16 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Code Snippet / Wrapping {% endblock %}
+
+{% block standalone_css %}patterns_code-snippet{% endblock %}
+
+{% block content %}
+<div class="p-code-snippet">
+  <div class="p-code-snippet__header">Default (no wrapping)</div>
+  <pre class="p-code-snippet__block"><code>git commit -a -m "This is an example git commit message to demonstrate the wrapping of pre elements in the code snippet"</code></pre>
+</div>
+
+<div class="p-code-snippet">
+  <div class="p-code-snippet__header">With .is-wrapped applied</div>
+  <pre class="p-code-snippet__block is-wrapped"><code>git commit -a -m "This is an example git commit message to demonstrate the wrapping of pre elements in the code snippet"</code></pre>
+</div>
+{% endblock %}
