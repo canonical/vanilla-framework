@@ -60,6 +60,14 @@ View example of the code snippet
 View example of the code snippet
 </a></div>
 
+**Code snippet with dropdown**
+
+A [contextual menu](/docs/patterns/contextual-menu) can be included within a `.p-code-snippet__header`, and can be used alongside JS to switch between related code examples. The menu's toggle element should include the `.p-code-snippet__toggle` class.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-dropdown" class="js-example">
+View example of the code snippet
+</a></div>
+
 **Toggling wrapping within a code snippet**
 
 By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:
