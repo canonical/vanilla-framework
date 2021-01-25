@@ -193,57 +193,30 @@
     }
   }
 
+  // Ways to break out of the 12-col grid
+
+  // Aside / main aligned to the left edge of the fixed-width grid
+  .row-new {
+    @extend %vf-row-new;
+  }
+
+  .row-new__full {
+    @extend %vf-row-new__full;
+  }
+  .row-new__main {
+    @extend %vf-row-new__main;
+  }
+  .row-new__aside-left {
+    @extend %vf-row-new__aside-left;
+  }
+
+  // 16-col grid (additional 2 columns on either side of the fixed-width 12 col grid)
   .row-16 {
     @extend %vf-row;
     @extend %vf-row--16-col;
 
-    // & > * {
-    // @media (min-width: $threshold-12-16-col) {
-    //   grid-column: span 2;
-    // }
-    // }
-
-    .left {
-      grid-column: 1 / 3;
-      grid-row: 1 / -1;
-      order: -1;
-
-      @media (min-width: $threshold-12-16-col) {
-        grid-column: 1 / 3;
-      }
-    }
-
-    // .col-2 {
-    //   grid-column: auto span 2;
-    // }
     &__row-10 {
       grid-row: 1 / 10;
-    }
-
-    .main-minus-first-2 {
-      // background-color: rgb(179, 157, 72);
-      display: grid;
-      grid-column: 3 / 13;
-      grid-gap: inherit;
-      grid-template-columns: repeat($grid-columns - 2, minmax(0, 1fr));
-
-      @media (min-width: $threshold-12-16-col) {
-        grid-column: 3 / 17;
-        grid-template-columns: repeat($grid-columns + 2, minmax(0, 1fr));
-      }
-
-      & > * {
-        grid-column: span 2;
-      }
-    }
-
-    .main {
-      grid-column: 3 / 12;
-    }
-
-    .bleed-right {
-      grid-column: 3;
-      grid-column-end: 16;
     }
   }
 }

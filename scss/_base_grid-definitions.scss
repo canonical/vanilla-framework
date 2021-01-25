@@ -89,6 +89,41 @@
     }
   }
 
+  %vf-row-new {
+    @extend %vf-grid-container-padding;
+
+    align-items: self-start;
+    display: grid;
+    grid-gap: 0 map-get($grid-gutter-widths, large);
+    grid-template-columns: [full-start] minmax(1rem, 1fr) [main-start] minmax(0, $grid-max-width) [main-end] minmax(1rem, 1fr) [full-end];
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 120rem;
+    width: 100%;
+  }
+
+  %vf-row-new__full {
+    display: inherit;
+    grid-column: full;
+    grid-gap: inherit;
+    grid-template-columns: inherit;
+  }
+
+  %vf-row-new__main {
+    @extend %vf-grid-container-padding;
+
+    display: inherit;
+    grid-column: main-start / full-end;
+    grid-gap: inherit;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+
+  %vf-row-new__aside-left {
+    grid-column: full-start / main-start;
+    display: grid;
+    justify-content: end;
+  }
+
   %vf-grid-container-padding {
     // set static outside padding per breakpoint
     @media (max-width: $threshold-4-6-col) {
