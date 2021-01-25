@@ -63,5 +63,23 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
       margin-bottom: 0;
       padding-top: 0;
     }
+
+    .p-code-snippet__dropdowns {
+      flex-shrink: 0;
+      margin-left: $sph-inner--small;
+    }
+
+    .p-code-snippet__toggle {
+      @extend %p-button--base;
+      @extend %p-button--with-icon;
+
+      // taken from the .u-table-cell-padding-overlap utility
+      margin-bottom: -#{$table-cell-vertical-padding} !important;
+      margin-top: calc(-#{$table-cell-vertical-padding} - 1px) !important;
+
+      // taken from the .is-dense button modifier
+      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+    }
   }
 }
