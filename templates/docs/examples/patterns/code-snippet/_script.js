@@ -1,7 +1,7 @@
 function setupCodeSnippetOptions(dropdown) {
   var dropdownLabel = dropdown.querySelector('span');
   var targetMenu = document.getElementById(dropdown.getAttribute('aria-controls'));
-  var options = [].slice.call(targetMenu.querySelectorAll('a'));
+  var options = [].slice.call(targetMenu.querySelectorAll('[aria-controls]'));
 
   options.forEach(function (option) {
     option.addEventListener('click', function (e) {
