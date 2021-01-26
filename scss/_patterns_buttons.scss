@@ -11,6 +11,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   @include vf-button-negative;
   @include vf-button-base;
   @include vf-button-inline;
+  @include vf-button-processing;
   @include vf-button-active;
   @include vf-button-icon;
 }
@@ -143,9 +144,17 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   }
 }
 
-@mixin vf-button-active {
-  [class*='p-button'].is-active {
+@mixin vf-button-processing {
+  [class*='p-button'].is-processing {
     opacity: 1 !important;
+  }
+}
+
+@mixin vf-button-active {
+  @include deprecate('3.0.0', 'Use the `vf-button-processing instead') {
+    [class*='p-button'].is-active {
+      opacity: 1 !important;
+    }
   }
 }
 
