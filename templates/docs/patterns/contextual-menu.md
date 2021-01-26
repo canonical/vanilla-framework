@@ -33,6 +33,14 @@ Using direction modifiers will change the placement of the drop-down menu. By de
 View example of the contextual menu pattern
 </a></div>
 
+### Overlapping
+
+A utility class, `.is-overlapping`, can also be used to position the menu over the parent pattern.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/contextual-menu/overlapping" class="js-example">
+View example of the contextual menu pattern
+</a></div>
+
 ### Indicator
 
 If you require a drop-down button with a state indicator then the `p-contextual-menu__toggle` class can be used alongside the `p-icon` and `p-button` components.

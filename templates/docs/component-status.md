@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.23 -->
     <tr>
+      <th><a href="/docs/patterns/contextual-menu#overlapping">Contextual menu</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.23.0</td>
+      <td>We added a utility class, <code>.is-overlapping</code> that allows dropdown menus to cover their parent element</code>.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/code#code-snippet">Code snippet</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.23.0</td>
