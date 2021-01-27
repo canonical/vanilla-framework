@@ -39,7 +39,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/base/code#code-snippet">Code snippet - Dropdowns</a></th>
       <td><div class="p-label--updated">New</div></td>
       <td>2.23.0</td>
-      <td>We add the ability to include a contextual menu to a code snippet, allowing users to switch between related code examples.</td>
+      <td>We add the ability to include a select within in a code snippet, allowing users to switch between related code examples.</td>
     </tr>
     <tr>
       <th><a href="/docs/base/code#code-snippet">Code snippet</a></th>
@@ -47,7 +47,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.23.0</td>
       <td>We added a utility class for <code>.p-code-snippet__block</code> that allows content to wrap, rather than horizontally scroll: <code>.is-wrapped</code>.</td>
     </tr>
-  </tbody>
   </tbody>
 </table>
 
