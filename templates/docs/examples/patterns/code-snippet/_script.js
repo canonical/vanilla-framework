@@ -10,9 +10,11 @@ function togglePanel(targetPanel, options) {
   for (var i = 0; i < options.length; i++) {
     var panel = document.getElementById(options[i].value);
     panel.classList.add('u-hide');
+    panel.setAttribute('aria-hidden', true);
   }
 
   targetPanel.classList.remove('u-hide');
+  targetPanel.setAttribute('aria-hidden', false);
 }
 
 function setupCodeSnippetDropdowns(codeSnippetDropdownSelector) {
