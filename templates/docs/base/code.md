@@ -62,7 +62,7 @@ View example of the code snippet
 
 **Code snippet with dropdown**
 
-A [contextual menu](/docs/patterns/contextual-menu) can be included within a `.p-code-snippet__header`, and can be used alongside JS to switch between related code examples. The menu's toggle element should include the `.p-code-snippet__toggle` class.
+A select with the class `.p-code-snippet__dropdown` can be included within a `.p-code-snippet__header`, with a small amount of JS to switch between related code examples.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-dropdown" class="js-example">
 View example of the code snippet
