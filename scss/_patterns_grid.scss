@@ -96,17 +96,6 @@
     }
   }
 
-  // large desktop - 16 column grid
-  @media (min-width: $threshold-12-16-col) {
-    @for $i from $grid-columns--16 through 1 {
-      // set col-* to span respective number of columns on desktop
-      .#{$grid-16-col-prefix}#{$i} {
-        @include vf-grid-flex-column($i);
-        @include vf-grid-column($i);
-      }
-    }
-  }
-
   // span full grid on other breakpoints; (to match block level element behaviour)
   @for $i from 1 through $grid-columns-small {
     .#{$grid-small-col-prefix}#{$i} {
@@ -196,27 +185,17 @@
   // Ways to break out of the 12-col grid
 
   // Aside / main aligned to the left edge of the fixed-width grid
-  .row-new {
-    @extend %vf-row-new;
-  }
+  .row-breakout {
+    @extend %vf-row-breakout;
 
-  .row-new__full {
-    @extend %vf-row-new__full;
-  }
-  .row-new__main {
-    @extend %vf-row-new__main;
-  }
-  .row-new__aside-left {
-    @extend %vf-row-new__aside-left;
-  }
-
-  // 16-col grid (additional 2 columns on either side of the fixed-width 12 col grid)
-  .row-x-large {
-    @extend %vf-row;
-    @extend %vf-row--16-col;
-
-    &__row-10 {
-      grid-row: 1 / 10;
+    &__full {
+      @extend %vf-row-breakout__full;
+    }
+    &__main {
+      @extend %vf-row-breakout__main;
+    }
+    &__aside {
+      @extend %vf-row-breakout__aside;
     }
   }
 }

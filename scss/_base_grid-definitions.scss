@@ -80,16 +80,7 @@
     }
   }
 
-  %vf-row--16-col {
-    align-items: self-start;
-
-    @media (min-width: $threshold-12-16-col) {
-      grid-template-columns: repeat($grid-columns--16, minmax(0, 1fr));
-      max-width: $grid-max-width--16-col;
-    }
-  }
-
-  %vf-row-new {
+  %vf-row-breakout {
     @media (min-width: $threshold-12-16-col) {
       align-items: self-start;
       display: grid;
@@ -101,7 +92,7 @@
     }
   }
 
-  %vf-row-new__full {
+  %vf-row-breakout__full {
     @media (max-width: $threshold-12-16-col) {
       & & {
         @include vf-b-row-reset;
@@ -173,7 +164,7 @@
     }
   }
 
-  %vf-row-new__main {
+  %vf-row-breakout__main {
     @supports (display: grid) {
       display: inherit;
       grid-column-start: auto;
@@ -204,7 +195,7 @@
     }
   }
 
-  %vf-row-new__aside-left {
+  %vf-row-breakout__aside {
     @supports (display: grid) {
       grid-column-start: auto;
       grid-row-start: auto;

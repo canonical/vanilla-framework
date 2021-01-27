@@ -1,0 +1,65 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / Breaking out of the 12 column grid{% endblock %}
+
+{% block content %}
+{% include "docs/examples/patterns/navigation/_default-dark.html" %}
+
+<style>
+  .row-breakout__aside,
+  .row-breakout__main * {
+    background-color: rgba(199,22,43,0.1);
+    margin-bottom: 1rem;
+  }
+</style>
+
+<div class="p-strip is-shallow">
+  <div class="row-breakout">
+    <div class="row-breakout__full">
+      <div class="row-breakout__aside u-align--right">
+        <div class="u-align--left">
+          {% include "docs/examples/patterns/grid/_aside.html" %}
+        </div>
+      </div>
+      <div class="row-breakout__main">
+        {% for i in range(14) %}
+        {% with index = i + 1 %}
+        <div>item # {{index}}</div>
+        {% endwith %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip is-shallow">
+  <div class="row-breakout">
+    <div class="row-breakout__full">
+      <div class="row-breakout__main">
+        {% for i in range(14) %}
+        {% with index = i + 1 %}
+        <div>item # {{index}}</div>
+        {% endwith %}
+        {% endfor %}
+      </div>
+      <div class="row-breakout__aside ">
+        {% include "docs/examples/patterns/grid/_aside.html" %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="p-strip is-shallow">
+  <div class="row-breakout">
+    <div class="row-breakout__full">
+      <div class="row-breakout__aside u-align--right">
+        <div class="u-align--left">
+        </div>
+      </div>
+      <div class="row-breakout__main">
+        {% include "docs/examples/patterns/grid/_cve-table.html" %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
