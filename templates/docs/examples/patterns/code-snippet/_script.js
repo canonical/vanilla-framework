@@ -1,24 +1,16 @@
-function setupCodeSnippetOptions(dropdown) {
-  var dropdownLabel = dropdown.querySelector('span');
-  var targetMenu = document.getElementById(dropdown.getAttribute('aria-controls'));
-  var options = [].slice.call(targetMenu.querySelectorAll('[aria-controls]'));
+function attachDropdownEvents(dropdown) {
+  dropdown.addEventListener('change', function (e) {
+    var targetElement = document.getElementById(e.target.value);
 
-  options.forEach(function (option) {
-    option.addEventListener('click', function (e) {
-      e.preventDefault();
-      var targetPanel = document.getElementById(option.getAttribute('aria-controls'));
-
-      dropdownLabel.innerHTML = option.innerHTML;
-      togglePanel(targetPanel, options);
-    });
+    togglePanel(targetElement, dropdown.options);
   });
 }
 
 function togglePanel(targetPanel, options) {
-  options.forEach(function (option) {
-    var panel = document.getElementById(option.getAttribute('aria-controls'));
+  for (var i = 0; i < options.length; i++) {
+    var panel = document.getElementById(options[i].value);
     panel.classList.add('u-hide');
-  });
+  }
 
   targetPanel.classList.remove('u-hide');
 }
@@ -27,8 +19,8 @@ function setupCodeSnippetDropdowns(codeSnippetDropdownSelector) {
   var dropdowns = [].slice.call(document.querySelectorAll(codeSnippetDropdownSelector));
 
   dropdowns.forEach(function (dropdown) {
-    setupCodeSnippetOptions(dropdown);
+    attachDropdownEvents(dropdown);
   });
 }
 
-setupCodeSnippetDropdowns('.p-code-snippet__toggle');
+setupCodeSnippetDropdowns('.p-code-snippet__dropdown');
