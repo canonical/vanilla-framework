@@ -153,7 +153,7 @@
     @media #{$query} {
       @for $i from 1 through $col-count {
         .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i},
-        .row-16 [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
+        .row-x-large [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
           grid-column-start: #{$i};
         }
 
@@ -211,7 +211,7 @@
   }
 
   // 16-col grid (additional 2 columns on either side of the fixed-width 12 col grid)
-  .row-16 {
+  .row-x-large {
     @extend %vf-row;
     @extend %vf-row--16-col;
 

@@ -68,36 +68,44 @@
     </div>
   </div>
 
-  <div class="p-strip--light">
-    <div class="row-16">
+  <!-- <div class="p-strip--light">
+    <div class="row-x-large">
       <div class="col-14 col-start-x-large-3" id="js-svg-container">
         <script src="/static/js/d3.v4.min.js"></script>
         <script src="/static/js/chart.js"></script>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="p-strip">
+  <!-- <div class="p-strip">
     <div class="row-new">
-      <div class="row-new__full">s
+      <div class="row-new__full">
         <div class="row-new__main">
           {% include "docs/examples/patterns/grid/_cve-table.html" %}
         </div>
       </div>
     </div>
-  </div>
-
+  </div> -->
 
   <div class="p-strip">
     <div class="row-new">
       <div class="row-new__full">
-        <div class="row-new__aside-left">
-          {% include "docs/examples/patterns/grid/_aside.html" %}
+        <div class="row-new__aside-left col-demo-bg u-align--right">
+          <!-- aside <br>
+          aside <br>
+          aside <br>
+          aside <br>
+          aside <br>
+          aside <br>
+          aside <br> -->
+          <div class="u-align--left">
+            {% include "docs/examples/patterns/grid/_aside.html" %}
+          </div>
         </div>
         <div class="row-new__main">
           {% for i in range(14) %}
           {% with index = i + 1 %}
-          <div class="col-auto">item # {{index}}</div>
+          <div class="col-demo-bg">item # {{index}}</div>
           {% endwith %}
           {% endfor %}
         </div>
@@ -105,230 +113,17 @@
     </div>
   </div>
 
-
-  <div class="row-16">
-    <div class="row-16__row-10 col-2">
+  <div class="row-x-large">
+    <div class="row-x-large__row-10 col-2">
       {% include "docs/examples/patterns/grid/_aside.html" %}
     </div>
-      {% for i in range(14) %}
+      {% for i in range(36) %}
 
       {% with index = i + 1 %}
-      <div class="col-2">item # {{index}}</div>
-      <!-- {% include "docs/examples/patterns/card/_fluid-width.html" %} -->
+      <div class="col-1">item # {{index}}</div>
       {% endwith %}
       {% endfor %}
   </div>
+
 </div>
-
-<!-- <div class="p-strip is-shallow">
-  <div class="row-16">
-    <div class="main-minus-first-2">
-      {% for i in range(14) %}
-      {% with index = i + 1 %}
-        {% include "docs/examples/patterns/card/_fluid-width.html" %}
-      {% endwith %}
-      {% endfor %}
-    </div>
-    <div class="left">
-      {% include "docs/examples/patterns/side-navigation/_grid.html" %}
-    </div>
-  </div>
-</div> -->
-<!--
-
-<div class="row-16">
-  <div class="col-14 col-start-x-large-3">
-    <pre>
-      <code>$ snap change 2053
-Status  Spawn               Ready               Summary
-Done    today at 15:16:434435454554343455434 BST  today at 15:16:434435454554343455434 BST  Ensure prerequisites for "gnome-calculator" are available
-Done    today at 15:16:434435454554343455434 BST  today at 15:16:434435454554343455434 BST  Download snap "gnome-calculator" (199) from channel "stable"
-Done    today at 15:16:434435454554343455434 BST  today at 15:16:434435454554343455434 BST  Fetch and check assertions for snap "gnome-calculator" (199)
-⋮
-Done    today at 15:16:434435454554343455434 BST  today at 15:16:434435454554343455434 BST  Start snap "gnome-system-monitor" (54) services
-Done    today at 15:16:434435454554343455434 BST  today at 15:16:434435454554343455434 BST  Clean up "gnome-system-monitor" (54) install
-Done    today at 15:16:434435454554343455434 BST  today at 15:16:434435454554343455434 BST  Run configure hook of "gnome-system-monitor" snap if present
-      </code>
-    </pre>
-  </div>
-</div>
-
-<div class="p-strip is-shallow">
-  <div class="row">
-      <div class="col-12">
-        <span>.col-12</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-11">
-        <span>.col-11</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-10">
-        <span>.col-10</span>
-      </div>
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-9">
-        <span>.col-9</span>
-      </div>
-      <div class="col-3">
-        <span>.col-3</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <span>.col-8</span>
-      </div>
-      <div class="col-4">
-        <span>.col-4</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-7">
-        <span>.col-7</span>
-      </div>
-      <div class="col-5">
-        <span>.col-5</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <span>.col-6</span>
-      </div>
-      <div class="col-6">
-        <span>.col-6</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-5">
-        <span>.col-5</span>
-      </div>
-      <div class="col-7">
-        <span>.col-7</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <span>.col-4</span>
-      </div>
-      <div class="col-8">
-        <span>.col-8</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <span>.col-3</span>
-      </div>
-      <div class="col-9">
-        <span>.col-9</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-      <div class="col-10">
-        <span>.col-10</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-11">
-        <span>.col-11</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-      <div class="col-1">
-        <span>.col-1</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-      <div class="col-2">
-        <span>.col-2</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <span>.col-3</span>
-      </div>
-      <div class="col-3">
-        <span>.col-3</span>
-      </div>
-      <div class="col-3">
-        <span>.col-3</span>
-      </div>
-      <div class="col-3">
-        <span>.col-3</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <span>.col-4</span>
-      </div>
-      <div class="col-4">
-        <span>.col-4</span>
-      </div>
-      <div class="col-4">
-        <span>.col-4</span>
-      </div>
-    </div>
-</div> -->
 {% endblock %}

@@ -1,0 +1,67 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / Wide{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+
+<div class="grid-demo">
+  <div class="p-strip is-shallow">
+    <div class="row">
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+      <div class="col-1">
+        <span>.col-1</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-strip">
+    <div class="row-new">
+      <div class="row-new__full">
+        <div class="row-new__aside-left">
+          <div class="col-aside">aside <br>aside <br>aside <br>aside <br>aside <br>aside <br>aside <br></div>
+        </div>
+        <div class="row-new__main">
+          {% for i in range(14) %}
+          {% with index = i + 1 %}
+          <div class="col-auto">item # {{index}}</div>
+          {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

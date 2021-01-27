@@ -11,24 +11,32 @@ $grid-columns-small: 4 !default;
 $grid-columns-medium: 6 !default;
 $threshold-4-6-col: $breakpoint-small !default;
 $threshold-6-12-col: $breakpoint-medium !default;
-$threshold-12-16-col: 97rem;
+$threshold-12-16-col: 95rem;
 
 $grid-column-prefix: 'col-' !default;
 $grid-small-col-prefix: '#{$grid-column-prefix}small-' !default;
 $grid-medium-col-prefix: '#{$grid-column-prefix}medium-' !default;
 $grid-large-col-prefix: #{$grid-column-prefix} !default;
-$grid-16-col-prefix: #{$grid-column-prefix} !default;
+$grid-16-col-prefix: #{$grid-column-prefix}x-large !default;
 
 $grid-gutter-widths: (
   small: $sp-unit * 3,
-  medium: $sp-unit * 3,
-  large: $sp-unit * 3,
+  medium: $sp-unit * 4,
+  large: $sp-unit * 4,
 ) !default;
 
 $grid-margin-widths: (
   small: $sp-unit * 2,
-  medium: $sp-unit * 2,
+  medium: $sp-unit * 3,
   large: $sp-unit * 3,
 ) !default;
 
 $grid-margin-width: $sph-outer--large !default;
+
+// Grid breakout template
+// column count occupied by aside on the 12 colummn grid, before it moves outside the grid on bigger screens
+$aside-columns-small: 4 !default;
+$aside-columns-medium: 2 !default;
+$aside-columns-large: 3 !default;
+$main-items-width: 12rem !default;
+$align-aside-content-right: true !default;
