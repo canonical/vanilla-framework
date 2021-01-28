@@ -60,6 +60,14 @@ View example of the code snippet
 View example of the code snippet
 </a></div>
 
+**Code snippet with dropdown**
+
+A select with the class `.p-code-snippet__dropdown` can be included within a `.p-code-snippet__header`, with a small amount of JS to switch between related code examples.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-dropdown" class="js-example">
+View example of the code snippet
+</a></div>
+
 **Toggling wrapping within a code snippet**
 
 By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:

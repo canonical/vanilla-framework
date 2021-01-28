@@ -1,0 +1,38 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Code snippet / Dropdown{% endblock %}
+
+{% block standalone_css %}patterns_code-snippet{% endblock %}
+
+{% block content %}
+<div class="p-code-snippet">
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Creating a code snippet</h5>
+
+    <div class="p-code-snippet__dropdowns">
+      <select class="p-code-snippet__dropdown" name="menu1-select" id="menu1-select">
+        <option value="html-panel">HTML</option>
+        <option value="css-panel">CSS</option>
+        <option value="js-panel">JS</option>
+      </select>
+    </div>
+  </div>
+
+  <pre id="html-panel" class="p-code-snippet__block--numbered is-wrapped"><code>&#60;h1 class="p-heading--two"&#62;How to use code snippets&#60;/h1&#62;</code></pre>
+
+  <pre id="css-panel" class="p-code-snippet__block u-hide" aria-hidden="true"><code>.p-heading--two {
+color: red;
+}</code></pre>
+
+  <pre id="js-panel" class="p-code-snippet__block u-hide" aria-hidden="true"><code>console.log("Example 1");</code></pre>
+
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Output</h5>
+  </div>
+
+  <pre class="p-code-snippet__block"><code>Example 1</code></pre>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/code-snippet/_script.js' %}
+</script>
+{% endblock %}

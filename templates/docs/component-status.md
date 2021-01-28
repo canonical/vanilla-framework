@@ -36,6 +36,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We renamed <code>is-active</code> button state class to <code>is-processing</code>, which can be combined with <code>disabled</code> when a button needs to indicate a process is occurring while also preventing user interaction.</td>
     </tr>
     <tr>
+      <th><a href="/docs/base/code#code-snippet">Code snippet - Dropdowns</a></th>
+      <td><div class="p-label--updated">New</div></td>
+      <td>2.23.0</td>
+      <td>We add the ability to include a select within in a code snippet, allowing users to switch between related code examples.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/code#code-snippet">Code snippet</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.23.0</td>
