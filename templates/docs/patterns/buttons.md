@@ -74,8 +74,6 @@ View example of the dense button pattern
 
 ### Small
 
-<span class="p-label--new">New</span>
-
 If you are working with small text and need a suitably sized button, add class `.is-small`. It can be combined with `.is-dense` for an even tighter look:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/small/" class="js-example">
@@ -90,15 +88,21 @@ Should you wish to place an icon in a button. You will not want to button to bec
 View example of the icon button pattern
 </a></div>
 
-### Active
+### Processing
 
 <span class="p-label--new">New</span>
 
-In cases where a button needs to indicate that an action is occurring (e.g. saving data, processing a payment) while also preventing user interaction, the state class `is-active` can be added to a disabled button to maintain full opacity.
+In cases where a button needs to indicate that an action is occurring (e.g. saving data, processing a payment) while also preventing user interaction, the state class `is-processing` can be added to a disabled button to maintain full opacity.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/buttons/active/" class="js-example">
-View example of the active button pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/processing/" class="js-example">
+View example of the processing button pattern
 </a></div>
+
+### Active
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
 
 ### Import
 
