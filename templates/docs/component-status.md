@@ -27,7 +27,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/buttons#active">Active button</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.23.0</td>
-      <td>The <code>is-active</code> class was deprecated and given a more appropriate name: `is-processing`.</td>
+      <td>The <code>is-active</code> class was deprecated and given a more appropriate name: <code>is-processing</code>.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/buttons#processing">Processing button</a></th>
