@@ -102,7 +102,7 @@ View example of the processing button pattern
 
 <span class="p-label--deprecated">Deprecated</span>
 
-The `is-active` utility class was renamed to the more appropriate `is-active`, as mentioned above.
+The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
 
 ### Import
 
