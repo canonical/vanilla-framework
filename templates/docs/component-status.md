@@ -24,6 +24,18 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.23 -->
     <tr>
+      <th><a href="/docs/patterns/buttons#active">Active button</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.23.0</td>
+      <td>The <code>is-active</code> class was deprecated and given a more appropriate name: <code>is-processing</code>.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/buttons#processing">Processing button</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.23.0</td>
+      <td>We renamed <code>is-active</code> button state class to <code>is-processing</code>, which can be combined with <code>disabled</code> when a button needs to indicate a process is occurring while also preventing user interaction.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/code#code-snippet">Code snippet</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.23.0</td>
