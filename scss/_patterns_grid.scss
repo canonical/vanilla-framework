@@ -226,6 +226,39 @@
       }
     }
 
+    .row-breakout__full--autofit {
+      @supports (display: grid) {
+        display: grid;
+        grid-template-columns: [full-start] minmax(max-content, 1fr) [main-start] minmax(0, $grid-max-width) [main-end] minmax(0, 1fr) [full-end];
+        grid-template-rows: auto;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $grid-breakout-max-width;
+
+        [class*='#{$grid-column-prefix}'] {
+          grid-column-start: auto;
+        }
+      }
+
+      @media (max-width: $threshold-12-col-plus) {
+        @supports (display: grid) {
+          grid-gap: 0 map-get($grid-gutter-widths, large);
+          padding-left: map-get($grid-margin-widths, large);
+          padding-right: map-get($grid-margin-widths, large);
+        }
+      }
+
+      @media (min-width: $threshold-12-col-plus) {
+        @supports (display: grid) {
+          grid-column: full;
+          grid-gap: 0 0;
+          max-width: unset;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+
     .row-breakout__main {
       @supports (display: grid) {
         display: grid;
@@ -244,8 +277,8 @@
         }
 
         @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-          grid-column-end: span $grid-columns-medium - $aside-columns-medium;
-          grid-template-columns: repeat($grid-columns-medium - $aside-columns-medium, minmax(0, 1fr));
+          grid-column-end: span $grid-columns-medium;
+          grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
         }
 
         @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
@@ -270,26 +303,12 @@
     .row-breakout__main--autofit {
       @supports (display: grid) {
         display: grid;
+        grid-column: auto / span 2;
         grid-gap: 0 map-get($grid-gutter-widths, large);
+        grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
 
-        @media (max-width: $breakpoint-x-small) {
-          grid-template-columns: repeat($grid-columns-x-small, minmax(0, 1fr));
-        }
-
-        @media (min-width: $breakpoint-x-small) and (max-width: $threshold-4-6-col) {
-          grid-column-end: span $grid-columns-small;
-          grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
-        }
-
-        @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-          grid-column-end: span $grid-columns-medium - $aside-columns-medium;
-          grid-template-columns: repeat($grid-columns-medium - $aside-columns-medium, minmax(0, 1fr));
-        }
-
-        @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus--autofit) {
-          grid-column-end: span $grid-columns - $aside-columns-large;
-          grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
-        }
+        // @media (max-width: $threshold-12-col-plus--autofit) {
+        // }
 
         @media (min-width: $threshold-12-col-plus--autofit) {
           grid-column: auto / span 2;
@@ -337,30 +356,9 @@
 
     .row-breakout__aside--autofit {
       @supports (display: grid) {
+        grid-column-end: span 1;
         grid-column-start: auto;
         grid-row: 1 / 100;
-
-        @media (max-width: $threshold-4-6-col) {
-          grid-column-end: span $aside-columns-x-small;
-        }
-
-        @media (min-width: $breakpoint-x-small) and (max-width: $threshold-4-6-col) {
-          grid-column-end: span $aside-columns-small;
-        }
-
-        @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-          grid-column-end: span $aside-columns-medium;
-        }
-
-        @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus--autofit) {
-          grid-column-end: span $aside-columns-large;
-          grid-column: auto / span 2;
-        }
-
-        @media (min-width: $threshold-12-col-plus--autofit) {
-          display: grid;
-          grid-column-end: span 1;
-        }
       }
     }
   }
