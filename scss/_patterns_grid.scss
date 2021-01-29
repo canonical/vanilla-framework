@@ -303,15 +303,20 @@
     .row-breakout__main--autofit {
       @supports (display: grid) {
         display: grid;
-        grid-column: auto / span 2;
         grid-gap: 0 map-get($grid-gutter-widths, large);
         grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
 
         // @media (max-width: $threshold-12-col-plus--autofit) {
         // }
-
-        @media (min-width: $threshold-12-col-plus--autofit) {
+        @media (max-width: $breakpoint-large) {
           grid-column: auto / span 2;
+        }
+
+        @media (min-width: $breakpoint-large) {
+          grid-column: auto / span 2;
+        }
+
+        @media (min-width: $threshold-12-col-plus) {
           grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
           padding-left: map-get($grid-margin-widths, large);
           padding-right: map-get($grid-margin-widths, large);
