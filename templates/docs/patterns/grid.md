@@ -110,14 +110,14 @@ The breakout row allows some customisation. The arguments in the table bellow ar
 
 | Argument                    | Use                              | Default value |
 | --------------------------- | -------------------------------- | ------------- |
-| `$aside-autofit-width`      | Aside width                      | 13rem         |
-| `$main-items-autofit-width` | Width of item in the main column | 13rem         |
-| `$grid-gap`                 | Gap between columns in main area | 1rem          |
-| `$suffix`                   | Class modifier                   | ''            |
+| `$aside-autofit-width`      | Aside width                      | `13rem`       |
+| `$main-items-autofit-width` | Width of item in the main column | `13rem`       |
+| `$grid-gap`                 | Gap between columns in main area | `1rem`        |
+| `$suffix`                   | Class modifier                   | `''`          |
 
 <br>
 
-For example top create a breakout row named `.grid-breakout--custom` that has a 10rem aside, a main area subdivided into 20rem columns, with no grid gap in between, you could use:
+For example top create a breakout row named `.grid-breakout--custom` that has a `10rem` aside, a main area subdivided into `20rem` columns, with no grid gap in between, you could use:
 
 ```scss
 @import 'patterns_grid';
