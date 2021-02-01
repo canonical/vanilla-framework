@@ -10,9 +10,9 @@ context:
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
 
-### What's new in Vanilla 2.24
+### What's new in Vanilla {{versionMinor}}
 
-<table aria-label="What's new in Vanilla 2.24">
+<table aria-label="What's new in Vanilla {{versionMinor}}">
   <thead>
     <tr>
       <th style="width: 20%">Component</th>
