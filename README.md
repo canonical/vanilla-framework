@@ -42,6 +42,8 @@ gulp.task('sass', function () {
 });
 ```
 
+Please note, that to provide the best browser support you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) as a build step.
+
 Then reference it from your own Sass files, with optional settings:
 
 ```sass
