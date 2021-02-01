@@ -97,7 +97,6 @@ Or vice versa:
 View example of he breakout row with a right aside
 </a></div>
 
-
 ### Import
 
 To import just the breakout row component into your project, copy the snippet below and include it in your main Sass file.
@@ -109,12 +108,12 @@ To import just the breakout row component into your project, copy the snippet be
 
 The breakout row allows some customisation. The arguments in the table bellow are all optional.
 
-| Argument                    | Use                              | Default value  |
-| --------------------------- | -------------------------------- | -------------- |
-| `$aside-autofit-width`      | Aside width                      | 13rem          |
-| `$main-items-autofit-width` | Width of item in the main column | 13rem          |
-| `$grid-gap`                 | 1rem                             |                |
-| `$suffix`                   |                                  | 2.0rem         |
+| Argument                    | Use                              | Default value |
+| --------------------------- | -------------------------------- | ------------- |
+| `$aside-autofit-width`      | Aside width                      | 13rem         |
+| `$main-items-autofit-width` | Width of item in the main column | 13rem         |
+| `$grid-gap`                 | 1rem                             |               |
+| `$suffix`                   |                                  | 2.0rem        |
 
 <br>
 
