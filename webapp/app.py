@@ -142,7 +142,10 @@ def _filter_contributors(contributors):
 # Global context settings
 @app.context_processor
 def global_template_context():
-    return {"version": VANILLA_VERSION, "path": flask.request.path}
+    version_parts = VANILLA_VERSION.split(".")
+    version_minor = f"{version_parts[0]}.{version_parts[1]}"
+
+    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
@@ -188,7 +191,7 @@ def contribute_index():
 
     response.cache_control.max_age = 86400
     response.cache_control.public = True
-   
+
     return response
 
 
