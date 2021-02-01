@@ -65,7 +65,9 @@ To watch for changes in your Sass files, add the following script to your `packa
 
 Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
 
-For more options on configuring `node-sass`, for example minification and autoprefixing, refer to [the README.md](https://github.com/sass/node-sass).
+To provide the same browser support as Vanilla, you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) in the build pipeline via [postcss-cli](https://www.npmjs.com/package/postcss-cli).
+
+For more options on configuring `node-sass`, for example minification and autoprefixing, refer to [the node-sass documentation](https://github.com/sass/node-sass).
 
 ### Webpack
 
@@ -206,7 +208,9 @@ Your project's folder structure should now look something like this:
   <li class="p-list-tree__item">yarn.lock</li>
 </ul>
 
-For more options on configuring Webpack, for example minification and autoprefixing, refer to [the docs](https://webpack.js.org/concepts/).
+To provide the same browser support as Vanilla, you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) in the build pipeline via [postcss-loader](https://www.npmjs.com/package/postcss-loader).
+
+For more options on configuring Webpack, for example minification and autoprefixing, refer to [the Webpack documentation](https://webpack.js.org/concepts/).
 
 ### Gulp
 
@@ -269,7 +273,9 @@ Now run `gulp build-css`, which will convert any Sass files in the `src/` folder
 
 If you open an extra terminal and run `gulp watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
 
-For more options on configuring `gulp-sass`, for example minification and autoprefixing, refer to [the README.md](https://github.com/dlmanning/gulp-sass).
+To provide the same browser support as Vanilla, you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) in the build pipeline via [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer).
+
+For more options on configuring `gulp-sass`, for example minification and autoprefixing, refer to [the gulp-sass documentation](https://www.npmjs.com/package/gulp-sass).
 
 ### Git submodules
 
