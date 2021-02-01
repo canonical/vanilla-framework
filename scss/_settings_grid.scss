@@ -3,6 +3,7 @@
 
 // Global grid settings
 $grid-max-width: 72rem !default;
+$breakout-autofit-width: $grid-max-width !default;
 
 $grid-columns--16: 16 !default;
 $grid-columns-x-small: 2 !default;
@@ -11,8 +12,6 @@ $grid-columns-medium: 6 !default;
 $grid-columns: 12 !default;
 $threshold-4-6-col: $breakpoint-small !default;
 $threshold-6-12-col: $breakpoint-medium !default;
-$threshold-12-col-plus: 95rem;
-$threshold-12-col-plus--autofit: 72rem;
 
 $grid-column-prefix: 'col-' !default;
 $grid-x-small-col-prefix: '#{$grid-column-prefix}x-small-' !default;
@@ -42,6 +41,8 @@ $aside-columns-x-small: 4 !default;
 $aside-columns-small: 4 !default;
 $aside-columns-medium: 6 !default;
 $aside-columns-large: 3 !default;
+$aside-autofit-width: 13rem !default;
 $main-items-autofit-width: 13rem !default;
 $grid-breakout-columns-x-large: 12 !default;
 $grid-breakut-x-large-col-prefix: '#{$grid-column-prefix}x-large-' !default;
+$threshold-12-col-plus: $grid-max-width + $aside-autofit-width;

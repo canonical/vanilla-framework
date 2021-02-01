@@ -80,3 +80,47 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 ### Design
 
 For more information [view the grid design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Grid), which includes the specification in markdown format and a PNG image.
+
+## Breaking out of the grid
+
+In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins - for example, tables with many columns that would otherwise result in heavy truncation or wrapping, charts with a lot of detail along the x axis, or card layouts that aim to impress with the abundance of available content.
+
+The `.row-breakout` class allows you to do this. For example, you could have an aside on the left and a main area to the right:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-left-aside/" class="js-example">
+View example of he breakout row with a left aside
+</a></div>
+
+Or vice versa:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-left-aside/" class="js-example">
+View example of he breakout row with a right aside
+</a></div>
+
+
+### Import
+
+To import just the breakout row component into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+@import 'patterns_grid';
+@include vf-p-grid-breakout;
+```
+
+The breakout row allows some customisation. The arguments in the table bellow are all optional.
+
+| Argument                    | Use                              | Default value  |
+| --------------------------- | -------------------------------- | -------------- |
+| `$aside-autofit-width`      | Aside width                      | 13rem          |
+| `$main-items-autofit-width` | Width of item in the main column | 13rem          |
+| `$grid-gap`                 | 1rem                             |                |
+| `$suffix`                   |                                  | 2.0rem         |
+
+<br>
+
+For example top create a breakout row named `.grid-breakout--custom` that has a 10rem aside, a main area subdivided into 20rem columns, with no grid gap in between, you could use:
+
+```scss
+@import 'patterns_grid';
+@include vf-p-grid-breakout(10rem, 20rem, 0, '--custom');
+```

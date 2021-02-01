@@ -6,27 +6,22 @@
 {% block content %}
 
 <style>
-  .row-breakout__aside,
-  .row-breakout__main * {
+  .viz-grid-item, .viz-aside {
     background-color: rgba(199,22,43,0.1);
     margin-bottom: 1rem;
   }
 </style>
 
-<div class="p-strip">
-  <div class="row-breakout">
-    <div class="row-breakout__full">
-      <div class="row-breakout__aside u-align--right">
-        <div class="u-align-left">aside</div>
-      </div>
-      <div class="row-breakout__main">
-        {% for i in range(14) %}
-        {% with index = i + 1 %}
-        <div>item # {{index}}</div>
-        {% endwith %}
-        {% endfor %}
-      </div>
-    </div>
+<div class="row-breakout">
+  <div class="row-breakout__aside">
+     <div class="viz-aside">Aside</div>
+  </div>
+  <div class="row-breakout__main">
+    {% for i in range(14) %}
+    {% with index = i + 1 %}
+    <div class="viz-grid-item">grid item</div>
+    {% endwith %}
+    {% endfor %}
   </div>
 </div>
 {% endblock %}

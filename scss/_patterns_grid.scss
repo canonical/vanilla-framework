@@ -158,166 +158,46 @@
   }
 }
 
-@mixin vf-p-grid-breakout {
-  .row-breakout {
-    @media (min-width: $threshold-12-col-plus) {
-      align-items: self-start;
-      display: grid;
-      grid-gap: 0 0;
-      grid-template-columns: [full-start] minmax(10rem, 1fr) [main-start] minmax(0, $grid-max-width) [main-end] minmax(10rem, 1fr) [full-end];
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 120rem;
-    }
+@mixin vf-p-grid-breakout($aside-autofit-width: $aside-autofit-width, $main-items-autofit-width: $main-items-autofit-width, $grid-gap: $sp-unit * 2, $suffix: '') {
+  .row-breakout#{$suffix} {
+    grid-gap: 0 0;
 
-    .row-breakout__full {
-      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-12-col-plus) {
-        @supports (display: grid) {
-          display: grid;
-          grid-template-rows: auto;
-          margin-left: auto;
-          margin-right: auto;
-          max-width: $grid-max-width;
-
-          [class*='#{$grid-column-prefix}'] {
-            grid-column-start: auto;
-          }
-        }
-      }
-
-      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-        @supports (display: grid) {
-          grid-gap: 0 map-get($grid-gutter-widths, medium);
-          grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
-          padding-left: map-get($grid-margin-widths, medium);
-          padding-right: map-get($grid-margin-widths, medium);
-
-          // stylelint-disable-next-line max-nesting-depth
-          & > * {
-            grid-column-end: span $grid-columns-medium;
-          }
-        }
-      }
-
-      @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
-        @supports (display: grid) {
-          grid-gap: 0 map-get($grid-gutter-widths, large);
-          grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
-          padding-left: map-get($grid-margin-widths, large);
-          padding-right: map-get($grid-margin-widths, large);
-
-          // stylelint-disable-next-line max-nesting-depth
-          & > * {
-            grid-column-end: span $grid-columns;
-          }
-        }
-      }
-
-      @media (min-width: $threshold-12-col-plus) {
-        @supports (display: grid) {
-          display: grid;
-          grid-column: full;
-          grid-gap: 0 0;
-          grid-template-columns: inherit;
-          max-width: unset;
-          padding-left: 0;
-          padding-right: 0;
-        }
-      }
-    }
-
-    .row-breakout__full--autofit {
+    @media (min-width: $breakpoint-large) {
       @supports (display: grid) {
         display: grid;
-        grid-template-columns: [full-start] minmax(max-content, 1fr) [main-start] minmax(0, $grid-max-width) [main-end] minmax(0, 1fr) [full-end];
+        grid-template-columns: minmax($aside-autofit-width, 1fr) minmax($main-items-autofit-width, $breakout-autofit-width) minmax($aside-autofit-width, 1fr);
         grid-template-rows: auto;
         margin-left: auto;
         margin-right: auto;
         max-width: $grid-breakout-max-width;
-
-        [class*='#{$grid-column-prefix}'] {
-          grid-column-start: auto;
-        }
       }
+    }
 
-      @media (max-width: $threshold-12-col-plus) {
-        @supports (display: grid) {
-          grid-gap: 0 map-get($grid-gutter-widths, large);
-          padding-left: map-get($grid-margin-widths, large);
-          padding-right: map-get($grid-margin-widths, large);
-        }
-      }
+    @media (max-width: $threshold-12-col-plus) {
+      padding-left: map-get($grid-margin-widths, large);
+      padding-right: map-get($grid-margin-widths, large);
+    }
 
-      @media (min-width: $threshold-12-col-plus) {
-        @supports (display: grid) {
-          grid-column: full;
-          grid-gap: 0 0;
-          max-width: unset;
-          padding-left: 0;
-          padding-right: 0;
-        }
+    @media (min-width: $threshold-12-col-plus) {
+      padding-left: 0;
+      padding-right: 0;
+      @supports (display: grid) {
+        grid-gap: 0 0;
       }
     }
 
     .row-breakout__main {
       @supports (display: grid) {
         display: grid;
-        // grid-column-start: auto;
-        grid-gap: 0 map-get($grid-gutter-widths, large);
-        // grid-row-start: auto;
-
-        @media (max-width: $breakpoint-x-small) {
-          // grid-column-end: span $grid-columns-x-small;
-          grid-template-columns: repeat($grid-columns-x-small, minmax(0, 1fr));
-        }
-
-        @media (min-width: $breakpoint-x-small) and (max-width: $threshold-4-6-col) {
-          grid-column-end: span $grid-columns-small;
-          grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
-        }
-
-        @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-          grid-column-end: span $grid-columns-medium;
-          grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
-        }
-
-        @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
-          grid-column-end: span $grid-columns - $aside-columns-large;
-          grid-template-columns: repeat($grid-columns - $aside-columns-large, minmax(0, 1fr));
-        }
-
-        @media (min-width: $threshold-12-col-plus) {
-          grid-column: auto / span 2;
-          grid-template-columns: repeat($grid-breakout-columns-x-large, minmax(0, 1fr));
-          padding-left: map-get($grid-margin-widths, large);
-          padding-right: map-get($grid-margin-widths, large);
-
-          // stylelint-disable-next-line max-nesting-depth
-          & > * {
-            grid-column: auto / span $grid-breakout-columns-x-large;
-          }
-        }
-      }
-    }
-
-    .row-breakout__main--autofit {
-      @supports (display: grid) {
-        display: grid;
-        grid-gap: 0 map-get($grid-gutter-widths, large);
+        grid-gap: 0 $grid-gap;
+        grid-row: 1;
         grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
-
-        // @media (max-width: $threshold-12-col-plus--autofit) {
-        // }
-        @media (max-width: $breakpoint-large) {
-          grid-column: auto / span 2;
-        }
 
         @media (min-width: $breakpoint-large) {
           grid-column: auto / span 2;
         }
 
         @media (min-width: $threshold-12-col-plus) {
-          grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
           padding-left: map-get($grid-margin-widths, large);
           padding-right: map-get($grid-margin-widths, large);
 
@@ -329,156 +209,26 @@
       }
     }
 
-    .row-breakout__aside {
-      @supports (display: grid) {
-        grid-column-start: auto;
-        grid-row: 1 / 100;
-
-        @media (max-width: $threshold-4-6-col) {
-          grid-column-end: span $aside-columns-x-small;
-        }
-
-        @media (min-width: $breakpoint-x-small) and (max-width: $threshold-4-6-col) {
-          grid-column-end: span $aside-columns-small;
-        }
-
-        @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-          grid-column-end: span $aside-columns-medium;
-        }
-
-        @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
-          grid-column-end: span $aside-columns-large;
-        }
-
-        @media (min-width: $threshold-12-col-plus) {
-          // display: grid;
-          grid-column-end: span 1;
-          padding-left: map-get($grid-margin-widths, large);
-          // padding-right: map-get($grid-margin-widths, large);
-        }
+    %row-breakout__aside-common-properties {
+      @media (min-width: $threshold-12-col-plus) {
+        align-items: start;
+        display: flex;
       }
-    }
 
-    .row-breakout__aside--autofit {
       @supports (display: grid) {
         grid-column-end: span 1;
         grid-column-start: auto;
         grid-row: 1 / 100;
       }
     }
-  }
+    .row-breakout__aside {
+      @extend %row-breakout__aside-common-properties;
 
-  // mobile grid
-  @media (max-width: $breakpoint-x-small) {
-    @for $i from $grid-columns-x-small through 1 {
-      .row-breakout__main .#{$grid-x-small-col-prefix}#{$i} {
-        @include vf-grid-column($i);
+      justify-content: flex-end;
+    }
 
-        width: 100%;
-      }
+    .row-breakout__aside--right {
+      @extend %row-breakout__aside-common-properties;
     }
   }
-
-  // small tablet grid
-  @media (min-width: $breakpoint-x-small) and (max-width: $threshold-4-6-col) {
-    @for $i from $grid-columns-small through 1 {
-      .row-breakout__main .#{$grid-small-col-prefix}#{$i} {
-        @include vf-grid-column($i);
-
-        width: 100%;
-      }
-    }
-  }
-
-  // regular tablet grid
-  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
-    @for $i from $grid-columns-medium through 1 {
-      .row-breakout__main .#{$grid-medium-col-prefix}#{$i} {
-        @include vf-grid-column($i);
-
-        width: 100%;
-      }
-    }
-  }
-
-  // desktop grid
-  @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
-    @for $i from $grid-columns through 1 {
-      // set col-* to span respective number of columns on desktop
-      .row-breakout__main .#{$grid-large-col-prefix}#{$i} {
-        // on large screens provide flex box column implementation for IE
-        // on smaller screens let them display full width one under another
-        @include vf-grid-flex-column($i);
-        @include vf-grid-column($i);
-      }
-    }
-  }
-
-  // desktop x-large grid
-  @media (min-width: $threshold-12-col-plus) {
-    @for $i from $grid-breakout-columns-x-large through 1 {
-      // set col-* to span respective number of columns on desktop
-      .row-breakout__main .#{$grid-breakut-x-large-col-prefix}#{$i} {
-        // on large screens provide flex box column implementation for IE
-        // on smaller screens let them display full width one under another
-        @include vf-grid-flex-column($i);
-        @include vf-grid-column($i);
-      }
-    }
-  }
-  // span full grid on other breakpoints; (to match block level element behaviour)
-  @for $i from 1 through $grid-columns-small {
-    .row-breakout__main .#{$grid-small-col-prefix}#{$i} {
-      @extend %span-full-grid-on-tablet;
-      @extend %span-full-grid-on-desktop;
-      @extend %display-block;
-    }
-  }
-
-  @for $i from 1 through $grid-columns-medium {
-    .row-breakout__main .#{$grid-medium-col-prefix}#{$i} {
-      @extend %span-full-grid-on-mobile;
-      @extend %span-full-grid-on-desktop;
-      @extend %display-block;
-    }
-  }
-
-  @for $i from 1 through $grid-columns {
-    .row-breakout__main .#{$grid-large-col-prefix}#{$i} {
-      @extend %span-full-grid-on-mobile;
-      @extend %span-full-grid-on-tablet;
-      @extend %display-block;
-    }
-  }
-
-  // // column reordering
-  // $offsets: (
-  //   (small, 0, $threshold-4-6-col, $grid-columns-small - 1),
-  //   (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium - 1),
-  //   (large, $threshold-6-12-col, -1, $grid-columns - 1),
-  //   (x-large, $threshold-12-col-plus, -1, $grid-columns--16 - 1)
-  // );
-
-  // @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
-  //   $query: null;
-  //   @if $breakpoint-min == 0 {
-  //     $query: '(max-width: #{$breakpoint-max})';
-  //   } @else if $breakpoint-max == -1 {
-  //     $query: '(min-width: #{$breakpoint-min})';
-  //   } @else {
-  //     $query: '(min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max})';
-  //   }
-
-  //   @media #{$query} {
-  //     @for $i from 1 through $col-count {
-  //       .row-breakout__full [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
-  //         grid-column-start: #{$i};
-  //       }
-
-  //       .#{$grid-column-prefix}order-#{$label}-#{$i} {
-  //         order: #{$i};
-  //       }
-  //     }
-  //   }
-  // }
 }
