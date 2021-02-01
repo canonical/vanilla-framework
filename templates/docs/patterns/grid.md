@@ -112,8 +112,8 @@ The breakout row allows some customisation. The arguments in the table bellow ar
 | --------------------------- | -------------------------------- | ------------- |
 | `$aside-autofit-width`      | Aside width                      | 13rem         |
 | `$main-items-autofit-width` | Width of item in the main column | 13rem         |
-| `$grid-gap`                 | 1rem                             |               |
-| `$suffix`                   |                                  | 2.0rem        |
+| `$grid-gap`                 | Gap between columns in main area | 1rem          |
+| `$suffix`                   | Class modifier                   | ''            |
 
 <br>
 
