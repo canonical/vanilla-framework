@@ -117,7 +117,7 @@ The breakout row allows some customisation. The arguments in the table bellow ar
 
 <br>
 
-For example top create a breakout row named `.grid-breakout--custom` that has a `10rem` aside, a main area subdivided into `20rem` columns, with no grid gap in between, you could use:
+For example to create a breakout row named `.grid-breakout--custom` that has a `10rem` aside, a main area subdivided into `20rem` columns, with no grid gap in between, you could use:
 
 ```scss
 @import 'patterns_grid';
