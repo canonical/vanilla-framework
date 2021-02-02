@@ -50,57 +50,54 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
       @extend %code-numbered-line;
     }
 
+    $header-v-spacing: $spv-inner--x-small--scaleable;
+
     .p-code-snippet__header {
-      align-items: center;
+      align-items: flex-start;
       background-color: $color-code-heading-background;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      padding: $spv-inner--x-small--scaleable $sph-inner;
+      padding-left: $sph-inner;
+      padding-right: $sph-inner;
     }
 
     .p-code-snippet__title {
       @extend %vf-heading-5;
 
-      margin-bottom: 0;
-      padding-top: 0;
+      margin-bottom: $header-v-spacing;
+      padding-top: $header-v-spacing;
     }
 
     .p-code-snippet__dropdown {
       background-color: $color-transparent;
-      border-color: $color-transparent;
+      border: 0;
       color: $color-dark;
-
-      // taken from the .u-table-cell-padding-overlap utility
-      margin-bottom: -#{$table-cell-vertical-padding} !important;
-      margin-top: calc(-#{$table-cell-vertical-padding} - 1px) !important;
+      margin-bottom: 0; //$input-margin-bottom - 1rem;
+      margin-left: $sph-inner--small;
       min-width: min-content;
-
-      // taken from the .is-dense button modifier
-      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
-      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
-
-      &:not(:last-child) {
-        border-right: 1px solid $colors--light-theme--border-default;
-      }
+      padding-bottom: $header-v-spacing;
+      padding-left: $sph-inner;
+      padding-top: $header-v-spacing;
+      width: min-content;
     }
 
     .p-code-snippet__dropdowns {
       display: flex;
       flex-shrink: 0;
-      margin-left: $sph-inner--small;
     }
 
     .p-code-snippet__dropdowns.is-full-width {
-      border-top: 1px solid $colors--light-theme--border-default;
       flex: 1 1 100%;
       justify-content: flex-end;
-      margin: calc(#{$sph-inner--small + $spv-nudge - $sp-unit * 0.5}) 0 0 0;
-      padding-top: $sph-inner--small;
+    }
 
-      .p-code-snippet__dropdown {
-        width: min-content;
-      }
+    .p-code-snippet__dropdown + .p-code-snippet__dropdown {
+      border-left: 1px solid $colors--light-theme--border-default;
+    }
+
+    .p-code-snippet__title + .p-code-snippet__dropdowns.is-full-width {
+      border-top: 1px solid $colors--light-theme--border-default;
     }
   }
 }
