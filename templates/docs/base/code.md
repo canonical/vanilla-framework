@@ -68,6 +68,12 @@ A select with the class `.p-code-snippet__dropdown` can be included within a `.p
 View example of the code snippet
 </a></div>
 
+It is also possible to include multiple selects, and an alternative layout is available by adding the `.is-stacked` utility to the `.p-code-snippet__header`, should more horizontal space be required.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/dropdown-multiple" class="js-example">
+View example of the code snippet
+</a></div>
+
 **Toggling wrapping within a code snippet**
 
 By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:
