@@ -60,10 +60,6 @@ $header-v-spacing: $spv-inner--x-small--scaleable;
       padding-right: $sph-inner;
     }
 
-    &.is-stacked .p-code-snippet__header {
-      flex-direction: column;
-    }
-
     .p-code-snippet__title {
       @extend %vf-heading-5;
 
@@ -103,7 +99,9 @@ $header-v-spacing: $spv-inner--x-small--scaleable;
       border-left: 1px solid $colors--light-theme--border-default;
     }
 
-    &.is-stacked {
+    .p-code-snippet__header.is-stacked {
+      flex-direction: column;
+
       .p-code-snippet__title {
         white-space: normal;
       }
