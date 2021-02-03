@@ -1,6 +1,7 @@
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
+$header-v-spacing: $spv-inner--x-small--scaleable;
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
@@ -50,8 +51,6 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
       @extend %code-numbered-line;
     }
 
-    $header-v-spacing: $spv-inner--x-small--scaleable;
-
     .p-code-snippet__header {
       align-items: flex-start;
       background-color: $color-code-heading-background;
@@ -80,7 +79,7 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
       background-color: $color-transparent;
       border: 0;
       color: $color-dark;
-      margin-bottom: 0; //$input-margin-bottom - 1rem;
+      margin-bottom: 0;
       margin-left: $sph-inner--small;
       min-width: min-content;
       padding-bottom: $header-v-spacing;
@@ -92,9 +91,10 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
     .p-code-snippet__dropdowns {
       display: flex;
       flex-shrink: 0;
-      margin-left: $sph-inner--small;
 
       &:first-child {
+        // if no header is present, use this to
+        // align the dropdowns to the right
         margin-left: auto;
       }
     }
