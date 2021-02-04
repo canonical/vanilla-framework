@@ -24,10 +24,10 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.24 -->
     <tr>
-      <th><a href="/docs/base/code#code-snippet">Code snippet: multiple dropdowns</a></th>
-      <td><div class="p-label--new">New</div></td>
+      <th><a href="/docs/base/code#dropdowns">Code snippet - Dropdowns</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
       <td>2.24.0</td>
-      <td>We added the ability to accommodate multiple selects within a <code>.p-code-snippet__header</code>.</td>
+      <td>We added the ability to accommodate multiple selects within a <code>.p-code-snippet__header</code>, either inline, using the <code>.is-stacked</code> utility to class to have the dropdowns below the title.</td>
     </tr>
   </tbody>
 </table>
