@@ -1,6 +1,7 @@
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
+$code-snippet-header-v-spacing: $spv-inner--x-small--scaleable;
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
@@ -51,37 +52,69 @@ $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
     }
 
     .p-code-snippet__header {
+      align-items: flex-start;
       background-color: $color-code-heading-background;
       display: flex;
       justify-content: space-between;
-      padding: $spv-inner--x-small--scaleable $sph-inner;
+      padding-left: $sph-inner;
+      padding-right: $sph-inner;
     }
 
     .p-code-snippet__title {
       @extend %vf-heading-5;
 
-      margin-bottom: 0;
-      padding-top: 0;
-    }
-
-    .p-code-snippet__dropdowns {
-      flex-shrink: 0;
-      margin-left: $sph-inner--small;
+      flex: 0 1 auto;
+      margin-bottom: $code-snippet-header-v-spacing;
+      overflow: hidden;
+      padding-top: $code-snippet-header-v-spacing;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .p-code-snippet__dropdown {
       background-color: $color-transparent;
-      border-color: $color-transparent;
+      border: 0;
       color: $color-dark;
-
-      // taken from the .u-table-cell-padding-overlap utility
-      margin-bottom: -#{$table-cell-vertical-padding} !important;
-      margin-top: calc(-#{$table-cell-vertical-padding} - 1px) !important;
+      margin-bottom: 0;
+      margin-left: $sph-inner--small;
       min-width: min-content;
+      padding-bottom: $code-snippet-header-v-spacing;
+      padding-left: $sph-inner;
+      padding-top: $code-snippet-header-v-spacing;
+      width: min-content;
+    }
 
-      // taken from the .is-dense button modifier
-      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
-      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+    .p-code-snippet__dropdowns {
+      display: flex;
+      flex-shrink: 0;
+
+      &:first-child {
+        // if no header is present, use this to
+        // align the dropdowns to the right
+        margin-left: auto;
+      }
+    }
+
+    .p-code-snippet__dropdown + .p-code-snippet__dropdown {
+      border-left: 1px solid $colors--light-theme--border-default;
+    }
+
+    .p-code-snippet__header.is-stacked {
+      flex-direction: column;
+
+      .p-code-snippet__title {
+        white-space: normal;
+      }
+
+      .p-code-snippet__dropdowns {
+        flex: 1 0 100%;
+        justify-content: flex-end;
+        width: 100%;
+      }
+
+      .p-code-snippet__title + .p-code-snippet__dropdowns {
+        border-top: 1px solid $colors--light-theme--border-default;
+      }
     }
   }
 }

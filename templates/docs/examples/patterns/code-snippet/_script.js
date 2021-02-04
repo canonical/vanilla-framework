@@ -6,25 +6,27 @@ function attachDropdownEvents(dropdown) {
   dropdown.addEventListener('change', function (e) {
     var targetElement = document.getElementById(e.target.value);
 
-    togglePanel(targetElement, dropdown.options);
+    if (targetElement) {
+      toggleElement(targetElement, dropdown.options);
+    }
   });
 }
 
 /**
   Shows a given code snippet panel, and hides the rest.
-  @param {HTMLElement} targetPanel the panel to show.
+  @param {HTMLElement} targetElement the element to show.
   @param {HTMLOptionsCollection} options collection of options
-  whose values reference panels to be hidden.
+  whose values reference elements to be hidden.
 */
-function togglePanel(targetPanel, options) {
+function toggleElement(targetElement, options) {
   for (var i = 0; i < options.length; i++) {
-    var panel = document.getElementById(options[i].value);
-    panel.classList.add('u-hide');
-    panel.setAttribute('aria-hidden', true);
+    var element = document.getElementById(options[i].value);
+    element.classList.add('u-hide');
+    element.setAttribute('aria-hidden', true);
   }
 
-  targetPanel.classList.remove('u-hide');
-  targetPanel.setAttribute('aria-hidden', false);
+  targetElement.classList.remove('u-hide');
+  targetElement.setAttribute('aria-hidden', false);
 }
 
 /**
