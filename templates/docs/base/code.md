@@ -36,43 +36,47 @@ View example of the base code block
 
 ### Code snippet
 
-<span class="p-label--new">New</span>
-
 The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
 
-**Basic code snippet**
-
-<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/default" class="js-example">
 View example of the code snippet
 </a></div>
 
-**Code snippet with icon**
+### Code snippet with icon
 
 A code snippet block can include an icon by using the `.p-code-snippet__block--icon` class. By default, it will show the Linux prompt icon, but other icon options are available, using the `.is-windows-prompt` or `.is-url` classes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-icon" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/icon" class="js-example">
 View example of the code snippet
 </a></div>
 
-**Code snippet with numbered lines**
+### Numbered code snippet
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-numbered" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/numbered" class="js-example">
 View example of the code snippet
 </a></div>
 
-**Code snippet with dropdown**
+### Dropdowns
+
+<span class="p-label--updated">Updated</span>
 
 A select with the class `.p-code-snippet__dropdown` can be included within a `.p-code-snippet__header`, with a small amount of JS to switch between related code examples.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-dropdown" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/dropdown" class="js-example">
 View example of the code snippet
 </a></div>
 
-**Toggling wrapping within a code snippet**
+It is also possible to include multiple selects, and an alternative layout is available by adding the `.is-stacked` utility to the `.p-code-snippet__header`, should more horizontal space be required.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/dropdown-multiple" class="js-example">
+View example of the code snippet
+</a></div>
+
+### Wrapping
 
 By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-wrapping" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/wrapping" class="js-example">
 View example of the code snippet
 </a></div>
 
@@ -88,7 +92,7 @@ JavaScript for [Prism can be downloaded from their download page](https://prismj
 
 To avoid using JavaScript library for syntax highlighting you can prepare the code block content by manually wrapping the highlighted elements into `span`s with class names compatible with Prism theme (like `<span class="token keyword">` `<span class="token comment">`).
 
-<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/code-snippet-prism" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/prism" class="js-example">
 View example of the code snippet with syntax highlighting
 </a></div>
 
