@@ -85,7 +85,7 @@ For more information [view the grid design spec](https://github.com/ubuntudesign
 
 In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins - for example, tables with many columns that would otherwise result in heavy truncation or wrapping, charts with a lot of detail along the x axis, or card layouts that aim to impress with the abundance of available content.
 
-The `.row-breakout` class allows you to do this. For example, you could have an aside on the left and a main area to the right:
+The `.l-fluid-breakout` class allows you to do this. For example, you could have an aside on the left and a main area to the right:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-left-aside/" class="js-example">
 View example of he breakout row with a left aside
@@ -103,7 +103,7 @@ To import just the breakout row component into your project, copy the snippet be
 
 ```scss
 @import 'patterns_grid';
-@include vf-p-grid-breakout;
+@include vf-l-fluid-breakout;
 ```
 
 The breakout row allows some customisation. The arguments in the table bellow are all optional.
@@ -121,5 +121,5 @@ For example to create a breakout row named `.grid-breakout--custom` that has a `
 
 ```scss
 @import 'patterns_grid';
-@include vf-p-grid-breakout(10rem, 20rem, 0, '--custom');
+@include vf-l-fluid-breakout(10rem, 20rem, 0, '--custom');
 ```

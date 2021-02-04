@@ -158,8 +158,8 @@
   }
 }
 
-@mixin vf-p-grid-breakout($aside-autofit-width: $aside-autofit-width, $main-items-autofit-width: $main-items-autofit-width, $grid-gap: $sp-unit * 2, $suffix: '') {
-  .row-breakout#{$suffix} {
+@mixin vf-l-fluid-breakout($aside-autofit-width: $aside-autofit-width, $main-items-autofit-width: $main-items-autofit-width, $grid-gap: $sp-unit * 2, $suffix: '') {
+  .l-fluid-breakout#{$suffix} {
     grid-gap: 0 0;
 
     @media (min-width: $breakpoint-large) {
@@ -169,11 +169,21 @@
         grid-template-rows: auto;
         margin-left: auto;
         margin-right: auto;
-        max-width: $grid-breakout-max-width;
+        max-width: 2 * $aside-autofit-width + $breakout-autofit-width;
       }
     }
 
-    @media (max-width: $threshold-12-col-plus) {
+    @media (max-width: $threshold-4-6-col) {
+      padding-left: map-get($grid-margin-widths, small);
+      padding-right: map-get($grid-margin-widths, small);
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+      padding-left: map-get($grid-margin-widths, medium);
+      padding-right: map-get($grid-margin-widths, medium);
+    }
+
+    @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
       padding-left: map-get($grid-margin-widths, large);
       padding-right: map-get($grid-margin-widths, large);
     }
@@ -221,13 +231,31 @@
         grid-row: 1 / 100;
       }
     }
+
     .row-breakout__aside {
       @extend %row-breakout__aside-common-properties;
+
+      @media (min-width: $breakpoint-large) and (max-width: $threshold-12-col-plus) {
+        padding-right: map-get($grid-margin-widths, large);
+      }
+
+      @media (min-width: $threshold-12-col-plus) {
+        padding-left: map-get($grid-margin-widths, large);
+        padding-right: 0;
+      }
 
       justify-content: flex-end;
     }
 
     .row-breakout__aside--right {
+      @media (min-width: $breakpoint-large) and (max-width: $threshold-12-col-plus) {
+        padding-left: map-get($grid-margin-widths, large);
+      }
+
+      @media (min-width: $threshold-12-col-plus) {
+        padding-right: map-get($grid-margin-widths, large);
+      }
+
       @extend %row-breakout__aside-common-properties;
     }
   }
