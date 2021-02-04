@@ -1,0 +1,67 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / Wide - aside on the left{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+
+<style>
+  .viz-grid-item, .viz-aside {
+    background-color: rgba(199,22,43,0.1);
+    margin-bottom: 1rem;
+  }
+</style>
+
+<div class="p-strip is-shallow grid-demo u-no-padding-top">
+
+  <div class="row">
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+  </div>
+</div>
+
+<div class="l-fluid-breakout">
+  <div class="row-breakout__full--full">
+    {% include "docs/examples/patterns/grid/_cve-table.html" %}
+  </div>
+</div>
+<div class="l-fluid-breakout">
+  <div class="row-breakout__main no-aside">
+    {% include "docs/examples/patterns/grid/_cve-table.html" %}
+  </div>
+</div>
+{% endblock %}
