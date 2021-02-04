@@ -1,7 +1,7 @@
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
-$header-v-spacing: $spv-inner--x-small--scaleable;
+$code-snippet-header-v-spacing: $spv-inner--x-small--scaleable;
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
@@ -64,9 +64,9 @@ $header-v-spacing: $spv-inner--x-small--scaleable;
       @extend %vf-heading-5;
 
       flex: 0 1 auto;
-      margin-bottom: $header-v-spacing;
+      margin-bottom: $code-snippet-header-v-spacing;
       overflow: hidden;
-      padding-top: $header-v-spacing;
+      padding-top: $code-snippet-header-v-spacing;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -78,16 +78,21 @@ $header-v-spacing: $spv-inner--x-small--scaleable;
       margin-bottom: 0;
       margin-left: $sph-inner--small;
       min-width: min-content;
-      padding-bottom: $header-v-spacing;
+      padding-bottom: $code-snippet-header-v-spacing;
       padding-left: $sph-inner;
-      padding-top: $header-v-spacing;
+      padding-top: $code-snippet-header-v-spacing;
       width: min-content;
     }
 
     .p-code-snippet__dropdowns {
       display: flex;
       flex-shrink: 0;
-      margin-left: auto;
+
+      &:first-child {
+        // if no header is present, use this to
+        // align the dropdowns to the right
+        margin-left: auto;
+      }
     }
 
     .p-code-snippet__dropdown + .p-code-snippet__dropdown {
