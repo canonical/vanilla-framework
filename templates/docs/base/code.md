@@ -36,8 +36,6 @@ View example of the base code block
 
 ### Code snippet
 
-<span class="p-label--new">New</span>
-
 The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/default" class="js-example">
@@ -59,6 +57,8 @@ View example of the code snippet
 </a></div>
 
 ### Dropdowns
+
+<span class="p-label--updated">Updated</span>
 
 A select with the class `.p-code-snippet__dropdown` can be included within a `.p-code-snippet__header`, with a small amount of JS to switch between related code examples.
 
