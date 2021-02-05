@@ -161,12 +161,12 @@ To import just the fluid breakout layout component into your project, copy the s
 
 The breakout row allows some customisation. The arguments in the table bellow are all optional.
 
-| Argument                        | Use                              | Default value |
-| ------------------------------- | -------------------------------- | ------------- |
-| `$l-fluid-breakout-aside-width` | Aside width                      | `13rem`       |
-| `$l-fluid-breakout-main-width`  | Width of item in the main column | `13rem`       |
-| `$grid-gap`                     | Gap between columns in main area | `1rem`        |
-| `$suffix`                       | Class modifier                   | `''`          |
+| Argument                             | Use                              | Default value |
+| ------------------------------------ | -------------------------------- | ------------- |
+| `$l-fluid-breakout-aside-width`      | Aside width                      | `13rem`       |
+| `$l-fluid-breakout-main-child-width` | Width of item in the main column | `13rem`       |
+| `$grid-gap`                          | Gap between columns in main area | `1rem`        |
+| `$suffix`                            | Class modifier                   | `''`          |
 
 <br>
 

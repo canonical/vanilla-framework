@@ -86,7 +86,7 @@
     .row .#{$grid-medium-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-desktop;
-      // @extend %display-block;
+      @extend %display-block;
     }
   }
 
@@ -160,7 +160,7 @@
 
 @mixin vf-l-fluid-breakout(
   $l-fluid-breakout-aside-width: $l-fluid-breakout-aside-width,
-  $l-fluid-breakout-main-width: $l-fluid-breakout-main-width,
+  $l-fluid-breakout-main-child-width: $l-fluid-breakout-main-child-width,
   $grid-gap: $sp-unit * 2,
   $suffix: ''
 ) {
@@ -170,7 +170,7 @@
     @media (min-width: $breakpoint-large) {
       @supports (display: grid) {
         display: grid;
-        grid-template-columns: minmax($l-fluid-breakout-aside-width, 1fr) minmax($l-fluid-breakout-main-width, $l-fluid-breakout-max-width) minmax(
+        grid-template-columns: minmax($l-fluid-breakout-aside-width, 1fr) minmax($l-fluid-breakout-main-child-width, $l-fluid-breakout-max-width) minmax(
             $l-fluid-breakout-aside-width,
             1fr
           );
@@ -229,7 +229,8 @@
         display: grid;
         grid-gap: 0 $grid-gap;
         grid-row: 1;
-        grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-width, 1fr));
+        -ms-grid-columns: repeat(3, minmax($l-fluid-breakout-main-child-width, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-child-width, 1fr));
 
         @media (min-width: $breakpoint-large) {
           grid-column: auto / span 2;
