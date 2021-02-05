@@ -10,11 +10,36 @@ context:
 
 Vanilla has a responsive grid with the following columns and gutters:
 
-| Screen size (px)                           | Columns | Grid gap (gutters) | Outer margins |
-| ------------------------------------------ | ------- | ------------------ | ------------- |
-| Less than `$breakpoint-small`              | 4       | 1.5rem             | 1.0rem        |
-| `$breakpoint-small` - `$breakpoint-medium` | 6       | 2.0rem             | 1.5rem        |
-| Greater than `$breakpoint-medium`          | 12      | 2.0rem             | 1.5rem        |
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50ch">Screen size (px)</th>
+      <th>Columns</th>
+      <th>Grid gap (gutters)</th>
+      <th>Outer margins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Less than <code>$breakpoint-small</code></td>
+      <td>4</td>
+      <td>1.5rem</td>
+      <td>1.0rem</td>
+    </tr>
+    <tr>
+      <td><code>$breakpoint-small</code> - <code>$breakpoint-medium</code></td>
+      <td>6</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
+    </tr>
+    <tr>
+      <td>Greater than <code>$breakpoint-medium</code></td>
+      <td>12</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
+    </tr>
+  </tbody>
+</table>
 
 <br>
 
@@ -83,6 +108,8 @@ For more information [view the grid design spec](https://github.com/ubuntudesign
 
 ## Breaking out of the grid
 
+<hr>
+
 In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins - for example, tables with many columns that would otherwise result in heavy truncation or wrapping, charts with a lot of detail along the x axis, or card layouts that aim to impress with the abundance of available content. The fluid breakout layout allows you to do this.
 
 ### Anatomy of the fluid breakout layout
@@ -138,7 +165,7 @@ View example of he fluid breakout layout without an aside
 
 A couple of examples of where this layout might be useful. Both examples include a section with the regular 12 column grid for comparison.
 
-A large table that would require truncation if fittet within the regular 12 column grid:
+A large table that would require truncation if fitted within the regular 12 column grid:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-full--cve-table/" class="js-example">
 View example of he fluid breakout layout with a large table inside

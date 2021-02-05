@@ -170,10 +170,10 @@
     @media (min-width: $breakpoint-large) {
       @supports (display: grid) {
         display: grid;
-        grid-template-columns: minmax($l-fluid-breakout-aside-width, 1fr) minmax($l-fluid-breakout-main-child-width, $l-fluid-breakout-max-width) minmax(
-            $l-fluid-breakout-aside-width,
-            1fr
-          );
+        grid-template-columns:
+          minmax($l-fluid-breakout-aside-width, 1fr)
+          minmax(0, $l-fluid-breakout-max-width)
+          minmax($l-fluid-breakout-aside-width, 1fr);
         grid-template-rows: auto;
         margin-left: auto;
         margin-right: auto;
@@ -206,7 +206,10 @@
 
     .l-fluid-breakout__full {
       @supports (display: grid) {
+        display: grid;
+        grid-gap: 0 $grid-gap;
         grid-row: 1;
+        grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-child-width, 1fr));
 
         @media (min-width: $breakpoint-large) {
           grid-column: 1 / span 3;
@@ -229,7 +232,6 @@
         display: grid;
         grid-gap: 0 $grid-gap;
         grid-row: 1;
-        -ms-grid-columns: repeat(3, minmax($l-fluid-breakout-main-child-width, 1fr));
         grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-child-width, 1fr));
 
         @media (min-width: $breakpoint-large) {
