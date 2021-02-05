@@ -152,7 +152,7 @@ View example of he fluid breakout layout without an aside
 Use the class `l-fluid-breakout__full` to span all 3 columns:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-full/" class="js-example">
-View example of he fluid breakout layout without an aside and a main column spanning al l3 columns:
+View example of he fluid breakout layout without an aside and a main column spanning all 3 columns:
 </a></div>
 
 In the absence of an aside, add the `.no-aside` class to the main area, to ensure it starts from the central column of the layout:
