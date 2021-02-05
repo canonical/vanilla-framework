@@ -158,18 +158,26 @@
   }
 }
 
-@mixin vf-l-fluid-breakout($aside-autofit-width: $aside-autofit-width, $main-items-autofit-width: $main-items-autofit-width, $grid-gap: $sp-unit * 2, $suffix: '') {
+@mixin vf-l-fluid-breakout(
+  $l-fluid-breakout-aside-width: $l-fluid-breakout-aside-width,
+  $l-fluid-breakout-main-width: $l-fluid-breakout-main-width,
+  $grid-gap: $sp-unit * 2,
+  $suffix: ''
+) {
   .l-fluid-breakout#{$suffix} {
     grid-gap: 0 0;
 
     @media (min-width: $breakpoint-large) {
       @supports (display: grid) {
         display: grid;
-        grid-template-columns: minmax($aside-autofit-width, 1fr) minmax($main-items-autofit-width, $breakout-autofit-width) minmax($aside-autofit-width, 1fr);
+        grid-template-columns: minmax($l-fluid-breakout-aside-width, 1fr) minmax($l-fluid-breakout-main-width, $l-fluid-breakout-max-width) minmax(
+            $l-fluid-breakout-aside-width,
+            1fr
+          );
         grid-template-rows: auto;
         margin-left: auto;
         margin-right: auto;
-        max-width: 2 * $aside-autofit-width + $breakout-autofit-width;
+        max-width: 2 * $l-fluid-breakout-aside-width + $l-fluid-breakout-max-width;
       }
     }
 
@@ -183,12 +191,12 @@
       padding-right: map-get($grid-margin-widths, medium);
     }
 
-    @media (min-width: $threshold-6-12-col) and (max-width: $threshold-12-col-plus) {
+    @media (min-width: $threshold-6-12-col) and (max-width: $l-fluid-breakout-3-col-threshold) {
       padding-left: map-get($grid-margin-widths, large);
       padding-right: map-get($grid-margin-widths, large);
     }
 
-    @media (min-width: $threshold-12-col-plus) {
+    @media (min-width: $l-fluid-breakout-3-col-threshold) {
       padding-left: 0;
       padding-right: 0;
       @supports (display: grid) {
@@ -196,7 +204,7 @@
       }
     }
 
-    .row-breakout__full {
+    .l-fluid-breakout__full {
       @supports (display: grid) {
         grid-row: 1;
 
@@ -204,7 +212,7 @@
           grid-column: 1 / span 3;
         }
 
-        @media (min-width: $threshold-12-col-plus) {
+        @media (min-width: $l-fluid-breakout-3-col-threshold) {
           padding-left: map-get($grid-margin-widths, large);
           padding-right: map-get($grid-margin-widths, large);
 
@@ -216,12 +224,12 @@
       }
     }
 
-    .row-breakout__main {
+    .l-fluid-breakout__main {
       @supports (display: grid) {
         display: grid;
         grid-gap: 0 $grid-gap;
         grid-row: 1;
-        grid-template-columns: repeat(auto-fit, minmax($main-items-autofit-width, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-width, 1fr));
 
         @media (min-width: $breakpoint-large) {
           grid-column: auto / span 2;
@@ -232,7 +240,7 @@
           }
         }
 
-        @media (min-width: $threshold-12-col-plus) {
+        @media (min-width: $l-fluid-breakout-3-col-threshold) {
           padding-left: map-get($grid-margin-widths, large);
           padding-right: map-get($grid-margin-widths, large);
 
@@ -244,8 +252,8 @@
       }
     }
 
-    %row-breakout__aside-common-properties {
-      @media (min-width: $threshold-12-col-plus) {
+    %l-fluid-breakout__aside-common-properties {
+      @media (min-width: $l-fluid-breakout-3-col-threshold) {
         align-items: start;
         display: flex;
       }
@@ -257,14 +265,14 @@
       }
     }
 
-    .row-breakout__aside {
-      @extend %row-breakout__aside-common-properties;
+    .l-fluid-breakout__aside {
+      @extend %l-fluid-breakout__aside-common-properties;
 
-      @media (min-width: $breakpoint-large) and (max-width: $threshold-12-col-plus) {
+      @media (min-width: $breakpoint-large) and (max-width: $l-fluid-breakout-3-col-threshold) {
         padding-right: map-get($grid-margin-widths, large);
       }
 
-      @media (min-width: $threshold-12-col-plus) {
+      @media (min-width: $l-fluid-breakout-3-col-threshold) {
         padding-left: map-get($grid-margin-widths, large);
         padding-right: 0;
       }
@@ -272,16 +280,16 @@
       justify-content: flex-end;
     }
 
-    .row-breakout__aside--right {
-      @media (min-width: $breakpoint-large) and (max-width: $threshold-12-col-plus) {
+    .l-fluid-breakout__aside--right {
+      @media (min-width: $breakpoint-large) and (max-width: $l-fluid-breakout-3-col-threshold) {
         padding-left: map-get($grid-margin-widths, large);
       }
 
-      @media (min-width: $threshold-12-col-plus) {
+      @media (min-width: $l-fluid-breakout-3-col-threshold) {
         padding-right: map-get($grid-margin-widths, large);
       }
 
-      @extend %row-breakout__aside-common-properties;
+      @extend %l-fluid-breakout__aside-common-properties;
     }
   }
 }
