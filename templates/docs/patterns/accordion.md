@@ -26,6 +26,35 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
 View example of the accordion pattern
 </a></div>
 
+### Embedded example test
+
+{% include "docs/examples/patterns/accordion/_default.html" %}
+<script>
+  {% include "docs/examples/patterns/accordion/_script.js" %}
+</script>
+
+<div class="p-code-snippet">
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Accordion | Default</h5>
+
+    <div class="p-code-snippet__dropdowns">
+      <select class="p-code-snippet__dropdown" name="menu1-select" id="menu1-select">
+        <option value="html-panel">HTML</option>
+        <option value="js-panel">JS</option>
+      </select>
+    </div>
+  </div>
+  <pre id="html-panel" class="p-code-snippet__block language-html"><code>{{ include_file("docs/examples/patterns/accordion/_default.html")}}</code></pre>
+  <pre id="js-panel" class="p-code-snippet__block u-hide language-js"><code>{{ include_file("docs/examples/patterns/accordion/_script.js")}}</code></pre>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/code-snippet/_script.js' %}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/keep-markup/prism-keep-markup.min.js"></script>
+
 ### Headings
 
 <span class="p-label--new">New</span>

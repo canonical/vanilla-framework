@@ -140,12 +140,17 @@ def _filter_contributors(contributors):
 
 
 # Global context settings
+
+def include_file(name):
+    env = flask.current_app.jinja_env
+    return env.loader.get_source(env, name)[0]
+
 @app.context_processor
 def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
+    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path, "include_file": include_file}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
