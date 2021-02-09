@@ -164,6 +164,48 @@
   $grid-gap: $sp-unit * 2,
   $suffix: ''
 ) {
+  %l-fluid-breakout-ie11-fallback {
+    display: flex;
+
+    @media (max-width: $threshold-4-6-col) {
+      flex-direction: column;
+    }
+  }
+
+  %l-fluid-breakout__full-and-main-ie11-fallback {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      margin-left: 0.5 * $grid-gap;
+      margin-right: 0.5 * $grid-gap;
+    }
+
+    @media (min-width: $l-fluid-breakout-3-col-threshold) {
+      width: calc(100% - #{$l-fluid-breakout-aside-width});
+      // stylelint-disable-next-line max-nesting-depth
+      & > * {
+        flex: 1 1 auto;
+        width: $l-fluid-breakout-main-child-width;
+      }
+    }
+  }
+
+  %l-fluid-breakout__aside-ie-11-fallback {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+
+    @media (min-width: $l-fluid-breakout-3-col-threshold) {
+      display: flex;
+      flex: 1 1 auto;
+      width: $l-fluid-breakout-aside-width;
+    }
+
+    @media (min-width: $threshold-4-6-col) and (max-width: $l-fluid-breakout-3-col-threshold) {
+      padding-right: map-get($grid-margin-widths, large);
+    }
+  }
+
   .l-fluid-breakout#{$suffix} {
     @extend %l-fluid-breakout-ie11-fallback;
 
@@ -210,7 +252,7 @@
       }
     }
 
-    .l-fluid-breakout__full {
+    %l-fluid-breakout__main-and-full-common {
       @extend %l-fluid-breakout__full-and-main-ie11-fallback;
 
       @supports (display: grid) {
@@ -218,32 +260,36 @@
         grid-gap: 0 $grid-gap;
         grid-row: 1;
         grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-child-width, 1fr));
+      }
 
-        @media (min-width: $breakpoint-large) {
-          grid-column: 1 / span 3;
+      @media (min-width: $l-fluid-breakout-3-col-threshold) {
+        padding-left: map-get($grid-margin-widths, large);
+        padding-right: map-get($grid-margin-widths, large);
+        width: 100%;
+      }
+
+      & > * {
+        @supports (display: grid) {
+          // overwrite fallback margins
+          margin-left: 0;
+          margin-right: 0;
         }
+      }
+    }
 
-        @media (min-width: $l-fluid-breakout-3-col-threshold) {
-          padding-left: map-get($grid-margin-widths, large);
-          padding-right: map-get($grid-margin-widths, large);
+    .l-fluid-breakout__full {
+      @extend %l-fluid-breakout__main-and-full-common;
 
-          // stylelint-disable-next-line max-nesting-depth
-          & > * {
-            grid-column: auto / auto;
-          }
+      @media (min-width: $breakpoint-large) {
+        // stylelint-disable-next-line max-nesting-depth
+        @supports (display: grid) {
+          grid-column: 1 / span 3;
         }
       }
     }
 
     .l-fluid-breakout__main {
-      @extend %l-fluid-breakout__full-and-main-ie11-fallback;
-
-      @supports (display: grid) {
-        display: grid;
-        grid-gap: 0 $grid-gap;
-        grid-row: 1;
-        grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-child-width, 1fr));
-      }
+      @extend %l-fluid-breakout__main-and-full-common;
 
       @media (min-width: $breakpoint-large) {
         @supports (display: grid) {
@@ -256,15 +302,13 @@
         }
       }
 
-      @media (min-width: $l-fluid-breakout-3-col-threshold) {
-        padding-left: map-get($grid-margin-widths, large);
-        padding-right: map-get($grid-margin-widths, large);
-
+      & > * {
         // stylelint-disable-next-line max-nesting-depth
-        & > * {
+        @media (min-width: $l-fluid-breakout-3-col-threshold) {
           // stylelint-disable-next-line max-nesting-depth
           @supports (display: grid) {
             grid-column: auto / auto;
+            width: initial;
           }
         }
       }
@@ -310,48 +354,6 @@
       }
 
       @extend %l-fluid-breakout__aside-common-properties;
-    }
-  }
-
-  %l-fluid-breakout-ie11-fallback {
-    display: flex;
-
-    @media (max-width: $threshold-4-6-col) {
-      flex-direction: column;
-    }
-  }
-
-  %l-fluid-breakout__full-and-main-ie11-fallback {
-    display: flex;
-    flex-wrap: wrap;
-
-    & > * {
-      margin-left: 0.5 * $grid-gap;
-      margin-right: 0.5 * $grid-gap;
-    }
-
-    @media (min-width: $l-fluid-breakout-3-col-threshold) {
-      width: calc(100% - #{$l-fluid-breakout-aside-width});
-      // stylelint-disable-next-line max-nesting-depth
-      & > * {
-        flex: 1 1 auto;
-        width: $l-fluid-breakout-main-child-width;
-      }
-    }
-  }
-
-  %l-fluid-breakout__aside-ie-11-fallback {
-    flex: 0 0 auto;
-    justify-content: flex-start;
-
-    @media (min-width: $l-fluid-breakout-3-col-threshold) {
-      display: flex;
-      flex: 1 1 auto;
-      width: $l-fluid-breakout-aside-width;
-    }
-
-    @media (min-width: $threshold-4-6-col) and (max-width: $l-fluid-breakout-3-col-threshold) {
-      padding-right: map-get($grid-margin-widths, large);
     }
   }
 }
