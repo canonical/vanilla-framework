@@ -3,15 +3,13 @@
 
 {% block standalone_css %}patterns_grid-breakout{% endblock %}
 
-{% block content %}
-
+{% block style %}
 <style>
-  .viz-grid-item, .viz-aside {
-    background-color: rgba(199,22,43,0.1);
-    margin-bottom: 1rem;
-  }
+{% include "docs/examples/patterns/grid/visualize-grid.css" %}
 </style>
+{% endblock %}
 
+{% block content %}
 <div class="p-strip is-shallow">
   <div class="row grid-demo">
     {% for i in range(12) %}
