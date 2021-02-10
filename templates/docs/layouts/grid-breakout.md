@@ -80,7 +80,7 @@ View example of he fluid breakout layout with an aside and a series of cards
 To import just the fluid breakout layout component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_grid';
+@import 'layouts_fluid-breakout';
 @include vf-l-fluid-breakout;
 ```
 
@@ -98,6 +98,6 @@ The breakout row allows some customisation. The arguments in the table bellow ar
 For example to create a breakout row named `.grid-breakout--custom` that has a `10rem` aside, a main area subdivided into `20rem` columns, with no grid gap in between, you could use:
 
 ```scss
-@import 'patterns_grid';
+@import 'layouts_fluid-breakout';
 @include vf-l-fluid-breakout(10rem, 20rem, 0, '--custom');
 ```
