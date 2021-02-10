@@ -33,7 +33,7 @@ View example of he fluid breakout layout with a left aside
 
 Or vice versa:
 
-<div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-left-aside/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/grid-breakout-right-aside/" class="js-example">
 View example of he fluid breakout layout with a right aside
 </a></div>
 
