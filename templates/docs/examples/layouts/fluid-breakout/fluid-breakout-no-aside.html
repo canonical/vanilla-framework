@@ -12,8 +12,12 @@
 {% block content %}
 
 <div class="l-fluid-breakout">
-  <div class="l-fluid-breakout__main no-aside viz-grid-item">
-    .l-fluid-breakout__main.no-aside
+  <div class="l-fluid-breakout__main no-aside">
+    {% for i in range(14) %}
+    {% with index = i + 1 %}
+    <div class="viz-grid-item l-fluid-breakout__main-item">item #{{index}}</div>
+    {% endwith %}
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
