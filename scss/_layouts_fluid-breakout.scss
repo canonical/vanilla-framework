@@ -184,11 +184,17 @@
     }
 
     .l-fluid-breakout__aside--right {
+      @media (max-width: $breakpoint-medium) {
+        padding-left: map-get($grid-margin-widths, large);
+        padding-right: 0;
+      }
+
       @media (min-width: $breakpoint-large) and (max-width: $l-fluid-breakout-3-col-threshold) {
         padding-left: map-get($grid-margin-widths, large);
       }
 
       @media (min-width: $l-fluid-breakout-3-col-threshold) {
+        padding-left: 0;
         padding-right: map-get($grid-margin-widths, large);
       }
 
