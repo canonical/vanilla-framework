@@ -52,17 +52,8 @@
     code.appendChild(document.createTextNode(source));
 
     var pre = document.createElement('pre');
-    pre.classList.add('p-code-snippet__block');
-    // FIXME: this doesn't work with multiple examples on a page, we need unique ids or another way of selecting panels to show/hide
-    pre.id = 'panel-' + lang;
-    pre.style.maxHeight = '300px';
-    if (lang !== 'html') {
-      pre.classList.add('u-hide');
-    }
-
     if (lang) {
       pre.setAttribute('data-lang', lang);
-      pre.classList.add('language-' + lang);
     }
 
     pre.appendChild(code);
@@ -91,7 +82,7 @@
 
     // hide code container by default, so it doesn't flash on page
     // before CodePen is rendered
-    container.classList.add('p-code-snippet', 'codepen-example');
+    container.classList.add('codepen-example', 'u-hide');
 
     // pass any external scripts to CodePen
     if (externalScripts.length) {
@@ -103,17 +94,9 @@
     if (title) {
       config.title = title;
     }
-    var header = document.createElement('div');
-    header.classList.add('p-code-snippet__header');
-    var titleEl = document.createElement('h5');
-    titleEl.classList.add('p-code-snippet__title');
-    titleEl.innerText = title;
-    header.appendChild(titleEl);
 
-    container.appendChild(header);
-
-    //container.setAttribute('data-prefill', encodeURI(JSON.stringify(config)));
-    //container.setAttribute('data-height', height);
+    container.setAttribute('data-prefill', encodeURI(JSON.stringify(config)));
+    container.setAttribute('data-height', height);
     // For more options see CodePen docs
     // https://blog.codepen.io/documentation/prefill-embeds/
     //
@@ -124,82 +107,23 @@
     // Build code block structure
     container.appendChild(createPreCode(htmlSource, 'html'));
 
-    if (jsSource || cssSource) {
-      var dropdownsEl = document.createElement('div');
-      dropdownsEl.classList.add('p-code-snippet__dropdowns');
-      var selectEl = document.createElement('select');
-      selectEl.classList.add('p-code-snippet__dropdown');
-      dropdownsEl.appendChild(selectEl);
-      header.appendChild(dropdownsEl);
-      var optionHTML = document.createElement('option');
-      optionHTML.value = 'panel-html';
-      optionHTML.innerText = 'HTML';
-      selectEl.appendChild(optionHTML);
-    }
-
     if (jsSource) {
       container.appendChild(createPreCode(jsSource, 'js'));
-      var optionJS = document.createElement('option');
-      optionJS.value = 'panel-js';
-      optionJS.innerText = 'JS';
-      selectEl.appendChild(optionJS);
     }
 
     if (cssSource) {
       container.appendChild(createPreCode(cssSource, 'css'));
-      var optionCSS = document.createElement('option');
-      optionCSS.value = 'panel-css';
-      optionCSS.innerText = 'CSS';
-      selectEl.appendChild(optionCSS);
     }
 
     placementElement.parentNode.insertBefore(container, placementElement);
 
     if (window.__CPEmbed) {
       // init codepen after examples code is rendered
-      // window.__CPEmbed('.codepen-example');
+      window.__CPEmbed('.codepen-example');
     } else {
       // or show the code blocks as a fallback
       container.classList.remove('u-hide');
     }
-
-    var iframe = renderIframe(container, html, height);
-
-    // FIXME - hacky way that depends on separate script
-    setupCodeSnippetDropdowns('.p-code-snippet__dropdown');
-    Prism.highlightAll();
-  }
-
-  function renderIframe(container, html, height) {
-    var iframe = document.createElement('iframe');
-    iframe.width = '100%';
-    iframe.height = height + 'px';
-    iframe.frameBorder = 0;
-    container.appendChild(iframe);
-    //placementElement.parentNode.insertBefore(iframe, placementElement);
-    var doc = iframe.contentWindow.document;
-    doc.open();
-    doc.write(html);
-    doc.close();
-
-    return iframe;
-    // // Wait for content to load before determining height
-    // var resizeInterval = setInterval(
-    //   function() {
-    //     if (iframe.contentDocument.readyState == 'complete') {
-    //       // remove any residual margin
-    //       iframe.contentDocument.body.style.margin = 0;
-    //       // add padding to see shadows pattern shadows
-    //       iframe.contentDocument.body.style.padding = '.5rem .25rem';
-    //       // Add extra spacing to catch edge cases
-    //       const frameHeight = iframe.contentDocument.body.scrollHeight;
-    //       iframe.height = frameHeight + "px";
-    //       clearInterval(resizeInterval);
-    //     }
-    //   },
-    //   100
-    // );
-    // setTimeout(function() {clearInterval(resizeInterval);}, 2000);
   }
 
   function getStyleFromSource(source) {
