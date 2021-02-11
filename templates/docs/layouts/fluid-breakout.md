@@ -18,8 +18,8 @@ The `.l-fluid-breakout` serves as a wrapper, and allows for an aside and a main 
 
 The wrapper aims to align as much as possible with the 12 column grid. On smaller screens, that is limited to ensuring the padding of both layouts match. Once the window width becomes large enough, the left edges of the regular 12 column grid and the central column of the fluid breakout layout also align. For this to be possible, two conditions need to be met:
 
-- <p>the central area's width needs to match the 12 column grid's width (we achieve this by setting the central area's max-width to the same value as the 12 column grid's max-width)</p>
-- <p>The window width is larger than the combined width of the 3 columns of the layout (`$l-fluid-breakout-max-width + 2 * $l-fluid-breakout-aside-width`)</p>
+- the central area's width needs to match the 12 column grid's width (we achieve this by setting the central area's max-width to the same value as the 12 column grid's max-width)
+- The window width is larger than the combined width of the 3 columns of the layout (`$l-fluid-breakout-max-width + 2 * $l-fluid-breakout-aside-width`)
 
 #### Aside
 
@@ -63,19 +63,20 @@ View example of the fluid breakout layout without an aside
 
 A couple of examples of where this layout might be useful. Both examples include a section with the regular 12 column grid for comparison.
 
-A large table that would require truncation if fitted within the regular 12 column grid. There's two ways to achieve this
-
-- ensure the table is the only child of `$l-fluid-breakout__main`:
-
-<div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-full--cve-table/" class="js-example">
-View example of the fluid breakout layout with a large table inside
-</a></div>
-
-A card layout where the goal is to fit more cards than the 12 column grid would allow:
+A card layout where the goal is to fit more cards than the 12 column grid would allow. This what the default arguments to the `layouts_fluid-breakout` mixin provide out of the box:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-cards-and-aside/" class="js-example">
 View example of the fluid breakout layout with an aside and a series of cards
 </a></div>
+
+A large table that would require truncation if fitted within the regular 12 column grid:
+
+<div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-full--cve-table/" class="js-example">
+View example of the fluid breakout layout with a large table inside
+</a></div>
+Note: This requires invoking the `layouts_fluid-breakout` with `100%` as the second argument: `@include vf-l-fluid-breakout(10rem, 100%, 0, '--custom');`
+
+Alternatively, if `l-fluid-breakout__main` has only one child, you will obtain the same result.
 
 ### Import
 
