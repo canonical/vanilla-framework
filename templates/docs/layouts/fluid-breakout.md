@@ -28,51 +28,53 @@ The aside is optional. When present, the order of the aside can be changed from 
 An aside to the left, main area to the right:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-left-aside/" class="js-example">
-View example of he fluid breakout layout with a left aside
+View example of the fluid breakout layout with a left aside
 </a></div>
 
 Or vice versa:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-right-aside/" class="js-example">
-View example of he fluid breakout layout with a right aside
+View example of the fluid breakout layout with a right aside
 </a></div>
 
 #### Main area
 
 The main area occupies the whole page on screens smaller than `$breakpoint-large`, then on larger screens allows a choice between spanning 2 or 3 of the layout's columns.
 
-Use the class `l-fluid-breakout__main` to span 2 columns:
+Use the class `l-fluid-breakout__main` to span the central area and one of the asides:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-left-aside/" class="js-example">
-View example of he fluid breakout layout without an aside
+View example of the fluid breakout layout without an aside
 </a></div>
 
-Use the class `l-fluid-breakout__full` to span all 3 columns:
+Use the class `l-fluid-breakout__full` to span the entire layout:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-full/" class="js-example">
-View example of he fluid breakout layout without an aside and a main column spanning all 3 columns:
+View example of the fluid breakout layout without an aside and a main column spanning all 3 columns:
 </a></div>
 
 In the absence of an aside, add the `.no-aside` class to the main area, to ensure it starts from the central column of the layout:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-no-aside/" class="js-example">
-View example of he fluid breakout layout without an aside
+View example of the fluid breakout layout without an aside
 </a></div>
 
 ### Uses
 
 A couple of examples of where this layout might be useful. Both examples include a section with the regular 12 column grid for comparison.
 
-A large table that would require truncation if fitted within the regular 12 column grid:
+A large table that would require truncation if fitted within the regular 12 column grid. There's two ways to achieve this
+
+- ensure the table is the only child of `$l-fluid-breakout__main`:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-full--cve-table/" class="js-example">
-View example of he fluid breakout layout with a large table inside
+View example of the fluid breakout layout with a large table inside
 </a></div>
 
 A card layout where the goal is to fit more cards than the 12 column grid would allow:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-cards-and-aside/" class="js-example">
-View example of he fluid breakout layout with an aside and a series of cards
+View example of the fluid breakout layout with an aside and a series of cards
 </a></div>
 
 ### Import
