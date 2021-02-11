@@ -93,7 +93,7 @@ View example of the incorrect column offset within a nested grid
 
 ### Breaking out of the grid
 
-In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins. Vanilla provides a separate [layout](/docs/layouts/fluid-breakout) for this purpose
+In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins. Vanilla provides a separate [fluid breakout layout](/docs/layouts/fluid-breakout) for this purpose.
 
 ### Import
 
