@@ -10,11 +10,36 @@ context:
 
 Vanilla has a responsive grid with the following columns and gutters:
 
-| Screen size (px)                           | Columns | Grid gap (gutters) | Outer margins |
-| ------------------------------------------ | ------- | ------------------ | ------------- |
-| Less than `$breakpoint-small`              | 4       | 1.5rem             | 1.0rem        |
-| `$breakpoint-small` - `$breakpoint-medium` | 6       | 2.0rem             | 1.5rem        |
-| Greater than `$breakpoint-medium`          | 12      | 2.0rem             | 1.5rem        |
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50ch">Screen size (px)</th>
+      <th>Columns</th>
+      <th>Grid gap (gutters)</th>
+      <th>Outer margins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Less than <code>$breakpoint-small</code></td>
+      <td>4</td>
+      <td>1.5rem</td>
+      <td>1.0rem</td>
+    </tr>
+    <tr>
+      <td><code>$breakpoint-small</code> - <code>$breakpoint-medium</code></td>
+      <td>6</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
+    </tr>
+    <tr>
+      <td>Greater than <code>$breakpoint-medium</code></td>
+      <td>12</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
+    </tr>
+  </tbody>
+</table>
 
 <br>
 
@@ -65,6 +90,10 @@ Please note, specifying a value that exceeds the available number of columns wil
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/incorrect-empty-columns/" class="js-example">
 View example of the incorrect column offset within a nested grid
 </a></div>
+
+### Breaking out of the grid
+
+In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins. Vanilla provides a separate [fluid breakout layout](/docs/layouts/fluid-breakout) for this purpose.
 
 ### Import
 

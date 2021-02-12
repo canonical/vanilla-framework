@@ -1,0 +1,22 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Fluid breakout - main spanning 3 columns{% endblock %}
+
+{% block standalone_css %}layouts_fluid-breakout{% endblock %}
+
+{% block style %}
+<style>
+{% include "docs/examples/layouts/fluid-breakout/visualize-grid.css" %}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="l-fluid-breakout">
+  <div class="l-fluid-breakout__main is-full-width">
+      {% for i in range(14) %}
+      {% with index = i + 1 %}
+      <div class="viz-grid-item l-fluid-breakout__item">item #{{index}}</div>
+      {% endwith %}
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}
