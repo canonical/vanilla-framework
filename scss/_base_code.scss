@@ -3,6 +3,7 @@
 $color-pre-bg: rgba($color-x-dark, 0.03);
 $digit-width: 1ch; // measured width of one character in the monospaced font
 $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
+$code-inline-padding: 0.25rem;
 
 // Base code styles
 @mixin vf-b-code {
@@ -23,9 +24,11 @@ $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
   code,
   kbd,
   samp {
-    background-color: $color-mid-x-light;
-    box-decoration-break: clone;
-    padding: $sph-inner--x-small;
+    background-color: $color-code-background;
+    border-radius: $border-radius;
+    box-decoration-break: slice;
+    line-height: map-get($line-heights, default-text) - $code-inline-padding;
+    padding: calc(#{$code-inline-padding} - 0.5px) $code-inline-padding;
   }
 
   code,
