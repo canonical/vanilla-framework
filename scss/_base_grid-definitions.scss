@@ -6,13 +6,41 @@
 }
 
 @mixin vf-b-grid-definitions {
-  %fixed-width-container {
+  %display-block {
+    // make columns explicitly display:block; the use of a placeholder is to ensure the rule appears only once in the compiled css
+    display: block;
+  }
+
+  %span-full-grid-on-mobile {
+    @media (max-width: $threshold-4-6-col) {
+      grid-column: auto / span $grid-columns-small;
+    }
+  }
+
+  %span-full-grid-on-tablet {
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+      grid-column: auto / span $grid-columns-medium;
+    }
+  }
+
+  %span-full-grid-on-desktop {
+    @media (min-width: $threshold-6-12-col) {
+      grid-column: auto / span $grid-columns;
+    }
+  }
+
+  %fixed-width-container--common-properties {
     @extend %vf-grid-container-padding;
 
     margin-left: auto;
     margin-right: auto;
-    max-width: $grid-max-width;
     width: 100%;
+  }
+
+  %fixed-width-container {
+    @extend %fixed-width-container--common-properties;
+
+    max-width: $grid-max-width;
   }
 
   %vf-row {

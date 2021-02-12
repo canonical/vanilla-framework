@@ -1,0 +1,66 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Fluid breakout - aside on the left{% endblock %}
+
+{% block standalone_css %}layouts_fluid-breakout{% endblock %}
+
+{% block style %}
+<style>
+{% include "docs/examples/layouts/fluid-breakout/visualize-grid.css" %}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="p-strip is-shallow grid-demo u-no-padding-top">
+  <div class="row">
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+  </div>
+</div>
+
+<div class="l-fluid-breakout">
+  <div class="l-fluid-breakout__aside">
+     <div class="viz-aside">Aside</div>
+  </div>
+  <div class="l-fluid-breakout__main">
+    {% for i in range(14) %}
+    {% with index = i + 1 %}
+    <div class="viz-grid-item l-fluid-breakout__item">item #{{index}}</div>
+    {% endwith %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
