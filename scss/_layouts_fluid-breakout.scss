@@ -21,7 +21,7 @@
     }
   }
 
-  %l-fluid-breakout__full-and-main-ie11-fallback#{$suffix} {
+  %l-fluid-breakout__main-ie11-fallback#{$suffix} {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -100,32 +100,8 @@
       }
     }
 
-    %l-fluid-breakout__full-and-main-item-common#{$suffix} {
-      @extend %l-fluid-breakout__full-and-main-item-ie11-fallback#{$suffix};
-
-      @supports (display: grid) {
-        // overwrite fallback margins
-        margin-right: 0;
-      }
-    }
-
-    .l-fluid-breakout__full-item {
-      @extend %l-fluid-breakout__full-and-main-item-common#{$suffix};
-    }
-
-    .l-fluid-breakout__main-item {
-      @extend %l-fluid-breakout__full-and-main-item-common#{$suffix};
-
-      @media (min-width: $l-fluid-breakout-3-col-threshold) {
-        @supports (display: grid) {
-          grid-column: auto / auto;
-          width: initial;
-        }
-      }
-    }
-
-    %l-fluid-breakout__main-and-full-common#{$suffix} {
-      @extend %l-fluid-breakout__full-and-main-ie11-fallback#{$suffix};
+    .l-fluid-breakout__main {
+      @extend %l-fluid-breakout__main-ie11-fallback#{$suffix};
 
       @supports (display: grid) {
         display: grid;
@@ -139,21 +115,6 @@
         padding-left: map-get($grid-margin-widths, large);
         padding-right: map-get($grid-margin-widths, large);
       }
-    }
-
-    .l-fluid-breakout__full {
-      @extend %l-fluid-breakout__main-and-full-common#{$suffix};
-
-      @media (min-width: $breakpoint-large) {
-        // stylelint-disable-next-line max-nesting-depth
-        @supports (display: grid) {
-          grid-column: 1 / span 3;
-        }
-      }
-    }
-
-    .l-fluid-breakout__main {
-      @extend %l-fluid-breakout__main-and-full-common#{$suffix};
 
       @media (min-width: $breakpoint-large) {
         @supports (display: grid) {
@@ -163,6 +124,36 @@
           &.no-aside {
             grid-column: 2 / span 2;
           }
+        }
+      }
+
+      &.is-full-width {
+        @media (min-width: $breakpoint-large) {
+          // stylelint-disable-next-line max-nesting-depth
+          @supports (display: grid) {
+            grid-column: 1 / span 3;
+          }
+        }
+      }
+
+      .row {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .l-fluid-breakout__main-item {
+      @extend %l-fluid-breakout__full-and-main-item-ie11-fallback#{$suffix};
+
+      @supports (display: grid) {
+        // overwrite fallback margins
+        margin-left: 0;
+        margin-right: 0;
+
+        @media (min-width: $l-fluid-breakout-3-col-threshold) {
+          grid-column: auto / auto;
+          width: initial;
         }
       }
     }

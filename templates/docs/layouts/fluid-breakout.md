@@ -47,7 +47,7 @@ Use the class `l-fluid-breakout__main` to span the central area and one of the a
 View example of the fluid breakout layout without an aside
 </a></div>
 
-Use the class `l-fluid-breakout__full` to span the entire layout:
+Use the classes `l-fluid-breakout__main is-full-width` to span the entire layout:
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-full/" class="js-example">
 View example of the fluid breakout layout without an aside and a main column spanning all 3 columns:
