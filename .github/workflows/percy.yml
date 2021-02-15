@@ -22,7 +22,7 @@ jobs:
       - name: Run server with Docker
         run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
       - name: Snapshot screenshots for Percy
-        uses: percy/exec-action@v0.3.0
+        uses: percy/exec-action@v0.3.1
         with:
           command: 'node snapshots.js'
         env:
