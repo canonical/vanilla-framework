@@ -21,7 +21,7 @@ PercyScript.run(async (page, percySnapshot) => {
 
   for (var i = 0; i < links.length; i++) {
     const url = links[i];
-    await page.goto(url);
+    await page.goto(url, {waitUntil: 'networkidle0'});
 
     // ensure the page has loaded before capturing a snapshot
     await page.waitFor('body');
