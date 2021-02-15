@@ -12,9 +12,17 @@ Vanilla gives you multiple ways to display code using the standard HTML elements
 
 ### Inline
 
+<span class="p-label--updated">Updated</span>
+
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
 <div class="embedded-example"><a href="/docs/examples/base/code-inline/" class="js-example">
+View example of inline code
+</a></div>
+
+An inline `code` element can also be nested within a parent element that has a dark background and the `.is-dark` utility class:
+
+<div class="embedded-example"><a href="/docs/examples/base/code-inline-dark/" class="js-example">
 View example of inline code
 </a></div>
 
