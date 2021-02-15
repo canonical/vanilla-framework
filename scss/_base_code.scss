@@ -30,10 +30,6 @@ $code-inline-padding: 0.25rem;
     color: inherit;
     line-height: map-get($line-heights, default-text) - $code-inline-padding;
     padding: calc(#{$code-inline-padding} - 1px) $code-inline-padding;
-
-    .is-dark & {
-      background-color: $color-code-background-dark;
-    }
   }
 
   code,
@@ -57,6 +53,7 @@ $code-inline-padding: 0.25rem;
     background: none;
     box-shadow: none;
     display: inline-block;
+    line-height: map-get($line-heights, default-text);
     margin-left: 0;
     margin-right: 0;
     padding: 0;
@@ -74,6 +71,15 @@ $code-inline-padding: 0.25rem;
     text-shadow: none;
     white-space: pre;
   }
+
+  // dark theme
+  // stylelint-disable selector-no-qualifying-type
+  [class*='--dark'] code,
+  code.is-dark {
+    background-color: $color-code-background-dark;
+    color: $colors--dark-theme--text-default;
+  }
+  // stylelint-enable selector-no-qualifying-type
 
   %leading-linux-prompt-icon {
     &::before {
