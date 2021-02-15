@@ -27,8 +27,13 @@ $code-inline-padding: 0.25rem;
     background-color: $color-code-background;
     border-radius: $border-radius;
     box-decoration-break: slice;
+    color: inherit;
     line-height: map-get($line-heights, default-text) - $code-inline-padding;
     padding: calc(#{$code-inline-padding} - 1px) $code-inline-padding;
+
+    .is-dark & {
+      background-color: $color-code-background-dark;
+    }
   }
 
   code,
