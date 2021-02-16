@@ -3,6 +3,7 @@
 $color-pre-bg: rgba($color-x-dark, 0.03);
 $digit-width: 1ch; // measured width of one character in the monospaced font
 $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
+$code-inline-padding: 0.25rem;
 
 // Base code styles
 @mixin vf-b-code {
@@ -23,9 +24,12 @@ $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
   code,
   kbd,
   samp {
-    background-color: $color-mid-x-light;
-    box-decoration-break: clone;
-    padding: $sph-inner--x-small;
+    background-color: $color-code-background;
+    border-radius: $border-radius;
+    box-decoration-break: slice;
+    color: inherit;
+    line-height: map-get($line-heights, default-text) - $code-inline-padding;
+    padding: calc(#{$code-inline-padding} - 1px) $code-inline-padding;
   }
 
   code,
@@ -49,6 +53,7 @@ $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
     background: none;
     box-shadow: none;
     display: inline-block;
+    line-height: map-get($line-heights, default-text);
     margin-left: 0;
     margin-right: 0;
     padding: 0;
@@ -66,6 +71,15 @@ $code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
     text-shadow: none;
     white-space: pre;
   }
+
+  // dark theme
+  // stylelint-disable selector-no-qualifying-type
+  [class*='--dark'] code,
+  code.is-dark {
+    background-color: $color-code-background-dark;
+    color: $colors--dark-theme--text-default;
+  }
+  // stylelint-enable selector-no-qualifying-type
 
   %leading-linux-prompt-icon {
     &::before {
