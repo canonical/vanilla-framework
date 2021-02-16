@@ -41,7 +41,8 @@
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js",
-    "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js"
+    "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js",
+    "postinstall": "husky install"
   },
   "version": "2.24.0",
   "files": [
@@ -68,10 +69,5 @@
     "stylelint-prettier": "1.1.2",
     "stylelint-scss": "3.19.0",
     "svgo": "1.3.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --check --staged"
-    }
   }
 }
