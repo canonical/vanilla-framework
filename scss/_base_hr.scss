@@ -1,17 +1,36 @@
 @import 'settings';
 
+%hr {
+  border: 0;
+  height: 1px;
+  margin-top: 0;
+  position: relative;
+  width: 100%;
+}
 // Horizontal rule
 @mixin vf-b-hr {
   hr {
-    border: 0;
-    height: 1px;
+    @extend %hr;
+
     margin-bottom: calc(#{$spv-inner--scaleable} - 1px);
-    margin-top: 0;
-    position: relative;
-    width: 100%;
 
     & + p {
       margin-top: -$sp-unit;
+    }
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &.is-dense {
+      margin-bottom: -1px;
+    }
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &.is-light {
+      background-color: $colors--light-theme--border-low-contrast;
+    }
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &.is-fixed-width {
+      @extend %fixed-width-container;
     }
   }
 
