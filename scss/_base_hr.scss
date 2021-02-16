@@ -3,15 +3,24 @@
 // Horizontal rule
 @mixin vf-b-hr {
   hr {
-    border: 0;
-    height: 1px;
-    margin-bottom: calc(#{$spv-inner--scaleable} - 1px);
-    margin-top: 0;
-    position: relative;
-    width: 100%;
+    @extend %hr;
 
-    & + p {
-      margin-top: -$sp-unit;
+    margin-bottom: calc(#{$spv-inner--small} - 1px);
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &.u-no-margin--bottom {
+      // compensate for hr thickness, to make sure it doesn't drift from baseline grid
+      @extend %u-no-margin--bottom--hr;
+    }
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &.is-muted {
+      background-color: $colors--light-theme--border-low-contrast;
+    }
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &.is-fixed-width {
+      @extend %fixed-width-container;
     }
   }
 
