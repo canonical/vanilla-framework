@@ -7,14 +7,10 @@
 
     margin-bottom: calc(#{$spv-inner--scaleable} - 1px);
 
-    & + p {
-      margin-top: -$sp-unit;
-    }
-
     // stylelint-disable-next-line selector-no-qualifying-type
-    &.is-dense {
+    &.u-no-margin--bottom {
       // compensate for hr thickness, to make sure it doesn't drift from baseline grid
-      margin-bottom: -1px;
+      @extend %u-no-margin--bottom--hr;
     }
 
     // stylelint-disable-next-line selector-no-qualifying-type

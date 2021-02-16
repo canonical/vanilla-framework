@@ -139,7 +139,7 @@
   }
 
   %u-no-margin--bottom {
-    &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(p):not(small):not([class*='p-heading']) {
+    &:not(hr):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(p):not(small):not([class*='p-heading']) {
       margin-bottom: 0 !important;
     }
   }
@@ -202,6 +202,11 @@
 
   %u-no-margin--bottom--small {
     margin-bottom: -#{map-get($nudges, nudge--small)} !important;
+  }
+
+  %u-no-margin--bottom--hr {
+    // compensate for hr thickness, to make sure it doesn't drift from baseline grid
+    margin-bottom: -1px !important;
   }
 
   %icon {
