@@ -35,6 +35,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.24.0</td>
       <td>We've updated inline <code>code</code> elements to support being nested within a <code>.p-strip--dark</code> element, and to support an <code>.is-dark</code> utility class.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/layouts/fluid-breakout">Fluid breakout</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.24.0</td>
+      <td>We added a new <code>l-fluid-breakout</code> layout that can be used to break out of the constraints of a 12-column grid and allow content to bleed into the page margins on larger screens.</td>
+    </tr>
   </tbody>
 </table>
 
