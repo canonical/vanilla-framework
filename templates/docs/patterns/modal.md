@@ -27,6 +27,10 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
+### Accessibility
+
+For any elements that launch a modal, please ensure that the label contains a trailing ellipsis `…`, e.g. "Launch modal&hellip;". This is a convention used to indicate that the element launches a dialog.
+
 ### Design
 
 For more information view the [modal design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Modal) which includes the specification in markdown format and a PNG image.

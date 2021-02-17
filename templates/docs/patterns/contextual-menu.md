@@ -51,6 +51,10 @@ View example of the contextual menu pattern
 
 Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the contextual menu will be open by default. When clicking on the `p-contextual-menu__toggle`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the drop-down.
 
+### Accessibility
+
+When using the `p-contextual-menu__toggle` class on a `button` element, please ensure that the button label contains a trailing ellipsis `…`, e.g. "Take action&hellip;". This is a convention used to indicate that the button launches a dialog.
+
 ### Theming
 
 <span class="p-label--new">New</span>
