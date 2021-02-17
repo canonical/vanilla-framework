@@ -117,8 +117,9 @@
     // after examples are embedded, setup dropdowns functionality and trigger syntax highlighting
     setupCodeSnippetDropdowns('.embedded-example .p-code-snippet__dropdown');
 
-    // TODO: trigger only on the embedded examples?
-    //Prism.highlightAll();
+    if (Prism) {
+      Prism.highlightAll();
+    }
   }
 
   function renderIframe(container, html, height) {
@@ -184,7 +185,7 @@
   */
   function attachDropdownEvents(dropdown) {
     dropdown.addEventListener('change', function (e) {
-      var snippet = e.target.closest(".p-code-snippet");
+      var snippet = e.target.closest('.p-code-snippet');
 
       // toggle code blocks visibility based on selected language
       for (var i = 0; i < dropdown.options.length; i++) {
