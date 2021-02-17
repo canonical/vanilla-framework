@@ -33,8 +33,6 @@
 
     var pre = document.createElement('pre');
     pre.classList.add('p-code-snippet__block');
-    // FIXME: this doesn't work with multiple examples on a page, we need unique ids or another way of selecting panels to show/hide
-    pre.id = 'panel-' + lang;
 
     // TODO: move max-height elsewhere to CSS?
     pre.style.maxHeight = '300px';
@@ -91,7 +89,7 @@
       dropdownsEl.appendChild(selectEl);
       header.appendChild(dropdownsEl);
       var optionHTML = document.createElement('option');
-      optionHTML.value = 'panel-html';
+      optionHTML.value = 'html';
       optionHTML.innerText = 'HTML';
       selectEl.appendChild(optionHTML);
     }
@@ -99,7 +97,7 @@
     if (jsSource) {
       container.appendChild(createPreCode(jsSource, 'js'));
       var optionJS = document.createElement('option');
-      optionJS.value = 'panel-js';
+      optionJS.value = 'js';
       optionJS.innerText = 'JS';
       selectEl.appendChild(optionJS);
     }
@@ -107,7 +105,7 @@
     if (cssSource) {
       container.appendChild(createPreCode(cssSource, 'css'));
       var optionCSS = document.createElement('option');
-      optionCSS.value = 'panel-css';
+      optionCSS.value = 'css';
       optionCSS.innerText = 'CSS';
       selectEl.appendChild(optionCSS);
     }
@@ -116,12 +114,11 @@
 
     var iframe = renderIframe(container, html, height);
 
-    // FIXME - hacky way that depends on separate script
-    // TODO: setup dropdowns
-    // setupCodeSnippetDropdowns('.p-code-snippet__dropdown');
+    // after examples are embedded, setup dropdowns functionality and trigger syntax highlighting
+    setupCodeSnippetDropdowns('.embedded-example .p-code-snippet__dropdown');
 
     // TODO: trigger only on the embedded examples?
-    Prism.highlightAll();
+    //Prism.highlightAll();
   }
 
   function renderIframe(container, html, height) {
@@ -179,5 +176,37 @@
     div.innerHTML = source;
     var script = div.querySelector('script');
     return script ? script.innerHTML.trim() : null;
+  }
+
+  /**
+    Attaches change event listener to a given select.
+    @param {HTMLElement} dropdown Select element belonging to a code snippet.
+  */
+  function attachDropdownEvents(dropdown) {
+    dropdown.addEventListener('change', function (e) {
+      var snippet = e.target.closest(".p-code-snippet");
+
+      // toggle code blocks visibility based on selected language
+      for (var i = 0; i < dropdown.options.length; i++) {
+        var lang = dropdown.options[i].value;
+        var block = snippet && snippet.querySelector("[data-lang='" + lang + "']");
+
+        if (lang === e.target.value) {
+          block.classList.remove('u-hide');
+          block.setAttribute('aria-hidden', false);
+        } else {
+          block.classList.add('u-hide');
+          block.setAttribute('aria-hidden', true);
+        }
+      }
+    });
+  }
+
+  function setupCodeSnippetDropdowns(codeSnippetDropdownSelector) {
+    var dropdowns = [].slice.call(document.querySelectorAll(codeSnippetDropdownSelector));
+
+    dropdowns.forEach(function (dropdown) {
+      attachDropdownEvents(dropdown);
+    });
   }
 })();
