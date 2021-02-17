@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="u-baseline-grid">
+<html lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,6 @@
     {% endif %}
     <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/example.css" />
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
-
     {% block style %}{% endblock %}
 
     <script>
@@ -33,6 +32,8 @@
         }
 
         if (!inIframe()) {
+          document.documentElement.classList.add("u-baseline-grid");
+
           document.addEventListener('DOMContentLoaded', function() {
             var body = document.body;
             var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label for="baseline-grid-toggle">Toggle baseline grid<input type="checkbox" class="p-switch js-baseline-toggle" id="baseline-grid-toggle"/><span class="p-switch__slider"></span></label></div>');
