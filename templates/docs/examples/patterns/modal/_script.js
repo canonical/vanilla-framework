@@ -5,7 +5,15 @@
 function toggleModal(modal) {
   if (modal && modal.classList.contains('p-modal')) {
     if (modal.style.display === 'none') {
+      var focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      var firstFocusable = modal.querySelector(focusableElements);
+
       modal.style.display = 'flex';
+
+      if (firstFocusable) {
+        console.log(firstFocusable);
+        firstFocusable.focus();
+      }
     } else {
       modal.style.display = 'none';
     }
