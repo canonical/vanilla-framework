@@ -1,6 +1,4 @@
 (function () {
-  var EMBED_HEIGHT = 400;
-
   document.addEventListener('DOMContentLoaded', function () {
     var examples = document.querySelectorAll('.js-example');
 
@@ -63,7 +61,7 @@
     var jsSource = getScriptFromSource(bodyHTML);
     var cssSource = getStyleFromSource(headHTML);
 
-    var height = placementElement.getAttribute('data-height') || EMBED_HEIGHT;
+    var height = placementElement.getAttribute('data-height');
 
     var codeSnippet = document.createElement('div');
 
@@ -76,7 +74,7 @@
 
     // example page title is structured as "... | Examples | Vanilla documentation"
     // we want to strip anything after first | pipe
-    titleEl.innerText = title.split("|")[0];
+    titleEl.innerText = title.split('|')[0];
 
     header.appendChild(titleEl);
     codeSnippet.appendChild(header);
@@ -117,7 +115,7 @@
         optionHTML.value = option.toLowerCase();
         optionHTML.innerText = option.toUpperCase();
         selectEl.appendChild(optionHTML);
-      })
+      });
 
       dropdownsEl.appendChild(selectEl);
       header.appendChild(dropdownsEl);
@@ -128,7 +126,9 @@
   function renderIframe(container, html, height) {
     var iframe = document.createElement('iframe');
     iframe.width = '100%';
-    iframe.height = height + 'px';
+    if (height) {
+      iframe.height = height + 'px';
+    }
     iframe.frameBorder = 0;
     container.appendChild(iframe);
     var doc = iframe.contentWindow.document;
@@ -136,27 +136,23 @@
     doc.write(html);
     doc.close();
 
-    // TODO:
-    // // Wait for content to load before determining height
-    // var resizeInterval = setInterval(
-    //   function() {
-    //     console.log('interval')
-    //     if (iframe.contentDocument.readyState == 'complete') {
-    //       console.log('complete');
-    //       // remove any residual margin
-    //       // iframe.contentDocument.body.style.margin = 0;
-    //       // // add padding to see shadows pattern shadows
-    //       // iframe.contentDocument.body.style.padding = '.5rem .25rem';
-    //       // Add extra spacing to catch edge cases
-    //       const frameHeight = iframe.contentDocument.body.scrollHeight;
-    //       iframe.height = (frameHeight + 32) + "px";
-    //       console.log('complete', frameHeight);
-    //       clearInterval(resizeInterval);
-    //     }
-    //   },
-    //   100
-    // );
-    // setTimeout(function() {clearInterval(resizeInterval);}, 2000);
+    // if height wasn't specified, try to determine it from example content
+    if (!height) {
+      // Wait for content to load before determining height
+      var resizeInterval = setInterval(function () {
+        if (iframe.contentDocument.readyState == 'complete') {
+          var frameHeight = iframe.contentDocument.body.scrollHeight;
+          var style = iframe.contentWindow.getComputedStyle(iframe.contentDocument.body);
+          iframe.height = frameHeight + 32 + 'px'; // accommodate for body margin
+          clearInterval(resizeInterval);
+        }
+      }, 100);
+
+      // cancel resizing if frame didn't load in 5s
+      setTimeout(function () {
+        clearInterval(resizeInterval);
+      }, 5000);
+    }
 
     return iframe;
   }
