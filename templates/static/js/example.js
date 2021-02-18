@@ -1,5 +1,5 @@
 (function () {
-  var CODEPEN_HEIGHT = 400;
+  var EMBED_HEIGHT = 400;
 
   document.addEventListener('DOMContentLoaded', function () {
     var examples = document.querySelectorAll('.js-example');
@@ -7,18 +7,18 @@
     // IE11 doesn't support forEach on NodeList, CodePen doesn't support IE as well
     // so we don't want to load CodePen when forEach is not supported
     if (examples.forEach) {
-      examples.forEach(renderExample);
+      examples.forEach(fetchExample);
     }
   });
 
-  function renderExample(exampleElement) {
+  function fetchExample(exampleElement) {
     var link = exampleElement.href;
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
       if (request.status === 200 && request.readyState === 4) {
         var html = request.responseText;
-        renderCodeBlocks(exampleElement, html);
+        renderExample(exampleElement, html);
         exampleElement.style.display = 'none';
       }
     };
@@ -50,7 +50,7 @@
     return pre;
   }
 
-  function renderCodeBlocks(placementElement, html) {
+  function renderExample(placementElement, html) {
     var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
     var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
     var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
@@ -63,60 +63,65 @@
     var jsSource = getScriptFromSource(bodyHTML);
     var cssSource = getStyleFromSource(headHTML);
 
-    var height = placementElement.getAttribute('data-height') || CODEPEN_HEIGHT;
+    var height = placementElement.getAttribute('data-height') || EMBED_HEIGHT;
 
-    var container = document.createElement('div');
+    var codeSnippet = document.createElement('div');
 
-    container.classList.add('p-code-snippet', 'codepen-example');
+    codeSnippet.classList.add('p-code-snippet', 'codepen-example');
 
     var header = document.createElement('div');
     header.classList.add('p-code-snippet__header');
     var titleEl = document.createElement('h5');
     titleEl.classList.add('p-code-snippet__title');
-    titleEl.innerText = title;
-    header.appendChild(titleEl);
 
-    container.appendChild(header);
+    // example page title is structured as "... | Examples | Vanilla documentation"
+    // we want to strip anything after first | pipe
+    titleEl.innerText = title.split("|")[0];
+
+    header.appendChild(titleEl);
+    codeSnippet.appendChild(header);
 
     // Build code block structure
-    container.appendChild(createPreCode(htmlSource, 'html'));
-
-    if (jsSource || cssSource) {
-      var dropdownsEl = document.createElement('div');
-      dropdownsEl.classList.add('p-code-snippet__dropdowns');
-      var selectEl = document.createElement('select');
-      selectEl.classList.add('p-code-snippet__dropdown');
-      dropdownsEl.appendChild(selectEl);
-      header.appendChild(dropdownsEl);
-      var optionHTML = document.createElement('option');
-      optionHTML.value = 'html';
-      optionHTML.innerText = 'HTML';
-      selectEl.appendChild(optionHTML);
-      attachDropdownEvents(selectEl);
-    }
-
+    var options = ['html'];
+    codeSnippet.appendChild(createPreCode(htmlSource, 'html'));
     if (jsSource) {
-      container.appendChild(createPreCode(jsSource, 'js'));
-      var optionJS = document.createElement('option');
-      optionJS.value = 'js';
-      optionJS.innerText = 'JS';
-      selectEl.appendChild(optionJS);
+      codeSnippet.appendChild(createPreCode(jsSource, 'js'));
+      options.push('js');
     }
-
     if (cssSource) {
-      container.appendChild(createPreCode(cssSource, 'css'));
-      var optionCSS = document.createElement('option');
-      optionCSS.value = 'css';
-      optionCSS.innerText = 'CSS';
-      selectEl.appendChild(optionCSS);
+      codeSnippet.appendChild(createPreCode(cssSource, 'css'));
+      options.push('css');
     }
+    renderDropdown(header, options);
 
-    placementElement.parentNode.insertBefore(container, placementElement);
+    placementElement.parentNode.insertBefore(codeSnippet, placementElement);
 
-    var iframe = renderIframe(container, html, height);
+    renderIframe(codeSnippet, html, height);
 
     if (Prism) {
-      Prism.highlightAllUnder(container);
+      Prism.highlightAllUnder(codeSnippet);
+    }
+  }
+
+  function renderDropdown(header, options) {
+    // only add dropdown if there is more than one code block
+    if (options.length > 1) {
+      var dropdownsEl = document.createElement('div');
+      dropdownsEl.classList.add('p-code-snippet__dropdowns');
+
+      var selectEl = document.createElement('select');
+      selectEl.classList.add('p-code-snippet__dropdown');
+
+      options.forEach(function (option) {
+        var optionHTML = document.createElement('option');
+        optionHTML.value = option.toLowerCase();
+        optionHTML.innerText = option.toUpperCase();
+        selectEl.appendChild(optionHTML);
+      })
+
+      dropdownsEl.appendChild(selectEl);
+      header.appendChild(dropdownsEl);
+      attachDropdownEvents(selectEl);
     }
   }
 
@@ -202,14 +207,6 @@
           block.setAttribute('aria-hidden', true);
         }
       }
-    });
-  }
-
-  function setupCodeSnippetDropdowns(codeSnippetDropdownSelector) {
-    var dropdowns = [].slice.call(document.querySelectorAll(codeSnippetDropdownSelector));
-
-    dropdowns.forEach(function (dropdown) {
-      attachDropdownEvents(dropdown);
     });
   }
 })();
