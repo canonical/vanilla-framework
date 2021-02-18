@@ -92,6 +92,7 @@
       optionHTML.value = 'html';
       optionHTML.innerText = 'HTML';
       selectEl.appendChild(optionHTML);
+      attachDropdownEvents(selectEl);
     }
 
     if (jsSource) {
@@ -114,11 +115,8 @@
 
     var iframe = renderIframe(container, html, height);
 
-    // after examples are embedded, setup dropdowns functionality and trigger syntax highlighting
-    setupCodeSnippetDropdowns('.embedded-example .p-code-snippet__dropdown');
-
     if (Prism) {
-      Prism.highlightAll();
+      Prism.highlightAllUnder(container);
     }
   }
 
@@ -133,25 +131,29 @@
     doc.write(html);
     doc.close();
 
-    return iframe;
     // TODO:
     // // Wait for content to load before determining height
     // var resizeInterval = setInterval(
     //   function() {
+    //     console.log('interval')
     //     if (iframe.contentDocument.readyState == 'complete') {
+    //       console.log('complete');
     //       // remove any residual margin
-    //       iframe.contentDocument.body.style.margin = 0;
-    //       // add padding to see shadows pattern shadows
-    //       iframe.contentDocument.body.style.padding = '.5rem .25rem';
+    //       // iframe.contentDocument.body.style.margin = 0;
+    //       // // add padding to see shadows pattern shadows
+    //       // iframe.contentDocument.body.style.padding = '.5rem .25rem';
     //       // Add extra spacing to catch edge cases
     //       const frameHeight = iframe.contentDocument.body.scrollHeight;
-    //       iframe.height = frameHeight + "px";
+    //       iframe.height = (frameHeight + 32) + "px";
+    //       console.log('complete', frameHeight);
     //       clearInterval(resizeInterval);
     //     }
     //   },
     //   100
     // );
     // setTimeout(function() {clearInterval(resizeInterval);}, 2000);
+
+    return iframe;
   }
 
   function getStyleFromSource(source) {
