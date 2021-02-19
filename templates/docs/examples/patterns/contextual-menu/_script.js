@@ -17,12 +17,7 @@ function toggleMenu(element, show, top) {
     }
 
     if (show) {
-      var focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-      var firstFocusable = target.querySelector(focusableElements);
-
-      if (firstFocusable) {
-        firstFocusable.focus();
-      }
+      target.focus();
     }
   }
 }
