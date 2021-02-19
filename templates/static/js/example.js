@@ -2,10 +2,10 @@
   document.addEventListener('DOMContentLoaded', function () {
     var examples = document.querySelectorAll('.js-example');
 
-    // IE11 doesn't support forEach on NodeList, CodePen doesn't support IE as well
-    // so we don't want to load CodePen when forEach is not supported
+    // IE11 doesn't support forEach on NodeList
+    // we use this check to skip rendering embeds in IE
     if (examples.forEach) {
-      examples.forEach(fetchExample);
+      [].slice.call(examples).forEach(fetchExample);
     }
   });
 
