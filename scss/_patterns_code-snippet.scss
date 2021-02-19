@@ -23,15 +23,6 @@ $code-snippet-header-v-spacing: $spv-inner--x-small--scaleable;
       padding-left: #{$sph-inner + map-get($icon-sizes, default) + $sph-inner--small};
       position: relative;
 
-      &::before {
-        @if ($increase-font-size-on-larger-screens) {
-          // stylelint-disable-next-line max-nesting-depth
-          @media (min-width: $breakpoint-x-large) {
-            top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) * $font-size-ratio--largescreen - map-get($icon-sizes, default))};
-          }
-        }
-      }
-
       &.is-windows-prompt::before {
         @include vf-icon-chevron($color-mid-dark);
 
