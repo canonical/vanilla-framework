@@ -59,7 +59,6 @@ Adding `.p-slider` class to style `<input type='range'>` is optional, so this cl
 
 Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding) (`aria-hidden="true"`) instead.
 
-
 ### Grid
 
-Use of `.col` classes outside of `.row` is deprecated.
+Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
