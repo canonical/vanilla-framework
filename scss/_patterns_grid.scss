@@ -41,7 +41,7 @@
   // mobile grid
   @media (max-width: $threshold-4-6-col) {
     @for $i from $grid-columns-small through 1 {
-      .row .#{$grid-small-col-prefix}#{$i} {
+      .#{$grid-small-col-prefix}#{$i} {
         @include vf-grid-column($i);
 
         width: 100%;
@@ -52,7 +52,7 @@
   // tablet grid
   @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from $grid-columns-medium through 1 {
-      .row .#{$grid-medium-col-prefix}#{$i} {
+      .#{$grid-medium-col-prefix}#{$i} {
         @include vf-grid-column($i);
 
         width: 100%;
@@ -64,7 +64,7 @@
   @media (min-width: $threshold-6-12-col) {
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
-      .row .#{$grid-large-col-prefix}#{$i} {
+      .#{$grid-large-col-prefix}#{$i} {
         // on large screens provide flex box column implementation for IE
         // on smaller screens let them display full width one under another
         @include vf-grid-flex-column($i);
@@ -75,7 +75,7 @@
 
   // span full grid on other breakpoints; (to match block level element behaviour)
   @for $i from 1 through $grid-columns-small {
-    .row .#{$grid-small-col-prefix}#{$i} {
+    .#{$grid-small-col-prefix}#{$i} {
       @extend %span-full-grid-on-tablet;
       @extend %span-full-grid-on-desktop;
       @extend %display-block;
@@ -83,7 +83,7 @@
   }
 
   @for $i from 1 through $grid-columns-medium {
-    .row .#{$grid-medium-col-prefix}#{$i} {
+    .#{$grid-medium-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-desktop;
       @extend %display-block;
@@ -91,7 +91,7 @@
   }
 
   @for $i from 1 through $grid-columns {
-    .row .#{$grid-large-col-prefix}#{$i} {
+    .#{$grid-large-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %span-full-grid-on-tablet;
       @extend %display-block;
