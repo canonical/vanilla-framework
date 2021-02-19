@@ -42,8 +42,8 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We added a new <code>l-fluid-breakout</code> layout that can be used to break out of the constraints of a 12-column grid and allow content to bleed into the page margins on larger screens.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/grid">Grid</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
+      <th><a href="/docs/patterns/grid">Grid - "orphan" columns</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.24.0</td>
       <td>We deprecated the use of `.col` classes without a direct parent with a class `.row`.</td>
     </tr>
