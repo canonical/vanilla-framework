@@ -28,16 +28,6 @@
     }
   });
 
-  document.addEventListener('click', function (e) {
-    var isCodePenLink = e.target.classList.contains('js-codepen-link');
-
-    if (isCodePenLink) {
-      var form = e.target.closest('form');
-      e.preventDefault();
-      form.submit();
-    }
-  });
-
   function fetchExample(exampleElement) {
     var link = exampleElement.href;
     var request = new XMLHttpRequest();
@@ -226,14 +216,28 @@
       input.setAttribute('value', JSONstring);
 
       link.innerHTML = 'Edit on CodePen';
-      link.classList.add('js-codepen-link');
       link.style.cssText = 'display: block; padding: 0.5rem 0;';
 
       form.appendChild(input);
       form.appendChild(link);
       container.appendChild(form);
+      handleCodePenClick(link, form);
       snippet.appendChild(container);
     }
+  }
+
+  function handleCodePenClick(link, form) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      form.submit();
+    });
+
+    // handle middle mouse button click
+    link.addEventListener('mouseup', function (e) {
+      if (e.which === 2) {
+        link.click();
+      }
+    });
   }
 
   function getStyleFromSource(source) {
