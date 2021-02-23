@@ -1,4 +1,23 @@
 (function () {
+  if (!window.VANILLA_VERSION) {
+    throw Error('VANILLA_VERSION not specified.');
+  }
+
+  var CODEPEN_CONFIG = {
+    title: 'Vanilla framework example',
+    head: "<meta name='viewport' content='width=device-width, initial-scale=1'>",
+    stylesheets: [
+      // link to latest Vanilla CSS
+      // if it's a demo, use local build.css for better QA, otherwise use latest published Vanilla
+      /demos\.haus$/.test(window.location.host)
+        ? `${window.location.origin}/static/build/css/build.css`
+        : 'https://assets.ubuntu.com/v1/vanilla-framework-version-' + VANILLA_VERSION + '.min.css',
+      // link to example stylesheet (to set margin on body)
+      'https://assets.ubuntu.com/v1/4653d9ba-example.css',
+    ],
+    tags: ['Vanilla framework'],
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
     var examples = document.querySelectorAll('.js-example');
 
@@ -60,6 +79,13 @@
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
     var cssSource = getStyleFromSource(headHTML);
+    var externalScripts = getExternalScriptsFromSource(html);
+    var codePenData = {
+      html: htmlSource,
+      css: cssSource,
+      js: jsSource,
+      externalJS: externalScripts,
+    };
 
     var height = placementElement.getAttribute('data-height');
 
@@ -90,11 +116,11 @@
       codeSnippet.appendChild(createPreCode(cssSource, 'css'));
       options.push('css');
     }
+
     renderDropdown(header, options);
-
     placementElement.parentNode.insertBefore(codeSnippet, placementElement);
-
     renderIframe(codeSnippet, html, height);
+    renderCodePenEditLink(codeSnippet, codePenData);
 
     if (Prism) {
       Prism.highlightAllUnder(codeSnippet);
@@ -157,6 +183,63 @@
     return iframe;
   }
 
+  function renderCodePenEditLink(snippet, sourceData) {
+    var html = sourceData.html === null ? '' : sourceData.html;
+    var css = sourceData.css === null ? '' : sourceData.css;
+    var js = sourceData.js === null ? '' : sourceData.js;
+
+    if (html || css || js) {
+      var container = document.createElement('div');
+      var form = document.createElement('form');
+      var input = document.createElement('input');
+      var link = document.createElement('a');
+      var data = {
+        title: CODEPEN_CONFIG.title,
+        head: CODEPEN_CONFIG.head,
+        html: html,
+        css: css,
+        js: js,
+        css_external: CODEPEN_CONFIG.stylesheets.join(';'),
+        js_external: sourceData.externalJS.join(';'),
+      };
+      // Replace double quotes to avoid errors on CodePen
+      var JSONstring = JSON.stringify(data).replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+
+      container.classList.add('p-code-snippet__header');
+
+      form.setAttribute('action', 'https://codepen.io/pen/define');
+      form.setAttribute('method', 'POST');
+      form.setAttribute('target', '_blank');
+
+      input.setAttribute('type', 'hidden');
+      input.setAttribute('name', 'data');
+      input.setAttribute('value', JSONstring);
+
+      link.innerHTML = 'Edit on CodePen';
+      link.style.cssText = 'display: block; padding: 0.5rem 0;';
+
+      form.appendChild(input);
+      form.appendChild(link);
+      container.appendChild(form);
+      handleCodePenClick(link, form);
+      snippet.appendChild(container);
+    }
+  }
+
+  function handleCodePenClick(link, form) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      form.submit();
+    });
+
+    // handle middle mouse button click
+    link.addEventListener('mouseup', function (e) {
+      if (e.which === 2) {
+        link.click();
+      }
+    });
+  }
+
   function getStyleFromSource(source) {
     var div = document.createElement('div');
     div.innerHTML = source;
@@ -180,6 +263,16 @@
     div.innerHTML = source;
     var script = div.querySelector('script');
     return script ? script.innerHTML.trim() : null;
+  }
+
+  function getExternalScriptsFromSource(source) {
+    var div = document.createElement('div');
+    div.innerHTML = source;
+    var scripts = div.querySelectorAll('script[src]');
+    scripts = [].slice.apply(scripts).map(function (s) {
+      return s.src;
+    });
+    return scripts;
   }
 
   /**
