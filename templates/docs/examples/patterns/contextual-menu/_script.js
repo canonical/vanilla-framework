@@ -10,6 +10,7 @@ function toggleMenu(element, show, top) {
 
   if (target) {
     element.setAttribute('aria-expanded', show);
+    element.setAttribute('aria-pressed', show);
     target.setAttribute('aria-hidden', !show);
 
     if (typeof top !== 'undefined') {

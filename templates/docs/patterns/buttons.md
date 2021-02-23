@@ -90,8 +90,6 @@ View example of the icon button pattern
 
 ### Processing
 
-<span class="p-label--new">New</span>
-
 In cases where a button needs to indicate that an action is occurring (e.g. saving data, processing a payment) while also preventing user interaction, the state class `is-processing` can be added to a disabled button to maintain full opacity.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/processing/" class="js-example">
@@ -103,6 +101,16 @@ View example of the processing button pattern
 <span class="p-label--deprecated">Deprecated</span>
 
 The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
+
+### Accessibility
+
+<span class="p-label--new">New</span>
+
+In some contexts, it may be necessary to indicate to the user that a button is in a pressed state, such as when a button opens a contextual menu. This can be done by adding `aria-pressed="true"` to the button with JavaScript when the button is clicked, and removed when necessary.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/pressed" class="js-example" data-height="270">
+View example of the contextual menu pattern
+</a></div>
 
 ### Import
 
