@@ -119,7 +119,8 @@
     border-color: $button-hover-border-color;
   }
 
-  &:active {
+  &:active,
+  &[aria-pressed='true'] {
     background-color: $button-active-background-color;
     border-color: $button-active-border-color;
     transition-duration: 0s;
@@ -128,6 +129,7 @@
   &:disabled,
   &.is-disabled {
     &:active,
+    &[aria-pressed='true'],
     &:hover {
       background-color: $button-disabled-background-color;
       border-color: $button-disabled-border-color;
