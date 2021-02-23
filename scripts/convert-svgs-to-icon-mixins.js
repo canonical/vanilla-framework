@@ -1,12 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const mime = require('mime');
-const SVGO = require('svgo');
+const {optimize} = require('svgo');
 
 const args = process.argv;
 const directory = args[2];
 const symbols = /[\r\n%#()<>?\[\\\]^`{|}]/g;
-const svgo = new SVGO();
 
 function parseColorArguments(data) {
   const color_count = (data.match(/fill="#[^\s]+"/g) || []).length;
@@ -79,7 +78,6 @@ function encodeSVG(data, colorVariables) {
 }
 
 function convertSVGs(directory, files) {
-  let svgPromises = [];
   let convertedSVGs = [];
 
   files.forEach((file) => {
@@ -89,26 +87,16 @@ function convertSVGs(directory, files) {
 
     if (isSVG) {
       const data = fs.readFileSync(filePath, 'utf-8');
-
-      svgPromises.push(svgo.optimize(data, {path: filePath}));
-    }
-  });
-
-  // SVGO returns a promise, but we want to further process the data for
-  // for each SVG when those promises have resolved, so we resolve them
-  // all at once here, do what we need to to each of them, then print the mixins.
-  Promise.all(svgPromises).then((optimisedSVGs) => {
-    optimisedSVGs.forEach((optimisedSVG) => {
-      const svg = optimisedSVG.data;
-      const colorsArray = parseColorArguments(optimisedSVG.data);
-      const iconName = path.parse(optimisedSVG.path).name.toLowerCase();
+      const svg = optimize(data, {path: filePath});
+      const colorsArray = parseColorArguments(svg.data);
+      const iconName = path.parse(filePath).name.toLowerCase();
 
       convertedSVGs.push({
-        svg: svg,
+        svg: svg.data,
         colors: colorsArray,
         name: iconName,
       });
-    });
+    }
 
     printBaseMixins(convertedSVGs);
     printPatternMixins(convertedSVGs);
