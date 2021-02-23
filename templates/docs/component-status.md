@@ -22,6 +22,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.25 -->
+    <tr>
+      <th><a href="/docs/patterns/buttons#accessibility">Buttons -<br /> aria-pressed</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.25.0</td>
+      <td>We added support for the <code>aria-pressed</code> attribute to button elements. When set to <code>true</code>, the button will retain the styles applied when in its <code>:active</code> state.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.24 -->
     <tr>
       <th><a href="/docs/base/code#dropdowns">Code snippet - Dropdowns</a></th>
@@ -47,21 +69,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.24.0</td>
       <td>We deprecated the use of `.col` classes without a direct parent with a class `.row`.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.23 -->
     <tr>
       <th><a href="/docs/patterns/buttons#active">Active button</a></th>
