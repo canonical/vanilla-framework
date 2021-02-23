@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Buttons / Pressed{% endblock %}
+
+{% block standalone_css %}patterns_buttons{% endblock %}
+
+{% block content %}
+<span class="p-contextual-menu--left">
+    <button class="p-contextual-menu__toggle" aria-controls="menu-3" aria-expanded="false" aria-haspopup="true">Take action&hellip;</button>
+    <span class="p-contextual-menu__dropdown" id="menu-3" aria-hidden="true">
+        <span class="p-contextual-menu__group">
+            <a href="#" class="p-contextual-menu__link">Commission</a>
+            <a href="#" class="p-contextual-menu__link">Aquire</a>
+            <a href="#" class="p-contextual-menu__link">Deploy</a>
+        </span>
+        <span class="p-contextual-menu__group">
+            <a href="#" class="p-contextual-menu__link">Test harware</a>
+            <a href="#" class="p-contextual-menu__link">Rescue mode</a>
+            <a href="#" class="p-contextual-menu__link">Mark broken</a>
+        </span>
+    </span>
+</span>
+
+<script>
+  {% include 'docs/examples/patterns/contextual-menu/_script.js' %}
+</script>
+{% endblock %}
