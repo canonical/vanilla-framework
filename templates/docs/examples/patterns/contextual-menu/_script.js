@@ -15,6 +15,10 @@ function toggleMenu(element, show, top) {
     if (typeof top !== 'undefined') {
       target.style.top = top + 'px';
     }
+
+    if (show) {
+      target.focus();
+    }
   }
 }
 

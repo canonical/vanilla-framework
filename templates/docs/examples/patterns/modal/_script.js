@@ -6,6 +6,7 @@ function toggleModal(modal) {
   if (modal && modal.classList.contains('p-modal')) {
     if (modal.style.display === 'none') {
       modal.style.display = 'flex';
+      modal.focus();
     } else {
       modal.style.display = 'none';
     }
