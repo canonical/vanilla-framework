@@ -42,10 +42,11 @@
     }
 
     @media only screen and (min-width: $breakpoint-x-small + 1) {
+      margin-right: $sph-outer;
       width: auto;
 
-      &:not(:last-of-type):not(:only-of-type) {
-        margin-right: $sph-outer;
+      &:last-child {
+        margin-right: 0;
       }
     }
 
@@ -58,7 +59,7 @@
     &.is-small {
       font-size: #{map-get($font-sizes, small)}rem;
       line-height: map-get($line-heights, small);
-      margin: 0 0 $input-margin-bottom - $sp-unit 0;
+      margin-bottom: $input-margin-bottom - $sp-unit;
       padding: calc(#{map-get($nudges, nudge--small)} - 1px) $sph-inner--small;
     }
 
