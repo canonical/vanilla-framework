@@ -10,11 +10,18 @@ context:
 
 Vanilla gives you multiple ways to separate parts of the content with a horizontal line.
 
-### Horizontal line
+### Horizontal rule
 
-Standard `<hr>` element can be used to separate parts of the longer pieces of text.
+Use the standard `<hr>` element to introduce section breaks.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr/" class="js-example">
+View example of the horizontal line
+</a></div>
+
+Add the `is-muted` class to an `<hr>` to make the horizontal rule lighter in colour.
+This can be useful when trying to create a more subtle partitioning within a section within a container, or between standard horizontal rules.
+
+<div class="embedded-example"><a href="/docs/examples/base/hr-muted/" class="js-example">
 View example of the horizontal line
 </a></div>
 
