@@ -29,7 +29,7 @@ View example of the muted horizontal line
 
 #### Fixed width horizontal rule
 
-Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr>` in a div with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr>`.
+Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr>` in a `div` with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr>`.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr-fixed-width/" class="js-example">
 View example of the fixed-width horizontal line
