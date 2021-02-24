@@ -152,6 +152,23 @@ View example of the base blockquotes
 View example of the small text
 </a></div>
 
+### Extra small capitalised text
+
+Extra small capitalised text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--x-small-capitalised`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/x-small-capitalised/" class="js-example">
+View example of the extra small capitalised text
+</a></div>
+
+### Baseline alignment: small, extra small and paragraph text
+
+Because of the difference in line heights, small, extra small and paragraph text do not share the same baseline.
+In some cases, for example when used on the same line, it can be useful to align them. Use the `u-align-text--small-to-default` `u-align-text--x-small-to-default` classes to achieve baseline alignment.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/align-by-baseline/" class="js-example">
+View example of baseline alignment of paragraph, small, extra small text
+</a></div>
+
 ### Strong text
 
 <div class="embedded-example"><a href="/docs/examples/base/strong/" class="js-example">
