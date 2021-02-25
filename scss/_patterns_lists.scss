@@ -156,17 +156,12 @@ $spv-list-item--inner: null;
       position: relative;
 
       &::after {
-        color: $color-mid-dark;
         content: '\00b7';
-        font-size: 1.4em;
+        font-size: 2em;
         line-height: 0;
         position: absolute;
-        right: #{-0.5 * $sph-outer};
-        top: 0.4em;
-      }
-
-      &:hover::after {
-        color: $color-mid-dark;
+        right: #{-0.6 * $sph-outer};
+        top: 0.27em;
       }
 
       &:last-of-type,
@@ -177,6 +172,42 @@ $spv-list-item--inner: null;
       }
     }
   }
+
+  // Theming
+  @if ($theme-default-p-inline-list--middot == 'dark') {
+    .p-inline-list--middot {
+      @include vf-p-inline-list-middot-dark-theme;
+    }
+
+    .p-inline-list--middot.is-light {
+      @include vf-p-inline-list-middot-light-theme;
+    }
+  } @else {
+    .p-inline-list--middot {
+      @include vf-p-inline-list-middot-light-theme;
+    }
+
+    .p-inline-list--middot.is-dark {
+      @include vf-p-inline-list-middot-dark-theme;
+    }
+  }
+}
+
+@mixin vf-p-inline-list-middot-theme($color-list-text, $color-middot) {
+  color: $color-list-text;
+
+  .p-inline-list__item::after,
+  .p-inline-list__item:hover::after {
+    color: $color-middot;
+  }
+}
+
+@mixin vf-p-inline-list-middot-light-theme {
+  @include vf-p-inline-list-middot-theme($colors--light-theme--text-default, $color-mid-dark);
+}
+
+@mixin vf-p-inline-list-middot-dark-theme {
+  @include vf-p-inline-list-middot-theme($colors--dark-theme--text-default, $color-x-light);
 }
 
 @mixin vf-p-inline-list-stretch {
