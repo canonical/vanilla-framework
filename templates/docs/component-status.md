@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.25 -->
     <tr>
+      <th><a href="/docs/patterns/lists#middot">Lists / Middot</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.25.0</td>
+      <td>Added dark theme to middot lists.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/buttons#accessibility">Buttons -<br /> aria-pressed</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.25.0</td>
