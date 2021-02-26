@@ -69,11 +69,19 @@ View example of the inline list pattern
 
 ### Middot
 
+<span class="p-label--updated">Updated</span>
+
 Apply the class `.p-inline-list--middot` to add a middot character between
 inline list items.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-mid-dot/" class="js-example">
 View example of the middot list pattern
+</a></div>
+
+The utility class `.is-dark` can also be applied to a middot list:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-mid-dot-dark/" class="js-example">
+View example of the middot list with an is-dark class
 </a></div>
 
 ### Inline stretched
