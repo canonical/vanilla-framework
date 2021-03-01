@@ -20,6 +20,8 @@ View example of the horizontal line
 
 #### Muted horizontal rule
 
+<span class="p-label--new">New</span>
+
 Add the `is-muted` class to an `<hr>` to make the horizontal rule lighter in colour.
 This can be useful when trying to create a more subtle partitioning within a section within a container, or between standard horizontal rules.
 
@@ -28,6 +30,8 @@ View example of the muted horizontal line
 </a></div>
 
 #### Fixed width horizontal rule
+
+<span class="p-label--new">New</span>
 
 Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr>` in a `div` with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr>`.
 
