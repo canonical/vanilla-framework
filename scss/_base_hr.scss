@@ -7,18 +7,16 @@
 
     margin-bottom: calc(#{$spv-inner--small} - 1px);
 
-    // stylelint-disable-next-line selector-no-qualifying-type
+    // stylelint-disable selector-no-qualifying-type
     &.u-no-margin--bottom {
       // compensate for hr thickness, to make sure it doesn't drift from baseline grid
       @extend %u-no-margin--bottom--hr;
     }
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     &.is-muted {
       background-color: $colors--light-theme--border-low-contrast;
     }
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     &.is-fixed-width {
       margin-left: auto;
       margin-right: auto;
@@ -38,12 +36,7 @@
         width: calc(100% - #{2 * map-get($grid-margin-widths, large)});
       }
 
-      // stylelint-disable-next-line selector-no-qualifying-type
-      .row & {
-        width: 100%;
-      }
-
-      // stylelint-disable-next-line selector-no-qualifying-type
+      .row &,
       .u-fixed-width & {
         width: 100%;
       }
@@ -56,7 +49,6 @@
       @include vf-hr-dark-theme;
     }
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     hr.is-light {
       @include vf-hr-light-theme;
     }
@@ -65,11 +57,11 @@
       @include vf-hr-light-theme;
     }
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     hr.is-dark {
       @include vf-hr-dark-theme;
     }
   }
+  // stylelint-enable selector-no-qualifying-type
 }
 
 @mixin vf-hr-theme(
