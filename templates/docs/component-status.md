@@ -22,6 +22,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.26 -->
+    <tr>
+      <th><a href="/docs/base/tables#expanding">Tables expanding</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.26.0</td>
+      <td>We renamed and deprecated <code>p-table-expanding</code> and <code>p-table-expanding__panel</code>. Use <code>p-table--expanding</code> and <code>p-table__expanding-panel</code> instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.25 -->
     <tr>
       <th><a href="/docs/base/typography#extra-small-capitalised-text">Typography / Extra small caps</a></th>
@@ -53,27 +75,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.25.0</td>
       <td>We added a dark theme to middot lists.</td>
     </tr>
-    <tr>
-      <th><a href="/docs/patterns/buttons#accessibility">Buttons -<br /> aria-pressed</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.25.0</td>
-      <td>We added support for the <code>aria-pressed</code> attribute to button elements. When set to <code>true</code>, the button will retain the styles applied when in its <code>:active</code> state.</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.24 -->
     <tr>
       <th><a href="/docs/base/code#dropdowns">Code snippet - Dropdowns</a></th>
