@@ -62,3 +62,7 @@ Using `.u-hide` utility inside expanding table to hide table heading placeholder
 ### Grid
 
 Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
+
+### Tables
+
+We renamed and deprecated `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.

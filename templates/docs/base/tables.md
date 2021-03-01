@@ -41,15 +41,17 @@ View example of the table sortable pattern
 
 <span class="p-label--updated">Updated</span>
 
-Using `.p-table-expanding` in conjunction with the `<table>` element will allow expanding and hidden table cells which take up the full width of the table row element.
+Using `.p-table--expanding` in conjunction with the `<table>` element will allow expanding and hidden table cells which take up the full width of the table row element.
 
 This pattern should be used when a table requires configuration fields (add, edit). Expandable rows can also be used to supply additional information not visible on the table row.
 
-Using `p-table-expanding__panel` it can be hidden using the `aria-hidden` attribute. The table must contain all table cells required. The expanding panel is implemented as additional cell in each row, so to keep the markup of the table valid, an additional cell is also needed in the table `<thead>`. This placeholder heading cell should be hidden using `aria-hidden="true"` attribute.
+Using `p-table__expanding-panel` it can be hidden using the `aria-hidden` attribute. The table must contain all table cells required. The expanding panel is implemented as additional cell in each row, so to keep the markup of the table valid, an additional cell is also needed in the table `<thead>`. This placeholder heading cell should be hidden using `aria-hidden="true"` attribute.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tables/table-expanding/" class="js-example">
 View example of the expanding table pattern
 </a></div>
+
+<span class="p-label--deprecated">Deprecated</span> We are deprecating the use of `p-table-expanding` and `p-table-expanding__panel` class names. They will be removed in future version 3.0 of Vanilla. Use `p-table--expanding` and `p-table__expanding-panel` instead.
 
 ### Responsive
 
