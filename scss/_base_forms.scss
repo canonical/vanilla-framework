@@ -210,11 +210,10 @@
 
   // Fieldset styles
   fieldset {
-    background-color: $color-light;
-    border: 1px solid $colors--light-theme--border-default;
-    border-radius: $border-radius;
-    color: $color-dark;
-    margin-bottom: $spv-outer--scaleable;
-    padding: calc(#{$spv-inner--large} - 1px) $sph-inner--large;
+    @extend %vf-card;
+    @extend %vf-is-bordered;
+    @extend %vf-has-round-corners;
+
+    padding: calc(#{$spv-inner--large} - 1px);
   }
 }
