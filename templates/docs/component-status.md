@@ -24,10 +24,34 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.25 -->
     <tr>
+      <th><a href="/docs/base/typography#extra-small-capitalised-text">Typography / Extra small caps</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.25.0</td>
+      <td>We added new extra small capitalised text <code>p-text--x-small-capitalised</code>.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/typography#baseline-alignment-small-extra-small-and-paragraph-text">Typography / Baseline alignment</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.25.0</td>
+      <td>We added a couple of util classes to help aligning small text on the baseline along default text size.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/separators#muted-horizontal-rule">Separators / Muted</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.25.0</td>
+      <td>We added new muted variant of horizontal rule.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/separators#fixed-width-horizontal-rule">Separators / Fixed width</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.25.0</td>
+      <td>We added new fixed width variant of horizontal rule to allow aligning it with full 12-column grid layouts.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/lists#middot">Lists / Middot</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.25.0</td>
-      <td>Added dark theme to middot lists.</td>
+      <td>We added a dark theme to middot lists.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/buttons#accessibility">Buttons -<br /> aria-pressed</a></th>
