@@ -85,6 +85,11 @@
   }
 
   .p-contextual-menu__toggle {
+    // All buttons have a margin right, unless they are a last child.
+    // In cases where contextual menu toggle is a button, we do not want it to
+    // have a margin, but since it is never the last child in this pattern,
+    // so we need to remove the margin.
+    // https://github.com/canonical-web-and-design/vanilla-framework/pull/3584
     margin-right: 0;
 
     &[aria-expanded='true'] .p-contextual-menu__indicator {
