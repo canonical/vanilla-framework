@@ -225,6 +225,7 @@ $lightness-threshold: 70;
       &__link {
         @extend %navigation-item;
 
+        // stylelint-disable-next-line selector-max-type
         & > a {
           @extend %navigation-link;
         }
@@ -397,6 +398,7 @@ $lightness-threshold: 70;
   }
 
   @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    // stylelint-disable selector-max-type
     .p-navigation__link > a {
       @extend %navigation-link-theme;
     }
@@ -408,6 +410,7 @@ $lightness-threshold: 70;
     .p-navigation__link > a::before {
       @extend %navigation-link-before;
     }
+    // stylelint-enable selector-max-type
   }
 }
 

@@ -2,6 +2,7 @@
 
 @mixin vf-p-table-mobile-card {
   .p-table--mobile-card {
+    // stylelint-disable selector-max-type
     td::before,
     tbody th::before {
       @extend %muted-heading;
@@ -67,7 +68,7 @@
           justify-content: unset !important;
         }
       }
-      // stylelint-enable selector-no-qualifying-type
+      // stylelint-enable selector-no-qualifying-type, selector-max-type
 
       // Styles contextual menus differently within mobile-card tables
       .p-contextual-menu {
@@ -126,6 +127,7 @@
     }
 
     @media screen and (max-width: $breakpoint-small) {
+      // stylelint-disable-next-line selector-max-type
       tr {
         width: 100%;
       }
