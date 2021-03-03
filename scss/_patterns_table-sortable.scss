@@ -19,33 +19,29 @@
     vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $default-icon-size});
   }
 
-  .p-table--sortable {
-    table-layout: fixed;
-
-    // stylelint-disable selector-max-type -- table elements can use selector types
-    thead th {
-      &[aria-sort] {
-        align-items: center;
-        cursor: pointer;
-        white-space: nowrap;
-      }
-
-      &[aria-sort='ascending']::after {
-        @extend %heading-icon;
-      }
-
-      &[aria-sort='descending']::after {
-        @extend %heading-icon;
-
-        -webkit-transform: rotate(180deg); // stylelint-disable-line property-no-vendor-prefix
-        transform: rotate(180deg);
-      }
-
-      &[aria-sort]:hover {
-        color: $color-link;
-        text-decoration: underline;
-      }
+  // stylelint-disable selector-max-type -- table elements can use selector types
+  table th {
+    &[aria-sort] {
+      align-items: center;
+      cursor: pointer;
+      white-space: nowrap;
     }
-    // stylelint-enable selector-max-type
+
+    &[aria-sort='ascending']::after {
+      @extend %heading-icon;
+    }
+
+    &[aria-sort='descending']::after {
+      @extend %heading-icon;
+
+      -webkit-transform: rotate(180deg); // stylelint-disable-line property-no-vendor-prefix
+      transform: rotate(180deg);
+    }
+
+    &[aria-sort]:hover {
+      color: $color-link;
+      text-decoration: underline;
+    }
   }
+  // stylelint-enable selector-max-type
 }
