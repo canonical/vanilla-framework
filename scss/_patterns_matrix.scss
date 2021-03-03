@@ -12,10 +12,6 @@
     margin-bottom: $spv-outer--scaleable;
     margin-left: 0;
     padding-left: 0;
-
-    > p:last-child {
-      margin-bottom: $spv-nudge-compensation;
-    }
   }
 
   .p-matrix__item {
@@ -139,8 +135,14 @@
   }
 
   .p-matrix__desc {
+    margin-bottom: $spv-nudge-compensation;
+
     @media (max-width: $breakpoint-heading-threshold) {
       margin-top: -#{$sp-unit};
+    }
+
+    > :last-child {
+      margin: 0;
     }
   }
 }
