@@ -29,6 +29,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.26.0</td>
       <td>We renamed and deprecated <code>p-table-expanding</code> and <code>p-table-expanding__panel</code>. Use <code>p-table--expanding</code> and <code>p-table__expanding-panel</code> instead.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/base/tables#sortable">Tables sorting</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.26.0</td>
+      <td>We removed <code>p-table--sortable</code> class name. Sorting can be enabled on any table by adding <code>aria-sort</code> attributes.</td>
+    </tr>
   </tbody>
 </table>
 
