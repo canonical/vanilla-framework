@@ -31,11 +31,13 @@ View example of the base table
 
 ### Sortable
 
-Using the class `p-table--sortable` and assigning `role="columnheader"` and `aria-sort` to each `<th>` element will show each table column to be sortable. With javascript toggling between `ascending` and `descending` for the `aria-sort` attribute it will change the chevron icon in that direction.
+Assigning `aria-sort` to `<th>` elements will make given table columns sortable. With javascript toggling between `ascending` and `descending` for the `aria-sort` attribute it will change the chevron icon in that direction.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tables/table-sortable/" class="js-example">
 View example of the table sortable pattern
 </a></div>
+
+<span class="p-label--deprecated">Deprecated</span> We are removing the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
 
 ### Expanding
 
