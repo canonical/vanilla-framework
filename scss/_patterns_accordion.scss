@@ -47,6 +47,8 @@
     &[aria-expanded='true'] {
       @include vf-icon-minus($color-mid-dark);
 
+      // override base expanded button styles
+      background-color: inherit;
       background-size: $icon-size;
     }
 
@@ -91,6 +93,11 @@
     vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $icon-size});
   }
   // stylelint-enable selector-no-qualifying-type
+
+  // override base expanded button styles
+  .p-accordion__tab--with-title[aria-expanded] {
+    background-color: inherit;
+  }
 
   .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
     @include vf-icon-minus($color-mid-dark);
