@@ -24,7 +24,7 @@
   }
 
   // baseline grid on document should be in the background
-  // stylelint-disable-next-line selector-no-qualifying-type
+  // stylelint-disable selector-max-type -- needed for examples
   html.u-baseline-grid {
     background-color: transparentize($baseline-color, 0.95);
     position: static;
@@ -33,6 +33,7 @@
       z-index: -1;
     }
   }
+  // stylelint-enable selector-max-type
 
   .u-baseline-grid__toggle {
     bottom: $spv-outer--scaleable;

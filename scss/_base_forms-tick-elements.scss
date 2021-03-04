@@ -126,6 +126,7 @@ $box-offsets-top: (
 
   // Default form checkbox and radio styles
   %vf-tick-elements {
+    // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
     label & {
       @extend %vf-tick-in-label;
     }
@@ -278,7 +279,7 @@ $box-offsets-top: (
     @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
 
-    // stylelint-disable selector-no-qualifying-type
+    // stylelint-disable selector-max-type
     & + label {
       @extend %vf-pseudo-checkbox;
 
@@ -369,14 +370,14 @@ $box-offsets-top: (
         }
       }
     }
-    // stylelint-enable selector-no-qualifying-type
+    // stylelint-enable selector-max-type
   }
 
   [type='radio'] {
     @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
 
-    // stylelint-disable selector-no-qualifying-type
+    // stylelint-disable selector-max-type
     & + label {
       @extend %vf-pseudo-radio;
 
@@ -467,7 +468,6 @@ $box-offsets-top: (
         }
       }
     }
-    // stylelint-enable selector-no-qualifying-type
   }
 
   // Theming
@@ -503,6 +503,7 @@ $box-offsets-top: (
     [type='radio'].is-dark + label {
       @include vf-radio-dark-theme;
     }
+    // stylelint-enable selector-max-type
   }
 }
 

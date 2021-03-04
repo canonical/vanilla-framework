@@ -89,6 +89,7 @@
     }
   }
 
+  // stylelint-disable selector-max-type -- base styles can use type selectors
   label {
     @include p-max-width;
 
@@ -99,7 +100,6 @@
     padding-top: map-get($nudges, nudge--p);
     width: fit-content;
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     &.is-required::after {
       color: $color-negative;
       content: '*';
@@ -183,7 +183,6 @@
       cursor: pointer;
     }
 
-    // stylelint-disable selector-no-qualifying-type
     &[multiple],
     &[size] {
       background-image: none;
@@ -196,7 +195,6 @@
         padding: $spv-inner--small $sph-inner--small;
       }
     }
-    // stylelint-enable selector-no-qualifying-type
   }
 
   // Textarea styles
@@ -218,4 +216,5 @@
     margin-right: 0;
     padding: calc(#{$spv-inner--large} - 1px);
   }
+  // stylelint-enable selector-max-type
 }
