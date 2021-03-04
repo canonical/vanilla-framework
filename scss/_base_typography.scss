@@ -11,6 +11,7 @@
     @include vf-b-typography-max-widths;
   }
 
+  // stylelint-disable selector-max-type -- base styles can use type selectors
   html {
     color: $color-dark;
     font-family: unquote($font-base-family);
@@ -74,7 +75,6 @@
   .p-text--small {
     @extend %small-text;
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     &.dense {
       margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, nudge--small);
     }
@@ -155,10 +155,10 @@
     vertical-align: baseline;
   }
 
-  // stylelint-disable-next-line selector-no-qualifying-type
   abbr[title] {
     border-bottom: 0.1em dotted;
     cursor: help;
     text-decoration: none;
   }
+  // stylelint-enable selector-max-type
 }
