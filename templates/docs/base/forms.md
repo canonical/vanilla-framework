@@ -64,6 +64,16 @@ To use checkbox component in headings use the `.p-checkbox--heading` variant of 
 View example of the heading checkbox components
 </a></div>
 
+#### Indeterminate state checkbox
+
+<span class="p-label--new">New</span>
+
+When a checkbox requires a state between checked and unchecked, `checkbox.indeterminate = true;` can be set via JavaScript, which will cause the checkbox appear in an "indeterminate" state.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox-indeterminate/" class="js-example">
+View example of the indeterminate checkbox component
+</a></div>
+
 #### Deprecated base checkboxes
 
 <span class="p-label--deprecated">Deprecated</span>
