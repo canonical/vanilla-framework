@@ -44,27 +44,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ### React
 
-For use of the React component you can do that by installing our react-component page and importing via:
-
-```js
-import { SearchAndFilter } from "@canonical/react-components";
-
-<SearchAndFilter
-  filterPanelData={[
-    {
-      id: 0,
-      heading: "Cloud",
-      chips: [{"Cloud", "AWS"}, {"Cloud", "GCE"}],
-    },
-    {
-      id: 1,
-      heading: "Owner",
-      chips: [{"Owner", "Bob"}, {"Owner", "Stephanie"}],
-    },
-  ]}
-  returnSearchData={(searchData) => {}}
-/>
-```
+For use of the React component you can do that by installing our react-component page and importing.
 
 [Playbook example](https://canonical-web-and-design.github.io/react-components/?path=/docs/search-and-filter--default-story)
 
