@@ -11,16 +11,15 @@ if (document.querySelector('.js-menu-close')) {
   });
 }
 
-if (document.querySelector('.js-aside-toggle')) {
-  document.querySelector('.js-aside-toggle').addEventListener('click', function () {
-    document.querySelector('.l-aside').classList.remove('is-pinned');
-    document.querySelector('.l-aside').classList.toggle('u-hide');
+if (document.querySelector('.js-aside-open')) {
+  document.querySelector('.js-aside-open').addEventListener('click', function () {
+    document.querySelector('.l-aside').classList.remove('is-collapsed');
   });
 }
 
 if (document.querySelector('.js-aside-close')) {
   document.querySelector('.js-aside-close').addEventListener('click', function () {
-    document.querySelector('.l-aside').classList.add('u-hide');
+    document.querySelector('.l-aside').classList.add('is-collapsed');
   });
 }
 
