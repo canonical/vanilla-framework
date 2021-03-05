@@ -36,7 +36,7 @@ function sortTable(header, table) {
   var body = table.tBodies[0];
 
   // Convert the HTML element list to an array.
-  var newRows = Array.prototype.slice.call(body.rows, 0);
+  var newRows = [].slice.call(body.rows, 0);
 
   // If the direction is 0 - aria-sort="none".
   if (direction === 0) {
