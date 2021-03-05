@@ -63,7 +63,13 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   // Navigation panel/drawer
   // -------------------------
   .l-navigation {
-    @include vf-animation(transform, fast);
+    @include vf-animation(
+      $property: (
+        transform,
+        box-shadow,
+      ),
+      $duration: fast
+    );
 
     bottom: 0;
     box-shadow: $panel-drop-shadow;
@@ -81,10 +87,12 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     &.is-collapsed {
+      box-shadow: $panel-drop-shadow-transparent;
       transform: translateX(-100%);
     }
 
     &.is-collapsed:focus-within {
+      box-shadow: $panel-drop-shadow;
       transform: none;
     }
   }
@@ -237,6 +245,14 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   }
 
   .l-aside {
+    @include vf-animation(
+      $property: (
+        transform,
+        box-shadow,
+      ),
+      $duration: snap
+    );
+
     box-shadow: $panel-drop-shadow;
     grid-area: main;
     justify-self: right;
@@ -257,6 +273,11 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       }
     }
 
+    &.is-collapsed {
+      box-shadow: $panel-drop-shadow-transparent;
+      transform: translateX(100%);
+    }
+
     @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
       &.is-pinned {
         border-left: 1px solid $colors--light-theme--border-low-contrast;
@@ -264,6 +285,10 @@ $application-layout--side-nav-width-expanded: 15rem !default;
         grid-area: aside;
         justify-self: auto;
         max-width: $application-layout--aside-panel-max-width;
+      }
+
+      &.is-pinned.is-collapsed {
+        display: none;
       }
     }
   }
