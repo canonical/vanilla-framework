@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.26 -->
     <tr>
+      <th><a href="/docs/layouts/application#aside-area">Application layout - animations</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.26.0</td>
+      <td>We added <code>is-collapsed</code> class that allows animating the application layout aside panel.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/tables#expanding">Tables expanding</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.26.0</td>
