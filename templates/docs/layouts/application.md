@@ -48,6 +48,8 @@ The main area occupies all available space not taken by other areas of the appli
 
 #### Aside area
 
+<span class="p-label--updated">Updated</span>
+
 The aside area is used to display additional content, usually triggered from within the main content area. It is denoted with the class `l-aside`. Use `<aside class="l-aside">` tag to ensure it acts as an aside region landmark.
 
 By default, the aside area is rendered as an overlay on top of the main area. It is attached to the right edge of the screen, covering the entire height of the screen except for the status bar. The width of the aside content area is flexible and determined by the width of its contents.
@@ -55,6 +57,8 @@ By default, the aside area is rendered as an overlay on top of the main area. It
 The aside content area can be detached from right, top or bottom by adding a margin to it with JavaScript.
 
 It can also be pinned, similarly to the side navigation area, by adding class `is-pinned` to the `l-aside` element. Pinning the aside area transforms it from an overlay to split panel, making the main content area narrower.
+
+Toggling the `is-collapsed` class to the `l-aside` element allows to animate closing of the aside panel.
 
 #### Status area
 
