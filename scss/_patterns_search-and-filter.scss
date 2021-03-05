@@ -76,6 +76,32 @@
       }
     }
 
+    .p-search-and-filter__search-prompt {
+      background: $color-light;
+      cursor: pointer;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      overflow: hidden;
+      padding: 1rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .p-search-and-filter__clear {
+      border: none;
+      height: 2rem;
+      margin: 0;
+      max-width: 48px;
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      z-index: 9999;
+    }
+
+    .p-search-and-filter__search-query {
+      @extend %bold;
+    }
+
     .p-search-and-filter__box {
       display: inline-flex;
       flex: 1;
@@ -88,7 +114,7 @@
       box-shadow: none;
       margin-bottom: 0;
       margin-right: -$spv-outer--shallow-scaleable;
-      min-height: 36px;
+      min-height: 2.25rem;
       min-width: 6rem;
       padding: $spv-inner--small;
       position: relative;

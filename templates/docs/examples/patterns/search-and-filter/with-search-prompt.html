@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Search and filter / With search prompt{% endblock %}
+
+{% block standalone_css %}patterns_search-and-filter{% endblock %}
+
+{% block content %}
+<div class="p-search-and-filter">
+  <button class="p-search-and-filter__clear"><i class="p-icon--close"></i></button>
+  <div class="p-search-and-filter__search-container" aria-expanded="false" data-active="true" data-empty="false">
+    <form class="p-search-and-filter__box" data-overflowing="false">
+      <label class="u-off-screen" for="search">Search and filter</label>
+      <input autocomplete="off" class="p-search-and-filter__input" id="search" name="search" placeholder="Search and filter" type="search" value="vanilla">
+      <button alt="search" class="u-off-screen" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="p-search-and-filter__panel" aria-hidden="false">
+    <div class="p-search-and-filter__search-prompt" role="button" tabindex="0">
+      Search for <span class="p-search-and-filter__search-query">vanilla</span>...
+    </div>
+  </div>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/search-and-filter/_search-prompt-script.js' %}
+</script>
+{% endblock %}
