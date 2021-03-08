@@ -5,6 +5,7 @@ import os
 import random
 
 # Packages
+import talisker.requests
 import requests
 import flask
 import jinja2
@@ -26,6 +27,7 @@ app = FlaskBase(
     template_404="404.html",
     template_500="500.html",
 )
+session = talisker.requests.get_session()
 
 TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
@@ -200,7 +202,9 @@ app.add_url_rule(
     "/docs/search",
     "search",
     build_search_view(
-        site="vanillaframework.io/docs", template_path="docs/search.html"
+        session=session,
+        site="vanillaframework.io/docs",
+        template_path="docs/search.html"
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
