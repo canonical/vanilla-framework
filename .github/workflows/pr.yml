@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2 # for pip3 to install linkchecker
+      - uses: actions/setup-python@v2
       - name: Build Docker image
         run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
       - name: Run server with Docker
