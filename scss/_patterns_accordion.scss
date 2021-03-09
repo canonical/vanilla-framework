@@ -43,6 +43,8 @@
       repeat: no-repeat;
     }
 
+    font-size: inherit;
+
     // aria-selected controls the open and closed state for the accordion tab
     &[aria-expanded='true'] {
       @include vf-icon-minus($color-mid-dark);
@@ -59,53 +61,87 @@
     }
   }
 
-  .p-accordion__title {
-    margin-bottom: 0;
-    padding-top: 0;
-    position: relative;
-    text-indent: -$sph-inner - $icon-size;
+  @include deprecate('3.0.0', '.p-accordion__title and .p-accordion__tab--with-title are being deprecated, please use .p-accordion__heading > .p-accordion__tab pattern instead') {
+    .p-accordion__title {
+      margin-bottom: 0;
+      padding-top: 0;
+      position: relative;
+      text-indent: -$sph-inner - $icon-size;
 
-    &::before {
-      background-size: $icon-size;
-      content: '';
-      display: inline-block;
-      height: $icon-size;
-      margin-right: $sph-inner;
-      width: $icon-size;
+      &::before {
+        background-size: $icon-size;
+        content: '';
+        display: inline-block;
+        height: $icon-size;
+        margin-right: $sph-inner;
+        width: $icon-size;
+      }
+    }
+
+    // FIXME: we shouldn't be targeting types directly here
+    // stylelint-disable selector-max-type
+    h2.p-accordion__title::before {
+      // make icon bigger for h2 (same as p-icon)
+      $icon-size-h2: $x-height;
+
+      background-size: $icon-size-h2;
+      height: $icon-size-h2;
+      width: $icon-size-h2;
+    }
+
+    h5.p-accordion__title::before,
+    h6.p-accordion__title::before {
+      // align icon within font metrics same as p-icon pattern
+      $vertical-offset: 0.5px;
+
+      vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $icon-size});
+    }
+    // stylelint-enable selector-max-type
+
+    // override base expanded button styles
+    .p-accordion__tab--with-title[aria-expanded] {
+      background-color: inherit;
+    }
+
+    .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
+      @include vf-icon-minus($color-mid-dark);
+    }
+
+    .p-accordion__tab--with-title[aria-expanded='false'] .p-accordion__title::before {
+      @include vf-icon-plus($color-mid-dark);
     }
   }
 
-  // FIXME: we shouldn't be targeting types directly here
-  // stylelint-disable selector-max-type
-  h2.p-accordion__title::before {
-    // make icon bigger for h2 (same as p-icon)
-    $icon-size-h2: $x-height;
+  .p-accordion__heading {
+    margin-bottom: 0;
+    max-width: none;
+    padding-top: 0;
 
-    background-size: $icon-size-h2;
-    height: $icon-size-h2;
-    width: $icon-size-h2;
-  }
+    @at-root {
+      h2#{&} > .p-accordion__tab,
+      &.p-heading--two > .p-accordion__tab,
+      &.p-heading--2 > .p-accordion__tab {
+        background-position-y: $sph-inner + 0.5rem;
+      }
 
-  h5.p-accordion__title::before,
-  h6.p-accordion__title::before {
-    // align icon within font metrics same as p-icon pattern
-    $vertical-offset: 0.5px;
+      h3#{&} > .p-accordion__tab,
+      &.p-heading--three > .p-accordion__tab,
+      &.p-heading--3 > .p-accordion__tab {
+        background-position-y: $sph-inner + 0.25rem;
+      }
 
-    vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $icon-size});
-  }
-  // stylelint-enable selector-max-type
+      h4#{&} > .p-accordion__tab,
+      &.p-heading--four > .p-accordion__tab,
+      &.p-heading--4 > .p-accordion__tab {
+        background-position-y: $sph-inner;
+      }
+    }
 
-  // override base expanded button styles
-  .p-accordion__tab--with-title[aria-expanded] {
-    background-color: inherit;
-  }
-
-  .p-accordion__tab--with-title[aria-expanded='true'] .p-accordion__title::before {
-    @include vf-icon-minus($color-mid-dark);
-  }
-
-  .p-accordion__tab--with-title[aria-expanded='false'] .p-accordion__title::before {
-    @include vf-icon-plus($color-mid-dark);
+    > .p-accordion__tab {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
   }
 
   .p-accordion__panel {
