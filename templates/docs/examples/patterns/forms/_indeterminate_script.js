@@ -12,6 +12,7 @@ function initIndeterminateCheckboxes(checkboxSelector, triggerSelector) {
   // which doesn't use JavaScript, so we hardcode the `aria-checked='mixed'`
   // attribute in HTML, and remove it when JavaScript _is_ available.
   checkbox.removeAttribute('aria-checked');
+  checkbox.indeterminate = true;
 
   // The example checkbox isn't controlling other checkboxes (as it would be in
   // a real world implementation), so we need a way to show each state here. When
