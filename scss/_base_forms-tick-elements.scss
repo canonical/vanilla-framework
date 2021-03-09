@@ -96,6 +96,16 @@ $box-offsets-top: (
       transform: rotate(-45deg);
       width: 0.625rem;
     }
+
+    [aria-checked='mixed'] + &,
+    :indeterminate + & {
+      @extend %vf-pseudo-tick-box-checked;
+
+      &::after {
+        border-left: none;
+        transform: none;
+      }
+    }
   }
 
   %vf-pseudo-radio {
