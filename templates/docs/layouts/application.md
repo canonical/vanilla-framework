@@ -58,7 +58,7 @@ The aside content area can be detached from right, top or bottom by adding a mar
 
 It can also be pinned, similarly to the side navigation area, by adding class `is-pinned` to the `l-aside` element. Pinning the aside area transforms it from an overlay to split panel, making the main content area narrower.
 
-Toggling the `is-collapsed` class to the `l-aside` element allows to animate closing of the aside panel.
+Toggling the `is-collapsed` class on the `l-aside` element allows the animated closing of the aside panel.
 
 #### Status area
 
