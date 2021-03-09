@@ -16,6 +16,8 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
 
 `.p-accordion__panel` visibility is affected by `aria-hidden` and again can be manipulated with JS.
 
+Each tab `button` element should be wrapped by a heading element, with a `.p-accordion__heading` class, per the [W3C accessibility guidelines on accordions](https://www.w3.org/TR/wai-aria-practices/#wai-aria-roles-states-and-properties).
+
 <div class="p-notification--information">
   <p class="p-notification__response">
     <span class="p-notification__status">Note:</span>Clicking on the header toggles the display of accordion tabs. Accordion tabs should contain navigation or supplementary information, not main page content.
@@ -28,15 +30,11 @@ View example of the accordion pattern
 
 ### Headings
 
-<span class="p-label--new">New</span>
+<span class="p-label--deprecated">Deprecated</span>
 
-To use headings in the accordion buttons use `.p-accordion__tab--with-title` class on the button and `.p-accordion__title` on the heading element inside it.
+The `.p-accordion__tab--with-title` pattern is now deprecated and will be removed in a future version of Vanilla.
 
-Heading levels from `h2` up to `h6` are supported in the accordion pattern. Heading `h1` should not be used in the accordion, as it's reserved for the top-level title of the page. Also, make sure to use the same level of heading in all accordion buttons to ensure the same level in the document hierarchy.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/accordion/headings/" class="js-example">
-View example of the accordion pattern with headings
-</a></div>
+It is being replaced by the updated, standard accordion implementation, described above.
 
 ### Functionality
 
