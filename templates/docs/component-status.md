@@ -42,7 +42,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We removed <code>p-table--sortable</code> class name. Sorting can be enabled on any table by adding <code>aria-sort</code> attributes.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/forms#checkbox">Forms / Checkbox indeterminate</a></th>
+      <th><a href="/docs/base/forms#indeterminate-state-checkbox">Forms / Checkbox indeterminate</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.26.0</td>
       <td>We added indeterminate state checkboxes. If a checkbox has <code>checkbox.indeterminate = true;</code> set via JavaScript, the checkbox will show a state between checked and unchecked.</td>

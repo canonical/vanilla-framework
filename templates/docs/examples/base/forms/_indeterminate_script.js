@@ -9,16 +9,15 @@ function initIndeterminateCheckboxes(checkboxSelector, triggerSelector) {
 
   // FOR EXAMPLE PURPOSES ONLY:
   // In this example, we want the indeterminate state to be visible to Percy,
-  // which doesn't use JavaScript, so we hardcode the `aria-checked='mixed'`
-  // attribute in HTML, and remove it when JavaScript _is_ available.
-  checkbox.removeAttribute('aria-checked');
-  checkbox.indeterminate = true;
-
+  // which doesn't seem to support `.indeterminate`, so we hardcode the `aria-checked='mixed'`
+  // attribute in HTML, and only remove it when the checkbox receives a change event.
+  //
   // The example checkbox isn't controlling other checkboxes (as it would be in
   // a real world implementation), so we need a way to show each state here. When
   // the checkbox is clicked, it behaves as a normal checkbox would and shows as either
   // checked or unchecked, whilst clearing any indeterminate state.
   checkbox.addEventListener('change', function () {
+    checkbox.removeAttribute('aria-checked');
     checkbox.indeterminate = false;
   });
 

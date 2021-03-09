@@ -70,7 +70,7 @@ View example of the heading checkbox components
 
 When a checkbox requires a state between checked and unchecked, `checkbox.indeterminate = true;` can be set via JavaScript, which will cause the checkbox appear in an "indeterminate" state.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox-indeterminate/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/forms/checkbox-indeterminate/" class="js-example">
 View example of the indeterminate checkbox component
 </a></div>
 
