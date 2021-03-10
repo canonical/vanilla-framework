@@ -88,7 +88,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 For use of the React component you can do that by installing our react-component page and importing.
 
-[Playbook example](https://canonical-web-and-design.github.io/react-components/?path=/docs/search-and-filter--default-story)
+[See the documentation for our React `SearchAndFilter` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/search-and-filter--default-story)
 
 ### Design
 
