@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.26 -->
     <tr>
+      <th><a href="/docs/patterns/search-and-filter">Search and filter</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.26.0</td>
+      <td>We added the new Search and filter component.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/layouts/application#aside-area">Application layout - animations</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.26.0</td>
