@@ -1,0 +1,45 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Sticky footer{% endblock %}
+
+{% block style %}
+<style>
+  body { margin: 0; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="l-site">
+    <header id="navigation" class="p-navigation is-dark">
+      <div class="p-navigation__row">
+        <div class="p-navigation__banner">
+          <div class="p-navigation__logo">
+            <a class="p-navigation__item" href="#">
+              <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/3c7954dd-logo-canonical-white.svg" alt="Canonical" width="95" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="u-fixed-width">
+      <p>Some short page content.</p>
+    </div>
+
+    <footer class="l-footer--sticky p-strip--light">
+      <nav class="row" aria-label="Footer navigation">
+        <div class="has-cookie">
+          <p>© 2020 Canonical Ltd. <a href="#">Ubuntu</a> and <a href="#">Canonical</a> are registered trademarks of Canonical Ltd.</p>
+          <ul class="p-inline-list--middot">
+            <li class="p-inline-list__item">
+              <a href="#"><small>Legal information</small></a>
+            </li>
+            <li class="p-inline-list__item">
+              <a href="#"><small>Report a bug on this site</small></a>
+            </li>
+          </ul>
+          <span class="u-off-screen"><a href="#">Go to the top of the page</a></span>
+        </div>
+      </nav>
+    </footer>
+</div>
+{% endblock %}
