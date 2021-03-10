@@ -25,6 +25,7 @@
     padding: calc(#{$spv-nudge} - 1px) $sph-inner;
     text-align: center;
     text-decoration: none;
+    width: 100%;
 
     &:active,
     &:focus,
@@ -38,11 +39,7 @@
       opacity: $disabled-element-opacity;
     }
 
-    @media only screen and (max-width: $breakpoint-x-small) {
-      width: 100%;
-    }
-
-    @media only screen and (min-width: $breakpoint-x-small + 1) {
+    @media (min-width: $breakpoint-x-small) {
       margin-right: $sph-outer;
       width: auto;
 
@@ -80,7 +77,7 @@
       margin-top: $spv-outer--small - $spv-nudge;
     }
 
-    @media only screen and (max-width: $breakpoint-x-small) {
+    @media (max-width: $breakpoint-x-small) {
       p & + & {
         margin-top: $spv-outer--small + $spv-nudge-compensation;
       }
