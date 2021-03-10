@@ -20,11 +20,9 @@ $lightness-threshold: 70;
 
   %navigation-link-responsive-padding-left {
     // follows grid padding to ensure nav items on small breakpoints align with grid padding
-    @media (max-width: $threshold-4-6-col) {
-      padding-left: map-get($grid-margin-widths, small);
-    }
+    padding-left: map-get($grid-margin-widths, small);
 
-    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+    @media (min-width: $threshold-4-6-col) {
       padding-left: map-get($grid-margin-widths, medium);
     }
 
@@ -35,11 +33,9 @@ $lightness-threshold: 70;
 
   %navigation-link-responsive-padding-right {
     // follows grid padding to ensure nav items on small breakpoints align with grid padding
-    @media (max-width: $threshold-4-6-col) {
-      padding-right: map-get($grid-margin-widths, small);
-    }
+    padding-right: map-get($grid-margin-widths, small);
 
-    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+    @media (min-width: $threshold-4-6-col) {
       padding-right: map-get($grid-margin-widths, medium);
     }
 
@@ -166,12 +162,9 @@ $lightness-threshold: 70;
       display: flex;
       flex: 0 0 auto;
       justify-content: space-between;
+      padding-right: 0;
 
-      @media (max-width: $threshold-4-6-col) {
-        padding-right: 0;
-      }
-
-      @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+      @media (min-width: $threshold-4-6-col) {
         padding-right: 0;
       }
 
@@ -239,16 +232,13 @@ $lightness-threshold: 70;
     // p-search-box overrides
     .p-search-box {
       flex: 1 0 auto;
+      margin-left: map-get($grid-margin-widths, small);
+      margin-right: map-get($grid-margin-widths, small);
       margin-top: -1px;
       min-width: 10em;
       order: -1;
 
-      @media (max-width: $threshold-4-6-col) {
-        margin-left: map-get($grid-margin-widths, small);
-        margin-right: map-get($grid-margin-widths, small);
-      }
-
-      @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+      @media (min-width: $threshold-4-6-col) {
         margin-left: map-get($grid-margin-widths, medium);
         margin-right: map-get($grid-margin-widths, medium);
       }
