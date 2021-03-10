@@ -16,19 +16,16 @@
     height: $spv-inner--large;
     pointer-events: none;
     position: absolute;
+    right: map-get($grid-margin-widths, small);
     text-indent: calc(100% + 10rem);
     top: $spv-inner--large;
     width: map-get($icon-sizes, default);
 
-    @media (max-width: $threshold-4-6-col) {
-      right: map-get($grid-margin-widths, small);
-    }
-
-    @media (min-width: $threshold-4-6-col) and (max-width: $breakpoint-navigation-threshold) {
+    @media (min-width: $threshold-4-6-col) {
       right: map-get($grid-margin-widths, medium);
     }
 
-    @media (min-width: $breakpoint-navigation-threshold + 1) {
+    @media (min-width: $breakpoint-navigation-threshold) {
       right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
     }
   }
@@ -44,7 +41,7 @@
     padding: 0;
     z-index: 5;
 
-    @media (min-width: $breakpoint-navigation-threshold + 1) {
+    @media (min-width: $breakpoint-navigation-threshold) {
       position: absolute;
       top: $spv-inner--medium * 4;
     }
@@ -77,12 +74,9 @@
     @extend %navigation-link-responsive-padding-horizontal;
 
     display: block;
+    padding-bottom: $spv-inner--small;
+    padding-top: $spv-inner--small;
     white-space: nowrap;
-
-    @media (max-width: $breakpoint-navigation-threshold) {
-      padding-bottom: $spv-inner--small;
-      padding-top: $spv-inner--small;
-    }
 
     @media (min-width: $breakpoint-navigation-threshold) {
       padding-bottom: $spv-inner--medium;

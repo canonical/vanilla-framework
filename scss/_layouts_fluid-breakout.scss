@@ -56,6 +56,9 @@
   .l-fluid-breakout#{$suffix} {
     @extend %l-fluid-breakout-ie11-fallback#{$suffix};
 
+    padding-left: map-get($grid-margin-widths, small);
+    padding-right: map-get($grid-margin-widths, small);
+
     @supports (display: grid) {
       display: block;
       grid-gap: 0 0;
@@ -76,17 +79,12 @@
       }
     }
 
-    @media (max-width: $threshold-4-6-col) {
-      padding-left: map-get($grid-margin-widths, small);
-      padding-right: map-get($grid-margin-widths, small);
-    }
-
-    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
+    @media (min-width: $threshold-4-6-col) {
       padding-left: map-get($grid-margin-widths, medium);
       padding-right: map-get($grid-margin-widths, medium);
     }
 
-    @media (min-width: $threshold-6-12-col) and (max-width: $l-fluid-breakout-3-col-threshold) {
+    @media (min-width: $threshold-6-12-col) {
       padding-left: map-get($grid-margin-widths, large);
       padding-right: map-get($grid-margin-widths, large);
     }
@@ -177,7 +175,7 @@
       @extend %l-fluid-breakout__aside--right-ie-11-fallback#{$suffix};
       @extend %l-fluid-breakout__aside-common-properties#{$suffix};
 
-      @media (min-width: $breakpoint-large) and (max-width: $l-fluid-breakout-3-col-threshold) {
+      @media (min-width: $breakpoint-large) {
         padding-right: map-get($grid-margin-widths, large);
       }
 
@@ -191,7 +189,7 @@
       @extend %l-fluid-breakout__aside--left-ie-11-fallback#{$suffix};
       @extend %l-fluid-breakout__aside-common-properties#{$suffix};
 
-      @media (min-width: $breakpoint-large) and (max-width: $l-fluid-breakout-3-col-threshold) {
+      @media (min-width: $breakpoint-large) {
         padding-left: map-get($grid-margin-widths, large);
         padding-right: 0;
       }
