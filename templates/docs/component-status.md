@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.26 -->
     <tr>
+      <th><a href="/docs/patterns/search-and-filter">Search and filter</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.26.0</td>
+      <td>We added the new Search and filter component.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/layouts/application#aside-area">Application layout - animations</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.26.0</td>
@@ -369,7 +375,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.7.0</td>
       <td>Heading classes with numbers as words (<code>p-heading--one</code>, <code>--two</code>, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (<code>p-heading--1</code>, <code>--2</code>, ...) instead.</td>
     </tr>
-
     <tr>
       <th><a href="/docs/base/forms/#range">Range input</a></th>
       <td><div class="p-label--new">New</div></td>
@@ -388,7 +393,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.6.0</td>
       <td>Styling of Slider component was added to all <code>&lt;input type="range"&gt;</code> elements by default. This makes <code>p-slider</code> class optional for styling range inputs.</td>
     </tr>
-
     <tr>
       <th><a href="/docs/patterns/contextual-menu/#indicator">Contextual menu</a></th>
       <td><div class="p-label--new">New</div></td>
@@ -431,7 +435,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.5.0</td>
       <td>We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from social icon set in future release v3.0</td>
     </tr>
-
   </tbody>
 </table>
 
