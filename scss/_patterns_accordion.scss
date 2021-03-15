@@ -36,7 +36,7 @@
   .p-accordion__tab {
     // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
     // and offset to align it with baseline of accordion tab text element
-    $icon-top-position: calc(#{$table-cell-vertical-padding} - 1px + 0.25rem);
+    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, default-text) - $icon-size) * 0.5});
 
     background: {
       position: top $icon-top-position left $sph-inner;
@@ -121,19 +121,25 @@
       h2#{&} > .p-accordion__tab,
       &.p-heading--two > .p-accordion__tab,
       &.p-heading--2 > .p-accordion__tab {
-        background-position-y: $sph-inner + 0.5rem;
+        $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h2) - $icon-size) * 0.5});
+
+        background-position-y: $icon-top-position;
       }
 
       h3#{&} > .p-accordion__tab,
       &.p-heading--three > .p-accordion__tab,
       &.p-heading--3 > .p-accordion__tab {
-        background-position-y: $sph-inner + 0.25rem;
+        $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h3) - $icon-size) * 0.5});
+
+        background-position-y: $icon-top-position;
       }
 
       h4#{&} > .p-accordion__tab,
       &.p-heading--four > .p-accordion__tab,
       &.p-heading--4 > .p-accordion__tab {
-        background-position-y: $sph-inner;
+        $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h4) - $icon-size) * 0.5});
+
+        background-position-y: $icon-top-position;
       }
     }
 
