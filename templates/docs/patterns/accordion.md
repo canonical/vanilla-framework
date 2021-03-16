@@ -16,7 +16,9 @@ Each tab styling can be changed to open or collapse using `aria-expanded`, set `
 
 `.p-accordion__panel` visibility is affected by `aria-hidden` and again can be manipulated with JS.
 
-Each tab `button` element should be wrapped by a heading element, with a `.p-accordion__heading` class, per the [W3C accessibility guidelines on accordions](https://www.w3.org/TR/wai-aria-practices/#wai-aria-roles-states-and-properties).
+Each tab `button` element should be wrapped by an element with a `.p-accordion__heading` class, per the [W3C accessibility guidelines on accordions](https://www.w3.org/TR/wai-aria-practices/#wai-aria-roles-states-and-properties).
+
+The wrapping element should either be a heading element or a `div` element with the attributes `role="header"` and `aria-level` set. `aria-level` should be set to the value appropriate within the page hierarchy.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
@@ -24,7 +26,15 @@ Each tab `button` element should be wrapped by a heading element, with a `.p-acc
   </p>
 </div>
 
+**With aria attributes:**
+
 <div class="embedded-example"><a href="/docs/examples/patterns/accordion/default/" class="js-example">
+View example of the accordion pattern
+</a></div>
+
+**With heading elements:**
+
+<div class="embedded-example"><a href="/docs/examples/patterns/accordion/headings/" class="js-example">
 View example of the accordion pattern
 </a></div>
 
