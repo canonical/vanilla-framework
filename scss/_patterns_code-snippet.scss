@@ -7,6 +7,10 @@ $code-snippet-header-v-spacing: $spv-inner--x-small--scaleable;
   .p-code-snippet {
     margin-bottom: $spv-outer--scaleable;
 
+    &.is-bordered {
+      border: 1px solid $color-mid-x-light;
+    }
+
     .p-code-snippet__block,
     .p-code-snippet__block--icon,
     .p-code-snippet__block--numbered {
@@ -106,6 +110,15 @@ $code-snippet-header-v-spacing: $spv-inner--x-small--scaleable;
       .p-code-snippet__title + .p-code-snippet__dropdowns {
         border-top: 1px solid $colors--light-theme--border-default;
       }
+    }
+
+    // stylelint-disable-next-line selector-max-type
+    iframe {
+      margin: 0;
+      // fixes a Chrome bug where, on larger screens,
+      // a .is-bordered snippet's right border would
+      // disappear at every other pixel width increment
+      width: calc(100% - 1px);
     }
   }
 }

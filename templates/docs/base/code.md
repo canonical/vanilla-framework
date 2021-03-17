@@ -104,6 +104,14 @@ To avoid using JavaScript library for syntax highlighting you can prepare the co
 View example of the code snippet with syntax highlighting
 </a></div>
 
+### Bordered
+
+In some cases, such as when including an iframe as part of the code snippet to demonstrate what the code in the example outputs as, you may want a border around the entire code snippet. This can be done by adding `.is-bordered` to the `.p-code-snippet` element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/is-bordered" class="js-example">
+View example of the code snippet with a border
+</a></div>
+
 ### Copyable
 
 <span class="p-label--deprecated">Deprecated</span>

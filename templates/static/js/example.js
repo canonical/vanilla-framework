@@ -91,7 +91,7 @@
 
     var codeSnippet = document.createElement('div');
 
-    codeSnippet.classList.add('p-code-snippet', 'codepen-example');
+    codeSnippet.classList.add('p-code-snippet', 'is-bordered');
 
     var header = document.createElement('div');
     header.classList.add('p-code-snippet__header');
@@ -151,11 +151,10 @@
 
   function renderIframe(container, html, height) {
     var iframe = document.createElement('iframe');
-    iframe.width = '100%';
+
     if (height) {
       iframe.height = height + 'px';
     }
-    iframe.frameBorder = 0;
     container.appendChild(iframe);
     var doc = iframe.contentWindow.document;
     doc.open();
