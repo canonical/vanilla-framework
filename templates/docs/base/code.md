@@ -104,7 +104,7 @@ View example of the code snippet with syntax highlighting
 
 <span class="p-label--new">New</span>
 
-In some cases, such as when including an iframe as part of the code snippet to demonstrate what the code in the example outputs as, you may want a border around the entire code snippet. This can be done by adding `.is-bordered` to the `.p-code-snippet` element.
+In some cases, such as when including an `iframe` as part of the code snippet to demonstrate what the code in the example outputs as, you may want a border around the entire code snippet. This can be done by adding `.is-bordered` to the `.p-code-snippet` element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/is-bordered" class="js-example">
 View example of the code snippet with a border
