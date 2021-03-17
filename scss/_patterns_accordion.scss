@@ -117,38 +117,35 @@
     max-width: none;
     padding-top: 0;
 
-    @at-root {
-      h2#{&} > .p-accordion__tab,
-      &.p-heading--two > .p-accordion__tab,
-      &.p-heading--2 > .p-accordion__tab {
-        $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h2) - $icon-size) * 0.5});
-
-        background-position-y: $icon-top-position;
-      }
-
-      h3#{&} > .p-accordion__tab,
-      &.p-heading--three > .p-accordion__tab,
-      &.p-heading--3 > .p-accordion__tab {
-        $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h3) - $icon-size) * 0.5});
-
-        background-position-y: $icon-top-position;
-      }
-
-      h4#{&} > .p-accordion__tab,
-      &.p-heading--four > .p-accordion__tab,
-      &.p-heading--4 > .p-accordion__tab {
-        $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h4) - $icon-size) * 0.5});
-
-        background-position-y: $icon-top-position;
-      }
-    }
-
     > .p-accordion__tab {
       font-size: inherit;
       font-weight: inherit;
       line-height: inherit;
     }
   }
+
+  // stylelint-disable selector-max-type
+  h2.p-accordion__heading > .p-accordion__tab,
+  .p-heading--2 > .p-accordion__tab {
+    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h2) - $icon-size) * 0.5});
+
+    background-position-y: $icon-top-position;
+  }
+
+  h3.p-accordion__heading > .p-accordion__tab,
+  .p-heading--3 > .p-accordion__tab {
+    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h3) - $icon-size) * 0.5});
+
+    background-position-y: $icon-top-position;
+  }
+
+  h4.p-accordion__heading > .p-accordion__tab,
+  .p-heading--4 > .p-accordion__tab {
+    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h4) - $icon-size) * 0.5});
+
+    background-position-y: $icon-top-position;
+  }
+  // stylelint-enable selector-max-type
 
   .p-accordion__panel {
     margin: 0;
