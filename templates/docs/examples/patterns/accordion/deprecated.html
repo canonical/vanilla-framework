@@ -1,0 +1,100 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Accordion - deprecated patterns{% endblock %}
+
+{% block standalone_css %}patterns_accordion{% endblock %}
+
+{% block content %}
+<aside class="p-accordion">
+  <ul class="p-accordion__list">
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab" id="tab1" aria-controls="tab1-section" aria-expanded="true">Default accordion</button>
+      <section class="p-accordion__panel" id="tab1-section" aria-hidden="false" aria-labelledby="tab1">
+        <p>Charm bundles</p>
+        <p>Machine authentication</p>
+        <p>Migrating models</p>
+        <p>Using storage</p>
+        <p>Working with actions</p>
+        <p>Working with resources</p>
+        <p>Cloud image metadata</p>
+        <p>Tools</p>
+      </section>
+    </li>
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab" id="tab2" aria-controls="tab2-section" aria-expanded="false">Networking</button>
+      <section class="p-accordion__panel" id="tab2-section" aria-hidden="true" aria-labelledby="tab2">
+        <p>Working offline</p>
+        <p>Fan container networking</p>
+        <p>Network spaces</p>
+      </section>
+    </li>
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab" id="tab3" aria-controls="tab3-section" aria-expanded="false">Miscellaneous</button>
+      <section class="p-accordion__panel" id="tab3-section" aria-hidden="true" aria-labelledby="tab3">
+        <p>Juju GUI</p>
+        <p>CentOS support</p>
+        <p>Collecting Juju metrics</p>
+      </section>
+    </li>
+  </ul>
+</aside>
+</div>
+
+<aside class="p-accordion">
+  <ul class="p-accordion__list">
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab--with-title" id="tab4" aria-controls="tab4-section" aria-expanded="false">
+        <h2 class="p-accordion__title">Accordion with titles</h2>
+      </button>
+      <section class="p-accordion__panel" id="tab4-section" aria-hidden="true" aria-labelledby="tab4">
+        <p>Charm bundles</p>
+        <p>Machine authentication</p>
+        <p>Migrating models</p>
+        <p>Using storage</p>
+        <p>Working with actions</p>
+        <p>Working with resources</p>
+        <p>Cloud image metadata</p>
+        <p>Tools</p>
+      </section>
+    </li>
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab--with-title" id="tab5" aria-controls="tab5-section" aria-expanded="false">
+        <h3 class="p-accordion__title">Advanced topics</h3>
+      </button>
+      <section class="p-accordion__panel" id="tab5-section" aria-hidden="true" aria-labelledby="tab5">
+        <p>Charm bundles</p>
+        <p>Machine authentication</p>
+        <p>Migrating models</p>
+        <p>Using storage</p>
+        <p>Working with actions</p>
+        <p>Working with resources</p>
+        <p>Cloud image metadata</p>
+        <p>Tools</p>
+      </section>
+    </li>
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab--with-title" id="tab6" aria-controls="tab6-section" aria-expanded="false">
+        <h4 class="p-accordion__title">Networking</h4>
+      </button>
+      <section class="p-accordion__panel" id="tab6-section" aria-hidden="true" aria-labelledby="tab6">
+        <p>Working offline</p>
+        <p>Fan container networking</p>
+        <p>Network spaces</p>
+      </section>
+    </li>
+    <li class="p-accordion__group">
+      <button type="button" class="p-accordion__tab--with-title" id="tab7" aria-controls="tab7-section" aria-expanded="false">
+        <h5 class="p-accordion__title">Miscellaneous</h5>
+      </button>
+      <section class="p-accordion__panel" id="tab7-section" aria-hidden="true" aria-labelledby="tab7">
+        <p>Juju GUI</p>
+        <p>CentOS support</p>
+        <p>Collecting Juju metrics</p>
+      </section>
+    </li>
+  </ul>
+</aside>
+
+<script>
+  {% include 'docs/examples/patterns/accordion/_script.js' %}
+</script>
+{% endblock %}
