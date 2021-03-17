@@ -65,6 +65,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.26.0</td>
       <td>We deprecated the previous accordion tab patterns, <code>.p-accordion__tab</code> and <code>.p-accordion__tab--with-title .p-accordion__title</code>, in favour of a more accessible pattern. Please use <code>.p-accordion__heading .p-accordion__tab</code>.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/patterns/code#bordered">Code snippet - bordered</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.26.0</td>
+      <td>We added the utility class <code>.is-bordered</code> to the code snippet.</td>
+    </tr>
   </tbody>
 </table>
 
