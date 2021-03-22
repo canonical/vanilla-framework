@@ -48,8 +48,6 @@ The main area occupies all available space not taken by other areas of the appli
 
 #### Aside area
 
-<span class="p-label--updated">Updated</span>
-
 The aside area is used to display additional content, usually triggered from within the main content area. It is denoted with the class `l-aside`. Use `<aside class="l-aside">` tag to ensure it acts as an aside region landmark.
 
 By default, the aside area is rendered as an overlay on top of the main area. It is attached to the right edge of the screen, covering the entire height of the screen except for the status bar. The width of the aside content area is flexible and determined by the width of its contents.
@@ -105,8 +103,6 @@ View an example of the application layout demo
 
 ### Side navigation
 
-<span class="p-label--new">New</span>
-
 Use the [side navigation component](/docs/patterns/navigation#side-navigation) to build the contents of main navigation for the application layout. You can find detailed documentation in the ["Application layout" section of the Navigation page](/docs/patterns/navigation#application-layout).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/application" class="js-example">
@@ -135,8 +131,6 @@ On screens wider than `$application-layout--breakpoint-side-nav-expanded` (which
 
 ### Aside panel width
 
-<span class="p-label--new">New</span>
-
 Ideally, decisions about panel widths should be made once the content is known. That said, it is useful to have a few default values for prototyping purposes. The application layout provides 3 panel widths. These panel widths are derived from the static widths of 4, 8, 12 column containers as measured at window width bigger than `$grid-max-width`:
 
 - narrow: Matches the width of a 4 column container. Invoked with class `is-narrow`.
@@ -144,8 +138,6 @@ Ideally, decisions about panel widths should be made once the content is known. 
 - wide: Matches the width of a 12 column container. Invoked with class `is-wide`.
 
 ### Customizing the application layout
-
-<span class="p-label--new">New</span>
 
 The application layout can be customised. The following variables are exposed for customisation:
 

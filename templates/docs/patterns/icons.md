@@ -7,8 +7,6 @@ context:
 
 ## Icons
 
-<span class="p-label--updated">Updated</span>
-
 <hr>
 
 Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`

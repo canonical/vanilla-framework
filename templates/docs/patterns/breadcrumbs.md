@@ -6,8 +6,6 @@ context:
 
 ## Breadcrumbs
 
-<span class="p-label--updated">Updated</span>
-
 <hr>
 
 You can use the breadcrumbs pattern to indicate where the current page sits in the site's navigation.
