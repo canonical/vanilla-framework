@@ -22,6 +22,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.27 -->
+    <tr>
+      <th><a href="/docs/base/code#bordered">Code snippet - bordered</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.26.0</td>
+      <td>We added the utility class <code>.is-bordered</code> to the code snippet.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.26 -->
     <tr>
       <th><a href="/docs/patterns/search-and-filter">Search and filter</a></th>
@@ -65,27 +87,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.26.0</td>
       <td>We deprecated the previous accordion tab patterns, <code>.p-accordion__tab</code> and <code>.p-accordion__tab--with-title .p-accordion__title</code>, in favour of a more accessible pattern. Please use <code>.p-accordion__heading .p-accordion__tab</code>.</td>
     </tr>
-    <tr>
-      <th><a href="/docs/base/code#bordered">Code snippet - bordered</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.26.0</td>
-      <td>We added the utility class <code>.is-bordered</code> to the code snippet.</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.25 -->
     <tr>
       <th><a href="/docs/base/typography#extra-small-capitalised-text">Typography / Extra small caps</a></th>
