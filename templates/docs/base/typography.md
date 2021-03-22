@@ -66,8 +66,6 @@ Heading sizes are obtained by taking the ratio to a specified `power` listed in 
 
 ### Heading classes
 
-<span class="p-label--updated">Updated</span>
-
 Heading classes can be added to text elements to give them the same visual
 appearance as the base `h1`-`h6` heading elements without sacrificing correct
 heading order and semantics.
@@ -202,8 +200,6 @@ View example of the Ubuntu font weights.
 </a></div>
 
 ### Muted text
-
-<span class="p-label--new">New</span>
 
 To reduce the prominence of text, use class `u-text--muted`.
 

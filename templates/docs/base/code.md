@@ -12,8 +12,6 @@ Vanilla gives you multiple ways to display code using the standard HTML elements
 
 ### Inline
 
-<span class="p-label--updated">Updated</span>
-
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
 <div class="embedded-example"><a href="/docs/examples/base/code-inline/" class="js-example">
@@ -66,8 +64,6 @@ View example of the code snippet
 
 ### Dropdowns
 
-<span class="p-label--updated">Updated</span>
-
 A select with the class `.p-code-snippet__dropdown` can be included within a `.p-code-snippet__header`, with a small amount of JS to switch between related code examples.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/dropdown" class="js-example">
@@ -102,6 +98,16 @@ To avoid using JavaScript library for syntax highlighting you can prepare the co
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/prism" class="js-example">
 View example of the code snippet with syntax highlighting
+</a></div>
+
+### Bordered
+
+<span class="p-label--new">New</span>
+
+Add the class `.is-bordered` to the `.p-code-snippet` element to visually group the code snippet with another section, for instance the rendered result of the code in the snippet. ```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/is-bordered" class="js-example">
+View example of the code snippet with a border
 </a></div>
 
 ### Copyable

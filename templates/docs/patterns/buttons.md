@@ -104,8 +104,6 @@ The `is-active` utility class was renamed to the more appropriate `is-processing
 
 ### Accessibility
 
-<span class="p-label--new">New</span>
-
 In some contexts, it may be necessary to indicate to the user that a button is in a pressed state, such as when a button opens a contextual menu. This can be done by adding `aria-pressed="true"` to the button with JavaScript when the button is clicked, and removed when necessary.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/pressed" class="js-example" data-height="270">

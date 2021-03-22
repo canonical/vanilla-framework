@@ -7,8 +7,6 @@ context:
 
 ## Contextual menu
 
-<span class="p-label--updated">Updated</span>
-
 <hr>
 
 A contextual menu can be applied to any button, link or navigation item that requires a secondary menu. To interact with the menu it will require some javascript to hide/show each pattern. This is achieved by finding the toggle element `p-contextual-menu__toggle` and what it controls `aria-controls`.
@@ -58,8 +56,6 @@ When using the `p-contextual-menu__toggle` class on a `button` element, please e
 In cases where a contextual menu is shown on click, focus should be set within the menu element, using JavaScript.
 
 ### Theming
-
-<span class="p-label--new">New</span>
 
 The contextual menu uses Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
