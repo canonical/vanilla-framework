@@ -69,8 +69,6 @@ View example of the inline list pattern
 
 ### Middot
 
-<span class="p-label--updated">Updated</span>
-
 Apply the class `.p-inline-list--middot` to add a middot character between
 inline list items.
 
@@ -85,8 +83,6 @@ View example of the middot list with an is-dark class
 </a></div>
 
 ### Inline stretched
-
-<span class="p-label--new">New</span>
 
 Apply the class `.p-inline-list--stretch` to stretch the list items to fill the full width of the parent container.
 

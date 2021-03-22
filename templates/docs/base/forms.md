@@ -38,8 +38,6 @@ Note: The attribute `readonly` disables the input but it still retains a default
 
 ### Checkbox
 
-<span class="p-label--new">New</span>
-
 Use the checkbox component to select one or more options. To provide fully featured Vanilla style and behaviour of the checkbox a specific markup structure is needed around the checkbox input (see example below).
 
 To disable the checkbox component, add the `disabled` attribute to the respective `<input type='checkbox'>` element.
@@ -66,8 +64,6 @@ View example of the heading checkbox components
 
 #### Indeterminate state checkbox
 
-<span class="p-label--new">New</span>
-
 When a checkbox requires a state between checked and unchecked, `checkbox.indeterminate = true;` can be set via JavaScript, which will cause the checkbox appear in an "indeterminate" state.
 
 In cases when JavaScript can't be used for that, set `aria-checked="mixed"` on checkbox to show "indeterminate" state. Please note that it will only change the visual look of the checkbox, it will not affect its state available to the browser via JavaScript.
@@ -87,8 +83,6 @@ This applies also to all modifier classes on checkbox elements, such as `is-h1`,
 Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-checkbox` component.
 
 ### Radio button
-
-<span class="p-label--new">New</span>
 
 Use radio buttons to select one of the given set of options. To provide fully featured Vanilla style and behaviour of the radio button a specific markup structure is needed around the radio button input (see example below).
 
@@ -139,8 +133,6 @@ View example of the base multiple selects
 </a></div>
 
 ### Range
-
-<span class="p-label--new">New</span>
 
 The `<input type="range">` allows a user to select from a specified range of values, where the precise value is not considered important.
 
