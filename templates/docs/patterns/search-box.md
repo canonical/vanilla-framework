@@ -14,6 +14,8 @@ Search boxes enable search functionality on a page and are typically used in a n
 
 The component expands to the full width of its container by default.
 
+A cancel button is shown when the input has content, and a small amount of JavaScript is required to ensure that focus is returned to the relevant input field when the cancel button is clicked.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/search-box/default/" class="js-example">
 View examples of search box patterns
 </a></div>
