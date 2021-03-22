@@ -104,7 +104,7 @@ View example of the code snippet with syntax highlighting
 
 <span class="p-label--new">New</span>
 
-Add the class `.is-bordered` to the `.p-code-snippet` element to visually group the code snippet with anoter section, for instance the rendered result of the code in the snippet. ```
+Add the class `.is-bordered` to the `.p-code-snippet` element to visually group the code snippet with another section, for instance the rendered result of the code in the snippet. ```
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/is-bordered" class="js-example">
 View example of the code snippet with a border
