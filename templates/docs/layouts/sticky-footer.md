@@ -6,8 +6,6 @@ context:
 
 ## Sticky footer
 
-<span class="p-label--new">New</span>
-
 <hr>
 
 To implement a footer that sticks to the bottom of the viewport even when there is little content on the page use the `l-site` element (that should be a wrapper around whole contents of the page and direct child of the `<body>` element) with `l-footer--sticky` inside it.

@@ -21,8 +21,6 @@ View example of the base table
 
 ### Icons
 
-<span class="p-label--new">New</span>
-
 If any of the cells in a column has an icon, all cells in the same column (including headers) should have a `.p-table__cell--icon-placeholder` to ensure proper alignment of the text values.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tables/table-icons" class="js-example">
@@ -40,8 +38,6 @@ View example of the table sortable pattern
 <span class="p-label--deprecated">Deprecated</span> We are removing the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
 
 ### Expanding
-
-<span class="p-label--updated">Updated</span>
 
 Using `.p-table--expanding` in conjunction with the `<table>` element will allow expanding and hidden table cells which take up the full width of the table row element.
 

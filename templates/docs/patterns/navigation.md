@@ -63,8 +63,6 @@ View example of the sub-navigation pattern
 
 ### Side navigation
 
-<span class="p-label--updated">Updated</span>
-
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
 
 It allows grouping the links into navigation sections and nesting them up to three levels.
@@ -92,8 +90,6 @@ View example of the side navigation pattern with icons
 </a></div>
 
 #### Sticky
-
-<span class="p-label--new">New</span>
 
 On pages with content significantly longer than the side navigation contents you can make the navigation sticky to keep it visible when scrolling by adding `.is-sticky` class to the root element of `.p-side-navigation`.
 
@@ -147,8 +143,6 @@ main `.p-side-navigation` element. To close the drawer (with the animation) remo
 To make sure side navigation toggle works without JavaScript the toggle button for opening the side navigation drawer should be an anchor with `href` attribute pointing to the `id` attribute of the side navigation element (for example: `<a href="#drawer" class="p-side-navigation__toggle">`).
 
 #### Application layout
-
-<span class="p-label--new">New</span>
 
 For applications built with [the application layout](/docs/layouts/application) the size and positioning of the navigation panel is handled by the layout itself, so the side navigation component doesn't need it's own drawer, overlay or toggle buttons.
 
