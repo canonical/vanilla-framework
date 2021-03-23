@@ -16,20 +16,20 @@ Buttons are clickable elements used to perform an action, you can apply `button`
   </p>
 </div>
 
-### Base
-
-A base button is usually used alongside a neutral button.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/buttons/base/" class="js-example">
-View example of the base button pattern
-</a></div>
-
 ### Neutral
 
 A neutral button can be used to indicate a positive action that isn't necessarily the main call-to-action.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/neutral/" class="js-example">
 View example of the neutral button pattern
+</a></div>
+
+### Base
+
+A base button can be used to discretely indicate a secondary action. It is often used alongside a neutral button.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/base/" class="js-example">
+View example of the base button pattern
 </a></div>
 
 ### Positive
