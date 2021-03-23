@@ -24,9 +24,15 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.27 -->
     <tr>
+      <th><a href="/docs/patterns/icons#social">GitHub icon</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.27.0</td>
+      <td>We added the GitHub icon <code>.p-icon--github</code> to our social icons set.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/code#bordered">Code snippet - bordered</a></th>
       <td><div class="p-label--updated">Updated</div></td>
-      <td>2.26.0</td>
+      <td>2.27.0</td>
       <td>We added the utility class <code>.is-bordered</code> to the code snippet.</td>
     </tr>
   </tbody>
