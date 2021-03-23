@@ -1,3 +1,7 @@
+/*
+  To use the script put the icon SVG files into /icons folder in the project,
+  and run `yarn icon-svgs-to-mixins`.
+*/
 const fs = require('fs');
 const path = require('path');
 const mime = require('mime');
@@ -81,7 +85,7 @@ function convertSVGs(directory, files) {
   let convertedSVGs = [];
 
   files.forEach((file) => {
-    const filePath = `${directory}${file}`;
+    const filePath = path.join(directory, file);
     const fileType = mime.getType(filePath);
     const isSVG = fileType === 'image/svg+xml';
 
