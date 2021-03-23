@@ -10,14 +10,26 @@ context:
 
 Data tables are used to organize and display all information from a data set.
 
+<div class="embedded-example"><a href="/docs/examples/base/table/" class="js-example">
+View example of the base table
+</a></div>
+
+### Formatting
+
 We recommend that you align the text in table columns that contain only digits
 to the right by adding the class `.u-align--right` to each individual cell,
 as in the example that follows. This is considered good practice when formatting
 data tables as it makes it easier to scan and compare the values quickly.
 
-<div class="embedded-example"><a href="/docs/examples/base/table/" class="js-example">
-View example of the base table
+By default long text in the cells will wrap on word breaks. To prevent that and
+truncate long values add the `.u-truncate` class to the cell.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tables/table-formatting" class="js-example">
+View example of formatting in the table
 </a></div>
+
+You can find out more about the [truncation](/docs/utilities/truncate) and
+[alignment](/docs/utilities/align) utilities on their respective documentation pages.
 
 ### Icons
 
