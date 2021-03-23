@@ -527,7 +527,6 @@ Our social icons are used to drive users to social content.
         <i class="p-icon--twitter" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--twitter
       </div>
     </div>
-
     <div class="row">
       <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--linkedin" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--linkedin
@@ -536,16 +535,17 @@ Our social icons are used to drive users to social content.
         <i class="p-icon--youtube" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--youtube
       </div>
       <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
-        <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
+        <i class="p-icon--github" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--github
       </div>
     </div>
-
     <div class="row">
+      <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
+        <i class="p-icon--rss" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--rss
+      </div>
       <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--email" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--email
       </div>
     </div>
-
   </div>
 </section>
 
