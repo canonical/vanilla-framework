@@ -11,6 +11,10 @@ context:
 
 Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`.
 
+<div class="embedded-example"><a href="/docs/examples/patterns/icons/icons-light" class="js-example">
+View example of icons
+</a></div>
+
 ### Icons as links
 
 If an icon needs to act as a link, `p-icon--` classes can instead be applied to `<a>` elements:
