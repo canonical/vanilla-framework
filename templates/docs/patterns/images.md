@@ -26,6 +26,14 @@ Add depth using our drop shadow around your image.
 View example of image with shadow
 </a></div>
 
+### Image with caption
+
+When an image needs a caption, it can be wrapped in a `<figure>` element, along with a `<figcaption>`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/caption/" class="js-example">
+View example of image with a caption
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
