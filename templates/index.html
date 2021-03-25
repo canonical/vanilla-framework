@@ -132,26 +132,29 @@
   <div class="row">
     <h2>Latest news from our blog</h2>
   </div>
-  <div class="row">
-    <div class="col-3">
-      <h4><a href="https://ubuntu.com/blog/automating-our-vanilla-releases-with-github-actions">Automating our Vanilla releases with GitHub actions</a></h4>
-      <p class="p-heading--6">31 March 2020</p>
-    </div>
-    <div class="col-3">
-      <h4><a href="https://ubuntu.com/blog/the-lifecycle-of-components-in-your-design-system">The lifecycle of a component</a></h4>
-      <p class="p-heading--6">21 November 2019</p>
-    </div>
-    <div class="col-3">
-      <h4><a href="https://ubuntu.com/blog/vanilla-framework-2-0-upgrade-guide">Vanilla Framework 2.0 upgrade guide</a></h4>
-      <p class="p-heading--6">20 June 2019</p>
-    </div>
-    <div class="col-3">
-      <h4><a href="https://ubuntu.com/blog/new-release-vanilla-framework-2-0">New release: Vanilla framework 2.0</a></h4>
-      <p class="p-heading--6">13 June 2019</p>
-    </div>
+  <div id="articles" class="row">
+    <div><i class="p-icon--spinner u-animation--spin">Loading...</i></div>
   </div>
   <div class="u-fixed-width"><a href="https://ubuntu.com/blog/topics/design" class="p-button--neutral">View more from our blog</a></div>
 </div>
+
+<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
+<script>
+  canonicalLatestNews.fetchLatestNews({
+    articlesContainerSelector: "#articles",
+    articleTemplateSelector: "#template",
+    gtmEventLabel: "Vanilla homepage",
+    limit: "4",
+    tagId: "2962",
+  })
+</script>
+
+<template style="display:none" id="template">
+  <div class="col-3">
+    <h4><a  class="article-link article-title"></a></h4>
+    <p class="p-heading--6 article-time"></p>
+  </div>
+</template>
 
 <div class="p-strip is-bordered">
   <div class="row">
