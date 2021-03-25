@@ -29,7 +29,7 @@
     "start": "yarn build && yarn serve",
     "build": "yarn build-scss && yarn build-js",
     "build-scss": "yarn run build-js && node-sass scss --functions sass-functions.js --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
-    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules",
+    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
     "test-spelling": "mdspell templates/docs/**/*.md -r -n -a --en-gb",
@@ -50,6 +50,7 @@
   ],
   "devDependencies": {
     "@canonical/cookie-policy": "3.2.0",
+    "@canonical/latest-news": "1.2.0",
     "@percy/script": "1.1.0",
     "autoprefixer": "10.2.5",
     "get-site-urls": "1.1.7",
