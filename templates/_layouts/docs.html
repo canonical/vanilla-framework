@@ -1,7 +1,7 @@
 {% extends "_layouts/_root.html" %}
 
 {% block custom_head %}
-    <link rel="stylesheet" href="/static/build/css/docs/site.css" />
+  <link rel="stylesheet" href="{{ versioned_static('build/css/docs/site.css') }}" />
 {% endblock %}
 
 {% block body %}
@@ -152,11 +152,11 @@
     </div>
     </div>
 
-    <script src="/static/js/scripts.js"></script>
+    <script src="{{ versioned_static('js/scripts.js') }}"></script>
     <script>
       window.Prism = window.Prism || {};
       Prism.manual = true;
     </script>
-    <script defer src="/static/js/prism.min.js"></script>
-    <script defer src="/static/js/example.js"></script>
+    <script defer src="{{ versioned_static('js/prism.min.js') }}"></script>
+    <script defer src="{{ versioned_static('js/example.js') }}"></script>
 {% endblock %}
