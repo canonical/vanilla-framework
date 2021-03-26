@@ -7,11 +7,11 @@
     <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework documentation</title>
 
     {% if is_standalone %}
-    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/{% block standalone_css %}base{% endblock %}.css" />
+    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/' + (self.standalone_css() if self.standalone_css is defined else 'base') + '.css') }}" />
     {% else %}
-    <link rel="stylesheet" type="text/css" href="/static/build/css/build.css" />
+    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/build.css') }}" />
     {% endif %}
-    <link rel="stylesheet" type="text/css" href="/static/build/css/standalone/example.css" />
+    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/example.css') }}" />
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
     {% block style %}{% endblock %}
 
