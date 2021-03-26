@@ -129,26 +129,16 @@
 </div>
 
 <div class="p-strip is-deep is-bordered">
-  <div class="row">
+  <div class="u-fixed-width">
     <h2>Latest news from our blog</h2>
   </div>
   <div id="articles" class="row">
-    <div><i class="p-icon--spinner u-animation--spin">Loading...</i></div>
+    <p><i class="p-icon--spinner u-animation--spin"></i> Loading...</p>
   </div>
   <div class="u-fixed-width"><a href="https://ubuntu.com/blog/topics/design" class="p-button--neutral">View more from our blog</a></div>
 </div>
 
-<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
-<script>
-  canonicalLatestNews.fetchLatestNews({
-    articlesContainerSelector: "#articles",
-    articleTemplateSelector: "#template",
-    gtmEventLabel: "Vanilla homepage",
-    limit: "4",
-    tagId: "2962",
-  })
-</script>
-
+<!-- blog snippet template -->
 <template style="display:none" id="template">
   <div class="col-3">
     <h4><a  class="article-link article-title"></a></h4>
@@ -220,4 +210,17 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
+<script>
+  canonicalLatestNews.fetchLatestNews({
+    articlesContainerSelector: "#articles",
+    articleTemplateSelector: "#template",
+    gtmEventLabel: "Vanilla homepage",
+    limit: "4",
+    tagId: "2962",
+  })
+</script>
 {% endblock %}
