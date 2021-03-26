@@ -44,7 +44,7 @@
     {% endblock %}
 
     {% if extra_stylesheet %}
-      <link rel="stylesheet" href="{{ extra_stylesheet }}" />
+      <link rel="stylesheet" href="{{ versioned_static(extra_stylesheet) }}" />
     {% endif %}
   </head>
 
@@ -58,7 +58,7 @@
     {% block body %}{% endblock %}
     {% include "_layouts/_footer.html" %}
 
-    <script src="/static/build/js/modules/cookie-policy.js"></script>
+    <script src="{{ versioned_static('build/js/modules/cookie-policy.js') }}"></script>
     <script>
       cpNs.cookiePolicy();
     </script>
