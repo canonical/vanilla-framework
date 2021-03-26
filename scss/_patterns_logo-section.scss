@@ -1,0 +1,54 @@
+@mixin vf-p-logo-section {
+  .p-logo-section {
+    @extend %vf-row;
+  }
+
+  .p-logo-section__title {
+    @extend %x-small-text;
+
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  .p-logo-section__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 map-get($grid-gutter-widths, small);
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: $threshold-4-6-col) {
+      gap: 0 map-get($grid-gutter-widths, medium);
+    }
+
+    @media (min-width: $threshold-6-12-col) {
+      gap: 0 map-get($grid-gutter-widths, large);
+    }
+  }
+
+  .p-logo-section__item {
+    $logos-per-line--small: 2;
+    $logos-per-line--medium: 3;
+    $logos-per-line--large: 6;
+
+    align-items: center;
+    background: rgba(255, 0, 0, 0.1);
+    display: flex;
+    flex: 0 1 auto;
+    margin-bottom: $spv-outer--scaleable;
+    width: calc(#{100% / $logos-per-line--small} - #{map-get($grid-gutter-widths, small) * ($logos-per-line--small - 1) / $logos-per-line--small});
+
+    @media (min-width: $threshold-4-6-col) {
+      width: calc(#{100% / $logos-per-line--medium} - #{map-get($grid-gutter-widths, medium) * ($logos-per-line--medium - 1) / $logos-per-line--medium});
+    }
+
+    @media (min-width: $threshold-6-12-col) {
+      width: calc(#{100% / $logos-per-line--large} - #{map-get($grid-gutter-widths, large) * ($logos-per-line--large - 1) / $logos-per-line--large});
+    }
+  }
+
+  .p-logo-section__logo {
+    height: auto;
+    width: 100%;
+  }
+}
