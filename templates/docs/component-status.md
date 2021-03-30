@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.28 -->
     <tr>
+      <th><a href="/docs/base/tables#caption">Table caption</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.28.0</td>
+      <td>We added a basic styling for the table <code>&lt;caption&gt;</code></td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/tooltips#detached">Tooltips - detached</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.28.0</td>
