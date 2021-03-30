@@ -1,0 +1,16 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Tooltips / Detached{% endblock %}
+
+{% block standalone_css %}patterns_tooltips{% endblock %}
+
+{% block content %}
+<button class="js-tooltip" aria-describedby="default-tooltip">
+  Bottom left
+</button>
+
+<span class="p-tooltip--detached u-hide" role="tooltip" id="default-tooltip">Product name to be displayed on the storefront.</span>
+
+<script>
+  {% include 'docs/examples/patterns/_tooltips_script.js' %}
+</script>
+{% endblock %}

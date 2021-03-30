@@ -26,7 +26,8 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
     @extend %tooltip;
   }
 
-  .p-tooltip__message {
+  .p-tooltip__message,
+  .p-tooltip--detached {
     @extend %small-text;
 
     background-color: $color-dark;
@@ -73,6 +74,10 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
       right: 0;
       top: -2 * $triangle-height;
     }
+  }
+
+  .p-tooltip--detached {
+    display: block;
   }
 
   // Bottom center tooltip
