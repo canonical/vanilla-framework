@@ -16,6 +16,12 @@ On `p-modal` set display to `display:flex` or `display:none` to toggle the visib
 View example of the modal pattern
 </a></div>
 
+Optional footer element with a `p-modal__footer` class name can be added to the modal dialog to provide additional options.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/modal/footer/" class="js-example" data-height="400">
+View example of the modal with a footer
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.

@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Modal / With footer{% endblock %}
+
+{% block standalone_css %}patterns_modal{% endblock %}
+
+{% block content %}
+<button id="showModal" aria-controls="modal">Show modal&hellip;</button>
+
+<div class="p-modal" id="modal">
+  <section class="p-modal__dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+    <header class="p-modal__header">
+      <h2 class="p-modal__title" id="modal-title">Confirm delete</h2>
+      <button class="p-modal__close" aria-label="Close active modal" aria-controls="modal">Close</button>
+    </header>
+    <p>Are you sure you want to delete user "Simon"? This action is permanent and can not be undone.</p>
+    <footer class="p-modal__footer">
+      <button class="u-no-margin--bottom" aria-controls="modal">Cancel</button>
+      <button class="p-button--negative u-no-margin--bottom">Delete</button>
+    </footer>
+  </section>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/modal/_script.js' %}
+</script>
+{% endblock %}
