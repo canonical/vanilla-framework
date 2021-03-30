@@ -31,6 +31,14 @@ View example of formatting in the table
 You can find out more about the [truncation](/docs/utilities/truncate) and
 [alignment](/docs/utilities/align) utilities on their respective documentation pages.
 
+### Caption
+
+A `<caption>` element can be added to the table to give more detailed description of the data.
+
+<div class="embedded-example"><a href="/docs/examples/base/table-caption/" class="js-example">
+View example of the table with a caption
+</a></div>
+
 ### Icons
 
 If any of the cells in a column has an icon, all cells in the same column (including headers) should have a `.p-table__cell--icon-placeholder` to ensure proper alignment of the text values.
