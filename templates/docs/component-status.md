@@ -28,6 +28,11 @@ When we add, make significant updates, or deprecate a component we update their 
       <td><div class="p-label--new">New</div></td>
       <td>2.28.0</td>
       <td>We added the optional footer to the modal pattern.</td>
+    <tr>
+      <th><a href="/docs/patterns/logo-section">Logo section</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.28.0</td>
+      <td>A new logo section</td>
     </tr>
     <tr>
       <th><a href="/docs/base/tables#empty">Table - empty</a></th>
