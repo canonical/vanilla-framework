@@ -31,12 +31,12 @@ View example of formatting in the table
 You can find out more about the [truncation](/docs/utilities/truncate) and
 [alignment](/docs/utilities/align) utilities on their respective documentation pages.
 
-### Caption
+### Empty
 
-A `<caption>` element can be added to the table to give more detailed description of the data.
+A `<caption>` element can be used to provide a description when there is no data to display in the table.
 
-<div class="embedded-example"><a href="/docs/examples/base/table-caption/" class="js-example">
-View example of the table with a caption
+<div class="embedded-example"><a href="/docs/examples/base/table-empty/" class="js-example">
+View example of empty table
 </a></div>
 
 ### Icons
