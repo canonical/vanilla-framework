@@ -19,8 +19,16 @@ Tooltips are text labels that appear when the user hovers over, focuses on, or t
   </p>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tooltips/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tooltips/default" class="js-example">
 View example of the tooltips pattern
+</a></div>
+
+### Detached
+
+In some cases you may need the tooltip element to exist outside of the element it is a tooltip for, in which case you can use the `p-tooltip--detached` class with the `u-hide` utility, and JavaScript to set the desired position of the tooltip.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tooltips/detached"  data-height="120" class="js-example">
+View example of the detached tooltips pattern
 </a></div>
 
 ### Import

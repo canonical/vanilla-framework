@@ -22,18 +22,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.27 -->
+    <!-- 2.28 -->
     <tr>
-      <th><a href="/docs/patterns/icons#social">GitHub icon</a></th>
+      <th><a href="/docs/patterns/tooltips#detached">Tooltips - detached</a></th>
       <td><div class="p-label--new">New</div></td>
-      <td>2.27.0</td>
-      <td>We added the GitHub icon <code>.p-icon--github</code> to our social icons set.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/base/code#bordered">Code snippet - bordered</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.27.0</td>
-      <td>We added the utility class <code>.is-bordered</code> to the code snippet.</td>
+      <td>2.28.0</td>
+      <td>We added the <code>.p-tooltip--detached</code> variant, providing a way for tooltips to exist separately from their associated element.</td>
     </tr>
   </tbody>
 </table>
@@ -50,6 +44,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.27 -->
+    <tr>
+      <th><a href="/docs/patterns/icons#social">GitHub icon</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.27.0</td>
+      <td>We added the GitHub icon <code>.p-icon--github</code> to our social icons set.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/code#bordered">Code snippet - bordered</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.27.0</td>
+      <td>We added the utility class <code>.is-bordered</code> to the code snippet.</td>
+    </tr>
     <!-- 2.26 -->
     <tr>
       <th><a href="/docs/patterns/search-and-filter">Search and filter</a></th>
