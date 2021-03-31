@@ -1,19 +1,24 @@
+function setTooltipPosition(tooltip, x, y) {
+  // offset the tooltip so it
+  // isn't obscured by the cursor
+  var offset = 20;
+
+  tooltip.style.left = x - offset + 'px';
+  tooltip.style.top = y + offset + 'px';
+}
+
 function handleTooltipEvents(tooltip) {
   var trigger = document.querySelector('[aria-describedby="' + tooltip.getAttribute('id') + '"]');
 
-  trigger.addEventListener('mouseenter', function () {
+  trigger.addEventListener('mouseenter', function (e) {
     // remove this class on mouseenter,
     // rather than unnecessarily on mousemove
     tooltip.classList.remove('u-hide');
+    setTooltipPosition(tooltip, e.x, e.y);
   });
 
   trigger.addEventListener('mousemove', function (e) {
-    // move with the cursor, but offset it
-    // so it isn't obscured by the cursor
-    var offset = 20;
-
-    tooltip.style.top = e.y + offset + 'px';
-    tooltip.style.left = e.x - offset + 'px';
+    setTooltipPosition(tooltip, e.x, e.y);
   });
 
   trigger.addEventListener('mouseout', function () {
