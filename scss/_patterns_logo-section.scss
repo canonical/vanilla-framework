@@ -4,6 +4,7 @@
   $gutter: map-get($grid-gutter-widths, small);
   $media-query-keyword: max-width;
   $media-query-width: $threshold-4-6-col;
+  $logo-column-span: 1;
 
   @if $breakpoint == medium {
     $grid-column-count: $grid-columns-medium;
@@ -11,21 +12,22 @@
     $gutter: map-get($grid-gutter-widths, medium);
     $media-query-keyword: min-width;
     $media-query-width: $threshold-4-6-col;
+    $logo-column-span: 1;
   } @else if $breakpoint == large {
     $grid-column-count: $grid-columns;
     $grid-column-prefix: $grid-large-col-prefix;
     $gutter: map-get($grid-gutter-widths, large);
     $media-query-keyword: min-width;
     $media-query-width: $threshold-6-12-col;
+    $logo-column-span: 2;
   }
 
-  @for $i from 1 through $grid-column-count {
+  @for $i from $grid-column-count through 1 {
     .#{$grid-column-prefix}#{$i} & {
       @media ($media-query-keyword: #{$media-query-width}) {
         $gutters-total: ($i - 1) * $gutter;
-        $logo-column-span: 2;
 
-        width: calc(#{$gutter} + #{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
+        width: calc(#{$gutter * ($logo-column-span - 1)} + #{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
       }
     }
   }
@@ -69,22 +71,39 @@
   }
 
   .p-logo-section__item {
-    $logos-per-line--small: 2;
-    $logos-per-line--medium: 3;
-    $logos-per-line--large: 6;
+    $gutter--small: map-get($grid-gutter-widths, small);
+    $logo-column-span--small: 1;
+    $gutters-total--small: ($grid-columns-small - 1) * $gutter--small;
+
+    $gutter--medium: map-get($grid-gutter-widths, medium);
+    $logo-column-span--medium: 1;
+    $gutters-total--medium: ($grid-columns-medium - 1) * $gutter--medium;
+
+    $gutter--large: map-get($grid-gutter-widths, large);
+    $logo-column-span--large: 2;
+    $gutters-total--large: ($grid-columns - 1) * $gutter--large;
 
     align-items: center;
     display: flex;
     flex: 0 1 auto;
     margin-bottom: $spv-outer--scaleable;
-    width: calc(#{100% / $logos-per-line--small} - #{map-get($grid-gutter-widths, small) * ($logos-per-line--small - 1) / $logos-per-line--small});
+    width: calc(
+      #{$gutter--small * ($logo-column-span--small - 1)} + #{$logo-column-span--small * (100% / $grid-columns-small)} - #{$logo-column-span--small *
+        ($gutters-total--small / $grid-columns-small)}
+    );
 
     @media (min-width: $threshold-4-6-col) {
-      width: calc(#{100% / $logos-per-line--medium} - #{map-get($grid-gutter-widths, medium) * ($logos-per-line--medium - 1) / $logos-per-line--medium});
+      width: calc(
+        #{$gutter--medium * ($logo-column-span--medium - 1)} + #{$logo-column-span--medium * (100% / $grid-columns-medium)} - #{$logo-column-span--medium *
+          ($gutters-total--medium / $grid-columns-medium)}
+      );
     }
 
     @media (min-width: $threshold-6-12-col) {
-      width: calc(#{100% / $logos-per-line--large} - #{map-get($grid-gutter-widths, large) * ($logos-per-line--large - 1) / $logos-per-line--large});
+      width: calc(
+        #{$gutter--large * ($logo-column-span--large - 1)} + #{$logo-column-span--large * (100% / $grid-columns)} - #{$logo-column-span--large *
+          ($gutters-total--large / $grid-columns)}
+      );
     }
 
     @include vf-p-set-logo-width($breakpoint: small);
