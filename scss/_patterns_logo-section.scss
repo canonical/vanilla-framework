@@ -1,4 +1,4 @@
-@mixin vf-p-set-logo-width($breakpoint: small) {
+@mixin vf-p-set-nested-logo-width($breakpoint: small) {
   $grid-column-count: $grid-columns-small;
   $grid-column-prefix: $grid-small-col-prefix;
   $gutter: map-get($grid-gutter-widths, small);
@@ -112,9 +112,9 @@
       );
     }
 
-    @include vf-p-set-logo-width($breakpoint: small);
-    @include vf-p-set-logo-width($breakpoint: medium);
-    @include vf-p-set-logo-width($breakpoint: large);
+    @include vf-p-set-nested-logo-width($breakpoint: small);
+    @include vf-p-set-nested-logo-width($breakpoint: medium);
+    @include vf-p-set-nested-logo-width($breakpoint: large);
   }
 
   .p-logo-section__logo {
