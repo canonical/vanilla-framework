@@ -26,8 +26,11 @@
     .#{$grid-column-prefix}#{$i} & {
       @media ($media-query-keyword: #{$media-query-width}) {
         $gutters-total: ($i - 1) * $gutter;
-
-        width: calc(#{$gutter * ($logo-column-span - 1)} + #{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
+        @if $logo-column-span == 1 {
+          width: calc(#{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
+        } @else {
+          width: calc(#{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i) - $gutter * ($logo-column-span - 1)});
+        }
       }
     }
   }
