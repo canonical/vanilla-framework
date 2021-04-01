@@ -83,10 +83,14 @@
 <div class="p-stripe is-shallow">
   <button id="showModal" aria-controls="modal">Show modal&hellip;</button>
 
-  <button class="p-tooltip--top-left" aria-describedby="zindex-tooltip">
+  <button aria-describedby="zindex-tooltip">
     Tooltip
-    <span class="p-tooltip__message" role="tooltip" id="zindex-tooltip">This tooltip appears above other elements.</span>
   </button>
+
+  <!-- make visible and hardcode the initial position of the tooltip so Percy can snapshot it -->
+  <div class="p-tooltip is-detached" id="zindex-tooltip" style="left: 212px; top: 140px;">
+    <span class="p-tooltip__message" role="tooltip">This excessively long tooltip appears above other elements.</span>
+  </div>
 
   <p>
     Lorem ipsum dolor sit amet consectetur adipiscing elit
@@ -192,5 +196,8 @@
 
 <script>
   {% include 'docs/examples/patterns/modal/_script.js' %}
+</script>
+<script>
+  {% include 'docs/examples/patterns/tooltips/_tooltips_script.js' %}
 </script>
 {% endblock %}
