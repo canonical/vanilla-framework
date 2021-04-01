@@ -1,6 +1,44 @@
+@mixin vf-p-set-logo-width($breakpoint: small) {
+  $grid-column-count: $grid-columns-small;
+  $grid-column-prefix: $grid-small-col-prefix;
+  $gutter: map-get($grid-gutter-widths, small);
+  $media-query-keyword: max-width;
+  $media-query-width: $threshold-4-6-col;
+
+  @if $breakpoint == medium {
+    $grid-column-count: $grid-columns-medium;
+    $grid-column-prefix: $grid-medium-col-prefix;
+    $gutter: map-get($grid-gutter-widths, medium);
+    $media-query-keyword: min-width;
+    $media-query-width: $threshold-4-6-col;
+  } @else if $breakpoint == large {
+    $grid-column-count: $grid-columns;
+    $grid-column-prefix: $grid-large-col-prefix;
+    $gutter: map-get($grid-gutter-widths, large);
+    $media-query-keyword: min-width;
+    $media-query-width: $threshold-6-12-col;
+  }
+
+  @for $i from 1 through $grid-column-count {
+    .#{$grid-column-prefix}#{$i} & {
+      @media ($media-query-keyword: #{$media-query-width}) {
+        $gutters-total: ($i - 1) * $gutter;
+        $logo-column-span: 2;
+
+        width: calc(#{$gutter} + #{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
+      }
+    }
+  }
+}
+
 @mixin vf-p-logo-section {
   .p-logo-section {
-    @extend %vf-row;
+    @extend %fixed-width-container;
+
+    .row &,
+    .u-fixed-width & {
+      @include vf-b-row-reset;
+    }
   }
 
   .p-logo-section__title {
@@ -24,6 +62,10 @@
     @media (min-width: $threshold-6-12-col) {
       gap: 0 map-get($grid-gutter-widths, large);
     }
+
+    [class*='col-'] & {
+      justify-content: start;
+    }
   }
 
   .p-logo-section__item {
@@ -44,6 +86,10 @@
     @media (min-width: $threshold-6-12-col) {
       width: calc(#{100% / $logos-per-line--large} - #{map-get($grid-gutter-widths, large) * ($logos-per-line--large - 1) / $logos-per-line--large});
     }
+
+    @include vf-p-set-logo-width($breakpoint: small);
+    @include vf-p-set-logo-width($breakpoint: medium);
+    @include vf-p-set-logo-width($breakpoint: large);
   }
 
   .p-logo-section__logo {
