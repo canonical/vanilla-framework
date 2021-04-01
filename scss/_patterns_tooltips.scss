@@ -20,14 +20,18 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
         text-decoration: initial;
       }
     }
+
+    &.is-detached {
+      display: inline;
+      position: absolute;
+    }
   }
 
   .p-tooltip {
     @extend %tooltip;
   }
 
-  .p-tooltip__message,
-  .p-tooltip--detached {
+  .p-tooltip__message {
     @extend %small-text;
 
     background-color: $color-dark;
@@ -46,6 +50,10 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
     transform: translateX(0%) translateY(13px);
     white-space: pre;
     z-index: 11; // one step above p-navigation's z-index
+
+    .is-detached & {
+      display: block;
+    }
 
     // tooltip
     &::before {
@@ -74,10 +82,6 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
       right: 0;
       top: -2 * $triangle-height;
     }
-  }
-
-  .p-tooltip--detached {
-    display: block;
   }
 
   // Bottom center tooltip

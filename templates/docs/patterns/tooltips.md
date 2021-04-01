@@ -25,7 +25,7 @@ View example of the tooltips pattern
 
 ### Detached
 
-In some cases you may need the tooltip element to exist outside of the element it is a tooltip for, in which case you can use the `p-tooltip--detached` class with the `u-hide` utility, and JavaScript to set the desired position of the tooltip.
+In some cases you may need the tooltip element to exist outside of the element it is a tooltip for, in which case you can use the `is-detached` utility with the `u-hide` utility, and JavaScript to set the desired position of the tooltip.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tooltips/detached"  data-height="120" class="js-example">
 View example of the detached tooltips pattern
