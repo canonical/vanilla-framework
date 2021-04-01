@@ -39,7 +39,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/patterns/tooltips#detached">Tooltips - detached</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.28.0</td>
-      <td>We added the <code>.p-tooltip--detached</code> variant, providing a way for tooltips to exist separately from their associated element.</td>
+      <td>We added the <code>.is-detached</code> utility, providing a way for tooltips to exist separately from their associated element.</td>
     </tr>
   </tbody>
 </table>

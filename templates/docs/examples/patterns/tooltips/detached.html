@@ -4,11 +4,21 @@
 {% block standalone_css %}patterns_tooltips{% endblock %}
 
 {% block content %}
-<button aria-describedby="default-tooltip">
-  Moves with cursor
+<button aria-describedby="tooltip1">
+  UA Infrastructure - Standard
 </button>
 
-<span class="p-tooltip--detached u-hide" role="tooltip" id="default-tooltip">Product name to be displayed on the storefront.</span>
+<div class="p-tooltip is-detached u-hide" id="tooltip1">
+  <span class="p-tooltip__message" role="tooltip">Support level: 24 hours, 5 days a week</span>
+</div>
+
+<button aria-describedby="tooltip2">
+  UA Infrastructure - Advanced
+</button>
+
+<div class="p-tooltip--btm-center is-detached u-hide" id="tooltip2">
+  <span class="p-tooltip__message" role="tooltip">Support level: 24 hours, 7 days a week</span>
+</div>
 
 <script>
   {% include 'docs/examples/patterns/tooltips/_tooltips_script.js' %}
