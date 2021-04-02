@@ -1,32 +1,15 @@
-function getTooltipPlacement(tooltip) {
-  var placement = 'btm-left';
-
-  tooltip.classList.forEach(function (className) {
-    if (className.startsWith('p-tooltip--')) {
-      placement = className.replace('p-tooltip--', '');
-    }
-  });
-
-  return placement;
-}
-
 function setTooltipPosition(tooltip, cursorX, cursorY) {
-  var placement = getTooltipPlacement(tooltip);
-
   // FOR VANILLA EXAMPLE ONLY:
   // this example only covers two tooltip positions
 
   // offset the tooltip x and y position
   // so it isn't obscured by the cursor
-  switch (placement) {
-    case 'btm-center':
-      tooltipX = cursorX + 8;
-      tooltipY = cursorY + 20;
-      break;
-    default:
-      tooltipX = cursorX - 12;
-      tooltipY = cursorY + 20;
-      break;
+  if (tooltip.classList.contains('p-tooltip--btm-center')) {
+    tooltipX = cursorX + 8;
+    tooltipY = cursorY + 20;
+  } else {
+    tooltipX = cursorX - 12;
+    tooltipY = cursorY + 20;
   }
 
   tooltip.style.left = tooltipX + 'px';
@@ -62,5 +45,5 @@ function initTooltips(selector) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  initTooltips('.is-detached');
+  initTooltips('[class*="p-tooltip"].is-detached');
 });
