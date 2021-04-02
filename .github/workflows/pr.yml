@@ -35,7 +35,7 @@ jobs:
 
   docker:
     name: Build and run
-    runs-on: ubuntu-18.04 # linkchecker is not available in ubuntu 20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker image
@@ -45,6 +45,6 @@ jobs:
       - name: Check server status
         run: curl localhost:${PORT}/_status/check -I
       - name: Install linkchecker
-        run: sudo apt update && sudo apt install linkchecker
+        run: sudo pip install LinkChecker
       - name: Check internal links
         run: linkchecker --ignore-url /search http://localhost:${PORT}
