@@ -1,12 +1,18 @@
 @mixin vf-p-set-nested-logo-width($breakpoint: small) {
+  // This mixin calculates the width of an individual logo for cases when the logo section is nested inside a container that doesn't span the full grid.
+
+  // Settings for the small breakpoint
   $grid-column-count: $grid-columns-small;
   $grid-column-prefix: $grid-small-col-prefix;
   $gutter: map-get($grid-gutter-widths, small);
+  // medium and small use the same breakpoint, but one uses a max-width, the other a min-width; so, we need to specify which one to use
   $media-query-keyword: max-width;
   $media-query-width: $threshold-4-6-col;
+  // how many grid columns should a logo span
   $logo-column-span: 1;
 
   @if $breakpoint == medium {
+    // Settings for the small breakpoint
     $grid-column-count: $grid-columns-medium;
     $grid-column-prefix: $grid-medium-col-prefix;
     $gutter: map-get($grid-gutter-widths, medium);
@@ -14,6 +20,7 @@
     $media-query-width: $threshold-4-6-col;
     $logo-column-span: 1;
   } @else if $breakpoint == large {
+    // Settings for the small breakpoint
     $grid-column-count: $grid-columns;
     $grid-column-prefix: $grid-large-col-prefix;
     $gutter: map-get($grid-gutter-widths, large);
@@ -22,14 +29,49 @@
     $logo-column-span: 2;
   }
 
-  @for $i from $grid-column-count through 1 {
-    .#{$grid-column-prefix}#{$i} & {
-      @media ($media-query-keyword: #{$media-query-width}) {
+  @media ($media-query-keyword: #{$media-query-width}) {
+    // Looping in reverse to ensure nested column rules end up further down in the generated css file, thus having higher specificity.
+    // E.g. if a col-4 is nested inside col-8, the col-8 rule should be written above the col-4 rule in the css file, to ensure the correct styles apply
+    @for $i from $grid-column-count through 1 {
+      // when a logo item
+      .#{$grid-column-prefix}#{$i} & {
+        // The number of gutters is one less than the number of columns.
+        // $gutters-total calculates the total width of all gutters
         $gutters-total: ($i - 1) * $gutter;
+        @if $i == 1 {
+          // if the available number of columns of the parent container is less than the desired number of columns the logo should span, we clamp that desired number to what's available
+          $logo-column-span: min($logo-column-span, $i);
+        }
+
         @if $logo-column-span == 1 {
+          // if a logo spans just one column, the calculation `$gutter * ($logo-column-span - 1)` would equal 0,
+          // which would result in ` - 0rem` being output inside calc().
+          // This is not desireable so we take it out of the calculation in this conditional
+          // For example, let's assume that:
+          // - the logo section is nested within a 5 column container
+          // - the width of a logo needs to span 1 column, as is the case on the medium breakpoint, where the total number of columns on the grid is 6;
+          // the calculation then becomes:
+          // (1 * 100% - 1 * width_of_4_gutters) / 5; the calc css function doesn't allow dividing different values like % and rem, so we need to divide each individually:
+          // calc(1 * 100% / 5 - 1 * (width of 4 gutters) / 5)
+
           width: calc(#{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
         } @else {
-          width: calc(#{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i) - $gutter * ($logo-column-span - 1)});
+          // if a logo spans two columns, its width needs to:
+          // Step 1: Take the entire available space and divide it by the number of columns the parrent container occupies.
+          // Multiply the result by the number of columns the logo spans.
+          // Step 2: In case the logo spans 2 columns, add the gutter between the columns To the value calculated in step 1. To illustrate:
+          // [    logo spanning 2 grid columns    ]
+          // [column space] [gutter] [column space]
+          // Step 3: Subtract the number of gutters from the total calculated in step 1, and divide it by the number of columns the parrent container occupies.
+
+          // Step 1 and 3 both divide by the same number, as the calc function doesn't allow mixing units and dividing
+
+          // The above 3 steps in code:
+          // Step 1: $logo-column-span * (100% / $i) ($i represents the number of columns the parent container spans on the grid)
+          // Step 2: $gutter * ($logo-column-span - 1)
+          // Step 3: $logo-column-span * ($gutters-total / $i)
+
+          width: calc(#{$logo-column-span * (100% / $i)} + #{$gutter * ($logo-column-span - 1) - $logo-column-span * ($gutters-total / $i)});
         }
       }
     }
@@ -37,6 +79,9 @@
 }
 
 @mixin vf-p-logo-section {
+  // The logo section pattern needs to align logos to the grid when they are an even number, and center them (while maintaining the same logo width) when the number of logos on a line is odd.
+  // This means we can't use css grid for this, instead we need to replicate its behavior for even numbers of logos, and center the odd ones.
+
   .p-logo-section {
     @extend %fixed-width-container;
 
@@ -115,10 +160,5 @@
     @include vf-p-set-nested-logo-width($breakpoint: small);
     @include vf-p-set-nested-logo-width($breakpoint: medium);
     @include vf-p-set-nested-logo-width($breakpoint: large);
-  }
-
-  .p-logo-section__logo {
-    height: auto;
-    width: 100%;
   }
 }
