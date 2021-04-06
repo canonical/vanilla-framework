@@ -32,46 +32,40 @@
   @media ($media-query-keyword: #{$media-query-width}) {
     // Looping in reverse to ensure nested column rules end up further down in the generated css file, thus having higher specificity.
     // E.g. if a col-4 is nested inside col-8, the col-8 rule should be written above the col-4 rule in the css file, to ensure the correct styles apply
-    @for $i from $grid-column-count through 1 {
-      // when a logo item
-      .#{$grid-column-prefix}#{$i} & {
+    @for $column-count from $grid-column-count through 1 {
+      .#{$grid-column-prefix}#{$column-count} & {
         // The number of gutters is one less than the number of columns.
-        // $gutters-total calculates the total width of all gutters
-        $gutters-total: ($i - 1) * $gutter;
-        @if $i == 1 {
-          // if the available number of columns of the parent container is less than the desired number of columns the logo should span, we clamp that desired number to what's available
-          $logo-column-span: min($logo-column-span, $i);
+        // $gutters-total-width calculates the total width of all gutters
+        $gutters-total-width: ($column-count - 1) * $gutter;
+        @if $column-count == 1 {
+          // if the available number of columns of the parent container is less than the desired number of columns the logo should span, we clamp that desired number ($logo-column-span) to what's available:
+          $logo-column-span: min($logo-column-span, $column-count);
         }
 
-        @if $logo-column-span == 1 {
-          // if a logo spans just one column, the calculation `$gutter * ($logo-column-span - 1)` would equal 0,
-          // which would result in ` - 0rem` being output inside calc().
-          // This is not desireable so we take it out of the calculation in this conditional
-          // For example, let's assume that:
-          // - the logo section is nested within a 5 column container
-          // - the width of a logo needs to span 1 column, as is the case on the medium breakpoint, where the total number of columns on the grid is 6;
-          // the calculation then becomes:
-          // (1 * 100% - 1 * width_of_4_gutters) / 5; the calc css function doesn't allow dividing different values like % and rem, so we need to divide each individually:
-          // calc(1 * 100% / 5 - 1 * (width of 4 gutters) / 5)
+        // The logos are sized so that, depending on breakpoint, they span either one, or two columns of the grid.
+        // When spanning more than one column, we need to account for the gutters between the columns.
 
-          width: calc(#{$logo-column-span * (100% / $i)} - #{$logo-column-span * ($gutters-total / $i)});
+        // calc() doesn't allow dividing a mixture of different units, so the calculation
+        // (100% - $gutters-total-width) / $column-count needs to be broken down into two separate divisions:
+        // 100% / $column-count - $gutters-total-width / $column-count
+        // Thus the calculation is split into 2 parts, which are then used in the final calc() function:
+
+        // calculate the width of a single column by dividing the entire width by the number of columns it represents:
+        $percentage-width-of-one-col: 100% / $column-count;
+
+        // multiply the width of one column by the number of columns the logo needs to span
+        $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
+
+        // calculate the number of gutters the logo spans
+        $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
+
+        // add the width of gutters spanned by the logo, subtract the $gutters-total-width / $column-count
+        $rem-contribution: $gutter-width-inside-logo - $logo-column-span * ($gutters-total-width / $column-count);
+
+        @if $rem-contribution == 0 {
+          width: $percentage-contribution;
         } @else {
-          // if a logo spans two columns, its width needs to:
-          // Step 1: Take the entire available space and divide it by the number of columns the parrent container occupies.
-          // Multiply the result by the number of columns the logo spans.
-          // Step 2: In case the logo spans 2 columns, add the gutter between the columns To the value calculated in step 1. To illustrate:
-          // [    logo spanning 2 grid columns    ]
-          // [column space] [gutter] [column space]
-          // Step 3: Subtract the number of gutters from the total calculated in step 1, and divide it by the number of columns the parrent container occupies.
-
-          // Step 1 and 3 both divide by the same number, as the calc function doesn't allow mixing units and dividing
-
-          // The above 3 steps in code:
-          // Step 1: $logo-column-span * (100% / $i) ($i represents the number of columns the parent container spans on the grid)
-          // Step 2: $gutter * ($logo-column-span - 1)
-          // Step 3: $logo-column-span * ($gutters-total / $i)
-
-          width: calc(#{$logo-column-span * (100% / $i)} + #{$gutter * ($logo-column-span - 1) - $logo-column-span * ($gutters-total / $i)});
+          width: calc(#{$percentage-contribution} + #{$rem-contribution});
         }
       }
     }
@@ -121,29 +115,29 @@
   .p-logo-section__item {
     $gutter--small: map-get($grid-gutter-widths, small);
     $logo-column-span--small: 1;
-    $gutters-total--small: ($grid-columns-small - 1) * $gutter--small;
+    $gutters-total-width--small: ($grid-columns-small - 1) * $gutter--small;
 
     $gutter--medium: map-get($grid-gutter-widths, medium);
     $logo-column-span--medium: 1;
-    $gutters-total--medium: ($grid-columns-medium - 1) * $gutter--medium;
+    $gutters-total-width--medium: ($grid-columns-medium - 1) * $gutter--medium;
 
     $gutter--large: map-get($grid-gutter-widths, large);
     $logo-column-span--large: 2;
-    $gutters-total--large: ($grid-columns - 1) * $gutter--large;
+    $gutters-total-width--large: ($grid-columns - 1) * $gutter--large;
 
     align-items: center;
     display: flex;
     flex: 0 1 auto;
     margin-bottom: $spv-outer--scaleable;
     width: calc(
-      #{$logo-column-span--small * (100% / $grid-columns-small)} - #{$logo-column-span--small * ($gutters-total--small / $grid-columns-small) - $gutter--small * (
+      #{$logo-column-span--small * (100% / $grid-columns-small)} - #{$logo-column-span--small * ($gutters-total-width--small / $grid-columns-small) - $gutter--small * (
           $logo-column-span--small - 1
         )}
     );
 
     @media (min-width: $threshold-4-6-col) {
       width: calc(
-        #{$logo-column-span--medium * (100% / $grid-columns-medium)} - #{$logo-column-span--medium * ($gutters-total--medium / $grid-columns-medium) - $gutter--medium * (
+        #{$logo-column-span--medium * (100% / $grid-columns-medium)} - #{$logo-column-span--medium * ($gutters-total-width--medium / $grid-columns-medium) - $gutter--medium * (
             $logo-column-span--medium - 1
           )}
       );
@@ -151,7 +145,7 @@
 
     @media (min-width: $threshold-6-12-col) {
       width: calc(
-        #{$logo-column-span--large * (100% / $grid-columns)} - #{$logo-column-span--large * ($gutters-total--large / $grid-columns) - $gutter--large * (
+        #{$logo-column-span--large * (100% / $grid-columns)} - #{$logo-column-span--large * ($gutters-total-width--large / $grid-columns) - $gutter--large * (
             $logo-column-span--large - 1
           )}
       );
