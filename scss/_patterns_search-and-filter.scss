@@ -21,6 +21,8 @@
       margin: 0;
       min-height: $height;
       overflow: hidden;
+      padding-left: $spv-outer--small;
+      padding-right: $sp-x-large; // reserve space for selected counter
       position: relative;
 
       &[data-active='true'] {
@@ -51,10 +53,6 @@
         .p-search-and-filter__selected-count {
           display: none;
         }
-      }
-
-      .p-search-and-filter__box {
-        flex-grow: 1;
       }
     }
 
@@ -112,8 +110,10 @@
     .p-search-and-filter__input {
       border: 0;
       box-shadow: none;
+      flex-grow: 1;
       margin-bottom: 0;
-      margin-right: -$spv-outer--shallow-scaleable;
+      margin-left: -$spv-outer--small; // compensate for the left padding of the container
+      margin-right: -$sp-x-large; // compensate for the space reserved for counter
       min-height: 2.25rem;
       min-width: 6rem;
       padding: $spv-inner--small;
