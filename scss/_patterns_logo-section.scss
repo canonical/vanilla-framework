@@ -1,10 +1,11 @@
 @mixin vf-p-set-logo-section-item-width($breakpoint: small) {
-  // This mixin calculates the width of an individual logo for cases when the logo section is nested inside a container that doesn't span the full grid.
+  // This mixin calculates the width of an individual logo.
 
   $grid-column-count: $grid-columns-small;
   $grid-column-prefix: $grid-small-col-prefix;
   $gutter: map-get($grid-gutter-widths, small);
-  // medium and small use the same breakpoint, but one uses a max-width, the other a min-width; so, we need to specify which one to use
+  // medium and small use the same breakpoint, but one uses a max-width, the other a min-width;
+  // so, we need to specify which one to use
   $media-query-keyword: max-width;
   $media-query-width: $threshold-4-6-col;
   // how many grid columns should a logo span
