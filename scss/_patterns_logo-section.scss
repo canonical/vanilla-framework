@@ -1,4 +1,4 @@
-@mixin vf-p-set-nested-logo-width($breakpoint: small) {
+@mixin vf-p-set-logo-section-item-width($breakpoint: small) {
   // This mixin calculates the width of an individual logo for cases when the logo section is nested inside a container that doesn't span the full grid.
 
   $grid-column-count: $grid-columns-small;
@@ -39,7 +39,7 @@
     $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
     $rem-contribution: $logo-column-span * ($gutters-total-width / $grid-column-count) - $gutter-width-inside-logo;
 
-    @include vf-p-set-logo-section-item-width($percentage-contribution, $rem-contribution);
+    @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
 
     // Looping in reverse to ensure nested column rules end up further down in the generated css file, thus having higher specificity.
     // E.g. if a col-4 is nested inside col-8, the col-8 rule should be written above the col-4 rule in the css file, to ensure the col-4 styles take precedence
@@ -75,13 +75,13 @@
       $rem-contribution: $logo-column-span * ($gutters-total-width / $column-count) - $gutter-width-inside-logo;
 
       .#{$grid-column-prefix}#{$column-count} & {
-        @include vf-p-set-logo-section-item-width($percentage-contribution, $rem-contribution);
+        @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
       }
     }
   }
 }
 
-@mixin vf-p-set-logo-section-item-width($percentage-contribution, $rem-contribution) {
+@mixin vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution) {
   @if $rem-contribution == 0 {
     width: $percentage-contribution;
   } @else {
@@ -125,8 +125,8 @@
     flex: 0 1 auto;
     margin-bottom: $spv-outer--scaleable;
 
-    @include vf-p-set-nested-logo-width($breakpoint: small);
-    @include vf-p-set-nested-logo-width($breakpoint: medium);
-    @include vf-p-set-nested-logo-width($breakpoint: large);
+    @include vf-p-set-logo-section-item-width($breakpoint: small);
+    @include vf-p-set-logo-section-item-width($breakpoint: medium);
+    @include vf-p-set-logo-section-item-width($breakpoint: large);
   }
 }
