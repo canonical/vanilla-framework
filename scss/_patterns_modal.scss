@@ -1,6 +1,8 @@
 @import 'settings';
 
 @mixin vf-p-modal {
+  $icon-size: map-get($icon-sizes, default);
+
   .p-modal {
     align-items: center;
     background: transparentize($color-dark, 0.15);
@@ -49,6 +51,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: $spv-inner--small;
+    // add padding to accommodate the width of p-modal__close
+    padding-right: $icon-size + $sph-inner--small * 2;
   }
 
   .p-modal__title {
@@ -58,8 +62,6 @@
   }
 
   .p-modal__close {
-    $icon-size: map-get($icon-sizes, default);
-
     background: {
       image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='90' width='90'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h90v90H0z'/%3E%3Cpath d='M14.52 6L6 14.52 36.48 45 6 75.49 14.52 84 45 53.52 75.48 84 84 75.49 53.52 45 84 14.52 75.48 6 45 36.49z' fill='%23888'/%3E%3C/g%3E%3C/svg%3E");
       position: center;
