@@ -17,10 +17,8 @@ $spv-list-item--inner: null;
   }
 
   %numbered-step-title {
-    display: flex;
     list-style: none;
     margin-left: 0;
-    padding-left: 0;
 
     &::before {
       align-self: start;
@@ -30,6 +28,8 @@ $spv-list-item--inner: null;
       counter-increment: li;
       direction: rtl;
       display: block;
+      left: 0;
+      position: absolute;
       text-align: center;
     }
   }
@@ -260,8 +260,13 @@ $spv-list-item--inner: null;
     }
 
     h#{$i}.p-stepped-list__title {
+      padding-left: $bullet-width-mobile + $sph-inner;
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        padding-left: $bullet-width + $sph-inner;
+      }
+
       &::before {
-        flex-shrink: 0;
         margin-right: $sph-inner;
         width: $bullet-width-mobile;
 
