@@ -73,10 +73,15 @@
 
       // add the width of gutters spanned by the logo, subtract the $gutters-total-width / $column-count;
       // the signs here are reversed because the variable is subtracted. This avoids having + and - in the final css, e.g.: "+ -.75rem"
+      $rem-contribution--legacy-browsers: -$gutter-width-inside-logo;
       $rem-contribution: $logo-column-span * ($gutters-total-width / $column-count) - $gutter-width-inside-logo;
 
       .#{$grid-column-prefix}#{$column-count} & {
-        @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
+        @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution--legacy-browsers);
+
+        @supports (gap: 1rem) {
+          @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
+        }
       }
     }
   }
@@ -108,11 +113,15 @@
     width: 100%;
 
     @media (min-width: $threshold-4-6-col) {
-      gap: 0 map-get($grid-gutter-widths, medium);
+      @supports (gap: 1rem) {
+        gap: 0 map-get($grid-gutter-widths, medium);
+      }
     }
 
     @media (min-width: $threshold-6-12-col) {
-      gap: 0 map-get($grid-gutter-widths, large);
+      @supports (gap: 1rem) {
+        gap: 0 map-get($grid-gutter-widths, large);
+      }
     }
 
     [class*='col-'] & {
@@ -126,8 +135,43 @@
     flex: 0 1 auto;
     margin-bottom: $spv-outer--scaleable;
 
+    & + & {
+      margin-left: map-get($grid-gutter-widths, small);
+
+      @supports (gap: 1rem) {
+        margin-left: 0;
+      }
+    }
+
+    @media (min-width: $threshold-4-6-col) {
+      & + & {
+        margin-left: map-get($grid-gutter-widths, medium);
+      }
+      @supports (gap: 1rem) {
+        & + & {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @media (min-width: $threshold-6-12-col) {
+      & + & {
+        margin-left: map-get($grid-gutter-widths, medium);
+      }
+      @supports (gap: 1rem) {
+        & + & {
+          margin-left: 0;
+        }
+      }
+    }
+
     @include vf-p-set-logo-section-item-width($breakpoint: small);
     @include vf-p-set-logo-section-item-width($breakpoint: medium);
     @include vf-p-set-logo-section-item-width($breakpoint: large);
+  }
+
+  .p-logo-section__logo {
+    height: auto;
+    width: 100%;
   }
 }
