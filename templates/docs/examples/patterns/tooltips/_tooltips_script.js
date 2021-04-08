@@ -1,49 +1,58 @@
-function setTooltipPosition(tooltip, cursorX, cursorY) {
+function setTooltipPosition(trigger, container) {
+  var triggerRect = trigger.getBoundingClientRect();
+
   // FOR VANILLA EXAMPLE ONLY:
   // this example only covers two tooltip positions
-
-  // offset the tooltip x and y position
-  // so it isn't obscured by the cursor
-  if (tooltip.classList.contains('p-tooltip--btm-center')) {
-    tooltipX = cursorX + 8;
-    tooltipY = cursorY + 20;
+  if (container.classList.contains('p-tooltip--btm-center')) {
+    tooltipX = triggerRect.x + triggerRect.width / 2;
   } else {
-    tooltipX = cursorX - 12;
-    tooltipY = cursorY + 20;
+    tooltipX = triggerRect.x + 16;
   }
 
-  tooltip.style.left = tooltipX + 'px';
-  tooltip.style.top = tooltipY + 'px';
+  container.style.left = tooltipX + 'px';
+  container.style.top = triggerRect.y + triggerRect.height + 'px';
 }
 
-function handleTooltipEvents(tooltip, trigger) {
-  trigger.addEventListener('mouseenter', function (e) {
-    // remove this class on mouseenter,
-    // rather than unnecessarily on mousemove
-    tooltip.classList.remove('u-hide');
-    setTooltipPosition(tooltip, e.x, e.y);
+function handleTooltipEvents(target, tooltipContainers) {
+  var trigger = document.querySelector("[aria-describedby='" + target.getAttribute('id') + "']");
+  var timeout;
+  var showEvents = ['mouseenter', 'focus'];
+  var hideEvents = ['click', 'mouseout', 'blur'];
+
+  showEvents.forEach(function (event) {
+    trigger.addEventListener(event, function () {
+      // wait 200ms before showing the tooltip,
+      // so we know there is intent
+      timeout = setTimeout(function () {
+        // hide any tooltips that may still be visible
+        tooltipContainers.forEach(function (container) {
+          container.classList.add('u-hide');
+        });
+
+        target.classList.remove('u-hide');
+        setTooltipPosition(trigger, target);
+      }, 200);
+    });
   });
 
-  trigger.addEventListener('mousemove', function (e) {
-    setTooltipPosition(tooltip, e.x, e.y);
-  });
-
-  trigger.addEventListener('mouseout', function (e) {
-    if (e.target.parentNode !== trigger) {
-      tooltip.classList.add('u-hide');
-    }
+  hideEvents.forEach(function (event) {
+    trigger.addEventListener(event, function (e) {
+      if (e.target.parentNode !== trigger) {
+        clearTimeout(timeout);
+        target.classList.add('u-hide');
+      }
+    });
   });
 }
 
-function initTooltips(selector) {
+function initDetachedTooltips(selector) {
   var tooltipContainers = [].slice.call(document.querySelectorAll(selector));
 
-  tooltipContainers.forEach(function (container) {
-    var trigger = document.querySelector("[aria-describedby='" + container.getAttribute('id') + "']");
-    handleTooltipEvents(container, trigger);
+  tooltipContainers.forEach(function (target) {
+    handleTooltipEvents(target, tooltipContainers);
   });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  initTooltips('[class*="p-tooltip"].is-detached');
+  initDetachedTooltips('[class*="p-tooltip"].is-detached');
 });
