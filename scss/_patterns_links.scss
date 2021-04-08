@@ -37,20 +37,30 @@
   }
 
   .p-top {
-    border-bottom: 1px dotted $color-mid-light;
-    clear: both;
-    margin: 20px 0;
+    align-items: center;
+    display: flex;
+    margin-top: -$spv-outer--scaleable;
+
+    &::before {
+      border-bottom: 1px solid $colors--light-theme--border-default;
+      content: '';
+      flex-grow: 1;
+      margin: $spv-outer--scaleable 0 calc(#{$spv-outer--scaleable} - 1px) 0;
+    }
+
+    &::after {
+      @extend %icon;
+      @include vf-icon-back-to-top($color-mid-dark);
+
+      content: '';
+      margin-right: $sph-inner--small;
+    }
   }
 
   .p-top__link {
-    background: $color-x-light;
     color: $color-dark;
-    float: right;
-    margin-right: 5px;
-    padding: 0 5px;
-    position: relative;
+    padding: 0 $sph-inner--small;
     text-decoration: none;
-    top: -0.725rem;
   }
 }
 
