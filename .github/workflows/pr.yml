@@ -48,17 +48,3 @@ jobs:
         run: sudo pip install LinkChecker
       - name: Check internal links
         run: linkchecker --ignore-url /search http://localhost:${PORT}
-
-  danger:
-    name: Danger
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-      - run: yarn install
-      - name: Danger
-        run: yarn danger ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

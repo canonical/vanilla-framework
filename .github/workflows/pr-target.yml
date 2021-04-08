@@ -1,0 +1,32 @@
+name: PR Secure
+
+# on:
+#   workflow_run:
+#     workflows: ["PR"]
+#     types:
+#       - completed
+on: pull_request_target
+
+env:
+  PORT: 8765
+  SECRET_KEY: insecure_test_key
+
+jobs:
+  danger:
+    name: Danger
+    runs-on: ubuntu-latest
+    # if: >
+    #   ${{ github.event.workflow_run.event == 'pull_request' &&
+    #   github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }} # INSECURE !!!!
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - run: yarn install
+      - name: Danger
+        run: yarn danger ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
