@@ -20,6 +20,8 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
+      - name: Show size of the build file
+        run: stat -c '%s' build/css/build.css
       - run: cp VANILLA_VERSION build/css
       - uses: actions/upload-artifact@v2
         with:
@@ -48,7 +50,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: css
-          path: css 
+          path: css
       - name: Install upload-assets snap
         run: sudo snap install upload-assets
       - name: Upload to assets server
