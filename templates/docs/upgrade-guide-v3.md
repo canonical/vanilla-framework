@@ -68,3 +68,7 @@ Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class
 We renamed and deprecated `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.
 
 We removed the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
+
+### Inline images
+
+We deprecated the inline images component. Please use the logo section component instead.

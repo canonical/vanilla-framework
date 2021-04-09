@@ -29,12 +29,12 @@
 
   @media ($media-query-keyword: #{$media-query-width}) {
     // First set the width assuming the parent spans the entire grid. This is the case in 4 scenarios:
-    // 1. The logo section is nested inside a container that spans the entire grid, (depending on breakpoint thsat can be a .col-4, .col-6, or .col-12 class), which itself sits inside a .row
+    // 1. The logo section is nested inside a container that spans the entire grid, (depending on breakpoint that can be a .col-4, .col-6, or .col-12 class), which itself sits inside a .row
     // 2. The logo section is nested inside a .u-fixed-width container
     // 3. The logo section does not have a parent that sets a fixed width grid. This is not a recommended use case, but we ensure things still work
 
     // The logic of these calculations is explained further down, in the @for loop
-    $gutters-total-width: ($grid-column-count - 1) * $gutter;
+    $gutters-total-width: ($grid-column-count) * $gutter;
     $percentage-width-of-one-col: 100% / $grid-column-count;
     $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
     $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
@@ -48,7 +48,7 @@
     @for $column-count from $grid-column-count - 1 through 1 {
       // The number of gutters is one less than the number of columns.
       // $gutters-total-width calculates the total width of all gutters
-      $gutters-total-width: ($column-count - 1) * $gutter;
+      $gutters-total-width: ($column-count) * $gutter;
       @if $column-count == 1 {
         // if the available number of columns of the parent container is less than the desired number of columns the logo should span, we clamp that desired number ($logo-column-span) to what's available:
         $logo-column-span: min($logo-column-span, $column-count);
@@ -73,15 +73,10 @@
 
       // add the width of gutters spanned by the logo, subtract the $gutters-total-width / $column-count;
       // the signs here are reversed because the variable is subtracted. This avoids having + and - in the final css, e.g.: "+ -.75rem"
-      $rem-contribution--legacy-browsers: -$gutter-width-inside-logo;
       $rem-contribution: $logo-column-span * ($gutters-total-width / $column-count) - $gutter-width-inside-logo;
 
       .#{$grid-column-prefix}#{$column-count} & {
-        @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution--legacy-browsers);
-
-        @supports (gap: 1rem) {
-          @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
-        }
+        @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
       }
     }
   }
@@ -105,24 +100,26 @@
     text-transform: uppercase;
   }
 
+  $margin-small: map-get($grid-gutter-widths, small);
+  $margin-medium: map-get($grid-gutter-widths, medium);
+  $margin-large: map-get($grid-gutter-widths, large);
+
   .p-logo-section__items {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 map-get($grid-gutter-widths, small);
     justify-content: center;
     margin-bottom: $spv-outer--scaleable;
-    width: 100%;
+    margin-left: -#{$margin-small};
+    width: calc(100% + #{$margin-small});
 
     @media (min-width: $threshold-4-6-col) {
-      @supports (gap: 1rem) {
-        gap: 0 map-get($grid-gutter-widths, medium);
-      }
+      margin-left: -$margin-medium;
+      width: calc(100% + #{$margin-medium});
     }
 
     @media (min-width: $threshold-6-12-col) {
-      @supports (gap: 1rem) {
-        gap: 0 map-get($grid-gutter-widths, large);
-      }
+      margin-left: -$margin-large;
+      width: calc(100% + #{$margin-large});
     }
   }
 
@@ -130,35 +127,14 @@
     align-items: center;
     display: flex;
     flex: 0 1 auto;
-
-    & + & {
-      margin-left: map-get($grid-gutter-widths, small);
-
-      @supports (gap: 1rem) {
-        margin-left: 0;
-      }
-    }
+    margin-left: $margin-small;
 
     @media (min-width: $threshold-4-6-col) {
-      & + & {
-        margin-left: map-get($grid-gutter-widths, medium);
-      }
-      @supports (gap: 1rem) {
-        & + & {
-          margin-left: 0;
-        }
-      }
+      margin-left: $margin-medium;
     }
 
     @media (min-width: $threshold-6-12-col) {
-      & + & {
-        margin-left: map-get($grid-gutter-widths, large);
-      }
-      @supports (gap: 1rem) {
-        & + & {
-          margin-left: 0;
-        }
-      }
+      margin-left: $margin-large;
     }
 
     @include vf-p-set-logo-section-item-width($breakpoint: small);
