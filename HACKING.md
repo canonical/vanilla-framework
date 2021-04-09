@@ -40,7 +40,7 @@ Once the server is running, you can visit <http://0.0.0.0:8101/> in your browser
 
 The documentation for the latest version of Vanilla framework is hosted at <https://vanillaframework.io/docs>, and the documentation markdown files live in the [`docs` folder](/docs).
 
-The [examples directory](/docs/examples) contains example markup for each component of the framework, and these examples can be viewed in the browser at <http://0.0.0.0:8101/examples/>.
+The [examples directory](/docs/examples) contains example markup for each component of the framework, and these examples can be viewed in the browser at <http://0.0.0.0:8101/docs/examples/>.
 
 ## Adding new icons
 
