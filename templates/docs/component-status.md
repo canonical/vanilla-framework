@@ -35,6 +35,13 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>A new logo section</td>
     </tr>
     <tr>
+    <tr>
+      <th><a href="/docs/patterns/logo-section">Inline images</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.28.0</td>
+      <td>The inline images component has now been deprecated. Please use the logo section component instead.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/tables#empty">Table - empty</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.28.0</td>
