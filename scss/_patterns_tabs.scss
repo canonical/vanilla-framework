@@ -77,7 +77,7 @@
       }
 
       // make sure tab strip border doesn't overlap focus outline
-      &:focus-visible {
+      &:focus {
         z-index: 1;
 
         &::before,
@@ -86,14 +86,27 @@
         }
       }
 
+      // Display the highlight when focussing in modern browsers that support
+      // focus-visible.
+      &:focus:not(:focus-visible) {
+        @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+      }
+
       &:active,
-      &:focus,
       &:hover,
       &[aria-selected='true'] {
         @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
 
-        &:focus-visible::before,
-        &:focus-visible::after {
+        // Display the highlight when focussing (in combination with the parent
+        // states) in modern browsers that support focus-visible.
+        &:focus:not(:focus-visible) {
+          @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+        }
+
+        // Hide the highlight when focussing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
           content: none;
         }
       }

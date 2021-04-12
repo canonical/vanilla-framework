@@ -202,8 +202,14 @@
 
     // vf-highlight-bar is rendered above focus outline
     // so we need to hide it on focus
-    &:focus-visible::before {
+    &:focus::before {
       display: none;
+    }
+
+    // Display the highlight when focussing in modern browsers that support
+    // focus-visible.
+    &:focus:not(:focus-visible)::before {
+      display: block;
     }
 
     &:hover {
