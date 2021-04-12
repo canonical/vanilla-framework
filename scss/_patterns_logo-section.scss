@@ -34,7 +34,7 @@
     // 3. The logo section does not have a parent that sets a fixed width grid. This is not a recommended use case, but we ensure things still work
 
     // The logic of these calculations is explained further down, in the @for loop
-    $gutters-total-width: ($grid-column-count) * $gutter;
+    $gutters-total-width: $grid-column-count * $gutter;
     $percentage-width-of-one-col: 100% / $grid-column-count;
     $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
     $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
@@ -46,9 +46,9 @@
     // E.g. if a col-4 is nested inside col-8, the col-8 rule should be written above the col-4 rule in the css file, to ensure the col-4 styles take precedence
     // We start at one less than the column count, as this case has been handled above
     @for $column-count from $grid-column-count - 1 through 1 {
-      // The number of gutters is one less than the number of columns.
+      // The number of gutters is equal to the number of columns. If we switch to usnig flex gap instead of margins, this should be updated to number of columns - 1.
       // $gutters-total-width calculates the total width of all gutters
-      $gutters-total-width: ($column-count) * $gutter;
+      $gutters-total-width: $column-count * $gutter;
       @if $column-count == 1 {
         // if the available number of columns of the parent container is less than the desired number of columns the logo should span, we clamp that desired number ($logo-column-span) to what's available:
         $logo-column-span: min($logo-column-span, $column-count);
@@ -109,6 +109,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: $spv-outer--scaleable;
+    // negates the margin of logos that sit in the first column
     margin-left: -#{$margin-small};
     width: calc(100% + #{$margin-small});
 
