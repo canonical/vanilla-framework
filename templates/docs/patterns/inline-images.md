@@ -8,6 +8,8 @@ context:
 
 <hr>
 
+<span class="p-label--deprecated">Deprecated</span> The inline images pattern is deprecated and may be removed in future versions.<br>Please use the <a href="/docs/patterns/logo-section">logo section pattern instead</a>.
+
 The Inline images pattern can be used to showcase a group of related images, such as a group of customer or partner logos.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/inline-images/" class="js-example">
