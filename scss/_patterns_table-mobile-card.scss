@@ -41,6 +41,11 @@
         width: 100%;
         word-break: break-word;
 
+        &.u-align--right {
+          justify-content: unset !important;
+          text-align: left !important;
+        }
+
         &[aria-label]::before {
           content: attr(aria-label);
           display: block;
@@ -50,10 +55,6 @@
           padding-right: 0;
           text-overflow: ellipsis;
           width: 100%;
-        }
-
-        &.u-align--right {
-          justify-content: unset !important;
         }
 
         &:not(:first-child)::after {
