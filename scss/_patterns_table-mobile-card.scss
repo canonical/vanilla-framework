@@ -14,9 +14,11 @@
       }
 
       tbody {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        grid-gap: 0 map-get($grid-gutter-widths, small);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+        padding: 0 $sph-inner--large calc(#{$spv-inner--large} - 1px);
       }
 
       tr {
@@ -26,45 +28,41 @@
         flex-direction: column;
         margin-bottom: $spv-outer--scaleable;
         overflow: auto; // prevent overflow of child margins
-        padding: 0 $sph-inner--large calc(#{$spv-inner--large} - 1px);
         width: calc(50% - #{0.5 * map-get($grid-gutter-widths, medium)});
       }
 
       td,
       tbody th {
-        display: flex;
-        min-width: 100%;
-        overflow: hidden;
-        padding-bottom: $spv-nudge-compensation;
-        padding-left: calc(50% + #{0.5 * $sph-inner});
+        padding-left: 0;
         padding-right: 0;
-        padding-top: $spv-nudge;
         position: relative;
-        text-align: left !important;
         text-overflow: ellipsis;
         width: 100%;
         word-break: break-word;
 
-        &[aria-label] {
-          text-align: right;
-        }
-
         &[aria-label]::before {
           content: attr(aria-label);
           display: block;
-          flex: 0 0 auto;
-          margin-bottom: $spv-inner--small - map-get($nudges, nudge--small);
-          margin-left: -100%;
+          margin-bottom: map-get($sp-after, x-small) - map-get($nudges, nudge--x-small) - $sp-unit;
           overflow: hidden;
-          padding-right: #{$sph-inner};
-          padding-top: $sp-unit - map-get($nudges, nudge--small);
-          text-align: right;
+          padding-left: 0;
+          padding-right: 0;
           text-overflow: ellipsis;
           width: 100%;
         }
 
         &.u-align--right {
           justify-content: unset !important;
+        }
+
+        &:not(:first-child)::after {
+          background-color: $color-mid-light;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
         }
       }
       // stylelint-enable selector-max-type

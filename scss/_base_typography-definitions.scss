@@ -191,6 +191,7 @@
 
   %x-small-text {
     font-size: #{map-get($font-sizes, x-small)}rem;
+    font-weight: $font-weight-bold;
     line-height: map-get($line-heights, x-small);
     margin-bottom: map-get($sp-after, x-small) - map-get($nudges, nudge--x-small);
     padding-top: map-get($nudges, nudge--x-small) + map-get($browser-rounding-compensations, small);
@@ -213,18 +214,12 @@
   %table-header-label {
     @extend %x-small-text;
 
-    font-weight: $font-weight-bold;
+    text-transform: uppercase;
   }
 
   %muted-heading {
-    @extend %small-text;
     @extend %muted-text;
-
-    font-weight: $font-weight-regular-text;
-    margin-bottom: map-get($sp-after, small) - map-get($nudges, nudge--small);
-    margin-top: 0;
-    padding-top: map-get($nudges, nudge--small);
-    text-transform: uppercase;
+    @extend %table-header-label;
 
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--small;
