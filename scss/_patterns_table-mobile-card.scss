@@ -5,7 +5,7 @@
     // stylelint-disable selector-max-type -- table elements can use selector types
     td::before,
     tbody th::before {
-      @extend %muted-heading;
+      @extend %table-header-label;
     }
 
     @media (max-width: $breakpoint-medium) {
@@ -16,9 +16,8 @@
       tbody {
         display: grid;
         grid-gap: 0 map-get($grid-gutter-widths, small);
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
         grid-template-rows: auto;
-        padding: 0 $sph-inner--large calc(#{$spv-inner--large} - 1px);
       }
 
       tr {
@@ -28,7 +27,8 @@
         flex-direction: column;
         margin-bottom: $spv-outer--scaleable;
         overflow: auto; // prevent overflow of child margins
-        width: calc(50% - #{0.5 * map-get($grid-gutter-widths, medium)});
+        padding: 0 $sph-inner;
+        // width: calc(50% - #{0.5 * map-get($grid-gutter-widths, medium)});
       }
 
       td,
