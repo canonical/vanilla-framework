@@ -16,20 +16,36 @@
       }
 
       tbody {
-        display: grid;
-        grid-gap: 0 map-get($grid-gutter-widths, small);
-        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-        grid-template-rows: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -#{map-get($grid-gutter-widths, small)};
+
+        @supports (display: grid) {
+          display: grid;
+          flex-wrap: unset;
+          grid-gap: 0 map-get($grid-gutter-widths, small);
+          grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+          grid-template-rows: auto;
+          margin-left: 0;
+        }
       }
 
       tr {
         border: $border;
         border-radius: $border-radius;
         display: flex;
+        flex: 1 1 auto;
         flex-direction: column;
         margin-bottom: $spv-outer--scaleable;
+        margin-left: #{map-get($grid-gutter-widths, small)};
+        min-width: 12rem;
         overflow: auto; // prevent overflow of child margins
         padding: 0 $sph-inner;
+
+        @supports (display: grid) {
+          flex: unset;
+          margin-left: 0;
+        }
       }
 
       td,
