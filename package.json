@@ -28,7 +28,7 @@
   "scripts": {
     "start": "yarn build && yarn serve",
     "build": "yarn build-scss && yarn build-js",
-    "build-scss": "yarn run build-js && node-sass scss --functions sass-functions.js --output-style compressed --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --no-map",
+    "build-scss": "yarn run build-js && node-sass scss --functions sass-functions.js --output-style compressed --source-map true --source-map-contents true --output build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
@@ -36,7 +36,7 @@
     "test": "yarn lint-scss && yarn lint-prettier &&  yarn test-spelling && yarn test-scss",
     "lint-prettier": "prettier -c .",
     "lint-scss": "stylelint 'scss/**/*.scss'",
-    "watch:scss": "node-sass scss --functions sass-functions.js --output-style compressed --output build/css --watch",
+    "watch:scss": "node-sass scss --functions sass-functions.js --output-style compressed --source-map true --source-map-contents true --output build/css --watch",
     "watch:scss:skip-standalone": "node-sass  scss/docs --functions sass-functions.js --output-style compressed --output build/css/docs --watch",
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
