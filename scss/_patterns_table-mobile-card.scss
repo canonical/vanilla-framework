@@ -11,76 +11,65 @@
     }
 
     @media (max-width: $breakpoint-medium) {
-      thead {
-        display: none;
-      }
-
-      tbody {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: -#{map-get($grid-gutter-widths, small)};
-
-        @supports (display: grid) {
+      @supports (display: grid) {
+        thead {
+          display: none;
+        }
+        tbody {
           display: grid;
-          flex-wrap: unset;
           grid-gap: 0 map-get($grid-gutter-widths, small);
           grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
           grid-template-rows: auto;
-          margin-left: 0;
-        }
-      }
-
-      tr {
-        border: $border;
-        border-radius: $border-radius;
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        margin-bottom: $spv-outer--scaleable;
-        margin-left: #{map-get($grid-gutter-widths, small)};
-        min-width: 12rem;
-        overflow: auto; // prevent overflow of child margins
-        padding: 0 $sph-inner;
-
-        @supports (display: grid) {
-          flex: unset;
-          margin-left: 0;
-        }
-      }
-
-      td,
-      tbody th {
-        padding-left: 0;
-        padding-right: 0;
-        position: relative;
-        text-overflow: ellipsis;
-        width: 100%;
-        word-break: break-word;
-
-        &.u-align--right {
-          justify-content: unset !important;
-          text-align: left !important;
-        }
-
-        &[aria-label]::before {
-          content: attr(aria-label);
-          display: block;
-          margin-bottom: map-get($sp-after, x-small) - map-get($nudges, nudge--x-small) - $sp-unit;
-          overflow: hidden;
-          padding-left: 0;
-          padding-right: 0;
-          text-overflow: ellipsis;
           width: 100%;
         }
 
-        &:not(:first-child)::after {
-          background-color: $color-mid-light;
-          content: '';
-          height: 1px;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
+        tr {
+          border: $border;
+          border-radius: $border-radius;
+          display: grid;
+          grid-gap: 0 map-get($grid-gutter-widths, small);
+          grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+          grid-template-rows: auto;
+          margin-bottom: $spv-outer--scaleable;
+          padding: 0 $sph-inner;
+        }
+
+        td,
+        tbody th {
+          overflow: hidden;
+          padding-left: 0;
+          padding-right: 0;
+          position: relative;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+          word-break: break-word;
+          // stylelint-disable-next-line max-nesting-depth
+          &.u-align--right {
+            justify-content: unset !important;
+            text-align: left !important;
+          }
+          // stylelint-disable-next-line max-nesting-depth
+          &[aria-label]::before {
+            content: attr(aria-label);
+            display: block;
+            margin-bottom: map-get($sp-after, x-small) - map-get($nudges, nudge--x-small) - $sp-unit;
+            overflow: hidden;
+            padding-left: 0;
+            padding-right: 0;
+            text-overflow: ellipsis;
+            width: 100%;
+          }
+          // stylelint-disable-next-line max-nesting-depth
+          &:not(:first-child)::after {
+            background-color: $color-mid-light;
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
         }
       }
 
