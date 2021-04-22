@@ -37,7 +37,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 For any elements that launch a modal, please ensure that the label contains a trailing ellipsis `…`, e.g. "Launch modal&hellip;". This is a convention used to indicate that the element launches a dialog.
 
-When a modal is launched, focus should be set within the modal element, using JavaScript.
+When a modal is launched, focus should be set and contained within the modal dialog, using JavaScript. When the modal is closed, focus should be set back to the element that opened it.
 
 ### Design
 
