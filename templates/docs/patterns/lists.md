@@ -163,9 +163,11 @@ To include individual list patterns you need to include the `vf-p-list-placehold
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information [view the lists design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Lists), which includes the specification in markdown format and a PNG image.
+You can use lists in React by installing our react-component library and importing `List` component.
+
+[See the documentation for our React `List` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/list--default-story#list)
 
 ### Related
 

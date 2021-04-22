@@ -72,3 +72,11 @@ To import the article pagination component into your project, copy the snippet b
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
+### React
+
+You can use pagination in React by installing our react-component library and importing `Pagination` or `ArticlePagination` component.
+
+[See the documentation for our React `Pagination` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/pagination--default-story#pagination)
+
+[See the documentation for our React `ArticlePagination` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/articlepagination--default-story#articlepagination)
