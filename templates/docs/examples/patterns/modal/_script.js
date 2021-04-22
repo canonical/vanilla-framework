@@ -91,7 +91,7 @@
   function closeModals() {
     var modals = [].slice.apply(document.querySelectorAll('.p-modal'));
     modals.forEach(function (modal) {
-      toggleModal(modal, false);
+      toggleModal(modal, false, false);
     });
   }
 
