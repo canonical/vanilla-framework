@@ -6,6 +6,12 @@ context:
 
 ## Accordion
 
+<ul class="p-inline-list">
+  <li class="p-inline-list__item"><span class="p-muted-heading">Availability:</span></li>
+  <li class="p-inline-list__item"><i class="p-icon--task-outstanding"></i> CSS</li>
+  <li class="p-inline-list__item"><i class="p-icon--minus"></i> React</li>
+</ul>
+
 <hr>
 
 The sidebar accordion, used in listing pages or as navigation, can hold multiple navigation items or to be used as a filter for content.
