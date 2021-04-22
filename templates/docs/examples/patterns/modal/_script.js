@@ -59,11 +59,11 @@
   }
 
   /**
-  Toggles visibility of modal dialog.
-  @param {HTMLElement} modal Modal dialog to show or hide.
-  @param {HTMLElement} sourceEl Element that triggered toggling modal
-  @param {Boolean} open If defined as `true` modal will be opened, if `false` modal will be closed, undefined toggles current visibility.
-*/
+    Toggles visibility of modal dialog.
+    @param {HTMLElement} modal Modal dialog to show or hide.
+    @param {HTMLElement} sourceEl Element that triggered toggling modal
+    @param {Boolean} open If defined as `true` modal will be opened, if `false` modal will be closed, undefined toggles current visibility.
+  */
   function toggleModal(modal, sourceEl, open) {
     if (modal && modal.classList.contains('p-modal')) {
       if (typeof open === 'undefined') {
@@ -113,4 +113,7 @@
       closeModals();
     }
   });
+
+  // init the dialog that is initially opened in the example
+  toggleModal(document.querySelector('#modal'), document.querySelector('[aria-controls=modal]'), true);
 })();
