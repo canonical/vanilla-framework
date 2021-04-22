@@ -46,7 +46,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--expand" style="margin-right: 1rem;"></i>p-icon--expand</p>
       </div>
     </div>
-
     <div class="row u-equal-height">
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--collapse" style="margin-right: 1rem;"></i>p-icon--collapse</p>
@@ -58,7 +57,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--drag" style="margin-right: 1rem;"></i>p-icon--drag</p>
       </div>
     </div>
-
     <div class="row u-equal-height">
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--close" style="margin-right: 1rem;"></i>p-icon--close</p>
@@ -69,8 +67,7 @@ Our icons have two predefined color styles: light and dark. The light variant is
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--information" style="margin-right: 1rem;"></i>p-icon--information</p>
       </div>
-      </div>
-
+    </div>
     <div class="row u-equal-height">
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--delete" style="margin-right: 1rem;"></i>p-icon--delete</p>
@@ -82,7 +79,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--chevron-down" style="margin-right: 1rem;"></i>p-icon--chevron-down</p>
       </div>
     </div>
-
     <div class="row u-equal-height">
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--chevron-up" style="margin-right: 1rem;"></i>p-icon--chevron-up</p>
@@ -94,7 +90,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--code" style="margin-right: 1rem;"></i>p-icon--code</p>
       </div>
     </div>
-
     <div class="row u-equal-height">
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--copy" style="margin-right: 1rem;"></i>p-icon--copy</p>
@@ -106,7 +101,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--share" style="margin-right: 1rem;"></i>p-icon--share</p>
       </div>
     </div>
-
     <div class="row u-equal-height">
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--user" style="margin-right: 1rem;"></i>p-icon--user</p>
@@ -115,7 +109,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
         <p><i class="p-icon--anchor" style="margin-right: 1rem;"></i>p-icon--anchor</p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -180,7 +173,6 @@ Outside of the standard set, additional icons are available for use, and need to
         <i class="p-icon--fullscreen" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--fullscreen
       </div>
     </div>
-
     <div class="row">
       <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--models" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--models
@@ -192,7 +184,6 @@ Outside of the standard set, additional icons are available for use, and need to
         <i class="p-icon--pin" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--pin
       </div>
     </div>
-
     <div class="row">
       <div class="p-card col-3 u-vertically-center" style="display:flex; align-items:center;">
         <i class="p-icon--units" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--units
@@ -204,7 +195,6 @@ Outside of the standard set, additional icons are available for use, and need to
         <i class="p-icon--priority-high" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--priority-high
       </div>
     </div>
-
     <div class="row">
       <div class="p-card col-3 u-vertically-center" style="display: flex; align-item: center;">
         <i class="p-icon--priority-low" style="margin-right: 1rem; flex-shrink: 0;"></i>p-icon--priority-low
@@ -749,6 +739,8 @@ If you use a limited set of icons you may want to include them individually to r
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information view the [icons design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Icons) which includes the specification in markdown format and a PNG image.
+You can use icons in React by installing our react-component library and importing `Icon` component.
+
+[See the documentation for our React `Icon` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/icon--default-story#icon)

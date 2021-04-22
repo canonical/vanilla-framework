@@ -84,12 +84,8 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-## React
+### React
 
-For use of the React component you can do that by installing our react-component page and importing.
+You can use search and filter in React by installing our react-component library and importing `SearchAndFilter` component.
 
-[See the documentation for our React `SearchAndFilter` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/search-and-filter--default-story)
-
-### Design
-
-No design specs available yet.
+[See the documentation for our React `SearchAndFilter` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/search-and-filter--default-story#search-and-filter)
