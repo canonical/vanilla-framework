@@ -1,5 +1,5 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Fluid breakout - cards and aside{% endblock %}
+{% block title %}Fluid breakout - cards with aside and toolbar{% endblock %}
 
 {% block standalone_css %}layouts_fluid-breakout{% endblock %}
 
@@ -23,8 +23,13 @@
 </div>
 
   <div class="l-fluid-breakout">
+    <div class="l-fluid-breakout__toolbar">
+      <div class="l-fluid-breakout__toolbar-items">
+        {% include "docs/examples/layouts/fluid-breakout/_toolbar.html" %}
+      </div>
+    </div>
     <div class="l-fluid-breakout__aside">
-        {% include "docs/examples/layouts/fluid-breakout/_aside.html" %}
+      {% include "docs/examples/layouts/fluid-breakout/_aside.html" %}
     </div>
     <div class="l-fluid-breakout__main">
       {% for i in range(14) %}
