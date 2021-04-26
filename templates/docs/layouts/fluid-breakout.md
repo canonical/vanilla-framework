@@ -73,7 +73,7 @@ A couple of examples of where this layout might be useful. Both examples include
 
 A card layout where the goal is to fit more cards than the 12 column grid would allow. This what the default arguments to the `layouts_fluid-breakout` mixin provide out of the box:
 
-<div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-cards-and-aside/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-cards-with-aside-and-toolbar/" class="js-example">
 View example of the fluid breakout layout with an aside and a series of cards
 </a></div>
 
