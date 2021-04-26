@@ -22,19 +22,41 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.29 -->
+    <tr>
+      <th><a href="/docs/layouts/fluid-breakout#toolbar">Fluid breakout - toolbar</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.29.0</td>
+      <td>We added support for a toolbar within the fluid-breakout layout.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.28 -->
     <tr>
       <th><a href="/docs/patterns/modal">Modal footer</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.28.0</td>
       <td>We added the optional footer to the modal pattern.</td>
+    </tr>
     <tr>
       <th><a href="/docs/patterns/logo-section">Logo section</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.28.0</td>
       <td>A new logo section</td>
     </tr>
-    <tr>
     <tr>
       <th><a href="/docs/patterns/logo-section">Inline images</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
@@ -53,21 +75,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.28.0</td>
       <td>We added the <code>.is-detached</code> utility, providing a way for tooltips to exist separately from their associated element.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.27 -->
     <tr>
       <th><a href="/docs/patterns/icons#social">GitHub icon</a></th>
