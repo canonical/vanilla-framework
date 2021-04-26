@@ -127,6 +127,10 @@ If you only need a small subset of the icons consider [including them individual
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information view the [buttons design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Buttons) which includes the specification in markdown format and a PNG image.
+You can use buttons in React by installing our react-component library and importing `Button` or `ActionButton` component.
+
+[See the documentation for our React `Button` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/button--base#button)
+
+[See the documentation for our React `ActionButton` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/actionbutton--default-story#actionbutton)

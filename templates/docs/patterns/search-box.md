@@ -45,9 +45,11 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information [view the search design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Search), which includes the specification in markdown format and a PNG image.
+You can use search box in React by installing our react-component library and importing `SearchBox` component.
+
+[See the documentation for our React `SearchBox` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/searchbox--default-story#searchbox)
 
 ### Related
 

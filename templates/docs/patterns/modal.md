@@ -39,6 +39,8 @@ For any elements that launch a modal, please ensure that the label contains a tr
 
 When a modal is launched, focus should be set and contained within the modal dialog, using JavaScript. When the modal is closed, focus should be set back to the element that opened it.
 
-### Design
+### React
 
-For more information view the [modal design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Modal) which includes the specification in markdown format and a PNG image.
+You can use modal dialogs in React by installing our react-component library and importing `Modal` component.
+
+[See the documentation for our React `Modal` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/modal--default-story#modal)
