@@ -24,8 +24,8 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.29 -->
     <tr>
-      <th><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-cards-with-aside-and-toolbar">Fluid breakout - toolbar</a></th>
-      <td><div class="p-label--new">Updated</div></td>
+      <th><a href="/docs/layouts/fluid-breakout#toolbar">Fluid breakout - toolbar</a></th>
+      <td><div class="p-label--new">New</div></td>
       <td>2.29.0</td>
       <td>We added support for a toolbar within the fluid-breakout layout.</td>
     </tr>
