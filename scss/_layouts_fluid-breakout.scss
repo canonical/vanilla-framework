@@ -9,6 +9,7 @@
   %l-fluid-breakout-ie11-fallback#{$suffix} {
     @media (min-width: $breakpoint-large) {
       display: flex;
+      flex-wrap: wrap;
     }
   }
 
@@ -23,6 +24,7 @@
 
   %l-fluid-breakout__main-ie11-fallback#{$suffix} {
     display: flex;
+    flex: 1 1 80%;
     flex-wrap: wrap;
     width: 100%;
 
@@ -36,7 +38,7 @@
     justify-content: flex-start;
 
     @media (min-width: $breakpoint-large) {
-      flex: 1 1 auto;
+      flex: 1 1 13%;
       width: $l-fluid-breakout-aside-width;
     }
   }
@@ -50,6 +52,21 @@
 
     @media (max-width: $l-fluid-breakout-3-col-threshold) {
       padding-left: 0;
+    }
+  }
+
+  %l-fluid-breakout__toolbar-ie-11-fallback#{$suffix} {
+    @media (min-width: $breakpoint-large) {
+      flex: 1 1 100%;
+      margin-left: $l-fluid-breakout-aside-width;
+    }
+  }
+
+  %l-fluid-breakout__toolbar-items-ie-11-fallback#{$suffix} {
+    @media (min-width: $breakpoint-large) {
+      display: flex;
+      flex: 1 1 100%;
+      justify-content: space-between;
     }
   }
 
@@ -104,7 +121,7 @@
       @supports (display: grid) {
         display: grid;
         grid-gap: 0 $grid-gap;
-        grid-row: 1;
+        grid-row: 2;
         grid-template-columns: repeat(auto-fit, minmax($l-fluid-breakout-main-child-width, 1fr));
         width: 100%;
       }
@@ -167,7 +184,7 @@
       @supports (display: grid) {
         grid-column-end: span 1;
         grid-column-start: auto;
-        grid-row: 1 / 100;
+        grid-row: 2 / 100;
       }
     }
 
@@ -200,6 +217,66 @@
       }
 
       @extend %l-fluid-breakout__aside-common-properties#{$suffix};
+    }
+
+    .l-fluid-breakout__toolbar {
+      @extend %l-fluid-breakout__toolbar-ie-11-fallback#{$suffix};
+
+      margin-block-end: $spv-outer--medium;
+
+      @media (min-width: $breakpoint-large) {
+        margin-right: auto;
+        max-width: calc(2 * #{$l-fluid-breakout-aside-width} + #{$l-fluid-breakout-max-width});
+
+        @supports (display: grid) {
+          display: grid;
+          grid-column: 1 / -1;
+          grid-template-columns:
+            minmax($l-fluid-breakout-aside-width, 1fr)
+            minmax(0, $l-fluid-breakout-max-width)
+            minmax($l-fluid-breakout-aside-width, 1fr);
+          grid-template-rows: auto;
+          margin-left: auto;
+        }
+      }
+
+      @media (min-width: $l-fluid-breakout-3-col-threshold) {
+        margin-left: map-get($grid-margin-widths, large);
+        margin-right: map-get($grid-margin-widths, large);
+      }
+    }
+
+    .l-fluid-breakout__toolbar-items {
+      @extend %l-fluid-breakout__toolbar-items-ie-11-fallback#{$suffix};
+
+      @supports (display: grid) {
+        display: grid;
+        grid-column: 2 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        @media (max-width: $threshold-4-6-col) {
+          flex: 1 1 auto;
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+          width: $l-fluid-breakout-main-child-width;
+        }
+      }
+    }
+
+    .l-fluid-breakout__toolbar-item {
+      align-items: center;
+      display: flex;
+
+      @supports (display: grid) {
+        grid-column-end: span 1;
+      }
+
+      &:nth-child(2) {
+        justify-content: flex-end;
+
+        @media (max-width: $threshold-4-6-col) {
+          justify-content: flex-start;
+        }
+      }
     }
   }
 }
