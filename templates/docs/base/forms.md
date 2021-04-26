@@ -224,6 +224,10 @@ To add form help text or validation into your project, copy either or both snipp
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information [view the forms design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Forms), which includes the specification in markdown format and a PNG image.
+You can use forms in React by installing our react-component library and importing `Form` and `Input` component.
+
+[See the documentation for our React `Form` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/form--default-story#form)
+
+[See the documentation for our React `Input` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/input--text-input#input)

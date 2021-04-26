@@ -100,6 +100,10 @@ To import either or all of these components into your project, copy the snippets
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information view the [table](https://github.com/ubuntudesign/vanilla-design/tree/master/Table), [sortable](https://github.com/ubuntudesign/vanilla-design/tree/master/Table%20sortable), [expanding](https://github.com/ubuntudesign/vanilla-design/tree/master/Table) or [mobile card design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Table) which includes the specification in markdown format and a PNG image.
+You can use tables in React by installing our react-component library and importing `MainTable` or `ModularTable` component.
+
+[See the documentation for our React `MainTable` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/maintable--default-story#maintable)
+
+[See the documentation for our React `ModularTable` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/modulartable--default-story)
