@@ -9,6 +9,7 @@
   %l-fluid-breakout-ie11-fallback#{$suffix} {
     @media (min-width: $breakpoint-large) {
       display: flex;
+      flex-wrap: wrap;
     }
   }
 
@@ -23,6 +24,7 @@
 
   %l-fluid-breakout__main-ie11-fallback#{$suffix} {
     display: flex;
+    flex: 1 1 80%;
     flex-wrap: wrap;
     width: 100%;
 
@@ -36,7 +38,7 @@
     justify-content: flex-start;
 
     @media (min-width: $breakpoint-large) {
-      flex: 1 1 auto;
+      flex: 1 1 13%;
       width: $l-fluid-breakout-aside-width;
     }
   }
@@ -50,6 +52,20 @@
 
     @media (max-width: $l-fluid-breakout-3-col-threshold) {
       padding-left: 0;
+    }
+  }
+
+  %l-fluid-breakout__toolbar-ie-11-fallback#{$suffix} {
+    @media (min-width: $breakpoint-large) {
+      flex: 1 1 100%;
+    }
+  }
+
+  %l-fluid-breakout__toolbar-items-ie-11-fallback#{$suffix} {
+    @media (min-width: $breakpoint-large) {
+      display: flex;
+      flex: 1 1 100%;
+      justify-content: space-between;
     }
   }
 
@@ -203,7 +219,7 @@
     }
 
     .l-fluid-breakout__toolbar {
-      @extend %l-fluid-breakout-ie11-fallback#{$suffix};
+      @extend %l-fluid-breakout__toolbar-ie-11-fallback#{$suffix};
 
       margin-block-end: $spv-outer--medium;
 
@@ -230,6 +246,8 @@
     }
 
     .l-fluid-breakout__toolbar-items {
+      @extend %l-fluid-breakout__toolbar-items-ie-11-fallback#{$suffix};
+
       @supports (display: grid) {
         display: grid;
         grid-column: 2 / -1;
