@@ -56,6 +56,14 @@ You can use the brand button with the main color of your brand.
 View example of the brand button pattern
 </a></div>
 
+### Link
+
+In some contexts you may need a button to look visually identical a link.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/link/" class="js-example">
+View example of the link button pattern
+</a></div>
+
 ### Inline
 
 Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by adding the state class `is-inline` to the button element.
