@@ -58,6 +58,8 @@ View example of the brand button pattern
 
 ### Link
 
+<span class="p-label--new">New</span>
+
 In some contexts you may need a button to look visually identical a link.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/link/" class="js-example">
