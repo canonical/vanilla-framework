@@ -60,7 +60,7 @@ View example of the brand button pattern
 
 <span class="p-label--new">New</span>
 
-In some contexts you may need a button to look visually identical a link.
+In some contexts you may need a button to look visually identical to a link.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/link/" class="js-example">
 View example of the link button pattern
