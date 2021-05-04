@@ -22,12 +22,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.29 -->
+    <!-- 2.30 -->
     <tr>
-      <th><a href="/docs/layouts/fluid-breakout#toolbar">Fluid breakout - toolbar</a></th>
+      <th><a href="/docs/patterns/buttons#link">Button / Link</a></th>
       <td><div class="p-label--new">New</div></td>
-      <td>2.29.0</td>
-      <td>We added support for a toolbar within the fluid-breakout layout.</td>
+      <td>2.30.0</td>
+      <td>Buttons can now assume the appearance of a standard link.</td>
     </tr>
   </tbody>
 </table>
@@ -44,6 +44,13 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.29 -->
+    <tr>
+      <th><a href="/docs/layouts/fluid-breakout#toolbar">Fluid breakout - toolbar</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.29.0</td>
+      <td>We added support for a toolbar within the fluid-breakout layout.</td>
+    </tr>
     <!-- 2.28 -->
     <tr>
       <th><a href="/docs/patterns/modal">Modal footer</a></th>
