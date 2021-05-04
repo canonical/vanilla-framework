@@ -10,6 +10,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   @include vf-button-positive;
   @include vf-button-negative;
   @include vf-button-base;
+  @include vf-button-link;
   @include vf-button-inline;
   @include vf-button-processing;
   @include vf-button-active;
@@ -133,6 +134,33 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
   .p-button--base {
     @extend %p-button--base;
+  }
+}
+
+@mixin vf-button-link {
+  .p-button--link {
+    @extend %vf-link-base;
+
+    border: none;
+    border-radius: 0;
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:hover {
+      background: transparent;
+    }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--default-text;
+    }
+
+    // stylelint-disable-next-line selector-max-type -- buttons should not affect paragraph spacing
+    p & {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
   }
 }
 
