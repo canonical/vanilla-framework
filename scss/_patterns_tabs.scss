@@ -71,18 +71,18 @@
       // Display the highlight when focussing in modern browsers that support
       // focus-visible.
       &:focus:not(:focus-visible) {
-        @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+        @include vf-highlight-bar($color-tabs-active-bar, bottom, false, $sph-inner);
       }
 
       &:active,
       &:hover,
       &[aria-selected='true'] {
-        @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+        @include vf-highlight-bar($color-tabs-active-bar, bottom, false, $sph-inner);
 
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
         &:focus:not(:focus-visible) {
-          @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+          @include vf-highlight-bar($color-tabs-active-bar, bottom, false, $sph-inner);
         }
 
         // Hide the highlight when focussing (in combination with the parent

@@ -1,6 +1,6 @@
 @import 'settings_font';
 
-@mixin vf-u-visualise-baseline($horisontal-bleed: 2rem) {
+@mixin vf-u-visualise-baseline($horizontal-bleed: 2rem) {
   .u-visualise-font-metrics {
     position: relative;
 
@@ -12,20 +12,20 @@
       border-width: 1px;
       content: '';
       height: calc(#{$cap-height - $x-height});
-      left: -#{$horisontal-bleed};
+      left: -#{$horizontal-bleed};
       position: absolute;
       top: calc(#{$baseline-position - $cap-height} - 1px);
-      width: calc(#{$horisontal-bleed * 2} + 100%);
+      width: calc(#{$horizontal-bleed * 2} + 100%);
     }
 
     &::after {
       background-color: transparentize($color-negative, 0.5);
       content: '';
       height: 1px;
-      left: -#{$horisontal-bleed};
+      left: -#{$horizontal-bleed};
       position: absolute;
       top: calc(#{$baseline-position} - 1px);
-      width: calc(#{$horisontal-bleed * 2} + 100%);
+      width: calc(#{$horizontal-bleed * 2} + 100%);
     }
   }
 }

@@ -108,7 +108,7 @@
   @return $value;
 }
 
-@mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false) {
+@mixin vf-highlight-bar($bg-color: $color-mid-dark, $position: top, $over-border: false, $horizontal-padding: 0) {
   position: relative;
 
   &::before {
@@ -128,8 +128,13 @@
         right: -1px;
         z-index: 1;
       } @else {
-        left: 0;
-        right: 0;
+        left: $horizontal-padding;
+        right: $horizontal-padding;
+      }
+
+      @if $position == bottom {
+        bottom: 0;
+        top: auto;
       }
     }
   } @else if $position == left or $position == right {
