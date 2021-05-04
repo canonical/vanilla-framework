@@ -151,6 +151,7 @@ Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-fr
 - [Checkbox](/docs/base/forms#checkbox) and [radio](/docs/base/forms#radio-button) form inputs
 - Horizontal rule element `<hr />`
 - [Contextual menu](/docs/patterns/contextual-menu)
+- [Lists / Divider](/docs/patterns/lists#responsive-divider)
 - [Lists / Middot](/docs/patterns/lists#middot)
 - [Navigation](/docs/patterns/navigation)
 - [Side navigation](/docs/patterns/navigation#side-navigation)
@@ -162,6 +163,7 @@ Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-fr
 | radio               | `$theme-default-forms`                 | `light`       |
 | hr                  | `$theme-default-hr`                    | `light`       |
 | Contextual menu     | `$theme-default-p-contextual-menu`     | `light`       |
+| Lists / Divider     | `$theme-default-p-divider`             | `light`       |
 | Lists / Middot      | `$theme-default-p-inline-list--middot` | `light`       |
 | Navigation          | `$theme-default-nav`                   | `light`       |
 | Side navigation     | `$theme-default-p-side-navigation`     | `light`       |
