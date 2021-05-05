@@ -123,6 +123,21 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 View example of the patterns list split
 </a></div>
 
+### Theming
+
+The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_settings_colors.scss).
+Overriding the colours of individual elements of the responsive is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
+
+By default, the responsive divider uses the light theme. To change the global default, set `$theme-default-p-divider` to `dark`.
+
+To change the appearance of an individual instance of the responsive divider pattern, you can use the `is-dark` class.
+
+For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/divider-dark/" class="js-example">
+View example of the divider list with an is-dark class
+</a></div>
+
 ### Import
 
 To import list patterns into your project, copy the snippet below and include it in your main Sass file.

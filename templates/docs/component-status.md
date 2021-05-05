@@ -29,6 +29,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.30.0</td>
       <td>Buttons can now assume the appearance of a standard link.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/patterns/lists#theming">Lists / Divider</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.30.0</td>
+      <td>We added a dark theme to responsive divider lists.</td>
+    </tr>
   </tbody>
 </table>
 
