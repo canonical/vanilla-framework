@@ -35,7 +35,9 @@ $color-focus-negative: #3b0006 !default;
 
 // Button background color changes
 $hover-background-opacity-amount: 0.05;
-$active-background-opacity-amount: 0.15;
+$active-background-opacity-amount: 0.08;
+$muted-text-opacity-amount: 0.6;
+$inactive-text-opacity-amount: 0.75;
 
 // NON-SEMANTIC COLOURS
 $color-label-validated: #006b75;
@@ -73,14 +75,14 @@ $states: (
 
 // Light theme
 $colors--light-theme--text-default: #111 !default;
-$colors--light-theme--text-hover: #757575 !default;
 $colors--light-theme--text-disabled: #666 !default;
-$colors--light-theme--text-muted: #666 !default;
+$colors--light-theme--text-muted: rgba($color-x-dark, $muted-text-opacity-amount) !default;
+$colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-amount) !default;
 
 $colors--light-theme--background-default: #fff !default;
 $colors--light-theme--background-alt: #f7f7f7 !default;
-$colors--light-theme--background-active: rgba($color-x-dark, $active-background-opacity-amount) !default;
-$colors--light-theme--background-hover: rgba($color-x-dark, $hover-background-opacity-amount) !default;
+$colors--light-theme--background-active: adjust-color($color-x-dark, $lightness: 100% * (1 - $active-background-opacity-amount)) !default;
+$colors--light-theme--background-hover: adjust-color($color-x-dark, $lightness: 100% * (1 - $hover-background-opacity-amount)) !default;
 $colors--light-theme--background-overlay: transparentize($color-dark, 0.15) !default;
 
 $colors--light-theme--border-default: rgba($color-x-dark, 0.15) !default;
@@ -92,7 +94,8 @@ $colors--dark-theme--text-default: hsl(0, 0%, 100%) !default;
 $colors--dark-theme--nav-link-hover: $color-x-light !default;
 $colors--dark-theme--text-hover: hsl(0, 0%, 76%) !default; // minimum contrast on primary that satisfies contrast checker AA
 $colors--dark-theme--text-disabled: rgba($colors--dark-theme--text-default, 0.55) !default;
-$colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, 0.55) !default;
+$colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, $muted-text-opacity-amount) !default;
+$colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $inactive-text-opacity-amount) !default;
 $colors--dark-theme--nav-link-hover: $colors--dark-theme--text-hover !default;
 
 $colors--dark-theme--background-default: hsl(0, 0%, 15%) !default;

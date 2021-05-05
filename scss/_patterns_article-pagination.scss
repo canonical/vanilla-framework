@@ -35,15 +35,18 @@
   }
 
   %p-article-pagination__link {
+    @extend %vf-button-base;
+    @include vf-button-pattern(
+      $button-border-color: $color-transparent,
+      $button-hover-border-color: $color-transparent,
+      $button-active-border-color: $color-transparent,
+      $button-disabled-border-color: $color-transparent
+    );
+
     margin-top: 0;
     padding: $sp-medium;
     position: relative;
     width: 50%;
-
-    &:hover {
-      background: $color-light;
-      text-decoration: none;
-    }
   }
 
   .p-article-pagination__link {

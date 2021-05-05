@@ -246,7 +246,7 @@ $lightness-threshold: 70;
 
       @media (min-width: $breakpoint-navigation-threshold) {
         // align baselines of menu items and input text
-        $input-gap-top: $spv-inner--medium - $spv-nudge;
+        $input-gap-top: $spv-inner--large - $spv-nudge;
 
         display: flex;
         flex: 1 1 auto;
@@ -345,12 +345,23 @@ $lightness-threshold: 70;
   // color for the navigation background
   $color-navigation-background,
   // color for the navigation text
+  $color-navigation-background--hover,
+  $color-navigation-background--active,
   $color-navigation-text,
   // color for the navigation highlight bar
   $color-navigation-highlight,
   $color-navigation-background--hover
 ) {
   background-color: $color-navigation-background;
+
+  %navigation-link-before {
+    // separator color on small screens
+    background: $color-navigation-separator;
+  }
+
+  %navigation-link-hover {
+    background-color: $color-navigation-background--hover;
+  }
 
   %navigation-link-theme {
     &,
@@ -361,21 +372,22 @@ $lightness-threshold: 70;
     }
 
     &:hover {
-      background-color: $color-navigation-background--hover;
+      @extend %navigation-link-hover;
+    }
+
+    &:active {
+      background-color: $color-navigation-background--active;
     }
   }
 
   %navigation-link-selected {
-    @include vf-highlight-bar($color-navigation-highlight, left, true, $sph-inner);
+    @extend %navigation-link-hover;
+
+    @include vf-highlight-bar($color-navigation-highlight, left, true, 0);
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      @include vf-highlight-bar($color-navigation-highlight, bottom, false, $sph-inner);
+      @include vf-highlight-bar($color-navigation-highlight, bottom, false, 0);
     }
-  }
-
-  %navigation-link-before {
-    // separator color on small screens
-    background: $color-navigation-separator;
   }
 
   .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
@@ -413,10 +425,11 @@ $lightness-threshold: 70;
 @mixin vf-navigation-light-theme($override-default: false) {
   @if ($override-default) {
     @include vf-navigation-theme(
-      $color-navigation-background: $colors--light-theme--background-default,
-      $color-navigation-highlight: $color-accent,
       $color-navigation-text: $colors--light-theme--text-default,
+      $color-navigation-background: $colors--light-theme--background-default,
       $color-navigation-background--hover: $colors--light-theme--background-alt,
+      $color-navigation-background--active: $colors--light-theme--background-active,
+      $color-navigation-highlight: $colors-accent,
       $color-navigation-separator: $colors--light-theme--border-low-contrast
     );
   } @else {
@@ -425,10 +438,11 @@ $lightness-threshold: 70;
     $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
 
     @include vf-navigation-theme(
-      $color-navigation-background: $color-navigation-background,
-      $color-navigation-highlight: $color-accent,
       $color-navigation-text: $color-navigation-text,
+      $color-navigation-background: $color-navigation-background,
       $color-navigation-background--hover: $colors--light-theme--background-alt,
+      $color-navigation-background--active: $colors--light-theme--background-active,
+      $color-navigation-highlight: $color-accent,
       $color-navigation-separator: $colors--light-theme--border-low-contrast
     );
   }
@@ -437,10 +451,11 @@ $lightness-threshold: 70;
 @mixin vf-navigation-dark-theme($override-default: false) {
   @if ($override-default) {
     @include vf-navigation-theme(
-      $color-navigation-background: $colors--dark-theme--background-default,
-      $color-navigation-highlight: $color-accent,
       $color-navigation-text: $colors--dark-theme--text-default,
-      $color-navigation-background--hover: $colors--dark-theme--background-alt,
+      $color-navigation-background: $colors--dark-theme--background-default,
+      $color-navigation-background--hover: $colors--dark-theme--background-hover,
+      $color-navigation-background--active: $colors--dark-theme--background-active,
+      $color-navigation-highlight: $color-accent,
       $color-navigation-separator: $colors--dark-theme--border-low-contrast
     );
   } @else {
@@ -449,10 +464,11 @@ $lightness-threshold: 70;
     $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
 
     @include vf-navigation-theme(
-      $color-navigation-background: $color-navigation-background,
-      $color-navigation-highlight: $color-accent,
       $color-navigation-text: $color-navigation-text,
-      $color-navigation-background--hover: $colors--dark-theme--background-alt,
+      $color-navigation-background: $color-navigation-background,
+      $color-navigation-background--hover: $colors--dark-theme--background-hover,
+      $color-navigation-background--active: $colors--dark-theme--background-active,
+      $color-navigation-highlight: $color-accent,
       $color-navigation-separator: $colors--dark-theme--border-low-contrast
     );
   }

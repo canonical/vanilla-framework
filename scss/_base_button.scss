@@ -9,7 +9,7 @@
   }
 
   %vf-button-base {
-    @include vf-animation(#{background-color, border-color}, fast, in);
+    @include vf-animation(#{background-color, border-color}, snap, in);
     @include vf-focus;
 
     border-radius: $border-radius;
@@ -92,18 +92,15 @@
   }
 }
 
-/// mixin for all the buttons
-/// there are sensible defaults, but you can
-/// override colors as desired
 @mixin vf-button-pattern(
   $button-background-color: $color-x-light,
   $button-text-color: $color-dark,
   $button-disabled-background-color: $color-transparent,
   $button-disabled-border-color: $colors--light-theme--border-high-contrast,
   $button-border-color: $colors--light-theme--border-high-contrast,
-  $button-hover-background-color: scale-color($color-x-light, $lightness: -$hover-background-opacity-amount * 100%),
+  $button-hover-background-color: $colors--light-theme--background-hover,
   $button-hover-border-color: $colors--light-theme--border-high-contrast,
-  $button-active-background-color: scale-color($color-x-light, $lightness: -$active-background-opacity-amount * 100%),
+  $button-active-background-color: $colors--light-theme--background-active,
   $button-active-border-color: $colors--light-theme--border-high-contrast
 ) {
   background-color: $button-background-color;
