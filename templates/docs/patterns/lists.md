@@ -102,7 +102,13 @@ If you want to display a list of items that form a set of steps — like a
 tutorial or instructions — you can use the class `.p-stepped-list`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-stepped/" class="js-example">
-View example of the stepped list pattern
+View example of the stepped list pattern with headings
+</a></div>
+
+When the steps don't have headings use `<p>` paragraph as `.p-stepped-list__title`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-stepped-without-headings/" class="js-example">
+View example of the stepped list without headings
 </a></div>
 
 ### Horizontal stepped
