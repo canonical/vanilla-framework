@@ -244,11 +244,43 @@ $spv-list-item--inner: null;
     display: none;
   }
 
+  // Indent titles
+  $bullet-width: map-get($line-heights, default-text);
+  $bullet-width-mobile: map-get($line-heights, default-text);
+
   .p-stepped-list__title {
     @extend %numbered-step-title;
+
+    padding-left: $bullet-width-mobile + $sph-inner;
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      padding-left: $bullet-width + $sph-inner;
+    }
+
+    &::before {
+      margin-right: $sph-inner;
+      width: $bullet-width-mobile;
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        width: $bullet-width;
+      }
+    }
   }
 
-  // Indent titles
+  .p-stepped-list__title + .p-stepped-list__content {
+    margin-left: $bullet-width-mobile + $sph-inner;
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-left: $bullet-width + $sph-inner;
+    }
+  }
+
+  .p-stepped-list--detailed .p-stepped-list__title + .p-stepped-list__content {
+    @media (min-width: $threshold-6-12-col) {
+      margin-left: 0;
+    }
+  }
+
   @for $i from 6 through 1 {
     // Bullet sizes for each heading level
     $bullet-width: map-get($line-heights, default-text);
@@ -282,12 +314,6 @@ $spv-list-item--inner: null;
       @media (min-width: $breakpoint-heading-threshold) {
         margin-left: $bullet-width + $sph-inner;
       }
-    }
-  }
-
-  .p-stepped-list--detailed .p-stepped-list__title + .p-stepped-list__content {
-    @media (min-width: $threshold-6-12-col) {
-      margin-left: 0;
     }
   }
 }

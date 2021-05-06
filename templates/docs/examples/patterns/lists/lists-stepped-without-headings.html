@@ -1,0 +1,32 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Lists / Stepped without headings{% endblock %}
+
+{% block standalone_css %}patterns_lists{% endblock %}
+
+{% block content %}
+<ol class="p-stepped-list">
+  <li class="p-stepped-list__item">
+    <p class="p-stepped-list__title">
+      Download the Ubuntu image for your device in your `Downloads` folder
+    </p>
+  </li>
+
+  <li class="p-stepped-list__item">
+    <p class="p-stepped-list__title">
+      Insert your SD card or USB flash drive
+    </p>
+  </li>
+
+  <li class="p-stepped-list__item">
+    <p class="p-stepped-list__title">
+      Identify its address by opening the “Disks” application and look for the “Device” line. If the line is in the <code>/dev/mmcblk0p1</code> format, then your drive address is: <code>/dev/mmcblk0</code>. If it is in the <code>/dev/sdb1</code> format, then the address is <code>/dev/sdb</code>
+    </p>
+  </li>
+
+  <li class="p-stepped-list__item">
+    <p class="p-stepped-list__title">
+      Unmount it by right-clicking its icon in the launcher bar, the eject icon in a file manager or the square icon in the “Disks” application
+    </p>
+  </li>
+</ol>
+{% endblock %}
