@@ -28,7 +28,7 @@ View example of the tabs navigation pattern
 
 When you need to group a number of related blocks of content within an area on the page, the tabs pattern can be used, and will require JavaScript to handle interaction with each tab, and the toggling of their associated content panes.
 
-Note the differences in markup between this example and the navigation example. Additionally, for accessibility purposes, it is necessary to include `aria` attributes specific to this use case.
+Note the differences in markup between this example and the navigation example. Additionally, for [accessibility purposes](https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html), it is necessary to include `aria` attributes specific to this use case.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tabs/content" class="js-example">
 View example of the tabs content pattern
