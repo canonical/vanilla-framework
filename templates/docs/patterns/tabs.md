@@ -14,27 +14,25 @@ To select the active tab add the attribute `aria-selected="true"` and that list 
 
 To horizontally align the tab list with other content, the whole tab set can be contained within a `.row` element to provide correct gutters.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tabs/" class="js-example">
-View example of the tabs pattern
+There are two contexts in which this pattern can be used: as navigation, and as controls for panes of content.
+
+### Navigation
+
+The tabs pattern can be used as an alternative way to display a list of links.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tabs/navigation" class="js-example">
+View example of the tabs navigation pattern
 </a></div>
 
-<div class="p-strip is-shallow">
-  <h3>Usage</h3>
-  <div class="row">
-    <div class="col-4">
-      <div class="p-notification--positive">
-        <p class="p-notification__response"><span class="p-notification__status">Do:</span>Use when there are multiple categories, views or panes of content.</p>
-      </div>
-      <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/252d5420-navigation-tabs-color-do.png" alt="Tabs do">
-    </div>
-    <div class="col-4">
-      <div class="p-notification--negative">
-        <p class="p-notification__response"><span class="p-notification__status">Don't:</span>Mix tabs that contain only text, with tabs that contain icons.</p>
-      </div>
-      <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/6a4ffc61-navigation-tabs-color-don%27t.png" alt="Tabs don't">
-    </div>
-  </div>
-</div>
+### Content
+
+When you need to group a number of related blocks of content within an area on the page, the tabs pattern can be used, and will require JavaScript to handle interaction with each tab, and the toggling of their associated content panes.
+
+Note the differences in markup between this example and the navigation example. Additionally, for accessibility purposes, it is necessary to include `aria` attributes specific to this use case.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tabs/content" class="js-example">
+View example of the tabs content pattern
+</a></div>
 
 ### Import
 
