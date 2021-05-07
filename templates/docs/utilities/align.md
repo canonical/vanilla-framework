@@ -8,10 +8,20 @@ context:
 
 <hr>
 
-You can use these utilities to force the content inside an element to align center, left or right.
+### Content
 
-<div class="embedded-example"><a href="/docs/examples/utilities/align/" class="js-example">
+When you need to align elements within a container, you can use the `u-align` utilities to force them to align center, left or right.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/align/content" class="js-example">
 View example of the content align utility
+</a></div>
+
+### Text
+
+If you only need text to be aligned, you can use the `u-align-text` utilities.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/align/text" class="js-example">
+View example of the text align utility
 </a></div>
 
 ### Import
