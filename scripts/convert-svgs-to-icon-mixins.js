@@ -12,18 +12,18 @@ const directory = args[2];
 const symbols = /[\r\n%#()<>?\[\\\]^`{|}]/g;
 
 function parseColorArguments(data) {
-  const color_count = (data.match(/fill="#[^\s]+"/g) || []).length;
-  let arguments = [];
+  const colorCount = (data.match(/fill="#[^\s]+"/g) || []).length;
+  let colorArgs = [];
 
-  if (color_count == 1) {
-    arguments.push('$color');
+  if (colorCount == 1) {
+    colorArgs.push('$color');
   } else {
-    for (var i = 0; i < color_count; i++) {
-      arguments.push(`$color${i + 1}`);
+    for (var i = 0; i < colorCount; i++) {
+      colorArgs.push(`$color${i + 1}`);
     }
   }
 
-  return arguments;
+  return colorArgs;
 }
 
 function printBaseMixins(svgs) {
