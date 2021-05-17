@@ -35,6 +35,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.30.0</td>
       <td>We added a dark theme to responsive divider lists.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/patterns/tabs#content">Tabs / Content</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.30.0</td>
+      <td>The tab pattern can now be used either as a navigation list, or as controls for panes of content.</td>
+    </tr>
   </tbody>
 </table>
 
