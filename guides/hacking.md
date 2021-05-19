@@ -96,7 +96,7 @@ Before proposing a pull request, ensure that the tests pass on your local fork. 
 
 ### Percy
 
-When you have [created a pull request](/docs/pull-requests.md), GitHub actions will automatically kick off the Continuous Integration pipeline, including a [Percy](https://percy.io/) check.
+When you have [created a pull request](/guides/pull-requests.md), GitHub actions will automatically kick off the Continuous Integration pipeline, including a [Percy](https://percy.io/) check.
 
 Percy builds your branch, then checks each example for changes against the last version of the project that was approved by Percy. If there are any changes, the CI checks will fail, and the changes it found will be available to review in Percy's dashboard.
 

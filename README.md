@@ -73,6 +73,12 @@ If you don't want the whole framework, you can just `@include` specific [parts](
 
 If you're looking to contribute to the Vanilla project itself, [start here](/CONTRIBUTING.md).
 
+- [Code of conduct](/CONTRIBUTING.md#code-of-conduct)
+- [Reporting bugs and issues](/CONTRIBUTING.md#reporting-bugs-and-issues)
+- [Working with the Vanilla project](/CONTRIBUTING.md#working-with-the-vanilla-project)
+- [Pull requests](/CONTRIBUTING.md#pull-requests)
+- [Releasing Vanilla](/CONTRIBUTING.md#releasing-vanilla)
+
 ## Community
 
 Keep up to date with all new developments and upcoming changes with Vanilla.

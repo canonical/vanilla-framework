@@ -22,25 +22,25 @@ When [submitting a new issue](https://github.com/canonical-web-and-design/vanill
 
 Please provide as much information possible detailing what you're currently experiencing and what you'd expect to experience.
 
-## [Working with the Vanilla project](/docs/hacking.md)
+## [Working with the Vanilla project](/guides/hacking.md)
 
-- [Running the project](/docs/hacking.md#running-the-project)
-- [Viewing documentation and examples](/docs/hacking.md#viewing-documentation-and-examples)
-- [QA testing](/docs/hacking.md#qa-testing)
-- [Adding new icons](/docs/hacking.md#adding-new-icons)
+- [Running the project](/guides/hacking.md#running-the-project)
+- [Viewing documentation and examples](/guides/hacking.md#viewing-documentation-and-examples)
+- [QA testing](/guides/hacking.md#qa-testing)
+- [Adding new icons](/guides/hacking.md#adding-new-icons)
 
-## [Pull requests](/docs/pull-requests.md)
+## [Pull requests](/guides/pull-requests.md)
 
-- [Working on an issue](/docs/pull-requests.md#working-on-an-issue)
-- [Preparing a pull request for review](/docs/pull-requests.md#preparing-a-pull-request-for-review)
+- [Working on an issue](/guides/pull-requests.md#working-on-an-issue)
+- [Preparing a pull request for review](/guides/pull-requests.md#preparing-a-pull-request-for-review)
 
-## [Releasing Vanilla](/docs/release-process.md)
+## [Releasing Vanilla](/guides/release-process.md)
 
-- [Pre release tasks](/docs/release-process.md#pre-release-tasks)
-- [Releasing](/docs/release-process.md#releasing)
-- [Deploying vanillaframework.io](/docs/release-process.md#deploy-vanillaframeworkio)
-- [Releasing React Components](/docs/release-process.md#react-components)
-- [Promotion](/docs/release-process.md#promotion)
+- [Pre release tasks](/guides/release-process.md#pre-release-tasks)
+- [Releasing](/guides/release-process.md#releasing)
+- [Deploying vanillaframework.io](/guides/release-process.md#deploy-vanillaframeworkio)
+- [Releasing React Components](/guides/release-process.md#react-components)
+- [Promotion](/guides/release-process.md#promotion)
 
 ## Licenses
 
