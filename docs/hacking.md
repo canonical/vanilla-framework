@@ -1,6 +1,18 @@
 # Working on the Vanilla project
 
-## Local development
+## Table of contents
+
+- [Running the project](#running-the-project)
+  - [Via dotrun](#via-dotrun)
+  - [Via Docker](#via-docker)
+- [Viewing documentation and examples](#viewing-documentation-and-examples)
+- [QA testing](#qa-testing)
+  - [The baseline grid](#the-baseline-grid)
+  - [Standalone examples](#standalone-examples)
+  - [Cross browser testing](#cross-browser-testing)
+- [Adding new icons](#adding-new-icons)
+
+## Running the project
 
 ### Via dotrun
 
@@ -34,13 +46,27 @@ It can also be run on other operating systems by first [installing Docker](https
 ./run watch
 ```
 
-### Viewing documentation
+## Viewing documentation and examples
 
 Once the server is running, you can visit <http://0.0.0.0:8101/> in your browser to see the project.
 
 The documentation for the latest version of Vanilla framework is hosted at <https://vanillaframework.io/docs>, and the documentation markdown files live in the [`docs` folder](/docs).
 
 The [examples directory](/docs/examples) contains example markup for each component of the framework, and these examples can be viewed in the browser at <http://0.0.0.0:8101/docs/examples/>.
+
+## QA testing
+
+### The baseline grid
+
+### Standalone examples
+
+### Cross browser testing
+
+### Running tests locally
+
+Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests, run `./run test`.
+
+### Percy
 
 ## Adding new icons
 
