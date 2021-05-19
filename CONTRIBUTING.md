@@ -5,14 +5,16 @@ So, you'd like to contribute to Vanilla framework? Great!
 ## Table of contents
 
 - [Code of conduct](#code-of-conduct)
-- [Bugs and issues](#bugs-and-issues)
+- [Reporting bugs and issues](#reporting-bugs-and-issues)
 - [Working with the Vanilla project](#working-with-the-vanilla-project)
 - [Pull requests](#pull-requests)
 - [Releasing Vanilla](#releasing-vanilla)
 
 ## [Code of Conduct](/CODE_OF_CONDUCT.md)
 
-## Bugs and issues
+As developers and maintainers of the Vanilla project, we follow a [Code of Conduct](/CODE_OF_CONDUCT.md), and ask that all contributors do the same.
+
+## Reporting bugs and issues
 
 We use the [GitHub issues](https://github.com/canonical-web-and-design/vanilla-framework/issues) to track all our bugs and feature requests.
 
