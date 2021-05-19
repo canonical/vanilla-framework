@@ -12,7 +12,17 @@ Vanilla Framework is an extensible CSS framework, built using [Sass](http://sass
 [Documentation](https://vanillaframework.io/docs) |
 [Join the mailing list](http://canonical.us3.list-manage2.com/subscribe?u=56dac47c206ba0f58ec25f314&id=36f7d8394e)
 
-## Hotlinking
+## Table of contents
+
+- [Using Vanilla](#using-vanilla)
+  - [Hotlinking](#hotlinking)
+  - [Installing via NPM](#including-vanilla-in-your-project-via-npm)
+- [Developing Vanilla](#developing-vanilla)
+- [Community](#community)
+
+## Using Vanilla
+
+### Hotlinking
 
 You can link to the latest build to add directly into your markup like so, by replacing the x values with the [version number you wish to link](https://github.com/canonical-web-and-design/vanilla-framework/releases).
 
@@ -20,7 +30,7 @@ You can link to the latest build to add directly into your markup like so, by re
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
 ```
 
-## Including Vanilla in your project via NPM
+### Including Vanilla in your project via NPM
 
 Pull down the latest version of Vanilla into your local `node_modules` folder
 and save it into your project's dependencies (`package.json`) as follows:
@@ -58,6 +68,10 @@ $color-brand: #ffffff;
 ```
 
 If you don't want the whole framework, you can just `@include` specific [parts](scss) - e.g. `@include vf-b-forms`.
+
+## Developing Vanilla
+
+If you're looking to contribute to the Vanilla project itself, [start here](/CONTRIBUTING.md).
 
 ## Community
 
