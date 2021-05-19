@@ -56,17 +56,49 @@ The [examples directory](/docs/examples) contains example markup for each compon
 
 ## QA testing
 
+We rigorously test all new additions to the Vanilla project, and the following are the most commonly used techniques we have in our toolbox.
+
 ### The baseline grid
+
+All text within an example should sit neatly on the baseline, unless otherwise agreed with the design team.
+
+You can check the baseline alignment is correct when viewing an example, using the toggle present in the bottom right of your browser window.
+
+# ![baseline example](https://assets.ubuntu.com/v1/9121e5d9-baseline.gif 'Baseline')
 
 ### Standalone examples
 
+Every example created in Vanilla automatically generates a standalone example. Where a regular example includes the entirety of Vanilla's CSS, the standalone examples exist to ensure that each example works by importing only the bare minimum of CSS needed.
+
+So, an example created at:
+
+`/docs/examples/patterns/foo`
+
+will make available a standalone pattern at:
+
+`/docs/examples/standalone/patterns/foo`
+
+When creating a new example, you will need to create a new, appropriately name SCSS file within [`/scss/standalone`](/scss/standalone), and reference it in your example, using the following block:
+
+```
+{% block standalone_css %}patterns_foo{% endblock %}
+```
+
+If you are simply updating an existing example, make sure to check the standalone example and, if necessary, add any required includes to that examples standalone SCSS file.
+
 ### Cross browser testing
+
+We are committed to testing our work in [several major browsers](https://vanillaframework.io/browser-support). If you lack access to a particular browser, we have a company [BrowserStack](https://www.browserstack.com/) account available for use.
 
 ### Running tests locally
 
-Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests, run `./run test`.
+Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests, run `dotrun test`.
 
 ### Percy
+
+When you have [created a pull request](/docs/pull-requests), GitHub actions will automatically kick off the Continuous Integration pipeline, including a [Percy](https://percy.io/) check.
+
+Percy builds your branch, then checks each example for changes against the last version of the project that was approved by Percy. If there are any changes, the CI checks will fail, and the changes it found will be available to review in Percy's dashboard.
 
 ## Adding new icons
 
