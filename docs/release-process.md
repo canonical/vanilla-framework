@@ -14,15 +14,6 @@
 ## Pre release tasks
 
 - Merge all pull requests relating to the given release
-- Choose the correct version number, following the conventions of [semver](https://semver.org/) based on the changes included in the release
-  - <code>\_.\_.**X**</code>: use a patch release when the release is only bugfixes,
-  - <code>\_.**X**.\_</code>: use minor release if there are any added features (new components or new variants/modifiers to existing components)
-  - <code>**X**.\_.\_</code>: any big breaking changes should happen in major release (they should happen rarely and be carefully planned)
-- For major/minor releases make sure to update all component status labels
-  - remove labels from previous minor releases
-  - add labels for all new and updated features in current release
-  - make sure labels are updated in sidebar, component docs pages, component status page
-- Update version of the framework in [package.json](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/package.json)
 - On [GitHub releases page](https://github.com/canonical-web-and-design/vanilla-framework/releases) update latest draft automatically created by Release Drafter
   - make sure automatic version is correct
   - clean up the log from unnecessary lines, move changes to relevant section if it didn't happen automatically based on labels, reword the changes for better readability
