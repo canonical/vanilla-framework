@@ -18,7 +18,7 @@
     position: absolute;
     right: map-get($grid-margin-widths, small);
     text-indent: calc(100% + 10rem);
-    top: $spv-inner--large;
+    top: calc(#{$spv-inner--large} + #{map-get($nudges, nudge--x-small)});
     width: map-get($icon-sizes, default);
 
     @media (min-width: $threshold-4-6-col) {
@@ -43,7 +43,8 @@
 
     @media (min-width: $breakpoint-navigation-threshold) {
       position: absolute;
-      top: $spv-inner--medium * 4;
+      // padding applied to .p-navigation__link + line-heigh of the anchor text inside
+      top: $spv-inner--large * 2 + map-get($line-heights, default-text);
     }
 
     @media (max-width: $breakpoint-navigation-threshold - 1) {

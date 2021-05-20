@@ -42,6 +42,7 @@ $color-label-validated: #006b75;
 $color-code-background: rgba($color-x-dark, 0.03);
 $color-code-background-dark: rgba($color-x-light, 0.3);
 $color-code-heading-background: rgba($color-x-dark, 0.08);
+$color-navigation-highlight: #e95420;
 
 $states: (
   error: $color-negative,
@@ -87,11 +88,15 @@ $colors--light-theme--border-default: rgba($color-x-dark, 0.15) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
+$colors--light-theme--nav-highlight: $color-navigation-highlight !default;
+
 // Dark theme
 $colors--dark-theme--text-default: hsl(0, 0%, 100%) !default;
-$colors--dark-theme--text-hover: hsl(0, 0%, 56%) !default; // minimum contrast on primary that satisfies contrast checker AA
+$colors--dark-theme--nav-link-hover: $color-x-light !default;
+$colors--dark-theme--text-hover: hsl(0, 0%, 76%) !default; // minimum contrast on primary that satisfies contrast checker AA
 $colors--dark-theme--text-disabled: rgba($colors--dark-theme--text-default, 0.55) !default;
 $colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, 0.55) !default;
+$colors--dark-theme--nav-link-hover: $colors--dark-theme--text-hover !default;
 
 $colors--dark-theme--background-default: hsl(0, 0%, 15%) !default;
 $colors--dark-theme--background-alt: hsl(0, 0%, 20%) !default;
@@ -102,6 +107,8 @@ $colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !defa
 $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.2) !default;
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.4) !default;
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.1) !default;
+
+$colors--dark-theme--nav-highlight: $color-navigation-highlight !default;
 
 // Branding colors
 $color-brand: #333 !default;
