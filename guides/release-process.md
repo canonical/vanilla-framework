@@ -59,6 +59,10 @@ In case that fails, here are manual steps to release to assets server:
 
 ## Releasing React Components
 
+When the Vanilla npm package is published, [react-components](https://github.com/canonical-web-and-design/react-components/) project should be updated to latest version of Vanilla (renovate should prepare an update PR) and the updated `react-components` package should be published as well.
+
+Please follow the [release process](https://github.com/canonical-web-and-design/react-components/blob/master/PUBLISH-NPM-PACKAGE.md) documented in the `react-components` repository.
+
 ## Promotion
 
 Only major/minor releases need to be promoted.
