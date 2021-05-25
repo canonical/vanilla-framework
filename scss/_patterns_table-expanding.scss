@@ -30,14 +30,12 @@
     th,
     td {
       align-items: flex-start;
-      display: flex;
+      display: block;
+      flex-basis: 0;
+      flex-grow: 1;
       margin: 0;
-      word-break: break-word;
-      flex: {
-        basis: 0;
-        flow: row nowrap;
-        grow: 1;
-      }
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       &.p-table__expanding-panel {
         flex-basis: 100%;
