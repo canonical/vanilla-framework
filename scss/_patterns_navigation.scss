@@ -319,6 +319,116 @@ $lightness-threshold: 70;
     }
   }
 
+  // SUBNAVIGATION DROPDOWNS
+
+  $color-navigation-background: $color-x-light !default;
+
+  .p-navigation__item--dropdown-toggle {
+    position: relative;
+
+    > a {
+      @extend %navigation-link;
+    }
+  }
+
+  .p-navigation__item--dropdown-toggle::after {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: $spv-inner--large;
+    pointer-events: none;
+    position: absolute;
+    right: map-get($grid-margin-widths, small);
+    text-indent: calc(100% + 10rem);
+    top: calc(#{$spv-inner--large} + #{map-get($nudges, nudge--x-small)});
+    width: map-get($icon-sizes, default);
+
+    @media (min-width: $threshold-4-6-col) {
+      right: map-get($grid-margin-widths, medium);
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+    }
+  }
+
+  .p-navigation__dropdown,
+  .p-navigation__dropdown--right {
+    @extend %vf-has-box-shadow;
+    @extend %vf-has-round-corners;
+
+    display: none;
+    margin: 0;
+    min-width: 100%;
+    padding: 0;
+    z-index: 5;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      position: absolute;
+      // padding applied to .p-navigation__link + line-heigh of the anchor text inside
+      top: $spv-inner--large * 2 + map-get($line-heights, default-text);
+    }
+
+    @media (max-width: $breakpoint-navigation-threshold - 1) {
+      box-shadow: none;
+    }
+  }
+
+  .p-navigation__dropdown--right {
+    right: 0;
+  }
+
+  .p-navigation__item--dropdown-toggle.is-active {
+    &::after {
+      transform: rotate(180deg);
+    }
+
+    .p-navigation__dropdown,
+    .p-navigation__dropdown--right {
+      display: block;
+    }
+  }
+
+  %subnav-link {
+    padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
+  }
+
+  .p-navigation__dropdown-item {
+    @extend %navigation-link-responsive-padding-horizontal;
+
+    display: block;
+    padding-bottom: $spv-inner--small;
+    padding-top: $spv-inner--small;
+    white-space: nowrap;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv-inner--medium;
+      padding-top: $spv-inner--medium;
+    }
+
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
+  .p-navigation__item--dropdown-toggle > .p-navigation__link {
+    // remove nesting in 3.0 when deprecated __link styles are removed
+    @extend %subnav-link;
+  }
+
+  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
+    // stylelint-disable-next-line selector-max-type -- this is deprecated use, will be removed
+    .p-navigation__item--dropdown-toggle > a {
+      @extend %subnav-link;
+    }
+  }
+
   // Theming
   @if ($theme-default-nav == 'dark') {
     .p-navigation {
@@ -349,7 +459,8 @@ $lightness-threshold: 70;
   $color-navigation-text,
   $color-navigation-background--hover,
   // color for the navigation highlight bar
-  $color-navigation-highlight
+  $color-navigation-highlight,
+  $color-navigation-icon
 ) {
   background-color: $color-navigation-background;
 
@@ -389,17 +500,27 @@ $lightness-threshold: 70;
     }
   }
 
-  .p-navigation__item > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  [class*="p-navigation__item"] > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
   .p-navigation__toggle--close,
   .p-navigation__toggle--open {
     @extend %navigation-link-theme;
   }
 
-  .p-navigation__item.is-selected > .p-navigation__link {
+  .p-navigation__item--dropdown-toggle::after {
+    @include vf-icon-chevron($color-navigation-icon);
+  }
+
+  .p-navigation__dropdown-item {
+    @extend %navigation-link-theme;
+
+    background-color: $color-navigation-background;
+  }
+
+  [class*='p-navigation__item'].is-selected > .p-navigation__link {
     @extend %navigation-link-selected;
   }
 
-  .p-navigation__item > .p-navigation__link::before {
+  [class*='p-navigation__item'] > .p-navigation__link::before {
     // remove nesting in 3.0 when deprecated __link styles are removed
     @extend %navigation-link-before;
   }
@@ -421,6 +542,13 @@ $lightness-threshold: 70;
   }
 }
 
+// $color-subnav-icon: $colors--light-theme--text-muted,
+// $color-subnav-background: $colors--light-theme--background-default,
+// $color-subnav-text: $colors--light-theme--text-default,
+// $color-subnav-background-hover: $colors--light-theme--background-alt,
+// $color-subnav-text-hover: $colors--light-theme--text-default,
+// $color-subnav-separator: $colors--light-theme--border-default
+
 @mixin vf-navigation-light-theme($override-default: false) {
   @if ($override-default) {
     @include vf-navigation-theme(
@@ -429,7 +557,8 @@ $lightness-threshold: 70;
       $color-navigation-background--hover: $colors--light-theme--background-alt,
       $color-navigation-background--active: $colors--light-theme--background-active,
       $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--light-theme--border-low-contrast
+      $color-navigation-separator: $colors--light-theme--border-low-contrast,
+      $color-navigation-icon: $colors--light-theme--text-muted
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -442,7 +571,8 @@ $lightness-threshold: 70;
       $color-navigation-background--hover: $colors--light-theme--background-alt,
       $color-navigation-background--active: $colors--light-theme--background-active,
       $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--light-theme--border-low-contrast
+      $color-navigation-separator: $colors--light-theme--border-low-contrast,
+      $color-navigation-icon: $colors--light-theme--text-muted
     );
   }
 }
@@ -455,7 +585,8 @@ $lightness-threshold: 70;
       $color-navigation-background--hover: $colors--dark-theme--background-hover,
       $color-navigation-background--active: $colors--dark-theme--background-active,
       $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--dark-theme--border-low-contrast
+      $color-navigation-separator: $colors--dark-theme--border-low-contrast,
+      $color-navigation-icon: $colors--dark-theme--text-muted
     );
   } @else {
     // take $color-navigation-background (that can be overridden) into account
@@ -468,7 +599,8 @@ $lightness-threshold: 70;
       $color-navigation-background--hover: $colors--dark-theme--background-hover,
       $color-navigation-background--active: $colors--dark-theme--background-active,
       $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--dark-theme--border-low-contrast
+      $color-navigation-separator: $colors--dark-theme--border-low-contrast,
+      $color-navigation-icon: #999
     );
   }
 }

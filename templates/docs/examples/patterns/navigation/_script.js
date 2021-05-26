@@ -26,7 +26,7 @@ function toggleSubnav(subnav, open) {
   Closes all subnavs on the page.
 */
 function closeAllSubnavs() {
-  var subnavs = document.querySelectorAll('.p-subnav');
+  var subnavs = document.querySelectorAll('.p-navigation__item--dropdown-toggle');
   for (var i = 0, l = subnavs.length; i < l; i++) {
     toggleSubnav(subnavs[i], false);
   }
