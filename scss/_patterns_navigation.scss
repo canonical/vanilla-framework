@@ -321,13 +321,13 @@ $lightness-threshold: 70;
 
   // SUBNAVIGATION DROPDOWNS
 
-  $color-navigation-background: $color-x-light !default;
-
   .p-navigation__item--dropdown-toggle {
     position: relative;
 
-    > a {
+    .p-navigation__link {
       @extend %navigation-link;
+
+      padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default);
     }
   }
 
@@ -391,10 +391,6 @@ $lightness-threshold: 70;
     }
   }
 
-  %subnav-link {
-    padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
-  }
-
   .p-navigation__dropdown-item {
     @extend %navigation-link-responsive-padding-horizontal;
 
@@ -414,18 +410,6 @@ $lightness-threshold: 70;
     &:hover,
     &:visited {
       text-decoration: none;
-    }
-  }
-
-  .p-navigation__item--dropdown-toggle > .p-navigation__link {
-    // remove nesting in 3.0 when deprecated __link styles are removed
-    @extend %subnav-link;
-  }
-
-  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
-    // stylelint-disable-next-line selector-max-type -- this is deprecated use, will be removed
-    .p-navigation__item--dropdown-toggle > a {
-      @extend %subnav-link;
     }
   }
 
@@ -541,13 +525,6 @@ $lightness-threshold: 70;
     // stylelint-enable selector-max-type
   }
 }
-
-// $color-subnav-icon: $colors--light-theme--text-muted,
-// $color-subnav-background: $colors--light-theme--background-default,
-// $color-subnav-text: $colors--light-theme--text-default,
-// $color-subnav-background-hover: $colors--light-theme--background-alt,
-// $color-subnav-text-hover: $colors--light-theme--text-default,
-// $color-subnav-separator: $colors--light-theme--border-default
 
 @mixin vf-navigation-light-theme($override-default: false) {
   @if ($override-default) {
