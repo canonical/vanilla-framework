@@ -97,9 +97,9 @@ These guidelines are the framework upon which we have built our system for how c
       </p>
     </div>
     <div class="col-2 p-card u-no-padding">
-      <div class="p-strip is-shallow is-bordered" style="background-color: #333"></div>
+      <div class="p-strip is-shallow is-bordered" style="background-color: #e95420"></div>
       <p class="p-card__content u-no-margin" style="padding: 1rem">
-        $color-accent<br><span class="p-muted-heading">#333</span>
+        $color-accent<br><span class="p-muted-heading">#e95420</span>
       </p>
     </div>
     <div class="col-2 p-card u-no-padding">
