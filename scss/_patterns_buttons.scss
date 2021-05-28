@@ -27,7 +27,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   %p-button {
     @extend %vf-button-base;
 
-    @include vf-button-pattern($button-disabled-background-color: $color-x-light, $button-disabled-border-color: $color-x-light, $button-active-border-color: $color-x-light);
+    @include vf-button-pattern($button-disabled-background-color: transparent, $button-disabled-border-color: transparent);
   }
 
   .p-button {
@@ -53,13 +53,14 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
     @include vf-button-pattern(
       $button-background-color: $color-brand,
-      $button-border-color: $color-brand,
-      $button-text-color: vf-contrast-text-color($color-brand),
-      $button-hover-background-color: scale-color($color-brand, $lightness: -$hover-background-opacity-percentage),
+      $button-hover-background-color: adjust-color($color-brand, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-brand, $lightness: -$active-background-opacity-percentage),
       $button-disabled-background-color: $color-brand,
+      $button-border-color: $color-brand,
+      $button-hover-border-color: adjust-color($color-brand, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-brand, $lightness: -$active-background-opacity-percentage),
       $button-disabled-border-color: $color-brand,
-      $button-active-background-color: scale-color($color-brand, $lightness: -$active-background-opacity-percentage),
-      $button-active-border-color: scale-color($color-brand, $lightness: -$active-background-opacity-percentage)
+      $button-text-color: vf-contrast-text-color($color-brand)
     );
   }
 
@@ -75,12 +76,14 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
     @include vf-button-pattern(
       $button-background-color: $color-positive,
-      $button-border-color: $color-positive,
-      $button-text-color: $color-x-light,
-      $button-hover-background-color: scale-color($color-positive, $lightness: -$hover-background-opacity-percentage),
+      $button-hover-background-color: adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-positive, $lightness: -$active-background-opacity-percentage),
       $button-disabled-background-color: $color-positive,
+      $button-border-color: $color-positive,
+      $button-hover-border-color: adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-positive, $lightness: -$active-background-opacity-percentage),
       $button-disabled-border-color: $color-positive,
-      $button-active-background-color: scale-color($color-positive, $lightness: -$active-background-opacity-percentage)
+      $button-text-color: vf-contrast-text-color($color-positive)
     );
 
     @include vf-focus($color-focus-positive);
@@ -98,13 +101,14 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
     @include vf-button-pattern(
       $button-background-color: $color-negative,
-      $button-border-color: $color-negative,
-      $button-text-color: $color-x-light,
-      $button-hover-background-color: scale-color($color-negative, $lightness: -$hover-background-opacity-percentage),
+      $button-hover-background-color: adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-negative, $lightness: -$active-background-opacity-percentage),
       $button-disabled-background-color: $color-negative,
+      $button-border-color: $color-negative,
+      $button-hover-border-color: adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-negative, $lightness: -$active-background-opacity-percentage),
       $button-disabled-border-color: $color-negative,
-      $button-active-background-color: scale-color($color-negative, $lightness: -$active-background-opacity-percentage),
-      $button-active-border-color: scale-color($color-negative, $lightness: -$active-background-opacity-percentage)
+      $button-text-color: vf-contrast-text-color($color-negative)
     );
 
     @include vf-focus($color-focus-negative);
@@ -121,12 +125,8 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
     @extend %vf-button-base;
 
     @include vf-button-pattern(
-      $button-background-color: $color-transparent,
       $button-border-color: $color-transparent,
-      $button-text-color: $color-dark,
-      $button-hover-background-color: scale-color($color-x-light, $lightness: -$hover-background-opacity-percentage),
       $button-hover-border-color: $color-transparent,
-      $button-active-background-color: scale-color($color-x-light, $lightness: -$active-background-opacity-percentage),
       $button-active-border-color: $color-transparent,
       $button-disabled-border-color: $color-transparent
     );
