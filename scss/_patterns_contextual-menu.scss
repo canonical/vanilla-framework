@@ -120,7 +120,7 @@
   $color-contextual-menu-border,
   // color of the contextual menu item link text
   $color-contextual-menu-text,
-  // color of the contextual menu item link hover background
+  // color of the contextual menu item link active background
   $color-contextual-menu-active-background,
   // color of the contextual menu item link hover background
   $color-contextual-menu-hover-background
@@ -148,6 +148,7 @@
 
     &:active {
       background-color: $color-contextual-menu-active-background;
+      cursor: default;
     }
   }
 }
@@ -155,19 +156,19 @@
 @mixin vf-contextual-menu-light-theme {
   @include vf-contextual-menu-theme(
     $color-contextual-menu-background: $colors--light-theme--background-default,
-    $color-contextual-menu-border: $colors--light-theme--border-default,
-    $color-contextual-menu-text: $colors--light-theme--text-default,
+    $color-contextual-menu-hover-background: $colors--light-theme--background-hover,
     $color-contextual-menu-active-background: $colors--light-theme--background-active,
-    $color-contextual-menu-hover-background: $colors--light-theme--background-hover
+    $color-contextual-menu-border: $colors--light-theme--border-default,
+    $color-contextual-menu-text: $colors--light-theme--text-default
   );
 }
 
 @mixin vf-contextual-menu-dark-theme {
   @include vf-contextual-menu-theme(
     $color-contextual-menu-background: $colors--dark-theme--background-default,
-    $color-contextual-menu-border: $colors--dark-theme--border-default,
-    $color-contextual-menu-text: $colors--dark-theme--text-default,
+    $color-contextual-menu-hover-background: $colors--dark-theme--background-hover,
     $color-contextual-menu-active-background: $colors--dark-theme--background-active,
-    $color-contextual-menu-hover-background: $colors--dark-theme--background-hover
+    $color-contextual-menu-border: $colors--dark-theme--border-default,
+    $color-contextual-menu-text: $colors--dark-theme--text-default
   );
 }

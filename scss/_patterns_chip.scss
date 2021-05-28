@@ -2,11 +2,14 @@
 
 @mixin vf-p-chip {
   $chip-line-height: 1rem;
+  $base-background-opacity-amount: 0.05;
+  $color-background-base: adjust-color($color-x-dark, $lightness: 100% * (1 - $base-background-opacity-amount));
+  $color-background-hover: adjust-color($color-x-dark, $lightness: 100% * (1 - ($base-background-opacity-amount + $hover-background-opacity-amount)));
 
   .p-chip {
     @extend %small-text;
 
-    background-color: rgba($color-x-dark, 0.05);
+    background-color: $color-background-base;
     border-radius: $chip-line-height;
     display: inline-flex;
     line-height: $chip-line-height;
@@ -20,19 +23,12 @@
     white-space: nowrap;
 
     &:hover {
-      background-color: rgba($color-x-dark, 0.08);
+      background-color: $color-background-hover;
     }
 
-    &.is-selected {
-      background-color: rgba($color-x-dark, 0.15);
-
-      &:hover {
-        background-color: rgba($color-x-dark, 0.18);
-      }
-    }
-
+    &.is-selected,
     &:active {
-      background-color: rgba($color-x-dark, 0.15);
+      background-color: $colors--light-theme--background-active;
     }
 
     .p-chip__lead,
