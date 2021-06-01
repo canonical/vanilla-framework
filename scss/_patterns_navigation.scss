@@ -147,7 +147,8 @@ $lightness-threshold: 70;
       }
     }
 
-    &__item {
+    &__item,
+    &__item--dropdown-toggle {
       @extend %navigation-item;
 
       // this needs to be nested in __item until in 3.0 we remove deprecated __link styles
@@ -324,33 +325,43 @@ $lightness-threshold: 70;
   .p-navigation__item--dropdown-toggle {
     position: relative;
 
+    &::after {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: $spv-inner--large;
+      pointer-events: none;
+      position: absolute;
+      right: map-get($grid-margin-widths, small);
+      text-indent: calc(100% + 10rem);
+      top: calc(#{$spv-inner--large} + #{map-get($nudges, nudge--x-small)});
+      width: map-get($icon-sizes, default);
+
+      @media (min-width: $threshold-4-6-col) {
+        right: map-get($grid-margin-widths, medium);
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+      }
+    }
+
+    &.is-active {
+      &::after {
+        transform: rotate(180deg);
+      }
+
+      .p-navigation__dropdown,
+      .p-navigation__dropdown--right {
+        display: block;
+      }
+    }
+
     .p-navigation__link {
-      @extend %navigation-link;
-
+      // add padding to accommodate icon
       padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default);
-    }
-  }
-
-  .p-navigation__item--dropdown-toggle::after {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: '';
-    display: block;
-    height: $spv-inner--large;
-    pointer-events: none;
-    position: absolute;
-    right: map-get($grid-margin-widths, small);
-    text-indent: calc(100% + 10rem);
-    top: calc(#{$spv-inner--large} + #{map-get($nudges, nudge--x-small)});
-    width: map-get($icon-sizes, default);
-
-    @media (min-width: $threshold-4-6-col) {
-      right: map-get($grid-margin-widths, medium);
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
     }
   }
 
@@ -378,17 +389,6 @@ $lightness-threshold: 70;
 
   .p-navigation__dropdown--right {
     right: 0;
-  }
-
-  .p-navigation__item--dropdown-toggle.is-active {
-    &::after {
-      transform: rotate(180deg);
-    }
-
-    .p-navigation__dropdown,
-    .p-navigation__dropdown--right {
-      display: block;
-    }
   }
 
   .p-navigation__dropdown-item {
