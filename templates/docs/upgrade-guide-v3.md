@@ -39,7 +39,16 @@ Heading pattern classes with word suffix (`p-heading--one`, `p-heading--two`, et
 
 Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless `<a>` are deprecated and will be removed. Please use new class names `.p-navigation__items`, `.p-navigation__item`, `.p-navigation__link` instead.
 
-Also add `.p-navigation__link` to classless `<a>` links inside `.p-subnav` pattern.
+`.p-subnav` is now deprecated, it and its associated child elements can be updated simply by substituting the following class names:
+
+| Deprecated classes | Replaced by                            |
+| ------------------ | -------------------------------------- |
+| `.p-subnav`        | `.p-navigation__item--dropdown-toggle` |
+| `.p-subnav__items` | `.p-navigation__dropdown`              |
+| `.p-subnav__items` | `.p-navigation__dropdown--right`       |
+| `.p-subnav__item`  | `.p-navigation__dropdown-item`         |
+
+The `<a>` element that toggles the dropdown element should have the `.p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
 
 ### Text element max-width
 
