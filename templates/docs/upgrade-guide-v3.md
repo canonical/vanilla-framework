@@ -41,12 +41,12 @@ Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless 
 
 `.p-subnav` is now deprecated, it and its associated child elements can be updated simply by substituting the following class names:
 
-| Deprecated classes | Replaced by                            |
-| ------------------ | -------------------------------------- |
-| `.p-subnav`        | `.p-navigation__item--dropdown-toggle` |
-| `.p-subnav__items` | `.p-navigation__dropdown`              |
-| `.p-subnav__items` | `.p-navigation__dropdown--right`       |
-| `.p-subnav__item`  | `.p-navigation__dropdown-item`         |
+| Deprecated classes        | Replaced by                            |
+| ------------------------- | -------------------------------------- |
+| `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
+| `.p-subnav__items`        | `.p-navigation__dropdown`              |
+| `.p-subnav__items--right` | `.p-navigation__dropdown--right`       |
+| `.p-subnav__item`         | `.p-navigation__dropdown-item`         |
 
 The `<a>` element that toggles the dropdown element should have the `.p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
 
