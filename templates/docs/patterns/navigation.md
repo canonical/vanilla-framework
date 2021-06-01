@@ -48,18 +48,19 @@ To update to new class names:
 - rename all occurrences of `p-navigation__link` to `p-navigation__item`
 - add `p-navigation__link` class to all `<a>` elements that are direct child of `p-navigation__item`
 
-### Sub-navigation
+### Dropdown
 
-Sub-navigation drop-down menus can be added to the navigation by including one
-or more `p-navigation__item--dropdown-toggle` components.
+Drop-down menus can be added to the navigation by including one or more `p-navigation__item--dropdown-toggle` components.
 
-To open the subnav-menu you need to set the `is-active` class on `p-navigation__item--dropdown-toggle` element, but also set `aria-hidden` to `false` on `p-navigation__dropdown`.
+To open the dropdown you need to set the `is-active` class on `p-navigation__item--dropdown-toggle` element, but also set `aria-hidden` to `false` on `p-navigation__dropdown`.
 
-By default the sub-navigation menus are left-aligned with their parent, if you'd prefer the menu to be positioned from the right, use the `p-navigation__dropdown--right` modifier. This can be seen in the "My account" menu in the example.
+By default, dropdowns are left-aligned with their parent; if you'd prefer the menu to be positioned from the right, use the `p-navigation__dropdown--right` modifier. This can be seen in the "My account" menu in the example.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/subnav" class="js-example">
-View example of the sub-navigation pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown" class="js-example">
+View example of the dropdown pattern
 </a></div>
+
+### Sub-navigation
 
 <span class="p-label--deprecated">Deprecated</span>
 
