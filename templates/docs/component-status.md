@@ -24,7 +24,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.31 -->
     <tr>
-      <th><a href="/docs/patterns/navigation#sub-navigation">Navigation / Sub-navigation</a></th>
+      <th><a href="/docs/patterns/navigation#dropdown">Navigation / Dropdown</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.31.0</td>
       <td>We deprecated the <code>.p-subnav</code> class, which previously could theoretically be used outside of the main <code>.p-navigation</code> component. It has been succeeded by the <code>.p-navigation__item--dropdown-toggle</code> class.</td>
