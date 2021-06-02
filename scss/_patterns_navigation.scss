@@ -457,6 +457,10 @@ $lightness-threshold: 70;
     background-color: $color-navigation-background--hover;
   }
 
+  %navigation-link-active {
+    background-color: $color-navigation-background--active;
+  }
+
   %navigation-link-theme {
     &,
     &:hover,
@@ -470,7 +474,7 @@ $lightness-threshold: 70;
     }
 
     &:active {
-      background-color: $color-navigation-background--active;
+      @extend %navigation-link-active;
     }
   }
 
@@ -490,8 +494,14 @@ $lightness-threshold: 70;
     @extend %navigation-link-theme;
   }
 
-  .p-navigation__item--dropdown-toggle::after {
-    @include vf-icon-chevron($color-navigation-icon);
+  .p-navigation__item--dropdown-toggle {
+    &::after {
+      @include vf-icon-chevron($color-navigation-icon);
+    }
+
+    &.is-active > .p-navigation__link {
+      @extend %navigation-link-active;
+    }
   }
 
   .p-navigation__dropdown,
