@@ -48,18 +48,30 @@ To update to new class names:
 - rename all occurrences of `p-navigation__link` to `p-navigation__item`
 - add `p-navigation__link` class to all `<a>` elements that are direct child of `p-navigation__item`
 
+### Dropdown
+
+Drop-down menus can be added to the navigation by including one or more `p-navigation__item--dropdown-toggle` components.
+
+To open the dropdown you need to set the `is-active` class on `p-navigation__item--dropdown-toggle` element, but also set `aria-hidden` to `false` on `p-navigation__dropdown`.
+
+By default, dropdowns are left-aligned with their parent; if you'd prefer the menu to be positioned from the right, use the `p-navigation__dropdown--right` modifier. This can be seen in the "My account" menu in the example.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown" class="js-example">
+View example of the dropdown pattern
+</a></div>
+
 ### Sub-navigation
 
-Sub-navigation drop-down menus can be added to the navigation by including one
-or more `p-subnav` components.
+<span class="p-label--deprecated">Deprecated</span>
 
-To open the subnav-menu you need to set the `is-active` class on `p-subnav` element, but also set `aria-hidden` to `false` on `p-subnav__items`.
+`.p-subnav` is now deprecated, it and its associated child elements can be updated simply by substituting the following class names:
 
-By default the sub-navigation menus are left-aligned with their parent, if you'd prefer the menu to be positioned from the right, use the `p-subnav__items--right` modifier. This can be seen in the "My account" menu in the example.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/subnav" class="js-example">
-View example of the sub-navigation pattern
-</a></div>
+| Deprecated classes        | Replaced by                            |
+| ------------------------- | -------------------------------------- |
+| `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
+| `.p-subnav__items`        | `.p-navigation__dropdown`              |
+| `.p-subnav__items--right` | `.p-navigation__dropdown--right`       |
+| `.p-subnav__item`         | `.p-navigation__dropdown-item`         |
 
 ### Side navigation
 
