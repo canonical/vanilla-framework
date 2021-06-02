@@ -1,81 +1,55 @@
-/**
-  Toggles visibility of given subnav by toggling is-active class to it
-  and setting aria-hidden attribute on dropdown contents.
-  @param {HTMLElement} subnav Root element of subnavigation to open.
-  @param {Boolean} open indicate whether we want to open or close the subnav.
-*/
-function toggleSubnav(subnav, open) {
+function toggleDropdown(toggle, open) {
+  var parentElement = toggle.parentNode;
+  var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
+  dropdown.setAttribute('aria-hidden', !open);
+
   if (open) {
-    subnav.classList.add('is-active');
+    parentElement.classList.add('is-active');
   } else {
-    subnav.classList.remove('is-active');
-  }
-
-  var toggle = subnav.querySelector('.p-subnav__toggle');
-
-  if (toggle) {
-    var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
-
-    if (dropdown) {
-      dropdown.setAttribute('aria-hidden', open ? false : true);
-    }
+    parentElement.classList.remove('is-active');
   }
 }
 
-/**
-  Closes all subnavs on the page.
-*/
-function closeAllSubnavs() {
-  var subnavs = document.querySelectorAll('.p-subnav');
-  for (var i = 0, l = subnavs.length; i < l; i++) {
-    toggleSubnav(subnavs[i], false);
-  }
+function closeAllDropdowns(toggles) {
+  toggles.forEach(function (toggle) {
+    toggleDropdown(toggle, false);
+  });
 }
 
-/**
-  Attaches click event listener to subnav toggle.
-  @param {HTMLElement} subnavToggle Toggle element of subnavigation.
-*/
-function setupSubnavToggle(subnavToggle) {
-  subnavToggle.addEventListener('click', function (event) {
-    event.preventDefault();
-    event.stopPropagation();
+function handleClickOutside(toggles, containerClass) {
+  document.addEventListener('click', function (event) {
+    var target = event.target;
 
-    var subnav = subnavToggle.parentElement;
-    var isActive = subnav.classList.contains('is-active');
+    if (target.closest) {
+      if (!target.closest(containerClass)) {
+        closeAllDropdowns(toggles);
+      }
+    } else if (target.msMatchesSelector) {
+      // IE friendly `Element.closest` equivalent
+      // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+      do {
+        if (target.msMatchesSelector(containerClass)) {
+          return;
+        }
+        target = target.parentElement || target.parentNode;
+      } while (target !== null && target.nodeType === 1);
 
-    closeAllSubnavs();
-    if (!isActive) {
-      toggleSubnav(subnav, true);
+      closeAllDropdowns(toggles);
     }
   });
 }
 
-// Setup all subnav toggles on the page
-var subnavToggles = document.querySelectorAll('.p-subnav__toggle');
+function initNavDropdowns(containerClass) {
+  var toggles = [].slice.call(document.querySelectorAll(containerClass + ' [aria-controls]'));
 
-for (var i = 0, l = subnavToggles.length; i < l; i++) {
-  setupSubnavToggle(subnavToggles[i]);
+  handleClickOutside(toggles, containerClass);
+
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      closeAllDropdowns(toggles);
+      toggleDropdown(toggle, true);
+    });
+  });
 }
-
-// Close all menus if anything else on the page is clicked
-document.addEventListener('click', function (event) {
-  var target = event.target;
-
-  if (target.closest) {
-    if (!target.closest('.p-subnav__toggle') && !target.closest('.p-subnav__item')) {
-      closeAllSubnavs();
-    }
-  } else if (target.msMatchesSelector) {
-    // IE friendly `Element.closest` equivalent
-    // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
-    do {
-      if (target.msMatchesSelector('.p-subnav__toggle') || target.msMatchesSelector('.p-subnav__item')) {
-        return;
-      }
-      target = target.parentElement || target.parentNode;
-    } while (target !== null && target.nodeType === 1);
-
-    closeAllSubnavs();
-  }
-});

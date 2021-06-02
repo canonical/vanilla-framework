@@ -75,22 +75,22 @@
       </ul>
 
       <ul class="p-navigation__links">
-          <li class="p-navigation__link p-subnav" id="link-1">
-            <a class="p-subnav__toggle" aria-controls="account-menu" aria-expanded="false" href="#">
+          <li class="p-navigation__item--dropdown-toggle" id="link-1">
+            <a class="p-navigation__link" aria-controls="account-menu" aria-expanded="false" href="#">
               Bartosz Szopka
             </a>
-            <ul class="p-subnav__items--right" id="account-menu" aria-hidden="true">
+            <ul class="p-navigation__dropdown--right" id="account-menu" aria-hidden="true">
               <li>
-                <a href="#account/snaps" class="p-subnav__item">My published snaps</a>
+                <a href="#account/snaps" class="p-navigation__dropdown-item">My published snaps</a>
               </li>
               <li>
-                <a href="#build" class="p-subnav__item">Build with GitHub</a>
+                <a href="#build" class="p-navigation__dropdown-item">Build with GitHub</a>
               </li>
               <li>
-                <a href="#account/details" class="p-subnav__item">Account details</a>
+                <a href="#account/details" class="p-navigation__dropdown-item">Account details</a>
               </li>
               <li>
-                <a href="#logout" class="p-subnav__item">Sign out</a>
+                <a href="#logout" class="p-navigation__dropdown-item">Sign out</a>
               </li>
             </ul>
           </li>
@@ -351,5 +351,9 @@
 
 <script>
   {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
+</script>
+<script>
+  {% include 'docs/examples/patterns/navigation/_script.js' %}
+  initNavDropdowns('.p-navigation__item--dropdown-toggle')
 </script>
 {% endblock %}

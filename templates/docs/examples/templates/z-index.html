@@ -15,63 +15,63 @@
         <a href="#main-content">Jump to main content</a>
       </span>
       <ul class="p-navigation__items">
-        <li class="p-navigation__item p-subnav" id="link-1">
-          <a href="#link-1-menu" aria-controls="link-1-menu" class="p-subnav__toggle p-navigation__link">LXC</a>
-          <ul class="p-subnav__items" id="link-1-menu" aria-hidden="true">
+        <li class="p-navigation__item--dropdown-toggle" id="link-1">
+          <a href="#link-1-menu" aria-controls="link-1-menu" class="p-navigation__link">LXC</a>
+          <ul class="p-navigation__dropdown" id="link-1-menu" aria-hidden="true">
             <li>
-              <a href="#" class="p-subnav__item">Introduction</a>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
             </li>
             <li>
-              <a href="#" class="p-subnav__item">News</a>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
             </li>
             <li>
-              <a href="#" class="p-subnav__item">Getting started</a>
-            </li>
-          </ul>
-        </li>
-        <li class="p-navigation__item p-subnav" id="link-2">
-          <a href="#link-2-menu" aria-controls="link-2-menu" class="p-subnav__toggle p-navigation__link">LXD</a>
-          <ul class="p-subnav__items" id="link-2-menu" aria-hidden="true">
-            <li>
-              <a href="#" class="p-subnav__item">Introduction</a>
-            </li>
-            <li>
-              <a href="#" class="p-subnav__item">News</a>
-            </li>
-            <li>
-              <a href="#" class="p-subnav__item">Getting started - Command line</a>
-            </li>
-            <li>
-              <a href="#" class="p-subnav__item">Getting started - OpenStack</a>
-            </li>
-            <li>
-              <a href="#" class="p-subnav__item">Getting started - OpenNebula</a>
+              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
             </li>
           </ul>
         </li>
-        <li class="p-navigation__item p-subnav is-active" id="link-3">
-          <a href="#link-3-menu" aria-controls="link-3-menu" class="p-subnav__toggle p-navigation__link">LXCFS</a>
-          <ul class="p-subnav__items" id="link-3-menu" aria-hidden="false">
+        <li class="p-navigation__item--dropdown-toggle" id="link-2">
+          <a href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">LXD</a>
+          <ul class="p-navigation__dropdown" id="link-2-menu" aria-hidden="true">
             <li>
-              <a href="#" class="p-subnav__item">Introduction</a>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
             </li>
             <li>
-              <a href="#" class="p-subnav__item">News</a>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
             </li>
             <li>
-              <a href="#" class="p-subnav__item">Getting started</a>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle is-active" id="link-3">
+          <a href="#link-3-menu" aria-controls="link-3-menu" class="p-navigation__link">LXCFS</a>
+          <ul class="p-navigation__dropdown" id="link-3-menu" aria-hidden="false">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
             </li>
           </ul>
         </li>
       </ul>
       <ul class="p-navigation__items">
-        <li class="p-navigation__item p-subnav" id="link-4">
-          <a class="p-subnav__toggle p-navigation__link" aria-controls="account-menu">
+        <li class="p-navigation__item--dropdown-toggle" id="link-4">
+          <a class="p-navigation__link" aria-controls="account-menu">
             My account
           </a>
-          <ul class="p-subnav__items--right" id="account-menu" aria-hidden="true">
+          <ul class="p-navigation__dropdown--right" id="account-menu" aria-hidden="true">
             <li>
-              <a href="#" class="p-subnav__item">Sign out</a>
+              <a href="#" class="p-navigation__dropdown-item">Sign out</a>
             </li>
           </ul>
         </li>
@@ -199,5 +199,9 @@
 </script>
 <script>
   {% include 'docs/examples/patterns/tooltips/_tooltips_script.js' %}
+</script>
+<script>
+  {% include 'docs/examples/patterns/navigation/_script.js' %}
+  initNavDropdowns('.p-navigation__item--dropdown-toggle')
 </script>
 {% endblock %}

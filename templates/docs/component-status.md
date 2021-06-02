@@ -22,6 +22,34 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.31 -->
+    <tr>
+      <th><a href="/docs/patterns/navigation#dropdown">Navigation / Dropdown</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.31.0</td>
+      <td>We introduced the <code>.p-navigation__item--dropdown-toggle</code> class, as a replacement for the now deprecated <code>.p-subnav</code> class.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/navigation#dropdown">Navigation / Sub-navigation</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.31.0</td>
+      <td>The <code>.p-subnav</code> class previously could theoretically be used outside of the main <code>.p-navigation</code> component, which was not intended. It has been deprecated, and succeeded by the <code>.p-navigation__item--dropdown-toggle</code> class.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.30 -->
     <tr>
       <th><a href="/docs/patterns/buttons#link">Button / Link</a></th>
@@ -41,21 +69,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.30.0</td>
       <td>The tab pattern can now be used either as a navigation list, or as controls for panes of content.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.29 -->
     <tr>
       <th><a href="/docs/layouts/fluid-breakout#toolbar">Fluid breakout - toolbar</a></th>
