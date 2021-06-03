@@ -77,7 +77,8 @@
   .p-side-navigation__drawer-header {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    padding-bottom: $spv-inner--small;
+    margin-bottom: $spv-outer--small;
+    padding-bottom: calc(#{$spv-inner--small} - 1px); // compensate for border thickness
     padding-left: $sph-inner--small;
     padding-top: $spv-inner--small;
     position: sticky;
@@ -108,7 +109,7 @@
   }
 
   .p-side-navigation__toggle--in-drawer {
-    margin-bottom: 0;
+    margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
 
     &::before {
       transform: rotate(90deg);
@@ -176,12 +177,6 @@
 
   .p-side-navigation__list {
     @extend %side-navigation__list;
-  }
-
-  .p-side-navigation > .p-side-navigation__list:first-of-type,
-  .p-side-navigation__drawer > .p-side-navigation__list:first-of-type {
-    // nudge from top to put text on baseline grid
-    padding-top: 0.5 * $spv-inner--x-small;
   }
 
   .p-side-navigation__item--title {

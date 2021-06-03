@@ -1,5 +1,5 @@
 @import 'settings';
-$response-top-padding: $spv-inner--x-small--scaleable + $bar-thickness;
+$response-top-padding: $spv-nudge + $spv-inner--x-small;
 $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
 // Notification style patterns
@@ -19,7 +19,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
       background-size: map-get($icon-sizes, default);
       border: 0;
       margin: $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default)) $sph-inner auto auto;
-      padding: $spv-inner--small;
+      padding: $sp-unit;
     }
   }
 
@@ -42,12 +42,11 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
   }
 
   .p-notification__response {
-    @extend %u-no-margin--bottom--default-text;
-
     background-position: $sph-inner $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
-    padding: $response-top-padding $sph-inner $spv-inner--x-small--scaleable;
+    margin-bottom: 0;
+    padding: $response-top-padding $sph-inner $spv-nudge-compensation + $spv-inner--x-small;
   }
 
   .p-notification__status {

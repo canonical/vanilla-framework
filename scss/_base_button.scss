@@ -69,17 +69,17 @@
 
     // The following rules address buttons nested in <p>'s;
     p & {
-      margin-bottom: $spv-outer--small-scaleable - $spv-nudge;
+      margin-bottom: $sp-unit + $spv-nudge-compensation;
       margin-top: -#{$spv-nudge};
     }
 
     p + p > & {
-      margin-top: $spv-outer--small - $spv-nudge;
+      margin-top: $spv-nudge-compensation;
     }
 
     @media (max-width: $breakpoint-x-small - 1) {
       p & + & {
-        margin-top: $spv-outer--small + $spv-nudge-compensation;
+        margin-top: $sp-unit + $spv-nudge-compensation;
       }
     }
     // stylelint-enable selector-max-type

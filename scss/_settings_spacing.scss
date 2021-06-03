@@ -81,10 +81,9 @@ $browser-rounding-compensations: (
 $spv-inner--x-small: $sp-unit * 0.5 !default; // buttons margins inside table,
 $spv-inner--x-small--scaleable: $spv-inner--x-small * $multi !default;
 $spv-inner--small: $sp-unit !default;
-$spv-inner--scaleable: $sp-unit * $multi !default;
+$spv-inner--scaleable: $sp-unit * $multi !default; // can be deleted for 3.0
 $spv-inner--medium: $sp-unit * 1.5 !default; //vertical padding in: navigation, tabs
 $spv-inner--large: $sp-unit * 2;
-$spv-inner--x-large: $sp-unit * 5.5;
 
 // 1.2 Vertical spacing between components
 $spv-outer--small: $sp-unit !default; //labels
@@ -127,7 +126,7 @@ $sp-after: (
 // commonly occuring calculations available as variables
 $spv-nudge: map-get($nudges, nudge--p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
-$input-margin-bottom: $spv-outer--scaleable + $sp-unit - $spv-nudge * 2;
+$input-margin-bottom: $sp-unit * (2 + $multi) - $spv-nudge * 2;
 
 $max-width--default: 40em !default;
 
@@ -162,4 +161,4 @@ $sp-x-large: $sp-unit * 4 !default;
 $sp-xx-large: $sp-unit * 5 !default;
 $sp-xxx-large: $sp-unit * 6 !default;
 $sp-xxxx-large: $sp-unit * 8 !default;
-$sp-xxxxx-large: $sp-unit * 12 !default;
+$sp-xxxxx-large: $sp-unit * 12 !default; // anythng this large should be expressed as a sum of constituent heights. This is not currently used AFAIK  , consider removing for 3.0

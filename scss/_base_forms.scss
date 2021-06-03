@@ -41,7 +41,7 @@
     width: 100%;
 
     &.is-dense {
-      margin: 0 0 ($spv-inner--small - $spv-nudge) 0;
+      margin: 0 0 $spv-nudge-compensation 0;
       padding-bottom: calc(#{$spv-nudge - $spv-inner--x-small} - 1px);
       padding-top: calc(#{$spv-nudge - $spv-inner--x-small} - 1px);
     }
@@ -102,8 +102,7 @@
 
     &.is-required::after {
       color: $color-negative;
-      content: '*';
-      left: $spv-inner--x-small;
+      content: ' *';
       position: relative;
     }
 
@@ -192,7 +191,7 @@
       option {
         font-weight: $font-weight-regular-text;
         line-height: calc(#{$sp-unit * 2} - 2px);
-        padding: $spv-inner--small $sph-inner--small;
+        padding: $spv-inner--x-small 0;
       }
     }
   }
