@@ -82,6 +82,14 @@ The `<thead>` element is completely hidden from view on a smaller screen and if 
 View example of the patterns table mobile card
 </a></div>
 
+### Overflow
+
+By default, all table cells have `overflow: hidden;` applied to help maintain a table's layout at reduced widths. In some cases it is necessary to allow a cell's contents to overflow, such as when using the [contextual menu](/docs/patterns/contextual-menu) or [tooltip](/docs/patterns/tooltips) patterns, and this can be achieved by applying the `.has-overflow` class to appropriate cells.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tables/table-overflow" class="js-example">
+View example of the patterns table mobile card
+</a></div>
+
 ### Import
 
 To import either or all of these components into your project, copy the snippets below and include it in your main Sass file.
