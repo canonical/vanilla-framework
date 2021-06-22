@@ -24,7 +24,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.32 -->
     <tr>
-      <th><a href="/docs/patterns/navigation#dropdown">Navigation / Dropdown</a></th>
+      <th><a href="/docs/base/tables#overflow">Tables / Overflow</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.32.0</td>
       <td>We introduced the <code>.has-overflow</code> utility for table cells, to aid with the display of components that need to overflow the cell, such as tooltips and contextual menus.</td>
