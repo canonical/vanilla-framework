@@ -1,0 +1,71 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Table / Overflow{% endblock %}
+
+{% block standalone_css %}patterns_table-overflow{% endblock %}
+
+{% block content %}
+<table aria-label="Example of overflowing table cells">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th class="u-align--right has-overflow">
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Machine A</th>
+      <td class="has-overflow">Pending 
+        <span class="p-tooltip--btm-center" aria-describedby="actions-tooltip">
+          <i class="p-icon--information"></i>
+          <span class="p-tooltip__message" role="tooltip" id="actions-tooltip">This machine is currently being setup</span>
+        </span>
+      </td>
+      <td class="u-align--right has-overflow">
+        <span class="p-contextual-menu--left">
+          <button class="p-contextual-menu__toggle u-no-margin--bottom" aria-controls="menu-1" aria-expanded="false" aria-haspopup="true">Take action&hellip;</button>
+          <span class="p-contextual-menu__dropdown" id="menu-1" aria-hidden="true">
+            <button class="p-contextual-menu__link">Commission</button>
+            <button class="p-contextual-menu__link">Aquire</button>
+            <button class="p-contextual-menu__link">Deploy</button>
+          </span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <th class="u-truncate">Machine B</th>
+      <td>Ready</td>
+      <td class="u-align--right has-overflow">
+        <span class="p-contextual-menu--left">
+          <button class="p-contextual-menu__toggle u-no-margin--bottom" aria-controls="menu-2" aria-expanded="false" aria-haspopup="true">Take action&hellip;</button>
+          <span class="p-contextual-menu__dropdown" id="menu-2" aria-hidden="true">
+            <button class="p-contextual-menu__link">Commission</button>
+            <button class="p-contextual-menu__link">Aquire</button>
+            <button class="p-contextual-menu__link">Deploy</button>
+          </span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <th>Machine C</th>
+      <td>Ready</td>
+      <td class="u-align--right has-overflow">
+        <span class="p-contextual-menu--left">
+          <button class="p-contextual-menu__toggle u-no-margin--bottom" aria-controls="menu-3" aria-expanded="false" aria-haspopup="true">Take action&hellip;</button>
+          <span class="p-contextual-menu__dropdown" id="menu-3" aria-hidden="true">
+            <button class="p-contextual-menu__link">Commission</button>
+            <button class="p-contextual-menu__link">Aquire</button>
+            <button class="p-contextual-menu__link">Deploy</button>
+          </span>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  {% include 'docs/examples/patterns/contextual-menu/_script.js' %}
+</script>
+{% endblock %}
