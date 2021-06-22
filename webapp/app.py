@@ -34,7 +34,7 @@ TEAM_MEMBERS = [
     {"login": "bartaz", "role": "Senior Web Engineer"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
     {"login": "ziheliu214", "role": "UX Designer"},
-    {"login": "sowasred2012", "role": "Web Developer"},
+    {"login": "sowasred2012", "role": "Web Engineer"},
 ]
 
 
