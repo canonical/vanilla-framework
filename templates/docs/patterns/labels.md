@@ -16,6 +16,14 @@ Labels are static elements which you can apply to signify status, tags or any ot
   </p>
 </div>
 
+### Default
+
+Generic label that carries no semantic meaning.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/labels/default/" class="js-example">
+View example of the default label pattern
+</a></div>
+
 ### New
 
 Label to be used on newly released components, utilities or settings that are safe to use in projects.
