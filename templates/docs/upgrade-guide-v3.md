@@ -81,3 +81,7 @@ We removed the `p-table--sortable` that was previously required to enable sortin
 ### Inline images
 
 We deprecated the inline images component. Please use the logo section component instead.
+
+### Buttons
+
+Neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
