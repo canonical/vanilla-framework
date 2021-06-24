@@ -26,7 +26,9 @@ View example of the default button pattern
 
 ### Neutral
 
-<span class="p-label--deprecated">Deprecated</span> Neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
+<span class="p-label--deprecated">Deprecated</span>
+
+The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
 
 ### Base
 
