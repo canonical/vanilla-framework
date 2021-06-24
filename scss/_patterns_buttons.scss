@@ -24,14 +24,41 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-plain {
-  %p-button {
-    @extend %vf-button-base;
+  %p-button-light {
+    @include vf-button-pattern();
+  }
 
-    @include vf-button-pattern($button-disabled-background-color: transparent, $button-disabled-border-color: transparent);
+  %p-button-dark {
+    @include vf-button-pattern(
+      $button-background-color: $colors--dark-theme--background-default,
+      $button-text-color: $colors--dark-theme--text-default,
+      $button-disabled-background-color: $color-transparent,
+      $button-disabled-border-color: $colors--dark-theme--border-high-contrast,
+      $button-border-color: $colors--dark-theme--border-high-contrast,
+      $button-hover-background-color: $colors--dark-theme--background-hover,
+      $button-hover-border-color: $colors--dark-theme--border-high-contrast,
+      $button-active-background-color: $colors--dark-theme--background-active,
+      $button-active-border-color: $colors--dark-theme--border-high-contrast
+    );
   }
 
   .p-button {
-    @extend %p-button;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button-dark;
+
+      &.is-light {
+        @extend %p-button-light;
+      }
+    } @else {
+      @extend %p-button-light;
+
+      &.is-dark {
+        @extend %p-button-dark;
+      }
+    }
   }
 }
 
