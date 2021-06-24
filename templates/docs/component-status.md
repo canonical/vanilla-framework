@@ -24,6 +24,12 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.32 -->
     <tr>
+      <th><a href="/docs/patterns/buttons#neutral">Button / Neutral</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.32.0</td>
+      <td>Neutral button variant <code>p-button--neutral</code> is deprecated, please use default <code>p-button</code> instead.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/base/tables#overflow">Tables / Overflow</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.32.0</td>

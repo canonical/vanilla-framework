@@ -35,15 +35,18 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   }
 }
 
+// p-button--neutral is is exactly the same as p-button, so we are deprecating it
 @mixin vf-button-neutral {
-  %p-button--neutral {
-    @extend %vf-button-base;
+  @include deprecate('3.0.0', 'Use the `p-button` instead') {
+    %p-button--neutral {
+      @extend %vf-button-base;
 
-    @include vf-button-pattern;
-  }
+      @include vf-button-pattern;
+    }
 
-  .p-button--neutral {
-    @extend %p-button--neutral;
+    .p-button--neutral {
+      @extend %p-button--neutral;
+    }
   }
 }
 
