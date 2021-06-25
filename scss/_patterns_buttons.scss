@@ -78,9 +78,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-brand {
-  %p-button--brand {
-    @extend %vf-button-base;
-
+  %p-button--brand-light {
     @include vf-button-pattern(
       $button-background-color: $color-brand,
       $button-hover-background-color: adjust-color($color-brand, $lightness: -$hover-background-opacity-percentage),
@@ -94,8 +92,40 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
     );
   }
 
+  %p-button--brand-dark {
+    $color-brand-dark: $color-brand !default;
+
+    @include vf-button-pattern(
+      $button-background-color: $color-brand-dark,
+      $button-hover-background-color: adjust-color($color-brand-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-brand-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-background-color: $color-brand-dark,
+      $button-border-color: $color-brand-dark,
+      $button-hover-border-color: adjust-color($color-brand-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-brand-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-border-color: $color-brand-dark,
+      $button-text-color: vf-contrast-text-color($color-brand-dark)
+    );
+  }
+
   .p-button--brand {
-    @extend %p-button--brand;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button--brand-dark;
+
+      &.is-light {
+        @extend %p-button--brand-light;
+      }
+    } @else {
+      @extend %p-button--brand-light;
+
+      &.is-dark {
+        @extend %p-button--brand-dark;
+      }
+    }
+
     @extend %vf-button-white-success-icon;
   }
 }
@@ -118,7 +148,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   }
 
   %p-button--positive-dark {
-    $color-positive-dark: adjust-color($color-positive, $lightness: -10%);
+    $color-positive-dark: adjust-color($color-positive, $lightness: -10%) !default;
 
     @include vf-button-pattern(
       $button-background-color: $color-positive-dark,
@@ -175,7 +205,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   }
 
   %p-button--negative-dark {
-    $color-negative-dark: adjust-color($color-negative, $lightness: -10%);
+    $color-negative-dark: adjust-color($color-negative, $lightness: -10%) !default;
 
     @include vf-button-pattern(
       $button-background-color: $color-negative-dark,
