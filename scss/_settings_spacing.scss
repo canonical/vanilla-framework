@@ -98,8 +98,8 @@ $spv-outer--deep-scaleable: $sp-unit * 2 * (4 + $multi) !default;
 
 // 2. HORIZONTAL SPACING
 // 2.1 Horizontal spacing inside components
-$sph-inner--x-small: $sp-unit * 0.5 !default;
-$sph-inner--small: $sp-unit !default; // input-elements,
+$sph-inner--x-small: $sp-unit * 0.5 !default; // Not currently used
+$sph-inner--small: $sp-unit !default; // input-elements
 $sph-inner: $sp-unit * 2 !default; // buttons, accordions, tabs, menu, card padding, stepped-list bullet offset
 $sph-inner--large: $sp-unit * 3 !default;
 // 2.2 Horizontal spacing outside components
@@ -127,6 +127,7 @@ $sp-after: (
 $spv-nudge: map-get($nudges, nudge--p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
 $input-margin-bottom: $sp-unit * (2 + $multi) - $spv-nudge * 2;
+$input-vertical-padding: calc(#{$spv-nudge} - 1px);
 
 $max-width--default: 40em !default;
 
