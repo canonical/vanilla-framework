@@ -7,15 +7,15 @@
 {% block title %}Component examples{% endblock %}
 
 {% block body %}
-<div class="p-strip is-bordered">
+<main id="main-content" class="p-strip is-bordered">
   <div class="u-fixed-width">
-    <h2>Component examples</h2>
+    <h1>Component examples</h1>
     <hr>
   </div>
 
   <div class="row">
     <div class="col-3">
-      <h3>Base elements</h3>
+      <h2>Base elements</h2>
       <nav aria-label="Documentation: base elements">
         <ul class="p-list">
           {% for example in examples.base %}
@@ -27,7 +27,7 @@
       </nav>
     </div>
     <div class="col-3">
-      <h3>Components</h3>
+      <h2>Components</h2>
       <nav aria-label="Documentation: components">
         <ul class="p-list">
           {% for example in examples.patterns %}
@@ -39,7 +39,7 @@
       </nav>
     </div>
     <div class="col-3">
-      <h3>Utilities</h3>
+      <h2>Utilities</h2>
       <nav aria-label="Documentation: utilities">
         <ul class="p-list">
           {% for example in examples.utilities %}
@@ -51,7 +51,7 @@
       </nav>
     </div>
     <div class="col-3">
-      <h3>Layouts</h3>
+      <h2>Layouts</h2>
       <nav aria-label="Documentation: layouts">
         <ul class="p-list">
           {% for example in examples.layouts %}
@@ -61,7 +61,7 @@
           {% endfor %}
         </ul>
       </nav>
-      <h3>Templates</h3>
+      <h2>Templates</h2>
       <nav aria-label="Documentation: templates">
         <ul class="p-list">
           {% for example in examples.templates %}
@@ -77,5 +77,5 @@
   <div class="u-fixed-width">
     <p><a href="/docs/examples/standalone">Examples using standalone component CSS for testing/debugging</a></p>
   </div>
-</div>
+</main>
 {% endblock %}

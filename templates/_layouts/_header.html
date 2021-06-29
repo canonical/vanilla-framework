@@ -22,9 +22,9 @@
       </ul>
       {% if path.startswith('/docs') %}
       <form class="p-search-box" action="/docs/search">
-        <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation" autocomplete="on" required />
-        <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close"></i></button>
-        <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search"></i></button>
+        <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+        <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+        <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
       </form>
       {% endif %}
     </nav>
