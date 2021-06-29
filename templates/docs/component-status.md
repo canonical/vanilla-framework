@@ -25,7 +25,7 @@ When we add, make significant updates, or deprecate a component we update their 
     <!-- 2.32 -->
     <tr>
       <th><a href="/docs/patterns/buttons#neutral">Labels / Default</a></th>
-      <td><div class="p-label--new">Deprecated</div></td>
+      <td><div class="p-label--new">New</div></td>
       <td>2.32.0</td>
       <td>We've added a default label <code>p-label</code></td>
     </tr>
