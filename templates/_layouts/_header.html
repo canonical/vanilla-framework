@@ -19,15 +19,12 @@
         <li class="p-navigation__link{% if path == '/accessibility' %} is-selected{% endif %}"><a href="/accessibility">Accessibility</a></li>
         <li class="p-navigation__link{% if path == '/browser-support' %} is-selected{% endif %}"><a href="/browser-support">Browser support</a></li>
         <li class="p-navigation__link{% if path == '/contribute' %} is-selected{% endif %}"><a href="/contribute">Contribute</a></li>
-        {% if not path.startswith('/docs') %}
-        <li class="p-navigation__link{% if path == '/showcase' %} is-selected{% endif %}"><a href="/showcase">Showcase</a></li>
-        {% endif %}
       </ul>
       {% if path.startswith('/docs') %}
       <form class="p-search-box" action="/docs/search">
-        <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation" autocomplete="on" required />
-        <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close"></i></button>
-        <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search"></i></button>
+        <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+        <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+        <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
       </form>
       {% endif %}
     </nav>
