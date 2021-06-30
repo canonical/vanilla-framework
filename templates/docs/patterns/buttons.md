@@ -118,6 +118,17 @@ View example of the processing button pattern
 
 The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
 
+### Theming
+
+The buttons use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
+
+- Override the default by adding a state to `p-putton`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
+- Change the default: go to `_settings_themes.scss` and set `$theme-default-p-button` to `dark`
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/dark" class="js-example">
+View example of the buttons with an is-dark class
+</a></div>
+
 ### Accessibility
 
 In some contexts, it may be necessary to indicate to the user that a button is in a pressed state, such as when a button opens a contextual menu. This can be done by adding `aria-pressed="true"` to the button with JavaScript when the button is clicked, and removed when necessary.
