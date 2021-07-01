@@ -3,14 +3,16 @@
 @mixin vf-p-divider {
   .p-divider {
     @extend %vf-row;
+
+    margin-bottom: $spv-outer--scaleable;
   }
 
   .p-divider__block {
     position: relative;
 
     @media (max-width: $threshold-6-12-col) {
-      padding-bottom: $spv-outer--scaleable;
-      padding-top: $spv-inner--scaleable;
+      padding-bottom: $spv-inner--large;
+      padding-top: $spv-inner--large;
 
       &:not(:first-child)::before {
         content: '';

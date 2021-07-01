@@ -3,6 +3,7 @@
 @mixin vf-p-subnav {
   @include deprecate('3.0.0', '.p-subnav will be removed, use .p-navigation__item--dropdown-toggle instead') {
     $color-navigation-background: $color-x-light !default;
+    $subnav-vertical-padding: $spv-inner--large;
 
     .p-subnav {
       position: relative;
@@ -45,7 +46,7 @@
       @media (min-width: $breakpoint-navigation-threshold) {
         position: absolute;
         // padding applied to .p-navigation__link + line-heigh of the anchor text inside
-        top: $spv-inner--large * 2 + map-get($line-heights, default-text);
+        top: $subnav-vertical-padding * 2 + map-get($line-heights, default-text);
       }
 
       @media (max-width: $breakpoint-navigation-threshold - 1) {
