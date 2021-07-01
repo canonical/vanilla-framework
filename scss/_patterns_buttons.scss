@@ -24,14 +24,41 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-plain {
-  %p-button {
-    @extend %vf-button-base;
+  %p-button-light {
+    @include vf-button-pattern();
+  }
 
-    @include vf-button-pattern($button-disabled-background-color: transparent, $button-disabled-border-color: transparent);
+  %p-button-dark {
+    @include vf-button-pattern(
+      $button-background-color: $colors--dark-theme--background-default,
+      $button-text-color: $colors--dark-theme--text-default,
+      $button-disabled-background-color: $color-transparent,
+      $button-disabled-border-color: $colors--dark-theme--border-high-contrast,
+      $button-border-color: $colors--dark-theme--border-high-contrast,
+      $button-hover-background-color: $colors--dark-theme--background-hover,
+      $button-hover-border-color: $colors--dark-theme--border-high-contrast,
+      $button-active-background-color: $colors--dark-theme--background-active,
+      $button-active-border-color: $colors--dark-theme--border-high-contrast
+    );
   }
 
   .p-button {
-    @extend %p-button;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button-dark;
+
+      &.is-light {
+        @extend %p-button-light;
+      }
+    } @else {
+      @extend %p-button-light;
+
+      &.is-dark {
+        @extend %p-button-dark;
+      }
+    }
   }
 }
 
@@ -51,9 +78,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-brand {
-  %p-button--brand {
-    @extend %vf-button-base;
-
+  %p-button--brand-light {
     @include vf-button-pattern(
       $button-background-color: $color-brand,
       $button-hover-background-color: adjust-color($color-brand, $lightness: -$hover-background-opacity-percentage),
@@ -67,16 +92,44 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
     );
   }
 
+  %p-button--brand-dark {
+    @include vf-button-pattern(
+      $button-background-color: $color-brand-dark,
+      $button-hover-background-color: adjust-color($color-brand-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-brand-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-background-color: $color-brand-dark,
+      $button-border-color: $color-brand-dark,
+      $button-hover-border-color: adjust-color($color-brand-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-brand-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-border-color: $color-brand-dark,
+      $button-text-color: vf-contrast-text-color($color-brand-dark)
+    );
+  }
+
   .p-button--brand {
-    @extend %p-button--brand;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button--brand-dark;
+
+      &.is-light {
+        @extend %p-button--brand-light;
+      }
+    } @else {
+      @extend %p-button--brand-light;
+
+      &.is-dark {
+        @extend %p-button--brand-dark;
+      }
+    }
+
     @extend %vf-button-white-success-icon;
   }
 }
 
 @mixin vf-button-positive {
-  %p-button--positive {
-    @extend %vf-button-base;
-
+  %p-button--positive-light {
     @include vf-button-pattern(
       $button-background-color: $color-positive,
       $button-hover-background-color: adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage),
@@ -92,16 +145,46 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
     @include vf-focus($color-focus-positive);
   }
 
+  %p-button--positive-dark {
+    @include vf-button-pattern(
+      $button-background-color: $color-positive-dark,
+      $button-hover-background-color: adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-positive-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-background-color: $color-positive-dark,
+      $button-border-color: $color-positive-dark,
+      $button-hover-border-color: adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-positive-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-border-color: $color-positive-dark,
+      $button-text-color: vf-contrast-text-color($color-positive-dark)
+    );
+
+    @include vf-focus($color-focus-positive);
+  }
+
   .p-button--positive {
-    @extend %p-button--positive;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button--positive-dark;
+
+      &.is-light {
+        @extend %p-button--positive-light;
+      }
+    } @else {
+      @extend %p-button--positive-light;
+
+      &.is-dark {
+        @extend %p-button--positive-dark;
+      }
+    }
+
     @extend %vf-button-white-success-icon;
   }
 }
 
 @mixin vf-button-negative {
-  %p-button--negative {
-    @extend %vf-button-base;
-
+  %p-button--negative-light {
     @include vf-button-pattern(
       $button-background-color: $color-negative,
       $button-hover-background-color: adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage),
@@ -117,17 +200,62 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
     @include vf-focus($color-focus-negative);
   }
 
+  %p-button--negative-dark {
+    @include vf-button-pattern(
+      $button-background-color: $color-negative-dark,
+      $button-hover-background-color: adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-background-color: adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-background-color: $color-negative-dark,
+      $button-border-color: $color-negative-dark,
+      $button-hover-border-color: adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage),
+      $button-active-border-color: adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage),
+      $button-disabled-border-color: $color-negative-dark,
+      $button-text-color: vf-contrast-text-color($color-negative-dark)
+    );
+
+    @include vf-focus($color-focus-negative);
+  }
+
   .p-button--negative {
-    @extend %p-button--negative;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button--negative-dark;
+
+      &.is-light {
+        @extend %p-button--negative-light;
+      }
+    } @else {
+      @extend %p-button--negative-light;
+
+      &.is-dark {
+        @extend %p-button--negative-dark;
+      }
+    }
+
     @extend %vf-button-white-success-icon;
   }
 }
 
 @mixin vf-button-base {
-  %p-button--base {
-    @extend %vf-button-base;
-
+  %p-button--base-light {
     @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-border-color: $color-transparent,
+      $button-hover-border-color: $color-transparent,
+      $button-active-border-color: $color-transparent,
+      $button-disabled-border-color: $color-transparent
+    );
+  }
+
+  %p-button--base-dark {
+    @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-text-color: $colors--dark-theme--text-default,
+      $button-disabled-background-color: $color-transparent,
+      $button-hover-background-color: $colors--dark-theme--background-hover,
+      $button-active-background-color: $colors--dark-theme--background-active,
       $button-border-color: $color-transparent,
       $button-hover-border-color: $color-transparent,
       $button-active-border-color: $color-transparent,
@@ -136,7 +264,22 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   }
 
   .p-button--base {
-    @extend %p-button--base;
+    @extend %vf-button-base;
+
+    // Theming
+    @if ($theme-default-p-button == 'dark') {
+      @extend %p-button--base-dark;
+
+      &.is-light {
+        @extend %p-button--base-light;
+      }
+    } @else {
+      @extend %p-button--base-light;
+
+      &.is-dark {
+        @extend %p-button--base-dark;
+      }
+    }
   }
 }
 

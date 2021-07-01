@@ -29,7 +29,13 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.32.0</td>
       <td>We've added a default label <code>p-label</code></td>
     </tr>
-     <tr>
+    <tr>
+      <th><a href="/docs/patterns/buttons#theming">Button / Dark</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.32.0</td>
+      <td>We added the dark theme to the buttons.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/buttons#neutral">Button / Neutral</a></th>
       <td><div class="p-label--deprecated">Deprecated</div></td>
       <td>2.32.0</td>
