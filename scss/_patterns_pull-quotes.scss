@@ -9,12 +9,12 @@
 
 @mixin vf-pull-quote {
   border: 0;
-  margin: $spv-outer--scaleable 0 $spv-outer--scaleable + $sp-unit;
+  margin: $spv-outer--scaleable 0 $spv-outer--scaleable;
   overflow: visible;
   position: relative;
 
   &.has-image {
-    margin-top: calc(#{$spv-inner--x-large} + #{$spv-outer--scaleable});
+    margin-top: 0;
   }
 }
 
@@ -29,14 +29,13 @@
     .p-pull-quote__citation {
       @extend %vf-heading-6;
 
-      margin-top: $spv-inner--x-small--scaleable;
+      margin-top: $spv-inner--small;
     }
   }
 
   .p-pull-quote__image {
     height: $sp-x-large;
-    position: absolute;
-    top: -$spv-inner--x-large;
+    margin: $spv-inner--large 0 $spv-inner--small;
   }
 
   .p-pull-quote__quote {
@@ -65,7 +64,7 @@
   }
 
   .p-pull-quote {
-    padding: 0 $sph-outer * 2;
+    padding: 0 2rem;
 
     .p-pull-quote__quote {
       @extend %vf-heading-4;
@@ -78,7 +77,7 @@
   }
 
   .p-pull-quote--small {
-    padding: 0 $sph-outer * 1.5;
+    padding: 0 1.5rem;
 
     .p-pull-quote__quote {
       @extend %default-text;
@@ -91,7 +90,7 @@
   }
 
   .p-pull-quote--large {
-    padding: 0 $sph-outer * 2.5;
+    padding: 0 2.5rem;
 
     .p-pull-quote__quote {
       @extend %vf-heading-3;

@@ -26,8 +26,9 @@ $grid-margin-widths: (
   large: $sp-unit * 3,
 ) !default;
 
-$grid-margin-width: $sph-outer--large !default;
-
+@include deprecate('3.0.0', 'Use the `$grid-margin-widths` map instead') {
+  $grid-margin-width: $sph-outer--large !default;
+}
 // Grid breakout template
 $l-fluid-breakout-max-width: $grid-max-width !default;
 $l-fluid-breakout-aside-width: 14rem !default;
