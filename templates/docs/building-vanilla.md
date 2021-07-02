@@ -86,7 +86,7 @@ yarn add node-sass css-loader sass-loader style-loader
 Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```
-@import vanilla-framework/scss/vanilla;
+@import 'vanilla-framework/scss/vanilla';
 @include vanilla;
 ```
 
@@ -97,7 +97,7 @@ var path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/app.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -118,10 +118,6 @@ module.exports = {
           {
             // Loads a SASS/SCSS file and compiles it to CSS
             loader: 'sass-loader',
-            options: {
-              // Include the path to Vanilla
-              includePaths: ['./node_modules']
-            }
           }
         ]
       }
@@ -175,7 +171,7 @@ yarn add webpack-dev-server
 And add a `"start"` script to your `package.json` to run it:
 
 ```
-"start": "webpack-dev-server"
+"start": "webpack serve --open"
 ```
 
 Now when you run `yarn start`, the Webpack development server will start at `http://localhost:8080/` by default. It should show the same `index.html` file as before, however now you can edit the styles in `src/style.scss` and the page will automatically refresh to reflect the changes.
