@@ -47,6 +47,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.32.0</td>
       <td>We introduced the <code>.has-overflow</code> utility for table cells, to aid with the display of components that need to overflow the cell, such as tooltips and contextual menus.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/base/tables#responsive">Tables / Responsive</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.32.0</td>
+      <td>The <code>.p-table--mobile-card</code> previously contained style overrides for the <a href="https://vanillaframework.io/docs/examples/patterns/contextual-menu/default">contextual menu pattern</a>, these have been removed so that contextual menus within responsive tables look and behave the same as they do elsewhere.</td>
+    </tr>
   </tbody>
 </table>
 

@@ -46,12 +46,16 @@
           white-space: nowrap;
           width: 100%;
           word-break: break-word;
-          // stylelint-disable-next-line max-nesting-depth
+          // stylelint-disable max-nesting-depth
           &.u-align--right {
             justify-content: unset !important;
             text-align: left !important;
           }
-          // stylelint-disable-next-line max-nesting-depth
+
+          &.has-overflow {
+            overflow: visible;
+          }
+
           &[aria-label]::before {
             content: attr(aria-label);
             display: block;
@@ -62,7 +66,7 @@
             text-overflow: ellipsis;
             width: 100%;
           }
-          // stylelint-disable-next-line max-nesting-depth
+
           &:not(:first-child)::after {
             background-color: $color-mid-light;
             content: '';
@@ -72,65 +76,11 @@
             right: 0;
             top: 0;
           }
+          // stylelint-enable max-nesting-depth
         }
       }
 
       // stylelint-enable selector-max-type
-
-      // Styles contextual menus differently within mobile-card tables
-      .p-contextual-menu {
-        width: 100%;
-
-        // Initial menu item for actions should be hidden
-        [role='menuitem'] {
-          display: none;
-        }
-      }
-
-      .p-contextual-menu__dropdown {
-        box-shadow: none;
-        display: block;
-        max-width: 100%;
-        position: relative;
-
-        &::before {
-          display: none;
-        }
-      }
-
-      .p-contextual-menu__group {
-        padding: 0;
-
-        + .p-contextual-menu__group {
-          margin-top: $sp-small;
-          padding-top: $sp-small;
-        }
-      }
-
-      // Any link items should be styled as a button element
-      .p-contextual-menu__link {
-        border: {
-          color: $color-mid-light;
-          radius: 0.125rem;
-          style: solid;
-          width: 1px;
-        }
-
-        box-sizing: border-box;
-        color: $color-x-dark;
-        cursor: pointer;
-        display: block;
-        line-height: $sp-medium;
-        outline: none;
-        padding: $sp-small $sp-large;
-        text-align: center;
-        text-decoration: none;
-        width: 100%;
-
-        + .p-contextual-menu__link {
-          margin-top: $sp-x-small;
-        }
-      }
     }
 
     @media (max-width: $breakpoint-small) {
