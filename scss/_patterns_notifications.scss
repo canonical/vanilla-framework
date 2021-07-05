@@ -6,10 +6,10 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-p-notification {
   // The mixin for basic notification styling
   %vf-notification {
-    @extend %vf-has-round-corners;
-    @extend %vf-has-box-shadow;
     @extend %vf-card;
+    @extend %vf-is-bordered;
 
+    border-radius: 0 $border-radius $border-radius 0;
     display: flex;
     overflow: hidden;
     padding: 0;
@@ -34,7 +34,6 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-mid-dark);
 
     & + & {
       margin-top: $spv-outer--scaleable; // negate bottom margin
@@ -51,6 +50,8 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
   .p-notification__status {
     @extend %bold;
+
+    display: block;
   }
 
   .p-notification__status::after,
@@ -68,7 +69,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-positive {
   .p-notification--positive {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-positive);
+    @include vf-highlight-bar($color-positive, left);
 
     .p-notification__response {
       @include vf-icon-success;
@@ -82,7 +83,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-caution {
   .p-notification--caution {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-caution);
+    @include vf-highlight-bar($color-caution, left);
 
     .p-notification__response {
       @include vf-icon-warning;
@@ -96,7 +97,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-negative {
   .p-notification--negative {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-negative);
+    @include vf-highlight-bar($color-negative, left);
 
     .p-notification__response {
       @include vf-icon-error;
@@ -110,6 +111,12 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-information);
+    @include vf-highlight-bar($color-information, left);
+
+    .p-notification__response {
+      @include vf-icon-info($color-mid-dark);
+
+      padding-left: $response-icon-space;
+    }
   }
 }
