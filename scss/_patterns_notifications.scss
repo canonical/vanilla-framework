@@ -78,8 +78,6 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
     .p-notification__response {
       @include vf-icon-success;
-
-      padding-left: $response-icon-space;
     }
   }
 }
@@ -92,8 +90,6 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
     .p-notification__response {
       @include vf-icon-warning;
-
-      padding-left: $response-icon-space;
     }
   }
 }
@@ -106,8 +102,6 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
     .p-notification__response {
       @include vf-icon-error;
-
-      padding-left: $response-icon-space;
     }
   }
 }
@@ -116,5 +110,10 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
+    @include vf-highlight-bar($color-information, left);
+
+    .p-notification__response {
+      @include vf-icon-info($color-mid-dark);
+    }
   }
 }
