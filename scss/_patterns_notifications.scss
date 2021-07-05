@@ -1,5 +1,5 @@
 @import 'settings';
-$response-top-padding: $spv-nudge + $spv-inner--small;
+$response-top-padding: $spv-inner--small;
 $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 
 // Notification style patterns
@@ -34,6 +34,11 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
+    @include vf-highlight-bar($color-information, left);
+
+    .p-notification__response {
+      @include vf-icon-info($color-mid-dark);
+    }
 
     & + & {
       margin-top: $spv-outer--scaleable; // negate bottom margin
@@ -45,7 +50,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     margin-bottom: 0;
-    padding: $response-top-padding $sph-inner $spv-nudge-compensation + $spv-inner--small;
+    padding: $response-top-padding $sph-inner + $spv-inner--small $response-top-padding $response-icon-space;
   }
 
   .p-notification__status {
@@ -111,12 +116,5 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-information, left);
-
-    .p-notification__response {
-      @include vf-icon-info($color-mid-dark);
-
-      padding-left: $response-icon-space;
-    }
   }
 }
