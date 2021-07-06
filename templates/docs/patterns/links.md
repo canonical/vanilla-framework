@@ -62,7 +62,7 @@ View example of the back to top pattern
 
 <span class="p-label--new">New</span>
 
-The `.p-skip-link` link is used to help keyboard users navigate quickly to the main content of a page. It should be the first element that can be tabbed to on any page, and should reference either the `<main>` landmark region element, or the ID of an element that contains the main content of the page.
+The `.p-link--skip` link is used to help keyboard users navigate quickly to the main content of a page. It should be the first element that can be tabbed to on any page, and should reference either the `<main>` landmark region element, or the ID of an element that contains the main content of the page.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/links/links-skip/" class="js-example">
 View example of the back to skip link pattern
