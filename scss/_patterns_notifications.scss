@@ -1,12 +1,12 @@
 @import 'settings';
-$response-top-padding: $spv-inner--small;
-$response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
+$content-top-padding: $spv-inner--small;
+$content-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
+$content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--small);
 
 // Notification style patterns
 @mixin vf-p-notification {
   // The mixin for basic notification styling
   %vf-notification {
-    @extend %vf-card;
     @extend %vf-is-bordered;
 
     border-radius: 0 $border-radius $border-radius 0;
@@ -15,11 +15,11 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     padding: 0;
 
     .p-notification__content {
-      background-position: $sph-inner $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
+      background-position: $sph-inner $content-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
       background-repeat: no-repeat;
       background-size: map-get($icon-sizes, default);
       margin-bottom: 0;
-      padding: $response-top-padding $sph-inner + $spv-inner--small $response-top-padding $response-icon-space;
+      padding: $content-top-padding $sph-inner + $spv-inner--small $content-top-padding $content-icon-space;
     }
 
     .p-notification__title {
@@ -32,12 +32,38 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
       display: block;
     }
 
+    &.is-borderless {
+      border-color: transparent;
+
+      .p-notification__content {
+        background-color: transparent;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &.is-inline {
+      .p-notification__title {
+        display: inline;
+      }
+
+      .p-notification__message {
+        display: inline;
+      }
+    }
+
+    & + & {
+      margin-top: $spv-outer--scaleable;
+    }
+
     @include deprecate('3.0.0', 'Use `.p-notification__close` instead') {
       .p-icon--close {
         background-color: transparent;
         background-size: map-get($icon-sizes, default);
         border: 0;
-        margin: $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default)) $sph-inner auto auto;
+        margin: $content-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default)) $sph-inner auto auto;
         padding: $sp-unit;
       }
     }
@@ -65,19 +91,15 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
         @include vf-icon-info($color-mid-dark);
       }
     }
-
-    & + & {
-      margin-top: $spv-outer--scaleable; // negate bottom margin
-    }
   }
 
   @include deprecate('3.0.0', 'Use the new notification structure instead') {
     .p-notification__response {
-      background-position: $sph-inner $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
+      background-position: $sph-inner $content-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
       background-repeat: no-repeat;
       background-size: map-get($icon-sizes, default);
       margin-bottom: 0;
-      padding: $response-top-padding $sph-inner + $spv-inner--small $response-top-padding $response-icon-space;
+      padding: $content-top-padding $sph-inner + $spv-inner--small $content-top-padding $content-icon-space;
     }
 
     .p-notification__status {
