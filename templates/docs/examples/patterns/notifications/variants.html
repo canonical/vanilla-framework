@@ -1,0 +1,269 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Notifications / Variants {% endblock %}
+
+{% block standalone_css %}patterns_notifications{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ versioned_static('build/css/standalone/patterns_icons-additional.css') }}" />
+{% endblock %}
+
+{% block content %}
+<h4>Meta - Action buttons</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__actions">
+      <button class="p-button--base">Cancel</button>
+      <button class="p-button--positive">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<h4>Meta - Action links</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+    <button class="p-notification__close">Close</button>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__actions">
+      <a href="#" class="p-link--external">Link</a>
+      <button class="p-button--link">Action</button>
+    </div>
+  </div>
+</div>
+
+<h4>Meta - Action menu</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+    <button class="p-notification__close">Close</button>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__actions">
+      <span class="p-contextual-menu--left">
+        <button class="p-button--neutral p-contextual-menu__toggle has-icon" aria-controls="menu-3" aria-expanded="false" aria-haspopup="true"><i class="p-icon--chevron-down p-contextual-menu__indicator"></i></button>
+        <span class="p-contextual-menu__dropdown" id="menu-3" aria-hidden="true">
+            <a href="#" class="p-contextual-menu__link">
+              <i class="p-icon--timed-out"></i>
+              Snooze
+            </a>
+            <a href="#" class="p-contextual-menu__link">
+              <i class="p-icon--show"></i>
+              Mark as read
+            </a>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<h4>Meta - date</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+    <button class="p-notification__close">Close</button>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__time">1h ago</div>
+  </div>
+</div>
+
+<h4>Meta - date + actions</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__time">1h ago</div>
+    <div class="p-notification__actions">
+      <button class="p-button--link">Action</button>
+    </div>
+  </div>
+</div>
+
+<h4>Borderless</h4>
+<div class="p-notification--caution is-borderless">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<h4>Borderless inline</h4>
+<div class="p-notification--caution is-borderless is-inline">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<h4>Collapsed</h4>
+<div class="p-notification--negative is-collapsed">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__actions">
+      <button class="p-button--link u-text--muted">View 9+ additional notifications</button>
+    </div>
+  </div>
+  <div class="p-notification__stack--caution"></div>
+  <div class="p-notification__stack"></div>
+</div>
+
+<h4>Dismissable</h4>
+<div class="p-notification" id="notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+    <button class="p-notification__close" aria-label="Close notification" aria-controls="notification">Close</button>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__time">1h ago</div>
+    <div class="p-notification__actions">
+      <button>Action</button>
+    </div>
+  </div>
+</div>
+
+<h4>Inline</h4>
+<div class="p-notification--caution is-inline">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title:</div>
+    <div class="p-notification__message">Body copy goes here</div>
+  </div>
+</div>
+
+<h4>Inline multiline</h4>
+<div class="p-notification--caution is-inline" style="width: 20rem">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title:</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<h4>Modal</h4>
+<div class="p-notification--caution is-modal">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Signed out</div>
+    <div class="p-notification__message">Your session has expired, please sign in again.</div>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__actions">
+      <button class="p-button">Sign in</button>
+    </div>
+  </div>
+</div>
+
+<h4>Modal inline</h4>
+<div class="p-notification--caution is-modal is-inline">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Signed out</div>
+    <div class="p-notification__message">Your session has expired, please sign in again.</div>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__actions">
+      <button class="p-button--neutral">Sign in</button>
+    </div>
+  </div>
+</div>
+
+<h4>No title</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<h4>Raised</h4>
+<div class="p-notification is-raised">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<h4>Snoozed</h4>
+<div class="p-notification is-snoozed">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+    <button class="p-notification__close">Close</button>
+  </div>
+  <div class="p-notification__meta">
+    <div class="p-notification__time">1h ago</div>
+    <div class="p-notification__actions">
+      <a href="#" class="p-link--external">Link</a>
+      <button class="p-button--link">Action</button>
+    </div>
+  </div>
+</div>
+
+<h4>Unread</h4>
+<div class="p-notification is-unread">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<h4>Spacing</h4>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+<div class="p-notification">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+<div class="p-notification is-borderless">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+<div class="p-notification is-borderless">
+  <div class="p-notification__content">
+    <div class="p-notification__title">Title</div>
+    <div class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</div>
+  </div>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/contextual-menu/_script.js' %}
+  /**
+    Attaches event listener for hide notification on close button click.
+    @param {HTMLElement} closeButton The notification close button element.
+  */
+  function setupCloseButton(closeButton) {
+    closeButton.addEventListener('click', function(event) {
+      var target = event.target.getAttribute('aria-controls');
+      var notification = document.getElementById(target);
+  
+      if (notification) {
+        notification.classList.add('u-hide');
+      }
+    });
+  }
+  
+  // Set up all notification close buttons.
+  var closeButtons = document.querySelectorAll('.p-notification [aria-controls]');
+  
+  for (var i = 0, l = closeButtons.length; i < l; i++) {
+    setupCloseButton(closeButtons[i]);
+  }
+</script>
+{% endblock %}
