@@ -1,7 +1,7 @@
 @import 'settings';
-$content-top-padding: $spv-inner--small;
-$content-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
-$content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--small);
+$notification-content-vert-padding: $spv-inner--small;
+$notification-content-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
+$notification-icon-vert-offset: 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
 
 // Notification style patterns
 @mixin vf-p-notification {
@@ -11,32 +11,17 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
 
     border-radius: 0 $border-radius $border-radius 0;
     display: flex;
+    margin-bottom: $spv-outer--scaleable;
     overflow: hidden;
     padding: 0;
-
-    .p-notification__content {
-      background-position: $sph-inner $content-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
-      background-repeat: no-repeat;
-      background-size: map-get($icon-sizes, default);
-      margin-bottom: 0;
-      padding: $content-top-padding $sph-inner + $spv-inner--small $content-top-padding $content-icon-space;
-    }
-
-    .p-notification__title {
-      @extend %bold;
-
-      display: block;
-    }
-
-    .p-notification__message {
-      display: block;
-    }
 
     &.is-borderless {
       border-color: transparent;
 
       .p-notification__content {
         background-color: transparent;
+        background-position: 0 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
+        padding: 0 0 0 2 * $sph-inner;
       }
 
       &::before {
@@ -53,20 +38,25 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
         display: inline;
       }
     }
+  }
 
-    & + & {
-      margin-top: $spv-outer--scaleable;
-    }
+  .p-notification__content {
+    background-position: $sph-inner $notification-content-vert-padding + $notification-icon-vert-offset;
+    background-repeat: no-repeat;
+    background-size: map-get($icon-sizes, default);
+    margin-bottom: 0;
+    margin-top: -1px;
+    padding: $notification-content-vert-padding $sph-inner + $spv-inner--small $notification-content-vert-padding $notification-content-icon-space;
+  }
 
-    @include deprecate('3.0.0', 'Use `.p-notification__close` instead') {
-      .p-icon--close {
-        background-color: transparent;
-        background-size: map-get($icon-sizes, default);
-        border: 0;
-        margin: $content-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default)) $sph-inner auto auto;
-        padding: $sp-unit;
-      }
-    }
+  .p-notification__title {
+    @extend %bold;
+
+    display: block;
+  }
+
+  .p-notification__message {
+    display: block;
   }
 
   @include vf-notifications-default;
@@ -74,6 +64,7 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
   @include vf-notifications-caution;
   @include vf-notifications-negative;
   @include vf-notifications-information;
+  @include vf-notifications-deprecated;
 }
 
 // Default notification styling
@@ -84,38 +75,6 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
 
     .p-notification__content {
       @include vf-icon-info($color-mid-dark);
-    }
-
-    @include deprecate('3.0.0', 'Use `.p-notification__content` instead') {
-      .p-notification__response {
-        @include vf-icon-info($color-mid-dark);
-      }
-    }
-  }
-
-  @include deprecate('3.0.0', 'Use the new notification structure instead') {
-    .p-notification__response {
-      background-position: $sph-inner $content-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
-      background-repeat: no-repeat;
-      background-size: map-get($icon-sizes, default);
-      margin-bottom: 0;
-      padding: $content-top-padding $sph-inner + $spv-inner--small $content-top-padding $content-icon-space;
-    }
-
-    .p-notification__status {
-      @extend %bold;
-
-      display: block;
-    }
-
-    .p-notification__status::after,
-    .p-notification__action::before {
-      content: ' ';
-    }
-
-    .p-notification__response,
-    .p-notification--floating {
-      max-width: unset;
     }
   }
 }
@@ -129,12 +88,6 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
     .p-notification__content {
       @include vf-icon-success;
     }
-
-    @include deprecate('3.0.0', 'Use `.p-notification__content` instead') {
-      .p-notification__response {
-        @include vf-icon-success;
-      }
-    }
   }
 }
 
@@ -146,12 +99,6 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
 
     .p-notification__content {
       @include vf-icon-warning;
-    }
-
-    @include deprecate('3.0.0', 'Use `.p-notification__content` instead') {
-      .p-notification__response {
-        @include vf-icon-warning;
-      }
     }
   }
 }
@@ -165,12 +112,6 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
     .p-notification__content {
       @include vf-icon-error;
     }
-
-    @include deprecate('3.0.0', 'Use `.p-notification__content` instead') {
-      .p-notification__response {
-        @include vf-icon-error;
-      }
-    }
   }
 }
 
@@ -183,10 +124,61 @@ $content-icon-space--large: 2 * $sph-inner + map-get($icon-sizes, heading-icon--
     .p-notification__content {
       @include vf-icon-info($color-mid-dark);
     }
+  }
+}
 
-    @include deprecate('3.0.0', 'Use `.p-notification__content` instead') {
+@mixin vf-notifications-deprecated {
+  @include deprecate('3.0.0', 'Use new notification structure instead') {
+    [class^='p-notification'] {
       .p-notification__response {
+        background-position: $sph-inner $notification-content-vert-padding + $notification-icon-vert-offset;
+        background-repeat: no-repeat;
+        background-size: map-get($icon-sizes, default);
+        margin-bottom: 0;
+        padding: $notification-content-vert-padding $sph-inner + $spv-inner--small $notification-content-vert-padding $notification-content-icon-space;
+      }
+
+      .p-notification__status {
+        @extend %bold;
+
+        display: block;
+      }
+
+      .p-notification__status::after,
+      .p-notification__action::before {
+        content: ' ';
+      }
+
+      .p-notification__response,
+      .p-notification--floating {
+        max-width: unset;
+      }
+
+      .p-icon--close {
+        background-color: transparent;
+        background-size: map-get($icon-sizes, default);
+        border: 0;
+        margin: $notification-content-vert-padding + $notification-icon-vert-offset $sph-inner auto auto;
+        padding: $sp-unit;
+      }
+    }
+
+    .p-notification__response {
+      .p-notification &,
+      .p-notification--information & {
         @include vf-icon-info($color-mid-dark);
+      }
+
+      .p-notification--caution & {
+        @include vf-icon-warning;
+      }
+
+      .p-notification--negative & {
+        @include vf-icon-error;
+      }
+
+      .p-notification--positive & {
+        @include vf-icon-success;
       }
     }
   }
