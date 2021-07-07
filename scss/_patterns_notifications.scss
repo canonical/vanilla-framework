@@ -1,26 +1,62 @@
 @import 'settings';
-$response-top-padding: $spv-inner--small;
-$response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
+$notification-content-vert-padding: $spv-inner--small;
+$notification-content-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
+$notification-icon-vert-offset: 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
 
 // Notification style patterns
 @mixin vf-p-notification {
   // The mixin for basic notification styling
   %vf-notification {
-    @extend %vf-card;
     @extend %vf-is-bordered;
 
     border-radius: 0 $border-radius $border-radius 0;
     display: flex;
+    margin-bottom: $spv-outer--scaleable;
     overflow: hidden;
     padding: 0;
 
-    .p-icon--close {
-      background-color: transparent;
-      background-size: map-get($icon-sizes, default);
-      border: 0;
-      margin: $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default)) $sph-inner auto auto;
-      padding: $sp-unit;
+    &.is-borderless {
+      border-color: transparent;
+
+      .p-notification__content {
+        background-color: transparent;
+        background-position: 0 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
+        padding: 0 0 0 2 * $sph-inner;
+      }
+
+      &::before {
+        display: none;
+      }
     }
+
+    &.is-inline {
+      .p-notification__title {
+        display: inline;
+      }
+
+      .p-notification__message {
+        display: inline;
+      }
+    }
+  }
+
+  .p-notification__content {
+    background-position: $sph-inner $notification-content-vert-padding + $notification-icon-vert-offset;
+    background-repeat: no-repeat;
+    background-size: map-get($icon-sizes, default);
+    margin-bottom: 0;
+    margin-top: -1px;
+    padding: $notification-content-vert-padding $sph-inner + $spv-inner--small $notification-content-vert-padding $notification-content-icon-space;
+  }
+
+  .p-notification__title {
+    @extend %bold;
+
+    display: block;
+  }
+
+  .p-notification__message {
+    display: block;
   }
 
   @include vf-notifications-default;
@@ -28,6 +64,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
   @include vf-notifications-caution;
   @include vf-notifications-negative;
   @include vf-notifications-information;
+  @include vf-notifications-deprecated;
 }
 
 // Default notification styling
@@ -36,37 +73,9 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     @extend %vf-notification;
     @include vf-highlight-bar($color-information, left);
 
-    .p-notification__response {
+    .p-notification__content {
       @include vf-icon-info($color-mid-dark);
     }
-
-    & + & {
-      margin-top: $spv-outer--scaleable; // negate bottom margin
-    }
-  }
-
-  .p-notification__response {
-    background-position: $sph-inner $response-top-padding + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
-    background-repeat: no-repeat;
-    background-size: map-get($icon-sizes, default);
-    margin-bottom: 0;
-    padding: $response-top-padding $sph-inner + $spv-inner--small $response-top-padding $response-icon-space;
-  }
-
-  .p-notification__status {
-    @extend %bold;
-
-    display: block;
-  }
-
-  .p-notification__status::after,
-  .p-notification__action::before {
-    content: ' ';
-  }
-
-  .p-notification__response,
-  .p-notification--floating {
-    max-width: unset;
   }
 }
 
@@ -76,7 +85,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     @extend %vf-notification;
     @include vf-highlight-bar($color-positive, left);
 
-    .p-notification__response {
+    .p-notification__content {
       @include vf-icon-success;
     }
   }
@@ -88,7 +97,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     @extend %vf-notification;
     @include vf-highlight-bar($color-caution, left);
 
-    .p-notification__response {
+    .p-notification__content {
       @include vf-icon-warning;
     }
   }
@@ -100,7 +109,7 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     @extend %vf-notification;
     @include vf-highlight-bar($color-negative, left);
 
-    .p-notification__response {
+    .p-notification__content {
       @include vf-icon-error;
     }
   }
@@ -112,8 +121,65 @@ $response-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
     @extend %vf-notification;
     @include vf-highlight-bar($color-information, left);
 
-    .p-notification__response {
+    .p-notification__content {
       @include vf-icon-info($color-mid-dark);
+    }
+  }
+}
+
+@mixin vf-notifications-deprecated {
+  @include deprecate('3.0.0', 'Use new notification structure instead') {
+    [class^='p-notification'] {
+      .p-notification__response {
+        background-position: $sph-inner $notification-content-vert-padding + $notification-icon-vert-offset;
+        background-repeat: no-repeat;
+        background-size: map-get($icon-sizes, default);
+        margin-bottom: 0;
+        padding: $notification-content-vert-padding $sph-inner + $spv-inner--small $notification-content-vert-padding $notification-content-icon-space;
+      }
+
+      .p-notification__status {
+        @extend %bold;
+
+        display: block;
+      }
+
+      .p-notification__status::after,
+      .p-notification__action::before {
+        content: ' ';
+      }
+
+      .p-notification__response,
+      .p-notification--floating {
+        max-width: unset;
+      }
+
+      .p-icon--close {
+        background-color: transparent;
+        background-size: map-get($icon-sizes, default);
+        border: 0;
+        margin: $notification-content-vert-padding + $notification-icon-vert-offset $sph-inner auto auto;
+        padding: $sp-unit;
+      }
+    }
+
+    .p-notification__response {
+      .p-notification &,
+      .p-notification--information & {
+        @include vf-icon-info($color-mid-dark);
+      }
+
+      .p-notification--caution & {
+        @include vf-icon-warning;
+      }
+
+      .p-notification--negative & {
+        @include vf-icon-error;
+      }
+
+      .p-notification--positive & {
+        @include vf-icon-success;
+      }
     }
   }
 }
