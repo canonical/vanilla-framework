@@ -22,6 +22,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.33 -->
+    <tr>
+      <th><a href="/docs/patterns/links#skip-link">Links / Skip Link</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.33.0</td>
+      <td>We added a new link variant, <code>.p-link--skip</code>, that places a link offscreen and is revealed on focus.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.32 -->
     <tr>
       <th><a href="/docs/patterns/labels#default">Labels / Default</a></th>
@@ -53,21 +75,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.32.0</td>
       <td>The <code>.p-table--mobile-card</code> previously contained style overrides for the <a href="https://vanillaframework.io/docs/examples/patterns/contextual-menu/default">contextual menu pattern</a>, these have been removed so that contextual menus within responsive tables look and behave the same as they do elsewhere.</td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.31 -->
     <tr>
       <th><a href="/docs/patterns/navigation#dropdown">Navigation / Dropdown</a></th>

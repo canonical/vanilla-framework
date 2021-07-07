@@ -31,6 +31,24 @@
     }
   }
 
+  .p-link--skip {
+    color: $color-link;
+    display: block;
+    left: -999px;
+    position: absolute;
+    top: -999px;
+
+    &:focus {
+      @include vf-focus;
+
+      left: 0;
+      padding: $spv-inner--x-small;
+      position: relative;
+      top: 0;
+      z-index: 999999;
+    }
+  }
+
   // include external link styles only if CSS mask is supported
   @supports (mask-size: 1em) or (-webkit-mask-size: 1em) {
     @include vf-mask-supported;
