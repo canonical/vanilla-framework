@@ -58,6 +58,16 @@ The `.p-top` link can be used to make it easier to go back to the top on long pa
 View example of the back to top pattern
 </a></div>
 
+### Skip link
+
+<span class="p-label--new">New</span>
+
+The `.p-link--skip` link is used to help keyboard users navigate quickly to the main content of a page. It should be the first element that can be tabbed to on any page, and should reference either the `<main>` landmark region element, or the ID of an element that contains the main content of the page.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/links/links-skip/" class="js-example">
+View example of the back to skip link pattern
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
