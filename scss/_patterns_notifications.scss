@@ -9,6 +9,7 @@ $notification-text-margin-bottom: 0.6rem;
   // The mixin for basic notification styling
   %vf-notification {
     @extend %vf-is-bordered;
+    @extend %vf-bg--x-light;
 
     background-position: $sph-inner $notification-icon-vert-offset;
     background-repeat: no-repeat;
@@ -18,6 +19,10 @@ $notification-text-margin-bottom: 0.6rem;
     margin-top: -1px;
     padding-left: $notification-content-icon-space;
     position: relative;
+
+    &::before {
+      left: -1px !important;
+    }
 
     &.is-borderless {
       background-color: transparent;
@@ -46,7 +51,9 @@ $notification-text-margin-bottom: 0.6rem;
     }
 
     &.is-modal {
-      box-shadow: $box-shadow;
+      @extend %vf-has-box-shadow;
+
+      border-color: transparent;
 
       .p-notification__actions:only-child {
         margin-left: unset;
@@ -58,7 +65,9 @@ $notification-text-margin-bottom: 0.6rem;
     }
 
     &.is-raised {
-      box-shadow: 0 0 2rem 0 rgba($color-x-dark, $shadow-opacity);
+      @extend %vf-has-box-shadow--deep;
+
+      border-color: transparent;
     }
 
     &.is-unread {
@@ -96,23 +105,23 @@ $notification-text-margin-bottom: 0.6rem;
   .p-notification__close {
     @extend %vf-hide-text;
     @include vf-icon-close($color-mid-dark);
-    @include vf-icon-size($default-icon-size);
 
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: unset;
     border: 0;
-    margin: 0;
-    padding: $sp-unit;
+    width: $default-icon-size;
     position: absolute;
-    right: $sph-inner;
-    top: $notification-content-vert-padding + $notification-icon-vert-offset;
+    right: $sph-inner / 2;
+    top: $spv-outer--small;
   }
 
   .p-notification__meta {
     display: flex;
     justify-content: space-between;
     padding-right: $sph-inner;
+    align-items: baseline;
   }
 
   .p-notification__time {
@@ -134,10 +143,6 @@ $notification-text-margin-bottom: 0.6rem;
   .p-notification__action {
     margin: 0;
 
-    [class*='p-button'] {
-      margin-bottom: 0;
-    }
-
     & + & {
       margin-left: $sph-outer;
     }
@@ -155,7 +160,7 @@ $notification-text-margin-bottom: 0.6rem;
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-information, left);
+    @include vf-highlight-bar($color-information, left, true);
     @include vf-icon-info($color-mid-dark);
   }
 }
@@ -164,7 +169,7 @@ $notification-text-margin-bottom: 0.6rem;
 @mixin vf-notifications-positive {
   .p-notification--positive {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-positive, left);
+    @include vf-highlight-bar($color-positive, left, true);
     @include vf-icon-success;
   }
 }
@@ -173,7 +178,7 @@ $notification-text-margin-bottom: 0.6rem;
 @mixin vf-notifications-caution {
   .p-notification--caution {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-caution, left);
+    @include vf-highlight-bar($color-caution, left, true);
     @include vf-icon-warning;
   }
 }
@@ -182,7 +187,7 @@ $notification-text-margin-bottom: 0.6rem;
 @mixin vf-notifications-negative {
   .p-notification--negative {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-negative, left);
+    @include vf-highlight-bar($color-negative, left, true);
     @include vf-icon-error;
   }
 }
@@ -191,7 +196,7 @@ $notification-text-margin-bottom: 0.6rem;
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-information, left);
+    @include vf-highlight-bar($color-information, left, true);
     @include vf-icon-info($color-mid-dark);
   }
 }
