@@ -1,0 +1,38 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Notifications / Dismissable{% endblock %}
+
+{% block standalone_css %}patterns_notifications{% endblock %}
+
+{% block content %}
+<div class="p-notification" id="notification">
+  <div class="p-notification__content">
+    <h4 class="p-notification__title">Title</h4>
+    <p class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</p>
+    <button class="p-notification__close" aria-controls="notification">Close</button>
+  </div>
+</div>
+
+<script>
+  /**
+    Attaches event listener for hide notification on close button click.
+    @param {HTMLElement} closeButton The notification close button element.
+  */
+  function setupCloseButton(closeButton) {
+    closeButton.addEventListener('click', function(event) {
+      var target = event.target.getAttribute('aria-controls');
+      var notification = document.getElementById(target);
+  
+      if (notification) {
+        notification.classList.add('u-hide');
+      }
+    });
+  }
+  
+  // Set up all notification close buttons.
+  var closeButtons = document.querySelectorAll('.p-notification__close');
+  
+  for (var i = 0, l = closeButtons.length; i < l; i++) {
+    setupCloseButton(closeButtons[i]);
+  }
+</script>
+{% endblock %}
