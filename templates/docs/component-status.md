@@ -29,6 +29,18 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.33.0</td>
       <td>We added a new link variant, <code>.p-link--skip</code>, that places a link offscreen and is revealed on focus.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/patterns/notification">Notifications</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.33.0</td>
+      <td>Notifications have been updated with a new appearance, requiring a new HTML structure.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/notification#deprecated">Notifications structure</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.33.0</td>
+      <td>The following notification classes have been deprecated: <code>.p-notification__response</code>, <code>.p-notification__status</code></td>
+    </tr>
   </tbody>
 </table>
 

@@ -1,0 +1,67 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Notifications / Deprecated{% endblock %}
+
+{% block standalone_css %}patterns_notifications{% endblock %}
+
+{% block content %}
+<h4>Action</h4>
+<div class="p-notification">
+  <p class="p-notification__response" role="status">
+    The bundle author has not provided a getstarted.md file.<a href="#" class="p-notification__action">Dismiss</a>
+  </p>
+</div>
+<h4>Caution</h4>
+<div class="p-notification--caution">
+  <p class="p-notification__response" role="status">
+    <span class="p-notification__status">Blocked:</span>Custom storage configuration is only supported on Ubuntu, CentOS and RHEL.
+  </p>
+</div>
+<h4>Default</h4>
+<div class="p-notification" id="notification">
+  <p class="p-notification__response">
+    We use cookies to improve your experience. By your continued use of this site you accept such use.
+  </p>
+  <button class="p-icon--close" aria-label="Close notification" aria-controls="notification">Close</button>
+</div>
+<h4>Information</h4>
+<div class="p-notification--information">
+  <p class="p-notification__response" role="status">
+    <span class="p-notification__status">Permissions changed:</span>Anyone with access can view your invited users.
+  </p>
+</div>
+<h4>Negative</h4>
+<div class="p-notification--negative">
+  <p class="p-notification__response" role="status">
+    <span class="p-notification__status">Error:</span>Node must be connected to a network.
+  </p>
+</div>
+<h4>Positive</h4>
+<div class="p-notification--positive">
+  <p class="p-notification__response" role="status">
+    <span class="p-notification__status">Success:</span>Code successfully reformatted.
+</div>
+
+<script>
+/**
+  Attaches event listener for hide notification on close button click.
+  @param {HTMLElement} closeButton The notification close button element.
+*/
+function setupCloseButton(closeButton) {
+  closeButton.addEventListener('click', function(event) {
+    var target = event.target.getAttribute('aria-controls');
+    var notification = document.getElementById(target);
+
+    if (notification) {
+      notification.classList.add('u-hide');
+    }
+  });
+}
+
+// Set up all notification close buttons.
+var closeButtons = document.querySelectorAll('.p-notification [aria-controls]');
+
+for (var i = 0, l = closeButtons.length; i < l; i++) {
+  setupCloseButton(closeButtons[i]);
+}
+</script>
+{% endblock %}
