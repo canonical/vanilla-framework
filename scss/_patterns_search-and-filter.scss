@@ -7,8 +7,6 @@
 
 @mixin vf-search-and-filter {
   .p-search-and-filter {
-    $height: 2.5rem;
-
     border: 1px solid $color-mid-dark;
     position: relative;
 
@@ -19,7 +17,6 @@
       flex-wrap: wrap;
       height: auto;
       margin: 0;
-      min-height: $height;
       overflow: hidden;
       padding-left: $sph-inner--small;
       padding-right: $sp-x-large; // reserve space for selected counter
@@ -29,13 +26,8 @@
         height: auto;
       }
 
-      &[data-empty='false'],
-      &[aria-expanded='false'] {
-        height: $height;
-      }
-
       .p-chip {
-        margin-bottom: $spv-outer--small;
+        margin-top: 0;
       }
 
       .p-search-and-filter__selected-count {
@@ -87,7 +79,8 @@
 
     .p-search-and-filter__clear {
       border: none;
-      height: 2rem;
+      bottom: 3px;
+      line-height: 1.2rem;
       margin: 0;
       max-width: 48px;
       position: absolute;
@@ -103,7 +96,7 @@
     .p-search-and-filter__box {
       display: inline-flex;
       flex: 1;
-      margin: -6px 0 0;
+      margin: 0;
       position: relative;
     }
 
@@ -114,11 +107,8 @@
       margin-bottom: 0;
       margin-left: -$sph-inner--small; // compensate for the left padding of the container
       margin-right: -$sp-x-large; // compensate for the space reserved for counter
-      min-height: 2.25rem;
       min-width: 6rem;
-      padding: $spv-inner--small;
       position: relative;
-      top: 3px;
     }
 
     .p-chip + .p-search-and-filter__box {
