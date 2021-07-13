@@ -1,8 +1,8 @@
 @import 'settings';
-$notification-content-vert-padding: $spv-inner--small;
 $notification-content-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
-$notification-icon-vert-offset: 0.6rem;
-$notification-text-margin-bottom: 0.6rem;
+$borderless-notification-icon-vert-offset: $spv-nudge + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
+$notification-icon-vert-offset: $spv-inner--small + $borderless-notification-icon-vert-offset;
+$notification-text-margin-bottom: map-get($sp-after, p-dense) - $spv-nudge;
 
 // Notification style patterns
 @mixin vf-p-notification {
@@ -16,7 +16,9 @@ $notification-text-margin-bottom: 0.6rem;
     background-size: map-get($icon-sizes, default);
     border-radius: 0 $border-radius $border-radius 0;
     margin-bottom: $spv-outer--scaleable;
+    padding-bottom: calc(#{$spv-inner--small} - 1px);
     padding-left: $notification-content-icon-space;
+    padding-top: calc(#{$spv-inner--small} - 1px);
     position: relative;
 
     &::before {
@@ -25,8 +27,8 @@ $notification-text-margin-bottom: 0.6rem;
 
     &.is-borderless {
       background-color: transparent;
-      background-position-x: 0;
-      border-color: transparent;
+      background-position: 0 $borderless-notification-icon-vert-offset;
+      border: none;
       margin-top: 0;
       padding: 0 0 0 2 * $sph-inner;
 
@@ -35,17 +37,29 @@ $notification-text-margin-bottom: 0.6rem;
       }
     }
 
+    &.is-inset {
+      background-color: transparent;
+      border: none;
+      margin-top: 0;
+    }
+
     &.is-inline {
       .p-notification__content {
         margin-bottom: $notification-text-margin-bottom;
-        padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, h5);
+      }
+
+      .p-notification__meta {
+        padding-top: 0;
+
+        &::after {
+          // unset pseudo border
+          content: none;
+        }
       }
 
       .p-notification__title,
       .p-notification__message {
         display: inline;
-        margin: 0;
-        padding: 0;
       }
     }
 
@@ -83,19 +97,23 @@ $notification-text-margin-bottom: 0.6rem;
   }
 
   .p-notification__content {
+    @extend %common-default-text-properties;
+
+    margin-bottom: $notification-text-margin-bottom;
     padding-right: 2 * $sph-inner;
   }
 
   .p-notification__title {
-    @extend %vf-heading-5;
-
-    margin-bottom: 0.1rem;
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    line-height: map-get($line-heights, default-text);
+    margin: 0;
+    padding: 0;
   }
 
   .p-notification__message {
-    @extend %default-text;
-
-    margin-bottom: $notification-text-margin-bottom;
+    margin: 0;
+    padding: 0;
   }
 
   .p-notification__close {
@@ -114,23 +132,24 @@ $notification-text-margin-bottom: 0.6rem;
   }
 
   .p-notification__meta {
-    align-items: baseline;
+    @extend %vf-pseudo-border--top;
+
+    align-items: flex-start;
     display: flex;
     justify-content: space-between;
+    margin-bottom: $spv-outer--small;
     padding-right: $sph-inner;
+    padding-top: $spv-inner--small;
   }
 
   .p-notification__timestamp {
     @extend %default-text;
     @extend %muted-text;
-
-    margin-bottom: $notification-text-margin-bottom;
   }
 
   .p-notification__actions {
-    align-items: baseline;
+    align-items: flex-start;
     display: flex;
-    margin-bottom: $notification-text-margin-bottom;
 
     &:only-child {
       margin-left: auto;
@@ -138,7 +157,7 @@ $notification-text-margin-bottom: 0.6rem;
   }
 
   .p-notification__action {
-    margin: 0;
+    @extend %default-text;
 
     & + & {
       margin-left: $sph-outer;

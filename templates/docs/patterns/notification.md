@@ -64,6 +64,16 @@ In cases where a notification sits inside another component, such as a table cel
 View example of the borderless notification pattern
 </a></div>
 
+#### Inset
+
+<span class="p-label--new">New</span>
+
+In cases where a notification message is directly relevant to what the user is doing on the page.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/notifications/inset/" class="js-example">
+View example of the inset notification pattern
+</a></div>
+
 #### Modal
 
 <span class="p-label--new">New</span>
