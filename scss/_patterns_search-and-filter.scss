@@ -6,8 +6,10 @@
 }
 
 @mixin vf-search-and-filter {
+  $search-filter-actions-width: map-get($icon-sizes, default) + $sph-inner * 2;
+
   .p-search-and-filter {
-    border: 1px solid $color-mid-dark;
+    border: 1px solid $colors--light-theme--border-high-contrast;
     position: relative;
 
     .p-search-and-filter__search-container {
@@ -19,7 +21,7 @@
       margin: 0;
       overflow: hidden;
       padding-left: $sph-inner--small;
-      padding-right: $sp-x-large; // reserve space for selected counter
+      padding-right: calc(#{$search-filter-actions-width} + #{$bar-thickness});
       position: relative;
 
       &[data-active='true'] {
@@ -35,7 +37,7 @@
         cursor: pointer;
         position: absolute;
         right: 0.5rem;
-        top: 6px;
+        top: $bar-thickness;
       }
 
       &[aria-expanded='true'] {
@@ -79,13 +81,13 @@
 
     .p-search-and-filter__clear {
       border: none;
-      bottom: 3px;
-      line-height: 1.2rem;
+      bottom: $bar-thickness;
+      line-height: map-get($line-heights, small);
       margin: 0;
-      max-width: 48px;
+      max-width: $search-filter-actions-width;
       position: absolute;
-      right: 3px;
-      top: 3px;
+      right: $bar-thickness;
+      top: $bar-thickness;
       z-index: 9999;
     }
 
@@ -106,7 +108,7 @@
       flex-grow: 1;
       margin-bottom: 0;
       margin-left: -$sph-inner--small; // compensate for the left padding of the container
-      margin-right: -$sp-x-large; // compensate for the space reserved for counter
+      margin-right: calc(calc(#{$search-filter-actions-width} + #{$bar-thickness}) * -1); // compensate for the space reserved for counter
       min-width: 6rem;
       position: relative;
     }
