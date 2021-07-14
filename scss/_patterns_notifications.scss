@@ -70,104 +70,72 @@ $notification-text-margin-bottom: map-get($sp-after, p-dense) - $spv-nudge;
       }
     }
 
-    &.is-modal {
-      @extend %vf-has-box-shadow;
+    .p-notification__content {
+      @extend %common-default-text-properties;
 
-      border-color: transparent;
+      margin-bottom: $notification-text-margin-bottom;
+      padding-right: 2 * $sph-inner;
+    }
 
-      .p-notification__actions:only-child {
-        margin-left: unset;
-      }
+    .p-notification__title {
+      font-size: 1rem;
+      font-weight: $font-weight-bold;
+      line-height: map-get($line-heights, default-text);
+      margin: 0;
+      padding: 0;
+    }
 
-      &.is-inline {
-        display: flex;
+    .p-notification__message {
+      margin: 0;
+      padding: 0;
+    }
 
-        .p-notification__content {
-          padding-right: $sph-inner;
-        }
+    .p-notification__close {
+      @extend %vf-hide-text;
+      @include vf-icon-close($color-mid-dark);
 
-        .p-notification__actions {
-          margin-bottom: 0;
-        }
-      }
+      background-color: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: unset;
+      border: 0;
+      position: absolute;
+      right: $sph-inner / 2;
+      top: $spv-outer--small;
+      width: $default-icon-size;
+    }
 
-      &::before {
-        display: none;
+    .p-notification__meta {
+      @extend %vf-pseudo-border--top;
+
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spv-outer--small;
+      padding-right: $sph-inner;
+      padding-top: $spv-inner--small;
+    }
+
+    .p-notification__timestamp {
+      @extend %default-text;
+      @extend %muted-text;
+    }
+
+    .p-notification__actions {
+      align-items: flex-start;
+      display: flex;
+
+      &:only-child {
+        margin-left: auto;
       }
     }
 
-    &.is-raised {
-      @extend %vf-has-box-shadow--deep;
+    .p-notification__action {
+      @extend %default-text;
 
-      border-color: transparent;
-    }
-  }
-
-  .p-notification__content {
-    @extend %common-default-text-properties;
-
-    margin-bottom: $notification-text-margin-bottom;
-    padding-right: 2 * $sph-inner;
-  }
-
-  .p-notification__title {
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
-    line-height: map-get($line-heights, default-text);
-    margin: 0;
-    padding: 0;
-  }
-
-  .p-notification__message {
-    margin: 0;
-    padding: 0;
-  }
-
-  .p-notification__close {
-    @extend %vf-hide-text;
-    @include vf-icon-close($color-mid-dark);
-
-    background-color: transparent;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: unset;
-    border: 0;
-    position: absolute;
-    right: $sph-inner / 2;
-    top: $spv-outer--small;
-    width: $default-icon-size;
-  }
-
-  .p-notification__meta {
-    @extend %vf-pseudo-border--top;
-
-    align-items: flex-start;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: $spv-outer--small;
-    padding-right: $sph-inner;
-    padding-top: $spv-inner--small;
-  }
-
-  .p-notification__timestamp {
-    @extend %default-text;
-    @extend %muted-text;
-  }
-
-  .p-notification__actions {
-    align-items: flex-start;
-    display: flex;
-
-    &:only-child {
-      margin-left: auto;
-    }
-  }
-
-  .p-notification__action {
-    @extend %default-text;
-
-    & + & {
-      margin-left: $sph-outer;
+      & + & {
+        margin-left: $sph-outer;
+      }
     }
   }
 

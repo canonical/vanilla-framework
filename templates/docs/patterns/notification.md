@@ -64,26 +64,6 @@ In cases where a notification sits inside another component, such as a table cel
 View example of the borderless notification pattern
 </a></div>
 
-#### Modal
-
-<span class="p-label--new">New</span>
-
-Modal notifications should occupy the full width of the page.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/notifications/modal/" class="js-example">
-View example of the modal notification pattern
-</a></div>
-
-#### Raised
-
-<span class="p-label--new">New</span>
-
-Raised notifications should be used when they are overlapping another panel.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/notifications/raised/" class="js-example">
-View example of the raised notification pattern
-</a></div>
-
 #### Inline
 
 <span class="p-label--new">New</span>
