@@ -6,7 +6,7 @@
 {% block content %}
 <div class="p-notification" id="notification">
   <div class="p-notification__content">
-    <h4 class="p-notification__title">Title</h4>
+    <h5 class="p-notification__title">Title</h5>
     <p class="p-notification__message">Body lorem ipsum dolor sit amet consequiteor. Lorem ipsum dolor sit amet consequiteor.</p>
     <button class="p-notification__close" aria-controls="notification">Close</button>
   </div>
@@ -21,16 +21,16 @@
     closeButton.addEventListener('click', function(event) {
       var target = event.target.getAttribute('aria-controls');
       var notification = document.getElementById(target);
-  
+
       if (notification) {
         notification.classList.add('u-hide');
       }
     });
   }
-  
+
   // Set up all notification close buttons.
   var closeButtons = document.querySelectorAll('.p-notification__close');
-  
+
   for (var i = 0, l = closeButtons.length; i < l; i++) {
     setupCloseButton(closeButtons[i]);
   }
