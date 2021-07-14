@@ -89,3 +89,13 @@ The neutral button style provided by `p-button--neutral` is exactly the same as 
 ### Variables
 
 $grid-margin-width is deprecated, as the grid margins differ at different breakpont. Use the values in $grid-margin-widths instead.
+
+### Notifications
+
+The notification child classes have been replaced to support new variants. The following class substitutions can be used to support existing functionality:
+
+| Deprecated classes          | Replaced by                |
+| --------------------------- | -------------------------- |
+| `.p-notification__response` | `.p-notification__content` |
+| `.p-notification__status`   | `.p-notification__title`   |
+| `.p-icon--close`            | `.p-notification__close`   |
