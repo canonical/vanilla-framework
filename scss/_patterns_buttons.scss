@@ -336,19 +336,6 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
 @mixin vf-button-icon {
   [class*='p-button'].has-icon {
-    width: auto;
-
-    & [class*='p-icon'] {
-      margin-left: $sph-inner--small;
-      margin-right: $sph-inner--small;
-
-      &:first-child {
-        margin-left: -#{$sph-inner--small};
-      }
-
-      &:last-child {
-        margin-right: -#{$sph-inner--small};
-      }
-    }
+    @extend %vf-button-has-icon;
   }
 }

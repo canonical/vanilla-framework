@@ -7,6 +7,10 @@
 
 @mixin vf-search-and-filter {
   $search-filter-actions-width: map-get($icon-sizes, default) + $sph-inner * 2;
+  // we need to prevent the focus outline of the input element
+  // being obscured in certain situations, so this variable
+  // references the weight of that outline
+  $focus-outline-offset: $bar-thickness;
 
   .p-search-and-filter {
     border: 1px solid $colors--light-theme--border-high-contrast;
@@ -21,7 +25,7 @@
       margin: 0;
       overflow: hidden;
       padding-left: $sph-inner--small;
-      padding-right: calc(#{$search-filter-actions-width} + #{$bar-thickness});
+      padding-right: calc(#{$search-filter-actions-width} + #{$focus-outline-offset});
       position: relative;
 
       &[data-active='true'] {
@@ -37,7 +41,7 @@
         cursor: pointer;
         position: absolute;
         right: 0.5rem;
-        top: $bar-thickness;
+        top: $focus-outline-offset;
       }
 
       &[aria-expanded='true'] {
@@ -80,14 +84,15 @@
     }
 
     .p-search-and-filter__clear {
+      @extend %vf-button-has-icon;
+
       border: none;
-      bottom: $bar-thickness;
+      bottom: $focus-outline-offset;
       line-height: map-get($line-heights, small);
       margin: 0;
-      max-width: $search-filter-actions-width;
       position: absolute;
-      right: $bar-thickness;
-      top: $bar-thickness;
+      right: $focus-outline-offset;
+      top: $focus-outline-offset;
       z-index: 9999;
     }
 
@@ -108,7 +113,7 @@
       flex-grow: 1;
       margin-bottom: 0;
       margin-left: -$sph-inner--small; // compensate for the left padding of the container
-      margin-right: calc(calc(#{$search-filter-actions-width} + #{$bar-thickness}) * -1); // compensate for the space reserved for counter
+      margin-right: calc(calc(#{$search-filter-actions-width} + #{$focus-outline-offset}) * -1); // compensate for the space reserved for counter
       min-width: 6rem;
       position: relative;
     }
