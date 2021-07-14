@@ -6,11 +6,15 @@
 }
 
 @mixin vf-search-and-filter {
-  $search-filter-actions-width: map-get($icon-sizes, default) + $sph-inner * 2;
   // we need to prevent the focus outline of the input element
   // being obscured in certain situations, so this variable
   // references the weight of that outline
   $focus-outline-offset: $bar-thickness;
+
+  // this is the total width occupied by the search input clear button:
+  // the buttons left and right padding, plus the width of the icon,
+  // and finally the width of the focus outline defined above
+  $search-filter-actions-width: 2 * $sph-inner--small + map-get($icon-sizes, default) + $focus-outline-offset;
 
   .p-search-and-filter {
     border: 1px solid $colors--light-theme--border-high-contrast;
@@ -25,7 +29,7 @@
       margin: 0;
       overflow: hidden;
       padding-left: $sph-inner--small;
-      padding-right: calc(#{$search-filter-actions-width} + #{$focus-outline-offset});
+      padding-right: $search-filter-actions-width;
       position: relative;
 
       &[data-active='true'] {
@@ -114,7 +118,7 @@
       flex-grow: 1;
       margin-bottom: 0;
       margin-left: -$sph-inner--small; // compensate for the left padding of the container
-      margin-right: calc(calc(#{$search-filter-actions-width} + #{$focus-outline-offset}) * -1); // compensate for the space reserved for counter
+      margin-right: -$search-filter-actions-width; // compensate for the space reserved for counter
       min-width: 6rem;
       position: relative;
     }
