@@ -1,7 +1,13 @@
 @import 'settings';
 $notification-content-icon-space: 2 * $sph-inner + map-get($icon-sizes, default);
+
+// the icon is a background element, so it needs to be manually positioned to match the text next to it;
+// Step 1: push down by the same amount applied as padding top on text  ($spv-nudge)
+// Step 2: to center the icon within the line-height of text, we subtract icon height from text line-height and multiply by .5; this is the amount we need to push the icon down by
 $borderless-notification-icon-vert-offset: $spv-nudge + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default));
+// Step 3: Add the notification padding-top (if it exists); we have two cases, so at this point we create a second var that contains the first one + the notification padding-top
 $notification-icon-vert-offset: $spv-inner--small + $borderless-notification-icon-vert-offset;
+
 $notification-text-margin-bottom: map-get($sp-after, p-dense) - $spv-nudge;
 
 // Notification style patterns
