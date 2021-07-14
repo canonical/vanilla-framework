@@ -90,6 +90,23 @@
       @include vf-icon-success($color-x-light, $color-transparent);
     }
   }
+
+  %vf-button-has-icon {
+    width: auto;
+
+    & [class*='p-icon'] {
+      margin-left: $sph-inner--small;
+      margin-right: $sph-inner--small;
+
+      &:first-child {
+        margin-left: -#{$sph-inner--small};
+      }
+
+      &:last-child {
+        margin-right: -#{$sph-inner--small};
+      }
+    }
+  }
 }
 
 @mixin vf-button-pattern(
