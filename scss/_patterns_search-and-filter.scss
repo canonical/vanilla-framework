@@ -6,10 +6,23 @@
 }
 
 @mixin vf-search-and-filter {
-  .p-search-and-filter {
-    $height: 2.5rem;
+  // we need to prevent the focus outline of the input element
+  // being obscured in certain situations, so this variable
+  // references the weight of that outline
+  $focus-outline-offset: $bar-thickness;
 
-    border: 1px solid $color-mid-dark;
+  // this is the total width occupied by the search input clear button:
+  // the buttons left and right padding, plus the width of the icon,
+  // and finally the width of the focus outline defined above
+  $search-filter-actions-width: 2 * $sph-inner--small + map-get($icon-sizes, default) + $focus-outline-offset;
+
+  // When the search and filter is not expanded, but is overflowing with chips, we need to
+  // specify a height that matches that of a standard input element. This height is a combination
+  // of an input's line-height, its vertical padding, and a nudge.
+  $input-height: calc(#{map-get($line-heights, default-text)} + #{$input-vertical-padding} + #{$spv-nudge} - 1px);
+
+  .p-search-and-filter {
+    border: 1px solid $colors--light-theme--border-high-contrast;
     position: relative;
 
     .p-search-and-filter__search-container {
@@ -19,10 +32,9 @@
       flex-wrap: wrap;
       height: auto;
       margin: 0;
-      min-height: $height;
       overflow: hidden;
       padding-left: $sph-inner--small;
-      padding-right: $sp-x-large; // reserve space for selected counter
+      padding-right: $search-filter-actions-width;
       position: relative;
 
       &[data-active='true'] {
@@ -31,11 +43,12 @@
 
       &[data-empty='false'],
       &[aria-expanded='false'] {
-        height: $height;
+        height: $input-height;
       }
 
       .p-chip {
-        margin-bottom: $spv-outer--small;
+        margin-bottom: $sp-x-small;
+        margin-top: $sp-x-small;
       }
 
       .p-search-and-filter__selected-count {
@@ -43,7 +56,7 @@
         cursor: pointer;
         position: absolute;
         right: 0.5rem;
-        top: 6px;
+        top: $focus-outline-offset;
       }
 
       &[aria-expanded='true'] {
@@ -86,13 +99,15 @@
     }
 
     .p-search-and-filter__clear {
+      @extend %vf-button-has-icon;
+
       border: none;
-      height: 2rem;
+      bottom: $focus-outline-offset;
+      line-height: map-get($line-heights, small);
       margin: 0;
-      max-width: 48px;
       position: absolute;
-      right: 3px;
-      top: 3px;
+      right: $focus-outline-offset;
+      top: $focus-outline-offset;
       z-index: 9999;
     }
 
@@ -103,7 +118,7 @@
     .p-search-and-filter__box {
       display: inline-flex;
       flex: 1;
-      margin: -6px 0 0;
+      margin: 0;
       position: relative;
     }
 
@@ -113,12 +128,9 @@
       flex-grow: 1;
       margin-bottom: 0;
       margin-left: -$sph-inner--small; // compensate for the left padding of the container
-      margin-right: -$sp-x-large; // compensate for the space reserved for counter
-      min-height: 2.25rem;
+      margin-right: -$search-filter-actions-width; // compensate for the space reserved for counter
       min-width: 6rem;
-      padding: $spv-inner--small;
       position: relative;
-      top: 3px;
     }
 
     .p-chip + .p-search-and-filter__box {
