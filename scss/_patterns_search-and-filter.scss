@@ -16,6 +16,11 @@
   // and finally the width of the focus outline defined above
   $search-filter-actions-width: 2 * $sph-inner--small + map-get($icon-sizes, default) + $focus-outline-offset;
 
+  // When the search and filter is not expanded, but is overflowing with chips, we need to
+  // specify a height that matches that of a standard input element. This height is a combination
+  // of an input's line-height, its vertical padding, and a nudge.
+  $input-height: calc(#{map-get($line-heights, default-text)} + #{$input-vertical-padding} + #{$spv-nudge} - 1px);
+
   .p-search-and-filter {
     border: 1px solid $colors--light-theme--border-high-contrast;
     position: relative;
@@ -34,6 +39,11 @@
 
       &[data-active='true'] {
         height: auto;
+      }
+
+      &[data-empty='false'],
+      &[aria-expanded='false'] {
+        height: $input-height;
       }
 
       .p-chip {
