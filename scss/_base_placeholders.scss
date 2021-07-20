@@ -199,6 +199,9 @@
   %u-no-margin--bottom--hr {
     // compensate for hr thickness, to make sure it doesn't drift from baseline grid
     margin-bottom: -1px !important;
+    // then lift it up on the z axis, so the negative margin doesn't cause it to be
+    // obscured by neighbouring elements with color backgrounds
+    z-index: 1;
   }
 
   %icon {
