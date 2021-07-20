@@ -106,6 +106,10 @@ For notifications in which recency is important, you can include a section for t
 View example of the time notification pattern
 </a></div>
 
+### Accessibility
+
+When adding notifications dynamically, it's important that the content of the notification is announced to users using assistive technology. If the notification is urgent, add `aria-live="assertive"` to the element, which will prompt assistive technology to announce it immediately, or use `aria-live="polite"`, which will cause assistive technology to wait for a pause before announcing the information.
+
 ### Deprecated
 
 <span class="p-label--deprecated">Deprecated</span>
