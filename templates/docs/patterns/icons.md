@@ -737,6 +737,26 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-warning-grey;
 ```
 
+### Customisation
+
+Should you wish to change the colour of an icon, this can be achieved by using an icon mixin and passing a color as an argument to the mixin.
+
+In the below example, the `.p-icon--share` class includes the `vf-icon-share` mixin, and overrides the icon's default `$color-mid-dark` with `$color-dark`:
+
+```scss
+@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework/scss/base_placeholders';
+@import 'vanilla-framework/scss/patterns_icons';
+@include vf-p-icons;
+@include vf-b-placeholders;
+
+.p-icon--share {
+  @include vf-icon-share($color-dark);
+}
+```
+
+You can find all of the available icon mixins listed [here](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_base_icon-definitions.scss).
+
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ### React
