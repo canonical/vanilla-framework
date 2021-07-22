@@ -16,6 +16,8 @@ On `p-modal` set display to `display:flex` or `display:none` to toggle the visib
 View example of the modal pattern
 </a></div>
 
+### with footer
+
 Optional footer element with a `p-modal__footer` class name can be added to the modal dialog to provide additional options.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/modal/footer/" class="js-example" data-height="400">
