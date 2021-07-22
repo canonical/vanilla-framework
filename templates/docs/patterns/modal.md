@@ -16,7 +16,7 @@ On `p-modal` set display to `display:flex` or `display:none` to toggle the visib
 View example of the modal pattern
 </a></div>
 
-### with footer
+### With footer
 
 Optional footer element with a `p-modal__footer` class name can be added to the modal dialog to provide additional options.
 
