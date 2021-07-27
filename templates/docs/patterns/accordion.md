@@ -53,7 +53,11 @@ Please ensure the `aria-control` attribute matches an ID of an element. If `aria
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_accordion';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-accordion;
 ```
 

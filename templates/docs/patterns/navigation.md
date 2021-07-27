@@ -186,25 +186,29 @@ For more details about themes in Vanilla refer to the [Color theming](/docs/sett
 To import just navigation or sub-navigation component into your project, copy snippets below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_navigation';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-navigation;
 
 // sub-navigation is optional you can include it alongside navigation component
-@import 'patterns_subnav';
 @include vf-p-subnav;
 ```
 
 To import side navigation, copy snippet below:
 
 ```scss
-@import 'patterns_side-navigation';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-side-navigation;
 
 // optionally add icons and/or labels if you use them in side navigation__nav
-@import 'patterns_label';
 @include vf-p-label;
-
-@import 'patterns_icons';
 @include vf-p-icons;
 ```
 

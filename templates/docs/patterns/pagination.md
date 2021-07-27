@@ -53,11 +53,14 @@ View example of the article pagination pattern
 To import the pagination component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_pagination';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-pagination;
 
 // pagination uses icons for previous and next page buttons
-@import 'patterns_icons';
 @include vf-p-icons-common;
 @include vf-p-icon-chevron;
 ```

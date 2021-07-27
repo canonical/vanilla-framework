@@ -20,7 +20,11 @@ View example of the pattern muted heading
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_muted-heading';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-muted-heading;
 ```
 

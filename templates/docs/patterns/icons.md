@@ -744,11 +744,12 @@ Should you wish to change the colour of an icon, this can be achieved by using a
 In the below example, the `.p-icon--share` class includes the `vf-icon-share` mixin, and overrides the icon's default `$color-mid-dark` with `$color-dark`:
 
 ```scss
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
 @import 'vanilla-framework/scss/vanilla';
-@import 'vanilla-framework/scss/base_placeholders';
-@import 'vanilla-framework/scss/patterns_icons';
+@include vf-base;
+
 @include vf-p-icons;
-@include vf-b-placeholders;
 
 .p-icon--share {
   @include vf-icon-share($color-dark);
