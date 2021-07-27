@@ -149,25 +149,41 @@ View example of the divider list with an is-dark class
 To import list patterns into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_lists';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import '../vanilla';
+@include vf-base;
+
 @include vf-p-lists;
 ```
 
 To add dividers into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_divider';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import '../vanilla';
+@include vf-base;
+
 @include vf-p-divider;
 
 // grid column classes are used within divider component, so you need to include grid pattern as well
-@import 'patterns_grid';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import '../vanilla';
+@include vf-base;
+
 @include vf-p-grid;
 ```
 
 To include individual list patterns you need to include the `vf-p-list-placeholders` mixin first.
 
 ```scss
-@import 'patterns_lists';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-list-placeholders;
 
 // choose individual list patterns to include
