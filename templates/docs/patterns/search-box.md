@@ -33,11 +33,14 @@ View examples of search box navigation patterns
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_search-box';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-search-box;
 
 // search box uses icons for its buttons, so you need to include them as well
-@import 'patterns_icons';
 @include vf-p-icons-common;
 @include vf-p-icon-close;
 @include vf-p-icon-search;

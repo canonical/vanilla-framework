@@ -69,13 +69,11 @@ View example of the search and filter with search prompt pattern
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import '../base';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
 @include vf-base;
 
-@import '../patterns_chip';
-@import '../patterns_search-box';
-@import '../patterns_search-and-filter';
-@import '../utilities_off-screen';
 @include vf-p-chip;
 @include vf-p-search-box;
 @include vf-p-search-and-filter;

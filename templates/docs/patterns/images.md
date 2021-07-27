@@ -39,7 +39,11 @@ View example of image with a caption
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_image';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-image;
 ```
 

@@ -19,7 +19,12 @@ View example of the margin collapse utility
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'utilities_margin-collapse';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
+@include vf-u-margin-collapse;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.

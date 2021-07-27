@@ -69,7 +69,11 @@ View example of the validated label pattern
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
-@import 'patterns_label';
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework/scss/vanilla';
+@include vf-base;
+
 @include vf-p-label;
 ```
 
