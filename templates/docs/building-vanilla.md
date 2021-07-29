@@ -27,7 +27,7 @@ In the script that builds the CSS in your `package.json`, you should include the
 Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```
-@import vanilla-framework/scss/vanilla;
+@import "vanilla-framework/scss/vanilla";
 @include vanilla;
 ```
 
@@ -86,7 +86,7 @@ In the script that builds the CSS in your `package.json`, you should include the
 Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```
-@import vanilla-framework/scss/vanilla;
+@import "vanilla-framework/scss/vanilla";
 @include vanilla;
 ```
 
