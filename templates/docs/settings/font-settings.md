@@ -21,6 +21,16 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 | `$font-base-size`      | `1rem`                                                |
 | `$font-heading-family` | `$font-base-family`                                   |
 
+### Font weight
+
+Vanilla uses three font weight settings in tandem with the Ubuntu font, which can be overridden to suit your needs:
+
+| Setting                        | Default value | Notes                                                                   |
+| ------------------------------ | ------------- | ----------------------------------------------------------------------- |
+| `$font-weight-display-heading` | `100`         | This lighter font weight is used by `h1`, `h2` and `h3` elements which  |
+| `$font-weight-regular-text`    | `300`         | Vanilla's default font-weight                                           |
+| `$font-weight-bold`            | `400`         | Most often used on elements with very small text to make them stand out |
+
 <br>
 <hr>
 
