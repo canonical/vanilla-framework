@@ -22,7 +22,29 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.33 -->
+    <!-- 2.34 -->
+      <tr>
+        <th><a href="/docs/base/forms#password-showhide">Forms / Password toggle</a></th>
+        <td><div class="p-label--new">New</div></td>
+        <td>2.34.0</td>
+        <td>Password fields now have a show/hide toggle.</td>
+      </tr>
+  </tbody>
+</table>
+
+#### Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- 2.33 -->
     <tr>
       <th><a href="/docs/patterns/links#skip-link">Links / Skip Link</a></th>
       <td><div class="p-label--new">New</div></td>
@@ -41,21 +63,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.33.0</td>
       <td>The following notification classes have been deprecated: <code>.p-notification__response</code>, <code>.p-notification__status</code></td>
     </tr>
-  </tbody>
-</table>
-
-#### Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.32 -->
     <tr>
       <th><a href="/docs/patterns/labels#default">Labels / Default</a></th>
