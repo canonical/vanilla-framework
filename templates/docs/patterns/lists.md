@@ -24,12 +24,6 @@ View example of the list pattern
 
 Add the `.is-ticked` or `.is-crossed` classes to each list item to display tick/cross icons.
 
-<div class="p-notification--information">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>The color of the tick icon is set by the <code>$color-accent</code> variable in <code>settings.scss</code>, and the color of the cross icon is set by the <code>$color-accent-background</code> variable.
-  </p>
-</div>
-
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-status/" class="js-example">
 View example of the list status pattern
 </a></div>
