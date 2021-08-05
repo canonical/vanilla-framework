@@ -1,8 +1,9 @@
 (function () {
-  var passwordToggleButtons = Array.prototype.slice.call(document.querySelectorAll('.p-form-password-toggle__button'));
+  var passwordToggleForms = Array.prototype.slice.call(document.querySelectorAll('.p-form-password-toggle'));
 
-  passwordToggleButtons.forEach(function (passwordToggleButton) {
-    var passwordToggleLabel = passwordToggleButton.querySelector('.p-form-password-toggle__label');
+  passwordToggleForms.forEach(function (passwordToggleForm) {
+    var passwordToggleButton = passwordToggleForm.querySelector('.p-button--base');
+    var passwordToggleLabel = passwordToggleButton.querySelector('span');
 
     var passwordField = document.getElementById(passwordToggleButton.getAttribute('aria-controls'));
 

@@ -178,8 +178,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
         <i class="p-icon--fullscreen" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--fullscreen
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
         <i class="p-icon--models" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--models
       </div>
@@ -189,8 +187,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
         <i class="p-icon--pin" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--pin
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
         <i class="p-icon--units" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--units
       </div>
@@ -200,8 +196,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--priority-high" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-high
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--priority-low" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-low
       </div>
@@ -211,8 +205,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--priority-negligible" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-negligible
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--priority-unknown" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-unknown
       </div>
@@ -222,8 +214,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--add-logical-volume" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--add-logical-volume
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--add-partition" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--add-partition
       </div>
@@ -233,8 +223,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--begin-downloading" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--begin-downloading
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--bundle" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--bundle
       </div>
@@ -244,8 +232,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--change-version" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--change-version
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--comments" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--comments
       </div>
@@ -255,8 +241,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--conflict" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--conflict
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--conflict-resolution-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--conflict-resolution-grey
       </div>
@@ -266,8 +250,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--connected" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--connected
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--containers" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--containers
       </div>
@@ -277,8 +259,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--disconnect" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--disconnect
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--edit" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--edit
       </div>
@@ -288,8 +268,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--exposed" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--exposed
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--filter" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--filter
       </div>
@@ -299,16 +277,12 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--get-link" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--get-link
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--halfscreen-bar" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--halfscreen-bar
       </div>
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--highlight-off" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--highlight-off
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--highlight-on" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--highlight-on
       </div>
@@ -318,8 +292,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--import" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--import
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--in-progress" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--in-progress
       </div>
@@ -329,8 +301,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--loading-steps" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--loading-steps
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--lock-locked-active" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--lock-locked-active
       </div>
@@ -340,8 +310,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--lock-unlock" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--lock-unlock
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--maximise-bar" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--maximise-bar
       </div>
@@ -351,8 +319,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--mount-2" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--mount-2
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--mount" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--mount
       </div>
@@ -362,8 +328,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--open-terminal" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--open-terminal
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--plans" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--plans
       </div>
@@ -373,8 +337,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--power-error" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--power-error
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--power-off" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--power-off
       </div>
@@ -384,8 +346,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--profile" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--profile
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--restart" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--restart
       </div>
@@ -395,16 +355,12 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--security" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--security
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--settings" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--settings
       </div>
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--sort-both" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--sort-both
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--sort-down" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--sort-down
       </div>
@@ -414,8 +370,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--starred" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--starred
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--status-failed-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-failed-small
       </div>
@@ -425,8 +379,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--status-queued-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-queued-small
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--status-succeeded-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-succeeded-small
       </div>
@@ -436,8 +388,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--status-in-progress" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-in-progress
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--status-queued" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-queued
       </div>
@@ -447,8 +397,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--status" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--submit-bug" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--submit-bug
       </div>
@@ -458,8 +406,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--switcher-dashboard" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--switcher-dashboard
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--switcher-environments" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--switcher-environments
       </div>
@@ -469,8 +415,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--tag" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--tag
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--task-outstanding" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--task-outstanding
       </div>
@@ -480,8 +424,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--timed-out" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--timed-out
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--topic" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--topic
       </div>
@@ -491,8 +433,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--unit-running" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--unit-running
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--unstarred" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--unstarred
       </div>
@@ -502,8 +442,6 @@ Outside of the standard set, additional icons are available for use, and need to
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--video-play" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--video-play
       </div>
-    </div>
-    <div class="row">
       <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
         <i class="p-icon--warning-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--warning-grey
       </div>
