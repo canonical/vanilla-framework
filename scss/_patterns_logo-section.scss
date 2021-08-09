@@ -35,10 +35,10 @@
 
     // The logic of these calculations is explained further down, in the @for loop
     $gutters-total-width: $grid-column-count * $gutter;
-    $percentage-width-of-one-col: 100% / $grid-column-count;
+    $percentage-width-of-one-col: math.div(100%, $grid-column-count);
     $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
     $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
-    $rem-contribution: $logo-column-span * ($gutters-total-width / $grid-column-count) - $gutter-width-inside-logo;
+    $rem-contribution: $logo-column-span * math.div($gutters-total-width, $grid-column-count) - $gutter-width-inside-logo;
 
     @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
 
@@ -63,7 +63,7 @@
       // Thus the calculation is split into 2 parts, which are then used in the final calc() function:
 
       // calculate the width of a single column by dividing the entire width by the number of columns it represents:
-      $percentage-width-of-one-col: 100% / $column-count;
+      $percentage-width-of-one-col: math.div(100%, $column-count);
 
       // multiply the width of one column by the number of columns the logo needs to span
       $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
@@ -73,7 +73,7 @@
 
       // add the width of gutters spanned by the logo, subtract the $gutters-total-width / $column-count;
       // the signs here are reversed because the variable is subtracted. This avoids having + and - in the final css, e.g.: "+ -.75rem"
-      $rem-contribution: $logo-column-span * ($gutters-total-width / $column-count) - $gutter-width-inside-logo;
+      $rem-contribution: $logo-column-span * math.div($gutters-total-width, $column-count) - $gutter-width-inside-logo;
 
       .#{$grid-column-prefix}#{$column-count} & {
         @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
