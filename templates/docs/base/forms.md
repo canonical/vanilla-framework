@@ -206,6 +206,21 @@ In contexts where vertical space is limited, e.g. inside a table row, you might 
 View example of the dense form elements
 </a></div>
 
+### Password toggle
+
+When using a password field, use this pattern to allow the user to toggle the password visibility.
+
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Note:</h5>
+    <p class="p-notification__message">Do not use this pattern in inline forms</p>
+  </div>
+</div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/password-toggle/" class="js-example">
+View example of the password toggle
+</a></div>
+
 ### Import
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.
