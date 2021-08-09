@@ -1,5 +1,7 @@
 @import 'settings';
-$tick-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
+$list-status-icon-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
+$list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
+
 $spv-list-item--inner: null;
 @if ($pad-lists) {
   $spv-list-item--inner: $spv-inner--x-small; // padding top and bottom for lists containing loose text.
@@ -50,6 +52,15 @@ $spv-list-item--inner: null;
       }
     }
     // stylelint-enable selector-max-type
+  }
+
+  %vf-list-item-state-base {
+    @extend %vf-list;
+
+    background-position-y: $spv-list-item--inner + $list-status-icon-nudge;
+    background-repeat: no-repeat;
+    background-size: $list-status-icon-height;
+    padding-left: 2rem;
   }
 }
 
@@ -122,16 +133,16 @@ $spv-list-item--inner: null;
   }
 }
 
-// Displays item with a tick bullet
+// Displays item with a state icon
 @mixin vf-p-list-item-state {
   .is-ticked {
-    @extend %vf-list;
-    @include vf-icon-success($color-accent);
+    @extend %vf-list-item-state-base;
+    @include vf-icon-success;
+  }
 
-    background-position-y: $spv-list-item--inner + 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
-    background-repeat: no-repeat;
-    background-size: $tick-height;
-    padding-left: 2rem;
+  .is-crossed {
+    @extend %vf-list-item-state-base;
+    @include vf-icon-error;
   }
 }
 
