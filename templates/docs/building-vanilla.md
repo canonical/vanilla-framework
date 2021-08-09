@@ -65,69 +65,6 @@ To watch for changes in your Sass files, add the following script to your `packa
 
 Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
 
-### node-sass
-
-<span class="p-label--deprecated">Deprecated</span>
-
-`node-sass` is now deprecated in favour of `dart-sass`, described above. Vanilla will switch to using `dart-sass` by default with the release of version 3.0.
-
-To quickly get set up with [`node-sass`](https://github.com/sass/node-sass), add the `node-sass` and `vanilla-framework` packages to your project dependencies:
-
-```
-yarn add node-sass vanilla-framework
-```
-
-In the script that builds the CSS in your `package.json`, you should include the path to `node_modules` when looking for `@import`s. In this example, we have called the build script `"build-css"`:
-
-```
-"build-css": "node-sass --include-path node_modules src --output dist"
-```
-
-Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
-
-```
-@import "vanilla-framework/scss/vanilla";
-@include vanilla;
-```
-
-Now run `yarn build-css`, which will convert any Sass files in the `src/` folder to CSS in the `dist/` folder. In this case, `src/style.scss` will compile to `dist/style.css`, which can then be safely included in an HTML file. Your project's folder structure should now look something like this:
-
-<ul class="p-list-tree" aria-multiselectable="true" role="tablist">
-  <li class="p-list-tree__item p-list-tree__item--group">
-    <button class="p-list-tree__toggle" id="sub-1-btn" role="tab" aria-controls="sub-1" aria-expanded="false">dist</button>
-    <ul class="p-list-tree" id="sub-1" role="tabpanel" aria-hidden="true" aria-labelledby="sub-1-btn">
-      <li class="p-list-tree__item">style.css</li>
-    </ul>
-  </li>
-  <li class="p-list-tree__item p-list-tree__item--group">
-    <button class="p-list-tree__toggle" id="sub-2-btn" role="tab" aria-controls="sub-2" aria-expanded="false">node_modules</button>
-    <ul class="p-list-tree" id="sub-2" role="tabpanel" aria-hidden="true" aria-labelledby="sub-2-btn">
-      <li class="p-list-tree__item">modules</li>
-    </ul>
-  </li>
-  <li class="p-list-tree__item p-list-tree__item--group">
-    <button class="p-list-tree__toggle" id="sub-3-btn" role="tab" aria-controls="sub-3" aria-expanded="false">src</button>
-    <ul class="p-list-tree" id="sub-3" role="tabpanel" aria-hidden="true" aria-labelledby="sub-3-btn">
-      <li class="p-list-tree__item">style.scss</li>
-    </ul>
-  </li>
-  <li class="p-list-tree__item">index.html</li>
-  <li class="p-list-tree__item">package.json</li>
-  <li class="p-list-tree__item">yarn.lock</li>
-</ul>
-
-To watch for changes in your Sass files, add the following script to your `package.json`:
-
-```
-"watch-css": "yarn build-css && node-sass --watch src/*.scss --output dist"
-```
-
-Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
-
-To provide the same browser support as Vanilla, you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) in the build pipeline via [postcss-cli](https://www.npmjs.com/package/postcss-cli).
-
-For more options on configuring `node-sass`, for example minification and autoprefixing, refer to [the node-sass documentation](https://github.com/sass/node-sass).
-
 ### Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile JavaScript modules, and can be used to inject Vanilla styles to the DOM. To get set up using Vanilla with Webpack, add the `webpack` and `vanilla-framework` packages to your project dependencies:
