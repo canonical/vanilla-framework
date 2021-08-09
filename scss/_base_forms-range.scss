@@ -37,7 +37,7 @@
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
-      margin-top: ((-$thumb-size + $track-height) / 2) - $track-border-size;
+      margin-top: math.div((-$thumb-size + $track-height), 2) - $track-border-size;
       width: $thumb-size;
 
       &:hover {
@@ -80,10 +80,10 @@
     &::-ms-track {
       background: transparent;
       border-color: transparent;
-      border-width: $thumb-size / 2;
+      border-width: math.div($thumb-size, 2);
       color: transparent;
       height: $track-height + 1;
-      width: calc(100% - (#{$thumb-size} / 2));
+      width: calc(100% - (math.div(#{$thumb-size}, 2)));
     }
 
     &::-ms-fill-lower {
