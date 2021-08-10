@@ -34,6 +34,14 @@ Note the differences in markup between this example and the navigation example. 
 View example of the tabs content pattern
 </a></div>
 
+### Segmented tabs
+
+Segmented tabs can be used for secondary tabs or view switchers. There is an `is-dense` modifier for condensed buttons.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tabs/segmented" class="js-example">
+View examples of the segmented tabs pattern
+</a></div>
+
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
