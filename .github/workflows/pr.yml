@@ -21,7 +21,7 @@ jobs:
       - name: Build import.css test file without sourcemaps
         run: npx sass --style=compressed --no-source-map scss/standalone/import.scss:build/css/standalone/import.css
       - name: Check if import test file exists but is empty
-        run: test -f build/css/standalone/import.css -a ! -s build/css/standalone/import.css
+        run: test $(find build/css/standalone -name import.css -size -5)
       - name: Show size of the build file
         run: stat -c '%s' build/css/build.css
 
