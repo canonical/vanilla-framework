@@ -7,6 +7,14 @@
     @media (min-width: $breakpoint-medium) {
       margin-bottom: 0;
     }
+
+    &.is-dark {
+      color: $color-x-light;
+
+      .p-muted-heading {
+        color: inherit;
+      }
+    }
   }
 
   .p-heading-icon__header {
@@ -44,5 +52,23 @@
         width: map-get($icon-sizes, heading-icon--small);
       }
     }
+  }
+
+  .p-heading-icon__title--small {
+    @extend %muted-heading;
+
+    align-items: center;
+    display: flex;
+    line-height: 1.875rem;
+    margin-bottom: 0;
+  }
+
+  .p-heading-icon__img--small {
+    align-self: center;
+    height: auto;
+    margin-bottom: 0;
+    margin-right: $sph-inner;
+    margin-top: $spv-inner--x-small;
+    max-width: 2rem;
   }
 }
