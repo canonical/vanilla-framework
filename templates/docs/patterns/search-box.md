@@ -16,6 +16,13 @@ The component expands to the full width of its container by default.
 
 A cancel button is shown when the input has content, and a small amount of JavaScript is required to ensure that focus is returned to the relevant input field when the cancel button is clicked.
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Caution:</h5>
+    <p class="p-notification__message">Space is allocated for the <code>.p-search-box__reset</code> and <code>.p-search-box__button</code> buttons, so both must be included in the implementation to avoid the appearance of excess padding.</p>
+  </div>
+</div>
+
 <div class="embedded-example"><a href="/docs/examples/patterns/search-box/default/" class="js-example">
 View examples of search box patterns
 </a></div>
