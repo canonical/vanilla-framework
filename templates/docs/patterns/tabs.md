@@ -28,15 +28,27 @@ View example of the tabs navigation pattern
 
 When you need to group a number of related blocks of content within an area on the page, the tabs pattern can be used, and will require JavaScript to handle interaction with each tab, and the toggling of their associated content panes.
 
-Note the differences in markup between this example and the navigation example. Additionally, for [accessibility purposes](https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html), it is necessary to include `aria` attributes specific to this use case.
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Accessibility:</h5> 
+    <p class="p-notification__message">This variant of the tab pattern requires the use of JS to handle navigating between tabs using keyboard events i.e. arrow keys. For more information, see <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">the W3's tab pattern recommendations</a>.</p>
+  </div>
+</div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tabs/content" class="js-example">
 View example of the tabs content pattern
 </a></div>
 
-### Segmented tabs
+### Segmented
 
 Segmented tabs can be used for secondary tabs or view switchers. There is an `is-dense` modifier for condensed buttons.
+
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Accessibility:</h5> 
+    <p class="p-notification__message">This variant of the tab pattern requires the use of JS to handle navigating between tabs using keyboard events i.e. arrow keys. For more information, see <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">the W3's tab pattern recommendations</a>.</p>
+  </div>
+</div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tabs/segmented" class="js-example">
 View examples of the segmented tabs pattern
