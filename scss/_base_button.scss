@@ -8,8 +8,7 @@
     @include vf-button-pattern;
   }
 
-  %vf-button-dense-vertical-spacing {
-    margin-bottom: $spv-nudge-compensation;
+  %vf-button-dense-vertical-padding {
     padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
   }
@@ -55,7 +54,9 @@
     }
 
     &.is-dense {
-      @extend %vf-button-dense-vertical-spacing;
+      @extend %vf-button-dense-vertical-padding;
+
+      margin-bottom: $spv-nudge-compensation;
     }
 
     &.is-small {
