@@ -1,9 +1,5 @@
 @mixin vf-p-tab-buttons {
   .p-tab-buttons {
-    &.is-dense .p-tab-buttons__button {
-      @extend %vf-button-dense-vertical-padding;
-    }
-
     .p-tab-buttons__list {
       display: flex;
     }
@@ -32,6 +28,10 @@
       &:last-child {
         border-radius: 0 $border-radius $border-radius 0;
       }
+    }
+
+    &.is-dense .p-tab-buttons__button {
+      @extend %vf-button-dense-vertical-padding;
     }
   }
 }
