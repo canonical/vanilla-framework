@@ -39,9 +39,9 @@ When you need to group a number of related blocks of content within an area on t
 View example of the tabs content pattern
 </a></div>
 
-### Segmented
+### Tab buttons
 
-Segmented tabs can be used for secondary tabs or view switchers. There is an `is-dense` modifier for condensed buttons.
+Tab buttons can be used for secondary tabs or view switchers. There is an `is-dense` modifier for condensed buttons.
 
 <div class="p-notification--information is-inline">
   <div class="p-notification__content">
@@ -50,8 +50,8 @@ Segmented tabs can be used for secondary tabs or view switchers. There is an `is
   </div>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tabs/segmented" class="js-example">
-View examples of the segmented tabs pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/tabs/tab-buttons" class="js-example">
+View examples of the tab buttons pattern
 </a></div>
 
 ### Import
