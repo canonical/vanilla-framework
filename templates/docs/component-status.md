@@ -42,7 +42,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We updated the color of the <code>is-ticked</code> icon on lists to <code>$color-positive</code>, where previously it was <code>$color-accent</code>.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/tab-buttons">Tabs / Tab Buttons</a></th>
+      <th><a href="/docs/patterns/tabs#tab-buttons">Tabs / Tab Buttons</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.34.0</td>
       <td>We added a new type of tab pattern, `p-tab-buttons`, which can display tabs like a group of buttons.</td>
