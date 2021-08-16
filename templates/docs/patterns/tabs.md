@@ -39,21 +39,6 @@ When you need to group a number of related blocks of content within an area on t
 View example of the tabs content pattern
 </a></div>
 
-### Tab buttons
-
-Tab buttons can be used for secondary tabs or view switchers. There is an `is-dense` modifier for condensed buttons.
-
-<div class="p-notification--information is-inline">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Accessibility:</h5> 
-    <p class="p-notification__message">This variant of the tab pattern requires the use of JS to handle navigating between tabs using keyboard events i.e. arrow keys. For more information, see <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">the W3's tab pattern recommendations</a>.</p>
-  </div>
-</div>
-
-<div class="embedded-example"><a href="/docs/examples/patterns/tabs/tab-buttons" class="js-example">
-View examples of the tab buttons pattern
-</a></div>
-
 ### Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
