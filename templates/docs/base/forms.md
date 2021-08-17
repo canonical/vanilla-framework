@@ -208,6 +208,8 @@ View example of the dense form elements
 
 ### Password toggle
 
+<span class="p-label--new">New</span>
+
 When using a password field, use this pattern to allow the user to toggle the password visibility.
 
 <div class="p-notification--information is-inline">
