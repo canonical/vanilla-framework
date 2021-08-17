@@ -1,0 +1,48 @@
+@mixin vf-p-tab-buttons {
+  .p-tab-buttons {
+    .p-tab-buttons__list {
+      display: flex;
+    }
+
+    .p-tab-buttons__button {
+      @extend %vf-button-has-icon;
+
+      border-radius: 0;
+      margin-right: 0;
+      overflow: hidden;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:not(:first-child) {
+        border-left: 0;
+      }
+
+      &:not(:last-child) {
+        border-right: 0;
+
+        &::after {
+          background-color: $colors--light-theme--border-low-contrast;
+          bottom: 0;
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 1px;
+        }
+      }
+
+      &:first-child {
+        border-radius: $border-radius 0 0 $border-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $border-radius $border-radius 0;
+      }
+    }
+
+    &.is-dense .p-tab-buttons__button {
+      @extend %vf-button-dense-vertical-padding;
+    }
+  }
+}
