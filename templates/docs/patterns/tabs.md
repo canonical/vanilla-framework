@@ -47,6 +47,8 @@ Tab buttons can be used in two ways:
 
 **View switcher:** in the case of a page in which the same piece of content is shown in more than one format, this component can be used as a switcher between the different views.
 
+At smaller breakpoints, this pattern should be swapped out for one more suited to the available width, such as a <a href="https://vanillaframework.io/docs/base/forms#select">select</a>.
+
 <div class="p-notification--information is-inline">
   <div class="p-notification__content">
     <h5 class="p-notification__title">Accessibility:</h5> 
