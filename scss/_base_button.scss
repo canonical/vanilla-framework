@@ -8,6 +8,11 @@
     @include vf-button-pattern;
   }
 
+  %vf-button-dense-vertical-padding {
+    padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+    padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
+  }
+
   %vf-button-base {
     @include vf-animation(#{background-color, border-color}, snap, in);
     @include vf-focus;
@@ -49,9 +54,9 @@
     }
 
     &.is-dense {
+      @extend %vf-button-dense-vertical-padding;
+
       margin-bottom: $spv-nudge-compensation;
-      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
-      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - 1px);
     }
 
     &.is-small {
@@ -135,6 +140,7 @@
 
   &:active,
   &[aria-pressed='true'],
+  &[aria-selected='true'],
   &[aria-expanded='true'] {
     background-color: $button-active-background-color;
     border-color: $button-active-border-color;
@@ -145,6 +151,7 @@
   &.is-disabled {
     &:active,
     &[aria-pressed='true'],
+    &[aria-selected='true'],
     &[aria-expanded='true'],
     &:hover {
       background-color: $button-disabled-background-color;
