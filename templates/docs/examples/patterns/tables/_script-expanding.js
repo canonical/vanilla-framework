@@ -40,7 +40,7 @@ function setupExpandableTable(table) {
 }
 
 // Setup all expandable tables on the page.
-var tables = document.querySelectorAll('.p-table--expanding, .p-table-expanding');
+var tables = document.querySelectorAll('.p-table--expanding');
 
 for (var i = 0, l = tables.length; i < l; i++) {
   setupExpandableTable(tables[i]);
