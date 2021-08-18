@@ -169,8 +169,8 @@ View examples of form stacked patterns
 Adding the `disabled` attribute to an input will prevent user interaction.
 
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>All disabled inputs have an opacity of `0.5` and `not-allowed` cursor on hover.
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>All disabled inputs have an opacity of <code>0.5</code> and <code>not-allowed</code> cursor on hover.
   </p>
 </div>
 
