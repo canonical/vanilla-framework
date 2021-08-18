@@ -20,24 +20,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.34 -->
+    <!-- 2.35 -->
     <tr>
-      <th><a href="/docs/base/forms#password-showhide">Forms / Password toggle</a></th>
+      <th><a href="/docs/patterns/heading-icon#muted">Heading / Muted</a></th>
       <td><div class="p-label--new">New</div></td>
-      <td>2.34.0</td>
-      <td>Password fields now have a show/hide toggle.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/patterns/lists#status">Lists / Crossed</a></th>
-      <td><div class="p-label--new">New</div></td>
-      <td>2.34.0</td>
-      <td>We added a <code>is-crossed</code> modifier class for lists, to complement the existing <code>is-ticked</code> modifier.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/patterns/lists#status">Lists / Ticked</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.34.0</td>
-      <td>We updated the color of the <code>is-ticked</code> icon on lists to <code>$color-positive</code>, where previously it was <code>$color-accent</code>.</td>
+      <td>2.35.0</td>
+      <td>We added a <code>muted</code> varient to the heading pattern.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/tabs#tab-buttons">Tabs / Tab Buttons</a></th>
@@ -60,6 +48,25 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.34 -->
+    <tr>
+      <th><a href="/docs/patterns/forms#password-showhide">Forms / Password toggle</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.34.0</td>
+      <td>Password fields now have a show/hide toggle.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/lists#status">Lists / Crossed</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.34.0</td>
+      <td>We added a <code>is-crossed</code> modifier class for lists, to complement the existing <code>is-ticked</code> modifier.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/lists#status">Lists / Ticked</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.34.0</td>
+      <td>We updated the color of the <code>is-ticked</code> icon on lists to <code>$color-positive</code>, where previously it was <code>$color-accent</code>.</td>
+    </tr>
     <!-- 2.33 -->
     <tr>
       <th><a href="/docs/patterns/links#skip-link">Links / Skip Link</a></th>
