@@ -47,7 +47,7 @@ When a click event is triggered on the selected-count element you need need to t
 - Switch `.p-search-and-filter__search-container` aria-expanded attribute from false to true
 
 <div class="p-notification--information">
-  <p class="p-notification__response" role="status">You will have to handle the overflowing chip count yourself. Unfortunately that is out of scope for this example but this can be handled for you by the <a href="#react">React component</a>.</p>
+  <p class="p-notification__content" role="status">You will have to handle the overflowing chip count yourself. Unfortunately that is out of scope for this example but this can be handled for you by the <a href="#react">React component</a>.</p>
 </div>
 
 ## Search prompt
@@ -61,7 +61,7 @@ View example of the search and filter with search prompt pattern
 ### Functionality
 
 <div class="p-notification--information">
-  <p class="p-notification__response" role="status">You will have to handle filtering the available chips yourself by removing or hiding chips that do not match. Unfortunately that is out of scope for this example but this can be handled for you by the <a href="#react">React component</a>.</p>
+  <p class="p-notification__content" role="status">You will have to handle filtering the available chips yourself by removing or hiding chips that do not match. Unfortunately that is out of scope for this example but this can be handled for you by the <a href="#react">React component</a>.</p>
 </div>
 
 ## Import
