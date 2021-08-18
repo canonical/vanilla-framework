@@ -23,8 +23,8 @@ View example of the default link pattern
 The `.p-link--external` class should be used on hyperlinks that go to a different domain than the current one.
 
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>The `p-link--external` class makes use of the fairly
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>The `p-link--external` class makes use of the fairly
     new <a href="http://www.caniuse.com/#search=mask">CSS Masks</a>. For support in more browsers you should run your
     CSS through <a href="https://www.npmjs.com/package/autoprefixer">an autoprefixer</a> before deploying.
   </p>
