@@ -69,8 +69,6 @@ Using `p-table__expanding-panel` it can be hidden using the `aria-hidden` attrib
 View example of the expanding table pattern
 </a></div>
 
-<span class="p-label--deprecated">Deprecated</span> We are deprecating the use of `p-table-expanding` and `p-table-expanding__panel` class names. They will be removed in future version 3.0 of Vanilla. Use `p-table--expanding` and `p-table__expanding-panel` instead.
-
 ## Responsive
 
 Applying the class `.p-table--mobile-card` will give any table a new responsive card view when on smaller screens. Each cell will require
