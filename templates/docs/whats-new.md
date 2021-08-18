@@ -22,7 +22,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.35 -->
     <tr>
-      <th><a href="/docs/patterns/heading-icon#muted">Heading / Muted</a></th>
+      <th><a href="/docs/patterns/heading-icon">Heading / Muted</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.35.0</td>
       <td>We added a <code>muted</code> varient to the heading pattern.</td>

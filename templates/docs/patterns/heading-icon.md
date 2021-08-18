@@ -31,7 +31,19 @@ The icon for this component is also available at a smaller size of 32 × 32 pixe
 View example of the pattern heading icon small
 </a></div>
 
+<<<<<<< HEAD
 ## Import
+=======
+### Muted
+
+This variant introduces the muted text option for the heading, on a dark background.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-muted/" class="js-example">
+View example of the pattern heading icon muted
+</a></div>
+
+### Import
+>>>>>>> Add heading-icon-muted to docs
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
