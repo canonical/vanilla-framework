@@ -11,7 +11,7 @@ context:
 
 A heading can be emphasised by adding an icon alongside the text.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon" class="js-example">
 View example of the pattern heading icons
 </a></div>
 

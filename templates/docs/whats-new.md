@@ -50,7 +50,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 2.34 -->
     <tr>
-      <th><a href="/docs/patterns/forms#password-showhide">Forms / Password toggle</a></th>
+      <th><a href="/docs/base/forms#password-toggle">Forms / Password toggle</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.34.0</td>
       <td>Password fields now have a show/hide toggle.</td>
