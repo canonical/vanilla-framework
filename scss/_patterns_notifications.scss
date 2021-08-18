@@ -146,7 +146,6 @@ $notification-text-margin-bottom: $spv-outer--medium - $spv-nudge;
   @include vf-notifications-caution;
   @include vf-notifications-negative;
   @include vf-notifications-information;
-  @include vf-notifications-deprecated;
 }
 
 // Default notification styling
@@ -191,46 +190,5 @@ $notification-text-margin-bottom: $spv-outer--medium - $spv-nudge;
     @extend %vf-notification;
     @include vf-highlight-bar($color-information, left, true);
     @include vf-icon-info($color-mid-dark);
-  }
-}
-
-@mixin vf-notifications-deprecated {
-  @include deprecate('3.0.0', 'Use new notification structure instead') {
-    [class='p-notification'],
-    [class^='p-notification--'] {
-      position: relative;
-
-      .p-notification__response {
-        margin-bottom: $notification-text-margin-bottom;
-        padding-right: calc(#{$spv-inner--small} - 1px);
-        padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, p);
-      }
-
-      .p-notification__status {
-        @extend %bold;
-
-        display: block;
-      }
-
-      .p-notification__status::after,
-      .p-notification__action::before {
-        content: ' ';
-      }
-
-      .p-notification__response,
-      .p-notification--floating {
-        max-width: unset;
-      }
-
-      .p-icon--close {
-        background-color: transparent;
-        background-size: map-get($icon-sizes, default);
-        border: 0;
-        padding: $sp-unit;
-        position: absolute;
-        right: $sph-inner;
-        top: $notification-icon-vert-offset;
-      }
-    }
   }
 }
