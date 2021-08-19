@@ -4,7 +4,7 @@ context:
   title: Buttons | Components
 ---
 
-## Buttons
+# Buttons
 
 <hr>
 
@@ -16,7 +16,7 @@ Buttons are clickable elements used to perform an action, you can apply `button`
   </p>
 </div>
 
-### Default
+## Default
 
 A default button can be used to indicate a positive action that isn't necessarily the main call-to-action.
 
@@ -24,13 +24,13 @@ A default button can be used to indicate a positive action that isn't necessaril
 View example of the default button pattern
 </a></div>
 
-### Neutral
+## Neutral
 
 <span class="p-label--deprecated">Deprecated</span>
 
 The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
 
-### Base
+## Base
 
 A base button can be used to discretely indicate a secondary action. It is often used alongside a default button.
 
@@ -38,7 +38,7 @@ A base button can be used to discretely indicate a secondary action. It is often
 View example of the base button pattern
 </a></div>
 
-### Positive
+## Positive
 
 A positive button can be used to indicate a positive action that is the main call-to-action.
 
@@ -46,7 +46,7 @@ A positive button can be used to indicate a positive action that is the main cal
 View example of the positive button pattern
 </a></div>
 
-### Negative
+## Negative
 
 A negative button can be used to indicate a negative action that is destructive or permanent.
 
@@ -54,7 +54,7 @@ A negative button can be used to indicate a negative action that is destructive 
 View example of the negative button pattern
 </a></div>
 
-### Brand
+## Brand
 
 You can use the brand button with the main color of your brand.
 
@@ -62,7 +62,7 @@ You can use the brand button with the main color of your brand.
 View example of the brand button pattern
 </a></div>
 
-### Link
+## Link
 
 <span class="p-label--new">New</span>
 
@@ -72,7 +72,7 @@ In some contexts you may need a button to look visually identical to a link.
 View example of the link button pattern
 </a></div>
 
-### Inline
+## Inline
 
 Should you wish to place a button after a line of inline text, as a CTA for example, you can do so by adding the state class `is-inline` to the button element.
 
@@ -80,7 +80,7 @@ Should you wish to place a button after a line of inline text, as a CTA for exam
 View example of the inline button pattern
 </a></div>
 
-### Dense
+## Dense
 
 In contexts where vertical space is limited, you might want a button with reduced vertical padding. Add class `.is-dense` to achieve that:
 
@@ -88,7 +88,7 @@ In contexts where vertical space is limited, you might want a button with reduce
 View example of the dense button pattern
 </a></div>
 
-### Small
+## Small
 
 If you are working with small text and need a suitably sized button, add class `.is-small`. It can be combined with `.is-dense` for an even tighter look:
 
@@ -96,7 +96,7 @@ If you are working with small text and need a suitably sized button, add class `
 View example of the small button pattern
 </a></div>
 
-### Icon
+## Icon
 
 Should you wish to place an icon in a button. You will not want to button to become full width on small screens. Therefore, you can add the state class `has-icon` to the button. If the contrast between the icon chosen and the button background is not sufficient then the `is-dark` or `is-light` classes can be added to the icon where appropriate.
 
@@ -104,7 +104,7 @@ Should you wish to place an icon in a button. You will not want to button to bec
 View example of the icon button pattern
 </a></div>
 
-### Processing
+## Processing
 
 In cases where a button needs to indicate that an action is occurring (e.g. saving data, processing a payment) while also preventing user interaction, the state class `is-processing` can be added to a disabled button to maintain full opacity.
 
@@ -112,13 +112,13 @@ In cases where a button needs to indicate that an action is occurring (e.g. savi
 View example of the processing button pattern
 </a></div>
 
-### Active
+## Active
 
 <span class="p-label--deprecated">Deprecated</span>
 
 The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
 
-### Theming
+## Theming
 
 The buttons use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
@@ -129,7 +129,7 @@ The buttons use Vanilla's light theme by default. There are two ways to switch b
 View example of the buttons with an is-dark class
 </a></div>
 
-### Accessibility
+## Accessibility
 
 In some contexts, it may be necessary to indicate to the user that a button is in a pressed state, such as when a button opens a contextual menu. This can be done by adding `aria-pressed="true"` to the button with JavaScript when the button is clicked, and removed when necessary.
 
@@ -137,7 +137,7 @@ In some contexts, it may be necessary to indicate to the user that a button is i
 View example of the contextual menu pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -157,7 +157,7 @@ If you only need a small subset of the icons consider [including them individual
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use buttons in React by installing our react-component library and importing `Button` or `ActionButton` component.
 

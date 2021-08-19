@@ -4,7 +4,7 @@ context:
   title: Table layout | Settings
 ---
 
-## Table layout
+# Table layout
 
 <hr>
 

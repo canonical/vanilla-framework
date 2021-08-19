@@ -5,7 +5,7 @@ context:
   title: Contextual menu | Components
 ---
 
-## Contextual menu
+# Contextual menu
 
 <hr>
 
@@ -31,7 +31,7 @@ Using direction modifiers will change the placement of the drop-down menu. By de
 View example of the contextual menu pattern
 </a></div>
 
-### Indicator
+## Indicator
 
 If you require a drop-down button with a state indicator then the `p-contextual-menu__toggle` class can be used alongside the `p-icon` and `p-button` components.
 
@@ -45,17 +45,17 @@ If you require a drop-down button with a state indicator then the `p-contextual-
 View example of the contextual menu pattern
 </a></div>
 
-### Functionality
+## Functionality
 
 Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the contextual menu will be open by default. When clicking on the `p-contextual-menu__toggle`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the drop-down.
 
-### Accessibility
+## Accessibility
 
 When using the `p-contextual-menu__toggle` class on a `button` element, please ensure that the button label contains a trailing ellipsis `…`, e.g. "Take action&hellip;". This is a convention used to indicate that the button launches a dialog.
 
 In cases where a contextual menu is shown on click, focus should be set within the menu element, using JavaScript.
 
-### Theming
+## Theming
 
 The contextual menu uses Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
@@ -66,7 +66,7 @@ The contextual menu uses Vanilla's light theme by default. There are two ways to
 View example of the contextual menu with an is-dark class
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -85,12 +85,12 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use contextual menu in React by installing our react-component library and importing `ContextualMenu` component.
 
 [See the documentation for our React `ContextualMenu` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/contextualmenu--default-story#contextual-menu)
 
-### Related
+## Related
 
 For more interactive elements that hide/show content[view the tooltips component](/docs/patterns/tooltips).

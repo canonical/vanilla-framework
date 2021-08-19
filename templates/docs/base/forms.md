@@ -4,7 +4,7 @@ context:
   title: Forms | Base elements
 ---
 
-## Forms
+# Forms
 
 <hr>
 
@@ -16,7 +16,7 @@ Most labels and controls are 100% the width of the `<form>` parent element, unle
 View example of a base form
 </a></div>
 
-### Single-line text field
+## Single-line text field
 
 `<input type="text">` is a single-line text field.
 
@@ -26,7 +26,7 @@ View example of a single-line text field
 
 Vanilla also styles HTML’s other single-line field types: `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `number`, `email`, `url`, `search` and `tel`. For the `search` type, see <a href="../patterns/search-box">Search box</a>.
 
-### Multi-line text field
+## Multi-line text field
 
 `<textarea>` is a multi-line text field.
 
@@ -36,7 +36,7 @@ View example of a textarea
 
 Note: The attribute `readonly` disables the input but it still retains a default cursor.
 
-### Checkbox
+## Checkbox
 
 Use the checkbox component to select one or more options. To provide fully featured Vanilla style and behaviour of the checkbox a specific markup structure is needed around the checkbox input (see example below).
 
@@ -46,7 +46,7 @@ To disable the checkbox component, add the `disabled` attribute to the respectiv
 View example of the checkbox components
 </a></div>
 
-#### Inline checkbox
+### Inline checkbox
 
 When placing the checkbox component in padded containers (table cells, some list items), use the `.p-checkbox--inline` variant. It ensures the checkbox and the label text are properly aligned with other inline text.
 
@@ -54,7 +54,7 @@ When placing the checkbox component in padded containers (table cells, some list
 View example of the inline checkbox components
 </a></div>
 
-#### Heading checkbox
+### Heading checkbox
 
 To use checkbox component in headings use the `.p-checkbox--heading` variant of the component to make sure the checkbox and the label text are properly aligned.
 
@@ -62,7 +62,7 @@ To use checkbox component in headings use the `.p-checkbox--heading` variant of 
 View example of the heading checkbox components
 </a></div>
 
-#### Indeterminate state checkbox
+### Indeterminate state checkbox
 
 When a checkbox requires a state between checked and unchecked, `checkbox.indeterminate = true;` can be set via JavaScript, which will cause the checkbox appear in an "indeterminate" state.
 
@@ -72,7 +72,7 @@ In cases when JavaScript can't be used for that, set `aria-checked="mixed"` on c
 View example of the indeterminate checkbox component
 </a></div>
 
-#### Deprecated base checkboxes
+### Deprecated base checkboxes
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -82,7 +82,7 @@ This applies also to all modifier classes on checkbox elements, such as `is-h1`,
 
 Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-checkbox` component.
 
-### Radio button
+## Radio button
 
 Use radio buttons to select one of the given set of options. To provide fully featured Vanilla style and behaviour of the radio button a specific markup structure is needed around the radio button input (see example below).
 
@@ -92,7 +92,7 @@ To disable the radio component, add the `disabled` attribute to the respective `
 View example of the radio components
 </a></div>
 
-#### Inline radio button
+### Inline radio button
 
 When placing the radio component in padded containers (table cells, some list items), use the `.p-radio--inline` variant of the component to make sure the radio button and the label text are properly aligned with other inline text.
 
@@ -100,7 +100,7 @@ When placing the radio component in padded containers (table cells, some list it
 View example of the inline radio components
 </a></div>
 
-#### Heading radio button
+### Heading radio button
 
 To use radio component in headings use the `.p-checkbox--heading` variant of the component to make sure the radio button and the label text are properly aligned.
 
@@ -108,7 +108,7 @@ To use radio component in headings use the `.p-checkbox--heading` variant of the
 View example of the heading radio components
 </a></div>
 
-#### Deprecated base radio buttons
+### Deprecated base radio buttons
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -118,7 +118,7 @@ This applies also to all modifier classes on checkbox elements, such as `is-h1`,
 
 Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-radio` component.
 
-### Select
+## Select
 
 Use the `<select>` element to create a drop-down list.
 
@@ -132,7 +132,7 @@ Use the `multiple` attribute to create a multiple select control.
 View example of the base multiple selects
 </a></div>
 
-### Range
+## Range
 
 The `<input type="range">` allows a user to select from a specified range of values, where the precise value is not considered important.
 
@@ -140,7 +140,7 @@ The `<input type="range">` allows a user to select from a specified range of val
 View example of the slider pattern
 </a></div>
 
-### Fieldset
+## Fieldset
 
 You can use the `<fieldset>` element to divide the form into different logical sections.
 
@@ -148,7 +148,7 @@ You can use the `<fieldset>` element to divide the form into different logical s
 View example of the base form fieldset
 </a></div>
 
-### Inline
+## Inline
 
 By applying the class `.p-form--inline` and wrapping any form control in `.p-form__group` you can change the layout style of any form to be inline.
 
@@ -156,7 +156,7 @@ By applying the class `.p-form--inline` and wrapping any form control in `.p-for
 View examples of form inline patterns
 </a></div>
 
-### Stacked
+## Stacked
 
 By applying the class `.p-form--stacked` and wrapping any form control in `.p-form__group` you can change the layout style of any form to be stacked.
 
@@ -164,7 +164,7 @@ By applying the class `.p-form--stacked` and wrapping any form control in `.p-fo
 View examples of form stacked patterns
 </a></div>
 
-### Disabled
+## Disabled
 
 Adding the `disabled` attribute to an input will prevent user interaction.
 
@@ -178,7 +178,7 @@ Adding the `disabled` attribute to an input will prevent user interaction.
 View example of a disabled input
 </a></div>
 
-### Validation
+## Validation
 
 To use form validation feedback - which includes feedback messages, icons and border colours - wrap individual input elements in a `p-form-validation` and additionally apply the `.is-error`, `.is-caution` or `.is-success` to the wrapper as appropriate.
 
@@ -190,7 +190,7 @@ Descriptive text relating to the element's validation status should use the clas
 View example of form validation patterns
 </a></div>
 
-### Required
+## Required
 
 By applying the class `.is-required` the attribute specifies that an input field must be filled out before submitting the form.
 
@@ -198,7 +198,7 @@ By applying the class `.is-required` the attribute specifies that an input field
 View example of an input required element
 </a></div>
 
-### Dense form elements
+## Dense form elements
 
 In contexts where vertical space is limited, e.g. inside a table row, you might prefer form elements with reduced vertical padding. Add class `.is-dense` to achieve that:
 
@@ -206,7 +206,7 @@ In contexts where vertical space is limited, e.g. inside a table row, you might 
 View example of the dense form elements
 </a></div>
 
-### Password toggle
+## Password toggle
 
 <span class="p-label--new">New</span>
 
@@ -223,7 +223,7 @@ When using a password field, use this pattern to allow the user to toggle the pa
 View example of the password toggle
 </a></div>
 
-### Import
+## Import
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.
 
@@ -241,7 +241,7 @@ To add form help text or validation into your project, copy either or both snipp
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use forms in React by installing our react-component library and importing `Form` and `Input` component.
 

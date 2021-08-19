@@ -4,7 +4,7 @@ context:
   title: Inline images | Components
 ---
 
-## Inline images
+# Inline images
 
 <hr>
 
@@ -16,7 +16,7 @@ The Inline images pattern can be used to showcase a group of related images, suc
 View example of the inline images pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -31,6 +31,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information view the [inline images design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Inline%20images) which includes the specification in markdown format and a PNG image.

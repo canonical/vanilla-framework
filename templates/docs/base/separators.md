@@ -4,13 +4,13 @@ context:
   title: Separators | Base elements
 ---
 
-## Separators
+# Separators
 
 <hr>
 
 Vanilla gives you multiple ways to separate parts of the content with a horizontal line.
 
-### Horizontal rule
+## Horizontal rule
 
 Use the standard `<hr>` element to introduce section breaks.
 
@@ -18,7 +18,7 @@ Use the standard `<hr>` element to introduce section breaks.
 View example of the horizontal line
 </a></div>
 
-#### Muted horizontal rule
+### Muted horizontal rule
 
 Add the `is-muted` class to an `<hr>` to make the horizontal rule lighter in colour.
 This can be useful when trying to create a more subtle partitioning within a section within a container, or between standard horizontal rules.
@@ -27,7 +27,7 @@ This can be useful when trying to create a more subtle partitioning within a sec
 View example of the muted horizontal line
 </a></div>
 
-#### Fixed width horizontal rule
+### Fixed width horizontal rule
 
 Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr>` in a `div` with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr>`.
 
@@ -35,7 +35,7 @@ Often it is useful to add a rule that aligns with content placed in a grid `row`
 View example of the fixed-width horizontal line
 </a></div>
 
-### Separator
+## Separator
 
 To separate block sections of the page, use the separator component `<hr class="p-separator">`.
 
@@ -43,7 +43,7 @@ To separate block sections of the page, use the separator component `<hr class="
 View example of the separator component
 </a></div>
 
-### Bordered strips
+## Bordered strips
 
 For content contained in strips, use [the bordered strip variant](/docs/patterns/strip#bordered-strip).
 
@@ -51,7 +51,7 @@ For content contained in strips, use [the bordered strip variant](/docs/patterns
 View example of the pattern strip is-bordered
 </a></div>
 
-### Import
+## Import
 
 The styles for the horizontal line element are included in Vanilla base.
 

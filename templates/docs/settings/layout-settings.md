@@ -4,7 +4,7 @@ context:
   title: Layout | Settings
 ---
 
-## Layout
+# Layout
 
 <hr>
 
@@ -16,7 +16,7 @@ These settings are used specifically to configure the grid which will determine 
 | `$grid-columns`      | `12`          |
 | `$grid-max-width`    | `1030px`      |
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

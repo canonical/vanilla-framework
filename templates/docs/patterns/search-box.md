@@ -4,13 +4,13 @@ context:
   title: Search box | Components
 ---
 
-## Search box
+# Search box
 
 <hr>
 
 Search boxes enable search functionality on a page and are typically used in a navigation bar.
 
-### Default
+## Default
 
 The component expands to the full width of its container by default.
 
@@ -27,7 +27,7 @@ A cancel button is shown when the input has content, and a small amount of JavaS
 View examples of search box patterns
 </a></div>
 
-### Navigation
+## Navigation
 
 This component integrates with `.p-navigation__nav` for both small and large screens.
 
@@ -35,7 +35,7 @@ This component integrates with `.p-navigation__nav` for both small and large scr
 View examples of search box navigation patterns
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -55,12 +55,12 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use search box in React by installing our react-component library and importing `SearchBox` component.
 
 [See the documentation for our React `SearchBox` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/searchbox--default-story#searchbox)
 
-### Related
+## Related
 
 For more interactive information adding search [view the navigation component](/docs/patterns/navigation).

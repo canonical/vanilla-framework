@@ -4,13 +4,13 @@ context:
   title: Hide | Utilities
 ---
 
-## Hide
+# Hide
 
 <hr>
 
 To hide an element from the user, use the class `u-hide`.
 
-### Viewports
+## Viewports
 
 To hide only at a specific viewport, add `--small`, `--medium` or `--large` modifiers to the `u-hide` class.
 
@@ -18,7 +18,7 @@ To hide only at a specific viewport, add `--small`, `--medium` or `--large` modi
 View example of the Hide utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

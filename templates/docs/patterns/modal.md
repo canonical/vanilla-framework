@@ -4,7 +4,7 @@ context:
   title: Modal | Components
 ---
 
-## Modal
+# Modal
 
 <hr>
 
@@ -16,7 +16,7 @@ On `p-modal` set display to `display:flex` or `display:none` to toggle the visib
 View example of the modal pattern
 </a></div>
 
-### With footer
+## With footer
 
 Optional footer element with a `p-modal__footer` class name can be added to the modal dialog to provide additional options.
 
@@ -24,7 +24,7 @@ Optional footer element with a `p-modal__footer` class name can be added to the 
 View example of the modal with a footer
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -39,13 +39,13 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Accessibility
+## Accessibility
 
 For any elements that launch a modal, please ensure that the label contains a trailing ellipsis `…`, e.g. "Launch modal&hellip;". This is a convention used to indicate that the element launches a dialog.
 
 When a modal is launched, focus should be set and contained within the modal dialog, using JavaScript. When the modal is closed, focus should be set back to the element that opened it.
 
-### React
+## React
 
 You can use modal dialogs in React by installing our react-component library and importing `Modal` component.
 
