@@ -4,7 +4,7 @@ context:
   title: Switch | Components
 ---
 
-## Switch
+# Switch
 
 <hr>
 
@@ -14,7 +14,7 @@ You can use this switch component to display on and off content, such as for set
 View example of the switch pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -29,6 +29,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information [view the switch design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Switch), which includes the specification in markdown format and a PNG image.

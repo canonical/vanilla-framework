@@ -4,7 +4,7 @@ context:
   title: Tabs | Components
 ---
 
-## Tabs
+# Tabs
 
 <hr>
 
@@ -16,7 +16,7 @@ To horizontally align the tab list with other content, the whole tab set can be 
 
 There are two contexts in which this pattern can be used: as navigation, and as controls for panes of content.
 
-### Navigation
+## Navigation
 
 The tabs pattern can be used as an alternative way to display a list of links.
 
@@ -24,7 +24,7 @@ The tabs pattern can be used as an alternative way to display a list of links.
 View example of the tabs navigation pattern
 </a></div>
 
-### Content
+## Content
 
 When you need to group a number of related blocks of content within an area on the page, the tabs pattern can be used, and will require JavaScript to handle interaction with each tab, and the toggling of their associated content panes.
 
@@ -39,7 +39,7 @@ When you need to group a number of related blocks of content within an area on t
 View example of the tabs content pattern
 </a></div>
 
-### Tab Buttons
+## Tab Buttons
 
 Tab buttons can be used in two ways:
 
@@ -56,7 +56,7 @@ At smaller breakpoints, this pattern should be swapped out for one more suited t
   </div>
 </div>
 
-#### Default
+### Default
 
 Use the class `p-tab-buttons` to make your tabs appear as a group of buttons.
 
@@ -64,7 +64,7 @@ Use the class `p-tab-buttons` to make your tabs appear as a group of buttons.
 View examples of the tab buttons pattern
 </a></div>
 
-#### Dense
+### Dense
 
 By adding the `is-dense` modifier to the `p-tab-buttons` element, the buttons will take on a more compact appearance.
 
@@ -72,7 +72,7 @@ By adding the `is-dense` modifier to the `p-tab-buttons` element, the buttons wi
 View examples of the dense tab buttons pattern
 </a></div>
 
-#### With Icons
+### With Icons
 
 The pattern also supports the use of icons within each button.
 
@@ -87,7 +87,7 @@ The pattern also supports the use of icons within each button.
 View examples of the tab buttons pattern with icons
 </a></div>
 
-### Import
+## Import
 
 To import just the standard tab component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -113,7 +113,7 @@ To import the tab button component into your project, copy the snippet below and
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use tabs in React by installing our react-component library and importing `Tab` component.
 

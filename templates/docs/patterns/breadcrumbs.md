@@ -4,7 +4,7 @@ context:
   title: Breadcrumbs | Components
 ---
 
-## Breadcrumbs
+# Breadcrumbs
 
 <hr>
 
@@ -18,13 +18,13 @@ You can use the breadcrumbs pattern to indicate where the current page sits in t
 View example of the breadcrumbs pattern
 </a></div>
 
-### Deprecated markup
+## Deprecated markup
 
 <span class="p-label--deprecated">Deprecated</span>
 
 The breadcrumb markup has been updated for accessibility reasons. Support for the <a href="/docs/examples/patterns/breadcrumbs-deprecated/">old markup</a> may be removed in future versions.
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -39,6 +39,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information [view the breadcrumbs design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Breadcrumbs), which includes the specification in markdown format and a PNG image.

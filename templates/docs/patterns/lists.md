@@ -4,14 +4,14 @@ context:
   title: Lists | Components
 ---
 
-## Lists
+# Lists
 
 <hr>
 
 If you want to display lists in a way that is more visually distinctive than the
 standard `<ol>` and `<ul>`, we have 7 list styles at your disposal.
 
-### Default
+## Default
 
 Use the class `.p-list` for a list without bullets and more spacing between
 items than the basic lists.
@@ -20,7 +20,7 @@ items than the basic lists.
 View example of the list pattern
 </a></div>
 
-### Status
+## Status
 
 Add the `.is-ticked` or `.is-crossed` classes to each list item to display tick/cross icons.
 
@@ -28,7 +28,7 @@ Add the `.is-ticked` or `.is-crossed` classes to each list item to display tick/
 View example of the list status pattern
 </a></div>
 
-### Horizontal divider
+## Horizontal divider
 
 Use the class `.p-list--divided` to add horizontal lines between the items.
 
@@ -36,7 +36,7 @@ Use the class `.p-list--divided` to add horizontal lines between the items.
 View example of the divided list pattern
 </a></div>
 
-### Ticked with horizontal divider
+## Ticked with horizontal divider
 
 You can combine both `.is-ticked` and `.p-list--divided` to style a
 list with horizontal dividers and tick icons.
@@ -45,7 +45,7 @@ list with horizontal dividers and tick icons.
 View example of the ticked divided list pattern
 </a></div>
 
-### Responsive divider
+## Responsive divider
 
 A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-medium`), the divider lines appear horizontally. On screens bigger than `$breakpoint-medium`, the divider lines appear vertically, centered in the column gutters.
 
@@ -53,7 +53,7 @@ A responsive divider inserts divider lines between sections of content. On small
 View example of lists with a responsive divider
 </a></div>
 
-### Inline
+## Inline
 
 Apply the class `.p-inline-list` to display all the list items in one line.
 
@@ -61,7 +61,7 @@ Apply the class `.p-inline-list` to display all the list items in one line.
 View example of the inline list pattern
 </a></div>
 
-### Middot
+## Middot
 
 Apply the class `.p-inline-list--middot` to add a middot character between
 inline list items.
@@ -76,7 +76,7 @@ The utility class `.is-dark` can also be applied to a middot list:
 View example of the middot list with an is-dark class
 </a></div>
 
-### Inline stretched
+## Inline stretched
 
 Apply the class `.p-inline-list--stretch` to stretch the list items to fill the full width of the parent container.
 
@@ -90,7 +90,7 @@ You can use the align utilities to align the content of individual items.
 View example of the stretched list pattern with alignment
 </a></div>
 
-### Vertical stepped
+## Vertical stepped
 
 If you want to display a list of items that form a set of steps — like a
 tutorial or instructions — you can use the class `.p-stepped-list`.
@@ -105,7 +105,7 @@ When the steps don't have headings use `<p>` paragraph as `.p-stepped-list__titl
 View example of the stepped list without headings
 </a></div>
 
-### Horizontal stepped
+## Horizontal stepped
 
 The stepped list should be used for step by step instructions. This pattern is best
 used on a `.p-strip--light` as the description sections are displayed in a white
@@ -115,7 +115,7 @@ box.
 View example of the pattern stepped list detailed
 </a></div>
 
-### Split
+## Split
 
 If you wish to split the items in a list into two columns above `$breakpoint-medium`, you can do so by adding the class `is-split` to the list element.
 
@@ -123,7 +123,7 @@ If you wish to split the items in a list into two columns above `$breakpoint-med
 View example of the patterns list split
 </a></div>
 
-### Theming
+## Theming
 
 The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_settings_colors.scss).
 Overriding the colours of individual elements of the responsive is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
@@ -138,7 +138,7 @@ For more details about themes in Vanilla refer to the [Color theming](/docs/sett
 View example of the divider list with an is-dark class
 </a></div>
 
-### Import
+## Import
 
 To import list patterns into your project, copy the snippet below and include it in your main Sass file.
 
@@ -194,12 +194,12 @@ To include individual list patterns you need to include the `vf-p-list-placehold
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use lists in React by installing our react-component library and importing `List` component.
 
 [See the documentation for our React `List` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/list--default-story#list)
 
-### Related
+## Related
 
 For a more interactive layered lists style [view the list tree component](/docs/patterns/list-tree).

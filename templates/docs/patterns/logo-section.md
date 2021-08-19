@@ -4,7 +4,7 @@ context:
   title: Logo section | Components
 ---
 
-## Logo section
+# Logo section
 
 <hr>
 
@@ -28,7 +28,7 @@ View example of the logo section pattern
 View example of the logo section pattern inside a six column parent container
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 

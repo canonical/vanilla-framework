@@ -4,11 +4,11 @@ context:
   title: Align | Utilities
 ---
 
-## Align
+# Align
 
 <hr>
 
-### Content
+## Content
 
 When you need to align elements within a container, you can use the `u-align` utilities to force them to align center, left or right.
 
@@ -16,7 +16,7 @@ When you need to align elements within a container, you can use the `u-align` ut
 View example of the content align utility
 </a></div>
 
-### Text
+## Text
 
 If you only need text to be aligned, you can use the `u-align-text` utilities.
 
@@ -24,7 +24,7 @@ If you only need text to be aligned, you can use the `u-align-text` utilities.
 View example of the text align utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

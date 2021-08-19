@@ -4,7 +4,7 @@ context:
   title: Sticky footer | Layouts
 ---
 
-## Sticky footer
+# Sticky footer
 
 <hr>
 

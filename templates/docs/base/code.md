@@ -4,13 +4,13 @@ context:
   title: Code | Base elements
 ---
 
-## Code
+# Code
 
 <hr>
 
 Vanilla gives you multiple ways to display code using the standard HTML elements.
 
-### Inline
+## Inline
 
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
@@ -24,7 +24,7 @@ An inline `code` element can be nested within a `.p-strip--dark` element, and ca
 View example of inline code
 </a></div>
 
-### Block
+## Block
 
 To create a pre-formatted block, use either `<pre>` (where preserving white space is important, but the text is not necessarily code) or `<pre><code>` (to indicate the contents are a piece of code):
 
@@ -40,7 +40,7 @@ View example of the base pre block
 View example of the base code block
 </a></div>
 
-### Code snippet
+## Code snippet
 
 The code snippet pattern should be used to group related code examples, making them easier to find and understand. It should consist of one or, at most, two code blocks with optional headers for their titles.
 
@@ -48,7 +48,7 @@ The code snippet pattern should be used to group related code examples, making t
 View example of the code snippet
 </a></div>
 
-### Code snippet with icon
+## Code snippet with icon
 
 A code snippet block can include an icon by using the `.p-code-snippet__block--icon` class. By default, it will show the Linux prompt icon, but other icon options are available, using the `.is-windows-prompt` or `.is-url` classes.
 
@@ -56,13 +56,13 @@ A code snippet block can include an icon by using the `.p-code-snippet__block--i
 View example of the code snippet
 </a></div>
 
-### Numbered code snippet
+## Numbered code snippet
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/numbered" class="js-example">
 View example of the code snippet
 </a></div>
 
-### Dropdowns
+## Dropdowns
 
 A select with the class `.p-code-snippet__dropdown` can be included within a `.p-code-snippet__header`, with a small amount of JS to switch between related code examples.
 
@@ -76,7 +76,7 @@ It is also possible to include multiple selects, and an alternative layout is av
 View example of the code snippet
 </a></div>
 
-### Wrapping
+## Wrapping
 
 By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:
 
@@ -84,7 +84,7 @@ By default, `<pre>` elements do not wrap content, but this can be overridden by 
 View example of the code snippet
 </a></div>
 
-### Syntax highlighting
+## Syntax highlighting
 
 We recommend using [Prism](https://prismjs.com/) for syntax highlighting in the code snippet. Vanilla framework provides a built-in Prism theme, so only JavaScript of Prism library needs to be added to the page, and `language-*` class names to the respective code blocks.
 
@@ -100,7 +100,7 @@ To avoid using JavaScript library for syntax highlighting you can prepare the co
 View example of the code snippet with syntax highlighting
 </a></div>
 
-### Bordered
+## Bordered
 
 <span class="p-label--new">New</span>
 
@@ -110,7 +110,7 @@ Add the class `.is-bordered` to the `.p-code-snippet` element to visually group 
 View example of the code snippet with a border
 </a></div>
 
-### Copyable
+## Copyable
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -118,7 +118,7 @@ The code copyable element is now deprecated and will be removed in a future vers
 
 It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippet).
 
-### Numbered
+## Numbered
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -126,7 +126,7 @@ The code numbered pattern is now deprecated and will be removed in a future vers
 
 It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippet).
 
-### React
+## React
 
 You can use code snippet in React by installing our react-component library and importing code snippet component.
 

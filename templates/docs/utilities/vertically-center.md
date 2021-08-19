@@ -4,7 +4,7 @@ context:
   title: Vertically center | Utilities
 ---
 
-## Vertically center
+# Vertically center
 
 <hr>
 
@@ -16,7 +16,7 @@ Note: only affects medium and large screens.
 View example of the vertically center utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

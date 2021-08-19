@@ -4,13 +4,13 @@ context:
   title: Functions | Utilities
 ---
 
-## Functions
+# Functions
 
 <hr>
 
 Vanilla has several global functions used across multiple components or utilities, which can be also be used when building custom components.
 
-### URL-friendly color
+## URL-friendly color
 
 This function is used to inject Vanilla color variables into inline vector graphics by converting all `#` with the HTML encoded `%23`.
 
@@ -25,7 +25,7 @@ This function is used to inject Vanilla color variables into inline vector graph
 }
 ```
 
-### Determine text color
+## Determine text color
 
 This function tests the value of the background's colour and returns light or dark text accordingly.
 
@@ -39,7 +39,7 @@ This function tests the value of the background's colour and returns light or da
 }
 ```
 
-### Power function
+## Power function
 
 This function raises a given number to a given power.
 
@@ -61,7 +61,7 @@ This function raises a given number to a given power.
 }
 ```
 
-### Highlight bar
+## Highlight bar
 
 This function adds a `3px` thick, coloured bar to one side of a component (for example in Notification, Navigation and Tab components). The `$over-border` argument determines whether the bar sits on top of a component with borders.
 
@@ -108,7 +108,7 @@ This function adds a `3px` thick, coloured bar to one side of a component (for e
 }
 ```
 
-### Related
+## Related
 
 - [Icons](/docs/patterns/icons)
 - [Strip](/docs/patterns/strip)

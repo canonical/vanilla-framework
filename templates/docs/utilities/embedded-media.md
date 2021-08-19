@@ -4,7 +4,7 @@ context:
   title: Embedded media | Utilities
 ---
 
-## Embedded media
+# Embedded media
 
 <hr>
 
@@ -14,7 +14,7 @@ Embed media objects such as videos, maps and calendars.
 View example of the embedded media utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

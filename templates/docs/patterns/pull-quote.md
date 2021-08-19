@@ -4,7 +4,7 @@ context:
   title: Pull quote | Components
 ---
 
-## Pull quote
+# Pull quote
 
 <hr>
 
@@ -15,7 +15,7 @@ visually prominent way.
 View example of the pull quote pattern
 </a></div>
 
-### Small
+## Small
 
 A small variant is available which displays the quote text at the same size as normal paragraph text.
 
@@ -23,7 +23,7 @@ A small variant is available which displays the quote text at the same size as n
 View example of the small pull quote pattern
 </a></div>
 
-### Large
+## Large
 
 To give more prominence to a quote, there is also a large variant.
 
@@ -31,7 +31,7 @@ To give more prominence to a quote, there is also a large variant.
 View example of the small pull quote pattern
 </a></div>
 
-### Image
+## Image
 
 To add an image to any size of pull-quote, add the class `has-image` and use the following markup for the image.
 
@@ -39,7 +39,7 @@ To add an image to any size of pull-quote, add the class `has-image` and use the
 View example of the small pull quote pattern with an image
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -54,10 +54,10 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information [view the quotes design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Pull%20quote), which includes the specification in markdown format and a PNG image.
 
-### Related
+## Related
 
 For more typographic related information view the [blockquotes and citations](/docs/base/typography#blockquotes-and-citations) in base typography.

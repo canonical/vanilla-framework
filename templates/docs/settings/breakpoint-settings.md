@@ -4,7 +4,7 @@ context:
   title: Breakpoints | Settings
 ---
 
-## Breakpoints
+# Breakpoints
 
 <hr>
 
@@ -22,7 +22,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 
 <br>
 
-### Target extra small screens
+## Target extra small screens
 
 ```css
 @media screen and (max-width: $breakpoint-small) {
@@ -30,7 +30,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 }
 ```
 
-### Target small screens
+## Target small screens
 
 ```css
 @media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
@@ -38,7 +38,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 }
 ```
 
-### Target medium screens
+## Target medium screens
 
 ```css
 @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
@@ -46,7 +46,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 }
 ```
 
-### Target large screens
+## Target large screens
 
 ```css
 @media screen and (min-width: $breakpoint-large) {
@@ -54,7 +54,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 }
 ```
 
-### Target extra large screens
+## Target extra large screens
 
 ```css
 @media screen and (min-width: $breakpoint-x-large) {
@@ -62,7 +62,7 @@ Vanilla uses four main breakpoints for screen sizes, below you can see the setti
 }
 ```
 
-### Modifying the navigation breakpoint threshold
+## Modifying the navigation breakpoint threshold
 
 The `$breakpoint-navigation-threshold` is the breakpoint in which the navigation switches from horizontal (desktop devices) navigation to a burger style menu (mobile devices).
 
@@ -70,6 +70,6 @@ The `$breakpoint-navigation-threshold` is the breakpoint in which the navigation
 
 If you have a large number of menu items, you may consider overriding this value to a large breakpoint so the navigation snaps to a burger menu at a larger breakpoint.
 
-### Modifying the heading breakpoint threshold
+## Modifying the heading breakpoint threshold
 
 `$breakpoint-heading-threshold` is the breakpoint in which the heading sizes switch from a 1:2 modular scale ratio (desktop devices) to a 2:3 ratio (mobile devices).

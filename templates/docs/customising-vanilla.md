@@ -4,13 +4,13 @@ context:
   title: Customising Vanilla
 ---
 
-## Customising Vanilla
+# Customising Vanilla
 
 <hr>
 
 Here you will find information on customising Vanilla to suit your project.
 
-### Overriding default settings
+## Overriding default settings
 
 To override the default settings you must do so _before_ you include Vanilla in your main Sass file. It is good practice to include custom styles in a separate settings file. A list of configurable settings can be found in the [Related section](#related).
 
@@ -31,7 +31,7 @@ $grid-max-width: 1440px;
 @include vanilla;
 ```
 
-### Importing individual components
+## Importing individual components
 
 Your project may not warrant including all of Vanilla, in which case you can include components modularly. We recommend including `vf-base` as many components depend on the base styling. As a bare minimum, you need to include `vf-b-placeholders`, as many patterns extend these placeholders and will generate errors if they are missing. Below is an example of how to include Vanilla components on an as-needed basis:
 
@@ -48,7 +48,7 @@ Your project may not warrant including all of Vanilla, in which case you can inc
 @include vf-p-links;
 ```
 
-### Related settings
+## Related settings
 
 <div class="row">
   <div class="col-3">

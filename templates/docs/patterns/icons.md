@@ -5,7 +5,7 @@ context:
   extra_stylesheet: build/css/standalone/patterns_icons-additional.css
 ---
 
-## Icons
+# Icons
 
 <hr>
 
@@ -15,7 +15,7 @@ Icons provide visual context and enhance usability, they can be added via an `<i
 View example of icons
 </a></div>
 
-### Icons as links
+## Icons as links
 
 If an icon needs to act as a link, `p-icon--` classes can instead be applied to `<a>` elements:
 
@@ -23,13 +23,13 @@ If an icon needs to act as a link, `p-icon--` classes can instead be applied to 
 View example of icons as links
 </a></div>
 
-### Accessibility
+## Accessibility
 
 For accessibility purposes, you can add text inside the icon element which will not be displayed to the user. E.g.
 
 `<i class="p-icon--chevron-down">This text will not be displayed</i>`
 
-### Standard
+## Standard
 
 Our icons have two predefined color styles: light and dark. The light variant is the default style.
 
@@ -120,7 +120,7 @@ Our icons have two predefined color styles: light and dark. The light variant is
 
 <span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` class has been deprecated and will be removed in version 3.0. Use class `.p-icon--help` instead. We will also be removing <code>p-icon--contextual-menu</code>, please use <code>p-icon--chevron-down</code> instead.
 
-### Dark theme
+## Dark theme
 
 Our dark-themed icons are available when placed within a container that has the suffix `--dark` ex) `help-container--dark`. Icon colors will then be inverted to ensure legibility as shown in our example.
 
@@ -142,7 +142,7 @@ Alternatively to use light version of icons outside of the dark strip, add `is-l
 </div>
 </section>
 
-### Alert
+## Alert
 
 Our alert icons are used to indicate the status of a message in a notification.
 
@@ -162,7 +162,7 @@ Our alert icons are used to indicate the status of a message in a notification.
   </div>
 </section>
 
-### Additional
+## Additional
 
 Outside of the standard set, additional icons are available for use, and need to be individually imported.
 
@@ -449,7 +449,7 @@ Outside of the standard set, additional icons are available for use, and need to
   </div>
 </section>
 
-### Social
+## Social
 
 Our social icons are used to drive users to social content.
 
@@ -490,7 +490,7 @@ Our social icons are used to drive users to social content.
 
 <span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0.
 
-### Share
+## Share
 
 If you wish to add share icons for Twitter, Facebook or LinkedIn, we recommend using the networks' official buttons:
 
@@ -510,7 +510,7 @@ If you wish to add share icons for Twitter, Facebook or LinkedIn, we recommend u
   </div>
 </div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -674,7 +674,7 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-warning-grey;
 ```
 
-### Customisation
+## Customisation
 
 Should you wish to change the colour of an icon, this can be achieved by using an icon mixin and passing a color as an argument to the mixin.
 
@@ -697,7 +697,7 @@ You can find all of the available icon mixins listed [here](https://github.com/c
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use icons in React by installing our react-component library and importing `Icon` component.
 

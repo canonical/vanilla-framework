@@ -4,7 +4,7 @@ context:
   title: Padding collapse | Utilities
 ---
 
-## Padding collapse
+# Padding collapse
 
 <hr>
 
@@ -14,7 +14,7 @@ Remove one or more paddings on an element.
 View example of the padding collapse utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

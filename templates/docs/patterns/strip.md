@@ -4,7 +4,7 @@ context:
   title: Strip | Components
 ---
 
-## Strip
+# Strip
 
 <hr>
 
@@ -20,7 +20,7 @@ View example of the strip light pattern
 View example of the strip dark pattern
 </a></div>
 
-### Accent strip
+## Accent strip
 
 The purpose of the strip accent pattern is to display content with a
 highlighted strip using the accent colour.
@@ -29,7 +29,7 @@ highlighted strip using the accent colour.
 View example of the pattern strip accent
 </a></div>
 
-### Image strip
+## Image strip
 
 This pattern allows for an image background to be appear as a background on a strip.
 
@@ -46,7 +46,7 @@ These classes will then override the text color to ensure it remains visible.
 View example of the pattern strip image
 </a></div>
 
-### Bordered strip
+## Bordered strip
 
 This pattern is used to add a dividing border at the bottom of the strip.
 
@@ -60,7 +60,7 @@ This pattern is used to add a dividing border at the bottom of the strip.
 View example of the pattern strip is-bordered
 </a></div>
 
-### Deep strip
+## Deep strip
 
 This state gives the strip larger vertical padding.
 
@@ -68,7 +68,7 @@ This state gives the strip larger vertical padding.
 View example of the pattern strip is-deep
 </a></div>
 
-### Shallow strip
+## Shallow strip
 
 This state gives the strip smaller vertical padding.
 
@@ -76,7 +76,7 @@ This state gives the strip smaller vertical padding.
 View example of the pattern strip is-shallow
 </a></div>
 
-### Suru strip
+## Suru strip
 
 This is a patterned strip that is ideal for overview or main pages, and can be used with images.
 
@@ -86,7 +86,7 @@ The colours of the solid gradient are based on `$color-brand` by default. The gr
 View example of the Suru strip pattern
 </a></div>
 
-### Topped Suru strip
+## Topped Suru strip
 
 This is a patterned strip that is ideal for content pages.
 
@@ -96,7 +96,7 @@ The colours of the solid gradient are based on `$color-brand` by default. The gr
 View example of the topped Suru strip pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -111,7 +111,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use strip in React by installing our react-component library and importing `Strip` component.
 

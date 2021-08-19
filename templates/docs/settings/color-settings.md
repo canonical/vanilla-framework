@@ -4,7 +4,7 @@ context:
   title: Color | Settings
 ---
 
-## Color
+# Color
 
 <hr>
 
@@ -121,7 +121,7 @@ You can define a brand color (`$color-brand`) that can be used for call-to-actio
 
 <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/7446a44a-basics-brand-color.png" alt="">
 
-### Accessibility
+## Accessibility
 
 It’s important for us to meet all web accessibility standards. Vanilla encourages meeting the minimum contrast ratios specified by WCAG 2.1 Level AA for text, icons and background colors.
 
@@ -144,7 +144,7 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
   </div>
 </div>
 
-### Color theming
+## Color theming
 
 Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
 
@@ -171,17 +171,17 @@ Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-fr
 
 Future releases will expand this list to include all elements and components.
 
-#### Setting the default color theme per element / component
+### Setting the default color theme per element / component
 
 To set the default theme to dark on any of the elements / components listed above:
 
 - Go to `_settings_themes.scss`
 - Set the value of the respective variable in the table above to 'dark'
 
-#### Invoking a theme that is not currently a default
+### Invoking a theme that is not currently a default
 
 Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or component is `light`, or `is-light` if the default is dark.
 
-### Design
+## Design
 
 For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.

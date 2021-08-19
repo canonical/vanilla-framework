@@ -4,7 +4,7 @@ context:
   title: Table cell padding overlap | Utilities
 ---
 
-## Table cell padding overlap
+# Table cell padding overlap
 
 <hr>
 

@@ -4,7 +4,7 @@ context:
   title: Labels | Components
 ---
 
-## Labels
+# Labels
 
 <hr>
 
@@ -16,7 +16,7 @@ Labels are static elements which you can apply to signify status, tags or any ot
   </p>
 </div>
 
-### Default
+## Default
 
 Generic label that carries no semantic meaning.
 
@@ -24,7 +24,7 @@ Generic label that carries no semantic meaning.
 View example of the default label pattern
 </a></div>
 
-### New
+## New
 
 Label to be used on newly released components, utilities or settings that are safe to use in projects.
 
@@ -32,7 +32,7 @@ Label to be used on newly released components, utilities or settings that are sa
 View example of the new label pattern
 </a></div>
 
-### Deprecated
+## Deprecated
 
 Label to be used on components, utilities or settings are in the process of being removed and should no longer be used in projects.
 
@@ -40,7 +40,7 @@ Label to be used on components, utilities or settings are in the process of bein
 View example of the deprecated label pattern
 </a></div>
 
-### In progress
+## In progress
 
 Label to be used when a design spec and code implementation are not yet finished.
 
@@ -48,7 +48,7 @@ Label to be used when a design spec and code implementation are not yet finished
 View example of the in progress label pattern
 </a></div>
 
-### Updated
+## Updated
 
 Label to be used on existing components, utilities or settings that have been updated either through design or code.
 
@@ -56,7 +56,7 @@ Label to be used on existing components, utilities or settings that have been up
 View example of the updated label pattern
 </a></div>
 
-### Validated
+## Validated
 
 Label to be used on a proposal approved in our bi-weekly meeting. A design spec is created and development starts ready for code review.
 
@@ -64,7 +64,7 @@ Label to be used on a proposal approved in our bi-weekly meeting. A design spec 
 View example of the validated label pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -79,6 +79,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information view the [labels design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Labels) which includes the specification in markdown format and a PNG image.
