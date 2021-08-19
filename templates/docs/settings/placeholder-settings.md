@@ -4,7 +4,7 @@ context:
   title: Placeholders | Settings
 ---
 
-## Placeholders
+# Placeholders
 
 <hr>
 
@@ -42,6 +42,6 @@ Vanilla uses several global placeholders to share common styles between componen
   </tbody>
 </table>
 
-### Related
+## Related
 
 - [Spacing settings](/docs/settings/spacing-settings)

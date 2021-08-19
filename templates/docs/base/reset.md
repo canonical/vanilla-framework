@@ -4,7 +4,7 @@ context:
   title: Reset | Base elements
 ---
 
-## Reset
+# Reset
 
 <hr>
 

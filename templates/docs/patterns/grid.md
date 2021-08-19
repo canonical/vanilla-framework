@@ -4,7 +4,7 @@ context:
   title: Grid | Components
 ---
 
-## Grid
+# Grid
 
 <hr>
 
@@ -55,7 +55,7 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
     View example of the default grid
 </a></div>
 
-### Fixed width containers
+## Fixed width containers
 
 If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.row` with a single 12 column container inside:
 
@@ -63,7 +63,7 @@ If you only want to constrain content so it matches the grid's fixed width, you 
     View example of a fixed width container
 </a></div>
 
-### Nested columns
+## Nested columns
 
 Columns can be nested infinitely by adding `.row` classes within columns. When nesting, remember to:
 • keep track of the context (available columns), which is equal to the number of columns spanned by the parent element.
@@ -73,7 +73,7 @@ Columns can be nested infinitely by adding `.row` classes within columns. When n
     View example of the nested columns within the grid
 </a></div>
 
-### Empty columns
+## Empty columns
 
 To leave gap columns, use `col-start-{breakpoint}{index}`, e.g.: `col-start-large-2`.
 
@@ -91,11 +91,11 @@ Please note, specifying a value that exceeds the available number of columns wil
 View example of the incorrect column offset within a nested grid
 </a></div>
 
-### Breaking out of the grid
+## Breaking out of the grid
 
 In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins. Vanilla provides a separate [fluid breakout layout](/docs/layouts/fluid-breakout) for this purpose.
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -110,7 +110,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use grid in React by installing our react-component library and importing `Row` and `Col` components.
 

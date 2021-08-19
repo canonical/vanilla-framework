@@ -5,7 +5,7 @@ context:
   title: No print | Utilities
 ---
 
-## No print
+# No print
 
 <hr>
 
@@ -17,7 +17,7 @@ Use your browser's print preview to see the following example working.
 View example of the no-print utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

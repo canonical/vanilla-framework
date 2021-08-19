@@ -4,7 +4,7 @@ context:
   title: Search and filter | Components
 ---
 
-## Search and filter
+# Search and filter
 
 <span class="p-label--new">New</span>
 
@@ -18,7 +18,7 @@ This pattern requires JavaScript to provide the full functionality.
 View example of the search and filter pattern
 </a></div>
 
-### Selected chips
+## Selected chips
 
 When a selection is made a chip is prepended to the input container.
 
@@ -26,11 +26,11 @@ When a selection is made a chip is prepended to the input container.
 View example of the search and filter with chips pattern
 </a></div>
 
-#### Functionality
+### Functionality
 
 Please use toggle the `aria-hidden` attribute on the `.p-search-and-filter__panel` element when you want to reveal the filter panel. When a user makes a selection you can append a [chip element](/docs/patterns/chip) to the `.search-and-filter__search-container` element.
 
-### Overflowing chips
+## Overflowing chips
 
 When the selection reaches the end of the container the chips wrap and should display the number of wrapping chips in the selected-count element. The element becomes a hit target to expand the selected chips section.
 
@@ -38,7 +38,7 @@ When the selection reaches the end of the container the chips wrap and should di
 View example of the search and filter chip overflow pattern
 </a></div>
 
-#### Functionality
+### Functionality
 
 When a click event is triggered on the selected-count element you need need to toggle three states.
 
@@ -50,7 +50,7 @@ When a click event is triggered on the selected-count element you need need to t
   <p class="p-notification__response" role="status">You will have to handle the overflowing chip count yourself. Unfortunately that is out of scope for this example but this can be handled for you by the <a href="#react">React component</a>.</p>
 </div>
 
-### Search prompt
+## Search prompt
 
 When you type in the search input the behaviour should be that the available selections are filtered to match the input. Also, a raw string input should be made available.
 
@@ -58,7 +58,7 @@ When you type in the search input the behaviour should be that the available sel
 View example of the search and filter with search prompt pattern
 </a></div>
 
-#### Functionality
+### Functionality
 
 <div class="p-notification--information">
   <p class="p-notification__response" role="status">You will have to handle filtering the available chips yourself by removing or hiding chips that do not match. Unfortunately that is out of scope for this example but this can be handled for you by the <a href="#react">React component</a>.</p>
@@ -82,7 +82,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use search and filter in React by installing our react-component library and importing `SearchAndFilter` component.
 

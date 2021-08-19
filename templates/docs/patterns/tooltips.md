@@ -4,7 +4,7 @@ context:
   title: Tooltips | Components
 ---
 
-## Tooltips
+# Tooltips
 
 <hr>
 
@@ -28,7 +28,7 @@ They can be used to provide information about concepts/terms/actions that are no
 View example of the tooltips pattern
 </a></div>
 
-### Detached
+## Detached
 
 In some cases you may need the tooltip element to exist outside of the element it is a tooltip for, in which case you can use the `is-detached` class with the `u-hide` utility, and JavaScript to set the desired position of the tooltip.
 
@@ -36,7 +36,7 @@ In some cases you may need the tooltip element to exist outside of the element i
 View example of the detached tooltips pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -51,12 +51,12 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use tooltips in React by installing our react-component library and importing `Tooltip` component.
 
 [See the documentation for our React `Tooltip` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/tooltip--default-story)
 
-### Related
+## Related
 
 For an alternative way of displaying discoverable information [view our contextual menu component](/docs/patterns/contextual-menu).

@@ -4,7 +4,7 @@ context:
   title: Font metrics | Utilities
 ---
 
-## Font metrics
+# Font metrics
 
 <hr>
 
@@ -14,7 +14,7 @@ You can apply this utility to an element (such as `<body>`) to visualise the `.5
 View example of the baseline grid utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

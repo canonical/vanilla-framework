@@ -4,7 +4,7 @@ context:
   title: List tree | Components
 ---
 
-## List tree
+# List tree
 
 <hr>
 
@@ -16,7 +16,7 @@ Each directory can be opened or collapse using `aria-hidden`, set `true` for ope
 View example of the list tree pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -31,10 +31,10 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information view the [list tree design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/List%20tree) which includes the specification in markdown format and a PNG image.
 
-### Related
+## Related
 
 For alternative list style layouts [view our range of list components.](/docs/patterns/lists)

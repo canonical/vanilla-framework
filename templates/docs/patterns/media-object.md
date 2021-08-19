@@ -5,7 +5,7 @@ context:
   title: Media object | Components
 ---
 
-## Media object
+# Media object
 
 <hr>
 
@@ -15,7 +15,7 @@ A media object should be used to display events or articles.
 View example of the pattern media object
 </a></div>
 
-### Circular
+## Circular
 
 You can add an `is-round` state to the `.p-media-object__image` element to create a circular image style, which we recommend to be used for head shots of people. In order for this variant to work, the original image must be square.
 
@@ -23,7 +23,7 @@ You can add an `is-round` state to the `.p-media-object__image` element to creat
 View example of the pattern media object
 </a></div>
 
-### Large
+## Large
 
 Use a large variant of the component to display details of a single object on a page.
 
@@ -31,7 +31,7 @@ Use a large variant of the component to display details of a single object on a 
 View example of the pattern media object large
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -46,6 +46,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information view the [media object design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Media%20object) which includes the specification in markdown format and a PNG image.

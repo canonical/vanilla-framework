@@ -4,7 +4,7 @@ context:
   title: Font | Settings
 ---
 
-## Font
+# Font
 
 <hr>
 
@@ -21,7 +21,7 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 | `$font-base-size`      | `1rem`                                                |
 | `$font-heading-family` | `$font-base-family`                                   |
 
-### Font weight
+## Font weight
 
 Vanilla uses three font weight settings in tandem with the Ubuntu font, which can be overridden to suit your needs:
 
@@ -34,11 +34,11 @@ Vanilla uses three font weight settings in tandem with the Ubuntu font, which ca
 <br>
 <hr>
 
-### Design
+## Design
 
 - [Typography design](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography)
 
-### Related
+## Related
 
 - [Base typography](/docs/base/typography)
 - [Code](/docs/base/code)

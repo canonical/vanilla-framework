@@ -4,13 +4,13 @@ context:
   title: Links | Components
 ---
 
-## Links
+# Links
 
 <hr>
 
 Links are used to embed actions or pathways to more information, allowing users to click their way from page to page.
 
-### Default
+## Default
 
 Default links are a color defined by `$color-link` and are 10% darker when already visited.
 
@@ -18,7 +18,7 @@ Default links are a color defined by `$color-link` and are 10% darker when alrea
 View example of the default link pattern
 </a></div>
 
-### External
+## External
 
 The `.p-link--external` class should be used on hyperlinks that go to a different domain than the current one.
 
@@ -34,7 +34,7 @@ The `.p-link--external` class should be used on hyperlinks that go to a differen
 View example of the external link pattern
 </a></div>
 
-### Soft
+## Soft
 
 The `.p-link--soft` class should be used on hyperlinks where many links are grouped together, such as a link cloud.
 
@@ -42,7 +42,7 @@ The `.p-link--soft` class should be used on hyperlinks where many links are grou
 View example of the soft link pattern
 </a></div>
 
-### Inverted
+## Inverted
 
 The `.p-link--inverted` class should be used where links are placed on a dark background.
 
@@ -50,7 +50,7 @@ The `.p-link--inverted` class should be used where links are placed on a dark ba
 View example of the inverted link pattern
 </a></div>
 
-### Back to top
+## Back to top
 
 The `.p-top` link can be used to make it easier to go back to the top on long pages. If the page is divided into different sections, you can use more than one per page.
 
@@ -58,7 +58,7 @@ The `.p-top` link can be used to make it easier to go back to the top on long pa
 View example of the back to top pattern
 </a></div>
 
-### Skip link
+## Skip link
 
 <span class="p-label--new">New</span>
 
@@ -68,7 +68,7 @@ The `.p-link--skip` link is used to help keyboard users navigate quickly to the 
 View example of the back to skip link pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -83,7 +83,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use links in React by installing our react-component library and importing `Link` component.
 

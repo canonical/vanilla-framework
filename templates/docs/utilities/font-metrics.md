@@ -4,7 +4,7 @@ context:
   title: Font metrics | Utilities
 ---
 
-## Font metrics
+# Font metrics
 
 <hr>
 
@@ -16,7 +16,7 @@ These properties are not directly accessible via css, but can be obtained from f
 View an example of the font metrics utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

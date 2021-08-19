@@ -4,13 +4,13 @@ context:
   title: Floats | Utilities
 ---
 
-## Floats
+# Floats
 
 <hr>
 
 The float utilities allow you to float an element left or right.
 
-### All screens
+## All screens
 
 You can use the following to float an element on left or right on all screen
 sizes.
@@ -19,7 +19,7 @@ sizes.
 View example of the all screen floats utility
 </a></div>
 
-### Only large screens
+## Only large screens
 
 You can limit floats to only large screen sizes using the following example.
 
@@ -27,7 +27,7 @@ You can limit floats to only large screen sizes using the following example.
 View example of the large screen floats utility
 </a></div>
 
-### Only medium screens
+## Only medium screens
 
 You can limit floats to only medium screen sizes using the following example.
 
@@ -35,7 +35,7 @@ You can limit floats to only medium screen sizes using the following example.
 View example of the medium screen floats utility
 </a></div>
 
-### Only small screens
+## Only small screens
 
 You can limit floats to only small screen sizes using the following example.
 
@@ -43,7 +43,7 @@ You can limit floats to only small screen sizes using the following example.
 View example of the small screen floats utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

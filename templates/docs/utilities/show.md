@@ -4,7 +4,7 @@ context:
   title: Show | Utilities
 ---
 
-## Show
+# Show
 
 <hr>
 
@@ -14,7 +14,7 @@ Show an element within a certain breakpoint.
 View example of the Show utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

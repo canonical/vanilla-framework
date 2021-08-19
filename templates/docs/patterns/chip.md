@@ -4,7 +4,7 @@ context:
   title: Chip | Components
 ---
 
-## Chips
+# Chips
 
 <hr>
 
@@ -14,7 +14,7 @@ Our chip component is to be used to display small actionable pieces of informati
 View example of the default chip pattern
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -29,7 +29,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use chips in React by installing our react-component library and importing `Chip` component.
 

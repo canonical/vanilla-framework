@@ -4,11 +4,11 @@ context:
   title: Documentation | Layouts
 ---
 
-## Documentation layout
+# Documentation layout
 
 <hr>
 
-### Structure
+## Structure
 
 The documentation layout is built using Vanilla grid classes and common components. It consists of 3 horizontal areas that span the entire fixed width of the grid: header, content, footer.
 
@@ -18,19 +18,19 @@ At the large breakpoint, the content area is further divided into an aside (3 co
 
 At smaller breakpoints, the aside is moved off-screen and shown / hidden using a toggle.
 
-#### Header
+### Header
 
 Place the [navigation component](/docs/patterns/navigation#global-navigation) and any other full width elements in the header. This could include a strip with a search, a hero element, etc.
 
 Style and contents of the documentation main navigation should be consistent with rest of the site.
 
-##### Search
+#### Search
 
 Documentation pages may have an optional search box in the main navigation.
 
 Alternatively, a search can be added in a full-width area under the top navigation, but above the aside and main content in a [strip component](/docs/patterns/strip) with grid row inside. The specific styling of the strip can be customised to match the site branding or other design requirements.
 
-#### Content area
+### Content area
 
 The content area is implemented as a regular strip (`.p-strip`) with a grid row (`.row`) inside. Within the standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) is dedicated to the main documentation content.
 
@@ -75,11 +75,11 @@ To split the main content into 2 parts, use `col-4`:
   </div>
 </div>
 
-#### Footer
+### Footer
 
 The footer is built using a [strip component](/docs/patterns/strip).
 
-### Example
+## Example
 
 <div class="embedded-example"><a href="/docs/examples/layouts/documentation/" class="js-example" data-height="600">
 View an example of the documentation layout
