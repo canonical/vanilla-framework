@@ -1,12 +1,17 @@
 @mixin vf-p-banners {
-  .p-banner {
+  %p-banner-base {
     @extend %vf-is-bordered;
     @extend %vf-has-round-corners;
     @extend %vf-has-box-shadow;
     @extend %vf-card;
 
+    text-align: center;
+  }
+
+  .p-banner {
+    @extend %p-banner-base;
+
     background-color: $color-accent;
     color: $color-x-light;
-    text-align: center;
   }
 }
