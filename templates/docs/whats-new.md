@@ -4,13 +4,11 @@ context:
   title: What's new in Vanilla
 ---
 
-## What's new in Vanilla
+# What's new in Vanilla {{versionMinor}}
 
 <hr>
 
 When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
-
-### What's new in Vanilla {{versionMinor}}
 
 <table aria-label="What's new in Vanilla {{versionMinor}}">
   <thead>
@@ -50,7 +48,7 @@ When we add, make significant updates, or deprecate a component we update their 
   </tbody>
 </table>
 
-#### Previously in Vanilla
+## Previously in Vanilla
 
 <table>
   <thead>
@@ -608,13 +606,13 @@ When we add, make significant updates, or deprecate a component we update their 
   </tbody>
 </table>
 
-### Upgrade guide
+## Upgrade guide
 
 During the development of Vanilla v2 several CSS class names or SCSS mixins and placeholders have been deprecated and will be removed in the upcoming release v3.0.
 
 See [the upgrade guide](/docs/upgrade-guide-v3) to learn about all the breaking changes that will happen when these deprecated features are removed and how to update the code for a future version of Vanilla.
 
-### Status key
+## Status key
 
 <div class="row">
   <div class="col-3 u-equal-height">
