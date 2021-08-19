@@ -4,7 +4,7 @@ context:
   title: Off screen | Utilities
 ---
 
-## Off screen
+# Off screen
 
 <hr>
 
@@ -14,7 +14,7 @@ The `.u-off-screen` class will position an element out of the page flow and off-
 View example of the off-screen utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

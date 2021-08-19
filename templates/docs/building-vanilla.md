@@ -4,13 +4,13 @@ context:
   title: Building with Vanilla
 ---
 
-## Building with Vanilla
+# Building with Vanilla
 
 <hr>
 
 Here you will find information on how you can use different tools to build Vanilla into production CSS.
 
-### dart-sass
+## dart-sass
 
 To get set up with [`dart-sass`](https://github.com/sass/dart-sass), add the `sass` and `vanilla-framework` packages to your project dependencies:
 
@@ -65,7 +65,7 @@ To watch for changes in your Sass files, add the following script to your `packa
 
 Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
 
-### node-sass
+## node-sass
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -128,7 +128,7 @@ To provide the same browser support as Vanilla, you should also include [autopre
 
 For more options on configuring `node-sass`, for example minification and autoprefixing, refer to [the node-sass documentation](https://github.com/sass/node-sass).
 
-### Webpack
+## Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile JavaScript modules, and can be used to inject Vanilla styles to the DOM. To get set up using Vanilla with Webpack, add the `webpack` and `vanilla-framework` packages to your project dependencies:
 
@@ -267,7 +267,7 @@ To provide the same browser support as Vanilla, you should also include [autopre
 
 For more options on configuring Webpack, for example minification and autoprefixing, refer to [the Webpack documentation](https://webpack.js.org/concepts/).
 
-### Gulp
+## Gulp
 
 To get started with [gulp-sass](https://github.com/dlmanning/gulp-sass), add the following packages to your project:
 
@@ -332,7 +332,7 @@ To provide the same browser support as Vanilla, you should also include [autopre
 
 For more options on configuring `gulp-sass`, for example minification and autoprefixing, refer to [the gulp-sass documentation](https://www.npmjs.com/package/gulp-sass).
 
-### Git submodules
+## Git submodules
 
 Creating a submodule in the git repo does not add all the code to the project but includes a reference and path to include the framework. You may find this method useful if you're planing to host on Github Pages.
 

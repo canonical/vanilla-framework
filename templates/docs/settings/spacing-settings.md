@@ -4,13 +4,13 @@ context:
   title: Spacing | Settings
 ---
 
-## Spacing
+# Spacing
 
 <hr>
 
 Vanilla uses numerous spacing variables across the codebase in order to ensure consistency in spacing between components, and to ensure typographic elements sit on the baseline grid.
 
-### Spacing unit
+## Spacing unit
 
 Vanilla uses a default spacing unit of `.5rem` (`8px`) as a basis to calculate spacing inside and between components, as well as the line-heights of the different type sizes.
 
@@ -20,11 +20,11 @@ View example of the baseline grid utility
 
 The example above shows headings sitting on the baseline grid, where the space between each red line is one `$sp-unit`.
 
-### Scaling multiplier
+## Scaling multiplier
 
 Some spacing values are scalable; in practice, they produce the same values as their non-scalable alternatives but multiplied by the scaling multiplier - `$multi`. The multiplier defaults to 2 but can be modified to apply a global UI scale adjustment.
 
-### Vertical spacing
+## Vertical spacing
 
 The `$spv-inner` variables are used to determine vertical spacing inside components, while `$spv-outer` variables are used for spacing between components.
 
@@ -59,7 +59,7 @@ The following vertical spacing variables are used between a group of components 
 
 <br>
 
-### Horizontal spacing
+## Horizontal spacing
 
 The `$sph-inner` variables are used to determine horizontal spacing inside components, while `$sph-outer` variables are used for spacing between components.
 
@@ -74,7 +74,7 @@ The `$sph-inner` variables are used to determine horizontal spacing inside compo
 
 <br>
 
-### Generic units
+## Generic units
 
 There are also generic spacing units for backwards compatibility with components created with Vanilla before `v1.7.0`.
 
@@ -91,7 +91,7 @@ There are also generic spacing units for backwards compatibility with components
 | `$sp-xxxx-large`  | `$sp-unit * 8`    | `4rem`        |
 | `$sp-xxxxx-large` | `$sp-unit * 12`   | `6rem`        |
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

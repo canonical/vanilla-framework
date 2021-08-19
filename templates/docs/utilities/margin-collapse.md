@@ -4,7 +4,7 @@ context:
   title: Margin collapse | Utilities
 ---
 
-## Margin collapse
+# Margin collapse
 
 <hr>
 
@@ -14,7 +14,7 @@ Remove one or more margins of an element.
 View example of the margin collapse utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

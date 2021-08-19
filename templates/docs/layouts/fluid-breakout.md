@@ -4,15 +4,15 @@ context:
   title: Breaking out of the grid | Layouts
 ---
 
-## Breaking out of the grid
+# Breaking out of the grid
 
 <hr>
 
 In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins - for example, tables with many columns that would otherwise result in heavy truncation or wrapping, charts with a lot of detail along the x axis, or card layouts that aim to impress with the abundance of available content. The fluid breakout layout allows you to do this.
 
-### Anatomy of the fluid breakout layout
+## Anatomy of the fluid breakout layout
 
-#### Wrapper
+### Wrapper
 
 The `.l-fluid-breakout` serves as a wrapper, and allows for an aside and a main area. On screens smaller than `$breakpoint--large`, it acts as a single column. On larger screens it switches to a 3 column layout - a central area and two aside areas on either side.
 
@@ -21,7 +21,7 @@ The wrapper aims to align as much as possible with the 12 column grid. On smalle
 - the central area's width needs to match the 12 column grid's width (we achieve this by setting the central area's max-width to the same value as the 12 column grid's max-width)
 - The window width is larger than the combined width of the 3 columns of the layout (`$l-fluid-breakout-max-width + 2 * $l-fluid-breakout-aside-width`)
 
-#### Toolbar
+### Toolbar
 
 <span class="p-label--new">New</span>
 
@@ -31,7 +31,7 @@ The toolbar is optional. When present, the toolbar will be positioned above the 
 View example of the fluid breakout layout with a left aside and a toolbar
 </a></div>
 
-#### Aside
+### Aside
 
 The aside is optional. When present, the order of the aside can be changed from before to after the main area by re-arranging the markup. Depending on the screen width, that would place it above / below (on screens smaller than `$breakpoint--large`) or to the left / right on larger screens.
 
@@ -47,7 +47,7 @@ Or vice versa:
 View example of the fluid breakout layout with a right aside
 </a></div>
 
-#### Main area
+### Main area
 
 The main area occupies the whole page on screens smaller than `$breakpoint-large`, then on larger screens allows a choice between spanning 2 or 3 of the layout's columns.
 
@@ -69,7 +69,7 @@ In the absence of an aside, add the `.no-aside` class to the main area, to ensur
 View example of the fluid breakout layout without an aside
 </a></div>
 
-### Uses
+## Uses
 
 A couple of examples of where this layout might be useful. Both examples include a section with the regular 12 column grid for comparison.
 
@@ -88,7 +88,7 @@ Note: This requires invoking the `layouts_fluid-breakout` with `100%` as the sec
 
 Alternatively, if `l-fluid-breakout__main` has only one child, you will obtain the same result.
 
-### Import
+## Import
 
 To import just the fluid breakout layout component into your project, copy the snippet below and include it in your main Sass file.
 

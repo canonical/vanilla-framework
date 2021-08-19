@@ -4,13 +4,13 @@ context:
   title: Cards | Components
 ---
 
-## Cards
+# Cards
 
 <hr>
 
 There are four card styles available to use in Vanilla: default, header, highlighted and overlay. Our card component will expand to fill the full width of its parent container.
 
-### Default
+## Default
 
 The purpose of the default card is to display information, without user interaction.
 
@@ -18,7 +18,7 @@ The purpose of the default card is to display information, without user interact
 View example of the default card pattern
 </a></div>
 
-### Header
+## Header
 
 The purpose of the header card is to display information, grouped under a heading.
 
@@ -26,7 +26,7 @@ The purpose of the header card is to display information, grouped under a headin
 View example of the header card pattern
 </a></div>
 
-### Highlighted
+## Highlighted
 
 The purpose of the highlighted card should be used when you can interact with the content.
 
@@ -34,7 +34,7 @@ The purpose of the highlighted card should be used when you can interact with th
 View example of the highlighted card pattern
 </a></div>
 
-### Overlay
+## Overlay
 
 The purpose of the overlay card is to make the text visible in conjunction with a strip image.
 
@@ -42,7 +42,7 @@ The purpose of the overlay card is to make the text visible in conjunction with 
 View example of the patterns card overlay
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -57,7 +57,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use cards in React by installing our react-component library and importing `Card` component.
 

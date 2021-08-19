@@ -4,7 +4,7 @@ context:
   title: Slider | Components
 ---
 
-## Slider
+# Slider
 
 <hr>
 
@@ -18,7 +18,7 @@ View example of the slider pattern
 <span class="p-label--updated">Updated</span> In version 2.6.0 Vanilla framework added slider styling as default for
 all range inputs, so adding `p-slider` class just to style `<input type="range">` is not necessary any more.
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -33,7 +33,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use slider in React by installing our react-component library and importing `Slider` component.
 

@@ -5,7 +5,7 @@ context:
   title: Muted heading | Components
 ---
 
-## Muted heading
+# Muted heading
 
 <hr>
 
@@ -15,7 +15,7 @@ A muted heading can be used to subtly provide context to content without the hea
 View example of the pattern muted heading
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -30,6 +30,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information [view the muted heading design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Muted%20heading), which includes the specification in markdown format and a PNG image.

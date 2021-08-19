@@ -4,7 +4,7 @@ context:
   title: Typography | Base elements
 ---
 
-## Typography
+# Typography
 
 <hr>
 
@@ -12,7 +12,7 @@ All text in Vanilla uses the [Ubuntu typeface](https://design.ubuntu.com/font/) 
 
 Vanilla's typographic scale has a base font-size of `1rem`.
 
-### The value of `1rem`
+## The value of `1rem`
 
 The pixel value of `1rem` depends on the browser (in most cases, `16px`) and the user's browser settings.
 
@@ -31,7 +31,7 @@ Text elements in vanilla adhere to a type scale:
 
 Heading sizes are obtained by taking the ratio to a specified `power` listed in the table below.
 
-### Typographic scale
+## Typographic scale
 
 |             | Small-Medium | Large        |
 | ----------- | ------------ | ------------ |
@@ -64,7 +64,7 @@ Heading sizes are obtained by taking the ratio to a specified `power` listed in 
 | font size   | `1rem`       | `1rem`       |
 | line height | `1.5rem`     | `1.5rem`     |
 
-### Heading classes
+## Heading classes
 
 Heading classes can be added to text elements to give them the same visual
 appearance as the base `h1`-`h6` heading elements without sacrificing correct
@@ -79,7 +79,7 @@ View example of the heading pattern
 
 <span class="p-label--deprecated">Deprecated</span> Heading classes with numbers as words (`p-heading--one`, `--two`, ...) are deprecated and will be removed in future release v3.0. Please use class names with numbers (`p-heading--1`, `--2`, ...) instead.
 
-### Sub-headings
+## Sub-headings
 
 Sub-headings visually convey importance beneath a heading, or a line of text that expands on the meaning of the heading immediately before it.
 
@@ -87,7 +87,7 @@ Sub-headings visually convey importance beneath a heading, or a line of text tha
 View example of the heading pattern
 </a></div>
 
-### Mixed heading classes
+## Mixed heading classes
 
 It is also possible to apply heading classes directly to heading elements if that
 better suits your document style and tree.
@@ -96,7 +96,7 @@ better suits your document style and tree.
 View example of the mixed headings pattern
 </a></div>
 
-### Line length
+## Line length
 
 Line length, measured in number of characters per line (CPL), has been shown to affect reading speed and comprehension. While there is little consensus on what the optimal CPL value is, most studies test with values between 45 and 95 characters per line. <a href="https://en.wikipedia.org/wiki/Line_length">Wikipedia</a> has a good historical overview and a list of studies on the subject.
 
@@ -113,7 +113,7 @@ Overriding or unsetting the `max-width` is reasonable in certain cases:
 - to avoid an <a href="https://en.wikipedia.org/wiki/Widows_and_orphans">orphan</a> in some fixed, high-profile text, like a promotional banner or notification.
 - when content is wrapped in a text element unintentionally, and fixing the markup is not possible. For example, a CMS or a documentation service might insert `<p>` after every line break, resulting in `<div>`'s or `<iframe>`'s wrapped in `<p>`'s.
 
-### Ordered list
+## Ordered list
 
 Use an ordered list when the order of the items is important.
 
@@ -121,7 +121,7 @@ Use an ordered list when the order of the items is important.
 View example of the base ordered list
 </a></div>
 
-### Unordered list
+## Unordered list
 
 Use an unordered list when the order of the items isn't important.
 
@@ -129,7 +129,7 @@ Use an unordered list when the order of the items isn't important.
 View example of the base unordered list
 </a></div>
 
-### Definition list
+## Definition list
 
 Use a definition list when you want to list a group of one or more terms and
 descriptions.
@@ -138,19 +138,19 @@ descriptions.
 View example of the base definition list
 </a></div>
 
-### Blockquotes and citations
+## Blockquotes and citations
 
 <div class="embedded-example"><a href="/docs/examples/base/blockquotes/" class="js-example">
 View example of the base blockquotes
 </a></div>
 
-### Small text
+## Small text
 
 <div class="embedded-example"><a href="/docs/examples/base/small/" class="js-example">
 View example of the small text
 </a></div>
 
-### Extra small capitalised text
+## Extra small capitalised text
 
 Extra small capitalised text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--x-small-capitalised`.
 
@@ -158,7 +158,7 @@ Extra small capitalised text is used to style column headers in tables. This sty
 View example of the extra small capitalised text
 </a></div>
 
-### Baseline alignment: small, extra small and paragraph text
+## Baseline alignment: small, extra small and paragraph text
 
 Because of the difference in line heights, small, extra small and paragraph text do not share the same baseline.
 In some cases, for example when used on the same line, it can be useful to align them. Use the `u-align-text--small-to-default` `u-align-text--x-small-to-default` classes to achieve baseline alignment.
@@ -167,31 +167,31 @@ In some cases, for example when used on the same line, it can be useful to align
 View example of baseline alignment of paragraph, small, extra small text
 </a></div>
 
-### Strong text
+## Strong text
 
 <div class="embedded-example"><a href="/docs/examples/base/strong/" class="js-example">
 View example of the strong text
 </a></div>
 
-### Superscripted text
+## Superscripted text
 
 <div class="embedded-example"><a href="/docs/examples/base/sup/" class="js-example">
 View example of the superscripted pattern
 </a></div>
 
-### Subscripted text
+## Subscripted text
 
 <div class="embedded-example"><a href="/docs/examples/base/sub/" class="js-example">
 View example of the subscripted pattern
 </a></div>
 
-### Abbreviation
+## Abbreviation
 
 <div class="embedded-example"><a href="/docs/examples/base/abbr/" class="js-example">
 View example of the abbreviation pattern
 </a></div>
 
-### Font weights
+## Font weights
 
 If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
 
@@ -199,7 +199,7 @@ If you are using the Ubuntu font, it comes in five weights; thin, light, regular
 View example of the Ubuntu font weights.
 </a></div>
 
-### Muted text
+## Muted text
 
 To reduce the prominence of text, use class `u-text--muted`.
 
@@ -207,7 +207,7 @@ To reduce the prominence of text, use class `u-text--muted`.
 View example of the muted-text
 </a></div>
 
-### Using a smaller set of Latin font faces
+## Using a smaller set of Latin font faces
 
 The default Ubuntu fonts are fairly large as they contain glyphs for many languages. If you are building sites in; Afrikaans, Albanian, Catalan, Danish, Dutch, English, German, Icelandic, Italian, Norwegian, Portuguese, Spanish, Swedish or Zulu, you could use the subset of Latin fonts by setting the following variable to true:
 
@@ -215,7 +215,7 @@ The default Ubuntu fonts are fairly large as they contain glyphs for many langua
 $font-use-subset-latin: true;
 ```
 
-### Enabling Cyrillic, Greek and Latin fonts
+## Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
 default. To enable Cyrillic, Greek and Latin fonts on Ubuntu please set the
@@ -225,7 +225,7 @@ following font setting to true.
 $font-allow-cyrillic-greek-latin: true;
 ```
 
-### `font-display` options
+## `font-display` options
 
 The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) option allows you to set a strategy for what backup font is shown while an external font is loading. This is a very subjective decision; however, if you set the following variable to the option you want, it will add it to the typography for you.
 
@@ -235,7 +235,7 @@ $font-display-option: <auto | block | swap | fallback | optional>;
 
 The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_base_fontfaces.scss) is set to `fallback`.
 
-### Import
+## Import
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.
 
@@ -245,10 +245,10 @@ To import just this base element into your project, copy the snippet below and i
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information [view the typography design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography), which includes the specification in markdown format and a PNG image.
 
-### Related
+## Related
 
 For more typographic related information view the [code](/docs/base/code) and [pull quote pattern](/docs/patterns/pull-quote) component or our [font settings](/docs/settings/font-settings).

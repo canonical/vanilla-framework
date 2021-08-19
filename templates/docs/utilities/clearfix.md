@@ -4,7 +4,7 @@ context:
   title: Clearfix | Utilities
 ---
 
-## Clearfix
+# Clearfix
 
 <hr>
 
@@ -18,7 +18,7 @@ In the example below, the parent wrapping container does not collapse even thoug
 View example of the clearfix utility
 </a></div>
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

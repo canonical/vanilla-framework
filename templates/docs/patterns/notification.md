@@ -4,15 +4,15 @@ context:
   title: Notification | Components
 ---
 
-## Notification
+# Notification
 
 <hr>
 
 Notifications are used to attract the user's attention. They offer four separate severity levels, and can also be modified for use in different contexts.
 
-### Severity levels
+## Severity levels
 
-#### Information
+### Information
 
 <span class="p-label--updated">Updated</span>
 
@@ -22,7 +22,7 @@ The information severity should be used to convey an information message.
 View example of the information notification pattern
 </a></div>
 
-#### Caution
+### Caution
 
 <span class="p-label--updated">Updated</span>
 
@@ -32,7 +32,7 @@ The caution severity should be used to convey information that is not critical b
 View example of the caution notification pattern
 </a></div>
 
-#### Negative
+### Negative
 
 <span class="p-label--updated">Updated</span>
 
@@ -42,7 +42,7 @@ The negative severity should be used to convey information that is critical and 
 View example of the negative notification pattern
 </a></div>
 
-#### Positive
+### Positive
 
 <span class="p-label--updated">Updated</span>
 
@@ -52,9 +52,9 @@ The positive severity should be used to convey success or completion.
 View example of the positive notification pattern
 </a></div>
 
-### Appearance
+## Appearance
 
-#### Borderless
+### Borderless
 
 <span class="p-label--new">New</span>
 
@@ -64,7 +64,7 @@ In cases where a notification sits inside another component, such as a table cel
 View example of the borderless notification pattern
 </a></div>
 
-#### Inline
+### Inline
 
 <span class="p-label--new">New</span>
 
@@ -74,9 +74,9 @@ When vertical space is limited, you can use the inline variant.
 View example of the inline notification pattern
 </a></div>
 
-### Actions
+## Actions
 
-#### Buttons
+### Buttons
 
 <span class="p-label--new">New</span>
 
@@ -86,7 +86,7 @@ Notifications can have actions in either button or link form. These will appear 
 View example of the notification actions.
 </a></div>
 
-#### Dismissible
+### Dismissible
 
 <span class="p-label--updated">Updated</span>
 
@@ -96,7 +96,7 @@ Notifications that can be dismissed can include a close button.
 View example of the dismissible notification pattern
 </a></div>
 
-### Timestamp
+## Timestamp
 
 <span class="p-label--new">New</span>
 
@@ -106,11 +106,11 @@ For notifications in which recency is important, you can include a section for t
 View example of the time notification pattern
 </a></div>
 
-### Accessibility
+## Accessibility
 
 When adding notifications dynamically, it's important that the content of the notification is announced to users using assistive technology. If the notification is urgent, add `aria-live="assertive"` to the element, which will prompt assistive technology to announce it immediately, or use `aria-live="polite"`, which will cause assistive technology to wait for a pause before announcing the information.
 
-### Deprecated
+## Deprecated
 
 <span class="p-label--deprecated">Deprecated</span>
 
@@ -123,7 +123,7 @@ variants. The following class substitutions can be used to support existing func
 | `.p-notification__status`   | `.p-notification__title`   |
 | `.p-icon--close`            | `.p-notification__close`   |
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -138,7 +138,7 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### React
+## React
 
 You can use notifications in React by installing our react-component library and importing `Notification` component.
 

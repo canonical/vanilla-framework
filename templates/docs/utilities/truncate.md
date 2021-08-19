@@ -4,7 +4,7 @@ context:
   title: Truncation | Utilities
 ---
 
-## Truncation
+# Truncation
 
 <hr>
 
@@ -19,7 +19,7 @@ View example of the truncate utility
 
 Note: `u-truncate` will affect any tooltips placed inside.
 
-### Import
+## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
 

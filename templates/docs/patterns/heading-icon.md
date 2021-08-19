@@ -5,7 +5,7 @@ context:
   title: Heading icon | Components
 ---
 
-## Heading icon
+# Heading icon
 
 <hr>
 
@@ -15,7 +15,7 @@ A heading can be emphasised by adding an icon alongside the text.
 View example of the pattern heading icons
 </a></div>
 
-### Stacked
+## Stacked
 
 This variant positions the icon vertically with the text content for an alternate layout.
 
@@ -23,7 +23,7 @@ This variant positions the icon vertically with the text content for an alternat
 View example of the pattern heading icon stacked
 </a></div>
 
-### Small
+## Small
 
 The icon for this component is also available at a smaller size of 32 × 32 pixels rather than our default size of 60 × 60 pixels.
 
@@ -31,7 +31,7 @@ The icon for this component is also available at a smaller size of 32 × 32 pixe
 View example of the pattern heading icon small
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
@@ -46,6 +46,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+## Design
 
 For more information view the [heading icon design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon), which includes the specification in Markdown format and a PNG image.
