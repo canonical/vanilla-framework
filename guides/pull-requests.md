@@ -21,7 +21,7 @@ If your work includes any of the following:
 - deprecated patterns
 - breaking changes
 
-your changes should be listed in [Component Status](/templates/docs/component-status). Within that document is a list of all prior changes, each associated with a particual version release.
+your changes should be listed in [What's new](/templates/docs/whats-new) page. Within that document is a list of all prior changes, each associated with a particual version release.
 
 When updating the document, first note the [most recently released version of Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/tags). If the changes listed in the "What's new in Vanilla" table match that version, those changes should be moved to the "Previously in Vanilla" table below.
 

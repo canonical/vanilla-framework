@@ -12,7 +12,7 @@ Labels are static elements which you can apply to signify status, tags or any ot
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    <span class="p-notification__status">Note:</span>These labels are used to inform <a href="/docs/component-status" class="p-notification__action">status</a> of components in Vanilla.
+    <span class="p-notification__status">Note:</span>These labels are used to inform <a href="/docs/whats-new" class="p-notification__action">status</a> of components in Vanilla.
   </p>
 </div>
 
