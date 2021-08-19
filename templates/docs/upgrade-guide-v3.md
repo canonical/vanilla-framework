@@ -99,3 +99,5 @@ The notification child classes have been replaced to support new variants. The f
 | `.p-notification__response` | `.p-notification__content` |
 | `.p-notification__status`   | `.p-notification__title`   |
 | `.p-icon--close`            | `.p-notification__close`   |
+
+The text content of the notifications should also be wrapped in element with `.p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
