@@ -96,7 +96,7 @@
   anchor.classList.add('p-side-navigation__link');
 
   // Add all H3s with IDs to the table of contents list
-  [].slice.call(document.querySelectorAll('main h3[id]')).forEach(function (heading) {
+  [].slice.call(document.querySelectorAll('main h2[id]')).forEach(function (heading) {
     var thisItem = item.cloneNode();
     var thisAnchor = anchor.cloneNode();
     thisAnchor.setAttribute('href', '#' + heading.id);
