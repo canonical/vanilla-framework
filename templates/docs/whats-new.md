@@ -1,10 +1,10 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Component status
+  title: What's new in Vanilla
 ---
 
-## Component status
+## What's new in Vanilla
 
 <hr>
 
