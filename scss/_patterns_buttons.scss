@@ -5,7 +5,6 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 // Default button styling
 @mixin vf-p-buttons {
   @include vf-button-plain;
-  @include vf-button-neutral;
   @include vf-button-brand;
   @include vf-button-positive;
   @include vf-button-negative;
@@ -13,14 +12,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   @include vf-button-link;
   @include vf-button-inline;
   @include vf-button-processing;
-  @include vf-button-active;
   @include vf-button-icon;
-}
-
-@mixin vf-button-white-success-icon {
-  @include deprecate('3.0.0', 'vf-button-white-success-icon mixin will be removed as it is not needed, %vf-button-white-success-icon is part of base styles') {
-    //
-  }
 }
 
 @mixin vf-button-plain {
@@ -58,21 +50,6 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
       &.is-dark {
         @extend %p-button-dark;
       }
-    }
-  }
-}
-
-// p-button--neutral is is exactly the same as p-button, so we are deprecating it
-@mixin vf-button-neutral {
-  @include deprecate('3.0.0', 'Use the `p-button` instead') {
-    %p-button--neutral {
-      @extend %vf-button-base;
-
-      @include vf-button-pattern;
-    }
-
-    .p-button--neutral {
-      @extend %p-button--neutral;
     }
   }
 }
@@ -323,14 +300,6 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 @mixin vf-button-processing {
   [class*='p-button'].is-processing {
     opacity: 1 !important;
-  }
-}
-
-@mixin vf-button-active {
-  @include deprecate('3.0.0', 'Use the `vf-button-processing instead') {
-    [class*='p-button'].is-active {
-      opacity: 1 !important;
-    }
   }
 }
 
