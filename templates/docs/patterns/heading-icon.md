@@ -11,7 +11,7 @@ context:
 
 A heading can be emphasised by adding an icon alongside the text.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon/" class="js-example">
 View example of the pattern heading icons
 </a></div>
 
@@ -31,19 +31,15 @@ The icon for this component is also available at a smaller size of 32 × 32 pixe
 View example of the pattern heading icon small
 </a></div>
 
-<<<<<<< HEAD
-## Import
-=======
 ### Muted
 
-Use this variant if you need a muted heading accompanied by an icon. Note - the maximum icon size that should be used next to a muted heading is 1rem.
+Use this variant if you need a muted heading accompanied by an icon. Note - the maximum icon size that should be usedto use next to a muted heading is 1rem.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-muted/" class="js-example">
 View example of the pattern heading icon muted
 </a></div>
 
 ### Import
->>>>>>> Add heading-icon-muted to docs
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
