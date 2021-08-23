@@ -18,6 +18,7 @@ View example of the pattern heading icons
 ## Stacked
 
 This variant positions the icon vertically with the text content for an alternate layout.
+pprettir
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-stacked/" class="js-example">
 View example of the pattern heading icon stacked
@@ -33,7 +34,7 @@ View example of the pattern heading icon small
 
 ### Muted
 
-Use this variant if you need a muted heading accompanied by an icon. Note - the maximum icon size that should be usedto use next to a muted heading is 1rem.
+Use this variant if you need a muted heading accompanied by an icon. Note - the maximum icon size that should be used to use next to a muted heading is `1rem`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-muted/" class="js-example">
 View example of the pattern heading icon muted
