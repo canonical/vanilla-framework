@@ -18,7 +18,6 @@ View example of the pattern heading icons
 ## Stacked
 
 This variant positions the icon vertically with the text content for an alternate layout.
-pprettir
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-stacked/" class="js-example">
 View example of the pattern heading icon stacked
