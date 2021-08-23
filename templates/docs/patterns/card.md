@@ -26,6 +26,14 @@ The purpose of the header card is to display information, grouped under a headin
 View example of the header card pattern
 </a></div>
 
+## Image
+
+Any images used as part of the card content should have a `.p-card__image` class name.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/card/image/" class="js-example">
+View example of the card pattern with an image
+</a></div>
+
 ## Highlighted
 
 The purpose of the highlighted card should be used when you can interact with the content.
