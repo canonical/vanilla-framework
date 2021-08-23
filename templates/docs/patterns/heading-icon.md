@@ -37,7 +37,7 @@ View example of the pattern heading icon small
 Use this variant if you need a muted heading accompanied by an icon. Note - the maximum icon size that should be used next to a muted heading is `1rem`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon-muted/" class="js-example">
-View example of the pattern heading icon muted
+View example of the heading icon muted component
 </a></div>
 
 ### Import
