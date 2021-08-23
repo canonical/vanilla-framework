@@ -31,7 +31,7 @@ The icon for this component is also available at a smaller size of 32 × 32 pixe
 View example of the pattern heading icon small
 </a></div>
 
-### Muted
+## Muted
 
 Use this variant if you need a muted heading accompanied by an icon. Note - the maximum icon size that should be used next to a muted heading is `1rem`.
 
@@ -39,7 +39,7 @@ Use this variant if you need a muted heading accompanied by an icon. Note - the 
 View example of the heading icon muted component
 </a></div>
 
-### Import
+## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
