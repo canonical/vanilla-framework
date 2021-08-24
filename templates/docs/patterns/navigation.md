@@ -36,18 +36,6 @@ by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.sc
 View example of the navigation pattern
 </a></div>
 
-<span class="p-label--deprecated">Deprecated</span>
-
-In Vanilla 2.8 we deprecated the use of `p-navigation__links`, `p-navigation__link` and classless `<a>` in the navigation. Support for these classes will be removed in future version 3.0.
-
-You should use `p-navigation__items`, `p-navigation__item` and `<a class="p-navigation__link">` instead.
-
-To update to new class names:
-
-- rename all occurrences of `p-navigation__links` to `p-navigation__items`
-- rename all occurrences of `p-navigation__link` to `p-navigation__item`
-- add `p-navigation__link` class to all `<a>` elements that are direct child of `p-navigation__item`
-
 ## Dropdown
 
 Drop-down menus can be added to the navigation by including one or more `p-navigation__item--dropdown-toggle` components.
@@ -59,19 +47,6 @@ By default, dropdowns are left-aligned with their parent; if you'd prefer the me
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown" class="js-example">
 View example of the dropdown pattern
 </a></div>
-
-## Sub-navigation
-
-<span class="p-label--deprecated">Deprecated</span>
-
-`.p-subnav` is now deprecated, it and its associated child elements can be updated simply by substituting the following class names:
-
-| Deprecated classes        | Replaced by                            |
-| ------------------------- | -------------------------------------- |
-| `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
-| `.p-subnav__items`        | `.p-navigation__dropdown`              |
-| `.p-subnav__items--right` | `.p-navigation__dropdown--right`       |
-| `.p-subnav__item`         | `.p-navigation__dropdown-item`         |
 
 ## Side navigation
 
@@ -183,7 +158,7 @@ For more details about themes in Vanilla refer to the [Color theming](/docs/sett
 
 ## Import
 
-To import just navigation or sub-navigation component into your project, copy snippets below and include it in your main Sass file.
+To import just navigation component into your project, copy snippets below and include it in your main Sass file.
 
 ```scss
 // import Vanilla and include base mixins
@@ -192,9 +167,6 @@ To import just navigation or sub-navigation component into your project, copy sn
 @include vf-base;
 
 @include vf-p-navigation;
-
-// sub-navigation is optional you can include it alongside navigation component
-@include vf-p-subnav;
 ```
 
 To import side navigation, copy snippet below:
@@ -213,7 +185,3 @@ To import side navigation, copy snippet below:
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
-
-## Design
-
-For more information [view the navigation and sub-navigation design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Navigation), which includes the specification in markdown format and a PNG image.
