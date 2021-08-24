@@ -192,7 +192,7 @@ View example of form validation patterns
 
 ## Required
 
-Apply the class `.is-required` to mandatory input fields. You should also add a legend to the form to be explicit about the meaning of the asterisk. You should also add a legend to the form to be explicit about the meaning of the asterisk.
+Apply the class `.is-required` to mandatory input fields. You should also add a legend to the form to be explicit about the meaning of the asterisk.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/forms-required/" class="js-example">
 View example of an input required element
