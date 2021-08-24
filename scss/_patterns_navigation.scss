@@ -141,20 +141,13 @@ $lightness-threshold: 70;
       }
     }
 
-    @include deprecate('3.0.0', 'Use .p-navigation__row / .p-navigation__row--full-width instead') {
-      &.row {
-        @extend %navigation-row;
-      }
-    }
-
     &__item,
     &__item--dropdown-toggle {
       @extend %navigation-item;
+    }
 
-      // this needs to be nested in __item until in 3.0 we remove deprecated __link styles
-      .p-navigation__link {
-        @extend %navigation-link;
-      }
+    .p-navigation__link {
+      @extend %navigation-link;
     }
 
     // navigation logo
@@ -184,12 +177,6 @@ $lightness-threshold: 70;
       .p-navigation__item {
         @extend %navigation-item-in-logo;
       }
-
-      @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link instead.') {
-        .p-navigation__link {
-          @extend %navigation-item-in-logo;
-        }
-      }
     }
 
     &__image {
@@ -214,21 +201,6 @@ $lightness-threshold: 70;
 
     &__items {
       @extend %navigation-items;
-    }
-
-    @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
-      &__link {
-        @extend %navigation-item;
-
-        // stylelint-disable-next-line selector-max-type -- this is deprecated use, will be removed
-        & > a {
-          @extend %navigation-link;
-        }
-      }
-
-      &__links {
-        @extend %navigation-items;
-      }
     }
 
     // p-search-box overrides
@@ -448,7 +420,7 @@ $lightness-threshold: 70;
 ) {
   background-color: $color-navigation-background;
 
-  [class*="p-navigation__item"] > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  .p-navigation__link,
   .p-navigation__toggle--close,
   .p-navigation__toggle--open,
   .p-navigation__dropdown-item {
@@ -493,46 +465,8 @@ $lightness-threshold: 70;
     }
   }
 
-  [class*='p-navigation__item'] > .p-navigation__link::before {
-    // remove nesting in 3.0 when deprecated __link styles are removed
-    // separator color on small screens
+  .p-navigation__link::before {
     background: $color-navigation-separator;
-  }
-
-  @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
-    // stylelint-disable selector-max-type -- this is deprecated use, will be removed
-    .p-navigation__link > a {
-      &,
-      &:hover,
-      &:visited,
-      &:focus {
-        color: $color-navigation-text;
-      }
-
-      &:hover {
-        background-color: $color-navigation-background--hover;
-      }
-
-      &:active {
-        background-color: $color-navigation-background--active;
-      }
-    }
-
-    .p-navigation__link.is-selected > a {
-      background-color: $color-navigation-background--hover;
-
-      @include vf-highlight-bar($color-navigation-highlight, left, true);
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        @include vf-highlight-bar($color-navigation-highlight, bottom, false);
-      }
-    }
-
-    .p-navigation__link > a::before {
-      // separator color on small screens
-      background: $color-navigation-separator;
-    }
-    // stylelint-enable selector-max-type
   }
 }
 
