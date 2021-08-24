@@ -192,7 +192,7 @@ View example of form validation patterns
 
 ## Required
 
-By applying the class `.is-required` the attribute specifies that an input field must be filled out before submitting the form.
+By applying the class `.is-required` the attribute specifies that an input field must be filled out before submitting the form. You can also add a legend to the form to be explicit about the meaning of the asterisk.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/forms-required/" class="js-example">
 View example of an input required element
