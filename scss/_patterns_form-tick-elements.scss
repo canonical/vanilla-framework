@@ -8,7 +8,22 @@
   .p-radio,
   .p-radio--heading,
   .p-radio--inline {
+    $asterisk-width: 1ch;
+
     position: relative;
+    // repositioning asterisk in front of the label
+    &.is-required {
+      &::before {
+        display: block;
+        left: $sph-inner + $form-tick-box-size;
+        position: absolute;
+        width: $asterisk-width;
+      }
+      .p-radio__label,
+      .p-checkbox__label {
+        padding-left: calc(#{$sph-inner + $form-tick-box-size} + #{$asterisk-width});
+      }
+    }
   }
 
   // specify both [type] and class to fight specificity of base `label [type]` styles

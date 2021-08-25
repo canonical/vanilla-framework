@@ -141,7 +141,9 @@ $box-offsets-top: (
       @extend %vf-tick-in-label;
     }
 
-    & + label {
+    & + label,
+    //Ensuring the required labels don't break on base checkbox
+    & + label.is-required {
       @extend %vf-pseudo-tick-box;
 
       // Align with different text styles
