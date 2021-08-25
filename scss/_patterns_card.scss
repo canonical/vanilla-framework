@@ -14,7 +14,9 @@
     @extend %vf-is-bordered;
     @extend %vf-has-round-corners;
 
-    padding: calc(#{$spv-inner--large} - 1px);
+    .p-card__inner {
+      padding: calc(#{$spv-inner--large} - 1px);
+    }
   }
 }
 
@@ -36,7 +38,6 @@
     color: $color-dark;
     margin-bottom: $spv-outer--scaleable;
     overflow: auto;
-    padding: $spv-inner--large;
   }
 }
 
@@ -48,7 +49,6 @@
 
     margin-bottom: $spv-outer--scaleable;
     overflow: auto;
-    padding: $spv-inner--large;
   }
 }
 
@@ -70,6 +70,10 @@
       display: inline-block;
       overflow: auto;
     }
+  }
+
+  .p-card__inner {
+    @extend %vf-card-inner;
   }
 
   .p-card__content {
