@@ -91,12 +91,11 @@
 
   // stylelint-disable selector-max-type -- base styles can use type selectors
   label {
-    @include p-max-width;
-
     cursor: pointer;
     display: block;
     margin-bottom: $spv-outer--small-scaleable - $spv-nudge;
     margin-top: 0;
+    max-width: map-get($max-widths, default);
     padding-top: map-get($nudges, nudge--p);
     width: fit-content;
 
