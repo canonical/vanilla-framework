@@ -223,6 +223,16 @@ When using a password field, use this pattern to allow the user to toggle the pa
 View example of the password toggle
 </a></div>
 
+## Deprecated
+
+<span class="p-label--deprecated">Deprecated</span>
+
+We have updated the form validation pattern, the error message is now positioned before the input (excluding on stacked and inline forms). The previous order of error message after input is now deprecated.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-deprecated/" class="js-example">
+View example of the deprecated form
+</a></div>
+
 ## Import
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.

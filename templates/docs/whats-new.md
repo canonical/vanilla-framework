@@ -20,6 +20,34 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.35 -->
+    <tr>
+      <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
+      <td><div class="p-label--deprecated">Updated</div></td>
+      <td>2.35.0</td>
+      <td>We've updated the styling of the validation/required patterns, including position of validation messages and the addition of a legend.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/base/forms#deprecated">Forms / Deprecated</a></th>
+      <td><div class="p-label--deprecated">Deprecated</div></td>
+      <td>2.35.0</td>
+      <td>We changed the order of the input and validation message, so the previous version is deprecated.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.34 -->
     <tr>
       <th><a href="/docs/base/forms#password-showhide">Forms / Password toggle</a></th>
@@ -45,21 +73,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.34.0</td>
       <td>We added a new type of tab pattern, `p-tab-buttons`, which can display tabs like a group of buttons.</td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.33 -->
     <tr>
       <th><a href="/docs/patterns/links#skip-link">Links / Skip Link</a></th>
