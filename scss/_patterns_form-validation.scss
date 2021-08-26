@@ -1,71 +1,20 @@
 @import 'settings';
 
-@mixin vf-validation-wrapper {
-  color: $color-dark;
-  position: relative;
-}
-
 // form validation styling for form inputs
 @mixin vf-p-form-validation {
   $icon-size: map-get($icon-sizes, default);
 
-  .p-form-validation {
-    @include vf-validation-wrapper;
-
-    // stylelint-disable-next-line selector-max-type -- selector type is acceptable in this case
-    :not(select).p-form-validation__input {
-      // Not using parent selector here as two classes are required to override atribute selectors in reset
-      background-position: calc(100% - #{$sph-inner--small}) 50%;
-      background-repeat: no-repeat;
-    }
+  %vf-validation-wrapper {
+    background-position: left, center;
+    background-repeat: no-repeat;
+    padding-left: calc(#{$icon-size} + #{$sph-inner--small});
+    padding-top: 0;
   }
 
   .p-form-validation__message {
-    @extend %small-text;
+    @extend %default-text;
 
-    margin-top: $sp-unit * 2 - $spv-outer--scaleable; // negate the effect of scaling, as we don't want helper text position to change when the density multiplier changes
-  }
-
-  .p-form-validation__icon {
-    position: relative;
-
-    &::after {
-      position: absolute;
-      right: $sp-small;
-      top: calc(50% - #{$sp-x-small});
-    }
-  }
-
-  .is-success,
-  .is-error,
-  .is-caution {
-    .p-form-validation__input {
-      padding-right: $sph-inner--small * 2 + $icon-size;
-    }
-  }
-
-  .is-error .p-form-validation__select-wrapper,
-  .is-caution .p-form-validation__select-wrapper,
-  .is-success .p-form-validation__select-wrapper {
-    min-width: 10em;
-    position: relative;
-
-    &::after {
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: ' ';
-      display: block;
-      height: $icon-size;
-      pointer-events: none;
-      position: absolute;
-      right: $sp-x-large;
-      top: calc(50% - (#{$icon-size} / 2) - (#{$input-margin-bottom} / 2));
-      width: $icon-size;
-    }
-
-    .p-form-validation__input {
-      padding-right: $sph-inner--small * 2 + $icon-size * 2;
-    }
+    margin-bottom: $spv-inner--small;
   }
 
   .is-success {
@@ -73,10 +22,9 @@
       border-color: $color-positive;
     }
 
-    // stylelint-disable-next-line selector-max-type
-    :not(select).p-form-validation__input,
-    .p-form-validation__select-wrapper::after {
+    .p-form-validation__message {
       @include vf-icon-success($color-positive);
+      @extend %vf-validation-wrapper;
     }
   }
 
@@ -85,10 +33,9 @@
       border-color: $color-caution;
     }
 
-    // stylelint-disable-next-line selector-max-type
-    :not(select).p-form-validation__input,
-    .p-form-validation__select-wrapper::after {
+    .p-form-validation__message {
       @include vf-icon-warning($color-caution);
+      @extend %vf-validation-wrapper;
     }
   }
 
@@ -97,10 +44,9 @@
       border-color: $color-negative;
     }
 
-    // stylelint-disable-next-line selector-max-type
-    :not(select).p-form-validation__input,
-    .p-form-validation__select-wrapper::after {
+    .p-form-validation__message {
       @include vf-icon-error($color-negative);
+      @extend %vf-validation-wrapper;
     }
   }
 }
