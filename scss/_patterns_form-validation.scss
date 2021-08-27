@@ -12,10 +12,9 @@
   }
 
   .p-form-validation__message {
-    @extend %default-text;
+    @extend %small-text;
 
-    margin-bottom: $spv-inner--small;
-    margin-top: $sp-unit * 2 - $spv-outer--scaleable;
+    margin-top: $sp-unit * 2 - $spv-outer--scaleable; // negate the effect of scaling, as we don't want helper text position to change when the density multiplier changes
   }
 
   .is-success {
@@ -39,8 +38,6 @@
     .p-form-validation__message {
       @include vf-icon-warning($color-caution);
       @extend %vf-validation-wrapper;
-
-      color: $color-caution;
     }
   }
 
