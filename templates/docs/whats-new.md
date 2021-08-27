@@ -25,13 +25,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
       <td><div class="p-label--deprecated">Updated</div></td>
       <td>2.35.0</td>
-      <td>We've updated the styling of the validation/required patterns, including position of validation messages and the addition of a legend.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/base/forms#deprecated">Forms / Deprecated</a></th>
-      <td><div class="p-label--deprecated">Deprecated</div></td>
-      <td>2.35.0</td>
-      <td>We changed the order of the input and validation message, so the previous version is deprecated.</td>
+      <td>We've updated the styling of the form validation and required patterns</td>
     </tr>
   </tbody>
 </table>
