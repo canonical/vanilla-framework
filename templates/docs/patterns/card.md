@@ -18,6 +18,14 @@ The purpose of the default card is to display information, without user interact
 View example of the default card pattern
 </a></div>
 
+## Content Bleed
+
+It is possible to have content bleed to the edges of the card by placing outside of the `.p-card__inner` element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/card/content-bleed/" class="js-example">
+View example of card content bleeding
+</a></div>
+
 ## Header
 
 The purpose of the header card is to display information, grouped under a heading.
