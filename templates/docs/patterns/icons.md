@@ -56,8 +56,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
 
 {{ icon_section(standard_icons, 'light') }}
 
-<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` class has been deprecated and will be removed in version 3.0. Use class `.p-icon--help` instead. We will also be removing <code>p-icon--contextual-menu</code>, please use <code>p-icon--chevron-down</code> instead.
-
 ## Dark theme
 
 Our dark-themed icons are available when placed within a container that has the suffix `--dark` ex) `help-container--dark`. Icon colors will then be inverted to ensure legibility as shown in our example.
@@ -83,8 +81,6 @@ Outside of the standard set, additional icons are available for use, and need to
 Our social icons are used to drive users to social content.
 
 {{ icon_section(social_icons, 'light')}}
-
-<span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0.
 
 ## Share
 
