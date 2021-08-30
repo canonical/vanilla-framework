@@ -118,8 +118,6 @@ Our icons have two predefined color styles: light and dark. The light variant is
   </div>
 </section>
 
-<span class="p-label--deprecated">Deprecated</span> The `.p-icon--question` class has been deprecated and will be removed in version 3.0. Use class `.p-icon--help` instead. We will also be removing <code>p-icon--contextual-menu</code>, please use <code>p-icon--chevron-down</code> instead.
-
 ## Dark theme
 
 Our dark-themed icons are available when placed within a container that has the suffix `--dark` ex) `help-container--dark`. Icon colors will then be inverted to ensure legibility as shown in our example.
@@ -488,8 +486,6 @@ Our social icons are used to drive users to social content.
   </div>
 </section>
 
-<span class="p-label--deprecated">Deprecated</span> We will be removing <code>p-icon--canonical</code> and <code>p-icon--ubuntu</code> from our social icon set, they will no longer be available from our future release v3.0.
-
 ## Share
 
 If you wish to add share icons for Twitter, Facebook or LinkedIn, we recommend using the networks' official buttons:
@@ -563,19 +559,15 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icon-success;
 @include vf-p-icon-share;
 @include vf-p-icon-user;
-@include vf-p-icon-question;
 @include vf-p-icon-spinner;
 @include vf-p-icon-facebook;
 @include vf-p-icon-twitter;
 @include vf-p-icon-instagram;
 @include vf-p-icon-linkedin;
 @include vf-p-icon-youtube;
-@include vf-p-icon-canonical;
-@include vf-p-icon-ubuntu;
 @include vf-p-icon-rss;
 @include vf-p-icon-email;
 @include vf-p-icon-sizes;
-@include vf-p-icon-in-button;
 @include vf-p-icon-hide;
 @include vf-p-icon-show;
 
