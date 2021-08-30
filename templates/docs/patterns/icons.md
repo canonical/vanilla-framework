@@ -108,11 +108,13 @@ Our icons have two predefined color styles: light and dark. The light variant is
       <div class="p-card col-3 u-vertically-center">
         <p><i class="p-icon--anchor" style="margin-right: 1rem;"></i>p-icon--anchor</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--show" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--show
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--show" style="margin-right: 1rem;"></i>p-icon--show</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--hide" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--hide
+    </div>
+    <div class="row u-equal-height">
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--hide" style="margin-right: 1rem;"></i>p-icon--hide</p>
       </div>
     </div>
   </div>
@@ -167,281 +169,281 @@ Outside of the standard set, additional icons are available for use, and need to
 <section>
   <div class="p-strip is-shallow u-no-padding--top">
     <div class="row">
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--applications" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--applications
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--applications" style="margin-right: 1rem;"></i>p-icon--applications</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--controllers" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--controllers
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--controllers" style="margin-right: 1rem;"></i>p-icon--controllers</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--fullscreen" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--fullscreen
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--fullscreen" style="margin-right: 1rem;"></i>p-icon--fullscreen</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--models" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--models
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--models" style="margin-right: 1rem;"></i>p-icon--models</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--machines" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--machines
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--machines" style="margin-right: 1rem;"></i>p-icon--machines</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--pin" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--pin
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--pin" style="margin-right: 1rem;"></i>p-icon--pin</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
-        <i class="p-icon--units" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--units
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--units" style="margin-right: 1rem;"></i>p-icon--units</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--priority-critical" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-critical
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--priority-critical" style="margin-right: 1rem;"></i>p-icon--priority-critical</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--priority-high" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-high
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--priority-high" style="margin-right: 1rem;"></i>p-icon--priority-high</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--priority-low" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-low
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--priority-low" style="margin-right: 1rem;"></i>p-icon--priority-low</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--priority-medium" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-medium
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--priority-medium" style="margin-right: 1rem;"></i>p-icon--priority-medium</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--priority-negligible" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-negligible
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--priority-negligible" style="margin-right: 1rem;"></i>p-icon--priority-negligible</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--priority-unknown" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--priority-unknown
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--priority-unknown" style="margin-right: 1rem;"></i>p-icon--priority-unknown</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--add-canvas" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--add-canvas
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--add-canvas" style="margin-right: 1rem;"></i>p-icon--add-canvas</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--add-logical-volume" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--add-logical-volume
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--add-logical-volume" style="margin-right: 1rem;"></i>p-icon--add-logical-volume</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--add-partition" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--add-partition
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--add-partition" style="margin-right: 1rem;"></i>p-icon--add-partition</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--back-to-top" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--back-to-top
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--back-to-top" style="margin-right: 1rem;"></i>p-icon--back-to-top</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--begin-downloading" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--begin-downloading
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--begin-downloading" style="margin-right: 1rem;"></i>p-icon--begin-downloading</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--bundle" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--bundle
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--bundle" style="margin-right: 1rem;"></i>p-icon--bundle</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--canvas" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--canvas
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--canvas" style="margin-right: 1rem;"></i>p-icon--canvas</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--change-version" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--change-version
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--change-version" style="margin-right: 1rem;"></i>p-icon--change-version</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--comments" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--comments
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--comments" style="margin-right: 1rem;"></i>p-icon--comments</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--conflict-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--conflict-grey
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--conflict-grey" style="margin-right: 1rem;"></i>p-icon--conflict-grey</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--conflict" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--conflict
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--conflict" style="margin-right: 1rem;"></i>p-icon--conflict</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--conflict-resolution-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--conflict-resolution-grey
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--conflict-resolution-grey" style="margin-right: 1rem;"></i>p-icon--conflict-resolution-grey</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--conflict-resolution" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--conflict-resolution
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--conflict-resolution" style="margin-right: 1rem;"></i>p-icon--conflict-resolution</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--connected" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--connected
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--connected" style="margin-right: 1rem;"></i>p-icon--connected</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--containers" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--containers
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--containers" style="margin-right: 1rem;"></i>p-icon--containers</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--copy-to-clipboard" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--copy-to-clipboard
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--copy-to-clipboard" style="margin-right: 1rem;"></i>p-icon--copy-to-clipboard</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--disconnect" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--disconnect
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--disconnect" style="margin-right: 1rem;"></i>p-icon--disconnect</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--edit" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--edit
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--edit" style="margin-right: 1rem;"></i>p-icon--edit</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--export" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--export
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--export" style="margin-right: 1rem;"></i>p-icon--export</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--exposed" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--exposed
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--exposed" style="margin-right: 1rem;"></i>p-icon--exposed</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--filter" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--filter
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--filter" style="margin-right: 1rem;"></i>p-icon--filter</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--fork" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--fork
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--fork" style="margin-right: 1rem;"></i>p-icon--fork</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--get-link" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--get-link
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--get-link" style="margin-right: 1rem;"></i>p-icon--get-link</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--halfscreen-bar" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--halfscreen-bar
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--halfscreen-bar" style="margin-right: 1rem;"></i>p-icon--halfscreen-bar</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--highlight-off" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--highlight-off
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--highlight-off" style="margin-right: 1rem;"></i>p-icon--highlight-off</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--highlight-on" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--highlight-on
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--highlight-on" style="margin-right: 1rem;"></i>p-icon--highlight-on</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--home" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--home
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--home" style="margin-right: 1rem;"></i>p-icon--home</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--import" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--import
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--import" style="margin-right: 1rem;"></i>p-icon--import</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--in-progress" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--in-progress
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--in-progress" style="margin-right: 1rem;"></i>p-icon--in-progress</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--inspector-debug" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--inspector-debug
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--inspector-debug" style="margin-right: 1rem;"></i>p-icon--inspector-debug</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--loading-steps" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--loading-steps
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--loading-steps" style="margin-right: 1rem;"></i>p-icon--loading-steps</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--lock-locked-active" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--lock-locked-active
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--lock-locked-active" style="margin-right: 1rem;"></i>p-icon--lock-locked-active</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--lock-locked" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--lock-locked
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--lock-locked" style="margin-right: 1rem;"></i>p-icon--lock-locked</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--lock-unlock" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--lock-unlock
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--lock-unlock" style="margin-right: 1rem;"></i>p-icon--lock-unlock</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--maximise-bar" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--maximise-bar
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--maximise-bar" style="margin-right: 1rem;"></i>p-icon--maximise-bar</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--minimise-bar" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--minimise-bar
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--minimise-bar" style="margin-right: 1rem;"></i>p-icon--minimise-bar</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--mount-2" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--mount-2
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--mount-2" style="margin-right: 1rem;"></i>p-icon--mount-2</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--mount" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--mount
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--mount" style="margin-right: 1rem;"></i>p-icon--mount</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--unmount" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--unmount
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--unmount" style="margin-right: 1rem;"></i>p-icon--unmount</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--open-terminal" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--open-terminal
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--open-terminal" style="margin-right: 1rem;"></i>p-icon--open-terminal</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--plans" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--plans
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--plans" style="margin-right: 1rem;"></i>p-icon--plans</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--pods" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--pods
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--pods" style="margin-right: 1rem;"></i>p-icon--pods</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--power-error" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--power-error
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--power-error" style="margin-right: 1rem;"></i>p-icon--power-error</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--power-off" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--power-off
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--power-off" style="margin-right: 1rem;"></i>p-icon--power-off</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--power-on" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--power-on
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--power-on" style="margin-right: 1rem;"></i>p-icon--power-on</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--profile" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--profile
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--profile" style="margin-right: 1rem;"></i>p-icon--profile</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--restart" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--restart
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--restart" style="margin-right: 1rem;"></i>p-icon--restart</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--revisions" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--revisions
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--revisions" style="margin-right: 1rem;"></i>p-icon--revisions</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--security" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--security
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--security" style="margin-right: 1rem;"></i>p-icon--security</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--settings" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--settings
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--settings" style="margin-right: 1rem;"></i>p-icon--settings</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--sort-both" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--sort-both
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--sort-both" style="margin-right: 1rem;"></i>p-icon--sort-both</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--sort-down" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--sort-down
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--sort-down" style="margin-right: 1rem;"></i>p-icon--sort-down</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--sort-up" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--sort-up
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--sort-up" style="margin-right: 1rem;"></i>p-icon--sort-up</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--starred" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--starred
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--starred" style="margin-right: 1rem;"></i>p-icon--starred</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-failed-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-failed-small
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-failed-small" style="margin-right: 1rem;"></i>p-icon--status-failed-small</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-in-progress-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-in-progress-small
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-in-progress-small" style="margin-right: 1rem;"></i>p-icon--status-in-progress-small</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-queued-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-queued-small
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-queued-small" style="margin-right: 1rem;"></i>p-icon--status-queued-small</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-succeeded-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-succeeded-small
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-succeeded-small" style="margin-right: 1rem;"></i>p-icon--status-succeeded-small</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-waiting-small" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-waiting-small
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-waiting-small" style="margin-right: 1rem;"></i>p-icon--status-waiting-small</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-in-progress" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-in-progress
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-in-progress" style="margin-right: 1rem;"></i>p-icon--status-in-progress</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-queued" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-queued
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-queued" style="margin-right: 1rem;"></i>p-icon--status-queued</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status-waiting" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status-waiting
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status-waiting" style="margin-right: 1rem;"></i>p-icon--status-waiting</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--status" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--status
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--status" style="margin-right: 1rem;"></i>p-icon--status</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--submit-bug" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--submit-bug
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--submit-bug" style="margin-right: 1rem;"></i>p-icon--submit-bug</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--success-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--success-grey
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--success-grey" style="margin-right: 1rem;"></i>p-icon--success-grey</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--switcher-dashboard" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--switcher-dashboard
+      <div class="p-card col-3 u-vertically-center">
+        <i class="p-icon--switcher-dashboard" style="margin-right: 1rem;"></i>p-icon--switcher-dashboard
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--switcher-environments" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--switcher-environments
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--switcher-environments" style="margin-right: 1rem;"></i>p-icon--switcher-environments</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--switcher" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--switcher
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--switcher" style="margin-right: 1rem;"></i>p-icon--switcher</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--tag" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--tag
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--tag" style="margin-right: 1rem;"></i>p-icon--tag</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--task-outstanding" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--task-outstanding
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--task-outstanding" style="margin-right: 1rem;"></i>p-icon--task-outstanding</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--timed-out-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--timed-out-grey
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--timed-out-grey" style="margin-right: 1rem;"></i>p-icon--timed-out-grey</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--timed-out" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--timed-out
+      <div class="p-card col-3 u-vertically-center">
+        <i class="p-icon--timed-out" style="margin-right: 1rem;"></i>p-icon--timed-out
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--topic" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--topic
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--topic" style="margin-right: 1rem;"></i>p-icon--topic</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--unit-pending" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--unit-pending
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--unit-pending" style="margin-right: 1rem;"></i>p-icon--unit-pending</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--unit-running" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--unit-running
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--unit-running" style="margin-right: 1rem;"></i>p-icon--unit-running</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--unstarred" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--unstarred
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--unstarred" style="margin-right: 1rem;"></i>p-icon--unstarred</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--user-group" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--user-group
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--user-group" style="margin-right: 1rem;"></i>p-icon--user-group</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--video-play" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--video-play
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--video-play" style="margin-right: 1rem;"></i>p-icon--video-play</p>
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-item: center;display: flex;">
-        <i class="p-icon--warning-grey" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--warning-grey
+      <div class="p-card col-3 u-vertically-center">
+        <p><i class="p-icon--warning-grey" style="margin-right: 1rem;"></i>p-icon--warning-grey</p>
       </div>
     </div>
   </div>
@@ -454,32 +456,32 @@ Our social icons are used to drive users to social content.
 <section>
   <div class="p-strip is-shallow u-no-padding--top">
     <div class="row">
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--facebook" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--facebook
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--instagram" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--instagram
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--twitter" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--twitter
       </div>
     </div>
     <div class="row">
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--linkedin" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--linkedin
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--youtube" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--youtube
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--github" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--github
       </div>
     </div>
     <div class="row">
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--rss" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--rss
       </div>
-      <div class="p-card col-3 u-vertically-center" style=" align-items:center;display:flex;">
+      <div class="p-card col-3" style="align-items:center; display:flex;">
         <i class="p-icon--email" style=" flex-shrink: 0;margin-right: 1rem;"></i>p-icon--email
       </div>
     </div>
