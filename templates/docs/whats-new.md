@@ -20,12 +20,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 2.35 -->
+    <!-- 2.36 -->
     <tr>
-      <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.35.0</td>
-      <td>We've updated the styling of the form validation and required patterns</td>
+      <th><a href="/docs/patterns/accordion#with-tick-elements">Accordion / Tick elements</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.36.0</td>
+      <td>We've added a variation of the accordion using tick elements</td>
     </tr>
   </tbody>
 </table>
@@ -42,6 +42,13 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 2.35 -->
+    <tr>
+      <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
+      <td><div class="p-label--deprecated">Updated</div></td>
+      <td>2.35.0</td>
+      <td>We've updated the styling of the form validation and required patterns</td>
+    </tr>
     <!-- 2.34 -->
     <tr>
       <th><a href="/docs/base/forms#password-showhide">Forms / Password toggle</a></th>

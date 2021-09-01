@@ -36,6 +36,14 @@ View example of the accordion pattern
 View example of the accordion pattern
 </a></div>
 
+## With tick elements
+
+When checkboxes or radio buttons are used inside accordion panels add `has-tick-elements` class name to the panel `p-accordion__panel` element, to properly align tick elements with accordion controls.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/accordion/tick-elements/" class="js-example">
+View example of the accordion pattern
+</a></div>
+
 ## Headings
 
 <span class="p-label--deprecated">Deprecated</span>
