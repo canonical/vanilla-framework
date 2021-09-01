@@ -12,7 +12,7 @@ import jinja2
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam.search import build_search_view
-
+from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 
 # Constants
 with open("package.json") as package_json:
@@ -205,3 +205,17 @@ app.add_url_rule(
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
+
+
+discourse_docs = Docs(
+    parser=DocParser(
+        api=DiscourseAPI(
+            base_url="https://discourse.ubuntu.com/", session=session
+        ),
+        index_topic_id=23978,
+        url_prefix="/discourse",
+    ),
+    document_template="/_layouts/pattern-guidelines.html",
+    url_prefix="/discourse",
+)
+discourse_docs.init_app(app)
