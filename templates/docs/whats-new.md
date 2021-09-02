@@ -23,7 +23,7 @@ When we add, make significant updates, or deprecate a component we update their 
     <!-- 2.35 -->
     <tr>
       <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
-      <td><div class="p-label--deprecated">Updated</div></td>
+      <td><div class="p-label--updated">Updated</div></td>
       <td>2.35.0</td>
       <td>We've updated the styling of the form validation and required patterns</td>
     </tr>
