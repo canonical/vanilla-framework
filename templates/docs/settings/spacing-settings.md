@@ -28,49 +28,47 @@ Some spacing values are scalable; in practice, they produce the same values as t
 
 The `$spv-inner` variables are used to determine vertical spacing inside components, while `$spv-outer` variables are used for spacing between components.
 
-| Spacing variable                 | Formula                        | Default value |
-| -------------------------------- | ------------------------------ | ------------- |
-| `$spv-inner--x-small`            | `$sp-unit * 0.5`               | `0.25rem`     |
-| `$spv-inner--x-small--scaleable` | `$spv-inner--x-small * $multi` | `0.5rem`      |
-| `$spv-inner--small`              | `$sp-unit`                     | `0.5rem`      |
-| `$spv-inner--scaleable`          | `$sp-unit * $multi`            | `1rem`        |
-| `$spv-inner--medium`             | `$sp-unit * 1.5`               | `0.75rem`     |
-| `$spv-inner--large`              | `$sp-unit * 2`                 | `1rem`        |
-| `$spv-inner--x-large`            | `$sp-unit * 5.5`               | `2.75rem`     |
+| Spacing variable      | Formula                  | Default value |
+| --------------------- | ------------------------ | ------------- |
+| `$spv--x-small`       | `$sp-unit * 0.5`         | `0.25rem`     |
+| `$spv--small`         | `$spv--x-small * $multi` | `0.5rem`      |
+| `$spv--small`         | `$sp-unit`               | `0.5rem`      |
+| `$spv--medium`        | `$sp-unit * 1.5`         | `0.75rem`     |
+| `$spv--large`         | `$sp-unit * 2`           | `1rem`        |
+| `$spv-inner--x-large` | `$sp-unit * 5.5`         | `2.75rem`     |
 
 <br>
 
-| Spacing variable              | Formula                   | Default value |
-| ----------------------------- | ------------------------- | ------------- |
-| `$spv-outer--small`           | `$sp-unit`                | `0.5rem`      |
-| `$spv-outer--small-scaleable` | `$sp-unit * $multi`       | `1rem`        |
-| `$spv-outer--medium`          | `$sp-unit * 2`            | `1rem`        |
-| `$spv-outer--scaleable`       | `$sp-unit * (1 + $multi)` | `1.5rem`      |
+| Spacing variable | Formula                   | Default value |
+| ---------------- | ------------------------- | ------------- |
+| `$spv--small`    | `$sp-unit`                | `0.5rem`      |
+| `$spv--large`    | `$sp-unit * 2`            | `1rem`        |
+| `$spv--x-large`  | `$sp-unit * (1 + $multi)` | `1.5rem`      |
 
 <br>
 
 The following vertical spacing variables are used between a group of components and its wrapper, for example in strips. The names of these variables are based on "depth" rather than the size-based terms of the other variables to give a distinction in their intended use.
 
-| Spacing variable                | Formula                     | Default value |
-| ------------------------------- | --------------------------- | ------------- |
-| `$spv-outer--shallow-scaleable` | `$sp-unit * 2 * $multi`     | `2rem`        |
-| `$spv-outer--regular-scaleable` | `$sp-unit 2 * (2 + $multi)` | `4rem`        |
-| `$spv-outer--deep-scaleable`    | `$sp-unit 2 * (4 + $multi)` | `6rem`        |
+| Spacing variable      | Formula                     | Default value |
+| --------------------- | --------------------------- | ------------- |
+| `$spv--x-large`       | `$sp-unit * 2 * $multi`     | `2rem`        |
+| `$spv--strip-regular` | `$sp-unit 2 * (2 + $multi)` | `4rem`        |
+| `$spv--strip-deep`    | `$sp-unit 2 * (4 + $multi)` | `6rem`        |
 
 <br>
 
 ## Horizontal spacing
 
-The `$sph-inner` variables are used to determine horizontal spacing inside components, while `$sph-outer` variables are used for spacing between components.
+The `$sph--large` variables are used to determine horizontal spacing inside components, while `$sph--large` variables are used for spacing between components.
 
-| Spacing variable      | Formula        | Default value |
-| --------------------- | -------------- | ------------- |
-| `$sph-inner--small`   | `$sp-unit`     | `0.5rem`      |
-| `$sph-inner`          | `$sp-unit * 2` | `1rem`        |
-| `$sph-inner--large`   | `$sp-unit * 3` | `1.5rem`      |
-| `$sph-inner--x-large` | `$sp-unit * 5` | `2.5rem`      |
-| `$sph-outer`          | `$sp-unit`     | `0.5rem`      |
-| `$sph-outer--large`   | `$sp-unit * 3` | `1.5rem`      |
+| Spacing variable       | Formula        | Default value |
+| ---------------------- | -------------- | ------------- |
+| `$sph--small`          | `$sp-unit`     | `0.5rem`      |
+| `$sph--large`          | `$sp-unit * 2` | `1rem`        |
+| `$sph--x-large`        | `$sp-unit * 3` | `1.5rem`      |
+| `$sph--large--x-large` | `$sp-unit * 5` | `2.5rem`      |
+| `$sph--large`          | `$sp-unit`     | `0.5rem`      |
+| `$sph--x-large`        | `$sp-unit * 3` | `1.5rem`      |
 
 <br>
 

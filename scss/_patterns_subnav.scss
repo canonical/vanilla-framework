@@ -3,7 +3,7 @@
 @mixin vf-p-subnav {
   @include deprecate('3.0.0', '.p-subnav will be removed, use .p-navigation__item--dropdown-toggle instead') {
     $color-navigation-background: $color-x-light !default;
-    $subnav-vertical-padding: $spv-inner--large;
+    $subnav-vertical-padding: $spv--large;
 
     .p-subnav {
       position: relative;
@@ -15,12 +15,12 @@
       background-size: contain;
       content: '';
       display: block;
-      height: $spv-inner--large;
+      height: $spv--large;
       pointer-events: none;
       position: absolute;
       right: map-get($grid-margin-widths, small);
       text-indent: calc(100% + 10rem);
-      top: calc(#{$spv-inner--large} + #{map-get($nudges, nudge--x-small)});
+      top: calc(#{$spv--large} + #{map-get($nudges, nudge--x-small)});
       width: map-get($icon-sizes, default);
 
       @media (min-width: $threshold-4-6-col) {
@@ -28,7 +28,7 @@
       }
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+        right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
       }
     }
 
@@ -70,20 +70,20 @@
     }
 
     %subnav-link {
-      padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
+      padding-right: 2 * $sph--small + map-get($icon-sizes, default); // icon padded with the default padding-right of selects, inputs etc.
     }
 
     .p-subnav__item {
       @extend %navigation-link-responsive-padding-horizontal;
 
       display: block;
-      padding-bottom: $spv-inner--small;
-      padding-top: $spv-inner--small;
+      padding-bottom: $spv--small;
+      padding-top: $spv--small;
       white-space: nowrap;
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        padding-bottom: $spv-inner--medium;
-        padding-top: $spv-inner--medium;
+        padding-bottom: $spv--medium;
+        padding-top: $spv--medium;
       }
 
       &,

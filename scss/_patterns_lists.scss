@@ -4,7 +4,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
 $spv-list-item--inner: null;
 @if ($pad-lists) {
-  $spv-list-item--inner: $spv-inner--x-small; // padding top and bottom for lists containing loose text.
+  $spv-list-item--inner: $spv--x-small; // padding top and bottom for lists containing loose text.
 } @else {
   $spv-list-item--inner: 0;
 }
@@ -89,7 +89,7 @@ $spv-list-item--inner: null;
 @mixin vf-inline-list-item {
   display: inline;
   list-style: none;
-  margin-right: $sph-outer;
+  margin-right: $sph--large;
 
   &.last-item,
   &:last-of-type {
@@ -246,7 +246,7 @@ $spv-list-item--inner: null;
     float: none;
     margin-left: 0;
     overflow: visible;
-    padding-bottom: $spv-outer--scaleable;
+    padding-bottom: $spv--x-large;
     position: relative;
     width: 100%;
   }
@@ -262,14 +262,14 @@ $spv-list-item--inner: null;
   .p-stepped-list__title {
     @extend %numbered-step-title;
 
-    padding-left: $bullet-width-mobile + $sph-inner;
+    padding-left: $bullet-width-mobile + $sph--large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-left: $bullet-width + $sph-inner;
+      padding-left: $bullet-width + $sph--large;
     }
 
     &::before {
-      margin-right: $sph-inner;
+      margin-right: $sph--large;
       width: $bullet-width-mobile;
 
       @media (min-width: $breakpoint-heading-threshold) {
@@ -279,10 +279,10 @@ $spv-list-item--inner: null;
   }
 
   .p-stepped-list__title + .p-stepped-list__content {
-    margin-left: $bullet-width-mobile + $sph-inner;
+    margin-left: $bullet-width-mobile + $sph--large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-left: $bullet-width + $sph-inner;
+      margin-left: $bullet-width + $sph--large;
     }
   }
 
@@ -303,14 +303,14 @@ $spv-list-item--inner: null;
     }
 
     h#{$i}.p-stepped-list__title {
-      padding-left: $bullet-width-mobile + $sph-inner;
+      padding-left: $bullet-width-mobile + $sph--large;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        padding-left: $bullet-width + $sph-inner;
+        padding-left: $bullet-width + $sph--large;
       }
 
       &::before {
-        margin-right: $sph-inner;
+        margin-right: $sph--large;
         width: $bullet-width-mobile;
 
         @media (min-width: $breakpoint-heading-threshold) {
@@ -320,10 +320,10 @@ $spv-list-item--inner: null;
     }
 
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
-      margin-left: $bullet-width-mobile + $sph-inner;
+      margin-left: $bullet-width-mobile + $sph--large;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        margin-left: $bullet-width + $sph-inner;
+        margin-left: $bullet-width + $sph--large;
       }
     }
   }
