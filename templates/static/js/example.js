@@ -19,7 +19,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    var examples = document.querySelectorAll('.js-example');
+    var examples = document.querySelectorAll('.js-example, .md-table a[href*="docs/examples"]');
 
     // IE11 doesn't support forEach on NodeList
     // we use this check to skip rendering embeds in IE
@@ -30,7 +30,16 @@
 
   function fetchExample(exampleElement) {
     var link = exampleElement.href;
+
+    link = link.replace('https://vanillaframework.io', '');
+
     var request = new XMLHttpRequest();
+
+    var discourseTable = exampleElement.closest('.md-table');
+
+    if (discourseTable) {
+      exampleElement = discourseTable;
+    }
 
     request.onreadystatechange = function () {
       if (request.status === 200 && request.readyState === 4) {
