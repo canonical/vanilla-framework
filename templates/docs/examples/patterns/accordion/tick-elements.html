@@ -1,0 +1,53 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Accordion / Tick elements{% endblock %}
+
+{% block standalone_css %}patterns_accordion{% endblock %}
+
+{% block content %}
+<aside class="p-accordion">
+  <ul class="p-accordion__list">
+    <li class="p-accordion__group">
+      <div role="heading" aria-level="3" class="p-accordion__heading">
+        <button type="button" class="p-accordion__tab" id="tab1" aria-controls="tab1-section" aria-expanded="true">Networking</button>
+      </div>
+      <section class="p-accordion__panel has-tick-elements" id="tab1-section" aria-controls="tab1-section" aria-expanded="true">
+        <label class="p-checkbox">
+          <input type="checkbox" class="p-checkbox__input" name="vendor" value="working-offline">
+          <span class="p-checkbox__label">Working offline</span>
+        </label>
+        <label class="p-checkbox">
+          <input type="checkbox" class="p-checkbox__input" name="vendor" value="fan-container-networking">
+          <span class="p-checkbox__label">Fan container networking</span>
+        </label>
+        <label class="p-checkbox">
+          <input type="checkbox" class="p-checkbox__input" name="vendor" value="network-spaces">
+          <span class="p-checkbox__label">Network spaces</span>
+        </label>
+      </section>
+    </li>
+    <li class="p-accordion__group">
+      <div role="heading" aria-level="3" class="p-accordion__heading">
+        <button type="button" class="p-accordion__tab" id="tab2" aria-controls="tab2-section" aria-expanded="false">Miscellaneous</button>
+      </div>
+      <section class="p-accordion__panel has-tick-elements" id="tab2-section" aria-hidden="true" aria-labelledby="tab2">
+        <label class="p-radio">
+          <input type="radio" class="p-radio__input" name="vendor" value="juju-gui">
+          <span class="p-radio__label">Juju GUI</span>
+        </label>
+        <label class="p-radio">
+          <input type="radio" class="p-radio__input" name="vendor" value="centos-support">
+          <span class="p-radio__label">CentOS support</span>
+        </label>
+        <label class="p-radio">
+          <input type="radio" class="p-radio__input" name="vendor" value="juju-metrics">
+          <span class="p-radio__label">Collecting Juju metrics</span>
+        </label>
+      </section>
+    </li>
+  </ul>
+</aside>
+
+<script>
+  {% include 'docs/examples/patterns/accordion/_script.js' %}
+</script>
+{% endblock %}
