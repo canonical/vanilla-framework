@@ -1,6 +1,13 @@
 @import 'settings';
 
 @mixin vf-p-form-tick-elements {
+  .p-checkbox,
+  .p-radio {
+    // Fix label alignment when text drops to new line
+    padding-left: $sph-inner + $form-tick-box-size;
+    text-indent: -1 * ($sph-inner + $form-tick-box-size);
+  }
+
   // contain the absolutely positioned input
   .p-checkbox,
   .p-checkbox--heading,
