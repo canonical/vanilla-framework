@@ -1,9 +1,3 @@
-// Density multiplier
-$multi: 2 !default;
-
-// Options
-$pad-lists: true !default; // Adds padding to list items
-
 // Typographic scale settings
 $ms-ratio: math.div(16, 14) !default;
 $sp-unit-ratio: 0.5 !default;
@@ -73,71 +67,45 @@ $browser-rounding-compensations: (
   h1: 0.001rem,
 ) !default;
 
-////////////////////////////////////////////////////////
-// Variables connecting spacings that should be identical
+// Main spacing variables. spv stands spacing-vertical; sph stands for spacing-horizontal.
 
-// 1. VERTICAL SPACING
-// 1.1 Vertical spacing inside components
-$spv-inner--x-small: $sp-unit * 0.5 !default; // buttons margins inside table,
-$spv-inner--x-small--scaleable: $spv-inner--x-small * $multi !default;
-$spv-inner--small: $sp-unit !default;
-$spv-inner--scaleable: $sp-unit * $multi !default; // can be deleted for 3.0
-$spv-inner--medium: $sp-unit * 1.5 !default; //vertical padding in: navigation, tabs
-$spv-inner--large: $sp-unit * 2;
+$spv--x-small: $sp-unit * 0.5 !default;
+$spv--small: $sp-unit !default;
+$spv--medium: $sp-unit * 1.5 !default;
+$spv--large: $sp-unit * 2;
+$spv--x-large: $sp-unit * 3 !default;
+$spv--strip-regular: $sp-unit * 8 !default;
+$spv--strip-deep: $sp-unit * 12 !default;
 
-// 1.2 Vertical spacing between components
-$spv-outer--small: $sp-unit !default; //labels
-$spv-outer--small-scaleable: $sp-unit * $multi !default;
-$spv-outer--medium: $sp-unit * 2 !default;
-$spv-outer--scaleable: $sp-unit * (1 + $multi) !default;
-
-// 1.3 Vertical spacing between a group of components and its wrapper - strips, views, entire page
-$spv-outer--shallow-scaleable: $spv-outer--scaleable !default;
-$spv-outer--regular-scaleable: $sp-unit * 2 * (2 + $multi) !default;
-$spv-outer--deep-scaleable: $sp-unit * 2 * (4 + $multi) !default;
-
-// 2. HORIZONTAL SPACING
-// 2.1 Horizontal spacing inside components
-$sph-inner--x-small: $sp-unit * 0.5 !default; // Not currently used
-$sph-inner--small: $sp-unit !default; // input-elements
-$sph-inner: $sp-unit * 2 !default; // buttons, accordions, tabs, menu, card padding, stepped-list bullet offset
-$sph-inner--large: $sp-unit * 3 !default;
-// 2.2 Horizontal spacing outside components
-$sph-outer: $sph-inner !default;
-$sph-outer--large: $sp-unit * 3 !default; // checboxes, radios, list bullets
+$sph--small: $sp-unit !default;
+$sph--large: $sp-unit * 2 !default;
+$sph--x-large: $sp-unit * 3 !default;
 
 // Space after text elements
 $sp-after: (
-  h1: $spv-outer--small-scaleable,
-  h2: $spv-outer--small-scaleable,
-  h3: $spv-outer--small-scaleable,
-  h4: $spv-outer--small-scaleable,
-  p: $spv-outer--scaleable,
-  p-dense: $spv-outer--scaleable - $sp-unit,
-  h1-mobile: $spv-outer--small-scaleable,
-  h2-mobile: $spv-outer--small-scaleable,
-  h3-mobile: $spv-outer--small-scaleable,
-  h4-mobile: $spv-outer--small-scaleable,
-  small: $spv-outer--small-scaleable,
-  small--dense: $spv-outer--small-scaleable,
-  x-small: $spv-outer--small-scaleable,
+  h1: $spv--large,
+  h2: $spv--large,
+  h3: $spv--large,
+  h4: $spv--large,
+  p: $spv--x-large,
+  p-dense: $spv--large,
+  h1-mobile: $spv--large,
+  h2-mobile: $spv--large,
+  h3-mobile: $spv--large,
+  h4-mobile: $spv--large,
+  small: $spv--large,
+  small--dense: $spv--large,
+  x-small: $spv--large,
   default-text: $sp-unit,
 ) !default;
 
 // commonly occuring calculations available as variables
 $spv-nudge: map-get($nudges, nudge--p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
-$input-margin-bottom: $sp-unit * (2 + $multi) - $spv-nudge * 2;
+$input-margin-bottom: $sp-unit * 4 - $spv-nudge * 2;
 $input-vertical-padding: calc(#{$spv-nudge} - 1px);
 
 $max-width--default: 40em !default;
-
-$max-widths: (
-  long: $max-width--default,
-  default: $max-width--default,
-  heading--long: $max-width--default,
-  heading--short: $max-width--default,
-) !default;
 
 $icon-sizes: (
   accordion: $sp-unit * 1.5,
@@ -151,7 +119,7 @@ $icon-sizes: (
 
 $default-icon-size: map-get($icon-sizes, default);
 
-$table-cell-vertical-padding: $spv-inner--x-small--scaleable;
+$table-cell-vertical-padding: $spv--small;
 
 // generic units
 $sp-xx-small: $sp-unit * 0.25 !default;
