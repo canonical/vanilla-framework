@@ -3,6 +3,7 @@ wrapper_template: '_layouts/pattern-implementation.html'
 context:
   title: Notification | Components
   guidelines: patterns/notification
+  tab: html
 ---
 
 Notifications are used to attract the user's attention. They offer four separate severity levels, and can also be modified for use in different contexts.

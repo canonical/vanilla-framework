@@ -160,6 +160,13 @@
           </ul>
         </nav>
 
+        <div class="p-tab-buttons">
+          <div class="p-tab-buttons__list" aria-label="Implementation language">
+            <a href="/docs/{{ guidelines }}" class="p-button p-tab-buttons__button" {% if tab == 'html' %}aria-selected="true"{% else %}aria-selected="false"{%endif%}>HTML/CSS</a>
+            <a href="/docs/{{ guidelines }}-react" class="p-button p-tab-buttons__button" {% if tab == 'react' %}aria-selected="true"{% else %}aria-selected="false"{%endif%}>React</a>
+          </div>
+        </div>
+
         {% block content %}{{ content | safe }}{% endblock content %}
       </main>
 
