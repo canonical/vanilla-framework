@@ -2,13 +2,6 @@
 $list-status-icon-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
 $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
 
-$spv-list-item--inner: null;
-@if ($pad-lists) {
-  $spv-list-item--inner: $spv--x-small; // padding top and bottom for lists containing loose text.
-} @else {
-  $spv-list-item--inner: 0;
-}
-
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
     counter-reset: li;
@@ -38,8 +31,8 @@ $spv-list-item--inner: null;
 
   // Mixin for list items
   %vf-list-item {
-    padding-bottom: $spv-list-item--inner;
-    padding-top: $spv-list-item--inner;
+    padding-bottom: $spv--x-small;
+    padding-top: $spv--x-small;
 
     // FIXME: we need a better way to handle forms within lists
     // stylelint-disable selector-max-type
@@ -57,7 +50,7 @@ $spv-list-item--inner: null;
   %vf-list-item-state-base {
     @extend %vf-list;
 
-    background-position-y: $spv-list-item--inner + $list-status-icon-nudge;
+    background-position-y: $spv--x-small + $list-status-icon-nudge;
     background-repeat: no-repeat;
     background-size: $list-status-icon-height;
     padding-left: 2rem;
