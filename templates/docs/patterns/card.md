@@ -20,7 +20,7 @@ View example of the default card pattern
 
 ## Content Bleed
 
-It is possible to have content bleed to the edges of the card by placing outside of the `.p-card__inner` element.
+It is possible to have content bleed to the edges by using `u-no-padding` on the `p-card` element. Any content that requires padding can then use the `.p-card__inner` element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/card/content-bleed/" class="js-example">
 View example of card content bleeding

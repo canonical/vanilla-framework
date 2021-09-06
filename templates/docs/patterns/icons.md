@@ -12,10 +12,8 @@ context:
 <section >
   <div class="p-strip is-shallow u-no-padding--top" {% if theme == "dark" %}style="background-color: transparent;"{% endif %}>{% for row in icon_set | batch(3) %}
   <div class="row u-equal-height">
-    {% for icon in row %}<div class="p-card col-3 u-vertically-center" {% if theme == "dark" %}style="background-color: #111;"{% endif %}>
-      <div class="p-card__inner" {% if theme == 'dark' %}style="color: #fff;"{% endif %}>
-        <p><i class="p-icon--{{icon}}" style="margin-right: 1rem;"></i>p-icon--{{icon}}</p>
-      </div>
+    {% for icon in row %}<div class="p-card col-3 u-vertically-center" {% if theme == "dark" %}style="background-color: #111; color: #fff;"{% endif %}>
+      <p><i class="p-icon--{{icon}}" style="margin-right: 1rem;"></i>p-icon--{{icon}}</p>
     </div>{% endfor %}
   </div>{% endfor %}
   </div>

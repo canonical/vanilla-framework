@@ -33,16 +33,18 @@
     color: $color-dark;
   }
 
+  %vf-card-padding {
+    overflow: auto;
+    padding: $spv-inner--large;
+  }
+
   %vf-card {
     @extend %vf-bg--x-light;
-
-    margin-bottom: $spv-outer--scaleable;
-    overflow: auto; // prevent overflow of child margins
+    @extend %vf-card-padding;
   }
 
   %vf-card-inner {
-    overflow: auto;
-    padding: $spv-inner--large;
+    @extend %vf-card-padding;
   }
 
   //accordion, table
