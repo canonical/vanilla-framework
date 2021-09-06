@@ -27,6 +27,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.36.0</td>
       <td>We've added a variation of the accordion using tick elements</td>
     </tr>
+    <tr>
+      <th><a href="/docs/patterns/card#content-bleed">Card / Content Bleed</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.36.0</td>
+      <td>We added a <code>.p-card__inner</code> element so that it's possible to have a mix of padded and not padded content within a card.</td>
+    </tr>
   </tbody>
 </table>
 
