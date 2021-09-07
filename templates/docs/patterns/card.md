@@ -18,7 +18,7 @@ The purpose of the default card is to display information, without user interact
 View example of the default card pattern
 </a></div>
 
-## Content Bleed
+## Content bleed
 
 It is possible to have content bleed to the edges by using `u-no-padding` on the `p-card` element. Any content that requires padding can then use the `.p-card__inner` element.
 
