@@ -1,13 +1,6 @@
 @import 'settings';
 
 @mixin vf-p-form-tick-elements {
-  .p-checkbox,
-  .p-radio {
-    // Fix label alignment when text drops to new line
-    padding-left: $sph-inner + $form-tick-box-size;
-    text-indent: -1 * ($sph-inner + $form-tick-box-size);
-  }
-
   // contain the absolutely positioned input
   .p-checkbox,
   .p-checkbox--heading,
@@ -29,6 +22,19 @@
       .p-radio__label,
       .p-checkbox__label {
         padding-left: calc(#{$sph-inner + $form-tick-box-size} + #{$asterisk-width});
+      }
+    }
+  }
+
+  // Fix label alignment when text drops to new line
+  .p-checkbox,
+  .p-radio {
+    padding-left: $sph-inner + $form-tick-box-size;
+    text-indent: -1 * ($sph-inner + $form-tick-box-size);
+
+    &.is-required {
+      &::before {
+        left: $sph-inner + $form-tick-box-size + $sph-inner + $form-tick-box-size;
       }
     }
   }
