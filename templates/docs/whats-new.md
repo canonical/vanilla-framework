@@ -34,16 +34,10 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We added a <code>.p-card__inner</code> element so that it's possible to have a mix of padded and not padded content within a card.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/forms#checkbox">Form / Checkboxes</a></th>
+      <th><a href="/docs/base/forms#help-text">Form / Help text</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.36.0</td>
-      <td>Aligned help text in checkboxes</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/base/forms#checkbox">Form / Tick elements</a></th>
-      <td><div class="p-label--updated">Updated</div></td>
-      <td>2.36.0</td>
-      <td>Fix tick elements alignment for long text</td>
+      <td>We added a class name to aligned help text with checkboxes or radio buttons</td>
     </tr>
   </tbody>
 </table>
