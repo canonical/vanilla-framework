@@ -33,6 +33,12 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.36.0</td>
       <td>We added a <code>.p-card__inner</code> element so that it's possible to have a mix of padded and not padded content within a card.</td>
     </tr>
+    <tr>
+      <th><a href="/docs/base/forms#help-text">Form / Help text</a></th>
+      <td><div class="p-label--updated">Updated</div></td>
+      <td>2.36.0</td>
+      <td>We added a class name to aligned help text with checkboxes or radio buttons</td>
+    </tr>
   </tbody>
 </table>
 
@@ -51,7 +57,7 @@ When we add, make significant updates, or deprecate a component we update their 
     <!-- 2.35 -->
     <tr>
       <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
-      <td><div class="p-label--deprecated">Updated</div></td>
+      <td><div class="p-label--updated">Updated</div></td>
       <td>2.35.0</td>
       <td>We've updated the styling of the form validation and required patterns</td>
     </tr>

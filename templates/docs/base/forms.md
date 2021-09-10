@@ -178,6 +178,14 @@ Adding the `disabled` attribute to an input will prevent user interaction.
 View example of a disabled input
 </a></div>
 
+## Help text
+
+Supplementary help text can be provided for the form fields by adding an element with `.p-form-help-text` class name. If the help text follows a checkbox or radio button use an additional `is-tick-element` class name to align help text with the label.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-help-text/" class="js-example">
+View example of a form fields with help text
+</a></div>
+
 ## Validation
 
 To use form validation feedback - which includes feedback messages, icons and border colours - wrap individual input elements in a `p-form-validation` and additionally apply the `.is-error`, `.is-caution` or `.is-success` to the wrapper as appropriate.
