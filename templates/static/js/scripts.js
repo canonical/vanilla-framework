@@ -107,11 +107,36 @@
 
   // Add table of contents as nested list to side navigation
   if (list.querySelectorAll('li').length > 0) {
-    var parent = document.querySelector('.p-side-navigation__link[aria-current="page"]').parentNode;
+    //var parent = document.querySelector('.p-side-navigation__link[aria-current="page"]').parentNode;
 
-    parent.appendChild(list);
+    // FIXME: just making it work for table of contents instead
+    var parent = document.getElementById('table-of-contents');
+
+    if (parent) {
+      parent.appendChild(list);
+    }
   }
 })();
+
+// FIXME: WIP - quick and dirty way to update side nav on scroll
+// https://css-tricks.com/sticky-table-of-contents-with-scrolling-active-states/
+window.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector(`#table-of-contents a[href="#${id}"]`).setAttribute('aria-current', 'location');
+      } else {
+        document.querySelector(`#table-of-contents a[href="#${id}"]`).removeAttribute('aria-current');
+      }
+    });
+  });
+
+  // Track all sections that have an `id` applied
+  document.querySelectorAll('main h2[id]').forEach((section) => {
+    observer.observe(section);
+  });
+});
 
 // scroll active side navigation item into view (without scrolling whole page)
 (function () {

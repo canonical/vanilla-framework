@@ -6,7 +6,13 @@ context:
   tab: html
 ---
 
-Notifications are used to attract the user's attention. They offer four separate severity levels, and can also be modified for use in different contexts.
+## Overview
+
+Notifications are messages that communicate information to the user. The two main variants of notifications are toast notifications and borderless notifications.
+
+Please read the [design guideline](/discourse/patterns/notification) s for usage details.
+
+---
 
 ## Severity levels
 
