@@ -26,6 +26,19 @@
     }
   }
 
+  // Fix label alignment when text drops to new line
+  .p-checkbox,
+  .p-radio {
+    padding-left: $sph-inner + $form-tick-box-size;
+    text-indent: -1 * ($sph-inner + $form-tick-box-size);
+
+    &.is-required {
+      &::before {
+        left: $sph-inner + $form-tick-box-size + $sph-inner + $form-tick-box-size;
+      }
+    }
+  }
+
   // specify both [type] and class to fight specificity of base `label [type]` styles
   [type='checkbox'].p-checkbox__input,
   [type='radio'].p-radio__input {
