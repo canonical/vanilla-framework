@@ -1,11 +1,11 @@
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
-$code-snippet-header-v-spacing: $spv-inner--small;
+$code-snippet-header-v-spacing: $spv--small;
 
 @mixin vf-p-code-snippet {
   .p-code-snippet {
-    margin-bottom: $spv-outer--scaleable;
+    margin-bottom: $spv--x-large;
 
     &.is-bordered {
       border: 1px solid $colors--light-theme--border-low-contrast;
@@ -24,7 +24,7 @@ $code-snippet-header-v-spacing: $spv-inner--small;
     .p-code-snippet__block--icon {
       @extend %leading-linux-prompt-icon;
 
-      padding-left: #{$sph-inner + map-get($icon-sizes, default) + $sph-inner--small};
+      padding-left: #{$sph--large + map-get($icon-sizes, default) + $sph--small};
       position: relative;
 
       &.is-windows-prompt::before {
@@ -51,8 +51,8 @@ $code-snippet-header-v-spacing: $spv-inner--small;
       background-color: $color-code-heading-background;
       display: flex;
       justify-content: space-between;
-      padding-left: $sph-inner;
-      padding-right: $sph-inner;
+      padding-left: $sph--large;
+      padding-right: $sph--large;
     }
 
     .p-code-snippet__title {
@@ -71,10 +71,10 @@ $code-snippet-header-v-spacing: $spv-inner--small;
       border: 0;
       color: $color-dark;
       margin-bottom: 0;
-      margin-left: $sph-inner--small;
+      margin-left: $sph--small;
       min-width: min-content;
       padding-bottom: $code-snippet-header-v-spacing;
-      padding-left: $sph-inner;
+      padding-left: $sph--large;
       padding-top: $code-snippet-header-v-spacing;
       width: min-content;
     }
