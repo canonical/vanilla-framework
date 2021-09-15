@@ -1,0 +1,20 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Datalist{% endblock %}
+
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+
+<form>
+  <label for="ice-cream-choice">Choose a flavor:</label>
+  <input type="text" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+
+  <datalist id="ice-cream-flavors">
+      <option value="Chocolate">
+      <option value="Coconut">
+      <option value="Mint">
+      <option value="Strawberry">
+      <option value="Vanilla">
+  </datalist>
+</form>
+{% endblock %}
