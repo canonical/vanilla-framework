@@ -77,10 +77,10 @@
   .p-side-navigation__drawer-header {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    margin-bottom: $spv-outer--small;
-    padding-bottom: calc(#{$spv-inner--small} - 1px); // compensate for border thickness
+    margin-bottom: $spv--small;
+    padding-bottom: calc(#{$spv--small} - 1px); // compensate for border thickness
     padding-left: 0.25rem; // nudge to visually align icon with text
-    padding-top: $spv-inner--small;
+    padding-top: $spv--small;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -97,8 +97,8 @@
       @extend %icon;
 
       content: '';
-      margin-left: -#{$sph-inner--small};
-      margin-right: $sph-inner--small;
+      margin-left: -$sph--small;
+      margin-right: $sph--small;
     }
   }
 
@@ -163,7 +163,7 @@
     &::after {
       @include vf-side-navigation-spacing-left($prop: left);
 
-      bottom: -0.5 * $spv-outer--scaleable; // place border in the middle of the margin
+      bottom: -0.5 * $spv--x-large; // place border in the middle of the margin
     }
 
     .p-side-navigation--icons &::after {
@@ -187,9 +187,9 @@
     @include vf-side-navigation-spacing-left;
 
     display: flex;
-    padding-bottom: $spv-inner--x-small;
-    padding-right: $sph-inner;
-    padding-top: $spv-inner--x-small;
+    padding-bottom: $spv--x-small;
+    padding-right: $sph--large;
+    padding-top: $spv--x-small;
   }
 
   %side-navigation__link {
@@ -252,13 +252,13 @@
       @include vf-side-navigation-spacing-left($prop: left);
 
       position: absolute;
-      top: $spv-inner--small;
+      top: $spv--small;
     }
   }
 
   .p-side-navigation__status {
     margin-left: auto;
-    padding-left: $spv-inner--small;
+    padding-left: $spv--small;
   }
 
   // Styles for markup in raw HTML docs variant

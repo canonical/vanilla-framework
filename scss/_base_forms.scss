@@ -35,15 +35,15 @@
     line-height: map-get($line-heights, default-text);
     margin-bottom: $input-margin-bottom;
     min-width: 10em;
-    padding-left: $sph-inner--small;
-    padding-right: $sph-inner--small;
+    padding-left: $sph--small;
+    padding-right: $sph--small;
     vertical-align: baseline;
     width: 100%;
 
     &.is-dense {
       margin: 0 0 $spv-nudge-compensation 0;
-      padding-bottom: calc(#{$spv-nudge - $spv-inner--x-small} - 1px);
-      padding-top: calc(#{$spv-nudge - $spv-inner--x-small} - 1px);
+      padding-bottom: calc(#{$spv-nudge - $spv--x-small} - 1px);
+      padding-top: calc(#{$spv-nudge - $spv--x-small} - 1px);
     }
 
     &::-webkit-placeholder,
@@ -93,9 +93,9 @@
   label {
     cursor: pointer;
     display: block;
-    margin-bottom: $spv-outer--small-scaleable - $spv-nudge;
+    margin-bottom: $spv--large - $spv-nudge;
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--p);
     width: fit-content;
 
@@ -171,13 +171,13 @@
     appearance: none;
     // stylelint-enable property-no-vendor-prefix
     background-color: $color-x-light;
-    background-position: right $sph-inner--small center;
+    background-position: right $sph--small center;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
     color: $color-dark;
     min-height: map-get($line-heights, default-text);
-    padding-right: calc(#{$default-icon-size} + #{2 * $sph-inner--small});
+    padding-right: calc(#{$default-icon-size} + #{2 * $sph--small});
     text-indent: 0.01px;
     text-overflow: '';
 
@@ -194,7 +194,7 @@
       option {
         font-weight: $font-weight-regular-text;
         line-height: calc(#{$sp-unit * 2} - 2px);
-        padding: $spv-inner--x-small 0;
+        padding: $spv--x-small 0;
       }
     }
   }
@@ -216,7 +216,7 @@
 
     margin-left: 0;
     margin-right: 0;
-    padding: calc(#{$spv-inner--large} - 1px);
+    padding: calc(#{$spv--large} - 1px);
   }
   // stylelint-enable selector-max-type
 }

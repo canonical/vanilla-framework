@@ -7,7 +7,7 @@
     line-height: map-get($line-heights, h1-mobile);
     margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, nudge--h1-mobile);
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--h1-mobile) + map-get($browser-rounding-compensations, h1);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -36,7 +36,7 @@
     line-height: map-get($line-heights, h2-mobile);
     margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, nudge--h2-mobile);
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--h2-mobile) + map-get($browser-rounding-compensations, h2);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -58,7 +58,7 @@
     line-height: map-get($line-heights, h3-mobile);
     margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, nudge--h3-mobile);
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--h3-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -80,7 +80,7 @@
     line-height: map-get($line-heights, h4-mobile);
     margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, nudge--h4-mobile);
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--h4-mobile) + map-get($browser-rounding-compensations, h4);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -109,7 +109,7 @@
     line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--p) + map-get($browser-rounding-compensations, h5);
 
     &.u-no-margin--bottom {
@@ -124,7 +124,7 @@
     line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, p) - map-get($nudges, nudge--p);
     margin-top: 0;
-    max-width: map-get($max-widths, default);
+    max-width: $max-width--default;
     padding-top: map-get($nudges, nudge--h6) + map-get($browser-rounding-compensations, h6);
 
     @if ($increase-font-size-on-larger-screens) {
@@ -226,42 +226,42 @@
   // Placeholder naming: $sp + -- + {preceding element} + {following element}, e.g. for p + h1: $sp--ph1
 
   %sp--ph1 {
-    padding-top: map-get($nudges, nudge--h1-mobile) + $spv-outer--scaleable;
+    padding-top: map-get($nudges, nudge--h1-mobile) + $spv--x-large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h1) + $spv-outer--scaleable;
+      padding-top: map-get($nudges, nudge--h1) + $spv--x-large;
     }
   }
 
   %sp--ph2 {
-    padding-top: map-get($nudges, nudge--h2-mobile) + $spv-outer--scaleable;
+    padding-top: map-get($nudges, nudge--h2-mobile) + $spv--x-large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h2) + $spv-outer--scaleable;
+      padding-top: map-get($nudges, nudge--h2) + $spv--x-large;
     }
   }
 
   %sp--ph3 {
-    padding-top: map-get($nudges, nudge--h3-mobile) + $spv-outer--scaleable;
+    padding-top: map-get($nudges, nudge--h3-mobile) + $spv--x-large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h3) + $spv-outer--scaleable;
+      padding-top: map-get($nudges, nudge--h3) + $spv--x-large;
     }
   }
 
   %sp--ph4 {
-    padding-top: map-get($nudges, nudge--h4-mobile) + $spv-outer--scaleable;
+    padding-top: map-get($nudges, nudge--h4-mobile) + $spv--x-large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, nudge--h4) + $spv-outer--scaleable;
+      padding-top: map-get($nudges, nudge--h4) + $spv--x-large;
     }
   }
 
   %sp--ph5 {
-    padding-top: map-get($nudges, nudge--p) + $spv-outer--scaleable;
+    padding-top: map-get($nudges, nudge--p) + $spv--x-large;
   }
 
   %sp--pmuted {
-    padding-top: map-get($nudges, nudge--small) + $spv-outer--scaleable;
+    padding-top: map-get($nudges, nudge--small) + $spv--x-large;
   }
 }
