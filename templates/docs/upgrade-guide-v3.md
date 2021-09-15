@@ -52,7 +52,7 @@ The `<a>` element that toggles the dropdown element should have the `.p-navigati
 
 ## Text element max-width
 
-Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `map-get($max-widths, default)` instead.
+Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$max-width--default` instead.
 
 List of removed max width features includes: `max-width--p` and `%measure--p` placeholders, `.measure--p` class name, and `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
 
