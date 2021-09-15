@@ -31,11 +31,11 @@
     max-height: calc(100% - #{2 * $spv-inner--large});
     max-width: $grid-max-width;
     overflow: auto;
+    padding-top: 0;
     position: absolute;
     right: $sph-inner--large;
     top: $spv-inner--large;
     width: auto;
-    padding-top: 0;
 
     @media (min-width: $breakpoint-medium) {
       bottom: initial;
@@ -49,16 +49,16 @@
   .p-modal__header {
     @extend %vf-pseudo-border--bottom;
 
+    background: $color-x-light;
     display: flex;
     justify-content: space-between;
     margin-bottom: $spv-inner--small;
+    // add padding to accommodate the width of p-modal__close
+    padding-right: $icon-size + $sph-inner--small * 2;
     padding-top: $spv-inner--large;
     position: sticky;
     top: 0;
     z-index: 10;
-    background: $color-x-light;
-    // add padding to accommodate the width of p-modal__close
-    padding-right: $icon-size + $sph-inner--small * 2;
   }
 
   .p-modal__title {
@@ -79,8 +79,8 @@
     box-sizing: content-box;
     height: $icon-size;
     margin: 0;
-    padding: $sp-unit;
     margin-top: $spv-inner--large;
+    padding: $sp-unit;
     position: absolute;
     right: 0;
     text-indent: -999em;
