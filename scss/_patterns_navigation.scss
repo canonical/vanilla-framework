@@ -5,8 +5,8 @@ $lightness-threshold: 70;
 @mixin vf-p-navigation {
   // placeholders
   %navigation-link-responsive-padding-vertical {
-    padding-bottom: $spv-inner--large;
-    padding-top: $spv-inner--large;
+    padding-bottom: $spv--large;
+    padding-top: $spv--large;
   }
 
   %navigation-link-responsive-padding-left {
@@ -18,7 +18,7 @@ $lightness-threshold: 70;
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: $sph-inner;
+      padding-left: $sph--large;
     }
   }
 
@@ -31,7 +31,7 @@ $lightness-threshold: 70;
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-right: $sph-inner;
+      padding-right: $sph--large;
     }
   }
 
@@ -72,7 +72,7 @@ $lightness-threshold: 70;
 
       @media (min-width: $breakpoint-navigation-threshold) {
         // align baselines of menu items and input text
-        $input-gap-top: $spv-inner--large - $spv-nudge;
+        $input-gap-top: $spv--large - $spv-nudge;
 
         display: flex;
         flex: 1 1 auto;
@@ -180,7 +180,7 @@ $lightness-threshold: 70;
     display: flex;
     flex: 0 0 auto;
     height: 3.5rem;
-    margin: 0 $sph-inner 0 0;
+    margin: 0 $sph--large 0 0;
 
     .p-navigation__item {
       @include vf-focus;
@@ -287,7 +287,7 @@ $lightness-threshold: 70;
     @media (min-width: $breakpoint-navigation-threshold) {
       position: absolute;
       // padding applied to .p-navigation__link + line-heigh of the anchor text inside
-      top: $spv-inner--large * 2 + map-get($line-heights, default-text);
+      top: $spv--large * 2 + map-get($line-heights, default-text);
     }
 
     @media (max-width: $breakpoint-navigation-threshold - 1) {
@@ -308,12 +308,12 @@ $lightness-threshold: 70;
       background-size: contain;
       content: '';
       display: block;
-      height: $spv-inner--large;
+      height: $spv--large;
       pointer-events: none;
       position: absolute;
       right: map-get($grid-margin-widths, small);
       text-indent: calc(100% + 10rem);
-      top: calc(#{$spv-inner--large} + #{map-get($nudges, nudge--x-small)});
+      top: calc(#{$spv--large} + #{map-get($nudges, nudge--x-small)});
       width: map-get($icon-sizes, default);
 
       @media (min-width: $threshold-4-6-col) {
@@ -321,7 +321,7 @@ $lightness-threshold: 70;
       }
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        right: calc(#{$sph-inner--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+        right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
       }
     }
 
@@ -338,7 +338,7 @@ $lightness-threshold: 70;
 
     .p-navigation__link {
       // add padding to accommodate icon
-      padding-right: 2 * $sph-inner--small + map-get($icon-sizes, default);
+      padding-right: 2 * $sph--small + map-get($icon-sizes, default);
     }
   }
 
@@ -346,13 +346,13 @@ $lightness-threshold: 70;
     @extend %navigation-link-responsive-padding-horizontal;
 
     display: block;
-    padding-bottom: $spv-inner--small;
-    padding-top: $spv-inner--small;
+    padding-bottom: $spv--small;
+    padding-top: $spv--small;
     white-space: nowrap;
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-bottom: $spv-inner--medium;
-      padding-top: $spv-inner--medium;
+      padding-bottom: $spv--medium;
+      padding-top: $spv--medium;
     }
 
     &,
