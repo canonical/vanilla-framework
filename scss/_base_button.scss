@@ -27,7 +27,7 @@
     justify-content: center;
     line-height: map-get($line-heights, default-text);
     margin: 0 0 $input-margin-bottom 0;
-    padding: $input-vertical-padding $sph-inner;
+    padding: $input-vertical-padding $sph--large;
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -45,7 +45,7 @@
     }
 
     @media (min-width: $breakpoint-x-small) {
-      margin-right: $sph-outer;
+      margin-right: $sph--large;
       width: auto;
 
       &:last-child {
@@ -63,7 +63,7 @@
       font-size: #{map-get($font-sizes, small)}rem;
       line-height: map-get($line-heights, small);
       margin-bottom: $input-margin-bottom - $sp-unit;
-      padding: calc(#{map-get($nudges, nudge--small)} - 1px) $sph-inner--small;
+      padding: calc(#{map-get($nudges, nudge--small)} - 1px) $sph--small;
     }
 
     &.is-small.is-dense {
@@ -100,15 +100,15 @@
     width: auto;
 
     & [class*='p-icon'] {
-      margin-left: $sph-inner--small;
-      margin-right: $sph-inner--small;
+      margin-left: $sph--small;
+      margin-right: $sph--small;
 
       &:first-child {
-        margin-left: -#{$sph-inner--small};
+        margin-left: -$sph--small;
       }
 
       &:last-child {
-        margin-right: -#{$sph-inner--small};
+        margin-right: -$sph--small;
       }
     }
   }
