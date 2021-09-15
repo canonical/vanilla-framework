@@ -132,6 +132,14 @@ Use the `multiple` attribute to create a multiple select control.
 View example of the base multiple selects
 </a></div>
 
+## Datalist
+
+Use the `<datalist>` element to create drop-down list with text input.
+
+<div class="embedded-example"><a href="/docs/examples/base/forms/datalist/" class="js-example">
+View example of the base datalist
+</a></div>
+
 ## Range
 
 The `<input type="range">` allows a user to select from a specified range of values, where the precise value is not considered important.
