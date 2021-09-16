@@ -19,11 +19,23 @@ jobs:
       - run: yarn build
       - run: yarn test
       - name: Build import.css test file without sourcemaps
-        run: npx sass --style=compressed scss/standalone/import.scss:build/css/standalone/import.css
+        run: npx node-sass scss/standalone/import.scss --functions sass-functions.js --output-style compressed --output build/css/standalone
       - name: Check if import test file exists but is empty
         run: test -f build/css/standalone/import.css -a ! -s build/css/standalone/import.css
       - name: Show size of the build file
         run: stat -c '%s' build/css/build.css
+
+  dart:
+    name: Test build with dart-sass
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn add sass
+      - run: npx sass scss/build.scss
 
   docker:
     name: Build and run
