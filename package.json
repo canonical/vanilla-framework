@@ -37,7 +37,7 @@
     "lint-prettier": "prettier -c .",
     "lint-scss": "stylelint 'scss/**/*.scss'",
     "watch:scss": "sass --load-path=node_modules --embed-sources --style=compressed scss:build/css --watch",
-    "watch:scss:skip-standalone": "sass --load-path=node_modules --embed-sources --style=compressed scss/docs:build/css/docs --watch",
+    "watch:scss:skip-standalone": "sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css --watch",
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js",
