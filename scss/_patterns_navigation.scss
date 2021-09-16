@@ -448,10 +448,20 @@ $lightness-threshold: 70;
 ) {
   background-color: $color-navigation-background;
 
-  [class*="p-navigation__item"] > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open,
-  .p-navigation__dropdown-item {
+  %navigation-link-before {
+    // separator color on small screens
+    background: $color-navigation-separator;
+  }
+
+  %navigation-link-hover {
+    background-color: $color-navigation-background--hover;
+  }
+
+  %navigation-link-active {
+    background-color: $color-navigation-background--active;
+  }
+
+  %navigation-link-theme {
     &,
     &:hover,
     &:visited,
@@ -460,31 +470,16 @@ $lightness-threshold: 70;
     }
 
     &:hover {
-      background-color: $color-navigation-background--hover;
+      @extend %navigation-link-hover;
     }
 
     &:active {
-      background-color: $color-navigation-background--active;
+      @extend %navigation-link-active;
     }
   }
 
-  .p-navigation__item--dropdown-toggle {
-    &::after {
-      @include vf-icon-chevron($color-navigation-icon);
-    }
-
-    &.is-active > .p-navigation__link {
-      background-color: $color-navigation-background--active;
-    }
-  }
-
-  .p-navigation__dropdown,
-  .p-navigation__dropdown--right {
-    background-color: $color-navigation-background;
-  }
-
-  [class*='p-navigation__item'].is-selected > .p-navigation__link {
-    background-color: $color-navigation-background--hover;
+  %navigation-link-selected {
+    @extend %navigation-link-hover;
 
     @include vf-highlight-bar($color-navigation-highlight, left, true);
 
@@ -493,44 +488,52 @@ $lightness-threshold: 70;
     }
   }
 
+  [class*="p-navigation__item"] > .p-navigation__link, // remove nesting in 3.0 when deprecated __link styles are removed
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--open {
+    @extend %navigation-link-theme;
+  }
+
+  .p-navigation__item--dropdown-toggle {
+    &::after {
+      @include vf-icon-chevron($color-navigation-icon);
+    }
+
+    &.is-active > .p-navigation__link {
+      @extend %navigation-link-active;
+    }
+  }
+
+  .p-navigation__dropdown,
+  .p-navigation__dropdown--right {
+    background-color: $color-navigation-background;
+  }
+
+  .p-navigation__dropdown-item {
+    @extend %navigation-link-theme;
+  }
+
+  [class*='p-navigation__item'].is-selected > .p-navigation__link {
+    @extend %navigation-link-selected;
+  }
+
   [class*='p-navigation__item'] > .p-navigation__link::before {
     // remove nesting in 3.0 when deprecated __link styles are removed
-    // separator color on small screens
-    background: $color-navigation-separator;
+    @extend %navigation-link-before;
   }
 
   @include deprecate('3.0.0', 'Use .p-navigation__items, .p-navigation__item, .p-navigation__link classes instead.') {
     // stylelint-disable selector-max-type -- this is deprecated use, will be removed
     .p-navigation__link > a {
-      &,
-      &:hover,
-      &:visited,
-      &:focus {
-        color: $color-navigation-text;
-      }
-
-      &:hover {
-        background-color: $color-navigation-background--hover;
-      }
-
-      &:active {
-        background-color: $color-navigation-background--active;
-      }
+      @extend %navigation-link-theme;
     }
 
     .p-navigation__link.is-selected > a {
-      background-color: $color-navigation-background--hover;
-
-      @include vf-highlight-bar($color-navigation-highlight, left, true);
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        @include vf-highlight-bar($color-navigation-highlight, bottom, false);
-      }
+      @extend %navigation-link-selected;
     }
 
     .p-navigation__link > a::before {
-      // separator color on small screens
-      background: $color-navigation-separator;
+      @extend %navigation-link-before;
     }
     // stylelint-enable selector-max-type
   }
