@@ -34,8 +34,8 @@ View example of the pattern strip accent
 This pattern allows for an image background to be appear as a background on a strip.
 
 <div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>Declare the background-image as an inline style attribute in the HTML.
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>Declare the background-image as an inline style attribute in the HTML.
   </p>
 </div>
 
@@ -51,8 +51,8 @@ View example of the pattern strip image
 This pattern is used to add a dividing border at the bottom of the strip.
 
 <div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>This should be used when two strips of the same type are used after each other.
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>This should be used when two strips of the same type are used after each other.
   </p>
 </div>
 

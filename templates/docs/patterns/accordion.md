@@ -19,8 +19,8 @@ Each tab `button` element should be wrapped by an element with a `.p-accordion__
 The wrapping element should either be a heading element or a `div` element with the attributes `role="header"` and `aria-level` set. `aria-level` should be set to the value appropriate within the page hierarchy.
 
 <div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>Clicking on the header toggles the display of accordion tabs. Accordion tabs should contain navigation or supplementary information, not main page content.
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>Clicking on the header toggles the display of accordion tabs. Accordion tabs should contain navigation or supplementary information, not main page content.
   </p>
 </div>
 

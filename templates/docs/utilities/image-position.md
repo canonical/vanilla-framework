@@ -13,8 +13,8 @@ Image position is a utility to position an image within a parent container, in
 most cases it would be a strip.
 
 <div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>This only affects medium and large screen sizes.
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>This only affects medium and large screen sizes.
   </p>
 </div>
 

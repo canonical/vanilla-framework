@@ -110,6 +110,19 @@ View example of the time notification pattern
 
 When adding notifications dynamically, it's important that the content of the notification is announced to users using assistive technology. If the notification is urgent, add `aria-live="assertive"` to the element, which will prompt assistive technology to announce it immediately, or use `aria-live="polite"`, which will cause assistive technology to wait for a pause before announcing the information.
 
+## Deprecated
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The notification child classes have been replaced to support new
+variants. The following class substitutions can be used to support existing functionality:
+
+| Deprecated classes          | Replaced by                |
+| --------------------------- | -------------------------- |
+| `.p-notification__response` | `.p-notification__content` |
+| `.p-notification__status`   | `.p-notification__title`   |
+| `.p-icon--close`            | `.p-notification__close`   |
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.

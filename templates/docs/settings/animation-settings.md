@@ -65,8 +65,8 @@ The format is as follows:
 ```
 
 <div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span> The list of valid `DURATION` and `EASING` options are shown in the <a href="#duration">duration</a> and <a href="#easing">easing</a> sections of the documentation.
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span> The list of valid `DURATION` and `EASING` options are shown in the <a href="#duration">duration</a> and <a href="#easing">easing</a> sections of the documentation.
   </p>
 </div>
 
