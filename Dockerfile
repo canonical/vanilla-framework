@@ -22,6 +22,7 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install --produc
 # ===
 FROM yarn-dependencies AS build-vanilla
 ADD scss scss
+ADD sass-functions.js sass-functions.js
 RUN yarn run build
 
 
