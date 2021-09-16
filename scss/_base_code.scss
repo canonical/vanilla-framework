@@ -2,7 +2,7 @@
 
 $color-pre-bg: rgba($color-x-dark, 0.03);
 $digit-width: 1ch; // measured width of one character in the monospaced font
-$code-sidebar-width: calc(#{$sph--large} + (4 * #{$digit-width})) !default;
+$code-sidebar-width: calc(#{$sph-inner} + (4 * #{$digit-width})) !default;
 $code-inline-padding: 0.25rem;
 
 // Base code styles
@@ -64,10 +64,10 @@ $code-inline-padding: 0.25rem;
     background-color: $color-code-background;
     color: $color-dark;
     display: block;
-    margin-bottom: $spv--x-large;
+    margin-bottom: $spv-outer--scaleable;
     margin-top: 0;
     overflow: auto;
-    padding: $spv--small $sph--large;
+    padding: $spv-inner--x-small--scaleable $sph-inner;
     text-align: left;
     text-shadow: none;
     white-space: pre;
@@ -86,15 +86,15 @@ $code-inline-padding: 0.25rem;
       @include vf-icon-linux-prompt($color-mid-dark);
 
       content: '';
-      left: $sph--large;
+      left: $sph-inner;
       position: absolute;
-      top: #{$spv--small + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+      top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
       width: map-get($icon-sizes, default);
 
       @if ($increase-font-size-on-larger-screens) {
         // stylelint-disable-next-line max-nesting-depth
         @media (min-width: $breakpoint-x-large) {
-          top: #{$spv--small + 0.5 * (map-get($line-heights, default-text) * $font-size-ratio--largescreen - map-get($icon-sizes, default))};
+          top: #{$spv-inner--x-small--scaleable + 0.5 * (map-get($line-heights, default-text) * $font-size-ratio--largescreen - map-get($icon-sizes, default))};
         }
       }
     }
@@ -102,7 +102,7 @@ $code-inline-padding: 0.25rem;
 
   %code-numbered-line {
     display: inline-block;
-    padding: 0 $sph--large 0 $code-sidebar-width;
+    padding: 0 $sph-inner 0 $code-sidebar-width;
     position: relative;
     width: 100%;
 
@@ -118,7 +118,7 @@ $code-inline-padding: 0.25rem;
       height: 100%;
       left: -$digit-width;
       overflow: hidden;
-      padding-right: $sph--large;
+      padding-right: $sph-inner;
       pointer-events: none;
       position: absolute;
       text-align: right;

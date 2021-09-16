@@ -3,13 +3,13 @@
 // List Grid
 @mixin vf-p-matrix {
   $matrix-img-width: map-get($icon-sizes, heading-icon--small);
-  $matrix-img-gutter: $sph--large;
+  $matrix-img-gutter: $sph-inner;
 
   .p-matrix {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin-bottom: $spv--x-large;
+    margin-bottom: $spv-outer--scaleable;
     margin-left: 0;
     padding-left: 0;
   }
@@ -18,8 +18,8 @@
     border-top: 1px solid $color-mid-light;
     display: flex;
     flex: 1 1 auto;
-    padding-bottom: $spv--large;
-    padding-top: calc(#{$spv--large} - 1px);
+    padding-bottom: $spv-inner--large;
+    padding-top: calc(#{$spv-inner--large} - 1px);
 
     &:first-child {
       border-top: none;
@@ -44,8 +44,8 @@
 
     @media (min-width: $breakpoint-medium) {
       border-right: 1px solid $color-mid-light;
-      padding-left: $spv--large;
-      padding-right: $spv--large;
+      padding-left: $spv-inner--large;
+      padding-right: $spv-inner--large;
       width: 33.333%;
 
       &:empty {
@@ -97,7 +97,7 @@
     align-self: flex-start;
     flex-shrink: 0;
     height: auto;
-    margin-bottom: $spv--small;
+    margin-bottom: $spv-inner--small;
     margin-right: $matrix-img-gutter;
     margin-top: 0;
     width: $matrix-img-width;
@@ -117,7 +117,7 @@
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    padding-right: $sph--large;
+    padding-right: $sph-inner;
 
     @media (min-width: $breakpoint-large) {
       width: calc(100% - #{$matrix-img-width + $matrix-img-gutter});

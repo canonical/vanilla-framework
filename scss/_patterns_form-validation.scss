@@ -7,14 +7,14 @@
   %vf-validation-wrapper {
     background-position: left, center;
     background-repeat: no-repeat;
-    padding-left: calc(#{$icon-size} + #{$sph--small});
+    padding-left: calc(#{$icon-size} + #{$sph-inner--small});
     padding-top: 0;
   }
 
   .p-form-validation__message {
     @extend %small-text;
 
-    margin-top: -$sp-unit;
+    margin-top: $sp-unit * 2 - $spv-outer--scaleable; // negate the effect of scaling, as we don't want helper text position to change when the density multiplier changes
   }
 
   .is-success {

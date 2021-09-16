@@ -2,6 +2,13 @@
 $list-status-icon-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
 $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
 
+$spv-list-item--inner: null;
+@if ($pad-lists) {
+  $spv-list-item--inner: $spv-inner--x-small; // padding top and bottom for lists containing loose text.
+} @else {
+  $spv-list-item--inner: 0;
+}
+
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
     counter-reset: li;
@@ -31,8 +38,8 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
   // Mixin for list items
   %vf-list-item {
-    padding-bottom: $spv--x-small;
-    padding-top: $spv--x-small;
+    padding-bottom: $spv-list-item--inner;
+    padding-top: $spv-list-item--inner;
 
     // FIXME: we need a better way to handle forms within lists
     // stylelint-disable selector-max-type
@@ -50,7 +57,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   %vf-list-item-state-base {
     @extend %vf-list;
 
-    background-position-y: $spv--x-small + $list-status-icon-nudge;
+    background-position-y: $spv-list-item--inner + $list-status-icon-nudge;
     background-repeat: no-repeat;
     background-size: $list-status-icon-height;
     padding-left: 2rem;
@@ -82,7 +89,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 @mixin vf-inline-list-item {
   display: inline;
   list-style: none;
-  margin-right: $sph--large;
+  margin-right: $sph-outer;
 
   &.last-item,
   &:last-of-type {
@@ -239,7 +246,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     float: none;
     margin-left: 0;
     overflow: visible;
-    padding-bottom: $spv--x-large;
+    padding-bottom: $spv-outer--scaleable;
     position: relative;
     width: 100%;
   }
@@ -255,14 +262,14 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   .p-stepped-list__title {
     @extend %numbered-step-title;
 
-    padding-left: $bullet-width-mobile + $sph--large;
+    padding-left: $bullet-width-mobile + $sph-inner;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-left: $bullet-width + $sph--large;
+      padding-left: $bullet-width + $sph-inner;
     }
 
     &::before {
-      margin-right: $sph--large;
+      margin-right: $sph-inner;
       width: $bullet-width-mobile;
 
       @media (min-width: $breakpoint-heading-threshold) {
@@ -272,10 +279,10 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 
   .p-stepped-list__title + .p-stepped-list__content {
-    margin-left: $bullet-width-mobile + $sph--large;
+    margin-left: $bullet-width-mobile + $sph-inner;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-left: $bullet-width + $sph--large;
+      margin-left: $bullet-width + $sph-inner;
     }
   }
 
@@ -296,14 +303,14 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
 
     h#{$i}.p-stepped-list__title {
-      padding-left: $bullet-width-mobile + $sph--large;
+      padding-left: $bullet-width-mobile + $sph-inner;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        padding-left: $bullet-width + $sph--large;
+        padding-left: $bullet-width + $sph-inner;
       }
 
       &::before {
-        margin-right: $sph--large;
+        margin-right: $sph-inner;
         width: $bullet-width-mobile;
 
         @media (min-width: $breakpoint-heading-threshold) {
@@ -313,10 +320,10 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
 
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
-      margin-left: $bullet-width-mobile + $sph--large;
+      margin-left: $bullet-width-mobile + $sph-inner;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        margin-left: $bullet-width + $sph--large;
+        margin-left: $bullet-width + $sph-inner;
       }
     }
   }

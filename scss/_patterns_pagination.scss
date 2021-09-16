@@ -26,12 +26,12 @@
 
     & + & {
       &:not(:nth-child(2)):not(:nth-last-child(1)) {
-        margin-left: $sph--small;
+        margin-left: $sph-inner--small;
       }
 
       &:nth-child(2),
       &:nth-last-child(1) {
-        margin-left: $sph--large;
+        margin-left: $sph-outer;
       }
     }
 
@@ -52,15 +52,15 @@
   [class*='p-icon'] {
     .p-pagination__link--next &,
     .p-pagination__link--previous & {
-      margin-left: $sph--small;
-      margin-right: $sph--small;
+      margin-left: $sph-inner--small;
+      margin-right: $sph-inner--small;
 
       &:first-child {
-        margin-left: -$sph--small;
+        margin-left: -#{$sph-inner--small};
       }
 
       &:last-child {
-        margin-right: -#{$sph--small};
+        margin-right: -#{$sph-inner--small};
       }
     }
 

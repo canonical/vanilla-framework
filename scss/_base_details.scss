@@ -1,7 +1,7 @@
 @mixin vf-b-details {
   // stylelint-disable selector-max-type -- base styles can use type selectors
   details {
-    margin-bottom: $spv--x-large;
+    margin-bottom: $spv-outer--scaleable;
     overflow: auto;
   }
 
@@ -10,7 +10,7 @@
     @include vf-focus;
 
     margin-bottom: $spv-nudge; //push subsequent text onto baseline
-    max-width: $max-width--default;
+    max-width: map-get($max-widths, default);
     padding-bottom: 2 * $sp-unit - map-get($nudges, nudge--p); // use padding instead of margin-bottom in order to make the focus state symmetric
   }
   // stylelint-enable selector-max-type

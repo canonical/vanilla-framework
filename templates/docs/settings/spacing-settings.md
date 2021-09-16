@@ -7,26 +7,12 @@ context:
 # Spacing
 
 <hr>
-Spacing in Vanilla is controlled via a set of variables. There are two kinds of variables - nudges, which keep text aligned to the baseline grid, and multiples of the spacing unit, which define vertical and horizontal spacing.
 
-## The baseline grid
+Vanilla uses numerous spacing variables across the codebase in order to ensure consistency in spacing between components, and to ensure typographic elements sit on the baseline grid.
 
-Everything in Vanilla adheres to a `.5rem` baseline grid. This is achieved by ensuring that:
+## Spacing unit
 
-- text baselines are "nudged" until they fall precisely on the grid
-- any margin, padding or other positioning happens in multiples of the baseline grid spacing unit.
-
-## Nudges
-
-Nudges apply `padding-top` to text elements to ensure the text's baseline coincides with the baseline grid.
-CSS does not allow access to the font metrics embedded in each font, so the precise nudge amount is empirically measured and kept in a `scss` map called `$nudges` in the `_settings_spacing.scss` file.
-The nudge amount depends on two things - the `font-size` and the `line-height` of a piece of text. This means that elements that share the same `font-size` and `line-height` use the same nudge amounts.
-It also means that, if you change the `font-size` or `line-height` of an element on different breakpoints, you need to adjust the nudge for that breakpoint too.
-</a>
-
-## The spacing unit
-
-Apart from nudges, all other spacing variables in Vanilla are multiples (or fractions) of the spacing unit. The value of the spacing unit is `.5rem` (`8px`).
+Vanilla uses a default spacing unit of `.5rem` (`8px`) as a basis to calculate spacing inside and between components, as well as the line-heights of the different type sizes.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/baseline-grid/" class="js-example">
 View example of the baseline grid utility
@@ -34,33 +20,57 @@ View example of the baseline grid utility
 
 The example above shows headings sitting on the baseline grid, where the space between each red line is one `$sp-unit`.
 
+## Scaling multiplier
+
+Some spacing values are scalable; in practice, they produce the same values as their non-scalable alternatives but multiplied by the scaling multiplier - `$multi`. The multiplier defaults to 2 but can be modified to apply a global UI scale adjustment.
+
 ## Vertical spacing
 
-Variables starting with `$spv--` are used to denote vertical spacing.
+The `$spv-inner` variables are used to determine vertical spacing inside components, while `$spv-outer` variables are used for spacing between components.
 
-| Spacing variable      | Formula          | Default value |
-| --------------------- | ---------------- | ------------- |
-| `$spv--x-small`       | `$sp-unit * 0.5` | `0.25rem`     |
-| `$spv--small`         | `$sp-unit`       | `0.5rem`      |
-| `$spv--medium`        | `$sp-unit * 1.5` | `0.75rem`     |
-| `$spv--large`         | `$sp-unit * 2`   | `1rem`        |
-| `$spv--x-large`       | `$sp-unit * 3`   | `1.5rem`      |
-| `$spv--strip-regular` | `$sp-unit * 8`   | `4rem`        |
-| `$spv--strip-deep`    | `$sp-unit * 12`  | `6rem`        |
+| Spacing variable                 | Formula                        | Default value |
+| -------------------------------- | ------------------------------ | ------------- |
+| `$spv-inner--x-small`            | `$sp-unit * 0.5`               | `0.25rem`     |
+| `$spv-inner--x-small--scaleable` | `$spv-inner--x-small * $multi` | `0.5rem`      |
+| `$spv-inner--small`              | `$sp-unit`                     | `0.5rem`      |
+| `$spv-inner--scaleable`          | `$sp-unit * $multi`            | `1rem`        |
+| `$spv-inner--medium`             | `$sp-unit * 1.5`               | `0.75rem`     |
+| `$spv-inner--large`              | `$sp-unit * 2`                 | `1rem`        |
+| `$spv-inner--x-large`            | `$sp-unit * 5.5`               | `2.75rem`     |
 
-The last 2 variables are used for strips only, which is why they follow the strip component naming.
+<br>
+
+| Spacing variable              | Formula                   | Default value |
+| ----------------------------- | ------------------------- | ------------- |
+| `$spv-outer--small`           | `$sp-unit`                | `0.5rem`      |
+| `$spv-outer--small-scaleable` | `$sp-unit * $multi`       | `1rem`        |
+| `$spv-outer--medium`          | `$sp-unit * 2`            | `1rem`        |
+| `$spv-outer--scaleable`       | `$sp-unit * (1 + $multi)` | `1.5rem`      |
+
+<br>
+
+The following vertical spacing variables are used between a group of components and its wrapper, for example in strips. The names of these variables are based on "depth" rather than the size-based terms of the other variables to give a distinction in their intended use.
+
+| Spacing variable                | Formula                     | Default value |
+| ------------------------------- | --------------------------- | ------------- |
+| `$spv-outer--shallow-scaleable` | `$sp-unit * 2 * $multi`     | `2rem`        |
+| `$spv-outer--regular-scaleable` | `$sp-unit 2 * (2 + $multi)` | `4rem`        |
+| `$spv-outer--deep-scaleable`    | `$sp-unit 2 * (4 + $multi)` | `6rem`        |
 
 <br>
 
 ## Horizontal spacing
 
-The variables controlling horizontal spacing are much fewer, as the grid handles more complex scenarios. The table below shows the variables currently in use.
+The `$sph-inner` variables are used to determine horizontal spacing inside components, while `$sph-outer` variables are used for spacing between components.
 
-| Spacing variable | Formula        | Default value |
-| ---------------- | -------------- | ------------- |
-| `$sph--small`    | `$sp-unit`     | `0.5rem`      |
-| `$sph--large`    | `$sp-unit * 2` | `1rem`        |
-| `$sph--x-large`  | `$sp-unit * 3` | `1.5rem`      |
+| Spacing variable      | Formula        | Default value |
+| --------------------- | -------------- | ------------- |
+| `$sph-inner--small`   | `$sp-unit`     | `0.5rem`      |
+| `$sph-inner`          | `$sp-unit * 2` | `1rem`        |
+| `$sph-inner--large`   | `$sp-unit * 3` | `1.5rem`      |
+| `$sph-inner--x-large` | `$sp-unit * 5` | `2.5rem`      |
+| `$sph-outer`          | `$sp-unit`     | `0.5rem`      |
+| `$sph-outer--large`   | `$sp-unit * 3` | `1.5rem`      |
 
 <br>
 
