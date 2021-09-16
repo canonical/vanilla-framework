@@ -110,6 +110,22 @@ Add the class `.is-bordered` to the `.p-code-snippet` element to visually group 
 View example of the code snippet with a border
 </a></div>
 
+## Copyable
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The code copyable element is now deprecated and will be removed in a future version of Vanilla.
+
+It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippet).
+
+## Numbered
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The code numbered pattern is now deprecated and will be removed in a future version of Vanilla.
+
+It is being replaced by the new [code snippet pattern](/docs/base/code#code-snippet).
+
 ## React
 
 You can use code snippet in React by installing our react-component library and importing code snippet component.

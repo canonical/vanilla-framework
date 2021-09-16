@@ -1,0 +1,43 @@
+@import 'settings';
+
+$cc-button-size: 36px;
+
+@mixin vf-p-code-copyable {
+  @include deprecate('3.0.0', 'p-code-copyable is being removed, use the code snippet block instead.') {
+    .p-code-copyable {
+      @extend %leading-linux-prompt-icon;
+
+      background-color: $color-code-background;
+      margin-bottom: $input-margin-bottom;
+      overflow: hidden;
+      padding: $spv-inner--x-small--scaleable $sph-inner;
+      position: relative;
+
+      & + & {
+        margin-top: 0; // overrides p + p
+      }
+    }
+
+    .p-code-copyable__input {
+      background: transparent;
+      border: 0;
+      font-family: unquote($font-monospace);
+      font-weight: $font-weight-regular-text;
+      line-height: map-get($line-heights, default-text);
+      margin-bottom: 0;
+      margin-top: 0;
+      outline: none;
+      padding: 0 0 0 (map-get($icon-sizes, default) + $spv-inner--x-small--scaleable);
+      width: 100%;
+    }
+
+    .p-code-copyable__action {
+      // This pattern is being deprecated in 2.22, but we
+      // want a consistent look among code block patterns, so
+      // code-copyable has been updated to look like a standard
+      // code block. For that reason, we're hiding the "copy"
+      // button on existing implementations of this pattern.
+      display: none;
+    }
+  }
+}
