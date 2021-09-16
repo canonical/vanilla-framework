@@ -55,6 +55,8 @@ Assigning `aria-sort` to `<th>` elements will make given table columns sortable.
 View example of the table sortable pattern
 </a></div>
 
+<span class="p-label--deprecated">Deprecated</span> We are removing the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
+
 ## Expanding
 
 Using `.p-table--expanding` in conjunction with the `<table>` element will allow expanding and hidden table cells which take up the full width of the table row element.
