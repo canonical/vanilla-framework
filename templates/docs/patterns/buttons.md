@@ -24,6 +24,12 @@ A default button can be used to indicate a positive action that isn't necessaril
 View example of the default button pattern
 </a></div>
 
+## Neutral
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
+
 ## Base
 
 A base button can be used to discretely indicate a secondary action. It is often used alongside a default button.
@@ -105,6 +111,12 @@ In cases where a button needs to indicate that an action is occurring (e.g. savi
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/processing/" class="js-example">
 View example of the processing button pattern
 </a></div>
+
+## Active
+
+<span class="p-label--deprecated">Deprecated</span>
+
+The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
 
 ## Theming
 
