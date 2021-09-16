@@ -8,6 +8,7 @@
   @include vf-p-icon-expand;
   @include vf-p-icon-collapse;
   @include vf-p-icon-chevron;
+  @include vf-p-icon-contextual-menu;
   @include vf-p-icon-close;
   @include vf-p-icon-help;
   @include vf-p-icon-info;
@@ -23,6 +24,7 @@
   @include vf-p-icon-success;
   @include vf-p-icon-share;
   @include vf-p-icon-user;
+  @include vf-p-icon-question;
   @include vf-p-icon-spinner;
   @include vf-p-icon-facebook;
   @include vf-p-icon-github;
@@ -30,9 +32,12 @@
   @include vf-p-icon-instagram;
   @include vf-p-icon-linkedin;
   @include vf-p-icon-youtube;
+  @include vf-p-icon-canonical;
+  @include vf-p-icon-ubuntu;
   @include vf-p-icon-rss;
   @include vf-p-icon-email;
   @include vf-p-icon-sizes;
+  @include vf-p-icon-in-button;
   @include vf-p-icon-show;
   @include vf-p-icon-hide;
 }
@@ -153,6 +158,20 @@
     [class*='--dark'] &,
     &.is-light {
       @include vf-icon-chevron($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-contextual-menu {
+  @include deprecate('3.0.0', 'Use the `p-icon--chevron` class instead') {
+    .p-icon--contextual-menu {
+      @extend %icon;
+      @include vf-icon-contextual-menu($color-mid-dark);
+
+      [class*='--dark'] &,
+      &.is-light {
+        @include vf-icon-contextual-menu($color-mid-x-light);
+      }
     }
   }
 }
@@ -323,6 +342,12 @@
   }
 }
 
+@mixin vf-p-icon-question {
+  @include deprecate('3.0.0', 'Use the `p-icon--help` class instead') {
+    // moved to vf-p-icon-help
+  }
+}
+
 @mixin vf-p-icon-spinner {
   .p-icon--spinner {
     @extend %icon;
@@ -377,6 +402,24 @@
   }
 }
 
+@mixin vf-p-icon-canonical {
+  @include deprecate('3.0.0', 'Removing icon from framework please use an alternative icon from our social set') {
+    .p-icon--canonical {
+      @extend %social-icon;
+      @include vf-icon-canonical;
+    }
+  }
+}
+
+@mixin vf-p-icon-ubuntu {
+  @include deprecate('3.0.0', 'Removing icon from framework please use an alternative icon from our social set') {
+    .p-icon--ubuntu {
+      @extend %social-icon;
+      @include vf-icon-ubuntu;
+    }
+  }
+}
+
 @mixin vf-p-icon-rss {
   .p-icon--rss {
     @extend %social-icon;
@@ -406,6 +449,17 @@
 
   .p-icon--xx-large {
     @include vf-icon-size($sp-xxx-large);
+  }
+}
+
+@mixin vf-p-icon-in-button {
+  @include deprecate('3.0.0', 'No longer necessary') {
+    // Style overides for icons within a button
+    [class*='p-button-'] {
+      [class*='p-icon-'] {
+        top: 0;
+      }
+    }
   }
 }
 
