@@ -20,6 +20,29 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+  <!-- 2.37 -->
+    <tr>
+      <th><a href="/docs/base/forms#datalist">Forms / Datalist</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.37.0</td>
+      <td>We've added documentation for datalist</td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 2.36 -->
     <tr>
       <th><a href="/docs/patterns/accordion#with-tick-elements">Accordion / Tick elements</a></th>
@@ -39,21 +62,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>2.36.0</td>
       <td>We added a class name to aligned help text with checkboxes or radio buttons</td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 2.35 -->
     <tr>
       <th><a href="/docs/base/forms#validation">Forms / Validation</a></th>
