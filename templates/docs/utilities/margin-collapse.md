@@ -14,6 +14,16 @@ Remove one or more margins of an element.
 View example of the margin collapse utility
 </a></div>
 
+# Responsive margin collapse
+
+<hr>
+
+Remove one or more margins of an element depeding on the screen size.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/margin-collapse-responsive/" class="js-example">
+View example of the responsive margin collapse utility
+</a></div>
+
 ## Import
 
 To import just this utility into your project, copy the snippet below and include it in your main Sass file.
