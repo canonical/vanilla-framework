@@ -18,7 +18,7 @@ View example of the margin collapse utility
 
 <hr>
 
-Remove one or more margins of an element depeding on the screen size.
+Remove one or more margins of an element depending on the screen size.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/margin-collapse-responsive/" class="js-example">
 View example of the responsive margin collapse utility
