@@ -32,7 +32,6 @@ When we add, make significant updates, or deprecate a component we update their 
 
 ## Previously in Vanilla
 
-
 <table>
   <thead>
     <tr>
