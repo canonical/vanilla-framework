@@ -14,9 +14,7 @@ Remove one or more margins of an element.
 View example of the margin collapse utility
 </a></div>
 
-# Responsive margin collapse
-
-<hr>
+## Responsive margin collapse
 
 Remove one or more margins of an element depending on the screen size.
 
