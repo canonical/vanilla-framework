@@ -16,7 +16,7 @@ View example of the margin collapse utility
 
 ## Responsive margin collapse
 
-Remove one or more margins of an element depending on the screen size.
+In some cases, you may want to remove a bottom margin only on certain breakpoints. You can use `u-no-margin--bottom-large`, `u-no-margin--bottom-medium` and `u-no-margin--bottom-small` to achieve this.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/margin-collapse-responsive/" class="js-example">
 View example of the responsive margin collapse utility
