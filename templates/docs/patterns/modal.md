@@ -12,6 +12,12 @@ The modal component can be used to overlay an area of the screen which can conta
 
 On `p-modal` set display to `display:flex` or `display:none` to toggle the visibility of the modal.
 
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <p class="p-notification__message">The element that launches a given modal should include a trailing ellipsis, e.g. "Launch modal&hellip;". This is a convention used to indicate that the element launches a dialog.</p>
+  </div>
+</div>
+
 <div class="embedded-example"><a href="/docs/examples/patterns/modal/default/" class="js-example" data-height="400">
 View example of the modal pattern
 </a></div>
@@ -23,6 +29,12 @@ Optional footer element with a `p-modal__footer` class name can be added to the 
 <div class="embedded-example"><a href="/docs/examples/patterns/modal/footer/" class="js-example" data-height="400">
 View example of the modal with a footer
 </a></div>
+
+## Accessibility
+
+JavaScript should be used with the modal pattern to trap focus within an open modal, preventing elements behind the modal from unintentionally receiving focus via keyboard input. The examples on this page include JavaScript that can help to achieve this.
+
+See [WCAG Success Criterion 2.1.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html) for further information.
 
 ## Import
 
@@ -38,12 +50,6 @@ To import just this component into your project, copy the snippet below and incl
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
-
-## Accessibility
-
-For any elements that launch a modal, please ensure that the label contains a trailing ellipsis `…`, e.g. "Launch modal&hellip;". This is a convention used to indicate that the element launches a dialog.
-
-When a modal is launched, focus should be set and contained within the modal dialog, using JavaScript. When the modal is closed, focus should be set back to the element that opened it.
 
 ## React
 
