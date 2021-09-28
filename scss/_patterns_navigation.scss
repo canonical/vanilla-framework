@@ -199,6 +199,9 @@ $lightness-threshold: 70;
   .p-navigation__nav {
     display: none;
     flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 60;
 
     @media (min-width: $breakpoint-navigation-threshold) {
       display: flex;
@@ -295,6 +298,101 @@ $lightness-threshold: 70;
     }
   }
 
+  // SEARCH
+  .p-navigation-overlay {
+    background-color: $colors--light-theme--background-overlay; // overlay color is same in both themes, so it's fine to hardcode it for now
+    bottom: 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+    z-index: 59;
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: initial;
+    }
+  }
+
+  .p-navigation.has-search-open {
+    .p-search-box {
+      @media (min-width: $breakpoint-navigation-threshold) {
+        max-width: none;
+      }
+
+      .p-search-box__reset:not(:valid) {
+        display: block;
+      }
+    }
+
+    .p-navigation__search {
+      display: inline-flex;
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      .p-navigation__items {
+        display: none;
+      }
+    }
+  }
+
+  .p-navigation__search {
+    align-items: center;
+    display: none;
+    flex-grow: 1;
+    margin: 0;
+    @media (max-width: $breakpoint-medium - 1) {
+      display: inherit !important;
+      margin-top: $sp-medium !important;
+      order: 1;
+    }
+  }
+
+  // nesting is needed until 3.0
+  .p-navigation__item .p-navigation__search-toggle {
+    height: 100%; // keep the height of the navigation when 'Search' label is hidden
+    padding-left: 0;
+    padding-right: 2 * $sph--small + map-get($icon-sizes, default);
+    position: relative;
+    @media (min-width: $breakpoint-large) {
+      padding-left: $sph--large;
+    }
+
+    &::after {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: $spv--large;
+      pointer-events: none;
+      position: absolute;
+      right: map-get($grid-margin-widths, small);
+      text-indent: calc(100% + 10rem);
+      top: calc(#{$spv--large} + #{map-get($nudges, nudge--x-small)});
+      width: map-get($icon-sizes, default);
+
+      @media (min-width: $threshold-4-6-col) {
+        right: map-get($grid-margin-widths, medium);
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+      }
+    }
+
+    .p-navigation__search-label {
+      display: none;
+
+      @media (min-width: $breakpoint-large) {
+        display: initial;
+      }
+    }
+  }
+
+  // DROPDOWNS
   .p-navigation__dropdown--right {
     right: 0;
   }
@@ -427,6 +525,10 @@ $lightness-threshold: 70;
     &.is-active > .p-navigation__link {
       background-color: $color-navigation-background--active;
     }
+  }
+
+  .p-navigation__item .p-navigation__search-toggle::after {
+    @include vf-icon-search($color-navigation-icon);
   }
 
   .p-navigation__dropdown,

@@ -48,6 +48,14 @@ By default, dropdowns are left-aligned with their parent; if you'd prefer the me
 View example of the dropdown pattern
 </a></div>
 
+## Search
+
+Search boxes can be added to the navigation by including `p-navigation__search` components. It provides a full width search boxes in the navigation.
+
+To open the search boxes you need to set the `p-navigation__search-toggle` class on the `anchor` tag wrapping the `p-navigation__search-label` element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-light" class="js-example"> View example of the search navigation </a></div>
+
 ## Side navigation
 
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
