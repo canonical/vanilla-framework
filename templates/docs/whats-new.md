@@ -430,7 +430,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/base/tables#expanding">Expanding table column placeholder</a></th>
       <td><div class="p-label--updated">Updated</div></td>
       <td>2.19.2</td>
-      <td>We started using <code>aria-hidden="true"</code> attribute to hide the dummy table header in place of previously used <code>u-hide</code> utility.</td>
+      <td>We started using <code>aria-hidden="true"</code> attribute to hide the sample table header in place of previously used <code>u-hide</code> utility.</td>
     </tr>
     <tr>
       <th><a href="/docs/base/tables#icons">Table icons</a></th>
