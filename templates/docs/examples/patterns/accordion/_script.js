@@ -34,15 +34,6 @@ function setupAccordion(accordionContainer) {
 
     if (target.closest) {
       target = target.closest('[class*="p-accordion__tab"]');
-    } else if (target.msMatchesSelector) {
-      // IE friendly `Element.closest` equivalent
-      // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
-      do {
-        if (target.msMatchesSelector('[class*="p-accordion__tab"]')) {
-          break;
-        }
-        target = target.parentElement || target.parentNode;
-      } while (target !== null && target.nodeType === 1);
     }
 
     if (target) {
