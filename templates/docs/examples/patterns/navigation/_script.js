@@ -24,17 +24,6 @@ function handleClickOutside(toggles, containerClass) {
       if (!target.closest(containerClass)) {
         closeAllDropdowns(toggles);
       }
-    } else if (target.msMatchesSelector) {
-      // IE friendly `Element.closest` equivalent
-      // as in https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
-      do {
-        if (target.msMatchesSelector(containerClass)) {
-          return;
-        }
-        target = target.parentElement || target.parentNode;
-      } while (target !== null && target.nodeType === 1);
-
-      closeAllDropdowns(toggles);
     }
   });
 }
