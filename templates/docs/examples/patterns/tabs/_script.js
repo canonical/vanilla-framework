@@ -9,19 +9,6 @@
     ArrowRight: 1,
   };
 
-  // IE11 doesn't support event.code, but event.keyCode is
-  // deprecated in most modern browsers, so we should support
-  // both for the time being.
-  var IEKeys = {
-    left: 37,
-    right: 39,
-  };
-
-  var IEDirection = {
-    37: direction['ArrowLeft'],
-    39: direction['ArrowRight'],
-  };
-
   /**
     Attaches a number of events that each trigger
     the reveal of the chosen tab content
@@ -30,15 +17,7 @@
   function attachEvents(tabs) {
     tabs.forEach(function (tab, index) {
       tab.addEventListener('keyup', function (e) {
-        var compatibleKeys = IEKeys;
-        var key = e.keyCode;
-
-        if (e.code) {
-          compatibleKeys = keys;
-          key = e.code;
-        }
-
-        if (key === compatibleKeys.left || key === compatibleKeys.right) {
+        if (e.code === keys.left || e.code === keys.right) {
           switchTabOnArrowPress(e, tabs);
         }
       });
@@ -62,24 +41,16 @@
     @param {Array} tabs an array of tabs within a container
   */
   function switchTabOnArrowPress(event, tabs) {
-    var compatibleKeys = IEKeys;
-    var compatibleDirection = IEDirection;
-    var pressed = event.keyCode;
+    var pressed = event.code;
 
-    if (event.code) {
-      compatibleKeys = keys;
-      compatibleDirection = direction;
-      pressed = event.code;
-    }
-
-    if (compatibleDirection[pressed]) {
+    if (direction[pressed]) {
       var target = event.target;
       if (target.index !== undefined) {
-        if (tabs[target.index + compatibleDirection[pressed]]) {
-          tabs[target.index + compatibleDirection[pressed]].focus();
-        } else if (pressed === compatibleKeys.left) {
+        if (tabs[target.index + direction[pressed]]) {
+          tabs[target.index + direction[pressed]].focus();
+        } else if (pressed === keys.left) {
           tabs[tabs.length - 1].focus();
-        } else if (pressed === compatibleKeys.right) {
+        } else if (pressed === keys.right) {
           tabs[0].focus();
         }
       }

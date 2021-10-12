@@ -41,7 +41,6 @@
 <script>
 var isWebkit =
   /Chrome/i.test(navigator.userAgent) || /Safari/i.test(navigator.userAgent);
-var isIE = /NET/i.test(navigator.userAgent);
 
 var PROGRESS_COLOUR = '#06c';
 var EMPTY_COLOUR = '#fff';
@@ -86,9 +85,7 @@ function initSlider(slider) {
     });
   }
 
-  // Attach change listener to slider to update input value
-  // Fix for IE as it doesn't support 'oninput'
-  slider.addEventListener(isIE ? 'change' : 'input', function() {
+  slider.addEventListener('input', function() {
     if (input) {
       equaliseValues(input, slider);
     }
