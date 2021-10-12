@@ -328,14 +328,6 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
     margin-left: auto;
 
-    // fallback for IE flex box grid implementation
-    @media (min-width: $threshold-6-12-col) {
-      .p-stepped-list__content,
-      .p-stepped-list__title {
-        @include vf-grid-flex-column;
-      }
-    }
-
     @supports (display: grid) {
       .p-stepped-list__content {
         @media (min-width: $threshold-6-12-col) {
