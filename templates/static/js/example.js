@@ -21,11 +21,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     var examples = document.querySelectorAll('.js-example');
 
-    // IE11 doesn't support forEach on NodeList
-    // we use this check to skip rendering embeds in IE
-    if (examples.forEach) {
-      [].slice.call(examples).forEach(fetchExample);
-    }
+    [].slice.call(examples).forEach(fetchExample);
   });
 
   function fetchExample(exampleElement) {
