@@ -46,12 +46,6 @@
   %vf-row {
     @extend %fixed-width-container;
 
-    // default to flexbox for IE on large screens
-    // on small screens we let columns render one under another
-    @media (min-width: $threshold-6-12-col) {
-      display: flex;
-    }
-
     & & {
       @include vf-b-row-reset;
     }
@@ -108,20 +102,5 @@
       padding-left: map-get($grid-margin-widths, large);
       padding-right: map-get($grid-margin-widths, large);
     }
-  }
-}
-
-// flexbox approximation of grid column styles for IE
-// this needs to be a @mixin rather than %placeholder because it's used inside @media queries
-@mixin vf-grid-flex-column($size: 1) {
-  flex-basis: 0;
-  flex-grow: $size;
-  flex-shrink: 1;
-
-  // set static gutter width
-  margin-left: map-get($grid-gutter-widths, large);
-
-  &:first-child {
-    margin-left: 0;
   }
 }
