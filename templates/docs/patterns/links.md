@@ -18,22 +18,6 @@ Default links are a color defined by `$color-link` and are 10% darker when alrea
 View example of the default link pattern
 </a></div>
 
-## External
-
-The `.p-link--external` class should be used on hyperlinks that go to a different domain than the current one.
-
-<div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>The `p-link--external` class makes use of the fairly
-    new <a href="http://www.caniuse.com/#search=mask">CSS Masks</a>. For support in more browsers you should run your
-    CSS through <a href="https://www.npmjs.com/package/autoprefixer">an autoprefixer</a> before deploying.
-  </p>
-</div>
-
-<div class="embedded-example"><a href="/docs/examples/patterns/links/links-external/" class="js-example">
-View example of the external link pattern
-</a></div>
-
 ## Soft
 
 The `.p-link--soft` class should be used on hyperlinks where many links are grouped together, such as a link cloud.
