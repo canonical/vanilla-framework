@@ -132,21 +132,6 @@
   }
 })();
 
-// Add class to exteral links
-(function () {
-  var links = [].slice.call(document.querySelectorAll('a'));
-  links.forEach(function (link) {
-    var parentClass = link.parentNode.classList;
-    var ignoreNav = !(parentClass.contains('p-navigation__logo') || parentClass.contains('p-navigation__link'));
-
-    var isInternal = link.href.indexOf('https://vanillaframework.io') === 0;
-
-    if (!isInternal && link.hostname && link.hostname != location.hostname && ignoreNav) {
-      link.className += ' p-link--external';
-    }
-  });
-})();
-
 // Docs search functions
 (function () {
   var searchDocsReset = document.getElementById('search-docs-reset');
