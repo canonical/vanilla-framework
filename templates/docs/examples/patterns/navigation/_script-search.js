@@ -9,7 +9,7 @@ function initNavigationSearch(element) {
   overlay.classList.add('u-hide');
   overlay.setAttribute('aria-hidden', 'true');
   overlay.addEventListener('click', closeSearch);
-  element.parentNode.insertBefore(overlay, element.nextSibling);
+  element.appendChild(overlay);
 
   if (searchButton) {
     searchButton.addEventListener('click', openSearch);
