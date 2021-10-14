@@ -33,6 +33,6 @@ Then insert a `span` with class `u-visualise-font-metrics` in a heading, paragra
 
 The `$horisontal-bleed` variable (default value `2rem`) makes the lines protrude on either side of the element, in order to help align adjacent elements. To remove the bleed, use `@include vf-u-visualise-baseline(0)`.
 
-For more information on font metrics, this <a class="p-link--external" href="http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align">blog post</a> gives a good overview.
+For more information on font metrics, this <a href="http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align">blog post</a> gives a good overview.
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
