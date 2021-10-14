@@ -49,11 +49,6 @@
     }
   }
 
-  // include external link styles only if CSS mask is supported
-  @supports (mask-size: 1em) or (-webkit-mask-size: 1em) {
-    @include vf-mask-supported;
-  }
-
   .p-top {
     align-items: center;
     display: flex;
@@ -78,29 +73,5 @@
     color: $color-dark;
     padding: 0 $sph--small 0 $sph--large;
     text-decoration: none;
-  }
-}
-
-// For browsers that support CSS masks
-@mixin vf-mask-supported {
-  $external-icon-size--default-text: 1rem;
-
-  .p-link--external {
-    // Used for links point at a different domain
-    &::after {
-      background-color: currentColor;
-      content: '';
-      display: inline-block;
-      height: $external-icon-size--default-text;
-      line-height: 1;
-      // stylelint-disable property-no-vendor-prefix
-      -webkit-mask: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.157 3l-1.5 1.5H6a.5.5 0 00-.492.41L5.5 5v5a.5.5 0 00.41.492L6 10.5h5a.5.5 0 00.492-.41L11.5 10V8.538l1.5-1.5V10a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h3.157zm5.593-1.75V6h-1.5V3.81L8.5 8.56 7.44 7.5l4.748-4.75H10v-1.5h4.75z' fill='%23666' fill-rule='evenodd'/%3E%3C/svg%3E")
-        no-repeat 0 0 / #{$external-icon-size--default-text};
-      // stylelint-enable property-no-vendor-prefix
-      mask: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.157 3l-1.5 1.5H6a.5.5 0 00-.492.41L5.5 5v5a.5.5 0 00.41.492L6 10.5h5a.5.5 0 00.492-.41L11.5 10V8.538l1.5-1.5V10a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h3.157zm5.593-1.75V6h-1.5V3.81L8.5 8.56 7.44 7.5l4.748-4.75H10v-1.5h4.75z' fill='%23666' fill-rule='evenodd'/%3E%3C/svg%3E")
-        no-repeat 0 0 / #{$external-icon-size--default-text};
-      vertical-align: calc(#{$baseline-position} - #{$external-icon-size--default-text} - 1px);
-      width: $external-icon-size--default-text;
-    }
   }
 }
