@@ -145,91 +145,7 @@ $box-offsets-top: (
     //Ensuring the required labels don't break on base checkbox
     & + label.is-required {
       @extend %vf-pseudo-tick-box;
-
-      // Align with different text styles
-      &:not(.is-h1)::before,
-      &:not(.is-h2)::before,
-      &:not(.is-h3)::before,
-      &:not(.is-h4)::before,
-      &:not(.is-muted-heading)::before,
-      &:not(.is-inline-label)::before {
-        top: #{$sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
-      }
-
-      &.is-h1::before {
-        top: #{$sp-unit * map-get($box-offsets-top, h1-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h2::before {
-        top: #{$sp-unit * map-get($box-offsets-top, h2-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h3::before {
-        top: #{$sp-unit * map-get($box-offsets-top, h3-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h4::before {
-        top: #{$sp-unit * map-get($box-offsets-top, h4-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-inline-label::before {
-        top: #{$sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
-      }
-
-      &.is-muted-heading::before {
-        top: #{$sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
-      }
-
-      &.is-muted-inline-heading::before {
-        top: #{$sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-      }
-
-      &.is-table-header::before {
-        top: #{$sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
-      }
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::before,
-        &:not(.is-h2)::before,
-        &:not(.is-h3)::before,
-        &:not(.is-h4)::before,
-        &:not(.is-muted-heading)::before,
-        &:not(.is-inline-label)::before {
-          top: #{$sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::before {
-          top: #{$sp-unit * map-get($box-offsets-top, h1) - $form-tick-box-size};
-        }
-
-        &.is-h2::before {
-          top: #{$sp-unit * map-get($box-offsets-top, h2) - $form-tick-box-size};
-        }
-
-        &.is-h3::before {
-          top: #{$sp-unit * map-get($box-offsets-top, h3) - $form-tick-box-size};
-        }
-
-        &.is-h4::before {
-          top: #{$sp-unit * map-get($box-offsets-top, h4) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::before {
-          top: #{$sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::before {
-          top: #{$sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::before {
-          top: #{$sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::before {
-          top: #{$sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
+      @include tick-element-typography-offsets($sp-unit);
 
       &.is-h1 {
         @extend %vf-heading-1;
@@ -285,195 +201,25 @@ $box-offsets-top: (
     }
   }
 
-  [type='checkbox'] {
+  %vf-checkbox-base {
     @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
-
-    // stylelint-disable selector-max-type
-    & + label {
-      @extend %vf-pseudo-checkbox;
-
-      // Align with different text styles
-      &:not(.is-h1)::after,
-      &:not(.is-h2)::after,
-      &:not(.is-h3)::after,
-      &:not(.is-h4)::after,
-      &:not(.is-muted-heading)::after,
-      &:not(.is-inline-label)::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
-      }
-
-      &.is-h1::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h1-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h2::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h2-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h3::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h3-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h4::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h4-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-inline-label::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
-      }
-
-      &.is-muted-heading::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
-      }
-
-      &.is-muted-inline-heading::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-      }
-
-      &.is-table-header::after {
-        top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
-      }
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::after,
-        &:not(.is-h2)::after,
-        &:not(.is-h3)::after,
-        &:not(.is-h4)::after,
-        &:not(.is-muted-heading)::after,
-        &:not(.is-inline-label)::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h1) - $form-tick-box-size};
-        }
-
-        &.is-h2::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h2) - $form-tick-box-size};
-        }
-
-        &.is-h3::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h3) - $form-tick-box-size};
-        }
-
-        &.is-h4::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, h4) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::after {
-          top: #{$form-tick-offset-top + $sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
-    }
-    // stylelint-enable selector-max-type
   }
 
-  [type='radio'] {
+  %vf-checkbox-label-base {
+    @extend %vf-pseudo-checkbox;
+    @include tick-element-typography-offsets($form-tick-offset-top);
+  }
+
+  %vf-radio-base {
     @extend %vf-hidden-tick-input;
     @extend %vf-tick-elements;
+  }
 
-    // stylelint-disable selector-max-type
-    & + label {
-      @extend %vf-pseudo-radio;
-
-      // Align with different text styles
-      &:not(.is-h1)::after,
-      &:not(.is-h2)::after,
-      &:not(.is-h3)::after,
-      &:not(.is-h4)::after,
-      &:not(.is-muted-heading)::after,
-      &:not(.is-inline-label)::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
-      }
-
-      &.is-h1::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h1-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h2::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h2-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h3::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h3-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-h4::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h4-small-screens) - $form-tick-box-size};
-      }
-
-      &.is-inline-label::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
-      }
-
-      &.is-muted-heading::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
-      }
-
-      &.is-muted-inline-heading::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-      }
-
-      &.is-table-header::after {
-        top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
-      }
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        &:not(.is-h1)::after,
-        &:not(.is-h2)::after,
-        &:not(.is-h3)::after,
-        &:not(.is-h4)::after,
-        &:not(.is-muted-heading)::after,
-        &:not(.is-inline-label)::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
-        }
-
-        &.is-h1::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h1) - $form-tick-box-size};
-        }
-
-        &.is-h2::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h2) - $form-tick-box-size};
-        }
-
-        &.is-h3::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h3) - $form-tick-box-size};
-        }
-
-        &.is-h4::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, h4) - $form-tick-box-size};
-        }
-
-        &.is-inline-label::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
-        }
-
-        &.is-muted-heading::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
-        }
-
-        &.is-muted-inline-heading::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
-        }
-
-        &.is-table-header::after {
-          top: #{$form-radio-circle-offset + $sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
-        }
-      }
-    }
+  // stylelint-disable selector-max-type
+  %vf-radio-label-base {
+    @extend %vf-pseudo-radio;
+    @include tick-element-typography-offsets($form-radio-circle-offset);
   }
 
   .p-muted-heading .p-checkbox__label {
@@ -514,6 +260,93 @@ $box-offsets-top: (
       @include vf-radio-dark-theme;
     }
     // stylelint-enable selector-max-type
+  }
+}
+
+@mixin tick-element-typography-offsets($offset) {
+  // Align with different text styles
+  &:not(.is-h1)::after,
+  &:not(.is-h2)::after,
+  &:not(.is-h3)::after,
+  &:not(.is-h4)::after,
+  &:not(.is-muted-heading)::after,
+  &:not(.is-inline-label)::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
+  }
+
+  &.is-h1::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, h1-small-screens) - $form-tick-box-size};
+  }
+
+  &.is-h2::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, h2-small-screens) - $form-tick-box-size};
+  }
+
+  &.is-h3::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, h3-small-screens) - $form-tick-box-size};
+  }
+
+  &.is-h4::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, h4-small-screens) - $form-tick-box-size};
+  }
+
+  &.is-inline-label::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
+  }
+
+  &.is-muted-heading::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
+  }
+
+  &.is-muted-inline-heading::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
+  }
+
+  &.is-table-header::after {
+    top: #{$offset + $sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
+  }
+
+  @media (min-width: $breakpoint-heading-threshold) {
+    &:not(.is-h1)::after,
+    &:not(.is-h2)::after,
+    &:not(.is-h3)::after,
+    &:not(.is-h4)::after,
+    &:not(.is-muted-heading)::after,
+    &:not(.is-inline-label)::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, default-text) - $form-tick-box-size};
+    }
+
+    &.is-h1::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, h1) - $form-tick-box-size};
+    }
+
+    &.is-h2::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, h2) - $form-tick-box-size};
+    }
+
+    &.is-h3::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, h3) - $form-tick-box-size};
+    }
+
+    &.is-h4::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, h4) - $form-tick-box-size};
+    }
+
+    &.is-inline-label::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, unpadded-text) - $form-tick-box-size};
+    }
+
+    &.is-muted-heading::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, muted-heading) - $form-tick-box-size};
+    }
+
+    &.is-muted-inline-heading::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, muted-inline-heading) - $form-tick-box-size};
+    }
+
+    &.is-table-header::after {
+      top: #{$offset + $sp-unit * map-get($box-offsets-top, table-header) - $form-tick-box-size};
+    }
   }
 }
 
