@@ -68,7 +68,7 @@ When a checkbox requires a state between checked and unchecked, `checkbox.indete
 
 In cases when JavaScript can't be used for that, set `aria-checked="mixed"` on checkbox to show "indeterminate" state. Please note that it will only change the visual look of the checkbox, it will not affect its state available to the browser via JavaScript.
 
-<div class="embedded-example"><a href="/docs/examples/base/forms/checkbox-indeterminate/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/checkbox-indeterminate/" class="js-example">
 View example of the indeterminate checkbox component
 </a></div>
 
