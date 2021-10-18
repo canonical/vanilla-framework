@@ -1,0 +1,19 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Checkbox indeterminate{% endblock %}
+
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+<form>
+  <label class="p-checkbox">
+    <input class="p-checkbox__input js-indeterminate-checkbox" aria-checked="mixed" type="checkbox" aria-labelledby="indeterminateCheckbox0">
+    <span class="p-checkbox__label" id="indeterminateCheckbox">.p-checkbox</span>
+  </label>
+</form>
+
+<button class="js-indeterminate-trigger">Make indeterminate</button>
+
+<script>
+  {% include 'docs/examples/patterns/forms/_indeterminate_script.js' %}
+</script>
+{% endblock %}
