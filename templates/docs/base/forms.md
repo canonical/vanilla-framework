@@ -72,16 +72,6 @@ In cases when JavaScript can't be used for that, set `aria-checked="mixed"` on c
 View example of the indeterminate checkbox component
 </a></div>
 
-### Deprecated base checkboxes
-
-<span class="p-label--deprecated">Deprecated</span>
-
-The base element styling for checkbox inputs (`<input type="checkbox">`) outside of the `.p-checkbox` component is now deprecated and will be removed in a future version of Vanilla framework.
-
-This applies also to all modifier classes on checkbox elements, such as `is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
-
-Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-checkbox` component.
-
 ## Radio button
 
 Use radio buttons to select one of the given set of options. To provide fully featured Vanilla style and behaviour of the radio button a specific markup structure is needed around the radio button input (see example below).
@@ -107,16 +97,6 @@ To use radio component in headings use the `.p-checkbox--heading` variant of the
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/radio-heading/" class="js-example">
 View example of the heading radio components
 </a></div>
-
-### Deprecated base radio buttons
-
-<span class="p-label--deprecated">Deprecated</span>
-
-The base element styling for radio inputs (`<input type="radio">`) outside of the `.p-radio` component is now deprecated and will be removed in a future version of Vanilla framework.
-
-This applies also to all modifier classes on checkbox elements, such as `is-h1`, `is-h2`, `is-h3`, `is-h4`, `is-h5`, `is-muted-heading`, `is-muted-inline-heading`, `is-inline-label`, or `is-table-header`.
-
-Please refer to the [tick elements comparison example](/docs/examples/patterns/forms/tick-comparison) to find equivalent usage of new `.p-radio` component.
 
 ## Select
 
