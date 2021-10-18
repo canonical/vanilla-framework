@@ -105,3 +105,7 @@ The text content of the notifications should also be wrapped in element with `.p
 ## External Links
 
 The `.p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
+
+## Base checkbox and radio styles
+
+Previously, base checkbox and radio elements were styled to look like the [`.p-checkbox`](/docs/base/forms#checkbox) and [`.p-radio`](/docs/base/forms#radio-button) patterns. These base styles have been removed, please use the pattern markup instead.
