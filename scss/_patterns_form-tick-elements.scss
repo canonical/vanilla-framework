@@ -107,6 +107,42 @@
     }
   }
 
+  .p-radio__label {
+    @extend %vf-pseudo-tick-box;
+    @extend %vf-pseudo-radio;
+  }
+
+  .p-checkbox__label {
+    @extend %vf-pseudo-tick-box;
+    @extend %vf-pseudo-checkbox;
+
+    .p-muted-heading & {
+      color: $colors--light-theme--text-muted;
+    }
+  }
+
+  // nudge ticks in headings back to the baseline
+  .p-checkbox--heading .p-checkbox__label,
+  .p-radio--heading .p-radio__label {
+    &::before,
+    &::after {
+      margin-top: -$form-tick-box-nudge;
+    }
+  }
+
+  // Fix label alignment when text drops to new line
+  .p-checkbox,
+  .p-radio {
+    padding-left: $sph--large + $form-tick-box-size;
+    text-indent: -1 * ($sph--large + $form-tick-box-size);
+
+    &.is-required {
+      &::before {
+        left: $sph--large + $form-tick-box-size + $sph--large + $form-tick-box-size;
+      }
+    }
+  }
+
   // contain the absolutely positioned input
   .p-checkbox,
   .p-checkbox--heading,
@@ -132,19 +168,6 @@
     }
   }
 
-  // Fix label alignment when text drops to new line
-  .p-checkbox,
-  .p-radio {
-    padding-left: $sph--large + $form-tick-box-size;
-    text-indent: -1 * ($sph--large + $form-tick-box-size);
-
-    &.is-required {
-      &::before {
-        left: $sph--large + $form-tick-box-size + $sph--large + $form-tick-box-size;
-      }
-    }
-  }
-
   .p-checkbox__input,
   .p-radio__input {
     @extend %vf-hidden-tick-input;
@@ -153,31 +176,12 @@
     bottom: 0.2em;
   }
 
-  .p-checkbox__label {
-    @extend %vf-pseudo-tick-box;
-    @extend %vf-pseudo-checkbox;
-  }
-
-  .p-radio__label {
-    @extend %vf-pseudo-tick-box;
-    @extend %vf-pseudo-radio;
-  }
-
   // inline variants
   .p-checkbox--heading,
   .p-checkbox--inline,
   .p-radio--heading,
   .p-radio--inline {
     display: inline;
-  }
-
-  // nudge ticks in headings back to the baseline
-  .p-checkbox--heading .p-checkbox__label,
-  .p-radio--heading .p-radio__label {
-    &::before,
-    &::after {
-      margin-top: -$form-tick-box-nudge;
-    }
   }
 
   // fake tick checked state
@@ -205,10 +209,6 @@
   .p-checkbox + .p-radio,
   .p-radio + .p-checkbox {
     margin-top: -$sp-unit;
-  }
-
-  .p-muted-heading .p-checkbox__label {
-    color: $colors--light-theme--text-muted;
   }
 
   // Theming
