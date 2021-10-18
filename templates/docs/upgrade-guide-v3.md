@@ -101,3 +101,7 @@ The notification child classes have been replaced to support new variants. The f
 | `.p-icon--close`            | `.p-notification__close`   |
 
 The text content of the notifications should also be wrapped in element with `.p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
+
+## External Links
+
+The `.p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
