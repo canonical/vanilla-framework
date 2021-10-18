@@ -4,26 +4,23 @@
 @mixin vf-u-show {
   .u-show {
     display: initial !important;
+  }
 
-    &--small {
-      @media (max-width: $breakpoint-medium) {
-        display: inherit !important;
-        display: initial !important;
-      }
+  @media (max-width: $breakpoint-medium) {
+    .u-show--small {
+      display: initial !important;
     }
+  }
 
-    &--medium {
-      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-        display: inherit !important;
-        display: initial !important;
-      }
+  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+    .u-show--medium {
+      display: initial !important;
     }
+  }
 
-    &--large {
-      @media (min-width: $breakpoint-large) {
-        display: inherit !important;
-        display: initial !important;
-      }
+  @media (min-width: $breakpoint-large) {
+    .u-show--large {
+      display: initial !important;
     }
   }
 }

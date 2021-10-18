@@ -16,74 +16,56 @@
     @extend %vf-hide-text;
   }
 
-  // mixin for hiding using display none (for all breakpoints)
+  // utility for hiding using display none (for all breakpoints)
   .u-hide {
     display: none !important;
+  }
 
-    &--small {
-      @media (max-width: $breakpoint-medium - 1) {
-        display: none !important;
-      }
+  @media (max-width: $breakpoint-medium - 1) {
+    .u-hide--small {
+      display: none !important;
     }
+  }
 
-    &--medium {
-      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
-        display: none !important;
-      }
+  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
+    .u-hide--medium {
+      display: none !important;
     }
+  }
 
-    &--large {
-      @media (min-width: $breakpoint-large) {
-        display: none !important;
-      }
+  @media (min-width: $breakpoint-large) {
+    .u-hide--large {
+      display: none !important;
     }
   }
 
   // stylelint-disable selector-max-type -- table elements can use selector types
-  td.u-hide,
-  th.u-hide {
-    @include vf-hide-table-column;
+  table:not(.p-table--expanding) {
+    td.u-hide,
+    th.u-hide {
+      @include vf-hide-table-column;
+    }
 
-    &--small {
-      @media (max-width: $breakpoint-medium - 1) {
+    @media (max-width: $breakpoint-medium - 1) {
+      td.u-hide--small,
+      th.u-hide--small {
         @include vf-hide-table-column;
       }
     }
 
-    &--medium {
-      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
+      td.u-hide--medium,
+      th.u-hide--medium {
         @include vf-hide-table-column;
       }
     }
 
-    &--large {
-      @media (min-width: $breakpoint-large) {
+    @media (min-width: $breakpoint-large) {
+      td.u-hide--large,
+      th.u-hide--large {
         @include vf-hide-table-column;
       }
     }
   }
   // stylelint-enable selector-max-type
-
-  // expanding table uses flex layout, so use standard u-hide for it
-  .p-table--expanding .u-hide {
-    display: none !important;
-
-    &--small {
-      @media (max-width: $breakpoint-medium - 1) {
-        display: none !important;
-      }
-    }
-
-    &--medium {
-      @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
-        display: none !important;
-      }
-    }
-
-    &--large {
-      @media (min-width: $breakpoint-large) {
-        display: none !important;
-      }
-    }
-  }
 }
