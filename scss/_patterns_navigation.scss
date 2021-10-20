@@ -493,7 +493,7 @@ $lightness-threshold: 70;
     }
 
     .p-navigation.is-light {
-      @include vf-navigation-light-theme(true);
+      @include vf-navigation-light-theme;
     }
   } @else {
     .p-navigation {
@@ -501,7 +501,7 @@ $lightness-threshold: 70;
     }
 
     .p-navigation.is-dark {
-      @include vf-navigation-dark-theme(true);
+      @include vf-navigation-dark-theme;
     }
   }
 }
@@ -576,58 +576,26 @@ $lightness-threshold: 70;
   }
 }
 
-@mixin vf-navigation-light-theme($override-default: false) {
-  @if ($override-default) {
-    @include vf-navigation-theme(
-      $color-navigation-text: $colors--light-theme--text-default,
-      $color-navigation-background: $colors--light-theme--background-default,
-      $color-navigation-background--hover: $colors--light-theme--background-alt,
-      $color-navigation-background--active: $colors--light-theme--background-active,
-      $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--light-theme--border-low-contrast,
-      $color-navigation-icon: $colors--light-theme--text-muted
-    );
-  } @else {
-    // take $color-navigation-background (that can be overridden) into account
-    $color-navigation-background: $colors--light-theme--background-default !default;
-    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
-
-    @include vf-navigation-theme(
-      $color-navigation-text: $color-navigation-text,
-      $color-navigation-background: $color-navigation-background,
-      $color-navigation-background--hover: $colors--light-theme--background-alt,
-      $color-navigation-background--active: $colors--light-theme--background-active,
-      $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--light-theme--border-low-contrast,
-      $color-navigation-icon: $colors--light-theme--text-muted
-    );
-  }
+@mixin vf-navigation-light-theme {
+  @include vf-navigation-theme(
+    $color-navigation-text: $colors--light-theme--text-default,
+    $color-navigation-background: $colors--light-theme--background-default,
+    $color-navigation-background--hover: $colors--light-theme--background-alt,
+    $color-navigation-background--active: $colors--light-theme--background-active,
+    $color-navigation-highlight: $color-accent,
+    $color-navigation-separator: $colors--light-theme--border-low-contrast,
+    $color-navigation-icon: $colors--light-theme--text-muted
+  );
 }
 
-@mixin vf-navigation-dark-theme($override-default: false) {
-  @if ($override-default) {
-    @include vf-navigation-theme(
-      $color-navigation-text: $colors--dark-theme--text-default,
-      $color-navigation-background: $colors--dark-theme--background-default,
-      $color-navigation-background--hover: $colors--dark-theme--background-hover,
-      $color-navigation-background--active: $colors--dark-theme--background-active,
-      $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--dark-theme--border-low-contrast,
-      $color-navigation-icon: $colors--dark-theme--text-muted
-    );
-  } @else {
-    // take $color-navigation-background (that can be overridden) into account
-    $color-navigation-background: $colors--dark-theme--background-default !default;
-    $color-navigation-text: if(lightness($color-navigation-background) > $lightness-threshold, $colors--light-theme--text-default, $colors--dark-theme--text-default) !default;
-
-    @include vf-navigation-theme(
-      $color-navigation-text: $color-navigation-text,
-      $color-navigation-background: $color-navigation-background,
-      $color-navigation-background--hover: $colors--dark-theme--background-hover,
-      $color-navigation-background--active: $colors--dark-theme--background-active,
-      $color-navigation-highlight: $color-accent,
-      $color-navigation-separator: $colors--dark-theme--border-low-contrast,
-      $color-navigation-icon: #999
-    );
-  }
+@mixin vf-navigation-dark-theme {
+  @include vf-navigation-theme(
+    $color-navigation-text: $colors--dark-theme--text-default,
+    $color-navigation-background: $colors--dark-theme--background-default,
+    $color-navigation-background--hover: $colors--dark-theme--background-hover,
+    $color-navigation-background--active: $colors--dark-theme--background-active,
+    $color-navigation-highlight: $color-accent,
+    $color-navigation-separator: $colors--dark-theme--border-low-contrast,
+    $color-navigation-icon: $colors--dark-theme--text-muted
+  );
 }
