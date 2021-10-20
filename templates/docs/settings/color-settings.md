@@ -108,12 +108,6 @@ These guidelines are the framework upon which we have built our system for how c
         $color-accent-background<br><span class="p-muted-heading">#333</span>
       </p>
     </div>
-    <div class="col-2 p-card u-no-padding">
-      <div class="p-strip is-shallow is-bordered" style="background-color: #fff"></div>
-      <p class="p-card__content u-no-margin" style="padding: 1rem">
-        $color-navigation-background<br><span class="p-muted-heading">#fff</span>
-      </p>
-    </div>
   </div>
 </div>
 
