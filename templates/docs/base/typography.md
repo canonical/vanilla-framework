@@ -233,7 +233,7 @@ The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-
 $font-display-option: <auto | block | swap | fallback | optional>;
 ```
 
-The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_base_fontfaces.scss) is set to `fallback`.
+The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_base_fontfaces.scss) is set to `fallback`.
 
 ## Import
 
@@ -247,7 +247,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ## Design
 
-For more information [view the typography design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Typography), which includes the specification in markdown format and a PNG image.
+For more information [view the typography design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Typography), which includes the specification in markdown format and a PNG image.
 
 ## Related
 

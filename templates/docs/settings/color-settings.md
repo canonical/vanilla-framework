@@ -184,4 +184,4 @@ Besides setting the default, you can invoke the non-default theme by adding a cl
 
 ## Design
 
-For more information [view the color design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Color), which includes the specification in markdown format and a PNG image.
+For more information [view the color design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Color), which includes the specification in markdown format and a PNG image.

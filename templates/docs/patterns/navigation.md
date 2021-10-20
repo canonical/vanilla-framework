@@ -170,7 +170,7 @@ For more information, read the dedicated [application layout documentation](/doc
 
 ### Theming
 
-The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_settings_colors.scss).
+The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_settings_colors.scss).
 Overriding the colours of individual elements of the side navigation is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
 
 By default, the side navigation uses the light theme. To change the global default, set `$theme-default-p-side-navigation` to `dark`.
@@ -216,4 +216,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ## Design
 
-For more information [view the navigation and sub-navigation design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Navigation), which includes the specification in markdown format and a PNG image.
+For more information [view the navigation and sub-navigation design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Navigation), which includes the specification in markdown format and a PNG image.

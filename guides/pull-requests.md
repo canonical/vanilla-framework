@@ -7,7 +7,7 @@
 
 ## Working on an issue
 
-To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to `upstream/develop`.
+To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/main` to `upstream/develop`.
 
 When committing changes, make sure to group related changes so that the project is always in a working state. Use succinct yet descriptive commit messages to allow for easy reading of the commit log.
 
@@ -29,7 +29,7 @@ You can then detail your changes as a row in the "What's new" table.
 
 ### Updating the Vanilla version number
 
-We use [semver](https://semver.org/) conventions when deciding how to update the Vanilla version in [package.json](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/package.json):
+We use [semver](https://semver.org/) conventions when deciding how to update the Vanilla version in [package.json](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/package.json):
 
 - <code>\_.\_.**X**</code>: use a patch release when the release is only bugfixes,
 - <code>\_.**X**.\_</code>: use minor release if there are any added features (new components or new variants/modifiers to existing components)

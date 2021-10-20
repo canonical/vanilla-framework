@@ -48,4 +48,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ## Design
 
-For more information view the [heading icon design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Heading%20icon), which includes the specification in Markdown format and a PNG image.
+For more information view the [heading icon design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Heading%20icon), which includes the specification in Markdown format and a PNG image.
