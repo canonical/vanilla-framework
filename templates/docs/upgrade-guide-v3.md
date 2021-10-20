@@ -70,7 +70,13 @@ Using `.u-hide` utility inside expanding table to hide table heading placeholder
 
 ## Grid
 
+### Column classes
+
 Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
+
+### Column layout change
+
+Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. This has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
 
 ## Tables
 
