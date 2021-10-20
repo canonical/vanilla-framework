@@ -20,7 +20,7 @@
 
 ## Releasing
 
-- Pull locally latest version from master
+- Pull locally latest version from the main branch
 - `./run build`
   - make sure everything builds without any errors
 - `./run test`
@@ -33,7 +33,7 @@
 
 ### Releasng to NPM
 
-This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/.github/workflows/publish-on-release.yml)).
+This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/.github/workflows/publish-on-release.yml)).
 
 In case that fails, here are manual steps to release to NPM:
 
@@ -43,7 +43,7 @@ In case that fails, here are manual steps to release to NPM:
 
 ### Releasing to assets server
 
-This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/.github/workflows/publish-on-release.yml)).
+This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/.github/workflows/publish-on-release.yml)).
 
 In case that fails, here are manual steps to release to assets server:
 
@@ -52,7 +52,7 @@ In case that fails, here are manual steps to release to assets server:
 
 ## Deploying vanillaframework.io
 
-- [Staging](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-staging/) should be automatically deployed on every push to master
+- [Staging](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-staging/) should be automatically deployed on every push to the main branch
 - Test the [staging build](https://staging.vanillaframework.io/)
 - Deploy to production on http://releases.demo.haus/
   - or [Deploy the site to production directly on jenkins](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-production/)
@@ -61,7 +61,7 @@ In case that fails, here are manual steps to release to assets server:
 
 When the Vanilla npm package is published, [react-components](https://github.com/canonical-web-and-design/react-components/) project should be updated to latest version of Vanilla (renovate should prepare an update PR) and the updated `react-components` package should be published as well.
 
-Please follow the [release process](https://github.com/canonical-web-and-design/react-components/blob/master/PUBLISH-NPM-PACKAGE.md) documented in the `react-components` repository.
+Please follow the [release process](https://github.com/canonical-web-and-design/react-components/blob/main/PUBLISH-NPM-PACKAGE.md) documented in the `react-components` repository.
 
 ## Promotion
 

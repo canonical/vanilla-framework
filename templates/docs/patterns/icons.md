@@ -165,7 +165,7 @@ In the below example, the `.p-icon--share` class includes the `vf-icon-share` mi
 }
 ```
 
-You can find all of the available icon mixins listed [here](https://github.com/canonical-web-and-design/vanilla-framework/blob/master/scss/_base_icon-definitions.scss).
+You can find all of the available icon mixins listed [here](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_base_icon-definitions.scss).
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 

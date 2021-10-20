@@ -34,4 +34,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ## Design
 
-For more information [view the table of contents design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Table%20of%20contents), which includes the specification in markdown format and a PNG image.
+For more information [view the table of contents design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Table%20of%20contents), which includes the specification in markdown format and a PNG image.

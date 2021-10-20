@@ -84,4 +84,4 @@ If you require multiple properties then the list must be interpolated as shown i
 
 ## Design
 
-For more information view the [animations design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Animations) which includes the specification in markdown format and a PNG image.
+For more information view the [animations design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Animations) which includes the specification in markdown format and a PNG image.
