@@ -33,7 +33,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ## Design
 
-For more information view the [list tree design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/List%20tree) which includes the specification in markdown format and a PNG image.
+For more information view the [list tree design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/List%20tree) which includes the specification in markdown format and a PNG image.
 
 ## Related
 
