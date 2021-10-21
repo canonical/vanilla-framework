@@ -50,6 +50,8 @@ Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless 
 
 The `<a>` element that toggles the dropdown element should have the `.p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
 
+The color variable `$color-navigation-background` has been removed, please use the default light and dark themed navigation patterns.
+
 ## Text element max-width
 
 Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$max-width--default` instead.
