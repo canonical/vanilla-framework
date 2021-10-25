@@ -117,3 +117,7 @@ The `.p-link--external` class has been removed, so elements using that class wil
 ## Base checkbox and radio styles
 
 Previously, base checkbox and radio elements were styled to look like the [`.p-checkbox`](/docs/base/forms#checkbox) and [`.p-radio`](/docs/base/forms#radio-button) patterns. These base styles have been removed, please use the pattern markup instead.
+
+## Pagination links
+
+The `.p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `.p-article-pagination__link--previous`) were meant to be used.
