@@ -38,12 +38,18 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - if: ${{ !github.event.release.prerelease }}
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - if: ${{ github.event.release.prerelease }}
+        run: npm publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-assets:
     name: Publish to assets server
+    if: ${{ !github.event.release.prerelease }}
     needs: [build, publish-npm]
     runs-on: ubuntu-latest
     steps:
