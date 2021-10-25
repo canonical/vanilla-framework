@@ -175,7 +175,7 @@ To include individual list patterns you need to include the `vf-p-list-placehold
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-list-placeholders;

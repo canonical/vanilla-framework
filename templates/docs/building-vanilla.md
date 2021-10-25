@@ -27,7 +27,7 @@ In the script that builds the CSS in your `package.json`, you should include the
 Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```
-@import "vanilla-framework/scss/vanilla";
+@import "vanilla-framework";
 @include vanilla;
 ```
 
@@ -82,7 +82,7 @@ yarn add node-sass css-loader sass-loader style-loader
 Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vanilla;
 ```
 
@@ -232,7 +232,7 @@ gulp.task('watch-css', function() {
 Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```
-@import vanilla-framework/scss/vanilla;
+@import vanilla-framework;
 @include vanilla;
 ```
 

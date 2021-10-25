@@ -30,7 +30,7 @@ When you need to group a number of related blocks of content within an area on t
 
 <div class="p-notification--information is-inline">
   <div class="p-notification__content">
-    <h5 class="p-notification__title">Accessibility:</h5> 
+    <h5 class="p-notification__title">Accessibility:</h5>
     <p class="p-notification__message">This variant of the tab pattern requires the use of JS to handle navigating between tabs using keyboard events i.e. arrow keys. For more information, see <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">the W3's tab pattern recommendations</a>.</p>
   </div>
 </div>
@@ -51,7 +51,7 @@ At smaller breakpoints, this pattern should be swapped out for one more suited t
 
 <div class="p-notification--information is-inline">
   <div class="p-notification__content">
-    <h5 class="p-notification__title">Accessibility:</h5> 
+    <h5 class="p-notification__title">Accessibility:</h5>
     <p class="p-notification__message">This pattern requires the use of JS to handle navigating between tabs using keyboard events i.e. arrow keys. For more information, see <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">the W3's tab pattern recommendations</a>.</p>
   </div>
 </div>
@@ -78,7 +78,7 @@ The pattern also supports the use of icons within each button.
 
 <div class="p-notification--caution is-inline">
   <div class="p-notification__content">
-    <h5 class="p-notification__title">Icons:</h5> 
+    <h5 class="p-notification__title">Icons:</h5>
     <p class="p-notification__message">If any icons are used, all buttons within the pattern should have an icon, to avoid any potential confusion that could arise from a mix of buttons with and without an icon.</p>
   </div>
 </div>
@@ -94,7 +94,7 @@ To import just the standard tab component into your project, copy the snippet be
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-tabs;
@@ -105,7 +105,7 @@ To import the tab button component into your project, copy the snippet below and
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-tab-buttons;

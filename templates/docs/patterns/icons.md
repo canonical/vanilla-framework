@@ -151,7 +151,7 @@ In the below example, the `.p-icon--share` class includes the `vf-icon-share` mi
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-icons;
