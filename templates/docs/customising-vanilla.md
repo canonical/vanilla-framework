@@ -25,7 +25,7 @@ $grid-max-width: 1440px;
 @import 'settings';
 
 // Import Vanilla framework
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 
 // Include all of Vanilla Framework
 @include vanilla;
@@ -37,7 +37,7 @@ Your project may not warrant including all of Vanilla, in which case you can inc
 
 ```
 // Import Vanilla framework
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 
 // Include base Vanilla styles
 @include vf-base;
