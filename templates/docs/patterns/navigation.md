@@ -173,7 +173,7 @@ To import just navigation component into your project, copy snippets below and i
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-navigation;
@@ -184,7 +184,7 @@ To import side navigation, copy snippet below:
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-side-navigation;

@@ -60,7 +60,7 @@ To import just this component into your project, copy the snippet below and incl
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-p-breadcrumbs;
