@@ -26,11 +26,10 @@
     font-weight: $font-weight-regular-text;
     justify-content: center;
     line-height: map-get($line-heights, default-text);
-    margin: 0 0 $input-margin-bottom 0;
+    margin: 0 $sph--large $input-margin-bottom 0;
     padding: $input-vertical-padding $sph--large;
     text-align: center;
     text-decoration: none;
-    width: 100%;
 
     &:active,
     &:focus,
@@ -44,13 +43,8 @@
       opacity: $disabled-element-opacity;
     }
 
-    @media (min-width: $breakpoint-x-small) {
-      margin-right: $sph--large;
-      width: auto;
-
-      &:last-child {
-        margin-right: 0;
-      }
+    &:last-child {
+      margin-right: 0;
     }
 
     &.is-dense {
@@ -97,8 +91,6 @@
   }
 
   %vf-button-has-icon {
-    width: auto;
-
     & [class*='p-icon'] {
       margin-left: $sph--small;
       margin-right: $sph--small;
