@@ -13,61 +13,93 @@
 {% block content %}
 <div class="u-fixed-width">
   <h4>Stats</h4>
-  <p>Screen: <span class="u-hide u-show--small">small</span><span class="u-hide u-show--medium">medium</span><span class="u-hide u-show--large">large</span></p>
-  <p>Grid: <span class="u-hide u-show--small">4 columns</span><span class="u-hide u-show--medium">6 columns</span><span class="u-hide u-show--large">12 columns</span></p>
+  <p><span class="p-muted-heading">Screen:</span> <span class="u-hide u-show--small">small</span><span class="u-hide u-show--medium">medium</span><span class="u-hide u-show--large">large</span></p>
+  <p><span class="p-muted-heading">Grid:</span> <span class="u-hide u-show--small">4 columns</span><span class="u-hide u-show--medium">6 columns</span><span class="u-hide u-show--large">12 columns</span></p>
 </div>
 
-<div class="u-fixed-width">
-  <h4>Grid</h4>
+<div class="p-strip is-shallow">
+  <div class="u-fixed-width">
+    <h4>Grid</h4>
+  </div>
+  <div class="grid-demo">
+    <div class="row">
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+      <div class="col-1 col-medium-1 col-small-1">
+      </div>
+    </div>
+  </div>
 </div>
-<div class="grid-demo">
+
+<div class="p-strip is-shallow">
   <div class="row">
-    <div class="col-1 col-medium-1 col-small-1">
+    <div class="col-6 col-medium-3">
+      <h4>Hide utilities</h4>
+      <p><code>u-hide--small</code>: <span class="u-hide--small">hidden when grid is 4 cols</span></p>
+      <p><code>u-hide--medium</code>: <span class="u-hide--medium">hidden when grid is 6 cols</span></p>
+      <p><code>u-hide--large</code>: <span class="u-hide--large">hidden when grid is 12 cols</span></p>
     </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
-    </div>
-    <div class="col-1 col-medium-1 col-small-1">
+    <div class="col-6 col-medium-3">
+      <h4>Show utilities</h4>
+      <p><code>u-show--small</code>: <span class="u-hide u-show--small">visible when grid is 4 cols</span></p>
+      <p><code>u-show--medium</code>: <span class="u-hide u-show--medium">visible when grid is 6 cols</span></p>
+      <p><code>u-show--large</code>: <span class="u-hide u-show--large">visible when grid is 12 cols</span></p>
     </div>
   </div>
 </div>
 
-
-<div class="row">
-  <div class="col-6 col-medium-3">
-    <h4>Hide utilities</h4>
-    <p><code>u-hide--small</code>: <span class="u-hide--small">hidden when grid is 4 cols</span></p>
-    <p><code>u-hide--medium</code>: <span class="u-hide--medium">hidden when grid is 6 cols</span></p>
-    <p><code>u-hide--large</code>: <span class="u-hide--large">hidden when grid is 12 cols</span></p>
-  </div>
-  <div class="col-6 col-medium-3">
-    <h4>Show utilities</h4>
-    <p><code>u-show--small</code>: <span class="u-hide u-show--small">visible when grid is 4 cols</span></p>
-    <p><code>u-show--medium</code>: <span class="u-hide u-show--medium">visible when grid is 6 cols</span></p>
-    <p><code>u-show--large</code>: <span class="u-hide u-show--large">visible when grid is 12 cols</span></p>
+<div class="p-strip is-shallow">
+  <div class="u-fixed-width">
+    <h4>Float utilities</h4>
+    <div class="u-clearfix">
+      <p class="u-float-left--small"><code>u-float-left--small</code></p>
+      <p>This text floats next to previous element when grid is 4 cols.</p>
+    </div>
+    <hr>
+    <div class="u-clearfix">
+      <p class="u-float-left--medium"><code>u-float-left--medium</code></p>
+      <p>This text floats next to previous element when grid is 6 cols.</p>
+    </div>
+    <hr>
+    <div class="u-clearfix">
+      <p class="u-float-left--large"><code>u-float-left--large</code></p>
+      <p>This text floats next to previous element when grid is 12 cols.</p>
+    </div>
+    <hr>
+    <div class="u-clearfix">
+      <p class="u-float-right--small"><code>u-float-right--small</code></p>
+      <p>This text floats next to previous element when grid is 4 cols.</p>
+    </div>
+    <hr>
+    <div class="u-clearfix">
+      <p class="u-float-right--medium"><code>u-float-right--medium</code></p>
+      <p>This text floats next to previous element when grid is 6 cols.</p>
+    </div>
+    <hr>
+    <div class="u-clearfix">
+      <p class="u-float-right--large"><code>u-float-right--large</code></p>
+      <p>This text floats next to previous element when grid is 12 cols.</p>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
 {% endblock %}
