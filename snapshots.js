@@ -28,6 +28,7 @@ PercyScript.run(async (page, percySnapshot) => {
 
     // create percy snapshot with path as a name
     const path = new URL(url).pathname.replace(/\/?$/, '/');
-    await percySnapshot(path, {widths: [375, 1280]});
+    const isResponsive = path.indexOf('responsive') >= 0;
+    await percySnapshot(path, {widths: isResponsive ? [375, 800, 1280] : [375, 1280]});
   }
 });
