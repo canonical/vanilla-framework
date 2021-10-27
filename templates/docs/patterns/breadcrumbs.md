@@ -47,12 +47,6 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
   - [2.4.4: Link Purpose in Context](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)
   - [3.2.3: Consistent Navigation](https://www.w3.org/TR/WCAG21/#consistent-navigation)
 
-## Deprecated markup
-
-<span class="p-label--deprecated">Deprecated</span>
-
-The breadcrumb markup has been updated for accessibility reasons. Support for the <a href="/docs/examples/patterns/breadcrumbs-deprecated/">old markup</a> may be removed in future versions.
-
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
