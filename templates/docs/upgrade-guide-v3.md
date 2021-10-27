@@ -88,7 +88,7 @@ We removed the `p-table--sortable` that was previously required to enable sortin
 
 ## Inline images
 
-We deprecated the inline images component. Please use the logo section component instead.
+We deprecated the inline images component. Please use the [logo section component](/docs/patterns/logo-section) instead.
 
 ## Buttons
 
