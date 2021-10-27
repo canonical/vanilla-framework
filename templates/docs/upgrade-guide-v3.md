@@ -94,6 +94,8 @@ We deprecated the inline images component. Please use the logo section component
 
 The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
 
+Buttons will no longer extend to 100% width on smaller screens.
+
 ## Variables
 
 $grid-margin-width is deprecated, as the grid margins differ at different breakpont. Use the values in $grid-margin-widths instead.
