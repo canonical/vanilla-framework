@@ -150,11 +150,11 @@ Vertical spacing variables:
 
 Horizontal spacing variables:
 
-| Spacing variable      | Formula                      | Default value |
-| --------------------- | ---------------------------- | ------------- |
-| `$sph-inner--small`   | `$sph--small`                | `0.5rem`      |
-| `$sph-inner`          | `$sph--large`                | `1rem`        |
+| Spacing variable      | Formula                        | Default value |
+| --------------------- | ------------------------------ | ------------- |
+| `$sph-inner--small`   | `$sph--small`                  | `0.5rem`      |
+| `$sph-inner`          | `$sph--large`                  | `1rem`        |
 | `$sph-inner--large`   | Express as a sum of other vars | `1.5rem`      |
-| `$sph-inner--x-large` | Express as a sum             | `2.5rem`      |
-| `$sph-outer`          | `$sph--small`                | `0.5rem`      |
-| `$sph-outer--large`   | Express as sum of above vars | `1.5rem`      |
+| `$sph-inner--x-large` | Express as a sum of other vars | `2.5rem`      |
+| `$sph-outer`          | `$sph--small`                  | `0.5rem`      |
+| `$sph-outer--large`   | Express as sum of above vars   | `1.5rem`      |
