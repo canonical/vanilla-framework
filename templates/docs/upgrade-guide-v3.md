@@ -126,7 +126,7 @@ The `.p-article-pagination__link` was removed, as only its variants (`.p-article
 
 ## Variable refactor
 
-We've simplified the spacing variables in Vanilla. Please usethe mapping below to update from the old variable names to the new ones:
+We've simplified the spacing variables in Vanilla. Please use the mapping below to update from the old variable names to the new ones:
 
 Vertical spacing variables:
 
