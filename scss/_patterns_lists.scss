@@ -347,7 +347,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       @extend %vf-row;
       @include vf-b-row-reset;
 
-      @media (min-width: $breakpoint-medium) {
+      @media (min-width: $threshold-6-12-col) {
         padding-top: $sp-unit;
         position: relative;
 
@@ -368,7 +368,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 // Adaptor class `is-split` to split the items of a list into two columns
 @mixin vf-p-list-split {
   [class*='p-list'].is-split {
-    @media (min-width: $breakpoint-medium) {
+    @media (min-width: $threshold-4-6-col) {
       @supports ((-webkit-columns: 1) or (columns: 1)) {
         column-gap: $sp-x-large;
         columns: 2;

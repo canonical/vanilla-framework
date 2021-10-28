@@ -25,24 +25,22 @@
       border-top: none;
     }
 
-    @media (min-width: $breakpoint-small) {
+    @media (min-width: $threshold-4-6-col) {
       display: flex;
       flex-wrap: wrap;
       width: 33.333%;
     }
 
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1) {
+      flex-direction: column;
+
       &:nth-child(2),
       &:nth-child(3) {
         border-top: none;
       }
     }
 
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) {
-      flex-direction: column;
-    }
-
-    @media (min-width: $breakpoint-medium) {
+    @media (min-width: $threshold-6-12-col) {
       border-right: 1px solid $color-mid-light;
       padding-left: $spv--large;
       padding-right: $spv--large;
@@ -67,7 +65,7 @@
       }
     }
 
-    @media (min-width: $breakpoint-large) {
+    @media (min-width: $threshold-6-12-col) {
       // 3 items per row
       border-right: 1px solid $color-mid-light;
       width: 33.333%;
