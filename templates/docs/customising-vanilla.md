@@ -16,7 +16,7 @@ To override the default settings you must do so _before_ you include Vanilla in 
 
 ```
 // Override default Vanilla settings in your main Sass file
-$breakpoint-medium: 900px;
+$breakpoint-navigation-threshold: 900px;
 $color-accent: #7cf0ee;
 $font-base-family: 'Merriweather';
 $grid-max-width: 1440px;

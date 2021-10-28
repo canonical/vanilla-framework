@@ -27,13 +27,13 @@ Vanilla has a responsive grid with the following columns and gutters:
       <td>1.0rem</td>
     </tr>
     <tr>
-      <td><code>$breakpoint-small</code> - <code>$breakpoint-medium</code></td>
+      <td><code>$breakpoint-small</code> - <code>$breakpoint-large</code></td>
       <td>6</td>
       <td>2.0rem</td>
       <td>1.5rem</td>
     </tr>
     <tr>
-      <td>Greater than <code>$breakpoint-medium</code></td>
+      <td>Greater than <code>$breakpoint-large</code></td>
       <td>12</td>
       <td>2.0rem</td>
       <td>1.5rem</td>

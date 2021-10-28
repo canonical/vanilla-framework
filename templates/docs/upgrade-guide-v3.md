@@ -124,6 +124,12 @@ Previously, base checkbox and radio elements were styled to look like the [`.p-c
 
 The `.p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `.p-article-pagination__link--previous`) were meant to be used.
 
+## Breakpoints
+
+The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
+
+The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-large`. This value should be overridden in project code to adjust the threshold when navigation switches to dropdown based on the number of navigation items.
+
 ## Variable refactor
 
 We've simplified the spacing variables in Vanilla. Please use the mapping below to update from the old variable names to the new ones:
