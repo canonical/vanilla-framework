@@ -34,7 +34,7 @@ Directly inside the drawer you can place one or more navigation components. They
 
 On a small screen, the `l-navigation-bar` appears horizontally at the top of the screen. It toggles the side navigation drawer, which is an off-canvas overlay on the left side of the screen. The drawer can be fully collapsed by adding the `is-collapsed` class to the `l-navigation` element. This behaviour can also be invoked using a button or a link in `l-navigation-bar`.
 
-On medium or large screen sizes `l-navigation-bar` is not meant to be used and is therefore hidden. Beyond `$breakpoint-medium` the side navigation is always visible on the left side of the screen.
+On medium or large screen sizes `l-navigation-bar` is not meant to be used and is therefore hidden. Beyond `$breakpoint-large` the side navigation is always visible on the left side of the screen.
 
 On medium screens, the side navigation drawer is by default collapsed to a width of `3rem`. It expands on hover. It can be pinned by adding the `is-pinned` class to the `l-navigation` element.
 
@@ -125,7 +125,7 @@ The application layout is fully responsive. It is controlled by breakpoint varia
 
 On smallest screens the side navigation panel (`l-navigation`) is not visible on the screen. Instead the top navigation bar (`l-navigation-bar`) is displayed on top of the screen. It should contain an application logo and a button to toggle visibility of the side navigation panel. All content panels (`l-main`, `l-aside`) will occupy whole screen width. If the aside panel is open it will overlay the contents of the main panel.
 
-On screens wider than `$application-layout--breakpoint-side-nav-collapsed` (which defaults to the value of `$breakpoint-medium`: `772px`), the side navigation is collapsed. The side navigation panel (`l-navigation`) will be always visible on screen as a collapsed vertical bar that when hovered or focused expands to its whole width and reveals side navigation contents. In this state the side navigation panel (`l-navigation`) can be pinned (by adding `is-pinned` class) to make it temporary expanded.
+On screens wider than `$application-layout--breakpoint-side-nav-collapsed` (which defaults to the value of `$breakpoint-small`: `620px`), the side navigation is collapsed. The side navigation panel (`l-navigation`) will be always visible on screen as a collapsed vertical bar that when hovered or focused expands to its whole width and reveals side navigation contents. In this state the side navigation panel (`l-navigation`) can be pinned (by adding `is-pinned` class) to make it temporary expanded.
 
 On screens wider than `$application-layout--breakpoint-side-nav-expanded` (which defaults to the value of `$breakpoint-large`: `1036px`) the side navigation panel is expanded and always visible. Adding `is-pinned` class to `l-navigation` has no effect in this state (as the side navigation by default behaves as it was pinned).
 
@@ -141,13 +141,13 @@ Ideally, decisions about panel widths should be made once the content is known. 
 
 The application layout can be customised. The following variables are exposed for customisation:
 
-| Setting                                              | Default value        | Comment                                                                   |
-| ---------------------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
-| `$application-layout--breakpoint-side-nav-collapsed` | `$breakpoint-medium` | screen width breakpoint (min-width) at which side navigation is collapsed |
-| `$application-layout--breakpoint-side-nav-expanded`  | `$breakpoint-large`  | screen width breakpoint (min-width) at which side navigation is expanded  |
-| `$application-layout--side-nav-width-collapsed`      | `3rem`               | width of the collapsed side navigation                                    |
-| `$application-layout--side-nav-width-expanded`       | `15rem`              | width of the expanded side navigation                                     |
-| `$application-layout--aside-panel-max-width`         | `50vw`               | max width of the pinned aside panel                                       |
+| Setting                                              | Default value       | Comment                                                                   |
+| ---------------------------------------------------- | ------------------- | ------------------------------------------------------------------------- |
+| `$application-layout--breakpoint-side-nav-collapsed` | `$breakpoint-small` | screen width breakpoint (min-width) at which side navigation is collapsed |
+| `$application-layout--breakpoint-side-nav-expanded`  | `$breakpoint-large` | screen width breakpoint (min-width) at which side navigation is expanded  |
+| `$application-layout--side-nav-width-collapsed`      | `3rem`              | width of the collapsed side navigation                                    |
+| `$application-layout--side-nav-width-expanded`       | `15rem`             | width of the expanded side navigation                                     |
+| `$application-layout--aside-panel-max-width`         | `50vw`              | max width of the pinned aside panel                                       |
 
 We also recommend deriving the width of any aside panels based on the specific circumstances of your app. For example, you could use `calc()` and application layout variables to calculate the desired max-widths of a panel.
 

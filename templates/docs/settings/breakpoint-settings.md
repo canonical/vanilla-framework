@@ -8,40 +8,31 @@ context:
 
 <hr>
 
-Vanilla uses four main breakpoints for screen sizes, below you can see the setting, default width and device examples at which the content will scale.
+Vanilla uses three main breakpoints for screen sizes, below you can see the setting, default width and device examples at which the content will scale.
 
-| Setting                            | Default value        | Device example |
-| ---------------------------------- | -------------------- | -------------- |
-| `$breakpoint-x-small`              | `460px`              | Mobile         |
-| `$breakpoint-small`                | `620px`              | Mobile         |
-| `$breakpoint-medium`               | `772px`              | Tablet         |
-| `$breakpoint-large`                | `1036px`             | Desktop        |
-| `$breakpoint-x-large`              | `1681px`             | Large desktop  |
-| `$breakpoint-navigation-threshold` | `$breakpoint-medium` | Tablet         |
-| `$breakpoint-heading-threshold`    | `$breakpoint-medium` | Tablet         |
+| Setting                            | Default value       | Device example    |
+| ---------------------------------- | ------------------- | ----------------- |
+| `$breakpoint-x-small`              | `460px`             | Mobile (portrait) |
+| `$breakpoint-small`                | `620px`             | Mobile or tablet  |
+| `$breakpoint-large`                | `1036px`            | Desktop           |
+| `$breakpoint-x-large`              | `1681px`            | Large desktop     |
+| `$breakpoint-navigation-threshold` | `$breakpoint-large` | Desktop           |
+| `$breakpoint-heading-threshold`    | `$breakpoint-large` | Desktop           |
 
 <br>
-
-## Target extra small screens
-
-```css
-@media screen and (max-width: $breakpoint-small) {
-  // css
-}
-```
 
 ## Target small screens
 
 ```css
-@media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+@media screen and (max-width: $breakpoint-small - 1) {
   // css
 }
 ```
 
-## Target medium screens
+## Target medium size screens
 
 ```css
-@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+@media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) {
   // css
 }
 ```
