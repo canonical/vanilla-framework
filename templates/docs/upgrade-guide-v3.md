@@ -88,7 +88,7 @@ We removed the `p-table--sortable` that was previously required to enable sortin
 
 ## Inline images
 
-We deprecated the inline images component. Please use the logo section component instead.
+We removed the inline images (`p-inline-mages`) component. Please use the [logo section component](/docs/patterns/logo-section) instead.
 
 ## Buttons
 
@@ -129,3 +129,38 @@ The `.p-article-pagination__link` was removed, as only its variants (`.p-article
 The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
 
 The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-large`. This value should be overridden in project code to adjust the threshold when navigation switches to dropdown based on the number of navigation items.
+
+## Variable refactor
+
+We've simplified the spacing variables in Vanilla. Please use the mapping below to update from the old variable names to the new ones:
+
+Vertical spacing variables:
+
+| Deprecated variable              | Replaced by                    | Default value |
+| -------------------------------- | ------------------------------ | ------------- |
+| `$multi`                         | Dropped. Delete any instances  | `–`           |
+| `$spv-inner--x-small`            | `$spv--x-small`                | `0.25rem`     |
+| `$spv-inner--x-small--scaleable` | `$spv--small`                  | `0.5rem`      |
+| `$spv-inner--small`              | `$spv--small`                  | `0.5rem`      |
+| `$spv-inner--medium`             | `$spv--medium`                 | `0.75rem`     |
+| `$spv-inner--scaleable`          | `$spv--large`                  | `1rem`        |
+| `$spv-inner--large`              | `$spv--large`                  | `1rem`        |
+| `$spv-inner--x-large`            | Express as a sum of other vars | `2.75rem`     |
+| `$spv-outer--small`              | `$spv--small`                  | `0.5rem`      |
+| `$spv-outer--small-scaleable`    | `$spv--large`                  | `1rem`        |
+| `$spv-outer--medium`             | `$spv--large`                  | `1rem`        |
+| `$spv-outer--scaleable`          | `$spv--x-large`                | `1.5rem`      |
+| `$spv-outer--shallow-scaleable`  | `$spv--x-large`                | `1.5rem`      |
+| `$spv-outer--regular-scaleable`  | `$spv--strip-regular`          | `4rem`        |
+| `$spv-outer--deep-scaleable`     | `$spv--strip-deep`             | `6rem`        |
+
+Horizontal spacing variables:
+
+| Spacing variable      | Formula                        | Default value |
+| --------------------- | ------------------------------ | ------------- |
+| `$sph-inner--small`   | `$sph--small`                  | `0.5rem`      |
+| `$sph-inner`          | `$sph--large`                  | `1rem`        |
+| `$sph-inner--large`   | Express as a sum of other vars | `1.5rem`      |
+| `$sph-inner--x-large` | Express as a sum of other vars | `2.5rem`      |
+| `$sph-outer`          | `$sph--small`                  | `0.5rem`      |
+| `$sph-outer--large`   | Express as sum of above vars   | `1.5rem`      |

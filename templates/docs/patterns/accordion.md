@@ -44,14 +44,6 @@ When checkboxes or radio buttons are used inside accordion panels add `has-tick-
 View example of the accordion pattern
 </a></div>
 
-## Headings
-
-<span class="p-label--deprecated">Deprecated</span>
-
-The `.p-accordion__tab--with-title` pattern is now deprecated and will be removed in a future version of Vanilla.
-
-It is being replaced by the updated, standard accordion implementation, described above.
-
 ## Functionality
 
 Please ensure the `aria-control` attribute matches an ID of an element. If `aria-expanded` is true, then the accordion will be open by default. When clicking on the `accordion__tab`, you must toggle the `aria-expanded` attribute on the toggle and the `aria-hidden` attribute on the panel.
