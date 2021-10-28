@@ -12,10 +12,28 @@ The `.u-sv` set of utility classes adjusts the space after an element in positiv
 
 For example, to pull the next element `1rem` closer, apply `.u-sv-2`. To push it `.5rem` away from the current element, apply `u-sv1`.
 
-<div class="p-notification--information">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Margin direction</h5> 
-    <p class="p-notification__message">Throughout Vanilla, margin is only applied to the bottom of an element. If elements beneath an element using this utility have a top margin applied, there is a risk of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" title="MDN article regarding margin collapse">margin collapse</a>. For predictable results, use <a href="https://csswizardry.com/2012/06/single-direction-margin-declarations/" title="Article by Harry Roberts regarding single margin direction">single margin direction</a>.</p>
+Throughout Vanilla, margin is only applied to the bottom of an element. If elements beneath an element using this utility have a top margin applied, there is a risk of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" title="MDN article regarding margin collapse">margin collapse</a>. For predictable results, use <a href="https://csswizardry.com/2012/06/single-direction-margin-declarations/" title="Article by Harry Roberts regarding single margin direction">single margin direction</a>.
+
+These classes should be used sparingly, and exist to give designers greater flexibility when it comes to spacing and alignment.
+
+<div class="p-strip is-shallow">
+  <div class="row">
+    <div class="col-4">
+      <div class="p-notification--positive">
+        <div class="p-notification__content">
+          <h5 class="p-notification__title">Do:</h5>
+          <p class="p-notification__message">Use <code>u-sv</code> classes to increase space between two separate components.</p>
+        </div>
+      </div> 
+    </div>
+    <div class="col-4">
+      <div class="p-notification--negative">
+        <div class="p-notification__content">
+          <h5 class="p-notification__title">Don't:</h5>
+          <p class="p-notification__message">Use <code>u-sv</code> to increase the space inside a given component.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
