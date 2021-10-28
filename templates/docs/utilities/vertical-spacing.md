@@ -22,7 +22,7 @@ These classes should be used sparingly, and exist to give designers greater flex
       <div class="p-notification--positive">
         <div class="p-notification__content">
           <h5 class="p-notification__title">Do:</h5>
-          <p class="p-notification__message">Use <code>u-sv</code> classes to increase space between two separate components.</p>
+          <p class="p-notification__message">Use <code>u-sv</code> classes to modify space between elements that are not part of Vanilla components.</p>
         </div>
       </div> 
     </div>
@@ -30,7 +30,7 @@ These classes should be used sparingly, and exist to give designers greater flex
       <div class="p-notification--negative">
         <div class="p-notification__content">
           <h5 class="p-notification__title">Don't:</h5>
-          <p class="p-notification__message">Use <code>u-sv</code> to increase the space inside a given component.</p>
+          <p class="p-notification__message">Use <code>u-sv</code> to modify the space between elements inside of Vanilla components.</p>
         </div>
       </div>
     </div>
