@@ -24,7 +24,7 @@ These classes should be used sparingly, and exist to give designers greater flex
           <h5 class="p-notification__title">Do:</h5>
           <p class="p-notification__message">Use <code>u-sv</code> classes to modify space between elements that are not part of Vanilla components.</p>
         </div>
-      </div> 
+      </div>
     </div>
     <div class="col-4">
       <div class="p-notification--negative">
@@ -57,7 +57,7 @@ To import just this utility into your project, copy the snippet below and includ
 ```scss
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
-@import 'vanilla-framework/scss/vanilla';
+@import 'vanilla-framework';
 @include vf-base;
 
 @include vf-u-vertical-spacing;
