@@ -1,10 +1,10 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Upgrade guide for upcoming Vanilla v3.0
+  title: Vanilla 3.0 upgrade guide
 ---
 
-# Upgrade guide for upcoming Vanilla v3.0
+# Vanilla 3.0 upgrade guide
 
 <hr>
 
@@ -14,6 +14,48 @@ This guide documents all the breaking changes that will happen when these deprec
 
 Once version 3.0 is released, this will be used as the update guide for developers when upgrading to a new version.
 All these changes can be already applied to code that uses Vanilla v2 so that future update to Vanilla v3.0 has a smaller impact.
+
+## Base checkbox and radio styles
+
+Previously, base checkbox and radio elements were styled to look like the [`.p-checkbox`](/docs/base/forms#checkbox) and [`.p-radio`](/docs/base/forms#radio-button) patterns. These base styles have been removed, please use the pattern markup instead.
+
+## Breakpoints
+
+The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
+
+The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold when navigation switches to dropdown based on the number of navigation items.
+
+## Buttons
+
+The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
+
+Buttons will no longer extend to 100% width on smaller screens.
+
+## External Links
+
+The `.p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
+
+## Grid
+
+### Column classes
+
+Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
+
+### Column layout change
+
+Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. This has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
+
+### Grid modifications
+
+Unnecessary mixin `vf-p-grid-modifications` will be removed. Any references to it can be removed from code.
+
+## Headings
+
+Heading pattern classes with word suffix (`p-heading--one`, `p-heading--two`, etc.) have been replaced with number suffixed class names `p-heading--1`, `p-heading--2`, ...
+
+## Hidden cell in expanding table
+
+Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding) (`aria-hidden="true"`) instead.
 
 ## Icons
 
@@ -29,9 +71,9 @@ This applies also to corresponding mixins: `vf-icon-canonical`, `vf-p-icon-canon
 
 Please use alternative icons from our social set or branded icon bespoke for the project.
 
-## Headings
+## Inline images
 
-Heading pattern classes with word suffix (`p-heading--one`, `p-heading--two`, etc.) have been replaced with number suffixed class names `p-heading--1`, `p-heading--2`, ...
+We removed the inline images (`p-inline-mages`) component. Please use the [logo section component](/docs/patterns/logo-section) instead.
 
 ## Navigation
 
@@ -52,54 +94,6 @@ The `<a>` element that toggles the dropdown element should have the `.p-navigati
 
 The color variable `$color-navigation-background` has been removed, please use the default light and dark themed navigation patterns.
 
-## Text element max-width
-
-Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$max-width--default` instead.
-
-List of removed max width features includes: `max-width--p` and `%measure--p` placeholders, `.measure--p` class name, and `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
-
-## Grid modifications
-
-Unnecessary mixin `vf-p-grid-modifications` will be removed. Any references to it can be removed from code.
-
-## Slider
-
-Adding `.p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `.p-slider__wrapper` and `.p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
-
-## Hidden cell in expanding table
-
-Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding) (`aria-hidden="true"`) instead.
-
-## Grid
-
-### Column classes
-
-Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
-
-### Column layout change
-
-Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. This has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
-
-## Tables
-
-We renamed and deprecated `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.
-
-We removed the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
-
-## Inline images
-
-We removed the inline images (`p-inline-mages`) component. Please use the [logo section component](/docs/patterns/logo-section) instead.
-
-## Buttons
-
-The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
-
-Buttons will no longer extend to 100% width on smaller screens.
-
-## Variables
-
-$grid-margin-width is deprecated, as the grid margins differ at different breakpont. Use the values in $grid-margin-widths instead.
-
 ## Notifications
 
 The notification child classes have been replaced to support new variants. The following class substitutions can be used to support existing functionality:
@@ -112,25 +106,31 @@ The notification child classes have been replaced to support new variants. The f
 
 The text content of the notifications should also be wrapped in element with `.p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
 
-## External Links
-
-The `.p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
-
-## Base checkbox and radio styles
-
-Previously, base checkbox and radio elements were styled to look like the [`.p-checkbox`](/docs/base/forms#checkbox) and [`.p-radio`](/docs/base/forms#radio-button) patterns. These base styles have been removed, please use the pattern markup instead.
-
 ## Pagination links
 
 The `.p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `.p-article-pagination__link--previous`) were meant to be used.
 
-## Breakpoints
+## Slider
 
-The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
+Adding `.p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `.p-slider__wrapper` and `.p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
 
-The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold when navigation switches to dropdown based on the number of navigation items.
+## Tables
 
-## Variable refactor
+We renamed and deprecated `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.
+
+We removed the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
+
+## Text element max-width
+
+Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$max-width--default` instead.
+
+List of removed max width features includes: `max-width--p` and `%measure--p` placeholders, `.measure--p` class name, and `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
+
+## Variables
+
+$grid-margin-width is deprecated, as the grid margins differ at different breakpont. Use the values in $grid-margin-widths instead.
+
+### Variable refactor
 
 We've simplified the spacing variables in Vanilla. Please use the mapping below to update from the old variable names to the new ones:
 
