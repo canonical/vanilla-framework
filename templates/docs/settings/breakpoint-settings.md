@@ -16,7 +16,7 @@ Vanilla uses three main breakpoints for screen sizes, below you can see the sett
 | `$breakpoint-small`                | `620px`             | Mobile or tablet  |
 | `$breakpoint-large`                | `1036px`            | Desktop           |
 | `$breakpoint-x-large`              | `1681px`            | Large desktop     |
-| `$breakpoint-navigation-threshold` | `$breakpoint-large` | Desktop           |
+| `$breakpoint-navigation-threshold` | `$breakpoint-small` | Mobile or tablet  |
 | `$breakpoint-heading-threshold`    | `$breakpoint-large` | Desktop           |
 
 <br>
@@ -59,7 +59,7 @@ The `$breakpoint-navigation-threshold` is the breakpoint in which the navigation
 
 <img class="p-image--bordered" src="https://assets.ubuntu.com/v1/68db306c-global-layout-breakpoint-navigation.png" alt="navigation-breakpoint">
 
-If you have a large number of menu items, you may consider overriding this value to a large breakpoint so the navigation snaps to a burger menu at a larger breakpoint.
+If you have a large number of menu items, you may consider overriding this value to a larger value so the navigation snaps to a burger menu at a larger breakpoint.
 
 ## Modifying the heading breakpoint threshold
 
