@@ -28,7 +28,7 @@ The navigation pattern is one of the first patterns to implement the new theming
 - Add a state class to the `p-navigation` class: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark
 
 You can change the breakpoint at which the menu changes to a small screen menu
-by adjusting the `$breakpoint-navigation-threshold` in `_settings_breakpoints.scss`.
+by adjusting the `$breakpoint-navigation-threshold` variable from `_settings_breakpoints.scss`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/default/" class="js-example">
 View example of the navigation pattern
