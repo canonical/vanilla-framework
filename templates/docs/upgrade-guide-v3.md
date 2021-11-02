@@ -8,12 +8,7 @@ context:
 
 <hr>
 
-During the development of Vanilla v2 several CSS class names or SCSS mixins and placeholders have been deprecated and will be removed in the upcoming release v3.0.
-
-This guide documents all the breaking changes that will happen when these deprecated features are removed.
-
-Once version 3.0 is released, this will be used as the update guide for developers when upgrading to a new version.
-All these changes can be already applied to code that uses Vanilla v2 so that future update to Vanilla v3.0 has a smaller impact.
+Vanilla 3.0 introduces a number of breaking changes, and this upgrade guide provides detailed instructions on the actions needed to make the transition a smooth one.
 
 ## Base checkbox and radio styles
 
@@ -27,9 +22,9 @@ The default value of `$breakpoint-navigation-threshold` was previously set to `$
 
 ## Buttons
 
-The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
+The neutral button style provided by `p-button--neutral` was exactly the same as the default `p-button` styling, so it has been removed. Please use `p-button` instead.
 
-Buttons will no longer extend to 100% width on smaller screens.
+Additionally, buttons will no longer extend to 100% width on smaller screens.
 
 ## External Links
 
@@ -39,7 +34,7 @@ The `.p-link--external` class has been removed, so elements using that class wil
 
 ### Column classes
 
-Use of `.col` classes outside of `.row` is deprecated. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
+Use of `.col` classes outside of `.row` is no longer supported. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
 
 ### Column layout change
 
@@ -47,11 +42,11 @@ Previously, the grid layout would switch from 6 to 12 columns wide at the medium
 
 ### Grid modifications
 
-Unnecessary mixin `vf-p-grid-modifications` will be removed. Any references to it can be removed from code.
+The `vf-p-grid-modifications` mixin was unnecessary and has been removed. Any references to it can be removed from code.
 
 ## Headings
 
-Heading pattern classes with word suffix (`p-heading--one`, `p-heading--two`, etc.) have been replaced with number suffixed class names `p-heading--1`, `p-heading--2`, ...
+Heading pattern classes with a word suffix (`p-heading--one`, `p-heading--two`, etc.) have been replaced with number suffixed class names `p-heading--1`, `p-heading--2`, ...
 
 ## Hidden cell in expanding table
 
@@ -59,17 +54,16 @@ Using `.u-hide` utility inside expanding table to hide table heading placeholder
 
 ## Icons
 
-The `.p-icon--question` icon has been deprecated will be removed. Please use the existing `.p-icon--help` icon instead.
-Corresponding mixins `vf-p-icon-question` and `vf-icon-question` will be removed as well. Please use `vf-p-icon-help` and `vf-icon-help` instead accordingly.
+The `.p-icon--question` icon has been removed. Please use the existing `.p-icon--help` icon instead.
+Corresponding mixins `vf-p-icon-question` and `vf-icon-question` have also been removed. Please use `vf-p-icon-help` and `vf-icon-help`, respectively, instead.
 
-The `vf-p-icon-in-button` mixin is no longer necessary and will be removed. Any code that includes this mixin can be removed.
+The `vf-p-icon-in-button` mixin is no longer necessary and has been removed. Any code that includes this mixin can be removed.
 
 ### Social icons
 
-We will be removing `.p-icon--canonical` and `.p-icon--ubuntu` from social icon set.
-This applies also to corresponding mixins: `vf-icon-canonical`, `vf-p-icon-canonical`, `vf-icon-ubuntu`, `vf-p-icon-ubuntu`.
+We have removed `.p-icon--canonical` and `.p-icon--ubuntu` from the social icon set, along with their corresponding mixins: `vf-icon-canonical`, `vf-p-icon-canonical`, `vf-icon-ubuntu`, `vf-p-icon-ubuntu`.
 
-Please use alternative icons from our social set or branded icon bespoke for the project.
+Please use alternative icons from our social set or a bespoke branded icon for your project.
 
 ## Inline images
 
@@ -79,9 +73,9 @@ We removed the inline images (`p-inline-mages`) component. Please use the [logo 
 
 `.row` class should not be used inside global navigation pattern. Use `.p-navigation__row` for fixed-width or `p-navigation_row--full-width` for full-width navigation.
 
-Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless `<a>` are deprecated and will be removed. Please use new class names `.p-navigation__items`, `.p-navigation__item`, `.p-navigation__link` instead.
+Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless `<a>` have been removed. Please use new class names `.p-navigation__items`, `.p-navigation__item`, `.p-navigation__link` instead.
 
-`.p-subnav` is now deprecated, it and its associated child elements can be updated simply by substituting the following class names:
+`.p-subnav` has also been removed, it and its associated child elements can be updated simply by substituting the following class names:
 
 | Deprecated classes        | Replaced by                            |
 | ------------------------- | -------------------------------------- |
@@ -116,19 +110,23 @@ Adding `.p-slider` class to style `<input type='range'>` is optional, so this cl
 
 ## Tables
 
-We renamed and deprecated `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.
+We removed `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.
 
 We removed the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
 
 ## Text element max-width
 
-Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$max-width--default` instead.
+Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed. Use `$max-width--default` instead.
 
-List of removed max width features includes: `max-width--p` and `%measure--p` placeholders, `.measure--p` class name, and `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
+List of removed max width features includes:
+
+- `max-width--p` and `%measure--p` placeholders
+- `.measure--p` class name
+- `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins
 
 ## Variables
 
-$grid-margin-width is deprecated, as the grid margins differ at different breakpont. Use the values in $grid-margin-widths instead.
+`$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
 
 ### Variable refactor
 
