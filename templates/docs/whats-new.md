@@ -610,7 +610,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <th><a href="/docs/base/typography/#line-length">Line length</a></th>
       <td><div class="p-label--new">New</div></td>
       <td>2.5.0</td>
-      <td>Added <code>$max-width--default</code> variable and <code>u-no-max-width</code> utility to control line length</td>
+      <td>Added <code>$text-max-width</code> variable and <code>u-no-max-width</code> utility to control line length</td>
     </tr>
     <tr>
       <th><a href="/docs/utilities/table-cell-padding-overlap/">Table cell padding overlap</a></th>

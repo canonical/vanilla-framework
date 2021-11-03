@@ -38,7 +38,12 @@ Use of `.col` classes outside of `.row` is no longer supported. If you use `.col
 
 ### Column layout change
 
+<<<<<<< HEAD
 Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. With the removal of the medium breakpoint, this has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
+=======
+Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$text-max-width` instead.
+
+> > > > > > > improve consistency of variable names
 
 ### Grid modifications
 
@@ -133,13 +138,14 @@ We removed the `p-table--sortable` that was previously required to enable sortin
 
 ## Text element max-width
 
-Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed. Use `$max-width--default` instead.
+Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed.
+The sole remaining nvariable to control max-widths was also renamed from `$max-width--default` to `$text-max-width`. All other heading max-width variables have been replaced by `$text-max-width`.
 
 List of removed max width features includes:
 
 - `max-width--p` and `%measure--p` placeholders
 - `.measure--p` class name
-- `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins
+- `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
 
 ## Variables
 
@@ -179,3 +185,24 @@ Horizontal spacing variables:
 | `$sph-inner--x-large` | Express as a sum of other vars | `2.5rem`      |
 | `$sph-outer`          | `$sph--small`                  | `0.5rem`      |
 | `$sph-outer--large`   | Express as sum of above vars   | `1.5rem`      |
+
+The keys in map `$nudges` no longer include the `nudge--` prefix. Please note these fail silently, so it is essential do a thorough search and replace as part of the upgrade.
+
+| Previous map call   | New map call |
+| ------------------- | ------------ |
+| nudge--h1-large     | h1-large     |
+| nudge--h4-large     | h4-large     |
+| nudge--h1           | h1           |
+| nudge--h1-mobile    | h1-mobile    |
+| nudge--h2           | h2           |
+| nudge--h2-mobile    | h2-mobile    |
+| nudge--h3           | h3           |
+| nudge--h3-mobile    | h3-mobile    |
+| nudge--h4           | h4           |
+| nudge--h4-mobile    | h4-mobile    |
+| nudge--h6           | h6           |
+| nudge--h6-large     | h6-mobile    |
+| nudge--p            | p            |
+| nudge--p-ubuntumono | p-ubuntumono |
+| nudge--small        | small        |
+| nudge--x-small      | x-small      |
