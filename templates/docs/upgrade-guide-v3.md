@@ -12,13 +12,13 @@ Vanilla 3.0 introduces a number of breaking changes, and this upgrade guide prov
 
 ## Base checkbox and radio styles
 
-Previously, base checkbox and radio elements were styled to look like the [`.p-checkbox`](/docs/base/forms#checkbox) and [`.p-radio`](/docs/base/forms#radio-button) patterns. These base styles have been removed, please use the pattern markup instead.
+Previously, base checkbox and radio elements were styled to look like the [`.p-checkbox`](/docs/base/forms#checkbox) and [`.p-radio`](/docs/base/forms#radio-button) patterns. The base styles have been removed, please use the pattern markup instead.
 
 ## Breakpoints
 
 The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
 
-The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold when navigation switches to dropdown based on the number of navigation items.
+The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
 
 ## Buttons
 
@@ -34,11 +34,11 @@ The `.p-link--external` class has been removed, so elements using that class wil
 
 ### Column classes
 
-Use of `.col` classes outside of `.row` is no longer supported. If you use `.col-X` class names outside of `.row` or your custom styling depends on specificity of `.col-X` class name you will need to review and update your styles accordingly.
+Use of `.col` classes outside of `.row` is no longer supported. If you use `.col-X` class names outside of `.row`, or your custom styling depends on specificity of a `.col-X` class name, you will need to review and update your styles accordingly.
 
 ### Column layout change
 
-Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. This has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
+Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. With the removal of the medium breakpoint, this has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
 
 ### Grid modifications
 
@@ -46,11 +46,20 @@ The `vf-p-grid-modifications` mixin was unnecessary and has been removed. Any re
 
 ## Headings
 
-Heading pattern classes with a word suffix (`p-heading--one`, `p-heading--two`, etc.) have been replaced with number suffixed class names `p-heading--1`, `p-heading--2`, ...
+Heading pattern classes with a word suffix have been replaced by classes with a number suffix:
+
+| Old style          | New style      |
+| ------------------ | -------------- |
+| `p-heading--one`   | `p-heading--1` |
+| `p-heading--two`   | `p-heading--2` |
+| `p-heading--three` | `p-heading--3` |
+| `p-heading--four`  | `p-heading--4` |
+| `p-heading--five`  | `p-heading--5` |
+| `p-heading--six`   | `p-heading--6` |
 
 ## Hidden cell in expanding table
 
-Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding) (`aria-hidden="true"`) instead.
+Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding), `aria-hidden="true"`, instead.
 
 ## Icons
 
@@ -77,7 +86,7 @@ Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless 
 
 `.p-subnav` has also been removed, it and its associated child elements can be updated simply by substituting the following class names:
 
-| Deprecated classes        | Replaced by                            |
+| Removed classes           | Replaced by                            |
 | ------------------------- | -------------------------------------- |
 | `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
 | `.p-subnav__items`        | `.p-navigation__dropdown`              |
