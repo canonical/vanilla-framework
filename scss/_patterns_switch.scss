@@ -3,11 +3,13 @@ $knob-size: $sp-unit * 3;
 
 @mixin vf-p-switch {
   .p-switch {
-    height: $knob-size;
+    display: flex;
+  }
+
+  .p-switch__input {
     margin: 0;
-    opacity: 0 !important; // override higher specificity of [type='checkbox'] selector
-    position: absolute !important; // override higher specificity of [type='checkbox'] selector
-    width: $knob-size * 2;
+    opacity: 0;
+    position: absolute;
 
     &:checked + .p-switch__slider::before {
       left: 50%;
@@ -31,9 +33,9 @@ $knob-size: $sp-unit * 3;
 
     background: linear-gradient(to right, $color-link 50%, $color-mid-light 50%);
     box-shadow: inset 0 2px 5px 0 transparentize($color-dark, 0.8);
-    display: block;
+    display: inline-block;
     height: $knob-size;
-    margin: $spv-nudge-compensation 0 0 0;
+    margin: 0;
     position: relative;
     width: $knob-size * 2;
 
@@ -49,11 +51,9 @@ $knob-size: $sp-unit * 3;
       position: absolute;
       width: $knob-size;
     }
+  }
 
-    // FIXME: we shouldn't be targeting span elements here
-    // stylelint-disable-next-line selector-max-type
-    & span {
-      @extend %vf-hide-text;
-    }
+  .p-switch__label {
+    margin-left: $sph--small;
   }
 }

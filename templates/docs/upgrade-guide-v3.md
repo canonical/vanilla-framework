@@ -117,6 +117,14 @@ The `.p-article-pagination__link` was removed, as only its variants (`.p-article
 
 Adding `.p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `.p-slider__wrapper` and `.p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
 
+## Switch
+
+The switch component has been updated with new HTML structure more consistent with how checkbox component is built.
+The `p-switch` class name is no longer placed on the checkbox input element, it should be moved to the label element wrapping the input. The class name on the input element itself should be renamed to `p-switch__input`.
+If the switch is supposed to have a label next to it, it should be added as an element with `p-switch__label` class name.
+
+See [the switch component documentation](/docs/patterns/switch) page for more details and code example.
+
 ## Tables
 
 We removed `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--expanding` and `p-table__expanding-panel` instead.
