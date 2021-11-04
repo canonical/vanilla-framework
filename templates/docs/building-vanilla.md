@@ -10,9 +10,9 @@ context:
 
 Here you will find information on how you can use different tools to build Vanilla into production CSS.
 
-## dart-sass
+## Sass
 
-To get set up with [`dart-sass`](https://github.com/sass/dart-sass), add the `sass` and `vanilla-framework` packages to your project dependencies:
+To get set up with [Sass](https://github.com/sass/dart-sass), add the `sass` and `vanilla-framework` packages to your project dependencies:
 
 ```
 yarn add sass vanilla-framework
@@ -65,7 +65,7 @@ To watch for changes in your Sass files, add the following script to your `packa
 
 Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
 
-### Webpack
+## Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile JavaScript modules, and can be used to inject Vanilla styles to the DOM. To get set up using Vanilla with Webpack, add the `webpack` and `vanilla-framework` packages to your project dependencies:
 
