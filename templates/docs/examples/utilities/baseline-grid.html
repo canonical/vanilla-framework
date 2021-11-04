@@ -9,10 +9,10 @@
   <h4>Heading four</h4>
   <h5>Heading five</h5>
   <h6>Heading six</h6>
-  <label for="baselineGridToggle">
-    Toggle baseline grid
-    <input type="checkbox" id="baselineGridToggle" class="p-switch" checked aria-controls="baseline" aria-label="" />
+  <label class="p-switch">
+    <input type="checkbox" class="p-switch__input" checked aria-controls="baseline" aria-label="" />
     <span class="p-switch__slider"></span>
+    <span class="p-switch__label">Toggle baseline grid</span>
   </label>
 </div>
 <script>
@@ -32,7 +32,7 @@ function setupBaselineGridSwitch(toggle) {
   }
 }
 // Set up switch element on page
-var toggle = document.querySelector('.p-switch[aria-controls]');
+var toggle = document.querySelector('.p-switch__input[aria-controls]');
 if (toggle) {
   setupBaselineGridSwitch(toggle);
 }
