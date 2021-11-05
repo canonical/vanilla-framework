@@ -40,7 +40,6 @@ Use of `.col` classes outside of `.row` is no longer supported. If you use `.col
 
 Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. With the removal of the medium breakpoint, this has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
 
-Max-widths should not be based on font-size. Any legacy classes, placeholders, or mixins that used a font-size based max-width setting will be removed. Use `$text-max-width` instead.
 
 ### Grid modifications
 
