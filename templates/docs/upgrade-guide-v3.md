@@ -155,7 +155,7 @@ List of removed max width features includes:
 
 We've simplified the spacing variables in Vanilla. Please use the mapping below to update from the old variable names to the new ones:
 
-Vertical spacing variables:
+#### Vertical spacing variables:
 
 | Deprecated variable              | Replaced by                    | Default value |
 | -------------------------------- | ------------------------------ | ------------- |
@@ -175,7 +175,7 @@ Vertical spacing variables:
 | `$spv-outer--regular-scaleable`  | `$spv--strip-regular`          | `4rem`        |
 | `$spv-outer--deep-scaleable`     | `$spv--strip-deep`             | `6rem`        |
 
-Horizontal spacing variables:
+#### Horizontal spacing variables:
 
 | Spacing variable      | Formula                        | Default value |
 | --------------------- | ------------------------------ | ------------- |
