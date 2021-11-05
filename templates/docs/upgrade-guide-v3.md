@@ -40,7 +40,6 @@ Use of `.col` classes outside of `.row` is no longer supported. If you use `.col
 
 Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. With the removal of the medium breakpoint, this has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
 
-
 ### Grid modifications
 
 The `vf-p-grid-modifications` mixin was unnecessary and has been removed. Any references to it can be removed from code.
