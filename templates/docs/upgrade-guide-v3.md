@@ -186,9 +186,12 @@ Horizontal spacing variables:
 | `$sph-outer`          | `$sph--small`                  | `0.5rem`      |
 | `$sph-outer--large`   | Express as sum of above vars   | `1.5rem`      |
 
-The keys in map `$nudges` no longer include the `nudge--` prefix. Please note these fail silently, so it is essential do a thorough search and replace as part of the upgrade.
+The keys in map `$nudges` no longer include the `nudge--` prefix. Please note these fail silently, so it is essential do a thorough search and replace them as part of the upgrade.
+So any calls that previously included `nudge--` as in `map-get($nudges, nudge--p)`, should now be renamed to `map-get($nudges, p)`.
 
-| Previous map call   | New map call |
+Full list of changed keys:
+
+| Old key             | New key      |
 | ------------------- | ------------ |
 | nudge--h1-large     | h1-large     |
 | nudge--h4-large     | h4-large     |
