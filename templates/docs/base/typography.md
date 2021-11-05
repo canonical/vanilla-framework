@@ -98,7 +98,7 @@ View example of the mixed headings pattern
 
 Line length, measured in number of characters per line (CPL), has been shown to affect reading speed and comprehension. While there is little consensus on what the optimal CPL value is, most studies test with values between 45 and 95 characters per line. <a href="https://en.wikipedia.org/wiki/Line_length">Wikipedia</a> has a good historical overview and a list of studies on the subject.
 
-The max-width of text elements in Vanilla Framework is limited using the `$max-width--default` variable, currently set to `40em`, or around 90 characters.
+The max-width of text elements in Vanilla Framework is limited using the `$text-max-width` variable, currently set to `40em`, or around 90 characters.
 
 Vanilla also includes a utility to unset the max-width where necessary &ndash; `u-no-max-width`:
 
