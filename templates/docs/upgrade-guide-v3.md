@@ -30,9 +30,23 @@ The default value of `$breakpoint-navigation-threshold` was previously set to `$
 
 ## Buttons
 
-The neutral button style provided by `p-button--neutral` was exactly the same as the default `p-button` styling, so it has been removed. Please use `p-button` instead.
+### Neutral buttons have been removed
 
-Additionally, buttons will no longer extend to 100% width on smaller screens.
+The neutral button style provided by `p-button--neutral` was exactly the same as the default `p-button` styling, so it has been removed. Please use `p-button` or class-less `<button>` element instead.
+
+### Full width mobile buttons have been removed
+
+In Vanilla 2.0 buttons on smallest screens (below `$breakpoint-x-small`) have been extended to full 100% width. This was causing issues on some layouts and with some utilities, so is no longer part of Vanilla 3.0. If your project has any custom code that was needed because of full width buttons you may need to update or remove it.
+
+### "Active" button state have been renamed to "processing"
+
+The state initially implemented as "active" via `.is-active` class name on the buttons has been renamed to `.is-processing` to avoid confusion with native active state of the interactive elements. If you use `.is-active` class on any buttons (to keep them opaque even when disabled) you need to change the class name to `.is-processing`.
+
+| Removed class name | New class name         |
+| ------------------ | ---------------------- |
+| `button.is-active` | `button.is-processing` |
+
+The previous `vf-button-active` mixin was renamed to `vf-button-processing`. Additionally the `vf-button-white-success-icon` mixin has been removed (it is not needed anymore as the `%vf-button-white-success-icon` placeholder it used to provide is part of the Vanilla base styles now).
 
 ## External Links
 
