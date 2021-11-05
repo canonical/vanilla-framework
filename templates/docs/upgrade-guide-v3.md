@@ -111,11 +111,29 @@ We removed the inline images (`p-inline-mages`) component. Please use the [logo 
 
 ## Navigation
 
-`.row` class should not be used inside global navigation pattern. Use `.p-navigation__row` for fixed-width or `p-navigation_row--full-width` for full-width navigation.
+### Navigation class names have been updated
+
+The `.row` class should not be used inside global navigation pattern. Use `.p-navigation__row` for fixed-width or `p-navigation_row--full-width` for full-width navigation.
 
 Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless `<a>` have been removed. Please use new class names `.p-navigation__items`, `.p-navigation__item`, `.p-navigation__link` instead.
 
-`.p-subnav` has also been removed, it and its associated child elements can be updated simply by substituting the following class names:
+| Removed classes           | Replaced by            |
+| ------------------------- | ---------------------- |
+| `.p-navigation__links`    | `.p-navigation__items` |
+| `.p-navigation__link`     | `.p-navigation__item`  |
+| `.p-navigation__link > a` | `.p-navigation__link`  |
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">Please note that <code>.p-navigation__link</code> class name is used in both deprecated and new version, but on different elements. When upgrading make sure not to replace valid new uses of <code>.p-navigation__link</code> applied to links (<code>&lt;a&gt;</code>), but only old ones applied to list items (<code>&lt;li&gt;</code>).</p>
+  </div>
+</div>
+
+Refer to [navigation documentation](/docs/patterns/navigation) for more details and code examples.
+
+### Subnav component was replaced by navigation dropdowns
+
+Navigation dropdowns implemented as separate `.p-subnav` class has also been removed. This class name and its associated child elements should be updated simply by substituting the following class names:
 
 | Removed classes           | Replaced by                            |
 | ------------------------- | -------------------------------------- |
@@ -125,6 +143,12 @@ Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless 
 | `.p-subnav__item`         | `.p-navigation__dropdown-item`         |
 
 The `<a>` element that toggles the dropdown element should have the `.p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
+
+The `vf-p-subnav` mixin was also removed. navigation dropdown styles are part of the main `vf-p-navigation` mixin, so they don't need to be included separately anymore.
+
+Refer to [navigation dropdowns documentation](/docs/patterns/navigation#dropdown) for more details and code examples.
+
+### Custom navigation background colour has been removed
 
 The color variable `$color-navigation-background` has been removed, please use the default light and dark themed navigation patterns.
 
