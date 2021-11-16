@@ -16,37 +16,54 @@
 
 @mixin vf-chip-positive {
   .p-chip--positive {
-    @include vf-chip-base($background-color: #f3fff4, $border-color: $color-positive);
+    @include vf-chip-base(positive);
   }
 }
 
 @mixin vf-chip-caution {
   .p-chip--caution {
-    @include vf-chip-base($background-color: #fff9f0, $border-color: #ec6c04);
+    @include vf-chip-base(caution);
   }
 }
 
 @mixin vf-chip-negative {
   .p-chip--negative {
-    @include vf-chip-base($background-color: #fff5f5, $border-color: $color-negative);
+    @include vf-chip-base(negative);
   }
 }
 
 @mixin vf-chip-information {
   .p-chip--information {
-    @include vf-chip-base($background-color: #f0f7ff, $border-color: $color-information);
+    @include vf-chip-base(information);
   }
 }
 
-@mixin vf-chip-base($background-color: $colors--light-theme--background-hover, $border-color: #757575) {
+@mixin vf-chip-base($type: neutral) {
   $chip-line-height: 1rem;
-  $base-background-opacity-amount: 0.05;
-  $color-background-hover: darken($background-color, 10%);
+  $color-background: null;
+  $color-border: null;
+
+  @if ($type == negative) {
+    $color-background: map-get($colors-light-theme--tinted-backgrounds, negative);
+    $color-border: map-get($colors-light-theme--tinted-borders, negative);
+  } @else if ($type == caution) {
+    $color-background: map-get($colors-light-theme--tinted-backgrounds, caution);
+    $color-border: map-get($colors-light-theme--tinted-borders, caution);
+  } @else if ($type == positive) {
+    $color-background: map-get($colors-light-theme--tinted-backgrounds, positive);
+    $color-border: map-get($colors-light-theme--tinted-borders, positive);
+  } @else if ($type == information) {
+    $color-background: map-get($colors-light-theme--tinted-backgrounds, information);
+    $color-border: map-get($colors-light-theme--tinted-borders, information);
+  } @else {
+    $color-background: map-get($colors-light-theme--tinted-backgrounds, neutral);
+    $color-border: map-get($colors-light-theme--tinted-borders, neutral);
+  }
 
   @extend %small-text;
 
-  background-color: $background-color;
-  border: 1px solid $border-color;
+  background-color: $color-background;
+  border: 1px solid $color-border;
   border-radius: $chip-line-height;
   display: inline-flex;
   line-height: $chip-line-height;
@@ -60,12 +77,12 @@
   white-space: nowrap;
 
   &:hover {
-    background-color: $color-background-hover;
+    background-color: adjust-color($color-background, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount);
   }
 
   &.is-selected,
   &:active {
-    background-color: $colors--light-theme--background-active;
+    background-color: adjust-color($color-background, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount);
   }
 
   .p-chip__lead,
