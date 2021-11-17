@@ -14,6 +14,21 @@ Our chip component is to be used to display small actionable pieces of informati
 View example of the default chip pattern
 </a></div>
 
+In addition to the neutral grey, we have tinted chips you can use to highlight the positive, cautionary, negative or informative nature of the information within the chip:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/positive" class="js-example">
+View example of the neutral chip pattern
+</a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/caution" class="js-example">
+View example of the neutral chip pattern
+</a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/negative" class="js-example">
+View example of the neutral chip pattern
+</a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/information" class="js-example">
+View example of the neutral chip pattern
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
