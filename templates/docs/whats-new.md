@@ -20,12 +20,12 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-  <!-- 2.37 -->
+    <!-- 3.00 -->
     <tr>
-      <th><a href="/docs/base/forms#datalist">Forms / Datalist</a></th>
-      <td><div class="p-label--new">New</div></td>
-      <td>2.37.0</td>
-      <td>We've added documentation for datalist</td>
+      <th><a href="/docs/base/forms#datalist">Chips</a></th>
+      <td><div class="p-label--new">Updated</div></td>
+      <td>3.0.0</td>
+      <td>We've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral".</td>
     </tr>
   </tbody>
 </table>
@@ -42,6 +42,13 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+  <!-- 2.37 -->
+    <tr>
+      <th><a href="/docs/base/forms#datalist">Forms / Datalist</a></th>
+      <td><div class="p-label--new">New</div></td>
+      <td>2.37.0</td>
+      <td>We've added documentation for datalist</td>
+    </tr>
     <!-- 2.36 -->
     <tr>
       <th><a href="/docs/patterns/accordion#with-tick-elements">Accordion / Tick elements</a></th>
