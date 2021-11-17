@@ -219,6 +219,12 @@ When using a password field, use this pattern to allow the user to toggle the pa
 View example of the password toggle
 </a></div>
 
+## Accessibility
+
+Validated form input elements should indicate errors with `aria-invalid` attribute. JavaScript is required to achieve this.
+
+See [WCAG Success Criterion 3.3.1 - Using Aria-Invalid to Indicate An Error Field](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21) for further information.
+
 ## Import
 
 To import just this base element into your project, copy the snippet below and include it in your main Sass file.
