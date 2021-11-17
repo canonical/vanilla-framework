@@ -43,18 +43,9 @@
   $color-background: null;
   $color-border: null;
 
-  @if ($type == negative) {
-    $color-background: map-get($colors-light-theme--tinted-backgrounds, negative);
-    $color-border: map-get($colors-light-theme--tinted-borders, negative);
-  } @else if ($type == caution) {
-    $color-background: map-get($colors-light-theme--tinted-backgrounds, caution);
-    $color-border: map-get($colors-light-theme--tinted-borders, caution);
-  } @else if ($type == positive) {
-    $color-background: map-get($colors-light-theme--tinted-backgrounds, positive);
-    $color-border: map-get($colors-light-theme--tinted-borders, positive);
-  } @else if ($type == information) {
-    $color-background: map-get($colors-light-theme--tinted-backgrounds, information);
-    $color-border: map-get($colors-light-theme--tinted-borders, information);
+  @if ($type == negative or $type == caution or $type == positive or $type == information) {
+    $color-background: map-get($colors-light-theme--tinted-backgrounds, $type);
+    $color-border: map-get($colors-light-theme--tinted-borders, $type);
   } @else {
     $color-background: map-get($colors-light-theme--tinted-backgrounds, neutral);
     $color-border: map-get($colors-light-theme--tinted-borders, neutral);
