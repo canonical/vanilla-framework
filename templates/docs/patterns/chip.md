@@ -45,7 +45,7 @@ View example of the dense chip pattern
 
 The default chip has margins and padding set so it aligns to paragraphs and within search fields. If you need to use as an inline element nested inside another element, use the class `is-inline`:
 
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/dense" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/inline" class="js-example">
 View example of the inline chip pattern
 </a></div>
 
