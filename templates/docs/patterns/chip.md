@@ -8,28 +8,46 @@ context:
 
 <hr>
 
-Our chip component is to be used to display small actionable pieces of information.
+Use the chip component to display small actionable or informative pieces of information.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
 View example of the default chip pattern
 </a></div>
 
-Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style valuesthat have semantic or otherwise colour coded meaning:
+### Colour coding
+
+Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style values that have semantic or otherwise colour-coded meaning:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/positive" class="js-example">
-View example of the neutral chip pattern
+View example of the positive chip pattern
 </a></div>
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/caution" class="js-example">
-View example of the neutral chip pattern
+View example of the caution chip pattern
 </a></div>
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/negative" class="js-example">
-View example of the neutral chip pattern
+View example of the negative chip pattern
 </a></div>
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/information" class="js-example">
-View example of the neutral chip pattern
+View example of the information chip pattern
 </a></div>
 
 The Vanilla docs use colour coded chips to highlight recent changes in component status. You can see them in the side navigation.
+
+### Dense chips
+
+If you need to place a chip in a dense context, use the class `is-dense` to reduce the padding and overall height of the chip:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/dense" class="js-example">
+View example of the dense chip pattern
+</a></div>
+
+### Inline chips
+
+The default chip has margins and padding set so it aligns to paragraphs and within search fields. If you need to use as an inline element nested inside another element, use the class `is-inline`:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/dense" class="js-example">
+View example of the inline chip pattern
+</a></div>
 
 ## Import
 
