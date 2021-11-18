@@ -15,7 +15,8 @@
 }
 
 @mixin vf-chip-positive {
-  .p-chip--positive {
+  .p-chip--positive,
+  .p-chip--new {
     @include vf-chip-base(positive);
   }
 }
@@ -52,7 +53,7 @@
   }
 
   @extend %small-text;
-  @include vf-animation(#{background-color, border-color}, brisk, out);
+  @include vf-animation(#{background-color, border-color}, snap, out);
   @include vf-focus;
 
   background-color: $color-background;
@@ -76,6 +77,10 @@
   &.is-selected,
   &:active {
     background-color: adjust-color($color-background, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount);
+  }
+
+  &.is-inline {
+    margin: 0;
   }
 
   .p-chip__lead,

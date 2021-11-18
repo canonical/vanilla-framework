@@ -14,7 +14,7 @@ Our chip component is to be used to display small actionable pieces of informati
 View example of the default chip pattern
 </a></div>
 
-In addition to the neutral grey, we have tinted chips you can use to highlight the positive, cautionary, negative or informative nature of the information within the chip:
+Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style valuesthat have semantic or otherwise colour coded meaning:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/positive" class="js-example">
 View example of the neutral chip pattern
@@ -28,6 +28,8 @@ View example of the neutral chip pattern
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/information" class="js-example">
 View example of the neutral chip pattern
 </a></div>
+
+The Vanilla docs use colour coded chips to highlight recent changes in component status. You can see them in the side navigation.
 
 ## Import
 
