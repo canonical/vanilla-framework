@@ -53,7 +53,7 @@
   }
 
   @extend %small-text;
-  @include vf-animation(#{background-color, border-color}, snap, out);
+  @include vf-animation(#{background-color, border-color}, brisk, out);
   @include vf-focus;
 
   background-color: $color-background;
@@ -63,24 +63,16 @@
   line-height: $chip-line-height;
   margin: map-get($nudges, p) $sph--small 0 0;
   max-width: 100%;
-  padding-bottom: 0.25rem;
-  padding-left: $sph--large;
-  padding-right: $sph--large;
-  padding-top: 0.25rem;
+  padding: $spv--x-small $sph--large;
   user-select: none;
   white-space: nowrap;
 
-  &:hover {
-    background-color: adjust-color($color-background, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount);
-  }
-
-  &.is-selected,
-  &:active {
-    background-color: adjust-color($color-background, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount);
-  }
-
   &.is-inline {
     margin: 0;
+  }
+
+  &.is-dense {
+    padding: 0 $sph--small;
   }
 
   .p-chip__lead,
@@ -106,18 +98,6 @@
       position: absolute;
       right: $space-between-lead-and-value;
     }
-  }
-
-  .p-chip__badge {
-    @extend %vf-p-chip-badge-base;
-
-    background-color: $color-x-dark;
-  }
-
-  .p-chip__badge--negative {
-    @extend %vf-p-chip-badge-base;
-
-    background-color: $color-negative;
   }
 
   .p-chip__value {
@@ -153,16 +133,6 @@
 
     [class*='p-icon'] {
       vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
-    }
-  }
-
-  %vf-p-chip-badge-base {
-    border-radius: $chip-line-height;
-    color: $color-x-light;
-    padding: 0 0.25rem;
-
-    &:last-child {
-      margin-right: -0.25rem;
     }
   }
 }
