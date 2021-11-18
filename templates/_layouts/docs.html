@@ -26,12 +26,16 @@
               </a>
             </div>
 
-            {% macro side_nav_item(url, title, label) -%}
+            {% macro side_nav_item(url, title, label, type) -%}
                 <li class="p-side-navigation__item">
                   <a class="p-side-navigation__link" href="{{ url }}" {% if path == url %}aria-current="page"{% endif %}>
                     {{ title }}
                     {% if label %}
-                      <span class="p-side-navigation__status"><span class="p-label--{{ label|lower }}">{{ label|capitalize }}</span></span>
+                      <span class="p-side-navigation__status">
+                        <div class="p-chip--{{ type|lower }} is-inline">
+                          <span class="p-chip__value">{{ label|capitalize }}</span>
+                          </div>
+                      </span>
                     {% endif %}
                   </a>
                 </li>
@@ -49,7 +53,7 @@
             <ul class="p-side-navigation__list">
               <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Base elements</span></li>
               {{ side_nav_item("/docs/base/code", "Code") }}
-              {{ side_nav_item("/docs/base/forms", "Forms", 'new') }}
+              {{ side_nav_item("/docs/base/forms", "Forms", 'new', 'positive') }}
               {{ side_nav_item("/docs/base/reset", "Reset") }}
               {{ side_nav_item("/docs/base/separators", "Separators") }}
               {{ side_nav_item("/docs/base/tables", "Tables") }}
@@ -62,7 +66,7 @@
               {{ side_nav_item("/docs/patterns/breadcrumbs", "Breadcrumbs") }}
               {{ side_nav_item("/docs/patterns/buttons", "Buttons") }}
               {{ side_nav_item("/docs/patterns/card", "Cards") }}
-              {{ side_nav_item("/docs/patterns/chip", "Chips", 'updated') }}
+              {{ side_nav_item("/docs/patterns/chip", "Chips", 'updated', 'information') }}
               {{ side_nav_item("/docs/patterns/contextual-menu", "Contextual menu") }}
               {{ side_nav_item("/docs/patterns/grid", "Grid") }}
               {{ side_nav_item("/docs/patterns/heading-icon", "Heading icon") }}
