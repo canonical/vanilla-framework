@@ -9,57 +9,40 @@
     @include vf-focus;
 
     border-radius: $chip-line-height;
-    display: inline-flex;
-    line-height: $chip-line-height;
-    margin: map-get($nudges, p) $sph--small 0 0;
+    display: inline-block;
+    margin: 0 $sph--small $input-margin-bottom 0;
     max-width: 100%;
-    padding: $spv--x-small $sph--large;
+    padding: calc(#{$spv--x-small} - 1px) $sph--small; // account for border thickness using calc
+    position: relative;
     user-select: none;
+    vertical-align: calc(1px - #{map-get($nudges, p)});
     white-space: nowrap;
-
-    &.is-inline {
-      margin: 0;
-    }
-
-    &.is-dense {
-      padding: 0 $sph--small;
-    }
 
     .p-chip__lead,
     .p-chip__value {
+      display: inline;
       margin-bottom: 0;
+      padding: 0;
       overflow: hidden;
       text-overflow: ellipsis;
+      vertical-align: baseline;
     }
 
     .p-chip__lead {
-      $space-between-lead-and-value: 0.25rem;
       @extend %muted-text;
       @extend %x-small-text;
 
-      line-height: $chip-line-height;
-      padding-right: $space-between-lead-and-value * 2;
-      padding-top: 0.1rem;
       position: relative;
       text-transform: uppercase;
+      white-space: pre;
 
       &::after {
-        content: '\00a0:';
-        position: absolute;
-        right: $space-between-lead-and-value;
+        content: ':';
       }
     }
 
     .p-chip__value {
       @extend %small-text;
-
-      line-height: $chip-line-height;
-      margin-right: $sp-unit * 0.5;
-      padding-top: 0.05rem;
-
-      &:last-child {
-        margin-right: 0;
-      }
     }
 
     .p-chip__dismiss {
@@ -71,15 +54,12 @@
       );
 
       border: none;
-      display: block;
+      display: inline;
       flex: 0 0 auto;
-      left: 0.25rem;
       line-height: 1rem;
       margin-bottom: 0;
-      margin-right: 0.25rem;
       padding: 0;
       position: relative;
-      top: 0.05rem;
 
       [class*='p-icon'] {
         vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
