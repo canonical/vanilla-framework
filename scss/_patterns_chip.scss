@@ -1,6 +1,92 @@
 @import 'settings';
 
 @mixin vf-p-chip {
+  %vf-chip {
+    $chip-line-height: 1rem;
+
+    @extend %small-text;
+    @include vf-animation(#{background-color, border-color}, snap, out);
+    @include vf-focus;
+
+    border-radius: $chip-line-height;
+    display: inline-flex;
+    line-height: $chip-line-height;
+    margin: map-get($nudges, p) $sph--small 0 0;
+    max-width: 100%;
+    padding: $spv--x-small $sph--large;
+    user-select: none;
+    white-space: nowrap;
+
+    &.is-inline {
+      margin: 0;
+    }
+
+    &.is-dense {
+      padding: 0 $sph--small;
+    }
+
+    .p-chip__lead,
+    .p-chip__value {
+      margin-bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .p-chip__lead {
+      $space-between-lead-and-value: 0.25rem;
+      @extend %muted-text;
+      @extend %x-small-text;
+
+      line-height: $chip-line-height;
+      padding-right: $space-between-lead-and-value * 2;
+      padding-top: 0.1rem;
+      position: relative;
+      text-transform: uppercase;
+
+      &::after {
+        content: '\00a0:';
+        position: absolute;
+        right: $space-between-lead-and-value;
+      }
+    }
+
+    .p-chip__value {
+      @extend %small-text;
+
+      line-height: $chip-line-height;
+      margin-right: $sp-unit * 0.5;
+      padding-top: 0.05rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .p-chip__dismiss {
+      @include vf-button-pattern(
+        $button-background-color: transparent,
+        $button-border-color: transparent,
+        $button-hover-background-color: transparent,
+        $button-hover-border-color: transparent
+      );
+
+      border: none;
+      display: block;
+      flex: 0 0 auto;
+      left: 0.25rem;
+      line-height: 1rem;
+      margin-bottom: 0;
+      margin-right: 0.25rem;
+      padding: 0;
+      position: relative;
+      top: 0.05rem;
+
+      [class*='p-icon'] {
+        vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
+      }
+    }
+  }
+
   @include vf-chip-default;
   @include vf-chip-positive;
   @include vf-chip-caution;
@@ -10,41 +96,44 @@
 
 @mixin vf-chip-default {
   .p-chip {
-    @include vf-chip-base();
+    @extend %vf-chip;
+    @include vf-chip-type(default);
   }
 }
 
 @mixin vf-chip-positive {
-  .p-chip--positive,
-  .p-chip--new {
-    @include vf-chip-base(positive);
+  .p-chip--positive {
+    @extend %vf-chip;
+    @include vf-chip-type(positive);
   }
 }
 
 @mixin vf-chip-caution {
   .p-chip--caution {
-    @include vf-chip-base(caution);
+    @extend %vf-chip;
+    @include vf-chip-type(caution);
   }
 }
 
 @mixin vf-chip-negative {
   .p-chip--negative {
-    @include vf-chip-base(negative);
+    @extend %vf-chip;
+    @include vf-chip-type(negative);
   }
 }
 
 @mixin vf-chip-information {
   .p-chip--information {
-    @include vf-chip-base(information);
+    @extend %vf-chip;
+    @include vf-chip-type(information);
   }
 }
 
-@mixin vf-chip-base($type: neutral) {
-  $chip-line-height: 1rem;
+@mixin vf-chip-type($type: neutral) {
   $color-background: null;
   $color-border: null;
 
-  @if ($type == negative or $type == caution or $type == positive or $type == information) {
+  @if (map-has-key($colors-light-theme--tinted-backgrounds, $type)) {
     $color-background: map-get($colors-light-theme--tinted-backgrounds, $type);
     $color-border: map-get($colors-light-theme--tinted-borders, $type);
   } @else {
@@ -52,87 +141,6 @@
     $color-border: map-get($colors-light-theme--tinted-borders, neutral);
   }
 
-  @extend %small-text;
-  @include vf-animation(#{background-color, border-color}, snap, out);
-  @include vf-focus;
-
   background-color: $color-background;
   border: 1px solid $color-border;
-  border-radius: $chip-line-height;
-  display: inline-flex;
-  line-height: $chip-line-height;
-  margin: map-get($nudges, p) $sph--small 0 0;
-  max-width: 100%;
-  padding: $spv--x-small $sph--large;
-  user-select: none;
-  white-space: nowrap;
-
-  &.is-inline {
-    margin: 0;
-  }
-
-  &.is-dense {
-    padding: 0 $sph--small;
-  }
-
-  .p-chip__lead,
-  .p-chip__value {
-    margin-bottom: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .p-chip__lead {
-    $space-between-lead-and-value: 0.25rem;
-    @extend %muted-text;
-    @extend %x-small-text;
-
-    line-height: $chip-line-height;
-    padding-right: $space-between-lead-and-value * 2;
-    padding-top: 0.1rem;
-    position: relative;
-    text-transform: uppercase;
-
-    &::after {
-      content: '\00a0:';
-      position: absolute;
-      right: $space-between-lead-and-value;
-    }
-  }
-
-  .p-chip__value {
-    @extend %small-text;
-
-    line-height: $chip-line-height;
-    margin-right: $sp-unit * 0.5;
-    padding-top: 0.05rem;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .p-chip__dismiss {
-    @include vf-button-pattern(
-      $button-background-color: transparent,
-      $button-border-color: transparent,
-      $button-hover-background-color: transparent,
-      $button-hover-border-color: transparent
-    );
-
-    border: none;
-    display: block;
-    flex: 0 0 auto;
-    left: 0.25rem;
-    line-height: 1rem;
-    margin-bottom: 0;
-    margin-right: 0.25rem;
-    padding: 0;
-    position: relative;
-    top: 0.05rem;
-
-    [class*='p-icon'] {
-      vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
-    }
-  }
 }
