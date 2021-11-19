@@ -10,7 +10,7 @@ context:
 
 Use the chip component to display small actionable or informative pieces of information.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/default" class="js-example">
 View example of the default chip pattern
 </a></div>
 
@@ -18,17 +18,8 @@ View example of the default chip pattern
 
 Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style values that have semantic or otherwise colour-coded meaning:
 
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/positive" class="js-example">
-View example of the positive chip pattern
-</a></div>
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/caution" class="js-example">
-View example of the caution chip pattern
-</a></div>
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/negative" class="js-example">
-View example of the negative chip pattern
-</a></div>
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/information" class="js-example">
-View example of the information chip pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/colors" class="js-example">
+View example of the coloured chip pattern
 </a></div>
 
 The Vanilla docs use colour coded chips to highlight recent changes in component status. You can see them in the side navigation.
