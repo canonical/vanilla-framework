@@ -7,7 +7,7 @@
 
     <div class="col-8">
       <div class="p-form__control">
-        <input type="text" id="full-name-stacked" name="fullName" autocomplete="name" required>
+        <input type="text" id="full-name-stacked" name="fullName" autocomplete="name">
       </div>
     </div>
   </div>
@@ -19,8 +19,8 @@
 
     <div class="col-8">
       <div class="p-form__control">
-        <input type="text" id="username-stacked" name="username-stacked" autocomplete="username">
-        <p class="p-form-help-text">
+        <input type="text" id="username-stacked" name="username-stacked" autocomplete="username" aria-describedby="exampleHelpTextMessage">
+        <p class="p-form-help-text" id="exampleHelpTextMessage">
           30 characters or fewer.
         </p>
       </div>
@@ -29,14 +29,13 @@
   <div class="p-form__group row p-form-validation is-error">
 
     <div class="col-4">
-      <label for="username-stacked-error" class="p-form__label">Email address</label>
+      <label for="username-stacked-error" class="p-form__label is-required">Email address</label>
     </div>
 
     <div class="col-8">
       <div class="p-form__control">
-        <input type="text" id="username-stacked-error" class="p-form-validation__input" aria-invalid="true" name="username-stackederror" autocomplete="username"
-        aria-describedby="username-error-message-stacked">
-        <p class="p-form-validation__message" id="username-error-message-stacked" role="alert">This field is required.</p>
+        <input type="text" id="username-stacked-error" class="p-form-validation__input" aria-invalid="true" name="username-stackederror" autocomplete="username" aria-describedby="username-error-message-stacked" required>
+        <p class="p-form-validation__message" id="username-error-message-stacked">This field is required.</p>
       </div>
     </div>
   </div>
