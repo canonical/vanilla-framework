@@ -6,8 +6,9 @@
     @include vf-animation(#{background-color, border-color}, snap, out);
     @include vf-focus;
 
+    align-items: baseline;
     border-radius: 1rem;
-    display: inline-block;
+    display: inline-flex;
     margin: 0 $sph--small $input-margin-bottom 0;
     max-width: 100%;
     padding: calc(#{$spv--x-small} - 1px) $sph--small; // account for border thickness using calc
@@ -20,8 +21,8 @@
     .p-chip__value {
       display: inline;
       margin-bottom: 0;
-      padding: 0;
       overflow: hidden;
+      padding: 0;
       text-overflow: ellipsis;
       vertical-align: baseline;
     }
@@ -30,13 +31,14 @@
       @extend %muted-text;
       @extend %x-small-text;
 
-      position: relative;
       text-transform: uppercase;
-      white-space: pre;
+    }
 
-      &::after {
-        content: ':';
-      }
+    .p-chip__lead + .p-chip__value::before {
+      @extend %muted-text;
+      @extend %x-small-text;
+
+      content: ': ';
     }
 
     .p-chip__value {
@@ -51,17 +53,26 @@
         $button-hover-border-color: transparent
       );
 
+      align-self: center;
       border: none;
-      display: inline;
       flex: 0 0 auto;
-      line-height: 1rem;
+      height: $default-icon-size;
+      line-height: $default-icon-size;
       margin-bottom: 0;
+      margin-top: 0; // override top margin that button gets in some contexts (in paragraphs)
       padding: 0;
       position: relative;
+      width: $default-icon-size;
+    }
 
-      [class*='p-icon'] {
-        vertical-align: calc(#{0.5 * $cap-height} - #{0.5 * $default-icon-size});
-      }
+    &.is-dense {
+      padding: 0 $sph--small;
+    }
+
+    &.is-inline {
+      margin-bottom: 0;
+      margin-top: 0;
+      vertical-align: baseline;
     }
   }
 
