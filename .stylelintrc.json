@@ -1,26 +1,33 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-prettier/recommended"],
-  "plugins": ["stylelint-order", "stylelint-scss"],
+  "extends": ["stylelint-config-recommended-scss", "stylelint-prettier/recommended"],
+  "plugins": ["stylelint-order"],
   "rules": {
-    "order/properties-alphabetical-order": true,
+    "no-invalid-position-at-import-rule": null,
+    "scss/comment-no-empty": null,
+    "scss/no-global-function-names": null,
+    "scss/operator-no-unspaced": null,
+
+    "function-url-scheme-allowed-list": ["data"],
+    "selector-class-pattern": "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
+
+    "selector-max-id": 0,
+    "selector-max-type": 0,
+    "max-nesting-depth": 3,
+
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
-    "no-descending-specificity": [true, {"severity": "warning"}],
 
     "scss/at-extend-no-missing-placeholder": true,
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/at-import-partial-extension": "never",
+
+    "order/properties-alphabetical-order": true,
+    "no-descending-specificity": [true, {"severity": "warning"}],
+
     "property-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "selector-no-vendor-prefix": true,
     "media-feature-name-no-vendor-prefix": true,
-    "at-rule-no-vendor-prefix": true,
-    "selector-max-id": 0,
-    "selector-max-type": 0,
-    "max-nesting-depth": 3,
-    "function-url-scheme-allowed-list": ["data"],
-    "scss/at-import-no-partial-leading-underscore": true,
-    "scss/at-import-partial-extension": "never",
-    "no-invalid-position-at-import-rule": null,
-
-    "selector-class-pattern": "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$"
+    "at-rule-no-vendor-prefix": true
   }
 }
