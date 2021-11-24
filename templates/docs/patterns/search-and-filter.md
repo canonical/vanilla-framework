@@ -6,7 +6,9 @@ context:
 
 # Search and filter
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 <hr>
 

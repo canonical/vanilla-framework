@@ -142,6 +142,19 @@ List of removed max width features includes:
 - `.measure--p` class name
 - `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
 
+## Labels
+
+The label pattern has been removed, and we've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral". Please read the [chip documentation](/docs/patterns/chips) to see how the markup and class names have changed, including the addition of `p-chip__lead` and `p-chip__value` classes. In places where you're replacing the `p-label` you'll probably need to add the `is-dense` modifier.
+
+| Deprecated classes      | Replaced by            |
+| ----------------------- | ---------------------- |
+| `.p-label`              | `.p-chip`              |
+| `.p-label--deprecated`  | `.p-chip--negative`    |
+| `.p-label--in-progress` | `.p-chip--caution`     |
+| `.p-label--new`         | `.p-chip--positive`    |
+| `.p-label--updated`     | `.p-chip--information` |
+| `.p-label--validated`   | `.p-chip--information` |
+
 ## Variables
 
 `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
