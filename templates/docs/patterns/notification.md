@@ -14,7 +14,9 @@ Notifications are used to attract the user's attention. They offer four separate
 
 ### Information
 
-<span class="p-label--updated">Updated</span>
+<div class="p-chip--information">
+  <span class="p-chip__value">Updated</span>
+</div>
 
 The information severity should be used to convey an information message.
 
@@ -24,7 +26,9 @@ View example of the information notification pattern
 
 ### Caution
 
-<span class="p-label--updated">Updated</span>
+<div class="p-chip--information">
+  <span class="p-chip__value">Updated</span>
+</div>
 
 The caution severity should be used to convey information that is not critical but the user should be aware of.
 
@@ -34,7 +38,9 @@ View example of the caution notification pattern
 
 ### Negative
 
-<span class="p-label--updated">Updated</span>
+<div class="p-chip--information">
+  <span class="p-chip__value">Updated</span>
+</div>
 
 The negative severity should be used to convey information that is critical and the user should take action.
 
@@ -44,7 +50,9 @@ View example of the negative notification pattern
 
 ### Positive
 
-<span class="p-label--updated">Updated</span>
+<div class="p-chip--information">
+  <span class="p-chip__value">Updated</span>
+</div>
 
 The positive severity should be used to convey success or completion.
 
@@ -56,7 +64,9 @@ View example of the positive notification pattern
 
 ### Borderless
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 In cases where a notification sits inside another component, such as a table cell or a card, it may be useful to remove the outer border and highlight bar.
 
@@ -66,7 +76,9 @@ View example of the borderless notification pattern
 
 ### Inline
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 When vertical space is limited, you can use the inline variant.
 
@@ -78,7 +90,9 @@ View example of the inline notification pattern
 
 ### Buttons
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 Notifications can have actions in either button or link form. These will appear below the notification message.
 
@@ -88,7 +102,9 @@ View example of the notification actions.
 
 ### Dismissible
 
-<span class="p-label--updated">Updated</span>
+<div class="p-chip--information is-inline">
+  <span class="p-chip__value">Updated</span>
+</div>
 
 Notifications that can be dismissed can include a close button.
 
@@ -98,7 +114,9 @@ View example of the dismissible notification pattern
 
 ## Timestamp
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 For notifications in which recency is important, you can include a section for time.
 
