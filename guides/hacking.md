@@ -46,6 +46,8 @@ It can also be run on other operating systems by first [installing Docker](https
 ./run watch
 ```
 
+If you want to speed up the build or watch scripts you can run the project without including the standalone examples, using `./run build:essential` or `./run watch:essential`.
+
 ## Viewing documentation and examples
 
 Once the server is running, you can visit <http://0.0.0.0:8101/> in your browser to see the project.
