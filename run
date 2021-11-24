@@ -375,7 +375,7 @@ case $run_command in
 
         # Setup yarn dependencies
         if [ -f package.json ]; then
-            run_as_user "${module_volumes}" yarn run build
+            run_as_user "${module_volumes}" yarn run build:essential
         fi
 
         # Run watch command in the background
