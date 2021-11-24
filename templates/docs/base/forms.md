@@ -204,7 +204,9 @@ View example of the dense form elements
 
 ## Password toggle
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 When using a password field, use this pattern to allow the user to toggle the password visibility.
 

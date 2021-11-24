@@ -44,7 +44,9 @@ View example of the back to top pattern
 
 ## Skip link
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 The `.p-link--skip` link is used to help keyboard users navigate quickly to the main content of a page. It should be the first element that can be tabbed to on any page, and should reference either the `<main>` landmark region element, or the ID of an element that contains the main content of the page.
 

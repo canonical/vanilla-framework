@@ -58,7 +58,9 @@ View example of the brand button pattern
 
 ## Link
 
-<span class="p-label--new">New</span>
+<div class="p-chip--positive">
+  <span class="p-chip__value">New</span>
+</div>
 
 In some contexts you may need a button to look visually identical to a link.
 
