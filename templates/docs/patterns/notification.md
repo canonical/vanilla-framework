@@ -14,10 +14,6 @@ Notifications are used to attract the user's attention. They offer four separate
 
 ### Information
 
-<div class="p-chip--information">
-  <span class="p-chip__value">Updated</span>
-</div>
-
 The information severity should be used to convey an information message.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/notifications/information/" class="js-example">
@@ -25,10 +21,6 @@ View example of the information notification pattern
 </a></div>
 
 ### Caution
-
-<div class="p-chip--information">
-  <span class="p-chip__value">Updated</span>
-</div>
 
 The caution severity should be used to convey information that is not critical but the user should be aware of.
 
@@ -38,10 +30,6 @@ View example of the caution notification pattern
 
 ### Negative
 
-<div class="p-chip--information">
-  <span class="p-chip__value">Updated</span>
-</div>
-
 The negative severity should be used to convey information that is critical and the user should take action.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/notifications/negative/" class="js-example">
@@ -49,10 +37,6 @@ View example of the negative notification pattern
 </a></div>
 
 ### Positive
-
-<div class="p-chip--information">
-  <span class="p-chip__value">Updated</span>
-</div>
 
 The positive severity should be used to convey success or completion.
 

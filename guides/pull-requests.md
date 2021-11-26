@@ -52,13 +52,13 @@ Any affected examples in your PR should have an appropriate label, either `new`,
 An example's documentation should then also include a status label within the body of the page, using the appropriate label:
 
 ```
-<div class="p-chip--positive is-dense">
+<span class="p-chip--positive is-dense">
   <span class="p-chip__value">New</span>
-</div>
-<div class="p-chip--information is-dense">
+</span>
+<span class="p-chip--information is-dense">
   <span class="p-chip__value">Updated</span>
-</div>
-<div class="p-chip--negative is-dense">
+</span>
+<span class="p-chip--negative is-dense">
   <span class="p-chip__value">Deprecated</span>
-</div>
+</span>
 ```

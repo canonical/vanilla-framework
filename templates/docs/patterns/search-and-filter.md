@@ -6,10 +6,6 @@ context:
 
 # Search and filter
 
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
-
 <hr>
 
 This pattern provides the ability to search and apply filter chips with a panel listing available options.

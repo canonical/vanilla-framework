@@ -144,7 +144,7 @@ List of removed max width features includes:
 
 ## Labels
 
-The label pattern has been removed, and we've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral". Please read the [chip documentation](/docs/patterns/chips) to see how the markup and class names have changed, including the addition of `p-chip__lead` and `p-chip__value` classes. In places where you're replacing the `p-label` you'll probably need to add the `is-dense` modifier.
+The label pattern has been removed, and we've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral". Please read the [chip documentation](/docs/patterns/chip) to see how the markup and class names have changed, including the addition of `p-chip__lead` and `p-chip__value` classes. In places where you're replacing the `p-label` you'll probably need to add the `is-dense` modifier.
 
 | Deprecated classes      | Replaced by            |
 | ----------------------- | ---------------------- |
@@ -154,6 +154,8 @@ The label pattern has been removed, and we've added tinted chips. The tints are 
 | `.p-label--new`         | `.p-chip--positive`    |
 | `.p-label--updated`     | `.p-chip--information` |
 | `.p-label--validated`   | `.p-chip--information` |
+
+The `vf-p-label` mixin has been removed so you'll have to remove this from your code, along with `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
 ## Variables
 
