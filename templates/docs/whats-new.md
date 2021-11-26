@@ -183,7 +183,7 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
     <!-- 2.32 -->
     <tr>
-      <th><a href="/docs/patterns/labels#default">Labels / Default</a></th>
+      <th><a href="/docs/patterns/chip">Labels / Default</a></th>
       <td>
         <div class="p-chip--positive is-dense is-inline">
           <span class="p-chip__value">New</span>
