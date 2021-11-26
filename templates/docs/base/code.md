@@ -102,10 +102,6 @@ View example of the code snippet with syntax highlighting
 
 ## Bordered
 
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
-
 Add the class `.is-bordered` to the `.p-code-snippet` element to visually group the code snippet with another section, for instance the rendered result of the code in the snippet. ```
 
 <div class="embedded-example"><a href="/docs/examples/patterns/code-snippet/is-bordered" class="js-example">

@@ -23,10 +23,6 @@ The wrapper aims to align as much as possible with the 12 column grid. On smalle
 
 ### Toolbar
 
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
-
 The toolbar is optional. When present, the toolbar will be positioned above the aside and main area elements. The toolbar is split in 2 columns, with the second column being aligned to the right on large screens.
 
 <div class="embedded-example"><a href="/docs/examples/layouts/fluid-breakout/fluid-breakout-left-aside-and-toolbar/" class="js-example">

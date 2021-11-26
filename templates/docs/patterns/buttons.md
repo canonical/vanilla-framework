@@ -58,10 +58,6 @@ View example of the brand button pattern
 
 ## Link
 
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
-
 In some contexts you may need a button to look visually identical to a link.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/link/" class="js-example">
