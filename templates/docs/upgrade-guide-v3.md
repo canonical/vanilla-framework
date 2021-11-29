@@ -14,9 +14,9 @@ Vanilla 3.0 introduces a number of breaking changes, and this upgrade guide prov
 
 Vanilla 3.0 requires use of latest `sass` library and drops support for `node-sass`. If you are still using `node-sass` to build your styles you need to switch to `sass` instead.
 
-Additionally with introduction of `sass` we improved the way Vanilla can be imported to your project. Instead of importing source files directly by their path (`@import "vanilla-framework/build/vanilla"`), you can now simply import Vanilla package `@import "vanilla-framework";`. This is now a recommended way of importing Vanilla, please update any imports you have.
+Additionally with introduction of `sass` we improved the way Vanilla can be imported to your project. Instead of importing source files directly by their path (`@import "vanilla-framework/build/vanilla"`), you can now simply import Vanilla package `@import "vanilla-framework";`. Make sure to `@include vanilla` after the import. This is now a recommended way of importing Vanilla, please update any imports you have.
 
-Check our [building documentation](/docs/building-vanilla) for more information on how to use `sass` to import and build Vanilla.
+You'll need to make sure you're on the latest version of sass, check our [building documentation](/docs/building-vanilla) for more information on how to use `sass` to import and build Vanilla.
 
 ## Base checkbox and radio styles
 
@@ -27,6 +27,8 @@ Previously, base checkbox and radio elements were styled to look like the [`.p-c
 The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
 
 The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
+
+In places where the `u-hide--small` class is currently used, `u-hide--medium` may need to be added. This is to replicate current behaviour of `u-hide--small`, ensuring the element is hidden on small and medium screens.
 
 ## Buttons
 
@@ -107,7 +109,7 @@ Please use alternative icons from our social set or a bespoke branded icon for y
 
 ## Inline images
 
-We removed the inline images (`p-inline-mages`) component. Please use the [logo section component](/docs/patterns/logo-section) instead.
+We removed the inline images (`p-inline-images`) component. Please use the [logo section component](/docs/patterns/logo-section) instead. As this pattern requires images to have identical dimensions, the height and width of any which currently use the `p-inline-mages` pattern may need to be updated.
 
 ## Navigation
 
@@ -189,7 +191,7 @@ We removed the `p-table--sortable` that was previously required to enable sortin
 ## Text element max-width
 
 Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed.
-The sole remaining nvariable to control max-widths was also renamed from `$max-width--default` to `$text-max-width`. All other heading max-width variables have been replaced by `$text-max-width`.
+The sole remaining variable to control max-widths was also renamed from `$max-width--default` to `$text-max-width`. All other heading max-width variables have been replaced by `$text-max-width`.
 
 List of removed max width features includes:
 
