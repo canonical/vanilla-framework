@@ -74,11 +74,13 @@
     }
   }
 
-  @include vf-chip-default;
-  @include vf-chip-positive;
-  @include vf-chip-caution;
-  @include vf-chip-negative;
-  @include vf-chip-information;
+  .p-chip,
+  .p-chip--positive,
+  .p-chip--caution,
+  .p-chip--negative,
+  .p-chip--information {
+    @extend %vf-chip;
+  }
 
   // Theming
   @if ($theme-default-p-chip == 'dark') {
@@ -88,29 +90,73 @@
     .p-chip.is-light {
       @include vf-chip-light-theme;
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip {
+      @include vf-chip-dark-theme($is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip.is-light {
+      @include vf-chip-light-theme($is-interactive: true);
+    }
+
     .p-chip--positive {
       @include vf-chip-dark-theme(positive);
     }
     .p-chip--positive.is-light {
       @include vf-chip-light-theme(positive);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--positive {
+      @include vf-chip-dark-theme($chip-type: positive, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--positive.is-light {
+      @include vf-chip-light-theme($chip-type: positive, $is-interactive: true);
+    }
+
     .p-chip--caution {
       @include vf-chip-dark-theme(caution);
     }
     .p-chip--caution.is-light {
       @include vf-chip-light-theme(caution);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--caution {
+      @include vf-chip-dark-theme($chip-type: caution, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--caution.is-light {
+      @include vf-chip-light-theme($chip-type: caution, $is-interactive: true);
+    }
+
     .p-chip--negative {
       @include vf-chip-dark-theme(negative);
     }
     .p-chip--negative.is-light {
       @include vf-chip-light-theme(negative);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--negative {
+      @include vf-chip-dark-theme($chip-type: negative, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--negative.is-light {
+      @include vf-chip-light-theme($chip-type: negative, $is-interactive: true);
+    }
+
     .p-chip--information {
       @include vf-chip-dark-theme(information);
     }
     .p-chip--information.is-light {
       @include vf-chip-light-theme(information);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--information {
+      @include vf-chip-dark-theme($chip-type: information, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--information.is-light {
+      @include vf-chip-light-theme($chip-type: information, $is-interactive: true);
     }
   } @else {
     .p-chip {
@@ -119,64 +165,78 @@
     .p-chip.is-dark {
       @include vf-chip-dark-theme;
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip {
+      @include vf-chip-light-theme($is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip.is-dark {
+      @include vf-chip-dark-theme($is-interactive: true);
+    }
+
     .p-chip--positive {
       @include vf-chip-light-theme(positive);
     }
     .p-chip--positive.is-dark {
       @include vf-chip-dark-theme(positive);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--positive {
+      @include vf-chip-light-theme($chip-type: positive, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--positive.is-dark {
+      @include vf-chip-dark-theme($chip-type: positive, $is-interactive: true);
+    }
+
     .p-chip--caution {
       @include vf-chip-light-theme(caution);
     }
     .p-chip--caution.is-dark {
       @include vf-chip-dark-theme(caution);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--caution {
+      @include vf-chip-light-theme($chip-type: caution, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--caution.is-dark {
+      @include vf-chip-dark-theme($chip-type: caution, $is-interactive: true);
+    }
+
     .p-chip--negative {
       @include vf-chip-light-theme(negative);
     }
     .p-chip--negative.is-dark {
       @include vf-chip-dark-theme(negative);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--negative {
+      @include vf-chip-light-theme($chip-type: negative, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--negative.is-dark {
+      @include vf-chip-dark-theme($chip-type: negative, $is-interactive: true);
+    }
+
     .p-chip--information {
       @include vf-chip-light-theme(information);
     }
     .p-chip--information.is-dark {
       @include vf-chip-dark-theme(information);
     }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--information {
+      @include vf-chip-light-theme($chip-type: information, $is-interactive: true);
+    }
+    // stylelint-disable-next-line selector-max-type
+    button.p-chip--information.is-dark {
+      @include vf-chip-dark-theme($chip-type: information, $is-interactive: true);
+    }
   }
 }
 
-@mixin vf-chip-default {
-  .p-chip {
-    @extend %vf-chip;
-  }
-}
-
-@mixin vf-chip-positive {
-  .p-chip--positive {
-    @extend %vf-chip;
-  }
-}
-
-@mixin vf-chip-caution {
-  .p-chip--caution {
-    @extend %vf-chip;
-  }
-}
-
-@mixin vf-chip-negative {
-  .p-chip--negative {
-    @extend %vf-chip;
-  }
-}
-
-@mixin vf-chip-information {
-  .p-chip--information {
-    @extend %vf-chip;
-  }
-}
-
-@mixin vf-chip-theme($chip-type, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
+@mixin vf-chip-theme($chip-type, $is-interactive, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
   $color-background: null;
   $color-border: null;
 
@@ -200,11 +260,24 @@
   .p-chip__lead + .p-chip__value::before {
     color: $color-chip-lead;
   }
+
+  @if ($is-interactive) {
+    &:hover {
+      background-color: adjust-color($color-background, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount);
+      border-color: $color-border;
+    }
+    &.is-selected,
+    &:active {
+      background-color: adjust-color($color-background, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount);
+      border-color: $color-border;
+    }
+  }
 }
 
-@mixin vf-chip-light-theme($chip-type: neutral) {
+@mixin vf-chip-light-theme($chip-type: neutral, $is-interactive: false) {
   @include vf-chip-theme(
     $chip-type: $chip-type,
+    $is-interactive: $is-interactive,
     $colors-chip-tinted-backgrounds: $colors-light-theme--tinted-backgrounds,
     $colors-chip-tinted-borders: $colors-light-theme--tinted-borders,
     $color-chip-value: $colors--light-theme--text-default,
@@ -212,9 +285,10 @@
   );
 }
 
-@mixin vf-chip-dark-theme($chip-type: neutral) {
+@mixin vf-chip-dark-theme($chip-type: neutral, $is-interactive: false) {
   @include vf-chip-theme(
     $chip-type: $chip-type,
+    $is-interactive: $is-interactive,
     $colors-chip-tinted-backgrounds: $colors-dark-theme--tinted-backgrounds,
     $colors-chip-tinted-borders: $colors-dark-theme--tinted-borders,
     $color-chip-value: $colors--dark-theme--text-default,
