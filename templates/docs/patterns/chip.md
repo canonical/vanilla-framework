@@ -16,7 +16,7 @@ View example of the default chip pattern
 
 ### Chip with dismiss
 
-Chips have the option to be dismissed. Include the `p-chip__dismiss` class wrapping a close icon.
+Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrapping a close icon.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
 View example of the dismiss chip pattern
