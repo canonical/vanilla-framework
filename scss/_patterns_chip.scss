@@ -147,38 +147,50 @@
   }
 }
 
-@mixin vf-chip-theme($type, $background, $border, $value-color, $lead-color) {
+@mixin vf-chip-theme($chip-type, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
   $color-background: null;
   $color-border: null;
 
-  @if (map-has-key($background, $type)) {
-    $color-background: map-get($background, $type);
-    $color-border: map-get($border, $type);
+  @if (map-has-key($colors-chip-tinted-backgrounds, $chip-type)) {
+    $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type);
+    $color-border: map-get($colors-chip-tinted-borders, $chip-type);
   } @else {
-    $color-background: map-get($background, neutral);
-    $color-border: map-get($background, neutral);
+    $color-background: map-get($colors-chip-tinted-backgrounds, neutral);
+    $color-border: map-get($colors-chip-tinted-borders, neutral);
   }
 
   background-color: $color-background;
   border: 1px solid $color-border;
 
   .p-chip__value {
-    color: $value-color;
+    color: $color-chip-value;
   }
   .p-chip__lead {
-    color: $lead-color;
+    color: $color-chip-lead;
   }
   .p-chip__lead + .p-chip__value::before {
-    color: $lead-color;
+    color: $color-chip-lead;
   }
 }
 
-@mixin vf-chip-light-theme($type: neutral) {
-  @include vf-chip-theme($type, $colors-light-theme--tinted-backgrounds, $colors-light-theme--tinted-borders, $colors--light-theme--text-default, $colors--light-theme--text-muted);
+@mixin vf-chip-light-theme($chip-type: neutral) {
+  @include vf-chip-theme(
+    $chip-type: $chip-type,
+    $colors-chip-tinted-backgrounds: $colors-light-theme--tinted-backgrounds,
+    $colors-chip-tinted-borders: $colors-light-theme--tinted-borders,
+    $color-chip-value: $colors--light-theme--text-default,
+    $color-chip-lead: $colors--light-theme--text-muted
+  );
 }
 
-@mixin vf-chip-dark-theme($type: neutral) {
-  @include vf-chip-theme($type, $colors-dark-theme--tinted-backgrounds, $colors-dark-theme--tinted-borders, $colors--dark-theme--text-default, $colors--dark-theme--text-muted);
+@mixin vf-chip-dark-theme($chip-type: neutral) {
+  @include vf-chip-theme(
+    $chip-type: $chip-type,
+    $colors-chip-tinted-backgrounds: $colors-dark-theme--tinted-backgrounds,
+    $colors-chip-tinted-borders: $colors-dark-theme--tinted-borders,
+    $color-chip-value: $colors--dark-theme--text-default,
+    $color-chip-lead: $colors--dark-theme--text-muted
+  );
 }
 
 @mixin vf-chip-default {
