@@ -1,5 +1,12 @@
 {
   "extends": ["config:base", "group:allNonMajor", "schedule:monthly"],
   "labels": ["Maintenance 🔨"],
-  "dependencyDashboard": false
+  "dependencyDashboard": false,
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["cimg/python"],
+      "allowedVersions": "<=3.8"
+    }
+  ]
 }
