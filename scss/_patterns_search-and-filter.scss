@@ -153,12 +153,14 @@
       border: 0;
     }
 
+    // hide chips lead when there are in panel
+    // FIXME: this should be handled in HTML/React, not CSS
     .p-chip {
-      @include vf-focus;
+      .p-chip__lead {
+        display: none;
+      }
 
-      cursor: pointer;
-
-      &__lead {
+      .p-chip__lead + .p-chip__value::before {
         display: none;
       }
     }
