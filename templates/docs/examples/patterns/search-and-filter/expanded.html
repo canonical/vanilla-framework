@@ -1,26 +1,18 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Search and filter / With chips{% endblock %}
+{% block title %}Search and filter / Expanded{% endblock %}
 
 {% block standalone_css %}patterns_search-and-filter{% endblock %}
 
 {% block content %}
 <div class="p-search-and-filter">
-  <div class="p-search-and-filter__search-container" aria-expanded="false" data-active="true" data-empty="false">
-    <span class="p-chip">
-      <span class="p-chip__lead">CLOUD</span><span class="p-chip__value">Google</span>
-      <button class="p-chip__dismiss"><i class="p-icon--close">Dismiss</i></button>
-    </span>
-    <span class="p-chip">
-      <span class="p-chip__lead">CLOUD</span><span class="p-chip__value">AWS</span>
-      <button class="p-chip__dismiss"><i class="p-icon--close">Dismiss</i></button>
-    </span>
+  <div class="p-search-and-filter__search-container" aria-expanded="true" data-active="true" data-empty="true">
     <form class="p-search-and-filter__box" data-overflowing="false">
       <label class="u-off-screen" for="search">Search and filter</label>
       <input autocomplete="off" class="p-search-and-filter__input" id="search" name="search" placeholder="Search and filter" type="search" value="">
       <button alt="search" class="u-off-screen" type="submit">Search</button>
     </form>
   </div>
-  <div class="p-search-and-filter__panel" aria-hidden="true">
+  <div class="p-search-and-filter__panel" aria-hidden="false">
     <div class="p-filter-panel-section">
       <h3 class="p-filter-panel-section__heading">Cloud</h3>
       <div class="p-filter-panel-section__chips" aria-expanded="false">
