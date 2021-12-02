@@ -14,7 +14,7 @@ Use the chip component to display small actionable or informative pieces of info
 View example of the default chip pattern
 </a></div>
 
-### Colour coding
+## Colour coding
 
 Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style values that have semantic or otherwise colour-coded meaning:
 
@@ -24,7 +24,7 @@ View example of the coloured chip pattern
 
 The Vanilla docs use colour coded chips to highlight recent changes in component status. You can see them in the side navigation.
 
-### Chip with dismiss
+## Chip with dismiss
 
 Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrapping a close icon.
 
@@ -32,7 +32,7 @@ Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrap
 View example of the dismiss chip pattern
 </a></div>
 
-### Interactive
+## Interactive
 
 Chips can be implemented as `button` elements to make them clickable and selectable. You can mark chip as selected by adding `aria-pressed="true"` attribute to the chip element.
 
@@ -40,7 +40,7 @@ Chips can be implemented as `button` elements to make them clickable and selecta
 View example of the interactive chip pattern
 </a></div>
 
-### Dense chips
+## Dense chips
 
 If you need to place a chip in a dense context, use the class `is-dense` to reduce the padding and overall height of the chip:
 
@@ -48,7 +48,7 @@ If you need to place a chip in a dense context, use the class `is-dense` to redu
 View example of the dense chip pattern
 </a></div>
 
-### Inline chips
+## Inline chips
 
 The default chip has margins and padding set so it aligns to paragraphs and within search fields. If you need to use as an inline element nested inside another element, use the class `is-inline`:
 
@@ -56,7 +56,7 @@ The default chip has margins and padding set so it aligns to paragraphs and with
 View example of the inline chip pattern
 </a></div>
 
-### Dark chips
+## Dark chips
 
 To use chips on a dark background the `is-dark` class can be applied. If the chip includes the dismiss icon, you'll need to add the `is-light` class to the icon. To ensure the dark chips are accessible, the background colour used must be no lighter than `#2b2b2b`:
 
