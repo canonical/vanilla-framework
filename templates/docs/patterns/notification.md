@@ -48,10 +48,6 @@ View example of the positive notification pattern
 
 ### Borderless
 
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
-
 In cases where a notification sits inside another component, such as a table cell or a card, it may be useful to remove the outer border and highlight bar.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/notifications/borderless/" class="js-example">
@@ -59,10 +55,6 @@ View example of the borderless notification pattern
 </a></div>
 
 ### Inline
-
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
 
 When vertical space is limited, you can use the inline variant.
 
@@ -74,10 +66,6 @@ View example of the inline notification pattern
 
 ### Buttons
 
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
-
 Notifications can have actions in either button or link form. These will appear below the notification message.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/notifications/action/" class="js-example">
@@ -86,10 +74,6 @@ View example of the notification actions.
 
 ### Dismissible
 
-<div class="p-chip--information is-inline">
-  <span class="p-chip__value">Updated</span>
-</div>
-
 Notifications that can be dismissed can include a close button.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/notifications/dismissible/" class="js-example">
@@ -97,10 +81,6 @@ View example of the dismissible notification pattern
 </a></div>
 
 ## Timestamp
-
-<div class="p-chip--positive">
-  <span class="p-chip__value">New</span>
-</div>
 
 For notifications in which recency is important, you can include a section for time.
 
