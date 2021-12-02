@@ -28,14 +28,12 @@
     }
 
     .p-chip__lead {
-      @extend %muted-text;
       @extend %x-small-text;
 
       text-transform: uppercase;
     }
 
     .p-chip__lead + .p-chip__value::before {
-      @extend %muted-text;
       @extend %x-small-text;
 
       content: ': ';
@@ -82,55 +80,145 @@
   @include vf-chip-caution;
   @include vf-chip-negative;
   @include vf-chip-information;
+
+  // Theming
+  @if ($theme-default-p-chip == 'dark') {
+    .p-chip {
+      @include vf-chip-dark-theme;
+    }
+    .p-chip.is-light {
+      @include vf-chip-light-theme;
+    }
+    .p-chip--positive {
+      @include vf-chip-dark-theme(positive);
+    }
+    .p-chip--positive.is-light {
+      @include vf-chip-light-theme(positive);
+    }
+    .p-chip--caution {
+      @include vf-chip-dark-theme(caution);
+    }
+    .p-chip--caution.is-light {
+      @include vf-chip-light-theme(caution);
+    }
+    .p-chip--negative {
+      @include vf-chip-dark-theme(negative);
+    }
+    .p-chip--negative.is-light {
+      @include vf-chip-light-theme(negative);
+    }
+    .p-chip--information {
+      @include vf-chip-dark-theme(information);
+    }
+    .p-chip--information.is-light {
+      @include vf-chip-light-theme(information);
+    }
+  } @else {
+    .p-chip {
+      @include vf-chip-light-theme;
+    }
+    .p-chip.is-dark {
+      @include vf-chip-dark-theme;
+    }
+    .p-chip--positive {
+      @include vf-chip-light-theme(positive);
+    }
+    .p-chip--positive.is-dark {
+      @include vf-chip-dark-theme(positive);
+    }
+    .p-chip--caution {
+      @include vf-chip-light-theme(caution);
+    }
+    .p-chip--caution.is-dark {
+      @include vf-chip-dark-theme(caution);
+    }
+    .p-chip--negative {
+      @include vf-chip-light-theme(negative);
+    }
+    .p-chip--negative.is-dark {
+      @include vf-chip-dark-theme(negative);
+    }
+    .p-chip--information {
+      @include vf-chip-light-theme(information);
+    }
+    .p-chip--information.is-dark {
+      @include vf-chip-dark-theme(information);
+    }
+  }
 }
 
 @mixin vf-chip-default {
   .p-chip {
     @extend %vf-chip;
-    @include vf-chip-type(default);
   }
 }
 
 @mixin vf-chip-positive {
   .p-chip--positive {
     @extend %vf-chip;
-    @include vf-chip-type(positive);
   }
 }
 
 @mixin vf-chip-caution {
   .p-chip--caution {
     @extend %vf-chip;
-    @include vf-chip-type(caution);
   }
 }
 
 @mixin vf-chip-negative {
   .p-chip--negative {
     @extend %vf-chip;
-    @include vf-chip-type(negative);
   }
 }
 
 @mixin vf-chip-information {
   .p-chip--information {
     @extend %vf-chip;
-    @include vf-chip-type(information);
   }
 }
 
-@mixin vf-chip-type($type: neutral) {
+@mixin vf-chip-theme($chip-type, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
   $color-background: null;
   $color-border: null;
 
-  @if (map-has-key($colors-light-theme--tinted-backgrounds, $type)) {
-    $color-background: map-get($colors-light-theme--tinted-backgrounds, $type);
-    $color-border: map-get($colors-light-theme--tinted-borders, $type);
+  @if (map-has-key($colors-chip-tinted-backgrounds, $chip-type)) {
+    $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type);
+    $color-border: map-get($colors-chip-tinted-borders, $chip-type);
   } @else {
-    $color-background: map-get($colors-light-theme--tinted-backgrounds, neutral);
-    $color-border: map-get($colors-light-theme--tinted-borders, neutral);
+    $color-background: map-get($colors-chip-tinted-backgrounds, neutral);
+    $color-border: map-get($colors-chip-tinted-borders, neutral);
   }
 
   background-color: $color-background;
   border: 1px solid $color-border;
+
+  .p-chip__value {
+    color: $color-chip-value;
+  }
+  .p-chip__lead {
+    color: $color-chip-lead;
+  }
+  .p-chip__lead + .p-chip__value::before {
+    color: $color-chip-lead;
+  }
+}
+
+@mixin vf-chip-light-theme($chip-type: neutral) {
+  @include vf-chip-theme(
+    $chip-type: $chip-type,
+    $colors-chip-tinted-backgrounds: $colors-light-theme--tinted-backgrounds,
+    $colors-chip-tinted-borders: $colors-light-theme--tinted-borders,
+    $color-chip-value: $colors--light-theme--text-default,
+    $color-chip-lead: $colors--light-theme--text-muted
+  );
+}
+
+@mixin vf-chip-dark-theme($chip-type: neutral) {
+  @include vf-chip-theme(
+    $chip-type: $chip-type,
+    $colors-chip-tinted-backgrounds: $colors-dark-theme--tinted-backgrounds,
+    $colors-chip-tinted-borders: $colors-dark-theme--tinted-borders,
+    $color-chip-value: $colors--dark-theme--text-default,
+    $color-chip-lead: $colors--dark-theme--text-muted
+  );
 }

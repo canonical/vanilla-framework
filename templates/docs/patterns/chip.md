@@ -14,6 +14,14 @@ Use the chip component to display small actionable or informative pieces of info
 View example of the default chip pattern
 </a></div>
 
+### Chip with dismiss
+
+Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrapping a close icon.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
+View example of the dismiss chip pattern
+</a></div>
+
 ### Colour coding
 
 Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style values that have semantic or otherwise colour-coded meaning:
@@ -38,6 +46,14 @@ The default chip has margins and padding set so it aligns to paragraphs and with
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/inline" class="js-example">
 View example of the inline chip pattern
+</a></div>
+
+### Dark chips
+
+To use chips on a dark background the `is-dark` class can be applied. If the chip includes the dismiss icon, you'll need to add the `is-light` class to the icon. To ensure the dark chips are accessible, the background colour used must be no lighter than `#2b2b2b`:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/dark" class="js-example">
+View example of the dark chip pattern
 </a></div>
 
 ## Import
