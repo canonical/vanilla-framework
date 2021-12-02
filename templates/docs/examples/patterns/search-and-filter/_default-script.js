@@ -2,9 +2,12 @@
   Toggles visibility of filter panel.
   @param {HTMLElement} panel Filter panel to show or hide.
 */
-function togglePanel(container, panel) {
+function togglePanel(container, panel, collapse) {
+  if (typeof collapse === 'undefined') {
+    collapse = panel.getAttribute('aria-hidden') !== 'false';
+  }
   if (panel && container) {
-    if (panel.getAttribute('aria-hidden') === 'false') {
+    if (collapse) {
       panel.setAttribute('aria-hidden', 'true');
       container.setAttribute('aria-expanded', 'false');
     } else {
@@ -20,10 +23,10 @@ function togglePanel(container, panel) {
   var container = pattern.querySelector('.p-search-and-filter__search-container');
   input.addEventListener('blur', function (event) {
     var targetPanel = pattern.querySelector('.p-search-and-filter__panel');
-    togglePanel(container, targetPanel);
+    togglePanel(container, targetPanel, true);
   });
   input.addEventListener('focus', function (event) {
     var targetPanel = pattern.querySelector('.p-search-and-filter__panel');
-    togglePanel(container, targetPanel);
+    togglePanel(container, targetPanel, false);
   });
 });
