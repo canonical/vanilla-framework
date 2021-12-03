@@ -93,13 +93,32 @@ $colors--light-theme--border-default: rgba($color-x-dark, 0.15) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
-//XXX: add dark theme versions of tinted background and border colours for use with dark theme chips, notificaitons, etc.
 $colors-light-theme--tinted-backgrounds: (
-  neutral: #f2f2f2,
-  positive: #e8fdec,
-  caution: #fef1dc,
-  negative: #fce8ea,
-  information: #e5f2ff,
+  neutral: (
+    default: #f2f2f2,
+    hover: adjust-color(#f2f2f2, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(#f2f2f2, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount),
+  ),
+  positive: (
+    default: #e8fdec,
+    hover: adjust-color(#e8fdec, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(#e8fdec, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount),
+  ),
+  caution: (
+    default: #fef1dc,
+    hover: adjust-color(#fef1dc, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(#fef1dc, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount),
+  ),
+  negative: (
+    default: #fce8ea,
+    hover: adjust-color(#fce8ea, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(#fce8ea, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount),
+  ),
+  information: (
+    default: #e5f2ff,
+    hover: adjust-color(#e5f2ff, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(#e5f2ff, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount),
+  ),
 );
 
 $colors-light-theme--tinted-borders: (
@@ -108,22 +127,6 @@ $colors-light-theme--tinted-borders: (
   caution: #ec6c04,
   negative: $color-negative,
   information: $color-information,
-);
-
-$colors-dark-theme--tinted-backgrounds: (
-  neutral: rgba(255, 255, 255, 0.15),
-  positive: rgba(14, 134, 32, 0.5),
-  caution: rgba(199, 89, 0, 0.5),
-  negative: rgba(199, 22, 43, 0.5),
-  information: rgba(9, 89, 170, 0.5),
-);
-
-$colors-dark-theme--tinted-borders: (
-  neutral: #999,
-  positive: #33cc4a,
-  caution: #f9a11f,
-  negative: #f87e8d,
-  information: #3896f5,
 );
 
 // Dark theme
@@ -141,6 +144,42 @@ $colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !defa
 $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.2) !default;
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.4) !default;
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.1) !default;
+
+$colors-dark-theme--tinted-backgrounds: (
+  neutral: (
+    default: rgba(255, 255, 255, 0.15),
+    hover: rgba(255, 255, 255, 0.2),
+    active: rgba(255, 255, 255, 0.25),
+  ),
+  positive: (
+    default: rgba(14, 134, 32, 0.5),
+    hover: adjust-color(rgba(14, 134, 32, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(rgba(14, 134, 32, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+  ),
+  caution: (
+    default: rgba(199, 89, 0, 0.5),
+    hover: adjust-color(rgba(199, 89, 0, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(rgba(199, 89, 0, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+  ),
+  negative: (
+    default: rgba(199, 22, 43, 0.5),
+    hover: adjust-color(rgba(199, 22, 43, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(rgba(199, 22, 43, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+  ),
+  information: (
+    default: rgba(9, 89, 170, 0.5),
+    hover: adjust-color(rgba(9, 89, 170, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
+    active: adjust-color(rgba(9, 89, 170, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+  ),
+);
+
+$colors-dark-theme--tinted-borders: (
+  neutral: #999,
+  positive: #33cc4a,
+  caution: #f9a11f,
+  negative: #f87e8d,
+  information: #3896f5,
+);
 
 // Branding colors
 $color-brand: #333 !default;
