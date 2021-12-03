@@ -256,19 +256,19 @@
       background-color: $color-background-active;
       border-color: $color-border;
     }
-  }
+  } @else {
+    .p-chip__dismiss {
+      @include vf-icon-close($color-chip-lead);
 
-  .p-chip__dismiss {
-    @include vf-icon-close($color-chip-lead);
-
-    @include vf-button-pattern(
-      $button-background-color: transparent,
-      $button-border-color: transparent,
-      $button-hover-background-color: $color-background-hover,
-      $button-hover-border-color: transparent,
-      $button-active-background-color: $color-background-active,
-      $button-active-border-color: transparent
-    );
+      @include vf-button-pattern(
+        $button-background-color: transparent,
+        $button-border-color: transparent,
+        $button-hover-background-color: $color-background-hover,
+        $button-hover-border-color: transparent,
+        $button-active-background-color: $color-background-active,
+        $button-active-border-color: transparent
+      );
+    }
   }
 }
 
