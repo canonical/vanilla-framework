@@ -26,7 +26,7 @@ The Vanilla docs use colour coded chips to highlight recent changes in component
 
 ## Chip with dismiss
 
-Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrapping a close icon.
+Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
 View example of the dismiss chip pattern
