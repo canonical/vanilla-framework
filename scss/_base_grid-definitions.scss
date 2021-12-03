@@ -69,7 +69,7 @@
 
       // set static gutter width per breakpoint
       @media (min-width: $threshold-4-6-col) {
-        grid-gap: 0 map-get($grid-gutter-widths, large);
+        grid-gap: 0 map-get($grid-gutter-widths, default);
         grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
 
         & > * {
@@ -78,7 +78,7 @@
       }
 
       @media (min-width: $threshold-6-12-col) {
-        grid-gap: 0 map-get($grid-gutter-widths, large);
+        grid-gap: 0 map-get($grid-gutter-widths, default);
         grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
 
         & > * {
@@ -94,13 +94,13 @@
     padding-right: map-get($grid-margin-widths, small);
 
     @media (min-width: $threshold-4-6-col) {
-      padding-left: map-get($grid-margin-widths, large);
-      padding-right: map-get($grid-margin-widths, large);
+      padding-left: map-get($grid-margin-widths, default);
+      padding-right: map-get($grid-margin-widths, default);
     }
 
     @media (min-width: $threshold-6-12-col) {
-      padding-left: map-get($grid-margin-widths, large);
-      padding-right: map-get($grid-margin-widths, large);
+      padding-left: map-get($grid-margin-widths, default);
+      padding-right: map-get($grid-margin-widths, default);
     }
   }
 }
