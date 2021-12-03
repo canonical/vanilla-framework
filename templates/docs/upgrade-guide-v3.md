@@ -34,6 +34,15 @@ The `.p-link--external` class has been removed, so elements using that class wil
 
 ### Column classes
 
+The scss maps defining grid margins and gutters have been simplified. In both `$grid-gutter-widths` and `$grid-margin-widths`, the following keys havechanged:
+
+| Old key  | New key   |
+| -------- | --------- |
+| `medium` | `default` |
+| `large`  | `default` |
+
+### Column classes
+
 Use of `.col` classes outside of `.row` is no longer supported. If you use `.col-X` class names outside of `.row`, or your custom styling depends on specificity of a `.col-X` class name, you will need to review and update your styles accordingly.
 
 ### Column layout change
