@@ -238,13 +238,19 @@
 
 @mixin vf-chip-theme($chip-type, $is-interactive, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
   $color-background: null;
+  $color-background-hover: null;
+  $color-background-active: null;
   $color-border: null;
 
   @if (map-has-key($colors-chip-tinted-backgrounds, $chip-type)) {
-    $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type);
+    $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type, 'default');
+    $color-background-hover: map-get($colors-chip-tinted-backgrounds, $chip-type, 'hover');
+    $color-background-active: map-get($colors-chip-tinted-backgrounds, $chip-type, 'active');
     $color-border: map-get($colors-chip-tinted-borders, $chip-type);
   } @else {
-    $color-background: map-get($colors-chip-tinted-backgrounds, neutral);
+    $color-background: map-get($colors-chip-tinted-backgrounds, 'neutral', 'default');
+    $color-background-hover: map-get($colors-chip-tinted-backgrounds, 'neutral', 'hover');
+    $color-background-active: map-get($colors-chip-tinted-backgrounds, 'neutral', 'active');
     $color-border: map-get($colors-chip-tinted-borders, neutral);
   }
 
@@ -254,22 +260,20 @@
   .p-chip__value {
     color: $color-chip-value;
   }
-  .p-chip__lead {
-    color: $color-chip-lead;
-  }
+  .p-chip__lead,
   .p-chip__lead + .p-chip__value::before {
     color: $color-chip-lead;
   }
 
   @if ($is-interactive) {
     &:hover {
-      background-color: adjust-color($color-background, $lightness: -100% * $hover-background-opacity-amount, $saturation: -100% * 2 * $hover-background-opacity-amount);
+      background-color: $color-background-hover;
       border-color: $color-border;
     }
     &[aria-pressed='true'],
     &.is-selected,
     &:active {
-      background-color: adjust-color($color-background, $lightness: -100% * $active-background-opacity-amount, $saturation: -100% * 2 * $active-background-opacity-amount);
+      background-color: $color-background-active;
       border-color: $color-border;
     }
   }
