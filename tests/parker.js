@@ -43,7 +43,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Specificity per selector',
       benchmark: 15,
-      threshold: 21,
+      threshold: 22,
       result: results['specificity-per-selector'],
     },
     {
