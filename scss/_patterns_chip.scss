@@ -44,24 +44,12 @@
     }
 
     .p-chip__dismiss {
-      @include vf-button-pattern(
-        $button-background-color: transparent,
-        $button-border-color: transparent,
-        $button-hover-background-color: transparent,
-        $button-hover-border-color: transparent
-      );
+      @extend %icon;
+      // also includes button and close icon styles in the theming section
 
       align-self: center;
-      border: none;
       flex: 0 0 auto;
-      height: $default-icon-size;
-      line-height: $default-icon-size;
-      margin-bottom: 0;
       margin-left: $sph--x-small;
-      margin-top: 0; // override top margin that button gets in some contexts (in paragraphs)
-      padding: 0;
-      position: relative;
-      width: $default-icon-size;
     }
 
     &.is-dense {
@@ -236,23 +224,15 @@
   }
 }
 
-@mixin vf-chip-theme($chip-type, $is-interactive, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
-  $color-background: null;
-  $color-background-hover: null;
-  $color-background-active: null;
-  $color-border: null;
-
-  @if (map-has-key($colors-chip-tinted-backgrounds, $chip-type)) {
-    $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type, 'default');
-    $color-background-hover: map-get($colors-chip-tinted-backgrounds, $chip-type, 'hover');
-    $color-background-active: map-get($colors-chip-tinted-backgrounds, $chip-type, 'active');
-    $color-border: map-get($colors-chip-tinted-borders, $chip-type);
-  } @else {
-    $color-background: map-get($colors-chip-tinted-backgrounds, 'neutral', 'default');
-    $color-background-hover: map-get($colors-chip-tinted-backgrounds, 'neutral', 'hover');
-    $color-background-active: map-get($colors-chip-tinted-backgrounds, 'neutral', 'active');
-    $color-border: map-get($colors-chip-tinted-borders, neutral);
+@mixin vf-chip-theme($chip-type: neutral, $is-interactive: false, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
+  @if (not map-has-key($colors-chip-tinted-backgrounds, $chip-type)) {
+    $chip-type: neutral;
   }
+
+  $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type, 'default');
+  $color-background-hover: map-get($colors-chip-tinted-backgrounds, $chip-type, 'hover');
+  $color-background-active: map-get($colors-chip-tinted-backgrounds, $chip-type, 'active');
+  $color-border: map-get($colors-chip-tinted-borders, $chip-type);
 
   background-color: $color-background;
   border: 1px solid $color-border;
@@ -276,6 +256,19 @@
       background-color: $color-background-active;
       border-color: $color-border;
     }
+  }
+
+  .p-chip__dismiss {
+    @include vf-icon-close($color-chip-lead);
+
+    @include vf-button-pattern(
+      $button-background-color: transparent,
+      $button-border-color: transparent,
+      $button-hover-background-color: $color-background-hover,
+      $button-hover-border-color: transparent,
+      $button-active-background-color: $color-background-active,
+      $button-active-border-color: transparent
+    );
   }
 }
 
