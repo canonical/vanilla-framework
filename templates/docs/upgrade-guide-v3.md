@@ -166,6 +166,10 @@ The label pattern has been removed, and we've added tinted chips. The tints are 
 
 The `vf-p-label` mixin has been removed so you'll have to remove this from your code, along with `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
+## Responsive tables
+
+The `aria-label` attribute on table cells of the responsive table has been replaced by `data-heading`. This is to ensure information in the cells of the table isn't missed by screen readers. Please replace all `aria-label`'s on `<td>` elements in tables using the `p-table--mobile-card` class.
+
 ## Variables
 
 `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
