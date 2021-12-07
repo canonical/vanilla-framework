@@ -58,7 +58,7 @@ View example of the inline chip pattern
 
 ## Dark chips
 
-To use chips on a dark background the `is-dark` class can be applied. If the chip includes the dismiss icon, you'll need to add the `is-light` class to the icon. To ensure the dark chips are accessible, the background colour used must be no lighter than `#2b2b2b`:
+To use chips on a dark background the `is-dark` class can be applied. If the chip includes the dismiss icon, you'll need to add the `is-light` class to the icon. To ensure the dark chips are accessible, the background colour used must `#2b2b2b` or darker:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/dark" class="js-example">
 View example of the dark chip pattern

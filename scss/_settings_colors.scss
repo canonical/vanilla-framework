@@ -105,9 +105,9 @@ $colors-light-theme--tinted-backgrounds: (
     active: hsl(129deg 100% 39% / #{10% + $active-background-opacity-amount * 100%}),
   ),
   caution: (
-    default: hsl(37deg 100% 39% / 10%),
-    hover: hsl(37deg 100% 39% / #{10% + $hover-background-opacity-amount * 100%}),
-    active: hsl(37deg 100% 39% / #{10% + $active-background-opacity-amount * 100%}),
+    default: hsl(27deg 100% 39% / 10%),
+    hover: hsl(27deg 100% 39% / #{10% + $hover-background-opacity-amount * 100%}),
+    active: hsl(27deg 100% 39% / #{10% + $active-background-opacity-amount * 100%}),
   ),
   negative: (
     default: hsl(354deg 100% 39% / 10%),
@@ -124,7 +124,7 @@ $colors-light-theme--tinted-backgrounds: (
 $colors-light-theme--tinted-borders: (
   neutral: $colors--light-theme--border-high-contrast,
   positive: $color-positive,
-  caution: #ec6c04,
+  caution: hsl(27deg 100% 39%),
   negative: $color-negative,
   information: $color-information,
 );
@@ -142,7 +142,7 @@ $colors--dark-theme--background-hover: rgba($colors--dark-theme--text-default, $
 $colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !default;
 
 $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.2) !default;
-$colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.4) !default;
+$colors--dark-theme--border-high-contrast: hsl(0deg 0% 60%) !default;
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.1) !default;
 
 $colors-dark-theme--tinted-backgrounds: (
@@ -152,33 +152,33 @@ $colors-dark-theme--tinted-backgrounds: (
     active: rgba(255, 255, 255, 0.25),
   ),
   positive: (
-    default: rgba(14, 134, 32, 0.5),
-    hover: adjust-color(rgba(14, 134, 32, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
-    active: adjust-color(rgba(14, 134, 32, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+    default: hsl(129deg 90% 39% / 20%),
+    hover: hsl(129deg 100% 39% / #{20% + 2 * $hover-background-opacity-amount * 100%}),
+    active: hsl(129deg 100% 39% / #{20% + 2 * $active-background-opacity-amount * 100%}),
   ),
   caution: (
-    default: rgba(199, 89, 0, 0.5),
-    hover: adjust-color(rgba(199, 89, 0, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
-    active: adjust-color(rgba(199, 89, 0, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+    default: hsl(27deg 100% 50% / 20%),
+    hover: hsl(27deg 100% 60% / #{20% + 2 * $hover-background-opacity-amount * 100%}),
+    active: hsl(27deg 100% 50% / #{20% + 2 * $active-background-opacity-amount * 100%}),
   ),
   negative: (
-    default: rgba(199, 22, 43, 0.5),
-    hover: adjust-color(rgba(199, 22, 43, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
-    active: adjust-color(rgba(199, 22, 43, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+    default: hsl(353deg 100% 70% / 20%),
+    hover: hsl(353deg 100% 70% / #{20% + 2 * $hover-background-opacity-amount * 100%}),
+    active: hsl(353deg 100% 70% / #{20% + 2 * $active-background-opacity-amount * 100%}),
   ),
   information: (
-    default: rgba(9, 89, 170, 0.5),
-    hover: adjust-color(rgba(9, 89, 170, 0.5), $lightness: 100% * $hover-background-opacity-amount, $saturation: 100% * 2 * $hover-background-opacity-amount),
-    active: adjust-color(rgba(9, 89, 170, 0.5), $lightness: 100% * $active-background-opacity-amount, $saturation: 100% * 2 * $active-background-opacity-amount),
+    default: hsl(210deg 100% 50% / 20%),
+    hover: hsl(210deg 100% 50% / #{20% + 2 * $hover-background-opacity-amount * 100%}),
+    active: hsl(210deg 100% 50% / #{20% + 2 * $active-background-opacity-amount * 100%}),
   ),
 );
 
 $colors-dark-theme--tinted-borders: (
-  neutral: #999,
-  positive: #33cc4a,
-  caution: #f9a11f,
-  negative: #f87e8d,
-  information: #3896f5,
+  neutral: hsl(0deg 0% 65%),
+  positive: hsl(129deg 60% 65%),
+  caution: hsl(27deg 80% 65%),
+  negative: hsl(353deg 80% 70%),
+  information: hsl(210deg 80% 65%),
 );
 
 // Branding colors
