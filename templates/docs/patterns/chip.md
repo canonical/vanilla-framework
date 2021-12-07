@@ -14,14 +14,6 @@ Use the chip component to display small actionable or informative pieces of info
 View example of the default chip pattern
 </a></div>
 
-### Chip with dismiss
-
-Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrapping a close icon.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
-View example of the dismiss chip pattern
-</a></div>
-
 ### Colour coding
 
 Chips come in 5 colours. The default is neutral (grey). Use any of the following flavours to style values that have semantic or otherwise colour-coded meaning:
@@ -31,6 +23,22 @@ View example of the coloured chip pattern
 </a></div>
 
 The Vanilla docs use colour coded chips to highlight recent changes in component status. You can see them in the side navigation.
+
+### Chip with dismiss
+
+Chips have the option to be dismissed. Include the `p-chip__dismiss` button wrapping a close icon.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
+View example of the dismiss chip pattern
+</a></div>
+
+### Interactive
+
+Chips can be implemented as `button` elements to make them clickable and selectable. You can mark chip as selected by adding `aria-pressed="true"` attribute to the chip element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/interactive" class="js-example">
+View example of the interactive chip pattern
+</a></div>
 
 ### Dense chips
 
