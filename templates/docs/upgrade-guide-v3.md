@@ -170,6 +170,10 @@ The `vf-p-label` mixin has been removed so you'll have to remove this from your 
 
 The `aria-label` attribute on table cells of the responsive table has been replaced by `data-heading`. This is to ensure information in the cells of the table isn't missed by screen readers. Please replace all `aria-label`'s on `<td>` elements in tables using the `p-table--mobile-card` class.
 
+## Chips
+
+By default chips are not interactive anymore (they don't have hover, focus or active state). To make chip interactive you should use `<button class="p-chip">` instead of `<span class="p-chip">`.
+
 ## Variables
 
 `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
