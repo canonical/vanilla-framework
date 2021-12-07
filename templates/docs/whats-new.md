@@ -22,7 +22,17 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.00 -->
     <tr>
-      <th><a href="/docs/base/forms#datalist">Chips</a></th>
+      <th><a href="/docs/patterns/chip#interactive">Chips / Interactive</a></th>
+      <td>
+        <div class="p-chip--information is-dense is-inline">
+          <span class="p-chip__value">Updated</span>
+        </div>
+      </td>
+      <td>3.0.0</td>
+      <td>We've reimplemented interactive chips using <code>button</code> elements.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/chip">Chips / Tinted</a></th>
       <td>
         <div class="p-chip--information is-dense is-inline">
           <span class="p-chip__value">Updated</span>
@@ -32,14 +42,14 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral".</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/forms#datalist">Labels</a></th>
+      <th><a href="/docs/patterns/chip">Labels</a></th>
       <td>
         <div class="p-chip--negative is-dense is-inline">
-          <span class="p-chip__value">Deprecated</span>
+          <span class="p-chip__value">Removed</span>
         </div>
       </td>
       <td>3.0.0</td>
-      <td>We've deprecated the labels pattern as the new tinted chips can be used instead.</td>
+      <td>We've removed the labels pattern as the new tinted chips can be used instead.</td>
     </tr>
   </tbody>
 </table>
