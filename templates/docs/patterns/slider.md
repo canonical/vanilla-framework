@@ -15,11 +15,6 @@ when you want to provide a numeric representation of the slider value, as well a
 View example of the slider pattern
 </a></div>
 
-<span class="p-chip--information is-inline is-dense">
-  <span class="p-chip__value">Updated</span>
-</span>In version 2.6.0 Vanilla framework added slider styling as default for
-all range inputs, so adding `p-slider` class just to style `<input type="range">` is not necessary any more.
-
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.

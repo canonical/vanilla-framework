@@ -1,0 +1,76 @@
+@import 'settings';
+
+// Default label styling
+@mixin vf-p-label {
+  %vf-label {
+    @extend %x-small-text;
+    @extend %u-no-margin--bottom--small;
+
+    border-radius: $border-radius;
+    display: inline-block;
+    font-weight: $font-weight-bold;
+    padding: map-get($nudges, x-small) $sph--small;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .p-label {
+    @extend %vf-label;
+
+    background-color: $color-mid-dark;
+    color: $color-x-light;
+  }
+
+  @include vf-p-label-validated;
+  @include vf-p-label-in-progress;
+  @include vf-p-label-new;
+  @include vf-p-label-updated;
+  @include vf-p-label-deprecated;
+}
+
+// Override local variables
+@mixin vf-p-label-validated {
+  .p-label--validated {
+    @extend %vf-label;
+
+    background-color: $color-label-validated;
+    color: $color-x-light;
+  }
+}
+
+@mixin vf-p-label-in-progress {
+  .p-label--in-progress {
+    @extend %vf-label;
+
+    background-color: $color-caution;
+    color: $color-dark;
+  }
+}
+
+@mixin vf-p-label-new {
+  .p-label--new {
+    @extend %vf-label;
+
+    background-color: $color-positive;
+    color: $color-x-light;
+  }
+}
+
+@mixin vf-p-label-updated {
+  .p-label--updated {
+    @extend %vf-label;
+
+    background-color: $color-information;
+    color: $color-x-light;
+  }
+}
+
+@mixin vf-p-label-deprecated {
+  .p-label--deprecated {
+    @extend %vf-label;
+
+    background-color: $color-negative;
+    color: $color-x-light;
+  }
+}
