@@ -184,3 +184,18 @@ $main-panel-visible-width: 20rem;
 ```
 
 [View the full screen example of the application layout with custom JAAS panels](/docs/examples/layouts/application/JAAS/).
+
+## Import
+
+To import just this layout into your project, copy the snippet below and include it in your main Sass file.
+
+```scss
+// import Vanilla and include base mixins
+// this only needs to happen once in a given project
+@import 'vanilla-framework';
+@include vf-base;
+
+@include vf-l-application;
+```
+
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
