@@ -172,7 +172,7 @@ The `aria-label` attribute on table cells of the responsive table has been repla
 
 ## Chips
 
-By default chips are not interactive anymore (they don't have hover, focus or active state). To make chip interactive you should use `<button class="p-chip">` instead of `<span class="p-chip">`.
+By default, chips are not interactive anymore (they don't have hover, focus or active state). Apply the class to a button element to get interactive behaviour, e.g.: `<button class="p-chip">` instead of `<span class="p-chip">`.
 
 The dismiss button in the chip now provides its own icon, so it should not include separate icon element. Please remove any icons from the chips, and only keep the `Dismiss` text in the button.
 
