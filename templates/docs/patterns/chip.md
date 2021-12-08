@@ -8,7 +8,7 @@ context:
 
 <hr>
 
-Use the chip component to display small actionable or informative pieces of information.
+Use the chip component to display small actionable pieces of information.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/default" class="js-example">
 View example of the default chip pattern
@@ -22,22 +22,12 @@ Chips come in 5 colours. The default is neutral (grey). Use any of the following
 View example of the coloured chip pattern
 </a></div>
 
-The Vanilla docs use colour coded chips to highlight recent changes in component status. You can see them in the side navigation.
-
 ## Chip with dismiss
 
-Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class.
+Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class. Please note that by default the chip main element is a `<button class="p-chip">`, but to include a dismiss button it needs to be changed to non-interactive `<span class="p-chip">`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
 View example of the dismiss chip pattern
-</a></div>
-
-## Interactive
-
-Chips can be implemented as `button` elements to make them clickable and selectable. You can mark chip as selected by adding `aria-pressed="true"` attribute to the chip element.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/interactive" class="js-example">
-View example of the interactive chip pattern
 </a></div>
 
 ## Dense chips
