@@ -22,52 +22,28 @@
     color: $color-x-light;
   }
 
-  @include vf-p-label-validated;
-  @include vf-p-label-in-progress;
-  @include vf-p-label-new;
-  @include vf-p-label-updated;
-  @include vf-p-label-deprecated;
-}
-
-// Override local variables
-@mixin vf-p-label-validated {
-  .p-label--validated {
-    @extend %vf-label;
-
-    background-color: $color-label-validated;
-    color: $color-x-light;
-  }
-}
-
-@mixin vf-p-label-in-progress {
-  .p-label--in-progress {
-    @extend %vf-label;
-
-    background-color: $color-caution;
-    color: $color-dark;
-  }
-}
-
-@mixin vf-p-label-new {
-  .p-label--new {
+  .p-label--positive {
     @extend %vf-label;
 
     background-color: $color-positive;
     color: $color-x-light;
   }
-}
 
-@mixin vf-p-label-updated {
-  .p-label--updated {
+  .p-label--caution {
+    @extend %vf-label;
+
+    background-color: $color-caution;
+    color: $color-dark;
+  }
+
+  .p-label--information {
     @extend %vf-label;
 
     background-color: $color-information;
     color: $color-x-light;
   }
-}
 
-@mixin vf-p-label-deprecated {
-  .p-label--deprecated {
+  .p-label--negative {
     @extend %vf-label;
 
     background-color: $color-negative;
