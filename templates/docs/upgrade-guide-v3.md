@@ -153,18 +153,17 @@ List of removed max width features includes:
 
 ## Labels
 
-The label pattern has been removed, and we've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral". Please read the [chip documentation](/docs/patterns/chip) to see how the markup and class names have changed, including the addition of `p-chip__lead` and `p-chip__value` classes. In places where you're replacing the `p-label` you'll probably need to add the `is-dense` modifier.
+The color variants of the label pattern have been renamed to use consistent semantic naming with coloured chips. Old class names based on Vanilla component status names have been removed. Previous `p-label--validated` variant doesn't have direct equivalent, please use `p-label--positive` or `p-label--information` depending on your use case.
 
-| Deprecated classes      | Replaced by            |
-| ----------------------- | ---------------------- |
-| `.p-label`              | `.p-chip`              |
-| `.p-label--deprecated`  | `.p-chip--negative`    |
-| `.p-label--in-progress` | `.p-chip--caution`     |
-| `.p-label--new`         | `.p-chip--positive`    |
-| `.p-label--updated`     | `.p-chip--information` |
-| `.p-label--validated`   | `.p-chip--information` |
+| Removed classes         | Replaced by                                    |
+| ----------------------- | ---------------------------------------------- |
+| `.p-label--deprecated`  | `.p-label--negative`                           |
+| `.p-label--in-progress` | `.p-label--caution`                            |
+| `.p-label--new`         | `.p-label--positive`                           |
+| `.p-label--updated`     | `.p-label--information`                        |
+| `.p-label--validated`   | `.p-label--information` or `p-label--positive` |
 
-The `vf-p-label` mixin has been removed so you'll have to remove this from your code, along with `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
+The individual mixins for label variants have been removed. All necessary styles are included in main `vf-p-label` mixin, If you use any of the following individual mixins you can remove them from your code: `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
 ## Responsive tables
 
