@@ -153,7 +153,7 @@ List of removed max width features includes:
 
 ## Labels
 
-The color variants of the label pattern have been renamed to use consistent semantic naming with coloured chips. Old class names based on Vanilla component status names have been removed. Previous `p-label--validated` variant doesn't have direct equivalent, please use `p-label--positive` or `p-label--information` depending on your use case.
+The colour variants of the label pattern have been renamed to use consistent semantic naming with coloured chips. Old class names based on Vanilla component status names have been removed. Previous `p-label--validated` variant doesn't have direct equivalent, please use `p-label--positive` or `p-label--information` depending on your use case.
 
 | Removed classes         | Replaced by                                    |
 | ----------------------- | ---------------------------------------------- |
