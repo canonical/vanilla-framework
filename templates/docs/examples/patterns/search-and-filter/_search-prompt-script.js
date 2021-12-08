@@ -4,10 +4,9 @@
   @return {HTMLElement} A chip element containing the value
 */
 function createChip(value) {
-  var chip = document.createElement('div');
+  var chip = document.createElement('button');
   chip.classList.add('p-chip');
   chip.setAttribute('aria-pressed', 'false');
-  chip.setAttribute('role', 'button');
   chip.innerHTML = `<span class="p-chip__value">'${value}'</span>`;
   return chip;
 }

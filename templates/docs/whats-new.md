@@ -22,20 +22,20 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.00 -->
     <tr>
-      <th><a href="/docs/patterns/chip#interactive">Chips / Interactive</a></th>
+      <th><a href="/docs/patterns/labels">Labels</a></th>
       <td>
         <span class="p-label--information">Updated</span>
       </td>
       <td>3.0.0</td>
-      <td>We've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component. The default chip colour (grey) is now referred to as "neutral".</td>
+      <td>We've updated the labels component by introducing new semantic class names consistend with tinted chips.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/chip">Labels</a></th>
+      <th><a href="/docs/patterns/chip">Chips</a></th>
       <td>
-        <span class="p-label--negative">Deprecated</span>
+        <span class="p-label--information">Updated</span>
       </td>
       <td>3.0.0</td>
-      <td>We've removed the labels pattern as the new tinted chips can be used instead.</td>
+      <td>We've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component.</td>
     </tr>
   </tbody>
 </table>
