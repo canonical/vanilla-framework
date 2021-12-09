@@ -177,6 +177,12 @@ Also, the dismiss button in chips has been updated. It now provides its own icon
 
 ## Variables
 
+The `accordion` key in map `$icon-sizes` has been renamed to `small`. It is currently used in chips, and is suitable to other situations where the icons sits next to small text.
+
+| Old map call                      | New map call                  |
+| --------------------------------- | ----------------------------- |
+| `map-get($icon-sizes, accordion)` | `map-get($icon-sizes, small)` |
+
 `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
 
 ### Variable refactor
@@ -219,21 +225,21 @@ So any calls that previously included `nudge--` as in `map-get($nudges, nudge--p
 
 Full list of changed keys:
 
-| Old key             | New key      |
-| ------------------- | ------------ |
-| nudge--h1-large     | h1-large     |
-| nudge--h4-large     | h4-large     |
-| nudge--h1           | h1           |
-| nudge--h1-mobile    | h1-mobile    |
-| nudge--h2           | h2           |
-| nudge--h2-mobile    | h2-mobile    |
-| nudge--h3           | h3           |
-| nudge--h3-mobile    | h3-mobile    |
-| nudge--h4           | h4           |
-| nudge--h4-mobile    | h4-mobile    |
-| nudge--h6           | h6           |
-| nudge--h6-large     | h6-mobile    |
-| nudge--p            | p            |
-| nudge--p-ubuntumono | p-ubuntumono |
-| nudge--small        | small        |
-| nudge--x-small      | x-small      |
+| Old key               | New key        |
+| --------------------- | -------------- |
+| `nudge--h1-large`     | `h1-large`     |
+| `nudge--h4-large`     | `h4-large`     |
+| `nudge--h1`           | `h1`           |
+| `nudge--h1-mobile`    | `h1-mobile`    |
+| `nudge--h2`           | `h2`           |
+| `nudge--h2-mobile`    | `h2-mobile`    |
+| `nudge--h3`           | `h3`           |
+| `nudge--h3-mobile`    | `h3-mobile`    |
+| `nudge--h4`           | `h4`           |
+| `nudge--h4-mobile`    | `h4-mobile`    |
+| `nudge--h6`           | `h6`           |
+| `nudge--h6-large`     | `h6-mobile`    |
+| `nudge--p`            | `p`            |
+| `nudge--p-ubuntumono` | `p-ubuntumono` |
+| `nudge--small`        | `small`        |
+| `nudge--x-small`      | `x-small`      |
