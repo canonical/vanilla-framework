@@ -38,7 +38,7 @@ The neutral button style provided by `p-button--neutral` was exactly the same as
 
 ### Full width mobile buttons have been removed
 
-In Vanilla 2.0 buttons on smallest screens (below `$breakpoint-x-small`) have been extended to full 100% width. This was causing issues on some layouts and with some utilities, so is no longer part of Vanilla 3.0. If your project has any custom code that was needed because of full width buttons you may need to update or remove it.
+In Vanilla 2.0 buttons on smallest screens (below `$breakpoint-x-small`) were extended to full 100% width. This was causing issues on some layouts and with some utilities, so is no longer part of Vanilla 3.0. If your project has any custom code that was needed because of full width buttons you may need to update or remove it.
 
 ### "Active" button state have been renamed to "processing"
 
@@ -127,7 +127,7 @@ Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless 
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
-    <p class="p-notification__message">Please note that <code>.p-navigation__link</code> class name is used in both deprecated and new version, but on different elements. When upgrading make sure not to replace valid new uses of <code>.p-navigation__link</code> applied to links (<code>&lt;a&gt;</code>), but only old ones applied to list items (<code>&lt;li&gt;</code>).</p>
+    <p class="p-notification__message">Please note that <code>.p-navigation__link</code> class name is used in both deprecated and new versions, but on different elements. When upgrading make sure not to replace valid new uses of <code>.p-navigation__link</code> applied to links (<code>&lt;a&gt;</code>), but only old ones applied to list items (<code>&lt;li&gt;</code>).</p>
   </div>
 </div>
 
