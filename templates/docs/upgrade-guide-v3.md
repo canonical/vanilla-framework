@@ -225,9 +225,9 @@ Also, the dismiss button in chips has been updated. It now provides its own icon
 
 ## Code
 
-There have been some changes to the code pattern. We removed the copy to clipboard option, so the `vf-p-code-copyable` mixin and `p-code-copyable` class have both been deprecated.
+There have been some changes to the code pattern. We removed the copy to clipboard option, so the `vf-p-code-copyable` mixin and `p-code-copyable` class have both been removed.
 
-The `p-code-numbered` class has been deprecated, along with the mixin `vf-p-code-numbered`. Please use `p-code-snippet` and `p-code-snippet__block--numbered` from the new [code snippet](/docs/base/code#numbered-code-snippet) pattern instead.
+The `p-code-numbered` class has been removed, along with the mixin `vf-p-code-numbered`. Please use `p-code-snippet` and `p-code-snippet__block--numbered` from the new [code snippet](/docs/base/code#numbered-code-snippet) pattern instead.
 
 ## Variables
 
