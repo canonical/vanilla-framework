@@ -170,6 +170,10 @@ The text content of the notifications should also be wrapped in element with `.p
 
 The `.p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `.p-article-pagination__link--previous`) were meant to be used.
 
+## Accordion
+
+We updated the HTML structure of the accordion component and removed the classes `p-accordion__title` and `p-accordion__tab--with-title` used for accordion headings, in favour of a more accessible accordion structure. If headings are used in accordion, the HTML structure needs to be updated. See [accordion docs](/docs/patterns/accordion) for details.
+
 ## Slider
 
 Adding `.p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `.p-slider__wrapper` and `.p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
