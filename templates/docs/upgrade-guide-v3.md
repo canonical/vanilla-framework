@@ -135,14 +135,14 @@ Refer to [navigation documentation](/docs/patterns/navigation) for more details 
 
 ### Subnav component was replaced by navigation dropdowns
 
-Navigation dropdowns implemented as separate `.p-subnav` class has also been removed. This class name and its associated child elements should be updated simply by substituting the following class names:
+Navigation dropdowns implemented with separate `.p-subnav` classes have also been removed. This class name and its associated child elements should be updated simply by substituting the following class names:
 
 | Removed classes           | Replaced by                            |
 | ------------------------- | -------------------------------------- |
-| `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
-| `.p-subnav__items`        | `.p-navigation__dropdown`              |
 | `.p-subnav__items--right` | `.p-navigation__dropdown--right`       |
+| `.p-subnav__items`        | `.p-navigation__dropdown`              |
 | `.p-subnav__item`         | `.p-navigation__dropdown-item`         |
+| `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
 
 The `<a>` element that toggles the dropdown element should have the `.p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
 
