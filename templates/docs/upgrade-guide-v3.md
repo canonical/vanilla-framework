@@ -154,6 +154,10 @@ Refer to [navigation dropdowns documentation](/docs/patterns/navigation#dropdown
 
 The color variable `$color-navigation-background` has been removed, please use the default light and dark themed navigation patterns.
 
+### Expanding search box
+
+If a search box is being used in the top navigation, you now have the option to use the new [expanding search](/docs/examples/patterns/navigation/search-dark) component. We haven't removed the old search box, so this update is completely optional.
+
 ## Notifications
 
 The notification child classes have been replaced to support new variants. The following class substitutions can be used to support existing functionality:
