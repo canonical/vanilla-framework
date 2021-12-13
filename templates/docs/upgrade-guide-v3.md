@@ -97,7 +97,7 @@ Using `.u-hide` utility inside expanding table to hide table heading placeholder
 ## Icons
 
 The `.p-icon--question` icon has been removed. Please use the existing `.p-icon--help` icon instead.
-Corresponding mixins `vf-p-icon-question` and `vf-icon-question` have also been removed. Please use `vf-p-icon-help` and `vf-icon-help`, respectively, instead.
+Corresponding mixins `vf-p-icon-question` and `vf-icon-question` have also been removed. Please use `vf-p-icon-help` and `vf-icon-help`, respectively, instead. The `p-icon--contextual-menu` icon has been removed and replaced by the chevron `p-icon--chevron-down` or `p-icon--chevron-up` icons. The mixin `vf-icon-contextual-menu` has also been removed.
 
 The `vf-p-icon-in-button` mixin is no longer necessary and has been removed. Any code that includes this mixin can be removed.
 
