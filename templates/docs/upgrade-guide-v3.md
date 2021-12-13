@@ -191,13 +191,15 @@ We removed the `p-table--sortable` that was previously required to enable sortin
 ## Text element max-width
 
 Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed.
-The sole remaining variable to control max-widths was also renamed from `$max-width--default` to `$text-max-width`. All other heading max-width variables have been replaced by `$text-max-width`.
+All heading related max-width variables have been replaced by one single variable - `$text-max-width`, which is an updated version of the `$max-width--default` variable.
 
 List of removed max width features includes:
 
 - `max-width--p` and `%measure--p` placeholders
 - `.measure--p` class name
 - `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
+
+You can add `max-width: $text-max-width` to replace them.
 
 ## Labels
 
