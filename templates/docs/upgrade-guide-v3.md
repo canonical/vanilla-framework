@@ -166,6 +166,8 @@ The notification child classes have been replaced to support new variants. The f
 
 The text content of the notifications should also be wrapped in element with `.p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
 
+Additionally the `p-notification__action` class should no longer be used for links in notification text. Instead, it should be used for notification action buttons. Please see the [notifications docs](/docs/patterns/notification#actions) for examples.
+
 ## Pagination links
 
 The `.p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `.p-article-pagination__link--previous`) were meant to be used.
