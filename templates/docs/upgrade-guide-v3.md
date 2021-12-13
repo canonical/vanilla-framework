@@ -227,6 +227,12 @@ As chips are meant to be interactive by default, they now use the `<button>` ele
 
 Also, the dismiss button in chips has been updated. It now provides its own icon, so it should not include a separate icon element. Please remove any icons from the chips, and keep only the `Dismiss` text in the button.
 
+## Code
+
+There have been some changes to the code pattern. We removed the copy to clipboard option, so the `vf-p-code-copyable` mixin and `p-code-copyable` class have both been removed.
+
+The `p-code-numbered` class has been removed, along with the mixin `vf-p-code-numbered`. Please use `p-code-snippet` and `p-code-snippet__block--numbered` from the new [code snippet](/docs/base/code#numbered-code-snippet) pattern instead.
+
 ## Variables
 
 The `accordion` key in map `$icon-sizes` has been renamed to `small`. It is currently used in chips, and is suitable to other situations where the icons sits next to small text.
