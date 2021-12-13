@@ -158,6 +158,10 @@ The color variable `$color-navigation-background` has been removed, please use t
 
 If a search box is being used in the top navigation, you now have the option to use the new [expanding search](/docs/examples/patterns/navigation/search-dark) component. We haven't removed the old search box, so this update is completely optional.
 
+## Breadcrumbs
+
+We updated the markup of the breadcrumbs component to comply with accessibility requirements. The `p-breadcrumbs` class has moved from the `<ul>` element to a a parent `<nav>` element, with an additional `aria-label` description of "Breadcrumbs". An `<ol>` element replaces the `<ul> `with the class `p-breadcrumbs__items`. See more details in the [breadcrumbs docs](/docs/patterns/breadcrumbs).
+
 ## Notifications
 
 The notification child classes have been replaced to support new variants. The following class substitutions can be used to support existing functionality:
