@@ -104,9 +104,9 @@ In Vanilla 2.0 buttons on smallest screens (below `$breakpoint-x-small`) were ex
 
 ### "Active" button state have been renamed to "processing"
 
-The state initially implemented as "active" via `.is-active` class name on the buttons has been renamed to `.is-processing` to avoid confusion with native active state of the interactive elements. If you use `.is-active` class on any buttons (to keep them opaque even when disabled) you need to change the class name to `.is-processing`.
+The state initially implemented as "active" via `is-active` class name on the buttons has been renamed to `is-processing` to avoid confusion with native active state of the interactive elements. If you use `is-active` class on any buttons (to keep them opaque even when disabled) you need to change the class name to `is-processing`.
 
-| Removed class name | New class name         |
+| Removed class      | Replaced by            |
 | ------------------ | ---------------------- |
 | `button.is-active` | `button.is-processing` |
 
@@ -114,22 +114,22 @@ The previous `vf-button-active` mixin was renamed to `vf-button-processing`. Add
 
 ## External Links
 
-The `.p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
+The `p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
 
 ## Grid
 
+### Grid spacing maps
+
+The scss maps defining grid margins and gutters have been simplified. In both `$grid-gutter-widths` and `$grid-margin-widths`, the `medium` and `large` keys have changed to `default`. So any calls that previously included `medium` or `large` as in `map-get($grid-gutter-widths, medium)`, should now be renamed to `map-get($grid-gutter-widths, default)`.
+
+| Removed map key | Replaced by |
+| --------------- | ----------- |
+| `medium`        | `default`   |
+| `large`         | `default`   |
+
 ### Column classes
 
-The scss maps defining grid margins and gutters have been simplified. In both `$grid-gutter-widths` and `$grid-margin-widths`, the following keys havechanged:
-
-| Old key  | New key   |
-| -------- | --------- |
-| `medium` | `default` |
-| `large`  | `default` |
-
-### Column classes
-
-Use of `.col` classes outside of `.row` is no longer supported. If you use `.col-X` class names outside of `.row`, or your custom styling depends on specificity of a `.col-X` class name, you will need to review and update your styles accordingly.
+Use of `col` classes outside of `row` is no longer supported. If you use `col-X` class names outside of `row`, or your custom styling depends on specificity of a `col-X` class name, you will need to review and update your styles accordingly.
 
 ### Column layout change
 
@@ -143,7 +143,7 @@ The `vf-p-grid-modifications` mixin was unnecessary and has been removed. Any re
 
 Heading pattern classes with a word suffix have been replaced by classes with a number suffix:
 
-| Old style          | New style      |
+| Removed classes    | Replaced by    |
 | ------------------ | -------------- |
 | `p-heading--one`   | `p-heading--1` |
 | `p-heading--two`   | `p-heading--2` |
@@ -154,38 +154,42 @@ Heading pattern classes with a word suffix have been replaced by classes with a 
 
 ## Hidden cell in expanding table
 
-Using `.u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding), `aria-hidden="true"`, instead.
+Using `u-hide` utility inside expanding table to hide table heading placeholder is not recommended. Use [the recommended ARIA attribute](/docs/base/tables#expanding), `aria-hidden="true"`, instead.
 
 ## Icons
 
-The `.p-icon--question` icon has been removed. Please use the existing `.p-icon--help` icon instead.
-Corresponding mixins `vf-p-icon-question` and `vf-icon-question` have also been removed. Please use `vf-p-icon-help` and `vf-icon-help`, respectively, instead. The `p-icon--contextual-menu` icon has been removed and replaced by the chevron `p-icon--chevron-down` or `p-icon--chevron-up` icons. The mixin `vf-icon-contextual-menu` has also been removed.
+The `p-icon--question` icon has been removed. Please use the existing `p-icon--help` icon instead. Corresponding mixins `vf-p-icon-question` and `vf-icon-question` have also been removed. Please use `vf-p-icon-help` and `vf-icon-help`, respectively, instead.
+
+The `p-icon--contextual-menu` icon has been removed and replaced by the chevron `p-icon--chevron-down` or `p-icon--chevron-up` icons. The mixin `vf-icon-contextual-menu` has also been removed.
 
 The `vf-p-icon-in-button` mixin is no longer necessary and has been removed. Any code that includes this mixin can be removed.
 
-### Social icons
+The `p-icon--canonical` and `p-icon--ubuntu` from the social icon set have been removed, along with their corresponding mixins: `vf-icon-canonical`, `vf-p-icon-canonical`, `vf-icon-ubuntu`, `vf-p-icon-ubuntu`. Please use alternative icons from our social set or a bespoke branded icon for your project.
 
-We have removed `.p-icon--canonical` and `.p-icon--ubuntu` from the social icon set, along with their corresponding mixins: `vf-icon-canonical`, `vf-p-icon-canonical`, `vf-icon-ubuntu`, `vf-p-icon-ubuntu`.
-
-Please use alternative icons from our social set or a bespoke branded icon for your project.
+| Removed classes           | Replaced by               |
+| ------------------------- | ------------------------- |
+| `p-icon--question`        | `p-icon--help`            |
+| `p-icon--contextual-menu` | `p-icon--chevron-down`    |
+| `p-icon--canonical`       | Dropped, use another icon |
+| `p-icon--ubuntu`          | Dropped, use another icon |
 
 ## Inline images
 
-We removed the inline images (`p-inline-images`) component. Please use the [logo section component](/docs/patterns/logo-section) instead. As this pattern requires images to have identical dimensions, the height and width of any which currently use the `p-inline-mages` pattern may need to be updated.
+We removed the inline images (`p-inline-images`) component. Please use the [logo section component](/docs/patterns/logo-section) instead. As this pattern requires images to have identical dimensions, the height and width of any which currently use the `p-inline-images` pattern may need to be updated.
 
 ## Navigation
 
 ### Navigation class names have been updated
 
-The `.row` class should not be used inside global navigation pattern. Use `.p-navigation__row` for fixed-width or `p-navigation_row--full-width` for full-width navigation.
+The `row` class should not be used inside global navigation pattern. Use `p-navigation__row` for fixed-width or `p-navigation_row--full-width` for full-width navigation.
 
-Navigation classes `.p-navigation__links`, `.p-navigation__link`, and classless `<a>` have been removed. Please use new class names `.p-navigation__items`, `.p-navigation__item`, `.p-navigation__link` instead.
+Navigation classes `p-navigation__links`, `p-navigation__link`, and classless `<a>` have been removed. Please use new class names `p-navigation__items`, `p-navigation__item`, `p-navigation__link` instead.
 
-| Removed classes           | Replaced by            |
-| ------------------------- | ---------------------- |
-| `.p-navigation__links`    | `.p-navigation__items` |
-| `.p-navigation__link`     | `.p-navigation__item`  |
-| `.p-navigation__link > a` | `.p-navigation__link`  |
+| Removed classes             | Replaced by                                    |
+| --------------------------- | ---------------------------------------------- |
+| `p-navigation__links`       | `p-navigation__items`                          |
+| `p-navigation__link`        | `p-navigation__item`                           |
+| `li.p-navigation__link > a` | `li.p-navigation__item > a.p-navigation__link` |
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
@@ -197,16 +201,16 @@ Refer to [navigation documentation](/docs/patterns/navigation) for more details 
 
 ### Subnav component was replaced by navigation dropdowns
 
-Navigation dropdowns implemented with separate `.p-subnav` classes have also been removed. This class name and its associated child elements should be updated simply by substituting the following class names:
+Navigation dropdowns implemented with separate `p-subnav` classes have also been removed. This class name and its associated child elements should be updated simply by substituting the following class names:
 
-| Removed classes           | Replaced by                            |
-| ------------------------- | -------------------------------------- |
-| `.p-subnav__items--right` | `.p-navigation__dropdown--right`       |
-| `.p-subnav__items`        | `.p-navigation__dropdown`              |
-| `.p-subnav__item`         | `.p-navigation__dropdown-item`         |
-| `.p-subnav`               | `.p-navigation__item--dropdown-toggle` |
+| Removed classes          | Replaced by                           |
+| ------------------------ | ------------------------------------- |
+| `p-subnav__items--right` | `p-navigation__dropdown--right`       |
+| `p-subnav__items`        | `p-navigation__dropdown`              |
+| `p-subnav__item`         | `p-navigation__dropdown-item`         |
+| `p-subnav`               | `p-navigation__item--dropdown-toggle` |
 
-The `<a>` element that toggles the dropdown element should have the `.p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
+The `<a>` element that toggles the dropdown element should have the `p-navigation__link` class, as well as an `aria-controls` attribute that references the `id` attribute of the dropdown element.
 
 The `vf-p-subnav` mixin was also removed. navigation dropdown styles are part of the main `vf-p-navigation` mixin, so they don't need to be included separately anymore.
 
@@ -222,25 +226,25 @@ If a search box is being used in the top navigation, you now have the option to 
 
 ## Breadcrumbs
 
-We updated the markup of the breadcrumbs component to comply with accessibility requirements. The `p-breadcrumbs` class has moved from the `<ul>` element to a a parent `<nav>` element, with an additional `aria-label` description of "Breadcrumbs". An `<ol>` element replaces the `<ul> `with the class `p-breadcrumbs__items`. See more details in the [breadcrumbs docs](/docs/patterns/breadcrumbs).
+We updated the markup of the breadcrumbs component to comply with accessibility requirements. The `p-breadcrumbs` class has moved from the `<ul>` element to a a parent `<nav>` element, with an additional `aria-label` description of "Breadcrumbs". An `<ol>` element replaces the `<ul>` with the class `p-breadcrumbs__items`. See more details in the [breadcrumbs docs](/docs/patterns/breadcrumbs).
 
 ## Notifications
 
 The notification child classes have been replaced to support new variants. The following class substitutions can be used to support existing functionality:
 
-| Deprecated classes          | Replaced by                |
-| --------------------------- | -------------------------- |
-| `.p-notification__response` | `.p-notification__content` |
-| `.p-notification__status`   | `.p-notification__title`   |
-| `.p-icon--close`            | `.p-notification__close`   |
+| Removed classes            | Replaced by               |
+| -------------------------- | ------------------------- |
+| `p-notification__response` | `p-notification__content` |
+| `p-notification__status`   | `p-notification__title`   |
+| `p-icon--close`            | `p-notification__close`   |
 
-The text content of the notifications should also be wrapped in element with `.p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
+The text content of the notifications should also be wrapped in element with `p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
 
 Additionally the `p-notification__action` class should no longer be used for links in notification text. Instead, it should be used for notification action buttons. Please see the [notifications docs](/docs/patterns/notification#actions) for examples.
 
 ## Pagination links
 
-The `.p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `.p-article-pagination__link--previous`) were meant to be used.
+The `p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `p-article-pagination__link--previous`) were meant to be used.
 
 ## Accordion
 
@@ -248,7 +252,7 @@ We updated the HTML structure of the accordion component and removed the classes
 
 ## Slider
 
-Adding `.p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `.p-slider__wrapper` and `.p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
+Adding `p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `p-slider__wrapper` and `p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
 
 ## Switch
 
@@ -264,16 +268,18 @@ We removed `p-table-expanding` and `p-table-expanding__panel`. Use `p-table--exp
 
 We removed the `p-table--sortable` that was previously required to enable sorting functionality in the tables. Currently any table with correctly used `aria-sort` attributes on column headers can be sorted. The `p-table--sortable` class name can be removed from HTML (any relevant JavaScript may need to be updated).
 
+| Removed classes            | Replaced by                |
+| -------------------------- | -------------------------- |
+| `p-table-expanding`        | `p-table--expanding`       |
+| `p-table-expanding__panel` | `p-table__expanding-panel` |
+| `p-table--sortable`        | `aria-sort="none"`         |
+
 ## Text element max-width
 
 Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed.
 All heading related max-width variables have been replaced by one single variable - `$text-max-width`, which is an updated version of the `$max-width--default` variable.
 
-List of removed max width features includes:
-
-- `max-width--p` and `%measure--p` placeholders
-- `.measure--p` class name
-- `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
+List of removed max width features includes: `max-width--p` and `%measure--p` placeholders, `measure--p` class name, `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
 
 You can add `max-width: $text-max-width` to replace them.
 
@@ -281,13 +287,13 @@ You can add `max-width: $text-max-width` to replace them.
 
 The colour variants of the label pattern have been renamed to use consistent semantic naming with coloured chips. Old class names based on Vanilla component status names have been removed. Previous `p-label--validated` variant doesn't have direct equivalent, please use `p-label--positive` or `p-label--information` depending on your use case.
 
-| Removed classes         | Replaced by                                    |
-| ----------------------- | ---------------------------------------------- |
-| `.p-label--deprecated`  | `.p-label--negative`                           |
-| `.p-label--in-progress` | `.p-label--caution`                            |
-| `.p-label--new`         | `.p-label--positive`                           |
-| `.p-label--updated`     | `.p-label--information`                        |
-| `.p-label--validated`   | `.p-label--information` or `p-label--positive` |
+| Removed classes        | Replaced by                                   |
+| ---------------------- | --------------------------------------------- |
+| `p-label--deprecated`  | `p-label--negative`                           |
+| `p-label--in-progress` | `p-label--caution`                            |
+| `p-label--new`         | `p-label--positive`                           |
+| `p-label--updated`     | `p-label--information`                        |
+| `p-label--validated`   | `p-label--information` or `p-label--positive` |
 
 The individual mixins for label variants have been removed. All necessary styles are included in main `vf-p-label` mixin, If you use any of the following individual mixins you can remove them from your code: `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
@@ -313,7 +319,7 @@ The `p-code-numbered` class has been removed, along with the mixin `vf-p-code-nu
 
 The `accordion` key in map `$icon-sizes` has been renamed to `small`. It is currently used in chips, and is suitable to other situations where the icons sits next to small text.
 
-| Old map call                      | New map call                  |
+| Removed map call                  | Replaced by                   |
 | --------------------------------- | ----------------------------- |
 | `map-get($icon-sizes, accordion)` | `map-get($icon-sizes, small)` |
 
