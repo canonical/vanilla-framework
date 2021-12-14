@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'settings';
 
 @mixin vf-p-chip {
@@ -54,7 +55,7 @@
       flex: 0 0 auto;
       margin-left: $sph--x-small;
       @media (min-width: $breakpoint-x-large) {
-        background-size: map-get($icon-sizes, small) / $font-size-ratio--largescreen; //ensure no rounding happens as it positions the icon off center
+        background-size: math.div(map-get($icon-sizes, small), $font-size-ratio--largescreen); //ensure no rounding happens as it positions the icon off center
       }
     }
 
