@@ -327,37 +327,41 @@ We've simplified the spacing variables in Vanilla. Please use the mapping below 
 
 #### Vertical spacing variables:
 
-| Removed variable                 | Replaced by                      | Default value |
-| -------------------------------- | -------------------------------- | ------------- |
-| `$multi`                         | Dropped. Delete any instances    | `–`           |
-| `$spv-inner--small`              | `$spv--small`                    | `0.5rem`      |
-| `$spv-inner--x-small--scaleable` | `$spv--small`                    | `0.5rem`      |
-| `$spv-inner--x-small`            | `$spv--x-small`                  | `0.25rem`     |
-| `$spv-inner--medium`             | `$spv--medium`                   | `0.75rem`     |
-| `$spv-inner--scaleable`          | `$spv--large`                    | `1rem`        |
-| `$spv-inner--large`              | `$spv--large`                    | `1rem`        |
-| `$spv-inner--x-large`            | Express as a sum of other vars\* | `2.75rem`     |
-| `$spv-outer--small-scaleable`    | `$spv--large`                    | `1rem`        |
-| `$spv-outer--small`              | `$spv--small`                    | `0.5rem`      |
-| `$spv-outer--medium`             | `$spv--large`                    | `1rem`        |
-| `$spv-outer--scaleable`          | `$spv--x-large`                  | `1.5rem`      |
-| `$spv-outer--shallow-scaleable`  | `$spv--x-large`                  | `1.5rem`      |
-| `$spv-outer--regular-scaleable`  | `$spv--strip-regular`            | `4rem`        |
-| `$spv-outer--deep-scaleable`     | `$spv--strip-deep`               | `6rem`        |
+| Removed variable                 | Replaced by                    | Default value |
+| -------------------------------- | ------------------------------ | ------------- |
+| `$multi`                         | Dropped. Delete any instances  | `–`           |
+| `$spv-inner--small`              | `$spv--small`                  | `0.5rem`      |
+| `$spv-inner--x-small--scaleable` | `$spv--small`                  | `0.5rem`      |
+| `$spv-inner--x-small`            | `$spv--x-small`                | `0.25rem`     |
+| `$spv-inner--medium`             | `$spv--medium`                 | `0.75rem`     |
+| `$spv-inner--scaleable`          | `$spv--large`                  | `1rem`        |
+| `$spv-inner--large`              | `$spv--large`                  | `1rem`        |
+| `$spv-inner--x-large`            | Express as a sum of other vars | `2.75rem`     |
+| `$spv-outer--small-scaleable`    | `$spv--large`                  | `1rem`        |
+| `$spv-outer--small`              | `$spv--small`                  | `0.5rem`      |
+| `$spv-outer--medium`             | `$spv--large`                  | `1rem`        |
+| `$spv-outer--scaleable`          | `$spv--x-large`                | `1.5rem`      |
+| `$spv-outer--shallow-scaleable`  | `$spv--x-large`                | `1.5rem`      |
+| `$spv-outer--regular-scaleable`  | `$spv--strip-regular`          | `4rem`        |
+| `$spv-outer--deep-scaleable`     | `$spv--strip-deep`             | `6rem`        |
 
 #### Horizontal spacing variables:
 
-| Removed variable      | Replaced by                      | Default value |
-| --------------------- | -------------------------------- | ------------- |
-| `$sph-inner--small`   | `$sph--small`                    | `0.5rem`      |
-| `$sph-inner--large`   | Express as a sum of other vars\* | `1.5rem`      |
-| `$sph-inner--x-large` | Express as a sum of other vars\* | `2.5rem`      |
-| `$sph-inner--x-small` | `$sph--x-small`                  | `0.25rem`     |
-| `$sph-inner`          | `$sph--large`                    | `1rem`        |
-| `$sph-outer--large`   | Express as a sum of above vars\* | `1.5rem`      |
-| `$sph-outer`          | `$sph--large`                    | `1rem`        |
+| Removed variable      | Replaced by                    | Default value |
+| --------------------- | ------------------------------ | ------------- |
+| `$sph-inner--x-large` | Express as a sum of other vars | `2.5rem`      |
+| `$sph-inner--large`   | Express as a sum of other vars | `1.5rem`      |
+| `$sph-inner--small`   | `$sph--small`                  | `0.5rem`      |
+| `$sph-inner--x-small` | `$sph--x-small`                | `0.25rem`     |
+| `$sph-inner`          | `$sph--large`                  | `1rem`        |
+| `$sph-outer--large`   | Express as a sum of other vars | `1.5rem`      |
+| `$sph-outer`          | `$sph--large`                  | `1rem`        |
 
-<small>\* In cases when your build fails because of missing variable and you can't figure out what to replace it with, feel free to hardcode its value in `rem` temporarily, but leave a `FIXME` comment around it, to update it later when your styles build without errors.</small>
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <p class="p-notification__message">In cases where your build fails because of a missing variable and you can't figure out what to replace it with, feel free to hardcode its value in <code>rem</code> temporarily, but leave a <code>FIXME</code> comment around it, to update it later when your styles build without errors.</p>
+  </div>
+</div>
 
 #### Nudges map
 
