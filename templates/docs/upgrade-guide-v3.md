@@ -309,64 +309,72 @@ The `p-code-numbered` class has been removed, along with the mixin `vf-p-code-nu
 
 ## Variables
 
+### Icon sizes
+
 The `accordion` key in map `$icon-sizes` has been renamed to `small`. It is currently used in chips, and is suitable to other situations where the icons sits next to small text.
 
 | Old map call                      | New map call                  |
 | --------------------------------- | ----------------------------- |
 | `map-get($icon-sizes, accordion)` | `map-get($icon-sizes, small)` |
 
+### Grid margins
+
 `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
 
-### Variable refactor
+### Spacing variables
 
 We've simplified the spacing variables in Vanilla. Please use the mapping below to update from the old variable names to the new ones:
 
 #### Vertical spacing variables:
 
-| Deprecated variable              | Replaced by                    | Default value |
-| -------------------------------- | ------------------------------ | ------------- |
-| `$multi`                         | Dropped. Delete any instances  | `–`           |
-| `$spv-inner--small`              | `$spv--small`                  | `0.5rem`      |
-| `$spv-inner--x-small--scaleable` | `$spv--small`                  | `0.5rem`      |
-| `$spv-inner--x-small`            | `$spv--x-small`                | `0.25rem`     |
-| `$spv-inner--medium`             | `$spv--medium`                 | `0.75rem`     |
-| `$spv-inner--scaleable`          | `$spv--large`                  | `1rem`        |
-| `$spv-inner--large`              | `$spv--large`                  | `1rem`        |
-| `$spv-inner--x-large`            | Express as a sum of other vars | `2.75rem`     |
-| `$spv-outer--small-scaleable`    | `$spv--large`                  | `1rem`        |
-| `$spv-outer--small`              | `$spv--small`                  | `0.5rem`      |
-| `$spv-outer--medium`             | `$spv--large`                  | `1rem`        |
-| `$spv-outer--scaleable`          | `$spv--x-large`                | `1.5rem`      |
-| `$spv-outer--shallow-scaleable`  | `$spv--x-large`                | `1.5rem`      |
-| `$spv-outer--regular-scaleable`  | `$spv--strip-regular`          | `4rem`        |
-| `$spv-outer--deep-scaleable`     | `$spv--strip-deep`             | `6rem`        |
+| Removed variable                 | Replaced by                      | Default value |
+| -------------------------------- | -------------------------------- | ------------- |
+| `$multi`                         | Dropped. Delete any instances    | `–`           |
+| `$spv-inner--small`              | `$spv--small`                    | `0.5rem`      |
+| `$spv-inner--x-small--scaleable` | `$spv--small`                    | `0.5rem`      |
+| `$spv-inner--x-small`            | `$spv--x-small`                  | `0.25rem`     |
+| `$spv-inner--medium`             | `$spv--medium`                   | `0.75rem`     |
+| `$spv-inner--scaleable`          | `$spv--large`                    | `1rem`        |
+| `$spv-inner--large`              | `$spv--large`                    | `1rem`        |
+| `$spv-inner--x-large`            | Express as a sum of other vars\* | `2.75rem`     |
+| `$spv-outer--small-scaleable`    | `$spv--large`                    | `1rem`        |
+| `$spv-outer--small`              | `$spv--small`                    | `0.5rem`      |
+| `$spv-outer--medium`             | `$spv--large`                    | `1rem`        |
+| `$spv-outer--scaleable`          | `$spv--x-large`                  | `1.5rem`      |
+| `$spv-outer--shallow-scaleable`  | `$spv--x-large`                  | `1.5rem`      |
+| `$spv-outer--regular-scaleable`  | `$spv--strip-regular`            | `4rem`        |
+| `$spv-outer--deep-scaleable`     | `$spv--strip-deep`               | `6rem`        |
 
 #### Horizontal spacing variables:
 
-| Spacing variable      | Formula                        | Default value |
-| --------------------- | ------------------------------ | ------------- |
-| `$sph-inner--small`   | `$sph--small`                  | `0.5rem`      |
-| `$sph-inner--large`   | Express as a sum of other vars | `1.5rem`      |
-| `$sph-inner--x-large` | Express as a sum of other vars | `2.5rem`      |
-| `$sph-inner`          | `$sph--large`                  | `1rem`        |
-| `$sph-outer--large`   | Express as sum of above vars   | `1.5rem`      |
-| `$sph-outer`          | `$sph--small`                  | `0.5rem`      |
+| Removed variable      | Replaced by                      | Default value |
+| --------------------- | -------------------------------- | ------------- |
+| `$sph-inner--small`   | `$sph--small`                    | `0.5rem`      |
+| `$sph-inner--large`   | Express as a sum of other vars\* | `1.5rem`      |
+| `$sph-inner--x-large` | Express as a sum of other vars\* | `2.5rem`      |
+| `$sph-inner`          | `$sph--large`                    | `1rem`        |
+| `$sph-outer--large`   | Express as a sum of above vars\* | `1.5rem`      |
+| `$sph-outer`          | `$sph--small`                    | `0.5rem`      |
+
+<small>\* In cases when your build fails because of missing variable and you can't figure out what to replace it with, feel free to hardcode its value in `rem` temporarily, but leave a `FIXME` comment around it, to update it later when your styles build without errors.</small>
+
+#### Nudges map
 
 The keys in map `$nudges` no longer include the `nudge--` prefix. Please note these fail silently, so it is essential do a thorough search and replace them as part of the upgrade.
 So any calls that previously included `nudge--` as in `map-get($nudges, nudge--p)`, should now be renamed to `map-get($nudges, p)`.
 
 Full list of changed keys:
 
-| Old key               | New key        |
+| Removed map key       | Replaced by    |
 | --------------------- | -------------- |
-| `nudge--h1-large`     | `h1-large`     |
-| `nudge--h4-large`     | `h4-large`     |
 | `nudge--h1-mobile`    | `h1-mobile`    |
+| `nudge--h1-large`     | `h1-large`     |
 | `nudge--h1`           | `h1`           |
 | `nudge--h2-mobile`    | `h2-mobile`    |
 | `nudge--h2`           | `h2`           |
 | `nudge--h3-mobile`    | `h3-mobile`    |
 | `nudge--h3`           | `h3`           |
+| `nudge--h4-large`     | `h4-large`     |
 | `nudge--h4-mobile`    | `h4-mobile`    |
 | `nudge--h4`           | `h4`           |
 | `nudge--h6-large`     | `h6-mobile`    |
