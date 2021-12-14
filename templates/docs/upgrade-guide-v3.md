@@ -352,9 +352,10 @@ We've simplified the spacing variables in Vanilla. Please use the mapping below 
 | `$sph-inner--small`   | `$sph--small`                    | `0.5rem`      |
 | `$sph-inner--large`   | Express as a sum of other vars\* | `1.5rem`      |
 | `$sph-inner--x-large` | Express as a sum of other vars\* | `2.5rem`      |
+| `$sph-inner--x-small` | `$sph--x-small`                  | `0.25rem`     |
 | `$sph-inner`          | `$sph--large`                    | `1rem`        |
 | `$sph-outer--large`   | Express as a sum of above vars\* | `1.5rem`      |
-| `$sph-outer`          | `$sph--small`                    | `0.5rem`      |
+| `$sph-outer`          | `$sph--large`                    | `1rem`        |
 
 <small>\* In cases when your build fails because of missing variable and you can't figure out what to replace it with, feel free to hardcode its value in `rem` temporarily, but leave a `FIXME` comment around it, to update it later when your styles build without errors.</small>
 
