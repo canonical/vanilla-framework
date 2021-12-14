@@ -86,7 +86,7 @@ Make sure to use `$breakpoint - 1` whenever you use `max-width` in media query.
 
 The changes to responsive breakpoint affect how the show/hide utilities behave. In previous version of Vanilla it was quite inconsistent between different utils and grid.
 
-In Vanilla v3.0 any utils with `--small` modifier only affect small screens (below `$breakpoint-small`), with `--medium` modifier affect medium screens (between `$breakpoint-small` nad `$breakpoint-large`), and with `--large` the large screens respectively.
+In Vanilla v3.0, any utils with `--small` modifier only affect small screens (below `$breakpoint-small`), with `--medium` modifier affect medium screens (between `$breakpoint-small` and `$breakpoint-large`), and with `--large` the large screens respectively.
 
 This change may affect the current usage of responsive `u-hide` variants. Most notably, in places where the `u-hide--small` class is currently used, `u-hide--medium` may need to be added (to cover both small and medium screens). This is to replicate current behaviour of `u-hide--small`, ensuring the element is hidden on small and medium screens.
 
