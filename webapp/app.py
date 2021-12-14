@@ -12,6 +12,7 @@ import jinja2
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam.search import build_search_view
+from canonicalwebteam import image_template
 
 
 # Constants
@@ -145,6 +146,11 @@ def global_template_context():
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
     return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
+
+
+@app.context_processor
+def utility_processor():
+    return {"image": image_template}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
