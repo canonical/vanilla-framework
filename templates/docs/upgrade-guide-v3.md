@@ -24,11 +24,73 @@ Previously, base checkbox and radio elements were styled to look like the [`.p-c
 
 ## Breakpoints
 
+Vanilla v3.0 introduces several changes and updates to media query breakpoints and responsive behaviour of utilities and components.
+
+In Vanilla 3.0 there are 2 main breakpoints used by media queries: `$breakpoint-large` and `$breakpoint-small`, and they divide the possible screen widths into 3 ranges:
+
+- small screens (smaller than `$breakpoint-small`)
+- medium screens (starting at `$breakpoint-small` and smaller than `$breakpoint-large`)
+- large screens (from `$breakpoint-large` and bigger)
+
+Additionally some components that require more granular responsiveness use `$breakpoint-x-small` (to target mobile screens in portrait mode) or `$breakpoint-x-large` (to target large widescreen displays).
+
 The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
 
 The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
 
-In places where the `u-hide--small` class is currently used, `u-hide--medium` may need to be added. This is to replicate current behaviour of `u-hide--small`, ensuring the element is hidden on small and medium screens.
+### Using min-width and max-width media queries
+
+By default we follow mobile first approach and it is recommended to use `min-width` queries.
+
+```scss
+.your-styles {
+  // default styles for all screen sizes
+  // ...
+
+  @media (min-width: $breakpoint-small) {
+    // styles for medium and large screens
+    // ...
+  }
+
+  @media (min-width: $breakpoint-large) {
+    // styles for large screens
+    // ...
+  }
+}
+```
+
+To ensure the consistency of media queries and avoid conflicting styles you can build media queries without overlapping ranges.
+
+```scss
+.your-styles {
+  // default styles for all screen sizes
+  // ...
+
+  @media (max-width: $breakpoint-large - 1) {
+    // styles for small screens only
+  }
+
+  @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) {
+    // styles for medium screens only
+  }
+
+  @media (min-width: $breakpoint-large) {
+    // styles for large screens only
+  }
+}
+```
+
+Make sure to use `$breakpoint - 1` whenever you use `max-width` in media query.
+
+### Show/hide utils
+
+The changes to responsive breakpoint affect how the show/hide utilities behave. In previous version of Vanilla it was quite inconsistent between different utils and grid.
+
+In Vanilla v3.0, any utils with `--small` modifier only affect small screens (below `$breakpoint-small`), with `--medium` modifier affect medium screens (between `$breakpoint-small` and `$breakpoint-large`), and with `--large` the large screens respectively.
+
+This change may affect the current usage of responsive `u-hide` variants. Most notably, in places where the `u-hide--small` class is currently used, `u-hide--medium` may need to be added (to cover both small and medium screens). This is to replicate current behaviour of `u-hide--small`, ensuring the element is hidden on small and medium screens.
+
+Please make sure to properly QA any changes around media queries or responsive utilities to verify if they work as expected in given context.
 
 ## Buttons
 
