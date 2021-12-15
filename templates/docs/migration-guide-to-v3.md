@@ -12,9 +12,9 @@ Vanilla 3.0 introduces a number of breaking changes, and this upgrade guide prov
 
 ## Building and importing
 
-Vanilla 3.0 requires use of latest `sass` library and drops support for `node-sass`. If you are still using `node-sass` to build your styles you need to switch to `sass` instead.
+Vanilla 3.0 requires use of latest `sass` library and drops support for `node-sass`. If you are still using `node-sass` to build your styles, you need to switch to `sass` instead.
 
-Additionally with introduction of `sass` we improved the way Vanilla can be imported to your project. Instead of importing source files directly by their path (`@import "vanilla-framework/build/vanilla"`), you can now simply import Vanilla package `@import "vanilla-framework";`. Make sure to `@include vanilla` after the import. This is now a recommended way of importing Vanilla, please update any imports you have:
+Additionally, with introduction of `sass` we improved the way Vanilla can be imported to your project. Instead of importing source files directly by their path (`@import "vanilla-framework/build/vanilla"`), you can now simply import Vanilla package `@import "vanilla-framework";`. Make sure to `@include vanilla` after the import. This is now a recommended way of importing Vanilla, please update any imports you have:
 
 ```scss
 @import 'vanilla-framework';
@@ -70,7 +70,7 @@ We've simplified the spacing variables in Vanilla. Please use the mapping below 
 Max-widths should not be based on font-size. Legacy classes, placeholders, and mixins that used a font-size based max-width setting have been removed.
 All heading related max-width variables have been replaced by one single variable - `$text-max-width`, which is an updated version of the `$max-width--default` variable.
 
-List of removed max width features includes: `max-width--p` and `%measure--p` placeholders, `measure--p` class name, `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
+Removed max width features include: `max-width--p` and `%measure--p` placeholders, `measure--p` class name, `vf-b-typography-max-widths`, `p-max-width`, `heading-max-width--short`, `heading-max-width--long`, `p-max-width--long` mixins.
 
 You can add `max-width: $text-max-width` to replace them.
 
@@ -184,7 +184,7 @@ Refer to our [breakpoints settings documentation](/docs/settings/breakpoint-sett
 
 ### Show/hide utils
 
-The changes to responsive breakpoint affect how the show/hide utilities behave. In previous version of Vanilla it was quite inconsistent between different utils and grid.
+The changes to the responsive breakpoint affect how the show/hide utilities behave. In previous version of Vanilla it was quite inconsistent between different utils and grid.
 
 In Vanilla v3.0, any utils with `--small` modifier only affect small screens (below `$breakpoint-small`), with `--medium` modifier affect medium screens (between `$breakpoint-small` and `$breakpoint-large`), and with `--large` the large screens respectively.
 
@@ -198,7 +198,7 @@ Refer to [show](/docs/utilities/show) and [hide utils documentation](/docs/utili
 
 ### Grid spacing maps
 
-Previously used `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
+Previously used `$grid-margin-width` is has been removed, as the grid margins differ at different breakpoints. Use the values in `$grid-margin-widths` instead.
 
 The SCSS maps defining grid margins and gutters have been simplified. In both `$grid-gutter-widths` and `$grid-margin-widths`, the `medium` and `large` keys have changed to `default`. So any calls that previously included `medium` or `large` as in `map-get($grid-gutter-widths, medium)`, should now be renamed to `map-get($grid-gutter-widths, default)`.
 
@@ -237,7 +237,7 @@ The neutral button style provided by `p-button--neutral` was exactly the same as
 
 In Vanilla 2.0 buttons on smallest screens (below `$breakpoint-x-small`) were extended to full 100% width. This was causing issues on some layouts and with some utilities, so is no longer part of Vanilla 3.0. If your project has any custom code that was needed because of full width buttons you may need to update or remove it.
 
-### "Active" button state have been renamed to "processing"
+### "Active" button state has been renamed to "processing"
 
 The state initially implemented as "active" via `is-active` class name on the buttons has been renamed to `is-processing` to avoid confusion with native active state of the interactive elements. If you use `is-active` class on any buttons (to keep them opaque even when disabled) you need to change the class name to `is-processing`.
 
@@ -438,7 +438,7 @@ The colour variants of the label pattern have been renamed to use consistent sem
 | `p-label--updated`     | `p-label--information`                        |
 | `p-label--validated`   | `p-label--information` or `p-label--positive` |
 
-The individual mixins for label variants have been removed. All necessary styles are included in main `vf-p-label` mixin, If you use any of the following individual mixins you can remove them from your code: `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
+The individual mixins for label variants have been removed. All necessary styles are included in main `vf-p-label` mixin. If you use any of the following individual mixins you can remove them from your code: `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
 Refer to [the label component documentation](/docs/patterns/labels) page for more details and code examples.
 
