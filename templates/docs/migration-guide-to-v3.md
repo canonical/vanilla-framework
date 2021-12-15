@@ -1,10 +1,10 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Vanilla 3.0 upgrade guide
+  title: Migrating to Vanilla 3.0
 ---
 
-# Vanilla 3.0 upgrade guide
+# Migrating to Vanilla 3.0
 
 <hr>
 
