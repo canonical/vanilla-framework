@@ -14,7 +14,12 @@ Vanilla 3.0 introduces a number of breaking changes, and this upgrade guide prov
 
 Vanilla 3.0 requires use of latest `sass` library and drops support for `node-sass`. If you are still using `node-sass` to build your styles you need to switch to `sass` instead.
 
-Additionally with introduction of `sass` we improved the way Vanilla can be imported to your project. Instead of importing source files directly by their path (`@import "vanilla-framework/build/vanilla"`), you can now simply import Vanilla package `@import "vanilla-framework";`. Make sure to `@include vanilla` after the import. This is now a recommended way of importing Vanilla, please update any imports you have.
+Additionally with introduction of `sass` we improved the way Vanilla can be imported to your project. Instead of importing source files directly by their path (`@import "vanilla-framework/build/vanilla"`), you can now simply import Vanilla package `@import "vanilla-framework";`. Make sure to `@include vanilla` after the import. This is now a recommended way of importing Vanilla, please update any imports you have:
+
+```scss
+@import 'vanilla-framework';
+@include vanilla;
+```
 
 You'll need to make sure you're on the latest version of sass, check our [building documentation](/docs/building-vanilla) for more information on how to use `sass` to import and build Vanilla.
 
