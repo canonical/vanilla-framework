@@ -175,6 +175,8 @@ To ensure the consistency of media queries and avoid conflicting styles you can 
 
 Make sure to use `$breakpoint - 1` whenever you use `max-width` in media query.
 
+Refer to our [breakpoints settings documentation](/docs/settings/breakpoint-settings) for more information.
+
 ### Show/hide utils
 
 The changes to responsive breakpoint affect how the show/hide utilities behave. In previous version of Vanilla it was quite inconsistent between different utils and grid.
@@ -184,6 +186,8 @@ In Vanilla v3.0, any utils with `--small` modifier only affect small screens (be
 This change may affect the current usage of responsive `u-hide` variants. Most notably, in places where the `u-hide--small` class is currently used, `u-hide--medium` may need to be added (to cover both small and medium screens). This is to replicate current behaviour of `u-hide--small`, ensuring the element is hidden on small and medium screens.
 
 Please make sure to properly QA any changes around media queries or responsive utilities to verify if they work as expected in given context.
+
+Refer to [show](/docs/utilities/show) and [hide utils documentation](/docs/utilities/hide) for more details and examples.
 
 ## Grid
 
@@ -216,6 +220,8 @@ Use of `col` classes outside of `row` is no longer supported. If you use `col-X`
 
 Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. With the removal of the medium breakpoint, this has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
 
+Refer to [grid documentation](http://192.168.64.8:8101/docs/patterns/grid) for more details and examples.
+
 ## Buttons
 
 ### Neutral buttons have been removed
@@ -242,6 +248,8 @@ The state initially implemented as "active" via `is-active` class name on the bu
 
 The previous `vf-button-active` mixin was renamed to `vf-button-processing`. Additionally the `vf-button-white-success-icon` mixin has been removed (it is not needed anymore as the `%vf-button-white-success-icon` placeholder it used to provide is part of the Vanilla base styles now).
 
+Refer to [button documentation](/docs/patterns/buttons#processing) for more details and examples.
+
 ## Text elements
 
 ### Headings
@@ -256,6 +264,8 @@ Heading pattern classes with a word suffix have been replaced by classes with a 
 | `p-heading--four`  | `p-heading--4` |
 | `p-heading--five`  | `p-heading--5` |
 | `p-heading--six`   | `p-heading--6` |
+
+Refer to [headings documentation](/docs/base/typography#heading-classes) for more details and examples.
 
 ### External links
 
@@ -287,7 +297,7 @@ Navigation classes `p-navigation__links`, `p-navigation__link`, and classless `<
 
 Refer to [navigation documentation](/docs/patterns/navigation) for more details and code examples.
 
-### Subnav component was replaced by navigation dropdowns
+### Sub-navigation component was replaced by navigation dropdowns
 
 Navigation dropdowns implemented with separate `p-subnav` classes have also been removed. This class name and its associated child elements should be updated simply by substituting the following class names:
 
@@ -320,11 +330,13 @@ The switch component has been updated with new HTML structure more consistent wi
 The `p-switch` class name is no longer placed on the checkbox input element, it should be moved to the label element wrapping the input. The class name on the input element itself should be renamed to `p-switch__input`.
 If the switch is supposed to have a label next to it, it should be added as an element with `p-switch__label` class name.
 
-See [the switch component documentation](/docs/patterns/switch) page for more details and code example.
+Refer to [the switch component documentation](/docs/patterns/switch) page for more details and code example.
 
 ### Slider
 
 Adding `p-slider` class to style `<input type='range'>` is optional, so this class name can be safely removed from HTML if it's used solely to style range inputs. Classes `p-slider__wrapper` and `p-slider__input` are still used when building [slider with text input](/docs/patterns/slider) combo.
+
+Refer to [the slider component documentation](/docs/patterns/slider) page for more details and code example.
 
 ## Tables
 
@@ -348,13 +360,19 @@ Using `u-hide` utility inside expanding table to hide table heading placeholder 
 
 The `aria-label` attribute on table cells of the responsive table has been replaced by `data-heading`. This is to ensure information in the cells of the table isn't missed by screen readers. Please replace all `aria-label`'s on `<td>` elements in tables using the `p-table--mobile-card` class.
 
+Refer to [the table component documentation](/docs/base/tables) page for more details and code examples.
+
 ## Accordion
 
-We updated the HTML structure of the accordion component and removed the classes `p-accordion__title` and `p-accordion__tab--with-title` used for accordion headings, in favour of a more accessible accordion structure. If headings are used in accordion, the HTML structure needs to be updated. See [accordion docs](/docs/patterns/accordion) for details.
+We updated the HTML structure of the accordion component and removed the classes `p-accordion__title` and `p-accordion__tab--with-title` used for accordion headings, in favour of a more accessible accordion structure. If headings are used in accordion, the HTML structure needs to be updated.
+
+Refer to [the accordion component documentation](/docs/patterns/accordion) page for more details and code examples.
 
 ## Breadcrumbs
 
-We updated the markup of the breadcrumbs component to comply with accessibility requirements. The `p-breadcrumbs` class has moved from the `<ul>` element to a a parent `<nav>` element, with an additional `aria-label` description of "Breadcrumbs". An `<ol>` element replaces the `<ul>` with the class `p-breadcrumbs__items`. See more details in the [breadcrumbs docs](/docs/patterns/breadcrumbs).
+We updated the markup of the breadcrumbs component to comply with accessibility requirements. The `p-breadcrumbs` class has moved from the `<ul>` element to a a parent `<nav>` element, with an additional `aria-label` description of "Breadcrumbs". An `<ol>` element replaces the `<ul>` with the class `p-breadcrumbs__items`.
+
+Refer to [the breadcrumbs component documentation](/docs/patterns/breadcrumbs) page for more details and code examples.
 
 ## Chips
 
@@ -362,11 +380,15 @@ As chips are meant to be interactive by default, they now use the `<button>` ele
 
 Also, the dismiss button in chips has been updated. It now provides its own icon, so it should not include a separate icon element. Please remove any icons from the chips, and keep only the `Dismiss` text in the button.
 
+Refer to [the chips component documentation](/docs/patterns/chip) page for more details and code examples.
+
 ## Code
 
 There have been some changes to the code pattern. We removed the copy to clipboard option, so the `vf-p-code-copyable` mixin and `p-code-copyable` class have both been removed.
 
 The `p-code-numbered` class has been removed, along with the mixin `vf-p-code-numbered`. Please use `p-code-snippet` and `p-code-snippet__block--numbered` from the new [code snippet](/docs/base/code#numbered-code-snippet) pattern instead.
+
+Refer to [the code snippet component documentation](/docs/base/code#code-snippet) page for more details and code examples.
 
 ## Icons
 
@@ -385,6 +407,8 @@ The `p-icon--canonical` and `p-icon--ubuntu` from the social icon set have been 
 | `p-icon--canonical`       | Dropped, use another icon |
 | `p-icon--ubuntu`          | Dropped, use another icon |
 
+Refer to [the icons documentation](/docs/patterns/icons) page for more details and code examples.
+
 ## Inline images
 
 We removed the inline images (`p-inline-images`) component. Please use the [logo section component](/docs/patterns/logo-section) instead.
@@ -394,6 +418,8 @@ We removed the inline images (`p-inline-images`) component. Please use the [logo
     <p class="p-notification__message">The logo section component requires images to have identical dimensions, so you will not only need to update the HTML markup of the component, but also change the URLs of logo images to new ones.</p>
   </div>
 </div>
+
+Refer to [the logo section component documentation](/docs/patterns/logo-section) page for more details and code examples.
 
 ## Labels
 
@@ -409,6 +435,8 @@ The colour variants of the label pattern have been renamed to use consistent sem
 
 The individual mixins for label variants have been removed. All necessary styles are included in main `vf-p-label` mixin, If you use any of the following individual mixins you can remove them from your code: `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
+Refer to [the label component documentation](/docs/patterns/labels) page for more details and code examples.
+
 ## Notifications
 
 The notification child classes have been replaced to support new variants. The following class substitutions can be used to support existing functionality:
@@ -421,8 +449,12 @@ The notification child classes have been replaced to support new variants. The f
 
 The text content of the notifications should also be wrapped in element with `p-notification__message` class name. This element didn't exist in previous version of notification pattern and should be added for best compatibility.
 
-Additionally the `p-notification__action` class should no longer be used for links in notification text. Instead, it should be used for notification action buttons. Please see the [notifications docs](/docs/patterns/notification#actions) for examples.
+Additionally the `p-notification__action` class should no longer be used for links in notification text. Instead, it should be used for notification action buttons.
+
+Refer to [the notification component documentation](/docs/patterns/notification#actions) page for more details and code examples.
 
 ## Pagination links
 
 The `p-article-pagination__link` was removed, as only its variants (`.p-article-pagination__link--next` and `p-article-pagination__link--previous`) were meant to be used.
+
+Refer to [the pagination component documentation](/docs/patterns/pagination) page for more details and code examples.
