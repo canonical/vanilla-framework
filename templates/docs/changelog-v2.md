@@ -1,14 +1,12 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Previously in Vanilla
+  title: Changelog v2
 ---
 
-# Previously in Vanilla v2
+# Changelog v2
 
 <hr>
-
-This table is an exhaustive list of all changes to components made in Vanilla v2, including new components added, updated or deprecated. See [the migration guide](/docs/migration-guide-to-v3) to learn about all the breaking changes from Vanilla v2 to v3.0.
 
 <table>
   <thead>
