@@ -28,7 +28,16 @@
     <div class="col-4">
       <div class="p-heading-icon">
         <div class="p-heading-icon__header is-stacked">
-          <img class="b-lazy p-heading-icon__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.ubuntu.com/v1/1958451f-pictogram_lightweight01b-dark.svg" alt=""/>
+          {{ image (
+            url="https://assets.ubuntu.com/v1/1958451f-pictogram_lightweight01b-dark.svg",
+            alt="",
+            width="96",
+            height="96",
+            hi_def=True,
+            loading="lazy",
+            attrs={"class": "p-heading-icon__img"}
+            ) | safe
+          }}
           <h2 class="p-heading-icon__title">Lightweight</h2>
         </div>
         <p>Vanilla contains a responsive CSS grid, basic style for HTML elements and a selection of key useful patterns and utility classes that you can extend.</p>
@@ -37,7 +46,16 @@
     <div class="col-4">
       <div class="p-heading-icon">
         <div class="p-heading-icon__header is-stacked">
-          <img class="b-lazy p-heading-icon__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.ubuntu.com/v1/730b14b9-pictogram_extension01-dark.svg" alt=""/>
+          {{ image (
+            url="https://assets.ubuntu.com/v1/730b14b9-pictogram_extension01-dark.svg",
+            alt="",
+            width="96",
+            height="96",
+            hi_def=True,
+            loading="lazy",
+            attrs={"class": "p-heading-icon__img"}
+            ) | safe
+          }}
           <h2 class="p-heading-icon__title">Composable</h2>
         </div>
         <p>Designed to be composable — you can include the whole framework to avail of all styles or you can use only what you need for your project.</p>
@@ -46,7 +64,16 @@
     <div class="col-4">
       <div class="p-heading-icon">
         <div class="p-heading-icon__header is-stacked">
-          <img class="b-lazy p-heading-icon__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.ubuntu.com/v1/ff78e55c-pictogram_opensource01-dark.svg" alt=""/>
+          {{ image (
+            url="https://assets.ubuntu.com/v1/ff78e55c-pictogram_opensource01-dark.svg",
+            alt="",
+            width="96",
+            height="96",
+            hi_def=True,
+            loading="lazy",
+            attrs={"class": "p-heading-icon__img"}
+            ) | safe
+          }}
           <h2 class="p-heading-icon__title">Open source</h2>
         </div>
         <p>Anyone can contribute to Vanilla, improve it and extend it. All the code is available on GitHub and is licensed under LGPLv3 by Canonical.</p>
@@ -63,15 +90,12 @@
   </div>
   <div class="row">
     <div class="col-6">
-      <p>The recommended method of including Vanilla Framework in your project is via <a href="https://www.npmjs.com/package/vanilla-framework">npm</a>. You can then simply include the framework in your SCSS files and compile.</p>
+      <p>The recommended method of including Vanilla Framework in your project is via <a href="https://www.npmjs.com/package/vanilla-framework">npm</a> or <a href="https://yarnpkg.com/package/vanilla-framework">yarn</a>. You can then simply include the framework in your SCSS files and compile.</p>
       <p>For other methods, please see the <a href="/docs">advanced usage docs.</a></p>
     </div>
     <div class="col-6">
-      <pre><code>npm install --save-dev vanilla-framework
-<span class="token builtin">export</span> SASS_PATH=`<span class="token builtin">pwd</span>`/node_modules:<span class="token variable">${SASS_PATH}</span>
-
-<span class="token comment">// Add to your main build scss file the following line</span>
-<span class="token keyword">@import</span> <span class="token string">'vanilla-framework'</span></code></pre>
+      <pre><code>yarn add sass vanilla-framework</code></pre>
+      <pre><code><span class="token keyword">@import</span><span class="token string">"vanilla-framework"</span><span class="token punctuation">;</span><br><span class="token keyword">@include</span> vanilla<span class="token punctuation">;</span></code></pre>
     </div>
   </div>
 </div>
@@ -91,7 +115,15 @@
       </ul>
     </div>
     <div class="col-8 u-vertically-center u-align--center">
-      <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.ubuntu.com/v1/af1e0f04-guidelines-illustration.svg" alt="">
+      {{ image (
+        url="https://assets.ubuntu.com/v1/af1e0f04-guidelines-illustration.svg",
+        alt="",
+        width="378",
+        height="200",
+        hi_def=True,
+        loading="lazy"
+        ) | safe
+      }}
     </div>
   </div>
 </div>
@@ -122,7 +154,7 @@
         </div>
         <p>Get our Sketch library of common design components.</p>
         <p style="margin-bottom: 0px;"><a onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download Vanilla Design UI Kit', 'eventValue' : undefined });" class="p-button" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></p>
-        <small>Filesize - 2.4 MB</small>
+        <small><i class="p-icon--warning"></i> The Sketch UI Kit is no longer maintained. Current version is compatible with Vanilla v2.25.</small>
       </div>
     </div>
   </div>
