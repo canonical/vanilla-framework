@@ -110,6 +110,12 @@ The state initially implemented as "active" via `is-active` class name on the bu
 | ------------------ | ---------------------- |
 | `button.is-active` | `button.is-processing` |
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">We are using <code>is-active</code> class name in various components to denote the active state, so make sure you rename it <b>only</b> in context of buttons.</p>
+  </div>
+</div>
+
 The previous `vf-button-active` mixin was renamed to `vf-button-processing`. Additionally the `vf-button-white-success-icon` mixin has been removed (it is not needed anymore as the `%vf-button-white-success-icon` placeholder it used to provide is part of the Vanilla base styles now).
 
 ## External Links
@@ -126,6 +132,12 @@ The scss maps defining grid margins and gutters have been simplified. In both `$
 | --------------- | ----------- |
 | `medium`        | `default`   |
 | `large`         | `default`   |
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">Sass will not throw errors or warn you if the key doesn't exist in the map. Please make sure you correctly search and replace any map keys and verify that affected styles render correctly in the browser.</p>
+  </div>
+</div>
 
 ### Column classes
 
@@ -175,7 +187,13 @@ The `p-icon--canonical` and `p-icon--ubuntu` from the social icon set have been 
 
 ## Inline images
 
-We removed the inline images (`p-inline-images`) component. Please use the [logo section component](/docs/patterns/logo-section) instead. As this pattern requires images to have identical dimensions, the height and width of any which currently use the `p-inline-images` pattern may need to be updated.
+We removed the inline images (`p-inline-images`) component. Please use the [logo section component](/docs/patterns/logo-section) instead.
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">Logo section component requires images to have identical dimensions, so you will not only need to update the HTML markup of the component, but also change the URLs of logo images to new ones.</p>
+  </div>
+</div>
 
 ## Navigation
 
@@ -323,6 +341,12 @@ The `accordion` key in map `$icon-sizes` has been renamed to `small`. It is curr
 | --------------------------------- | ----------------------------- |
 | `map-get($icon-sizes, accordion)` | `map-get($icon-sizes, small)` |
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">Sass will not throw errors or warn you if the key doesn't exist in the map. Please make sure you correctly search and replace any map keys and verify that affected styles render correctly in the browser.</p>
+  </div>
+</div>
+
 ### Grid margins
 
 `$grid-margin-width` is has been removed, as the grid margins differ at different breakpont. Use the values in `$grid-margin-widths` instead.
@@ -394,3 +418,9 @@ Full list of changed keys:
 | `nudge--p`            | `p`            |
 | `nudge--small`        | `small`        |
 | `nudge--x-small`      | `x-small`      |
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">Sass will not throw errors or warn you if the key doesn't exist in the map. Please make sure you correctly search and replace any map keys and verify that affected styles render correctly in the browser.</p>
+  </div>
+</div>
