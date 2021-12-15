@@ -112,7 +112,7 @@ The state initially implemented as "active" via `is-active` class name on the bu
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
-    <p class="p-notification__message">We are using <code>is-active</code> class name in various components to denote the active state, so make sure you rename it <b>only</b> in context of buttons.</p>
+    <p class="p-notification__message">We use the <code>is-active</code> class name in various components to denote the active state, so make sure you rename it <b>only</b> in the context of buttons.</p>
   </div>
 </div>
 
@@ -191,7 +191,7 @@ We removed the inline images (`p-inline-images`) component. Please use the [logo
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
-    <p class="p-notification__message">Logo section component requires images to have identical dimensions, so you will not only need to update the HTML markup of the component, but also change the URLs of logo images to new ones.</p>
+    <p class="p-notification__message">The logo section component requires images to have identical dimensions, so you will not only need to update the HTML markup of the component, but also change the URLs of logo images to new ones.</p>
   </div>
 </div>
 
