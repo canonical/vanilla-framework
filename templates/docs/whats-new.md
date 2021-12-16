@@ -72,7 +72,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
   <tbody>
     <!-- 3.00 -->
     <tr>
-      <th><a href="/docs/patterns/notification#deprecated">Notifications structure</a></th>
+      <th><a href="/docs/migration-guide-to-v3#notifications">Notifications structure</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -80,7 +80,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The classes <code>.p-notification__response</code>, <code>.p-notification__status</code><code>.p-icon--close</code> have been removed and replaced.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/buttons#neutral">Button / Neutral</a></th>
+      <th><a href="/docs/migration-guide-to-v3#buttons">Button / Neutral</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -88,7 +88,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The neutral button variant <code>p-button--neutral</code> has been removed, please use default <code>p-button</code> instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/navigation#dropdown">Navigation / Sub-navigation</a></th>
+      <th><a href="/docs/migration-guide-to-v3#navigation-title">Navigation / Sub-navigation</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -96,7 +96,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The <code>.p-subnav</code> class has been removed and succeeded by the <code>.p-navigation__item--dropdown-toggle</code> class. The children of <code>.p-subnav</code> have been removed and replaced.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/logo-section">Inline images</a></th>
+      <th><a href="/docs/migration-guide-to-v3#inline-images">Inline images</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -104,7 +104,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The inline images component has now been removed. Please use the logo section component instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/tables#expanding">Tables expanding</a></th>
+      <th><a href="/docs/migration-guide-to-v3#tables">Tables expanding</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -112,7 +112,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>We renamed and removed <code>p-table-expanding</code> and <code>p-table-expanding__panel</code>. Use <code>p-table--expanding</code> and <code>p-table__expanding-panel</code> instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/tables#sortable">Tables sorting</a></th>
+      <th><a href="/docs/migration-guide-to-v3#tables">Tables sorting</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -120,7 +120,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>We removed <code>p-table--sortable</code> class name. Sorting can be enabled on any table by adding <code>aria-sort</code> attributes.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/accordion">Accordions</a></th>
+      <th><a href="/docs/migration-guide-to-v3#accordion">Accordions</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -128,7 +128,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>We removed the previous accordion tab patterns, <code>.p-accordion__tab</code> and <code>.p-accordion__tab--with-title .p-accordion__title</code>, in favour of a more accessible pattern. Please use <code>.p-accordion__heading .p-accordion__tab</code>.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/grid">Grid - "orphan" columns</a></th>
+      <th><a href="/docs/migration-guide-to-v3#grid">Grid - "orphan" columns</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -136,7 +136,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>We removed the ability to use <code>.col</code> classes without a direct parent with a class <code>.row</code>.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/buttons#active">Active button</a></th>
+      <th><a href="/docs/migration-guide-to-v3#buttons">Active button</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -144,7 +144,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The <code>is-active</code> class was removed and given a more appropriate name: <code>is-processing</code>.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/code#copyable">Code copyable</a></th>
+      <th><a href="/docs/migration-guide-to-v3#code">Code copyable</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -152,7 +152,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td><code>.p-code-copyable</code> has been removed. Please use <code>.p-code-snippet .p-code-snippet__block--icon</code> instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/code#numbered">Code numbered</a></th>
+      <th><a href="/docs/migration-guide-to-v3#code">Code numbered</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -160,7 +160,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td><code>.p-code-numbered</code> has been removed. Please use <code>.p-code-snippet .p-code-snippet__block--numbered</code> instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/icons#standard">Icons - Contextual Menu</a></th>
+      <th><a href="/docs/migration-guide-to-v3#icons">Icons - Contextual Menu</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -168,7 +168,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The <code>p-icon--contextual-menu</code> has been removed. Please use existing <code>.p-icon--chevron-down</code> and <code>.p-icon--chevron-up</code> icons instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/breadcrumbs#deprecated-markup">Breadcrumbs</a></th>
+      <th><a href="/docs/migration-guide-to-v3#breadcrumbs">Breadcrumbs</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -176,7 +176,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>Top level <code>&lt;ul&gt;</code> with a class <code>.p-breadcrumbs</code> has been removed and replaced by the breadcrumbs pattern.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/forms#deprecated-base-checkboxes">Checkbox and radio buttons elements</a></th>
+      <th><a href="/docs/migration-guide-to-v3#form-elements">Checkbox and radio buttons elements</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -184,7 +184,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>Base styled checkboxes and radio buttons (on <code>&lt;input type="checkbox"&gt;</code> or <code>&lt;input type="radio"&gt;</code> elements) have been removed. Please use checkbox and radio components.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/icons#standard">Icons - Question</a></th>
+      <th><a href="/docs/migration-guide-to-v3#icons">Icons - Question</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -192,7 +192,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>The <code>p-icon--question</code> has been removed. Please use existing <code>.p-icon--help</code> icon instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/navigation">Navigation</a></th>
+      <th><a href="/docs/migration-guide-to-v3#navigation-title">Navigation</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -200,7 +200,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>Navigation classes <code>p-navigation__links</code>, <code>p-navigation__link</code>, and classless <code>&lt;a&gt;</code> have been removed. Please use new class names (<code>p-navigation__items</code>, <code>p-navigation__item</code>, <code>p-navigation__link</code>) instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/base/typography#heading-classes">Heading classes</a></th>
+      <th><a href="/docs/migration-guide-to-v3#headings">Heading classes</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -208,7 +208,7 @@ The table below lists all the removed components and utilities in 3.0. For more 
       <td>Heading classes with numbers as words (<code>p-heading--one</code>, <code>--two</code>, ...) have been removed. Please use class names with numbers (<code>p-heading--1</code>, <code>--2</code>, ...) instead.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/icons/#social">Social icons</a></th>
+      <th><a href="/docs/migration-guide-to-v3#social-icons">Social icons</a></th>
       <td>
         <span class="p-label--negative">Removed</span>
       </td>
@@ -250,7 +250,7 @@ To see what changed in Vanilla v2, see the [changelog for v2](/docs/changelog-v2
   <div class="col-3 u-equal-height">
     <div class="p-card--highlighted">
       <span class="p-label--negative">Removed</span>
-      <p class="p-card__content">These components have been removed.</p>
+      <p class="p-card__content">These components, variants or utilities have been removed from Vanilla. They should be removed from projects or updated to their new recommended versions.</p>
     </div>
   </div>
 </div>
