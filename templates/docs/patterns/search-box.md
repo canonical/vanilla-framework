@@ -35,6 +35,18 @@ This component integrates with `.p-navigation__nav` for both small and large scr
 View examples of search box navigation patterns
 </a></div>
 
+## Expanding search box
+
+Expanding search in main navigation consists of couple of elements: search toggle link (`.p-navigation__link--search-toggle`), expanding search box (`.p-navigation__search`) and an overlay that covers whole screen when search is expanded (`.p-navigation__search-overlay`).
+
+The `.p-navigation__link--search-toggle` class name is used to add a search toggle link to navigation items. The label text of this toggle element should be wrapped in `.p-navigation__search-label` element to make sure it's hidden on smaller screen sizes. Click event handler attached to the toggle element should add `.has-search-open` class on main `.p-navigation` element to expand the search box and show the overlay.
+
+Vanilla Search box component is used for the search field, but it's wrapped into an element with `.p-navigation__search` class name. The search will be hidden by default and only expands when the navigation element has `.has-search-open` class name.
+
+When search box is expanded the overlay element (`p-navigation__search-overlay`) is faded in to cover all the contents of the page (except the search box itself). Clicking anywhere on the overlay (or hitting Escape key) closes the search box.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-light" class="js-example"> View example of the search navigation </a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.

@@ -22,6 +22,14 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.00 -->
     <tr>
+      <th><a href="/docs/patterns/navigation">Expanding search box</a></th>
+      <td>
+        <span class="p-label--positive">New</span>
+      </td>
+      <td>3.0.0</td>
+      <td>We've added an expandable search box, to be used in top navigation.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/labels">Labels</a></th>
       <td>
         <span class="p-label--information">Updated</span>
@@ -36,14 +44,6 @@ When we add, make significant updates, or deprecate a component we update their 
       </td>
       <td>3.0.0</td>
       <td>We've added tinted chips. The tints are based on the semantic colours (positive, caution, negative) plus a dark blue one that matches the blue used in the information flavour of the notification component.</td>
-    </tr>
-    <tr>
-      <th><a href="/docs/patterns/navigation">Expanding search box</a></th>
-      <td>
-        <span class="p-label--information">Updated</span>
-      </td>
-      <td>3.0.0</td>
-      <td>We've added an expandable search box, to be used in top navigation.</td>
     </tr>
     <tr>
       <th><a href="/docs/patterns/switch">Switch</a></th>
