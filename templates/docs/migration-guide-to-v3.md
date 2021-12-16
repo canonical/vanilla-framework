@@ -276,7 +276,7 @@ Refer to [headings documentation](/docs/base/typography#heading-classes) for mor
 
 The `p-link--external` class has been removed, so elements using that class will no longer include an appended external link icon. Any uses of this class can be safely removed.
 
-## Navigation
+<h2 id="navigation-title">Navigation</h2>
 
 ### Custom navigation background colour has been removed
 
