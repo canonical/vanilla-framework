@@ -30,44 +30,42 @@ You can link to the latest build to add directly into your markup like so, by re
 <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
 ```
 
-### Including Vanilla in your project via NPM
+### Including Vanilla in your project via NPM or yarn
 
-Pull down the latest version of Vanilla into your local `node_modules` folder
-and save it into your project's dependencies (`package.json`) as follows:
+To get set up with Sass, add the `sass` and `vanilla-framework` packages to your project dependencies:
 
 ```bash
-npm install --save-dev vanilla-framework
+yarn add sass vanilla-framework
 ```
 
-Now ensure that your SASS builder is including modules from `node_modules`. E.g. for Gulp:
+In the script that builds the CSS in your `package.json`, you should include the path to `node_modules` when looking for `@imports`. In this example, we have called the build script `"build-css"`:
 
-```javascript
-// gulpfile.js
-gulp.task('sass', function () {
-  return gulp.src('[your-sass-directory]/**/*.scss').pipe(
-    sass({
-      includePaths: ['node_modules'],
-    })
-  );
-});
+```
+"build-css": "sass -w --load-path=node_modules src:dist --style=compressed"
 ```
 
-Please note, that to provide the best browser support you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) as a build step.
-
-Then reference it from your own Sass files, with optional settings:
+Make a folder `src/`, create a file inside called `style.scss` and import Vanilla:
 
 ```sass
-// Optionally override some settings
-$color-brand: #ffffff;
-
 // Import the theme
 @import 'vanilla-framework';
 @include vanilla;
+
+// Optionally override some settings
+$color-brand: #ffffff;
 
 // Add theme if applicable
 ```
 
 If you don't want the whole framework, you can just `@include` specific [parts](scss) - e.g. `@include vf-b-forms`.
+
+Now run `yarn build-css`, which will convert any Sass files in the `src/` folder to CSS in the `dist/` folder.
+
+To watch for changes in your Sass files, add the following script to your `package.json`
+
+```
+"watch-css":  "yarn build-css && sass --load-path=node_modules -w src:dist --style=compressed"
+```
 
 ## Developing Vanilla
 
