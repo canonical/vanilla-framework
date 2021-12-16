@@ -1,10 +1,10 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Changelog v2
+  title: Vanilla v2 Changelog
 ---
 
-# Changelog v2
+# Vanilla v2 Changelog
 
 <hr>
 
