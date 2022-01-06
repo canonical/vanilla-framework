@@ -19,13 +19,61 @@
         <li class="p-navigation__item{% if path == '/browser-support' %} is-selected{% endif %}"><a class="p-navigation__link" href="/browser-support">Browser support</a></li>
         <li class="p-navigation__item{% if path == '/contribute' %} is-selected{% endif %}"><a class="p-navigation__link" href="/contribute">Contribute</a></li>
       </ul>
-      {% if path.startswith('/docs') %}
-      <form class="p-search-box" action="/docs/search">
-        <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
-        <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
-        <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
-      </form>
-      {% endif %}
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <a href="#" class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </a>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form class="p-search-box" action="/docs/search">
+          <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+          <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+          <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
+        </form>
+      </div>
     </nav>
   </div>
+  <div class="p-navigation__search-overlay"></div>
 </header>
+
+<script>
+  /** @param {HTMLElement} element The tab that acts as the handles. */
+
+  function initNavigationSearch(element) {
+    const searchButton = element.querySelector('.js-search-button');
+    if (searchButton) {
+      searchButton.addEventListener('click', openSearch);
+    }
+
+    const overlay = element.querySelector('.p-navigation__search-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', closeSearch);
+    }
+
+    function openSearch(e) {
+      e.preventDefault();
+      var navigation = e.target.closest('.p-navigation');
+      var searchInput = navigation.querySelector('.p-search-box__input');
+      navigation.classList.add('has-search-open');
+      searchInput.focus();
+      document.addEventListener('keyup', keyPressHandler);
+    }
+
+    function closeSearch() {
+      var navigation = document.querySelector('.p-navigation.has-search-open');
+      var banner = document.querySelector('.p-navigation__banner');
+      navigation.classList.remove('has-search-open');
+      document.removeEventListener('keyup', keyPressHandler);
+    }
+
+    function keyPressHandler(e) {
+      if (e.key === 'Escape') {
+        closeSearch();
+      }
+    }
+  }
+  var navigation = document.querySelector('#navigation');
+  initNavigationSearch(navigation);
+</script>
