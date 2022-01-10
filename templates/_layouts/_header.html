@@ -19,13 +19,21 @@
         <li class="p-navigation__item{% if path == '/browser-support' %} is-selected{% endif %}"><a class="p-navigation__link" href="/browser-support">Browser support</a></li>
         <li class="p-navigation__item{% if path == '/contribute' %} is-selected{% endif %}"><a class="p-navigation__link" href="/contribute">Contribute</a></li>
       </ul>
-      {% if path.startswith('/docs') %}
-      <form class="p-search-box" action="/docs/search">
-        <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
-        <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
-        <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
-      </form>
-      {% endif %}
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <a href="#" class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </a>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form class="p-search-box" action="/docs/search">
+          <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+          <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+          <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
+        </form>
+      </div>
     </nav>
   </div>
+  <div class="p-navigation__search-overlay"></div>
 </header>
