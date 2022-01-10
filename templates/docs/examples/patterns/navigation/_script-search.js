@@ -1,5 +1,3 @@
-/** @param {HTMLElement} element The tab that acts as the handles. */
-
 function initNavigationSearch(element) {
   const searchButton = element.querySelector('.js-search-button');
   if (searchButton) {
