@@ -140,8 +140,6 @@ View example of the divider list with an is-dark class
 
 ## Accessibility
 
-{# copy doc: https://docs.google.com/document/d/1pK4kmbo83pyfQ92DuRLCqVAJaY9HdRTWbaAI3yCg59I/edit# #}
-
 ### How it works
 
 Lists provide orientation for users by letting them know when a collection of items are related, and whether or not the items are sequential. They also let screen reader users know how many items are in each list, and allow users to jump between lists within the content.
