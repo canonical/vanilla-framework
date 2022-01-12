@@ -60,8 +60,6 @@ View example of the patterns card overlay
 
 ## Accessibility
 
-{# copy doc: https://docs.google.com/document/d/1f_dJS0MquxNm9D6e1OaHohyqXBNG1GwnPfFdxFci60k/edit# #}
-
 ### How it works
 
 Cards are content containers. They are useful for creating a responsive site, and help users scroll through similar content at ease. They are used as a teaser, and contain a link to more content.
@@ -75,7 +73,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - There should also be a logical order within the card, heading first and related content to follow.
 - Headings should briefly and accurately describe the content of the card
 - Link text must be meaningful and clear.
-- Avoid wrapping the entire container in a link, as the entire content of the container will be read out as a link to by the screen reader.
+- Avoid wrapping the entire container in a link, as the entire content of the container will be read out as a link by the screen reader.
 - Avoid multiple elements linking to the same place. Choose one element in the card to link from.
 - If an image is used as a link, then the `alt` text of the image should replace the link text. Alternatively, add `aria-label` to the link element wrapping the image.
 

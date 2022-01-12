@@ -50,8 +50,6 @@ Please ensure the `aria-control` attribute matches an ID of an element. If `aria
 
 ## Accessibility
 
-{# copy doc: https://docs.google.com/document/d/1UekmbTagZNVppuiuw3i9aoMpgQBJVdZnSHC2ciW6blY/edit# #}
-
 ### How it works
 
 Accordions are a vertically stacked list of headings. They reduce the need for users to scroll through a lot of content, as the headings act as interactive elements which show or hide the related content.

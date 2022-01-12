@@ -20,8 +20,6 @@ View example of the breadcrumbs pattern
 
 ## Accessibility
 
-{# copy doc: https://docs.google.com/document/d/1qglleNv0WU-DLACF87fBkccYk49V2hwWnurTm_t1Ux4/edit#heading=h.tab4i4y8yac #}
-
 ### How it works
 
 It establishes a landmark on the page which assists the user in understanding where they currently are and which pages exist in the current page’s hierarchical order.
