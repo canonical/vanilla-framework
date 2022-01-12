@@ -52,8 +52,6 @@ View example of the back to skip link pattern
 
 ## Accessibility
 
-{# copy doc: https://docs.google.com/document/d/1DcYBpmuLKZGLIWR6jgjYfZc1X64d8HtDt9uKMoB0POE/edit#heading=h.6xtxk46lmbik #}
-
 ### How it works
 
 Links are used as navigational elements and can be used on their own or inline with text. It's possible to use the `Tab` key to navigate to the link, and the `Enter` key activates the link.
