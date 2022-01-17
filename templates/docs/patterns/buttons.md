@@ -12,7 +12,8 @@ Buttons are clickable elements used to perform an action, you can apply `button`
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>Do not use multiple button classes on one HTML element.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">Do not use multiple button classes on one HTML element.</span>
   </p>
 </div>
 

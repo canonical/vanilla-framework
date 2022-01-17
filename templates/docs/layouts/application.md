@@ -79,7 +79,8 @@ View an example of the application layout structure
 
 <div class="p-notification--caution">
   <p class="p-notification__content">
-    <span class="p-notification__title">In progress:</span> The current implementation of the panel component is created to provide minimal consistent styling of panels, but is still work in progress and may change in the future.
+    <span class="p-notification__title">In progress:</span>
+    <span class="p-notification__message">The current implementation of the panel component is created to provide minimal consistent styling of panels, but is still work in progress and may change in the future.</span>
   </p>
 </div>
 

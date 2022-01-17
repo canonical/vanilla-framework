@@ -14,7 +14,8 @@ most cases it would be a strip.
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>This only affects medium and large screen sizes.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">This only affects medium and large screen sizes.</span>
   </p>
 </div>
 
