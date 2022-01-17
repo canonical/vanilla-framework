@@ -10,12 +10,6 @@ context:
 
 Labels are static elements which you can apply to signify status, tags or any other information you find useful.
 
-<div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>These labels are used to inform <a href="/docs/whats-new">status</a> of components in Vanilla.
-  </p>
-</div>
-
 <div class="embedded-example"><a href="/docs/examples/patterns/labels/" class="js-example">
 View example of the labels pattern
 </a></div>

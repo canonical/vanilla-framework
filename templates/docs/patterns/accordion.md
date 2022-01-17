@@ -20,7 +20,8 @@ The wrapping element should either be a heading element or a `div` element with 
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>Clicking on the header toggles the display of accordion tabs. Accordion tabs should contain navigation or supplementary information, not main page content.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">Clicking on the header toggles the display of accordion tabs. Accordion tabs should contain navigation or supplementary information, not main page content.</span>
   </p>
 </div>
 

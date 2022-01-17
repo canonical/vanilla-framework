@@ -18,7 +18,8 @@ displayed horizontally on larger screens.
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>By default, the width of the navigation is constrained to <code>$grid-max-width</code>. To make the navigation full width, replace <code>.p-navigation__row</code> with <code>.p-navigation__row--full-width</code>.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">By default, the width of the navigation is constrained to <code>$grid-max-width</code>. To make the navigation full width, replace <code>.p-navigation__row</code> with <code>.p-navigation__row--full-width</code>.</span>
   </p>
 </div>
 
@@ -78,7 +79,8 @@ To add icons on the left side of the items in side navigation use the `.p-side-n
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>Icons should only be used on the items in the first level of side navigation.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">Icons should only be used on the items in the first level of side navigation.</span>
   </p>
 </div>
 
@@ -91,7 +93,9 @@ View example of the side navigation pattern with icons
 On pages with content significantly longer than the side navigation contents you can make the navigation sticky to keep it visible when scrolling by adding `.is-sticky` class to the root element of `.p-side-navigation`.
 
 <div class="p-notification--caution">
-  <p class="p-notification__content"><span class="p-notification__title">Breaking change:</span>Side navigation used to be sticky by default, but since Vanilla 2.21.0 <code>.is-sticky</code> class is needed to add this functionality.</p>
+  <p class="p-notification__content">
+    <span class="p-notification__title">Breaking change:</span>
+    <span class="p-notification__message">Side navigation used to be sticky by default, but since Vanilla 2.21.0 <code>.is-sticky</code> class is needed to add this functionality.</p></span>
 </div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/sticky" class="js-example">
@@ -117,12 +121,17 @@ Because of the limitations of raw HTML markup without class names, it's not poss
   <div class="row">
      <div class="col-4">
        <div class="p-notification--positive">
-        <p class="p-notification__content"><span class="p-notification__title">Do:</span>Use the  raw HTML variant when the backend serving the navigation content won't allow custom class names on HTML elements.</p>
+        <p class="p-notification__content">
+          <span class="p-notification__title">Do:</span>
+          <span class="p-notification__message">Use the  raw HTML variant when the backend serving the navigation content won't allow custom class names on HTML elements.</span>
+          </p>
        </div>
      </div>
     <div class="col-4">
       <div class="p-notification--negative">
-        <p class="p-notification__content"><span class="p-notification__title">Don't:</span>Use raw HTML variant when the markup can be fully controlled and class names can be properly added to all elements.</p>
+        <p class="p-notification__content">
+          <span class="p-notification__title">Don't:</span>
+          <span class="p-notification__message">Use raw HTML variant when the markup can be fully controlled and class names can be properly added to all elements.</span</p>
       </div>
     </div>
   </div>
