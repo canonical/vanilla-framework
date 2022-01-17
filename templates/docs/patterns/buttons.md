@@ -125,8 +125,6 @@ View example of the contextual menu pattern
 
 ## Accessibility
 
-{# copy doc: https://docs.google.com/document/d/11H6xPtBRxB1a8KCmK7XFH1FeZDduQhSJXxq-wNJ_CZ8/edit#heading=h.qxwy2zql3yy7 #}
-
 ### How it works
 
 The button component is used to trigger an action or event - this could be opening or closing a modal, navigating to the next page, or cancelling an action. Rather than adding `role=button` to links, it’s always advisable to use the native HTML button element, as native HTML buttons provide keyboard and focus requirements by default and are best supported by assistive technologies.
@@ -138,7 +136,6 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - A button, once focussed should be activated by using the `Space` or `Enter` keys.
 - The button should have an accurate description. This can be as text in the button, or by using `aria-label` or `aria-labelledby`.
 - If there is a description of the button, the button should have an `aria-describedby` which matches the ID of the description.
-- If the action of the button is not available, add `aria-disabled=true`
 - If the button is a toggle and it needs to be indicated to the user when it’s in a pressed state, add `aria-pressed=true` and `aria-pressed=false` accordingly.
 - After the button is activated ensure the focus is set correctly based on the type of action the button performs. See [W3C WAI-ARIA Authoring Practices Button Design Pattern](https://www.w3.org/TR/wai-aria-practices/#button) for a list of examples.
 
