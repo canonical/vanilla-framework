@@ -158,7 +158,8 @@ Adding the `disabled` attribute to an input will prevent user interaction.
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>All disabled inputs have an opacity of <code>0.5</code> and <code>not-allowed</code> cursor on hover.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">All disabled inputs have an opacity of <code>0.5</code> and <code>not-allowed</code> cursor on hover.</span>
   </p>
 </div>
 

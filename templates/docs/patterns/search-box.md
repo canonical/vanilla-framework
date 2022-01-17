@@ -18,7 +18,7 @@ A cancel button is shown when the input has content, and a small amount of JavaS
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
-    <h5 class="p-notification__title">Caution:</h5>
+    <h5 class="p-notification__title">Buttons in the search box:</h5>
     <p class="p-notification__message">Space is allocated for the <code>.p-search-box__reset</code> and <code>.p-search-box__button</code> buttons, so both must be included in the implementation to avoid the appearance of excess padding.</p>
   </div>
 </div>

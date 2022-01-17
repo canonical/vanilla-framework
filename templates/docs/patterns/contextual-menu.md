@@ -37,7 +37,8 @@ If you require a drop-down button with a state indicator then the `p-contextual-
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Information:</span>This example makes use of additional components
+    <span class="p-notification__title">Information:</span>
+    <span class="p-notification__message">This example makes use of additional components</span>
   </p>
 </div>
 

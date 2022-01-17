@@ -14,7 +14,8 @@ Items will display in one column on small screens. At resolutions above `$breakp
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>To display correctly on large screens, you'll need to add list items in a multiple of three. If you do not have content for all the items, leave them empty but the list item must be present.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">To display correctly on large screens, you'll need to add list items in a multiple of three. If you do not have content for all the items, leave them empty but the list item must be present.</span>
   </p>
 </div>
 

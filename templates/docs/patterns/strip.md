@@ -35,7 +35,8 @@ This pattern allows for an image background to be appear as a background on a st
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>Declare the background-image as an inline style attribute in the HTML.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">Declare the background-image as an inline style attribute in the HTML.</span>
   </p>
 </div>
 
@@ -52,7 +53,8 @@ This pattern is used to add a dividing border at the bottom of the strip.
 
 <div class="p-notification--information">
   <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>This should be used when two strips of the same type are used after each other.
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">This should be used when two strips of the same type are used after each other.</span>
   </p>
 </div>
 
