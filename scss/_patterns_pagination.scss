@@ -5,7 +5,8 @@
     @extend %vf-button-base;
     @include vf-button-pattern;
 
-    &.is-active {
+    &.is-active,
+    &[aria-current='page'] {
       background-color: scale-color($color-x-light, $lightness: -$active-background-opacity-amount * 100%);
       color: $color-dark;
       text-decoration: none;
