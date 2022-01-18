@@ -1,10 +1,8 @@
 @mixin vf-b-range {
   $thumb-shadow: 0 0 $bar-thickness 1px rgba(0, 0, 0, 0.2);
   $thumb-size: 24px;
-  $thumb-radius: $bar-thickness;
-  $track-height: 5px;
-  $track-border-size: 1px;
-  $track-border: $track-border-size solid $colors--light-theme--border-high-contrast;
+  $thumb-radius: 50%;
+  $track-height: 2px;
   $track-radius: $bar-thickness;
 
   // stylelint-disable selector-max-type -- base styles can use type selectors
@@ -21,7 +19,6 @@
 
     // Chrome
     &::-webkit-slider-runnable-track {
-      border: $track-border;
       border-radius: $track-radius + 1;
       height: $track-height + 1;
     }
@@ -37,7 +34,7 @@
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
-      margin-top: ((-$thumb-size + $track-height) * 0.5) - $track-border-size;
+      margin-top: (-$thumb-size + $track-height) * 0.5;
       width: $thumb-size;
 
       &:hover {
@@ -48,7 +45,6 @@
     // Firefox
     &::-moz-range-track {
       background: $color-x-light;
-      border: $track-border;
       border-radius: $track-radius;
       height: $track-height - 1;
     }
