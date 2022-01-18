@@ -19,6 +19,10 @@ $knob-size: $sp-unit * 3;
       @extend %vf-disabled-element;
     }
 
+    &:checked + .p-switch__slider{
+      background: $color-link;
+    }
+
     &:focus {
       outline: none;
 
@@ -31,13 +35,13 @@ $knob-size: $sp-unit * 3;
   .p-switch__slider {
     @extend %vf-has-round-corners;
 
-    background: linear-gradient(to right, $color-link 50%, $color-mid-light 50%);
     box-shadow: inset 0 2px 5px 0 transparentize($color-dark, 0.8);
     display: inline-block;
     height: $knob-size;
     margin: 0;
     position: relative;
     width: $knob-size * 2;
+    border-radius: .7rem;
 
     &::before {
       @extend %vf-has-round-corners;
@@ -45,11 +49,13 @@ $knob-size: $sp-unit * 3;
       @include vf-animation($duration: slow);
 
       background: $color-x-light;
+
       content: '';
       height: $knob-size;
       left: 0;
       position: absolute;
       width: $knob-size;
+      border-radius: 50%;
     }
   }
 
