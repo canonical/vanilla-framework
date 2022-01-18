@@ -225,7 +225,7 @@ Use of `col` classes outside of `row` is no longer supported. If you use `col-X`
 
 Previously, the grid layout would switch from 6 to 12 columns wide at the medium breakpoint. With the removal of the medium breakpoint, this has been changed so that the switch happens at the large breakpoint instead. We recommend visually checking your layouts at each breakpoint for any adverse effects this change may cause.
 
-Refer to [grid documentation](http://192.168.64.8:8101/docs/patterns/grid) for more details and examples.
+Refer to [grid documentation](/docs/patterns/grid) for more details and examples.
 
 ## Buttons
 
