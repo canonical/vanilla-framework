@@ -2,7 +2,7 @@
   $thumb-shadow: 0 0 $bar-thickness 1px rgba(0, 0, 0, 0.2);
   $thumb-size: 24px;
   $thumb-radius: 50%;
-  $track-height: 2px;
+  $track-height: 3px;
   $track-radius: $bar-thickness;
 
   // stylelint-disable selector-max-type -- base styles can use type selectors
@@ -20,7 +20,7 @@
     // Chrome
     &::-webkit-slider-runnable-track {
       border-radius: $track-radius + 1;
-      height: $track-height + 1;
+      height: $track-height;
     }
 
     &::-webkit-slider-thumb {
@@ -44,15 +44,15 @@
 
     // Firefox
     &::-moz-range-track {
-      background: $color-x-light;
+      background: $color-mid;
       border-radius: $track-radius;
-      height: $track-height - 1;
+      height: $track-height;
     }
 
     &::-moz-range-progress {
-      background-color: $color-information;
+      background-color: $color-link;
       border-radius: $track-radius;
-      height: $track-height - 1;
+      height: $track-height;
     }
 
     &::-moz-range-thumb {
