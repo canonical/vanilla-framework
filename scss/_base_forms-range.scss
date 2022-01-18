@@ -2,6 +2,7 @@
   $thumb-shadow: 0 0 $bar-thickness 1px rgba(0, 0, 0, 0.2);
   $thumb-size: 1rem;
   $thumb-radius: 50%;
+  $thumb-border: 1px solid $color-mid-dark;
   $track-height: $bar-thickness;
   $track-radius: $bar-thickness;
 
@@ -19,7 +20,7 @@
 
     // Chrome
     &::-webkit-slider-runnable-track {
-      border-radius: $track-radius; 
+      border-radius: $track-radius;
       height: $track-height;
     }
 
@@ -30,7 +31,7 @@
       appearance: none;
       // stylelint-enable property-no-vendor-prefix
       background: $color-x-light;
-      border: 0;
+      border: $thumb-border;
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
@@ -44,7 +45,7 @@
 
     // Firefox
     &::-moz-range-track {
-      background: $color-mid;
+      background: $color-mid-light;
       border-radius: $track-radius;
       height: $track-height;
     }
@@ -57,7 +58,7 @@
 
     &::-moz-range-thumb {
       background: $color-x-light;
-      border: 0;
+      border: $thumb-border;
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
