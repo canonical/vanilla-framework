@@ -123,6 +123,14 @@ If you wish to split the items in a list into two columns above `$breakpoint-sma
 View example of the patterns list split
 </a></div>
 
+## Nested Count
+
+If you want nested ordered lists to have numbers based on their parents, you can add the class `p-list--nested-counter` to the ordered list element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-count/" class="js-example">
+View example of the pattern nested counter
+</a></div>
+
 ## Theming
 
 The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_settings_colors.scss).
