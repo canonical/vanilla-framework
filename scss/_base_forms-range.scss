@@ -1,10 +1,9 @@
 @mixin vf-b-range {
   $thumb-shadow: 0 0 $bar-thickness 1px rgba(0, 0, 0, 0.2);
-  $thumb-size: 24px;
-  $thumb-radius: $bar-thickness;
-  $track-height: 5px;
-  $track-border-size: 1px;
-  $track-border: $track-border-size solid $colors--light-theme--border-high-contrast;
+  $thumb-size: 1rem;
+  $thumb-radius: 50%;
+  $thumb-border: 1px solid $color-mid-dark;
+  $track-height: $bar-thickness;
   $track-radius: $bar-thickness;
 
   // stylelint-disable selector-max-type -- base styles can use type selectors
@@ -14,16 +13,15 @@
     -moz-appearance: none;
     appearance: none;
     // stylelint-enable property-no-vendor-prefix
-    border-radius: $track-radius + 1;
+    border-radius: $track-radius;
     margin: $sp-small 0;
     padding: 0;
     width: 100%;
 
     // Chrome
     &::-webkit-slider-runnable-track {
-      border: $track-border;
-      border-radius: $track-radius + 1;
-      height: $track-height + 1;
+      border-radius: $track-radius;
+      height: $track-height;
     }
 
     &::-webkit-slider-thumb {
@@ -33,11 +31,11 @@
       appearance: none;
       // stylelint-enable property-no-vendor-prefix
       background: $color-x-light;
-      border: 0;
+      border: $thumb-border;
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
-      margin-top: ((-$thumb-size + $track-height) * 0.5) - $track-border-size;
+      margin-top: (-$thumb-size + $track-height) * 0.5;
       width: $thumb-size;
 
       &:hover {
@@ -47,21 +45,20 @@
 
     // Firefox
     &::-moz-range-track {
-      background: $color-x-light;
-      border: $track-border;
+      background: $color-mid-light;
       border-radius: $track-radius;
-      height: $track-height - 1;
+      height: $track-height;
     }
 
     &::-moz-range-progress {
-      background-color: $color-information;
+      background-color: $color-link;
       border-radius: $track-radius;
-      height: $track-height - 1;
+      height: $track-height;
     }
 
     &::-moz-range-thumb {
       background: $color-x-light;
-      border: 0;
+      border: $thumb-border;
       border-radius: $thumb-radius;
       box-shadow: $thumb-shadow;
       height: $thumb-size;
