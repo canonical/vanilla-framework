@@ -1,5 +1,5 @@
 @import 'settings';
-$knob-size: $sp-unit;
+$knob-size: $sp-unit * 2;
 
 @mixin vf-p-switch {
   .p-switch {
@@ -36,13 +36,13 @@ $knob-size: $sp-unit;
 
   .p-switch__slider {
     background: $color-mid-light;
-    border-radius: $knob-size * 1.5;
+    border-radius: $knob-size;
     box-shadow: inset 0 2px 5px 0 transparentize($color-dark, 0.8);
     display: inline-block;
-    height: $knob-size * 2;
+    height: $knob-size;
     margin: 0;
     position: relative;
-    width: $knob-size * 4;
+    width: $knob-size * 2;
 
     &::before {
       @extend %vf-has-round-corners;
@@ -53,9 +53,9 @@ $knob-size: $sp-unit;
       border: 1px solid $color-mid-dark;
       border-radius: 50%;
       content: '';
-      height: $knob-size * 2;
+      height: $knob-size;
       position: absolute;
-      width: $knob-size * 2;
+      width: $knob-size;
     }
   }
 
