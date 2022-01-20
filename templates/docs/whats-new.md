@@ -22,7 +22,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.00 -->
     <tr>
-      <th><a href="/docs/patterns/lists">Ordered list nested counter</a></th>
+      <th><a href="/docs/patterns/lists#nested-count">Ordered list nested counter</a></th>
       <td>
         <span class="p-label--information">Updated</span>
       </td>
