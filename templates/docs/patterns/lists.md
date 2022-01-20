@@ -20,6 +20,14 @@ items than the basic lists.
 View example of the list pattern
 </a></div>
 
+## Nested Count
+
+If you want nested ordered lists to have numbers based on their parents, you can add the class `p-list--nested-counter` to the ordered list element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-count/" class="js-example">
+View example of the pattern nested counter
+</a></div>
+
 ## Status
 
 Add the `.is-ticked` or `.is-crossed` classes to each list item to display tick/cross icons.

@@ -29,6 +29,18 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
   }
 
+  %nested-counter {
+    // Counter is named and it will be reset for each "ol" element.
+    counter-reset: list-item;
+    li::marker {
+      // "counters" function returns a string representing the current value of the named counter ("list-item").
+      // It is used to insert a string between different levels of nested counters.
+      // Source: https://www.w3schools.com/css/css_counters.asp
+      content: counters(list-item, '.') '. ';
+      counter-increment: list-item;
+    }
+  }
+
   // Mixin for list items
   %vf-list-item {
     padding-bottom: $spv--x-small;
@@ -395,6 +407,12 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 }
 
+@mixin vf-p-list-nested-counter {
+  .p-list--nested-counter {
+    @extend %nested-counter;
+  }
+}
+
 @mixin vf-p-lists {
   @include vf-p-list-placeholders;
 
@@ -407,4 +425,5 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   @include vf-p-stepped-list;
   @include vf-p-stepped-list-detailed;
   @include vf-p-list-split;
+  @include vf-p-list-nested-counter;
 }
