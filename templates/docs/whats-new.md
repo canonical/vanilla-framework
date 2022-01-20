@@ -22,6 +22,14 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.00 -->
     <tr>
+      <th><a href="/docs/patterns/lists">Ordered list nested counter</a></th>
+      <td>
+        <span class="p-label--information">Updated</span>
+      </td>
+      <td>3.1.0</td>
+      <td>We've updated lists by adding a new class name. It can be used when nested items numbers are required to be set according to their parents.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/navigation">Expanding search box</a></th>
       <td>
         <span class="p-label--positive">New</span>
