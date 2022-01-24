@@ -53,4 +53,17 @@
       color: $color-negative;
     }
   }
+  
+  input:invalid{
+    border-color: $color-negative;
+  }
+  
+  input:invalid + label::after {
+    @include vf-icon-error($color-negative);
+    @extend %vf-validation-wrapper;
+
+      color: $color-negative;
+      content: "Invalid entry";  
+  }
 }
+
