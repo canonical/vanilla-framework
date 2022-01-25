@@ -41,22 +41,36 @@
     }
   }
 
-  .p-form-validation, .is-error {
-    //used to be p-form-validation__input
-    input:invalid{
+  .is-error {
+    .p-form-validation__input {
       border-color: $color-negative;
     }
 
-    .p-form-validation__message{
+    .p-form-validation__message {
       @include vf-icon-error($color-negative);
       @extend %vf-validation-wrapper;
 
       color: $color-negative;
     }
   }
-  
-  input:valid + p {
+
+  // Native browser form validation styles
+
+  input:invalid,
+  input:not(:placeholder-shown):invalid {
+    border-color: $color-negative;
+  }
+
+  input:invalid + p {
+    @extend .p-form-validation__message;
+    @include vf-icon-error($color-negative);
+    @extend %vf-validation-wrapper;
+
+    color: $color-negative;
+  }
+
+  // Hide validation message unless the input is invalid
+  input:valid + p:not(.p-form-validation__message) {
     content-visibility: hidden;
   }
 }
-
