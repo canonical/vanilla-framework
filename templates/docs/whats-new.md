@@ -21,6 +21,14 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
     <!-- 3.00 -->
+     <tr>
+      <th><a href="/docs/base/empty-state">Empty state</a></th>
+      <td>
+        <span class="p-label--positive">New</span>
+      </td>
+      <td>3.1.0</td>
+      <td>We've added examples for empty state scenario.</td>
+    </tr>
     <tr>
       <th><a href="/docs/patterns/lists#nested-count">Ordered list nested counter</a></th>
       <td>
