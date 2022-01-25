@@ -15,21 +15,24 @@ State zero or the empty state is a state where there is no data to display in th
 No data available denotes the empty state scenario for when we cannot display data due to when we add a new feature to the new release and it requires some actions, for first time use of this feature, or when the data is not available in general.
 
 ### Table format
+
 <div class="embedded-example"><a href="/docs/examples/base/empty-state/no-content-table" class="js-example">
-View example of the first vatiation of no content state in table format
+View example of the first variation of no content state in table format
 </a></div>
 
 ### Card format
+
 <div class="embedded-example"><a href="/docs/examples/base/empty-state/no-content-card" class="js-example">
-View example of the first vatiation of no content state in card format
+View example of the first variation of no content state in card format
 </a></div>
 
 ### Page view format
+
 <div class="embedded-example"><a href="/docs/examples/base/empty-state/no-content-page-view" class="js-example">
-View example of the first vatiation of no content state in page view format
+View example of the first variation of no content state in page view format
 </a></div>
 
-## Import 
+## Import
 
 To import either or all of these components into your project, copy the snippets below and include it in your main Sass file.
 
@@ -47,4 +50,5 @@ To import either or all of these components into your project, copy the snippets
 // when using table format, it's needed to import grid.
 @include vf-p-grid;
 ```
+
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
