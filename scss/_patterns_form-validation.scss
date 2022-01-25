@@ -41,12 +41,13 @@
     }
   }
 
-  .is-error {
-    .p-form-validation__input {
+  .p-form-validation, .is-error {
+    //used to be p-form-validation__input
+    input:invalid{
       border-color: $color-negative;
     }
 
-    .p-form-validation__message {
+    .p-form-validation__message{
       @include vf-icon-error($color-negative);
       @extend %vf-validation-wrapper;
 
@@ -54,16 +55,8 @@
     }
   }
   
-  input:invalid{
-    border-color: $color-negative;
-  }
-  
-  input:invalid + label::after {
-    @include vf-icon-error($color-negative);
-    @extend %vf-validation-wrapper;
-
-      color: $color-negative;
-      content: "Invalid entry";  
+  input:valid + p {
+    content-visibility: hidden;
   }
 }
 
