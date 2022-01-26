@@ -12,7 +12,7 @@ State zero or the empty state is a state where there is no data to display in th
 
 ## No content
 
-No data available denotes the empty state scenario for when we cannot display data due to when we add a new feature to the new release and it requires some actions, for first time use of this feature, or when the data is not available in general.
+No data available denotes the empty state scenario for when we cannot display data.
 
 ### Table format
 
