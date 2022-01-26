@@ -52,7 +52,7 @@ To import either or all of these components into your project, copy the snippets
 @include vf-p-buttons;
 @include vf-p-strip;
 
-// dependencies for no content empty state's page view example
+// dependencies for no content empty state's table view example
 @include vf-p-grid;
 @include vf-u-align;
 @include vf-p-buttons;
