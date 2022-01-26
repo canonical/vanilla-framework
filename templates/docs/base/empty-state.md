@@ -43,12 +43,20 @@ To import either or all of these components into your project, copy the snippets
 @import 'patterns_headings';
 @include vf-base;
 
-@include vf-p-strip;
-@include vf-p-buttons;
+// dependencies for no content empty state's card view example
 @include vf-u-align;
+@include vf-p-buttons;
+@include vf-p-strip;
 
-// when using table format, it's needed to import grid.
+// dependencies for no content empty state's page view example
+@include vf-p-buttons;
+@include vf-p-strip;
+
+// dependencies for no content empty state's page view example
 @include vf-p-grid;
+@include vf-u-align;
+@include vf-p-buttons;
+@include vf-p-strip;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
