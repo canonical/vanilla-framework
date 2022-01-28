@@ -22,7 +22,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.00 -->
      <tr>
-      <th><a href="/docs/base/empty-state">Empty state</a></th>
+      <th><a href="/docs/layouts/empty-state">Empty state</a></th>
       <td>
         <span class="p-label--positive">New</span>
       </td>

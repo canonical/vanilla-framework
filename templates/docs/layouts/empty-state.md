@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Empty States | Base elements
+  title: Empty States |  Layouts
 ---
 
 # Empty States
@@ -14,7 +14,7 @@ State zero or the empty state is a state where there is no data to display in th
 
 No data available denotes the empty state scenario for when we cannot display data.
 
-<div class="embedded-example"><a href="/docs/examples/base/empty-state/no-content" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/layouts/empty-state/no-content" class="js-example">
 View example of the first variation of no content state
 </a></div>
 
