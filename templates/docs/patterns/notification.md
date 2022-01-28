@@ -106,7 +106,7 @@ Notifications should not disappear automatically.
 
 This component strives to follow WCAG 2.1 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
-- Avoid adding both `aria-live="assertive"` and `role="alert"` to maximize compatibility as this causes double speaking issues in VoiceOver on iOS.
+- Avoid adding both `aria-live="assertive"` and `role="alert"` to maximize compatibility as this causes double speaking issues in `VoiceOver` on iOS.
 - Avoid frequent notifications as frequent interruptions may inhibit usability for people with visual and cognitive impairments.
 - Place error notifications at the top of the page and use a distinctive heading so that they are easier to identify.
 - Provide the user with clear instructions on how to correct errors and and explicitly remind them of any format requirements.
