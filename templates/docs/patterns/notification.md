@@ -94,7 +94,7 @@ View example of the time notification pattern
 
 Notifications are messages used to communicate information and feedback to the user. Changes in content which are not interactive should be marked as live regions which are denoted by the `aria-live` attribute.  
 
-When the notification is time sensitive or critical `aria-live= “assertive”`, or its equivalent `role=”alert”`, should be used. Regions specified as assertive will be prioritized by assistive technologies and could potentially clear the speech queue of previous updates. For this reason, it should be used sparingly. Alternatively, when the notification is important, but not urgent, `aria-live=”polite”` should be used. This will notify the user of updates at the next graceful opportunity, without interrupting the current task.
+When the notification is time sensitive or critical `aria-live= "assertive"`, or its equivalent `role="alert"`, should be used. Regions specified as assertive will be prioritized by assistive technologies and could potentially clear the speech queue of previous updates. For this reason, it should be used sparingly. Alternatively, when the notification is important, but not urgent, `aria-live="polite"` should be used. This will notify the user of updates at the next graceful opportunity, without interrupting the current task.
 
 In dismissible notifications, an `aria-controls` attribute on the close button references the id on the parent div containing the notification. This makes it clear to screen reader users what the close button is targetting.
 
@@ -108,7 +108,7 @@ Notifications should not disappear automatically.
 This component strives to follow WCAG 2.1 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect: 
 
 
-* Avoid adding both `aria-live=”assertive”` and `role=”alert”` to maximize compatibility as this causes double speaking issues in VoiceOver on iOS. 
+* Avoid adding both `aria-live="assertive"` and `role="alert"` to maximize compatibility as this causes double speaking issues in VoiceOver on iOS. 
 * Avoid frequent notifications as frequent interruptions may inhibit usability for people with visual and cognitive impairments. 
 * Place error notifications at the top of the page and use a distinctive heading so that they are easier to identify. 
 * Provide the user with clear instructions on how to correct errors and and explicitly remind them of any format requirements. 
