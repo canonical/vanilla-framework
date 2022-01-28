@@ -96,7 +96,7 @@ Notifications are messages used to communicate information and feedback to the u
 
 When the notification is time sensitive or critical `aria-live= "assertive"`, or its equivalent `role="alert"`, should be used. Regions specified as assertive will be prioritized by assistive technologies and could potentially clear the speech queue of previous updates. For this reason, it should be used sparingly. Alternatively, when the notification is important, but not urgent, `aria-live="polite"` should be used. This will notify the user of updates at the next graceful opportunity, without interrupting the current task.
 
-In dismissible notifications, an `aria-controls` attribute on the close button references the id on the parent div containing the notification. This makes it clear to screen reader users what the close button is targetting.
+In dismissible notifications, an `aria-controls` attribute on the close button references the id on the parent div containing the notification. This makes it clear to screen reader users what the close button is targeting.
 
 Unless the alert from the screen reader is meant to break the user’s workflow, it is important that the notification does not affect keyboard focus.
 
