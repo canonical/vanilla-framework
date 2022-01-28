@@ -102,11 +102,9 @@ Unless the alert from the screen reader is meant to break the user’s workflow,
 
 Notifications should not disappear automatically.  
 
-
 ### Considerations 
 
 This component strives to follow WCAG 2.1 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect: 
-
 
 * Avoid adding both `aria-live="assertive"` and `role="alert"` to maximize compatibility as this causes double speaking issues in VoiceOver on iOS. 
 * Avoid frequent notifications as frequent interruptions may inhibit usability for people with visual and cognitive impairments. 
@@ -115,10 +113,7 @@ This component strives to follow WCAG 2.1 (level AA guidelines), and care must b
 * Avoid creating a time limit, as making the notification disappear automatically can reduce accessibility for users who need longer to interact with the element.
 * An event listener should be added to hide notifications upon receiving a click on the close button. 
 
-
 ### Resources
-
-
 
 * [Accessible Rich Internet Applications (WAI-ARIA) 1.1 : aria-live](https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/#aria-live) 
 * [WAI-ARIA Authoring Practices 1.1: alert](https://www.w3.org/TR/wai-aria-practices-1.1/#alert) 
