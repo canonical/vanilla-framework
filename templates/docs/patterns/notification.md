@@ -98,10 +98,6 @@ When the notification is time sensitive or critical `aria-live= "assertive"`, or
 
 In dismissible notifications, an `aria-controls` attribute on the close button references the id on the parent div containing the notification. This makes it clear to screen reader users what the close button is targeting.
 
-Unless the alert from the screen reader is meant to break the user’s workflow, it is important that the notification does not affect keyboard focus.
-
-Notifications should not disappear automatically.
-
 ### Considerations
 
 This component strives to follow WCAG 2.1 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
@@ -112,6 +108,8 @@ This component strives to follow WCAG 2.1 (level AA guidelines), and care must b
 - Provide the user with clear instructions on how to correct errors and and explicitly remind them of any format requirements.
 - Avoid creating a time limit, as making the notification disappear automatically can reduce accessibility for users who need longer to interact with the element.
 - An event listener should be added to hide notifications upon receiving a click on the close button.
+- Unless the alert from the screen reader is meant to break the user’s workflow, it is important that the notification does not affect keyboard focus.
+- Notifications should not disappear automatically.
 
 ### Resources
 
