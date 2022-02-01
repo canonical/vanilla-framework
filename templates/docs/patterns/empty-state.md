@@ -1,10 +1,10 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Empty States |  Layouts
+  title: Empty states | Components
 ---
 
-# Empty States
+# Empty states
 
 <hr>
 
@@ -14,7 +14,7 @@ State zero or the empty state is a state where there is no data to display in th
 
 No data available denotes the empty state scenario for when we cannot display data.
 
-<div class="embedded-example"><a href="/docs/examples/layouts/empty-state/no-content" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/empty-state/no-content" class="js-example">
 View example of the first variation of no content state
 </a></div>
 
@@ -26,10 +26,9 @@ To import either or all of these components into your project, copy the snippets
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
 @import 'vanilla-framework';
-@import 'patterns_headings';
 @include vf-base;
 
-// dependencies for no content empty state example
+// dependencies for the no content empty state example
 @include vf-p-grid;
 @include vf-u-align;
 @include vf-p-buttons;
