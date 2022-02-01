@@ -20,7 +20,15 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.00 -->
+    <!-- 3.1.0 -->
+    <tr>
+      <th><a href="/docs/patterns/empty-state">Empty state</a></th>
+      <td>
+        <span class="p-label--positive">New</span>
+      </td>
+      <td>3.1.0</td>
+      <td>We've added examples for empty state scenarios.</td>
+    </tr>
     <tr>
       <th><a href="/docs/patterns/lists#nested-count">Ordered list nested counter</a></th>
       <td>
@@ -29,6 +37,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>3.1.0</td>
       <td>We've updated lists by adding a new class name. It can be used when nested items numbers are required to be set according to their parents.</td>
     </tr>
+    <!-- 3.0.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation">Expanding search box</a></th>
       <td>
