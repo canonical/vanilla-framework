@@ -1,0 +1,52 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Empty State / User action triggered{% endblock %}
+
+{% block standalone_css %}patterns_empty-state{% endblock %}
+
+{% block content %}
+<section id="search" class="p-strip is-shallow">
+  <div class="u-fixed-width">
+    <h2>Search results for "flibberdygibbery"</h2>
+  </div>
+
+  <div class="u-fixed-width">
+    <form class="p-search-box">
+      <input type="search" aria-label="search" class="p-search-box__input" name="search" required="" value="flibberdygibbery">
+      <button type="submit" class="p-search-box__button"><i class="p-icon--search"></i></button>
+    </form>
+  </div>
+</section>
+<section id="search-results" class="p-strip is-shallow">
+  <div class="row">
+    <div class="col-4 col-medium-3">
+      <div class="p-heading--4">
+        Why not try widening your search?<br> You can do this by:
+      </div>
+    </div>
+    <div class="col-4 col-medium-3">
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">Adding alternative words or phrases</li>
+        <li class="p-list__item is-ticked">Using individual words instead of phrases</li>
+        <li class="p-list__item is-ticked">Trying a different spelling</li>
+      </ul>
+    </div>
+  </div>
+  <div class="u-fixed-width">
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-4 col-medium-3">
+      <div class="p-heading--4">Still no luck?</div>
+    </div>
+    <div class="col-6 col-medium-3">
+      <p class="u-no-margin--bottom">
+        <a href="#">Visit the Ubuntu homepage</a>
+      </p>
+      <p class="u-no-margin--bottom">
+        <a href="#">Contact us</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
