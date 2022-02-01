@@ -18,6 +18,14 @@ No data available denotes the empty state scenario for when we cannot display da
 View example of the first variation of no content state
 </a></div>
 
+## User action triggers empty state
+
+This scenario describes when there is no content available to show as a result of an action. For instance, searching or filtering items in a list, table, page, or results that shows up in cards.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/empty-state/user-triggered" class="js-example">
+View example of the second variation of no content state
+</a></div>
+
 ## Import
 
 To import either or all of these components into your project, copy the snippets below and include it in your main Sass file.
@@ -33,6 +41,14 @@ To import either or all of these components into your project, copy the snippets
 @include vf-u-align;
 @include vf-p-buttons;
 @include vf-p-strip;
+
+// dependencies for user action triggered empty state example
+@include vf-p-strip;
+@include vf-p-lists;
+@include vf-p-search-box;
+@include vf-p-icons-common;
+@include vf-p-icon-search;
+@include vf-u-layout;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
