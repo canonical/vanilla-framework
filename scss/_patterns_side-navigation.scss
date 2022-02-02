@@ -217,7 +217,8 @@
   .p-side-navigation__link {
     @extend %side-navigation__text;
 
-    .p-side-navigation--icons & {
+    .p-side-navigation--icons &,
+    .p-side-navigation--expandable & {
       @include vf-side-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--icon-width);
 
       position: relative;
@@ -228,7 +229,8 @@
       @include vf-side-navigation-spacing-left($multiplier: 2);
 
       // add spacing for variant with right side icons
-      .p-side-navigation--icons & {
+      .p-side-navigation--icons &,
+      .p-side-navigation--expandable & {
         @include vf-side-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--icon-width);
       }
     }
@@ -238,7 +240,8 @@
       @include vf-side-navigation-spacing-left($multiplier: 3);
 
       // add spacing for variant with right side icons
-      .p-side-navigation--icons & {
+      .p-side-navigation--icons &,
+      .p-side-navigation--expandable & {
         @include vf-side-navigation-spacing-left($multiplier: 4, $offset: $sp-sidenav--icon-width);
       }
     }
@@ -252,6 +255,15 @@
       top: $spv--small;
     }
   }
+
+  // .p-side-navigation--expandable {
+  //   .has-chevron {
+  //     @include vf-side-navigation-spacing-left($prop: left);
+
+  //     position: absolute;
+  //     top: $spv--small;
+  //   }
+  // }
 
   .p-side-navigation__status {
     margin-left: auto;
