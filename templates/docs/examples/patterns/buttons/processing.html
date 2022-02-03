@@ -4,10 +4,16 @@
 {% block standalone_css %}patterns_buttons{% endblock %}
 
 {% block content %}
-<button class="p-button--positive">
-    <i class="p-icon--spinner u-animation--spin is-light u-hide"></i>
-    <span id="button-label">Click</span>
+<button disabled class="p-button--positive is-processing">
+  <i class="p-icon--spinner u-animation--spin is-light"></i>
 </button>
+
+<button class="p-button--positive js-processing-button">
+    <i class="p-icon--spinner u-animation--spin is-light u-hide"></i>
+    <span id="button-label">Click me!</span>
+</button>
+
+
 <script>
   {% include 'docs/examples/patterns/buttons/_script.js' %}
 </script>
