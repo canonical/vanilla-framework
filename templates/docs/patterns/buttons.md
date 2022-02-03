@@ -101,6 +101,8 @@ View example of the icon button pattern
 
 In cases where a button needs to indicate that an action is occurring (e.g. saving data, processing a payment) while also preventing user interaction, the state class `is-processing` can be added to a disabled button to maintain full opacity.
 
+When replacing a label in a button with a loading icon make sure to keep the width of the button the same to avoid content moving around. The example below has a snippet of JavaScript to demo how to achieve that or you can use the [`ActionButton` React component](https://canonical-web-and-design.github.io/react-components/?path=/docs/actionbutton--default-story) that has this functionality built-in.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/processing/" class="js-example">
 View example of the processing button pattern
 </a></div>
