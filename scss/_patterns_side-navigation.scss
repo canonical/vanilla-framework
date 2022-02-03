@@ -256,14 +256,30 @@
     }
   }
 
-  // .p-side-navigation--expandable {
-  //   .has-chevron {
-  //     @include vf-side-navigation-spacing-left($prop: left);
+  .p-side-navigation--expandable {
+    .is-expanded:after {
+      content: '';
+      display: block;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 10px;
+      left: 18px;
+      background: url('https://assets.ubuntu.com/v1/9056774c-chevron-up.svg') no-repeat 0px 0px;
+    }
 
-  //     position: absolute;
-  //     top: $spv--small;
-  //   }
-  // }
+    .not-expanded:after {
+      content: '';
+      display: block;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 0px;
+      left: 15px;
+      background: url('https://assets.ubuntu.com/v1/9056774c-chevron-up.svg') no-repeat 0px 0px;
+      transform: rotate(180deg);
+    }
+  }
 
   .p-side-navigation__status {
     margin-left: auto;
