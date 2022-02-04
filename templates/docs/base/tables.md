@@ -33,10 +33,10 @@ You can find out more about the [truncation](/docs/utilities/truncate) and
 
 ## Empty
 
-A `<caption>` element can be used to provide a description when there is no data to display in the table.
+A `<caption>` element can be used to provide a description when there is no data to display in the table. For more examples, see the [Empty states documentation](/docs/patterns/empty-state).
 
-<div class="embedded-example"><a href="/docs/examples/base/table-empty/" class="js-example">
-View example of empty table
+<div class="embedded-example"><a href="/docs/examples/patterns/empty-state/no-content" class="js-example">
+View example of the empty state caused by no content
 </a></div>
 
 ## Icons
