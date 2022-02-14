@@ -10,6 +10,10 @@ context:
 
 Notifications are used to attract the user's attention. They offer four separate severity levels, and can also be modified for use in different contexts.
 
+## Live Demo Box
+
+<div id="react-live-demo-box"></div>
+
 ## Severity levels
 
 ### Information

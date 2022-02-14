@@ -22,7 +22,15 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install --produc
 # ===
 FROM yarn-dependencies AS build-vanilla
 ADD scss scss
-RUN yarn run build
+RUN yarn run build-scss
+
+
+# Build stage: Build JS
+# ==
+FROM yarn-dependencies AS build-js
+ADD templates/static/js templates/static/js
+ADD build.js build.js
+RUN yarn run build-js
 
 
 # Build the production image
@@ -42,6 +50,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 # Import code, build assets and mirror list
 ADD . .
 RUN rm -rf package.json yarn.lock .babelrc webpack.config.js
+COPY --from=build-js /srv/templates/static/build templates/static/build
 COPY --from=build-vanilla /srv/package.json package.json
 COPY --from=build-vanilla /srv/build build
 
