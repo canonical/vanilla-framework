@@ -52,7 +52,7 @@ const LiveDemoBox = () => {
           <div className="row" style={{gridGap: 0}}>
             <div className="p-card col-6">
               <h3>Example</h3>
-              <p className="p-card__content">space for exmaple here</p>
+              <iframe src="/docs/examples/patterns/notifications/toast" width="100%" />
             </div>
             <div className="col-2 p-card">
               <Switch switchOptions={configValues.switch} />
