@@ -79,34 +79,6 @@ def _get_examples():
     return examples
 
 
-def _get_json_files():
-    json_files = glob.glob(
-        "templates/docs/examples/*/**/[!]*.json", recursive=True
-    )
-    json_data = {}
-
-    for filepath in sorted(json_files):
-        # Remove "templates/" prefix
-        docs_length = len("templates/")
-
-        # Get template object
-        template_path = filepath[docs_length:]
-        template = flask.current_app.jinja_env.get_template(template_path)
-
-        # Remove "docs/examples/"
-        examples_length = len("docs/examples/")
-        # Remove "docs/examples/" and extension for the path
-        json_path = os.path.splitext(template_path[examples_length:])[0]
-
-        outermost_parent = json_path.split(os.sep).pop(0)
-
-        json_data.setdefault(outermost_parent, []).append(
-            {"path": json_path}
-        )
-
-    return json_data
-
-
 def _make_github_request(endpoint):
     github_secret = os.getenv("GITHUB_TOKEN")
     headers = {}
@@ -191,14 +163,12 @@ def examples_index():
     )
 
 
-@app.route("/docs/examples/<path:json_path>")
-def json_example(json_path):
-    try:
-      return flask.render_template(
-          f"docs/examples/{json_path}.json"
-      )
-    except jinja2.exceptions.TemplateNotFound:
-        return flask.abort(404)
+@app.route("/docs/examples/patterns/notifications/toast.json")
+def json_examples():
+    return flask.render_template(
+        "docs/examples/patterns/notifications/toast.json"
+    )
+
 
 @app.route("/docs/examples/standalone")
 def standalone_examples_index():
