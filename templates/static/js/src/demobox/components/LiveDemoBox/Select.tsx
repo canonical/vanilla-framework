@@ -9,7 +9,9 @@ type Props = {
 const Select = ({dropdownOptions, dropdownLabel, disabled}: Props) => {
   return (
     <>
-      <label htmlFor="exampleSelect">{dropdownLabel}</label>
+      <label htmlFor="exampleSelect" style={{opacity: disabled === true ? 0.5 : 1}}>
+        {dropdownLabel}
+      </label>
       <select name="exampleSelect" id="exampleSelect" disabled={disabled}>
         {dropdownOptions &&
           dropdownOptions.map((dropdownOption: any) => {
