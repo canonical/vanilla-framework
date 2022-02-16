@@ -1,15 +1,20 @@
 import React from 'react';
 
-type Props = {
-  switchOptions: any;
+export type SwitchInfo = {
+  query: string;
+  label: string;
 };
 
-const Switch = ({switchOptions}: Props) => {
+type SwitchProps = {
+  switchOptions?: [SwitchInfo];
+};
+
+const Switch = ({switchOptions}: SwitchProps) => {
   return (
     <>
       {switchOptions &&
         switchOptions.length &&
-        switchOptions.map((option: any) => {
+        switchOptions.map((option) => {
           return (
             <label className="p-switch">
               <input type="checkbox" class="p-switch__input" role="switch"></input>

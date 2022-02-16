@@ -1,12 +1,17 @@
 import React from 'react';
 
-type Props = {
-  dropdownOptions: any;
-  dropdownLabel: string;
-  disabled: boolean;
+export type DropdownInfo = {
+  query: string;
+  label: string;
 };
 
-const Select = ({dropdownOptions, dropdownLabel, disabled}: Props) => {
+export type DropdownProps = {
+  dropdownOptions?: [DropdownInfo];
+  dropdownLabel?: string;
+  disabled?: boolean;
+};
+
+const Select = ({dropdownOptions, dropdownLabel, disabled}: DropdownProps) => {
   return (
     <>
       <label htmlFor="exampleSelect" style={{opacity: disabled === true ? 0.5 : 1}}>
@@ -14,7 +19,7 @@ const Select = ({dropdownOptions, dropdownLabel, disabled}: Props) => {
       </label>
       <select name="exampleSelect" id="exampleSelect" disabled={disabled}>
         {dropdownOptions &&
-          dropdownOptions.map((dropdownOption: any) => {
+          dropdownOptions.map((dropdownOption) => {
             return <option value={dropdownOption.label}>{dropdownOption.label}</option>;
           })}
       </select>

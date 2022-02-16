@@ -1,11 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import Select from './Select';
-import Switch from './Switch';
+import Select, {DropdownInfo} from './Select';
+import Switch, {SwitchInfo} from './Switch';
+
+type DropDown = {
+  type: [DropdownInfo];
+  theme: [DropdownInfo];
+  style: [DropdownInfo];
+};
+
+type InitialState = {
+  dropdown: DropDown;
+  switch: [SwitchInfo];
+};
+
 const LiveDemoBox = () => {
-  const [configValues, setConfigValues] = useState<any>({
-    dropdown: {},
-    switch: {},
-  });
+  const [configValues, setConfigValues] = useState<InitialState>();
 
   useEffect(() => {
     const fetchData = async () => {
