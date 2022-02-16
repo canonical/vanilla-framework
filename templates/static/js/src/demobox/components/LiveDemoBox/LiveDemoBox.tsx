@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Select from './Select';
-
+import Switch from './Switch';
 const LiveDemoBox = () => {
   const [configValues, setConfigValues] = useState<any>({
     dropdown: {},
@@ -22,21 +22,28 @@ const LiveDemoBox = () => {
 
   return (
     <section className="p-strip--light">
-      <h3>Hello, I am the live demo box rendered in React!</h3>
-      {configValues && configValues.dropdown && (
+      {configValues && configValues.dropdown && configValues.switch && (
         <form>
           <div className="row">
-            <div className="col-3">
+            <div className="col-2">
               <Select dropdownLabel="Type" dropdownOptions={configValues.dropdown.type} disabled={false} />
             </div>
-            <div className="col-3">
+            <div className="col-2">
               <Select dropdownLabel="Theme" dropdownOptions={configValues.dropdown.theme} disabled={true} />
             </div>
-            <div className="col-3">
+            <div className="col-2">
               <Select dropdownLabel="Style" dropdownOptions={configValues.dropdown.style} disabled={false} />
             </div>
           </div>
-          <div></div>
+          <div className="row">
+            <div className="p-card col-6">
+              <h3>Example</h3>
+              <p className="p-card__content">space for exmaple here</p>
+            </div>
+            <div className="col-2">
+              <Switch switchOptions={configValues.switch} />
+            </div>
+          </div>
         </form>
       )}
     </section>
