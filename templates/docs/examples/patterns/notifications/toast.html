@@ -1,0 +1,36 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Notifications / Toast{% endblock %}
+
+{% block standalone_css %}patterns_notifications{% endblock %}
+
+{% set type = request.args.get('type') %}
+{% set theme = request.args.get('theme') %}
+{% set style = request.args.get('style') %}
+{% set dismiss = request.args.get('dismiss') %}
+{% set actions = request.args.get('actions') %}
+{% set timestamp = request.args.get('timestamp') %}
+
+{% block content %}
+<div class="p-notification{{ '--' ~ type if type else '' }} {% if theme == 'dark' %}is-dark{% endif %} {% if style == 'inline' %}is-inline{% endif %}">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Permissions changed</h5>
+    <p class="p-notification__message">Anyone with access can view your invited users.</p>
+    {% if dismiss == 'true' %}
+    <button class="p-notification__close" aria-controls="notification">Close</button>
+    {% endif %}
+  </div>
+  {% if actions == 'true' or timestamp == 'true' %}
+  <div class="p-notification__meta">
+    {% if timestamp == 'true' %}
+    <span class="p-notification__timestamp">1h ago</span>
+    {% endif %}
+    {% if actions == 'true' %}
+    <div class="p-notification__actions">
+      <a class="p-notification__action" href="#">Action 1</a>
+      <a class="p-notification__action" href="#">Action 2</a>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
