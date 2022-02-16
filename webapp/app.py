@@ -163,11 +163,12 @@ def examples_index():
     )
 
 
-@app.route("/docs/examples/patterns/notifications/toast.json")
-def json_examples():
-    return flask.render_template(
-        "docs/examples/patterns/notifications/toast.json"
-    )
+@app.route("/<path:json_path>.json")
+def json_examples(json_path):
+    try:
+        return flask.send_file(f"{app.template_folder}/{json_path}.json")
+    except FileNotFoundError:
+        return flask.abort(404)
 
 
 @app.route("/docs/examples/standalone")
