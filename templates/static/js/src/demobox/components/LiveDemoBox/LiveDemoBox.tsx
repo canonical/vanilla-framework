@@ -24,7 +24,7 @@ const LiveDemoBox = () => {
     <section className="p-strip--light">
       {configValues && configValues.dropdown && configValues.switch && (
         <form>
-          <div className="row">
+          <div className="row" style={{gridGap: 0}}>
             <div className="col-2">
               <Select dropdownLabel="Type" dropdownOptions={configValues.dropdown.type} disabled={false} />
             </div>
@@ -35,12 +35,12 @@ const LiveDemoBox = () => {
               <Select dropdownLabel="Style" dropdownOptions={configValues.dropdown.style} disabled={false} />
             </div>
           </div>
-          <div className="row">
+          <div className="row" style={{gridGap: 0}}>
             <div className="p-card col-6">
               <h3>Example</h3>
               <p className="p-card__content">space for exmaple here</p>
             </div>
-            <div className="col-2">
+            <div className="col-2 p-card">
               <Switch switchOptions={configValues.switch} />
             </div>
           </div>
