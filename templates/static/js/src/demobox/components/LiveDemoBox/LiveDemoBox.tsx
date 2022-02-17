@@ -40,7 +40,7 @@ const LiveDemoBox = () => {
     fetchData();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     if(e.target.value === "on"){
       setSelectValues({...selectValue, [e.target.name] : !selectValue[e.target.name]} )
     } else {
@@ -48,12 +48,7 @@ const LiveDemoBox = () => {
     }
   }
 
-  function iframe() {
-    const url =`/docs/examples/patterns/notifications/toast?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`
-    return {
-        __html: `<iframe src=${url} width="100%" height="450"></iframe>`
-    }
-  }
+  const url =`/docs/examples/patterns/notifications/toast?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`
 
   return (
     <section className="p-strip--light">
@@ -75,7 +70,7 @@ const LiveDemoBox = () => {
               <h3>Example</h3>
               <p className="p-card__content">
               <div>
-                <div dangerouslySetInnerHTML={iframe()} />
+                <iframe src={url} width="100%" height="200"></iframe>
               </div>
               </p>
             </div>
