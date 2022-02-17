@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import Select, {DropdownInfo} from './Select';
 import Switch, {SwitchInfo} from './Switch';
+import {Select} from '@canonical/react-components';
+
+export type DropdownInfo = {
+  query: string;
+  label: string;
+};
 
 type DropDown = {
   type: [DropdownInfo];
@@ -35,13 +40,13 @@ const LiveDemoBox = () => {
         <form>
           <div className="row" style={{gridGap: 0}}>
             <div className="col-2">
-              <Select dropdownLabel="Type" dropdownOptions={configValues.dropdown.type} disabled={false} />
+              <Select id="type" label="Type" name="Type" options={configValues.dropdown.type} />
             </div>
             <div className="col-2">
-              <Select dropdownLabel="Theme" dropdownOptions={configValues.dropdown.theme} disabled={true} />
+              <Select id="theme" label="Theme" name="Theme" options={configValues.dropdown.theme} />
             </div>
             <div className="col-2">
-              <Select dropdownLabel="Style" dropdownOptions={configValues.dropdown.style} disabled={false} />
+              <Select id="style" label="Style" name="Style" options={configValues.dropdown.style} />
             </div>
           </div>
           <div className="row" style={{gridGap: 0}}>
