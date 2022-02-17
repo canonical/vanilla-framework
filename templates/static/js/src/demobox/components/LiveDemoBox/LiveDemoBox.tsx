@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Switch from './Switch';
 import {Select} from '@canonical/react-components';
+
 export type InputOptions = {
   query: string;
   label: string;
@@ -17,9 +18,13 @@ type InitialState = {
   switch: [InputOptions];
 };
 
+type SelectValueType =  {
+  [key: string]: string | boolean;
+}
+
 const LiveDemoBox = () => {
   const [configValues, setConfigValues] = useState<InitialState>();
-  const [selectValue, setSelectValues] = useState({type: "information", style: "block", action: true, dismiss: true, timestamp:true })
+  const [selectValue, setSelectValues] = useState<SelectValueType>({type: "information", style: "block", actions: false, dismiss: false, timestamp: false })
 
 
   useEffect(() => {
@@ -34,29 +39,35 @@ const LiveDemoBox = () => {
     };
     fetchData();
   }, []);
-  const handleChange = (e :any) => {
-    console.log(e.target.value)
-    setSelectValues({...selectValue, [e.target.name] : e.target.value.toLowerCase()} )}
-  // }&style=inline&actions=true&dismiss=true&timestamp=true
-  function iframe() {
-    const url =`/docs/examples/patterns/notifications/toast?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.action}`
-    return {
-        __html: `<iframe src=${url} width="540" height="450"></iframe>`
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
+    if(e.target.value === "on"){
+      setSelectValues({...selectValue, [e.target.name] : !selectValue[e.target.name]} )
+    } else {
+      setSelectValues({...selectValue, [e.target.name] : e.target.value.toLowerCase()} )
     }
-}
+  }
+
+  function iframe() {
+    const url =`/docs/examples/patterns/notifications/toast?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`
+    return {
+        __html: `<iframe src=${url} width="100%" height="450"></iframe>`
+    }
+  }
+
   return (
     <section className="p-strip--light">
       {configValues && configValues.dropdown && configValues.switch && (
         <form>
           <div className="row" style={{gridGap: 0}}>
             <div className="col-2">
-              <Select id="type" label="Type" name="type" onChange={(e) => handleChange(e)} options={configValues.dropdown.type} />
+              <Select id="type" label="Type" name="type" onChange={handleChange} options={configValues.dropdown.type} />
             </div>
             <div className="col-2">
-              <Select id="theme" label="Theme" name="theme" onChange={(e) => handleChange(e)} options={configValues.dropdown.theme} disabled />
+              <Select id="theme" label="Theme" name="theme" onChange={handleChange} options={configValues.dropdown.theme} disabled />
             </div>
             <div className="col-2">
-              <Select id="style" label="Style" name="style" onChange={(e) => handleChange(e)} options={configValues.dropdown.style}/>
+              <Select id="style" label="Style" name="style" onChange={handleChange} options={configValues.dropdown.style}/>
             </div>
           </div>
           <div className="row" style={{gridGap: 0}}>
@@ -69,7 +80,7 @@ const LiveDemoBox = () => {
               </p>
             </div>
             <div className="col-2 p-card">
-              <Switch switchOptions={configValues.switch} handleChange={handleChange}/>
+              <Switch switchOptions={configValues.switch} handleChange={handleChange} />
             </div>
           </div>
         </form>

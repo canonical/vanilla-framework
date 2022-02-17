@@ -7,7 +7,7 @@ export type SwitchInfo = {
 
 type SwitchProps = {
   switchOptions?: [SwitchInfo];
-  handleChange : (e:any) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Switch = ({switchOptions, handleChange}: SwitchProps) => {
@@ -18,7 +18,7 @@ const Switch = ({switchOptions, handleChange}: SwitchProps) => {
         switchOptions.map((option) => {
           return (
             <label className="p-switch">
-              <input type="checkbox" className="p-switch__input" role="switch" onChange={handleChange}></input>
+              <input type="checkbox" className="p-switch__input"  role="switch" name={option.query} onChange={handleChange}></input>
               <span className="p-switch__slider"></span>
               <span className="p-switch__label">{option.label && option.label}</span>
             </label>
