@@ -7,9 +7,10 @@ export type SwitchInfo = {
 
 type SwitchProps = {
   switchOptions?: [SwitchInfo];
+  handleChange : (e:any) => void;
 };
 
-const Switch = ({switchOptions}: SwitchProps) => {
+const Switch = ({switchOptions, handleChange}: SwitchProps) => {
   return (
     <>
       {switchOptions &&
@@ -17,7 +18,7 @@ const Switch = ({switchOptions}: SwitchProps) => {
         switchOptions.map((option) => {
           return (
             <label className="p-switch">
-              <input type="checkbox" className="p-switch__input" role="switch"></input>
+              <input type="checkbox" className="p-switch__input" role="switch" onChange={handleChange}></input>
               <span className="p-switch__slider"></span>
               <span className="p-switch__label">{option.label && option.label}</span>
             </label>
