@@ -164,25 +164,6 @@ To import list patterns into your project, copy the snippet below and include it
 @include vf-p-lists;
 ```
 
-To add dividers into your project, copy the snippet below and include it in your main Sass file.
-
-```scss
-// import Vanilla and include base mixins
-// this only needs to happen once in a given project
-@import '../vanilla';
-@include vf-base;
-
-@include vf-p-divider;
-
-// grid column classes are used within divider component, so you need to include grid pattern as well
-// import Vanilla and include base mixins
-// this only needs to happen once in a given project
-@import '../vanilla';
-@include vf-base;
-
-@include vf-p-grid;
-```
-
 To include individual list patterns you need to include the `vf-p-list-placeholders` mixin first.
 
 ```scss
