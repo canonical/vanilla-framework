@@ -125,7 +125,7 @@ View example of the patterns list split
 
 ## Related components
 
-To separate non-list content with a responsive divider, see our [Divider component]('/docs/patterns/divider').
+To separate non-list content with a responsive divider, see our [Divider component](/docs/patterns/divider).
 
 ## Accessibility
 
