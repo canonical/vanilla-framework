@@ -123,6 +123,10 @@ If you wish to split the items in a list into two columns above `$breakpoint-sma
 View example of the patterns list split
 </a></div>
 
+## Related components
+
+To separate non-list content with a responsive divider, see our [Divider component]('/docs/patterns/divider').
+
 ## Accessibility
 
 ### How it works
