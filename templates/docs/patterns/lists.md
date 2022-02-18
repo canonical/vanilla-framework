@@ -127,6 +127,8 @@ View example of the patterns list split
 
 To separate non-list content with a responsive divider, see our [Divider component](/docs/patterns/divider).
 
+For a more interactive layered lists style [view the list tree component](/docs/patterns/list-tree).
+
 ## Accessibility
 
 ### How it works
@@ -193,7 +195,3 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 You can use lists in React by installing our react-component library and importing `List` component.
 
 [See the documentation for our React `List` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/list--default-story#list)
-
-## Related
-
-For a more interactive layered lists style [view the list tree component](/docs/patterns/list-tree).
