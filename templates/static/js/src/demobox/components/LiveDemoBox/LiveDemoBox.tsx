@@ -24,7 +24,7 @@ type SelectValueType =  {
 
 const LiveDemoBox = () => {
   const [configValues, setConfigValues] = useState<InitialState>();
-  const [selectValue, setSelectValues] = useState<SelectValueType>({type: "information", style: "block", actions: false, dismiss: false, timestamp: false })
+  const [selectValue, setSelectValues] = useState<SelectValueType>({type: "", theme: "", style: "" })
 
 
   useEffect(() => {
@@ -33,12 +33,30 @@ const LiveDemoBox = () => {
         const response = await fetch('/docs/examples/patterns/notifications/toast.json');
         const json = await response.json();
         setConfigValues({dropdown: json.dropdown, switch: json.switch});
+        
+        const setDefaultDropdownValues = (dropdownOption : any ) => {
+            json.dropdown[dropdownOption].map((dropdownValue: any) => {
+            return "default" in dropdownValue && setSelectValues({...selectValue, [dropdownValue]: dropdownValue.query })
+          })
+        }
+        setDefaultDropdownValues("type")
+        setDefaultDropdownValues("theme")
+        setDefaultDropdownValues("style")
+
+        const setDefaultSwitchValues = () => {
+          json.switch.map((switchOption: any ) => {
+            setSelectValues({...selectValue, [switchOption.query]: false})
+          })
+        }
+        setDefaultSwitchValues()
       } catch (error) {
         console.log('error', error);
       }
     };
     fetchData();
   }, []);
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     if(e.target.value === "on"){
