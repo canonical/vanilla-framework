@@ -53,14 +53,6 @@ list with horizontal dividers and tick icons.
 View example of the ticked divided list pattern
 </a></div>
 
-## Responsive divider
-
-A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-large`), the divider lines appear horizontally. On screens bigger than `$breakpoint-large`, the divider lines appear vertically, centered in the column gutters.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/divider/" class="js-example">
-View example of lists with a responsive divider
-</a></div>
-
 ## Inline
 
 Apply the class `.p-inline-list` to display all the list items in one line.
@@ -131,20 +123,11 @@ If you wish to split the items in a list into two columns above `$breakpoint-sma
 View example of the patterns list split
 </a></div>
 
-## Theming
+## Related components
 
-The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_settings_colors.scss).
-Overriding the colours of individual elements of the responsive is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
+To separate non-list content with a responsive divider, see our [Divider component](/docs/patterns/divider).
 
-By default, the responsive divider uses the light theme. To change the global default, set `$theme-default-p-divider` to `dark`.
-
-To change the appearance of an individual instance of the responsive divider pattern, you can use the `is-dark` class.
-
-For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/divider-dark/" class="js-example">
-View example of the divider list with an is-dark class
-</a></div>
+For a more interactive layered lists style [view the list tree component](/docs/patterns/list-tree).
 
 ## Accessibility
 
@@ -183,25 +166,6 @@ To import list patterns into your project, copy the snippet below and include it
 @include vf-p-lists;
 ```
 
-To add dividers into your project, copy the snippet below and include it in your main Sass file.
-
-```scss
-// import Vanilla and include base mixins
-// this only needs to happen once in a given project
-@import '../vanilla';
-@include vf-base;
-
-@include vf-p-divider;
-
-// grid column classes are used within divider component, so you need to include grid pattern as well
-// import Vanilla and include base mixins
-// this only needs to happen once in a given project
-@import '../vanilla';
-@include vf-base;
-
-@include vf-p-grid;
-```
-
 To include individual list patterns you need to include the `vf-p-list-placeholders` mixin first.
 
 ```scss
@@ -231,7 +195,3 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 You can use lists in React by installing our react-component library and importing `List` component.
 
 [See the documentation for our React `List` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/list--default-story#list)
-
-## Related
-
-For a more interactive layered lists style [view the list tree component](/docs/patterns/list-tree).
