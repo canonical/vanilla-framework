@@ -36,6 +36,7 @@
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
     "test-spelling": "mdspell templates/docs/**/*.md -r -n -a --en-gb",
     "test": "yarn lint-scss && yarn lint-prettier &&  yarn test-spelling && yarn test-scss",
+    "format-js": "prettier -w 'templates/**/*.{js,jsx,ts,tsx,json}'",
     "lint-prettier": "prettier -c .",
     "lint-scss": "stylelint 'scss/**/*.scss'",
     "watch:scss": "sass --load-path=node_modules --embed-sources --style=compressed scss:build/css --watch",
