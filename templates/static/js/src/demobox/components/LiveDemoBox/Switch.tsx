@@ -1,7 +1,7 @@
 import React from "react";
 
 export type SwitchInfo = {
-  query: string;
+  key: string;
   label: string;
 };
 
@@ -17,12 +17,12 @@ const Switch = ({ switchOptions, handleChange }: SwitchProps) => {
         switchOptions.length &&
         switchOptions.map((option) => {
           return (
-            <label className="p-switch">
+            <label className="p-switch" key={option.key}>
               <input
                 type="checkbox"
                 className="p-switch__input"
                 role="switch"
-                name={option.query}
+                name={option.key}
                 onChange={handleChange}
               ></input>
               <span className="p-switch__slider"></span>

@@ -3,7 +3,7 @@ import Switch from "./Switch";
 import { Select } from "@canonical/react-components";
 
 export type InputOptions = {
-  query: string;
+  key: string;
   label: string;
 };
 
@@ -45,7 +45,7 @@ const LiveDemoBox = () => {
               "default" in dropdownValue &&
               setSelectValues({
                 ...selectValue,
-                [dropdownValue]: dropdownValue.query,
+                [dropdownValue]: dropdownValue.key,
               })
             );
           });
@@ -56,7 +56,7 @@ const LiveDemoBox = () => {
 
         const setDefaultSwitchValues = () => {
           json.switch.map((switchOption: any) => {
-            setSelectValues({ ...selectValue, [switchOption.query]: false });
+            setSelectValues({ ...selectValue, [switchOption.key]: false });
           });
         };
         setDefaultSwitchValues();
@@ -122,11 +122,11 @@ const LiveDemoBox = () => {
           <div className="row" style={{ gridGap: 0 }}>
             <div className="p-card col-6">
               <h3>Example</h3>
-              <p className="p-card__content">
+              <div className="p-card__content">
                 <div>
                   <iframe src={url} width="100%"></iframe>
                 </div>
-              </p>
+              </div>
             </div>
             <div className="col-2 p-card">
               <Switch
