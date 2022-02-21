@@ -124,7 +124,7 @@ const LiveDemoBox = () => {
               <h3>Example</h3>
               <p className="p-card__content">
                 <div>
-                  <iframe src={url} width="100%" height="200"></iframe>
+                  <iframe src={url} width="100%"></iframe>
                 </div>
               </p>
             </div>
