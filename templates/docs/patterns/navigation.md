@@ -141,6 +141,10 @@ Because of the limitations of raw HTML markup without class names, it's not poss
 View example of the side navigation pattern for raw HTML
 </a></div>
 
+### Class reference
+
+{% include "_class-references/side-navigation.html" %}
+
 ### JavaScript functionality
 
 On small screens side navigation is rendered off-screen as a drawer. To open the side navigation drawer, add `is-expanded` class to
