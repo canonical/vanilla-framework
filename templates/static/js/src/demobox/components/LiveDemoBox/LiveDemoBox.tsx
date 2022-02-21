@@ -23,8 +23,8 @@ type SelectValueType = {
 };
 
 const LiveDemoBox = () => {
-  const element = document.querySelector(".react-live-demo-box") 
-  const jsonUrl = element?.getAttribute("data-id")
+  const element = document.querySelector(".react-live-demo-box");
+  const jsonUrl = element?.getAttribute("data-id");
   const [configValues, setConfigValues] = useState<InitialState>();
   const [selectValue, setSelectValues] = useState<SelectValueType>({
     type: "",
@@ -35,9 +35,7 @@ const LiveDemoBox = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `${jsonUrl}.json`
-        );
+        const response = await fetch(`${jsonUrl}.json`);
         const json = await response.json();
         setConfigValues({ dropdown: json.dropdown, switch: json.switch });
 
@@ -85,8 +83,18 @@ const LiveDemoBox = () => {
     }
   };
 
-  const url = `${jsonUrl}?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`;
-  console.log(url)
+  const constructUrl = () => {
+    let url = `${jsonUrl}?`;
+
+    const arrayOfKeys = Object.keys(selectValue);
+
+    arrayOfKeys.forEach((key) => {
+      url += `${key}=${selectValue[key]}&`;
+    });
+    return url;
+  };
+  const url = constructUrl();
+
   return (
     <section className="p-strip--light">
       {configValues && configValues.dropdown && configValues.switch && (
