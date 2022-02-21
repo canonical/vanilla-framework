@@ -1,1 +1,1 @@
-export {default} from './LiveDemoBox';
+export { default } from "./LiveDemoBox";
