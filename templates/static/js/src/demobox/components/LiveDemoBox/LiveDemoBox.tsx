@@ -23,6 +23,8 @@ type SelectValueType = {
 };
 
 const LiveDemoBox = () => {
+  const element = document.querySelector(".react-live-demo-box") 
+  const jsonUrl = element?.getAttribute("data-id")
   const [configValues, setConfigValues] = useState<InitialState>();
   const [selectValue, setSelectValues] = useState<SelectValueType>({
     type: "",
@@ -34,7 +36,7 @@ const LiveDemoBox = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "/docs/examples/patterns/notifications/toast.json"
+          `${jsonUrl}.json`
         );
         const json = await response.json();
         setConfigValues({ dropdown: json.dropdown, switch: json.switch });
@@ -83,8 +85,8 @@ const LiveDemoBox = () => {
     }
   };
 
-  const url = `/docs/examples/patterns/notifications/toast?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`;
-
+  const url = `${jsonUrl}?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`;
+  console.log(url)
   return (
     <section className="p-strip--light">
       {configValues && configValues.dropdown && configValues.switch && (

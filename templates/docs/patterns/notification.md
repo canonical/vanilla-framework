@@ -12,7 +12,7 @@ Notifications are used to attract the user's attention. They offer four separate
 
 ## Live Demo Box
 
-<div id="react-live-demo-box"></div>
+<div class="react-live-demo-box" data-id="/docs/examples/patterns/notifications/toast"></div>
 
 ## Severity levels
 

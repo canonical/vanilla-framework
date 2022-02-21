@@ -6,4 +6,4 @@ const App = () => {
   return <LiveDemoBox />;
 };
 
-ReactDOM.render(<App />, document.getElementById("react-live-demo-box"));
+ReactDOM.render(<App />, document.querySelector(".react-live-demo-box"));
