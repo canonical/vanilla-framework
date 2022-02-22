@@ -31,7 +31,6 @@ const LiveDemoBox = () => {
     theme: "",
     style: "",
   });
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,13 +49,13 @@ const LiveDemoBox = () => {
             );
           });
         };
-        setDefaultDropdownValues("type");
-        setDefaultDropdownValues("theme");
-        setDefaultDropdownValues("style");
+        Object.keys(json.dropdown).forEach((key) =>
+          setDefaultDropdownValues(key)
+        );
 
         const setDefaultSwitchValues = () => {
           json.switch.map((switchOption: any) => {
-            setSelectValues({ ...selectValue, [switchOption.key]: false });
+            setSelectValues({ ...selectValue, [switchOption.query]: false });
           });
         };
         setDefaultSwitchValues();
@@ -85,49 +84,36 @@ const LiveDemoBox = () => {
 
   const constructUrl = () => {
     let url = `${jsonUrl}?`;
-
     const arrayOfKeys = Object.keys(selectValue);
-
     arrayOfKeys.forEach((key) => {
       url += `${key}=${selectValue[key]}&`;
     });
     return url;
   };
   const url = constructUrl();
-
+  const dropdownOptions = configValues && Object.keys(configValues.dropdown);
   return (
     <section className="p-strip--light">
       {configValues && configValues.dropdown && configValues.switch && (
         <form>
           <div className="row" style={{ gridGap: 0 }}>
-            <div className="col-2">
-              <Select
-                id="type"
-                label="Type"
-                name="type"
-                onChange={handleChange}
-                options={configValues.dropdown.type}
-              />
-            </div>
-            <div className="col-2">
-              <Select
-                id="theme"
-                label="Theme"
-                name="theme"
-                onChange={handleChange}
-                options={configValues.dropdown.theme}
-                disabled
-              />
-            </div>
-            <div className="col-2">
-              <Select
-                id="style"
-                label="Style"
-                name="style"
-                onChange={handleChange}
-                options={configValues.dropdown.style}
-              />
-            </div>
+            {dropdownOptions?.map((dropdownOption) => {
+              const optionValue = configValues?.dropdown[dropdownOption];
+              return (
+                <div className="col-2" key={dropdownOption}>
+                  <Select
+                    id={dropdownOption}
+                    label={
+                      dropdownOption[0].toUpperCase() +
+                      dropdownOption.substring(1)
+                    }
+                    name={dropdownOption}
+                    onChange={handleChange}
+                    options={optionValue}
+                  />
+                </div>
+              );
+            })}
           </div>
           <div className="row" style={{ gridGap: 0 }}>
             <div className="p-card col-6">
