@@ -1,0 +1,76 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Code Snippet{% endblock %}
+
+{% block standalone_css %}patterns_code-snippet{% endblock %}
+
+{% set type = request.args.get('type', 'default') %}
+{% set style = request.args.get('style', 'none') %}
+{% set wrapping = request.args.get('wrapping', 'false') %}
+{% set border = request.args.get('border', 'false') %}
+
+{% set icons = ({
+  'none': '',
+  'linux-prompt': '--icon',
+  'windows-prompt': '--icon is-windows-prompt',
+  'url': '--icon is-url',
+  'numbered': '--numbered'
+}) %}
+
+{% set wrapping_class = ' is-wrapped' if wrapping == 'true' else '' %}
+{% set border_class = ' is-bordered' if border == 'true' else '' %}
+
+
+{% block content %}
+<div class="p-code-snippet{{ border_class}}">
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Installing Thunderbird as a snap</h5>
+
+    {%- if type == 'dropdown' or type == 'multiple-dropdowns' %}
+    <div class="p-code-snippet__dropdowns">
+      <select class="p-code-snippet__dropdown" name="menu1-select" id="menu1-select">
+        <option value="">amd64</option>
+        <option value="">i386</option>
+      </select>
+      {%- if type == 'multiple-dropdowns' %}
+
+      <select class="p-code-snippet__dropdown" name="menu2-select" id="menu2-select">
+        <option value="stable-panel">stable</option>
+        <option value="beta-panel">beta</option>
+        <option value="edge-panel">edge</option>
+      </select>
+      {%- endif %}
+    </div>
+    {%- endif %}
+  </div>
+
+  {%- if style == 'numbered' %}
+  <pre id="stable-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}">
+    <code><span class="p-code-snippet__line">sudo snap install thunderbird</span></code>
+  </pre>
+
+  <pre id="beta-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }} u-hide" aria-hidden="true">
+    <code><span class="p-code-snippet__line">sudo snap install thunderbird --beta</span></code>
+  </pre>
+
+  <pre id="edge-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }} u-hide" aria-hidden="true">
+    <code><span class="p-code-snippet__line">sudo snap install thunderbird --edge</span></code>
+  </pre>
+  {%- else %}
+  <pre id="stable-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}">
+    <code>sudo snap install thunderbird</code>
+  </pre>
+
+  <pre id="beta-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }} u-hide" aria-hidden="true">
+    <code>sudo snap install thunderbird --beta</code>
+  </pre>
+
+  <pre id="edge-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }} u-hide" aria-hidden="true">
+    <code>sudo snap install thunderbird --edge</code>
+  </pre>
+  {%- endif %}
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/code-snippet/_script.js' %}
+</script>
+{% endblock %}
