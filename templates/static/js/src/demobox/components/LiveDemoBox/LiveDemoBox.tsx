@@ -98,7 +98,9 @@ const LiveDemoBox = () => {
         <form>
           <div className="row" style={{ gridGap: 0 }}>
             {dropdownOptions?.map((dropdownOption) => {
-              const optionValue = configValues?.dropdown[dropdownOption];
+              const optionValue = configValues?.dropdown[dropdownOption].map(
+                (item) => ({ ...item, value: item.key })
+              );
               return (
                 <div className="col-2" key={dropdownOption}>
                   <Select
