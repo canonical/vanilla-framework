@@ -88,6 +88,10 @@ For notifications in which recency is important, you can include a section for t
 View example of the time notification pattern
 </a></div>
 
+## Class reference
+
+{% include "_class-references/notification.html" %}
+
 ## JavaScript functionality
 
 Some features of the notification component may require JavaScript implementation.\
