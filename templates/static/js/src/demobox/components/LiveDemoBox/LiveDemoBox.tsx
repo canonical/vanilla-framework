@@ -7,15 +7,13 @@ export type InputOptions = {
   label: string;
 };
 
-type DropDown = {
-  type: [InputOptions];
-  theme: [InputOptions];
-  style: [InputOptions];
+type DropDownType = {
+  [key: string]: InputOptions[];
 };
 
 type InitialState = {
-  dropdown: DropDown;
-  switch: [InputOptions];
+  dropdown: DropDownType;
+  switch: InputOptions[];
 };
 
 type SelectValueType = {
@@ -26,11 +24,7 @@ const LiveDemoBox = () => {
   const element = document.querySelector(".react-live-demo-box");
   const jsonUrl = element?.getAttribute("data-id");
   const [configValues, setConfigValues] = useState<InitialState>();
-  const [selectValue, setSelectValues] = useState<SelectValueType>({
-    type: "",
-    theme: "",
-    style: "",
-  });
+  const [selectValue, setSelectValues] = useState<SelectValueType>({});
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,34 +32,30 @@ const LiveDemoBox = () => {
         const json = await response.json();
         setConfigValues({ dropdown: json.dropdown, switch: json.switch });
 
+        const object = {};
+
         const setDefaultDropdownValues = (dropdownOption: any) => {
-          json.dropdown[dropdownOption].map((dropdownValue: any) => {
-            return (
-              "default" in dropdownValue &&
-              setSelectValues({
-                ...selectValue,
-                [dropdownValue]: dropdownValue.key,
-              })
-            );
+          json.dropdown[dropdownOption].forEach((dropdownValue: any) => {
+            "default" in dropdownValue &&
+              (object[dropdownOption] = dropdownValue.key);
           });
         };
+
         Object.keys(json.dropdown).forEach((key) =>
           setDefaultDropdownValues(key)
         );
 
-        const setDefaultSwitchValues = () => {
-          json.switch.map((switchOption: any) => {
-            setSelectValues({ ...selectValue, [switchOption.query]: false });
-          });
-        };
-        setDefaultSwitchValues();
+        json.switch.forEach((switchOption: any) => {
+          object[switchOption.key] = false;
+        });
+
+        setSelectValues(object);
       } catch (error) {
         console.log("error", error);
       }
     };
     fetchData();
   }, []);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {
@@ -81,7 +71,6 @@ const LiveDemoBox = () => {
       });
     }
   };
-
   const constructUrl = () => {
     let url = `${jsonUrl}?`;
     const arrayOfKeys = Object.keys(selectValue);
@@ -90,8 +79,10 @@ const LiveDemoBox = () => {
     });
     return url;
   };
-  const url = constructUrl();
+
+  let url = constructUrl();
   const dropdownOptions = configValues && Object.keys(configValues.dropdown);
+
   return (
     <section className="p-strip--light">
       {configValues && configValues.dropdown && configValues.switch && (
