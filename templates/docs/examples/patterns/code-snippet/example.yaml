@@ -1,0 +1,16 @@
+name: super-cool-app
+version: "1.0"
+summary: Super Cool App
+description: |
+    Super Cool App that does everything! […]
+confinement: strict
+base: core18
+parts:
+  super-cool-app:
+    plugin: flutter
+    source: https://github.com/kenvandine/super-cool-app.git
+    flutter-target: lib/main.dart
+apps:
+  super-cool-app:
+    command: super_cool_app
+    extensions: [flutter-dev]
