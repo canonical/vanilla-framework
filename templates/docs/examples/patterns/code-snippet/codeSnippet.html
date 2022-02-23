@@ -1,0 +1,98 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Code Snippet{% endblock %}
+
+{% block standalone_css %}patterns_code-snippet{% endblock %}
+
+{% import 'docs/examples/patterns/code-snippet/example.py' as python_example %}
+{% import 'docs/examples/patterns/code-snippet/example.yaml' as yaml_example %}
+{% import 'docs/examples/patterns/code-snippet/example.sh' as bash_example %}
+{% set python_code = python_example | string %}
+{% set yaml_code = yaml_example | string %}
+{% set bash_code = bash_example | string %}
+
+{% set type = request.args.get('type', 'default') %}
+{% set style = request.args.get('style', 'none') %}
+{% set wrapping = request.args.get('wrapping', 'false') %}
+{% set border = request.args.get('border', 'false') %}
+{% set highlight = request.args.get('syntax-highlight', 'false') %}
+
+{% set icons = ({
+  'none': '',
+  'linux-prompt': '--icon',
+  'windows-prompt': '--icon is-windows-prompt',
+  'url': '--icon is-url',
+  'numbered': '--numbered'
+}) %}
+
+{% set wrapping_class = ' is-wrapped' if wrapping == 'true' else '' %}
+{% set border_class = ' is-bordered' if border == 'true' else '' %}
+
+
+{% block content %}
+<div class="p-code-snippet{{ border_class}}">
+  <div class="p-code-snippet__header">
+    <h5 class="p-code-snippet__title">Example title</h5>
+
+    {%- if type == 'dropdown' or type == 'multiple-dropdowns' %}
+    <div class="p-code-snippet__dropdowns">
+
+      {%- if style == 'numbered' %}
+      <select class="p-code-snippet__dropdown" name="menu1-select" id="menu1-select">
+        <option value="python-panel">Python</option>
+        <option value="yaml-panel">YAML</option>
+        <option value="bash-panel">Bash</option>
+      </select>
+      {%- else %}
+      <select class="p-code-snippet__dropdown" name="menu1-select" id="menu1-select">
+        <option value="">amd64</option>
+        <option value="">i386</option>
+      </select>
+      {%- endif %}
+      {%- if type == 'multiple-dropdowns' %}
+
+      <select class="p-code-snippet__dropdown" name="menu2-select" id="menu2-select">
+        <option value="stable-panel">stable</option>
+        <option value="beta-panel">beta</option>
+        <option value="edge-panel">edge</option>
+      </select>
+      {%- endif %}
+    </div>
+    {%- endif %}
+  </div>
+
+  {%- if style == 'numbered' %}
+  <pre id="python-panel" class="p-code-snippet__block--numbered{{ wrapping_class }}{% if highlight == 'true' %} language-python{% endif %}"><code>
+  {%- for line in python_code.split('\n') %}
+<span class="p-code-snippet__line">{{ line }}</span>
+  {%- endfor -%}
+  </code></pre>
+
+  <pre id="yaml-panel" class="p-code-snippet__block--numbered{{ wrapping_class }}{% if highlight == 'true' %} language-yaml{% endif %} u-hide" aria-hidden="true"><code>
+  {%- for line in yaml_code.split('\n') %}
+<span class="p-code-snippet__line">{{ line }}</span>
+  {%- endfor -%}
+  </code></pre>
+
+  <pre id="bash-panel" class="p-code-snippet__block--numbered{{ wrapping_class }}{% if highlight == 'true' %} language-bash{% endif %} u-hide" aria-hidden="true"><code>
+  {%- for line in bash_code.split('\n') %}
+<span class="p-code-snippet__line">{{ line }}</span>
+  {%- endfor -%}
+  </code></pre>
+  {%- else %}
+  <pre id="stable-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}{% if highlight == 'true' %} language-sh{% endif %}"><code>{{ 'https://ubuntu.com' if style == 'url' else 'sudo snap install thunderbird' }}</code></pre>
+  <pre id="beta-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}{% if highlight == 'true' %} language-sh{% endif %} u-hide" aria-hidden="true"><code>{{ 'https://ubuntu.com' if style == 'url' else 'sudo snap install thunderbird --beta'}}</code></pre>
+  <pre id="edge-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}{% if highlight == 'true' %} language-sh{% endif %} u-hide" aria-hidden="true"><code>{{ 'https://ubuntu.com' if style == 'url' else 'sudo snap install thunderbird --edge'}}</code></pre>
+  {%- endif %}
+</div>
+
+{%- if type == 'dropdown' or type == 'multiple-dropdowns' %}
+<script>
+  {% include 'docs/examples/patterns/code-snippet/_script.js' %}
+</script>
+{%- endif %}
+{%- if highlight == 'true' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/keep-markup/prism-keep-markup.min.js"></script>
+{%- endif %}
+{% endblock %}

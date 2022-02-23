@@ -7,66 +7,55 @@ export type InputOptions = {
   label: string;
 };
 
-type DropDown = {
-  type: [InputOptions];
-  theme: [InputOptions];
-  style: [InputOptions];
+type DropDownType = {
+  [key: string]: InputOptions[];
 };
 
 type InitialState = {
-  dropdown: DropDown;
-  switch: [InputOptions];
+  dropdown: DropDownType;
+  switch: InputOptions[];
 };
 
 type SelectValueType = {
-  [key: string]: string | boolean;
+  [key: string]: string | boolean | InputOptions[];
 };
 
 const LiveDemoBox = () => {
+  const element = document.querySelector(".react-live-demo-box");
+  const jsonUrl = element?.getAttribute("data-id");
   const [configValues, setConfigValues] = useState<InitialState>();
-  const [selectValue, setSelectValues] = useState<SelectValueType>({
-    type: "",
-    theme: "",
-    style: "",
-  });
-
+  const [selectValue, setSelectValues] = useState<SelectValueType>({});
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "/docs/examples/patterns/notifications/toast.json"
-        );
+        const response = await fetch(`${jsonUrl}.json`);
         const json = await response.json();
         setConfigValues({ dropdown: json.dropdown, switch: json.switch });
 
-        const setDefaultDropdownValues = (dropdownOption: any) => {
-          json.dropdown[dropdownOption].map((dropdownValue: any) => {
-            return (
-              "default" in dropdownValue &&
-              setSelectValues({
-                ...selectValue,
-                [dropdownValue]: dropdownValue.key,
-              })
-            );
-          });
-        };
-        setDefaultDropdownValues("type");
-        setDefaultDropdownValues("theme");
-        setDefaultDropdownValues("style");
+        const object: SelectValueType = {};
 
-        const setDefaultSwitchValues = () => {
-          json.switch.map((switchOption: any) => {
-            setSelectValues({ ...selectValue, [switchOption.key]: false });
+        const setDefaultDropdownValues = (dropdownOption: any) => {
+          json.dropdown[dropdownOption].forEach((dropdownValue: any) => {
+            "default" in dropdownValue &&
+              (object[dropdownOption] = dropdownValue.key);
           });
         };
-        setDefaultSwitchValues();
+
+        Object.keys(json.dropdown).forEach((key) =>
+          setDefaultDropdownValues(key)
+        );
+
+        json.switch.forEach((switchOption: any) => {
+          object[switchOption.key] = false;
+        });
+
+        setSelectValues(object);
       } catch (error) {
         console.log("error", error);
       }
     };
     fetchData();
   }, []);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {
@@ -82,49 +71,49 @@ const LiveDemoBox = () => {
       });
     }
   };
+  const constructUrl = () => {
+    let url = `${jsonUrl}?`;
+    const arrayOfKeys = Object.keys(selectValue);
+    arrayOfKeys.forEach((key) => {
+      url += `${key}=${selectValue[key]}&`;
+    });
+    return url;
+  };
 
-  const url = `/docs/examples/patterns/notifications/toast?type=${selectValue.type}&style=${selectValue.style}&actions=${selectValue.actions}&dismiss=${selectValue.dismiss}&timestamp=${selectValue.timestamp}`;
+  let url = constructUrl();
+  const dropdownOptions = configValues && Object.keys(configValues.dropdown);
 
   return (
-    <section className="p-strip--light">
+    <section className="p-strip--light is-shallow">
       {configValues && configValues.dropdown && configValues.switch && (
         <form>
           <div className="row" style={{ gridGap: 0 }}>
-            <div className="col-2">
-              <Select
-                id="type"
-                label="Type"
-                name="type"
-                onChange={handleChange}
-                options={configValues.dropdown.type}
-              />
-            </div>
-            <div className="col-2">
-              <Select
-                id="theme"
-                label="Theme"
-                name="theme"
-                onChange={handleChange}
-                options={configValues.dropdown.theme}
-                disabled
-              />
-            </div>
-            <div className="col-2">
-              <Select
-                id="style"
-                label="Style"
-                name="style"
-                onChange={handleChange}
-                options={configValues.dropdown.style}
-              />
-            </div>
+            {dropdownOptions?.map((dropdownOption) => {
+              const optionValues = configValues?.dropdown[dropdownOption].map(
+                (item) => ({ ...item, value: item.key })
+              );
+              return (
+                <div className="col-2" key={dropdownOption}>
+                  <Select
+                    id={dropdownOption}
+                    label={
+                      dropdownOption[0].toUpperCase() +
+                      dropdownOption.substring(1)
+                    }
+                    name={dropdownOption}
+                    onChange={handleChange}
+                    options={optionValues}
+                    disabled={optionValues.length === 1}
+                  />
+                </div>
+              );
+            })}
           </div>
           <div className="row" style={{ gridGap: 0 }}>
-            <div className="p-card col-6">
-              <h3>Example</h3>
+            <div className="p-card col-6 u-no-padding">
               <div className="p-card__content">
                 <div>
-                  <iframe src={url} width="100%"></iframe>
+                  <iframe src={url} width="100%" height={300}></iframe>
                 </div>
               </div>
             </div>

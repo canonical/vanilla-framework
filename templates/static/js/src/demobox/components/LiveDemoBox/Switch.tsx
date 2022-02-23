@@ -6,7 +6,7 @@ export type SwitchInfo = {
 };
 
 type SwitchProps = {
-  switchOptions?: [SwitchInfo];
+  switchOptions?: SwitchInfo[];
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 

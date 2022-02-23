@@ -10,6 +10,10 @@ context:
 
 Vanilla gives you multiple ways to display code using the standard HTML elements.
 
+## Live Demo Box
+
+<div class="react-live-demo-box" data-id="/docs/examples/patterns/code-snippet/codeSnippet"></div>
+
 ## Inline
 
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
