@@ -94,11 +94,11 @@ View example of the time notification pattern
 
 ## JavaScript functionality
 
-Some features of the notification component may require JavaScript implementation.\
+Some features of the notification component may require JavaScript implementation.
 
 If the notification contains a [dismiss button](#dismissible), clicking on it should remove the notification from the view.
 
-Notification can also have optional [action buttons](#actions), clicking on those should trigger the relevant action and close the notification.
+Notifications can also have optional [action buttons](#actions), clicking on those should trigger the relevant action and close the notification.
 
 You can use our [Notification React component](#react) for a full-featured implementation that includes any JavaScript functionality.
 
