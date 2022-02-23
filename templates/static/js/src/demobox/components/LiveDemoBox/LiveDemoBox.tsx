@@ -84,7 +84,7 @@ const LiveDemoBox = () => {
   const dropdownOptions = configValues && Object.keys(configValues.dropdown);
 
   return (
-    <section className="p-strip--light">
+    <section className="p-strip--light is-shallow">
       {configValues && configValues.dropdown && configValues.switch && (
         <form>
           <div className="row" style={{ gridGap: 0 }}>
@@ -110,11 +110,10 @@ const LiveDemoBox = () => {
             })}
           </div>
           <div className="row" style={{ gridGap: 0 }}>
-            <div className="p-card col-6">
-              <h3>Example</h3>
+            <div className="p-card col-6 u-no-padding">
               <div className="p-card__content">
                 <div>
-                  <iframe src={url} width="100%"></iframe>
+                  <iframe src={url} width="100%" height={300}></iframe>
                 </div>
               </div>
             </div>
