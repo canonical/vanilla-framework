@@ -17,7 +17,7 @@ type InitialState = {
 };
 
 type SelectValueType = {
-  [key: string]: string | boolean;
+  [key: string]: string | boolean | InputOptions[];
 };
 
 const LiveDemoBox = () => {
@@ -32,7 +32,7 @@ const LiveDemoBox = () => {
         const json = await response.json();
         setConfigValues({ dropdown: json.dropdown, switch: json.switch });
 
-        const object = {};
+        const object: SelectValueType = {};
 
         const setDefaultDropdownValues = (dropdownOption: any) => {
           json.dropdown[dropdownOption].forEach((dropdownValue: any) => {
@@ -89,7 +89,7 @@ const LiveDemoBox = () => {
         <form>
           <div className="row" style={{ gridGap: 0 }}>
             {dropdownOptions?.map((dropdownOption) => {
-              const optionValue = configValues?.dropdown[dropdownOption].map(
+              const optionValues = configValues?.dropdown[dropdownOption].map(
                 (item) => ({ ...item, value: item.key })
               );
               return (
@@ -102,7 +102,8 @@ const LiveDemoBox = () => {
                     }
                     name={dropdownOption}
                     onChange={handleChange}
-                    options={optionValue}
+                    options={optionValues}
+                    disabled={optionValues.length === 1}
                   />
                 </div>
               );
