@@ -67,6 +67,7 @@
   {%- endfor -%}
   </code></pre>
 
+  {%- if type == 'dropdown' or type == 'multiple-dropdowns' %}
   <pre id="yaml-panel" class="p-code-snippet__block--numbered{{ wrapping_class }}{% if highlight == 'true' %} language-yaml{% endif %} u-hide" aria-hidden="true"><code>
   {%- for line in yaml_code.split('\n') %}
 <span class="p-code-snippet__line">{{ line }}</span>
@@ -78,6 +79,7 @@
 <span class="p-code-snippet__line">{{ line }}</span>
   {%- endfor -%}
   </code></pre>
+  {%- endif %}
   {%- else %}
   <pre id="stable-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}{% if highlight == 'true' %} language-sh{% endif %}"><code>{{ 'https://ubuntu.com' if style == 'url' else 'sudo snap install thunderbird' }}</code></pre>
   <pre id="beta-panel" class="p-code-snippet__block{{ icons[style] }}{{ wrapping_class }}{% if highlight == 'true' %} language-sh{% endif %} u-hide" aria-hidden="true"><code>{{ 'https://ubuntu.com' if style == 'url' else 'sudo snap install thunderbird --beta'}}</code></pre>
