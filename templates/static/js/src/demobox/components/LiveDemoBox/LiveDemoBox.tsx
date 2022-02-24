@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Switch from "./Switch";
 import { Select } from "@canonical/react-components";
 import Code from "./Code";
+import useCode from "demobox/hooks/useCode";
+import CodepenPrefill from "react-codepen-prefill";
 
 export type InputOptions = {
   key: string;
@@ -26,6 +28,7 @@ const LiveDemoBox = () => {
   const jsonUrl = element?.getAttribute("data-id");
   const [configValues, setConfigValues] = useState<InitialState>();
   const [selectValue, setSelectValues] = useState<SelectValueType>({});
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -84,8 +87,11 @@ const LiveDemoBox = () => {
   let url = constructUrl();
   const dropdownOptions = configValues && Object.keys(configValues.dropdown);
 
+  const { html, js, css, isSuccess } = useCode(jsonUrl || "");
+  const patternName = window.location.pathname.split("/").pop();
+
   return (
-    <section className="p-strip--light is-shallow">
+    <section className="p-strip is-shallow">
       {configValues && configValues.dropdown && configValues.switch && (
         <form>
           <div className="row" style={{ gridGap: 0 }}>
@@ -111,14 +117,29 @@ const LiveDemoBox = () => {
             })}
           </div>
           <div className="row" style={{ gridGap: 0 }}>
-            <div className="p-card col-6 u-no-padding">
+            <div className="p-card col-6 u-no-padding u-no-margin--bottom">
               <div className="p-card__content">
                 <div>
                   <iframe src={url} width="100%" height={300}></iframe>
                 </div>
               </div>
+              <div className="p-card__inner u-align--right">
+                {isSuccess && (
+                  <CodepenPrefill
+                    label="Edit on CodePen"
+                    className="p-button--link"
+                    target="_blank"
+                    title={`Vanilla framework ${patternName} example`}
+                    css_external="https://assets.ubuntu.com/v1/vanilla-framework-version-3.1.0.min.css;https://assets.ubuntu.com/v1/4653d9ba-example.css"
+                    html={html}
+                    css={css}
+                    js={js}
+                    editors="111"
+                  />
+                )}
+              </div>
             </div>
-            <div className="col-2 p-card">
+            <div className="col-2 p-card u-no-margin--bottom">
               <Switch
                 switchOptions={configValues.switch}
                 handleChange={handleChange}

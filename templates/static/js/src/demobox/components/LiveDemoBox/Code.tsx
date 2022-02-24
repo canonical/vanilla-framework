@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Select } from "@canonical/react-components";
 import Prism from "prismjs";
 import useCode from "../../hooks/useCode";
-import CodepenPrefill from "react-codepen-prefill";
 
 type Props = {
   path: string;
@@ -49,7 +48,7 @@ const Code = ({ path }: Props) => {
 
   return (
     <>
-      <div className="p-code-snippet">
+      <div className="p-code-snippet u-no-margin--bottom">
         <div className="p-code-snippet__header">
           <h5 className="p-code-snippet__title">Notifications</h5>
           {isSuccess && (
@@ -62,17 +61,6 @@ const Code = ({ path }: Props) => {
               />
             </div>
           )}
-          <div className="p-code-snippet__codepen-link">
-            <CodepenPrefill
-              label="Edit on CodePen"
-              className="p-button--link"
-              target="_blank"
-              title="Vanilla framework example"
-              css_external="https://assets.ubuntu.com/v1/vanilla-framework-version-3.1.0.min.css;https://assets.ubuntu.com/v1/4653d9ba-example.css"
-              html={html}
-              editors="111"
-            />
-          </div>
         </div>
         <pre
           className={`p-code-snippet__block u-no-margin language-${language}`}
