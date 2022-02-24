@@ -50,8 +50,7 @@ const Code = ({ path }: Props) => {
     <>
       <div className="p-code-snippet u-no-margin--bottom">
         <div className="p-code-snippet__header">
-          <h5 className="p-code-snippet__title">Notifications</h5>
-          {isSuccess && (
+          {isSuccess && (js || css) && (
             <div className="p-code-snippet__dropdowns">
               <Select
                 className="p-code-snippet__dropdown"
