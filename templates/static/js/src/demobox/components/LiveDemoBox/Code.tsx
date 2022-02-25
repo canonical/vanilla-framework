@@ -48,7 +48,7 @@ const Code = ({ path }: Props) => {
 
   return (
     <>
-      <div className="p-code-snippet">
+      <div className="p-code-snippet u-no-margin--bottom">
         <div className="p-code-snippet__header">
           <h5 className="p-code-snippet__title">Notifications</h5>
           {isSuccess && (
