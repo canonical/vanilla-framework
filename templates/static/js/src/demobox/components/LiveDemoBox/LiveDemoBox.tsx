@@ -93,7 +93,7 @@ const LiveDemoBox = () => {
   return (
     <section className="p-strip is-shallow">
       {configValues && configValues.dropdown && configValues.switch && (
-        <form>
+        <>
           <div className="row" style={{ gridGap: 0 }}>
             {dropdownOptions?.map((dropdownOption) => {
               const optionValues = configValues?.dropdown[dropdownOption].map(
@@ -102,6 +102,7 @@ const LiveDemoBox = () => {
               return (
                 <div className="col-2" key={dropdownOption}>
                   <Select
+                    className="u-no-margin--bottom"
                     id={dropdownOption}
                     label={
                       dropdownOption[0].toUpperCase() +
@@ -123,20 +124,33 @@ const LiveDemoBox = () => {
                   <iframe src={url} width="100%" height={300}></iframe>
                 </div>
               </div>
-              <div className="p-card__inner u-align--right">
-                {isSuccess && (
-                  <CodepenPrefill
-                    label="Edit on CodePen"
-                    className="p-button--link"
-                    target="_blank"
-                    title={`Vanilla framework ${patternName} example`}
-                    css_external="https://assets.ubuntu.com/v1/vanilla-framework-version-3.1.0.min.css;https://assets.ubuntu.com/v1/4653d9ba-example.css"
-                    html={html}
-                    css={css}
-                    js={js}
-                    editors="111"
-                  />
-                )}
+              <div className="p-card__inner u-align--right u-no-padding--top u-no-padding--bottom">
+                <ul className="p-inline-list u-no-margin--bottom">
+                  <li className="p-inline-list__item">
+                    {isSuccess && (
+                      <CodepenPrefill
+                        label="Edit on CodePen"
+                        className="p-button--link"
+                        target="_blank"
+                        title={`Vanilla framework ${patternName} example`}
+                        css_external="https://assets.ubuntu.com/v1/vanilla-framework-version-3.1.0.min.css;https://assets.ubuntu.com/v1/4653d9ba-example.css"
+                        html={html}
+                        css={css}
+                        js={js}
+                        editors="111"
+                      />
+                    )}
+                  </li>
+                  <li className="p-inline-list__item">
+                    <a
+                      className="p-icon--fullscreen"
+                      href={url}
+                      target="_blank"
+                    >
+                      Fullscreen
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
             <div className="col-2 p-card u-no-margin--bottom">
@@ -151,7 +165,7 @@ const LiveDemoBox = () => {
               <Code path={url} />
             </div>
           </div>
-        </form>
+        </>
       )}
     </section>
   );
