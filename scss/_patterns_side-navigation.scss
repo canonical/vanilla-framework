@@ -431,11 +431,11 @@
     border-color: $color-sidenav-list-border;
   }
 
-  %theme-side-navigation__list {
+  .p-side-navigation__list::after {
     background: $color-sidenav-list-border;
   }
 
-  %theme-side-navigation__link {
+  .p-side-navigation__link {
     &,
     &:visited {
       color: $color-sidenav-text-default;
@@ -460,14 +460,6 @@
     &[aria-current='true'] {
       @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
     }
-  }
-
-  .p-side-navigation__list::after {
-    @extend %theme-side-navigation__list;
-  }
-
-  .p-side-navigation__link {
-    @extend %theme-side-navigation__link;
   }
 
   .p-side-navigation__item--title,
