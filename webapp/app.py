@@ -4,6 +4,7 @@ import json
 import os
 import random
 import yaml
+import urllib
 
 # Packages
 import talisker.requests
@@ -169,10 +170,24 @@ def global_template_context():
         "slug": docs_slug,
     }
 
+import markupsafe
+
+
+# requested_component =
+
+def class_reference(component=None):
+    with open("build/classreferences.yaml") as data_yaml:
+        data = yaml.load(data_yaml, Loader=yaml.FullLoader)
+
+    component = component or urllib.parse.urlsplit(flask.request.path).path.split('/')[-1]
+    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", path=component, data=data["class-references"][component]))
 
 @app.context_processor
 def utility_processor():
-    return {"image": image_template}
+    return {
+        "class_reference": class_reference,
+        "image": image_template
+    }
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
