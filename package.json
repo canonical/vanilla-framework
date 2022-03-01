@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "yarn build && yarn serve",
-    "build": "yarn build-scss && yarn build-js",
+    "build": "yarn build-scss && yarn build-js && yarn create-class-references",
     "build-scss": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",

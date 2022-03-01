@@ -1,0 +1,20 @@
+
+<h2>Class reference</h2>
+
+{%- for item in data -%}
+<hr>
+<div class="row">
+    <div class="col-2 col-medium-1"><h4 class="p-muted-heading">{{ item["element"] }}</h4></div>
+    <div class="col-7 col-medium-5">
+        <div class="row">
+            {%- for classnames in item["class-list"] -%}
+            <div class="col-3 col-medium-2"><p><code>{{ classnames["class-name"] }}</code></p></div>
+            <div class="col-4 col-medium-3"><p>{{ classnames["description"] }}</p></div>
+            {%- if not loop.last -%}
+            <div class="col-7 col-medium-5"><hr/></div>
+            {%- endif -%}
+             {%- endfor -%}
+        </div>
+    </div>
+</div>
+{%- endfor -%}

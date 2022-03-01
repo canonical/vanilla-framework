@@ -20,7 +20,7 @@ function findComment(element) {
   }
 }
 
-let classReferences = [];
+let classReferences = {};
 patternFiles.forEach((fileName) => {
   try {
     const data = fs.readFileSync(`${scssFolder}/${fileName}`, 'utf8');
@@ -31,14 +31,14 @@ patternFiles.forEach((fileName) => {
 
     const yamlText = comment.text.substring(comment.text.indexOf('\n') + 1);
     const yamlElement = yaml.parse(yamlText);
-    classReferences.push(yamlElement);
+    classReferences = Object.assign(classReferences, yamlElement);
   } catch (error) {
     const errorMessage = error.message;
     console.error(errorMessage);
   }
 });
 
-if (classReferences.length > 0) {
+if (Object.keys(classReferences).length > 0) {
   const parsedYaml = yaml.stringify({
     'class-references': classReferences,
   });
