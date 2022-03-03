@@ -143,7 +143,7 @@ View example of the side navigation pattern for raw HTML
 
 ### Class reference
 
-{% include "_class-references/side-navigation.html" %}
+{{ class_reference("side-navigation") }}
 
 ### JavaScript functionality
 

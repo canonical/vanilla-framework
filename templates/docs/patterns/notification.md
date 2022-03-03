@@ -6,8 +6,6 @@ context:
 
 # Notification
 
-{{ class_reference() }}
-
 <hr>
 
 Notifications are used to attract the user's attention. They offer four separate severity levels, and can also be modified for use in different contexts.
@@ -92,7 +90,7 @@ View example of the time notification pattern
 
 ## Class reference
 
-{% include "_class-references/notification.html" %}
+{{ class_reference() }}
 
 ## JavaScript functionality
 
