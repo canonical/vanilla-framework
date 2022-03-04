@@ -68,9 +68,26 @@
             A container for status icon or label inside the navigation item.
 */
 
+/// Side navigation element
+/// @element Root element
+/// @classname .p-navigation
+
+/// Side navigation drawer (to allow expanding and collapsing the navigation on small screens). Same as `classname` something.
+/// @element dfgh Drawer
+/// @classname p-side-navigation__drawer
+.test {
+  color: red;
+}
+
 @mixin vf-p-side-navigation {
   // STYLING OF SIDE NAVIGATION RESPONSIVE DRAWER
 
+  // FIXME: there is an issue with parsing nested line comments
+  // https://github.com/FWeinb/CDocParser/issues/19
+
+  /// Side navigation drawer (to allow expanding and collapsing the navigation on small screens). Same as `classname` something.
+  /// @element dfgh Drawer
+  /// @classname p-side-navigation__drawer
   @keyframes vf-p-side-navigation-expand {
     0% {
       transform: translate(-100%);
@@ -91,6 +108,12 @@
     }
   }
 
+  // nested block comments work fine
+  /**
+   * Side navigation drawer (to allow expanding and collapsing the navigation on small screens). Same as `classname` something.
+   * @element Drawer
+   * @classname p-side-navigation__drawer
+   */
   .p-side-navigation__drawer {
     bottom: 0;
     left: 0;
