@@ -24,47 +24,42 @@ function toggleMenu(element, show, top) {
 
 /**
   Attaches event listeners for the menu toggle open and close click events.
-  @param {HTMLElement} menuToggle The menu container element.
+  @param {HTMLElement} menu The menu container element.
 */
-function setupContextualMenu(menuToggle) {
-  menuToggle.addEventListener('click', function (event) {
-    event.preventDefault();
-    var menuAlreadyOpen = menuToggle.getAttribute('aria-expanded') === 'true';
 
-    var top = menuToggle.offsetHeight;
+function setupContextualMenu(menu) {
+  const toggle = menu.querySelector('.p-contextual-menu__toggle');
+  const dropdown = menu.querySelector('.p-contextual-menu__dropdown');
+
+  toggle.addEventListener('click', function (event) {
+    event.preventDefault();
+    var menuAlreadyOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+    var top = toggle.offsetHeight;
     // for inline elements leave some space between text and menu
-    if (window.getComputedStyle(menuToggle).display === 'inline') {
+    if (window.getComputedStyle(toggle).display === 'inline') {
       top += 5;
     }
 
-    toggleMenu(menuToggle, !menuAlreadyOpen, top);
+    toggleMenu(toggle, !menuAlreadyOpen, top);
   });
-}
-
-/**
-  Attaches event listeners for all the menu toggles in the document and
-  listeners to handle close when clicking outside the menu or using ESC key.
-  @param {String} contextualMenuToggleSelector The CSS selector matching menu toggle elements.
-*/
-function setupAllContextualMenus(contextualMenuToggleSelector) {
-  // Setup all menu toggles on the page.
-  var toggles = document.querySelectorAll(contextualMenuToggleSelector);
-
-  for (var i = 0, l = toggles.length; i < l; i++) {
-    setupContextualMenu(toggles[i]);
-  }
 
   // Add handler for clicking outside the menu.
   document.addEventListener('click', function (event) {
-    for (var i = 0, l = toggles.length; i < l; i++) {
-      var toggle = toggles[i];
-      var contextualMenu = document.getElementById(toggle.getAttribute('aria-controls'));
-      var clickOutside = !(toggle.contains(event.target) || contextualMenu.contains(event.target));
+    var contextualMenu = document.getElementById(toggle.getAttribute('aria-controls'));
+    var clickOutside = !(toggle.contains(event.target) || contextualMenu.contains(event.target));
 
-      if (clickOutside) {
-        toggleMenu(toggle, false);
-      }
+    if (clickOutside) {
+      toggleMenu(toggle, false);
     }
+  });
+
+  //Add event listener to close menu when tab focus leaves
+  dropdown.addEventListener('focusout', function (e) {
+    // Check if where you have tabbed to is in the dropdown
+    if (dropdown.contains(e.relatedTarget)) return;
+
+    toggleMenu(toggle, false);
   });
 
   // Add handler for closing menus using ESC key.
@@ -72,11 +67,23 @@ function setupAllContextualMenus(contextualMenuToggleSelector) {
     e = e || window.event;
 
     if (e.keyCode === 27) {
-      for (var i = 0, l = toggles.length; i < l; i++) {
-        toggleMenu(toggles[i], false);
-      }
+      toggleMenu(toggle, false);
     }
   });
 }
 
-setupAllContextualMenus('.p-contextual-menu__toggle');
+/**
+  @param {String} contextualMenuSelector The CSS selector matching menu toggle elements.
+*/
+function setupAllContextualMenus(contextualMenuSelector) {
+  // Setup all contextual menus on the page.
+  var menus = document.querySelectorAll(contextualMenuSelector);
+
+  for (var i = 0, l = menus.length; i < l; i++) {
+    setupContextualMenu(menus[i]);
+  }
+}
+
+setupAllContextualMenus('.p-contextual-menu');
+setupAllContextualMenus('.p-contextual-menu--left');
+setupAllContextualMenus('.p-contextual-menu--center');
