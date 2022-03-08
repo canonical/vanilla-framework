@@ -218,7 +218,7 @@ discourse_docs = Docs(
         api=DiscourseAPI(
             base_url="https://discourse.ubuntu.com/", session=session
         ),
-        index_topic_id=23978,
+        index_topic_id=27037,
         url_prefix="/design",
     ),
     document_template="/_layouts/docs-discourse.html",
