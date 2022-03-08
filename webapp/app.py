@@ -218,10 +218,10 @@ discourse_docs = Docs(
         api=DiscourseAPI(
             base_url="https://discourse.ubuntu.com/", session=session
         ),
-        index_topic_id=27037,
+        index_topic_id=27037, # https://discourse.ubuntu.com/t/design-system-website-config/27037
         url_prefix="/design",
     ),
-    document_template="/_layouts/docs-discourse.html",
+    document_template="/_layouts/docs_discourse.html",
     url_prefix="/design",
 )
 discourse_docs.init_app(app)
