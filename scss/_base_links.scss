@@ -9,9 +9,11 @@
 
   %vf-link-base {
     @include vf-focus;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 
     color: $color-link;
-    text-decoration: none;
 
     &:focus {
       outline-offset: 0;
@@ -19,7 +21,7 @@
 
     &:hover {
       cursor: pointer;
-      text-decoration: underline;
+      text-decoration-thickness: 3px;
     }
 
     &:visited {
@@ -27,4 +29,10 @@
     }
   }
   // stylelint-enable selector-max-type
+}
+
+.p-navigation a,
+footer a,
+.p-footer a {
+  text-decoration: none;
 }
