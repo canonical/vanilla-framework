@@ -49,6 +49,14 @@ A negative button can be used to indicate a negative action that is destructive 
 View example of the negative button pattern
 </a></div>
 
+## Aqua
+
+A aqua button can be used for some retro vibes.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/aqua/" class="js-example">
+View example of the aqua button pattern
+</a></div>
+
 ## Brand
 
 You can use the brand button with the main color of your brand.
