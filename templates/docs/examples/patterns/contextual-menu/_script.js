@@ -84,6 +84,4 @@ function setupAllContextualMenus(contextualMenuSelector) {
   }
 }
 
-setupAllContextualMenus('.p-contextual-menu');
-setupAllContextualMenus('.p-contextual-menu--left');
-setupAllContextualMenus('.p-contextual-menu--center');
+setupAllContextualMenus('.p-contextual-menu, [class*="p-contextual-menu--"]');
