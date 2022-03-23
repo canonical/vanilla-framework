@@ -2,7 +2,8 @@
 import glob
 import json
 import os
-import random
+
+import markupsafe
 
 # Packages
 import talisker.requests
@@ -20,6 +21,8 @@ from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 with open("package.json") as package_json:
     VANILLA_VERSION = json.load(package_json)["version"]
 
+with open("react-components.json") as react_components_json:
+    REACT_COMPONENTS = json.load(react_components_json)
 
 app = FlaskBase(
     __name__,
@@ -146,12 +149,37 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
+    return {
+        "version": VANILLA_VERSION,
+        "versionMinor": version_minor,
+        "path": flask.request.path,
+    }
+
+
+def react_component_template(component_name):
+    react_component = REACT_COMPONENTS.get(component_name.lower())
+    # search by the component name if it doesn't match a component slug
+    if not react_component:
+        l = [
+            REACT_COMPONENTS[c_name]
+            for c_name in REACT_COMPONENTS
+            if REACT_COMPONENTS[c_name]["name"].lower() == component_name.lower()
+        ]
+        react_component = next(iter(l), None)
+
+    if not react_component:
+        return f"Error: react component with name: {component_name} is not found"
+    else:
+        return markupsafe.Markup(
+            flask.render_template(
+                "_layouts/_react_component.html", component=react_component
+            )
+        )
 
 
 @app.context_processor
 def utility_processor():
-    return {"image": image_template}
+    return {"image": image_template, "react_component": react_component_template}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
@@ -208,17 +236,15 @@ app.add_url_rule(
     build_search_view(
         session=session,
         site="vanillaframework.io/docs",
-        template_path="docs/search.html"
+        template_path="docs/search.html",
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
 
 discourse_docs = Docs(
     parser=DocParser(
-        api=DiscourseAPI(
-            base_url="https://discourse.ubuntu.com/", session=session
-        ),
-        index_topic_id=27037, # https://discourse.ubuntu.com/t/design-system-website-config/27037
+        api=DiscourseAPI(base_url="https://discourse.ubuntu.com/", session=session),
+        index_topic_id=27037,  # https://discourse.ubuntu.com/t/design-system-website-config/27037
         url_prefix="/design",
     ),
     document_template="/_layouts/docs_discourse.html",
