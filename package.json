@@ -27,9 +27,10 @@
   },
   "scripts": {
     "start": "yarn build && yarn serve",
-    "build": "yarn build-scss && yarn build-js",
+    "build": "yarn build-scss && yarn build-js && yarn build-vanilla-js",
     "build-scss": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
+    "build-vanilla-js": "node build.js && tsc js/index.ts --outDir dist && tsc js/index.ts --outDir dist --emitDeclarationOnly -d",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
@@ -45,7 +46,11 @@
     "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js icons"
   },
   "version": "3.1.2",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist",
   "files": [
+    "dist",
     "_index.scss",
     "/scss",
     "!/scss/docs",
@@ -61,6 +66,7 @@
   },
   "devDependencies": {
     "@percy/script": "1.1.0",
+    "esbuild": "^0.14.27",
     "get-site-urls": "1.1.7",
     "markdown-spellcheck": "1.3.1",
     "parker": "0.0.10",
@@ -70,6 +76,7 @@
     "stylelint-config-recommended-scss": "5.0.2",
     "stylelint-order": "5.0.0",
     "stylelint-prettier": "2.0.0",
-    "svgo": "2.8.0"
+    "svgo": "2.8.0",
+    "typescript": "^4.6.2"
   }
 }
