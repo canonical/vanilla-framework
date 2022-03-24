@@ -25,11 +25,23 @@
       if (show) {
         sideNavigation.classList.remove('is-collapsed');
         sideNavigation.classList.add('is-expanded');
+        toggleTabindex(sideNav, false);
       } else {
         sideNavigation.classList.remove('is-expanded');
         sideNavigation.classList.add('is-collapsed');
+        toggleTabindex(sideNav, true);
       }
     }
+  }
+
+  /**
+    Ensures links are only focusable when side nav is in view
+    @param {HTMLElement} sideNavigation The side navigation element.
+    @param {Boolean} sideNavCollapsed Whether the side nav is expanded or collapsed.
+  */
+  function toggleTabindex(sideNavigation, sideNavCollapsed) {
+    const links = sideNavigation.querySelectorAll('.p-side-navigation__link');
+    links.forEach((link) => (sideNavCollapsed ? (link.tabIndex = -1) : (link.tabIndex = 0)));
   }
 
   /**
@@ -40,9 +52,15 @@
     var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
 
     toggles.forEach(function (toggle) {
+      var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
+      var drawerEl = document.querySelector('.p-side-navigation__drawer');
+      var drawerPosition = window.getComputedStyle(drawerEl).position;
+      if (drawerPosition == 'fixed') {
+        toggleTabindex(sideNav, true);
+      }
+
       toggle.addEventListener('click', function (event) {
         event.preventDefault();
-        var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
 
         if (sideNav) {
           toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
@@ -75,6 +93,9 @@
         if (drawerPosition !== 'fixed') {
           sideNav.classList.remove('is-expanded');
           sideNav.classList.remove('is-collapsed');
+          toggleTabindex(sideNav, false);
+        } else {
+          toggleTabindex(sideNav, true);
         }
       }, 200)
     );
