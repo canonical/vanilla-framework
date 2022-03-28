@@ -1,6 +1,11 @@
 @import 'settings';
 
 $lightness-threshold: 70;
+$navigation-logo-tag-width: 1.5rem;
+$navigation-logo-tag-height: 2.4rem;
+$navigation-logo-width: 1.1rem;
+$sph-navigation-link: 0.3rem;
+$spv-navigation-logo: 0.3125rem;
 
 @mixin vf-p-navigation {
   // placeholders
@@ -179,6 +184,7 @@ $lightness-threshold: 70;
     }
   }
 
+  // Styles for old navigation logo
   .p-navigation__logo {
     display: flex;
     flex: 0 0 auto;
@@ -189,6 +195,45 @@ $lightness-threshold: 70;
       @include vf-focus;
 
       display: flex;
+    }
+  }
+
+  .p-navigation__tagged-logo {
+    margin-right: 0;
+
+    &-tag {
+      background-color: $color-accent;
+      height: $navigation-logo-tag-height;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $navigation-logo-tag-width;
+    }
+
+    &-icon {
+      bottom: $spv-navigation-logo;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      width: $navigation-logo-width;
+    }
+
+    &-title {
+      line-height: map-get($line-heights, x-small);
+    }
+
+    .p-navigation__link {
+      @extend %navigation-link;
+
+      padding-left: $navigation-logo-tag-width + $sph-navigation-link;
+
+      &:hover {
+        background-color: transparent !important;
+      }
+
+      &::before {
+        content: none;
+      }
     }
   }
 
@@ -540,6 +585,10 @@ $lightness-threshold: 70;
     &:active {
       background-color: $color-navigation-background--active;
     }
+  }
+
+  .p-navigation__logo-title {
+    color: $color-navigation-text;
   }
 
   .p-navigation__item--dropdown-toggle {
