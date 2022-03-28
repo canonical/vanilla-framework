@@ -22,6 +22,22 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.2.0 -->
     <tr>
+      <th><a href="/docs/patterns/navigation#expanding-search-box">Navigation - Search</a></th>
+      <td>
+        <span class="p-label--information">Updated</span>
+      </td>
+      <td>3.2.0</td>
+      <td>We added new dropdown for expanding search on small screens.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/navigation">Navigation</a></th>
+      <td>
+        <span class="p-label--information">Updated</span>
+      </td>
+      <td>3.2.0</td>
+      <td>We added new style of the logos to main navigation.</td>
+    </tr>
+    <tr>
       <th><a href="/docs/patterns/status-labels">Status labels</a></th>
       <td>
         <span class="p-status-label--positive">New</span>
