@@ -20,7 +20,31 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.1.0 -->
+    <!-- 3.2.0 -->
+    <tr>
+      <th><a href="/docs/patterns/navigation">Navigation</a></th>
+      <td>
+        <span class="p-label--information">Updated</span>
+      </td>
+      <td>3.2.0</td>
+      <td>We've updated the logo in the navigation. The previous version of the logo is now deprecated.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla v3
+
+<table aria-label="Previously in Vanilla v3">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- 3.1.0 -->
     <tr>
       <th><a href="/docs/patterns/empty-state">Empty state</a></th>
       <td>
@@ -45,21 +69,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>3.1.0</td>
       <td>We've updated the styling of the Switch and Slider components.</td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla v3
-
-<table aria-label="Previously in Vanilla v3">
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 3.0.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation">Expanding search box</a></th>
