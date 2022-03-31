@@ -4,14 +4,14 @@
 $breakpoint-navigation-threshold: 900px;
 
 // colors for Vanilla-branded suru strips
-$color-brand: #d94b14;
+$color-brand: #3f7ec4;
 
 $color-suru-start: $color-brand;
 $color-suru-middle: $color-brand;
 $color-suru-end: $color-brand;
 
 $color-suru-slant-right: rgba(229, 229, 229, 0.5);
-$color-suru-slant-left: rgba(233, 84, 32, 0.2);
+$color-suru-slant-left: transparentize($color-brand, 0.8);
 $color-suru-slant-left-fallback: $color-suru-slant-left;
 
 // import vanilla
@@ -19,3 +19,90 @@ $color-suru-slant-left-fallback: $color-suru-slant-left;
 
 // import cookie policy
 @import '@canonical/cookie-policy/build/css/cookie-policy';
+
+.p-button.is-aqua,
+.p-button--positive.is-aqua {
+  background-color: #cacaca;
+  border: 0;
+  border-radius: 9999px;
+  box-shadow: 0px 1px 3px 0px #000, inset 0px 0px 3px 0px #000000;
+  color: #111;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 0.1rem 1.5rem;
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    background-color: #bbbbbb;
+  }
+
+  &::before {
+    background: linear-gradient(0deg, #ffffff6b, #ffffffd9);
+    border-radius: 11px;
+    content: '';
+    display: block;
+    height: 45%;
+    left: 1%;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 98%;
+    z-index: -1;
+  }
+
+  &::after {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    mix-blend-mode: overlay;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.p-button--positive.is-aqua {
+  background-color: #5aa0f1;
+
+  &:hover {
+    background-color: #3591ff;
+  }
+}
+
+.p-navigation.is-aqua {
+  background: linear-gradient(rgba(231, 231, 231, 1), rgba(223, 223, 223, 1) 50%, rgba(180, 180, 180, 1));
+  border-bottom: 1px solid $color-mid-dark;
+  text-shadow: 0 1px 1px #e7e7e7;
+  .p-navigation__link:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .p-navigation__image {
+    transform: rotate(180deg);
+  }
+  .p-navigation__logo .p-navigation__item {
+    text-decoration: none;
+  }
+  .p-navigation__aqua {
+    color: #111;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 3.5rem;
+    margin: 0;
+    margin-left: 0.5rem;
+    padding-top: 0;
+  }
+}
+
+.p-card.is-aqua {
+  background: $color-mid-light;
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 60%), 0 22px 70px 4px rgb(0 0 0 / 56%), 0 0 0 1px rgb(0 0 0 / 30%);
+}
+
+.p-strip--light {
+  background: linear-gradient(to bottom, #fff, #fff 50%, #f7f7f7 50%, #f7f7f7);
+  background-size: 100% 6px;
+}
