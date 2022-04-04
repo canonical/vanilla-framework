@@ -542,6 +542,26 @@ $spv-navigation-logo: 0.3125rem;
     }
   }
 
+  .p-navigation.has-menu-open {
+    // hide all navigation items (including search toggle)
+    .p-navigation__nav {
+      display: flex;
+    }
+
+    .p-navigation__nav .p-navigation__items {
+      display: block;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: flex;
+      }
+    }
+
+    // show expanded search box
+    .p-navigation__search {
+      display: none;
+    }
+  }
+
   // DROPDOWNS
   .p-navigation__dropdown,
   .p-navigation__dropdown--right {
@@ -730,6 +750,7 @@ $spv-navigation-logo: 0.3125rem;
   }
 
   // on mobile expanded nav needs to match pressed color of the buttons
+  &.has-menu-open .p-navigation__nav,
   &.has-search-open .p-navigation__nav {
     background-color: $color-navigation-background--active;
 
