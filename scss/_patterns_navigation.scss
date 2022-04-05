@@ -2,8 +2,10 @@
 
 $lightness-threshold: 70;
 $navigation-logo-tag-width: 1.5rem;
-$navigation-logo-tag-height: 2.4rem;
-$navigation-logo-tag-height-mobile: 2.2rem;
+$navigation-logo-tag-height: 2.2rem;
+$navigation-logo-tag-height-desktop: 2.4rem;
+$navigation-logo-height: 3rem;
+$navigation-logo-height-desktop: 3.5rem;
 $navigation-logo-width: 1.1rem;
 $sph-navigation-link: 0.3rem;
 $spv-navigation-logo: 0.3125rem;
@@ -11,12 +13,12 @@ $spv-navigation-logo: 0.3125rem;
 @mixin vf-p-navigation {
   // placeholders
   %navigation-link-responsive-padding-vertical {
-    padding-bottom: $spv--large;
-    padding-top: $spv--large;
+    padding-bottom: $spv--medium;
+    padding-top: $spv--medium;
 
-    @media (max-width: $breakpoint-navigation-threshold) {
-      padding-bottom: $spv--medium;
-      padding-top: $spv--medium;
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv--large;
+      padding-top: $spv--large;
     }
   }
 
@@ -194,8 +196,12 @@ $spv-navigation-logo: 0.3125rem;
   .p-navigation__logo {
     display: flex;
     flex: 0 0 auto;
-    height: 3.5rem;
+    height: $navigation-logo-height;
     margin: 0 $sph--large 0 0;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      height: $navigation-logo-height-desktop;
+    }
 
     .p-navigation__item {
       @include vf-focus;
@@ -215,8 +221,8 @@ $spv-navigation-logo: 0.3125rem;
       top: 0;
       width: $navigation-logo-tag-width;
 
-      @media (max-width: $breakpoint-navigation-threshold) {
-        height: $navigation-logo-tag-height-mobile;
+      @media (min-width: $breakpoint-navigation-threshold) {
+        height: $navigation-logo-tag-height-desktop;
       }
     }
 
