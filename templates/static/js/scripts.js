@@ -22,19 +22,18 @@
   */
   function toggleDrawer(sideNavigation, show) {
     if (sideNavigation) {
-      console.log(sideNavigation);
-      const toggleButtonOutsideDrawer = document.querySelector('.p-side-navigation__toggle');
-      const toggleButtonInsideDrawer = document.querySelector('.p-side-navigation__toggle--in-drawer');
+      const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
+      const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
       if (show) {
         sideNavigation.classList.remove('is-collapsed');
         sideNavigation.classList.add('is-expanded');
         toggleButtonInsideDrawer.focus();
-        toggleTabindex(sideNav, false);
+        toggleTabindex(sideNavigation, false);
       } else {
         sideNavigation.classList.remove('is-expanded');
         sideNavigation.classList.add('is-collapsed');
         toggleButtonOutsideDrawer.focus();
-        toggleTabindex(sideNav, true);
+        toggleTabindex(sideNavigation, true);
       }
     }
   }
