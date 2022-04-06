@@ -22,17 +22,13 @@
   */
   function toggleDrawer(sideNavigation, show) {
     if (sideNavigation) {
-      const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
-      const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
       if (show) {
         sideNavigation.classList.remove('is-collapsed');
         sideNavigation.classList.add('is-expanded');
-        toggleButtonInsideDrawer.focus();
         toggleTabindex(sideNavigation, false);
       } else {
         sideNavigation.classList.remove('is-expanded');
         sideNavigation.classList.add('is-collapsed');
-        toggleButtonOutsideDrawer.focus();
         toggleTabindex(sideNavigation, true);
       }
     }
@@ -45,7 +41,22 @@
   */
   function toggleTabindex(sideNavigation, sideNavCollapsed) {
     const links = sideNavigation.querySelectorAll('.p-side-navigation__link');
+    const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
+    const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
+
     links.forEach((link) => (sideNavCollapsed ? (link.tabIndex = -1) : (link.tabIndex = 0)));
+
+    if (sideNavCollapsed) {
+      toggleButtonOutsideDrawer.focus();
+      toggleButtonOutsideDrawer.setAttribute('aria-expanded', false);
+      toggleButtonInsideDrawer.setAttribute('aria-expanded', false);
+      toggleButtonInsideDrawer.tabIndex = -1;
+    } else {
+      toggleButtonInsideDrawer.focus();
+      toggleButtonOutsideDrawer.setAttribute('aria-expanded', true);
+      toggleButtonInsideDrawer.setAttribute('aria-expanded', true);
+      toggleButtonInsideDrawer.tabIndex = 0;
+    }
   }
 
   /**
