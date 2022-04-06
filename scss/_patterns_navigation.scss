@@ -270,6 +270,7 @@ $spv-navigation-logo: 0.3125rem;
 
   // navigation items
   .p-navigation__items {
+    display: none; // hidden by default on mobile (expands is a dropdown)
     list-style: none;
     margin: -1px 0 0 0;
     padding: 0;
@@ -291,17 +292,6 @@ $spv-navigation-logo: 0.3125rem;
       justify-content: space-between;
       margin-right: map-get($grid-margin-widths, default);
       width: 100%;
-    }
-
-    .p-navigation__search,
-    .p-navigation__items {
-      display: none;
-    }
-
-    .p-navigation__items {
-      @media (min-width: $breakpoint-navigation-threshold) {
-        display: flex;
-      }
     }
   }
 
@@ -381,6 +371,7 @@ $spv-navigation-logo: 0.3125rem;
 
   // on mobile screens search box is visible inside of the mobile navigation dropdown
   .p-navigation__search {
+    display: none;
     padding-top: $spv--large;
 
     // allow search box to take full width
@@ -389,64 +380,14 @@ $spv-navigation-logo: 0.3125rem;
     }
   }
 
-  // on mobile screens both search toggle and overlay are not used and hidden from view
   .p-navigation__link--search-toggle {
     @extend %navigation-link;
 
-    //display: none;
-    height: 100%; // keep the height of the navigation when 'Search' label is hidden
-    padding-left: 0; // on small screens label is hidden, so we remove left padding as well
-    padding-right: 2 * $sph--small + map-get($icon-sizes, default);
-    position: relative;
-  }
-
-  .p-navigation__nav .p-navigation__link--search-toggle {
-    display: none;
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      display: block;
-    }
-  }
-
-  .p-navigation__toggle--search {
-    @extend %navigation-link;
-
-    height: 100%; // keep the height of the navigation when 'Search' label is hidden
-    margin-left: auto;
-    padding-left: 0; // on small screens label is hidden, so we remove left padding as well
-    padding-right: 2 * $sph--small + map-get($icon-sizes, default);
-    position: relative;
-
-    &::after {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: '';
-      display: block;
-      height: $spv--large;
-      pointer-events: none;
-      position: absolute;
-      right: map-get($grid-margin-widths, small);
-      text-indent: calc(100% + 10rem);
-      top: calc(#{$spv--large} + #{map-get($nudges, x-small)});
-      width: map-get($icon-sizes, default);
-
-      @media (min-width: $threshold-4-6-col) {
-        right: map-get($grid-margin-widths, default);
-      }
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
-      }
-    }
-  }
-
-  .p-navigation__search-overlay {
-    display: none;
-  }
-
-  .p-navigation__link--search-toggle {
     display: block;
+    height: 100%; // keep the height of the navigation when 'Search' label is hidden
+    padding-left: 0; // on small screens label is hidden, so we remove left padding as well
+    padding-right: 2 * $sph--small + map-get($icon-sizes, default);
+    position: relative;
 
     // hide "search" label on small screens (only show the icon)
     .p-navigation__search-label {
@@ -471,19 +412,22 @@ $spv-navigation-logo: 0.3125rem;
       height: $spv--large;
       pointer-events: none;
       position: absolute;
-      //right: map-get($grid-margin-widths, small);
       right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
       text-indent: calc(100% + 10rem);
-      top: calc(#{$spv--large} + #{map-get($nudges, x-small)});
+      top: calc(#{$spv--medium} + #{map-get($nudges, x-small)});
       width: map-get($icon-sizes, default);
 
-      // @media (min-width: $threshold-4-6-col) {
-      //   right: map-get($grid-margin-widths, default);
-      // }
+      @media (min-width: $breakpoint-navigation-threshold) {
+        top: calc(#{$spv--large} + #{map-get($nudges, x-small)});
+      }
+    }
+  }
 
-      // @media (min-width: $breakpoint-navigation-threshold) {
-      //   right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
-      // }
+  .p-navigation__nav .p-navigation__link--search-toggle {
+    display: none;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: block;
     }
   }
 
@@ -500,7 +444,6 @@ $spv-navigation-logo: 0.3125rem;
       @include vf-animation(opacity, snap);
 
       background-color: $colors--light-theme--background-overlay;
-      bottom: 0;
       display: block;
       height: 100%;
       left: 0;
@@ -516,11 +459,13 @@ $spv-navigation-logo: 0.3125rem;
 
   // when navigation search is expanded
   .p-navigation.has-search-open {
-    // hide all navigation items (including search toggle)
+    // make sure search in navigation renders on top of the overlay
     .p-navigation__nav {
       display: flex;
+      z-index: 60;
     }
 
+    // hide all navigation items (including search toggle)
     .p-navigation__nav .p-navigation__items {
       display: none;
     }
@@ -534,11 +479,6 @@ $spv-navigation-logo: 0.3125rem;
     .p-navigation__search-overlay {
       opacity: 0.5;
       pointer-events: all;
-    }
-
-    // make sure search in navigation renders on top of the overlay
-    .p-navigation__nav {
-      z-index: 60;
     }
   }
 
@@ -580,7 +520,7 @@ $spv-navigation-logo: 0.3125rem;
       top: $spv--large * 2 + map-get($line-heights, default-text);
     }
 
-    @media (max-width: $breakpoint-navigation-threshold - 1) {
+    @media (max-width: ($breakpoint-navigation-threshold - 1)) {
       box-shadow: none;
     }
   }

@@ -12,7 +12,7 @@ function initNavigationSearch(element) {
 
   const overlay = element.querySelector('.p-navigation__search-overlay');
   if (overlay) {
-    overlay.addEventListener('click', closeSearch);
+    overlay.addEventListener('click', closeAll);
   }
 
   function toggleMenu(e) {
