@@ -25,26 +25,23 @@
       if (show) {
         sideNavigation.classList.remove('is-collapsed');
         sideNavigation.classList.add('is-expanded');
-        toggleTabindex(sideNavigation, false);
+        controlInitialFocus(sideNavigation, false);
       } else {
         sideNavigation.classList.remove('is-expanded');
         sideNavigation.classList.add('is-collapsed');
-        toggleTabindex(sideNavigation, true);
+        controlInitialFocus(sideNavigation, true);
       }
     }
   }
 
   /**
-    Ensures links are only focusable when side nav is in view
+    Ensures the focus lands on the correct element when opening/closing side nav
     @param {HTMLElement} sideNavigation The side navigation element.
     @param {Boolean} sideNavCollapsed Whether the side nav is expanded or collapsed.
   */
-  function toggleTabindex(sideNavigation, sideNavCollapsed) {
-    const links = sideNavigation.querySelectorAll('.p-side-navigation__link');
+  function controlInitialFocus(sideNavigation, sideNavCollapsed) {
     const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
     const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
-
-    links.forEach((link) => (sideNavCollapsed ? (link.tabIndex = -1) : (link.tabIndex = 0)));
 
     if (sideNavCollapsed) {
       toggleButtonOutsideDrawer.focus();
@@ -69,16 +66,24 @@
     toggles.forEach(function (toggle) {
       var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
       var drawerEl = document.querySelector('.p-side-navigation__drawer');
-      var drawerPosition = window.getComputedStyle(drawerEl).position;
-      if (drawerPosition == 'fixed') {
-        toggleTabindex(sideNav, true);
+
+      if (drawerEl.getBoundingClientRect().top === 0) {
+        drawerEl.style.display = 'none';
+        drawerEl.classList.add('is-collapsed');
       }
 
       toggle.addEventListener('click', function (event) {
         event.preventDefault();
 
         if (sideNav) {
+          drawerEl.style.display = 'block';
           toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
+        }
+      });
+
+      toggle.addEventListener('transitionend', () => {
+        if (!sideNav.classList.contains('is-expanded')) {
+          drawerEl.style.display = 'none';
         }
       });
     });
@@ -108,9 +113,6 @@
         if (drawerPosition !== 'fixed') {
           sideNav.classList.remove('is-expanded');
           sideNav.classList.remove('is-collapsed');
-          toggleTabindex(sideNav, false);
-        } else {
-          toggleTabindex(sideNav, true);
         }
       }, 200)
     );
