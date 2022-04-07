@@ -65,7 +65,7 @@
 
     toggles.forEach(function (toggle) {
       var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
-      var drawerEl = document.querySelector('.p-side-navigation__drawer');
+      var drawerEl = sideNav.querySelector('.p-side-navigation__drawer');
 
       if (drawerEl.getBoundingClientRect().top === 0) {
         drawerEl.style.display = 'none';
@@ -81,9 +81,15 @@
         }
       });
 
-      toggle.addEventListener('transitionend', () => {
+      drawerEl.addEventListener('animationend', () => {
         if (!sideNav.classList.contains('is-expanded')) {
           drawerEl.style.display = 'none';
+        }
+      });
+
+      drawerEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          toggleDrawer(sideNav, false);
         }
       });
     });
@@ -113,6 +119,9 @@
         if (drawerPosition !== 'fixed') {
           sideNav.classList.remove('is-expanded');
           sideNav.classList.remove('is-collapsed');
+          drawerEl.style.display = 'block';
+        } else {
+          drawerEl.style.display = 'none';
         }
       }, 200)
     );
