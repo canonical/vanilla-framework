@@ -89,7 +89,6 @@
   .p-side-navigation__toggle,
   .p-side-navigation__toggle--in-drawer {
     @extend %vf-button-base;
-    background-color: transparent !important;
 
     &::before {
       @extend %icon;
@@ -416,6 +415,10 @@
 
     &::before {
       @include vf-icon-chevron($color-sidenav-toggle-icon);
+    }
+
+    &[aria-expanded='true'] {
+      background-color: $color-transparent;
     }
   }
 
