@@ -27,15 +27,9 @@ A cancel button is shown when the input has content, and a small amount of JavaS
 View examples of search box patterns
 </a></div>
 
-## Navigation
+## Expanding search in navigation
 
-This component integrates with `.p-navigation__nav` for both small and large screens.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/search-box/navigation/" class="js-example">
-View examples of search box navigation patterns
-</a></div>
-
-## Expanding search box
+The search box component integrates with expanding search functionality in navigation.
 
 Expanding search in main navigation consists of couple of elements: search toggle link (`.p-navigation__link--search-toggle`), expanding search box (`.p-navigation__search`) and an overlay that covers whole screen when search is expanded (`.p-navigation__search-overlay`).
 
