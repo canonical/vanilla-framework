@@ -67,7 +67,3 @@ To import just this component into your project, copy the snippet below and incl
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
-
-## Design
-
-For more information view the [heading icon design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Heading%20icon), which includes the specification in Markdown format and a PNG image.
