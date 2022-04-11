@@ -180,7 +180,3 @@ To set the default theme to dark on any of the elements / components listed abov
 ### Invoking a theme that is not currently a default
 
 Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or component is `light`, or `is-light` if the default is dark.
-
-## Design
-
-For more information [view the color design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Color), which includes the specification in markdown format and a PNG image.
