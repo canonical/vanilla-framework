@@ -49,13 +49,21 @@ View example of the dropdown pattern
 
 ## Expanding search box
 
-Expanding search in main navigation consists of couple of elements: search toggle link (`.p-navigation__link--search-toggle`), expanding search box (`.p-navigation__search`) and an overlay that covers whole screen when search is expanded (`.p-navigation__search-overlay`).
+Expanding search in main navigation consists of couple of elements: two search toggle links (`.p-navigation__link--search-toggle`) - one inside `.p-navigation__banner` for mobile view and another in `.p-navigation__nav` as one of standard view items, the expanding search box (`.p-navigation__search`) and an overlay that covers whole screen when search is expanded (`.p-navigation__search-overlay`).
 
 The `.p-navigation__link--search-toggle` class name is used to add a search toggle link to navigation items. The label text of this toggle element should be wrapped in `.p-navigation__search-label` element to make sure it's hidden on smaller screen sizes. Click event handler attached to the toggle element should add `.has-search-open` class on main `.p-navigation` element to expand the search box and show the overlay.
 
 Vanilla Search box component is used for the search field, but it's wrapped into an element with `.p-navigation__search` class name. The search will be hidden by default and only expands when the navigation element has `.has-search-open` class name.
 
 When search box is expanded the overlay element (`p-navigation__search-overlay`) is faded in to cover all the contents of the page (except the search box itself). Clicking anywhere on the overlay (or hitting Escape key) closes the search box.
+
+On small screens the search box and menu items can be expanded individually as their own separate dropdowns.
+
+<div class="p-notification--caution">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Mobile search:</span>
+    <span class="p-notification__message">In Vanilla 3.2 we updated the way expanding search works on small screens and now it requires some changes to the HTML structure of menu items for small screens and additional JavaScript functionality for toggling the small screen navigation dropdowns.</p></span>
+</div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-light" class="js-example"> View example of the search navigation </a></div>
 
