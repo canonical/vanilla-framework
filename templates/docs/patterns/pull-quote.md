@@ -54,10 +54,6 @@ To import just this component into your project, copy the snippet below and incl
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-## Design
-
-For more information [view the quotes design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Pull%20quote), which includes the specification in markdown format and a PNG image.
-
 ## Related
 
 For more typographic related information view the [blockquotes and citations](/docs/base/typography#blockquotes-and-citations) in base typography.

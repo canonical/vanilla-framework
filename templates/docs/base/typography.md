@@ -243,10 +243,6 @@ To import just this base element into your project, copy the snippet below and i
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-## Design
-
-For more information [view the typography design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Typography), which includes the specification in markdown format and a PNG image.
-
 ## Related
 
 For more typographic related information view the [code](/docs/base/code) and [pull quote pattern](/docs/patterns/pull-quote) component or our [font settings](/docs/settings/font-settings).

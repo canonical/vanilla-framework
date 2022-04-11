@@ -34,10 +34,6 @@ Vanilla uses three font weight settings in tandem with the Ubuntu font, which ca
 <br>
 <hr>
 
-## Design
-
-- [Typography design](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Typography)
-
 ## Related
 
 - [Base typography](/docs/base/typography)
