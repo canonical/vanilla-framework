@@ -30,7 +30,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>New name for what was previously the Label component.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/status-label">Labels</a></th>
+      <th><a href="/docs/patterns/status-labels">Labels</a></th>
       <td>
         <span class="p-status-label--negative">Deprecated</span>
       </td>
