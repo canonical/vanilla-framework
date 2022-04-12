@@ -1,8 +1,8 @@
 @import 'settings';
 
-// Default label styling
-@mixin vf-p-label {
-  %vf-label {
+// Default status label styling
+@mixin vf-p-status-label {
+  %vf-status-label {
     @extend %x-small-text;
     @extend %u-no-margin--bottom--small;
 
@@ -15,36 +15,41 @@
     white-space: nowrap;
   }
 
+  .p-status-label,
   .p-label {
-    @extend %vf-label;
+    @extend %vf-status-label;
 
     background-color: $color-mid-dark;
     color: $color-x-light;
   }
 
+  .p-status-label--positive,
   .p-label--positive {
-    @extend %vf-label;
+    @extend %vf-status-label;
 
     background-color: $color-positive;
     color: $color-x-light;
   }
 
+  .p-status-label--caution,
   .p-label--caution {
-    @extend %vf-label;
+    @extend %vf-status-label;
 
     background-color: $color-caution;
     color: $color-dark;
   }
 
+  .p-status-label--information,
   .p-label--information {
-    @extend %vf-label;
+    @extend %vf-status-label;
 
     background-color: $color-information;
     color: $color-x-light;
   }
 
+  .p-status-label--negative,
   .p-label--negative {
-    @extend %vf-label;
+    @extend %vf-status-label;
 
     background-color: $color-negative;
     color: $color-x-light;
