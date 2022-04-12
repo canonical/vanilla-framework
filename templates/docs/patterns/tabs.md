@@ -102,3 +102,9 @@ To import the tab button component into your project, copy the snippet below and
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
+## React
+
+You can use tabs in React by installing our react-component library and importing `Tab` component.
+
+[See the documentation for our React `Tab` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/tabs--default-story#tabs)
