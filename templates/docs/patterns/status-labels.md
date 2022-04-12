@@ -27,7 +27,7 @@ View example of the status label pattern
 
 Status labels are used to signify status, tags or any other information. The colours have semantic meaning, reflected by the name given in the code example.
 
-Semantic colour can help users recognise and recall meaning more quickly, especially when scanning a view, for example. It’s important that labels still convey the same meaning without colour information.
+Semantic colour can help users recognise and recall meaning more quickly, especially when scanning a view, for example. It’s important that status labels still convey the same meaning without colour information.
 
 ### Considerations
 
