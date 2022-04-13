@@ -4,13 +4,13 @@ context:
   title: Segmented control | Components
 ---
 
-# Tab buttons
+# Segmented control
 
 <hr>
 
-Tab buttons can be used in two ways:
+Segmented control can be used in two ways:
 
-**Secondary tabs:** if the page already has a set of primary tabs used as navigation, these can be used as a sub-navigation of those primary tabs.
+**Secondary tabs:** if the page already has a set of primary tabs used as navigation, this can be used as a sub-navigation of those primary tabs.
 
 **View switcher:** in the case of a page in which the same piece of content is shown in more than one format, this component can be used as a switcher between the different views.
 
@@ -25,18 +25,25 @@ At smaller breakpoints, this pattern should be swapped out for one more suited t
 
 ## Default
 
-Use the class `p-tab-buttons` to make your tabs appear as a group of buttons.
+Use the class `p-segmented-control` to make your tabs appear as a group of buttons.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tab-buttons/default" class="js-example">
-View examples of the tab buttons pattern
+<div class="p-notification--caution">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Deprecation warning:</span>
+    <span class="p-notification__message"><code>p-tab-buttons</code> and its variants are deprecated and may be removed in future version of Vanilla. Use <code>p-segmented-control</code> instead.</span>
+  </p>
+</div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/segmented-control/default" class="js-example">
+View examples of the segmented control pattern
 </a></div>
 
 ## Dense
 
-By adding the `is-dense` modifier to the `p-tab-buttons` element, the buttons will take on a more compact appearance.
+By adding the `is-dense` modifier to the `p-segmented-control` element, the buttons will take on a more compact appearance.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tab-buttons/dense" class="js-example">
-View examples of the dense tab buttons pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/segmented-control/dense" class="js-example">
+View examples of the dense segmented control pattern
 </a></div>
 
 ## With Icons
@@ -50,13 +57,13 @@ The pattern also supports the use of icons within each button.
   </div>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tab-buttons/icons" class="js-example">
-View examples of the tab buttons pattern with icons
+<div class="embedded-example"><a href="/docs/examples/patterns/segmented-control/icons" class="js-example">
+View examples of the segmented control pattern with icons
 </a></div>
 
 ## Import
 
-To import the tab button component into your project, copy the snippet below and include it in your main Sass file.
+To import the segmented control component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
 // import Vanilla and include base mixins
@@ -64,7 +71,7 @@ To import the tab button component into your project, copy the snippet below and
 @import 'vanilla-framework';
 @include vf-base;
 
-@include vf-p-tab-buttons;
+@include vf-p-segmented-control;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
