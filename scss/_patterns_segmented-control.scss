@@ -1,9 +1,12 @@
-@mixin vf-p-tab-buttons {
+@mixin vf-p-segmented-control {
+  .p-segmented-control, 
   .p-tab-buttons {
+    .p-segmented-control__list,
     .p-tab-buttons__list {
       display: flex;
     }
 
+    .p-segmented-control__button,
     .p-tab-buttons__button {
       @extend %vf-button-has-icon;
 
@@ -41,6 +44,7 @@
       }
     }
 
+    &.is-dense .p-segmented-control__button,
     &.is-dense .p-tab-buttons__button {
       @extend %vf-button-dense-vertical-padding;
     }
