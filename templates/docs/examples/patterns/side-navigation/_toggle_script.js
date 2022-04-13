@@ -109,7 +109,7 @@ function setupSideNavigation(sideNavigation) {
         } else {
           drawerEl.style.display = 'none';
         }
-      }, 200)
+      }, 10)
     );
   });
 }
