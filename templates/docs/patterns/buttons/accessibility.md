@@ -1,3 +1,9 @@
+---
+wrapper_template: '_layouts/docs.html'
+context:
+  title: Buttons | Components
+---
+
 ## Accessibility
 
 ### How it works
