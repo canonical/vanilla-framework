@@ -109,9 +109,11 @@
 
   // Add table of contents as nested list to side navigation
   if (list.querySelectorAll('li').length > 0) {
-    var parent = document.querySelector('.p-side-navigation__link[aria-current="page"]').parentNode;
-
-    parent.appendChild(list);
+    var currentPage = document.querySelector('.p-side-navigation__link[aria-current="page"]');
+    if (currentPage) {
+      var parent = currentPage.parentNode;
+      parent.appendChild(list);
+    }
   }
 })();
 
