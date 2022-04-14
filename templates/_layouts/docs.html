@@ -155,7 +155,13 @@
       </aside>
 
       <main class="col-9" id="main-content">
-        {% block content %}{{ content | safe }}{% endblock content %}
+        {% block content %}
+          <h1>{{ title.split('|')[0] | safe }}</h1>
+
+          {% include "_layouts/_component_tabs.html" %}
+
+          {{ content | safe }}
+        {% endblock content %}
       </main>
 
     </div>
