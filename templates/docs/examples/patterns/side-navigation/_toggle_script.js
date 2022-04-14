@@ -52,22 +52,23 @@ function setupSideNavigation(sideNavigation) {
     var drawerEl = sideNav.querySelector('.p-side-navigation__drawer');
 
     if (drawerEl.getBoundingClientRect().top === 0) {
-      drawerEl.style.display = 'none';
-      drawerEl.classList.add('is-collapsed');
+      sideNav.classList.add('is-hidden');
+      sideNav.classList.add('is-collapsed');
     }
 
     toggle.addEventListener('click', function (event) {
       event.preventDefault();
 
       if (sideNav) {
-        drawerEl.style.display = 'block';
+        //drawerEl.style.display = 'block';
+        sideNav.classList.remove('is-hidden');
         toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
       }
     });
 
     drawerEl.addEventListener('animationend', () => {
       if (!sideNav.classList.contains('is-expanded')) {
-        drawerEl.style.display = 'none';
+        sideNav.classList.add('is-hidden');
       }
     });
 
@@ -98,17 +99,23 @@ function setupSideNavigation(sideNavigation) {
     window.addEventListener(
       'resize',
       throttle(function () {
-        var drawerPosition = window.getComputedStyle(drawerEl).position;
+        // var drawerPosition = window.getComputedStyle(drawerEl).position;
 
-        // when screen size changes from mobile (fixed drawer) to large screen
-        // reset any styles added by opening the drawer
-        if (drawerPosition !== 'fixed') {
-          sideNav.classList.remove('is-expanded');
-          sideNav.classList.remove('is-collapsed');
-          drawerEl.style.display = 'block';
-        } else {
-          drawerEl.style.display = 'none';
-        }
+        // // when screen size changes from mobile (fixed drawer) to large screen
+        // // reset any styles added by opening the drawer
+        // if (drawerPosition !== 'fixed') {
+        //   sideNav.classList.remove('is-expanded');
+        //   sideNav.classList.remove('is-collapsed');
+        //   sideNav.classList.remove('is-hidden');
+        //   //drawerEl.style.display = 'block';
+        // } else {
+        //   sideNav.classList.add('is-collapsed');
+        //   sideNav.classList.add('is-hidden');
+        //   //drawerEl.style.display = 'none';
+        // }
+        sideNav.classList.remove('is-expanded');
+        sideNav.classList.remove('is-collapsed');
+        sideNav.classList.add('is-hidden');
       }, 10)
     );
   });
