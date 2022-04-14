@@ -4,10 +4,6 @@ context:
   title: Accordion | Components
 ---
 
-# Accordion
-
-<hr>
-
 The sidebar accordion, used in listing pages or as navigation, can hold multiple navigation items or to be used as a filter for content.
 
 Each tab styling can be changed to open or collapse using `aria-expanded`, set `true` for open and `false` to close. Using JS this can be changed and to point to what each tab controls via `aria-controls`.
