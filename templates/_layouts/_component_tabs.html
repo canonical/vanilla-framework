@@ -1,0 +1,19 @@
+{%if page_tabs %}
+<nav class="p-tabs" aria-label="{{slug}} documentation menu">
+  <ul class="p-tabs__list">
+    {% if page_tabs.design_guidelines %}
+      <li class="p-tabs__item">
+        <a href="/design/{{ slug }}" class="p-tabs__link" {% if "/design/" in path %}aria-selected="true"{% endif %}>Design guidelines</a>
+      </li>
+    {% endif %}
+    <li class="p-tabs__item">
+        <a href="/docs/{{ slug }}" class="p-tabs__link" {% if "/docs/" in path and "/accessibility" not in path %}aria-selected="true"{% endif %}>Implementation</a>
+    </li>
+    {% if page_tabs.accessibility %}
+      <li class="p-tabs__item">
+        <a href="/docs/{{ slug }}/accessibility" class="p-tabs__link" {% if "/accessibility" in path %}aria-selected="true"{% endif %}>Accessibility</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+{%endif%}
