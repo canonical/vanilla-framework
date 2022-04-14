@@ -150,6 +150,7 @@ def global_template_context():
     docs_slug = flask.request.path.replace("/docs/", "")
     docs_slug = docs_slug.replace("/design/", "")
     docs_slug = docs_slug.replace("/accessibility", "")
+    docs_slug = "" if docs_slug == "/docs" else docs_slug
 
     # Read navigation.yaml
     with open("component_tabs.yaml") as component_tabs_file:
