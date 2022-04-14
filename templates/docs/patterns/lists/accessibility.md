@@ -1,3 +1,9 @@
+---
+wrapper_template: '_layouts/docs.html'
+context:
+  title: Lists | Components
+---
+
 ## Accessibility
 
 ### How it works
