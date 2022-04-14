@@ -48,6 +48,14 @@
       animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
     }
 
+    .p-side-navigation.is-hidden &,
+    [class*='p-side-navigation--'].is-hidden & {
+      display: none;
+      @media (min-width: $threshold-6-12-col) {
+        display: block;
+      }
+    }
+
     @media (min-width: $breakpoint-x-small) {
       max-width: 20rem;
     }
