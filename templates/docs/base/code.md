@@ -108,6 +108,10 @@ Add the class `.is-bordered` to the `.p-code-snippet` element to visually group 
 View example of the code snippet with a border
 </a></div>
 
+## Class reference
+
+{% include "_class-references/code-snippet.html" %}
+
 ## React
 
 You can use code snippet in React by installing our react-component library and importing code snippet component.
