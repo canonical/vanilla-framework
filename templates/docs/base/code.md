@@ -76,6 +76,10 @@ It is also possible to include multiple selects, and an alternative layout is av
 View example of the code snippet
 </a></div>
 
+### JavaScript functionality
+
+When the code snippet contains dropdowns to switch the displayed code, the functionality of the dropdown menus needs to be provided via JavaScript. The contents of the code block should change based on the value selected in the dropdown. In a simpler case, there may be multiple code block elements in the code snippet component, but only one of them visible based on the user's choice in the dropdowns.
+
 ## Wrapping
 
 By default, `<pre>` elements do not wrap content, but this can be overridden by adding the `.is-wrapped` utility class to a `.p-code-snippet__block`:
