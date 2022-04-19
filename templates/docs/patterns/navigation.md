@@ -249,7 +249,7 @@ To import side navigation, copy snippet below:
 @include vf-p-side-navigation;
 
 // optionally add icons and/or labels if you use them in side navigation__nav
-@include vf-p-label;
+@include vf-p-status-label;
 @include vf-p-icons;
 ```
 
