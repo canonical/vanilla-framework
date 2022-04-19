@@ -52,7 +52,7 @@ Any affected examples in your PR should have an appropriate label, either `new`,
 An example's documentation should then also include a status label within the body of the page, using the appropriate label:
 
 ```
-<span class="p-label--positive">New</span>
-<span class="p-label--information">Updated</span>
-<span class="p-label--negative">Deprecated</span>
+<span class="p-status-label--positive">New</span>
+<span class="p-status-label--information">Updated</span>
+<span class="p-status-label--negative">Deprecated</span>
 ```
