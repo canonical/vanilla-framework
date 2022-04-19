@@ -22,9 +22,9 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
     <!-- 3.3.0 -->
     <tr>
-      <th><a href="/docs/patterns/navigation#expanding-search-box">Segmented control</a></th>
+      <th><a href="/docs/patterns/segmented-control">Segmented control</a></th>
       <td>
-        <span class="p-label--information">New</span>
+        <span class="p-status-label--information">New</span>
       </td>
       <td>3.3.0</td>
       <td>The Tab buttons component has been renamed to Segmented control</td>
