@@ -90,17 +90,6 @@ To import just the standard tab component into your project, copy the snippet be
 @include vf-p-tabs;
 ```
 
-To import the tab button component into your project, copy the snippet below and include it in your main Sass file.
-
-```scss
-// import Vanilla and include base mixins
-// this only needs to happen once in a given project
-@import 'vanilla-framework';
-@include vf-base;
-
-@include vf-p-tab-buttons;
-```
-
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
 ## React
