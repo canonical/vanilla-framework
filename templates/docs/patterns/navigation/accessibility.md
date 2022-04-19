@@ -4,9 +4,7 @@ context:
   title: Navigation | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Navigation allows users to navigate different pages or content in a website. The list of navigation items can be displayed on the top or left edge of the viewport.
 
@@ -24,7 +22,7 @@ Care should be taken to ensure that the label makes sense out of context of the 
 
 Consider the size that navigation elements are displayed at. They should be easily reachable and tappable on mobile views and easy to locate with the pointer on desktop views. Consider that users with reduced mobility may find it harder to locate and operate controls that appear too small on screen.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -35,7 +33,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - Javascript will be needed to indicate which navigation element is active. `aria-current="page"` attribute should be given to the navigation item.
 - JavaScript should be used to handle both mouse and keyboard interactions.
 
-### Resources
+## Resources
 
 - [Carbon Design System - Navigation](https://www.carbondesignsystem.com/patterns/global-header/#accessibility)
 - Guidelines:

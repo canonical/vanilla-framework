@@ -4,13 +4,11 @@ context:
   title: Logo section | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 The logo section showcases a group of related images or logos. It works by ensuring each image matches the width of either one or two grid columns.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -19,7 +17,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - If the image provides information not otherwise available to users of assistive technology, the value of the `alt` attribute should provide that information in a concise way.
 - Avoid using words and phrases like “logo” or “image of''; in most cases the information that needs to be conveyed is, for example, who the logo belongs to or what the image contains, rather than that the element itself is an image.
 
-### Resources
+## Resources
 
 - [WAI-ARIA practices - naming effectively](https://www.w3.org/TR/wai-aria-practices-1.1/#naming_effectively)
 - [WAI tutorials - Images](https://www.w3.org/WAI/tutorials/images/)

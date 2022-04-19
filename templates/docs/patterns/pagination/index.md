@@ -4,10 +4,6 @@ context:
   title: Pagination | Components
 ---
 
-# Pagination
-
-<hr>
-
 Use the pagination component to paginate large sets of data:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pagination/pagination" class="js-example">

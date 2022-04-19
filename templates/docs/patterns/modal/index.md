@@ -4,10 +4,6 @@ context:
   title: Modal | Components
 ---
 
-# Modal
-
-<hr>
-
 The modal component can be used to overlay an area of the screen which can contain a prompt, dialog or interaction.
 
 On `p-modal` set display to `display:flex` or `display:none` to toggle the visibility of the modal.

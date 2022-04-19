@@ -4,10 +4,6 @@ context:
   title: Tabs | Components
 ---
 
-# Tabs
-
-<hr>
-
 Tabs organise and allow navigation between groups of content that are related and at the same level of hierarchy.
 
 To select the active tab add the attribute `aria-selected="true"` and that list item will have the correct styling.

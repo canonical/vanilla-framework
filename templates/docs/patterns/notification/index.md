@@ -4,10 +4,6 @@ context:
   title: Notification | Components
 ---
 
-# Notification
-
-<hr>
-
 Notifications are used to attract the user's attention. They offer four separate severity levels, and can also be modified for use in different contexts.
 
 ## Severity levels

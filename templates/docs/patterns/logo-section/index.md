@@ -4,10 +4,6 @@ context:
   title: Logo section | Components
 ---
 
-# Logo section
-
-<hr>
-
 The logo section pattern can be used to showcase a group of related images, such as a group of customer or partner logos.
 For best results, ensure that the images have identical dimensions.
 
