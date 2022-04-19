@@ -3,6 +3,7 @@ wrapper_template: '_layouts/docs.html'
 context:
   title: Accordion | Components
 ---
+
 ## How it works
 
 Accordions are a vertically stacked list of headings. They reduce the need for users to scroll through a lot of content, as the headings act as interactive elements which show or hide the related content.
