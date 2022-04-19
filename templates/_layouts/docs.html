@@ -156,7 +156,9 @@
 
       <main class="col-9" id="main-content">
         {% block content %}
-          <h1>{{ title.split('|')[0] | safe }}</h1>
+          {% if page_tabs %}
+            <h1>{{ title.split('|')[0] }}</h1>
+          {% endif %}
 
           {% include "_layouts/_component_tabs.html" %}
 
