@@ -3,6 +3,7 @@ import glob
 import json
 import os
 import random
+import yaml
 
 # Packages
 import talisker.requests
@@ -146,7 +147,24 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
+    docs_slug = flask.request.path.replace("/docs/", "")
+    docs_slug = docs_slug.replace("/design/", "")
+    docs_slug = docs_slug.replace("/accessibility", "")
+    docs_slug = "" if docs_slug == "/docs" else docs_slug
+
+    # Read navigation.yaml
+    with open("component_tabs.yaml") as component_tabs_file:
+        component_tabs = yaml.load(
+            component_tabs_file.read(), Loader=yaml.FullLoader
+        )
+
+    return {
+        "version": VANILLA_VERSION,
+        "versionMinor": version_minor,
+        "path": flask.request.path,
+        "page_tabs": component_tabs.get(docs_slug),
+        "slug": docs_slug,
+    }
 
 
 @app.context_processor
@@ -209,7 +227,7 @@ app.add_url_rule(
         session=session,
         site="vanillaframework.io/docs",
         template_path="docs/search.html",
-        search_engine_id="adb2397a224a1fe55" # https://cse.google.co.uk/cse/setup/basic?cx=adb2397a224a1fe55
+        search_engine_id="adb2397a224a1fe55",  # https://cse.google.co.uk/cse/setup/basic?cx=adb2397a224a1fe55
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
@@ -219,7 +237,7 @@ discourse_docs = Docs(
         api=DiscourseAPI(
             base_url="https://discourse.ubuntu.com/", session=session
         ),
-        index_topic_id=27037, # https://discourse.ubuntu.com/t/design-system-website-config/27037
+        index_topic_id=27037,  # https://discourse.ubuntu.com/t/design-system-website-config/27037
         url_prefix="/design",
     ),
     document_template="/_layouts/docs_discourse.html",

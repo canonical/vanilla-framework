@@ -28,7 +28,7 @@
 
             {% macro side_nav_item(url, title, label, type) -%}
                 <li class="p-side-navigation__item">
-                  <a class="p-side-navigation__link" href="{{ url }}" {% if path == url %}aria-current="page"{% endif %}>
+                  <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
                     {{ title }}
                     {% if label %}
                       <span class="p-side-navigation__status">
@@ -155,7 +155,15 @@
       </aside>
 
       <main class="col-9" id="main-content">
-        {% block content %}{{ content | safe }}{% endblock content %}
+        {% block content %}
+          {% if page_tabs %}
+            <h1>{{ title.split('|')[0] }}</h1>
+          {% endif %}
+
+          {% include "_layouts/_component_tabs.html" %}
+
+          {{ content | safe }}
+        {% endblock content %}
       </main>
 
     </div>
