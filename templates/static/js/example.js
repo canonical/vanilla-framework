@@ -270,6 +270,15 @@
     return scripts;
   }
 
+  function fixScroll() {
+    const titleId = window.location.hash;
+    const title = document.querySelector(`${titleId}`);
+    var rect = title.getBoundingClientRect();
+    if (title) {
+      window.scrollTo(0, rect.top);
+    }
+  }
+
   /**
     Attaches change event listener to a given select.
     @param {HTMLElement} dropdown Select element belonging to a code snippet.
@@ -293,4 +302,5 @@
       }
     });
   }
+  fixScroll();
 })();
