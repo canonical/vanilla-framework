@@ -4,13 +4,11 @@ context:
   title: Strip | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 A Strip is a full-width content container. They provide visual interest and break up long scrolling pages into sections.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -24,6 +22,6 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - Image strips should ensure image accessibility is maintained with appropriate descriptive text for relevant images
 - If the image is the link, then the alt text of the image should replace the link text Alternatively, add aria-label to the link element wrapping the image
 
-### Resources
+## Resources
 
 [W3C Non-text content](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)

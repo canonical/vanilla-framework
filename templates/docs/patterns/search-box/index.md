@@ -4,10 +4,6 @@ context:
   title: Search box | Components
 ---
 
-# Search box
-
-<hr>
-
 Search boxes enable search functionality on a page and are typically used in a navigation bar.
 
 ## Default

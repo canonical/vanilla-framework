@@ -147,9 +147,12 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    docs_slug = flask.request.path.replace("/docs/", "")
-    docs_slug = docs_slug.replace("/design/", "")
-    docs_slug = docs_slug.replace("/accessibility", "")
+    docs_slug = (
+        flask.request.path.replace("/docs/", "")
+        .replace("/design/", "")
+        .replace("/accessibility", "")
+    )
+
     docs_slug = "" if docs_slug == "/docs" else docs_slug
 
     # Read navigation.yaml

@@ -4,10 +4,6 @@ context:
   title: Breadcrumbs | Components
 ---
 
-# Breadcrumbs
-
-<hr>
-
 You can use the breadcrumbs pattern to indicate where the current page sits in the site's navigation.
 
 - A `<nav>` element with an `aria-label` "Breadcrumb" identifies the structure as a breadcrumb trail

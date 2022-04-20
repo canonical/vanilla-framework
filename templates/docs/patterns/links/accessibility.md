@@ -4,13 +4,11 @@ context:
   title: Links | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Links are used as navigational elements and can be used on their own or inline with text. It's possible to use the `Tab` key to navigate to the link, and the `Enter` key activates the link.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -36,7 +34,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 Note: It’s important to use button and link elements accurately. Controls with button-like behaviour (e.g. opening models, submitting forms) should be designed like buttons using the button element, and regular text links (e.g. going to an external page) should be designed like text links using the link element.
 
-### Resources
+## Resources
 
 - [WAI-ARIA practices: Links ](https://www.w3.org/TR/wai-aria-practices/#link)
 - [Yale usability & Web Accessibility - Links](https://usability.yale.edu/web-accessibility/articles/links)

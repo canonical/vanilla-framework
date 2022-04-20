@@ -4,9 +4,7 @@ context:
   title: Nofitication | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Notifications are messages used to communicate information and feedback to the user. Changes in content which are not interactive should be marked as live regions which are denoted by the `aria-live` attribute.
 
@@ -14,7 +12,7 @@ When the notification is time sensitive or critical `aria-live= "assertive"`, or
 
 In dismissible notifications, an `aria-controls` attribute on the close button references the id on the parent div containing the notification. This makes it clear to screen reader users what the close button is targeting.
 
-### Considerations
+## Considerations
 
 This component strives to follow WCAG 2.1 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -27,7 +25,7 @@ This component strives to follow WCAG 2.1 (level AA guidelines), and care must b
 - Unless the alert from the screen reader is meant to break the user’s workflow, it is important that the notification does not affect keyboard focus.
 - Notifications should not disappear automatically.
 
-### Resources
+## Resources
 
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.1 : aria-live](https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/#aria-live)
 - [WAI-ARIA Authoring Practices 1.1: alert](https://www.w3.org/TR/wai-aria-practices-1.1/#alert)
