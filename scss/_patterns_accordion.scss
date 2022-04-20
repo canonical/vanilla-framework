@@ -1,5 +1,11 @@
 @import 'settings';
 
+@mixin align-icon($icon-size: 1rem, $line-height: default-text) {
+  // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
+  // and offset to align it with baseline of accordion tab text element
+  top: $table-cell-vertical-padding + 0.5 * (map-get($line-heights, $line-height) - $icon-size);
+}
+
 @mixin vf-p-accordion {
   $icon-size: map-get($icon-sizes, default);
 
@@ -16,10 +22,6 @@
   }
 
   .p-accordion__tab {
-    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
-    // and offset to align it with baseline of accordion tab text element
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, default-text) - $icon-size) * 0.5});
-
     @extend %single-border-text-vpadding--scaling;
     @include vf-focus;
 
@@ -39,12 +41,15 @@
 
     &::before {
       @include vf-icon-chevron($color-mid-dark);
+
+      background-position: center;
       @include vf-animation($property: transform, $duration: fast);
+      @include align-icon($icon-size);
+
       content: '';
       height: $icon-size;
       left: $sph--large;
       position: absolute;
-      top: $icon-top-position;
       width: $icon-size;
     }
 
@@ -77,25 +82,18 @@
     }
   }
 
-  // stylelint-disable selector-max-type
-  h2.p-accordion__heading > .p-accordion__tab::before,
-  .p-heading--2 > .p-accordion__tab::before {
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h2) - $icon-size) * 0.5});
-    top: $icon-top-position;
-  }
+  $heading-levels: 2, 3, 4;
+  @each $level in $heading-levels {
+    .p-heading--#{$level} > .p-accordion__tab::before,
+    h#{$level}.p-accordion__heading > .p-accordion__tab::before {
+      @include align-icon($icon-size, h#{$level}-mobile);
 
-  h3.p-accordion__heading > .p-accordion__tab::before,
-  .p-heading--3 > .p-accordion__tab::before {
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h3) - $icon-size) * 0.5});
-    top: $icon-top-position;
+      // Adjust icon position due to font-size increase of the headings
+      @media (min-width: $breakpoint-heading-threshold) {
+        @include align-icon($icon-size, h#{$level});
+      }
+    }
   }
-
-  h4.p-accordion__heading > .p-accordion__tab::before,
-  .p-heading--4 > .p-accordion__tab::before {
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h4) - $icon-size) * 0.5});
-    top: $icon-top-position;
-  }
-  // stylelint-enable selector-max-type
 
   .p-accordion__panel {
     margin: 0;
