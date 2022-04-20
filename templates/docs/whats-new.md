@@ -20,6 +20,15 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.3.1 -->
+    <tr>
+      <th><a href="/docs/patterns/accordion">Accordion</a></th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.2.1</td>
+      <td>We changed the icon of the accordion tab.</td>
+    </tr>
     <!-- 3.3.0 -->
     <tr>
       <th><a href="/docs/patterns/segmented-control">Segmented control</a></th>
