@@ -4,13 +4,11 @@ context:
   title: Grid | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 The grid gives the ability to maintain semantic meaning in the page, while placing the content in whatever visual way required. The distinguishing feature of the grid that enables it to be used for grouping other widgets, is that its cells are containers that preserve the semantics of their descendant elements.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 

@@ -4,9 +4,7 @@ context:
   title: Pagination | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Our pagination examples are wrapped in `nav` elements, each with an `aria-label=”Pagination”`. This helps distinguish the pagination from other `nav` elements on the page.
 
@@ -14,7 +12,7 @@ An unordered list is used to list the pages, which allows screen readers to voic
 
 Each page link has an `aria-label` including the word “page” along with the number. This helps orientate the user and clarify they are on a pagination button.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -26,7 +24,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - It helps to add “first page, page x” to the first page and “last page, page x” to the final page in the list.
 - If you use chevrons without text labels to move to previous and next pages, make sure screen readers are reading “previous page” and “next page”.
 
-### Resources
+## Resources
 
 - [A11y style guide - Pagination navigation](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
 - [Design system digital - Pagination](https://designsystem.digital.gov/components/pagination/)

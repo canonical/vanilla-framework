@@ -5,10 +5,6 @@ context:
   title: Heading icon | Components
 ---
 
-# Heading icon
-
-<hr>
-
 A heading can be emphasised by adding an icon alongside the text.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/heading-icon/heading-icon/" class="js-example">

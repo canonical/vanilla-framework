@@ -4,10 +4,6 @@ context:
   title: Buttons | Components
 ---
 
-# Buttons
-
-<hr>
-
 Buttons are clickable elements used to perform an action, you can apply `button` classes on buttons and link elements.
 
 <div class="p-notification--information">
