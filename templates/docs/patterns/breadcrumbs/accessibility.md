@@ -4,9 +4,7 @@ context:
   title: Breadcrumbs | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 It establishes a landmark on the page which assists the user in understanding where they currently are and which pages exist in the current page’s hierarchical order.
 
@@ -14,7 +12,7 @@ It comprises a set of links structured using an ordered list. A `nav` element us
 
 To prevent screen reader announcement of the visual separators between links, they are added via CSS. The separators are part of the visual presentation that signifies the breadcrumb trail, which is already semantically represented by the `nav` element.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -23,7 +21,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - The breadcrumb indicating the current page should be visually distinct from the preceding breadcrumbs.
 - If the breadcrumb reflecting the current page is a link, it should have an `aria-current="page" `attribute.
 
-### Resources
+## Resources
 
 - [WAI-ARIA practices: Breadcrumbs](https://www.w3.org/TR/wai-aria-practices/#breadcrumb)
 - [WAI-ARIA practices: Breadcrumb example](https://www.w3.org/TR/wai-aria-practices/#breadcrumb)

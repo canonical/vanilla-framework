@@ -4,10 +4,6 @@ context:
   title: Status labels | Components
 ---
 
-# Status labels
-
-<hr>
-
 Status labels are static elements which you can apply to signify status, tags or any other information you find useful.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/status-labels/" class="js-example">

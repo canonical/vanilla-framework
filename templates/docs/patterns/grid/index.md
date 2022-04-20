@@ -4,10 +4,6 @@ context:
   title: Grid | Components
 ---
 
-# Grid
-
-<hr>
-
 Vanilla has a responsive grid with the following columns and gutters:
 
 <table>

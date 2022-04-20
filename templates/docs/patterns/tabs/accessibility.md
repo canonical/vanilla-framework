@@ -4,9 +4,7 @@ context:
   title: Tabs | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Tabs are a set of layered sections of content, known as tab panels, that display one panel of content at a time. Each tab panel has an associated tab element, that when activated, displays the panel. The list of tab elements is arranged along one edge of the currently displayed panel, most commonly the top edge.
 
@@ -23,7 +21,7 @@ This component does not have a semantic counterpart in HTML, so it uses several 
   - `role=”tabpanel”`,
   - `aria-labelledby`, which references the ID of the tab it is controlled by
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -33,7 +31,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - Content included in tab panels should also be accessible, i.e. images should include appropriate `alt` text.
 - Avoid tabs that wrap over more than one line. This can make it harder for users to distinguish the selected tab from its content.
 
-### Resources
+## Resources
 
 - [Example of Tabs with Automatic Activation](https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html)
 - [WAI-ARIA practices: Tabs](https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel)

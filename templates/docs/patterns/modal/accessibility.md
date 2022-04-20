@@ -4,13 +4,11 @@ context:
   title: Modal | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Modal is used to overlay an area of the screen with a prompt, dialog or interaction and prevents users from interacting with content outside of it until it’s closed.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -25,7 +23,7 @@ JavaScript needs to be used to ensure:
 - Escape closes the modal
 - When a modal closes, focus returns to the element that triggered the modal
 
-### Resources
+## Resources
 
 - [Modal Dialog Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
 - [WAI-ARIA practices: Dialog (Modal)](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)

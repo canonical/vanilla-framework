@@ -4,10 +4,6 @@ context:
   title: Tooltips | Components
 ---
 
-# Tooltips
-
-<hr>
-
 Tooltips are text labels that appear when the user hovers over, focuses on, or touches an element on the screen.
 
 They can be used to provide information about concepts/terms/actions that are not self-explanatory or well known.
