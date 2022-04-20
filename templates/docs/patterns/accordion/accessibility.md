@@ -4,9 +4,7 @@ context:
   title: Accordion | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Accordions are a vertically stacked list of headings. They reduce the need for users to scroll through a lot of content, as the headings act as interactive elements which show or hide the related content.
 
@@ -17,7 +15,7 @@ The two main components are:
 - Accordion heading which is the interactive title or thumbnail for each section. The headings can hide or show content.
 - Accordion panel is the content associated with an accordion heading.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -28,7 +26,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - Add the `aria-labelledby` attribute to the accordion panel, set to the ID of the button heading.
 - Avoid keyboard traps when adding components to the accordion panel. For example, the user expands an accordion, but is unable to tab to the next focusable element.
 
-### Resources
+## Resources
 
 - [W3C WAI-ARIA Accordion (Sections With Show/Hide Functionality)](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion)
 - [WAI-ARIA Examples: Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html)
