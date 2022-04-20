@@ -4,13 +4,11 @@ context:
   title: Buttons | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 The button component is used to trigger an action or event - this could be opening or closing a modal, navigating to the next page, or cancelling an action. Rather than adding `role=button` to links, it’s always advisable to use the native HTML button element, as native HTML buttons provide keyboard and focus requirements by default and are best supported by assistive technologies.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -26,7 +24,7 @@ View example of the contextual menu pattern
 
 Note: It’s important to use button and link elements accurately. Controls with button-like behaviour (e.g. opening models, submitting forms) should be designed like buttons using the button element, and regular text links (e.g. going to an external page) should be designed like text links using the link element.
 
-### Resources
+## Resources
 
 - [W3C WAI-ARIA Authoring Practices Button Design Pattern](https://www.w3.org/TR/wai-aria-practices/#button)
 - [WAI-ARIA Examples: Button](https://www.w3.org/TR/wai-aria-practices-1.1/examples/button/button.html)

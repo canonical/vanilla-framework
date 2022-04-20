@@ -4,13 +4,11 @@ context:
   title: Card | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Cards are content containers. They are useful for creating a responsive site, and help users scroll through similar content at ease. They are used as a teaser, and contain a link to more content.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -23,7 +21,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - Avoid multiple elements linking to the same place. Choose one element in the card to link from.
 - If an image is used as a link, then the `alt` text of the image should replace the link text. Alternatively, add `aria-label` to the link element wrapping the image.
 
-### Resources
+## Resources
 
 - [W3C Non-text content](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 - [What makes an accessible card](https://technica11y.org/what-makes-an-accessible-card)

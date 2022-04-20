@@ -4,15 +4,13 @@ context:
   title: Icons | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 Icons are used to enhance usability and provide clarity. `<i>` elements are used for our icons, and text should be added unless the icon is purely decorative. This text won’t be displayed visually. e.g.
 
 `<i class="p-icon--chevron-down">This text will not be displayed</i>`
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -23,7 +21,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - If the icon is actionable e.g. a menu icon, make sure it is focusable and it has a meaningful, clear and concise `alt` attribute.
 - The colour contrast from the icon to the background should be at least 3:1, as mentioned in the [WCAG techniques](https://www.w3.org/WAI/WCAG21/Techniques/general/G207).
 
-### Resources
+## Resources
 
 - [Are your icons accessible?](https://www.system-concepts.com/insights/are-your-icons-usable-and-accessible/)
 - [Keyboard - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard)

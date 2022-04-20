@@ -4,13 +4,11 @@ context:
   title: Tooltips | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 A tooltip is text that appears in a small overlay on demand, usually when hovering over the thing it describes. It is hidden by default, and becomes available on hover or focus of the control it describes. It should provide information that isn’t self explanatory or well known.
 
-### Considerations
+## Considerations
 
 This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
@@ -19,7 +17,7 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - Avoid using tooltips to provide instructions or guidance, or any rich information.
 - They shouldn’t be used on disabled elements. It should be clear to the user why the button is disabled without the tooltip.
 
-### Resources
+## Resources
 
 - Inclusive Components by Heydon Pickering
 - Guidelines

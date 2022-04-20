@@ -4,10 +4,6 @@ context:
   title: Lists | Components
 ---
 
-# Lists
-
-<hr>
-
 If you want to display lists in a way that is more visually distinctive than the
 standard `<ol>` and `<ul>`, we have 7 list styles at your disposal.
 

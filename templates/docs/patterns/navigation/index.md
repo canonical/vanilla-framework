@@ -4,10 +4,6 @@ context:
   title: Navigation | Components
 ---
 
-# Navigation
-
-<hr>
-
 ## Global navigation
 
 Vanilla includes a simple navigation bar that you can add to the top of your

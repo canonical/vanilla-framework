@@ -4,10 +4,6 @@ context:
   title: Links | Components
 ---
 
-# Links
-
-<hr>
-
 Links are used to embed actions or pathways to more information, allowing users to click their way from page to page.
 
 ## Default

@@ -4,13 +4,11 @@ context:
   title: Heading icon | Components
 ---
 
-## Accessibility
-
-### How it works
+## How it works
 
 The heading icon pattern includes an icon next to the heading to add emphasis. It includes an image element alongside a title wrapped in a `div` for the header, and a paragraph wrapped in an outer `div` for the content which follows.
 
-### Considerations
+## Considerations
 
 - The content of the heading should make sense without the icon present, the icon should not convey information on its own.
 - The image should always include an `alt` attribute.
@@ -18,7 +16,7 @@ The heading icon pattern includes an icon next to the heading to add emphasis. I
 - If the image provides information not otherwise available to users of assistive technology, the value of the `alt` attribute should provide that information in a concise way.
 - Avoid using words and phrases like “logo” or “image of"; in most cases the information that needs to be conveyed is, for example, who the logo belongs to or what the image contains, rather than that the element itself is an image.
 
-### Resources
+## Resources
 
 - [WAI-ARIA practices - naming effectively](https://www.w3.org/TR/wai-aria-practices-1.1/#naming_effectively)
 - [WAI tutorials - Images](https://www.w3.org/WAI/tutorials/images/)
