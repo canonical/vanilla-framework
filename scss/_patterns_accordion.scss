@@ -33,18 +33,12 @@
     z-index: 2;
 
     &::before {
-      $vertical-offset: 0.5px;
       @include vf-icon-chevron($color-mid-dark);
       @include vf-animation($property: transform, $duration: fast);
+      @extend %icon;
 
-      background-position: center;
       content: '';
-      display: inline-block;
-      font-size: inherit;
-      height: $icon-size;
       margin-right: $sph--large;
-      vertical-align: calc(#{$vertical-offset} + #{0.5 * $cap-height} - #{0.5 * $default-icon-size});
-      width: $icon-size;
     }
 
     // aria-selected controls the open and closed state for the accordion tab
@@ -84,12 +78,8 @@
   }
 
   .p-heading--3 > .p-accordion__tab::before,
-  h3.p-accordion__heading > .p-accordion__tab::before {
-    @include vf-icon-size($default-icon-size);
-    vertical-align: 0;
-  }
-
   .p-heading--4 > .p-accordion__tab::before,
+  h3.p-accordion__heading > .p-accordion__tab::before,
   h4.p-accordion__heading > .p-accordion__tab::before {
     vertical-align: 0;
   }
