@@ -89,11 +89,9 @@
 (function () {
   // Generate id from H2s content when it does not exist
   document.querySelectorAll('main h2:not([id])').forEach(function (heading) {
-    var id = heading.textContent
-      .toLowerCase()
-      .replaceAll(/\s+/g, "-")
-    heading.setAttribute("id", id)
-  })
+    var id = heading.textContent.toLowerCase().replaceAll(/\s+/g, '-');
+    heading.setAttribute('id', id);
+  });
 
   // get all headings from page and add it to current highligted item in side navigation
   var list = document.createElement('ul');
