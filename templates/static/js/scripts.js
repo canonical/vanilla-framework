@@ -87,6 +87,14 @@
 
 // Add table of contents to side navigation on documentation pages
 (function () {
+  // Generate id from H2s content when it does not exist
+  document.querySelectorAll('main h2:not([id])').forEach(function (heading) {
+    var id = heading.textContent
+      .toLowerCase()
+      .replaceAll(/\s+/g, "-")
+    heading.setAttribute("id", id)
+  })
+
   // get all headings from page and add it to current highligted item in side navigation
   var list = document.createElement('ul');
   list.classList.add('p-side-navigation__list');
@@ -97,7 +105,7 @@
   var anchor = document.createElement('a');
   anchor.classList.add('p-side-navigation__link');
 
-  // Add all H3s with IDs to the table of contents list
+  // Add all H2s with IDs to the table of contents list
   [].slice.call(document.querySelectorAll('main h2[id]')).forEach(function (heading) {
     var thisItem = item.cloneNode();
     var thisAnchor = anchor.cloneNode();
