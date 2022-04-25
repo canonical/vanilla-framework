@@ -9,7 +9,7 @@
 
     {% block banner %}{% endblock %}
 
-    <div class="p-strip">
+    <div class="p-strip is-shallow">
     <div class="row">
       <aside class="col-3">
         <nav class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
@@ -157,7 +157,9 @@
       <main class="col-9" id="main-content">
         {% block content %}
           {% if page_tabs %}
+          <div class="p-strip u-no-padding--top">
             <h1>{{ title.split('|')[0] }}</h1>
+          </div>
           {% endif %}
 
           {% include "_layouts/_component_tabs.html" %}
