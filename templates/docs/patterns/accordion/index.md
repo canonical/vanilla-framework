@@ -21,13 +21,13 @@ The wrapping element should either be a heading element or a `div` element with 
   </p>
 </div>
 
-**With aria attributes:**
+## Default
 
 <div class="embedded-example"><a href="/docs/examples/patterns/accordion/default/" class="js-example">
 View example of the accordion pattern
 </a></div>
 
-**With heading elements:**
+## With heading elements
 
 <div class="embedded-example"><a href="/docs/examples/patterns/accordion/headings/" class="js-example">
 View example of the accordion pattern

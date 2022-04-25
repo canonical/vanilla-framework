@@ -166,6 +166,7 @@
           var style = iframe.contentWindow.getComputedStyle(iframe.contentDocument.body);
           iframe.height = frameHeight + 32 + 'px'; // accommodate for body margin
           clearInterval(resizeInterval);
+          fixScroll();
         }
       }, 100);
 
@@ -268,6 +269,14 @@
       return s.src;
     });
     return scripts;
+  }
+
+  function fixScroll() {
+    const titleId = window.location.hash;
+    if (titleId) {
+      const title = document.querySelector(titleId);
+      title.scrollIntoView();
+    }
   }
 
   /**
