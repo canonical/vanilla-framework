@@ -35,8 +35,11 @@
 
     .p-side-navigation:target &,
     [class*='p-side-navigation--']:target &,
+    // is-expanded and is-collapsed are deprecated and replaced by is-drawer-expanded and is-drawer-collapsed
     .p-side-navigation.is-expanded &,
-    [class*='p-side-navigation--'].is-expanded & {
+    .p-side-navigation.is-drawer-expanded &,
+    [class*='p-side-navigation--'].is-expanded &,
+    [class*='p-side-navigation--'].is-drawer-expanded & {
       @extend %vf-has-box-shadow;
 
       animation: vf-p-side-navigation-expand map-get($animation-duration, brisk);
@@ -44,12 +47,14 @@
     }
 
     .p-side-navigation.is-collapsed &,
-    [class*='p-side-navigation--'].is-collapsed & {
+    .p-side-navigation.is-drawer-collapsed &,
+    [class*='p-side-navigation--'].is-collapsed &,
+    [class*='p-side-navigation--'].is-drawer-collapsed & {
       animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
     }
 
-    .p-side-navigation.is-hidden &,
-    [class*='p-side-navigation--'].is-hidden & {
+    .p-side-navigation.is-drawer-hidden &,
+    [class*='p-side-navigation--'].is-drawer-hidden & {
       display: none;
       @media (min-width: $threshold-6-12-col) {
         display: block;
@@ -76,7 +81,9 @@
     .p-side-navigation:target &,
     [class*='p-side-navigation--']:target &,
     .p-side-navigation.is-expanded &,
-    [class*='p-side-navigation--'].is-expanded & {
+    .p-side-navigation.is-drawer-expanded &,
+    [class*='p-side-navigation--'].is-expanded &,
+    [class*='p-side-navigation--'].is-drawer-expanded & {
       opacity: 1;
       pointer-events: all;
     }
@@ -142,7 +149,9 @@
     .p-side-navigation:target .p-side-navigation__drawer,
     [class*='p-side-navigation--']:target .p-side-navigation__drawer,
     .p-side-navigation.is-expanded .p-side-navigation__drawer,
-    [class*='p-side-navigation--'].is-expanded .p-side-navigation__drawer {
+    .p-side-navigation.is-drawer-expanded .p-side-navigation__drawer,
+    [class*='p-side-navigation--'].is-expanded .p-side-navigation__drawer,
+    [class*='p-side-navigation--'].is-drawer-expanded .p-side-navigation__drawer {
       box-shadow: none;
       display: block;
       max-width: none;
