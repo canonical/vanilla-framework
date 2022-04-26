@@ -51,9 +51,10 @@ function setupSideNavigation(sideNavigation) {
     var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
     var drawerEl = sideNav.querySelector('.p-side-navigation__drawer');
 
+    // Todo: is hidden only works on mobile so probably don't need this
     if (drawerEl.getBoundingClientRect().top === 0) {
       sideNav.classList.add('is-hidden');
-      sideNav.classList.add('is-collapsed');
+      // sideNav.classList.add('is-collapsed');
     }
 
     toggle.addEventListener('click', function (event) {
@@ -92,33 +93,18 @@ function setupSideNavigation(sideNavigation) {
     };
   };
 
-  var sideNavs = document.querySelectorAll('.p-side-navigation, [class*="p-side-navigation--"]');
-
-  sideNavs.forEach((sideNav) => {
-    var drawerEl = sideNav.querySelector('.p-side-navigation__drawer');
-    window.addEventListener(
-      'resize',
-      throttle(function () {
-        // var drawerPosition = window.getComputedStyle(drawerEl).position;
-
-        // // when screen size changes from mobile (fixed drawer) to large screen
-        // // reset any styles added by opening the drawer
-        // if (drawerPosition !== 'fixed') {
-        //   sideNav.classList.remove('is-expanded');
-        //   sideNav.classList.remove('is-collapsed');
-        //   sideNav.classList.remove('is-hidden');
-        //   //drawerEl.style.display = 'block';
-        // } else {
-        //   sideNav.classList.add('is-collapsed');
-        //   sideNav.classList.add('is-hidden');
-        //   //drawerEl.style.display = 'none';
-        // }
-        sideNav.classList.remove('is-expanded');
-        sideNav.classList.remove('is-collapsed');
-        sideNav.classList.add('is-hidden');
-      }, 10)
-    );
-  });
+  window.addEventListener(
+    'resize',
+    throttle(function () {
+      const toggles = sideNavigation.querySelectorAll('.js-drawer-toggle');
+      toggles.forEach((toggle) => {
+        return toggle.setAttribute('aria-expanded', false);
+      });
+      sideNavigation.classList.remove('is-expanded');
+      sideNavigation.classList.remove('is-collapsed');
+      sideNavigation.classList.add('is-hidden');
+    }, 10)
+  );
 }
 
 /**
