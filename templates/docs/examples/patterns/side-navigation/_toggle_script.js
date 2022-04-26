@@ -10,15 +10,15 @@ function toggleDrawer(sideNavigation, show) {
 
   if (sideNavigation) {
     if (show) {
-      sideNavigation.classList.remove('is-collapsed');
-      sideNavigation.classList.add('is-expanded');
+      sideNavigation.classList.remove('is-drawer-collapsed');
+      sideNavigation.classList.add('is-drawer-expanded');
 
       toggleButtonInsideDrawer.focus();
       toggleButtonOutsideDrawer.setAttribute('aria-expanded', true);
       toggleButtonInsideDrawer.setAttribute('aria-expanded', true);
     } else {
-      sideNavigation.classList.remove('is-expanded');
-      sideNavigation.classList.add('is-collapsed');
+      sideNavigation.classList.remove('is-drawer-expanded');
+      sideNavigation.classList.add('is-drawer-collapsed');
 
       toggleButtonOutsideDrawer.focus();
       toggleButtonOutsideDrawer.setAttribute('aria-expanded', false);
@@ -49,12 +49,12 @@ function setupSideNavigation(sideNavigation) {
   var drawerEl = sideNavigation.querySelector('.p-side-navigation__drawer');
 
   // hide navigation drawer on small screens
-  sideNavigation.classList.add('is-hidden');
+  sideNavigation.classList.add('is-drawer-hidden');
 
   // setup drawer element
   drawerEl.addEventListener('animationend', () => {
-    if (!sideNavigation.classList.contains('is-expanded')) {
-      sideNavigation.classList.add('is-hidden');
+    if (!sideNavigation.classList.contains('is-drawer-expanded')) {
+      sideNavigation.classList.add('is-drawer-hidden');
     }
   });
 
@@ -70,8 +70,8 @@ function setupSideNavigation(sideNavigation) {
       event.preventDefault();
 
       if (sideNavigation) {
-        sideNavigation.classList.remove('is-hidden');
-        toggleDrawer(sideNavigation, !sideNavigation.classList.contains('is-expanded'));
+        sideNavigation.classList.remove('is-drawer-hidden');
+        toggleDrawer(sideNavigation, !sideNavigation.classList.contains('is-drawer-expanded'));
       }
     });
   });
@@ -84,9 +84,9 @@ function setupSideNavigation(sideNavigation) {
         return toggle.setAttribute('aria-expanded', false);
       });
       // remove expanded/collapsed class names to avoid unexpected animations
-      sideNavigation.classList.remove('is-expanded');
-      sideNavigation.classList.remove('is-collapsed');
-      sideNavigation.classList.add('is-hidden');
+      sideNavigation.classList.remove('is-drawer-expanded');
+      sideNavigation.classList.remove('is-drawer-collapsed');
+      sideNavigation.classList.add('is-drawer-hidden');
     }, 10)
   );
 }
