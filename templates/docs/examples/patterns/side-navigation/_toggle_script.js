@@ -5,40 +5,40 @@
   @param {Boolean} show Whether to show or hide the drawer.
 */
 function toggleDrawer(sideNavigation, show) {
+  const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
+  const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
+
   if (sideNavigation) {
     if (show) {
       sideNavigation.classList.remove('is-collapsed');
       sideNavigation.classList.add('is-expanded');
-      controlInitialFocus(sideNavigation, false);
+
+      toggleButtonInsideDrawer.focus();
+      toggleButtonOutsideDrawer.setAttribute('aria-expanded', true);
+      toggleButtonInsideDrawer.setAttribute('aria-expanded', true);
     } else {
       sideNavigation.classList.remove('is-expanded');
       sideNavigation.classList.add('is-collapsed');
-      controlInitialFocus(sideNavigation, true);
+
+      toggleButtonOutsideDrawer.focus();
+      toggleButtonOutsideDrawer.setAttribute('aria-expanded', false);
+      toggleButtonInsideDrawer.setAttribute('aria-expanded', false);
     }
   }
 }
 
-/**
-  Ensures links are only focusable when side nav is in view
-  @param {HTMLElement} sideNavigation The side navigation element.
-  @param {Boolean} sideNavCollapsed Whether the side nav is expanded or collapsed.
-*/
-function controlInitialFocus(sideNavigation, sideNavCollapsed) {
-  const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
-  const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
-
-  if (sideNavCollapsed) {
-    toggleButtonOutsideDrawer.focus();
-    toggleButtonOutsideDrawer.setAttribute('aria-expanded', false);
-    toggleButtonInsideDrawer.setAttribute('aria-expanded', false);
-    toggleButtonInsideDrawer.tabIndex = -1;
-  } else {
-    toggleButtonInsideDrawer.focus();
-    toggleButtonOutsideDrawer.setAttribute('aria-expanded', true);
-    toggleButtonInsideDrawer.setAttribute('aria-expanded', true);
-    toggleButtonInsideDrawer.tabIndex = 0;
-  }
-}
+// throttle util (for window resize event)
+var throttle = function (fn, delay) {
+  var timer = null;
+  return function () {
+    var context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+};
 
 /**
   Attaches event listeners for the side navigation toggles
@@ -46,60 +46,44 @@ function controlInitialFocus(sideNavigation, sideNavCollapsed) {
 */
 function setupSideNavigation(sideNavigation) {
   var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
+  var drawerEl = sideNavigation.querySelector('.p-side-navigation__drawer');
 
-  toggles.forEach(function (toggle) {
-    var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
-    var drawerEl = sideNav.querySelector('.p-side-navigation__drawer');
+  // hide navigation drawer on small screens
+  sideNavigation.classList.add('is-hidden');
 
-    // Todo: is hidden only works on mobile so probably don't need this
-    if (drawerEl.getBoundingClientRect().top === 0) {
-      sideNav.classList.add('is-hidden');
-      // sideNav.classList.add('is-collapsed');
+  // setup drawer element
+  drawerEl.addEventListener('animationend', () => {
+    if (!sideNavigation.classList.contains('is-expanded')) {
+      sideNavigation.classList.add('is-hidden');
     }
+  });
 
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      toggleDrawer(sideNavigation, false);
+    }
+  });
+
+  // setup toggle buttons
+  toggles.forEach(function (toggle) {
     toggle.addEventListener('click', function (event) {
       event.preventDefault();
 
-      if (sideNav) {
-        //drawerEl.style.display = 'block';
-        sideNav.classList.remove('is-hidden');
-        toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
-      }
-    });
-
-    drawerEl.addEventListener('animationend', () => {
-      if (!sideNav.classList.contains('is-expanded')) {
-        sideNav.classList.add('is-hidden');
-      }
-    });
-
-    drawerEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        toggleDrawer(sideNav, false);
+      if (sideNavigation) {
+        sideNavigation.classList.remove('is-hidden');
+        toggleDrawer(sideNavigation, !sideNavigation.classList.contains('is-expanded'));
       }
     });
   });
 
-  // improvements for side nav when resizing the window
-  var throttle = function (fn, delay) {
-    var timer = null;
-    return function () {
-      var context = this,
-        args = arguments;
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        fn.apply(context, args);
-      }, delay);
-    };
-  };
-
+  // hide side navigation drawer when screen is resized
   window.addEventListener(
     'resize',
     throttle(function () {
-      const toggles = sideNavigation.querySelectorAll('.js-drawer-toggle');
       toggles.forEach((toggle) => {
         return toggle.setAttribute('aria-expanded', false);
       });
+      // remove expanded/collapsed class names to avoid unexpected animations
       sideNavigation.classList.remove('is-expanded');
       sideNavigation.classList.remove('is-collapsed');
       sideNavigation.classList.add('is-hidden');
