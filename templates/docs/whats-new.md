@@ -20,23 +20,46 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.3.1 -->
+  <!-- 3.3.0 -->
+    <tr>
+      <th><a href="/docs/patterns/navigation">Side navigation</a></th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.3.0</td>
+      <td>We've made some changes to the side navigation, improving accessibility and renaming some classes.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/navigation">Side navigation</a></th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.3.0</td>
+      <td>We've updated the class names in the side navigation. <code>.is-expanded</code> and <code>.is-collapsed</code> are deprecated and replaced by <code>.is-drawer-expanded</code> and <code>.is-drawer-expanded</code>.</td>
+    </tr>
     <tr>
       <th><a href="/docs/patterns/accordion">Accordion</a></th>
       <td>
         <span class="p-status-label--information">Updated</span>
       </td>
-      <td>3.2.1</td>
-      <td>We changed the icon of the accordion tab.</td>
+      <td>3.3.0</td>
+      <td>We updated the Accordion icon to a chevron which animates on open and close.</td>
     </tr>
-    <!-- 3.3.0 -->
     <tr>
       <th><a href="/docs/patterns/segmented-control">Segmented control</a></th>
       <td>
-        <span class="p-status-label--information">New</span>
+        <span class="p-status-label--positive">New</span>
       </td>
       <td>3.3.0</td>
-      <td>The Tab buttons component has been renamed to Segmented control</td>
+      <td>The Tab buttons component has been renamed to Segmented control.</td>
+    </tr>
+        <tr>
+      <th><a href="/docs/patterns/segmented-control">Tab buttons</a></th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.3.0</td>
+      <td><code>p-tab-buttons</code> has been renamed to <code>p-segmented-control</code>.</td>
     </tr>
   </tbody>
 </table>
