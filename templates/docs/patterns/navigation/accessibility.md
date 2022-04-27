@@ -10,6 +10,8 @@ Navigation allows users to navigate different pages or content in a website. The
 
 The component can be navigated to via the keyboard. Pressing the `Tab` key will highlight the navigation items. When an element is highlighted, pressing the `Enter` key will open the corresponding view.
 
+We use JavaScript, to ensure the side navigation items are only accessible using the keyboard when the drawer is open and in view. We've controlled the focus, so it lands on the toggle button in the drawer when the drawer opens, and lands on the toggle button outside the drawer when the drawer closes.
+
 The navigation component has the `<nav>` HTML tag to aid assistive technology. Also it uses several WAI-ARIA tools to aid assistive technology:
 
 - Navigation component uses `aria-label`, which is the description of it.
