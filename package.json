@@ -27,10 +27,11 @@
   },
   "scripts": {
     "start": "yarn build && yarn serve",
-    "build": "yarn build-scss && yarn build-js && yarn create-class-references",
-    "build-scss": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
+    "build": "yarn build-scss && yarn build-js && yarn build-class-references",
+    "build-scss": "sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",
+    "build-class-references": "node scripts/create-class-references.js",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
     "test-spelling": "mdspell templates/docs/**/*.md -r -n -a --en-gb",
@@ -42,8 +43,7 @@
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
     "percy": "percy exec -- node snapshots.js",
-    "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js icons",
-    "create-class-references": "node scripts/create-class-references.js"
+    "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js icons"
   },
   "version": "3.3.0",
   "files": [
