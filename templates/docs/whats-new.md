@@ -22,7 +22,7 @@ When we add, make significant updates, or deprecate a component we update their 
   <tbody>
   <!-- 3.3.0 -->
     <tr>
-      <th><a href="/docs/patterns/navigation">Side navigation</a></th>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
       <td>
         <span class="p-status-label--information">Updated</span>
       </td>
@@ -30,7 +30,7 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>We've made some changes to the side navigation, improving accessibility and renaming some classes.</td>
     </tr>
     <tr>
-      <th><a href="/docs/patterns/navigation">Side navigation</a></th>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
       <td>
         <span class="p-status-label--negative">Deprecated</span>
       </td>
