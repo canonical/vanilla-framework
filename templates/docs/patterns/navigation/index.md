@@ -151,8 +151,8 @@ View example of the side navigation pattern for raw HTML
 
 ### JavaScript functionality
 
-On small screens side navigation is rendered off-screen as a drawer. To open the side navigation drawer, add `is-expanded` class to
-main `.p-side-navigation` element. To close the drawer (with the animation) remove `is-expanded` class and replace it with `is-collapsed` class.
+On small screens side navigation is rendered off-screen as a drawer. To open the side navigation drawer, add `is-drawer-expanded` class to
+main `.p-side-navigation` element. To close the drawer (with the animation) remove `is-drawer-expanded` class and replace it with `is-drawer-collapsed` class.
 
 To make sure side navigation toggle works without JavaScript the toggle button for opening the side navigation drawer should be an anchor with `href` attribute pointing to the `id` attribute of the side navigation element (for example: `<a href="#drawer" class="p-side-navigation__toggle">`).
 

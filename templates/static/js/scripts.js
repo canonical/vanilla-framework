@@ -21,13 +21,24 @@
     @param {Boolean} show Whether to show or hide the drawer.
   */
   function toggleDrawer(sideNavigation, show) {
+    const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
+    const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
+
     if (sideNavigation) {
       if (show) {
-        sideNavigation.classList.remove('is-collapsed');
-        sideNavigation.classList.add('is-expanded');
+        sideNavigation.classList.remove('is-drawer-collapsed');
+        sideNavigation.classList.add('is-drawer-expanded');
+
+        toggleButtonInsideDrawer.focus();
+        toggleButtonOutsideDrawer.setAttribute('aria-expanded', true);
+        toggleButtonInsideDrawer.setAttribute('aria-expanded', true);
       } else {
-        sideNavigation.classList.remove('is-expanded');
-        sideNavigation.classList.add('is-collapsed');
+        sideNavigation.classList.remove('is-drawer-expanded');
+        sideNavigation.classList.add('is-drawer-collapsed');
+
+        toggleButtonOutsideDrawer.focus();
+        toggleButtonOutsideDrawer.setAttribute('aria-expanded', false);
+        toggleButtonInsideDrawer.setAttribute('aria-expanded', false);
       }
     }
   }
@@ -38,51 +49,63 @@
   */
   function setupSideNavigation(sideNavigation) {
     var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
+    var drawerEl = sideNavigation.querySelector('.p-side-navigation__drawer');
 
-    toggles.forEach(function (toggle) {
-      toggle.addEventListener('click', function (event) {
-        event.preventDefault();
-        var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
+    // hide navigation drawer on small screens
+    sideNavigation.classList.add('is-drawer-hidden');
 
-        if (sideNav) {
-          toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
-        }
-      });
+    // setup drawer element
+    drawerEl.addEventListener('animationend', () => {
+      if (!sideNavigation.classList.contains('is-drawer-expanded')) {
+        sideNavigation.classList.add('is-drawer-hidden');
+      }
     });
 
-    // close side navigation drawer when any link (anchor) inside it is clicked
-    sideNavigation.addEventListener('click', function (event) {
-      var target = event.target;
-      if (
-        sideNavigation.classList.contains('is-expanded') &&
-        (target.classList.contains('p-side-navigation__link') || (target.closest && target.closest('.p-side-navigation__link')))
-      ) {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
         toggleDrawer(sideNavigation, false);
       }
     });
 
-    // improvements for side nav when resizing the window
-    var sideNav = document.querySelector('.p-side-navigation');
-    var drawerEl = document.querySelector('.p-side-navigation__drawer');
+    // setup toggle buttons
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (event) {
+        event.preventDefault();
 
+        if (sideNavigation) {
+          sideNavigation.classList.remove('is-drawer-hidden');
+          toggleDrawer(sideNavigation, !sideNavigation.classList.contains('is-drawer-expanded'));
+        }
+      });
+    });
+
+    // hide side navigation drawer when screen is resized
     window.addEventListener(
       'resize',
       throttle(function () {
-        var drawerPosition = window.getComputedStyle(drawerEl).position;
-
-        // when screen size changes from mobile (fixed drawer) to large screen
-        // reset any styles added by opening the drawer
-        if (drawerPosition !== 'fixed') {
-          sideNav.classList.remove('is-expanded');
-          sideNav.classList.remove('is-collapsed');
-        }
-      }, 200)
+        toggles.forEach((toggle) => {
+          return toggle.setAttribute('aria-expanded', false);
+        });
+        // remove expanded/collapsed class names to avoid unexpected animations
+        sideNavigation.classList.remove('is-drawer-expanded');
+        sideNavigation.classList.remove('is-drawer-collapsed');
+        sideNavigation.classList.add('is-drawer-hidden');
+      }, 10)
     );
   }
-  const sideNav = document.querySelector('.p-side-navigation');
-  if (sideNav) {
-    setupSideNavigation(document.querySelector('.p-side-navigation'));
+
+  /**
+    Attaches event listeners for all the side navigations in the document.
+    @param {String} sideNavigationSelector The CSS selector matching side navigation elements.
+  */
+  function setupSideNavigations(sideNavigationSelector) {
+    // Setup all side navigations on the page.
+    var sideNavigations = [].slice.call(document.querySelectorAll(sideNavigationSelector));
+
+    sideNavigations.forEach(setupSideNavigation);
   }
+
+  setupSideNavigations('.p-side-navigation, [class*="p-side-navigation--"]');
 })();
 
 // Add table of contents to side navigation on documentation pages
