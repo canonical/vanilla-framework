@@ -1,3 +1,49 @@
+/*
+  @classreference
+  code-snippet:
+    Root element:
+        .p-code-snippet:
+            Main element of the code snippet component.
+        "&.is-bordered":
+            Bordered variant, to be used when additional content (such as iframes) is used inside the code snippet component.
+
+    Code block:
+        .p-code-snippet__block:
+            Code block without any additonal styling elements.
+        "&.is-wrapped":
+            Code block with wrapped content in lines.
+        .p-code-snippet__block--icon:
+            Code block that starts with an icon. Default icon is a UNIX prompt. To be used with Linux CLI examples.
+        "&.is-windows-prompt":
+            Changes the `.p-code-snippet__block--icon` to use a Windows prompt icon. To be used with Windows CLI examples.
+        "&.is-url":
+            Changes the `.p-code-snippet__block--icon` to use a link icon. To be used with URLs.
+        .p-code-snippet__block--numbered:
+            Code block with numbered lines of code (to be used with longer pieces of code examples). Requires `.p-code-snippet__line`.
+
+    Code line:
+        .p-code-snippet__line:
+            A wrapper around single line of code. Needed with numbered variant of a code block.
+
+    Code block header:
+        .p-code-snippet__header:
+            A header of a code block. Contains a title and optional dropdowns.
+        "&.is-stacked":
+            A stacked version of a header (with a title displayed above the dropdowns). To be used when there are multiple dropdowns with a long title.
+
+    Code block title:
+        .p-code-snippet__title:
+            The title of a code block.
+
+    Dropdowns container:
+        .p-code-snippet__dropdowns:
+            The container element for any dropdowns in the header.
+
+    Dropdown:
+        .p-code-snippet__dropdown:
+            An individual dropdown in code block header.
+*/
+
 @import 'settings';
 
 $color-snippet-heading-bg: rgba($color-x-dark, 0.08);
