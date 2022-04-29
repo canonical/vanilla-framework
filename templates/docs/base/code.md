@@ -114,7 +114,7 @@ View example of the code snippet with a border
 
 ## Class reference
 
-{% include "_class-references/code-snippet.html" %}
+{{ class_reference("code-snippet") }}
 
 ## React
 
