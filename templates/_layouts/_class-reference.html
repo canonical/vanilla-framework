@@ -6,7 +6,7 @@
         <div class="row">
             {%- for classname, description in items.items() -%}
             <div class="col-3 col-medium-2"><p><code>{{ classname }}</code></p></div>
-            <div class="col-4 col-medium-3"><p>{{ description }}</p></div>
+            <div class="col-4 col-medium-3">{{ description | markdown }}</div>
             {%- if not loop.last -%}
             <div class="col-7 col-medium-5"><hr/></div>
             {%- endif -%}
