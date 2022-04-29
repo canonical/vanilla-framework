@@ -27,14 +27,18 @@ patternFiles.forEach((fileName) => {
     const root = postcssScss.parse(data);
     const comment = findComment(root);
 
-    if (!comment) throw new Error(`class-reference does not exist in ${fileName}`);
-
-    const yamlText = comment.text.substring(comment.text.indexOf('\n') + 1);
-    const yamlElement = yaml.parse(yamlText);
-    classReferences = Object.assign(classReferences, yamlElement);
+    if (comment) {
+      const yamlText = comment.text.substring(comment.text.indexOf('\n') + 1);
+      const yamlElement = yaml.parse(yamlText);
+      classReferences = Object.assign(classReferences, yamlElement);
+      console.log(`✅ Class reference data parsed from ${fileName}.`);
+    } else {
+      console.log(`💤 Skipping ${fileName}, no class reference found.`);
+    }
   } catch (error) {
     const errorMessage = error.message;
-    console.error(errorMessage);
+    console.error(`❌ Error parsing class reference in ${fileName}: ${error}`);
+    throw error;
   }
 });
 
