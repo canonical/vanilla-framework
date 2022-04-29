@@ -5,6 +5,8 @@ import os
 import random
 import yaml
 import urllib
+import markupsafe
+import mistune
 
 # Packages
 import talisker.requests
@@ -170,8 +172,9 @@ def global_template_context():
         "slug": docs_slug,
     }
 
-import markupsafe
-
+@app.template_filter()
+def markdown(text):
+    return markupsafe.Markup(mistune.markdown(text))
 
 # requested_component =
 
