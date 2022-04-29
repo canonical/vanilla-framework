@@ -24,6 +24,8 @@ from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 with open("package.json") as package_json:
     VANILLA_VERSION = json.load(package_json)["version"]
 
+with open("build/classreferences.yaml") as data_yaml:
+    CLASS_REFERENCES = yaml.load(data_yaml, Loader=yaml.FullLoader)
 
 app = FlaskBase(
     __name__,
@@ -176,14 +178,10 @@ def global_template_context():
 def markdown(text):
     return markupsafe.Markup(mistune.markdown(text))
 
-# requested_component =
-
 def class_reference(component=None):
-    with open("build/classreferences.yaml") as data_yaml:
-        data = yaml.load(data_yaml, Loader=yaml.FullLoader)
-
     component = component or urllib.parse.urlsplit(flask.request.path).path.split('/')[-1]
-    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", path=component, data=data["class-references"][component]))
+    data = CLASS_REFERENCES["class-references"][component]
+    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", data=data))
 
 @app.context_processor
 def utility_processor():
