@@ -4,10 +4,6 @@ context:
   title: Pull quote | Components
 ---
 
-# Pull quote
-
-<hr>
-
 Use the pull quote pattern to highlight content from different sources in a
 visually prominent way.
 
