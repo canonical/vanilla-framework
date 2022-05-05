@@ -27,10 +27,11 @@
   },
   "scripts": {
     "start": "yarn build && yarn serve",
-    "build": "yarn build-scss && yarn build-js",
-    "build-scss": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
+    "build": "yarn build-scss && yarn build-js && yarn build-class-references",
+    "build-scss": "sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",
+    "build-class-references": "node scripts/create-class-references.js",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
     "test-spelling": "mdspell templates/docs/**/*.md -r -n -a --en-gb",
@@ -57,7 +58,9 @@
     "autoprefixer": "10.4.7",
     "postcss": "8.4.13",
     "postcss-cli": "9.1.0",
-    "sass": "1.51.0"
+    "postcss-scss": "4.0.3",
+    "sass": "1.51.0",
+    "yaml": "1.10.2"
   },
   "devDependencies": {
     "@percy/script": "1.1.0",
