@@ -16,11 +16,15 @@ function setTooltipPosition(trigger, container) {
 function handleTooltipEvents(target, tooltipContainers) {
   var trigger = document.querySelector("[aria-describedby='" + target.getAttribute('id') + "']");
   var timeout;
-  var showEvents = ['mouseenter', 'focus'];
+  var showEvents = ['click', 'mouseenter', 'focus'];
   var hideEvents = ['click', 'mouseout', 'blur'];
+  var tooltipClickedOpen = false;
 
   showEvents.forEach(function (event) {
     trigger.addEventListener(event, function () {
+      if (event === 'click') {
+        tooltipClickedOpen = !tooltipClickedOpen;
+      }
       // wait 200ms before showing the tooltip,
       // so we know there is intent
       timeout = setTimeout(function () {
@@ -28,7 +32,6 @@ function handleTooltipEvents(target, tooltipContainers) {
         tooltipContainers.forEach(function (container) {
           container.classList.add('u-hide');
         });
-
         target.classList.remove('u-hide');
         setTooltipPosition(trigger, target);
       }, 200);
@@ -38,8 +41,25 @@ function handleTooltipEvents(target, tooltipContainers) {
   hideEvents.forEach(function (event) {
     trigger.addEventListener(event, function (e) {
       if (e.target.parentNode !== trigger) {
-        clearTimeout(timeout);
-        target.classList.add('u-hide');
+        if (tooltipClickedOpen) {
+          return;
+        } else {
+          clearTimeout(timeout);
+          target.classList.add('u-hide');
+        }
+      }
+    });
+  });
+
+  // Hide the tooltip when the user clicks outside the trigger or presses escape
+  ['keyup', 'click'].forEach(function (event) {
+    document.addEventListener(event, function (e) {
+      if (tooltipClickedOpen) {
+        if (e.target !== trigger || e.key === 'Escape') {
+          clearTimeout(timeout);
+          target.classList.add('u-hide');
+          tooltipClickedOpen = false;
+        }
       }
     });
   });
