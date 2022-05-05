@@ -4,6 +4,9 @@ import json
 import os
 import random
 import yaml
+import urllib
+import markupsafe
+import mistune
 
 # Packages
 import talisker.requests
@@ -21,6 +24,8 @@ from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 with open("package.json") as package_json:
     VANILLA_VERSION = json.load(package_json)["version"]
 
+with open("build/classreferences.yaml") as data_yaml:
+    CLASS_REFERENCES = yaml.load(data_yaml, Loader=yaml.FullLoader)
 
 app = FlaskBase(
     __name__,
@@ -169,10 +174,21 @@ def global_template_context():
         "slug": docs_slug,
     }
 
+@app.template_filter()
+def markdown(text):
+    return markupsafe.Markup(mistune.markdown(text))
+
+def class_reference(component=None):
+    component = component or urllib.parse.urlsplit(flask.request.path).path.split('/')[-1]
+    data = CLASS_REFERENCES["class-references"][component]
+    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", data=data))
 
 @app.context_processor
 def utility_processor():
-    return {"image": image_template}
+    return {
+        "class_reference": class_reference,
+        "image": image_template
+    }
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")

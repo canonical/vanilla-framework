@@ -86,7 +86,7 @@ View example of the time notification pattern
 
 ## Class reference
 
-{% include "_class-references/notification.html" %}
+{{ class_reference() }}
 
 ## JavaScript functionality
 
