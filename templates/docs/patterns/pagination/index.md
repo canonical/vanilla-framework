@@ -10,6 +10,12 @@ Use the pagination component to paginate large sets of data:
 View example of the pagination pattern
 </a></div>
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">The <code>.p-pagination</code> class has been moved to the wrapping <code>nav</code> element, it's use is deprecated on the <code>ol</code> element. The new <code>.p-pagination__items</code> class should now be used on the <code>ol</code>.</p>
+  </div>
+</div>
+
 ## Truncated
 
 Use the truncated version when the number of pages is too large to comfortably display a button for each page:
