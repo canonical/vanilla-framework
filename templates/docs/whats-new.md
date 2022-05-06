@@ -21,13 +21,21 @@ When we add, make significant updates, or deprecate a component we update their 
   </thead>
   <tbody>
  <!-- 3.4.0 -->
+     <tr>
+      <th><a href="/docs/patterns/pagination">Pagination</a></th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.4.0</td>
+      <td>We've deprecated the use of the <code>p-navigation</code> class on lists, the class should now be used on the wrapping nav only.</td>
+    </tr>
     <tr>
       <th><a href="/docs/patterns/pagination">Pagination</a></th>
       <td>
         <span class="p-status-label--information">Updated</span>
       </td>
       <td>3.4.0</td>
-      <td>We've added a new <code>p-navigation__items</code> class name to the list and moved the <code>p-navigation</code> to the nav element</td>
+      <td>We've added a new <code>p-pagination__items</code> class name to the list and moved the <code>p-pagination</code> class to the nav element.</td>
     </tr>
   </tbody>
 </table>
