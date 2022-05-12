@@ -20,7 +20,39 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-  <!-- 3.3.0 -->
+ <!-- 3.4.0 -->
+     <tr>
+      <th><a href="/docs/patterns/pagination">Pagination</a></th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.4.0</td>
+      <td>We've deprecated the use of the <code>p-navigation</code> class on lists, the class should now be used on the wrapping nav only.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/pagination">Pagination</a></th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.4.0</td>
+      <td>We've added a new <code>p-pagination__items</code> class name to the list and moved the <code>p-pagination</code> class to the nav element.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla v3
+
+<table aria-label="Previously in Vanilla v3">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 3.3.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
       <td>
@@ -61,21 +93,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>3.3.0</td>
       <td><code>p-tab-buttons</code> has been renamed to <code>p-segmented-control</code>.</td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla v3
-
-<table aria-label="Previously in Vanilla v3">
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 3.2.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation#expanding-search-box">Navigation - Search</a></th>
