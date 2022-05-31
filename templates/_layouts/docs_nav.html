@@ -1,0 +1,173 @@
+
+{% extends "_layouts/site.html" %}
+
+{% block title %}{{ document.title }}{% endblock %}
+
+{% macro create_navigation(nav_items) %}
+  <ul>
+    {% for element in nav_items %}
+    <li>
+      {% if element.navlink_href %}
+        <a href="{{ element.navlink_href }}"
+          {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
+        >{{ element.navlink_text }}</a>
+      {% else %}
+        <strong>{{ element.navlink_text }}</strong>
+      {% endif %}
+
+      {% if element.children %}
+        {{ create_navigation(element.children) }}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro create_navigation_expandable(nav_items) %}
+<ul>
+  {% for element in nav_items %}
+    <li>
+      {% if element.navlink_href %}
+        <a href="{{ element.navlink_href }}"
+          {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
+        >{{ element.navlink_text }}</a>
+      {% else %}
+        <strong>{{ element.navlink_text }}</strong>
+      {% endif %}
+
+      {% if element.children and has_active_nav_item(element) %}
+        {{ create_navigation_expandable(element.children) }}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+
+{% block content %}
+
+
+<div class="p-strip is-shallow">
+  <div class="row">
+    <aside class="col-3">
+      {% if versions | length > 1 %}
+      <label for="version-select" class="u-hide">Version</label>
+      <select name="version-select" id="version-select" onChange="window.location.href=this.value">
+      {% for version in versions %}
+        {% set active = docs_version == version['path'] %}
+        <option value="{{ version_paths[version['path']] }}"{% if active %} selected{% endif %}>Version {{ version['version'] }}</option>
+      {% endfor %}
+      <select>
+      {% endif %}
+
+      <div class="p-side-navigation--raw-html" id="drawer">
+        <a href="#drawer" class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
+          Toggle side navigation
+        </a>
+        <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer"></div>
+        <div class="p-side-navigation__drawer">
+          <div class="p-side-navigation__drawer-header">
+            <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
+              Toggle side navigation
+            </a>
+          </div>
+          {% for nav_group in navigation.nav_items %}
+            {% if nav_group.navlink_text %}
+              {% if nav_group.navlink_href %}
+              <h3>
+                <a href="{{ nav_group.navlink_href }}" {% if request.path == nav_group.navlink_href %}aria-current="page"{% endif %}>
+                  {{ nav_group.navlink_text }}
+                </a>
+              </h3>
+              {% else %}
+                <h3>{{ nav_group.navlink_text }}</h3>
+              {% endif %}
+            {% endif %}
+            {{ create_navigation_expandable(nav_group.children) }}
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+
+    <main class="col-9">
+      {{ document.body_html | safe }}
+
+			<div class="p-strip is-shallow">
+				<div class="p-notification--information">
+					<div class="p-notification__content">
+            <p class="p-notification__message">Last updated {{ document.updated }}. <a href="{{ forum_url }}{{ document.topic_path }}">Help improve this document in the forum</a>.</p>
+          </div>
+				</div>
+			</div>
+    </main>
+  </div>
+</div>
+
+<script>
+  var links = [].slice.call(document.querySelectorAll('.p-side-navigation--raw-html li > a'));
+  var currentPath = window.location.pathname;
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.forEach(function (link) {
+        link.removeAttribute('aria-current');
+      });
+      this.setAttribute('aria-current', 'page');
+      this.blur();
+    });
+
+    if (link.getAttribute('href') === currentPath) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+
+  /**
+    Toggles the expanded/collapsed classed on side navigation element.
+    @param {HTMLElement} sideNavigation The side navigation element.
+    @param {Boolean} show Whether to show or hide the drawer.
+  */
+  function toggleDrawer(sideNavigation, show) {
+    if (sideNavigation) {
+      if (show) {
+        sideNavigation.classList.remove('is-collapsed');
+        sideNavigation.classList.add('is-expanded');
+      } else {
+        sideNavigation.classList.remove('is-expanded');
+        sideNavigation.classList.add('is-collapsed');
+      }
+    }
+  }
+
+  /**
+    Attaches event listeners for the side navigation toggles
+    @param {HTMLElement} sideNavigation The side navigation element.
+  */
+  function setupSideNavigation(sideNavigation) {
+    var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
+
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        var sideNav = document.getElementById(toggle.getAttribute('aria-controls'));
+
+        if (sideNav) {
+          toggleDrawer(sideNav, !sideNav.classList.contains('is-expanded'));
+        }
+      });
+    });
+  }
+
+  /**
+    Attaches event listeners for all the side navigations in the document.
+    @param {String} sideNavigationSelector The CSS selector matching side navigation elements.
+  */
+  function setupSideNavigations(sideNavigationSelector) {
+    // Setup all side navigations on the page.
+    var sideNavigations = [].slice.call(document.querySelectorAll(sideNavigationSelector));
+
+    sideNavigations.forEach(setupSideNavigation);
+  }
+
+  setupSideNavigations('.p-side-navigation, [class*="p-side-navigation--"]');
+</script>
+{% endblock %}

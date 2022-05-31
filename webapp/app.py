@@ -182,11 +182,22 @@ def class_reference(component=None):
     data = CLASS_REFERENCES["class-references"][component]
     return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", data=data))
 
+def has_active_nav_item(item):
+    if flask.request.path == item["navlink_href"]:
+        return True
+    elif item["children"]:
+        for child in item["children"]:
+            if has_active_nav_item(child):
+                return True
+    else:
+        return False
+
 @app.context_processor
 def utility_processor():
     return {
         "class_reference": class_reference,
-        "image": image_template
+        "image": image_template,
+        "has_active_nav_item": has_active_nav_item,
     }
 
 
@@ -257,7 +268,7 @@ discourse_docs = Docs(
         index_topic_id=27037,  # https://discourse.ubuntu.com/t/design-system-website-config/27037
         url_prefix="/design",
     ),
-    document_template="/_layouts/docs_discourse.html",
+    document_template="/_layouts/docs_nav.html",
     url_prefix="/design",
 )
 discourse_docs.init_app(app)
