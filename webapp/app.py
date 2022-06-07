@@ -245,7 +245,6 @@ app.add_url_rule(
         session=session,
         site="vanillaframework.io/docs",
         template_path="docs/search.html",
-        search_engine_id="adb2397a224a1fe55",  # https://cse.google.co.uk/cse/setup/basic?cx=adb2397a224a1fe55
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
