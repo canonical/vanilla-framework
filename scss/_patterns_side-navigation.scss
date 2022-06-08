@@ -41,6 +41,12 @@
         .p-side-navigation__toggle--in-drawer:
             Side navigation toggle button in drawer (to close navigation on small screens).
 
+    Items list heading:
+        .p-side-navigation__heading:
+            Heading for side navigation items group (text only).
+        .p-side-navigation__heading--linked:
+            Heading for side navigation items group that contains a link (`.p-side-navigation__link`).
+
     Items list:
         .p-side-navigation__list:
             Group of side navigation items (usually a `<ul>` element).
@@ -276,6 +282,18 @@
     padding-top: $spv--x-small;
   }
 
+  %side-navigation__heading {
+    @extend %side-navigation__text;
+
+    // reset heading styles
+    @extend %common-default-text-properties;
+    @extend %bold;
+
+    display: block;
+    font-size: map-get($base-font-sizes, base);
+    margin: 0;
+  }
+
   %side-navigation__link {
     @include vf-focus;
 
@@ -300,6 +318,7 @@
     @extend %side-navigation__link;
   }
 
+  .p-side-navigation__heading,
   .p-side-navigation__text,
   .p-side-navigation__link {
     @extend %side-navigation__text;
@@ -345,6 +364,15 @@
     padding-left: $spv--small;
   }
 
+  .p-side-navigation__heading,
+  .p-side-navigation__heading--linked {
+    @extend %side-navigation__heading;
+  }
+
+  .p-side-navigation__heading--linked {
+    padding: 0; // padding will come from the link in heading
+  }
+
   // Styles for markup in raw HTML docs variant
   .p-side-navigation--raw-html {
     // stylelint-disable selector-max-type -- we support raw HTML markup for discourse-generated side nav
@@ -353,14 +381,7 @@
     h4,
     h5,
     h6 {
-      @extend %side-navigation__text;
-
-      // reset heading styles
-      @extend %common-default-text-properties;
-      @extend %bold;
-
-      font-size: map-get($base-font-sizes, base);
-      margin: 0;
+      @extend %side-navigation__heading;
     }
 
     ul {
@@ -558,6 +579,8 @@
     }
   }
 
+  .p-side-navigation__heading,
+  .p-side-navigation__heading--linked .p-side-navigation__link,
   .p-side-navigation__item--title,
   .p-side-navigation__item--title .p-side-navigation__link {
     color: $color-sidenav-text-active;
