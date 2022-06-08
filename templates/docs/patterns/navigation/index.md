@@ -73,7 +73,7 @@ Current page in the side navigation should be highlighted by adding `aria-curren
 
 Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add status labels or icons on right side of navigation items.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/docs" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/docs" class="js-example" data-height="600">
 View example of the side navigation pattern
 </a></div>
 
@@ -88,7 +88,7 @@ To add icons on the left side of the items in side navigation use the `.p-side-n
   </p>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/icons" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/icons" class="js-example" data-height="600">
 View example of the side navigation pattern with icons
 </a></div>
 
@@ -102,7 +102,7 @@ On pages with content significantly longer than the side navigation contents you
     <span class="p-notification__message">Side navigation used to be sticky by default, but since Vanilla 2.21.0 <code>.is-sticky</code> class is needed to add this functionality.</p></span>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/sticky" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/sticky" class="js-example" data-height="600">
 View example of the sticky side navigation pattern
 </a></div>
 
@@ -141,7 +141,7 @@ Because of the limitations of raw HTML markup without class names, it's not poss
   </div>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/raw-html" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/raw-html" class="js-example" data-height="600">
 View example of the side navigation pattern for raw HTML
 </a></div>
 
