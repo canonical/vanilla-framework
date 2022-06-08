@@ -20,22 +20,14 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
- <!-- 3.4.0 -->
-     <tr>
-      <th><a href="/docs/patterns/pagination">Pagination</a></th>
-      <td>
-        <span class="p-status-label--negative">Deprecated</span>
-      </td>
-      <td>3.4.0</td>
-      <td>We've deprecated the use of the <code>p-navigation</code> class on lists, the class should now be used on the wrapping nav only.</td>
-    </tr>
+    <!-- 3.5.0 -->
     <tr>
-      <th><a href="/docs/patterns/pagination">Pagination</a></th>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation - Headings</a></th>
       <td>
         <span class="p-status-label--information">Updated</span>
       </td>
-      <td>3.4.0</td>
-      <td>We've added a new <code>p-pagination__items</code> class name to the list and moved the <code>p-pagination</code> class to the nav element.</td>
+      <td>3.5.0</td>
+      <td>We've added a new <code>p-side-navigation__heading</code> and <code>p-side-navigation__heading--linked</code> classes to allow adding headings for side navigation item groups.</td>
     </tr>
   </tbody>
 </table>
@@ -52,6 +44,23 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.4.0 -->
+     <tr>
+      <th><a href="/docs/patterns/pagination">Pagination</a></th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.4.0</td>
+      <td>We've deprecated the use of the <code>p-navigation</code> class on lists, the class should now be used on the wrapping nav only.</td>
+    </tr>
+    <tr>
+      <th><a href="/docs/patterns/pagination">Pagination</a></th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.4.0</td>
+      <td>We've added a new <code>p-pagination__items</code> class name to the list and moved the <code>p-pagination</code> class to the nav element.</td>
+    </tr>
     <!-- 3.3.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation</a></th>
