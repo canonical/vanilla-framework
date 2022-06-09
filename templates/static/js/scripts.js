@@ -106,10 +106,10 @@
   }
 
   setupSideNavigations('.p-side-navigation, [class*="p-side-navigation--"]');
-})();
 
-// Add table of contents to side navigation on documentation pages
-(function () {
+  // Add table of contents to side navigation on documentation pages
+  const sideNav = document.querySelector('.p-side-navigation, [class*="p-side-navigation--"]');
+
   // Generate id from H2s content when it does not exist
   document.querySelectorAll('main h2:not([id])').forEach(function (heading) {
     var id = heading.textContent
@@ -135,6 +135,9 @@
     var thisAnchor = anchor.cloneNode();
     thisAnchor.setAttribute('href', '#' + heading.id);
     thisAnchor.textContent = heading.textContent;
+    thisAnchor.addEventListener('click', () => {
+      toggleDrawer(sideNav, false);
+    });
     thisItem.appendChild(thisAnchor);
     list.appendChild(thisItem);
   });
