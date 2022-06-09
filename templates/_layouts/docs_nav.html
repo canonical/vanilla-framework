@@ -3,40 +3,26 @@
 
 {% block title %}{{ document.title }}{% endblock %}
 
-{% macro create_navigation(nav_items) %}
-  <ul>
+{% macro create_navigation(nav_items, expandable=False) %}
+  <ul class="p-side-navigation__list">
     {% for element in nav_items %}
-    <li>
+    <li class="p-side-navigation__item">
       {% if element.navlink_href %}
-        <a href="{{ element.navlink_href }}"
-          {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
-        >{{ element.navlink_text }}</a>
+      <a class="p-side-navigation__link" href="{{ element.navlink_href }}"
+        {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
+      >{{ element.navlink_text }}</a>
       {% else %}
-        <strong>{{ element.navlink_text }}</strong>
+        <span class="p-side-navigation__text">{{ element.navlink_text }}</span>
       {% endif %}
 
-      {% if element.children %}
-        {{ create_navigation(element.children) }}
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-{% endmacro %}
-
-{% macro create_navigation_expandable(nav_items) %}
-<ul>
-  {% for element in nav_items %}
-    <li>
-      {% if element.navlink_href %}
-        <a href="{{ element.navlink_href }}"
-          {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
-        >{{ element.navlink_text }}</a>
+      {% if expandable %}
+        {% if element.children and has_active_nav_item(element) %}
+          {{ create_navigation(element.children, True) }}
+        {% endif %}
       {% else %}
-        <strong>{{ element.navlink_text }}</strong>
-      {% endif %}
-
-      {% if element.children and has_active_nav_item(element) %}
-        {{ create_navigation_expandable(element.children) }}
+        {% if element.children %}
+          {{ create_navigation(element.children, False) }}
+        {% endif %}
       {% endif %}
     </li>
     {% endfor %}
@@ -45,8 +31,6 @@
 
 
 {% block content %}
-
-
 <div class="p-strip is-shallow">
   <div class="row">
     <aside class="col-3">
@@ -60,7 +44,7 @@
       <select>
       {% endif %}
 
-      <div class="p-side-navigation--raw-html" id="drawer">
+      <div class="p-side-navigation" id="drawer">
         <a href="#drawer" class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
           Toggle side navigation
         </a>
@@ -74,16 +58,16 @@
           {% for nav_group in navigation.nav_items %}
             {% if nav_group.navlink_text %}
               {% if nav_group.navlink_href %}
-              <h3>
-                <a href="{{ nav_group.navlink_href }}" {% if request.path == nav_group.navlink_href %}aria-current="page"{% endif %}>
+              <h3 class="p-side-navigation__heading--linked">
+                <a class="p-side-navigation__link" href="{{ nav_group.navlink_href }}" {% if request.path == nav_group.navlink_href %}aria-current="page"{% endif %}>
                   {{ nav_group.navlink_text }}
                 </a>
               </h3>
               {% else %}
-                <h3>{{ nav_group.navlink_text }}</h3>
+                <h3 class="p-side-navigation__heading">{{ nav_group.navlink_text }}</h3>
               {% endif %}
             {% endif %}
-            {{ create_navigation_expandable(nav_group.children) }}
+            {{ create_navigation(nav_group.children, expandable=True) }}
           {% endfor %}
         </div>
       </div>
