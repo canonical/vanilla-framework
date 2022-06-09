@@ -9,14 +9,14 @@
     <li class="p-side-navigation__item">
       {% if element.navlink_href %}
       <a class="p-side-navigation__link" href="{{ element.navlink_href }}"
-        {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
+        {% if element.is_active %}aria-current="page"{% endif %}
       >{{ element.navlink_text }}</a>
       {% else %}
         <span class="p-side-navigation__text">{{ element.navlink_text }}</span>
       {% endif %}
 
       {% if expandable %}
-        {% if element.children and has_active_nav_item(element) %}
+        {% if element.children and (element.is_active or element.has_active_child) %}
           {{ create_navigation(element.children, True) }}
         {% endif %}
       {% else %}
@@ -59,7 +59,7 @@
             {% if nav_group.navlink_text %}
               {% if nav_group.navlink_href %}
               <h3 class="p-side-navigation__heading--linked">
-                <a class="p-side-navigation__link" href="{{ nav_group.navlink_href }}" {% if request.path == nav_group.navlink_href %}aria-current="page"{% endif %}>
+                <a class="p-side-navigation__link" href="{{ nav_group.navlink_href }}" {% if nav_group.is_active %}aria-current="page"{% endif %}>
                   {{ nav_group.navlink_text }}
                 </a>
               </h3>
