@@ -250,6 +250,8 @@
     @extend %vf-list;
     @extend %vf-pseudo-border--bottom;
 
+    font-weight: $font-weight-regular-text; // reset the font weight as this may be a child of a bolded title
+
     &::after {
       @include vf-side-navigation-spacing-left($prop: left);
 
@@ -330,6 +332,7 @@
     }
 
     // nested 2nd level of navigation
+    .p-side-navigation__item--title .p-side-navigation__item &,
     .p-side-navigation__item .p-side-navigation__item & {
       @include vf-side-navigation-spacing-left($multiplier: 2);
 
@@ -340,6 +343,7 @@
     }
 
     // nested 3rd level of navigation
+    .p-side-navigation__item--title .p-side-navigation__item .p-side-navigation__item &,
     .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
       @include vf-side-navigation-spacing-left($multiplier: 3);
 
