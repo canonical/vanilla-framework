@@ -1,6 +1,7 @@
 @import 'settings';
 
 @mixin vf-p-card {
+  @include vf-p-card-article-preview;
   @include vf-p-card-default;
   @include vf-p-card-highlighted;
   @include vf-p-card-overlay;
@@ -15,6 +16,36 @@
     @extend %vf-has-round-corners;
 
     padding: calc(#{$spv--large} - 1px);
+  }
+}
+@mixin vf-p-card-article-preview {
+  .p-card--article-preview {
+    @extend %vf-bg--x-light;
+    @extend %vf-has-round-corners;
+    @extend %vf-has-box-shadow;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+      'header'
+      'main'
+      'footer';
+
+      & > .p-card__header--muted {
+        grid-area: header;
+      }
+
+      & > .p-card__inner {
+        grid-area: main;
+      }
+
+      & > .p-card__footer {
+        grid-area: footer;
+      }
+
+    margin-bottom: $spv--x-large;
+    overflow: auto; // prevent overflow of child margins
   }
 }
 
@@ -72,6 +103,16 @@
     }
   }
 
+  .p-card__header--muted {
+    @extend %vf-pseudo-border--bottom;
+    @include vf-highlight-bar($color-information, top, true);
+  }
+
+  .p-card__footer {
+    @extend %vf-pseudo-border--top;
+    @extend %vf-card-padding;
+  }
+
   .p-card__inner {
     @extend %vf-card-padding;
   }
@@ -87,7 +128,7 @@
   [class*='p-card'] {
     // FIXME: this is overly complex
     // stylelint-disable selector-max-type
-    > p:not([class*='p-heading--']),
+    > p:not([class*='p-heading--']):not([class='p-muted-heading']),
     > h5,
     > h6 {
       &:last-child {
