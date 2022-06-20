@@ -2,15 +2,33 @@
 
 @mixin vf-p-badge {
   .p-badge {
-    @include vf-animation(#{background-color}, snap, in);
+    --bg-color: #{$color-light};
+    --text-color: #{$color-dark};
+
+    --hovered-bg-color: #{$color-mid-light};
+    --active-bg-color: #{$color-mid};
+    --active-text-color: #{$color-light};
+
+    @include vf-badge-focus-hover();
+    @include vf-animation(#{background-color, color}, snap, in);
 
     display: inline-block;
     box-sizing: content-box;
-    background: $color-light;
     border-radius: 1rem;
     padding: $sph--x-small $spv--x-small;
     max-width: 4ch;
     overflow: hidden;
-  }
+  }  
+}
 
+@mixin vf-badge-focus-hover() {
+  --is-hovered: initial;
+  --is-active: initial;
+
+  --computed-hovered-bg-color: var(--is-hovered) var(--hovered-bg-color);
+  --computed-active-bg-color: var(--is-active) var(--active-bg-color);
+  --computed-active-text-color: var(--is-active) var(--active-text-color);
+
+  color: var(--computed-active-text-color, var(--text-color));
+  background-color: var(--computed-active-bg-color, var(--computed-hovered-bg-color, var(--bg-color)));
 }

@@ -78,7 +78,7 @@
 
       &:hover {
         >.p-badge {
-          background-color: $color-mid-light;
+          --is-hovered: ;
         }
       }
 
@@ -91,10 +91,9 @@
       &:active,
       &[aria-selected='true'] {
         @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
-
+        
         >.p-badge {
-          background-color: $color-mid;
-          color: $color-light;
+          --is-active: ;
         }
 
         // Display the highlight when focussing (in combination with the parent
