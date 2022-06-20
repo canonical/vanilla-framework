@@ -44,11 +44,19 @@
 
       border: none;
       color: $color-dark;
-      display: block;
+      height: 100%;
+      display: flex;
+      gap: $spv--medium;
+      align-items: center;
       line-height: map-get($line-heights, default-text);
       margin-bottom: 0;
       padding: $spv--medium $sph--large;
       position: relative;
+
+      // this is a hack to center the badge, but it's not ideal
+      > .p-badge{
+        margin-top: -3px;
+      }
 
       &::before {
         @extend %vf-pseudo-border;
@@ -68,6 +76,12 @@
         }
       }
 
+      &:hover {
+        >.p-badge {
+          background-color: $color-mid-light;
+        }
+      }
+
       // Display the highlight when focussing in modern browsers that support
       // focus-visible.
       &:focus:not(:focus-visible) {
@@ -77,6 +91,11 @@
       &:active,
       &[aria-selected='true'] {
         @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+
+        >.p-badge {
+          background-color: $color-mid;
+          color: $color-light;
+        }
 
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
