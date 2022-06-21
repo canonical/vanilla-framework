@@ -1,13 +1,13 @@
 @import 'settings';
 
 @mixin vf-p-badge {
-  .p-badge {
+  %vf-badge {
     --bg-color: #{$color-light};
     --text-color: #{$color-dark};
 
     --hovered-bg-color: #{$color-mid-light};
     --active-bg-color: #{$color-mid};
-    --active-text-color: #{$color-light};
+    --active-text-color: #{$color-dark};
 
     @include vf-badge-focus-hover();
     @include vf-animation(#{background-color, color}, snap, in);
@@ -19,12 +19,68 @@
     max-width: 4ch;
     overflow: hidden;
   }  
+
+
+  .p-badge,
+  .p-badge--positive,
+  .p-badge--caution,
+  .p-badge--negative,
+  .p-badge--information {
+    @extend %vf-badge;
+  }
+
+  .p-badge {
+    --active-text-color: #{$color-light};
+  }
+
+  .p-badge--positive {
+    --bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, positive, 'default')};
+    --hovered-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, positive, 'hover')};
+    --active-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, positive, 'active')};
+  }
+  .p-badge--positive.is-light {
+    --bg-color: #{map-get($colors-light-theme--tinted-backgrounds, positive, 'default')};
+    --hovered-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, positive, 'hover')};
+    --active-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, positive, 'active')};
+  }
+
+  .p-badge--caution {
+    --bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, caution, 'default')};
+    --hovered-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, caution, 'hover')};
+    --active-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, caution, 'active')};
+  }
+  .p-badge--caution.is-light {
+    --bg-color: #{map-get($colors-light-theme--tinted-backgrounds, caution, 'default')};
+    --hovered-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, caution, 'hover')};
+    --active-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, caution, 'active')};
+  }
+
+  .p-badge--negative {
+    --bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, negative, 'default')};
+    --hovered-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, negative, 'hover')};
+    --active-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, negative, 'active')};
+  }
+  .p-badge--negative.is-light {
+    --bg-color: #{map-get($colors-light-theme--tinted-backgrounds, negative, 'default')};
+    --hovered-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, negative, 'hover')};
+    --active-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, negative, 'active')};
+  }
+
+  .p-badge--information {
+    --bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, information, 'default')};
+    --hovered-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, information, 'hover')};
+    --active-bg-color: #{map-get($colors-dark-theme--tinted-backgrounds, information, 'active')};
+  }
+  .p-badge--information.is-light {
+    --bg-color: #{map-get($colors-light-theme--tinted-backgrounds, information, 'default')};
+    --hovered-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, information, 'hover')};
+    --active-bg-color: #{map-get($colors-light-theme--tinted-backgrounds, information, 'active')};
+  }
 }
 
-@mixin vf-badge-focus-hover() {
-  --is-hovered: initial;
-  --is-active: initial;
 
+
+@mixin vf-badge-focus-hover() {
   --computed-hovered-bg-color: var(--is-hovered) var(--hovered-bg-color);
   --computed-active-bg-color: var(--is-active) var(--active-bg-color);
   --computed-active-text-color: var(--is-active) var(--active-text-color);
