@@ -18,7 +18,20 @@
     padding: $sph--x-small $spv--x-small;
     max-width: 4ch;
     overflow: hidden;
-  }  
+    margin: 0 $spv--x-small;
+  } 
+
+  .p-badge-container {
+    &:hover .p-badge {
+      background: var(--hovered-bg-color);
+    }
+
+    &:active .p-badge,
+    &[aria-selected='true'] .p-badge {
+      background: var(--active-bg-color);
+      color: var(--active-text-color);
+    }
+  }
 }
 
 @mixin vf-badge-focus-hover() {
