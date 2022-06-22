@@ -12,14 +12,13 @@
     @include vf-badge-focus-hover();
     @include vf-animation(#{background-color, color}, snap, in);
 
-    display: inline-block;
-    box-sizing: content-box;
     border-radius: 1rem;
-    padding: $sph--x-small $spv--x-small;
+    box-sizing: content-box;
+    display: inline-block;
     max-width: 4ch;
     overflow: hidden;
-  }  
-
+    padding: $sph--x-small $spv--x-small;
+  }
 
   .p-badge,
   .p-badge--positive,
@@ -90,13 +89,11 @@
   }
 }
 
-
-
 @mixin vf-badge-focus-hover() {
   --computed-hovered-bg-color: var(--is-hovered) var(--hovered-bg-color);
   --computed-active-bg-color: var(--is-active) var(--active-bg-color);
   --computed-active-text-color: var(--is-active) var(--active-text-color);
 
-  color: var(--computed-active-text-color, var(--text-color));
   background-color: var(--computed-active-bg-color, var(--computed-hovered-bg-color, var(--bg-color)));
+  color: var(--computed-active-text-color, var(--text-color));
 }
