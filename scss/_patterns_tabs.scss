@@ -53,11 +53,6 @@
       padding: $spv--medium $sph--large;
       position: relative;
 
-      // this is a hack to center the badge, but it's not ideal
-      > .p-badge {
-        margin-top: -3px;
-      }
-
       &::before {
         @extend %vf-pseudo-border;
         @include vf-animation(#{background-color, border-color}, snap, in);
@@ -76,10 +71,6 @@
         }
       }
 
-      &:hover {
-        --is-hovered: ;
-      }
-
       // Display the highlight when focussing in modern browsers that support
       // focus-visible.
       &:focus:not(:focus-visible) {
@@ -89,7 +80,6 @@
       &:active,
       &[aria-selected='true'] {
         @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
-        --is-active: ;
 
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
