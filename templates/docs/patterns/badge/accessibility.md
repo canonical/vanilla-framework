@@ -8,7 +8,7 @@ context:
 
 A badge is a visual indicator only for numeric values. The colours have semantic meaning, reflected by the name given in the code example.
 
-Semantic colour can help users recognise and recall meaning more quickly, especially when scanning a view, for example. It’s important that the badge still convey the same meaning without colour information. 
+Semantic colour can help users recognise and recall meaning more quickly, especially when scanning a view, for example. It’s important that the badge still convey the same meaning without colour information.
 
 ## Considerations
 
