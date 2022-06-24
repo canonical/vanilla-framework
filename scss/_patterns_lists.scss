@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'settings';
 $list-status-icon-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
 $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
@@ -171,14 +172,14 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
     .p-inline-list__item {
       @include vf-inline-list-item;
-
+      margin-right: $sph--small;
       position: relative;
 
       &::after {
         content: '\2022';
         line-height: map-get($line-heights, default-text);
-        position: absolute;
-        right: -$sp-unit;
+        position: relative;
+        right: -(math.div($sp-unit, 2));
       }
 
       &:last-of-type,
