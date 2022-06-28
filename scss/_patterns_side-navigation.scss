@@ -250,8 +250,6 @@
     @extend %vf-list;
     @extend %vf-pseudo-border--bottom;
 
-    font-weight: $font-weight-regular-text; // reset the font weight as this may be a child of a bolded title
-
     &::after {
       @include vf-side-navigation-spacing-left($prop: left);
 
@@ -271,10 +269,6 @@
     @extend %side-navigation__list;
   }
 
-  .p-side-navigation__item--title {
-    font-weight: $font-weight-bold;
-  }
-
   %side-navigation__text {
     @include vf-side-navigation-spacing-left;
 
@@ -282,6 +276,10 @@
     padding-bottom: $spv--x-small;
     padding-right: $sph--large;
     padding-top: $spv--x-small;
+
+    .p-side-navigation__item--title > & {
+      font-weight: $font-weight-bold;
+    }
   }
 
   %side-navigation__heading {
