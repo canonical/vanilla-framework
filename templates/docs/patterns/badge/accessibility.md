@@ -25,6 +25,4 @@ Applicable WCAG guidelines:
 
 - [WCAG21 - Use of color](https://www.w3.org/TR/WCAG21/#use-of-color)
 - [WCAG21 - Sensory characteristics](https://www.w3.org/TR/WCAG21/#sensory-characteristics)
-- [WCAG21 - Role](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22#example-2-updating-the-shopping-cart-status)
-- [Material UI - Badge accessibility](https://mui.com/material-ui/react-badge/#accessibility)
 - [WCAG21 - Abbreviations](https://www.w3.org/TR/WCAG20-TECHS/H28.html)
