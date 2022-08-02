@@ -128,7 +128,7 @@ def _get_team_members(contributors):
 
 def _get_contributors():
     contributors = _make_github_request(
-        "repos/canonical-web-and-design/vanilla-framework/contributors"
+        "repos/canonical/vanilla-framework/contributors"
     )
 
     return contributors

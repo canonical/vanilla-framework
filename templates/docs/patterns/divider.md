@@ -18,7 +18,7 @@ View example of lists with a responsive divider
 
 ## Theming
 
-The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_settings_colors.scss).
+The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical/vanilla-framework/blob/main/scss/_settings_colors.scss).
 Overriding the colours of individual elements of the responsive is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
 
 By default, the responsive divider uses the light theme. To change the global default, set `$theme-default-p-divider` to `dark`.
