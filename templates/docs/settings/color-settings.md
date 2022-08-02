@@ -145,7 +145,7 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 ## Color theming
 
-Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
+Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
 
 - [Checkbox](/docs/base/forms#checkbox) and [radio](/docs/base/forms#radio-button) form inputs
 - Horizontal rule element `<hr />`
