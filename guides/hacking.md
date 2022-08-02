@@ -16,7 +16,7 @@
 
 ### Via dotrun
 
-The simplest way to run the Vanilla framework on Linux is with the [dotrun snap](https://github.com/canonical-web-and-design/dotrun/), and using the `dotrun` command to build the project:
+The simplest way to run the Vanilla framework on Linux is with the [dotrun snap](https://github.com/canonical/dotrun/), and using the `dotrun` command to build the project:
 
 ```bash
 # Build CSS into the ./build/ directory,

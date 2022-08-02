@@ -172,7 +172,7 @@ For more information, read the dedicated [application layout documentation](/doc
 
 ### Theming
 
-The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_settings_colors.scss).
+The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical/vanilla-framework/blob/main/scss/_settings_colors.scss).
 Overriding the colours of individual elements of the side navigation is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
 
 By default, the side navigation uses the light theme. To change the global default, set `$theme-default-p-side-navigation` to `dark`.

@@ -23,13 +23,13 @@ If your work includes any of the following:
 
 your changes should be listed in [What's new](/templates/docs/whats-new) page. Within that document is a list of all prior changes, each associated with a particular version release.
 
-When updating the document, first note the [most recently released version of Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/tags). If the changes listed in the "What's new in Vanilla" table match that version, those changes should be moved to the "Previously in Vanilla" table below.
+When updating the document, first note the [most recently released version of Vanilla](https://github.com/canonical/vanilla-framework/tags). If the changes listed in the "What's new in Vanilla" table match that version, those changes should be moved to the "Previously in Vanilla" table below.
 
 You can then detail your changes as a row in the "What's new" table.
 
 ### Updating the Vanilla version number
 
-We use [semver](https://semver.org/) conventions when deciding how to update the Vanilla version in [package.json](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/package.json):
+We use [semver](https://semver.org/) conventions when deciding how to update the Vanilla version in [package.json](https://github.com/canonical/vanilla-framework/blob/main/package.json):
 
 - <code>\_.\_.**X**</code>: use a patch release when the release is only bugfixes,
 - <code>\_.**X**.\_</code>: use minor release if there are any added features (new components or new variants/modifiers to existing components)
