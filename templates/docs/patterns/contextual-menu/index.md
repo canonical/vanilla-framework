@@ -80,7 +80,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use contextual menu in React by installing our react-component library and importing `ContextualMenu` component.
 
-[See the documentation for our React `ContextualMenu` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/contextualmenu--default-story#contextual-menu)
+[See the documentation for our React `ContextualMenu` component](https://canonical.github.io/react-components/?path=/docs/contextualmenu--default-story#contextual-menu)
 
 ## Related
 
