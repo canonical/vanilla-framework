@@ -20,6 +20,28 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.7.0 -->
+    <tr>
+      <th><a href="/docs/utilities/justify">Justify Content</a></th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.7.0</td>
+      <td>We've added justify-content feature</td>
+    </tr>
+  </tbody>
+</table>
+
+<table aria-label="What's new in Vanilla {{versionMinor}}">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 3.6.0 -->
     <tr>
       <th><a href="/docs/patterns/badge">Badge</a></th>
