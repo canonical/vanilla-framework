@@ -12,7 +12,7 @@ Being able to visualise the <a target="_blank" href="https://en.wikipedia.org/wi
 
 These properties are not directly accessible via css, but can be obtained from font-editing software like <a target="_blank" href="https://fontforge.github.io/">FontForge</a>. The values are stored in `_settings_font.scss` (the defaults apply to the Ubuntu font family). If you want to use this utility with another font, you will need to change the default values to match your font.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/font-metrics/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/font-metrics.html" class="js-example">
 View an example of the font metrics utility
 </a></div>
 

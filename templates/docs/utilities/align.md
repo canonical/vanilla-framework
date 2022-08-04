@@ -12,7 +12,7 @@ context:
 
 When you need to align elements within a container, you can use the `u-align` utilities to force them to align center, left or right.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/align/content" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/align/content.html" class="js-example">
 View example of the content align utility
 </a></div>
 
@@ -20,7 +20,7 @@ View example of the content align utility
 
 If you only need text to be aligned, you can use the `u-align-text` utilities.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/align/text" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/align/text.html" class="js-example">
 View example of the text align utility
 </a></div>
 

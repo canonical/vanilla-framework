@@ -12,6 +12,6 @@ Vanilla applies padding-top and padding bottom to table cells. This is done to p
 
 In some cases it can be helpful to override this behaviour for specific children of the table cell, e.g. a `button`:
 
-<div class="embedded-example"><a href="/docs/examples/utilities/table-cell-padding-overlap/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/table-cell-padding-overlap.html" class="js-example">
 View example of the table padding overlap
 </a></div>

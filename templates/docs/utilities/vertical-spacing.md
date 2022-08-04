@@ -46,7 +46,7 @@ These classes should be used sparingly, and exist to give designers greater flex
 | `.u-sv2`  | Increases space by 2 baseline grid units |
 | `.u-sv3`  | Increases space by 3 baseline grid units |
 
-<div class="embedded-example"><a href="/docs/examples/utilities/vertical-spacing/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/vertical-spacing.html" class="js-example">
 View example of the vertical spacing utility
 </a></div>
 

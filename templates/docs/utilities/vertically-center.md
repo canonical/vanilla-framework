@@ -12,7 +12,7 @@ The `.u-vertically-center` class will vertically center the direct child of the 
 
 Note: only affects medium and large screens.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/vertically-center/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/vertically-center.html" class="js-example">
 View example of the vertically center utility
 </a></div>
 

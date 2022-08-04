@@ -10,7 +10,7 @@ context:
 
 You can apply this utility to an element (such as `<body>`) to visualise the `.5rem` baseline grid to which text elements adhere.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/baseline-grid/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/baseline-grid.html" class="js-example">
 View example of the baseline grid utility
 </a></div>
 

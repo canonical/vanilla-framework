@@ -10,7 +10,7 @@ context:
 
 Show an element within a certain breakpoint.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/show/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/show.html" class="js-example">
 View example of the Show utility
 </a></div>
 

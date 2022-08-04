@@ -21,49 +21,49 @@ most cases it would be a strip.
 
 ## Bottom
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/bottom/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/bottom.html" class="js-example">
 View example of the utilities image position bottom
 </a></div>
 
 ## Top
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/top/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/top.html" class="js-example">
 View example of the utilities image position top
 </a></div>
 
 ## Left
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/left/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/left.html" class="js-example">
 View example of the utilities image position top
 </a></div>
 
 ## Right
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/right/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/right.html" class="js-example">
 View example of the utilities image position top
 </a></div>
 
 ## Top right
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/top-right/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/top-right.html" class="js-example">
 View example of the utilities image position top right
 </a></div>
 
 ## Top left
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/top-left/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/top-left.html" class="js-example">
 View example of the utilities image position top left
 </a></div>
 
 ## Bottom right
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/bottom-right/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/bottom-right.html" class="js-example">
 View example of the utilities image position bottom right
 </a></div>
 
 ## Bottom left
 
-<div class="embedded-example"><a href="/docs/examples/utilities/image-position/bottom-left/" class="js-example">
+<div class="embedded-example"><a href="../../docs/examples/utilities/image-position/bottom-left.html" class="js-example">
 View example of the utilities image position bottom left
 </a></div>
 

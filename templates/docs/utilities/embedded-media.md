@@ -10,7 +10,7 @@ context:
 
 Embed media objects such as videos, maps and calendars.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/embedded-media/" class="js-example" data-height="600">
+<div class="embedded-example"><a href="../../docs/examples/utilities/embedded-media.html" class="js-example" data-height="600">
 View example of the embedded media utility
 </a></div>
 
