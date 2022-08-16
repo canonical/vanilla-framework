@@ -103,17 +103,3 @@ function setupSideNavigations(sideNavigationSelector) {
 }
 
 setupSideNavigations('.p-side-navigation, [class*="p-side-navigation--"]');
-
-const expandToggles = document.querySelectorAll('.p-side-navigation__expand');
-
-expandToggles.forEach((toggle) => {
-  toggle.addEventListener('click', () => {
-    const item = toggle.closest('.p-side-navigation__item');
-
-    if (item.getAttribute('aria-expanded') === 'true') {
-      item.setAttribute('aria-expanded', false);
-    } else {
-      item.setAttribute('aria-expanded', true);
-    }
-  });
-});
