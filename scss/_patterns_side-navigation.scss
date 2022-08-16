@@ -314,6 +314,12 @@
     }
   }
 
+  .p-side-navigation__item,
+  .p-side-navigation__item--title {
+    // position relative for the absolutely positioned `.p-side-navigation__expand` button
+    position: relative;
+  }
+
   .p-side-navigation__link {
     @extend %side-navigation__link;
   }
@@ -586,6 +592,39 @@
   .p-side-navigation__item--title,
   .p-side-navigation__item--title .p-side-navigation__link {
     color: $color-sidenav-text-active;
+  }
+
+  .p-side-navigation__item {
+    position: relative;
+  }
+
+  .p-side-navigation__expand {
+    @include vf-button-base;
+    position: absolute;
+    border: 0;
+    background: none;
+    right: 0;
+    top: 0;
+    margin: 0;
+    border-radius: 0;
+    // TODO: set the same height as the link
+
+    &::before {
+      @extend %icon;
+      content: '';
+      @include vf-icon-chevron;
+
+      transform: rotate(-90deg);
+      transition: transform 100ms;
+    }
+  }
+
+  .p-side-navigation__item[aria-expanded='true'] > .p-side-navigation__expand::before {
+    transform: rotate(0deg);
+  }
+
+  .p-side-navigation__item[aria-expanded='false'] > .p-side-navigation__list {
+    display: none;
   }
 
   // styles applied when side nav is used in application layout
