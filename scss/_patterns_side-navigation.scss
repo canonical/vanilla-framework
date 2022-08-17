@@ -320,13 +320,14 @@
     position: relative;
   }
 
-  .p-side-navigation.is-expandable {
-    // extra padding to accomodate for `.p-side-navigation__expand` button
-    padding-right: 1rem + (2 * $spv--x-small);
-  }
-
   .p-side-navigation__link {
     @extend %side-navigation__link;
+  }
+
+  .p-side-navigation__link.is-expandable,
+  .p-side-navigation__text.is-expandable {
+    // extra padding to accomodate for `.p-side-navigation__expand` button
+    padding-right: 3rem;
   }
 
   .p-side-navigation__heading,
