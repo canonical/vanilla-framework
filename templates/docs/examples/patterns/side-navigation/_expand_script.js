@@ -26,3 +26,6 @@ expandToggles.forEach((toggle) => {
     toggleItem(e.currentTarget);
   });
 });
+
+// TODO: set aria-expanded = false for required elements on init
+// .p-side-navigation__expand className can be used to identify expandable elements
