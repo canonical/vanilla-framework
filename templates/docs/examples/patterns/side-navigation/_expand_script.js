@@ -1,31 +1,43 @@
 // Setup expand toggles for all side navigations on the page.
+
 var expandToggles = document.querySelectorAll('.p-side-navigation__expand');
 var navigationLinks = document.querySelectorAll('.p-side-navigation__link');
 
-const toggleItem = (item) => {
-  if (item.getAttribute('aria-expanded') === 'true') {
-    item.setAttribute('aria-expanded', false);
-  } else {
-    item.setAttribute('aria-expanded', true);
+const setup = (toggle) => {
+  if (!toggle.hasAttribute('aria-expanded')) {
+    toggle.setAttribute('aria-expanded', false);
   }
+  const item = toggle.closest('.p-side-navigation__item');
+  const link = item.querySelector('.p-side-navigation__link');
+  const nestedList = item.querySelector('.p-side-navigation__list');
+  if (!link?.hasAttribute('aria-expanded')) {
+    link.setAttribute('aria-expanded', false);
+  }
+  if (!nestedList?.hasAttribute('aria-expanded')) {
+    nestedList.setAttribute('aria-expanded', false);
+  }
+};
+
+const handleToggle = (e) => {
+  const item = e.currentTarget.closest('.p-side-navigation__item');
+  const button = item.querySelector('.p-side-navigation__expand');
+  const link = item.querySelector('.p-side-navigation__link');
+  const nestedList = item.querySelector('.p-side-navigation__list');
+  [button, link, nestedList].forEach((el) => el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'));
 };
 
 navigationLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
-    const item = e.currentTarget.closest('.p-side-navigation__item');
-    const button = item.querySelector('.p-side-navigation__expand');
-    const isExpandable = button.hasAttribute('aria-expanded');
+    const isExpandable = e.currentTarget.getAttribute('aria-expanded') === 'false';
     if (isExpandable) {
-      toggleItem(button);
+      handleToggle(e);
     }
   });
 });
 
 expandToggles.forEach((toggle) => {
+  setup(toggle);
   toggle.addEventListener('click', (e) => {
-    toggleItem(e.currentTarget);
+    handleToggle(e);
   });
 });
-
-// TODO: set aria-expanded = false for required elements on init
-// .p-side-navigation__expand className can be used to identify expandable elements
