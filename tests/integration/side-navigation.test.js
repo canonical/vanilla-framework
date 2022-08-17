@@ -1,40 +1,40 @@
-// query utilities:
-import {
-  getByLabelText,
-  getByText,
-  getByTestId,
-  queryByTestId,
-  // Tip: all queries are also exposed on an object
-  // called "queries" which you could import here as well
-  waitFor,
-} from '@testing-library/dom';
-// adds special assertions like toHaveTextContent
-import '@testing-library/jest-dom';
-import sideNavigationExampleHTML from '../../templates/docs/examples/patterns/side-navigation/_expandable-docs.html';
+import {waitFor, screen} from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+import expandableDocsHTML from '../../templates/docs/examples/patterns/side-navigation/_expandable-docs.html';
 
-function getExampleDOM() {
-  const div = document.createElement('div');
-  div.innerHTML = sideNavigationExampleHTML;
-  return div;
+function render(html, scriptUrl = '../../templates/docs/examples/patterns/side-navigation/_expand_script') {
+  const container = document.createElement('div');
+  container.innerHTML = html;
+  document.body.appendChild(container);
+  import(scriptUrl);
+  return {container};
 }
 
-test('examples of some things', async () => {
-  const container = getExampleDOM();
-  expect(container).toMatchSnapshot();
+it('adds aria-expanded to list elements on load', async () => {
+  const {container} = render(`
+  <ul class="p-side-navigation__list">
+    <li class="p-side-navigation__item">
+      <a class="p-side-navigation__link is-expandable" href="#">Testing</a>
+      <button class="p-side-navigation__expand" aria-label="show submenu for Testing"></button>
+      <ul class="p-side-navigation__list" aria-label="testing submenu">
+        <li class="p-side-navigation__item">
+          <a class="p-side-navigation__link" href="#">Network testing</a>
+        </li>
+      </ul> 
+      </li>
+  </ul>`);
+  await waitFor(() => expect(container.querySelectorAll('[aria-expanded="false"]')).toHaveLength(3));
+  expect(screen.getByRole('link', {name: 'Testing'})).toHaveAttribute('aria-expanded', 'false');
+  expect(screen.getByRole('button', {name: 'show submenu for Testing'})).toHaveAttribute('aria-expanded', 'false');
+  expect(screen.getByRole('list', {name: 'testing submenu'})).toHaveAttribute('aria-expanded', 'false');
+});
 
-  //   // Get form elements by their label text.
-  //   // An error will be thrown if one cannot be found (accessibility FTW!)
-  //   const input = getByLabelText(container, 'Username');
-  //   input.value = famousProgrammerInHistory;
-
-  //   // Get elements by their text, just like a real user does.
-  //   getByText(container, 'Print Username').click();
-
-  //   await waitFor(() => expect(queryByTestId(container, 'printed-username')).toBeTruthy());
-
-  //   // getByTestId and queryByTestId are an escape hatch to get elements
-  //   // by a test id (could also attempt to get this element by its text)
-  //   expect(getByTestId(container, 'printed-username')).toHaveTextContent(famousProgrammerInHistory);
-  //   // jest snapshots work great with regular DOM nodes!
-  expect(container).toMatchSnapshot();
+it('opens nested navigation on click', async () => {
+  render(expandableDocsHTML);
+  const button = screen.getByRole('button', {name: 'show submenu for Testing'});
+  const item = button.closest('.p-side-navigation__item');
+  const nestedList = item.querySelector('.p-side-navigation__list');
+  expect(nestedList).toHaveAttribute('aria-expanded', 'false');
+  userEvent.click(screen.getByRole('button', {name: 'show submenu for Testing'}));
+  await waitFor(() => expect(nestedList).toHaveAttribute('aria-expanded', 'true'));
 });
