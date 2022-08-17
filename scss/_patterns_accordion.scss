@@ -28,7 +28,6 @@
     padding-right: $sph--large;
     position: relative;
     text-align: left;
-    transition-duration: 0s;
     width: 100%;
     z-index: 2;
 
@@ -49,12 +48,15 @@
       &:hover {
         background-color: $colors--light-theme--background-hover;
       }
+      @include vf-animation(#{background-color, border-color});
     }
 
     &[aria-expanded='false'] {
       &::before {
         transform: rotate(-90deg);
       }
+
+      @include vf-animation(#{background-color, border-color});
     }
   }
 
@@ -97,6 +99,15 @@
 
     &.has-tick-elements {
       padding-left: 1em;
+    }
+
+    // transition
+    @include vf-animation("transform, opacity");
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+    &.has-transitioned--in {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
   }
 }

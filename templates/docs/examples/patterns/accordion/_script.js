@@ -4,7 +4,7 @@
   @param {HTMLElement} element The tab that acts as the handles.
   @param {Boolean} show Whether to show or hide the accordion panel.
 */
-function toggleExpanded(element, show) {
+function handleToggleExpanded(element, show) {
   var target = document.getElementById(element.getAttribute('aria-controls'));
 
   if (target) {
@@ -12,6 +12,29 @@ function toggleExpanded(element, show) {
     target.setAttribute('aria-hidden', !show);
   }
 }
+
+const withTransition = (toggleFunc) => {
+  document.querySelectorAll('.p-accordion__panel').forEach((el) => {
+    el.getAttribute('aria-hidden') === 'false' && el.classList.add('has-transitioned--in');
+  });
+  return (element, show) => {
+    var target = document.getElementById(element.getAttribute('aria-controls'));
+    const handleToggle = () => toggleFunc(element, show);
+    if (show) {
+      handleToggle();
+      if (!target.className.includes('has-transitioned--in')) {
+        requestAnimationFrame(() => target.classList.add('has-transitioned--in'));
+      }
+    } else {
+      if (target.className.includes('has-transitioned--in')) {
+        target.classList.remove('has-transitioned--in');
+        handleToggle();
+      }
+    }
+  };
+};
+
+const toggleExpanded = withTransition(handleToggleExpanded);
 
 /**
   Attaches event listeners for the accordion open and close click events.
