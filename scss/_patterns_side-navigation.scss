@@ -267,6 +267,7 @@
 
   .p-side-navigation__list {
     @extend %side-navigation__list;
+    @include vf-animation('transform, opacity', fast);
   }
 
   %side-navigation__text {
@@ -415,22 +416,19 @@
   }
 
   // transition
-  .p-side-navigation__list {
-    @include vf-animation('transform, opacity', fast);
-  }
   .p-side-navigation__expand[aria-expanded='false'] + .p-side-navigation__list {
-    visibility: hidden;
     height: 0;
     opacity: 0;
     transform: translate3d(0, -0.5rem, 0);
     // disable transition on close
     transition-duration: 0s;
+    visibility: hidden;
   }
-  .p-side-navigation__expand[aria-expanded='true']+.p-side-navigation__list {
-    visibility: visible;
+  .p-side-navigation__expand[aria-expanded='true'] + .p-side-navigation__list {
     height: auto;
     opacity: 1;
     transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
 
   // Styles for markup in raw HTML docs variant
