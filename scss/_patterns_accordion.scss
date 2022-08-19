@@ -92,22 +92,24 @@
     overflow: auto; // include child margins into its height
     padding-left: $sph--large + $icon-size + $sph--large * 2;
 
+    @include vf-animation('transform, opacity', fast);
     // Hides panel content
     &[aria-hidden='true'] {
-      display: none;
+      height: 0;
+      opacity: 0;
+      transform: translate3d(0, -0.5rem, 0);
+      visibility: hidden;
+    }
+
+    &[aria-hidden='false'] {
+      height: auto;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
     }
 
     &.has-tick-elements {
       padding-left: 1em;
-    }
-
-    // transition
-    @include vf-animation("transform, opacity", fast);
-    opacity: 0;
-    transform: translate3d(0, -0.5rem, 0);
-    &.has-transitioned--in {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
     }
   }
 }
