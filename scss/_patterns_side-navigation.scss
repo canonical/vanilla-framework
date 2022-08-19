@@ -414,8 +414,23 @@
     transform: rotate(0deg);
   }
 
+  // transition
+  .p-side-navigation__list {
+    @include vf-animation('transform, opacity', fast);
+  }
   .p-side-navigation__expand[aria-expanded='false'] + .p-side-navigation__list {
-    display: none;
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transform: translate3d(0, -0.5rem, 0);
+    // disable transition on close
+    transition-duration: 0s;
+  }
+  .p-side-navigation__expand[aria-expanded='true']+.p-side-navigation__list {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   // Styles for markup in raw HTML docs variant
