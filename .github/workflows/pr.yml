@@ -25,8 +25,24 @@ jobs:
       - name: Show size of the build file
         run: stat -c '%s' build/css/build.css
 
-  docker:
-    name: Build and run
+  linkchecker:
+    name: linkchecker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
+      - name: Run server with Docker
+        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
+      - name: Check server status
+        run: curl localhost:${PORT}/_status/check -I
+      - name: Install linkchecker
+        run: sudo pip install LinkChecker
+      - name: Check internal links
+        run: linkchecker --ignore-url /search --ignore-url https://res.cloudinary.com --ignore-url q_auto --ignore-url  fl_sanitize --ignore-url  c_fill --ignore-url  e_sharpen --ignore-url  w_[0-9]* --ignore-url  h_[0-9]* http://localhost:${PORT}
+
+  cypress:
+    name: Cypress
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -39,11 +55,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          config: pageLoadTimeout=100000,baseUrl=http://localhost:${{ env.PORT }}
-      - name: Install linkchecker
-        run: sudo pip install LinkChecker
-      - name: Check internal links
-        run: linkchecker --ignore-url /search --ignore-url https://res.cloudinary.com --ignore-url q_auto --ignore-url  fl_sanitize --ignore-url  c_fill --ignore-url  e_sharpen --ignore-url  w_[0-9]* --ignore-url  h_[0-9]* http://localhost:${PORT}
+          config: baseUrl=http://localhost:${{ env.PORT }}
 
   inclusive-naming-check:
     runs-on: ubuntu-latest
