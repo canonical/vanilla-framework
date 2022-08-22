@@ -61,7 +61,7 @@ include animation by including the animation mixin.
 The format is as follows:
 
 ```scss
-@include vf-animation(PROPERTY, DURATION, EASING);
+@include vf-transition(PROPERTY, DURATION, EASING);
 ```
 
 <div class="p-notification--information">
@@ -74,11 +74,11 @@ The format is as follows:
 A valid use could be, for example:
 
 ```scss
-@include vf-animation(height, brisk, out);
+@include vf-transition(height, brisk, out);
 ```
 
 If you require multiple properties then the list must be interpolated as shown in the following example:
 
 ```scss
-@include vf-animation(#{height, width}, brisk, out);
+@include vf-transition(#{height, width}, brisk, out);
 ```
