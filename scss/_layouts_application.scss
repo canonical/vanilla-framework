@@ -64,7 +64,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   // Navigation panel/drawer
   // -------------------------
   .l-navigation {
-    @include vf-animation(
+    @include vf-transition(
       $property: (
         transform,
         box-shadow,
@@ -117,7 +117,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     .l-navigation {
-      @include vf-animation(
+      @include vf-transition(
         $property: (
           width,
           box-shadow,
@@ -182,7 +182,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   %vf-application-layout--faded-when-collapsed {
     // when app navigation panel is collapsed, fade out unnecessary elements
     @include vf-application-layout--when-collapsed() {
-      @include vf-animation($property: opacity, $duration: snap);
+      @include vf-transition($property: opacity, $duration: snap);
 
       opacity: 0;
     }
@@ -246,7 +246,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   }
 
   .l-aside {
-    @include vf-animation(
+    @include vf-transition(
       $property: (
         transform,
         box-shadow,
