@@ -20,14 +20,30 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.6.0 -->
+    <!-- 3.7.0 -->
     <tr>
-      <th><a href="/docs/patterns/badge">Badge</a></th>
+      <th>
+        <a href="/docs/settings/animation-settings#usage">
+          <code>vf-animation</code> mixin
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.7.0</td>
+      <td><code>vf-animation</code> mixin has been deprecated. Please use <code>vf-transition</code> instead.</td>
+    </tr>
+    <tr>
+      <th>
+        <a href="/docs/settings/animation-settings#usage">
+          <code>vf-transition</code> mixin
+        </a>
+      </th>
       <td>
         <span class="p-status-label--positive">New</span>
       </td>
-      <td>3.6.0</td>
-      <td>We've added a badge component.</td>
+      <td>3.7.0</td>
+      <td><code>vf-transition</code> mixin replaces deprecated <code>vf-animation</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -44,6 +60,15 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.6.0 -->
+    <tr>
+      <th><a href="/docs/patterns/badge">Badge</a></th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.6.0</td>
+      <td>We've added a badge component.</td>
+    </tr>
     <!-- 3.5.0 -->
     <tr>
       <th><a href="/docs/patterns/navigation#side-navigation">Side navigation - Headings</a></th>
