@@ -36,6 +36,10 @@ jobs:
         run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
       - name: Check server status
         run: curl localhost:${PORT}/_status/check -I
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          config: pageLoadTimeout=100000,baseUrl=http://localhost:${{ env.PORT }}
       - name: Install linkchecker
         run: sudo pip install LinkChecker
       - name: Check internal links
