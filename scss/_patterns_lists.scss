@@ -291,12 +291,6 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
   }
 
-  .p-stepped-list--detailed .p-stepped-list__title + .p-stepped-list__content {
-    @media (min-width: $threshold-6-12-col) {
-      margin-left: 0;
-    }
-  }
-
   @for $i from 6 through 1 {
     // Bullet sizes for each heading level
     $bullet-width: map-get($line-heights, default-text);
@@ -307,6 +301,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
     }
 
+    .p-heading--#{$i}.p-stepped-list__title,
     h#{$i}.p-stepped-list__title {
       padding-left: $bullet-width-mobile + $sph--large;
 
@@ -324,12 +319,19 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       }
     }
 
+    .p-heading--#{$i}.p-stepped-list__title + .p-stepped-list__content,
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
       margin-left: $bullet-width-mobile + $sph--large;
 
       @media (min-width: $breakpoint-heading-threshold) {
         margin-left: $bullet-width + $sph--large;
       }
+    }
+  }
+
+  .p-stepped-list--detailed .p-stepped-list__title + .p-stepped-list__content {
+    @media (min-width: $threshold-6-12-col) {
+      margin-left: 0;
     }
   }
 }
