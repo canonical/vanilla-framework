@@ -73,8 +73,6 @@ Current page in the side navigation should be highlighted by adding `aria-curren
 
 Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add status labels or icons on right side of navigation items.
 
-Use `p-side-navigation__expand` inside `p-side-navigation__link` elements to expand/collapse button.
-
 <div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/docs" class="js-example" data-height="600">
 View example of the side navigation pattern
 </a></div>
