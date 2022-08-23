@@ -48,7 +48,7 @@
       &:hover {
         background-color: $colors--light-theme--background-hover;
       }
-      @include vf-animation(#{background-color, border-color});
+      @include vf-transition(#{background-color, border-color});
     }
 
     &[aria-expanded='false'] {
@@ -56,7 +56,7 @@
         transform: rotate(-90deg);
       }
 
-      @include vf-animation(#{background-color, border-color});
+      @include vf-transition(#{background-color, border-color});
     }
   }
 
@@ -92,7 +92,7 @@
     overflow: auto; // include child margins into its height
     padding-left: $sph--large + $icon-size + $sph--large * 2;
 
-    @include vf-animation('transform, opacity', fast);
+    @include vf-transition(#{transform, opacity}, fast);
     // Hides panel content
     &[aria-hidden='true'] {
       height: 0;
