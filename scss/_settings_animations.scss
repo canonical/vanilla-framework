@@ -13,8 +13,11 @@ $animation-easing: (
 );
 
 @mixin vf-transition($property: all, $duration: brisk, $easing: out) {
+  @if (type-of($property) != string) {
+    @error "vf-transition $property must be a string";
+  }
   transition-duration: map-get($animation-duration, $duration);
-  transition-property: $property;
+  transition-property: unquote($property);
   transition-timing-function: map-get($animation-easing, $easing);
 }
 

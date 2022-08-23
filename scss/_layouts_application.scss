@@ -64,13 +64,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   // Navigation panel/drawer
   // -------------------------
   .l-navigation {
-    @include vf-transition(
-      $property: (
-        transform,
-        box-shadow,
-      ),
-      $duration: fast
-    );
+    @include vf-transition($property: #{transform, box-shadow}, $duration: fast);
 
     bottom: 0;
     box-shadow: $panel-drop-shadow;
@@ -117,13 +111,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     .l-navigation {
-      @include vf-transition(
-        $property: (
-          width,
-          box-shadow,
-        ),
-        $duration: fast
-      );
+      @include vf-transition($property: #{width, box-shadow}, $duration: fast);
 
       box-shadow: $panel-drop-shadow-transparent;
       overflow: hidden;
@@ -246,13 +234,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   }
 
   .l-aside {
-    @include vf-transition(
-      $property: (
-        transform,
-        box-shadow,
-      ),
-      $duration: snap
-    );
+    @include vf-transition($property: #{transform, box-shadow}, $duration: snap);
 
     box-shadow: $panel-drop-shadow;
     grid-area: main;
