@@ -57,7 +57,7 @@ $spv-navigation-logo: 0.3125rem;
     $properties: #{background-color, color, opacity};
     @extend %navigation-link-responsive-padding-horizontal;
     @extend %navigation-link-responsive-padding-vertical;
-    @include vf-animation($properties, snap);
+    @include vf-transition($properties, snap);
     @include vf-focus;
 
     // override button styles
@@ -443,7 +443,7 @@ $spv-navigation-logo: 0.3125rem;
     }
 
     .p-navigation__search-overlay {
-      @include vf-animation(opacity, snap);
+      @include vf-transition(opacity, snap);
 
       background-color: $colors--light-theme--background-overlay;
       display: block;
