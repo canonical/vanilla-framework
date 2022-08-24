@@ -1,35 +1,5 @@
 @import 'settings';
 
-@mixin vf-side-navigation-expandable-theme($color-sidenav-text-active, $color-sidenav-item-background-hover, $color-sidenav-toggle-icon) {
-  .p-side-navigation__expand {
-    background-color: inherit;
-    &::before {
-      @include vf-icon-chevron($color-sidenav-toggle-icon);
-    }
-
-    &:hover {
-      background: $color-sidenav-item-background-hover;
-      color: $color-sidenav-text-active;
-    }
-  }
-}
-
-@mixin vf-side-navigation-expandable-theme-light {
-  @include vf-side-navigation-expandable-theme(
-    $color-sidenav-text-active: $colors--light-theme--text-default,
-    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
-    $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
-  );
-}
-
-@mixin vf-side-navigation-expandable-theme-dark {
-  @include vf-side-navigation-expandable-theme(
-    $color-sidenav-text-active: $colors--dark-theme--text-default,
-    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
-    $color-sidenav-toggle-icon: #999
-  );
-}
-
 @mixin vf-p-side-navigation-expandable {
   .p-side-navigation__item,
   .p-side-navigation__item--title {
@@ -109,4 +79,35 @@
       }
     }
   }
+}
+
+@mixin vf-side-navigation-expandable-theme($color-sidenav-text-active, $color-sidenav-item-background-hover, $color-sidenav-toggle-icon) {
+  .p-side-navigation__expand {
+    background-color: inherit;
+    &::before {
+      @include vf-icon-chevron($color-sidenav-toggle-icon);
+    }
+
+    &:hover {
+      background: $color-sidenav-item-background-hover;
+      color: $color-sidenav-text-active;
+    }
+  }
+}
+
+@mixin vf-side-navigation-expandable-theme-light {
+  @include vf-side-navigation-expandable-theme(
+    $color-sidenav-text-active: $colors--light-theme--text-default,
+    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
+    $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
+  );
+}
+
+@mixin vf-side-navigation-expandable-theme-dark {
+  @include vf-side-navigation-expandable-theme(
+    $color-sidenav-text-active: $colors--dark-theme--text-default,
+    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
+    // color of toggle icon - needed because of lack of rgba support in icon mixin
+    $color-sidenav-toggle-icon: #999
+  );
 }
