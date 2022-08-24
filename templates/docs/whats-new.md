@@ -20,6 +20,34 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.8.0 -->
+    <tr>
+      <th>
+        <a href="/docs/patterns/navigation#accordion">
+          <code>Side navigation - Accordion</code>
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.8.0</td>
+      <td>We've added <code>p-side-navigation--accordion</code>, <code>p-side-navigation__accordion-button</code> classes that allow building side navigation with accordions.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla v3
+
+<table aria-label="Previously in Vanilla v3">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 3.7.0 -->
     <tr>
       <th>
@@ -45,21 +73,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>3.7.0</td>
       <td><code>vf-transition</code> mixin replaces deprecated <code>vf-animation</code>.</td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla v3
-
-<table aria-label="Previously in Vanilla v3">
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 3.6.0 -->
     <tr>
       <th><a href="/docs/patterns/badge">Badge</a></th>

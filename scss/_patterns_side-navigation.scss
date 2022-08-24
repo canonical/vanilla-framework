@@ -269,8 +269,74 @@
     }
   }
 
+  .p-side-navigation__accordion-button {
+    @extend %single-border-text-vpadding--scaling;
+    @include vf-focus;
+
+    background-color: inherit;
+    border: 0;
+    border-radius: 0;
+    font-size: inherit;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding-right: $sph--large;
+    text-align: left;
+    width: 100%;
+    z-index: 2;
+
+    &::before {
+      align-self: center;
+      content: '';
+      flex-shrink: 0;
+      margin-left: -2rem;
+      margin-right: $sph--large;
+      @include vf-icon-chevron($color-mid-dark);
+      @include vf-transition($property: transform, $duration: fast);
+      @extend %icon;
+    }
+
+    // aria-selected controls the open and closed state for the accordion tab
+    &[aria-expanded='true'] {
+      // override base expanded button styles
+      background-color: inherit;
+
+      &:hover {
+        background-color: $colors--light-theme--background-hover;
+      }
+      @include vf-transition(#{background-color, border-color});
+    }
+
+    &[aria-expanded='false'] {
+      &::before {
+        transform: rotate(-90deg);
+      }
+
+      @include vf-transition(#{background-color, border-color});
+    }
+  }
+
   .p-side-navigation__list {
     @extend %side-navigation__list;
+
+    // accordion styles
+    &[aria-expanded] {
+      @include vf-transition(#{transform, opacity}, fast);
+      &.has-tick-elements {
+        padding-left: 1em;
+      }
+    }
+    &[aria-expanded='false'] {
+      height: 0;
+      opacity: 0;
+      transform: translate3d(0, -0.5rem, 0);
+      visibility: hidden;
+    }
+    &[aria-expanded='true'] {
+      height: auto;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
   }
 
   %side-navigation__text {
@@ -324,11 +390,18 @@
 
   .p-side-navigation__heading,
   .p-side-navigation__text,
-  .p-side-navigation__link {
+  .p-side-navigation__link,
+  .p-side-navigation__accordion-button {
     @extend %side-navigation__text;
 
     .p-side-navigation--icons & {
       @include vf-side-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--icon-width);
+
+      position: relative;
+    }
+
+    .p-side-navigation--accordion & {
+      @include vf-side-navigation-spacing-left($multiplier: 2, $offset: 0);
 
       position: relative;
     }
@@ -342,6 +415,9 @@
       .p-side-navigation--icons & {
         @include vf-side-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--icon-width);
       }
+      .p-side-navigation--accordion & {
+        @include vf-side-navigation-spacing-left($multiplier: 3, $offset: 0.5rem);
+      }
     }
 
     // nested 3rd level of navigation
@@ -352,6 +428,9 @@
       // add spacing for variant with right side icons
       .p-side-navigation--icons & {
         @include vf-side-navigation-spacing-left($multiplier: 4, $offset: $sp-sidenav--icon-width);
+      }
+      .p-side-navigation--accordion & {
+        @include vf-side-navigation-spacing-left($multiplier: 4, $offset: 0.5rem);
       }
     }
   }
@@ -590,6 +669,19 @@
   .p-side-navigation__item--title,
   .p-side-navigation__item--title .p-side-navigation__link {
     color: $color-sidenav-text-active;
+  }
+
+  .p-side-navigation__accordion-button {
+    background-color: inherit;
+    color: inherit;
+    &::before {
+      @include vf-icon-chevron($color-sidenav-toggle-icon);
+    }
+
+    &:hover {
+      background: $color-sidenav-item-background-hover;
+      color: $color-sidenav-text-active;
+    }
   }
 
   // styles applied when side nav is used in application layout
