@@ -118,15 +118,19 @@
     [class*='p-side-navigation--'].is-drawer-expanded & {
       @extend %vf-has-box-shadow;
 
-      animation: vf-p-side-navigation-expand map-get($animation-duration, brisk);
-      transform: translateX(0);
+      @media (max-width: $threshold-6-12-col - 1px) {
+        animation: vf-p-side-navigation-expand map-get($animation-duration, brisk);
+        transform: translateX(0);
+      }
     }
 
     .p-side-navigation.is-collapsed &,
     .p-side-navigation.is-drawer-collapsed &,
     [class*='p-side-navigation--'].is-collapsed &,
     [class*='p-side-navigation--'].is-drawer-collapsed & {
-      animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
+      @media (max-width: $threshold-6-12-col - 1px) {
+        animation: vf-p-side-navigation-collapse map-get($animation-duration, brisk);
+      }
     }
 
     .p-side-navigation.is-drawer-hidden &,
