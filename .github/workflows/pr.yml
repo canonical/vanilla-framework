@@ -52,8 +52,6 @@ jobs:
         run: dotrun build
       - name: Run dotrun
         run: dotrun &
-      - name: Check server status
-        run: curl localhost:${PORT}/_status/check -I
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
