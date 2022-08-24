@@ -46,10 +46,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build Docker image
-        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
-      - name: Run server with Docker
-        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
+      - name: Install dotrun
+        uses: canonical/install-dotrun@main
+      - name: Build
+        run: dotrun build
+      - name: Run dotrun
+        run: dotrun &
       - name: Check server status
         run: curl localhost:${PORT}/_status/check -I
       - name: Cypress run
