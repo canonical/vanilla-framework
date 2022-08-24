@@ -54,7 +54,7 @@ In case that fails, here are manual steps to release to assets server:
 
 - [Staging](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-staging/) should be automatically deployed on every push to the main branch
 - Test the [staging build](https://staging.vanillaframework.io/)
-- Deploy to production on http://releases.demo.haus/
+- Deploy to production on https://webteam.canonical.com/releases
   - or [Deploy the site to production directly on jenkins](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-production/)
 
 ## Releasing React Components
