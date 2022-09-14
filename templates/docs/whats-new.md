@@ -24,7 +24,7 @@ When we add, make significant updates, or deprecate a component we update their 
     <tr>
       <th>
         <a href="/docs/patterns/navigation#accordion">
-          <code>Side navigation - Accordion</code>
+          Side navigation - Accordion
         </a>
       </th>
       <td>
