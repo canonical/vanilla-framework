@@ -1,7 +1,8 @@
 @import 'settings';
 
 @mixin vf-p-accordion {
-  $icon-size: map-get($icon-sizes, default);
+  $accordion-icon-size: map-get($icon-sizes, default);
+  $accordion-left-spacing: calc($accordion-icon-size + 2 * $sph--large);
 
   .p-accordion__list {
     list-style-type: none;
@@ -25,9 +26,11 @@
     font-size: inherit;
     justify-content: flex-start;
     margin-bottom: 0;
+    padding-left: $accordion-left-spacing;
     padding-right: $sph--large;
     position: relative;
     text-align: left;
+    text-indent: calc(-1 * $accordion-left-spacing + $sph--large);
     width: 100%;
     z-index: 2;
 
@@ -90,7 +93,8 @@
   .p-accordion__panel {
     margin: 0;
     overflow: auto; // include child margins into its height
-    padding-left: $icon-size + $sph--large * 2;
+    padding-left: $accordion-left-spacing;
+    padding-right: $sph--large;
 
     @include vf-transition(#{transform, opacity}, fast);
     // Hides panel content
