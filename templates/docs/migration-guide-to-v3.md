@@ -134,7 +134,7 @@ Additionally some components that require more granular responsiveness use `$bre
 
 The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
 
-The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
+The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now, since Vanilla 3.8, `$breakpoint-large` (it used to be `$breakpoint-small` in Vanilla 3.0 - 3.7.1). This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
 
 ### Using min-width and max-width media queries
 
