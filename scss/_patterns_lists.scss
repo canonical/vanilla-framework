@@ -25,7 +25,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       direction: rtl;
       display: block;
       font-size: map-get($base-font-sizes, base);
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-regular-text;
       left: 0;
       position: absolute;
       text-align: center;
@@ -302,10 +302,16 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     // Bullet sizes for each heading level
     $bullet-width: map-get($line-heights, default-text);
     $bullet-width-mobile: map-get($line-heights, default-text);
+    // h6 line height is the same as the bullet width so no need to apply any margin:
+    $bullet-margin: 0;
+    $bullet-margin-mobile: 0;
 
     @if $i < 5 {
-      $bullet-width: map-get($line-heights, h#{$i});
-      $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
+      // To align the bullet with the title we need to use half
+      // the height difference between the bullet and the title and then add the
+      // nudge to position it with the lower case text.
+      $bullet-margin: ((map-get($line-heights, h#{$i}) - $bullet-width) / 2) + map-get($nudges, h#{$i});
+      $bullet-margin-mobile: ((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2) + map-get($nudges, h#{$i});
     }
 
     .p-heading--#{$i}.p-stepped-list__title,
@@ -320,11 +326,13 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
         // Need to account for the 1px border:
         line-height: calc(#{$bullet-width-mobile} - 2px);
         margin-right: $sph--large;
+        margin-top: $bullet-margin-mobile;
         width: $bullet-width-mobile;
 
         @media (min-width: $breakpoint-heading-threshold) {
           // Need to account for the 1px border:
           line-height: calc(#{$bullet-width} - 2px);
+          margin-top: $bullet-margin;
           width: $bullet-width;
         }
       }
