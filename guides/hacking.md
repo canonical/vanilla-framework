@@ -32,21 +32,21 @@ When writing SCSS, it's useful to run both commands in separate terminals so cha
 
 ### Via Docker
 
-It can also be run on other operating systems by first [installing Docker](https://docs.docker.com/engine/installation/) (Linux users may need to [add your user to the `docker` group](https://docs.docker.com/engine/installation/linux/linux-postinstall/)), and then using the `./run` script:
+It can also be run on other operating systems by first [installing Docker](https://docs.docker.com/engine/installation/) (Linux users may need to [add your user to the `docker` group](https://docs.docker.com/engine/installation/linux/linux-postinstall/)) and then [installing dotrun](https://github.com/canonical/dotrun#installation):
 
 ```bash
 # Build CSS into the ./build/ directory:
-./run build
+dotrun build
 
 # Start the server:
-./run serve
+dotrun serve
 
 # Dynamically watch for changes to the
 # Sass files and build automatically:
-./run watch
+dotrun watch
 ```
 
-If you want to speed up the build or watch scripts you can run the project without including the standalone examples, using `./run build:essential` or `./run watch:essential`.
+If you want to speed up the build or watch scripts you can run the project without including the standalone examples, using `dotrun build:essential` or `dotrun watch:essential`.
 
 ## Viewing documentation and examples
 
