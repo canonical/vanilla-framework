@@ -21,9 +21,9 @@
 ## Releasing
 
 - Pull locally latest version from the main branch
-- `./run build`
+- `dotrun build`
   - make sure everything builds without any errors
-- `./run test`
+- `dotrun test`
   - make sure all test pass
 
 ### Releasing on GitHub
@@ -47,7 +47,7 @@ This should happen automatically after publishing the release on GH (thanks to [
 
 In case that fails, here are manual steps to release to assets server:
 
-- `./run build`
+- `dotrun build`
 - `upload-assets --url-path vanilla-framework-version-X.X.X.min.css build/css/build.css`
 
 ## Deploying vanillaframework.io
