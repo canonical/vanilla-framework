@@ -17,12 +17,15 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
     &::before {
       align-self: start;
-      background-color: $color-mid-x-light;
+      background-color: $color-x-light;
+      border: 1px solid $color-x-dark;
       border-radius: 100%;
       content: counter(li);
       counter-increment: li;
       direction: rtl;
       display: block;
+      font-size: map-get($base-font-sizes, base);
+      font-weight: $font-weight-bold;
       left: 0;
       position: absolute;
       text-align: center;
@@ -276,9 +279,13 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     &::before {
       margin-right: $sph--large;
       width: $bullet-width-mobile;
+      // Need to account for the 1px border:
+      line-height: calc(#{$bullet-width-mobile} - 2px);
 
       @media (min-width: $breakpoint-heading-threshold) {
         width: $bullet-width;
+        // Need to account for the 1px border:
+        line-height: calc(#{$bullet-width} - 2px);
       }
     }
   }
@@ -312,9 +319,13 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       &::before {
         margin-right: $sph--large;
         width: $bullet-width-mobile;
+        // Need to account for the 1px border:
+        line-height: calc(#{$bullet-width-mobile} - 2px);
 
         @media (min-width: $breakpoint-heading-threshold) {
           width: $bullet-width;
+          // Need to account for the 1px border:
+          line-height: calc(#{$bullet-width} - 2px);
         }
       }
     }
