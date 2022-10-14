@@ -1,0 +1,47 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Table / Grouped rows{% endblock %}
+
+{% block content %}
+<table class="p-table--mobile-card" aria-label="Table of CPU compatibility matrix for Ubuntu">
+  <thead>
+    <tr>
+      <th>Vendor</th>
+      <th>CPU family</th>
+      <th>Code name</th>
+      <th class="u-align--right">Initial support in Ubuntu LTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-heading="Vendor" rowspan="3">AMD</td>
+      <td data-heading="CPU family">EPYC 7xx3</td>
+      <td data-heading="Code name">Milan (Zen 3)</td>
+      <td data-heading="Initial support in Ubuntu LTS" class="u-align--right">18.04.5</td>
+    </tr>
+    <tr>
+      <td data-heading="Vendor" class="u-hide--large">AMD</td>
+      <td data-heading="CPU family">EPYC 7xx2</td>
+      <td data-heading="Code name">Rome (Zen 2)</td>
+      <td data-heading="Initial support in Ubuntu LTS" class="u-align--right">16.04.5</td>
+    </tr>
+    <tr>
+      <td data-heading="Vendor" class="u-hide--large">AMD</td>
+      <td data-heading="CPU family">EPYC 7xx1</td>
+      <td data-heading="Code name">Naples (Zen1)</td>
+      <td data-heading="Initial support in Ubuntu LTS" class="u-align--right">16.04.5</td>
+    </tr>
+    <tr>
+      <td data-heading="Vendor" rowspan="2">Intel</td>
+      <td data-heading="CPU family">Xeon</td>
+      <td data-heading="Code name">Ice Lake (SP)</td>
+      <td data-heading="Initial support in Ubuntu LTS" class="u-align--right">18.04</td>
+    </tr>
+    <tr>
+      <td data-heading="Vendor" class="u-hide--large">Intel</td>
+      <td data-heading="CPU family">Xeon</td>
+      <td data-heading="Code name">Cooper Lake</td>
+      <td data-heading="Initial support in Ubuntu LTS" class="u-align--right">18.04</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
