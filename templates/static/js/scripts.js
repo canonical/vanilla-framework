@@ -55,11 +55,11 @@
     sideNavigation.classList.add('is-drawer-hidden');
 
     // setup drawer element
-    drawerEl.addEventListener('animationend', () => {
-      if (!sideNavigation.classList.contains('is-drawer-expanded')) {
-        sideNavigation.classList.add('is-drawer-hidden');
-      }
-    });
+    // drawerEl.addEventListener('animationend', () => {
+    //   if (!sideNavigation.classList.contains('is-drawer-expanded')) {
+    //     sideNavigation.classList.add('is-drawer-hidden');
+    //   }
+    // });
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {

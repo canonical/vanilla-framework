@@ -46,18 +46,237 @@
     {% if extra_stylesheet %}
       <link rel="stylesheet" href="{{ versioned_static(extra_stylesheet) }}" />
     {% endif %}
+
+    <style>
+      body {
+        position: relative;
+      }
+
+      .l-documentation {
+        display: grid;
+        grid-template-areas:
+          'navbar navbar'
+          'nav    main  ';
+        grid-template-columns: 15rem minmax(0, 1fr);
+        grid-template-rows: min-content 1fr;
+      }
+
+      .l-documentation .l-main .row {
+        margin-left: 0;
+      }
+
+      @media (min-width: 100rem) {
+        .l-documentation {
+          grid-template-areas:
+            'navbar navbar navbar'
+            'nav    main   aside';
+          grid-template-columns: 15rem minmax(0, 1fr) minmax(0, 15rem);
+        }
+
+        .l-documentation .l-main .row {
+          margin-left: auto;
+        }
+      }
+
+      .l-side-navigation {
+        grid-area: nav;
+        background: #f7f7f7;
+        position: sticky;
+        top: 0;
+        align-self: start;
+        height: 100vh;
+        overflow: scroll;
+      }
+
+      .p-navigation {
+        grid-area: navbar;
+      }
+
+      .l-main {
+        grid-area: main;
+      }
+
+      .p-navigation__nav {
+        width: auto;
+      }
+
+      .p-navigation--right {
+        margin-left: auto;
+      }
+
+      @media (min-width: 100rem) {
+      .p-navigation__grid {
+        display: grid;
+        grid-template-areas:
+          'logo menu search';
+        grid-template-columns: 15rem minmax(0, 1fr) 15rem;
+        grid-template-rows: min-content;
+        overflow: hidden;
+        width: 100vw;
+      }
+
+      .p-navigation__fixed-width {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 72rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+    }
+    </style>
   </head>
 
   <body>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7ZB6FL"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <div class="l-documentation">
     {% include "_layouts/_header.html" %}
-    {% block body %}{% endblock %}
-    {% include "_layouts/_footer.html" %}
 
+    <div class="l-side-navigation">
+      <aside class="p-strip is-shallow">
+        <nav class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
+
+            {% macro side_nav_item(url, title, label, type) -%}
+                <li class="p-side-navigation__item">
+                  <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
+                    {{ title }}
+                    {% if label %}
+                      <span class="p-side-navigation__status">
+                        <span class="p-status-label--{{ type|lower }}">
+                          {{ label|capitalize }}
+                        </span>
+                      </span>
+                    {% endif %}
+                  </a>
+                </li>
+            {%- endmacro %}
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Welcome</span></li>
+              {{ side_nav_item("/docs", "Get started") }}
+              {{ side_nav_item("/docs/building-vanilla", "Building with Vanilla") }}
+              {{ side_nav_item("/docs/customising-vanilla", "Customising Vanilla") }}
+              {{ side_nav_item("/docs/whats-new", "What’s new in " ~ version) }}
+              {{ side_nav_item("/docs/migration-guide-to-v3", "Migrating to v3.0") }}
+            </ul>
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Base elements</span></li>
+              {{ side_nav_item("/docs/base/code", "Code") }}
+              {{ side_nav_item("/docs/base/forms", "Forms") }}
+              {{ side_nav_item("/docs/base/reset", "Reset") }}
+              {{ side_nav_item("/docs/base/separators", "Separators") }}
+              {{ side_nav_item("/docs/base/tables", "Tables") }}
+              {{ side_nav_item("/docs/base/typography", "Typography") }}
+            </ul>
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Components</span></li>
+              {{ side_nav_item("/docs/patterns/accordion", "Accordion") }}
+              {{ side_nav_item("/docs/patterns/badge", "Badge") }}
+              {{ side_nav_item("/docs/patterns/breadcrumbs", "Breadcrumbs") }}
+              {{ side_nav_item("/docs/patterns/buttons", "Buttons") }}
+              {{ side_nav_item("/docs/patterns/card", "Cards") }}
+              {{ side_nav_item("/docs/patterns/chip", "Chips") }}
+              {{ side_nav_item("/docs/patterns/contextual-menu", "Contextual menu") }}
+              {{ side_nav_item("/docs/patterns/divider", "Divider") }}
+              {{ side_nav_item("/docs/patterns/empty-state", "Empty state") }}
+              {{ side_nav_item("/docs/patterns/grid", "Grid") }}
+              {{ side_nav_item("/docs/patterns/heading-icon", "Heading icon") }}
+              {{ side_nav_item("/docs/patterns/icons", "Icons") }}
+              {{ side_nav_item("/docs/patterns/images", "Images") }}
+              {{ side_nav_item("/docs/patterns/links", "Links") }}
+              {{ side_nav_item("/docs/patterns/list-tree", "List tree") }}
+              {{ side_nav_item("/docs/patterns/lists", "Lists") }}
+              {{ side_nav_item("/docs/patterns/logo-section", "Logo section") }}
+              {{ side_nav_item("/docs/patterns/matrix", "Matrix") }}
+              {{ side_nav_item("/docs/patterns/media-object", "Media object") }}
+              {{ side_nav_item("/docs/patterns/modal", "Modal") }}
+              {{ side_nav_item("/docs/patterns/muted-heading", "Muted heading") }}
+              {{ side_nav_item("/docs/patterns/navigation", "Navigation", "Updated", "information") }}
+              {{ side_nav_item("/docs/patterns/notification", "Notifications") }}
+              {{ side_nav_item("/docs/patterns/pagination", "Pagination") }}
+              {{ side_nav_item("/docs/patterns/pull-quote", "Quotes") }}
+              {{ side_nav_item("/docs/patterns/search-and-filter", "Search and filter") }}
+              {{ side_nav_item("/docs/patterns/search-box", "Search box") }}
+              {{ side_nav_item("/docs/patterns/segmented-control", "Segmented control") }}
+              {{ side_nav_item("/docs/patterns/slider", "Slider") }}
+              {{ side_nav_item("/docs/patterns/status-labels", "Status labels") }}
+              {{ side_nav_item("/docs/patterns/strip", "Strip") }}
+              {{ side_nav_item("/docs/patterns/switch", "Switch") }}
+              {{ side_nav_item("/docs/patterns/table-of-contents", "Table of contents") }}
+              {{ side_nav_item("/docs/patterns/tabs", "Tabs") }}
+              {{ side_nav_item("/docs/patterns/tooltips", "Tooltips") }}
+            </ul>
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Utilities</span></li>
+              {{ side_nav_item("/docs/utilities/align", "Align") }}
+              {{ side_nav_item("/docs/utilities/baseline-grid", "Baseline grid") }}
+              {{ side_nav_item("/docs/utilities/clearfix", "Clearfix") }}
+              {{ side_nav_item("/docs/utilities/embedded-media", "Embedded media") }}
+              {{ side_nav_item("/docs/utilities/equal-height", "Equal height") }}
+              {{ side_nav_item("/docs/utilities/floats", "Floats") }}
+              {{ side_nav_item("/docs/utilities/font-metrics", "Font metrics") }}
+              {{ side_nav_item("/docs/utilities/functions", "Functions") }}
+              {{ side_nav_item("/docs/utilities/hide", "Hide") }}
+              {{ side_nav_item("/docs/utilities/image-position", "Image position") }}
+              {{ side_nav_item("/docs/utilities/margin-collapse", "Margin collapse") }}
+              {{ side_nav_item("/docs/utilities/no-print", "No print") }}
+              {{ side_nav_item("/docs/utilities/off-screen", "Off-screen") }}
+              {{ side_nav_item("/docs/utilities/padding-collapse", "Padding collapse") }}
+              {{ side_nav_item("/docs/utilities/table-cell-padding-overlap", "Table cell padding overlap") }}
+              {{ side_nav_item("/docs/utilities/truncate", "Truncation") }}
+              {{ side_nav_item("/docs/utilities/show", "Show") }}
+              {{ side_nav_item("/docs/utilities/vertical-spacing", "Vertical spacing") }}
+              {{ side_nav_item("/docs/utilities/vertically-center", "Vertically center") }}
+            </ul>
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Layouts</span></li>
+              {{ side_nav_item("/docs/layouts/application", "Application") }}
+              {{ side_nav_item("/docs/layouts/documentation", "Documentation") }}
+              {{ side_nav_item("/docs/layouts/fluid-breakout", "Fluid breakout") }}
+              {{ side_nav_item("/docs/layouts/sticky-footer", "Sticky footer") }}
+            </ul>
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Settings</span></li>
+              {{ side_nav_item("/docs/settings/animation-settings", "Animations") }}
+              {{ side_nav_item("/docs/settings/assets-settings", "Assets") }}
+              {{ side_nav_item("/docs/settings/breakpoint-settings", "Breakpoints") }}
+              {{ side_nav_item("/docs/settings/color-settings", "Color") }}
+              {{ side_nav_item("/docs/settings/font-settings", "Font") }}
+              {{ side_nav_item("/docs/settings/layout-settings", "Layout") }}
+              {{ side_nav_item("/docs/settings/placeholder-settings", "Placeholders") }}
+              {{ side_nav_item("/docs/settings/spacing-settings", "Spacing") }}
+              {{ side_nav_item("/docs/settings/table-layout", "Table layout") }}
+            </ul>
+
+            <ul class="p-side-navigation__list">
+              <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Resources</span></li>
+              {{ side_nav_item("/docs/examples", "Component examples") }}
+              {{ side_nav_item("https://github.com/canonical/vanilla-framework/releases/latest", "Release notes for " ~ version) }}
+              {{ side_nav_item("https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch", "Download Sketch UI Kit") }}
+            </ul>
+
+        </nav>
+
+      </aside>
+
+    </div>
+
+    <div class="l-main">
+      {% block body %}{% endblock %}
+      {% include "_layouts/_footer.html" %}
+    </div>
+  </div>
     <script src="{{ versioned_static('build/js/modules/cookie-policy.js') }}"></script>
     <script>
       cpNs.cookiePolicy();
