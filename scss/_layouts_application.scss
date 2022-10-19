@@ -40,6 +40,10 @@ $application-layout--side-nav-width-expanded: 15rem !default;
 }
 
 @mixin vf-l-application {
+  @include vf-l-application-panels;
+  $panel-drop-shadow: $box-shadow--deep;
+  $panel-drop-shadow-transparent: 0 0 0 0 transparent;
+
   .l-application {
     display: grid;
     grid-template-areas:
@@ -52,9 +56,6 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     overflow: hidden; // make sure panels transformed off-screen don't make the layout scroll
     width: 100vw;
   }
-
-  $panel-drop-shadow: $box-shadow--deep;
-  $panel-drop-shadow-transparent: 0 0 0 0 transparent;
 
   // Top navigation bar to toggle side navigation on small screens
   .l-navigation-bar {
@@ -275,6 +276,4 @@ $application-layout--side-nav-width-expanded: 15rem !default;
       }
     }
   }
-
-  @include vf-l-application-panels;
 }
