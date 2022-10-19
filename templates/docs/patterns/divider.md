@@ -10,7 +10,7 @@ context:
 
 ## Responsive divider
 
-A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-large`), the divider lines appear horizontally. On screens bigger than `$breakpoint-large`, the divider lines appear vertically, centered in the column gutters. This behaviour can be overriden for medium screens by applying `col-medium-...` to each column which will cause the divider lines to remain vertical for medium and large screens.
+A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-large`), the divider lines appear horizontally. On screens bigger than `$breakpoint-large`, the divider lines appear vertically, centered in the column gutters. This behaviour can be overridden for medium screens by applying `col-medium-...` to each column which will cause the divider lines to remain vertical for medium and large screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/divider/default/" class="js-example">
 View example of lists with a responsive divider
