@@ -30,7 +30,6 @@
   }
 
   @media ($media-query-keyword: #{$media-query-width}) {
-    @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
     // First set the width assuming the parent spans the entire grid. This is the case in 4 scenarios:
     // 1. The logo section is nested inside a container that spans the entire grid, (depending on breakpoint that can be a .col-4, .col-6, or .col-12 class), which itself sits inside a .row
     // 2. The logo section is nested inside a .u-fixed-width container
@@ -42,6 +41,7 @@
     $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
     $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
     $rem-contribution: $logo-column-span * math.div($gutters-total-width, $grid-column-count) - $gutter-width-inside-logo;
+    @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
 
     // Looping in reverse to ensure nested column rules end up further down in the generated css file, thus having higher specificity.
     // E.g. if a col-4 is nested inside col-8, the col-8 rule should be written above the col-4 rule in the css file, to ensure the col-4 styles take precedence
