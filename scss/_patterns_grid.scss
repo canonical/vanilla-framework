@@ -27,7 +27,7 @@
   }
 
   // mobile grid
-  @media (max-width: $threshold-4-6-col - 1) {
+  @media (max-width: $threshold-4-6-col) {
     @for $i from $grid-columns-small through 1 {
       .#{$grid-small-col-prefix}#{$i} {
         @include vf-grid-column($i);
@@ -38,7 +38,7 @@
   }
 
   // tablet grid
-  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1) {
+  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
     @for $i from $grid-columns-medium through 1 {
       .#{$grid-medium-col-prefix}#{$i} {
         @include vf-grid-column($i);
@@ -94,11 +94,11 @@
   @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
     $query: null;
     @if $breakpoint-min == 0 {
-      $query: '(max-width: #{$breakpoint-max - 1})';
+      $query: '(max-width: #{$breakpoint-max})';
     } @else if $breakpoint-max == -1 {
       $query: '(min-width: #{$breakpoint-min})';
     } @else {
-      $query: '(min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max - 1})';
+      $query: '(min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max})';
     }
 
     @media #{$query} {
@@ -127,7 +127,7 @@
       position: absolute;
       right: map-get($grid-margin-widths, small);
 
-      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1) {
+      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
         left: map-get($grid-margin-widths, default);
         right: map-get($grid-margin-widths, default);
       }
