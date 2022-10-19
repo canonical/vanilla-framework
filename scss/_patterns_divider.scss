@@ -1,5 +1,30 @@
 @import 'settings';
 
+@mixin horizontal-dividers() {
+  padding-bottom: $spv--large;
+  padding-top: $spv--large;
+
+  &:not(:first-child)::before {
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+@mixin vertical-dividers() {
+  &:not(:first-child)::before {
+    bottom: 0;
+    content: '';
+    left: map-get($grid-gutter-widths, default) * -0.5; // "large" here is not a typo. The grid switches to 12 columns at breakpoint medium. Hence the use of large-screen gutter
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+}
+
 @mixin vf-p-divider {
   .p-divider {
     @extend %vf-row;
@@ -10,29 +35,26 @@
   .p-divider__block {
     position: relative;
 
-    @media (max-width: $threshold-6-12-col - 1) {
-      padding-bottom: $spv--large;
-      padding-top: $spv--large;
+    @media (max-width: $breakpoint-small) {
+      @include horizontal-dividers();
+    }
 
-      &:not(:first-child)::before {
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
+    // Medium screens will have horizontal dividers unless col-medium-...
+    // classes have been applied.
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) {
+      // When there are no medium col overrides then set the dividers to horizontal
+      &:not([class*='#{$grid-medium-col-prefix}']) {
+        @include horizontal-dividers();
+      }
+
+      // If a col-medium- class has been applied then use vertical dividers.
+      &[class*='#{$grid-medium-col-prefix}'] {
+        @include vertical-dividers();
       }
     }
 
     @media (min-width: $threshold-6-12-col) {
-      &:not(:first-child)::before {
-        bottom: 0;
-        content: '';
-        left: map-get($grid-gutter-widths, default) * -0.5; // "large" here is not a typo. The grid switches to 12 columns at breakpoint medium. Hence the use of large-screen gutter
-        position: absolute;
-        top: 0;
-        width: 1px;
-      }
+      @include vertical-dividers();
     }
   }
 
