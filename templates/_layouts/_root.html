@@ -52,13 +52,18 @@
         position: relative;
       }
 
-      .l-documentation {
-        display: grid;
-        grid-template-areas:
-          'navbar navbar'
-          'nav    main  ';
-        grid-template-columns: 15rem minmax(0, 1fr);
-        grid-template-rows: min-content 1fr;
+      .l-side-navigation { display: none }
+
+      @media (min-width: 60rem) {
+        .l-side-navigation { display: block }
+        .l-documentation {
+          display: grid;
+          grid-template-areas:
+            'navbar navbar'
+            'nav    main  ';
+          grid-template-columns: 15rem minmax(0, 1fr);
+          grid-template-rows: min-content 1fr;
+        }
       }
 
       .l-documentation .l-main .row {
@@ -124,6 +129,10 @@
         padding-right: 1.5rem;
       }
 
+    }
+
+    .p-navigation__tagged-logo {
+      min-width: 13.5rem;
     }
     </style>
   </head>
