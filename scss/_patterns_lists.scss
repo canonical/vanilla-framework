@@ -310,8 +310,8 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       // To align the bullet with the title we need to use half
       // the height difference between the bullet and the title and then add the
       // nudge to position it with the lower case text.
-      $bullet-margin: ((map-get($line-heights, h#{$i}) - $bullet-width) / 2) + map-get($nudges, h#{$i});
-      $bullet-margin-mobile: ((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2) + map-get($nudges, h#{$i});
+      $bullet-margin: calc((map-get($line-heights, h#{$i}) - $bullet-width) / 2) + map-get($nudges, h#{$i});
+      $bullet-margin-mobile: calc((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2) + map-get($nudges, h#{$i});
     }
 
     .p-heading--#{$i}.p-stepped-list__title,
