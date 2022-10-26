@@ -1,14 +1,13 @@
 @import 'settings';
 
 $lightness-threshold: 70;
-$navigation-logo-tag-width: 1.313rem;
+$navigation-logo-tag-width: 1.313rem; // 21px when 1rem is 16px
 $navigation-logo-tag-height: 2rem;
-$navigation-logo-tag-height-desktop: 2.4rem;
-$navigation-logo-height: 1.1rem;
+$navigation-logo-tag-height-desktop: 2.3rem;
 $navigation-logo-height-desktop: 3.5rem;
-$navigation-logo-width: 1.1rem;
+$navigation-logo-size: 1rem;
 $sph-navigation-link: 0.3rem;
-$spv-navigation-logo: 0.3125rem;
+$spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
 @mixin vf-p-navigation {
   // placeholders
@@ -200,7 +199,7 @@ $spv-navigation-logo: 0.3125rem;
   .p-navigation__logo {
     display: flex;
     flex: 0 0 auto;
-    height: $navigation-logo-height;
+    height: $navigation-logo-size;
     margin: 0 $sph--large 0 0;
 
     @media (min-width: $breakpoint-navigation-threshold) {
@@ -233,12 +232,12 @@ $spv-navigation-logo: 0.3125rem;
     }
 
     .p-navigation__logo-icon {
-      bottom: $spv-navigation-logo;
-      height: $navigation-logo-height;
+      bottom: $spv-navigation-logo-bottom-position;
+      height: $navigation-logo-size;
       left: 50%;
       position: absolute;
       transform: translate(-50%, 0);
-      width: $navigation-logo-width;
+      width: $navigation-logo-size;
     }
 
     .p-navigation__logo-title {
