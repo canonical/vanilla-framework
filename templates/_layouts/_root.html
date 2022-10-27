@@ -54,6 +54,9 @@
 
       .l-side-navigation { display: none }
 
+      .p-navigation__tagged-logo {
+        min-width: auto;
+      }
       @media (min-width: 60rem) {
         .l-side-navigation { display: block }
         .l-documentation {
@@ -63,6 +66,10 @@
             'nav    main  ';
           grid-template-columns: 15rem minmax(0, 1fr);
           grid-template-rows: min-content 1fr;
+        }
+
+        .p-navigation__tagged-logo {
+          min-width: 13.5rem;
         }
       }
 
@@ -101,8 +108,9 @@
         grid-area: main;
       }
 
-      .p-navigation__nav {
-        width: auto;
+      .u-fixed-width.p-navigation__nav {
+        /* width: auto; */
+        margin: auto;
       }
 
       .p-navigation--right {
@@ -129,10 +137,6 @@
         padding-right: 1.5rem;
       }
 
-    }
-
-    .p-navigation__tagged-logo {
-      min-width: 13.5rem;
     }
     </style>
   </head>
