@@ -52,12 +52,15 @@
         position: relative;
       }
 
-      .l-side-navigation { display: none }
+      .l-side-navigation {
+        position: fixed;
+        z-index: 100;
+      }
 
       .p-navigation__tagged-logo {
         min-width: auto;
       }
-      @media (min-width: 60rem) {
+      @media (min-width: 1036px) {
         .l-side-navigation { display: block }
         .l-documentation {
           display: grid;
@@ -71,9 +74,24 @@
         .p-navigation__tagged-logo {
           min-width: 13.5rem;
         }
+
+        .l-side-navigation {
+          grid-area: nav;
+          background: #fff;
+          position: sticky;
+          top: 0;
+          align-self: start;
+          height: 100vh;
+          overflow: scroll;
+        }
+
+        .side-nav-toggle {
+          display: none;
+        }
       }
 
-      .l-documentation .l-main .row {
+      .l-documentation .l-main .row,
+      .l-documentation .l-main .u-fixed-width {
         margin-left: 0;
       }
 
@@ -85,20 +103,13 @@
           grid-template-columns: 15rem minmax(0, 1fr) minmax(0, 15rem);
         }
 
-        .l-documentation .l-main .row {
+        .l-documentation .l-main .row,
+      .l-documentation .l-main .u-fixed-width {
           margin-left: auto;
         }
       }
 
-      .l-side-navigation {
-        grid-area: nav;
-        background: #f7f7f7;
-        position: sticky;
-        top: 0;
-        align-self: start;
-        height: 100vh;
-        overflow: scroll;
-      }
+
 
       .p-navigation {
         grid-area: navbar;
@@ -137,6 +148,7 @@
         padding-right: 1.5rem;
       }
 
+
     }
     </style>
   </head>
@@ -153,8 +165,15 @@
 
     <div class="l-side-navigation">
       <aside class="p-strip is-shallow">
-        <nav class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
 
+        <div class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
+          <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer"></div>
+          <nav class="p-side-navigation__drawer" aria-label="Example side">
+            <div class="p-side-navigation__drawer-header">
+              <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer{% if is_sticky %}-sticky{% endif %}">
+                Toggle side navigation
+              </a>
+            </div>
             {% macro side_nav_item(url, title, label, type) -%}
                 <li class="p-side-navigation__item">
                   <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
@@ -280,12 +299,17 @@
             </ul>
 
         </nav>
-
+      </div>
       </aside>
 
     </div>
 
     <div class="l-main">
+      <div class="side-nav-toggle p-strip--light is-shallow">
+        <div class="u-fixed-width">
+          <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
+        </div>
+      </div>
       {% block body %}{% endblock %}
       {% include "_layouts/_footer.html" %}
     </div>

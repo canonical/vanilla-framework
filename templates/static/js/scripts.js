@@ -48,18 +48,18 @@
     @param {HTMLElement} sideNavigation The side navigation element.
   */
   function setupSideNavigation(sideNavigation) {
-    var toggles = [].slice.call(sideNavigation.querySelectorAll('.js-drawer-toggle'));
+    var toggles = [].slice.call(document.querySelectorAll('.js-drawer-toggle'));
     var drawerEl = sideNavigation.querySelector('.p-side-navigation__drawer');
 
     // hide navigation drawer on small screens
     sideNavigation.classList.add('is-drawer-hidden');
 
     // setup drawer element
-    // drawerEl.addEventListener('animationend', () => {
-    //   if (!sideNavigation.classList.contains('is-drawer-expanded')) {
-    //     sideNavigation.classList.add('is-drawer-hidden');
-    //   }
-    // });
+    drawerEl.addEventListener('animationend', () => {
+      if (!sideNavigation.classList.contains('is-drawer-expanded')) {
+        sideNavigation.classList.add('is-drawer-hidden');
+      }
+    });
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
