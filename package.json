@@ -27,10 +27,11 @@
   },
   "scripts": {
     "start": "yarn build && yarn serve",
-    "build": "yarn build-scss && yarn build-js",
-    "build-scss": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
+    "build": "yarn build-scss && yarn build-js && yarn build-class-references",
+    "build-scss": "sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules",
+    "build-class-references": "node scripts/create-class-references.js",
     "serve": "./entrypoint 0.0.0.0:${PORT}",
     "test-scss": "node -e 'require(\"./tests/parker\").parkerTest()'",
     "test-spelling": "mdspell templates/docs/**/*.md -r -n -a --en-gb",
@@ -44,7 +45,7 @@
     "percy": "percy exec -- node snapshots.js",
     "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js icons"
   },
-  "version": "3.1.2",
+  "version": "3.5.0",
   "files": [
     "_index.scss",
     "/scss",
@@ -54,10 +55,12 @@
   "dependencies": {
     "@canonical/cookie-policy": "3.4.0",
     "@canonical/latest-news": "1.3.0",
-    "autoprefixer": "10.4.4",
-    "postcss": "8.4.12",
+    "autoprefixer": "10.4.7",
+    "postcss": "8.4.14",
     "postcss-cli": "9.1.0",
-    "sass": "1.49.11"
+    "postcss-scss": "4.0.4",
+    "sass": "1.52.2",
+    "yaml": "1.10.2"
   },
   "devDependencies": {
     "@percy/script": "1.1.0",
@@ -65,7 +68,7 @@
     "markdown-spellcheck": "1.3.1",
     "parker": "0.0.10",
     "prettier": "2.6.2",
-    "stylelint": "14.6.1",
+    "stylelint": "14.8.5",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-recommended-scss": "5.0.2",
     "stylelint-order": "5.0.0",

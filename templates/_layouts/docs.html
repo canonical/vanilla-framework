@@ -9,7 +9,7 @@
 
     {% block banner %}{% endblock %}
 
-    <div class="p-strip">
+    <div class="p-strip is-shallow">
     <div class="row">
       <aside class="col-3">
         <nav class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
@@ -28,11 +28,11 @@
 
             {% macro side_nav_item(url, title, label, type) -%}
                 <li class="p-side-navigation__item">
-                  <a class="p-side-navigation__link" href="{{ url }}" {% if path == url %}aria-current="page"{% endif %}>
+                  <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
                     {{ title }}
                     {% if label %}
                       <span class="p-side-navigation__status">
-                        <span class="p-label--{{ type|lower }}">
+                        <span class="p-status-label--{{ type|lower }}">
                           {{ label|capitalize }}
                         </span>
                       </span>
@@ -47,7 +47,7 @@
               {{ side_nav_item("/docs/building-vanilla", "Building with Vanilla") }}
               {{ side_nav_item("/docs/customising-vanilla", "Customising Vanilla") }}
               {{ side_nav_item("/docs/whats-new", "What’s new in " ~ version) }}
-              {{ side_nav_item("/docs/migration-guide-to-v3", "Migrating to v3.0", "new", "positive") }}
+              {{ side_nav_item("/docs/migration-guide-to-v3", "Migrating to v3.0") }}
             </ul>
 
             <ul class="p-side-navigation__list">
@@ -69,29 +69,30 @@
               {{ side_nav_item("/docs/patterns/chip", "Chips") }}
               {{ side_nav_item("/docs/patterns/contextual-menu", "Contextual menu") }}
               {{ side_nav_item("/docs/patterns/divider", "Divider") }}
-              {{ side_nav_item("/docs/patterns/empty-state", "Empty state", 'new', 'positive') }}
+              {{ side_nav_item("/docs/patterns/empty-state", "Empty state") }}
               {{ side_nav_item("/docs/patterns/grid", "Grid") }}
               {{ side_nav_item("/docs/patterns/heading-icon", "Heading icon") }}
               {{ side_nav_item("/docs/patterns/icons", "Icons") }}
               {{ side_nav_item("/docs/patterns/images", "Images") }}
-              {{ side_nav_item("/docs/patterns/labels", "Labels") }}
               {{ side_nav_item("/docs/patterns/links", "Links") }}
               {{ side_nav_item("/docs/patterns/list-tree", "List tree") }}
-              {{ side_nav_item("/docs/patterns/lists", "Lists", 'updated', 'information') }}
+              {{ side_nav_item("/docs/patterns/lists", "Lists") }}
               {{ side_nav_item("/docs/patterns/logo-section", "Logo section") }}
               {{ side_nav_item("/docs/patterns/matrix", "Matrix") }}
               {{ side_nav_item("/docs/patterns/media-object", "Media object") }}
               {{ side_nav_item("/docs/patterns/modal", "Modal") }}
               {{ side_nav_item("/docs/patterns/muted-heading", "Muted heading") }}
-              {{ side_nav_item("/docs/patterns/navigation", "Navigation") }}
+              {{ side_nav_item("/docs/patterns/navigation", "Navigation", "updated", "information") }}
               {{ side_nav_item("/docs/patterns/notification", "Notifications") }}
               {{ side_nav_item("/docs/patterns/pagination", "Pagination") }}
               {{ side_nav_item("/docs/patterns/pull-quote", "Quotes") }}
               {{ side_nav_item("/docs/patterns/search-and-filter", "Search and filter") }}
               {{ side_nav_item("/docs/patterns/search-box", "Search box") }}
-              {{ side_nav_item("/docs/patterns/slider", "Slider", 'updated', 'information') }}
+              {{ side_nav_item("/docs/patterns/segmented-control", "Segmented control") }}
+              {{ side_nav_item("/docs/patterns/slider", "Slider") }}
+              {{ side_nav_item("/docs/patterns/status-labels", "Status labels") }}
               {{ side_nav_item("/docs/patterns/strip", "Strip") }}
-              {{ side_nav_item("/docs/patterns/switch", "Switch", 'updated', 'information') }}
+              {{ side_nav_item("/docs/patterns/switch", "Switch") }}
               {{ side_nav_item("/docs/patterns/table-of-contents", "Table of contents") }}
               {{ side_nav_item("/docs/patterns/tabs", "Tabs") }}
               {{ side_nav_item("/docs/patterns/tooltips", "Tooltips") }}
@@ -154,7 +155,17 @@
       </aside>
 
       <main class="col-9" id="main-content">
-        {% block content %}{{ content | safe }}{% endblock content %}
+        {% block content %}
+          {% if page_tabs %}
+          <div class="p-strip u-no-padding--top">
+            <h1>{{ title.split('|')[0] }}</h1>
+          </div>
+          {% endif %}
+
+          {% include "_layouts/_component_tabs.html" %}
+
+          {{ content | safe }}
+        {% endblock content %}
       </main>
 
     </div>

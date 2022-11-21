@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Chip | Components
+  title: Chips | Components
 ---
 
 # Chips

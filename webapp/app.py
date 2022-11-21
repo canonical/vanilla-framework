@@ -3,6 +3,10 @@ import glob
 import json
 import os
 import random
+import yaml
+import urllib
+import markupsafe
+import mistune
 
 # Packages
 import talisker.requests
@@ -20,6 +24,8 @@ from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 with open("package.json") as package_json:
     VANILLA_VERSION = json.load(package_json)["version"]
 
+with open("build/classreferences.yaml") as data_yaml:
+    CLASS_REFERENCES = yaml.load(data_yaml, Loader=yaml.FullLoader)
 
 app = FlaskBase(
     __name__,
@@ -36,7 +42,6 @@ TEAM_MEMBERS = [
     {"login": "bartaz", "role": "Senior Web Engineer"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
     {"login": "elioqoshi", "role": "UX Designer"},
-    {"login": "bethcollins92", "role": "Web Engineer"},
 ]
 
 
@@ -146,12 +151,43 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
+    docs_slug = (
+        flask.request.path.replace("/docs/", "")
+        .replace("/design/", "")
+        .replace("/accessibility", "")
+    )
 
+    docs_slug = "" if docs_slug == "/docs" else docs_slug
+
+    # Read navigation.yaml
+    with open("component_tabs.yaml") as component_tabs_file:
+        component_tabs = yaml.load(
+            component_tabs_file.read(), Loader=yaml.FullLoader
+        )
+
+    return {
+        "version": VANILLA_VERSION,
+        "versionMinor": version_minor,
+        "path": flask.request.path,
+        "page_tabs": component_tabs.get(docs_slug),
+        "slug": docs_slug,
+    }
+
+@app.template_filter()
+def markdown(text):
+    return markupsafe.Markup(mistune.markdown(text))
+
+def class_reference(component=None):
+    component = component or urllib.parse.urlsplit(flask.request.path).path.split('/')[-1]
+    data = CLASS_REFERENCES["class-references"][component]
+    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", data=data))
 
 @app.context_processor
 def utility_processor():
-    return {"image": image_template}
+    return {
+        "class_reference": class_reference,
+        "image": image_template
+    }
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
@@ -209,7 +245,6 @@ app.add_url_rule(
         session=session,
         site="vanillaframework.io/docs",
         template_path="docs/search.html",
-        search_engine_id="adb2397a224a1fe55" # https://cse.google.co.uk/cse/setup/basic?cx=adb2397a224a1fe55
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
@@ -219,7 +254,7 @@ discourse_docs = Docs(
         api=DiscourseAPI(
             base_url="https://discourse.ubuntu.com/", session=session
         ),
-        index_topic_id=27037, # https://discourse.ubuntu.com/t/design-system-website-config/27037
+        index_topic_id=27037,  # https://discourse.ubuntu.com/t/design-system-website-config/27037
         url_prefix="/design",
     ),
     document_template="/_layouts/docs_discourse.html",

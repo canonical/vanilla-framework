@@ -6,6 +6,7 @@
 FROM ubuntu:focal AS python-dependencies
 RUN apt-get update && apt-get install --no-install-recommends --yes python3-pip python3-setuptools
 ADD requirements.txt /tmp/requirements.txt
+RUN pip3 config set global.disable-pip-version-check true
 RUN --mount=type=cache,target=/root/.cache/pip pip3 install --user --requirement /tmp/requirements.txt
 
 
@@ -21,6 +22,7 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install --produc
 # Build stage: Build vanilla-framework itself
 # ===
 FROM yarn-dependencies AS build-vanilla
+ADD scripts scripts
 ADD scss scss
 RUN yarn run build
 
