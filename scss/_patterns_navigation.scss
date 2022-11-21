@@ -4,7 +4,8 @@ $lightness-threshold: 70;
 $navigation-logo-tag-width: 1.313rem; // 21px when 1rem is 16px
 $navigation-logo-tag-height: 2rem;
 $navigation-logo-tag-height-desktop: 2.3rem;
-$navigation-logo-height-desktop: 3.5rem;
+$navigation-logo-banner-height: 3rem; // legacy logo height (small and medium screens)
+$navigation-logo-banner-height-desktop: 3.5rem; // legacy logo height (on large screens)
 $navigation-logo-size: 1rem;
 $sph-navigation-link: 0.3rem;
 $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
@@ -199,10 +200,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   .p-navigation__logo {
     display: flex;
     flex: 0 0 auto;
+    height: $navigation-logo-banner-height;
     margin: 0 $sph--large 0 0;
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      height: $navigation-logo-height-desktop;
+      height: $navigation-logo-banner-height-desktop;
     }
 
     .p-navigation__item {
