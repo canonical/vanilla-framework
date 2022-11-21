@@ -273,7 +273,7 @@ For more options on configuring `gulp-sass`, for example minification and autopr
 
 Creating a submodule in the git repo does not add all the code to the project but includes a reference and path to include the framework. You may find this method useful if you're planing to host on Github Pages.
 
-Run this command at the root of your project (replacing vX.X.X with the [release](https://github.com/canonical-web-and-design/vanilla-framework/releases) you wish to use)
+Run this command at the root of your project (replacing vX.X.X with the [release](https://github.com/canonical/vanilla-framework/releases) you wish to use)
 
 ```
 git submodule add -b vX.X.X -- git@github.com:vanilla-framework/vanilla-framework.git _sass/vanilla-framework

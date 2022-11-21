@@ -12,8 +12,16 @@ $animation-easing: (
   in: cubic-bezier(0.55, 0.055, 0.675, 0.19),
 );
 
-@mixin vf-animation($property: all, $duration: brisk, $easing: out) {
+@mixin vf-transition($property: all, $duration: brisk, $easing: out) {
+  @if (type-of($property) != string) {
+    @error "vf-transition $property must be a string";
+  }
   transition-duration: map-get($animation-duration, $duration);
-  transition-property: $property;
+  transition-property: unquote($property);
   transition-timing-function: map-get($animation-easing, $easing);
+}
+
+// DEPRECATED: vf-animation mixin is deprecated and will be removed in future version of Vanilla, please use vf-transition instead
+@mixin vf-animation($args...) {
+  @include vf-transition($args...);
 }

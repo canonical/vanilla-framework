@@ -37,8 +37,9 @@ function initNavDropdowns(containerClass) {
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
 
+      const shouldOpen = !toggle.parentNode.classList.contains('is-active');
       closeAllDropdowns(toggles);
-      toggleDropdown(toggle, true);
+      toggleDropdown(toggle, shouldOpen);
     });
   });
 }

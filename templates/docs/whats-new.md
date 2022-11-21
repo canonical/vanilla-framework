@@ -20,14 +20,18 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.5.0 -->
+    <!-- 3.8.0 -->
     <tr>
-      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation - Headings</a></th>
+      <th>
+        <a href="/docs/patterns/navigation#accordion">
+          Side navigation - Accordion
+        </a>
+      </th>
       <td>
         <span class="p-status-label--information">Updated</span>
       </td>
-      <td>3.5.0</td>
-      <td>We've added a new <code>p-side-navigation__heading</code> and <code>p-side-navigation__heading--linked</code> classes to allow adding headings for side navigation item groups.</td>
+      <td>3.8.0</td>
+      <td>We've added <code>p-side-navigation--accordion</code>, <code>p-side-navigation__accordion-button</code> classes that allow building side navigation with accordions.</td>
     </tr>
   </tbody>
 </table>
@@ -44,6 +48,49 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.7.0 -->
+    <tr>
+      <th>
+        <a href="/docs/settings/animation-settings#usage">
+          <code>vf-animation</code> mixin
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.7.0</td>
+      <td><code>vf-animation</code> mixin has been deprecated. Please use <code>vf-transition</code> instead.</td>
+    </tr>
+    <tr>
+      <th>
+        <a href="/docs/settings/animation-settings#usage">
+          <code>vf-transition</code> mixin
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.7.0</td>
+      <td><code>vf-transition</code> mixin replaces deprecated <code>vf-animation</code>.</td>
+    </tr>
+    <!-- 3.6.0 -->
+    <tr>
+      <th><a href="/docs/patterns/badge">Badge</a></th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.6.0</td>
+      <td>We've added a badge component.</td>
+    </tr>
+    <!-- 3.5.0 -->
+    <tr>
+      <th><a href="/docs/patterns/navigation#side-navigation">Side navigation - Headings</a></th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.5.0</td>
+      <td>We've added a new <code>p-side-navigation__heading</code> and <code>p-side-navigation__heading--linked</code> classes to allow adding headings for side navigation item groups.</td>
+    </tr>
     <!-- 3.4.0 -->
      <tr>
       <th><a href="/docs/patterns/pagination">Pagination</a></th>

@@ -109,14 +109,6 @@ $color-suru-slant-left-fallback: rgba(205, 205, 205, 0.14) !default;
       linear-gradient(to top right, #fff 0%, #fff 49%, transparent 50%, transparent 100%), linear-gradient(to top right, #fff 0%, #fff 100%),
       linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
 
-    @supports (background-blend-mode: multiply) {
-      background-blend-mode: multiply, multiply, normal, normal, normal;
-      background-image: linear-gradient(to bottom right, $color-suru-slant-left 0%, $color-suru-slant-left 49.8%, transparent 50%, transparent 100%),
-        linear-gradient(to bottom left, $color-suru-slant-right 0%, $color-suru-slant-right 49.8%, transparent 50%, transparent 100%),
-        linear-gradient(to top right, $color-suru-background 0%, $color-suru-background 49%, transparent 50%, transparent 100%),
-        linear-gradient($color-suru-background 0%, $color-suru-background 100%), linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
-    }
-
     background-position: 0% 0%, top right, right 0 bottom 4rem, right bottom, 0% 0%;
     background-repeat: no-repeat;
     background-size: 100% calc(100% - 4rem), 50% 100%, 100% 4rem, 100% 4rem, auto;
@@ -125,6 +117,14 @@ $color-suru-slant-left-fallback: rgba(205, 205, 205, 0.14) !default;
     overflow: hidden;
     padding-bottom: 12rem;
     position: relative;
+
+    @supports (background-blend-mode: multiply) {
+      background-blend-mode: multiply, multiply, normal, normal, normal;
+      background-image: linear-gradient(to bottom right, $color-suru-slant-left 0%, $color-suru-slant-left 49.8%, transparent 50%, transparent 100%),
+        linear-gradient(to bottom left, $color-suru-slant-right 0%, $color-suru-slant-right 49.8%, transparent 50%, transparent 100%),
+        linear-gradient(to top right, $color-suru-background 0%, $color-suru-background 49%, transparent 50%, transparent 100%),
+        linear-gradient($color-suru-background 0%, $color-suru-background 100%), linear-gradient(111deg, $color-suru-start 10%, $color-suru-middle 37%, $color-suru-end 100%);
+    }
 
     &.is-deep {
       $padding: 3rem;
@@ -160,6 +160,12 @@ $color-suru-slant-left-fallback: rgba(205, 205, 205, 0.14) !default;
       linear-gradient(to bottom right, transparent 0%, transparent 49%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%),
       linear-gradient(90deg, $color-suru-start 4%, $color-suru-middle 50%, $color-suru-end 88%);
 
+    background-position: top right, top right, top left, top left;
+    background-repeat: no-repeat;
+    background-size: 39.4% 6rem, 54% 4rem, 63% 4rem, 62.6% 4rem;
+    padding-bottom: 4rem;
+    padding-top: 6rem;
+
     @supports (background-blend-mode: multiply) {
       background-blend-mode: multiply, multiply, normal, normal;
       background-image: linear-gradient(to bottom left, rgba(229, 229, 229, 0.5) 0%, rgba(229, 229, 229, 0.5) 49%, transparent 50%, transparent 100%),
@@ -167,12 +173,6 @@ $color-suru-slant-left-fallback: rgba(205, 205, 205, 0.14) !default;
         linear-gradient(to bottom right, transparent 0%, transparent 49%, #fff 50%, #fff 100%),
         linear-gradient(90deg, $color-suru-start 4%, $color-suru-middle 50%, $color-suru-end 88%);
     }
-
-    background-position: top right, top right, top left, top left;
-    background-repeat: no-repeat;
-    background-size: 39.4% 6rem, 54% 4rem, 63% 4rem, 62.6% 4rem;
-    padding-bottom: 4rem;
-    padding-top: 6rem;
 
     &.is-shallow {
       // Override is-shallow class with default padding, as Suru strips were not designed to be shallow

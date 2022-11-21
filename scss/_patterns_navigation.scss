@@ -1,14 +1,13 @@
 @import 'settings';
 
 $lightness-threshold: 70;
-$navigation-logo-tag-width: 1.5rem;
-$navigation-logo-tag-height: 2.2rem;
-$navigation-logo-tag-height-desktop: 2.4rem;
-$navigation-logo-height: 3rem;
+$navigation-logo-tag-width: 1.313rem; // 21px when 1rem is 16px
+$navigation-logo-tag-height: 2rem;
+$navigation-logo-tag-height-desktop: 2.3rem;
 $navigation-logo-height-desktop: 3.5rem;
-$navigation-logo-width: 1.1rem;
+$navigation-logo-size: 1rem;
 $sph-navigation-link: 0.3rem;
-$spv-navigation-logo: 0.3125rem;
+$spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
 @mixin vf-p-navigation {
   // placeholders
@@ -57,7 +56,7 @@ $spv-navigation-logo: 0.3125rem;
     $properties: #{background-color, color, opacity};
     @extend %navigation-link-responsive-padding-horizontal;
     @extend %navigation-link-responsive-padding-vertical;
-    @include vf-animation($properties, snap);
+    @include vf-transition($properties, snap);
     @include vf-focus;
 
     // override button styles
@@ -191,11 +190,8 @@ $spv-navigation-logo: 0.3125rem;
     padding-right: 0;
 
     @media (min-width: $threshold-4-6-col) {
+      padding-left: map-get($grid-margin-widths, default);
       padding-right: 0;
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: map-get($grid-margin-widths, small);
     }
   }
 
@@ -203,7 +199,7 @@ $spv-navigation-logo: 0.3125rem;
   .p-navigation__logo {
     display: flex;
     flex: 0 0 auto;
-    height: $navigation-logo-height;
+    height: $navigation-logo-size;
     margin: 0 $sph--large 0 0;
 
     @media (min-width: $breakpoint-navigation-threshold) {
@@ -236,23 +232,24 @@ $spv-navigation-logo: 0.3125rem;
     }
 
     .p-navigation__logo-icon {
-      bottom: $spv-navigation-logo;
+      bottom: $spv-navigation-logo-bottom-position;
+      height: $navigation-logo-size;
       left: 50%;
       position: absolute;
       transform: translate(-50%, 0);
-      width: $navigation-logo-width;
+      width: $navigation-logo-size;
     }
 
     .p-navigation__logo-title {
       @extend %vf-heading-4;
-
+      font-size: #{map-get($font-sizes, h4)}rem;
       line-height: map-get($line-heights, x-small);
     }
 
     .p-navigation__link {
       @extend %navigation-link;
 
-      padding-left: $navigation-logo-tag-width + $sph-navigation-link;
+      padding-left: $sph--x-large;
 
       &:hover {
         background-color: transparent !important;
@@ -443,7 +440,7 @@ $spv-navigation-logo: 0.3125rem;
     }
 
     .p-navigation__search-overlay {
-      @include vf-animation(opacity, snap);
+      @include vf-transition(opacity, snap);
 
       background-color: $colors--light-theme--background-overlay;
       display: block;

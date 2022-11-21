@@ -151,7 +151,7 @@ In the below example, the `.p-icon--share` class includes the `vf-icon-share` mi
 }
 ```
 
-You can find all of the available icon mixins listed [here](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_base_icon-definitions.scss).
+You can find all of the available icon mixins listed [here](https://github.com/canonical/vanilla-framework/blob/main/scss/_base_icon-definitions.scss).
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
@@ -159,4 +159,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use icons in React by installing our react-component library and importing `Icon` component.
 
-[See the documentation for our React `Icon` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/icon--default-story#icon)
+[See the documentation for our React `Icon` component](https://canonical.github.io/react-components/?path=/docs/icon--default-story#icon)

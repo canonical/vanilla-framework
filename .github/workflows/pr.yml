@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - run: yarn install
       - run: yarn build
       - run: yarn test
@@ -25,8 +25,8 @@ jobs:
       - name: Show size of the build file
         run: stat -c '%s' build/css/build.css
 
-  docker:
-    name: Build and run
+  linkchecker:
+    name: linkchecker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -41,6 +41,22 @@ jobs:
       - name: Check internal links
         run: linkchecker --ignore-url /search --ignore-url https://res.cloudinary.com --ignore-url q_auto --ignore-url  fl_sanitize --ignore-url  c_fill --ignore-url  e_sharpen --ignore-url  w_[0-9]* --ignore-url  h_[0-9]* http://localhost:${PORT}
 
+  cypress:
+    name: Cypress
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
+      - name: Run server with Docker
+        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
+      - name: Check server status
+        run: curl localhost:${PORT}/_status/check -I
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          config: baseUrl=http://localhost:${{ env.PORT }}
+
   inclusive-naming-check:
     runs-on: ubuntu-latest
 
@@ -49,7 +65,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check inclusive naming
-        uses: canonical-web-and-design/inclusive-naming@main
+        uses: canonical/inclusive-naming@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check

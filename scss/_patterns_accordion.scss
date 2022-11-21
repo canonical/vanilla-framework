@@ -28,14 +28,13 @@
     padding-right: $sph--large;
     position: relative;
     text-align: left;
-    transition-duration: 0s;
     width: 100%;
     z-index: 2;
 
     &::before {
-      @include vf-icon-chevron($color-mid-dark);
-      @include vf-animation($property: transform, $duration: fast);
       @extend %icon;
+      @include vf-icon-chevron($color-mid-dark);
+      @include vf-transition($property: transform, $duration: fast);
 
       content: '';
       margin-right: $sph--large;
@@ -49,12 +48,15 @@
       &:hover {
         background-color: $colors--light-theme--background-hover;
       }
+      @include vf-transition(#{background-color, border-color});
     }
 
     &[aria-expanded='false'] {
       &::before {
         transform: rotate(-90deg);
       }
+
+      @include vf-transition(#{background-color, border-color});
     }
   }
 
@@ -88,11 +90,22 @@
   .p-accordion__panel {
     margin: 0;
     overflow: auto; // include child margins into its height
-    padding-left: $sph--large + $icon-size + $sph--large * 2;
+    padding-left: $icon-size + $sph--large * 2;
 
+    @include vf-transition(#{transform, opacity}, fast);
     // Hides panel content
     &[aria-hidden='true'] {
-      display: none;
+      height: 0;
+      opacity: 0;
+      transform: translate3d(0, -0.5rem, 0);
+      visibility: hidden;
+    }
+
+    &[aria-hidden='false'] {
+      height: auto;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
     }
 
     &.has-tick-elements {

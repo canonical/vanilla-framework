@@ -110,6 +110,6 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use grid in React by installing our react-component library and importing `Row` and `Col` components.
 
-[See the documentation for our React `Row` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/row--default-story#row)
+[See the documentation for our React `Row` component](https://canonical.github.io/react-components/?path=/docs/row--default-story#row)
 
-[See the documentation for our React `Col` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/col--default-story#col)
+[See the documentation for our React `Col` component](https://canonical.github.io/react-components/?path=/docs/col--default-story#col)
