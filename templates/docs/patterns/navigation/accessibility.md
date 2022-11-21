@@ -19,6 +19,7 @@ The navigation component has the `<nav>` HTML tag to aid assistive technology. A
   - `aria-control`, which references the ID of the navigation panel it controls.
   - `aria-hidden`, which takes a boolean value to control the dropdown navigation items.
   - `aria-current="page"`, which is passed to the currently selected item.
+  - `aria-expanded`, which is used in expandable variants of side navigation.
 
 Care should be taken to ensure that the label makes sense out of context of the content around it.
 

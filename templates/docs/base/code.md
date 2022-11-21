@@ -120,4 +120,4 @@ View example of the code snippet with a border
 
 You can use code snippet in React by installing our react-component library and importing code snippet component.
 
-[See the documentation for our React `CodeSnippet` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/codesnippet--default-story#code-snippet)
+[See the documentation for our React `CodeSnippet` component](https://canonical.github.io/react-components/?path=/docs/codesnippet--default-story#code-snippet)

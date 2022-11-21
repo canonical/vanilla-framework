@@ -14,26 +14,26 @@
 ## Pre release tasks
 
 - Merge all pull requests relating to the given release
-- On [GitHub releases page](https://github.com/canonical-web-and-design/vanilla-framework/releases) update latest draft automatically created by Release Drafter
+- On [GitHub releases page](https://github.com/canonical/vanilla-framework/releases) update latest draft automatically created by Release Drafter
   - make sure automatic version is correct
   - clean up the log from unnecessary lines, move changes to relevant section if it didn't happen automatically based on labels, reword the changes for better readability
 
 ## Releasing
 
 - Pull locally latest version from the main branch
-- `./run build`
+- `dotrun build`
   - make sure everything builds without any errors
-- `./run test`
+- `dotrun test`
   - make sure all test pass
 
 ### Releasing on GitHub
 
-- Publish the latest release on [Github](https://github.com/canonical-web-and-design/vanilla-framework/releases/) with the new version number and add the release notes you created earlier.
+- Publish the latest release on [Github](https://github.com/canonical/vanilla-framework/releases/) with the new version number and add the release notes you created earlier.
   - Make sure to mark the release as a pre-release if it's an Alpha or Beta
 
 ### Releasng to NPM
 
-This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/.github/workflows/publish-on-release.yml)).
+This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical/vanilla-framework/blob/main/.github/workflows/publish-on-release.yml)).
 
 In case that fails, here are manual steps to release to NPM:
 
@@ -43,25 +43,25 @@ In case that fails, here are manual steps to release to NPM:
 
 ### Releasing to assets server
 
-This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/.github/workflows/publish-on-release.yml)).
+This should happen automatically after publishing the release on GH (thanks to [GH actions workflow](https://github.com/canonical/vanilla-framework/blob/main/.github/workflows/publish-on-release.yml)).
 
 In case that fails, here are manual steps to release to assets server:
 
-- `./run build`
+- `dotrun build`
 - `upload-assets --url-path vanilla-framework-version-X.X.X.min.css build/css/build.css`
 
 ## Deploying vanillaframework.io
 
 - [Staging](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-staging/) should be automatically deployed on every push to the main branch
 - Test the [staging build](https://staging.vanillaframework.io/)
-- Deploy to production on http://releases.demo.haus/
+- Deploy to production on https://webteam.canonical.com/releases
   - or [Deploy the site to production directly on jenkins](https://jenkins.canonical.com/webteam/view/vanilla-framework/job/vanillaframework.io-production/)
 
 ## Releasing React Components
 
-When the Vanilla npm package is published, [react-components](https://github.com/canonical-web-and-design/react-components/) project should be updated to latest version of Vanilla (renovate should prepare an update PR) and the updated `react-components` package should be published as well.
+When the Vanilla npm package is published, [react-components](https://github.com/canonical/react-components/) project should be updated to latest version of Vanilla (renovate should prepare an update PR) and the updated `react-components` package should be published as well.
 
-Please follow the [release process](https://github.com/canonical-web-and-design/react-components/blob/main/PUBLISH-NPM-PACKAGE.md) documented in the `react-components` repository.
+Please follow the [release process](https://github.com/canonical/react-components/blob/main/PUBLISH-NPM-PACKAGE.md) documented in the `react-components` repository.
 
 ## Promotion
 

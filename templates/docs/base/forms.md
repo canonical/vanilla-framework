@@ -246,6 +246,6 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use forms in React by installing our react-component library and importing `Form` and `Input` component.
 
-[See the documentation for our React `Form` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/form--default-story#form)
+[See the documentation for our React `Form` component](https://canonical.github.io/react-components/?path=/docs/form--default-story#form)
 
-[See the documentation for our React `Input` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/input--text-input#input)
+[See the documentation for our React `Input` component](https://canonical.github.io/react-components/?path=/docs/input--text-input#input)

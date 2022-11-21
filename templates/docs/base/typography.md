@@ -16,7 +16,7 @@ Vanilla's typographic scale has a base font-size of `1rem`.
 
 The pixel value of `1rem` depends on the browser (in most cases, `16px`) and the user's browser settings.
 
-In addition to that, Vanilla multiplies that value by <a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_font.scss#L9">`$font-size-ratio--largescreen`</a> on resolutions above a certain threshold (<a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">`$font-size-largescreen`</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
+In addition to that, Vanilla multiplies that value by <a href="https://github.com/canonical/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_font.scss#L9">`$font-size-ratio--largescreen`</a> on resolutions above a certain threshold (<a href="https://github.com/canonical/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">`$font-size-largescreen`</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
 
 To disable this behaviour, include the following after you import and include the framework in your `scss`:
 
@@ -231,7 +231,7 @@ The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-
 $font-display-option: <auto | block | swap | fallback | optional>;
 ```
 
-The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_base_fontfaces.scss) is set to `fallback`.
+The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical/vanilla-framework/blob/main/scss/_base_fontfaces.scss) is set to `fallback`.
 
 ## Import
 

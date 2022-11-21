@@ -14,9 +14,29 @@
   }
 }
 
+@mixin vf-grid-column-reordering($label, $col-count, $reset: false) {
+  @for $i from 1 through $col-count {
+    .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
+      @if $reset {
+        grid-column-start: initial;
+      } @else {
+        grid-column-start: #{$i};
+      }
+    }
+
+    .#{$grid-column-prefix}order-#{$label}-#{$i} {
+      @if $reset {
+        order: initial;
+      } @else {
+        order: #{$i};
+      }
+    }
+  }
+}
+
 @mixin vf-p-grid {
   // FIXME: this should be removed from framework SCSS
-  // (see https://github.com/canonical-web-and-design/vanilla-framework/issues/3199)
+  // (see https://github.com/canonical/vanilla-framework/issues/3199)
   .grid-demo [class*='#{$grid-column-prefix}'] {
     background: transparentize($color-negative, 0.9);
     margin-bottom: $spv--small;
@@ -27,18 +47,59 @@
   }
 
   // mobile grid
-  @media (max-width: $threshold-4-6-col - 1) {
-    @for $i from $grid-columns-small through 1 {
-      .#{$grid-small-col-prefix}#{$i} {
-        @include vf-grid-column($i);
 
-        width: 100%;
-      }
+  // by default medium and large screen col classes should span full width on mobile (to match block level element behaviour)
+  %span-full-grid-on-mobile {
+    grid-column: auto / span $grid-columns-small;
+  }
+
+  @for $i from 1 through $grid-columns-medium {
+    .#{$grid-medium-col-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %display-block;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .#{$grid-large-col-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %display-block;
+    }
+  }
+
+  // col-small-X classes define grid for small screen
+  @for $i from $grid-columns-small through 1 {
+    .#{$grid-small-col-prefix}#{$i} {
+      @extend %display-block;
+      @include vf-grid-column($i);
+
+      width: 100%;
     }
   }
 
   // tablet grid
-  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1) {
+
+  // on medium/tablet screens, small and large grid class names span full width (to match block level element behaviour)
+  %span-full-grid-on-tablet {
+    @media (min-width: $threshold-4-6-col) {
+      grid-column: auto / span $grid-columns-medium;
+    }
+  }
+
+  @for $i from 1 through $grid-columns-small {
+    .#{$grid-small-col-prefix}#{$i} {
+      @extend %span-full-grid-on-tablet;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .#{$grid-large-col-prefix}#{$i} {
+      @extend %span-full-grid-on-tablet;
+    }
+  }
+
+  // col-medium-X classes define grid for medium screens
+  @media (min-width: $threshold-4-6-col) {
     @for $i from $grid-columns-medium through 1 {
       .#{$grid-medium-col-prefix}#{$i} {
         @include vf-grid-column($i);
@@ -49,6 +110,27 @@
   }
 
   // desktop grid
+
+  // on desktop screens small and medium grid class names span full width (to match block level element behaviour)
+  %span-full-grid-on-desktop {
+    @media (min-width: $threshold-6-12-col) {
+      grid-column: auto / span $grid-columns;
+    }
+  }
+
+  @for $i from 1 through $grid-columns-small {
+    .#{$grid-small-col-prefix}#{$i} {
+      @extend %span-full-grid-on-desktop;
+    }
+  }
+
+  @for $i from 1 through $grid-columns-medium {
+    .#{$grid-medium-col-prefix}#{$i} {
+      @extend %span-full-grid-on-desktop;
+    }
+  }
+
+  // col-X class names define grid on large/desktop screens
   @media (min-width: $threshold-6-12-col) {
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
@@ -59,57 +141,25 @@
     }
   }
 
-  // span full grid on other breakpoints; (to match block level element behaviour)
-  @for $i from 1 through $grid-columns-small {
-    .#{$grid-small-col-prefix}#{$i} {
-      @extend %span-full-grid-on-tablet;
-      @extend %span-full-grid-on-desktop;
-      @extend %display-block;
-    }
-  }
-
-  @for $i from 1 through $grid-columns-medium {
-    .#{$grid-medium-col-prefix}#{$i} {
-      @extend %span-full-grid-on-mobile;
-      @extend %span-full-grid-on-desktop;
-      @extend %display-block;
-    }
-  }
-
-  @for $i from 1 through $grid-columns {
-    .#{$grid-large-col-prefix}#{$i} {
-      @extend %span-full-grid-on-mobile;
-      @extend %span-full-grid-on-tablet;
-      @extend %display-block;
-    }
-  }
-
   // column reordering
   $offsets: (
     (small, 0, $threshold-4-6-col, $grid-columns-small - 1),
     (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium - 1),
-    (large, $threshold-6-12-col, -1, $grid-columns - 1)
+    (large, $threshold-6-12-col, false, $grid-columns - 1)
   );
 
-  @each $label, $breakpoint-min, $breakpoint-max, $col-count in $offsets {
-    $query: null;
+  @each $label, $breakpoint-min, $breakpoint-reset, $col-count in $offsets {
     @if $breakpoint-min == 0 {
-      $query: '(max-width: #{$breakpoint-max - 1})';
-    } @else if $breakpoint-max == -1 {
-      $query: '(min-width: #{$breakpoint-min})';
+      @include vf-grid-column-reordering($label, $col-count);
     } @else {
-      $query: '(min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max - 1})';
+      @media (min-width: #{$breakpoint-min}) {
+        @include vf-grid-column-reordering($label, $col-count);
+      }
     }
 
-    @media #{$query} {
-      @for $i from 1 through $col-count {
-        .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
-          grid-column-start: #{$i};
-        }
-
-        .#{$grid-column-prefix}order-#{$label}-#{$i} {
-          order: #{$i};
-        }
+    @if $breakpoint-reset {
+      @media (min-width: #{$breakpoint-reset}) {
+        @include vf-grid-column-reordering($label, $col-count, $reset: true);
       }
     }
   }
@@ -127,7 +177,7 @@
       position: absolute;
       right: map-get($grid-margin-widths, small);
 
-      @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1) {
+      @media (min-width: $threshold-4-6-col) {
         left: map-get($grid-margin-widths, default);
         right: map-get($grid-margin-widths, default);
       }

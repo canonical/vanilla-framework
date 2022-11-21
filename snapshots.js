@@ -1,12 +1,12 @@
 const PercyScript = require('@percy/script');
-const GetSiteUrls = require('get-site-urls');
 
 const PORT = process.env.PORT || 8101;
 
 PercyScript.run(async (page, percySnapshot) => {
+  const {default: GetSiteUrls} = await import('get-site-urls');
   let links = await GetSiteUrls(`http://localhost:${PORT}/`);
 
-  links = links.pages
+  links = links.found
     // only snapshot examples, not the whole site
     .filter((url) => url.includes('/docs/examples/'))
     // remove standalone examples listing from screenshots

@@ -14,11 +14,12 @@
 
 ## Running the project
 
-### Via dotrun
-
-The simplest way to run the Vanilla framework on Linux is with the [dotrun snap](https://github.com/canonical-web-and-design/dotrun/), and using the `dotrun` command to build the project:
+The simplest way to run the Vanilla framework on all operating systems is by [installing Docker](https://docs.docker.com/engine/installation/) (Linux users may need to [add your user to the `docker` group](https://docs.docker.com/engine/installation/linux/linux-postinstall/)) and [dotrun](https://github.com/canonical/dotrun/), and using the `dotrun` command to build or serve the project:
 
 ```bash
+# Build CSS into the ./build/ directory:
+dotrun build
+
 # Build CSS into the ./build/ directory,
 # and start the server:
 dotrun
@@ -26,27 +27,14 @@ dotrun
 # Dynamically watch for changes to the
 # Sass files and build automatically:
 dotrun watch
+
+# See a full list of commands:
+dotrun exec yarn run --non-interactive
 ```
 
-When writing SCSS, it's useful to run both commands in separate terminals so changes are quickly built and ready for the browser to pick up on page reload.
+When writing SCSS, it's useful to run `dotrun` and `dotrun watch` in separate terminals so changes are quickly built and ready for the browser to pick up on page reload.
 
-### Via Docker
-
-It can also be run on other operating systems by first [installing Docker](https://docs.docker.com/engine/installation/) (Linux users may need to [add your user to the `docker` group](https://docs.docker.com/engine/installation/linux/linux-postinstall/)), and then using the `./run` script:
-
-```bash
-# Build CSS into the ./build/ directory:
-./run build
-
-# Start the server:
-./run serve
-
-# Dynamically watch for changes to the
-# Sass files and build automatically:
-./run watch
-```
-
-If you want to speed up the build or watch scripts you can run the project without including the standalone examples, using `./run build:essential` or `./run watch:essential`.
+If you want to speed up the build or watch scripts you can run the project without including the standalone examples, using `dotrun build:essential` or `dotrun watch:essential`.
 
 ## Viewing documentation and examples
 
