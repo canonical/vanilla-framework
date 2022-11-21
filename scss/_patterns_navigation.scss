@@ -1,12 +1,25 @@
 @import 'settings';
 
 $lightness-threshold: 70;
+$navigation-logo-tag-width: 1.5rem;
+$navigation-logo-tag-height: 2.2rem;
+$navigation-logo-tag-height-desktop: 2.4rem;
+$navigation-logo-height: 3rem;
+$navigation-logo-height-desktop: 3.5rem;
+$navigation-logo-width: 1.1rem;
+$sph-navigation-link: 0.3rem;
+$spv-navigation-logo: 0.3125rem;
 
 @mixin vf-p-navigation {
   // placeholders
   %navigation-link-responsive-padding-vertical {
-    padding-bottom: $spv--large;
-    padding-top: $spv--large;
+    padding-bottom: $spv--medium;
+    padding-top: $spv--medium;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv--large;
+      padding-top: $spv--large;
+    }
   }
 
   %navigation-link-responsive-padding-left {
@@ -47,14 +60,21 @@ $lightness-threshold: 70;
     @include vf-animation($properties, snap);
     @include vf-focus;
 
+    // override button styles
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+
     display: block;
     font-weight: $font-weight-bold;
     line-height: map-get($line-heights, default-text);
-    margin-bottom: 0;
+    margin: 0;
     overflow: hidden;
     position: relative;
+    text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
 
     &::before {
       content: '';
@@ -179,16 +199,68 @@ $lightness-threshold: 70;
     }
   }
 
+  // Styles for old navigation logo
   .p-navigation__logo {
     display: flex;
     flex: 0 0 auto;
-    height: 3.5rem;
+    height: $navigation-logo-height;
     margin: 0 $sph--large 0 0;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      height: $navigation-logo-height-desktop;
+    }
 
     .p-navigation__item {
       @include vf-focus;
 
       display: flex;
+    }
+  }
+
+  .p-navigation__tagged-logo {
+    display: flex; // to prevent logo link from expanding full width
+    margin-right: 0;
+    min-width: 13rem;
+
+    .p-navigation__logo-tag {
+      background-color: $color-accent;
+      height: $navigation-logo-tag-height;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $navigation-logo-tag-width;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        height: $navigation-logo-tag-height-desktop;
+      }
+    }
+
+    .p-navigation__logo-icon {
+      bottom: $spv-navigation-logo;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      width: $navigation-logo-width;
+    }
+
+    .p-navigation__logo-title {
+      @extend %vf-heading-4;
+
+      line-height: map-get($line-heights, x-small);
+    }
+
+    .p-navigation__link {
+      @extend %navigation-link;
+
+      padding-left: $navigation-logo-tag-width + $sph-navigation-link;
+
+      &:hover {
+        background-color: transparent !important;
+      }
+
+      &::before {
+        content: none;
+      }
     }
   }
 
@@ -199,6 +271,19 @@ $lightness-threshold: 70;
   }
 
   // navigation items
+  .p-navigation__items {
+    display: none; // hidden by default on mobile (expands is a dropdown)
+    list-style: none;
+    margin: -1px 0 0 0;
+    padding: 0;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0; // prevents bottom border of nav from moving 1px
+    }
+  }
+
   .p-navigation__nav {
     display: none;
     flex-direction: column;
@@ -212,15 +297,14 @@ $lightness-threshold: 70;
     }
   }
 
-  .p-navigation__items {
-    list-style: none;
-    margin: -1px 0 0 0;
-    padding: 0;
+  // items inside the logo banner (for mobile menu)
+  .p-navigation__banner .p-navigation__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0; // prevents bottom border of nav from moving 1px
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 0; // prevents bottom border of nav from moving 1px
+      display: none;
     }
   }
 
@@ -229,7 +313,8 @@ $lightness-threshold: 70;
     display: none;
   }
 
-  .p-navigation__toggle--open {
+  .p-navigation__toggle--open,
+  .p-navigation__toggle--search {
     display: block;
 
     @media (min-width: $breakpoint-navigation-threshold) {
@@ -238,7 +323,8 @@ $lightness-threshold: 70;
   }
 
   .p-navigation__toggle--open,
-  .p-navigation__toggle--close {
+  .p-navigation__toggle--close,
+  .p-navigation__toggle--search {
     @extend %navigation-link-responsive-padding-horizontal;
     @extend %navigation-link-responsive-padding-vertical;
     @include vf-focus;
@@ -262,6 +348,14 @@ $lightness-threshold: 70;
       display: flex;
     }
 
+    .p-navigation__items {
+      display: block;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: flex;
+      }
+    }
+
     .p-navigation__toggle--open {
       display: none;
     }
@@ -279,6 +373,7 @@ $lightness-threshold: 70;
 
   // on mobile screens search box is visible inside of the mobile navigation dropdown
   .p-navigation__search {
+    display: none;
     padding-top: $spv--large;
 
     // allow search box to take full width
@@ -287,64 +382,59 @@ $lightness-threshold: 70;
     }
   }
 
-  // on mobile screens both search toggle and overlay are not used and hidden from view
   .p-navigation__link--search-toggle {
     @extend %navigation-link;
 
-    display: none;
+    display: block;
     height: 100%; // keep the height of the navigation when 'Search' label is hidden
     padding-left: 0; // on small screens label is hidden, so we remove left padding as well
     padding-right: 2 * $sph--small + map-get($icon-sizes, default);
     position: relative;
+
+    // hide "search" label on small screens (only show the icon)
+    .p-navigation__search-label {
+      display: none;
+    }
+
+    // show both label and icon on large screens
+    @media (min-width: $breakpoint-large) {
+      padding-left: $sph--large;
+
+      .p-navigation__search-label {
+        display: initial;
+      }
+    }
+
+    &::after {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: $spv--large;
+      pointer-events: none;
+      position: absolute;
+      right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+      text-indent: calc(100% + 10rem);
+      top: calc(#{$spv--medium} + #{map-get($nudges, x-small)});
+      width: map-get($icon-sizes, default);
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        top: calc(#{$spv--large} + #{map-get($nudges, x-small)});
+      }
+    }
   }
 
-  .p-navigation__search-overlay {
+  .p-navigation__nav .p-navigation__link--search-toggle {
     display: none;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: block;
+    }
   }
 
   // the expanding search box is only visible on large screens in navigation bar
   @media (min-width: $breakpoint-navigation-threshold) {
-    .p-navigation__link--search-toggle {
-      display: block;
-
-      // hide "search" label on small screens (only show the icon)
-      .p-navigation__search-label {
-        display: none;
-      }
-
-      // show both label and icon on large screens
-      @media (min-width: $breakpoint-large) {
-        padding-left: $sph--large;
-
-        .p-navigation__search-label {
-          display: initial;
-        }
-      }
-
-      &::after {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        content: '';
-        display: block;
-        height: $spv--large;
-        pointer-events: none;
-        position: absolute;
-        right: map-get($grid-margin-widths, small);
-        text-indent: calc(100% + 10rem);
-        top: calc(#{$spv--large} + #{map-get($nudges, x-small)});
-        width: map-get($icon-sizes, default);
-
-        @media (min-width: $threshold-4-6-col) {
-          right: map-get($grid-margin-widths, default);
-        }
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          right: calc(#{$sph--small} + 1px); // 1px for the border on selects. this aligns it with any selects underneath
-        }
-      }
-    }
-
     .p-navigation__search {
       align-items: center;
       display: none;
@@ -356,7 +446,6 @@ $lightness-threshold: 70;
       @include vf-animation(opacity, snap);
 
       background-color: $colors--light-theme--background-overlay;
-      bottom: 0;
       display: block;
       height: 100%;
       left: 0;
@@ -368,29 +457,50 @@ $lightness-threshold: 70;
       width: 100%;
       z-index: 59;
     }
+  }
 
-    // when navigation search is expanded
-    .p-navigation.has-search-open {
-      // hide all navigation items (including search toggle)
-      .p-navigation__items {
-        display: none;
-      }
+  // when navigation search is expanded
+  .p-navigation.has-search-open {
+    // make sure search in navigation renders on top of the overlay
+    .p-navigation__nav {
+      display: flex;
+      z-index: 60;
+    }
 
-      // show expanded search box
-      .p-navigation__search {
+    // hide all navigation items (including search toggle)
+    .p-navigation__nav .p-navigation__items {
+      display: none;
+    }
+
+    // show expanded search box
+    .p-navigation__search {
+      display: flex;
+    }
+
+    // fade in search overlay
+    .p-navigation__search-overlay {
+      opacity: 0.5;
+      pointer-events: all;
+    }
+  }
+
+  .p-navigation.has-menu-open {
+    // hide all navigation items (including search toggle)
+    .p-navigation__nav {
+      display: flex;
+    }
+
+    .p-navigation__nav .p-navigation__items {
+      display: block;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
         display: flex;
       }
+    }
 
-      // fade in search overlay
-      .p-navigation__search-overlay {
-        opacity: 0.5;
-        pointer-events: all;
-      }
-
-      // make sure search in navigation renders on top of the overlay
-      .p-navigation__nav {
-        z-index: 60;
-      }
+    // show expanded search box
+    .p-navigation__search {
+      display: none;
     }
   }
 
@@ -412,7 +522,7 @@ $lightness-threshold: 70;
       top: $spv--large * 2 + map-get($line-heights, default-text);
     }
 
-    @media (max-width: $breakpoint-navigation-threshold - 1) {
+    @media (max-width: ($breakpoint-navigation-threshold - 1)) {
       box-shadow: none;
     }
   }
@@ -537,9 +647,14 @@ $lightness-threshold: 70;
       background-color: $color-navigation-background--hover;
     }
 
+    &[aria-pressed='true'],
     &:active {
       background-color: $color-navigation-background--active;
     }
+  }
+
+  .p-navigation__logo-title {
+    color: $color-navigation-text;
   }
 
   .p-navigation__item--dropdown-toggle {
@@ -552,6 +667,7 @@ $lightness-threshold: 70;
     }
   }
 
+  .p-navigation__toggle--search::after,
   .p-navigation__item .p-navigation__link--search-toggle::after {
     @include vf-icon-search($color-navigation-icon);
   }
@@ -571,8 +687,18 @@ $lightness-threshold: 70;
     }
   }
 
-  .p-navigation__link::before {
+  .p-navigation__nav .p-navigation__link::before {
     background: $color-navigation-separator;
+  }
+
+  // on mobile expanded nav needs to match pressed color of the buttons
+  &.has-menu-open .p-navigation__nav,
+  &.has-search-open .p-navigation__nav {
+    background-color: $color-navigation-background--active;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      background-color: transparent;
+    }
   }
 }
 
@@ -582,9 +708,9 @@ $lightness-threshold: 70;
     $color-navigation-background: $colors--light-theme--background-default,
     $color-navigation-background--hover: $colors--light-theme--background-alt,
     $color-navigation-background--active: $colors--light-theme--background-active,
-    $color-navigation-highlight: $color-accent,
+    $color-navigation-highlight: $colors--light-theme--text-default,
     $color-navigation-separator: $colors--light-theme--border-low-contrast,
-    $color-navigation-icon: $colors--light-theme--text-muted
+    $color-navigation-icon: $colors--light-theme--text-default
   );
 }
 
@@ -594,8 +720,8 @@ $lightness-threshold: 70;
     $color-navigation-background: $colors--dark-theme--background-default,
     $color-navigation-background--hover: $colors--dark-theme--background-hover,
     $color-navigation-background--active: $colors--dark-theme--background-active,
-    $color-navigation-highlight: $color-accent,
+    $color-navigation-highlight: $colors--dark-theme--text-default,
     $color-navigation-separator: $colors--dark-theme--border-low-contrast,
-    $color-navigation-icon: $colors--dark-theme--text-muted
+    $color-navigation-icon: $colors--dark-theme--text-default
   );
 }
