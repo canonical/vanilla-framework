@@ -38,8 +38,9 @@ $color-focus-positive: #003008 !default;
 $color-focus-negative: #3b0006 !default;
 
 // Button background color changes
+$input-background-opacity-amount: 0.04;
 $hover-background-opacity-amount: 0.05;
-$active-background-opacity-amount: 0.1;
+$active-background-opacity-amount: 0.08;
 
 $muted-text-opacity-amount: 0.6;
 $inactive-text-opacity-amount: 0.75;
@@ -85,6 +86,7 @@ $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-
 
 $colors--light-theme--background-default: #fff !default;
 $colors--light-theme--background-alt: #f7f7f7 !default;
+$colors--light-theme--background-inputs: adjust-color($color-x-dark, $lightness: 100% * (1 - $input-background-opacity-amount)) !default;
 $colors--light-theme--background-active: adjust-color($color-x-dark, $lightness: 100% * (1 - $active-background-opacity-amount)) !default;
 $colors--light-theme--background-hover: adjust-color($color-x-dark, $lightness: 100% * (1 - $hover-background-opacity-amount)) !default;
 $colors--light-theme--background-overlay: transparentize($color-dark, 0.15) !default;

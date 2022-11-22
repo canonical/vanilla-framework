@@ -4,7 +4,6 @@
 // Form element styles
 @mixin vf-b-forms {
   @include vf-b-range;
-
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
     padding-bottom: $input-vertical-padding;
@@ -21,10 +20,9 @@
     -moz-appearance: textfield;
     appearance: textfield;
     // stylelint-enable property-no-vendor-prefix
-
-    background-color: $colors--light-theme--background-hover;
-    border: 1px solid transparent;
-    border-bottom: 1px solid $colors--light-theme--text-default;
+    background-color: $colors--light-theme--background-inputs;
+    border: 0 solid transparent;
+    border-bottom: $input-border-thickness solid $colors--light-theme--text-default;
     border-radius: 0;
     color: $color-dark;
     font-family: unquote($font-base-family);
@@ -38,10 +36,19 @@
     vertical-align: baseline;
     width: 100%;
 
+    &:hover {
+      background-color: $colors--light-theme--background-hover;
+    }
+    
+    &:active,
+    &:focus {
+      background-color: $colors--light-theme--background-active;
+    }
+
     &.is-dense {
       margin: 0 0 $spv-nudge-compensation 0;
-      padding-bottom: calc(#{$spv-nudge - $spv--x-small} - 1px);
-      padding-top: calc(#{$spv-nudge - $spv--x-small} - 1px);
+      padding-bottom: calc(#{$spv-nudge - $spv--x-small} -$input-border-thickness);
+      padding-top: calc(#{$spv-nudge - $spv--x-small} -$input-border-thickness);
     }
 
     &[disabled],
@@ -56,7 +63,7 @@
 
     @each $state, $color in $states {
       &.has-#{$state} {
-        border: 1px solid $color;
+        border:$input-border-thickness solid $color;
       }
     }
   }
@@ -212,7 +219,7 @@
 
     margin-left: 0;
     margin-right: 0;
-    padding: calc(#{$spv--large} - 1px);
+    padding: calc(#{$spv--large} -$input-border-thickness);
   }
   // stylelint-enable selector-max-type
 }

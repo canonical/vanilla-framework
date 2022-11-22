@@ -19,10 +19,10 @@
   // When the search and filter is not expanded, but is overflowing with chips, we need to
   // specify a height that matches that of a standard input element. This height is a combination
   // of an input's line-height, its vertical padding, and a nudge.
-  $input-height: calc(#{map-get($line-heights, default-text)} + #{$input-vertical-padding} + #{$spv-nudge} - 1px);
+  $input-height: calc(#{map-get($line-heights, default-text)} + #{$input-vertical-padding} + #{$spv-nudge} - $input-border-thickness);
 
   .p-search-and-filter {
-    border: 1px solid $colors--light-theme--border-high-contrast;
+    border: $input-border-thickness solid $colors--light-theme--border-high-contrast;
     position: relative;
 
     .p-search-and-filter__search-container {
