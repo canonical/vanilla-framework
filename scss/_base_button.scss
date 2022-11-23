@@ -9,8 +9,8 @@
   }
 
   %vf-button-dense-vertical-padding {
-    padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - $input-border-thickness);
-    padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - $input-border-thickness);
+    padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - #{$input-border-thickness});
+    padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - #{$input-border-thickness});
   }
 
   %vf-button-base {
@@ -56,13 +56,13 @@
       font-size: #{map-get($font-sizes, small)}rem;
       line-height: map-get($line-heights, small);
       margin-bottom: $input-margin-bottom - $sp-unit;
-      padding: calc(#{map-get($nudges, small)} - $input-border-thickness) $sph--small;
+      padding: calc(#{map-get($nudges, small)} - #{$input-border-thickness}) $sph--small;
     }
 
     &.is-small.is-dense {
       margin-bottom: $spv-nudge-compensation;
-      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - $input-border-thickness);
-      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - $input-border-thickness);
+      padding-bottom: calc(#{$spv-nudge - $sp-unit * 0.5} - #{$input-border-thickness});
+      padding-top: calc(#{$spv-nudge - $sp-unit * 0.5} - #{$input-border-thickness});
     }
 
     // The following rules address buttons nested in <p>'s;
