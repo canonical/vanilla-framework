@@ -12,10 +12,10 @@
     display: inline-flex;
     margin: 0 $sph--small $input-margin-bottom 0;
     max-width: 100%;
-    padding: calc(#{$spv--x-small} - 1px) $sph--small; // account for border thickness using calc
+    padding: calc(#{$spv--x-small} - #{$input-border-thickness}) $sph--small; // account for border thickness using calc
     position: relative;
     user-select: none;
-    vertical-align: calc(1px - #{map-get($nudges, p)});
+    vertical-align: calc(#{$input-border-thickness} - #{map-get($nudges, p)});
     white-space: nowrap;
 
     .p-chip__lead,
@@ -242,7 +242,7 @@
   $color-border: map-get($colors-chip-tinted-borders, $chip-type);
 
   background-color: $color-background;
-  border: 1px solid $color-border;
+  border: $input-border-thickness solid $color-border;
 
   .p-chip__value {
     color: $color-chip-value;
