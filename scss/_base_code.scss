@@ -2,7 +2,7 @@
 
 $color-pre-bg: rgba($color-x-dark, 0.03);
 $digit-width: 1ch; // measured width of one character in the monospaced font
-$code-sidebar-width: calc(#{$sph--large} + (4 * #{$digit-width})) !default;
+$code-sidebar-width: calc($sph--large + (4 * $digit-width)) !default;
 $code-inline-padding: 0.25rem;
 
 // Base code styles
@@ -30,7 +30,7 @@ $code-inline-padding: 0.25rem;
     box-decoration-break: slice;
     color: inherit;
     line-height: map-get($line-heights, default-text) - $code-inline-padding;
-    padding: calc(#{$code-inline-padding} - #{$input-border-thickness}) $code-inline-padding;
+    padding: calc($code-inline-padding - $input-border-thickness) $code-inline-padding;
   }
 
   code,
@@ -124,7 +124,7 @@ $code-inline-padding: 0.25rem;
       user-select: none;
       // We're adding a negative left position above of $digit-width,
       // so the width here needs to take that into account
-      width: calc(#{$code-sidebar-width} + #{$digit-width});
+      width: calc($code-sidebar-width + $digit-width);
     }
   }
 }

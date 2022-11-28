@@ -87,7 +87,7 @@
   @if $rem-contribution == 0 {
     width: $percentage-contribution;
   } @else {
-    width: calc(#{$percentage-contribution} - #{$rem-contribution});
+    width: calc($percentage-contribution - $rem-contribution);
   }
 }
 
@@ -112,16 +112,16 @@
     margin-bottom: $spv--x-large;
     // negates the margin of logos that sit in the first column
     margin-left: -#{$margin-small};
-    width: calc(100% + #{$margin-small});
+    width: calc(100% + $margin-small);
 
     @media (min-width: $threshold-4-6-col) {
       margin-left: -$margin-medium;
-      width: calc(100% + #{$margin-medium});
+      width: calc(100% + $margin-medium);
     }
 
     @media (min-width: $threshold-6-12-col) {
       margin-left: -$margin-large;
-      width: calc(100% + #{$margin-large});
+      width: calc(100% + $margin-large);
     }
   }
 
