@@ -130,8 +130,12 @@
 
 @mixin vf-search-box-dark-theme {
   @include vf-search-box-theme(
-    $color-search-box-background: $colors--dark-theme--background-default,
-    $color-search-box-border: $colors--dark-theme--border-high-contrast,
+    $color-search-box-background: lighten($colors--dark-theme--background-default, 10%),
+    $color-search-box-border: $color-x-light,
     $color-search-box-text: $colors--dark-theme--text-default
   );
+
+  &::placeholder {
+    color: $colors--dark-theme--text-default;
+  }
 }
