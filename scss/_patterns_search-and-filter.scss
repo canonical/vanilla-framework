@@ -22,12 +22,12 @@
   $input-height: calc(map-get($line-heights, default-text) + $input-vertical-padding + $spv-nudge - $input-border-thickness);
 
   .p-search-and-filter {
-    border: $input-border-thickness solid $colors--light-theme--border-high-contrast;
+    border-bottom: $input-border-thickness solid $colors--light-theme--border-high-contrast;
     position: relative;
 
     .p-search-and-filter__search-container {
       align-items: center;
-      background-color: $color-x-light;
+      background-color: $colors--light-theme--background-inputs;
       display: flex;
       flex-wrap: wrap;
       height: auto;
@@ -72,7 +72,7 @@
     .p-search-and-filter__panel {
       @include vf-transition(opacity, fast);
 
-      background: $color-x-light;
+      background-color: $colors--light-theme--background-inputs;
       border-radius: $border-radius;
       box-shadow: $box-shadow;
       opacity: 1;
@@ -100,6 +100,7 @@
 
     .p-search-and-filter__clear {
       @extend %vf-button-has-icon;
+      background-color: $colors--light-theme--background-inputs;
 
       border: none;
       bottom: $focus-outline-offset;
@@ -123,7 +124,6 @@
     }
 
     .p-search-and-filter__input {
-      background-color: white;
       border: 0;
       box-shadow: none;
       flex-grow: 1;
