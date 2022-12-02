@@ -4,7 +4,6 @@
 // Form element styles
 @mixin vf-b-forms {
   @include vf-b-range;
-
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
     padding-bottom: $input-vertical-padding;
@@ -15,17 +14,17 @@
   %vf-input-elements {
     @extend %bordered-text-vertical-padding;
     @include vf-focus($color-focus, $bar-thickness, true);
+    @include vf-animation(#{background-color}, fast);
 
     // stylelint-disable property-no-vendor-prefix
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
     // stylelint-enable property-no-vendor-prefix
-
-    background-color: $color-x-light;
-    border: 1px solid $colors--light-theme--border-high-contrast;
+    background-color: $colors--light-theme--background-inputs;
+    border: 0 solid transparent;
+    border-bottom: $input-border-thickness solid $colors--light-theme--text-default;
     border-radius: 0;
-    box-shadow: inset 0 1px 1px $color-input-shadow;
     color: $color-dark;
     font-family: unquote($font-base-family);
     font-size: 1rem;
@@ -38,10 +37,19 @@
     vertical-align: baseline;
     width: 100%;
 
+    &:hover {
+      background-color: $colors--light-theme--background-hover;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $colors--light-theme--background-active;
+    }
+
     &.is-dense {
       margin: 0 0 $spv-nudge-compensation 0;
-      padding-bottom: calc(#{$spv-nudge - $spv--x-small} - 1px);
-      padding-top: calc(#{$spv-nudge - $spv--x-small} - 1px);
+      padding-bottom: calc($spv-nudge - $spv--x-small - $input-border-thickness);
+      padding-top: calc($spv-nudge - $spv--x-small - $input-border-thickness);
     }
 
     &[disabled],
@@ -56,7 +64,7 @@
 
     @each $state, $color in $states {
       &.has-#{$state} {
-        border: 1px solid $color;
+        border: $input-border-thickness solid $color;
       }
     }
   }
@@ -166,19 +174,23 @@
     -webkit-appearance: none;
     appearance: none;
     // stylelint-enable property-no-vendor-prefix
-    background-color: $color-x-light;
+    background-color: $colors--light-theme--background-hover;
     background-position: right $sph--small center;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
     color: $color-dark;
     min-height: map-get($line-heights, default-text);
-    padding-right: calc(#{$default-icon-size} + #{2 * $sph--small});
+    padding-right: calc($default-icon-size + 2 * $sph--small);
     text-indent: 0.01px;
     text-overflow: '';
 
     &:hover {
       cursor: pointer;
+    }
+
+    option {
+      background-color: white;
     }
 
     &[multiple],
@@ -188,8 +200,9 @@
       height: auto;
 
       option {
+        background-color: $colors--light-theme--background-hover;
         font-weight: $font-weight-regular-text;
-        line-height: calc(#{$sp-unit * 2} - 2px);
+        line-height: calc($sp-unit * 2 - 2px);
         padding: $spv--x-small 0;
       }
     }
@@ -212,7 +225,7 @@
 
     margin-left: 0;
     margin-right: 0;
-    padding: calc(#{$spv--large} - 1px);
+    padding: calc($spv--large - $input-border-thickness);
   }
   // stylelint-enable selector-max-type
 }

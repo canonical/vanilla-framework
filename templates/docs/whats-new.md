@@ -20,18 +20,18 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.8.0 -->
+    <!-- 3.9.0 -->
     <tr>
       <th>
-        <a href="/docs/patterns/navigation#accordion">
-          Side navigation - Accordion
+        <a href="/docs/base/forms">
+          Forms
         </a>
       </th>
       <td>
         <span class="p-status-label--information">Updated</span>
       </td>
-      <td>3.8.0</td>
-      <td>We've added <code>p-side-navigation--accordion</code>, <code>p-side-navigation__accordion-button</code> classes that allow building side navigation with accordions.</td>
+      <td>3.9.0</td>
+      <td>We've updated the visual style of form elements, such as inputs, checkboxes and buttons.</td>
     </tr>
   </tbody>
 </table>
@@ -48,6 +48,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.8.0 -->
+    <tr>
+      <th>
+        <a href="/docs/patterns/navigation#accordion">
+          Side navigation - Accordion
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.8.0</td>
+      <td>We've added <code>p-side-navigation--accordion</code>, <code>p-side-navigation__accordion-button</code> classes that allow building side navigation with accordions.</td>
+    </tr>
     <!-- 3.7.0 -->
     <tr>
       <th>

@@ -1,9 +1,7 @@
 @mixin vf-p-search-box {
-  $input-border-thicknes: 1px;
-
   %search-box-button {
     display: block;
-    height: calc(#{2 * $spv-nudge + map-get($line-heights, default-text)} - #{2 * $bar-thickness}); // side padding + icon width - focus outline width * 2
+    height: calc((2 * $spv-nudge + map-get($line-heights, default-text)) - (2 * $bar-thickness)); // side padding + icon width - focus outline width * 2
     margin: $bar-thickness 0;
     position: relative;
 
@@ -43,7 +41,7 @@
     .p-search-box__input {
       flex: 1 1 100%;
       margin-bottom: 0;
-      padding-right: calc(2 * #{2 * $spv-nudge + map-get($line-heights, default-text)});
+      padding-right: calc(2 * (2 * $spv-nudge + map-get($line-heights, default-text)));
       position: absolute;
       right: 0;
 
@@ -124,7 +122,7 @@
 
 @mixin vf-search-box-light-theme {
   @include vf-search-box-theme(
-    $color-search-box-background: $colors--light-theme--background-default,
+    $color-search-box-background: $colors--light-theme--background-inputs,
     $color-search-box-border: $colors--light-theme--border-high-contrast,
     $color-search-box-text: $colors--light-theme--text-default
   );
@@ -132,8 +130,12 @@
 
 @mixin vf-search-box-dark-theme {
   @include vf-search-box-theme(
-    $color-search-box-background: $colors--dark-theme--background-default,
-    $color-search-box-border: $colors--dark-theme--border-high-contrast,
+    $color-search-box-background: lighten($colors--dark-theme--background-default, 10%),
+    $color-search-box-border: $color-x-light,
     $color-search-box-text: $colors--dark-theme--text-default
   );
+
+  &::placeholder {
+    color: $colors--dark-theme--text-default;
+  }
 }
