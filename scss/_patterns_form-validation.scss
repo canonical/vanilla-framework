@@ -7,7 +7,7 @@
   %vf-validation-wrapper {
     background-position: left, center;
     background-repeat: no-repeat;
-    padding-left: calc(#{$icon-size} + #{$sph--small});
+    padding-left: calc($icon-size + $sph--small);
     padding-top: 0;
   }
 
@@ -19,7 +19,16 @@
 
   .is-success {
     .p-form-validation__input {
-      border-color: $color-positive;
+      background-color: $color-positive-background;
+      border-bottom-color: $color-positive;
+
+      &:hover {
+        background-color: $color-positive-background--hover;
+      }
+
+      &:focus {
+        background-color: $color-positive-background--focus;
+      }
     }
 
     .p-form-validation__message {
@@ -32,7 +41,16 @@
 
   .is-caution {
     .p-form-validation__input {
-      border-color: $color-caution;
+      background-color: $color-caution-background;
+      border-bottom-color: $color-caution;
+
+      &:hover {
+        background-color: $color-caution-background--hover;
+      }
+
+      &:focus {
+        background-color: $color-caution-background--focus;
+      }
     }
 
     .p-form-validation__message {
@@ -43,7 +61,16 @@
 
   .is-error {
     .p-form-validation__input {
-      border-color: $color-negative;
+      background-color: $color-negative-background;
+      border-bottom-color: $color-negative;
+
+      &:hover {
+        background-color: $color-negative-background--hover;
+      }
+
+      &:focus {
+        background-color: $color-negative-background--focus;
+      }
     }
 
     .p-form-validation__message {
