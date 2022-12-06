@@ -41,6 +41,10 @@
     .p-muted-heading & {
       color: $colors--light-theme--text-muted;
     }
+
+    &:hover::before {
+      background-color: $colors--light-theme--background-hover;
+    }
   }
 
   %vf-pseudo-tick-box-checked {
@@ -51,19 +55,6 @@
 
     &::after {
       opacity: 1;
-    }
-  }
-
-  %vf-pseudo-tick-box-checked-hover {
-    @extend %vf-pseudo-tick-box-checked;
-    &::before {
-      background-color: darken($color-link, 10%);
-    }
-  }
-
-  %vf-pseudo-tick-box-hover {
-    &::before {
-      background-color: $colors--light-theme--background-hover;
     }
   }
 
@@ -189,28 +180,10 @@
     display: inline;
   }
 
-  // fake tick hover state
-  .p-checkbox__input:hover + .p-checkbox__label,
-  .p-radio__input:hover + .p-radio__label {
-    @extend %vf-pseudo-tick-box-hover;
-  }
-
   // fake tick checked state
   .p-checkbox__input:checked + .p-checkbox__label,
   .p-radio__input:checked + .p-radio__label {
     @extend %vf-pseudo-tick-box-checked;
-  }
-
-  // fake tick checked hover state
-  .p-checkbox__input:checked:hover + .p-checkbox__label,
-  .p-radio__input:checked:hover + .p-radio__label {
-    @extend %vf-pseudo-tick-box-checked-hover;
-  }
-
-  // fake tick indeterminate hover state
-  [aria-checked='mixed'] + .p-checkbox__label:hover,
-  :indeterminate + .p-checkbox__label:hover {
-    @extend %vf-pseudo-tick-box-checked-hover;
   }
 
   // fake tick focused state
