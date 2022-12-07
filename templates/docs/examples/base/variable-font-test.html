@@ -1,0 +1,43 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Variable font{% endblock %}
+
+{% block standalone_css %}base{% endblock %}
+
+
+
+
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
+
+.opensans{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings: 'wght' 200, "wdth" 100, "ital" 0;
+}
+</style>
+<p class="ubuntu">This is a paragraph of our brand new Ubuntu variable font.</p>
+
+<p class="opensans">This is a paragraph of Open Sans variable font.</p>
+<label>Weight</label>
+<input id="weight" type="range" min="200" max="800" value="300" step="1" style="appearance: auto" oninput="doTheThing()">
+<label>Width</label>
+<input id="width" type="range" min="75" max="100" value="100" step="1" style="appearance: auto" oninput="doTheThing()">
+<label>Italic</label>
+<input id="ital" type="range" min="0" max="1" value="0" step="1" style="appearance: auto" oninput="doTheThing()">
+
+<script>
+  const doTheThing = () => {
+    weight = document.getElementById('weight').value;
+    width = document.getElementById('width').value;
+    ital = document.getElementById('ital').value;
+
+    console.log('do the thing');
+    document.querySelector('.opensans').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}, "ital" ${ital}`;
+    document.querySelector('.ubuntu').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}, "ital" ${ital}`;
+  }
+
+</script>
+{% endblock %}
+
