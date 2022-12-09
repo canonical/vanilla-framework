@@ -1,0 +1,222 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Documentation / New{% endblock %}
+
+{% block style %}
+<style>
+  body {
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="l-documentation">
+  <a href="#main-content" class="p-link--skip">Jump to main content</a>
+
+
+  <header id="navigation" class="p-navigation is-dark">
+    <div class="p-navigation__row--full-width p-navigation__grid">
+      <div class="p-navigation__banner">
+        <div class="p-navigation__tagged-logo">
+          <a class="p-navigation__link" href="/">
+            <div class="p-navigation__logo-tag">
+              <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/b36b0862-Vanilla_icon_RGB_2022.svg" alt="Vanilla framework">
+            </div>
+            <span class="p-navigation__logo-title">Vanilla</span>
+          </a>
+        </div>
+        <ul class="p-navigation__items">
+          <li class="p-navigation__item">
+            <button class="js-search-button p-navigation__link--search-toggle">
+              <span class="p-navigation__search-label">Search</span>
+            </button>
+          </li>
+          <li class="p-navigation__item">
+            <button class="js-menu-button p-navigation__link">Menu</button>
+          </li>
+        </ul>
+      </div>
+      <nav class="p-navigation__nav p-navigation__fixed-width" aria-label="Main">
+        <ul class="p-navigation__items">
+          <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="/docs">Docs</a></li>
+          <li class="p-navigation__item "><a class="p-navigation__link" href="/docs/examples">Examples</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" href="/accessibility">Accessibility</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" href="/browser-support">Browser support</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" href="/contribute">Contribute</a></li>
+        </ul>
+        <ul class="p-navigation__items">
+          <li class="p-navigation__item">
+            <button class="js-search-button p-navigation__link--search-toggle">
+              <span class="p-navigation__search-label">Search</span>
+            </button>
+          </li>
+        </ul>
+        <div class="p-navigation__search">
+          <form class="p-search-box" action="/docs/search">
+            <input type="search" id="search-docs" class="p-search-box__input" name="q"  placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+            <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+            <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
+          </form>
+        </div>
+      </nav>
+      <nav class="p-navigation__nav p-navigation--right" style="width: auto">
+        <ul class="p-navigation__items" style="margin-left: auto">
+          <li class="p-navigation__item"><a class="p-navigation__link" href="/docs">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="p-navigation__search-overlay"></div>
+  </header>
+
+  <div class="l-side-navigation">
+    <aside class="p-strip is-shallow">
+
+      <div class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
+        <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer"></div>
+        <nav class="p-side-navigation__drawer" aria-label="Example side">
+          <div class="p-side-navigation__drawer-header">
+            <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
+              Toggle side navigation
+            </a>
+          </div>
+
+
+          <ul class="p-side-navigation__list">
+            <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Welcome</span></li>
+            <li class="p-side-navigation__item">
+                <a class="p-side-navigation__link" href="/docs" aria-current="page">
+                  Get started
+
+                </a>
+              </li>
+            <li class="p-side-navigation__item">
+                <a class="p-side-navigation__link" href="/docs/building-vanilla" >
+                  Building with Vanilla
+
+                </a>
+              </li>
+            <li class="p-side-navigation__item">
+                <a class="p-side-navigation__link" href="/docs/customising-vanilla" >
+                  Customising Vanilla
+
+                </a>
+              </li>
+            <li class="p-side-navigation__item">
+                <a class="p-side-navigation__link" href="/docs/whats-new" >
+                  What’s new in 3.8.1
+
+                </a>
+              </li>
+            <li class="p-side-navigation__item">
+                <a class="p-side-navigation__link" href="/docs/migration-guide-to-v3" >
+                  Migrating to v3.0
+
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>
+      </aside>
+
+    </div>
+
+    <div class="l-main">
+
+
+
+
+      <div class="side-nav-toggle p-strip--light is-shallow">
+        <div class="u-fixed-width">
+          <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
+        </div>
+      </div>
+      <div class="p-strip is-shallow">
+      <div class="row">
+
+        <main class="col-12" id="main-content">
+
+  <div class="p-strip is-shallow u-no-padding--top">
+    <div class="row">
+      <div class="col-6 col-medium-3"><h1 class="p-heading--2">Get started</h1></div>
+      <div class="col-6 col-medium-3"><p>You can use Vanilla in your projects in a few different ways. See <a href="/docs/building-vanilla">Building with Vanilla</a> and <a href="/docs/customising-vanilla">Customising Vanilla</a> for more in-depth setup instructions.</p></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-strip is-shallow">
+    <div class="row">
+      <div class="col-6 col-medium-3"><h2>Install</h2></div>
+      <div class="col-6 col-medium-3">
+        <p>You can use Vanilla in your projects in a few different ways. See <a href="/docs/building-vanilla">Building with Vanilla</a> and <a href="/docs/customising-vanilla">Customising Vanilla</a> for more in-depth setup instructions.</p>
+
+        <p>The recommended way to get Vanilla is with <a href="https://www.yarnpkg.com/">yarn</a>:</p>
+        <pre><code>yarn add vanilla-framework</code></pre>
+        <p>Or <a href="https://www.npmjs.com/">npm</a>:</p>
+        <pre><code>npm install vanilla-framework</code></pre>
+        <p>This will pull down the latest version into your local <code>node_modules</code> folder and save it into your project's dependencies in <code>package.json</code>.</p>
+
+        <p>You can now reference Vanilla from your main Sass file - note that the path to <code>node_modules</code> might be different for your project:</p>
+        <pre><code>// Import the framework
+  @import 'node_modules/vanilla-framework';
+
+  // Include all of Vanilla Framework
+  @include vanilla;</code></pre>
+
+        <p><em>For information on overriding settings and importing only parts of Vanilla, see <a href="/docs/customising-vanilla">Customising Vanilla</a>.</em></p>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-strip is-shallow">
+    <div class="row">
+      <div class="col-6 col-medium-3"><h2>Hotlink</h2></div>
+      <div class="col-6 col-medium-3">
+        <p>You can add Vanilla directly to your markup:</p>
+        <pre><code>&lt;link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-3.8.1.min.css" /&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-strip is-shallow">
+    <div class="row">
+      <div class="col-6 col-medium-3"><h2>Download</h2></div>
+      <div class="col-6 col-medium-3">
+        <p>Download the latest version of Vanilla from GitHub.</p>
+        <p><a class="p-button--positive" href="https://github.com/canonical/vanilla-framework/archive/v3.8.1.zip">Download v3.8.1</a></p>
+        <p>See the <a href="https://github.com/canonical/vanilla-framework/releases">release notes</a> for details on the latest updates.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-strip is-shallow">
+    <div class="row">
+      <div class="col-6 col-medium-3"><h2>Local development</h2></div>
+      <div class="col-6 col-medium-3">
+        <p>To make improvements to Vanilla itself, please follow the instructions on the project’s <a href="https://github.com/canonical/vanilla-framework#vanilla-framework">README.md</a>.</p>
+        <ul class="p-inline-list">
+          <li class="p-inline-list__item"><i class="p-list__icon--slack"></i><a href="https://vanillaframework.slack.com/">Join our channel</a></li>
+          <li class="p-inline-list__item"><i class="p-list__icon--twitter"></i><a href="https://twitter.com/vanillaframewrk">Tweet us</a></li>
+          <li class="p-inline-list__item"><i class="p-list__icon--github"></i><a href="https://github.com/canonical/vanilla-framework/issues/new">Fork us on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+        </main>
+
+      </div>
+      </div>
+
+{% endblock %}
