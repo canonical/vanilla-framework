@@ -53,13 +53,16 @@ jobs:
     needs: [build, publish-npm]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
           name: css
           path: css
-      - name: Install upload-assets snap
-        run: sudo snap install upload-assets
+      - name: Save file name to env
+        run: echo "ASSET_URL_PATH=vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css" >> $GITHUB_ENV
       - name: Upload to assets server
-        run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
+        run: python scripts/upload-assets.py
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
+          ASSET_FILE_PATH: css/build.css
+          ASSET_URL_PATH: ${{env.ASSET_URL_PATH}}
