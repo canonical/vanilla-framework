@@ -1,17 +1,19 @@
-@mixin vf-l-documentation {
-  body {
-    position: relative;
-  }
-
+@mixin vf-l-full-width {
   .l-side-navigation {
     position: fixed;
     z-index: 100;
   }
 
+  .l-main {
+    grid-area: main;
+  }
+
   .p-navigation__tagged-logo {
     min-width: auto;
   }
-  @media (min-width: 1036px) {
+
+  // left aligned (there is space for the sidebar on left)
+  @media (min-width: $breakpoint-large) {
     .l-side-navigation {
       align-self: start;
       background: #f7f7f7;
@@ -23,10 +25,11 @@
       top: 0;
     }
 
-    .p-side-navigation .p-side-navigation__drawer {
+    .l-full-width .p-side-navigation .p-side-navigation__drawer {
       background: #f7f7f7;
     }
-    .l-documentation {
+
+    .l-full-width {
       display: grid;
       grid-template-areas:
         'navbar navbar'
@@ -34,7 +37,7 @@
       grid-template-columns: 15rem minmax(0, 1fr);
       grid-template-rows: min-content 1fr;
     }
-    .l-documentation.no-sidebar {
+    .l-full-width.no-sidebar {
       grid-template-columns: 0 minmax(0, 1fr);
     }
 
@@ -47,71 +50,71 @@
     }
   }
 
-  .l-documentation .l-main .row,
-  .l-documentation .l-main .u-fixed-width {
+  .l-full-width .l-main .row,
+  .l-full-width .l-main .u-fixed-width {
     margin-left: 0;
   }
 
-  .l-documentation.no-sidebar .l-main .row,
-  .l-documentation.no-sidebar .l-main .u-fixed-width {
+  .l-full-width.no-sidebar .l-main .row,
+  .l-full-width.no-sidebar .l-main .u-fixed-width {
     margin-left: auto;
   }
 
-  @media (min-width: 100rem) {
-    .l-documentation {
+  // full width layout
+  @media (min-width: $breakpoint-x-large) {
+    .l-full-width {
       grid-template-areas:
         'navbar navbar navbar'
         'nav    main   aside';
       grid-template-columns: 15rem minmax(0, 1fr) 15rem;
     }
 
-    .l-documentation.no-sidebar {
+    .l-full-width.no-sidebar {
       grid-template-areas:
         'navbar navbar navbar'
         'nav    main   aside';
       grid-template-columns: 0 minmax(0, 1fr) 0;
     }
 
-    .l-documentation .l-main .row,
-    .l-documentation .l-main .u-fixed-width {
+    .l-full-width .l-main .row,
+    .l-full-width .l-main .u-fixed-width {
       margin-left: auto;
     }
   }
 
-  .p-navigation {
-    grid-area: navbar;
-  }
-
-  .l-main {
-    grid-area: main;
-  }
-
-  .u-fixed-width.p-navigation__nav {
-    /* width: auto; */
-    margin: auto;
-  }
-
-  .p-navigation--right {
-    margin-left: auto;
-  }
-
-  @media (min-width: 100rem) {
-    .p-navigation__grid {
-      display: grid;
-      grid-template-areas: 'logo menu search';
-      grid-template-columns: 15rem minmax(0, 1fr) 15rem;
-      grid-template-rows: min-content;
-      overflow: hidden;
-      width: 100vw;
+  // custom navigation styles
+  .l-full-width {
+    .p-navigation {
+      grid-area: navbar;
     }
 
-    .p-navigation__fixed-width {
+    .u-fixed-width.p-navigation__nav {
+      /* width: auto; */
+      margin: auto;
+    }
+
+    .p-navigation--right {
       margin-left: auto;
-      margin-right: auto;
-      max-width: 72rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      width: 100%;
+    }
+
+    @media (min-width: 100rem) {
+      .p-navigation__grid {
+        display: grid;
+        grid-template-areas: 'logo menu search';
+        grid-template-columns: 15rem minmax(0, 1fr) 15rem;
+        grid-template-rows: min-content;
+        overflow: hidden;
+        width: 100vw;
+      }
+
+      .p-navigation__fixed-width {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 72rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        width: 100%;
+      }
     }
   }
 }
