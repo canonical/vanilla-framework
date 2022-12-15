@@ -1,4 +1,12 @@
 @mixin vf-l-full-width {
+  $l-full-screen-aside-width: 15rem;
+  // we switch to full screen layout (with side navigation fixed to left side)
+  // when screen is big enough to fit side nav on left, same size on right, and grid
+  // in the middle
+  // we have to calculate media query breakpoint in px instead of rem to make sure
+  // we take into account bigger font size on large screens
+  $breakpoint-full-screen-layout: ($grid-max-width + 2 * $l-full-screen-aside-width) * $font-size-ratio--largescreen;
+
   .l-side-navigation {
     position: fixed;
     z-index: 100;
@@ -34,7 +42,7 @@
       grid-template-areas:
         'navbar navbar'
         'nav    main  ';
-      grid-template-columns: 15rem minmax(0, 1fr);
+      grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr);
       grid-template-rows: min-content 1fr;
     }
     .l-full-width.no-sidebar {
@@ -48,25 +56,30 @@
     .side-nav-toggle {
       display: none;
     }
-  }
 
-  .l-full-width .l-main .row,
-  .l-full-width .l-main .u-fixed-width {
-    margin-left: 0;
-  }
+    .l-full-width .l-main .row,
+    .l-full-width .l-main .u-fixed-width {
+      margin-left: 0;
+    }
 
-  .l-full-width.no-sidebar .l-main .row,
-  .l-full-width.no-sidebar .l-main .u-fixed-width {
-    margin-left: auto;
+    .l-full-width.no-sidebar .l-main .row,
+    .l-full-width.no-sidebar .l-main .u-fixed-width {
+      margin-left: $l-full-screen-aside-width;
+      width: auto;
+
+      .row {
+        margin-left: 0;
+      }
+    }
   }
 
   // full width layout
-  @media (min-width: $breakpoint-x-large) {
+  @media (min-width: $breakpoint-full-screen-layout) {
     .l-full-width {
       grid-template-areas:
         'navbar navbar navbar'
         'nav    main   aside';
-      grid-template-columns: 15rem minmax(0, 1fr) 15rem;
+      grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) $l-full-screen-aside-width;
     }
 
     .l-full-width.no-sidebar {
@@ -78,6 +91,11 @@
 
     .l-full-width .l-main .row,
     .l-full-width .l-main .u-fixed-width {
+      margin-left: auto;
+    }
+
+    .l-full-width.no-sidebar .l-main .row,
+    .l-full-width.no-sidebar .l-main .u-fixed-width {
       margin-left: auto;
     }
   }
@@ -97,11 +115,11 @@
       margin-left: auto;
     }
 
-    @media (min-width: 100rem) {
+    @media (min-width: $breakpoint-full-screen-layout) {
       .p-navigation__grid {
         display: grid;
         grid-template-areas: 'logo menu search';
-        grid-template-columns: 15rem minmax(0, 1fr) 15rem;
+        grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) $l-full-screen-aside-width;
         grid-template-rows: min-content;
         overflow: hidden;
         width: 100vw;
