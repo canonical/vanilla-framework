@@ -1,46 +1,24 @@
 @mixin vf-b-typography-fontfaces {
   @at-root {
     @if str-index($font-base-family, 'Ubuntu') {
-      @if $font-use-subset-latin {
-        @font-face {
-          font-family: 'Ubuntu';
-          font-stretch: 100%; /*  min and max value for the width axis, expressed as percentage */
-          font-style: normal;
-          font-weight: 100 800; /*  min and max value for the weight axis */
-          src: url('#{$assets-path}c87f1567-Ubuntu[wdth,wght]-latin.woff2') format('woff2-variations');
-          unicode-range: U+0-FF, U+131, U+152, U+153, U+2BB, U+2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-
-        @font-face {
-          font-family: 'Ubuntu';
-          font-stretch: 100%; /*  min and max value for the width axis, expressed as percentage */
-          font-style: italic;
-          font-weight: 100 800; /*  min and max value for the weight axis */
-          src: url('#{$assets-path}c4bf4c50-Ubuntu-Italic[wdth,wght]-latin.woff2') format('woff2-variations');
-          unicode-range: U+0-FF, U+131, U+152, U+153, U+2BB, U+2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-
-        // Mono fonts are missing
-      } @else {
-        // Default font-display option
-        @font-face {
-          font-family: 'Ubuntu';
-          font-stretch: 100%; /*  min and max value for the width axis, expressed as percentage */
-          font-style: normal;
-          font-weight: 100 800; /*  min and max value for the weight axis */
-          src: url('#{$assets-path}c87f1567-Ubuntu[wdth,wght]-latin.woff2') format('woff2-variations');
-        }
-
-        @font-face {
-          font-family: 'Ubuntu';
-          font-stretch: 100%; /*  min and max value for the width axis, expressed as percentage */
-          font-style: italic;
-          font-weight: 100 800; /*  min and max value for the weight axis */
-          src: url('#{$assets-path}c4bf4c50-Ubuntu-Italic[wdth,wght]-latin.woff2') format('woff2-variations');
-        }
-
-        // Mono fonts are missing
+      // Default font-display option
+      @font-face {
+        font-family: 'Ubuntu';
+        font-stretch: 100%; /*  min and max value for the width axis, expressed as percentage */
+        font-style: normal;
+        font-weight: 100 800; /*  min and max value for the weight axis */
+        src: url('#{$assets-path}c87f1567-Ubuntu[wdth,wght]-latin.woff2') format('woff2-variations');
       }
+
+      @font-face {
+        font-family: 'Ubuntu';
+        font-stretch: 100%; /*  min and max value for the width axis, expressed as percentage */
+        font-style: italic;
+        font-weight: 100 800; /*  min and max value for the weight axis */
+        src: url('#{$assets-path}c4bf4c50-Ubuntu-Italic[wdth,wght]-latin.woff2') format('woff2-variations');
+      }
+
+      // Mono fonts are missing
 
       @if $font-allow-cyrillic-greek-latin {
         // cyrillic-ext
