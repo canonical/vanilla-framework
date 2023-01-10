@@ -205,14 +205,6 @@ To reduce the prominence of text, use class `u-text--muted`.
 View example of the muted-text
 </a></div>
 
-## Using a smaller set of Latin font faces
-
-The default Ubuntu fonts are fairly large as they contain glyphs for many languages. If you are building sites in; Afrikaans, Albanian, Catalan, Danish, Dutch, English, German, Icelandic, Italian, Norwegian, Portuguese, Spanish, Swedish or Zulu, you could use the subset of Latin fonts by setting the following variable to true:
-
-```sass
-$font-use-subset-latin: true;
-```
-
 ## Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
