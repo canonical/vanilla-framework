@@ -23,22 +23,17 @@
 
 <p class="mono">This is a paragraph of Ubuntu Mono variable font.</p>
 <label>Weight</label>
-<input id="weight" type="range" min="200" max="800" value="300" step="1" style="appearance: auto" oninput="doTheThing()">
+<input id="weight" type="range" min="200" max="800" value="300" step="1" style="appearance: auto" oninput="UpdateFontVariations()">
 <label>Width</label>
-<input id="width" type="range" min="75" max="100" value="100" step="1" style="appearance: auto" oninput="doTheThing()">
-<label>Italic</label>
-<input id="ital" type="range" min="0" max="1" value="0" step="1" style="appearance: auto" oninput="doTheThing()">
-
+<input id="width" type="range" min="75" max="100" value="100" step="1" style="appearance: auto" oninput="UpdateFontVariations()">
 <script>
-  const doTheThing = () => {
+  const UpdateFontVariations = () => {
     weight = document.getElementById('weight').value;
     width = document.getElementById('width').value;
-    ital = document.getElementById('ital').value;
 
-    console.log('do the thing');
-    document.querySelector('.mono').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}, "ital" ${ital}`;
-    document.querySelector('.ubuntu').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}, "ital" ${ital}`;
-    document.querySelector('.ubuntu-italic').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}, "ital" ${ital}`;
+    document.querySelector('.mono').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}`;
+    document.querySelector('.ubuntu').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}`;
+    document.querySelector('.ubuntu-italic').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}`;
   }
 
 </script>
