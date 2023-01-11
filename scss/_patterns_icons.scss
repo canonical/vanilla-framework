@@ -1538,3 +1538,15 @@
     }
   }
 }
+
+@mixin vf-p-icon-desktop {
+  .p-icon--desktop {
+    @extend %icon;
+    @include vf-icon-desktop($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-desktop($color-mid-x-light);
+    }
+  }
+}
