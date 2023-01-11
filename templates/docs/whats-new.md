@@ -45,6 +45,20 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>3.10.0</td>
       <td>We've introduced the new variable Ubuntu font and updated the default font weights.</td>
     </tr>
+    <tr>
+      <th>
+        <a href="/docs/base/typography">
+          <code>$font-use-subset-latin</code>
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.10.0</td>
+      <td>
+        the <code>$font-use-subset-latin</code> option has been deprecated and should be removed when updating.
+      </td>
+    </tr>
   </tbody>
 </table>
 
