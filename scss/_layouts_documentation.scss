@@ -7,36 +7,16 @@
   // we take into account bigger font size on large screens
   $breakpoint-full-screen-layout: ($grid-max-width + 2 * $l-full-screen-aside-width) * $font-size-ratio--largescreen;
 
-  .l-side-navigation {
-    position: fixed;
-    z-index: 100;
-  }
-
-  .l-main {
-    grid-area: main;
-  }
-
-  .p-navigation__tagged-logo {
-    min-width: auto;
+  // mobile first, use standard mobile layout, but make side navigation fixed to the screen
+  .l-full-width {
+    .l-side-navigation {
+      position: fixed;
+      z-index: 100;
+    }
   }
 
   // left aligned (there is space for the sidebar on left)
   @media (min-width: $breakpoint-large) {
-    .l-side-navigation {
-      align-self: start;
-      background: #f7f7f7;
-      display: block;
-      grid-area: nav;
-      height: 100vh;
-      overflow: scroll;
-      position: sticky;
-      top: 0;
-    }
-
-    .l-full-width .p-side-navigation .p-side-navigation__drawer {
-      background: #f7f7f7;
-    }
-
     .l-full-width {
       display: grid;
       grid-template-areas:
@@ -44,24 +24,42 @@
         'nav    main  ';
       grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr);
       grid-template-rows: min-content 1fr;
+
+      .l-main {
+        grid-area: main;
+      }
+
+      .l-side-navigation {
+        align-self: start;
+        background: #f7f7f7;
+        display: block;
+        grid-area: nav;
+        height: 100vh;
+        overflow: scroll;
+        position: sticky;
+        top: 0;
+      }
+
+      .p-side-navigation .p-side-navigation__drawer {
+        background: #f7f7f7;
+      }
     }
+
     .l-full-width.no-sidebar {
       grid-template-columns: 0 minmax(0, 1fr);
     }
 
-    .p-navigation__tagged-logo {
-      min-width: 13.5rem;
-    }
-
-    .side-nav-toggle {
+    .l-full-width .side-nav-toggle {
       display: none;
     }
 
+    // if there is a side navigation, rows should align to the left (no left margin)
     .l-full-width .l-main .row,
     .l-full-width .l-main .u-fixed-width {
       margin-left: 0;
     }
 
+    // if there is no side navigation, compensate for it with additional left margin
     .l-full-width.no-sidebar .l-main .row,
     .l-full-width.no-sidebar .l-main .u-fixed-width {
       margin-left: $l-full-screen-aside-width;
@@ -83,17 +81,12 @@
     }
 
     .l-full-width.no-sidebar {
-      grid-template-areas:
-        'navbar navbar navbar'
-        'nav    main   aside';
       grid-template-columns: 0 minmax(0, 1fr) 0;
     }
 
+    // reset margin back to auto to center the content
     .l-full-width .l-main .row,
-    .l-full-width .l-main .u-fixed-width {
-      margin-left: auto;
-    }
-
+    .l-full-width .l-main .u-fixed-width,
     .l-full-width.no-sidebar .l-main .row,
     .l-full-width.no-sidebar .l-main .u-fixed-width {
       margin-left: auto;
@@ -102,17 +95,23 @@
 
   // custom navigation styles
   .l-full-width {
+    // put navigation in correct grid area
     .p-navigation {
       grid-area: navbar;
     }
 
-    .u-fixed-width.p-navigation__nav {
-      /* width: auto; */
-      margin: auto;
+    .p-navigation__tagged-logo {
+      min-width: auto;
     }
 
     .p-navigation--right {
       margin-left: auto;
+    }
+
+    @media (min-width: $breakpoint-large) {
+      .p-navigation__tagged-logo {
+        min-width: 13.5rem; // TODO, calculate it? 15rem - 1.5rem (side nav width - navigation padding...)
+      }
     }
 
     @media (min-width: $breakpoint-full-screen-layout) {
