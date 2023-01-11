@@ -31,7 +31,19 @@ When we add, make significant updates, or deprecate a component we update their 
         <span class="p-status-label--positive">New</span>
       </td>
       <td>3.10.0</td>
-      <td>We've added new desktop icon `.p-icon--desktop`.</td>
+      <td>We've added new desktop icon <code>.p-icon--desktop</code>.</td>
+    </tr>
+    <tr>
+      <th>
+        <a href="/docs/base/typography">
+          Typography
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.10.0</td>
+      <td>We've introduced the new variable Ubuntu font and updated the default font weights.</td>
     </tr>
   </tbody>
 </table>
