@@ -20,18 +20,18 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.9.0 -->
+    <!-- 3.10.0 -->
     <tr>
       <th>
-        <a href="/docs/base/forms">
-          Forms
+        <a href="/docs/patterns/icons">
+          Icons
         </a>
       </th>
       <td>
-        <span class="p-status-label--information">Updated</span>
+        <span class="p-status-label--positive">New</span>
       </td>
-      <td>3.9.0</td>
-      <td>We've updated the visual style of form elements, such as inputs, checkboxes and buttons.</td>
+      <td>3.10.0</td>
+      <td>We've added new desktop icon `.p-icon--desktop`.</td>
     </tr>
   </tbody>
 </table>
@@ -48,6 +48,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.9.0 -->
+    <tr>
+      <th>
+        <a href="/docs/base/forms">
+          Forms
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.9.0</td>
+      <td>We've updated the visual style of form elements, such as inputs, checkboxes and buttons.</td>
+    </tr>
     <!-- 3.8.0 -->
     <tr>
       <th>
