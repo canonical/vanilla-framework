@@ -215,6 +215,12 @@ following font setting to true.
 $font-allow-cyrillic-greek-latin: true;
 ```
 
+<span class="p-status-label--negative">Deprecated</span>
+
+In previous versions of Vanilla (`< 3.10.0`) there used to be an option `$font-use-subset-latin` for only importing a part of the latin subset.
+
+This has been made redundant by the adoption of the variable font and should be removed from your project.
+
 ## `font-display` options
 
 The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) option allows you to set a strategy for what backup font is shown while an external font is loading. This is a very subjective decision; however, if you set the following variable to the option you want, it will add it to the typography for you.

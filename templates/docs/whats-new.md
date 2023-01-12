@@ -47,7 +47,7 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
     <tr>
       <th>
-        <a href="/docs/base/typography">
+        <a href="/docs/base/typography#enabling-cyrillic-greek-and-latin-fonts">
           <code>$font-use-subset-latin</code>
         </a>
       </th>
