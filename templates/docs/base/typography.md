@@ -191,7 +191,7 @@ View example of the abbreviation pattern
 
 ## Font weights
 
-If you are using the variable Ubuntu font, you can use weights from 100 to 800.
+If you are using the variable Ubuntu font, it comes in six weights; thin, light, regular, medium, bold and extra bold.
 
 <div class="embedded-example"><a href="/docs/examples/base/font-weights/" class="js-example">
 View example of the Ubuntu font weights.
