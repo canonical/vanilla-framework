@@ -191,7 +191,7 @@ View example of the abbreviation pattern
 
 ## Font weights
 
-If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
+If you are using the variable Ubuntu font, it comes in six weights; thin, light, regular, medium, bold and extra bold.
 
 <div class="embedded-example"><a href="/docs/examples/base/font-weights/" class="js-example">
 View example of the Ubuntu font weights.
@@ -205,14 +205,6 @@ To reduce the prominence of text, use class `u-text--muted`.
 View example of the muted-text
 </a></div>
 
-## Using a smaller set of Latin font faces
-
-The default Ubuntu fonts are fairly large as they contain glyphs for many languages. If you are building sites in; Afrikaans, Albanian, Catalan, Danish, Dutch, English, German, Icelandic, Italian, Norwegian, Portuguese, Spanish, Swedish or Zulu, you could use the subset of Latin fonts by setting the following variable to true:
-
-```sass
-$font-use-subset-latin: true;
-```
-
 ## Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
@@ -222,6 +214,12 @@ following font setting to true.
 ```sass
 $font-allow-cyrillic-greek-latin: true;
 ```
+
+<span class="p-status-label--negative">Deprecated</span>
+
+In previous versions of Vanilla (`< 3.10.0`) there used to be an option `$font-use-subset-latin` for only importing a part of the Latin subset.
+
+This has been made redundant by the adoption of the variable font and should be removed from your project.
 
 ## `font-display` options
 
