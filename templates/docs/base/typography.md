@@ -217,7 +217,7 @@ $font-allow-cyrillic-greek-latin: true;
 
 <span class="p-status-label--negative">Deprecated</span>
 
-In previous versions of Vanilla (`< 3.10.0`) there used to be an option `$font-use-subset-latin` for only importing a part of the latin subset.
+In previous versions of Vanilla (`< 3.10.0`) there used to be an option `$font-use-subset-latin` for only importing a part of the Latin subset.
 
 This has been made redundant by the adoption of the variable font and should be removed from your project.
 
