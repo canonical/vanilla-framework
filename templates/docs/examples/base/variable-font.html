@@ -1,0 +1,28 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Variable font{% endblock %}
+
+{% block standalone_css %}base{% endblock %}
+
+
+{% block content %}
+<p id="roman">This is a paragraph of Ubuntu variable font.</p>
+<p id="italic"><em>This is a paragraph of Ubuntu variable font in italic.</em></p>
+<p><code id="mono">This is a paragraph of Ubuntu Mono variable font.</code></p>
+
+<label>Weight</label>
+<input id="weight" type="range" min="100" max="800" value="400" step="1" style="appearance: auto" oninput="UpdateFontVariations()">
+<label>Width</label>
+<input id="width" type="range" min="75" max="100" value="100" step="1" style="appearance: auto" oninput="UpdateFontVariations()">
+<script>
+  const UpdateFontVariations = () => {
+    weight = document.getElementById('weight').value;
+    width = document.getElementById('width').value;
+    
+    document.getElementById('mono').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}`;
+    document.getElementById('roman').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}`;
+    document.getElementById('italic').style.fontVariationSettings = `'wght' ${weight}, "wdth" ${width}`;
+  }
+
+</script>
+{% endblock %}
+
