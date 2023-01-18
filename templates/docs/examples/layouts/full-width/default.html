@@ -10,71 +10,81 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="l-full-width">
-  <a href="#main-content" class="p-link--skip">Jump to main content</a>
+<a href="#main-content" class="p-link--skip">Jump to main content</a>
 
 
-  <header id="navigation" class="p-navigation is-dark">
-    <div class="p-navigation__row--full-width p-navigation__grid">
-      <div class="p-navigation__banner">
-        <div class="p-navigation__tagged-logo">
-          <a class="p-navigation__link" href="/">
-            <div class="p-navigation__logo-tag">
-              <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/b36b0862-Vanilla_icon_RGB_2022.svg" alt="Vanilla framework">
-            </div>
-            <span class="p-navigation__logo-title">Vanilla</span>
-          </a>
-        </div>
-        <ul class="p-navigation__items">
-          <li class="p-navigation__item">
-            <button class="js-search-button p-navigation__link--search-toggle">
-              <span class="p-navigation__search-label">Search</span>
-            </button>
-          </li>
-          <li class="p-navigation__item">
-            <button class="js-menu-button p-navigation__link">Menu</button>
-          </li>
-        </ul>
+<header id="navigation" class="p-navigation is-dark">
+  <div class="l-full-width-container">
+    <div class="l-nav">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="/docs/examples/layouts/full-width/no-sidebar">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/b36b0862-Vanilla_icon_RGB_2022.svg" alt="Vanilla framework">
+          </div>
+          <span class="p-navigation__logo-title">Vanilla</span>
+        </a>
       </div>
-      <nav class="p-navigation__nav p-navigation__fixed-width" aria-label="Main">
-        <ul class="p-navigation__items">
-          <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="/docs">Docs</a></li>
-          <li class="p-navigation__item "><a class="p-navigation__link" href="/docs/examples">Examples</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" href="/accessibility">Accessibility</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" href="/browser-support">Browser support</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" href="/contribute">Contribute</a></li>
-        </ul>
-        <ul class="p-navigation__items">
-          <li class="p-navigation__item">
-            <button class="js-search-button p-navigation__link--search-toggle">
-              <span class="p-navigation__search-label">Search</span>
-            </button>
-          </li>
-        </ul>
-        <div class="p-navigation__search">
-          <form class="p-search-box" action="/docs/search">
-            <input type="search" id="search-docs" class="p-search-box__input" name="q"  placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
-            <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
-            <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
-          </form>
-        </div>
-      </nav>
-      <nav class="p-navigation__nav p-navigation--right" style="width: auto">
-        <ul class="p-navigation__items" style="margin-left: auto">
-          <li class="p-navigation__item"><a class="p-navigation__link" href="/docs">Login</a></li>
-        </ul>
-      </nav>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <button class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </button>
+        </li>
+        <li class="p-navigation__item">
+          <button class="js-menu-button p-navigation__link">Menu</button>
+        </li>
+      </ul>
     </div>
-    <div class="p-navigation__search-overlay"></div>
-  </header>
+    </div>
+    <div class="l-main">
+      <div class="p-navigation__row u-fixed-width">
+    <nav class="p-navigation__nav" aria-label="Main">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="/docs/examples/layouts/full-width/default">Docs</a></li>
+        <li class="p-navigation__item "><a class="p-navigation__link" href="/docs/examples/layouts/full-width/default">Examples</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="/docs/examples/layouts/full-width/default">Accessibility</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="/docs/examples/layouts/full-width/default">Browser support</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="/docs/examples/layouts/full-width/default">Contribute</a></li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <button class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </button>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form class="p-search-box" action="/docs/search">
+          <input type="search" id="search-docs" class="p-search-box__input" name="q"  placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+          <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+          <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  </div>
+    <div class="l-aside">
+    <nav class="p-navigation__nav p-navigation--right" style="width: auto">
+      <ul class="p-navigation__items" style="margin-left: auto">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="/docs">Login</a></li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+  <div class="p-navigation__search-overlay"></div>
+</header>
 
-  <div class="l-side-navigation">
-    <aside class="p-strip is-shallow">
+<div class="l-full-width-container">
 
-      <div class="p-side-navigation" id="side-navigation-drawer" aria-label="Side">
+
+  <div class="l-nav" style="background: #f7f7f7">
+
+
+      <div class="p-side-navigation is-sticky" id="side-navigation-drawer" aria-label="Side" style="background: #f7f7f7">
+        <aside class="p-strip is-shallow">
         <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer"></div>
-        <nav class="p-side-navigation__drawer" aria-label="Example side">
+        <nav class="p-side-navigation__drawer" aria-label="Example side"  style="background: #f7f7f7">
           <div class="p-side-navigation__drawer-header">
             <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
               Toggle side navigation
@@ -116,8 +126,9 @@
               </li>
           </ul>
         </nav>
-      </div>
       </aside>
+      </div>
+
 
     </div>
 
@@ -126,15 +137,15 @@
 
 
 
-      <div class="side-nav-toggle p-strip--light is-shallow">
+      <div class="u-hide--large p-strip--light is-shallow">
         <div class="u-fixed-width">
           <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
         </div>
       </div>
-      <div class="p-strip is-shallow">
-      <div class="row">
+      <div class="--p-strip is-shallow">
+      <div class="--row">
 
-        <main class="col-12" id="main-content">
+        <main class="--col-12" id="main-content">
 
   <div class="p-strip is-shallow u-no-padding--top">
     <div class="row">
@@ -143,7 +154,7 @@
     </div>
   </div>
 
-  <hr>
+  <div class="u-fixed-width"><hr/></div>
 
   <div class="p-strip is-shallow">
     <div class="row">
@@ -170,7 +181,7 @@
     </div>
   </div>
 
-  <hr>
+  <div class="u-fixed-width"><hr/></div>
 
   <div class="p-strip is-shallow">
     <div class="row">
@@ -182,9 +193,8 @@
     </div>
   </div>
 
-  <hr>
 
-  <div class="p-strip is-shallow">
+  <div class="p-strip--light is-shallow">
     <div class="row">
       <div class="col-6 col-medium-3"><h2>Download</h2></div>
       <div class="col-6 col-medium-3">
@@ -195,7 +205,6 @@
     </div>
   </div>
 
-  <hr>
 
   <div class="p-strip is-shallow">
     <div class="row">

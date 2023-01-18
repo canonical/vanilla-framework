@@ -8,6 +8,55 @@
   // TODO: make sure it works with grid max width set to 100%
   $breakpoint-full-screen-layout: calc(($grid-max-width + 2 * $l-full-screen-aside-width) * $font-size-ratio--largescreen);
 
+  // .l-full-width-container {
+  //   // mobile styles
+  // }
+
+  @media (min-width: $breakpoint-large) {
+    .l-full-width-container {
+      display: grid;
+      grid-template-areas: 'nav main aside';
+      grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) min-content;
+      width: 100%;
+
+      .l-nav {
+        grid-area: nav;
+      }
+
+      .l-main {
+        grid-area: main;
+
+        // if there is a side navigation, rows should align to the left (no left margin)
+        .row,
+        .u-fixed-width {
+          margin-left: 0;
+        }
+      }
+
+      .l-aside {
+        grid-area: aside;
+        width: auto; // TODO: application layout!!!
+      }
+    }
+  }
+
+  // full width layout
+  @media (min-width: $breakpoint-full-screen-layout) {
+    .l-full-width-container {
+      grid-template-areas: 'nav    main   aside';
+      grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) $l-full-screen-aside-width;
+
+      .l-main {
+        .row,
+        .u-fixed-width {
+          margin-left: auto;
+        }
+      }
+    }
+
+
+  }
+
   // mobile first, use standard mobile layout, but make side navigation fixed to the screen
   .l-full-width {
     .l-side-navigation {
