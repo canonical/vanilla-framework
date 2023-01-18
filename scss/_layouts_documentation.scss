@@ -5,7 +5,8 @@
   // in the middle
   // we have to calculate media query breakpoint in px instead of rem to make sure
   // we take into account bigger font size on large screens
-  $breakpoint-full-screen-layout: ($grid-max-width + 2 * $l-full-screen-aside-width) * $font-size-ratio--largescreen;
+  // TODO: make sure it works with grid max width set to 100%
+  $breakpoint-full-screen-layout: calc(($grid-max-width + 2 * $l-full-screen-aside-width) * $font-size-ratio--largescreen);
 
   // mobile first, use standard mobile layout, but make side navigation fixed to the screen
   .l-full-width {
