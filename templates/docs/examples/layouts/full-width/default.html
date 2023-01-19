@@ -5,13 +5,13 @@
 <style>
   body {
     margin: 0;
+    position: relative;
   }
 </style>
 {% endblock %}
 
 {% block content %}
 <a href="#main-content" class="p-link--skip">Jump to main content</a>
-
 
 <header id="navigation" class="p-navigation is-dark">
   <div class="l-full-width-container">
@@ -75,84 +75,79 @@
   <div class="p-navigation__search-overlay"></div>
 </header>
 
-<div class="l-full-width-container">
+<div class="l-sidebar" style="background: #f7f7f7">
 
 
-  <div class="l-nav" style="background: #f7f7f7">
+  <div class="p-side-navigation is-sticky" id="side-navigation-drawer" aria-label="Side" style="background: #f7f7f7">
+
+    <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer"></div>
+
+    <nav class="p-side-navigation__drawer" aria-label="Example side"  style="background: #f7f7f7">
+      <aside class="p-strip is-shallow">
+      <div class="p-side-navigation__drawer-header">
+        <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
+          Toggle side navigation
+        </a>
+      </div>
 
 
-      <div class="p-side-navigation is-sticky" id="side-navigation-drawer" aria-label="Side" style="background: #f7f7f7">
-        <aside class="p-strip is-shallow">
-        <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer"></div>
-        <nav class="p-side-navigation__drawer" aria-label="Example side"  style="background: #f7f7f7">
-          <div class="p-side-navigation__drawer-header">
-            <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
-              Toggle side navigation
+      <ul class="p-side-navigation__list">
+        <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Welcome</span></li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="/docs" aria-current="page">
+              Get started
+
             </a>
-          </div>
+          </li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="/docs/building-vanilla" >
+              Building with Vanilla
 
+            </a>
+          </li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="/docs/customising-vanilla" >
+              Customising Vanilla
 
-          <ul class="p-side-navigation__list">
-            <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">Welcome</span></li>
-            <li class="p-side-navigation__item">
-                <a class="p-side-navigation__link" href="/docs" aria-current="page">
-                  Get started
+            </a>
+          </li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="/docs/whats-new" >
+              What’s new in 3.8.1
 
-                </a>
-              </li>
-            <li class="p-side-navigation__item">
-                <a class="p-side-navigation__link" href="/docs/building-vanilla" >
-                  Building with Vanilla
+            </a>
+          </li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="/docs/migration-guide-to-v3" >
+              Migrating to v3.0
 
-                </a>
-              </li>
-            <li class="p-side-navigation__item">
-                <a class="p-side-navigation__link" href="/docs/customising-vanilla" >
-                  Customising Vanilla
+            </a>
+          </li>
+      </ul>
+    </aside>
+    </nav>
+  </div>
+</div>
 
-                </a>
-              </li>
-            <li class="p-side-navigation__item">
-                <a class="p-side-navigation__link" href="/docs/whats-new" >
-                  What’s new in 3.8.1
+<div class="u-hide--large p-strip--light is-shallow">
+  <div class="u-fixed-width">
+    <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
+  </div>
+</div>
 
-                </a>
-              </li>
-            <li class="p-side-navigation__item">
-                <a class="p-side-navigation__link" href="/docs/migration-guide-to-v3" >
-                  Migrating to v3.0
-
-                </a>
-              </li>
-          </ul>
-        </nav>
-      </aside>
-      </div>
-
-
-    </div>
-
-    <div class="l-main">
-
-
-
-
-      <div class="u-hide--large p-strip--light is-shallow">
-        <div class="u-fixed-width">
-          <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
-        </div>
-      </div>
-
-  <div class="p-strip--light is-shallow">
+<div class="p-strip--light is-shallow l-full-width-container">
+  <div class="l-main">
     <div class="row">
       <div class="col-6 col-medium-3"><h1 class="p-heading--2">Get started</h1></div>
       <div class="col-6 col-medium-3"><p>You can use Vanilla in your projects in a few different ways. See <a href="/docs/building-vanilla">Building with Vanilla</a> and <a href="/docs/customising-vanilla">Customising Vanilla</a> for more in-depth setup instructions.</p></div>
     </div>
   </div>
+</div>
 
-  <hr/>
+<hr>
 
-  <div class="p-strip is-shallow">
+<div class="p-strip is-shallow l-full-width-container">
+  <div class="l-main">
     <div class="row">
       <div class="col-6 col-medium-3"><h2>Install</h2></div>
       <div class="col-6 col-medium-3">
@@ -176,10 +171,18 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="u-fixed-width"><hr/></div>
+<div class="l-full-width-container">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
+    </div>
+  </div>
+</div>
 
-  <div class="p-strip is-shallow">
+<div class="p-strip is-shallow l-full-width-container">
+  <div class="l-main">
     <div class="row">
       <div class="col-6 col-medium-3"><h2>Hotlink</h2></div>
       <div class="col-6 col-medium-3">
@@ -188,9 +191,10 @@
       </div>
     </div>
   </div>
+</div>
 
-
-  <div class="p-strip--light is-shallow">
+<div class="p-strip--light is-shallow l-full-width-container">
+  <div class="l-main">
     <div class="row">
       <div class="col-6 col-medium-3"><h2>Download</h2></div>
       <div class="col-6 col-medium-3">
@@ -200,9 +204,10 @@
       </div>
     </div>
   </div>
+</div>
 
-
-  <div class="p-strip is-shallow">
+<div class="p-strip is-shallow l-full-width-container">
+  <div class="l-main">
     <div class="row">
       <div class="col-6 col-medium-3"><h2>Local development</h2></div>
       <div class="col-6 col-medium-3">
@@ -213,13 +218,8 @@
           <li class="p-inline-list__item"><i class="p-list__icon--github"></i><a href="https://github.com/canonical/vanilla-framework/issues/new">Fork us on GitHub</a></li>
         </ul>
       </div>
-
-
-
-
-        </main>
-
-      </div>
-      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
