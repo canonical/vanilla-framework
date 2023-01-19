@@ -19,10 +19,12 @@
       grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) min-content;
       width: 100%;
 
+      // left side container
       .l-nav {
         grid-area: nav;
       }
 
+      // main container
       .l-main {
         grid-area: main;
 
@@ -33,9 +35,10 @@
         }
       }
 
+      // right side container
       .l-aside {
         grid-area: aside;
-        width: auto; // TODO: application layout!!!
+        width: auto; // TODO: override application layout!!!
       }
     }
   }
@@ -53,135 +56,6 @@
         }
       }
     }
-
-
   }
 
-  // mobile first, use standard mobile layout, but make side navigation fixed to the screen
-  .l-full-width {
-    .l-side-navigation {
-      position: fixed;
-      z-index: 100;
-    }
-  }
-
-  // left aligned (there is space for the sidebar on left)
-  @media (min-width: $breakpoint-large) {
-    .l-full-width {
-      display: grid;
-      grid-template-areas:
-        'navbar navbar'
-        'nav    main  ';
-      grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr);
-      grid-template-rows: min-content 1fr;
-
-      .l-main {
-        grid-area: main;
-      }
-
-      .l-side-navigation {
-        align-self: start;
-        background: #f7f7f7;
-        display: block;
-        grid-area: nav;
-        height: 100vh;
-        overflow: scroll;
-        position: sticky;
-        top: 0;
-      }
-
-      .p-side-navigation .p-side-navigation__drawer {
-        background: #f7f7f7;
-      }
-    }
-
-    .l-full-width.no-sidebar {
-      grid-template-columns: 0 minmax(0, 1fr);
-    }
-
-    .l-full-width .side-nav-toggle {
-      display: none;
-    }
-
-    // if there is a side navigation, rows should align to the left (no left margin)
-    .l-full-width .l-main .row,
-    .l-full-width .l-main .u-fixed-width {
-      margin-left: 0;
-    }
-
-    // if there is no side navigation, compensate for it with additional left margin
-    .l-full-width.no-sidebar .l-main .row,
-    .l-full-width.no-sidebar .l-main .u-fixed-width {
-      margin-left: $l-full-screen-aside-width;
-      width: auto;
-
-      .row {
-        margin-left: 0;
-      }
-    }
-  }
-
-  // full width layout
-  @media (min-width: $breakpoint-full-screen-layout) {
-    .l-full-width {
-      grid-template-areas:
-        'navbar navbar navbar'
-        'nav    main   aside';
-      grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) $l-full-screen-aside-width;
-    }
-
-    .l-full-width.no-sidebar {
-      grid-template-columns: 0 minmax(0, 1fr) 0;
-    }
-
-    // reset margin back to auto to center the content
-    .l-full-width .l-main .row,
-    .l-full-width .l-main .u-fixed-width,
-    .l-full-width.no-sidebar .l-main .row,
-    .l-full-width.no-sidebar .l-main .u-fixed-width {
-      margin-left: auto;
-    }
-  }
-
-  // custom navigation styles
-  .l-full-width {
-    // put navigation in correct grid area
-    .p-navigation {
-      grid-area: navbar;
-    }
-
-    .p-navigation__tagged-logo {
-      min-width: auto;
-    }
-
-    .p-navigation--right {
-      margin-left: auto;
-    }
-
-    @media (min-width: $breakpoint-large) {
-      .p-navigation__tagged-logo {
-        min-width: 13.5rem; // TODO, calculate it? 15rem - 1.5rem (side nav width - navigation padding...)
-      }
-    }
-
-    @media (min-width: $breakpoint-full-screen-layout) {
-      .p-navigation__grid {
-        display: grid;
-        grid-template-areas: 'logo menu search';
-        grid-template-columns: $l-full-screen-aside-width minmax(0, 1fr) $l-full-screen-aside-width;
-        grid-template-rows: min-content;
-        overflow: hidden;
-        width: 100vw;
-      }
-
-      .p-navigation__fixed-width {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 72rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        width: 100%;
-      }
-    }
-  }
 }
