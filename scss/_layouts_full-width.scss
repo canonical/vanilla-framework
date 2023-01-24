@@ -12,6 +12,8 @@
 
   @media (min-width: $breakpoint-large) {
     .l-full-width__sidebar {
+      background: $color-light;
+
       // height of top navigation, as padding applied to .p-navigation__link + line-heigh of the anchor text inside
       $navigation-top-height: $spv--large * 2 + map-get($line-heights, default-text);
 
@@ -20,6 +22,16 @@
       position: absolute;
       width: $l-full-screen-aside-width;
       z-index: 1;
+
+      &::after {
+        background: linear-gradient(90deg, transparent, rgba($color-x-dark, $shadow-opacity));
+        bottom: 0;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 5px;
+      }
     }
 
     .l-full-width {
