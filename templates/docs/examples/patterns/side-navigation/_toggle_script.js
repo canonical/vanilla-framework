@@ -5,7 +5,7 @@
   @param {Boolean} show Whether to show or hide the drawer.
 */
 function toggleDrawer(sideNavigation, show) {
-  const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle');
+  const toggleButtonOutsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle, .js-drawer-toggle');
   const toggleButtonInsideDrawer = sideNavigation.querySelector('.p-side-navigation__toggle--in-drawer');
 
   if (sideNavigation) {

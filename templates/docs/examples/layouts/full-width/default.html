@@ -75,13 +75,18 @@
   <div class="p-navigation__search-overlay"></div>
 </header>
 
-<div class="l-full-width__sidebar" style="background: #f7f7f7">
+<div class="l-full-width__sidebar">
 
-  <div class="p-side-navigation is-sticky" id="side-navigation-drawer" aria-label="Side" style="background: #f7f7f7">
+  <div class="p-side-navigation is-sticky" id="side-navigation-drawer" aria-label="Side">
+    <div class="u-hide--large p-strip--light is-shallow">
+      <div class="u-fixed-width">
+        <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
+      </div>
+    </div>
 
     <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer"></div>
 
-    <nav class="p-side-navigation__drawer" aria-label="Example side"  style="background: #f7f7f7">
+    <nav class="p-side-navigation__drawer" aria-label="Example side">
       <aside class="p-strip is-shallow">
       <div class="p-side-navigation__drawer-header">
         <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
@@ -125,12 +130,6 @@
       </ul>
     </aside>
     </nav>
-  </div>
-</div>
-
-<div class="u-hide--large p-strip--light is-shallow">
-  <div class="u-fixed-width">
-    <button class="p-button has-icon u-no-margin js-drawer-toggle"><i class="p-icon--menu"></i><span>Contents</span></button>
   </div>
 </div>
 
@@ -221,4 +220,8 @@
   </div>
 </div>
 
+<script>
+  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+</script>
 {% endblock %}
+

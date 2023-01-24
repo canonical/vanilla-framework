@@ -24,13 +24,19 @@
       z-index: 1;
 
       &::after {
-        background: linear-gradient(90deg, transparent, rgba($color-x-dark, $shadow-opacity));
+        background: linear-gradient(90deg, transparent, rgba($color-x-dark, 0.05));
         bottom: 0;
         content: '';
         position: absolute;
         right: 0;
         top: 0;
-        width: 5px;
+        width: 8px;
+      }
+
+      // side navigation component drawer needs background only when it's fixed on smaller screens
+      // keep it transparent when it's visible as part of full width layout
+      .p-side-navigation__drawer {
+        background: transparent;
       }
     }
 
