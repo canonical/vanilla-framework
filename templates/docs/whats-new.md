@@ -20,6 +20,35 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.11.0 -->
+    <tr>
+      <th>
+        <a href="/docs/examples/layouts/full-width/default">
+          Full-width layout
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.11.0</td>
+      <td>We are introducing new full-width site layout.
+      <p><i class="p-icon--warning"></i> This is an experimental feature, currenly meant for internal use on our design system site and docs.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla v3
+
+<table aria-label="Previously in Vanilla v3">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 3.10.0 -->
     <tr>
       <th>
@@ -59,21 +88,6 @@ When we add, make significant updates, or deprecate a component we update their 
         the <code>$font-use-subset-latin</code> option has been deprecated and should be removed when updating.
       </td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla v3
-
-<table aria-label="Previously in Vanilla v3">
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 3.9.0 -->
     <tr>
       <th>
