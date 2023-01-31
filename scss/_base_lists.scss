@@ -4,10 +4,10 @@
   // stylelint-disable selector-max-type -- base styles can use type selectors
   ol,
   ul {
+    list-style-type: none;
     margin-bottom: $spv--x-large;
-    margin-left: $sph--large;
     margin-top: 0;
-    padding-left: $sph--large;
+    padding-inline-start: 0;
 
     nav & {
       list-style: none;
@@ -16,8 +16,43 @@
   }
 
   li {
+    box-shadow: inset 0px 1px 0px 0rem #e5e5e5;
+    display: grid;
+    gap: $sph--large;
+    grid-template-columns: 1rem 1fr;
     margin: 0;
-    padding: 0;
+    padding: $sph--small 0 $sph--large 0;
+  }
+
+  li::before {
+    background-color: $color-dark;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 4px;
+    justify-self: flex-end;
+    margin-top: 0.5rem;
+    width: 4px;
+  }
+
+  ol {
+    counter-reset: ordered-list-counter;
+  }
+
+  ol > li::before {
+    counter-increment: ordered-list-counter;
+  }
+
+  ol > li::before {
+    background-color: transparent;
+    content: counter(ordered-list-counter);
+    height: unset;
+    margin-top: 0rem;
+    width: unset;
+  }
+
+  li::marker {
+    font-size: 0.8em;
   }
 
   li > ul,
