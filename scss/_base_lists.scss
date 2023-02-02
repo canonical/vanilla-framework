@@ -18,8 +18,8 @@
   li {
     box-shadow: inset 0px 1px 0px 0rem #e5e5e5;
     display: grid;
-    gap: $sph--large;
-    grid-template-columns: 1rem 1fr;
+    grid-row-gap: $sph--large;
+    grid-template-columns: 2rem fit-content(40em) 1fr;
     margin: 0;
     padding: $sph--small 0 $sph--large 0;
   }
@@ -31,6 +31,7 @@
     display: block;
     height: 4px;
     justify-self: flex-end;
+    margin-right: $sph--large;
     margin-top: 0.6rem;
     width: 4px;
   }
@@ -53,13 +54,39 @@
 
   li > ul,
   li > ol {
+    grid-column: 2 / 4;
     margin-bottom: 0;
     padding-top: 0;
+
+    > li {
+      grid-template-columns: 2rem calc(40rem - 2rem) 1fr;
+    }
+  }
+
+  // Align nested items' ends with the parent's up to 3 levels deep
+  li > ul > li,
+  li > ol > li {
+    grid-template-columns: 2rem fit-content(38rem) 1fr;
+  }
+
+  li > ul > li > ul > li,
+  li > ol > li > ol > li {
+    grid-template-columns: 2rem fit-content(36rem) 1fr;
   }
 
   li > ul > li:last-of-type,
   li > ol > li:last-of-type {
     padding-bottom: 0;
+  }
+
+  %vf-reset-list-style {
+    box-shadow: unset;
+    display: unset;
+    padding: unset;
+
+    &::before {
+      content: unset;
+    }
   }
 
   dl {

@@ -282,6 +282,11 @@
   .p-side-navigation__list {
     @extend %side-navigation__list;
 
+    //reset default list styles
+    > li {
+      @extend %vf-reset-list-style;
+    }
+
     // accordion styles
     &[aria-expanded] {
       @include vf-transition(#{transform, opacity}, fast);
