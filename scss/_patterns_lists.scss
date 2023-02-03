@@ -131,8 +131,13 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     @extend %vf-list;
 
     .p-list__item {
+      @extend %vf-reset-list-style;
       @extend %vf-list-item;
       @include vf-list-item-divided;
+
+      &.is-ticked {
+        padding-left: 2rem;
+      }
     }
 
     &.is-split .p-list__item:last-of-type {
@@ -251,6 +256,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 
   .p-stepped-list__item {
+    @extend %vf-reset-list-style;
     // override unecessary col-8 class in markup; layout is handled with css below
     float: none;
     margin-left: 0;
