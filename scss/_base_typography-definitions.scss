@@ -204,9 +204,11 @@
   }
 
   %table-header-label {
-    @extend %x-small-text;
-
-    text-transform: uppercase;
+    @extend %common-default-text-properties;
+    font-variant: small-caps;
+    letter-spacing: 0.07em;
+    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, p);
+    text-transform: lowercase;
   }
 
   %muted-heading {
