@@ -1,6 +1,33 @@
 @mixin vf-b-typography-definitions {
   //@section Heading styling in placeholders
+  %vf-heading-2 {
+    font-size: #{map-get($font-sizes, h2-mobile)}rem;
+    font-style: normal;
+    font-weight: $font-weight-display-heading;
+    line-height: map-get($line-heights, h2-mobile);
+    margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, h2-mobile);
+    margin-top: 0;
+    max-width: $text-max-width;
+    padding-top: map-get($nudges, h2-mobile) + map-get($browser-rounding-compensations, h2);
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: #{map-get($font-sizes, h2)}rem;
+      line-height: map-get($line-heights, h2);
+      margin-bottom: map-get($sp-after, h2) - map-get($nudges, h2);
+      padding-top: map-get($nudges, h2) + map-get($browser-rounding-compensations, h2);
+    }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h2;
+    }
+  }
+
   %vf-heading-1 {
+    @extend %vf-heading-2;
+    font-weight: 500;
+  }
+
+  %vf-heading-display {
     font-size: #{map-get($font-sizes, h1-mobile)}rem;
     font-style: normal;
     font-weight: $font-weight-display-heading;
@@ -29,27 +56,6 @@
     }
   }
 
-  %vf-heading-2 {
-    font-size: #{map-get($font-sizes, h2-mobile)}rem;
-    font-style: normal;
-    font-weight: $font-weight-display-heading;
-    line-height: map-get($line-heights, h2-mobile);
-    margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, h2-mobile);
-    margin-top: 0;
-    max-width: $text-max-width;
-    padding-top: map-get($nudges, h2-mobile) + map-get($browser-rounding-compensations, h2);
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      font-size: #{map-get($font-sizes, h2)}rem;
-      line-height: map-get($line-heights, h2);
-      margin-bottom: map-get($sp-after, h2) - map-get($nudges, h2);
-      padding-top: map-get($nudges, h2) + map-get($browser-rounding-compensations, h2);
-    }
-
-    &.u-no-margin--bottom {
-      @extend %u-no-margin--bottom--h2;
-    }
-  }
 
   %vf-heading-3 {
     font-size: #{map-get($font-sizes, h3-mobile)}rem;
