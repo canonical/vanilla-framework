@@ -7,75 +7,77 @@
 {% block title %}Component examples{% endblock %}
 
 {% block body %}
-<main id="main-content" class="p-strip is-bordered">
-  <div class="u-fixed-width">
-    <h1>Component examples</h1>
-    <hr>
-  </div>
+<main id="main-content" class="p-strip l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <h1>Component examples</h1>
+      <hr>
+    </div>
 
-  <div class="row">
-    <div class="col-3">
-      <h2>Base elements</h2>
-      <nav aria-label="Documentation: base elements">
-        <ul class="p-list">
-          {% for example in examples.base %}
-            <li class="p-list__item">
-              <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
+    <div class="row">
+      <div class="col-3">
+        <h2>Base elements</h2>
+        <nav aria-label="Documentation: base elements">
+          <ul class="p-list">
+            {% for example in examples.base %}
+              <li class="p-list__item">
+                <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="col-3">
+        <h2>Components</h2>
+        <nav aria-label="Documentation: components">
+          <ul class="p-list">
+            {% for example in examples.patterns %}
+              <li class="p-list__item">
+                <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="col-3">
+        <h2>Utilities</h2>
+        <nav aria-label="Documentation: utilities">
+          <ul class="p-list">
+            {% for example in examples.utilities %}
+              <li class="p-list__item">
+                <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="col-3">
+        <h2>Layouts</h2>
+        <nav aria-label="Documentation: layouts">
+          <ul class="p-list">
+            {% for example in examples.layouts %}
+              <li class="p-list__item">
+                <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <h2>Templates</h2>
+        <nav aria-label="Documentation: templates">
+          <ul class="p-list">
+            {% for example in examples.templates %}
+              <li class="p-list__item">
+                <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
     </div>
-    <div class="col-3">
-      <h2>Components</h2>
-      <nav aria-label="Documentation: components">
-        <ul class="p-list">
-          {% for example in examples.patterns %}
-            <li class="p-list__item">
-              <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-    <div class="col-3">
-      <h2>Utilities</h2>
-      <nav aria-label="Documentation: utilities">
-        <ul class="p-list">
-          {% for example in examples.utilities %}
-            <li class="p-list__item">
-              <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-    <div class="col-3">
-      <h2>Layouts</h2>
-      <nav aria-label="Documentation: layouts">
-        <ul class="p-list">
-          {% for example in examples.layouts %}
-            <li class="p-list__item">
-              <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-      <h2>Templates</h2>
-      <nav aria-label="Documentation: templates">
-        <ul class="p-list">
-          {% for example in examples.templates %}
-            <li class="p-list__item">
-              <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-  </div>
 
-  <div class="u-fixed-width">
-    <p><a href="/docs/examples/standalone">Examples using standalone component CSS for testing/debugging</a></p>
+    <div class="u-fixed-width">
+      <p><a href="/docs/examples/standalone">Examples using standalone component CSS for testing/debugging</a></p>
+    </div>
   </div>
 </main>
 {% endblock %}
