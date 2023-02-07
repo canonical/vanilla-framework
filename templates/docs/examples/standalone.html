@@ -7,38 +7,40 @@
 {% block title %}Standalone component examples{% endblock %}
 
 {% block body %}
-<main id="main-content" class="p-strip is-bordered">
-  <div class="row">
-    <div class="col-12">
-      <h1>Standalone component examples</h1>
-      <hr>
-      <p>Examples below use CSS built with single pattern included with base styles instead of the whole Vanilla framework CSS file.</p>
+<main id="main-content" class="p-strip l-full-width">
+  <div class="l-main">
+    <div class="row">
+      <div class="col-12">
+        <h1>Standalone component examples</h1>
+        <hr>
+        <p>Examples below use CSS built with single pattern included with base styles instead of the whole Vanilla framework CSS file.</p>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">
-      <h2>Base elements</h2>
-      <nav aria-label="Documentation: base elements">
-        <ul class="p-list">
-          {% for example in examples.base %}
-            <li class="p-list__item">
-              <a href="/docs/examples/standalone/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-    <div class="col-3">
-      <h2>Components</h2>
-      <nav aria-label="Documentation: components">
-        <ul class="p-list">
-          {% for example in examples.patterns %}
-            <li class="p-list__item">
-              <a href="/docs/examples/standalone/{{ example.path }}" class="p-link">{{ example.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
+    <div class="row">
+      <div class="col-3">
+        <h2>Base elements</h2>
+        <nav aria-label="Documentation: base elements">
+          <ul class="p-list">
+            {% for example in examples.base %}
+              <li class="p-list__item">
+                <a href="/docs/examples/standalone/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="col-3">
+        <h2>Components</h2>
+        <nav aria-label="Documentation: components">
+          <ul class="p-list">
+            {% for example in examples.patterns %}
+              <li class="p-list__item">
+                <a href="/docs/examples/standalone/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 </main>
