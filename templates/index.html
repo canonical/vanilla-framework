@@ -6,9 +6,9 @@
 {% block content %}
 <script defer src="https://buttons.github.io/buttons.js"></script>
 
-<div id="main-content" class="p-strip--suru is-deep">
-  <div class="row">
-    <div class="col-12">
+<div id="main-content" class="p-strip--suru is-deep l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
       <h1>A simple, extensible CSS framework</h1>
       <p>Backed by open-source code and written in Sass by the Canonical Web Team.</p>
       <ul class="p-inline-list u-no-margin--bottom">
@@ -23,259 +23,320 @@
   </div>
 </div>
 
-<div class="p-strip is-bordered is-deep">
-  <div class="row">
-    <div class="col-4">
-      <div class="p-heading-icon">
-        <div class="p-heading-icon__header is-stacked">
-          {{ image (
-            url="https://assets.ubuntu.com/v1/1958451f-pictogram_lightweight01b-dark.svg",
-            alt="",
-            width="96",
-            height="96",
-            hi_def=True,
-            loading="lazy",
-            attrs={"class": "p-heading-icon__img"}
-            ) | safe
-          }}
-          <h2 class="p-heading-icon__title">Lightweight</h2>
+<div class="p-strip is-deep l-full-width">
+  <div class="l-main">
+    <div class="row">
+      <div class="col-4 col-medium-2">
+        <div class="p-heading-icon">
+          <div class="p-heading-icon__header is-stacked">
+            {{ image (
+              url="https://assets.ubuntu.com/v1/1958451f-pictogram_lightweight01b-dark.svg",
+              alt="",
+              width="96",
+              height="96",
+              hi_def=True,
+              loading="lazy",
+              attrs={"class": "p-heading-icon__img"}
+              ) | safe
+            }}
+            <h2 class="p-heading-icon__title">Lightweight</h2>
+          </div>
+          <p>Vanilla contains a responsive CSS grid, basic style for HTML elements and a selection of key useful patterns and utility classes that you can extend.</p>
         </div>
-        <p>Vanilla contains a responsive CSS grid, basic style for HTML elements and a selection of key useful patterns and utility classes that you can extend.</p>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="p-heading-icon">
-        <div class="p-heading-icon__header is-stacked">
-          {{ image (
-            url="https://assets.ubuntu.com/v1/730b14b9-pictogram_extension01-dark.svg",
-            alt="",
-            width="96",
-            height="96",
-            hi_def=True,
-            loading="lazy",
-            attrs={"class": "p-heading-icon__img"}
-            ) | safe
-          }}
-          <h2 class="p-heading-icon__title">Composable</h2>
+      <div class="col-4 col-medium-2">
+        <div class="p-heading-icon">
+          <div class="p-heading-icon__header is-stacked">
+            {{ image (
+              url="https://assets.ubuntu.com/v1/730b14b9-pictogram_extension01-dark.svg",
+              alt="",
+              width="96",
+              height="96",
+              hi_def=True,
+              loading="lazy",
+              attrs={"class": "p-heading-icon__img"}
+              ) | safe
+            }}
+            <h2 class="p-heading-icon__title">Composable</h2>
+          </div>
+          <p>Designed to be composable — you can include the whole framework to avail of all styles or you can use only what you need for your project.</p>
         </div>
-        <p>Designed to be composable — you can include the whole framework to avail of all styles or you can use only what you need for your project.</p>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="p-heading-icon">
-        <div class="p-heading-icon__header is-stacked">
-          {{ image (
-            url="https://assets.ubuntu.com/v1/ff78e55c-pictogram_opensource01-dark.svg",
-            alt="",
-            width="96",
-            height="96",
-            hi_def=True,
-            loading="lazy",
-            attrs={"class": "p-heading-icon__img"}
-            ) | safe
-          }}
-          <h2 class="p-heading-icon__title">Open source</h2>
+      <div class="col-4 col-medium-2">
+        <div class="p-heading-icon">
+          <div class="p-heading-icon__header is-stacked">
+            {{ image (
+              url="https://assets.ubuntu.com/v1/ff78e55c-pictogram_opensource01-dark.svg",
+              alt="",
+              width="96",
+              height="96",
+              hi_def=True,
+              loading="lazy",
+              attrs={"class": "p-heading-icon__img"}
+              ) | safe
+            }}
+            <h2 class="p-heading-icon__title">Open source</h2>
+          </div>
+          <p>Anyone can contribute to Vanilla, improve it and extend it. All the code is available on GitHub and is licensed under LGPLv3 by Canonical.</p>
         </div>
-        <p>Anyone can contribute to Vanilla, improve it and extend it. All the code is available on GitHub and is licensed under LGPLv3 by Canonical.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="quick-start" class="p-strip is-bordered is-deep">
-  <div class="row">
-    <div class="col-12">
-      <h2>Quick start</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <p>The recommended method of including Vanilla Framework in your project is via <a href="https://www.npmjs.com/package/vanilla-framework">npm</a> or <a href="https://yarnpkg.com/package/vanilla-framework">yarn</a>. You can then simply include the framework in your SCSS files and compile.</p>
-      <p>For other methods, please see the <a href="/docs">advanced usage docs.</a></p>
-    </div>
-    <div class="col-6">
-      <pre><code>yarn add sass vanilla-framework</code></pre>
-      <pre><code><span class="token keyword">@import</span> <span class="token string">"vanilla-framework"</span><span class="token punctuation">;</span><br><span class="token keyword">@include</span> vanilla<span class="token punctuation">;</span></code></pre>
-    </div>
-  </div>
-</div>
-
-<div class="p-strip is-bordered is-deep">
-  <div class="row u-equal-height">
-    <div class="col-4">
-      <h2>Guidelines</h2>
-      <p>If you are <a href="https://vanillaframework.io/contribute">contributing to Vanilla</a>, make sure to read and follow these guidelines.</p>
-      <ul class="p-list--divided">
-        <li class="p-list__item">
-          <a href="/accessibility" class="p-link">Accessibility</a>
-        </li>
-        <li class="p-list__item">
-          <a href="/browser-support" class="p-link">Browser support</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-8 u-vertically-center u-align--center">
-      {{ image (
-        url="https://assets.ubuntu.com/v1/af1e0f04-guidelines-illustration.svg",
-        alt="",
-        width="378",
-        height="200",
-        hi_def=True,
-        loading="lazy"
-        ) | safe
-      }}
-    </div>
-  </div>
-</div>
-
-<div class="p-strip is-bordered is-deep">
-  <div class="row">
-    <div class="col-4">
-      <h2>Downloads</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="p-card--highlighted col-4">
-      <div class="p-heading-icon--small">
-        <div class="p-heading-icon__header">
-          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/0276b842-github-icon.svg" alt="GitHub repo:" />
-          <h3 class="p-heading-icon__title">Vanilla Framework</h3>
-        </div>
-        <p>Use our CSS framework to start building&nbsp;your project.</p>
-        <p style="margin-bottom: 0px;"><a onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download Vanilla framework', 'eventValue' : undefined });" class="p-button" href="https://github.com/canonical/vanilla-framework/releases/latest">Download latest Vanilla v{{version}}</a></p>
-        <small>See the <a href="https://github.com/canonical/vanilla-framework/releases">release notes</a> for details on the latest&nbsp;updates.</small>
-      </div>
-    </div>
-    <div class="p-card--highlighted col-4">
-      <div class="p-heading-icon--small">
-        <div class="p-heading-icon__header">
-          <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/9a5b9c51-sketch-icon.svg" alt="Sketch library:" />
-          <h3 class="p-heading-icon__title">Vanilla Design</h3>
-        </div>
-        <p>Get our Sketch library of common design components.</p>
-        <p style="margin-bottom: 0px;"><a onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download Vanilla Design UI Kit', 'eventValue' : undefined });" class="p-button" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></p>
-        <small><i class="p-icon--warning"></i> The Sketch UI Kit is no longer maintained. Current version is compatible with Vanilla v2.25.</small>
       </div>
     </div>
   </div>
 </div>
 
-<div class="p-strip is-deep is-bordered">
-  <div class="u-fixed-width">
-    <h2>Latest news from our blog</h2>
+<div class="l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
+    </div>
   </div>
-  <div id="articles" class="row">
-    <p><i class="p-icon--spinner u-animation--spin"></i> Loading...</p>
+</div>
+
+<div id="quick-start" class="p-strip is-deep l-full-width">
+  <div class="l-main">
+    <div class="row">
+      <div class="col-12">
+        <h2>Quick start</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 col-medium-3">
+        <p>The recommended method of including Vanilla Framework in your project is via <a href="https://www.npmjs.com/package/vanilla-framework">npm</a> or <a href="https://yarnpkg.com/package/vanilla-framework">yarn</a>. You can then simply include the framework in your SCSS files and compile.</p>
+        <p>For other methods, please see the <a href="/docs">advanced usage docs.</a></p>
+      </div>
+      <div class="col-6 col-medium-3">
+        <pre><code>yarn add sass vanilla-framework</code></pre>
+        <pre><code><span class="token keyword">@import</span> <span class="token string">"vanilla-framework"</span><span class="token punctuation">;</span><br><span class="token keyword">@include</span> vanilla<span class="token punctuation">;</span></code></pre>
+      </div>
+    </div>
   </div>
-  <div class="u-fixed-width"><a href="https://ubuntu.com/blog/topics/design" class="p-button">View more from our blog</a></div>
+</div>
+
+<div class="l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip is-deep l-full-width">
+  <div class="l-main">
+    <div class="row u-equal-height">
+      <div class="col-6 col-medium-3">
+        <h2>Guidelines</h2>
+        <p>If you are <a href="https://vanillaframework.io/contribute">contributing to Vanilla</a>, make sure to read and follow these guidelines.</p>
+        <ul class="p-list--divided">
+          <li class="p-list__item">
+            <a href="/accessibility" class="p-link">Accessibility</a>
+          </li>
+          <li class="p-list__item">
+            <a href="/browser-support" class="p-link">Browser support</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-medium-3 u-vertically-center u-align--center">
+        {{ image (
+          url="https://assets.ubuntu.com/v1/af1e0f04-guidelines-illustration.svg",
+          alt="",
+          width="378",
+          height="200",
+          hi_def=True,
+          loading="lazy"
+          ) | safe
+        }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip is-deep l-full-width">
+  <div class="l-main">
+    <div class="row">
+      <div class="col-4 col-medium-2">
+        <h2>Downloads</h2>
+      </div>
+      <div class="p-card--highlighted col-4 col-medium-2">
+        <div class="p-heading-icon--small">
+          <div class="p-heading-icon__header">
+            <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/0276b842-github-icon.svg" alt="GitHub repo:" />
+            <h3 class="p-heading-icon__title">Vanilla Framework</h3>
+          </div>
+          <p>Use our CSS framework to start building&nbsp;your project.</p>
+          <p style="margin-bottom: 0px;"><a onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download Vanilla framework', 'eventValue' : undefined });" class="p-button" href="https://github.com/canonical/vanilla-framework/releases/latest">Download latest Vanilla v{{version}}</a></p>
+          <small>See the <a href="https://github.com/canonical/vanilla-framework/releases">release notes</a> for details on the latest&nbsp;updates.</small>
+        </div>
+      </div>
+      <div class="p-card--highlighted col-4 col-medium-2">
+        <div class="p-heading-icon--small">
+          <div class="p-heading-icon__header">
+            <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/9a5b9c51-sketch-icon.svg" alt="Sketch library:" />
+            <h3 class="p-heading-icon__title">Vanilla Design</h3>
+          </div>
+          <p>Get our Sketch library of common design components.</p>
+          <p style="margin-bottom: 0px;"><a onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download Vanilla Design UI Kit', 'eventValue' : undefined });" class="p-button" href="https://assets.ubuntu.com/latest-redirects/vanilla-framework.sketch">Download the Sketch UI Kit</a></p>
+          <small><i class="p-icon--warning"></i> The Sketch UI Kit is no longer maintained. Current version is compatible with Vanilla v2.25.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip is-deep l-full-width">
+  <div class="l-main">
+    <div class="row">
+      <div class="col-4">
+        <h2>Latest news from our blog</h2>
+      </div>
+      <div class="col-8">
+        <div id="articles" class="row">
+          <p><i class="p-icon--spinner u-animation--spin"></i> Loading...</p>
+        </div>
+        <div class="u-fixed-width"><a href="https://ubuntu.com/blog/topics/design" class="p-button">View more from our blog</a></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- blog snippet template -->
 <template style="display:none" id="template">
-  <article class="col-3">
+  <article class="col-4 u-sv3">
     <h3><a class="article-link article-title"></a></h3>
     <time class="p-heading--6 article-time"></time>
   </article>
 </template>
 
-<div class="p-strip is-bordered">
-  <div class="u-fixed-width">
-    <div class="p-logo-section">
-      <p class="p-logo-section__title u-align-text--center">Who&rsquo;s using Vanilla</p>
-      <div class="p-logo-section__items">
-        <div class="p-logo-section__item">
-          <a href="https://ubuntu.com/">
-            {{ image (
-              url="https://assets.ubuntu.com/v1/89680bdf-logo-ubuntu.svg",
-              alt="",
-              width="144",
-              height="144",
-              hi_def=True,
-              loading="lazy",
-              attrs={"class": "p-logo-section__logo"}
-              ) | safe
-            }}
-          </a>
-        </div>
-        <div class="p-logo-section__item">
-          <a href="https://jaas.ai/">
-            {{ image (
-              url="https://assets.ubuntu.com/v1/7fe3f290-2019-logo-jaas.svg",
-              alt="",
-              width="145",
-              height="145",
-              hi_def=True,
-              loading="lazy",
-              attrs={"class": "p-logo-section__logo"}
-              ) | safe
-            }}
-          </a>
-        </div>
-        <div class="p-logo-section__item">
-          <a href="https://stmargarets.london/">
-            {{ image (
-              url="https://assets.ubuntu.com/v1/b7c9c8ce-2019-st-margarets-logo.svg",
-              alt="",
-              width="145",
-              height="145",
-              hi_def=True,
-              loading="lazy",
-              attrs={"class": "p-logo-section__logo"}
-              ) | safe
-            }}
-          </a>
-        </div>
-        <div class="p-logo-section__item">
-          <a href="https://snapcraft.io/">
-            {{ image (
-              url="https://assets.ubuntu.com/v1/e635d1ef-snapcraft_green-red_hex.png",
-              alt="",
-              width="170",
-              height="120",
-              hi_def=True,
-              loading="lazy",
-              attrs={"class": "p-logo-section__logo"}
-              ) | safe
-            }}
-          </a>
+<div class="l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <div class="p-logo-section">
+        <p class="p-logo-section__title u-align-text--center">Who&rsquo;s using Vanilla</p>
+        <div class="p-logo-section__items">
+          <div class="p-logo-section__item">
+            <a href="https://ubuntu.com/">
+              {{ image (
+                url="https://assets.ubuntu.com/v1/89680bdf-logo-ubuntu.svg",
+                alt="",
+                width="144",
+                height="144",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+              }}
+            </a>
+          </div>
+          <div class="p-logo-section__item">
+            <a href="https://jaas.ai/">
+              {{ image (
+                url="https://assets.ubuntu.com/v1/7fe3f290-2019-logo-jaas.svg",
+                alt="",
+                width="145",
+                height="145",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+              }}
+            </a>
+          </div>
+          <div class="p-logo-section__item">
+            <a href="https://stmargarets.london/">
+              {{ image (
+                url="https://assets.ubuntu.com/v1/b7c9c8ce-2019-st-margarets-logo.svg",
+                alt="",
+                width="145",
+                height="145",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+              }}
+            </a>
+          </div>
+          <div class="p-logo-section__item">
+            <a href="https://snapcraft.io/">
+              {{ image (
+                url="https://assets.ubuntu.com/v1/e635d1ef-snapcraft_green-red_hex.png",
+                alt="",
+                width="170",
+                height="120",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+              }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-<div class="p-strip">
-  <div class="row">
-    <div class="col-3">
-      <h2>Contribute</h2>
-      <p><a class="github-button" href="https://github.com/canonical/vanilla-framework" data-size="large" data-show-count="true" aria-label="Follow @vanilla-framework on GitHub">Follow @vanilla-framework</a></p>
-      <p><a class="github-button" href="https://github.com/canonical/vanilla-framework/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork vanilla-framework/vanilla-framework on GitHub">Fork</a></p>
+<div class="l-full-width">
+  <div class="l-main">
+    <div class="u-fixed-width">
+      <hr>
     </div>
-    <div class="col-3">
-      <h2>Get involved</h2>
-      <ul class="p-list--divided">
-        <li class="p-list__item is-ticked" style="background-image: url('https://assets.ubuntu.com/v1/7eae50ca-icon-twitter.svg'); background-size: 1rem;">
-          <a href="https://twitter.com/vanillaframewrk" class="p-link--soft">Twitter&nbsp;&rsaquo;</a>
-        </li>
-        <li class="p-list__item is-ticked" style="background-image: url('https://assets.ubuntu.com/v1/f307a122-icon-github.svg'); background-size: 1rem;">
-          <a href="https://github.com/canonical/vanilla-framework" class="p-link--soft">GitHub&nbsp;&rsaquo;</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-6">
-      <h2>Subscribe to Vanilla updates</h2>
-      <form action="//canonical.us3.list-manage.com/subscribe/post?u=56dac47c206ba0f58ec25f314&amp;id=36f7d8394e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="p-form">
-        <div class="p-form__group">
-          <label for="mce-EMAIL">Email address</label>
-          <input type="email" value="" name="EMAIL" placeholder="vanilla@example.com" id="mce-EMAIL" aria-label="Email address" autocomplete="email" required />
-          <input class="u-off-screen" aria-hidden="true" type="hidden" name="b_56dac47c206ba0f58ec25f314_36f7d8394e" tabindex="-1" value="" />
-          <p class="p-form-help-text">Know about new releases, features, blog posts, calls&#8209;for&#8209;help&nbsp;and more.</p>
-        </div>
-        <button name="subscribe" type="submit" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Subscribe', 'eventLabel' : 'Subcribe to Vanilla updates', 'eventValue' : undefined });" class="p-button--positive">Subscribe</button>
-      </form>
+  </div>
+</div>
+
+<div class="p-strip l-full-width">
+  <div class="l-main">
+    <div class="row">
+      <div class="col-3">
+        <h2>Contribute</h2>
+        <p><a class="github-button" href="https://github.com/canonical/vanilla-framework" data-size="large" data-show-count="true" aria-label="Follow @vanilla-framework on GitHub">Follow @vanilla-framework</a></p>
+        <p><a class="github-button" href="https://github.com/canonical/vanilla-framework/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork vanilla-framework/vanilla-framework on GitHub">Fork</a></p>
+      </div>
+      <div class="col-3">
+        <h2>Get involved</h2>
+        <ul class="p-list--divided">
+          <li class="p-list__item is-ticked" style="background-image: url('https://assets.ubuntu.com/v1/7eae50ca-icon-twitter.svg'); background-size: 1rem;">
+            <a href="https://twitter.com/vanillaframewrk" class="p-link--soft">Twitter&nbsp;&rsaquo;</a>
+          </li>
+          <li class="p-list__item is-ticked" style="background-image: url('https://assets.ubuntu.com/v1/f307a122-icon-github.svg'); background-size: 1rem;">
+            <a href="https://github.com/canonical/vanilla-framework" class="p-link--soft">GitHub&nbsp;&rsaquo;</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <h2>Subscribe to Vanilla updates</h2>
+        <form action="//canonical.us3.list-manage.com/subscribe/post?u=56dac47c206ba0f58ec25f314&amp;id=36f7d8394e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="p-form">
+          <div class="p-form__group">
+            <label for="mce-EMAIL">Email address</label>
+            <input type="email" value="" name="EMAIL" placeholder="vanilla@example.com" id="mce-EMAIL" aria-label="Email address" autocomplete="email" required />
+            <input class="u-off-screen" aria-hidden="true" type="hidden" name="b_56dac47c206ba0f58ec25f314_36f7d8394e" tabindex="-1" value="" />
+            <p class="p-form-help-text">Know about new releases, features, blog posts, calls&#8209;for&#8209;help&nbsp;and more.</p>
+          </div>
+          <button name="subscribe" type="submit" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Subscribe', 'eventLabel' : 'Subcribe to Vanilla updates', 'eventValue' : undefined });" class="p-button--positive">Subscribe</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
