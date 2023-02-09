@@ -120,8 +120,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       @extend %vf-list-item;
       @include vf-list-item-divided;
 
-      &.is-ticked,
-      .is-dotted {
+      &.is-ticked {
         background-position-y: 0.85rem;
       }
     }
@@ -155,8 +154,8 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
 // Displays item with a dot
 .is-dotted {
+  background-image: radial-gradient(circle, $color-dark 0%, $color-dark 10%, transparent 10%, transparent 100%);
   @extend %vf-list-item-dotted;
-  @include vf-icon-dot;
 }
 
 // Displays a list inline with spacing
