@@ -4,10 +4,10 @@
   // stylelint-disable selector-max-type -- base styles can use type selectors
   ol,
   ul {
-    list-style-type: none;
     margin-bottom: $spv--x-large;
+    margin-left: $sph--large;
     margin-top: 0;
-    padding-inline-start: 0;
+    padding-left: $sph--large;
 
     nav & {
       list-style: none;
@@ -16,77 +16,19 @@
   }
 
   li {
-    box-shadow: inset 0px 1px 0px 0rem #e5e5e5;
-    display: grid;
-    grid-row-gap: $sph--large;
-    grid-template-columns: 2rem fit-content(40em) 1fr;
     margin: 0;
-    padding: $sph--small 0 $sph--large 0;
-  }
-
-  li::before {
-    background-color: $color-dark;
-    border-radius: 50%;
-    content: '';
-    display: block;
-    height: 4px;
-    justify-self: flex-end;
-    margin-right: $sph--large;
-    margin-top: 0.6rem;
-    width: 4px;
-  }
-
-  ol {
-    counter-reset: ordered-list-counter;
-  }
-
-  ol > li {
-    counter-increment: ordered-list-counter;
-  }
-
-  ol > li::before {
-    background-color: transparent;
-    content: counter(ordered-list-counter);
-    height: unset;
-    margin-top: 0rem;
-    width: unset;
+    padding: 0;
   }
 
   li > ul,
   li > ol {
-    grid-column: 2 / 4;
     margin-bottom: 0;
     padding-top: 0;
-  }
-
-  // Align nested items' ends with the parent's up to 3 levels deep
-  li > ul > li,
-  li > ol > li {
-    grid-template-columns: 2rem fit-content(38rem) 1fr;
-  }
-
-  li > ul > li > ul > li,
-  li > ol > li > ol > li {
-    grid-template-columns: 2rem fit-content(36rem) 1fr;
   }
 
   li > ul > li:last-of-type,
   li > ol > li:last-of-type {
     padding-bottom: 0;
-  }
-
-  %vf-reset-list-style {
-    box-shadow: inherit;
-    display: inherit;
-    padding: inherit;
-
-    &::before {
-      content: unset;
-    }
-  }
-
-  .u-reset-list-item-style {
-    @extend %vf-reset-list-style;
   }
 
   dl {

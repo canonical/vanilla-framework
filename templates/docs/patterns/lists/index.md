@@ -40,6 +40,15 @@ Use the class `.p-list--divided` to add horizontal lines between the items.
 View example of the divided list pattern
 </a></div>
 
+## Dotted with horizontal divider
+
+You can combine both `.is-dotted` and `.p-list--divided` to style a
+list with horizontal dividers and dots.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-dotted/" class="js-example">
+View example of the dotted divided list pattern
+</a></div>
+
 ## Ticked with horizontal divider
 
 You can combine both `.is-ticked` and `.p-list--divided` to style a
