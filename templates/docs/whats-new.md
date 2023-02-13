@@ -23,7 +23,7 @@ When we add, make significant updates, or deprecate a component we update their 
     <!-- 3.11.0 -->
     <tr>
       <th>
-        <a href="/docs/examples/layouts/full-width/default">
+        <a href="/docs/layouts/full-width/">
           Full-width layout
         </a>
       </th>
