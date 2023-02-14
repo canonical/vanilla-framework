@@ -18,22 +18,22 @@ context:
 
 ## Structure
 
-The `.l-full-width` serves as a wrapper for full-width layout, and allows for a start (left), main (central) and end (right) areas. Usually the `l-full-width` class name would be placed on a strip component `p-strip` or an individual element. Additionally a separate `l-full-width__sidebar` element can be added to serve as a container for side navigation placed on top of the start (left) area of the layout.
+The `.l-full-width` serves as a wrapper for full-width layout and allows for a start (left), main (central) and end (right) areas. Usually, the `l-full-width` class name would be placed on a strip component `p-strip` or an individual element. Additionally, a separate `l-full-width__sidebar` element can be added as a container for side navigation placed on top of the start (left) area of the layout.
 
-On screens smaller than `$breakpoint--large` the sidebar is hidden off-screen and the whole width of the page is occupied by the main content area. On larger screens the sidebar is visible on the left side of the window.
+On screens smaller than `$breakpoint--large` the sidebar is hidden off-screen and the whole width of the page is occupied by the main content area. On larger screens, the sidebar is visible on the left side of the window.
 
 ### Main area
 
-Main content area is placed inside the `l-main` child element of `l-full-width` wrapper. This is the main area for the content of the page, it should be built with standard grid rows and columns.
+The main content area is placed inside the `l-main` child element of `l-full-width` wrapper. This is the main area for the content of the page, it should be built with standard grid rows and columns.
 
 ### Start and end areas
 
-Start `l-start` and end `l-end` areas are placed on the left and right side of the window. While the main area is centered on the screen, the start and end areas will alight to the sides of the window regardless of its size.
+The start `l-start` and end `l-end` areas are placed on the left and right sides of the window. While the main area is centered on the screen, the start and end areas will align to the sides of the window regardless of its size.
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
     <p class="p-notification__message">
-      Standard page content should not be placed inside start or main areas, they are mostly reserved for navigation.
+      Standard page content should not be placed inside the start or end areas, they are mostly reserved for navigation.
     </p>
   </div>
 </div>
@@ -48,7 +48,7 @@ View example of the full-width layout structure
 
 ### Sidebar
 
-On pages that use side navigation `.l-full-width__sidebar` element can be added that will position a container for side navigation component on top of the start area of the full-width layout (on the left side of the screen).
+On pages that use side navigation a `.l-full-width__sidebar` element can be added that will position a container for the side navigation component on top of the start area of the full-width layout (on the left side of the screen).
 
 An aside to the left, main area to the right:
 
