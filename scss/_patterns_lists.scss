@@ -73,7 +73,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 }
 
 @mixin vf-list-item-divided {
-  box-shadow: inset 0px 1px 0px 0rem #e5e5e5;
+  box-shadow: inset 0px 1px 0px 0rem $color-mid-x-light;
   margin: 0;
   padding-bottom: $sph--large;
   padding-top: $sph--small;
@@ -128,6 +128,12 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     &.is-split .p-list__item:last-of-type {
       border-bottom: 1px solid $color-mid-light;
     }
+
+    ul,
+    ol {
+      margin-bottom: 0;
+      margin-left: 2rem;
+    }
   }
 }
 
@@ -145,16 +151,15 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 }
 
 %vf-list-item-dotted {
-  background-position-x: -1rem;
-  background-position-y: -0.25rem;
-  background-repeat: no-repeat;
-  background-size: 2.5rem;
-  padding-left: 2rem;
+  &::before {
+    color: $color-dark;
+    content: '•';
+    margin-right: $sp-x-large;
+  }
 }
 
 // Displays item with a dot
 .is-dotted {
-  background-image: radial-gradient(circle, $color-dark 0%, $color-dark 10%, transparent 10%, transparent 100%);
   @extend %vf-list-item-dotted;
 }
 
