@@ -64,11 +64,15 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
   %vf-list-item-state-base {
     @extend %vf-list;
-
-    background-position-y: $spv--x-small + $list-status-icon-nudge;
     background-repeat: no-repeat;
     background-size: $list-status-icon-height;
-    padding-left: 2rem;
+    content: '';
+    display: inline-block;
+    height: $sph--large;
+    margin-right: $sph--large;
+    position: relative;
+    top: $sph--x-small;
+    width: $sph--large;
   }
 }
 
@@ -135,28 +139,6 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     .p-list__item {
       @extend %vf-list-item;
       @include vf-list-item-divided;
-
-      &.nested-list-wrapper {
-        box-shadow: none;
-        padding-bottom: 0;
-        padding-top: 0;
-
-        &::before {
-          display: none;
-        }
-      }
-
-      // the :has fallback has to be in a separate declaration with dupplicated rules
-      &:has(ol),
-      &:has(ul) {
-        box-shadow: none;
-        padding-bottom: 0;
-        padding-top: 0;
-
-        &::before {
-          display: none;
-        }
-      }
     }
 
     &.is-split .p-list__item:last-of-type {
@@ -166,6 +148,11 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     & & {
       margin-bottom: 0;
       margin-left: $sp-x-large;
+      padding-top: $sph--large;
+
+      .p-list__item:last-child {
+        padding-bottom: 0;
+      }
     }
   }
 
@@ -180,13 +167,17 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 // Displays item with a state icon
 @mixin vf-p-list-item-state {
   .is-ticked {
-    @extend %vf-list-item-state-base;
-    @include vf-icon-success;
+    &::before {
+      @extend %vf-list-item-state-base;
+      @include vf-icon-success;
+    }
   }
 
   .is-crossed {
-    @extend %vf-list-item-state-base;
-    @include vf-icon-error;
+    &::before {
+      @extend %vf-list-item-state-base;
+      @include vf-icon-error;
+    }
   }
 }
 
