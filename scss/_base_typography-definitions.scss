@@ -214,6 +214,14 @@
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--small;
     }
+
+    // deprecated: the use of .u-align-text--x-small-to-default on small caps text is deprecated
+    // previously small caps was implemented as x-small text variant requiring .u-align-text--x-small-to-default compensations
+    // but now it's implemented with default text size not requiring any compensations,
+    // so we need to reset the padding-top to the default value
+    &.u-align-text--x-small-to-default {
+      padding-top: map-get($nudges, p) + map-get($browser-rounding-compensations, p);
+    }
   }
 
   %table-header-label {

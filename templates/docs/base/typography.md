@@ -169,6 +169,10 @@ In some cases, for example when used on the same line, it can be useful to align
 View example of baseline alignment of paragraph, small, extra small text
 </a></div>
 
+<span class="p-status-label--negative">Deprecated</span>
+
+Small caps style used to be implemented as extra small text variant with `.p-text--x-small-capitalised` class name that required the `.u-align-text--x-small-to-default` utility to align the baseline. This is not the case any more, so usage of this utility with new `.p-text--small-caps` (and its deprecated equivalent `.p-text--x-small-capitaised`) is deprecated and can be removed.
+
 ## Strong text
 
 <div class="embedded-example"><a href="/docs/examples/base/strong/" class="js-example">
