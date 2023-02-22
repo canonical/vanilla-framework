@@ -20,19 +20,30 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.11.0 -->
+    <!-- 3.12.0 -->
     <tr>
       <th>
-        <a href="/docs/layouts/full-width/">
-          Full-width layout
+        <a href="/docs/base/typography#small-caps-text">
+          Small caps text
         </a>
       </th>
       <td>
-        <span class="p-status-label--positive">New</span>
+        <span class="p-status-label--information">Updated</span>
       </td>
-      <td>3.11.0</td>
-      <td>We are introducing new full-width site layout.
-      <p><i class="p-icon--warning"></i> This is an experimental feature, currenly meant for internal use on our design system site and docs.</p></td>
+      <td>3.12.0</td>
+      <td>We updated the style of small caps text and introduced new class name <code>p-text--small-caps</code> in place of previous <code>p-text--x-small-capitalised</code>.</td>
+    </tr>
+    <tr>
+      <th>
+        <a href="/docs/base/typography#small-caps-text">
+          Extra small capitalised text
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.12.0</td>
+      <td>We are deprecating <code>p-text--x-small-capitalised</code>. New <code>p-text--small-caps</code> should be used instead. At the same time usage of <code>u-align-text--x-small-to-default</code> utility is deprecated with both of these class names as well, as they don't need it anymore.</td>
     </tr>
   </tbody>
 </table>
@@ -49,6 +60,20 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.11.0 -->
+    <tr>
+      <th>
+        <a href="/docs/layouts/full-width/">
+          Full-width layout
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.11.0</td>
+      <td>We are introducing new full-width site layout.
+      <p><i class="p-icon--warning"></i> This is an experimental feature, currenly meant for internal use on our design system site and docs.</p></td>
+    </tr>
     <!-- 3.10.0 -->
     <tr>
       <th>
