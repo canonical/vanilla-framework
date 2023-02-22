@@ -76,7 +76,7 @@
   %vf-heading-4 {
     font-size: #{map-get($font-sizes, h4-mobile)}rem;
     font-style: normal;
-    font-weight: $font-weight-regular-text;
+    font-weight: $font-weight-thin;
     line-height: map-get($line-heights, h4-mobile);
     margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, h4-mobile);
     margin-top: 0;
@@ -203,7 +203,16 @@
     color: $colors--light-theme--text-muted;
   }
 
+  %small-caps-text {
+    @extend %common-default-text-properties;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, p);
+  }
+
   %table-header-label {
+    // TODO: table header should use %small-caps-text,
+    // but we need to test it in the context of MAAS dense tables first
     @extend %x-small-text;
 
     text-transform: uppercase;

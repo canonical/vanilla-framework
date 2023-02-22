@@ -58,11 +58,9 @@ jobs:
         with:
           name: css
           path: css
-      - name: Save file name to env
-        run: echo "ASSET_URL_PATH=vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css" >> $GITHUB_ENV
+      - name: Install upload-assets snap
+        run: sudo snap install upload-assets
       - name: Upload to assets server
-        run: python scripts/upload-assets.py
+        run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
-          ASSET_FILE_PATH: css/build.css
-          ASSET_URL_PATH: ${{env.ASSET_URL_PATH}}
