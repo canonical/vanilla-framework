@@ -7,34 +7,10 @@ context:
 If you want to display lists in a way that is more visually distinctive than the
 standard `<ol>` and `<ul>`, we have 7 list styles at your disposal.
 
-## Default
-
-Use the class `.p-list` for a list without bullets and more spacing between
-items than the basic lists.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/list/" class="js-example">
-View example of the list pattern
-</a></div>
-
-## Nested Count
-
-If you want nested ordered lists to have numbers based on their parents, you can add the class `p-list--nested-counter` to the ordered list element.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-count/" class="js-example">
-View example of the pattern nested counter
-</a></div>
-
-## Status
-
-Add the `.is-ticked` or `.is-crossed` classes to each list item to display tick/cross icons.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-status/" class="js-example">
-View example of the list status pattern
-</a></div>
-
 ## Horizontal divider
 
 Use the class `.p-list--divided` to add horizontal lines between the items.
+This is meant to be the new default list style please use this going forward.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers/" class="js-example">
 View example of the divided list pattern
@@ -56,6 +32,33 @@ list with horizontal dividers and tick icons.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-ticked/" class="js-example">
 View example of the ticked divided list pattern
+</a></div>
+
+## Default
+
+Use the class `.p-list` for a list without bullets and more spacing between
+items than the basic lists.
+
+<i class="p-icon--warning"></i> This style will be deprecated in the next major release. Please use the `.p-list--divided` style instead.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/list/" class="js-example">
+View example of the list pattern
+</a></div>
+
+## Nested Count
+
+If you want nested ordered lists to have numbers based on their parents, you can add the class `p-list--nested-counter` to the ordered list element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-count/" class="js-example">
+View example of the pattern nested counter
+</a></div>
+
+## Status
+
+Add the `.is-ticked` or `.is-crossed` classes to each list item to display tick/cross icons.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-status/" class="js-example">
+View example of the list status pattern
 </a></div>
 
 ## Inline
