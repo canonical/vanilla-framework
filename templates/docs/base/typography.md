@@ -148,13 +148,17 @@ View example of the base blockquotes
 View example of the small text
 </a></div>
 
-## Extra small capitalised text
+## Small caps text
 
-Extra small capitalised text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--x-small-capitalised`.
+Small caps text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--small-caps`.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/x-small-capitalised/" class="js-example">
-View example of the extra small capitalised text
+<div class="embedded-example"><a href="/docs/examples/patterns/text-small-caps/" class="js-example">
+View example of the small caps text
 </a></div>
+
+<span class="p-status-label--negative">Deprecated</span>
+
+Previously this style was implemented as `.p-text--x-small-capitalised` class name. This name is now deprecated and will be removed in next major version of Vanilla, please use `.p-text--small-caps` instead.
 
 ## Baseline alignment: small, extra small and paragraph text
 
