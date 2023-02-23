@@ -25,6 +25,14 @@ list with horizontal dividers and dots.
 View example of the dotted divided list pattern
 </a></div>
 
+## Ordered lists with horizontal divider
+
+You can use the class `.p-list--divided` to style an ordered list.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-ordered/" class="js-example">
+View example of the dotted divided list pattern
+</a></div>
+
 ## Ticked with horizontal divider
 
 You can combine both `.is-ticked` and `.p-list--divided` to style a
