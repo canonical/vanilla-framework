@@ -39,7 +39,11 @@ View example of the ticked divided list pattern
 Use the class `.p-list` for a list without bullets and more spacing between
 items than the basic lists.
 
-<i class="p-icon--warning"></i> This style will be deprecated in the next major release. Please use the `.p-list--divided` style instead.
+<div class="p-notification--caution">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Deprecated:</span>
+    <span class="p-notification__message">This style will be deprecated in the next major release. Please use the <code>.p-list--divided</code> style instead.</p></span>
+</div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/list/" class="js-example">
 View example of the list pattern
