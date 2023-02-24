@@ -146,6 +146,8 @@
 
   %default-text {
     @extend %common-default-text-properties;
+    font-size: 1rem;
+    font-weight: $font-weight-regular-text;
 
     margin-bottom: map-get($sp-after, default-text) - map-get($nudges, p);
   }
@@ -204,10 +206,22 @@
   }
 
   %small-caps-text {
-    @extend %common-default-text-properties;
+    @extend %default-text;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.05em;
     margin-bottom: map-get($sp-after, default-text) - map-get($nudges, p);
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--small;
+    }
+
+    // deprecated: the use of .u-align-text--x-small-to-default on small caps text is deprecated
+    // previously small caps was implemented as x-small text variant requiring .u-align-text--x-small-to-default compensations
+    // but now it's implemented with default text size not requiring any compensations,
+    // so we need to reset the padding-top to the default value
+    &.u-align-text--x-small-to-default {
+      padding-top: map-get($nudges, p) + map-get($browser-rounding-compensations, p);
+    }
   }
 
   %table-header-label {
@@ -218,13 +232,9 @@
     text-transform: uppercase;
   }
 
+  // deprecated: %muted-text is deprecated, use %small-caps-text instead
   %muted-heading {
-    @extend %muted-text;
-    @extend %table-header-label;
-
-    &.u-no-margin--bottom {
-      @extend %u-no-margin--bottom--small;
-    }
+    @extend %small-caps-text;
   }
 
   %bold {

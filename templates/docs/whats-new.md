@@ -28,11 +28,35 @@ When we add, make significant updates, or deprecate a component we update their 
         </a>
       </th>
       <td>
-        <span class="p-status-label--positive">New</span>
+        <span class="p-status-label--information">Updated</span>
       </td>
       <td>3.12.0</td>
       <td>We've restyled the divided lists and intend them to be used by default now.
       <p>We've also added a new <code>.is-dotted</code> class to display dots in front of list items.</td>
+    </tr>
+    <tr>
+      <th>
+        <a href="/docs/base/typography#small-caps-text">
+          Small caps text
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.12.0</td>
+      <td>We updated the style of small caps text and introduced new class name <code>p-text--small-caps</code> in place of previous <code>p-text--x-small-capitalised</code>.</td>
+    </tr>
+    <tr>
+      <th>
+        <a href="/docs/base/typography#small-caps-text">
+          Extra small capitalised text
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--negative">Deprecated</span>
+      </td>
+      <td>3.12.0</td>
+      <td>We are deprecating <code>p-text--x-small-capitalised</code>. New <code>p-text--small-caps</code> should be used instead. At the same time usage of <code>u-align-text--x-small-to-default</code> utility is deprecated with both of these class names as well, as they don't need it anymore.</td>
     </tr>
   </tbody>
 </table>
@@ -52,7 +76,7 @@ When we add, make significant updates, or deprecate a component we update their 
     <!-- 3.11.0 -->
     <tr>
       <th>
-        <a href="/docs/examples/layouts/full-width/default">
+        <a href="/docs/layouts/full-width/">
           Full-width layout
         </a>
       </th>

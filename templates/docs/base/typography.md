@@ -148,13 +148,17 @@ View example of the base blockquotes
 View example of the small text
 </a></div>
 
-## Extra small capitalised text
+## Small caps text
 
-Extra small capitalised text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--x-small-capitalised`.
+Small caps text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--small-caps`.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/x-small-capitalised/" class="js-example">
-View example of the extra small capitalised text
+<div class="embedded-example"><a href="/docs/examples/patterns/text-small-caps/" class="js-example">
+View example of the small caps text
 </a></div>
+
+<span class="p-status-label--negative">Deprecated</span>
+
+Previously this style was implemented as `.p-text--x-small-capitalised` class name. This name is now deprecated and will be removed in next major version of Vanilla, please use `.p-text--small-caps` instead.
 
 ## Baseline alignment: small, extra small and paragraph text
 
@@ -164,6 +168,10 @@ In some cases, for example when used on the same line, it can be useful to align
 <div class="embedded-example"><a href="/docs/examples/utilities/align-by-baseline/" class="js-example">
 View example of baseline alignment of paragraph, small, extra small text
 </a></div>
+
+<span class="p-status-label--negative">Deprecated</span>
+
+Small caps style used to be implemented as extra small text variant with `.p-text--x-small-capitalised` class name that required the `.u-align-text--x-small-to-default` utility to align the baseline. This is not the case any more, so usage of this utility with new `.p-text--small-caps` (and its deprecated equivalent `.p-text--x-small-capitaised`) is deprecated and can be removed.
 
 ## Strong text
 
