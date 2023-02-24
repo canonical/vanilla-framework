@@ -23,6 +23,19 @@ When we add, make significant updates, or deprecate a component we update their 
     <!-- 3.12.0 -->
     <tr>
       <th>
+        <a href="/docs/patterns/lists">
+          Restyled divided lists
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.12.0</td>
+      <td>We've restyled the divided lists and intend them to be used by default now.
+      <p>We've also added a new <code>.is-dotted</code> class to display dots in front of list items.</td>
+    </tr>
+    <tr>
+      <th>
         <a href="/docs/base/typography#small-caps-text">
           Small caps text
         </a>

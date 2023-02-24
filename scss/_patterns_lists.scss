@@ -64,33 +64,23 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
   %vf-list-item-state-base {
     @extend %vf-list;
-
-    background-position-y: $spv--x-small + $list-status-icon-nudge;
     background-repeat: no-repeat;
     background-size: $list-status-icon-height;
-    padding-left: 2rem;
+    content: '';
+    display: inline-block;
+    height: $sph--large;
+    margin-right: $sph--large;
+    position: relative;
+    top: $sph--x-small;
+    width: $sph--large;
   }
 }
 
 @mixin vf-list-item-divided {
-  position: relative;
-
-  &::after {
-    border-bottom: 1px solid $color-mid-light;
-    bottom: 0;
-    content: '';
-    height: 1px;
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
-
-  &:last-of-type,
-  .last-item {
-    &::after {
-      border-bottom: 0;
-    }
-  }
+  box-shadow: inset 0px 1px 0px 0rem $color-mid-x-light;
+  margin: 0;
+  padding-bottom: $sph--large;
+  padding-top: $sph--small;
 }
 
 // Mixin for inline list items
@@ -125,6 +115,22 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 }
 
+%vf-list-item-ordered {
+  &::marker {
+    content: none;
+    display: none;
+  }
+
+  &::before {
+    color: $color-dark;
+    content: counters(list-item, '.') '. ';
+    display: inline-block;
+    margin-right: $sph--large;
+    text-align: right;
+    width: $sph--large;
+  }
+}
+
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
@@ -138,20 +144,59 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     &.is-split .p-list__item:last-of-type {
       border-bottom: 1px solid $color-mid-light;
     }
+
+    & & {
+      margin-bottom: 0;
+      margin-left: $sp-x-large;
+      padding-top: $sph--large;
+
+      .p-list__item:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
+
+  // stylelint-disable selector-max-type -- we want to target ordered lists
+  ol.p-list--divided {
+    list-style: none;
+    .p-list__item {
+      @extend %vf-list-item-ordered;
+    }
+  }
+  // stylelint-enable selector-max-type -- we want to target ordered lists
 }
 
 // Displays item with a state icon
 @mixin vf-p-list-item-state {
   .is-ticked {
-    @extend %vf-list-item-state-base;
-    @include vf-icon-success;
+    &::before {
+      @extend %vf-list-item-state-base;
+      @include vf-icon-success;
+    }
   }
 
   .is-crossed {
-    @extend %vf-list-item-state-base;
-    @include vf-icon-error;
+    &::before {
+      @extend %vf-list-item-state-base;
+      @include vf-icon-error;
+    }
   }
+}
+
+%vf-list-item-dotted {
+  &::before {
+    color: $color-dark;
+    content: '•';
+    display: inline-block;
+    margin-right: $sph--large;
+    text-align: right;
+    width: $sph--large;
+  }
+}
+
+// Displays item with a dot
+.is-dotted {
+  @extend %vf-list-item-dotted;
 }
 
 // Displays a list inline with spacing
