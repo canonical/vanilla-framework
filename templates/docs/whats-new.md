@@ -20,19 +20,19 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.11.0 -->
+    <!-- 3.12.0 -->
     <tr>
       <th>
-        <a href="/docs/layouts/full-width/">
-          Full-width layout
+        <a href="/docs/patterns/lists">
+          Restyled divided lists
         </a>
       </th>
       <td>
         <span class="p-status-label--positive">New</span>
       </td>
-      <td>3.11.0</td>
-      <td>We are introducing new full-width site layout.
-      <p><i class="p-icon--warning"></i> This is an experimental feature, currenly meant for internal use on our design system site and docs.</p></td>
+      <td>3.12.0</td>
+      <td>We've restyled the divided lists and intend them to be used by default now.
+      <p>We've also added a new <code>.is-dotted</code> class to display dots in front of list items.</td>
     </tr>
   </tbody>
 </table>
@@ -49,6 +49,20 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.11.0 -->
+    <tr>
+      <th>
+        <a href="/docs/examples/layouts/full-width/default">
+          Full-width layout
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--positive">New</span>
+      </td>
+      <td>3.11.0</td>
+      <td>We are introducing new full-width site layout.
+      <p><i class="p-icon--warning"></i> This is an experimental feature, currenly meant for internal use on our design system site and docs.</p></td>
+    </tr>
     <!-- 3.10.0 -->
     <tr>
       <th>
