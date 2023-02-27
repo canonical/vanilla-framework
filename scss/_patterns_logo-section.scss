@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@mixin vf-p-set-logo-section-item-width($breakpoint: small) {
+@mixin vf-p-set-logo-section-item-width($breakpoint: small, $column-span: 1) {
   // This mixin calculates the width of an individual logo.
 
   $grid-column-count: $grid-columns-small;
@@ -26,7 +26,7 @@
     $gutter: map-get($grid-gutter-widths, default);
     $media-query-keyword: min-width;
     $media-query-width: $threshold-6-12-col;
-    $logo-column-span: 2;
+    $logo-column-span: $column-span;
   }
 
   @media ($media-query-keyword: #{$media-query-width}) {
@@ -141,7 +141,11 @@
 
     @include vf-p-set-logo-section-item-width($breakpoint: small);
     @include vf-p-set-logo-section-item-width($breakpoint: medium);
-    @include vf-p-set-logo-section-item-width($breakpoint: large);
+    @include vf-p-set-logo-section-item-width($breakpoint: large, $column-span: 2);
+
+    .p-logo-section--dense & {
+      @include vf-p-set-logo-section-item-width($breakpoint: large);
+    }
   }
 
   .p-logo-section__logo {
