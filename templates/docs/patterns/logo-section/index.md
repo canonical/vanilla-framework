@@ -24,6 +24,14 @@ View example of the logo section pattern
 View example of the logo section pattern inside a six column parent container
 </a></div>
 
+## Dense
+
+If you need to show more smaller logos you can use dense version of logo section with `p-logo-section--dense`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/logo-section-dense/" class="js-example">
+View example of the dense logo section pattern
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
