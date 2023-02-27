@@ -20,6 +20,34 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
+    <!-- 3.13.0 -->
+    <tr>
+      <th>
+        <a href="/docs/patterns/logo-section#dense">
+          Dense Logo Section
+        </a>
+      </th>
+      <td>
+        <span class="p-status-label--information">Updated</span>
+      </td>
+      <td>3.13.0</td>
+      <td>We've introduced a new dense version of the logo section that spans a single column.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Previously in Vanilla v3
+
+<table aria-label="Previously in Vanilla v3">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
     <!-- 3.12.0 -->
     <tr>
       <th>
@@ -58,21 +86,6 @@ When we add, make significant updates, or deprecate a component we update their 
       <td>3.12.0</td>
       <td>We are deprecating <code>p-text--x-small-capitalised</code>. New <code>p-text--small-caps</code> should be used instead. At the same time usage of <code>u-align-text--x-small-to-default</code> utility is deprecated with both of these class names as well, as they don't need it anymore.</td>
     </tr>
-  </tbody>
-</table>
-
-## Previously in Vanilla v3
-
-<table aria-label="Previously in Vanilla v3">
-  <thead>
-    <tr>
-      <th style="width: 20%">Component</th>
-      <th style="width: 15%">Status</th>
-      <th style="width: 10%">Version</th>
-      <th style="width: 55%">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- 3.11.0 -->
     <tr>
       <th>
