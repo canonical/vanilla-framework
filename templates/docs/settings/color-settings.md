@@ -31,9 +31,9 @@ These guidelines are the framework upon which we have built our system for how c
       </p>
     </div>
     <div class="col-2 p-card u-no-padding">
-      <div class="p-strip is-shallow is-bordered" style="background-color: #cdcdcd"></div>
+      <div class="p-strip is-shallow is-bordered" style="background-color: #d9d9d9"></div>
       <p class="p-card__content u-no-margin" style="padding: 1rem">
-        $color-mid-light<br><span class="p-muted-heading">#cdcdcd</span>
+        $color-mid-light<br><span class="p-muted-heading">#d9d9d9</span>
       </p>
     </div>
   </div>
