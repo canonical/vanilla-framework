@@ -90,7 +90,7 @@ The panel component (`p-panel`) is an integral part of the application layout. I
 
 ### Panel header
 
-The panel header (`p-panel__header`) may contain the panel title (`p-panel__title`) or logo (`p-pabel__logo`) on the left and any action buttons (`p-pabel__controls`) to the right. Panel header can be optionally made sticky while scrolling by adding `is-sticky` modifier class to the `p-panel__header` element.
+The panel header (`p-panel__header`) may contain the panel title (`p-panel__title`) or logo (`p-panel__logo`) on the left and any action buttons (`p-panel__controls`) to the right. Panel header can be optionally made sticky while scrolling by adding `is-sticky` modifier class to the `p-panel__header` element.
 
 ## Panels example
 
