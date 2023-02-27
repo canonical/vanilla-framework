@@ -2,11 +2,12 @@
 
 @mixin vf-p-article-pagination {
   %chevron-icon {
-    color: $color-mid-dark;
-    content: '\203A';
-    font-size: 2em;
+    @extend %icon;
+    @include vf-icon-chevron($color-mid-dark);
+
+    content: '';
     position: absolute;
-    top: 1rem;
+    top: 1.25rem;
   }
 
   .p-article-pagination {
@@ -73,8 +74,8 @@
     &::before {
       @extend %chevron-icon;
 
+      transform: rotate(90deg);
       left: $sp-small;
-      transform: scaleX(-1);
     }
   }
 
@@ -95,6 +96,7 @@
     &::after {
       @extend %chevron-icon;
 
+      transform: rotate(-90deg);
       right: $sp-small;
     }
   }
