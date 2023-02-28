@@ -30,10 +30,6 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       position: absolute;
       text-align: center;
     }
-
-    p-strip--dark &::before {
-      background-color: $color-x-dark;
-    }
   }
 
   %nested-counter {
@@ -336,6 +332,10 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
         line-height: calc($bullet-width - 2px);
         width: $bullet-width;
       }
+    }
+    .p-strip--dark &::before {
+      background-color: $color-x-dark;
+      border: 1px solid $color-x-light;
     }
   }
 
