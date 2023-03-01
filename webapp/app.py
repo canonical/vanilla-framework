@@ -27,6 +27,9 @@ with open("package.json") as package_json:
 with open("build/classreferences.yaml") as data_yaml:
     CLASS_REFERENCES = yaml.load(data_yaml, Loader=yaml.FullLoader)
 
+with open("releases.yml") as releases_file:
+    FEATURES_LIST = yaml.load(releases_file.read(), Loader=yaml.FullLoader)
+
 app = FlaskBase(
     __name__,
     "vanillaframework.io",
@@ -171,6 +174,7 @@ def global_template_context():
         "path": flask.request.path,
         "page_tabs": component_tabs.get(docs_slug),
         "slug": docs_slug,
+        "releaseNotes": FEATURES_LIST
     }
 
 @app.template_filter()
@@ -192,6 +196,10 @@ def utility_processor():
 
 template_finder_view = TemplateFinder.as_view("template_finder")
 
+
+@app.route("/whats-new")
+def whats_new():
+    return flask.render_template("docs/whats-new.html")
 
 @app.route("/docs/examples")
 def examples_index():
