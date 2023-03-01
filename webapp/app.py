@@ -168,30 +168,40 @@ def global_template_context():
             component_tabs_file.read(), Loader=yaml.FullLoader
         )
 
+    updated_features = {}
+    for feature in FEATURES_LIST[0]["features"]:
+        updated_features[feature["url"]] = feature["status"]
+
     return {
         "version": VANILLA_VERSION,
         "versionMinor": version_minor,
         "path": flask.request.path,
         "page_tabs": component_tabs.get(docs_slug),
         "slug": docs_slug,
-        "releaseNotes": FEATURES_LIST
+        "releaseNotes": FEATURES_LIST,
+        "updatedFeatures": updated_features,
     }
+
 
 @app.template_filter()
 def markdown(text):
     return markupsafe.Markup(mistune.markdown(text))
 
+
 def class_reference(component=None):
-    component = component or urllib.parse.urlsplit(flask.request.path).path.split('/')[-1]
+    component = (
+        component
+        or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
+    )
     data = CLASS_REFERENCES["class-references"][component]
-    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", data=data))
+    return markupsafe.Markup(
+        flask.render_template("_layouts/_class-reference.html", data=data)
+    )
+
 
 @app.context_processor
 def utility_processor():
-    return {
-        "class_reference": class_reference,
-        "image": image_template
-    }
+    return {"class_reference": class_reference, "image": image_template}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
@@ -200,6 +210,7 @@ template_finder_view = TemplateFinder.as_view("template_finder")
 @app.route("/whats-new")
 def whats_new():
     return flask.render_template("docs/whats-new.html")
+
 
 @app.route("/docs/examples")
 def examples_index():
