@@ -1,17 +1,17 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Has-icon | Utilities
+  title: Text with icon | Utilities
 ---
 
-# Has-icon
+# Text with icon
 
 <hr>
 
 To place an icon next to some text with correct spacing, use the class `u-has-icon` on the parent element.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/text-with-icon" class="js-example">
-View example of the Has-icon utility
+View example of the Text with icon utility
 </a></div>
 
 ## Import
