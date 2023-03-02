@@ -18,7 +18,6 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.12.0 -->
     {% for feature in releaseNotes[0].features %}
     <tr>
       <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
@@ -29,6 +28,8 @@ When we add, make significant updates, or deprecate a component we update their 
         <span class="p-status-label--information">
         {% elif feature.status=="Deprecated" %}
         <span class="p-status-label--negative">
+        {% elif updatedFeatures[url]=="In Progress" %}
+        <span class="p-status-label--caution">
         {% endif %}
         {{ feature.status }}</span>
       </td>
@@ -51,7 +52,6 @@ When we add, make significant updates, or deprecate a component we update their 
     </tr>
   </thead>
   <tbody>
-    <!-- 3.11.0 -->
     {% for version in releaseNotes[1:] %}
     {% for feature in version.features if feature.status!="Removed" %}
     <tr>
@@ -63,6 +63,8 @@ When we add, make significant updates, or deprecate a component we update their 
         <span class="p-status-label--information">
         {% elif feature.status=="Deprecated" %}
         <span class="p-status-label--negative">
+        {% elif updatedFeatures[url]=="In Progress" %}
+        <span class="p-status-label--caution">
         {% endif %}
         {{ feature.status }}</span>
       </td>
