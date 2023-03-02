@@ -174,7 +174,9 @@ def global_template_context():
 
     updated_features = {}
     for feature in FEATURES_LIST[0]["features"]:
-        updated_features[feature["url"]] = feature["status"]
+        feature_url = feature["url"].split("#")[0]
+        if feature_url not in updated_features:
+            updated_features[feature_url] = feature["status"]
 
     return {
         "version": VANILLA_VERSION,
