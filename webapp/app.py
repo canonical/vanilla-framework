@@ -151,13 +151,17 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    docs_slug = (
-        flask.request.path.replace("/docs/", "")
-        .replace("/design/", "")
-        .replace("/accessibility", "")
-    )
+    # Add an exception for the /docs/search path
+    if flask.request.path == "/docs/search":
+        docs_slug = ""
+    else:
+        docs_slug = (
+            flask.request.path.replace("/docs/", "")
+            .replace("/design/", "")
+            .replace("/accessibility", "")
+        )
 
-    docs_slug = "" if docs_slug == "/docs" else docs_slug
+        docs_slug = "" if docs_slug == "/docs" else docs_slug
 
     # Read navigation.yaml
     with open("component_tabs.yaml") as component_tabs_file:
