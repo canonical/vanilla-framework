@@ -150,6 +150,13 @@
       parent.appendChild(list);
     }
   }
+
+  //   
+  var currentPage = document.querySelector('.p-side-navigation__link[aria-current="page"]');
+  var parentList = currentPage.parentNode.parentNode;
+  parentList.setAttribute("aria-expanded",true);
+  parentList.previousElementSibling.setAttribute("aria-expanded",true);
+
   /**
     Attaches event listeners for the side navigation toggles
     @param {HTMLElement} sideNavigation The side navigation element.
