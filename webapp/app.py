@@ -209,11 +209,6 @@ def utility_processor():
 template_finder_view = TemplateFinder.as_view("template_finder")
 
 
-@app.route("/whats-new")
-def whats_new():
-    return flask.render_template("docs/whats-new.html")
-
-
 @app.route("/docs/examples")
 def examples_index():
     return flask.render_template(
