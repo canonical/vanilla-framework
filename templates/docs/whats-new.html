@@ -1,0 +1,147 @@
+{% extends "_layouts/docs.html" %}
+
+{% block content %}
+
+<h1>  What's new in Vanilla {{versionMinor}} </h1>
+
+<hr>
+
+When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use. Check back here anytime to see current status information.
+
+<table aria-label="What's new in Vanilla {{versionMinor}}">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for feature in releaseNotes[0].features %}
+    <tr>
+      <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
+      <td>
+        {% if feature.status=="New" %}
+        <span class="p-status-label--positive">
+        {% elif feature.status=="Updated" %}
+        <span class="p-status-label--information">
+        {% elif feature.status=="Deprecated" %}
+        <span class="p-status-label--negative">
+        {% elif updatedFeatures[url]=="In Progress" %}
+        <span class="p-status-label--caution">
+        {% endif %}
+        {{ feature.status }}</span>
+      </td>
+      <td>{{ releaseNotes[0].version }}</td>
+      <td>{{ feature.notes | safe }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Previously in Vanilla v3</h2>
+
+<table aria-label="Previously in Vanilla v3">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for version in releaseNotes[1:] %}
+    {% for feature in version.features if feature.status!="Removed" %}
+    <tr>
+      <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
+      <td>
+        {% if feature.status=="New" %}
+        <span class="p-status-label--positive">
+        {% elif feature.status=="Updated" %}
+        <span class="p-status-label--information">
+        {% elif feature.status=="Deprecated" %}
+        <span class="p-status-label--negative">
+        {% elif updatedFeatures[url]=="In Progress" %}
+        <span class="p-status-label--caution">
+        {% endif %}
+        {{ feature.status }}</span>
+      </td>
+      <td>{{ version.version }}</td>
+      <td>{{ feature.notes | safe }}</td>
+    </tr>
+
+    {% endfor %}
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+<h2> Components removed in 3.0</h2>
+
+The table below lists all the removed components and utilities in 3.0. For more information about how migrate to Vanilla 3.0 from previous versions, see <a href="/docs/migration-guide-to-v3">the migration guide</a>.
+
+<table aria-label="What's new in Vanilla {{versionMinor}}">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for version in releaseNotes %}
+    {% for feature in version.features if feature.status=="Removed" %}
+    <tr>
+      <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
+      <td>
+        <span class="p-status-label--negative">Removed</span>
+      </td>
+      <td>{{ version.version }}</td>
+      <td>{{ feature.notes | safe }}</td>
+    </tr>
+
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+To see what changed in Vanilla v2, see the <a href="/docs/changelog-v2">changelog for v2</a> page.
+
+<h2>Status key</h2>
+
+<div class="row">
+  <div class="col-3 u-equal-height">
+    <div class="p-card--highlighted">
+      <span class="p-status-label--positive">New</span>
+      <p class="p-card__content">Newly released components, utilities or settings that are safe to use in projects.</p>
+    </div>
+  </div>
+  <div class="col-3 u-equal-height">
+    <div class="p-card--highlighted">
+      <span class="p-status-label--negative">Deprecated</span>
+      <p class="p-card__content">These components, utilities or settings are in the process of being removed and should no longer be used in projects.</p>
+    </div>
+  </div>
+  <div class="col-3 u-equal-height">
+    <div class="p-card--highlighted">
+      <span class="p-status-label--caution">In progress</span>
+      <p class="p-card__content">Design spec and code implementation are not yet finished.</p>
+    </div>
+  </div>
+  <div class="col-3 u-equal-height">
+    <div class="p-card--highlighted">
+      <span class="p-status-label--information">Updated</span>
+      <p class="p-card__content">These are existing components, utilities or settings that have been updated either through design or code.</p>
+    </div>
+  </div>
+  <div class="col-3 u-equal-height">
+    <div class="p-card--highlighted">
+      <span class="p-status-label--negative">Removed</span>
+      <p class="p-card__content">These components, variants or utilities have been removed from Vanilla. They should be removed from projects or updated to their new recommended versions.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

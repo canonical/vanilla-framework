@@ -29,17 +29,26 @@
                 </a>
               </div>
 
-              {% macro side_nav_item(url, title, label, type) -%}
+              {% macro side_nav_item(url, title) -%}
                   <li class="p-side-navigation__item">
                     <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
                       {{ title | safe | replace("%version", version) }}
-                      {% if label %}
+                      {% if url in updatedFeatures %}
                         <span class="p-side-navigation__status">
-                          <span class="p-status-label--{{ type|lower }}">
-                            {{ label|capitalize }}
+                          {% if updatedFeatures[url]=="New" %}
+                          <span class="p-status-label--positive">
+                          {% elif updatedFeatures[url]=="Updated" %}
+                          <span class="p-status-label--information">
+                          {% elif updatedFeatures[url]=="Removed" %}
+                          <span class="p-status-label--negative">
+                          {% elif updatedFeatures[url]=="Deprecated" %}
+                          <span class="p-status-label--negative">
+                          {% elif updatedFeatures[url]=="In Progress" %}
+                          <span class="p-status-label--caution">    
+                          {% endif %}
+                          {{ updatedFeatures[url] }}
                           </span>
-                        </span>
-                      {% endif %}
+                        {% endif %}
                     </a>
                   </li>
               {%- endmacro %}
@@ -53,8 +62,6 @@
               </ul>
               {% endfor %}
 
-
-              
             </div>
           </div>
       </div>

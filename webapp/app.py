@@ -27,6 +27,9 @@ with open("package.json") as package_json:
 with open("build/classreferences.yaml") as data_yaml:
     CLASS_REFERENCES = yaml.load(data_yaml, Loader=yaml.FullLoader)
 
+with open("releases.yml") as releases_file:
+    FEATURES_LIST = yaml.load(releases_file.read(), Loader=yaml.FullLoader)
+
 app = FlaskBase(
     __name__,
     "vanillaframework.io",
@@ -151,13 +154,17 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    docs_slug = (
-        flask.request.path.replace("/docs/", "")
-        .replace("/design/", "")
-        .replace("/accessibility", "")
-    )
+    # Add an exception for the /docs/search path
+    if flask.request.path == "/docs/search":
+        docs_slug = ""
+    else:
+        docs_slug = (
+            flask.request.path.replace("/docs/", "")
+            .replace("/design/", "")
+            .replace("/accessibility", "")
+        )
 
-    docs_slug = "" if docs_slug == "/docs" else docs_slug
+        docs_slug = "" if docs_slug == "/docs" else docs_slug
 
     # Read navigation.yaml
     with open("component_tabs.yaml") as component_tabs_file:
@@ -171,6 +178,12 @@ def global_template_context():
             side_navigation_file.read(),
             Loader=yaml.FullLoader,
         )
+        
+    updated_features = {}
+    for feature in FEATURES_LIST[0]["features"]:
+        feature_url = feature["url"].split("#")[0]
+        if feature_url not in updated_features:
+            updated_features[feature_url] = feature["status"]
 
     return {
         "version": VANILLA_VERSION,
@@ -179,6 +192,9 @@ def global_template_context():
         "page_tabs": component_tabs.get(docs_slug),
         "slug": docs_slug,
         "sideNavigation": side_navigation,
+        "releaseNotes": FEATURES_LIST,
+        "updatedFeatures": updated_features,
+
     }
 
 
