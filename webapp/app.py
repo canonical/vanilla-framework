@@ -158,6 +158,7 @@ def global_template_context():
     )
 
     docs_slug = "" if docs_slug == "/docs" else docs_slug
+    docs_headings = _get_examples()
 
     # Read navigation.yaml
     with open("component_tabs.yaml") as component_tabs_file:
@@ -171,23 +172,29 @@ def global_template_context():
         "path": flask.request.path,
         "page_tabs": component_tabs.get(docs_slug),
         "slug": docs_slug,
+        "sideNavigation": docs_headings,
     }
+
 
 @app.template_filter()
 def markdown(text):
     return markupsafe.Markup(mistune.markdown(text))
 
+
 def class_reference(component=None):
-    component = component or urllib.parse.urlsplit(flask.request.path).path.split('/')[-1]
+    component = (
+        component
+        or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
+    )
     data = CLASS_REFERENCES["class-references"][component]
-    return markupsafe.Markup(flask.render_template("_layouts/_class-reference.html", data=data))
+    return markupsafe.Markup(
+        flask.render_template("_layouts/_class-reference.html", data=data)
+    )
+
 
 @app.context_processor
 def utility_processor():
-    return {
-        "class_reference": class_reference,
-        "image": image_template
-    }
+    return {"class_reference": class_reference, "image": image_template}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
