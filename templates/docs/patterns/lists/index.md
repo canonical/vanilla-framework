@@ -16,13 +16,13 @@ This is meant to be the new default list style please use this going forward.
 View example of the divided list pattern
 </a></div>
 
-## Dotted with horizontal divider
+## Bulleted with horizontal divider
 
-You can combine both `.is-dotted` and `.p-list--divided` to style a
-list with horizontal dividers and dots.
+You can combine both `.has-bullet` and `.p-list--divided` to style a
+list with horizontal dividers and bullets.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-dotted/" class="js-example">
-View example of the dotted divided list pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-bulleted/" class="js-example">
+View example of the bulleted divided list pattern
 </a></div>
 
 ## Ordered lists with horizontal divider
@@ -30,7 +30,7 @@ View example of the dotted divided list pattern
 You can use the class `.p-list--divided` to style an ordered list.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-ordered/" class="js-example">
-View example of the dotted divided list pattern
+View example of the ordered divided list pattern
 </a></div>
 
 ## Ticked with horizontal divider
