@@ -42,7 +42,7 @@ list with horizontal dividers and tick icons.
 View example of the ticked divided list pattern
 </a></div>
 
-## Default
+## Basic
 
 Use the class `.p-list` for a list without bullets and more spacing between
 items than the basic lists.
