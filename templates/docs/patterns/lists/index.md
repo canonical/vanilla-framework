@@ -7,22 +7,22 @@ context:
 If you want to display lists in a way that is more visually distinctive than the
 standard `<ol>` and `<ul>`, we have 7 list styles at your disposal.
 
-## Horizontal divider
-
-Use the class `.p-list--divided` to add horizontal lines between the items.
-This is meant to be the new default list style please use this going forward.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers/" class="js-example">
-View example of the divided list pattern
-</a></div>
-
 ## Bulleted with horizontal divider
 
-You can combine both `.has-bullet` and `.p-list--divided` to style a
-list with horizontal dividers and bullets.
+Use the class `.p-list--divided` to add horizontal lines between the items and
+`.has-bullet` to add bullets.
+This is meant to be the new default list style please use this going forward.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-bulleted/" class="js-example">
 View example of the bulleted divided list pattern
+</a></div>
+
+## Bulletless with horizontal divider
+
+You can omit the `.has-bullet` class to style a list without them but keep in mind that the bulleted version is to be used as the default.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers/" class="js-example">
+View example of the divided list pattern
 </a></div>
 
 ## Ordered lists with horizontal divider
