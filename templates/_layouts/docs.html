@@ -55,7 +55,7 @@
               
               {% for item in sideNavigation %}
               <ul class="p-side-navigation__list">
-                <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">{{ item.heading | safe | replace("%version", version) }}</span></li>
+                <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">{{ item.heading | replace("{version}", version) }}</span></li>
                 {% for subheading in item.subheadings %}
                 {{ side_nav_item(subheading.url, subheading.title) }}
                 {% endfor %}
