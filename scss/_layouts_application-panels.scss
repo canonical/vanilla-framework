@@ -52,6 +52,54 @@
     }
   }
 
+  .p-panel__tagged-logo {
+    @extend %navigation-link;
+
+    padding-left: $sph--x-large;
+
+    &:hover {
+      background-color: transparent !important;
+    }
+
+    &::before {
+      content: none;
+    }
+
+    .p-panel__logo-tag {
+      background-color: $color-accent;
+      height: $navigation-logo-tag-height;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $navigation-logo-tag-width;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        height: $navigation-logo-tag-height-desktop;
+      }
+
+      .p-panel__logo-icon {
+        bottom: $spv-navigation-logo-bottom-position;
+        height: $navigation-logo-size;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, 0);
+        width: $navigation-logo-size;
+      }
+    }
+
+    .p-panel__logo-name {
+      @extend %vf-heading-4;
+
+      color: $colors--light-theme--text-default;
+      font-size: #{map-get($font-sizes, h4)}rem;
+      line-height: map-get($line-heights, x-small);
+
+      .p-panel.is-dark & {
+        color: $colors--dark-theme--text-default;
+      }
+    }
+  }
+
   .p-panel__title {
     @extend %vf-heading-4;
 
@@ -63,6 +111,11 @@
   .p-panel__controls {
     margin-left: auto;
     padding-top: $spv--large;
+  }
+
+  .p-panel__controls-tagged-logo {
+    margin-left: auto;
+    padding-top: $spv--small;
   }
 
   .p-panel__toggle {
