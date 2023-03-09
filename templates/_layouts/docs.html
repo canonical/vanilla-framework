@@ -11,7 +11,7 @@
 
     <aside class="l-full-width__sidebar">
 
-      <nav class="p-side-navigation is-sticky is-drawer-hidden" id="side-navigation-drawer" aria-label="Side">
+      <nav class="p-side-navigation--accordion is-sticky is-drawer-hidden" id="side-navigation-drawer" aria-label="Side">
 
         <div class="u-hide--large p-strip--light is-shallow">
           <div class="u-fixed-width">
@@ -53,14 +53,19 @@
                   </li>
               {%- endmacro %}
               
-              {% for item in sideNavigation %}
               <ul class="p-side-navigation__list">
-                <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">{{ item.heading | replace("{version}", version) }}</span></li>
-                {% for subheading in item.subheadings %}
-                {{ side_nav_item(subheading.url, subheading.title) }}
+                {% for item in sideNavigation %}
+                <li class="p-side-navigation__item">
+                  <button class="p-side-navigation__accordion-button" aria-expanded="false">{{ item.heading | replace("{version}", version) }}</button>
+                  <ul class="p-side-navigation__list">
+
+                    {% for subheading in item.subheadings %}
+                    {{ side_nav_item(subheading.url, subheading.title) }}
+                    {% endfor %}
+                  </ul>
+                </li>
                 {% endfor %}
               </ul>
-              {% endfor %}
 
             </div>
           </div>
