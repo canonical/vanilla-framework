@@ -58,9 +58,11 @@ function setupAppLayoutExamples() {
     menuPin.addEventListener('click', function () {
       navigation.classList.toggle('is-pinned');
       if (navigation.classList.contains('is-pinned')) {
+        menuPin.querySelector('i').classList.add('p-icon--close');
         menuPin.querySelector('i').classList.remove('p-icon--pin');
       } else {
         menuPin.querySelector('i').classList.add('p-icon--pin');
+        menuPin.querySelector('i').classList.remove('p-icon--close');
       }
       document.activeElement.blur();
     });
