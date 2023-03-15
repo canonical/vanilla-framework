@@ -69,15 +69,30 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     content: '';
     display: inline-block;
     height: $sph--large;
-    margin-right: $sph--large;
     position: relative;
     top: $sph--x-small;
-    width: $sph--large;
+  }
+}
+
+@mixin vf-list-item-has-prefix {
+  column-gap: $sph--large;
+  display: grid;
+  grid-template-areas:
+    'prefix inline-content'
+    'prefix  children';
+  grid-template-columns: $sph--large 1fr;
+
+  > .p-list--divided {
+    margin-left: 0;
+  }
+
+  > * {
+    grid-area: children;
   }
 }
 
 @mixin vf-list-item-divided {
-  box-shadow: inset 0px 1px 0px 0rem $color-mid-x-light;
+  box-shadow: inset 0px 1px 0px 0px $color-mid-x-light;
   margin: 0;
   padding-bottom: $sph--large;
   padding-top: $sph--small;
@@ -116,6 +131,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 }
 
 %vf-list-item-ordered {
+  counter-increment: list-item;
   &::marker {
     content: none;
     display: none;
@@ -125,9 +141,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     color: $color-dark;
     content: counters(list-item, '.') '. ';
     display: inline-block;
-    margin-right: $sph--large;
     text-align: right;
-    width: $sph--large;
   }
 }
 
@@ -159,7 +173,9 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   // stylelint-disable selector-max-type -- we want to target ordered lists
   ol.p-list--divided {
     list-style: none;
+
     .p-list__item {
+      @include vf-list-item-has-prefix;
       @extend %vf-list-item-ordered;
     }
   }
@@ -169,6 +185,8 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 // Displays item with a state icon
 @mixin vf-p-list-item-state {
   .is-ticked {
+    @include vf-list-item-has-prefix;
+
     &::before {
       @extend %vf-list-item-state-base;
       @include vf-icon-success;
@@ -176,6 +194,8 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 
   .is-crossed {
+    @include vf-list-item-has-prefix;
+
     &::before {
       @extend %vf-list-item-state-base;
       @include vf-icon-error;
@@ -188,14 +208,15 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     color: $color-dark;
     content: '•';
     display: inline-block;
-    margin-right: $sph--large;
+    flex-shrink: 0;
+    grid-area: prefix;
     text-align: right;
-    width: $sph--large;
   }
 }
 
 // Displays item with a bullet
 .has-bullet {
+  @include vf-list-item-has-prefix;
   @extend %vf-list-item-bullet;
 }
 
