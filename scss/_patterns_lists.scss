@@ -69,25 +69,23 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     content: '';
     display: inline-block;
     height: $sph--large;
-    position: relative;
-    top: $sph--x-small;
+    top: $spv--medium;
   }
 }
 
 @mixin vf-list-item-has-prefix {
-  column-gap: $sph--large;
-  display: grid;
-  grid-template-areas:
-    'prefix inline-content'
-    'prefix  children';
-  grid-template-columns: $sph--large 1fr;
+  padding-left: $sp-x-large;
+  position: relative;
 
-  > .p-list--divided {
+  > .p-list--divided,
+  > .p-list {
     margin-left: 0;
   }
 
-  > * {
-    grid-area: children;
+  &::before {
+    left: 0;
+    position: absolute;
+    width: $sp-medium;
   }
 }
 
