@@ -70,19 +70,32 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     line-height: map-get($line-heights, default-text);
     margin: 0;
     overflow: hidden;
+    padding-left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large}); // allow navigation align with tag logo text on small screens
     position: relative;
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
 
+    @media (min-width: $threshold-4-6-col) {
+      padding-left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
+    }
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-left: $sph--large;
+    }
+
     &::before {
       content: '';
       height: 1px;
-      left: 0;
+      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large}); // allow navigation separator align with tag logo text on small screens
       position: absolute;
       right: 0;
       top: 0;
+
+      @media (min-width: $threshold-4-6-col) {
+        left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
+      }
 
       @media (min-width: $breakpoint-navigation-threshold) {
         content: none;
@@ -190,6 +203,16 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     justify-content: space-between;
     padding-right: 0;
 
+    .p-navigation__link {
+      // reser padding for navigation links in the navigation banner
+      @extend %navigation-link-responsive-padding-horizontal;
+      @extend %navigation-link-responsive-padding-vertical;
+
+      &::before {
+        content: none;
+      }
+    }
+
     @media (min-width: $threshold-4-6-col) {
       padding-left: map-get($grid-margin-widths, default);
       padding-right: 0;
@@ -274,6 +297,29 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     list-style: none;
     margin: -1px 0 0 0;
     padding: 0;
+    position: relative;
+
+    // add separator between navigation items
+    &::before {
+      content: '';
+      height: 1px;
+      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @media (min-width: $threshold-4-6-col) {
+        left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        content: none;
+      }
+    }
+
+    &:first-child::before {
+      content: none;
+    }
 
     @media (min-width: $breakpoint-navigation-threshold) {
       display: flex;
@@ -300,6 +346,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     display: flex;
     flex-wrap: wrap;
     margin-top: 0; // prevents bottom border of nav from moving 1px
+
+    // remove separtion for navigation items in the navigation banner
+    &::before {
+      content: none;
+    }
 
     @media (min-width: $breakpoint-navigation-threshold) {
       display: none;
@@ -544,6 +595,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       right: map-get($grid-margin-widths, small);
       text-indent: calc(100% + 10rem);
       top: calc($spv--large + map-get($nudges, x-small));
+      transform: rotate(-90deg);
       width: map-get($icon-sizes, default);
 
       @media (min-width: $threshold-4-6-col) {
@@ -552,12 +604,17 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       @media (min-width: $breakpoint-navigation-threshold) {
         right: calc($sph--small + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+        transform: rotate(0deg);
       }
     }
 
     &.is-active {
       &::after {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          transform: rotate(180deg);
+        }
       }
 
       .p-navigation__dropdown,
@@ -570,18 +627,46 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       // add padding to accommodate icon
       padding-right: 2 * $sph--small + map-get($icon-sizes, default);
     }
+
+    &:first-child .p-navigation__link::before {
+      content: none;
+    }
   }
 
   .p-navigation__dropdown-item {
     @extend %navigation-link-responsive-padding-horizontal;
+    @extend %navigation-link-responsive-padding-vertical;
 
     display: block;
-    padding-bottom: $spv--small;
-    padding-top: $spv--small;
+    padding-left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large}); // make dropdown items align with the tag logo text
+    position: relative;
     white-space: nowrap;
+
+    // add separator line for dropdown items
+    &::before {
+      content: '';
+      height: 1px;
+      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @media (min-width: $threshold-4-6-col) {
+        left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        content: none;
+      }
+    }
+
+    @media (min-width: $threshold-4-6-col) {
+      padding-left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
+    }
 
     @media (min-width: $breakpoint-navigation-threshold) {
       padding-bottom: $spv--medium;
+      padding-left: $sph--large;
       padding-top: $spv--medium;
     }
 
@@ -685,7 +770,10 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  .p-navigation__nav .p-navigation__link::before {
+  // add color to separator line for navigation items, navigation links and dropdown items
+  .p-navigation__nav .p-navigation__link::before,
+  .p-navigation__nav .p-navigation__items::before,
+  .p-navigation__nav .p-navigation__items .p-navigation__dropdown-item::before {
     background: $color-navigation-separator;
   }
 
