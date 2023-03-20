@@ -190,7 +190,7 @@
   }
 
   %vf-split-layout-common-props {
-    @extend %vf-strip;
+    @extend %section-padding--default;
 
     background-color: transparent;
     padding: 0 0 $spv--strip-deep * 0.5;
@@ -200,26 +200,22 @@
     }  
   }
 
-  .l-4x8 {
+  .l-3x9 {
     @extend %vf-split-layout-common-props;
 
     &--light {
-      @extend %vf-strip;
-
       background-color: $color-light;
     }
 
     &--dark {
-      @extend %vf-strip;
-
       background-color: $color-dark;
       color: $color-light;
     }
 
-    .l-4x8__row {
+    .l-3x9__row {
       @extend %vf-row;
 
-      .l-4x8__4 {
+      .l-3x9__3 {
         grid-column: auto / span $grid-columns-small;
 
         @media (min-width: $threshold-4-6-col) {
@@ -227,11 +223,11 @@
         }
 
         @media (min-width: $threshold-6-12-col) {
-          grid-column: auto / span 4;
+          grid-column: auto / span 3;
         }
       }
 
-      .l-4x8__8 {
+      .l-3x9__9 {
         grid-column: auto / span $grid-columns-small;
 
         @media (min-width: $threshold-4-6-col) {
@@ -239,7 +235,7 @@
         }
 
         @media (min-width: $threshold-6-12-col) {
-          grid-column: auto / span 8;
+          grid-column: auto / span 9;
         }
       }
     }
@@ -249,14 +245,10 @@
     @extend %vf-split-layout-common-props;
 
     &--light {
-      @extend %vf-strip;
-
       background-color: $color-light;
     }
 
     &--dark {
-      @extend %vf-strip;
-
       background-color: $color-dark;
       color: $color-light;
     }
