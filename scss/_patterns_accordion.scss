@@ -16,48 +16,47 @@
   }
 
   .p-accordion__tab {
-    // calculate icon top position based on top padding (from %single-border-text-vpadding--scaling)
-    // and offset to align it with baseline of accordion tab text element
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, default-text) - $icon-size) * 0.5});
-
     @extend %single-border-text-vpadding--scaling;
     @include vf-focus;
 
-    background: {
-      color: inherit;
-      position: top $icon-top-position left $sph--large;
-      repeat: no-repeat;
-    }
-
+    background-color: inherit;
     border: 0;
     border-radius: 0;
     font-size: inherit;
     justify-content: flex-start;
     margin-bottom: 0;
-    padding-left: $sph--large + $icon-size + $sph--large;
     padding-right: $sph--large;
+    position: relative;
     text-align: left;
-    transition-duration: 0s;
     width: 100%;
     z-index: 2;
 
+    &::before {
+      @extend %icon;
+      @include vf-icon-chevron($color-mid-dark);
+      @include vf-transition($property: transform, $duration: fast);
+
+      content: '';
+      margin-right: $sph--large;
+    }
+
     // aria-selected controls the open and closed state for the accordion tab
     &[aria-expanded='true'] {
-      @include vf-icon-minus($color-mid-dark);
-
       // override base expanded button styles
       background-color: inherit;
+
       &:hover {
         background-color: $colors--light-theme--background-hover;
       }
-
-      background-size: $icon-size;
+      @include vf-transition(#{background-color, border-color});
     }
 
     &[aria-expanded='false'] {
-      @include vf-icon-plus($color-mid-dark);
+      &::before {
+        transform: rotate(-90deg);
+      }
 
-      background-size: $icon-size;
+      @include vf-transition(#{background-color, border-color});
     }
   }
 
@@ -74,36 +73,39 @@
   }
 
   // stylelint-disable selector-max-type
-  h2.p-accordion__heading > .p-accordion__tab,
-  .p-heading--2 > .p-accordion__tab {
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h2) - $icon-size) * 0.5});
-
-    background-position-y: $icon-top-position;
+  .p-heading--2 > .p-accordion__tab::before,
+  h2.p-accordion__heading > .p-accordion__tab::before {
+    @include vf-icon-size($x-height);
+    vertical-align: 0;
   }
 
-  h3.p-accordion__heading > .p-accordion__tab,
-  .p-heading--3 > .p-accordion__tab {
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h3) - $icon-size) * 0.5});
-
-    background-position-y: $icon-top-position;
-  }
-
-  h4.p-accordion__heading > .p-accordion__tab,
-  .p-heading--4 > .p-accordion__tab {
-    $icon-top-position: calc(#{$table-cell-vertical-padding + (map-get($line-heights, h4) - $icon-size) * 0.5});
-
-    background-position-y: $icon-top-position;
+  .p-heading--3 > .p-accordion__tab::before,
+  .p-heading--4 > .p-accordion__tab::before,
+  h3.p-accordion__heading > .p-accordion__tab::before,
+  h4.p-accordion__heading > .p-accordion__tab::before {
+    vertical-align: 0;
   }
   // stylelint-enable selector-max-type
 
   .p-accordion__panel {
     margin: 0;
     overflow: auto; // include child margins into its height
-    padding-left: $sph--large + $icon-size + $sph--large * 2;
+    padding-left: $icon-size + $sph--large * 2;
 
+    @include vf-transition(#{transform, opacity}, fast);
     // Hides panel content
     &[aria-hidden='true'] {
-      display: none;
+      height: 0;
+      opacity: 0;
+      transform: translate3d(0, -0.5rem, 0);
+      visibility: hidden;
+    }
+
+    &[aria-hidden='false'] {
+      height: auto;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
     }
 
     &.has-tick-elements {

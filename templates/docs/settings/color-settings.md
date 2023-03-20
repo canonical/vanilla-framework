@@ -31,9 +31,9 @@ These guidelines are the framework upon which we have built our system for how c
       </p>
     </div>
     <div class="col-2 p-card u-no-padding">
-      <div class="p-strip is-shallow is-bordered" style="background-color: #cdcdcd"></div>
+      <div class="p-strip is-shallow is-bordered" style="background-color: #d9d9d9"></div>
       <p class="p-card__content u-no-margin" style="padding: 1rem">
-        $color-mid-light<br><span class="p-muted-heading">#cdcdcd</span>
+        $color-mid-light<br><span class="p-muted-heading">#d9d9d9</span>
       </p>
     </div>
   </div>
@@ -145,7 +145,7 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 ## Color theming
 
-Starting with the [2.3.0](https://github.com/canonical-web-and-design/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
+Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
 
 - [Checkbox](/docs/base/forms#checkbox) and [radio](/docs/base/forms#radio-button) form inputs
 - Horizontal rule element `<hr />`
@@ -180,7 +180,3 @@ To set the default theme to dark on any of the elements / components listed abov
 ### Invoking a theme that is not currently a default
 
 Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or component is `light`, or `is-light` if the default is dark.
-
-## Design
-
-For more information [view the color design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Color), which includes the specification in markdown format and a PNG image.

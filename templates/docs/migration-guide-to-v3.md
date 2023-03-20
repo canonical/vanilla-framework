@@ -134,7 +134,7 @@ Additionally some components that require more granular responsiveness use `$bre
 
 The `$breakpoint-medium` variable has been removed from Vanilla. All media queries in components and utilities that used this value have been updated to either `$breakpoint-large` or `$breakpoint-small` (whichever was more relevant). If you use `$breakpoint-medium` in your project it should be replaced with `$breakpoint-large` or `$breakpoint-small`.
 
-The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now `$breakpoint-small`. This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
+The default value of `$breakpoint-navigation-threshold` was previously set to `$breakpoint-medium` and is now, since Vanilla 3.8, `$breakpoint-large` (it used to be `$breakpoint-small` in Vanilla 3.0 - 3.7.1). This value should be overridden in project code to adjust the threshold at which navigation switches to dropdown, based on the number of navigation items.
 
 ### Using min-width and max-width media queries
 
@@ -440,7 +440,11 @@ The colour variants of the label pattern have been renamed to use consistent sem
 
 The individual mixins for label variants have been removed. All necessary styles are included in main `vf-p-label` mixin. If you use any of the following individual mixins you can remove them from your code: `vf-p-label-new`, `vf-p-label-updated`, `vf-p-label-deprecated`, `vf-p-label-in-progress` and `vf-p-label-validated`.
 
-Refer to [the label component documentation](/docs/patterns/labels) page for more details and code examples.
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <p class="p-notification__message">Since Vanilla 3.2 the label component has been renamed to status label. Refer to the <a href="/docs/patterns/status-labels">status label component</a> page for more details and code examples. 
+  </div>
+</div>
 
 ## Notifications
 

@@ -1,0 +1,38 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Badge / Side Navigation{% endblock %}
+
+{% block standalone_css %}patterns_badge{% endblock %}
+
+{% block content %}
+<nav class="p-side-navigation">
+    <ul class="p-side-navigation__list">
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" aria-current="page" href="#">Information</a>
+        </li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">
+                <span class="u-vertically-center">Users</span>
+                <span class="p-side-navigation__status u-vertically-center">
+                    <span class="p-badge" aria-label="2 items exist">2</span>
+                </span>
+            </a>
+            <ul class="p-side-navigation__list">
+                <li class="p-side-navigation__item">
+                    <a class="p-side-navigation__link" href="#">Anna von Example</a>
+                </li>
+                <li class="p-side-navigation__item">
+                    <a class="p-side-navigation__link" href="#">Bob Anonymous</a>
+                </li>
+            </ul>
+        </li>
+        <li class="p-side-navigation__item">
+            <a class="p-side-navigation__link" href="#">
+                <span class="u-vertically-center">Get help</span>
+                <span class="p-side-navigation__status u-vertically-center">
+                    <span class="p-badge" aria-label="more than 999 items exist">999+</span>
+                </span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

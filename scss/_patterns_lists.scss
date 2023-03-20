@@ -17,12 +17,15 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
     &::before {
       align-self: start;
-      background-color: $color-mid-x-light;
+      background-color: $color-x-light;
+      border: 1px solid $color-x-dark;
       border-radius: 100%;
       content: counter(li);
       counter-increment: li;
       direction: rtl;
       display: block;
+      font-size: map-get($base-font-sizes, base);
+      font-weight: $font-weight-regular-text;
       left: 0;
       position: absolute;
       text-align: center;
@@ -61,33 +64,23 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
   %vf-list-item-state-base {
     @extend %vf-list;
-
-    background-position-y: $spv--x-small + $list-status-icon-nudge;
     background-repeat: no-repeat;
     background-size: $list-status-icon-height;
-    padding-left: 2rem;
+    content: '';
+    display: inline-block;
+    height: $sph--large;
+    margin-right: $sph--large;
+    position: relative;
+    top: $sph--x-small;
+    width: $sph--large;
   }
 }
 
 @mixin vf-list-item-divided {
-  position: relative;
-
-  &::after {
-    border-bottom: 1px solid $color-mid-light;
-    bottom: 0;
-    content: '';
-    height: 1px;
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
-
-  &:last-of-type,
-  .last-item {
-    &::after {
-      border-bottom: 0;
-    }
-  }
+  box-shadow: inset 0px 1px 0px 0rem $color-mid-x-light;
+  margin: 0;
+  padding-bottom: $sph--large;
+  padding-top: $sph--small;
 }
 
 // Mixin for inline list items
@@ -122,6 +115,22 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 }
 
+%vf-list-item-ordered {
+  &::marker {
+    content: none;
+    display: none;
+  }
+
+  &::before {
+    color: $color-dark;
+    content: counters(list-item, '.') '. ';
+    display: inline-block;
+    margin-right: $sph--large;
+    text-align: right;
+    width: $sph--large;
+  }
+}
+
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
@@ -135,20 +144,59 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     &.is-split .p-list__item:last-of-type {
       border-bottom: 1px solid $color-mid-light;
     }
+
+    & & {
+      margin-bottom: 0;
+      margin-left: $sp-x-large;
+      padding-top: $sph--large;
+
+      .p-list__item:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
+
+  // stylelint-disable selector-max-type -- we want to target ordered lists
+  ol.p-list--divided {
+    list-style: none;
+    .p-list__item {
+      @extend %vf-list-item-ordered;
+    }
+  }
+  // stylelint-enable selector-max-type -- we want to target ordered lists
 }
 
 // Displays item with a state icon
 @mixin vf-p-list-item-state {
   .is-ticked {
-    @extend %vf-list-item-state-base;
-    @include vf-icon-success;
+    &::before {
+      @extend %vf-list-item-state-base;
+      @include vf-icon-success;
+    }
   }
 
   .is-crossed {
-    @extend %vf-list-item-state-base;
-    @include vf-icon-error;
+    &::before {
+      @extend %vf-list-item-state-base;
+      @include vf-icon-error;
+    }
   }
+}
+
+%vf-list-item-bullet {
+  &::before {
+    color: $color-dark;
+    content: '•';
+    display: inline-block;
+    margin-right: $sph--large;
+    text-align: right;
+    width: $sph--large;
+  }
+}
+
+// Displays item with a bullet
+.has-bullet {
+  @extend %vf-list-item-bullet;
 }
 
 // Displays a list inline with spacing
@@ -171,14 +219,14 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
     .p-inline-list__item {
       @include vf-inline-list-item;
-
+      margin-right: $sph--small;
       position: relative;
 
       &::after {
         content: '\2022';
         line-height: map-get($line-heights, default-text);
-        position: absolute;
-        right: -$sp-unit;
+        position: relative;
+        right: -0.25rem;
       }
 
       &:last-of-type,
@@ -274,12 +322,20 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
 
     &::before {
+      // Need to account for the 1px border:
+      line-height: calc($bullet-width-mobile - 2px);
       margin-right: $sph--large;
       width: $bullet-width-mobile;
 
       @media (min-width: $breakpoint-heading-threshold) {
+        // Need to account for the 1px border:
+        line-height: calc($bullet-width - 2px);
         width: $bullet-width;
       }
+    }
+    .p-strip--dark &::before {
+      background-color: $color-x-dark;
+      border: 1px solid $color-x-light;
     }
   }
 
@@ -291,22 +347,23 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
   }
 
-  .p-stepped-list--detailed .p-stepped-list__title + .p-stepped-list__content {
-    @media (min-width: $threshold-6-12-col) {
-      margin-left: 0;
-    }
-  }
-
   @for $i from 6 through 1 {
     // Bullet sizes for each heading level
     $bullet-width: map-get($line-heights, default-text);
     $bullet-width-mobile: map-get($line-heights, default-text);
+    // h6 line height is the same as the bullet width so no need to apply any margin:
+    $bullet-margin: 0;
+    $bullet-margin-mobile: 0;
 
     @if $i < 5 {
-      $bullet-width: map-get($line-heights, h#{$i});
-      $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
+      // To align the bullet with the title we need to use half
+      // the height difference between the bullet and the title and then add the
+      // nudge to position it with the lower case text.
+      $bullet-margin: calc((map-get($line-heights, h#{$i}) - $bullet-width) / 2) + map-get($nudges, h#{$i});
+      $bullet-margin-mobile: calc((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2) + map-get($nudges, h#{$i});
     }
 
+    .p-heading--#{$i}.p-stepped-list__title,
     h#{$i}.p-stepped-list__title {
       padding-left: $bullet-width-mobile + $sph--large;
 
@@ -315,21 +372,34 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       }
 
       &::before {
+        // Need to account for the 1px border:
+        line-height: calc($bullet-width-mobile - 2px);
         margin-right: $sph--large;
+        margin-top: $bullet-margin-mobile;
         width: $bullet-width-mobile;
 
         @media (min-width: $breakpoint-heading-threshold) {
+          // Need to account for the 1px border:
+          line-height: calc($bullet-width - 2px);
+          margin-top: $bullet-margin;
           width: $bullet-width;
         }
       }
     }
 
+    .p-heading--#{$i}.p-stepped-list__title + .p-stepped-list__content,
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
       margin-left: $bullet-width-mobile + $sph--large;
 
       @media (min-width: $breakpoint-heading-threshold) {
         margin-left: $bullet-width + $sph--large;
       }
+    }
+  }
+
+  .p-stepped-list--detailed .p-stepped-list__title + .p-stepped-list__content {
+    @media (min-width: $threshold-6-12-col) {
+      margin-left: 0;
     }
   }
 }

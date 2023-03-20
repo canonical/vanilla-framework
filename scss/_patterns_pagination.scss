@@ -13,7 +13,11 @@
     }
   }
 
-  .p-pagination {
+  // .p-pagination on the <ol> element is deprecated. It should be used on the wrapping <nav> element instead, and .p-pagination__items on the <ol> or <ul> element.
+
+  // stylelint-disable selector-max-type
+  .p-pagination:not(nav),
+  .p-pagination__items {
     display: flex;
     flex-direction: row;
     list-style: none;

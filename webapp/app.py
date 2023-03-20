@@ -3,6 +3,10 @@ import glob
 import json
 import os
 import random
+import yaml
+import urllib
+import markupsafe
+import mistune
 
 # Packages
 import talisker.requests
@@ -20,6 +24,19 @@ from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 with open("package.json") as package_json:
     VANILLA_VERSION = json.load(package_json)["version"]
 
+with open("build/classreferences.yaml") as data_yaml:
+    CLASS_REFERENCES = yaml.load(data_yaml, Loader=yaml.FullLoader)
+
+with open("releases.yml") as releases_file:
+    FEATURES_LIST = yaml.load(releases_file.read(), Loader=yaml.FullLoader)
+
+# Read side-navigation.yaml
+with open("side-navigation.yaml") as side_navigation_file:
+    SIDE_NAVIGATION = yaml.load(
+        side_navigation_file.read(),
+        Loader=yaml.FullLoader,
+    )
+
 
 app = FlaskBase(
     __name__,
@@ -36,7 +53,6 @@ TEAM_MEMBERS = [
     {"login": "bartaz", "role": "Senior Web Engineer"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
     {"login": "elioqoshi", "role": "UX Designer"},
-    {"login": "bethcollins92", "role": "Web Engineer"},
 ]
 
 
@@ -123,7 +139,7 @@ def _get_team_members(contributors):
 
 def _get_contributors():
     contributors = _make_github_request(
-        "repos/canonical-web-and-design/vanilla-framework/contributors"
+        "repos/canonical/vanilla-framework/contributors"
     )
 
     return contributors
@@ -146,12 +162,61 @@ def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
     version_minor = f"{version_parts[0]}.{version_parts[1]}"
 
-    return {"version": VANILLA_VERSION, "versionMinor": version_minor, "path": flask.request.path}
+    # Add an exception for the /docs/search path
+    if flask.request.path == "/docs/search":
+        docs_slug = ""
+    else:
+        docs_slug = (
+            flask.request.path.replace("/docs/", "")
+            .replace("/design/", "")
+            .replace("/accessibility", "")
+        )
+
+        docs_slug = "" if docs_slug == "/docs" else docs_slug
+
+    # Read navigation.yaml
+    with open("component_tabs.yaml") as component_tabs_file:
+        component_tabs = yaml.load(
+            component_tabs_file.read(), Loader=yaml.FullLoader
+        )
+
+    updated_features = {}
+    for feature in FEATURES_LIST[0]["features"]:
+        feature_url = feature["url"].split("#")[0]
+        if feature_url not in updated_features:
+            updated_features[feature_url] = feature["status"]
+
+    return {
+        "version": VANILLA_VERSION,
+        "versionMinor": version_minor,
+        "path": flask.request.path,
+        "page_tabs": component_tabs.get(docs_slug),
+        "slug": docs_slug,
+        "sideNavigation": SIDE_NAVIGATION,
+        "releaseNotes": FEATURES_LIST,
+        "updatedFeatures": updated_features,
+    }
+
+
+@app.template_filter()
+def markdown(text):
+    return markupsafe.Markup(mistune.markdown(text))
+
+
+def class_reference(component=None):
+    component = (
+        component
+        or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
+    )
+    data = CLASS_REFERENCES["class-references"][component]
+    return markupsafe.Markup(
+        flask.render_template("_layouts/_class-reference.html", data=data)
+    )
 
 
 @app.context_processor
 def utility_processor():
-    return {"image": image_template}
+    return {"class_reference": class_reference, "image": image_template}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
@@ -208,7 +273,7 @@ app.add_url_rule(
     build_search_view(
         session=session,
         site="vanillaframework.io/docs",
-        template_path="docs/search.html"
+        template_path="docs/search.html",
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
@@ -218,7 +283,7 @@ discourse_docs = Docs(
         api=DiscourseAPI(
             base_url="https://discourse.ubuntu.com/", session=session
         ),
-        index_topic_id=27037, # https://discourse.ubuntu.com/t/design-system-website-config/27037
+        index_topic_id=27037,  # https://discourse.ubuntu.com/t/design-system-website-config/27037
         url_prefix="/design",
     ),
     document_template="/_layouts/docs_discourse.html",

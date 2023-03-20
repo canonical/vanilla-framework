@@ -28,15 +28,11 @@ Vanilla uses three font weight settings in tandem with the Ubuntu font, which ca
 | Setting                        | Default value | Notes                                                                   |
 | ------------------------------ | ------------- | ----------------------------------------------------------------------- |
 | `$font-weight-display-heading` | `100`         | This lighter font weight is used by `h1`, `h2` and `h3` elements which  |
-| `$font-weight-regular-text`    | `300`         | Vanilla's default font-weight                                           |
-| `$font-weight-bold`            | `400`         | Most often used on elements with very small text to make them stand out |
+| `$font-weight-regular-text`    | `400`         | Vanilla's default font-weight                                           |
+| `$font-weight-bold`            | `550`         | Most often used on elements with very small text to make them stand out |
 
 <br>
 <hr>
-
-## Design
-
-- [Typography design](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Typography)
 
 ## Related
 

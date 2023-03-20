@@ -1,39 +1,57 @@
 <a href="#main-content" class="p-link--skip">Jump to main content</a>
 
 <header id="navigation" class="p-navigation is-dark">
-  <div class="p-navigation__row">
+  <div class=" l-full-width">
+  <div class="l-start">
     <div class="p-navigation__banner">
-      <div class="p-navigation__logo">
-        <a class="p-navigation__item" href="/">
-          <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/94d962aa-vanilla_white-orange_hex.svg" style="height:1.5rem" alt="Vanilla framework">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="/">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/b36b0862-Vanilla_icon_RGB_2022.svg" alt="Vanilla framework">
+          </div>
+          <span class="p-navigation__logo-title">Vanilla</span>
         </a>
       </div>
-      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
-    </div>
-    <nav class="p-navigation__nav" aria-label="Main">
-      <ul class="p-navigation__items">
-        <li class="p-navigation__item {% if path.startswith('/docs') and not path.startswith('/docs/examples') %}is-selected{% endif %}"><a class="p-navigation__link" href="/docs">Docs</a></li>
-        <li class="p-navigation__item {% if '/docs/examples' in path %}is-selected{% endif %}"><a class="p-navigation__link" href="/docs/examples">Examples</a></li>
-        <li class="p-navigation__item{% if path == '/accessibility' %} is-selected{% endif %}"><a class="p-navigation__link" href="/accessibility">Accessibility</a></li>
-        <li class="p-navigation__item{% if path == '/browser-support' %} is-selected{% endif %}"><a class="p-navigation__link" href="/browser-support">Browser support</a></li>
-        <li class="p-navigation__item{% if path == '/contribute' %} is-selected{% endif %}"><a class="p-navigation__link" href="/contribute">Contribute</a></li>
-      </ul>
       <ul class="p-navigation__items">
         <li class="p-navigation__item">
-          <a href="#" class="js-search-button p-navigation__link--search-toggle">
+          <button class="js-search-button p-navigation__link--search-toggle">
             <span class="p-navigation__search-label">Search</span>
-          </a>
+          </button>
+        </li>
+        <li class="p-navigation__item">
+          <button class="js-menu-button p-navigation__link">Menu</button>
         </li>
       </ul>
-      <div class="p-navigation__search">
-        <form class="p-search-box" action="/docs/search">
-          <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
-          <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
-          <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
-        </form>
-      </div>
-    </nav>
+    </div>
   </div>
+  <div class="l-main">
+    <div class="p-navigation__row u-fixed-width">
+      <nav class="p-navigation__nav" aria-label="Main">
+        <ul class="p-navigation__items">
+          <li class="p-navigation__item {% if (path.startswith('/docs') or path.startswith('/design')) and not path.startswith('/docs/examples') %}is-selected{% endif %}"><a class="p-navigation__link" href="/docs">Docs</a></li>
+          <li class="p-navigation__item {% if '/docs/examples' in path %}is-selected{% endif %}"><a class="p-navigation__link" href="/docs/examples">Examples</a></li>
+          <li class="p-navigation__item{% if path == '/accessibility' %} is-selected{% endif %}"><a class="p-navigation__link" href="/accessibility">Accessibility</a></li>
+          <li class="p-navigation__item{% if path == '/browser-support' %} is-selected{% endif %}"><a class="p-navigation__link" href="/browser-support">Browser support</a></li>
+          <li class="p-navigation__item{% if path == '/contribute' %} is-selected{% endif %}"><a class="p-navigation__link" href="/contribute">Contribute</a></li>
+        </ul>
+        <ul class="p-navigation__items">
+          <li class="p-navigation__item">
+            <button class="js-search-button p-navigation__link--search-toggle">
+              <span class="p-navigation__search-label">Search</span>
+            </button>
+          </li>
+        </ul>
+        <div class="p-navigation__search">
+          <form class="p-search-box" action="/docs/search">
+            <input type="search" id="search-docs" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search the docs" title="Search the documentation"  autocomplete="on" aria-label="Search the docs" required />
+            <button type="reset" id="search-docs-reset" class="p-search-box__reset u-no-margin--right" name="close"><i class="p-icon--close">Clear input</i></button>
+            <button type="submit" class="p-search-box__button" name="submit"><i class="p-icon--search">Submit</i></button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
+  </div>
+
   <div class="p-navigation__search-overlay"></div>
 </header>

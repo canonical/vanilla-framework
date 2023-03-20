@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Chip | Components
+  title: Chips | Components
 ---
 
 # Chips
@@ -73,4 +73,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use chips in React by installing our react-component library and importing `Chip` component.
 
-[See the documentation for our React `Chip` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/chip--default-story#chip)
+[See the documentation for our React `Chip` component](https://canonical.github.io/react-components/?path=/docs/chip--default-story#chip)

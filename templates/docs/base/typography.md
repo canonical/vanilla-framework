@@ -16,7 +16,7 @@ Vanilla's typographic scale has a base font-size of `1rem`.
 
 The pixel value of `1rem` depends on the browser (in most cases, `16px`) and the user's browser settings.
 
-In addition to that, Vanilla multiplies that value by <a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_font.scss#L9">`$font-size-ratio--largescreen`</a> on resolutions above a certain threshold (<a href="https://github.com/canonical-web-and-design/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">`$font-size-largescreen`</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
+In addition to that, Vanilla multiplies that value by <a href="https://github.com/canonical/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_font.scss#L9">`$font-size-ratio--largescreen`</a> on resolutions above a certain threshold (<a href="https://github.com/canonical/vanilla-framework/blob/ea6f05b4a90169b36a5e9c5a86ceae40cbddd986/scss/_settings_breakpoints.scss#L8">`$font-size-largescreen`</a>). This is done to account for the bigger distance at which larger screens are usually positioned from the viewer.
 
 To disable this behaviour, include the following after you import and include the framework in your `scss`:
 
@@ -148,13 +148,17 @@ View example of the base blockquotes
 View example of the small text
 </a></div>
 
-## Extra small capitalised text
+## Small caps text
 
-Extra small capitalised text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--x-small-capitalised`.
+Small caps text is used to style column headers in tables. This styling has proved useful in other contexts. To apply it, add the class `p-text--small-caps`.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/x-small-capitalised/" class="js-example">
-View example of the extra small capitalised text
+<div class="embedded-example"><a href="/docs/examples/patterns/text-small-caps/" class="js-example">
+View example of the small caps text
 </a></div>
+
+<span class="p-status-label--negative">Deprecated</span>
+
+Previously this style was implemented as `.p-text--x-small-capitalised` class name. This name is now deprecated and will be removed in next major version of Vanilla, please use `.p-text--small-caps` instead.
 
 ## Baseline alignment: small, extra small and paragraph text
 
@@ -164,6 +168,10 @@ In some cases, for example when used on the same line, it can be useful to align
 <div class="embedded-example"><a href="/docs/examples/utilities/align-by-baseline/" class="js-example">
 View example of baseline alignment of paragraph, small, extra small text
 </a></div>
+
+<span class="p-status-label--negative">Deprecated</span>
+
+Small caps style used to be implemented as extra small text variant with `.p-text--x-small-capitalised` class name that required the `.u-align-text--x-small-to-default` utility to align the baseline. This is not the case any more, so usage of this utility with new `.p-text--small-caps` (and its deprecated equivalent `.p-text--x-small-capitaised`) is deprecated and can be removed.
 
 ## Strong text
 
@@ -191,7 +199,7 @@ View example of the abbreviation pattern
 
 ## Font weights
 
-If you are using the Ubuntu font, it comes in five weights; thin, light, regular, medium, and bold.
+If you are using the variable Ubuntu font, it comes in six weights; thin, light, regular, medium, bold and extra bold.
 
 <div class="embedded-example"><a href="/docs/examples/base/font-weights/" class="js-example">
 View example of the Ubuntu font weights.
@@ -205,14 +213,6 @@ To reduce the prominence of text, use class `u-text--muted`.
 View example of the muted-text
 </a></div>
 
-## Using a smaller set of Latin font faces
-
-The default Ubuntu fonts are fairly large as they contain glyphs for many languages. If you are building sites in; Afrikaans, Albanian, Catalan, Danish, Dutch, English, German, Icelandic, Italian, Norwegian, Portuguese, Spanish, Swedish or Zulu, you could use the subset of Latin fonts by setting the following variable to true:
-
-```sass
-$font-use-subset-latin: true;
-```
-
 ## Enabling Cyrillic, Greek and Latin fonts
 
 Due to the extra weight of loading these fonts they are not imported by
@@ -223,6 +223,12 @@ following font setting to true.
 $font-allow-cyrillic-greek-latin: true;
 ```
 
+<span class="p-status-label--negative">Deprecated</span>
+
+In previous versions of Vanilla (`< 3.10.0`) there used to be an option `$font-use-subset-latin` for only importing a part of the Latin subset.
+
+This has been made redundant by the adoption of the variable font and should be removed from your project.
+
 ## `font-display` options
 
 The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) option allows you to set a strategy for what backup font is shown while an external font is loading. This is a very subjective decision; however, if you set the following variable to the option you want, it will add it to the typography for you.
@@ -231,7 +237,7 @@ The CSS [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-
 $font-display-option: <auto | block | swap | fallback | optional>;
 ```
 
-The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_base_fontfaces.scss) is set to `fallback`.
+The default value of the `font-display` property on [all fonts used by Vanilla](https://github.com/canonical/vanilla-framework/blob/main/scss/_base_fontfaces.scss) is set to `fallback`.
 
 ## Import
 
@@ -242,10 +248,6 @@ To import just this base element into your project, copy the snippet below and i
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
-
-## Design
-
-For more information [view the typography design spec](https://github.com/canonical-web-and-design/design-vanilla-framework/tree/main/Typography), which includes the specification in markdown format and a PNG image.
 
 ## Related
 

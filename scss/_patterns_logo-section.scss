@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@mixin vf-p-set-logo-section-item-width($breakpoint: small) {
+@mixin vf-p-set-logo-section-item-width($breakpoint: small, $column-span: 1) {
   // This mixin calculates the width of an individual logo.
 
   $grid-column-count: $grid-columns-small;
@@ -26,7 +26,7 @@
     $gutter: map-get($grid-gutter-widths, default);
     $media-query-keyword: min-width;
     $media-query-width: $threshold-6-12-col;
-    $logo-column-span: 2;
+    $logo-column-span: $column-span;
   }
 
   @media ($media-query-keyword: #{$media-query-width}) {
@@ -41,7 +41,6 @@
     $percentage-contribution: $logo-column-span * $percentage-width-of-one-col;
     $gutter-width-inside-logo: $gutter * ($logo-column-span - 1);
     $rem-contribution: $logo-column-span * math.div($gutters-total-width, $grid-column-count) - $gutter-width-inside-logo;
-
     @include vf-p-apply-logo-section-item-width($percentage-contribution, $rem-contribution);
 
     // Looping in reverse to ensure nested column rules end up further down in the generated css file, thus having higher specificity.
@@ -88,7 +87,7 @@
   @if $rem-contribution == 0 {
     width: $percentage-contribution;
   } @else {
-    width: calc(#{$percentage-contribution} - #{$rem-contribution});
+    width: calc($percentage-contribution - $rem-contribution);
   }
 }
 
@@ -113,16 +112,16 @@
     margin-bottom: $spv--x-large;
     // negates the margin of logos that sit in the first column
     margin-left: -#{$margin-small};
-    width: calc(100% + #{$margin-small});
+    width: calc(100% + $margin-small);
 
     @media (min-width: $threshold-4-6-col) {
       margin-left: -$margin-medium;
-      width: calc(100% + #{$margin-medium});
+      width: calc(100% + $margin-medium);
     }
 
     @media (min-width: $threshold-6-12-col) {
       margin-left: -$margin-large;
-      width: calc(100% + #{$margin-large});
+      width: calc(100% + $margin-large);
     }
   }
 
@@ -142,7 +141,11 @@
 
     @include vf-p-set-logo-section-item-width($breakpoint: small);
     @include vf-p-set-logo-section-item-width($breakpoint: medium);
-    @include vf-p-set-logo-section-item-width($breakpoint: large);
+    @include vf-p-set-logo-section-item-width($breakpoint: large, $column-span: 2);
+
+    .p-logo-section--dense & {
+      @include vf-p-set-logo-section-item-width($breakpoint: large);
+    }
   }
 
   .p-logo-section__logo {

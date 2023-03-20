@@ -9,10 +9,10 @@ jobs:
     name: Build Vanilla
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - name: Read Vanilla version from package.json
         run: |
           node -p "require('./package.json').version" > VANILLA_VERSION
@@ -23,7 +23,7 @@ jobs:
       - name: Show size of the build file
         run: stat -c '%s' build/css/build.css
       - run: cp VANILLA_VERSION build/css
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: css
           path: build/css
@@ -33,7 +33,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 12
@@ -53,7 +53,8 @@ jobs:
     needs: [build, publish-npm]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           name: css
           path: css

@@ -1,0 +1,57 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Segmented control / Icons{% endblock %}
+
+{% block standalone_css %}patterns_segmented-control{% endblock %}
+
+{% block content %}
+
+<div class="p-segmented-control">
+  <div class="p-segmented-control__list" role="tablist" aria-label="Juju technology">
+    <button
+      class="p-segmented-control__button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="olm-tab"
+      id="olm"
+    >
+      <i class="p-icon--information"></i><span>OLM</span>
+    </button>
+    <button
+      class="p-segmented-control__button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="operator-tab"
+      id="operator"
+      tabindex="-1"
+    >
+      <i class="p-icon--information"></i><span>SDK</span>
+    </button>
+    <button
+      class="p-segmented-control__button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="charmhub-tab"
+      id="charmhub"
+      tabindex="-1"
+    >
+      <i class="p-icon--information"></i><span>Charmhub</span>
+    </button>
+  </div>
+</div>
+
+<div tabindex="0" role="tabpanel" id="olm-tab" aria-labelledby="olm">
+  <p>A system to help you move from configuration management to application management across your hybrid cloud estate - through sharable, reusable, tiny applications called Charmed Operators.</p>
+</div>
+
+<div tabindex="0" role="tabpanel" id="operator-tab" aria-labelledby="operator" hidden="hidden">
+  <p>A set of tools to help you write Charmed Operators and to package them as Charms.</p>
+</div>
+
+<div tabindex="0" role="tabpanel" id="charmhub-tab" aria-labelledby="charmhub" hidden="hidden">
+  <p>A repository for charms - from Observability to Data to Identity and more.</p>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/tabs/_script.js' %}
+</script>
+{% endblock %}

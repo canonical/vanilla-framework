@@ -10,7 +10,7 @@ context:
 
 ## Responsive divider
 
-A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-large`), the divider lines appear horizontally. On screens bigger than `$breakpoint-large`, the divider lines appear vertically, centered in the column gutters.
+A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-large`), the divider lines appear horizontally. On screens bigger than `$breakpoint-large`, the divider lines appear vertically, centered in the column gutters. This behaviour can be overridden for medium screens by applying `col-medium-...` to each column which will cause the divider lines to remain vertical for medium and large screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/divider/default/" class="js-example">
 View example of lists with a responsive divider
@@ -18,7 +18,7 @@ View example of lists with a responsive divider
 
 ## Theming
 
-The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical-web-and-design/vanilla-framework/blob/main/scss/_settings_colors.scss).
+The responsive divider is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical/vanilla-framework/blob/main/scss/_settings_colors.scss).
 Overriding the colours of individual elements of the responsive is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
 
 By default, the responsive divider uses the light theme. To change the global default, set `$theme-default-p-divider` to `dark`.

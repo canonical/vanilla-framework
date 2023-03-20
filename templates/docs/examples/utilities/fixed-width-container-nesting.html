@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Fixed width container / Nesting{% endblock %}
+
+{% block content %}
+<div class="u-fixed-width">
+  <div class="u-fixed-width">
+    Nested <code>u-fixed-width</code> containers should not add additional padding.
+  </div>
+</div>
+
+<div class="u-fixed-width">
+  <div class="row">
+    <div class="col-12">
+      <code>row</code>  nested in <code>u-fixed-width</code> container should not add additional padding.
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+      <div class="u-fixed-width">
+        <code>u-fixed-width</code> container nested in <code>row</code> should not add additional padding.
+      </div>
+    </div>
+</div>
+{% endblock %}
