@@ -57,6 +57,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     $properties: #{background-color, color, opacity};
     @extend %navigation-link-responsive-padding-horizontal;
     @extend %navigation-link-responsive-padding-vertical;
+    @extend %vf-navigation-separator;
     @include vf-transition($properties, snap);
     @include vf-focus;
 
@@ -85,10 +86,23 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       padding-left: $sph--large;
     }
 
+    &:visited,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  %vf-reset-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  %vf-navigation-separator {
     &::before {
       content: '';
       height: 1px;
-      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large}); // allow navigation separator align with tag logo text on small screens
+      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
       position: absolute;
       right: 0;
       top: 0;
@@ -101,17 +115,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         content: none;
       }
     }
-
-    &:visited,
-    &:focus,
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  %vf-reset-horizontal-padding {
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .p-navigation {
@@ -293,29 +296,13 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   // navigation items
   .p-navigation__items {
+    @extend %vf-navigation-separator;
+
     display: none; // hidden by default on mobile (expands is a dropdown)
     list-style: none;
     margin: -1px 0 0 0;
     padding: 0;
     position: relative;
-
-    // add separator between navigation items
-    &::before {
-      content: '';
-      height: 1px;
-      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
-      position: absolute;
-      right: 0;
-      top: 0;
-
-      @media (min-width: $threshold-4-6-col) {
-        left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
-      }
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        content: none;
-      }
-    }
 
     &:first-child::before {
       content: none;
@@ -636,29 +623,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   .p-navigation__dropdown-item {
     @extend %navigation-link-responsive-padding-horizontal;
     @extend %navigation-link-responsive-padding-vertical;
+    @extend %vf-navigation-separator;
 
     display: block;
     padding-left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large}); // make dropdown items align with the tag logo text
     position: relative;
     white-space: nowrap;
-
-    // add separator line for dropdown items
-    &::before {
-      content: '';
-      height: 1px;
-      left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
-      position: absolute;
-      right: 0;
-      top: 0;
-
-      @media (min-width: $threshold-4-6-col) {
-        left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
-      }
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        content: none;
-      }
-    }
 
     @media (min-width: $threshold-4-6-col) {
       padding-left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
