@@ -207,10 +207,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     padding-right: 0;
 
     .p-navigation__link {
-      // reser padding for navigation links in the navigation banner
+      // reset padding for navigation links in the navigation banner
       @extend %navigation-link-responsive-padding-horizontal;
       @extend %navigation-link-responsive-padding-vertical;
 
+      // remove navigation separator for navigation links in the navigation banner
       &::before {
         content: none;
       }
@@ -304,6 +305,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     padding: 0;
     position: relative;
 
+    // remove navigation separator for the first navigation items list
     &:first-child::before {
       content: none;
     }
