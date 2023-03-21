@@ -1550,3 +1550,39 @@
     }
   }
 }
+
+@mixin vf-p-icon-play {
+  .p-icon--play {
+    @extend %icon;
+    @include vf-icon-play($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-play($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-pause {
+  .p-icon--pause {
+    @extend %icon;
+    @include vf-icon-pause($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-pause($color-mid-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-stop {
+  .p-icon--stop {
+    @extend %icon;
+    @include vf-icon-stop($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-stop($color-mid-x-light);
+    }
+  }
+}
