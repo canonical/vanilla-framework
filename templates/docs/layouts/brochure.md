@@ -36,7 +36,7 @@ To create a successful page, we need to get 3 things right for each section:
 </h3>
 <p>
   To remedy this, we use a system inspired by an oct-tree: Widths are multiples of 25% of the available space.
-  This simple choice decimates the available choices, which has the following beneficial effects on our layouts:
+  This simple rule decimates the available choices, which has the following beneficial effects on our layouts:
 </p>
 
 - creates up to 4 invisible "fault lines", to one of which all content, across all sections, aligns <br>
