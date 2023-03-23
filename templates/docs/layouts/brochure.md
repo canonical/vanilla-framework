@@ -3,48 +3,119 @@ wrapper_template: '_layouts/docs.html'
 context:
   title: Brochure site | Layouts
 ---
-<div class="p-strip is-deep">
-  <h1 class="p-heading--2"><strong>
-    Brochure site layout
-  </strong></h1>
+<div class="row">
+  <div class="col-6 col-start-large-4">
+    <div class="p-strip">
+      <h1 class="p-heading--2 u-no-margin--bottom">
+        <strong>
+          Brochure site layouts
+        </strong>
+      </h1>
+      <h2>
+        The rules we use when designing and building pages with Vanilla 4.0
+      </h2>
+    </div>
+    <div class="p-strip u-no-padding--top">
+      <div class="u-fixed-width">
+        <p class="u-no-margin--bottom">
+          Structurally, a page is a sequence of sections sandwiched between a header and a footer. 
+          To create a successful page, we need to get 3 things right:
+        <p>
+        <ul class="p-list--divided p-max-width">
+          <li class="p-list__item has-bullet">
+            choose section layouts that present content effectively
+          <li class="p-list__item has-bullet">
+            prevent adjacent sections from competing for attention 
+          </li>
+          <li class="p-list__item has-bullet">
+            ensure the choices above, which are made individually per section, result in a coherent, well paced page
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-<p>
-This article outlines the rules we use when designing and building pages using Vanilla 4.0.
-Structurally, a page is a sequence of sections sandwiched between a header and a footer. 
-To create a successful page, we need to get 3 things right for each section:
-<p>
 
-- choose a layout that effectively presents the content within each section <br>
-- prevent adjacent sections from competing for attention <br>
-- ensure the choices above, which are made individually per section, result in a coherent, well paced page <br>
+<hr class="is-fixed-width u-no-margin--bottom">
+<div class="row p-strip is-shallow u-no-padding--top">
+  <div class="col-3 col-medium-3">
+    <h2 class="p-heading--5">Choosing section layouts</h2>
+  </div>
+  <div class="col-6 col-medium-3">
+    <p>
+      Layout is controlled by a responsive grid that has 4, 6 or 12 columns depending on the browser window width.
+    </p>
+    <p> 
+      Having 12 columns is necessary in order to create versatile layouts, however, it provides far too many choices - few of which work well in a sequence of sections. 
+    </p>
+    <p> 
+      In the example below, chosing a 5 + 7 column layout followed by a 6 + 6 column layout results in content being staggered by one column, which looks like a mistake/misalignment:
+    </p>
+  </div>
+</div>
+<div class="p-strip is-shallow u-no-padding--top">
+  <div class="p-strip--light">
+    <div class="row">
+      <div class="col-7">
+          <p>
+              <strong>7 columns</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+      </div>
+      <div class="col-5">
+          <p>
+            <strong>5 columns</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-4">
+          <p><strong>4 columns</strong>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+      </div>
+      <div class="col-4">
+          <p><strong>4 columns</strong>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+      </div>
+      <div class="col-4">
+          <p><strong>4 columns - staggered by one column compared to the 5 column container above. Not a good look.</strong>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/example-01" class="js-example">View an example</a></div> -->
+<hr class="is-fixed-width u-no-margin--bottom">
+<div class="row p-strip is-shallow u-no-padding--top">
+  <div class="col-3 col-medium-3">
+    <h3 class="p-heading--5">
+      Reducing options <br class="u-hide--medium  u-hide--small">with the 25% rule
+    </h3>  
+  </div>
+  <div class="col-6">
+    <p>
+      To remedy this, we use a system inspired by an oct-tree: Widths are multiples of 25% of the available space.
+      This simple rule decimates the available choices, which has the following beneficial effects on our layouts:
+    </p>
+    <ul class="p-list--divided">
+      <li class="p-list__item has-bullet">
+        creates up to 4 invisible "fault lines" (at 0%, 25%, 50%, 75%, or at the start of the first, fourth, sixth and nineth column), to one of which all content, across all sections, aligns
+      </li>
+      <li class="p-list__item has-bullet">
+        fascilitates scanning/skimming, enabling a reader to quickly navigate by headings for example
+    </li>
+    <li class="p-list__item has-bullet">
+      induces a strong sense of internal coherence, order and consistency
+    </li>
+    <li class="p-list__item has-bullet">
+      provides enough room for variation to avoid monotony
+    </li>
+  </ul>        
+  </div>
+</div>
 
-
-<h2>Choosing a layout</h2>
-<p>
-  Layout is controlled by a 12 column grid (on desktop, see the grid article for details on othr screen sizes)(insert link).
-</p>
-<h3 class="p-heading--5">
-  Too many options
-</h3>
-<p>
-  This, however, leaves a lot of choices - few of which work well in a sequence of sections. 
-  For example, chosing a 5 + 7 column layout followed by a 6 + 6 column layout results in content being staggered by one column, which looks like a mistake/misalignment.
-</p>
-
-<h3 class="p-heading--5">
-  Reducing options with the 25% rule
-</h3>
-<p>
-  To remedy this, we use a system inspired by an oct-tree: Widths are multiples of 25% of the available space.
-  This simple rule decimates the available choices, which has the following beneficial effects on our layouts:
-</p>
-
-- creates up to 4 invisible "fault lines", to one of which all content, across all sections, aligns <br>
-- fascilitates scanning/skimming, enabling a reader to quickly navigate by headings for example <br>
-- induces a strong sense of internal coherence, order and consistency <br>
-- provides enough room for variation to avoid monotony <br> <br> <br>
-
-<p></p>
 -------------
 1. Layout splits
 1.1. the system of 25% multiples
@@ -63,13 +134,6 @@ To create a successful page, we need to get 3 things right for each section:
 3. Typography
 3.1. choosing the correct heading style
 3.2. using <br>s to create phrasing/pauses
-
-
-## Example 1
-
-Example 1 is below...
-
-<div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/example-01" class="js-example">View an example</a></div>
 
 ## Example 2
 
