@@ -112,12 +112,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   %vf-navigation-separator {
     &::before {
+      bottom: 0;
       content: '';
       height: 1px;
       left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
       position: absolute;
       right: 0;
-      bottom: 0;
 
       @media (min-width: $threshold-4-6-col) {
         left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
@@ -315,31 +315,25 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     padding: 0;
     position: relative;
 
-    // remove navigation separator for the last navigation items in last navigation items list
-    &:last-child {
-      .p-navigation__item,
-      .p-navigation__item--dropdown-toggle {
-        &:last-child {
-          > .p-navigation__link::before {
-            content: none;
-          }
-        }
-      }
-
-      .p-navigation__item--dropdown-toggle:last-child {
-        .p-navigation__dropdown,
-        .p-navigation__dropdown--right {
-          li:last-child .p-navigation__dropdown-item::before {
-            content: none;
-          }
-        }
-      }
-    }
-
     @media (min-width: $breakpoint-navigation-threshold) {
       display: flex;
       flex-wrap: wrap;
       margin-top: 0; // prevents bottom border of nav from moving 1px
+    }
+  }
+
+  // remove navigation separator for the last navigation items in last navigation items list
+  .p-navigation__items:last-child {
+    .p-navigation__item:last-child > .p-navigation__link::before,
+    .p-navigation__item--dropdown-toggle:last-child > .p-navigation__link::before {
+      content: none;
+    }
+
+    .p-navigation__item--dropdown-toggle:last-child {
+      .p-navigation__dropdown li:last-child .p-navigation__dropdown-item::before,
+      .p-navigation__dropdown--right li:last-child .p-navigation__dropdown-item::before {
+        content: none;
+      }
     }
   }
 
@@ -575,8 +569,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     display: none;
     margin: 0;
-    width: 100%;
     padding: 0;
+    width: 100%;
     z-index: 5;
 
     @media (min-width: $breakpoint-navigation-threshold) {
@@ -596,7 +590,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__dropdown {
       @media (min-width: $breakpoint-navigation-threshold) {
         position: static;
-        top: 0;
       }
     }
   }
@@ -684,7 +677,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   // SLIDING NAVIGATION
   .p-navigation.is-sliding {
-    overflow-x: hidden; // stops overflow scrolling on the page on smaller screens
+    overflow: hidden; // stops overflow scrolling on the page on smaller screens
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      overflow: visible;
+    }
 
     // initialise navigation nav as sliding nav on smaller screens
     .p-navigation__nav {
@@ -782,17 +779,17 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__dropdown--right {
       @extend %navigation-slide;
 
-      top: 0;
       box-shadow: none;
+      top: 0;
 
       // reset navigation dropdown styles on larger screens
       @media (min-width: $breakpoint-navigation-threshold) {
         display: none;
         height: auto;
         position: absolute;
-        width: auto;
         // padding applied to .p-navigation__link + line-heigh of the anchor text inside
         top: $spv--large * 2 + map-get($line-heights, default-text);
+        width: auto;
       }
 
       // remove navigation separator from last dropdown item
