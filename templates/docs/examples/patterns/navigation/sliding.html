@@ -1,0 +1,133 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Sliding{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+<header id="navigation" class="p-navigation is-dark is-sliding">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="" >
+          </div>
+          <span class="p-navigation__logo-title">Ubuntu</span>
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav" id="main-nav" aria-label="Example main">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item is-selected">
+          <a class="p-navigation__link" href="#">Products</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Services</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Partners</a>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" data-parent="main-nav" id="link-1">
+          <button href="#link-1-menu" aria-controls="link-1-menu" class="p-navigation__link">LXD</button>
+          <ul class="p-navigation__dropdown" id="link-1-menu" aria-hidden="true">
+            <li class="p-navigation__item--dropdown-toggle is-back" id="link-1">
+              <button href="#link-1-menu" aria-controls="link-1-menu" class="p-navigation__link">Back</button>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" data-parent="main-nav" id="link-2">
+          <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">LXCFS</button>
+          <ul class="p-navigation__dropdown" id="link-2-menu" aria-hidden="false">
+            <li class="p-navigation__item--dropdown-toggle is-back" id="link-2">
+              <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">Back</button>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" data-parent="link-2" id="link-4">
+              <button href="#link-4-menu" aria-controls="link-4-menu" class="p-navigation__link">Nested Layer</button>
+              <ul class="p-navigation__dropdown" id="link-4-menu" aria-hidden="false">
+                <li class="p-navigation__item--dropdown-toggle is-back" id="link-4">
+                  <button href="#link-4-menu" aria-controls="link-4-menu" class="p-navigation__link">Back</button>
+                </li>
+                <li>
+                  <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+                </li>
+                <li>
+                  <a href="#" class="p-navigation__dropdown-item">News</a>
+                </li>
+                <li>
+                  <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+                </li>
+                <li class="p-navigation__item--dropdown-toggle" data-parent="link-4" id="link-5">
+                  <button href="#link-5-menu" aria-controls="link-5-menu" class="p-navigation__link">Another Nested Layer</button>
+                  <ul class="p-navigation__dropdown" id="link-5-menu" aria-hidden="false">
+                    <li class="p-navigation__item--dropdown-toggle is-back" id="link-5">
+                      <button href="#link-5-menu" aria-controls="link-5-menu" class="p-navigation__link">Back</button>
+                    </li>
+                    <li>
+                      <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+                    </li>
+                    <li>
+                      <a href="#" class="p-navigation__dropdown-item">News</a>
+                    </li>
+                    <li>
+                      <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" id="link-3">
+          <button class="p-navigation__link" aria-controls="account-menu">
+            My account
+          </button>
+          <ul class="p-navigation__dropdown--right" id="account-menu" aria-hidden="true">
+            <li class="p-navigation__item--dropdown-toggle is-back" id="link-3">
+              <button class="p-navigation__link" aria-controls="account-menu">
+                Back
+              </button>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  {% include 'docs/examples/patterns/navigation/_script-sliding.js' %}
+
+initNavDropdowns('.p-navigation__item--dropdown-toggle')
+</script>
+{% endblock %}
