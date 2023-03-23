@@ -1,6 +1,5 @@
 @import 'settings';
-$list-status-icon-height: 0.875rem; // 14px value from svg as rem so it can be used in calculations
-$list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that positions the icon correctly
+$list-status-icon-height: $default-icon-size;
 
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
@@ -69,7 +68,30 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     content: '';
     display: inline-block;
     height: $sph--large;
-    top: $spv--medium;
+    top: $spv--small;
+  }
+
+  %vf-list-item-ordered {
+    &::marker {
+      content: none;
+      display: none;
+    }
+
+    &::before {
+      color: $color-dark;
+      content: counters(list-item, '.') '. ';
+      display: inline-block;
+      text-align: right;
+    }
+  }
+
+  %vf-list-item-bullet {
+    &::before {
+      color: $color-dark;
+      content: '•';
+      display: inline-block;
+      text-align: right;
+    }
   }
 }
 
@@ -108,14 +130,6 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 }
 
-@function svg-tick($color) {
-  @if type-of($color) != 'color' {
-    @warn '#{$color} is not a color.';
-    @return false;
-  }
-  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Ccircle fill='" + vf-url-friendly-color($color) + "' cx='7' cy='7' r='7'/%3E%3Cpath fill='%23fff' d='M6.1 10.813L2.41 8.105l1.184-1.613L5.9 8.187l4.393-4.394 1.414 1.414z' /%3E%3C/svg%3E");
-}
-
 // List styling using list class
 @mixin vf-p-list {
   .p-list {
@@ -128,20 +142,6 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
   }
 }
 
-%vf-list-item-ordered {
-  &::marker {
-    content: none;
-    display: none;
-  }
-
-  &::before {
-    color: $color-dark;
-    content: counters(list-item, '.') '. ';
-    display: inline-block;
-    text-align: right;
-  }
-}
-
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
@@ -150,6 +150,11 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     .p-list__item {
       @extend %vf-list-item;
       @include vf-list-item-divided;
+
+      &.is-ticked::before,
+      &.is-crossed::before {
+        top: $spv--medium;
+      }
     }
 
     &.is-split .p-list__item:last-of-type {
@@ -181,7 +186,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
 
 // Displays item with a state icon
 @mixin vf-p-list-item-state {
-  .is-ticked {
+  .p-list__item.is-ticked {
     @include vf-list-item-has-prefix;
 
     &::before {
@@ -190,7 +195,7 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
     }
   }
 
-  .is-crossed {
+  .p-list__item.is-crossed {
     @include vf-list-item-has-prefix;
 
     &::before {
@@ -198,21 +203,12 @@ $list-status-icon-nudge: 0.3rem; // 0.3rem seems to be a magic number that posit
       @include vf-icon-error;
     }
   }
-}
 
-%vf-list-item-bullet {
-  &::before {
-    color: $color-dark;
-    content: '•';
-    display: inline-block;
-    text-align: right;
+  // Displays item with a bullet
+  .p-list__item.has-bullet {
+    @extend %vf-list-item-bullet;
+    @include vf-list-item-has-prefix;
   }
-}
-
-// Displays item with a bullet
-.has-bullet {
-  @extend %vf-list-item-bullet;
-  @include vf-list-item-has-prefix;
 }
 
 // Displays a list inline with spacing
