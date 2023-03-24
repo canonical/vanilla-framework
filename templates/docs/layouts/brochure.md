@@ -37,6 +37,7 @@ context:
 </div>
 
 <hr class="is-fixed-width u-no-margin--bottom">
+
 <div class="row p-strip is-shallow u-no-padding--top">
   <div class="col-3 col-medium-3">
     <h2 class="p-heading--5">Choosing section layouts</h2>
@@ -112,9 +113,145 @@ context:
     <li class="p-list__item has-bullet">
       provides enough room for variation to avoid monotony
     </li>
-  </ul>        
+  </ul>
+  <p>A few examples on wide screens:</p>
   </div>
 </div>
+
+<div class="grid-demo">
+  <div class="row">
+    <div class="col-6">
+      <p>50%</p>
+    </div>
+    <div class="col-6">
+      <p>50%</p>
+    </div>
+  </div>
+  <hr class="is-fixed-width">
+  <div class="row">
+    <div class="col-3">
+      <p>25%</p>
+    </div>
+    <div class="col-9">
+      <p>75%</p>
+      <div class="row">
+        <div class="col-6">
+          <p>50%</p>
+        </div>
+        <div class="col-3">
+          <p>25%</p>
+        </div>
+    </div>
+  </div>
+  <hr class="is-fixed-width">
+  <div class="row">
+    <div class="col-3">
+      <p>25%</p>
+    </div>
+    <div class="col-9">
+      <p>75%</p>
+      <div class="row">
+        <div class="col-3">
+          <p>25%</p>
+        </div>
+        <div class="col-3">
+          <p>25%</p>
+        </div>
+        <div class="col-3">
+          <p>25%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="is-fixed-width">
+  <div class="row">
+      <div class="col-3">
+          <p>25%</p>
+      </div>
+      <div class="col-3">
+          <p>25%</p>
+      </div>
+      <div class="col-3">
+          <p>25%</p>
+      </div>
+      <div class="col-3">
+          <p>25%</p>
+      </div>
+  </div>
+</div>
+</div>
+
+<hr class="is-fixed-width">
+<div class="p-strip u-no-padding--top">
+  <div class="row">
+    <div class="col-3">
+      <h3 class="p-heading--5">The 50/50 split</h3>
+    </div>
+    <div class="col-9">
+      <div class="row">
+          <p>
+            The 50/50 split is a versatile layout:
+          </p>
+          <ul class="p-list--divided">
+            <li class="p-list__item has-bullet">
+                It provides enough room for large headings and long paragraphs
+            </li>
+            <li class="p-list__item has-bullet">
+              it makes it easy to scan by headings
+            </li>
+            <li class="p-list__item has-bullet">
+              it is very compact - as the headings do not push body text down
+            </li>
+          </ul>
+          <p>
+            Do not use it when the heading is longer than the text it accompanies, or when you expect the content to be read sequentially. as in a documentation page or tutorial.<br>
+            For those cases, allow the content to flow normally, in a single column.
+          </p>
+          <p>The 50/50 split performs equally well on the medium breakpoint - all you need to do is add col-medium-3 to each col-6:</p>
+        <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/example-03" class="js-example">View an example</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr class="is-fixed-width">
+<div class="p-strip u-no-padding--top">
+  <div class="row">
+    <div class="col-3">
+      <h3 class="p-heading--5">The 25/75 split</h3>
+    </div>
+    <div class="col-9">
+      <div class="row">
+          <p>
+            The 25/75 split uses the first 25% as structural white space, with an optional small caps heading. It is a good basis for a nested 
+          </p>
+          <img src="https://assets.ubuntu.com/v1/08a447dd-25-75split.png" alt="">
+          <ul class="p-list--divided">
+            <li class="p-list__item has-bullet">
+                It provides enough room for large headings and long paragraphs
+            </li>
+            <li class="p-list__item has-bullet">
+              it makes it easy to scan by headings
+            </li>
+            <li class="p-list__item has-bullet">
+              it is very compact - as the headings do not push body text down
+            </li>
+          </ul>
+          <p>
+            Do not use it when the heading is longer than the text it accompanies, or when you expect the content to be read sequentially. as in a documentation page or tutorial.<br>
+            For those cases, allow the content to flow normally, in a single column.
+          </p>
+          <h6>Responsive considerations</h6>
+          <p>
+            Depending on thew content, you could either allow the two containers (25% and 75%) to stack up, or you could transform it into a 2col/4col layout, provided the resulting division is not too narrow forthe content within.
+          </p> 
+          <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/example-04" class="js-example">View an example</a></div>
+        </div>
+    </div>
+  </div>
+</div>
+
 
 -------------
 1. Layout splits
