@@ -686,7 +686,9 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     // initialise navigation nav as sliding nav on smaller screens
     .p-navigation__nav {
       @extend %navigation-slide;
+
       overflow-x: hidden;
+      transform: translateX(0);
 
       // reset navigastion nav to default on larger screens
       @media (min-width: $breakpoint-navigation-threshold) {
@@ -742,18 +744,16 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
 
       // slide in dropdowns from the right when dropdown toggle is active on smaller screens
-      &.is-active {
-        > .p-navigation__dropdown,
-        > .p-navigation__dropdown--right {
-          @include vf-transition(transform, brisk, out); // easing out animation when dropdown is opening
+      &.is-active > .p-navigation__dropdown,
+      &.is-active > .p-navigation__dropdown--right {
+        @include vf-transition(transform, brisk, out); // easing out animation when dropdown is opening
 
+        transform: translateX(0);
+
+        // reset dropdown to default display for larger screens
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: block;
           transform: translateX(0);
-
-          // reset dropdown to default display for larger screens
-          @media (min-width: $breakpoint-navigation-threshold) {
-            display: block;
-            transform: translateX(0);
-          }
         }
       }
 
