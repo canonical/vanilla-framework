@@ -330,7 +330,9 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     .p-navigation__item--dropdown-toggle:last-child {
+      /* stylelint-disable-next-line selector-max-type -- type selector needed */
       .p-navigation__dropdown li:last-child .p-navigation__dropdown-item::before,
+      /* stylelint-disable-next-line selector-max-type -- type selector needed */
       .p-navigation__dropdown--right li:last-child .p-navigation__dropdown-item::before {
         content: none;
       }
@@ -757,17 +759,17 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         }
       }
 
-      &.is-back {
-        // move chevron to the left for back button
-        .p-navigation__link::after {
-          left: map-get($grid-margin-widths, small);
-          transform: rotate(90deg);
+      // move chevron to the left for back button
+      &.is-back .p-navigation__link::after {
+        left: map-get($grid-margin-widths, small);
+        transform: rotate(90deg);
 
-          @media (min-width: $threshold-4-6-col) {
-            left: map-get($grid-margin-widths, default);
-          }
+        @media (min-width: $threshold-4-6-col) {
+          left: map-get($grid-margin-widths, default);
         }
+      }
 
+      &.is-back {
         @media (min-width: $breakpoint-navigation-threshold) {
           display: none; // hide back button on larger screens
         }
@@ -793,11 +795,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
 
       // remove navigation separator from last dropdown item
-      li:last-child {
-        > .p-navigation__link::before,
-        > .p-navigation__dropdown-item::before {
-          content: none;
-        }
+      /* stylelint-disable-next-line selector-max-type -- type selector needed */
+      li:last-child > .p-navigation__link::before,
+      /* stylelint-disable-next-line selector-max-type -- type selector needed */
+      li:last-child > .p-navigation__dropdown-item::before {
+        content: none;
       }
     }
 
