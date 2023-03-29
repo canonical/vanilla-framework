@@ -1,0 +1,121 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Brochure site / full page{% endblock %}
+
+{% block style %}
+<style>
+  body { margin: 0; }
+</style>
+{% endblock %}
+
+{% block content %}
+<header id="navigation" class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+          </div>
+          <span class="p-navigation__logo-title">Ubuntu</span>
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example main">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item is-selected">
+          <a class="p-navigation__link" href="#">Products</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Services</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Partners</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="p-strip is-deep">
+  <div class="row">
+    <div class="col-6 col-medium-3">
+      <h1>
+        How to build<br class="u-hide--small" /> a brochure site
+      </h1>
+    </div>
+    <div class="col-6 col-medium-3">
+      <p class="p-heading--3">
+        This page showcases and documents the use of Vanilla framework to build a brochure site.
+      </p>
+      <div class="col-6 col-medium-3">
+        <p>All the sections of the page should be implemented using one of the grid layouts demonstrated below. By default all content should be inside the containers that use 25% of the full width (3 columns out of 12 column grid on large screens) or multiplication of it.</p>
+        <p>The grid layout should also be responsive, making sure that relative size is preserved on medium screen as much as possible (for details check the individual documentation of each split). On small screens all columns should take whole width of the page and appear in sequence (as by default Vanilla behaviour).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-shallow">
+  <hr class="is-muted is-fixed-width u-no-margin--bottom">
+
+  <div class="row">
+    <div class="col-6 col-medium-3">
+      <h2>Layouts</h2>
+    </div>
+    <div class="col-6 col-medium-3">
+      <p>In the sections below we demonstrate how to implement the available layouts using standard Vanilla grid.</p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-shallow u-no-padding--top">
+  {% include "/docs/examples/layouts/brochure-site/_50-50-structure.html" %}
+</section>
+
+<div class="u-fixed-width">
+  <h5 class="p-muted-heading">Example</h5>
+</div>
+
+{% include "/docs/examples/layouts/brochure-site/_50-50.html" %}
+
+<section class="p-strip is-shallow u-no-padding--top">
+  {% include "/docs/examples/layouts/brochure-site/_25-25-50-structure.html" %}
+</section>
+
+<div class="u-fixed-width">
+  <h5 class="p-muted-heading">Example</h5>
+</div>
+
+{% include "/docs/examples/layouts/brochure-site/_25-25-50.html" %}
+
+<section class="p-strip is-shallow u-no-padding--top">
+  {% include "/docs/examples/layouts/brochure-site/_25-75-structure.html" %}
+</section>
+
+<div class="u-fixed-width">
+  <h5 class="p-muted-heading">Example</h5>
+</div>
+<hr class="is-fixed-width u-no-margin--bottom">
+
+{% include "/docs/examples/layouts/brochure-site/_25-75.html" %}
+
+{% include "/docs/examples/layouts/brochure-site/_25-75-nested.html" %}
+
+<section class="p-strip is-shallow u-no-padding--top">
+  {% include "/docs/examples/layouts/brochure-site/_25-75-offset-structure.html" %}
+</section>
+
+<div class="u-fixed-width">
+  <h5 class="p-muted-heading">Example</h5>
+  <hr>
+</div>
+
+{% include "/docs/examples/layouts/brochure-site/_25-75-offset.html" %}
+
+<section class="p-strip is-deep u-no-padding--top">
+  {% include "/docs/examples/layouts/brochure-site/_25-25-25-25-structure.html" %}
+</section>
+
+{% endblock %}

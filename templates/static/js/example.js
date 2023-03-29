@@ -101,6 +101,9 @@
     header.appendChild(titleEl);
     codeSnippet.appendChild(header);
 
+    placementElement.parentNode.insertBefore(codeSnippet, placementElement);
+    renderIframe(codeSnippet, html, height);
+
     // Build code block structure
     var options = ['html'];
     codeSnippet.appendChild(createPreCode(htmlSource, 'html'));
@@ -114,8 +117,6 @@
     }
 
     renderDropdown(header, options);
-    placementElement.parentNode.insertBefore(codeSnippet, placementElement);
-    renderIframe(codeSnippet, html, height);
     renderCodePenEditLink(codeSnippet, codePenData);
 
     if (Prism) {
