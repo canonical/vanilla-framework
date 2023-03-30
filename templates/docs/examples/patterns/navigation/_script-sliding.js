@@ -190,3 +190,7 @@ function initNavDropdowns() {
     }, 10)
   );
 }
+
+window.slidingNav = (containerClass) => {
+  initNavDropdowns(containerClass);
+};
