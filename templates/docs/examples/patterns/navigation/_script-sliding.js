@@ -1,57 +1,3 @@
-// Controls focus within the navigation when it is open.
-let lastFocusIndex = 0;
-let allFocusableElements = [];
-
-function getFirstFocusableElement(dropdown) {
-  const focusableElements = [].slice.call(dropdown.querySelectorAll('.p-navigation__link, .p-navigation__dropdown-item'));
-
-  return focusableElements[0];
-}
-
-function getLastFocusableElement(dropdown) {
-  const focusableElements = [].slice.call(dropdown.querySelectorAll('.p-navigation__link, .p-navigation__dropdown-item'));
-
-  return focusableElements[focusableElements.length - 1];
-}
-
-function handleDropdownFocus(elementFocused, dropdown, allFocusableElements) {
-  // check if focus is inside a closed dropdown
-  if (elementFocused === document.activeElement && dropdown.getAttribute('aria-hidden') == 'true') {
-    const itemFocusIndex = allFocusableElements.indexOf(elementFocused);
-
-    // check the directiong of the focus
-    if (lastFocusIndex > itemFocusIndex) {
-      const firstFocusableDescendant = getFirstFocusableElement(dropdown);
-      const firstFocusableDescendantIndex = allFocusableElements.indexOf(firstFocusableDescendant);
-
-      const nextFocusableElement = allFocusableElements[firstFocusableDescendantIndex - 1];
-
-      if (nextFocusableElement) {
-        nextFocusableElement.focus();
-
-        lastFocusIndex = firstFocusableDescendantIndex - 1;
-      }
-    } else {
-      const lastFocusableDescendant = getLastFocusableElement(dropdown);
-      const lastFocusableDescendantIndex = allFocusableElements.indexOf(lastFocusableDescendant);
-
-      let nextFocusableElement = allFocusableElements[lastFocusableDescendantIndex + 1];
-
-      if (nextFocusableElement) {
-        nextFocusableElement.focus();
-
-        lastFocusIndex = lastFocusableDescendantIndex + 1;
-      } else {
-        const firstFocusableElement = allFocusableElements[0];
-
-        firstFocusableElement.focus();
-
-        lastFocusIndex = 0;
-      }
-    }
-  }
-}
-
 function toggleDropdown(toggle, open) {
   let parentElement;
   if (toggle.parentNode.classList.contains('is-back')) {
@@ -66,8 +12,14 @@ function toggleDropdown(toggle, open) {
 
   if (open) {
     parentElement.classList.add('is-active');
+
+    dropdown.classList.remove('is-dropdown-collapsed');
+    dropdown.classList.add('is-dropdown-expanded');
   } else {
     parentElement.classList.remove('is-active');
+
+    dropdown.classList.remove('is-dropdown-expanded');
+    dropdown.classList.add('is-dropdown-collapsed');
   }
 }
 
@@ -122,45 +74,66 @@ function handleClickToggle(toggle, toggles, containerClass) {
     shouldOpen = false; // close the dropdown when clicking on the back button
   }
 
+  const dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
+
+  // show dropdown when opening it (places it in the tab order)
+  if (shouldOpen) {
+    dropdown.classList.remove('is-dropdown-hidden');
+  }
+
   toggleDropdown(toggle, shouldOpen);
+}
+
+function toggleMenu(menuButton, navigation, toggles) {
+  if (navigation.classList.contains('has-menu-open')) {
+    menuButton.textContent = 'Menu';
+    navigation.classList.remove('has-menu-open');
+    closeAllDropdowns(toggles);
+  } else {
+    menuButton.textContent = 'Close menu';
+    navigation.classList.add('has-menu-open');
+    closeAllDropdowns(toggles);
+  }
 }
 
 function initNavDropdowns(containerClass) {
   const navigation = document.querySelector('.p-navigation');
-
+  const dropdowns = [].slice.call(navigation.querySelectorAll('.p-navigation__dropdown, .p-navigation__dropdown--right'));
   const toggles = [].slice.call(navigation.querySelectorAll(containerClass + ' [aria-controls]'));
-  const dropdowns = [].slice.call(navigation.querySelectorAll(`${containerClass} .p-navigation__dropdown`));
-  allFocusableElements = [].slice.call(navigation.querySelectorAll('a, button, input, select, textarea, [tabindex="0"]'));
+
+  const menuButton = navigation.querySelector('.js-menu-button');
+
+  if (menuButton) {
+    menuButton.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      toggleMenu(menuButton, navigation, toggles);
+    });
+  }
 
   handleClickOutside(toggles, containerClass);
+
+  dropdowns.forEach(function (dropdown) {
+    // hide inactive dropdowns (takes them out of the tab order)
+    if (!dropdown.parentNode.classList.contains('is-active')) {
+      dropdown.classList.add('is-dropdown-hidden');
+    }
+
+    dropdown.addEventListener('animationend', function (e) {
+      e.preventDefault();
+
+      // hide inactive dropdown when animation has finished (takes them out of the tab order)
+      if (!dropdown.parentNode.classList.contains('is-active')) {
+        dropdown.classList.add('is-dropdown-hidden');
+      }
+    });
+  });
 
   toggles.forEach(function (toggle) {
     toggle.addEventListener('click', async function (e) {
       e.preventDefault();
 
       handleClickToggle(toggle, toggles, containerClass);
-    });
-
-    // handle focus on back button (first item in the dropdown)
-    if (toggle.parentNode.classList.contains('is-back')) {
-      toggle.addEventListener('focus', function (e) {
-        e.preventDefault();
-
-        const dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
-
-        handleDropdownFocus(toggle, dropdown, allFocusableElements);
-      });
-    }
-  });
-
-  // handle focus on last item in the dropdown
-  dropdowns.forEach(function (dropdown) {
-    const lastItem = getLastFocusableElement(dropdown);
-
-    lastItem.addEventListener('focus', function (e) {
-      e.preventDefault();
-
-      handleDropdownFocus(lastItem, dropdown, allFocusableElements);
     });
   });
 }

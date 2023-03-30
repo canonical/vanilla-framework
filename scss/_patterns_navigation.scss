@@ -94,15 +94,33 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   %navigation-slide {
-    @include vf-transition(transform);
-
+    display: block;
     height: calc(100vh - $navigation-logo-banner-height);
     overflow-y: auto;
     position: absolute;
     top: $navigation-logo-banner-height;
-    transform: translateX(100vw);
     width: 100%;
     z-index: 15;
+  }
+
+  @keyframes vf-p-dropdown-expand {
+    0% {
+      transform: translateX(100vw);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes vf-p-dropdown-collapse {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(100vw);
+    }
   }
 
   %vf-reset-horizontal-padding {
@@ -723,56 +741,34 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
-    // slide parent off screen when child is active
-    // gives the illusion of a sliding pane menu
-    .is-active-hidden {
-      transform: translateX(-100vw);
+    // align arrow icon with text baseline
+    .p-navigation__item--dropdown-toggle .p-navigation__link::after {
+      @media (max-width: calc($breakpoint-navigation-threshold - 1px)) {
+        top: $spv--large;
+      }
     }
 
-    // allow sliding animation to show on smaller screens
-    .p-navigation__item--dropdown-toggle {
-      .p-navigation__dropdown,
-      .p-navigation__dropdown--right {
-        @include vf-transition(transform, brisk, in); // easing in animation when dropdown is closing
-
+    .p-navigation__item--dropdown-toggle.is-active > .p-navigation__dropdown,
+    .p-navigation__item--dropdown-toggle.is-active > .p-navigation__dropdown--right {
+      // reset dropdown to default display for larger screens
+      @media (min-width: $breakpoint-navigation-threshold) {
         display: block;
-        overflow-x: hidden;
-
-        // reset dropdown to default display for larger screens
-        @media (min-width: $breakpoint-navigation-threshold) {
-          display: none;
-          overflow-x: visible;
-        }
       }
+    }
 
-      // slide in dropdowns from the right when dropdown toggle is active on smaller screens
-      &.is-active > .p-navigation__dropdown,
-      &.is-active > .p-navigation__dropdown--right {
-        @include vf-transition(transform, brisk, out); // easing out animation when dropdown is opening
+    // move arrow icon to the left for back button
+    .p-navigation__item--dropdown-toggle.is-back .p-navigation__link::after {
+      left: map-get($grid-margin-widths, small);
+      transform: rotate(90deg);
 
-        transform: translateX(0);
-
-        // reset dropdown to default display for larger screens
-        @media (min-width: $breakpoint-navigation-threshold) {
-          display: block;
-          transform: translateX(0);
-        }
+      @media (min-width: $threshold-4-6-col) {
+        left: map-get($grid-margin-widths, default);
       }
+    }
 
-      // move chevron to the left for back button
-      &.is-back .p-navigation__link::after {
-        left: map-get($grid-margin-widths, small);
-        transform: rotate(90deg);
-
-        @media (min-width: $threshold-4-6-col) {
-          left: map-get($grid-margin-widths, default);
-        }
-      }
-
-      &.is-back {
-        @media (min-width: $breakpoint-navigation-threshold) {
-          display: none; // hide back button on larger screens
-        }
+    .p-navigation__item--dropdown-toggle.is-back {
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: none; // hide back button on larger screens
       }
     }
 
@@ -782,15 +778,19 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @extend %navigation-slide;
 
       box-shadow: none;
+      display: block;
+      overflow-x: hidden;
       top: 0;
 
       // reset navigation dropdown styles on larger screens
       @media (min-width: $breakpoint-navigation-threshold) {
         display: none;
         height: auto;
+        overflow-x: visible;
         position: absolute;
         // padding applied to .p-navigation__link + line-heigh of the anchor text inside
         top: $spv--large * 2 + map-get($line-heights, default-text);
+        transform: translateX(0);
         width: auto;
       }
 
@@ -800,6 +800,26 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       /* stylelint-disable-next-line selector-max-type -- type selector needed */
       li:last-child > .p-navigation__dropdown-item::before {
         content: none;
+      }
+    }
+
+    // hide dropdown nav when dropdown is closed
+    .p-navigation__dropdown.is-dropdown-hidden,
+    .p-navigation__dropdown--right.is-dropdown-hidden {
+      display: none;
+    }
+
+    .p-navigation__dropdown.is-dropdown-collapsed,
+    .p-navigation__dropdown--right.is-dropdown-collapsed {
+      @media (max-width: calc($breakpoint-navigation-threshold - 1px)) {
+        animation: vf-p-dropdown-collapse map-get($animation-duration, brisk);
+      }
+    }
+
+    .p-navigation__dropdown.is-dropdown-expanded,
+    .p-navigation__dropdown--right.is-dropdown-expanded {
+      @media (max-width: calc($breakpoint-navigation-threshold - 1px)) {
+        animation: vf-p-dropdown-expand map-get($animation-duration, brisk);
       }
     }
 
@@ -874,6 +894,19 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     // rest the background color on the navigation on larger screens
     @media (min-width: $breakpoint-navigation-threshold) {
       background-color: $color-navigation-background;
+    }
+  }
+
+  &.is-sliding.has-menu-open {
+    .p-navigation__nav,
+    .p-navigation__dropdown,
+    .p-navigation__dropdown--right {
+      background-color: $color-navigation-background;
+
+      // rest the background color on the navigation on larger screens
+      @media (min-width: $breakpoint-navigation-threshold) {
+        background-color: $color-navigation-background;
+      }
     }
   }
 
