@@ -8,6 +8,28 @@ context:
 
 <hr>
 
+When desired vertical spacing between sections of the content can't be achieved using the default margins and paddings that are built into components, you can the bottom spacing of an element is using the following spacing utilities: `.u-sv--shallow`, `.u-sv--regular` and `.u-sv--deep`.
+
+| Class            | Formula <sup>\*</sup> | Default Value |
+| ---------------- | --------------------- | ------------- |
+| `.u-sv--shallow` | `$sp-unit * 3`        | `1.5rem`      |
+| `.u-sv--regular` | `$sp-unit * 8`        | `4rem`        |
+| `.u-sv--deep`    | `$sp-unit * 12`       | `6rem`        |
+
+<sup>\*</sup> The values are provided for large screens. They go twice smaller on medium and small screens.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/vertical-spacing/" class="js-example">
+View example of the vertical spacing utility
+</a></div>
+
+Use `shallow` gap for spacing under siblings within a section.
+
+Use `regular` gap for spacing under each section, spacing under big headings.
+
+Use `deep` gap for spacing reserved for special cases, like making a large heading / CTA stand out, or at the end of the main content of a page, just before the dark footer.
+
+## More granular spacing adjustments
+
 The `.u-sv` set of utility classes adjusts the space after an element in positive or negative multiples of the baseline grid unit. A baseline grid unit is equivalent to `.5rem`.
 
 For example, to pull the next element `1rem` closer, apply `.u-sv-2`. To push it `.5rem` away from the current element, apply `u-sv1`.
@@ -46,7 +68,7 @@ These classes should be used sparingly, and exist to give designers greater flex
 | `.u-sv2`  | Increases space by 2 baseline grid units |
 | `.u-sv3`  | Increases space by 3 baseline grid units |
 
-<div class="embedded-example"><a href="/docs/examples/utilities/vertical-spacing/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/utilities/vertical-spacing-unit/" class="js-example">
 View example of the vertical spacing utility
 </a></div>
 
