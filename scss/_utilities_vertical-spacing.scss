@@ -1,3 +1,11 @@
+@mixin vf-section-spacing-vertical($spacing) {
+  margin-bottom: calc($spacing / 2 - 1px) !important;
+
+  @media (min-width: $breakpoint-large) {
+    margin-bottom: calc($spacing - 1px) !important;
+  }
+}
+
 @mixin vf-u-vertical-spacing($start: -3, $end: 3) {
   %u-vertical-spacer {
     content: '';
@@ -16,5 +24,17 @@
         }
       }
     }
+  }
+
+  .u-sv--shallow {
+    @include vf-section-spacing-vertical($spv--strip-shallow);
+  }
+
+  .u-sv--regular {
+    @include vf-section-spacing-vertical($spv--strip-regular);
+  }
+
+  .u-sv--deep {
+    @include vf-section-spacing-vertical($spv--strip-deep);
   }
 }
