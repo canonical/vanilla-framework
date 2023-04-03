@@ -16,7 +16,7 @@ FROM node:18 AS yarn-dependencies
 WORKDIR /srv
 ADD package.json package.json
 ADD yarn.lock yarn.lock
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install --production
+RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install
 
 
 # Build stage: Build vanilla-framework itself
