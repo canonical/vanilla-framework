@@ -190,7 +190,6 @@
   }
 
   // Common grid patterns
-  // TODO: decide what to do with this
 
   .row--50-50 {
     @extend %vf-row;
@@ -237,17 +236,13 @@
       @include vf-grid-column($grid-columns-small);
 
       @media (min-width: $threshold-4-6-col) {
-        &:nth-child(-n+2) {
+        &:nth-child(-n + 2) {
           @include vf-grid-column(calc($grid-columns-medium / 2));
         }
 
         &:nth-child(3) {
           @include vf-grid-column($grid-columns-medium);
         }
-      }
-
-      @media (min-width: $threshold-6-12-col) {
-          @include vf-grid-column(calc($grid-columns / 4));
       }
     }
   }
