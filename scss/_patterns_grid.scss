@@ -237,11 +237,7 @@
       @include vf-grid-column($grid-columns-small);
 
       @media (min-width: $threshold-4-6-col) {
-        &:nth-child(1) {
-          @include vf-grid-column(calc($grid-columns-medium / 2));
-        }
-
-        &:nth-child(2) {
+        &:nth-child(-n+2) {
           @include vf-grid-column(calc($grid-columns-medium / 2));
         }
 
@@ -251,13 +247,7 @@
       }
 
       @media (min-width: $threshold-6-12-col) {
-        &:nth-child(1) {
           @include vf-grid-column(calc($grid-columns / 4));
-        }
-
-        &:nth-child(2) {
-          @include vf-grid-column(calc($grid-columns / 4));
-        }
       }
     }
   }
