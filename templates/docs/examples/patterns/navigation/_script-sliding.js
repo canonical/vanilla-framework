@@ -1,3 +1,5 @@
+import {initVanillaFramework} from '../../../../../scripts/utils.js';
+
 function toggleDropdown(toggle, open) {
   let parentElement;
 
@@ -191,6 +193,8 @@ function initNavDropdowns() {
   );
 }
 
-window.slidingNav = (containerClass) => {
+initVanillaFramework();
+
+window.vanillaFramework.slidingNav = (containerClass) => {
   initNavDropdowns(containerClass);
 };
