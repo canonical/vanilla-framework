@@ -94,12 +94,14 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   %navigation-slide {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - $navigation-logo-banner-height);
     overflow-y: auto;
     position: absolute;
+    scroll-behavior: smooth;
     top: $navigation-logo-banner-height;
-    width: 100%;
+    width: 100vw;
     z-index: 15;
   }
 
@@ -130,12 +132,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   %vf-navigation-separator {
     &::before {
-      bottom: 0;
       content: '';
       height: 1px;
       left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
       position: absolute;
       right: 0;
+      top: 0;
 
       @media (min-width: $threshold-4-6-col) {
         left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
@@ -340,20 +342,16 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  // remove navigation separator for the last navigation items in last navigation items list
-  .p-navigation__items:last-child {
-    .p-navigation__item:last-child > .p-navigation__link::before,
-    .p-navigation__item--dropdown-toggle:last-child > .p-navigation__link::before {
+  // remove navigation separator for the first navigation items in first navigation items list
+  .p-navigation__items:first-child {
+    .p-navigation__item:first-child > .p-navigation__link::before,
+    .p-navigation__item--dropdown-toggle:first-child > .p-navigation__link::before {
       content: none;
     }
 
-    .p-navigation__item--dropdown-toggle:last-child {
-      /* stylelint-disable-next-line selector-max-type -- type selector needed */
-      .p-navigation__dropdown li:last-child .p-navigation__dropdown-item::before,
-      /* stylelint-disable-next-line selector-max-type -- type selector needed */
-      .p-navigation__dropdown--right li:last-child .p-navigation__dropdown-item::before {
-        content: none;
-      }
+    // show higlight for first item
+    .p-navigation__item:first-child.is-selected > .p-navigation__link:before {
+      content: '';
     }
   }
 
@@ -621,8 +619,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   .p-navigation__item--dropdown-toggle {
     &.is-active {
       > .p-navigation__link::after {
-        transform: rotate(0deg);
-
         @media (min-width: $breakpoint-navigation-threshold) {
           transform: rotate(180deg);
         }
@@ -630,7 +626,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       > .p-navigation__dropdown,
       > .p-navigation__dropdown--right {
-        display: block;
+        display: flex;
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: block;
+        }
       }
     }
 
@@ -650,7 +650,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         position: absolute;
         right: map-get($grid-margin-widths, small);
         text-indent: calc(100% + 10rem);
-        top: calc($spv--large + map-get($nudges, x-small));
+        top: $spv--large;
         transform: rotate(-90deg);
         width: map-get($icon-sizes, default);
 
@@ -660,6 +660,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
         @media (min-width: $breakpoint-navigation-threshold) {
           right: calc($sph--small + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+          top: calc($spv--large + map-get($nudges, x-small));
           transform: rotate(0deg);
         }
       }
@@ -711,6 +712,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       transform: translateX(0);
 
       // reset navigastion nav to default on larger screens
+      // some of the styles here are used to reset styles applied by %navigation-slide
       @media (min-width: $breakpoint-navigation-threshold) {
         display: flex;
         flex-direction: row;
@@ -722,6 +724,16 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         position: static;
         transform: translateX(0);
         width: 100%;
+      }
+    }
+
+    // prevents parent slide from scrolling when content is longer than the viewport and child slide is open
+    .p-navigation__nav:has(.is-active),
+    .p-navigation__dropdown:has(.is-active) {
+      overflow-y: hidden;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        overflow-y: visible;
       }
     }
 
@@ -741,13 +753,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
-    // align arrow icon with text baseline
-    .p-navigation__item--dropdown-toggle .p-navigation__link::after {
-      @media (max-width: calc($breakpoint-navigation-threshold - 1px)) {
-        top: $spv--large;
-      }
-    }
-
     .p-navigation__item--dropdown-toggle.is-active > .p-navigation__dropdown,
     .p-navigation__item--dropdown-toggle.is-active > .p-navigation__dropdown--right {
       // reset dropdown to default display for larger screens
@@ -756,8 +761,14 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
+    .p-navigation__item--dropdown-close {
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: none; // hide back button on larger screens
+      }
+    }
+
     // move arrow icon to the left for back button
-    .p-navigation__item--dropdown-toggle.is-back .p-navigation__link::after {
+    .p-navigation__item--dropdown-close .p-navigation__link::after {
       left: map-get($grid-margin-widths, small);
       transform: rotate(90deg);
 
@@ -766,10 +777,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
-    .p-navigation__item--dropdown-toggle.is-back {
-      @media (min-width: $breakpoint-navigation-threshold) {
-        display: none; // hide back button on larger screens
-      }
+    .p-navigation__item--dropdown-close .p-navigation__link::before {
+      content: none;
     }
 
     // initialise navigation dropdown as sliding nav on smaller screens
@@ -778,11 +787,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @extend %navigation-slide;
 
       box-shadow: none;
-      display: block;
       overflow-x: hidden;
       top: 0;
 
       // reset navigation dropdown styles on larger screens
+      // some of the styles here are used to reset styles applied by %navigation-slide
       @media (min-width: $breakpoint-navigation-threshold) {
         display: none;
         height: auto;
@@ -792,14 +801,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         top: $spv--large * 2 + map-get($line-heights, default-text);
         transform: translateX(0);
         width: auto;
-      }
-
-      // remove navigation separator from last dropdown item
-      /* stylelint-disable-next-line selector-max-type -- type selector needed */
-      li:last-child > .p-navigation__link::before,
-      /* stylelint-disable-next-line selector-max-type -- type selector needed */
-      li:last-child > .p-navigation__dropdown-item::before {
-        content: none;
       }
     }
 
@@ -835,7 +836,24 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // remove position: relative from navigation items to stop dropdowns from positioning incorrectly
     .p-navigation__items {
+      margin-top: 0px;
       position: static;
+    }
+
+    // make last navigation items take up available space to allow bg colour to fill the whole navigation
+    .p-navigation__nav .p-navigation__items:last-child {
+      flex-grow: 1;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        flex-grow: 0;
+      }
+    }
+
+    /* stylelint-disable-next-line selector-max-type */
+    .p-navigation__dropdown li:last-child,
+    /* stylelint-disable-next-line selector-max-type */
+    .p-navigation__dropdown--right li:last-child {
+      flex-grow: 1;
     }
 
     // add navigation separator to navigation links instead of dropdown items
@@ -902,10 +920,18 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__dropdown,
     .p-navigation__dropdown--right {
       background-color: $color-navigation-background;
+    }
 
-      // rest the background color on the navigation on larger screens
+    .p-navigation__items,
+    /* stylelint-disable-next-line selector-max-type */
+    .p-navigation__dropdown li,
+    /* stylelint-disable-next-line selector-max-type */
+    .p-navigation__dropdown--right li {
+      background-color: $color-navigation-background--active;
+
+      // reset background color on the navigation items on larger screens
       @media (min-width: $breakpoint-navigation-threshold) {
-        background-color: $color-navigation-background;
+        background-color: transparent;
       }
     }
   }
