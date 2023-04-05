@@ -14,7 +14,7 @@ View example of highlight bar
 
 ## Import
 
-To add highlight bars into your project, copy the snippet below and include it in your main Sass file.
+To add a highlight bar into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
 // import Vanilla and include base mixins
