@@ -24,6 +24,8 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn yarn install
 FROM yarn-dependencies AS build-vanilla
 ADD scripts scripts
 ADD scss scss
+ADD build.js build.js
+ADD templates templates
 RUN yarn run build
 
 
