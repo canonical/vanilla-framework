@@ -6,10 +6,10 @@ context:
 
 # Highlight bar
 
-TODO
+Use the highlight bar to add a horizontal separation between two sections.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/highlight-bar" class="js-example">
-View example of lists with a responsive divider
+View example of highlight bar
 </a></div>
 
 ## Import
