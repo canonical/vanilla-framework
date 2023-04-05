@@ -1,6 +1,7 @@
 function toggleDropdown(toggle, open) {
   let parentElement;
-  if (toggle.parentNode.classList.contains('is-back')) {
+
+  if (toggle.parentNode.classList.contains('p-navigation__item--dropdown-close')) {
     parentElement = toggle.parentNode.parentNode.parentNode;
   } else {
     parentElement = toggle.parentNode;
@@ -27,7 +28,7 @@ function closeAllDropdowns(toggles, exceptions) {
   toggles.forEach(function (toggle) {
     if (exceptions) {
       // if the dropdown is in one of the exceptions, skip it
-      if (!exceptions[toggle.parentNode.id] && !toggle.parentNode.classList.contains('is-back')) {
+      if (!exceptions[toggle.parentNode.id] && !toggle.parentNode.classList.contains('p-navigation__item--dropdown-close')) {
         toggleDropdown(toggle, false);
       }
     } else {
@@ -36,26 +37,26 @@ function closeAllDropdowns(toggles, exceptions) {
   });
 }
 
-function handleClickOutside(toggles, containerClass) {
+function handleClickOutside(toggles, toggleClasses) {
   document.addEventListener('click', function (event) {
     const target = event.target;
 
     if (target.closest) {
-      if (!target.closest(containerClass)) {
+      if (!target.closest(toggleClasses)) {
         closeAllDropdowns(toggles);
       }
     }
   });
 }
 
-function handleClickToggle(toggle, toggles, containerClass) {
+function handleClickToggle(toggle, toggles, toggleClasses) {
   let shouldOpen;
 
-  if (!toggle.parentNode.classList.contains('is-back')) {
+  if (!toggle.parentNode.classList.contains('p-navigation__item--dropdown-close')) {
     const parents = {};
     let element = toggle.parentNode;
 
-    const classNames = [containerClass.split('.')[1], 'is-active'];
+    const classNames = ['p-navigation__item--dropdown-toggle', 'is-active'];
 
     // get all parents that are active, and exclude them from being closed when a new dropdown is opened
     while (element.parentNode && element.parentNode.nodeName.toLowerCase() != 'body') {
@@ -96,10 +97,25 @@ function toggleMenu(menuButton, navigation, toggles) {
   }
 }
 
-function initNavDropdowns(containerClass) {
+// throttle util (for window resize event)
+var throttle = function (fn, delay) {
+  var timer = null;
+  return function () {
+    var context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+};
+
+function initNavDropdowns() {
+  const toggleClasses = ['.p-navigation__item--dropdown-toggle', '.p-navigation__item--dropdown-close'];
+
   const navigation = document.querySelector('.p-navigation');
   const dropdowns = [].slice.call(navigation.querySelectorAll('.p-navigation__dropdown, .p-navigation__dropdown--right'));
-  const toggles = [].slice.call(navigation.querySelectorAll(containerClass + ' [aria-controls]'));
+  const toggles = [].slice.call(navigation.querySelectorAll(toggleClasses.map((className) => className + ' [aria-controls]').join(', ')));
 
   const menuButton = navigation.querySelector('.js-menu-button');
 
@@ -111,7 +127,7 @@ function initNavDropdowns(containerClass) {
     });
   }
 
-  handleClickOutside(toggles, containerClass);
+  handleClickOutside(toggles, toggleClasses);
 
   dropdowns.forEach(function (dropdown) {
     // hide inactive dropdowns (takes them out of the tab order)
@@ -119,21 +135,58 @@ function initNavDropdowns(containerClass) {
       dropdown.classList.add('is-dropdown-hidden');
     }
 
-    dropdown.addEventListener('animationend', function (e) {
-      e.preventDefault();
+    dropdown.addEventListener(
+      'animationend',
+      function (e) {
+        e.stopPropagation();
 
-      // hide inactive dropdown when animation has finished (takes them out of the tab order)
-      if (!dropdown.parentNode.classList.contains('is-active')) {
-        dropdown.classList.add('is-dropdown-hidden');
-      }
-    });
+        // hide inactive dropdown when animation has finished (takes them out of the tab order)
+        if (!dropdown.parentNode.classList.contains('is-active')) {
+          dropdown.classList.add('is-dropdown-hidden');
+
+          // focus toggle button
+          const toggleButton = dropdown.parentNode.querySelector('.p-navigation__link');
+
+          // focus on parent toggle button after closing a dropdown
+          // also helps scroll to the right position when the dropdown is longer than the viewport
+          if (toggleButton) {
+            toggleButton.focus();
+          }
+        } else {
+          // focus on back button after opening a dropdown
+          // also helps scroll to the right position when the dropdown is longer than the viewport
+          const backButton = dropdown.querySelector('.p-navigation__item--dropdown-close > .p-navigation__link');
+
+          if (backButton) {
+            backButton.focus();
+          }
+        }
+      },
+      false
+    );
   });
 
   toggles.forEach(function (toggle) {
     toggle.addEventListener('click', async function (e) {
       e.preventDefault();
 
-      handleClickToggle(toggle, toggles, containerClass);
+      handleClickToggle(toggle, toggles, toggleClasses);
     });
   });
+
+  // remove expanded/collapsed class names to avoid unexpected animations
+  window.addEventListener(
+    'resize',
+    throttle(function () {
+      dropdowns.forEach((dropdown) => {
+        dropdown.setAttribute('aria-expanded', false);
+
+        dropdown.classList.remove('is-dropdown-expanded');
+        dropdown.classList.remove('is-dropdown-collapsed');
+        dropdown.classList.add('is-dropdown-hidden');
+
+        dropdown.parentNode.classList.remove('is-active');
+      });
+    }, 10)
+  );
 }
