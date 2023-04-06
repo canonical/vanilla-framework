@@ -1,0 +1,13 @@
+@import 'settings';
+
+@mixin vf-p-rule {
+  .p-rule {
+    @extend %hr;
+    @extend %u-no-margin--bottom--hr;
+
+    &--highlight {
+      @extend %u-no-margin--bottom--hr;
+      @include vf-highlight-bar($color-dark, bottom, false);
+    }
+  }
+}
