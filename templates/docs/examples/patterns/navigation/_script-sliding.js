@@ -14,6 +14,13 @@ function toggleDropdown(toggle, open) {
   if (open) {
     parentElement.classList.add('is-active');
 
+    const parentSlide = parentElement.closest('.p-navigation__dropdown, .p-navigation__nav');
+
+    // scroll to top of dropdown when opening it to make sure animation is visible
+    if (parentSlide) {
+      parentSlide.scrollTop = 0;
+    }
+
     dropdown.classList.remove('is-dropdown-collapsed');
     dropdown.classList.add('is-dropdown-expanded');
   } else {
