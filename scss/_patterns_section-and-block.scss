@@ -1,0 +1,21 @@
+@mixin vf-container-spacing-vertical($spacing) {
+  margin-bottom: calc($spacing / 2) !important;
+
+  @media (min-width: $breakpoint-large) {
+    margin-bottom: calc($spacing) !important;
+  }
+}
+
+@mixin vf-p-section {
+  .p-block {
+    @include vf-container-spacing-vertical($spv--strip-shallow);
+  }
+
+  .p-section {
+    @include vf-container-spacing-vertical($spv--strip-regular);
+  }
+
+  .p-section--deep {
+    @include vf-container-spacing-vertical($spv--strip-deep);
+  }
+}
