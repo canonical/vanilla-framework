@@ -116,6 +116,14 @@ $list-status-icon-height: $default-icon-size;
   margin: 0;
   padding-bottom: $sph--large;
   padding-top: $sph--small;
+
+  &:first-child {
+    box-shadow: none;
+  }
+
+  .p-list--divided > .p-list__item:first-child {
+    box-shadow: inset 0px 1px 0px 0px $color-mid-x-light;
+  }
 }
 
 // Mixin for inline list items
@@ -468,6 +476,7 @@ $list-status-icon-height: $default-icon-size;
         columns: 2;
 
         .p-list__item {
+          display: inline-block;
           width: 100%;
         }
       }
