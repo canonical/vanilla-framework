@@ -375,7 +375,13 @@ $list-status-icon-height: $default-icon-size;
     $bullet-margin: 0;
     $bullet-margin-mobile: 0;
 
+    // if i is 3 or 4, we need to use only the nudge
     @if $i < 5 {
+      $bullet-margin: map-get($nudges, h#{$i});
+      $bullet-margin-mobile: map-get($nudges, h#{$i}-mobile);
+    }
+
+    @if $i < 3 {
       // To align the bullet with the title we need to use half
       // the height difference between the bullet and the title and then add the
       // nudge to position it with the lower case text.
