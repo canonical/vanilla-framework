@@ -375,18 +375,17 @@ $list-status-icon-height: $default-icon-size;
     $bullet-margin: 0;
     $bullet-margin-mobile: 0;
 
-    // if i is 3 or 4, we need to use only the nudge
+    // for headings h3 and h4 we just need to center the circle within line height
     @if $i < 5 {
-      $bullet-margin: map-get($nudges, h#{$i});
-      $bullet-margin-mobile: map-get($nudges, h#{$i}-mobile);
+      $bullet-margin: calc((map-get($line-heights, h#{$i}) - $bullet-width) / 2);
+      $bullet-margin-mobile: calc((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2);
     }
 
+    // for headings h1 and h2 we want to place the bullet at the baseline of the text
     @if $i < 3 {
-      // To align the bullet with the title we need to use half
-      // the height difference between the bullet and the title and then add the
-      // nudge to position it with the lower case text.
-      $bullet-margin: calc((map-get($line-heights, h#{$i}) - $bullet-width) / 2) + map-get($nudges, h#{$i});
-      $bullet-margin-mobile: calc((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2) + map-get($nudges, h#{$i});
+      $baseline-position-unitless: $baseline-position / 1em;
+      $bullet-margin: calc(map-get($font-sizes, h#{$i}) * 1rem * $baseline-position-unitless - $bullet-width);
+      $bullet-margin-mobile: calc(map-get($font-sizes, h#{$i}-mobile) * 1rem * $baseline-position-unitless - $bullet-width);
     }
 
     .p-heading--#{$i}.p-stepped-list__title,
