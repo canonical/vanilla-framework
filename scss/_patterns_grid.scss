@@ -188,4 +188,62 @@
       }
     }
   }
+
+  // Common grid patterns
+
+  .row--50-50 {
+    @extend %vf-row;
+
+    .#{$grid-column-prefix} {
+      @include vf-grid-column($grid-columns-small);
+
+      @media (min-width: $threshold-4-6-col) {
+        @include vf-grid-column(calc($grid-columns-medium / 2));
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        @include vf-grid-column(calc($grid-columns / 2));
+      }
+    }
+  }
+
+  .row--25-75 {
+    @extend %vf-row;
+
+    .#{$grid-column-prefix} {
+      @include vf-grid-column($grid-columns-small);
+
+      @media (min-width: $threshold-4-6-col) {
+        @include vf-grid-column($grid-columns-medium);
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-child(1) {
+          @include vf-grid-column(calc($grid-columns / 4));
+        }
+
+        &:nth-child(2) {
+          @include vf-grid-column(calc($grid-columns / 4 * 3));
+        }
+      }
+    }
+  }
+
+  .row--25-25-50 {
+    @extend %vf-row;
+
+    .#{$grid-column-prefix} {
+      @include vf-grid-column($grid-columns-small);
+
+      @media (min-width: $threshold-4-6-col) {
+        &:nth-child(-n + 2) {
+          @include vf-grid-column(calc($grid-columns-medium / 2));
+        }
+
+        &:nth-child(3) {
+          @include vf-grid-column($grid-columns-medium);
+        }
+      }
+    }
+  }
 }

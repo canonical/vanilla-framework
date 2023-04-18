@@ -51,6 +51,34 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
     View example of the default grid
 </a></div>
 
+## Common patterns
+
+There are some special classes to help you build [common layout patterns](/docs/layouts/brochure). Instead of deciding how many columns each element should use for different screen sizes, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
+
+|                  | Large screens | Medium screens | Small screens |
+| ---------------- | ------------- | -------------- | ------------- |
+| `.row--50-50`    | 50/50         | 50/50          | 100/100       |
+| `.row--25-75`    | 25/75         | 100/100        | 100/100       |
+| `.row--25-25-50` | 25/25/50      | 50/50/100      | 100/100/100   |
+
+### 50/50
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/50-50/" class="js-example">
+    View example of 50/50 grid layout
+</a></div>
+
+### 25/75
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75/" class="js-example">
+    View example of 25/75 grid layout
+</a></div>
+
+### 25/25/50
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/25-25-50/" class="js-example">
+    View example of 25/25/50 grid layout
+</a></div>
+
 ## Fixed width containers
 
 If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.row` with a single 12 column container inside:
