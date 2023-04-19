@@ -19,31 +19,19 @@
 
   .p-heading-icon__img {
     flex-shrink: 0;
-    height: map-get($icon-sizes, heading-icon--small);
+    height: map-get($icon-sizes, heading-icon);
     margin-bottom: 0;
     margin-right: $sph--large;
-    margin-top: calc(map-get($nudges, h3-mobile) / 2); // just a quick fix, should be calculated based on line height and icon size
-    width: map-get($icon-sizes, heading-icon--small);
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      height: map-get($icon-sizes, heading-icon);
-      margin-top: calc(map-get($nudges, h3) / 2); // just a quick fix, should be calculated based on line height and icon size
-      width: map-get($icon-sizes, heading-icon);
-    }
+    margin-top: calc(map-get($nudges, h3) / 2); // just a quick fix, should be calculated based on line height and icon size
+    width: map-get($icon-sizes, heading-icon);
   }
 
   .p-heading-icon--small {
     .p-heading-icon__img {
-      height: map-get($icon-sizes, heading-icon--x-small);
-      margin-top: map-get($nudges, h3-mobile);
-      width: map-get($icon-sizes, heading-icon--x-small);
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        height: map-get($icon-sizes, heading-icon--small);
-        margin-top: 0;
-        margin-top: map-get($nudges, h3);
-        width: map-get($icon-sizes, heading-icon--small);
-      }
+      height: map-get($icon-sizes, heading-icon--small);
+      margin-top: 0;
+      margin-top: map-get($nudges, h3);
+      width: map-get($icon-sizes, heading-icon--small);
     }
   }
 }
