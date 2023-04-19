@@ -30,7 +30,7 @@ context:
 </div>
 
 <div class="p-strip u-no-padding--top">
-  <hr class="is-fixed-width">
+  <hr class="p-rule">
   <div class="row">
     <div class="col-9 col-start-large-4">
       <h2>
@@ -60,7 +60,7 @@ context:
 </div>
 
 <div class="p-strip u-no-padding--top">
-  <hr class="is-fixed-width">
+  <hr class="p-rule">
   <div class="row">
     <div class="col-3">
       <h3 class="p-muted-heading">The 25% rule</h3>
@@ -86,7 +86,7 @@ context:
   </div>
 </div>
 
-<hr class="is-fixed-width">
+<hr class="p-rule">
 
 <div class="p-strip u-no-padding--top">
   <div class="row">
@@ -103,7 +103,7 @@ context:
   </div>
 </div>
 
-<hr class="is-fixed-width">
+<hr class="p-rule">
 
 <div class="p-strip u-no-padding--top">
   <div class="row">
@@ -141,7 +141,7 @@ it is very compact - as the headings do not push the body text down.</li>
 <div class="p-strip u-no-padding--top">
   <div class="row">
     <div class="col-9 col-start-large-4">
-      <hr>
+      <hr class="p-rule">
       <h2>
           The 25/25/50 split
       </h2>
@@ -164,7 +164,7 @@ it is very compact - as the headings do not push the body text down.</li>
 <div class="p-strip u-no-padding--top">
   <div class="row">
     <div class="col-9 col-start-large-4">
-      <hr>
+      <hr class="p-rule">
       <h2>
           The 25/75 split
       </h2>
