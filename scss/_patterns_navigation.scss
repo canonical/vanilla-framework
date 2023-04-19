@@ -96,32 +96,36 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   %navigation-slide {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - $navigation-logo-banner-height);
+    height: 100%;
     overflow-y: auto;
     position: absolute;
     scroll-behavior: smooth;
-    top: $navigation-logo-banner-height;
-    width: 100vw;
+    width: max-content;
     z-index: 15;
   }
 
-  @keyframes vf-p-dropdown-expand {
-    0% {
-      transform: translateX(100vw);
+  // animations to slide the plane left and right
+  @keyframes vf-p-level-1-open {
+    100% {
+      transform: translateX(-100vw);
     }
+  }
 
+  @keyframes vf-p-level-1-close {
     100% {
       transform: translateX(0);
     }
   }
 
-  @keyframes vf-p-dropdown-collapse {
-    0% {
-      transform: translateX(0);
-    }
-
+  @keyframes vf-p-level-2-open {
     100% {
-      transform: translateX(100vw);
+      transform: translateX(-200vw);
+    }
+  }
+
+  @keyframes vf-p-level-2-close {
+    100% {
+      transform: translateX(-100vw);
     }
   }
 
@@ -706,10 +710,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // initialise navigation nav as sliding nav on smaller screens
     .p-navigation__nav {
-      @extend %navigation-slide;
-
+      display: none;
+      height: calc(100vh - $navigation-logo-banner-height);
       overflow-x: hidden;
-      transform: translateX(0);
+      position: relative;
+      width: 100vw;
 
       // reset navigastion nav to default on larger screens
       // some of the styles here are used to reset styles applied by %navigation-slide
@@ -720,6 +725,27 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         justify-content: space-between;
         margin-right: map-get($grid-margin-widths, default);
         overflow-x: visible;
+        position: static;
+        transform: translateX(0);
+        width: 100%;
+      }
+    }
+
+    // sliding plan container for the animation
+    .p-navigation__plane {
+      @extend %navigation-slide;
+
+      overflow-x: visible;
+      width: 100vw;
+
+      // reset navigastion nav to default on larger screens
+      // some of the styles here are used to reset styles applied by %navigation-slide
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        justify-content: space-between;
+        margin-right: map-get($grid-margin-widths, default);
         overflow-y: visible;
         position: static;
         transform: translateX(0);
@@ -727,13 +753,99 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
+    // offset the dropdowns based on their parent
+    // level 2 dropdowns are offset by the level 1 dropdowns (absolute-absolute positioning)
+    [data-level='1'],
+    [data-level='2'] {
+      left: 100vw;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        left: auto;
+      }
+    }
+
+    // open and close animations
+    .open-level-1 {
+      animation: vf-p-level-1-open map-get($animation-duration, fast) map-get($animation-easing, out);
+    }
+    .close-level-1 {
+      animation: vf-p-level-1-close map-get($animation-duration, fast) map-get($animation-easing, out);
+    }
+
+    .open-level-2 {
+      animation: vf-p-level-2-open map-get($animation-duration, fast) map-get($animation-easing, out);
+    }
+    .close-level-2 {
+      animation: vf-p-level-2-close map-get($animation-duration, fast) map-get($animation-easing, out);
+    }
+
+    // disable animations on larger screens
+    .open-level-1,
+    .open-level-2,
+    .close-level-1,
+    .close-level-2 {
+      @media (min-width: $breakpoint-navigation-threshold) {
+        animation-duration: 0s;
+      }
+    }
+
+    // set width of plane on based on level open
+    .p-navigation__plane.u-200-vw {
+      width: 200vw;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        width: 100%;
+      }
+    }
+    .p-navigation__plane.u-300-vw {
+      width: 300vw;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        width: 100%;
+      }
+    }
+
+    // set transform of plane based on level open
+    &.has-menu-open .p-navigation__plane.is-level-1-active {
+      transform: translateX(-100vw);
+    }
+    &.has-menu-open .p-navigation__plane.is-level-2-active {
+      transform: translateX(-200vw);
+    }
+
+    // set width of items in navigation since plane and parent container don't have a fixed width
+    /* stylelint-disable-next-line selector-max-type */
+    .p-navigation__plane > .p-navigation__items > .p-navigation__item,
+    .p-navigation__dropdown > .p-navigation__item--dropdown-close,
+    .p-navigation__dropdown--right > .p-navigation__item--dropdown-close,
+    .p-navigation__dropdown > li:not(.p-navigation__item--dropdown-toggle),
+    /* stylelint-disable-next-line selector-max-type */
+    .p-navigation__dropdown--right > li:not(.p-navigation__item--dropdown-toggle),
+    .p-navigation__item--dropdown-toggle > .p-navigation__link {
+      width: 100vw;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        width: auto;
+      }
+    }
+
     // prevents parent slide from scrolling when content is longer than the viewport and child slide is open
-    .p-navigation__nav:has(.is-active),
+    .p-navigation__plane:has(.is-active),
     .p-navigation__dropdown:has(.is-active) {
       overflow-y: hidden;
 
       @media (min-width: $breakpoint-navigation-threshold) {
         overflow-y: visible;
+      }
+    }
+
+    // set width of dropdown to 200vw when nested dropdown is open.
+    // this is to prevent the dropdown from being cut off on smaller screens
+    .p-navigation__dropdown:has(> .is-active) {
+      width: 200vw;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        width: auto;
       }
     }
 
@@ -749,7 +861,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       // slide in navigation nav when navigation is open
       .p-navigation__nav {
-        transform: translateX(0);
+        display: block;
       }
     }
 
@@ -787,7 +899,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @extend %navigation-slide;
 
       box-shadow: none;
-      overflow-x: hidden;
       top: 0;
 
       // reset navigation dropdown styles on larger screens
@@ -800,27 +911,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         // padding applied to .p-navigation__link + line-heigh of the anchor text inside
         top: $spv--large * 2 + map-get($line-heights, default-text);
         transform: translateX(0);
-        width: auto;
-      }
-    }
-
-    // hide dropdown nav when dropdown is closed
-    .p-navigation__dropdown.is-dropdown-hidden,
-    .p-navigation__dropdown--right.is-dropdown-hidden {
-      display: none;
-    }
-
-    .p-navigation__dropdown.is-dropdown-collapsed,
-    .p-navigation__dropdown--right.is-dropdown-collapsed {
-      @media (max-width: calc($breakpoint-navigation-threshold - 1px)) {
-        animation: vf-p-dropdown-collapse map-get($animation-duration, brisk);
-      }
-    }
-
-    .p-navigation__dropdown.is-dropdown-expanded,
-    .p-navigation__dropdown--right.is-dropdown-expanded {
-      @media (max-width: calc($breakpoint-navigation-threshold - 1px)) {
-        animation: vf-p-dropdown-expand map-get($animation-duration, brisk);
+        // width: auto;
       }
     }
 
@@ -841,11 +932,15 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     // make last navigation items take up available space to allow bg colour to fill the whole navigation
-    .p-navigation__nav .p-navigation__items:last-child {
+    .p-navigation__plane .p-navigation__items:last-child {
       flex-grow: 1;
+      min-width: 100vw; // allow width to expand to fill the whole screen
+      width: max-content; // limit width to content
 
       @media (min-width: $breakpoint-navigation-threshold) {
         flex-grow: 0;
+        min-width: auto;
+        width: auto;
       }
     }
 
@@ -854,6 +949,26 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     /* stylelint-disable-next-line selector-max-type */
     .p-navigation__dropdown--right li:last-child {
       flex-grow: 1;
+      min-width: 100vw; // allow width to expand to fill the whole screen
+      width: max-content; // limit width to content
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        flex-grow: 0;
+        min-width: auto;
+        width: auto;
+      }
+    }
+
+    // allow navigation items and toggles have room for nested dropdowns (prevents scrolling)
+    .p-navigation__plane .p-navigation__items,
+    .p-navigation__plane .p-navigation__item--dropdown-toggle {
+      min-width: 100vw;
+      width: max-content;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        min-width: auto;
+        width: auto;
+      }
     }
 
     // add navigation separator to navigation links instead of dropdown items
@@ -916,7 +1031,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   &.is-sliding.has-menu-open {
-    .p-navigation__nav,
+    .p-navigation__plane,
     .p-navigation__dropdown,
     .p-navigation__dropdown--right {
       background-color: $color-navigation-background;
