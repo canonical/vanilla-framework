@@ -8,13 +8,13 @@
     margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, h2-mobile);
     margin-top: 0;
     max-width: $text-max-width;
-    padding-top: map-get($nudges, h2-mobile) + map-get($browser-rounding-compensations, h2);
+    padding-top: map-get($nudges, h2-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
       font-size: #{map-get($font-sizes, h2)}rem;
       line-height: map-get($line-heights, h2);
       margin-bottom: map-get($sp-after, h2) - map-get($nudges, h2);
-      padding-top: map-get($nudges, h2) + map-get($browser-rounding-compensations, h2);
+      padding-top: map-get($nudges, h2);
     }
 
     &.u-no-margin--bottom {
@@ -41,7 +41,7 @@
       font-size: #{map-get($font-sizes, h3)}rem;
       line-height: map-get($line-heights, h3);
       margin-bottom: map-get($sp-after, h3) - map-get($nudges, h3);
-      padding-top: map-get($nudges, h3) + map-get($browser-rounding-compensations, h3);
+      padding-top: map-get($nudges, h3);
     }
 
     &.u-no-margin--bottom {
@@ -57,19 +57,19 @@
     margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, h4-mobile);
     margin-top: 0;
     max-width: $text-max-width;
-    padding-top: map-get($nudges, h4-mobile) + map-get($browser-rounding-compensations, h4);
+    padding-top: map-get($nudges, h4-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
       font-size: #{map-get($font-sizes, h4)}rem;
       line-height: map-get($line-heights, h4);
       margin-bottom: map-get($sp-after, h4) - map-get($nudges, h4);
-      padding-top: map-get($nudges, h4) + map-get($browser-rounding-compensations, h4);
+      padding-top: map-get($nudges, h4);
     }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
         margin-bottom: map-get($sp-after, h4) - map-get($nudges, h4-large);
-        padding-top: map-get($nudges, h4-large) + map-get($browser-rounding-compensations, h4);
+        padding-top: map-get($nudges, h4-large);
       }
     }
 
@@ -86,7 +86,7 @@
     margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
     margin-top: 0;
     max-width: $text-max-width;
-    padding-top: map-get($nudges, p) + map-get($browser-rounding-compensations, h5);
+    padding-top: map-get($nudges, p);
 
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--default-text;
@@ -101,11 +101,11 @@
     margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
     margin-top: 0;
     max-width: $text-max-width;
-    padding-top: map-get($nudges, h6) + map-get($browser-rounding-compensations, h6);
+    padding-top: map-get($nudges, h6);
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        padding-top: map-get($nudges, h6-large) + map-get($browser-rounding-compensations, h6);
+        padding-top: map-get($nudges, h6-large);
       }
     }
 
@@ -117,7 +117,7 @@
   %common-default-text-properties {
     line-height: map-get($line-heights, default-text);
     margin-top: 0;
-    padding-top: map-get($nudges, p) + map-get($browser-rounding-compensations, p);
+    padding-top: map-get($nudges, p);
   }
 
   %default-text {
@@ -146,11 +146,11 @@
     font-size: #{map-get($font-sizes, small)}rem;
     line-height: map-get($line-heights, small);
     margin-bottom: map-get($sp-after, small) - map-get($nudges, small);
-    padding-top: map-get($nudges, small) + map-get($browser-rounding-compensations, small);
+    padding-top: map-get($nudges, small);
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        padding-top: map-get($nudges, small) + map-get($browser-rounding-compensations, small-largescreen);
+        padding-top: map-get($nudges, small);
       }
     }
 
@@ -164,11 +164,11 @@
     font-weight: $font-weight-bold;
     line-height: map-get($line-heights, x-small);
     margin-bottom: map-get($sp-after, x-small) - map-get($nudges, x-small);
-    padding-top: map-get($nudges, x-small) + map-get($browser-rounding-compensations, small);
+    padding-top: map-get($nudges, x-small);
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        padding-top: map-get($nudges, x-small) + map-get($browser-rounding-compensations, small-largescreen);
+        padding-top: map-get($nudges, x-small);
       }
     }
 
@@ -196,7 +196,7 @@
     // but now it's implemented with default text size not requiring any compensations,
     // so we need to reset the padding-top to the default value
     &.u-align-text--x-small-to-default {
-      padding-top: map-get($nudges, p) + map-get($browser-rounding-compensations, p);
+      padding-top: map-get($nudges, p);
     }
   }
 
