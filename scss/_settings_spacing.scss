@@ -9,22 +9,22 @@ $sp-unit: 1rem * $sp-unit-ratio !default;
 
 $font-sizes: (
   h1: 2.5,
-  h1-mobile: 2.5,
+  h1-mobile: 2,
   h2: 2.5,
-  h2-mobile: 2.5,
+  h2-mobile: 2,
   h3: 1.5,
   h3-mobile: 1.5,
   h4: 1.5,
   h4-mobile: 1.5,
-  small: pow($ms-ratio, -1),
-  x-small: pow($ms-ratio, -2),
+  small: 0.875,
+  x-small: 0.75,
 ) !default;
 
 $line-heights: (
   h1: 6 * $sp-unit,
-  h1-mobile: 6 * $sp-unit,
+  h1-mobile: 5 * $sp-unit,
   h2: 6 * $sp-unit,
-  h2-mobile: 6 * $sp-unit,
+  h2-mobile: 5 * $sp-unit,
   h3: 4 * $sp-unit,
   h3-mobile: 4 * $sp-unit,
   h4: 4 * $sp-unit,
@@ -36,18 +36,19 @@ $line-heights: (
 
 // baseline nudges for type scale ratio of (16/14)^2
 $nudges: (
-  h1-large: 0.5rem,
-  h1-mobile: 0.5rem,
-  h1: 0.5rem,
-  h2: 0.5rem,
-  h2-mobile: 0.5rem,
+  h1-large: 0.55rem,
+  h1-mobile: 0.55rem,
+  h1: 0.55rem,
+  h2: 0.55rem,
+  h2-mobile: 0.55rem,
   h3: 0.45rem,
   h3-mobile: 0.45rem,
   h4-large: 0.45rem,
   h4: 0.45rem,
   h4-mobile: 0.45rem,
-  h6: 0.338rem,
-  h6-large: 0.345rem,
+  h5: 0.4rem,
+  h6: 0.4rem,
+  h6-large: 0.4rem,
   p: 0.4rem,
   p-ubuntumono: 0.45rem,
   small: 0.05rem,
@@ -56,16 +57,17 @@ $nudges: (
 
 // Correct baseline drift due to browser rounding. (Visible in text > 1000 lines)
 // It is applied only to padding-top.
+// DEPRECATED, will be removed in 4.0
 $browser-rounding-compensations: (
-  h1: 0.001rem,
-  h2: 0.001rem,
-  h3: 0.001rem,
-  h4: 0.001rem,
-  h5: 0.001rem,
+  h1: 0,
+  h2: 0,
+  h3: 0,
+  h4: 0,
+  h5: 0,
   h6: 0,
-  p: 0.0005rem,
-  small-largescreen: 0.0006rem,
-  small: 0.0005rem,
+  p: 0,
+  small-largescreen: 0,
+  small: 0,
 ) !default;
 
 // Main spacing variables. spv stands spacing-vertical; sph stands for spacing-horizontal.
