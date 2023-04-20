@@ -731,6 +731,18 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
+    // allow search show without taking up the whole screen
+    &.has-search-open {
+      .p-navigation__plane {
+        width: auto;
+      }
+
+      .p-navigation__nav {
+        display: flex;
+        height: auto;
+      }
+    }
+
     // sliding plan container for the animation
     .p-navigation__plane {
       @extend %navigation-slide;
@@ -808,9 +820,17 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     // set transform of plane based on level open
     &.has-menu-open .p-navigation__plane.is-level-1-active {
       transform: translateX(-100vw);
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        transform: translateX(0);
+      }
     }
     &.has-menu-open .p-navigation__plane.is-level-2-active {
       transform: translateX(-200vw);
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        transform: translateX(0);
+      }
     }
 
     // set width of items in navigation since plane and parent container don't have a fixed width
@@ -931,14 +951,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       position: static;
     }
 
-    // make last navigation items take up available space to allow bg colour to fill the whole navigation
     .p-navigation__plane .p-navigation__items:last-child {
-      flex-grow: 1;
       min-width: 100vw; // allow width to expand to fill the whole screen
       width: max-content; // limit width to content
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        flex-grow: 0;
         min-width: auto;
         width: auto;
       }
@@ -948,12 +965,10 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__dropdown li:last-child,
     /* stylelint-disable-next-line selector-max-type */
     .p-navigation__dropdown--right li:last-child {
-      flex-grow: 1;
       min-width: 100vw; // allow width to expand to fill the whole screen
       width: max-content; // limit width to content
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        flex-grow: 0;
         min-width: auto;
         width: auto;
       }
@@ -1030,20 +1045,29 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
+  &.is-sliding.has-search-open,
   &.is-sliding.has-menu-open {
-    .p-navigation__plane,
     .p-navigation__dropdown,
     .p-navigation__dropdown--right {
-      background-color: $color-navigation-background;
+      background-color: transparent; // make dropdown background transparent, prevent pressed color overide
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        background-color: $color-navigation-background;
+      }
     }
 
-    /* stylelint-disable-next-line selector-max-type */
-    .p-navigation__items,
-    /* stylelint-disable-next-line selector-max-type */
-    .p-navigation__dropdown li,
-    /* stylelint-disable-next-line selector-max-type */
-    .p-navigation__dropdown--right li {
-      background-color: $color-navigation-background--active;
+    .p-navigation__nav {
+      background-color: $color-navigation-background;
+
+      // reset background color on the navigation items on larger screens
+      @media (min-width: $breakpoint-navigation-threshold) {
+        background-color: transparent;
+      }
+    }
+
+    .p-navigation__plane,
+    .p-navigation__search {
+      background: $color-navigation-background--active;
 
       // reset background color on the navigation items on larger screens
       @media (min-width: $breakpoint-navigation-threshold) {

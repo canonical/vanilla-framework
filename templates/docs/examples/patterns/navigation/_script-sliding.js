@@ -1,3 +1,5 @@
+const toggleClasses = ['.p-navigation__item--dropdown-toggle', '.p-navigation__item--dropdown-close'];
+
 let lastDropdown;
 let wasClosed;
 
@@ -48,6 +50,9 @@ function toggleDropdown(toggle, open, fromCloseAllDropdowns) {
       } else if (dropdownLevel === '2') {
         navigationPlane.classList.add('close-level-2');
       }
+    } else {
+      parentElement.classList.remove('is-active');
+      dropdown.classList.add('u-hide');
     }
   }
 
@@ -67,13 +72,13 @@ function closeAllDropdowns(toggles, exceptions) {
   });
 }
 
-function handleClickOutside(toggles, toggleClasses) {
+function handleClickOutside() {
   document.addEventListener('click', function (event) {
     const target = event.target;
 
     if (target.closest) {
-      if (!target.closest(toggleClasses)) {
-        closeAllDropdowns(toggles);
+      if (!target.closest('.p-navigation')) {
+        closeMenu();
       }
     }
   });
@@ -84,17 +89,14 @@ function handleClickToggle(toggle, toggles, navigationPlane) {
 
   if (!toggle.parentNode.classList.contains('p-navigation__item--dropdown-close')) {
     const parents = {};
-    let element = toggle.parentNode;
 
-    const classNames = ['p-navigation__item--dropdown-toggle', 'is-active'];
+    // get all parents and exclude them from being closed when a new dropdown is opened
+    let parentToggle = toggle.parentNode.parentNode.closest('.p-navigation__item--dropdown-toggle');
 
-    // get all parents that are active, and exclude them from being closed when a new dropdown is opened
-    while (element.parentNode && element.parentNode.nodeName.toLowerCase() != 'body') {
-      element = element.parentNode;
+    while (parentToggle) {
+      parents[parentToggle.id] = parentToggle;
 
-      if (classNames.every((className) => element.classList.contains(className))) {
-        parents[element.id] = element;
-      }
+      parentToggle = parentToggle.parentNode.closest('.p-navigation__item--dropdown-toggle');
     }
 
     shouldOpen = !toggle.parentNode.classList.contains('is-active');
@@ -132,13 +134,26 @@ function toggleMenu(menuButton, navigation, toggles) {
 
   if (navigation.classList.contains('has-menu-open')) {
     menuButton.textContent = 'Menu';
+    menuButton.removeAttribute('aria-pressed');
     navigation.classList.remove('has-menu-open');
-    closeAllDropdowns(toggles);
   } else {
+    if (typeof closeSearch === 'function') {
+      closeSearch();
+    }
+
     menuButton.textContent = 'Close menu';
+    menuButton.setAttribute('aria-pressed', 'true');
     navigation.classList.add('has-menu-open');
-    closeAllDropdowns(toggles);
+    navigation.classList.remove('has-search-open');
+
+    let buttons = navigation.querySelectorAll('.js-search-button');
+
+    buttons.forEach((searchButton) => {
+      searchButton.removeAttribute('aria-pressed');
+    });
   }
+
+  closeAllDropdowns(toggles);
 }
 
 // throttle util (for window resize event)
@@ -154,9 +169,22 @@ var throttle = function (fn, delay) {
   };
 };
 
-function initNavDropdowns() {
-  const toggleClasses = ['.p-navigation__item--dropdown-toggle', '.p-navigation__item--dropdown-close'];
+function closeMenu() {
+  const navigation = document.querySelector('.p-navigation');
+  const menuButton = navigation.querySelector('.js-menu-button');
+  const toggles = [].slice.call(navigation.querySelectorAll(toggleClasses.map((className) => className + ' [aria-controls]').join(', ')));
+  const navigationPlane = document.querySelector('.p-navigation__plane');
 
+  navigationPlane.classList.remove('is-level-1-active', 'is-level-2-active', 'u-200-vw', 'u-300-vw');
+
+  menuButton.textContent = 'Menu';
+  menuButton.removeAttribute('aria-pressed');
+  navigation.classList.remove('has-menu-open');
+
+  closeAllDropdowns(toggles);
+}
+
+function initNavDropdowns() {
   const navigation = document.querySelector('.p-navigation');
   const navigationPlane = document.querySelector('.p-navigation__plane');
   const dropdowns = [].slice.call(navigation.querySelectorAll('.p-navigation__dropdown, .p-navigation__dropdown--right'));
@@ -172,7 +200,7 @@ function initNavDropdowns() {
     });
   }
 
-  handleClickOutside(toggles, toggleClasses);
+  handleClickOutside();
 
   navigationPlane.addEventListener('animationend', function (e) {
     e.stopPropagation();
