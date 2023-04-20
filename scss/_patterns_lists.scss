@@ -24,10 +24,10 @@ $list-step-size-offset: 0.25rem;
       counter-increment: li;
       direction: rtl;
       display: block;
-      height: calc(1lh + $list-step-size-offset);
+      height: calc(map-get($line-heights, default-text) + $list-step-size-offset);
       margin-right: $sph--x-large;
       text-align: center;
-      width: calc(1lh + $list-step-size-offset);
+      width: calc(map-get($line-heights, default-text) + $list-step-size-offset);
     }
   }
 
@@ -353,6 +353,19 @@ $list-step-size-offset: 0.25rem;
     // Bullet sizes for each heading level
     $bullet-width: calc(map-get($line-heights, h#{$i}) + $list-step-size-offset);
     $bullet-width-mobile: calc(map-get($line-heights, h#{$i}-mobile) + $list-step-size-offset);
+
+    .p-heading--#{$i}.p-stepped-list__title,
+    h#{$i}.p-stepped-list__title {
+      &::before {
+        height: $bullet-width-mobile;
+        width: $bullet-width-mobile;
+
+        @media (min-width: $breakpoint-heading-threshold) {
+          height: $bullet-width;
+          width: $bullet-width;
+        }
+      }
+    }
 
     .p-heading--#{$i}.p-stepped-list__title + .p-stepped-list__content,
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
