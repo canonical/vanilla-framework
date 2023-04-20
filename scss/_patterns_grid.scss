@@ -190,19 +190,24 @@
   }
 
   // Common grid patterns
+  $col-50-medium: $grid-columns-medium / 2;
+
+  $col-25: $grid-columns / 4;
+  $col-50: $grid-columns / 2;
+  $col-75: ($grid-columns / 4) * 3;
 
   .row--50-50 {
     @extend %vf-row;
 
-    .col {
+    > .col {
       @include vf-grid-column($grid-columns-small);
 
       @media (min-width: $threshold-4-6-col) {
-        @include vf-grid-column(calc($grid-columns-medium / 2));
+        @include vf-grid-column($col-50-medium);
       }
 
       @media (min-width: $threshold-6-12-col) {
-        @include vf-grid-column(calc($grid-columns / 2));
+        @include vf-grid-column($col-50);
       }
     }
   }
@@ -210,7 +215,7 @@
   .row--25-75 {
     @extend %vf-row;
 
-    .col {
+    > .col {
       @include vf-grid-column($grid-columns-small);
 
       @media (min-width: $threshold-4-6-col) {
@@ -218,12 +223,18 @@
       }
 
       @media (min-width: $threshold-6-12-col) {
-        &:nth-child(1) {
-          @include vf-grid-column(calc($grid-columns / 4));
+        &:nth-of-type(1) {
+          @include vf-grid-column($col-25);
         }
 
-        &:nth-child(2) {
-          @include vf-grid-column(calc($grid-columns / 4 * 3));
+        &:nth-of-type(2) {
+          @include vf-grid-column($col-75);
+        }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          grid-column-start: calc($col-25 + 1);
+          @include vf-grid-column($col-75);
         }
       }
     }
@@ -232,17 +243,44 @@
   .row--25-25-50 {
     @extend %vf-row;
 
-    .col {
+    > .col {
       @include vf-grid-column($grid-columns-small);
 
       @media (min-width: $threshold-4-6-col) {
-        &:nth-child(-n + 2) {
-          @include vf-grid-column(calc($grid-columns-medium / 2));
+        &:nth-of-type(-n + 2) {
+          @include vf-grid-column($col-50-medium);
         }
 
-        &:nth-child(3) {
+        &:nth-of-type(3) {
           @include vf-grid-column($grid-columns-medium);
         }
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          @include vf-grid-column($col-25);
+        }
+
+        &:nth-of-type(3) {
+          @include vf-grid-column($col-50);
+        }
+      }
+    }
+  }
+
+  .row--25-25-25-25 {
+    @extend %vf-row;
+
+    > .col {
+      @include vf-grid-column($grid-columns-small);
+
+      @media (min-width: $threshold-4-6-col) {
+        @include vf-grid-column($col-50-medium);
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        @include vf-grid-column($col-25);
       }
     }
   }
