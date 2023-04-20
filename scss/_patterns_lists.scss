@@ -1,5 +1,6 @@
 @import 'settings';
 $list-status-icon-height: $default-icon-size;
+$list-step-size-offset: 0.25rem;
 
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
@@ -15,7 +16,7 @@ $list-status-icon-height: $default-icon-size;
     margin-left: 0;
 
     &::before {
-      align-self: start;
+      aspect-ratio: 1 / 1;
       background-color: $color-x-light;
       border: 1px solid $color-x-dark;
       border-radius: 100%;
@@ -23,11 +24,10 @@ $list-status-icon-height: $default-icon-size;
       counter-increment: li;
       direction: rtl;
       display: block;
-      font-size: map-get($base-font-sizes, base);
-      font-weight: $font-weight-regular-text;
-      left: 0;
-      position: absolute;
+      height: calc(1lh + $list-step-size-offset);
+      margin-right: $sph--x-large;
       text-align: center;
+      width: calc(1lh + $list-step-size-offset);
     }
   }
 
@@ -335,24 +335,6 @@ $list-status-icon-height: $default-icon-size;
   .p-stepped-list__title {
     @extend %numbered-step-title;
 
-    padding-left: $bullet-width-mobile + $sph--large;
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      padding-left: $bullet-width + $sph--large;
-    }
-
-    &::before {
-      // Need to account for the 1px border:
-      line-height: calc($bullet-width-mobile - 2px);
-      margin-right: $sph--large;
-      width: $bullet-width-mobile;
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        // Need to account for the 1px border:
-        line-height: calc($bullet-width - 2px);
-        width: $bullet-width;
-      }
-    }
     .p-strip--dark &::before {
       background-color: $color-x-dark;
       border: 1px solid $color-x-light;
@@ -360,64 +342,24 @@ $list-status-icon-height: $default-icon-size;
   }
 
   .p-stepped-list__title + .p-stepped-list__content {
-    margin-left: $bullet-width-mobile + $sph--large;
+    margin-left: $bullet-width-mobile + $sph--x-large;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-left: $bullet-width + $sph--large;
+      margin-left: $bullet-width + $sph--x-large;
     }
   }
 
-  @for $i from 6 through 1 {
+  @for $i from 4 through 1 {
     // Bullet sizes for each heading level
-    $bullet-width: map-get($line-heights, default-text);
-    $bullet-width-mobile: map-get($line-heights, default-text);
-    // h6 line height is the same as the bullet width so no need to apply any margin:
-    $bullet-margin: 0;
-    $bullet-margin-mobile: 0;
-
-    // for headings h3 and h4 we just need to center the circle within line height
-    @if $i < 5 {
-      $bullet-margin: calc((map-get($line-heights, h#{$i}) - $bullet-width) / 2);
-      $bullet-margin-mobile: calc((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2);
-    }
-
-    // for headings h1 and h2 we want to place the bullet at the baseline of the text
-    @if $i < 3 {
-      $baseline-position-unitless: $baseline-position / 1em;
-      $bullet-margin: calc(map-get($font-sizes, h#{$i}) * 1rem * $baseline-position-unitless - $bullet-width);
-      $bullet-margin-mobile: calc(map-get($font-sizes, h#{$i}-mobile) * 1rem * $baseline-position-unitless - $bullet-width);
-    }
-
-    .p-heading--#{$i}.p-stepped-list__title,
-    h#{$i}.p-stepped-list__title {
-      padding-left: $bullet-width-mobile + $sph--large;
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        padding-left: $bullet-width + $sph--large;
-      }
-
-      &::before {
-        // Need to account for the 1px border:
-        line-height: calc($bullet-width-mobile - 2px);
-        margin-right: $sph--large;
-        margin-top: $bullet-margin-mobile;
-        width: $bullet-width-mobile;
-
-        @media (min-width: $breakpoint-heading-threshold) {
-          // Need to account for the 1px border:
-          line-height: calc($bullet-width - 2px);
-          margin-top: $bullet-margin;
-          width: $bullet-width;
-        }
-      }
-    }
+    $bullet-width: calc(map-get($line-heights, h#{$i}) + $list-step-size-offset);
+    $bullet-width-mobile: calc(map-get($line-heights, h#{$i}-mobile) + $list-step-size-offset);
 
     .p-heading--#{$i}.p-stepped-list__title + .p-stepped-list__content,
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
-      margin-left: $bullet-width-mobile + $sph--large;
+      margin-left: $bullet-width-mobile + $sph--x-large;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        margin-left: $bullet-width + $sph--large;
+        margin-left: $bullet-width + $sph--x-large;
       }
     }
   }
