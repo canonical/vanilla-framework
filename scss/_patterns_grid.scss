@@ -37,7 +37,8 @@
 @mixin vf-p-grid {
   // FIXME: this should be removed from framework SCSS
   // (see https://github.com/canonical/vanilla-framework/issues/3199)
-  .grid-demo [class*='col'] {
+  .grid-demo .col,
+  .grid-demo [class*='#{$grid-column-prefix}'] {
     background: transparentize($color-negative, 0.9);
     margin-bottom: $spv--small;
   }
