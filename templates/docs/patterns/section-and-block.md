@@ -18,13 +18,24 @@ Use `.p-section` class for displaying sections on the page:
 View example of the "section" pattern
 </a></div>
 
-### Deep sections
-
-Use `.p-section--deep` class in for special cases, like making a large heading / CTA stand out, or at the end of the main content of a page, just before the dark footer:
-
-<div class="embedded-example"><a href="/docs/examples/patterns/section-and-block/deep-section" class="js-example">
-View example of the "deep section" pattern
-</a></div>
+<div class="row">
+  <div class="col-6 col-medium-3">
+    <div class="p-notification--positive">
+      <p class="p-notification__content">
+        <span class="p-notification__title">Do:</span>
+        <span class="p-notification__message">Use section component to build regular sections of the page that follow each other on the same background.</span>
+      </p>
+    </div>
+  </div>
+  <div class="col-6 col-medium-3">
+    <div class="p-notification--negative">
+      <p class="p-notification__content">
+        <span class="p-notification__title">Don't:</span>
+        <span class="p-notification__message">If a section of a page has a different background, or needs to be emphasised using deeper spacing use the <a href="/docs/patterns/strip">strip</a> component instead.</span>
+      </p>
+    </div>
+  </div>
+</div>
 
 ## Blocks
 
