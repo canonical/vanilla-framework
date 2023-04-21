@@ -1,6 +1,7 @@
 @import 'settings';
 $list-status-icon-height: $default-icon-size;
-$list-step-size-offset: 0.25rem;
+$list-step-bullet-size-offset: 0.25rem;
+$list-step-bullet-margin: $sph--large;
 
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
@@ -24,10 +25,10 @@ $list-step-size-offset: 0.25rem;
       counter-increment: li;
       direction: rtl;
       display: block;
-      height: calc(map-get($line-heights, default-text) + $list-step-size-offset);
-      margin-right: $sph--x-large;
+      height: calc(map-get($line-heights, default-text) + $list-step-bullet-size-offset);
+      margin-right: $list-step-bullet-margin;
       text-align: center;
-      width: calc(map-get($line-heights, default-text) + $list-step-size-offset);
+      width: calc(map-get($line-heights, default-text) + $list-step-bullet-size-offset);
     }
   }
 
@@ -329,8 +330,8 @@ $list-step-size-offset: 0.25rem;
   }
 
   // Indent titles
-  $bullet-width: map-get($line-heights, default-text);
-  $bullet-width-mobile: map-get($line-heights, default-text);
+  $bullet-width: map-get($line-heights, default-text) + $list-step-bullet-size-offset;
+  $bullet-width-mobile: map-get($line-heights, default-text) + $list-step-bullet-size-offset;
 
   .p-stepped-list__title {
     @extend %numbered-step-title;
@@ -342,17 +343,17 @@ $list-step-size-offset: 0.25rem;
   }
 
   .p-stepped-list__title + .p-stepped-list__content {
-    margin-left: $bullet-width-mobile + $sph--x-large;
+    margin-left: $bullet-width-mobile + $list-step-bullet-margin;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-left: $bullet-width + $sph--x-large;
+      margin-left: $bullet-width + $list-step-bullet-margin;
     }
   }
 
   @for $i from 4 through 1 {
     // Bullet sizes for each heading level
-    $bullet-width: calc(map-get($line-heights, h#{$i}) + $list-step-size-offset);
-    $bullet-width-mobile: calc(map-get($line-heights, h#{$i}-mobile) + $list-step-size-offset);
+    $bullet-width: calc(map-get($line-heights, h#{$i}) + $list-step-bullet-size-offset);
+    $bullet-width-mobile: calc(map-get($line-heights, h#{$i}-mobile) + $list-step-bullet-size-offset);
 
     .p-heading--#{$i}.p-stepped-list__title,
     h#{$i}.p-stepped-list__title {
@@ -369,10 +370,10 @@ $list-step-size-offset: 0.25rem;
 
     .p-heading--#{$i}.p-stepped-list__title + .p-stepped-list__content,
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
-      margin-left: $bullet-width-mobile + $sph--x-large;
+      margin-left: $bullet-width-mobile + $list-step-bullet-margin;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        margin-left: $bullet-width + $sph--x-large;
+        margin-left: $bullet-width + $list-step-bullet-margin;
       }
     }
   }
