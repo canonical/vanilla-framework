@@ -1,7 +1,6 @@
 @import 'settings';
 $list-status-icon-height: $default-icon-size;
-$list-step-bullet-size-offset: 0.25rem;
-$list-step-bullet-margin: $sph--large;
+$list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
@@ -15,20 +14,20 @@ $list-step-bullet-margin: $sph--large;
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
+    padding-left: calc(map-get($line-heights, default-text) + $list-step-bullet-margin);
+    position: relative;
 
     &::before {
       aspect-ratio: 1 / 1;
-      background-color: $color-x-light;
-      border: 1px solid $color-x-dark;
-      border-radius: 100%;
-      content: counter(li);
+      content: counter(li) '.';
       counter-increment: li;
-      direction: rtl;
       display: block;
-      height: calc(map-get($line-heights, default-text) + $list-step-bullet-size-offset);
+      height: map-get($line-heights, default-text);
+      left: 0;
       margin-right: $list-step-bullet-margin;
-      text-align: center;
-      width: calc(map-get($line-heights, default-text) + $list-step-bullet-size-offset);
+      position: absolute;
+      text-align: right;
+      width: map-get($line-heights, default-text);
     }
   }
 
@@ -330,16 +329,11 @@ $list-step-bullet-margin: $sph--large;
   }
 
   // Indent titles
-  $bullet-width: map-get($line-heights, default-text) + $list-step-bullet-size-offset;
-  $bullet-width-mobile: map-get($line-heights, default-text) + $list-step-bullet-size-offset;
+  $bullet-width: map-get($line-heights, default-text);
+  $bullet-width-mobile: map-get($line-heights, default-text);
 
   .p-stepped-list__title {
     @extend %numbered-step-title;
-
-    .p-strip--dark &::before {
-      background-color: $color-x-dark;
-      border: 1px solid $color-x-light;
-    }
   }
 
   .p-stepped-list__title + .p-stepped-list__content {
@@ -352,11 +346,17 @@ $list-step-bullet-margin: $sph--large;
 
   @for $i from 4 through 1 {
     // Bullet sizes for each heading level
-    $bullet-width: calc(map-get($line-heights, h#{$i}) + $list-step-bullet-size-offset);
-    $bullet-width-mobile: calc(map-get($line-heights, h#{$i}-mobile) + $list-step-bullet-size-offset);
+    $bullet-width: map-get($line-heights, h#{$i});
+    $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
 
     .p-heading--#{$i}.p-stepped-list__title,
     h#{$i}.p-stepped-list__title {
+      padding-left: $bullet-width-mobile + $list-step-bullet-margin;
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        padding-left: $bullet-width + $list-step-bullet-margin;
+      }
+
       &::before {
         height: $bullet-width-mobile;
         width: $bullet-width-mobile;
@@ -400,7 +400,6 @@ $list-step-bullet-margin: $sph--large;
       }
 
       .p-stepped-list__title {
-        display: flex;
         grid-column-end: span 6;
         margin-left: 0;
       }
