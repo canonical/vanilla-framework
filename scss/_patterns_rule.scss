@@ -1,9 +1,17 @@
 @import 'settings';
 
+$small-offset: map-get($grid-margin-widths, small);
+$default-offset: map-get($grid-margin-widths, default);
+
 @mixin vf-p-rule {
   .p-rule {
     @extend %hr;
     @extend %u-no-margin--bottom--hr;
+    max-width: calc($grid-max-width - 2 * $small-offset);
+
+    @media (min-width: $threshold-4-6-col) {
+      max-width: calc($grid-max-width - 2 * $default-offset);
+    }
 
     &--highlight {
       @extend %u-no-margin--bottom--hr;
