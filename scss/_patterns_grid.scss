@@ -190,99 +190,83 @@
     }
   }
 
-  // Common grid patterns
-  $col-50-medium: calc($grid-columns-medium / 2);
-
-  $col-25: calc($grid-columns / 4);
-  $col-50: calc($grid-columns / 2);
-  $col-75: calc(($grid-columns / 4) * 3);
-
-  .row--50-50 {
+  %common-row-variants {
     @extend %vf-row;
+    grid-template-columns: 1fr;
 
-    > .col {
-      @include vf-grid-column($grid-columns-small);
+    & > * {
+      grid-column-end: span 1;
+    }
 
-      @media (min-width: $threshold-4-6-col) {
-        @include vf-grid-column($col-50-medium);
+    // undo line 160 from _base_typography-definitions.scss
+    > :not([class*='p-heading--']):not([class*='p-muted-heading']) + p {
+      margin-top: 0;
+    }
+
+    // set static gutter width per breakpoint
+    @media (min-width: $threshold-4-6-col) {
+      & > * {
+        grid-column-end: span 1;
       }
+    }
 
-      @media (min-width: $threshold-6-12-col) {
-        @include vf-grid-column($col-50);
+    @media (min-width: $threshold-6-12-col) {
+      & > * {
+        grid-column-end: span 1;
       }
     }
   }
 
+  .row--50-50 {
+    @extend %common-row-variants;
+
+    @media (min-width: $threshold-4-6-col) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   .row--25-75 {
-    @extend %vf-row;
+    @extend %common-row-variants;
 
-    > .col {
-      @include vf-grid-column($grid-columns-small);
+    @media (min-width: $threshold-6-12-col) {
+      grid-template-columns: 1fr 3fr;
 
-      @media (min-width: $threshold-4-6-col) {
-        @include vf-grid-column($grid-columns-medium);
-      }
-
-      @media (min-width: $threshold-6-12-col) {
-        &:nth-of-type(1) {
-          @include vf-grid-column($col-25);
-        }
-
-        &:nth-of-type(2) {
-          @include vf-grid-column($col-75);
-        }
-
-        // if there is only one column we offset it to the right
-        &:only-of-type {
-          grid-column-start: calc($col-25 + 1);
-          @include vf-grid-column($col-75);
-        }
+      // if there is only one column we offset it to the right
+      > *:only-child {
+        grid-column-start: 2;
       }
     }
   }
 
   .row--25-25-50 {
-    @extend %vf-row;
+    @extend %common-row-variants;
 
-    > .col {
-      @include vf-grid-column($grid-columns-small);
+    @media (min-width: $threshold-4-6-col) {
+      grid-template-columns: 1fr 1fr;
 
-      @media (min-width: $threshold-4-6-col) {
-        &:nth-of-type(-n + 2) {
-          @include vf-grid-column($col-50-medium);
-        }
-
-        &:nth-of-type(3) {
-          @include vf-grid-column($grid-columns-medium);
-        }
+      > *:nth-child(3n) {
+        grid-column: span 2;
       }
+    }
 
-      @media (min-width: $threshold-6-12-col) {
-        &:nth-of-type(1),
-        &:nth-of-type(2) {
-          @include vf-grid-column($col-25);
-        }
+    @media (min-width: $threshold-6-12-col) {
+      grid-template-columns: 1fr 1fr 2fr;
 
-        &:nth-of-type(3) {
-          @include vf-grid-column($col-50);
-        }
+      > *:nth-child(3n) {
+        grid-column: span 1;
       }
     }
   }
 
   .row--25-25-25-25 {
-    @extend %vf-row;
+    @extend %common-row-variants;
 
-    > .col {
-      @include vf-grid-column($grid-columns-small);
+    @media (min-width: $threshold-4-6-col) {
+      grid-template-columns: 1fr 1fr;
+    }
 
-      @media (min-width: $threshold-4-6-col) {
-        @include vf-grid-column($col-50-medium);
-      }
-
-      @media (min-width: $threshold-6-12-col) {
-        @include vf-grid-column($col-25);
-      }
+    @media (min-width: $threshold-6-12-col) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 }
