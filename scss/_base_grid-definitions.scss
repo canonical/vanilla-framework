@@ -25,7 +25,7 @@
     max-width: $grid-max-width;
   }
 
-  %vf-row {
+  %vf-row-base {
     @extend %fixed-width-container;
 
     & & {
@@ -41,6 +41,23 @@
       margin-right: auto;
       max-width: $grid-max-width;
 
+      // set static gutter width per breakpoint
+      @media (min-width: $threshold-4-6-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+        grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+      }
+    }
+  }
+
+  %vf-row {
+    @extend %vf-row-base;
+
+    @supports (display: grid) {
       & > * {
         grid-column-end: span $grid-columns-small;
       }
@@ -49,20 +66,13 @@
         grid-column-start: auto;
       }
 
-      // set static gutter width per breakpoint
       @media (min-width: $threshold-4-6-col) {
-        grid-gap: 0 map-get($grid-gutter-widths, default);
-        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
-
         & > * {
           grid-column-end: span $grid-columns-medium;
         }
       }
 
       @media (min-width: $threshold-6-12-col) {
-        grid-gap: 0 map-get($grid-gutter-widths, default);
-        grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
-
         & > * {
           grid-column-end: span $grid-columns;
         }

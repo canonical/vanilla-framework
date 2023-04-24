@@ -191,29 +191,12 @@
   }
 
   %common-row-variants {
-    @extend %vf-row;
+    @extend %vf-row-base;
     grid-template-columns: 1fr;
-
-    & > * {
-      grid-column-end: span 1;
-    }
 
     // undo line 160 from _base_typography-definitions.scss
     > :not([class*='p-heading--']):not([class*='p-muted-heading']) + p {
       margin-top: 0;
-    }
-
-    // set static gutter width per breakpoint
-    @media (min-width: $threshold-4-6-col) {
-      & > * {
-        grid-column-end: span 1;
-      }
-    }
-
-    @media (min-width: $threshold-6-12-col) {
-      & > * {
-        grid-column-end: span 1;
-      }
     }
   }
 
