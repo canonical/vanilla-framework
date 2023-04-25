@@ -78,7 +78,7 @@ function handleClickOutside() {
 
     if (target.closest) {
       if (!target.closest('.p-navigation')) {
-        closeMenu();
+        closeSlidingMenu();
       }
     }
   });
@@ -169,7 +169,7 @@ var throttle = function (fn, delay) {
   };
 };
 
-function closeMenu() {
+function closeSlidingMenu() {
   const navigation = document.querySelector('.p-navigation');
   const menuButton = navigation.querySelector('.js-menu-button');
   const toggles = [].slice.call(navigation.querySelectorAll(toggleClasses.map((className) => className + ' [aria-controls]').join(', ')));

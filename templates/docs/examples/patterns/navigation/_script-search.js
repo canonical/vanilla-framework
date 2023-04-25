@@ -6,7 +6,7 @@ function initNavigationSearch(element) {
   });
 
   const menuButton = element.querySelector('.js-menu-button');
-  if (menuButton) {
+  if (menuButton && typeof isSlidingMenu === 'undefined') {
     menuButton.addEventListener('click', toggleMenu);
   }
 
@@ -103,7 +103,9 @@ function initNavigationSearch(element) {
 
   function closeAll() {
     closeSearch();
-    closeMenu();
+
+    if (typeof isSlidingMenu === 'undefined') closeMenu();
+    else closeSlidingMenu();
   }
 
   function keyPressHandler(e) {
