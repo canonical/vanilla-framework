@@ -1,17 +1,15 @@
-@mixin vf-container-spacing-vertical($spacing) {
-  margin-bottom: calc($spacing / 2) !important;
-
-  @media (min-width: $breakpoint-large) {
-    margin-bottom: calc($spacing) !important;
-  }
-}
-
 @mixin vf-p-section {
   .p-section {
-    @include vf-container-spacing-vertical($spv--strip-regular);
+    // same as %section-padding--default
+    padding-bottom: $spv--strip-regular * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-regular;
+    }
   }
 
   .p-block {
-    @include vf-container-spacing-vertical($spv--strip-shallow);
+    // same as %section-padding--shallow
+    padding-bottom: $spv--x-large;
   }
 }
