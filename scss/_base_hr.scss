@@ -1,5 +1,27 @@
 @import 'settings';
 
+%fixed-width-hr {
+  @mixin adjusted-width($size) {
+    $gutters-sizes: 2 * map-get($grid-margin-widths, $size);
+
+    max-width: calc($grid-max-width - $gutters-sizes);
+    width: calc(100% - $gutters-sizes);
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  @include adjusted-width(small);
+
+  @media (min-width: $threshold-4-6-col) {
+    @include adjusted-width(default);
+  }
+
+  .row &,
+  .u-fixed-width & {
+    width: 100%;
+  }
+}
+
 // Horizontal rule
 @mixin vf-b-hr {
   // stylelint-disable selector-max-type -- base styles can use type selectors
@@ -18,25 +40,7 @@
     }
 
     &.is-fixed-width {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: calc($grid-max-width - 2 * map-get($grid-margin-widths, small));
-      width: calc(100% - 2 * map-get($grid-margin-widths, small));
-
-      @media (min-width: $threshold-4-6-col) {
-        max-width: calc($grid-max-width - 2 * map-get($grid-margin-widths, default));
-        width: calc(100% - 2 * map-get($grid-margin-widths, default));
-      }
-
-      @media (min-width: $threshold-6-12-col) {
-        max-width: calc($grid-max-width - 2 * map-get($grid-margin-widths, default));
-        width: calc(100% - 2 * map-get($grid-margin-widths, default));
-      }
-
-      .row &,
-      .u-fixed-width & {
-        width: 100%;
-      }
+      @extend %fixed-width-hr;
     }
   }
 
