@@ -12,11 +12,9 @@ Use sections and blocks for different types of elements on the page depending on
 
 ## Sections
 
-Use `.p-section` class for displaying sections on the page:
+Use a section component (`.p-section`) for displaying subsequent sections on the page on a same background. They should be used in place of strips for most of the standard page content.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/section-and-block/section" class="js-example">
-View example of the "section" pattern
-</a></div>
+Sections should not be nested inside each other or inside the strips.
 
 <div class="row">
   <div class="col-6 col-medium-3">
@@ -37,9 +35,13 @@ View example of the "section" pattern
   </div>
 </div>
 
+<div class="embedded-example"><a href="/docs/examples/patterns/section-and-block/section" class="js-example">
+View example of the "section" pattern
+</a></div>
+
 ## Blocks
 
-Use `.p-block` class for siblings inside a section:
+Use a block component (`.p-block`) to group larger chunks of content inside a single section or strip.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/section-and-block/block" class="js-example">
 View example of the "block" pattern
