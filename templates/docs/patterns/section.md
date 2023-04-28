@@ -35,7 +35,7 @@ Sections should not be nested inside each other or inside the strips.
   </div>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/section-and-block/section" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/section/section" class="js-example">
 View example of the "section" pattern
 </a></div>
 
@@ -43,7 +43,7 @@ View example of the "section" pattern
 
 Use a block component (`.p-block`) to group larger chunks of content inside a single section or strip.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/section-and-block/block" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/section/block" class="js-example">
 View example of the "block" pattern
 </a></div>
 
