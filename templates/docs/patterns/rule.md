@@ -8,8 +8,11 @@ context:
 
 <hr>
 
-Use the rule component to add horizontal separation between two sections.
-It is typically used to visually break up sections of a page or to distinguish between different types of content.
+The rule component indicates the beginning of a new group of elements. This might be at the section level, or between more granular elements, like paragraphs.
+
+It "anchors" elements that are far apart, and at risk of appearing floating in space.
+
+It indicates the direction in which we want the viewer to read the content.
 
 ### Default
 
