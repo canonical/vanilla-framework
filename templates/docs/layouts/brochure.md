@@ -42,7 +42,9 @@ context:
 </section>
 
 <section class="p-section">
-  <hr class="is-fixed-width">
+  <div class="row">
+    <hr class="p-rule">
+  </div>
   <div class="row--25-75">
     <div class="col">
       <div class="p-block">
@@ -72,7 +74,9 @@ context:
 </section>
 
 <section class="p-section">
-  <hr class="is-fixed-width">
+  <div class="row">
+    <hr class="p-rule">
+  </div>
   <div class="row--25-75">
     <div class="col">
       <h3 class="p-muted-heading">The 25% rule</h3>
@@ -99,7 +103,9 @@ context:
 </section>
 
 <section class="p-section">
-  <hr class="is-fixed-width">
+  <div class="row">
+    <hr class="p-rule">
+  </div>
   <div class="row--25-75">
     <div class="col">
       <h3 class="p-muted-heading">Further considerations</h3>
@@ -115,7 +121,9 @@ context:
 </section>
 
 <section class="p-section">
-  <hr class="is-fixed-width">
+  <div class="row">
+    <hr class="p-rule">
+  </div>
   <div class="row--25-75">
     <div class="col">
       <h3 class="p-muted-heading">Example layouts<br class="u-hide--small"> built on the 25% system</h3>
@@ -151,7 +159,7 @@ it is very compact - as the headings do not push the body text down.</li>
 <section class="p-section">
   <div class="row--25-75">
     <div class="col">
-      <hr>
+      <hr class="p-rule">
       <h2>
           The 25/25/50 split
       </h2>
@@ -174,7 +182,7 @@ it is very compact - as the headings do not push the body text down.</li>
 <section class="p-section">
   <div class="row--25-75">
     <div class="col">
-      <hr>
+      <hr class="p-rule">
       <h2>
           The 25/75 split
       </h2>
