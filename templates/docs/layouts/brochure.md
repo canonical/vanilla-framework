@@ -4,9 +4,16 @@ context:
   title: Brochure site | Layouts
 ---
 
-<div class="p-strip">
-  <div class="row">
-    <div class="col-9 col-start-large-4">
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Work in progress</h5>
+    <p class="p-notification__message">Please note that this documentation is still a work in progress. If you have any suggestions on how to improve it feel free to <a href="https://github.com/canonical/vanilla-framework/issues/new">open an issue</a>.</p>
+  </div>
+</div>
+
+<section class="p-strip">
+  <div class="row--25-75">
+    <div class="col">
       <h1 class="p-heading--2 u-no-margin--bottom">
         <strong>
           Brochure site layouts
@@ -15,28 +22,35 @@ context:
       <p class="p-heading--2">
         The rules we use when designing<br class="u-hide--small"> and building pages with Vanilla
       </p>
-      <div class="p-strip u-no-padding--bottom">
-        <p class="u-no-margin--bottom">
-          A page is a sequence of sections sandwiched between a header and a footer. To create a successful page, we need to get 3 things right:
-        <p>
-        <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
-          <li class="p-list__item has-bullet">choose section layouts that present content effectively,</li>
-          <li class="p-list__item has-bullet">prevent adjacent sections from competing for attention,</li>
-          <li class="p-list__item has-bullet">ensure the choices above, which are made individually per section, resulting in a coherent, well-paced page.</li>
-        </ul>
-      </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="p-strip u-no-padding--top">
-  <hr class="is-fixed-width">
+<section class="p-section">
+  <div class="row--25-75">
+    <div class="col">
+      <p class="u-no-margin--bottom">
+        A page is a sequence of sections sandwiched between a header and a footer. To create a successful page, we need to get 3 things right:
+      <p>
+      <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
+        <li class="p-list__item has-bullet">choose section layouts that present content effectively,</li>
+        <li class="p-list__item has-bullet">prevent adjacent sections from competing for attention,</li>
+        <li class="p-list__item has-bullet">ensure the choices above, which are made individually per section, resulting in a coherent, well-paced page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="p-section">
   <div class="row">
-    <div class="col-9 col-start-large-4">
-      <h2>
-          Layouts
-      </h2>
-      <div class="p-strip u-no-padding--bottom">
+    <hr class="p-rule">
+  </div>
+  <div class="row--25-75">
+    <div class="col">
+      <div class="p-block">
+        <h2>Layouts</h2>
+      </div>
+      <div class="p-block">
         <p>
           Layouts are controlled by a responsive grid that has 4, 6 or 12 columns depending on the browser window width.
           Having 12 columns is necessary in order to create versatile layouts, however, it provides far too many choices - few of which work well in a sequence of sections.
@@ -57,15 +71,17 @@ context:
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="p-strip u-no-padding--top">
-  <hr class="is-fixed-width">
+<section class="p-section">
   <div class="row">
-    <div class="col-3">
+    <hr class="p-rule">
+  </div>
+  <div class="row--25-75">
+    <div class="col">
       <h3 class="p-muted-heading">The 25% rule</h3>
     </div>
-    <div class="col-9">
+    <div class="col">
       <p>To remedy the “off by one column” problem, we use a system inspired by an oct-tree: Widths are multiples of 25% of the available space. This simple rule decimates the available choices, which has the following beneficial effects on our layouts:</p>
       <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
         <li class="p-list__item has-bullet">creates up to 4 invisible "fault lines" (at 0%, 25%, 50%, 75%, or at the start of the first, fourth, sixth and ninth column), to one of which all content, across all sections, aligns</li>
@@ -84,16 +100,17 @@ context:
       }}
     </div>
   </div>
-</div>
+</section>
 
-<hr class="is-fixed-width">
-
-<div class="p-strip u-no-padding--top">
+<section class="p-section">
   <div class="row">
-    <div class="col-3">
+    <hr class="p-rule">
+  </div>
+  <div class="row--25-75">
+    <div class="col">
       <h3 class="p-muted-heading">Further considerations</h3>
     </div>
-    <div class="col-9">
+    <div class="col">
       <p>Before we look at examples, let's highlight a couple of considerations used in conjunction with the 25% rule:</p>
       <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
         <li class="p-list__item has-bullet">Place larger blocks on the right-hand side of smaller blocks.  For example, if a heading is longer than the accompanying text, it would work better directly above it, rather than to the left of the text.</li>
@@ -101,16 +118,17 @@ context:
       </ul>
     </div>
   </div>
-</div>
+</section>
 
-<hr class="is-fixed-width">
-
-<div class="p-strip u-no-padding--top">
+<section class="p-section">
   <div class="row">
-    <div class="col-3">
+    <hr class="p-rule">
+  </div>
+  <div class="row--25-75">
+    <div class="col">
       <h3 class="p-muted-heading">Example layouts<br class="u-hide--small"> built on the 25% system</h3>
     </div>
-    <div class="col-9">
+    <div class="col">
       <h2>
           The 50/50 split
       </h2>
@@ -136,12 +154,12 @@ it is very compact - as the headings do not push the body text down.</li>
     </div>
   </div>
   <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/50-50-split-structure" class="js-example">View an example of 50/50 split</a></div>
-</div>
+</section>
 
-<div class="p-strip u-no-padding--top">
-  <div class="row">
-    <div class="col-9 col-start-large-4">
-      <hr>
+<section class="p-section">
+  <div class="row--25-75">
+    <div class="col">
+      <hr class="p-rule">
       <h2>
           The 25/25/50 split
       </h2>
@@ -159,12 +177,12 @@ it is very compact - as the headings do not push the body text down.</li>
     </div>
   </div>
   <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/25-25-50-split-structure" class="js-example">View an example of 25/25/50 split</a></div>
-</div>
+</section>
 
-<div class="p-strip u-no-padding--top">
-  <div class="row">
-    <div class="col-9 col-start-large-4">
-      <hr>
+<section class="p-section">
+  <div class="row--25-75">
+    <div class="col">
+      <hr class="p-rule">
       <h2>
           The 25/75 split
       </h2>
@@ -184,7 +202,7 @@ it is very compact - as the headings do not push the body text down.</li>
     </div>
   </div>
   <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/25-75-split-structure" class="js-example">View an example of 25/75 split</a></div>
-</div>
+</section>
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
