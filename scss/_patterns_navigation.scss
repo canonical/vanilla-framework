@@ -129,6 +129,21 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
+  @keyframes vf-p-fade-in-overlay {
+    100% {
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes vf-p-fade-out-overlay {
+    0% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   %vf-reset-horizontal-padding {
     padding-left: 0;
     padding-right: 0;
@@ -778,17 +793,17 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // open and close animations
     .open-level-1 {
-      animation: vf-p-level-1-open map-get($animation-duration, fast) map-get($animation-easing, out);
+      animation: vf-p-level-1-open map-get($animation-duration, brisk) map-get($animation-easing, out);
     }
     .close-level-1 {
-      animation: vf-p-level-1-close map-get($animation-duration, fast) map-get($animation-easing, out);
+      animation: vf-p-level-1-close map-get($animation-duration, brisk) map-get($animation-easing, out);
     }
 
     .open-level-2 {
-      animation: vf-p-level-2-open map-get($animation-duration, fast) map-get($animation-easing, out);
+      animation: vf-p-level-2-open map-get($animation-duration, brisk) map-get($animation-easing, out);
     }
     .close-level-2 {
-      animation: vf-p-level-2-close map-get($animation-duration, fast) map-get($animation-easing, out);
+      animation: vf-p-level-2-close map-get($animation-duration, brisk) map-get($animation-easing, out);
     }
 
     // disable animations on larger screens
@@ -798,6 +813,33 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .close-level-2 {
       @media (min-width: $breakpoint-navigation-threshold) {
         animation-duration: 0s;
+      }
+    }
+
+    // fade in navigation overlay
+    .p-fade-in-overlay {
+      animation: vf-p-fade-in-overlay map-get($animation-duration, brisk) map-get($animation-easing, out);
+    }
+
+    .p-fade-out-overlay {
+      animation: vf-p-fade-out-overlay map-get($animation-duration, brisk) map-get($animation-easing, out);
+    }
+
+    .p-navigation__nav-overlay {
+      background-color: $colors--light-theme--background-overlay;
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100vw;
+      z-index: 59;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: none;
       }
     }
 
@@ -815,6 +857,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @media (min-width: $breakpoint-navigation-threshold) {
         width: 100%;
       }
+    }
+
+    .p-navigation__plane.u-300-vw .p-navigation__nav-overlay {
+      left: 100vw;
+      pointer-events: none;
     }
 
     // set transform of plane based on level open

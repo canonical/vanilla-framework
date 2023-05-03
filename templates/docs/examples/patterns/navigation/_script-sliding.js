@@ -9,6 +9,7 @@ function toggleDropdown(toggle, open, fromCloseAllDropdowns) {
   wasClosed = false;
 
   const navigationPlane = document.querySelector('.p-navigation__plane');
+  const navigationOverlay = document.querySelector('.p-navigation__nav-overlay');
 
   if (toggle.parentNode.classList.contains('p-navigation__item--dropdown-close')) {
     parentElement = toggle.parentNode.parentNode.parentNode;
@@ -33,6 +34,8 @@ function toggleDropdown(toggle, open, fromCloseAllDropdowns) {
     }
 
     if (!fromCloseAllDropdowns) {
+      navigationOverlay.classList.add('p-fade-in-overlay');
+
       // set the active level animation based on dropdown level
       if (dropdownLevel === '1') {
         navigationPlane.classList.add('open-level-1');
@@ -44,6 +47,8 @@ function toggleDropdown(toggle, open, fromCloseAllDropdowns) {
     wasClosed = true;
 
     if (!fromCloseAllDropdowns) {
+      navigationOverlay.classList.add('p-fade-out-overlay');
+
       // remove the active level animation based on dropdown level
       if (dropdownLevel === '1') {
         navigationPlane.classList.add('close-level-1');
@@ -87,6 +92,8 @@ function handleClickOutside() {
 function handleClickToggle(toggle, toggles, navigationPlane) {
   let shouldOpen;
 
+  const navigationOverlay = document.querySelector('.p-navigation__nav-overlay');
+
   if (!toggle.parentNode.classList.contains('p-navigation__item--dropdown-close')) {
     const parents = {};
 
@@ -112,9 +119,10 @@ function handleClickToggle(toggle, toggles, navigationPlane) {
   const dropdownLevel = dropdown.getAttribute('data-level');
 
   // show dropdown when opening it (places it in the tab order)
-  if (shouldOpen) {
-    dropdown.classList.remove('u-hide');
+  dropdown.classList.remove('u-hide');
+  navigationOverlay.classList.remove('u-hide');
 
+  if (shouldOpen) {
     // set the width of the navigation plane based on dropdown level
     if (dropdownLevel === '1') {
       navigationPlane.classList.add('u-200-vw');
@@ -205,7 +213,12 @@ function initNavDropdowns() {
   navigationPlane.addEventListener('animationend', function (e) {
     e.stopPropagation();
 
+    const navigationOverlay = document.querySelector('.p-navigation__nav-overlay');
+
     navigationPlane.classList.remove('open-level-1', 'open-level-2', 'close-level-1', 'close-level-2');
+
+    navigationOverlay.classList.remove('p-fade-in-overlay', 'p-fade-out-overlay');
+    navigationOverlay.classList.add('u-hide');
 
     if (lastDropdown) {
       const dropdownLevel = lastDropdown.getAttribute('data-level');
