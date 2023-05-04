@@ -105,29 +105,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   // animations to slide the plane left and right
-  @keyframes vf-p-level-1-open {
-    100% {
-      transform: translateX(-100vw);
-    }
-  }
-
-  @keyframes vf-p-level-1-close {
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes vf-p-level-2-open {
-    100% {
-      transform: translateX(-200vw);
-    }
-  }
-
-  @keyframes vf-p-level-2-close {
-    100% {
-      transform: translateX(-100vw);
-    }
-  }
 
   @keyframes vf-p-fade-in-overlay {
     100% {
@@ -763,6 +740,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @extend %navigation-slide;
 
       overflow-x: visible;
+
+      transition: 2s ease-in-out transform;
       width: 100vw;
 
       // reset navigastion nav to default on larger screens
@@ -791,26 +770,50 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
+    .p-navigation__dropdown {
+      background: rgb(55 55 55) !important;
+      overflow: visible;
+      transition: 2s ease-in-out transform;
+
+      &::before {
+        box-shadow: -20px 0px 200px 20px #000000cc;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transform-origin: left;
+        transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+        width: 100%;
+        z-index: -1;
+      }
+    }
+
     // open and close animations
     .open-level-1 {
-      animation: vf-p-level-1-open map-get($animation-duration, brisk) map-get($animation-easing, out);
-    }
-    .close-level-1 {
-      animation: vf-p-level-1-close map-get($animation-duration, brisk) map-get($animation-easing, out);
+      transform: translateX(-25vw);
+
+      .p-navigation__dropdown {
+        transform: translateX(-75vw);
+
+        &::before {
+          opacity: 1;
+          transform: scaleX(1.5);
+        }
+      }
+      // animation: vf-p-level-1-open map-get($animation-duration, brisk) map-get($animation-easing, out);
     }
 
     .open-level-2 {
-      animation: vf-p-level-2-open map-get($animation-duration, brisk) map-get($animation-easing, out);
-    }
-    .close-level-2 {
-      animation: vf-p-level-2-close map-get($animation-duration, brisk) map-get($animation-easing, out);
+      transform: translateX(-100vw);
+      // animation: vf-p-level-2-open map-get($animation-duration, brisk) map-get($animation-easing, out);
     }
 
     // disable animations on larger screens
     .open-level-1,
-    .open-level-2,
-    .close-level-1,
-    .close-level-2 {
+    .open-level-2 {
       @media (min-width: $breakpoint-navigation-threshold) {
         animation-duration: 0s;
       }
@@ -1080,8 +1083,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   // add background color to sliding navigation instead of entire the navigation itself
   // this prevents the background color from showing on the page when the navigation is sliding in
   &.is-sliding {
-    background-color: transparent;
-
     .p-navigation__banner {
       background-color: $color-navigation-background;
     }
@@ -1096,8 +1097,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   &.is-sliding.has-menu-open {
     .p-navigation__dropdown,
     .p-navigation__dropdown--right {
-      background-color: transparent; // make dropdown background transparent, prevent pressed color overide
-
       @media (min-width: $breakpoint-navigation-threshold) {
         background-color: $color-navigation-background;
       }
