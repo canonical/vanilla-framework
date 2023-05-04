@@ -694,6 +694,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   // SLIDING NAVIGATION
   .p-navigation.is-sliding {
+    --animation-duration: 333ms;
     overflow: hidden; // stops overflow scrolling on the page on smaller screens
 
     @media (min-width: $breakpoint-navigation-threshold) {
@@ -741,7 +742,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       overflow-x: visible;
 
-      transition: 2s ease-in-out transform;
+      transition: var(--animation-duration) ease-in-out transform;
       width: 100vw;
 
       // reset navigastion nav to default on larger screens
@@ -773,7 +774,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__dropdown {
       background: rgb(55 55 55) !important;
       overflow: visible;
-      transition: 2s ease-in-out transform;
+      transition: var(--animation-duration) ease-in-out transform;
 
       &::before {
         box-shadow: -20px 0px 200px 20px #000000cc;
@@ -785,7 +786,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         position: absolute;
         top: 0;
         transform-origin: left;
-        transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+        transition: transform var(--animation-duration) ease-in-out, opacity var(--animation-duration) ease-in-out;
         width: 100%;
         z-index: -1;
       }
