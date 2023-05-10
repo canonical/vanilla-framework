@@ -651,6 +651,160 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.5;
+    }
+  }
+
+  .is-sliding {
+    $animation-settings: map-get($animation-duration, brisk) cubic-bezier(0, 0, 0.58, 1);
+
+    &.p-navigation:target {
+      height: 100vh;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        height: auto;
+      }
+    }
+
+    .p-navigation__items {
+      transition: transform $animation-settings;
+
+      &.is-active {
+        transform: translateX(-25vw);
+        @media (min-width: $breakpoint-navigation-threshold) {
+          transform: none;
+        }
+        .p-navigation__dropdown {
+          transform: translateX(25vw);
+          @media (min-width: $breakpoint-navigation-threshold) {
+            transform: none;
+          }
+          &[aria-hidden='false'] {
+            transform: translateX(-75vw);
+            @media (min-width: $breakpoint-navigation-threshold) {
+              transform: none;
+            }
+            &.is-active {
+              transform: translateX(-100vw);
+              @media (min-width: $breakpoint-navigation-threshold) {
+                transform: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .p-navigation__item--dropdown-toggle {
+      position: initial;
+
+      &::after {
+        content: none;
+      }
+
+      .p-navigation__link::after {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: $spv--large;
+        pointer-events: none;
+        position: absolute;
+        right: map-get($grid-margin-widths, small);
+        text-indent: calc(100% + 10rem);
+        top: 1rem;
+        transform: rotate(-90deg);
+        width: map-get($icon-sizes, default);
+        @include vf-icon-chevron($colors--dark-theme--text-default);
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          right: 0.5rem;
+          top: 1.2rem;
+          transform: none;
+        }
+      }
+    }
+
+    .p-navigation__item--dropdown-close {
+      .p-navigation__link::after {
+        left: 1rem;
+        transform: rotate(90deg);
+      }
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: none;
+      }
+    }
+
+    .p-navigation__dropdown {
+      display: block;
+      height: 100vh;
+      left: 100vw;
+      position: absolute;
+      top: 0;
+      transition: transform $animation-settings;
+
+      // needed to remove the list items from the tab order
+      > li {
+        display: none;
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: none;
+        height: auto;
+        left: auto;
+        min-width: unset;
+        top: unset;
+      }
+
+      &::before {
+        box-shadow: -100vw 15px 0 15px black;
+        content: '';
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        transition: opacity $animation-settings;
+        width: 100%;
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          content: none;
+        }
+      }
+
+      &[aria-hidden='false'] {
+        &::before {
+          opacity: 0.75;
+        }
+
+        > li {
+          display: list-item;
+        }
+
+        display: block;
+        transform: translateX(-75vw);
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          transform: none;
+
+          .p-navigation__item--dropdown-close {
+            @media (min-width: $breakpoint-navigation-threshold) {
+              display: none;
+            }
+          }
+        }
+
+        &.is-active {
+          transform: translateX(-100vw);
+        }
+      }
+    }
+  }
+
   // Theming
   @if ($theme-default-nav == 'dark') {
     .p-navigation {
