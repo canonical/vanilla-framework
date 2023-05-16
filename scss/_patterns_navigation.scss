@@ -661,13 +661,23 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   .is-sliding {
-    $animation-settings: map-get($animation-duration, brisk) cubic-bezier(0, 0, 0.58, 1);
+    $animation-settings: map-get($animation-duration, brisk) ease;
 
     &.p-navigation:target {
-      height: 100vh;
+      .p-navigation__banner .p-navigation__items {
+        display: block;
 
-      @media (min-width: $breakpoint-navigation-threshold) {
-        height: auto;
+        @media (min-width: $breakpoint-navigation-threshold) {
+          display: none;
+        }
+      }
+      .p-navigation__nav {
+        height: 100vh;
+        overflow-x: hidden;
+
+        @media (min-width: $breakpoint-navigation-threshold) {
+          height: auto;
+        }
       }
     }
 
@@ -729,6 +739,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
           transform: none;
         }
       }
+
+      &.is-active > .p-navigation__link::after {
+        @media (min-width: $breakpoint-navigation-threshold) {
+          transform: rotate(180deg);
+        }
+      }
     }
 
     .p-navigation__item--dropdown-close {
@@ -748,11 +764,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       position: absolute;
       top: 0;
       transition: transform $animation-settings;
-
-      // needed to remove the list items from the tab order
-      > li {
-        display: none;
-      }
 
       @media (min-width: $breakpoint-navigation-threshold) {
         display: none;
@@ -779,10 +790,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       &[aria-hidden='false'] {
         &::before {
           opacity: 0.75;
-        }
-
-        > li {
-          display: list-item;
         }
 
         display: block;
@@ -905,6 +912,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   // on mobile expanded nav needs to match pressed color of the buttons
   &.has-menu-open .p-navigation__nav,
+  &.p-navigation:target .p-navigation__nav,
+  &.p-navigation:target .p-navigation__dropdown,
   &.has-search-open .p-navigation__nav {
     background-color: $color-navigation-background--active;
 
@@ -927,11 +936,13 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 }
 
 @mixin vf-navigation-dark-theme {
+  $opacified-dark-theme--background-active: #373737;
+
   @include vf-navigation-theme(
     $color-navigation-text: $colors--dark-theme--text-default,
     $color-navigation-background: $colors--dark-theme--background-default,
     $color-navigation-background--hover: $colors--dark-theme--background-hover,
-    $color-navigation-background--active: $colors--dark-theme--background-active,
+    $color-navigation-background--active: $opacified-dark-theme--background-active,
     $color-navigation-highlight: $colors--dark-theme--text-default,
     $color-navigation-separator: $colors--dark-theme--border-low-contrast,
     $color-navigation-icon: $colors--dark-theme--text-default
