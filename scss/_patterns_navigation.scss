@@ -606,8 +606,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         }
       }
 
-      .p-navigation__dropdown,
-      .p-navigation__dropdown--right {
+      > .p-navigation__dropdown,
+      > .p-navigation__dropdown--right {
         display: block;
       }
     }
@@ -677,6 +677,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
         @media (min-width: $breakpoint-navigation-threshold) {
           height: auto;
+          overflow-x: visible;
         }
       }
     }
@@ -916,10 +917,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   &.p-navigation:target .p-navigation__dropdown,
   &.has-search-open .p-navigation__nav {
     background-color: $color-navigation-background--active;
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      background-color: transparent;
-    }
   }
 }
 
