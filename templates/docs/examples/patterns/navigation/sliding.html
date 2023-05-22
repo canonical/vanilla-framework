@@ -175,11 +175,13 @@
       }
       if(target.getAttribute('aria-hidden') === 'true') {
         target.setAttribute('aria-hidden', 'false');
+        el.parentNode.classList.add('is-active');
+        el.parentNode.parentNode.classList.add('is-active');
       } else {
         target.setAttribute('aria-hidden', 'true');
+        el.parentNode.classList.remove('is-active');
+        el.parentNode.parentNode.classList.remove('is-active');
       }
-      el.parentNode.classList.toggle('is-active');
-      el.parentNode.parentNode.classList.toggle('is-active');
       toggleFocusableListItems();
     });
   });
