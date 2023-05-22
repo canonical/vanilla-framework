@@ -850,7 +850,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   $color-navigation-background--hover,
   // color for the navigation highlight bar
   $color-navigation-highlight,
-  $color-navigation-icon
+  $color-navigation-icon,
+  $overlay-target-opacity
 ) {
   background-color: $color-navigation-background;
 
@@ -890,6 +891,30 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
+  .p-navigation__item--dropdown-toggle {
+    &::after {
+      @include vf-icon-chevron($color-navigation-icon);
+    }
+
+    & > .p-navigation__link {
+      &::after {
+        @include vf-icon-chevron($color-navigation-icon);
+      }
+    }
+
+    &.is-active > .p-navigation__link {
+      background-color: $color-navigation-background--active;
+    }
+  }
+
+  .p-navigation__item--dropdown-close {
+    & > .p-navigation__link {
+      &::after {
+        @include vf-icon-chevron($color-navigation-icon);
+      }
+    }
+  }
+
   .p-navigation__toggle--search::after,
   .p-navigation__item .p-navigation__link--search-toggle::after {
     @include vf-icon-search($color-navigation-icon);
@@ -924,6 +949,10 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   &.has-search-open .p-navigation__nav {
     background-color: $color-navigation-background--active;
   }
+
+  .p-navigation__dropdown[aria-hidden='false']::before {
+    opacity: $overlay-target-opacity;
+  }
 }
 
 @mixin vf-navigation-light-theme {
@@ -934,7 +963,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     $color-navigation-background--active: $colors--light-theme--background-active,
     $color-navigation-highlight: $colors--light-theme--text-default,
     $color-navigation-separator: $colors--light-theme--border-low-contrast,
-    $color-navigation-icon: $colors--light-theme--text-default
+    $color-navigation-icon: $colors--light-theme--text-default,
+    $overlay-target-opacity: 0.33
   );
 }
 
@@ -948,6 +978,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     $color-navigation-background--active: $opacified-dark-theme--background-active,
     $color-navigation-highlight: $colors--dark-theme--text-default,
     $color-navigation-separator: $colors--dark-theme--border-low-contrast,
-    $color-navigation-icon: $colors--dark-theme--text-default
+    $color-navigation-icon: $colors--dark-theme--text-default,
+    $overlay-target-opacity: 0.75
   );
 }
