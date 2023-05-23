@@ -1,10 +1,40 @@
 @import 'settings';
 
 @mixin vf-p-contextual-menu {
+  %light-version {
+    --color-contextual-menu-background: #{$colors--light-theme--background-default};
+    --color-contextual-menu-hover-background: #{$colors--light-theme--background-hover};
+    --color-contextual-menu-active-background: #{$colors--light-theme--background-active};
+    --color-contextual-menu-border: #{$colors--light-theme--border-default};
+    --color-contextual-menu-text: #{$colors--light-theme--text-default};
+  }
+
+  %dark-version {
+    --color-contextual-menu-background: #{$colors--dark-theme--background-default};
+    --color-contextual-menu-hover-background: #{$colors--dark-theme--background-hover};
+    --color-contextual-menu-active-background: #{$colors--dark-theme--background-active};
+    --color-contextual-menu-border: #{$colors--dark-theme--border-default};
+    --color-contextual-menu-text: #{$colors--dark-theme--text-default};
+  }
+
   %p-contextual-menu {
     display: inline-block;
     margin: 0;
     position: relative;
+
+    @if ($theme-default-p-contextual-menu == 'dark') {
+      @extend %dark-version;
+    } @else {
+      @extend %light-version;
+    }
+
+    &.is-light {
+      @extend %light-version;
+    }
+
+    &.is-dark {
+      @extend %dark-version;
+    }
   }
 
   .p-contextual-menu {
@@ -16,6 +46,7 @@
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
 
+    background: var(--color-contextual-menu-background);
     display: none;
     margin: 0;
     max-width: 21rem;
@@ -58,6 +89,7 @@
     display: block;
 
     + .p-contextual-menu__group {
+      border-top-color: var(--color-contextual-menu-border);
       border-top-style: solid;
       border-top-width: $input-border-thickness;
       margin: -$input-border-thickness 0 0 0;
@@ -67,8 +99,10 @@
   .p-contextual-menu__link {
     @include vf-focus;
 
+    background-color: transparent;
     border: 0;
     clear: both;
+    color: var(--color-contextual-menu-text);
     display: block;
     margin: 0;
     overflow: hidden;
@@ -81,6 +115,19 @@
     &:hover {
       border-radius: $border-radius;
       text-decoration: none;
+    }
+
+    &:visited {
+      color: var(--color-contextual-menu-text);
+    }
+
+    &:hover {
+      background-color: var(--color-contextual-menu-hover-background);
+    }
+
+    &:active {
+      background-color: var(--color-contextual-menu-active-background);
+      cursor: default;
     }
   }
 
@@ -96,79 +143,4 @@
       transform: rotate(180deg);
     }
   }
-
-  // Theming
-  @if ($theme-default-p-contextual-menu == 'dark') {
-    @include vf-contextual-menu-dark-theme;
-
-    [class*='p-contextual-menu'].is-light {
-      @include vf-contextual-menu-light-theme;
-    }
-  } @else {
-    @include vf-contextual-menu-light-theme;
-
-    [class*='p-contextual-menu'].is-dark {
-      @include vf-contextual-menu-dark-theme;
-    }
-  }
-}
-
-@mixin vf-contextual-menu-theme(
-  // color of the contextual menu background
-  $color-contextual-menu-background,
-  // color of the contextual menu border between groups
-  $color-contextual-menu-border,
-  // color of the contextual menu item link text
-  $color-contextual-menu-text,
-  // color of the contextual menu item link active background
-  $color-contextual-menu-active-background,
-  // color of the contextual menu item link hover background
-  $color-contextual-menu-hover-background
-) {
-  .p-contextual-menu__dropdown {
-    background: $color-contextual-menu-background;
-  }
-
-  .p-contextual-menu__group + .p-contextual-menu__group {
-    border-top-color: $color-contextual-menu-border;
-  }
-
-  .p-contextual-menu__link {
-    &,
-    &:active,
-    &:hover,
-    &:visited {
-      background-color: transparent;
-      color: $color-contextual-menu-text;
-    }
-
-    &:hover {
-      background-color: $color-contextual-menu-hover-background;
-    }
-
-    &:active {
-      background-color: $color-contextual-menu-active-background;
-      cursor: default;
-    }
-  }
-}
-
-@mixin vf-contextual-menu-light-theme {
-  @include vf-contextual-menu-theme(
-    $color-contextual-menu-background: $colors--light-theme--background-default,
-    $color-contextual-menu-hover-background: $colors--light-theme--background-hover,
-    $color-contextual-menu-active-background: $colors--light-theme--background-active,
-    $color-contextual-menu-border: $colors--light-theme--border-default,
-    $color-contextual-menu-text: $colors--light-theme--text-default
-  );
-}
-
-@mixin vf-contextual-menu-dark-theme {
-  @include vf-contextual-menu-theme(
-    $color-contextual-menu-background: $colors--dark-theme--background-default,
-    $color-contextual-menu-hover-background: $colors--dark-theme--background-hover,
-    $color-contextual-menu-active-background: $colors--dark-theme--background-active,
-    $color-contextual-menu-border: $colors--dark-theme--border-default,
-    $color-contextual-menu-text: $colors--dark-theme--text-default
-  );
 }
