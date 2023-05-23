@@ -1,10 +1,12 @@
 const initNavigationSliding = () => {
+  const navigation = document.querySelector('.p-navigation--sliding');
+
   document.querySelector('.js-menu-button').addEventListener('click', function (e) {
-    if (window.location.hash === '#navigation') {
-      window.location.hash = '';
+    if (navigation.classList.contains('has-menu-open')) {
+      navigation.classList.remove('has-menu-open');
       e.target.innerHTML = 'Menu';
     } else {
-      window.location.hash = 'navigation';
+      navigation.classList.add('has-menu-open');
       e.target.innerHTML = 'Close menu';
     }
   });
