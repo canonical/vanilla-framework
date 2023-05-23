@@ -42,7 +42,7 @@ const initNavigationSliding = () => {
   document.addEventListener('click', function (event) {
     const target = event.target;
     if (target.closest) {
-      if (!target.closest('.p-navigation')) {
+      if (!target.closest('.p-navigation--sliding')) {
         resetToggles();
       }
     }

@@ -117,7 +117,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  .p-navigation {
+  .p-navigation,
+  .p-navigation--sliding {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -821,19 +822,23 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   // Theming
   @if ($theme-default-nav == 'dark') {
-    .p-navigation {
+    .p-navigation,
+    .p-navigation--sliding {
       @include vf-navigation-dark-theme;
     }
 
-    .p-navigation.is-light {
+    .p-navigation.is-light,
+    .p-navigation--sliding.is-light {
       @include vf-navigation-light-theme;
     }
   } @else {
-    .p-navigation {
+    .p-navigation,
+    .p-navigation--sliding {
       @include vf-navigation-light-theme;
     }
 
-    .p-navigation.is-dark {
+    .p-navigation.is-dark,
+    .p-navigation--sliding.is-dark {
       @include vf-navigation-dark-theme;
     }
   }
