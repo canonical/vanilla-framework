@@ -11,6 +11,25 @@ $sph-navigation-link: 0.3rem;
 $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
 @mixin vf-p-navigation {
+  %light-version {
+    --color-navigation-text: #{$colors--light-theme--text-default};
+    --color-navigation-background: #{$colors--light-theme--background-default};
+    --color-navigation-background--hover: #{$colors--light-theme--background-alt};
+    --color-navigation-background--active: #{$colors--light-theme--background-active};
+    --color-navigation-highlight: #{$colors--light-theme--text-default};
+    --color-navigation-separator: #{$colors--light-theme--border-low-contrast};
+    --color-navigation-icon: #{$colors--light-theme--text-default};
+  }
+  %dark-version {
+    --color-navigation-text: #{$colors--dark-theme--text-default};
+    --color-navigation-background: #{$colors--dark-theme--background-default};
+    --color-navigation-background--hover: #{$colors--dark-theme--background-hover};
+    --color-navigation-background--active: #{$colors--dark-theme--background-active};
+    --color-navigation-highlight: #{$colors--dark-theme--text-default};
+    --color-navigation-separator: #{$colors--dark-theme--border-low-contrast};
+    --color-navigation-icon: #{$colors--dark-theme--text-default};
+  }
+
   // placeholders
   %navigation-link-responsive-padding-vertical {
     padding-bottom: $spv--medium;
@@ -118,6 +137,22 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   .p-navigation {
+    @if ($theme-default-hr == 'dark') {
+      @extend %dark-version;
+    } @else {
+      @extend %light-version;
+    }
+
+    &.is-light {
+      @extend %light-version;
+    }
+
+    &.is-dark {
+      @extend %dark-version;
+    }
+
+    background-color: var(--color-navigation-background);
+
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -186,6 +221,16 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   .p-navigation__item,
   .p-navigation__item--dropdown-toggle {
+
+    .is-selected > .p-navigation__link {
+    background-color: var(--color-navigation-background--hover);
+
+    @include vf-highlight-bar(var(--color-navigation-highlight), left, true);
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      @include vf-highlight-bar(var(--color-navigation-highlight, bottom, false));
+    }
+
     @media (min-width: $breakpoint-navigation-threshold) {
       $nav-link-max-width: 20em !default;
 
@@ -270,6 +315,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     .p-navigation__logo-title {
       @extend %vf-heading-4;
+      color: var(--color-navigation-text);
       font-size: #{map-get($font-sizes, h4)}rem;
       line-height: map-get($line-heights, x-small);
     }
@@ -444,6 +490,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     &::after {
+      @include vf-icon-search(var(--color-navigation-icon));
+
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -548,6 +596,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
 
+    background-color: var(--color-navigation-background);
+
     display: none;
     margin: 0;
     min-width: 100%;
@@ -573,6 +623,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     position: relative;
 
     &::after {
+      @include vf-icon-chevron(var(--color-navigation-icon));
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -609,6 +660,10 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       .p-navigation__dropdown,
       .p-navigation__dropdown--right {
         display: block;
+      }
+
+      > .p-navigation__link {
+        background-color: var(--color-navigation-background--active);
       }
     }
 
@@ -650,25 +705,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       text-decoration: none;
     }
   }
-
-  // Theming
-  @if ($theme-default-nav == 'dark') {
-    .p-navigation {
-      @include vf-navigation-dark-theme;
-    }
-
-    .p-navigation.is-light {
-      @include vf-navigation-light-theme;
-    }
-  } @else {
-    .p-navigation {
-      @include vf-navigation-light-theme;
-    }
-
-    .p-navigation.is-dark {
-      @include vf-navigation-dark-theme;
-    }
-  }
 }
 
 @mixin vf-navigation-theme(
@@ -684,8 +720,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   $color-navigation-highlight,
   $color-navigation-icon
 ) {
-  background-color: $color-navigation-background;
-
   .p-navigation__link,
   .p-navigation__link--search-toggle,
   .p-navigation__toggle--close,
@@ -706,25 +740,6 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     &:active {
       background-color: $color-navigation-background--active;
     }
-  }
-
-  .p-navigation__logo-title {
-    color: $color-navigation-text;
-  }
-
-  .p-navigation__item--dropdown-toggle {
-    &::after {
-      @include vf-icon-chevron($color-navigation-icon);
-    }
-
-    &.is-active > .p-navigation__link {
-      background-color: $color-navigation-background--active;
-    }
-  }
-
-  .p-navigation__toggle--search::after,
-  .p-navigation__item .p-navigation__link--search-toggle::after {
-    @include vf-icon-search($color-navigation-icon);
   }
 
   .p-navigation__dropdown,
@@ -758,28 +773,4 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       background-color: transparent;
     }
   }
-}
-
-@mixin vf-navigation-light-theme {
-  @include vf-navigation-theme(
-    $color-navigation-text: $colors--light-theme--text-default,
-    $color-navigation-background: $colors--light-theme--background-default,
-    $color-navigation-background--hover: $colors--light-theme--background-alt,
-    $color-navigation-background--active: $colors--light-theme--background-active,
-    $color-navigation-highlight: $colors--light-theme--text-default,
-    $color-navigation-separator: $colors--light-theme--border-low-contrast,
-    $color-navigation-icon: $colors--light-theme--text-default
-  );
-}
-
-@mixin vf-navigation-dark-theme {
-  @include vf-navigation-theme(
-    $color-navigation-text: $colors--dark-theme--text-default,
-    $color-navigation-background: $colors--dark-theme--background-default,
-    $color-navigation-background--hover: $colors--dark-theme--background-hover,
-    $color-navigation-background--active: $colors--dark-theme--background-active,
-    $color-navigation-highlight: $colors--dark-theme--text-default,
-    $color-navigation-separator: $colors--dark-theme--border-low-contrast,
-    $color-navigation-icon: $colors--dark-theme--text-default
-  );
 }
