@@ -17,8 +17,22 @@
     @include vf-transition(#{background-color, border-color}, snap, in);
     @include vf-focus;
 
+    --button-background-color: #{$colors--light-theme--background-default};
+    --button-text-color: #{$colors--light-theme--text-default};
+    --button-disabled-background-color: #{$color-transparent};
+    --button-disabled-border-color: #{$colors--light-theme--border-high-contrast};
+    --button-border-color: #{$colors--light-theme--border-high-contrast};
+    --button-hover-background-color: #{$colors--light-theme--background-hover};
+    --button-hover-border-color: #{$colors--light-theme--border-high-contrast};
+    --button-active-background-color: #{$colors--light-theme--background-active};
+    --button-active-border-color: #{$colors--light-theme--border-high-contrast};
+
+    background-color: var(--button-background-color);
+    border-color: var(--button-border-color);
+
     border-style: solid;
     border-width: $input-border-thickness;
+    color: var(--button-text-color);
     cursor: pointer;
     display: inline-block;
     font-size: 1rem;
@@ -29,6 +43,36 @@
     padding: $input-vertical-padding $sph--large;
     text-align: center;
     text-decoration: none;
+
+    &:visited {
+      color: var(--button-text-color);
+    }
+
+    &:hover {
+      background-color: var(--button-hover-background-color);
+      border-color: var(--button-hover-border-color);
+    }
+
+    &:active,
+    &[aria-pressed='true'],
+    &[aria-selected='true'],
+    &[aria-expanded='true'] {
+      background-color: var(--button-active-background-color);
+      border-color: var(--button-active-border-color);
+      transition-duration: 0s;
+    }
+
+    &:disabled,
+    &.is-disabled {
+      &:active,
+      &[aria-pressed='true'],
+      &[aria-selected='true'],
+      &[aria-expanded='true'],
+      &:hover {
+        background-color: var(--button-disabled-background-color);
+        border-color: var(--button-disabled-border-color);
+      }
+    }
 
     &:active,
     &:focus,
