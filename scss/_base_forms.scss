@@ -69,7 +69,12 @@
     }
 
     // adjust input background color for paper theme
-    &.on-paper {
+
+    // XXX: currently these colours are transparent,
+    // so they work both on paper and white backgrounds.
+    // We may need later to add a specific override for
+    // a white background within paper themed pages.
+    .is-paper & {
       background-color: $colors--paper-theme--background-inputs;
 
       &:hover {
