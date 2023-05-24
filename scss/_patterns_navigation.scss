@@ -97,18 +97,33 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     white-space: nowrap;
     width: 100%;
 
+    &,
+    &:hover,
+    &:visited,
+    &:focus {
+      color: var(--color-navigation-text);
+    }
+
+    &:visited {
+      color: var(--color-navigation-text);
+    }
+
+    &:hover {
+      background-color: var(--color-navigation-background--hover);
+      text-decoration: none;
+    }
+
+    &[aria-pressed='true'],
+    &:active {
+      background-color: var(--color-navigation-background--active);
+    }
+
     @media (min-width: $threshold-4-6-col) {
       padding-left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
       padding-left: $sph--large;
-    }
-
-    &:visited,
-    &:focus,
-    &:hover {
-      text-decoration: none;
     }
   }
 
@@ -119,6 +134,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   %vf-navigation-separator {
     &::before {
+      background: var(--color-navigation-separator);
       content: '';
       height: 1px;
       left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large});
@@ -221,14 +237,14 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   .p-navigation__item,
   .p-navigation__item--dropdown-toggle {
-
     .is-selected > .p-navigation__link {
-    background-color: var(--color-navigation-background--hover);
+      background-color: var(--color-navigation-background--hover);
 
-    @include vf-highlight-bar(var(--color-navigation-highlight), left, true);
+      @include vf-highlight-bar(var(--color-navigation-highlight), left, true);
 
-    @media (min-width: $breakpoint-navigation-threshold) {
-      @include vf-highlight-bar(var(--color-navigation-highlight, bottom, false));
+      @media (min-width: $breakpoint-navigation-threshold) {
+        @include vf-highlight-bar(var(--color-navigation-highlight, bottom, false));
+      }
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
@@ -419,6 +435,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     &:visited,
     &:focus,
     &:hover {
+      color: var(--color-navigation-text);
       text-decoration: none;
     }
   }
@@ -542,6 +559,15 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       top: 0;
       width: 100%;
       z-index: 59;
+    }
+  }
+
+  .p-navigation.has-menu-open,
+  .p-navigation.has-search-open {
+    background-color: var(--color-navigation-background--active);
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      background-color: transparent;
     }
   }
 
@@ -702,75 +728,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     &:focus,
     &:hover,
     &:visited {
+      color: var(--color-navigation-text);
       text-decoration: none;
-    }
-  }
-}
-
-@mixin vf-navigation-theme(
-  // color for the navigation separator on small screens
-  $color-navigation-separator,
-  // color for the navigation background
-  $color-navigation-background,
-  $color-navigation-background--active,
-  // color for the navigation text
-  $color-navigation-text,
-  $color-navigation-background--hover,
-  // color for the navigation highlight bar
-  $color-navigation-highlight,
-  $color-navigation-icon
-) {
-  .p-navigation__link,
-  .p-navigation__link--search-toggle,
-  .p-navigation__toggle--close,
-  .p-navigation__toggle--open,
-  .p-navigation__dropdown-item {
-    &,
-    &:hover,
-    &:visited,
-    &:focus {
-      color: $color-navigation-text;
-    }
-
-    &:hover {
-      background-color: $color-navigation-background--hover;
-    }
-
-    &[aria-pressed='true'],
-    &:active {
-      background-color: $color-navigation-background--active;
-    }
-  }
-
-  .p-navigation__dropdown,
-  .p-navigation__dropdown--right {
-    background-color: $color-navigation-background;
-  }
-
-  [class*='p-navigation__item'].is-selected > .p-navigation__link {
-    background-color: $color-navigation-background--hover;
-
-    @include vf-highlight-bar($color-navigation-highlight, left, true);
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      @include vf-highlight-bar($color-navigation-highlight, bottom, false);
-    }
-  }
-
-  // add color to separator line for navigation items, navigation links and dropdown items
-  .p-navigation__nav .p-navigation__link::before,
-  .p-navigation__nav .p-navigation__items::before,
-  .p-navigation__nav .p-navigation__items .p-navigation__dropdown-item::before {
-    background: $color-navigation-separator;
-  }
-
-  // on mobile expanded nav needs to match pressed color of the buttons
-  &.has-menu-open .p-navigation__nav,
-  &.has-search-open .p-navigation__nav {
-    background-color: $color-navigation-background--active;
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      background-color: transparent;
     }
   }
 }
