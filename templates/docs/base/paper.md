@@ -21,25 +21,3 @@ Add the `is-paper` class name to the `body` element to use it on the page.
 ```
 
 [See an example page with paper background](/docs/examples/layouts/brochure-site/index).
-
-## Components on paper background
-
-Some components by default assume white page background and don't look well on top of the new paper background colour. For those, we provide an `on-paper` class name that adjusts the component's theme to match the new background colour.
-
-The `on-paper` class name can be used on the following components:
-
-### Inputs
-
-When using text inputs on a paper background add the `on-paper` class name to the input element.
-
-<div class="embedded-example"><a href="/docs/examples/base/paper/input-on-paper/" class="js-example">
-View an example of a base form
-</a></div>
-
-### Search box
-
-When using the search box component on top of the paper background add the `on-paper` class name to the `.p-search-box` element.
-
-<div class="embedded-example"><a href="/docs/examples/base/paper/search-box-on-paper/" class="js-example">
-View an example of a base form
-</a></div>

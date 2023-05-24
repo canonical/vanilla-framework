@@ -100,7 +100,7 @@
     }
   }
 
-  .p-search-box.on-paper {
+  .is-paper .p-search-box {
     .p-search-box__input {
       @include vf-search-box-paper-theme;
     }
@@ -160,6 +160,10 @@
 }
 
 @mixin vf-search-box-paper-theme {
+  // XXX: currently these colours are transparent,
+  // so they work both on paper and white backgrounds.
+  // We may need later to add a specific override for
+  // a white background within paper themed pages.
   @include vf-search-box-theme(
     $color-search-box-background: $colors--paper-theme--background-inputs,
     $color-search-box-background-hover: $colors--paper-theme--background-hover,
