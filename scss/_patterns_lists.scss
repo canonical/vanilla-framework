@@ -2,6 +2,13 @@
 $list-status-icon-height: $default-icon-size;
 
 @mixin vf-p-list-placeholders {
+  %light-version {
+    --colors-list-text: #{$colors--light-theme--text-default};
+  }
+  %dark-version {
+    --colors-list-text: #{$colors--dark-theme--text-default};
+  }
+
   %numbered-step-container {
     counter-reset: li;
     display: flex;
@@ -234,6 +241,21 @@ $list-status-icon-height: $default-icon-size;
 // Displays a list inline with items separated by dots
 @mixin vf-p-inline-list-middot {
   .p-inline-list--middot {
+    @if ($theme-default-p-inline-list--middot == 'dark') {
+      @extend %dark-version;
+    } @else {
+      @extend %light-version;
+    }
+
+    &.is-light {
+      @extend %light-version;
+    }
+
+    &.is-dark {
+      @extend %dark-version;
+    }
+
+    color: var(--colors-list-text);
     margin-left: 0;
     padding-left: 0;
 
@@ -257,37 +279,6 @@ $list-status-icon-height: $default-icon-size;
       }
     }
   }
-
-  // Theming
-  @if ($theme-default-p-inline-list--middot == 'dark') {
-    .p-inline-list--middot {
-      @include vf-p-inline-list-middot-dark-theme;
-    }
-
-    .p-inline-list--middot.is-light {
-      @include vf-p-inline-list-middot-light-theme;
-    }
-  } @else {
-    .p-inline-list--middot {
-      @include vf-p-inline-list-middot-light-theme;
-    }
-
-    .p-inline-list--middot.is-dark {
-      @include vf-p-inline-list-middot-dark-theme;
-    }
-  }
-}
-
-@mixin vf-p-inline-list-middot-theme($color-list-text) {
-  color: $color-list-text;
-}
-
-@mixin vf-p-inline-list-middot-light-theme {
-  @include vf-p-inline-list-middot-theme($colors--light-theme--text-default);
-}
-
-@mixin vf-p-inline-list-middot-dark-theme {
-  @include vf-p-inline-list-middot-theme($colors--dark-theme--text-default);
 }
 
 @mixin vf-p-inline-list-stretch {
