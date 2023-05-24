@@ -1,6 +1,33 @@
 @import 'settings';
 
 @mixin vf-p-side-navigation-expandable {
+  %light-version {
+    --color-sidenav-text-active: #{$colors--light-theme--text-default};
+    --color-sidenav-item-background-hover: #{$colors--light-theme--background-hover};
+    --color-sidenav-toggle-icon: #{$colors--light-theme--text-inactive};
+  }
+  %dark-version {
+    --color-sidenav-text-active: #{$colors--dark-theme--text-default};
+    --color-sidenav-item-background-hover: #{$colors--dark-theme--background-hover};
+    --color-sidenav-toggle-icon: #{#999};
+  }
+
+  .p-side-navigation {
+    @if ($theme-default-p-side-navigation == 'dark') {
+      @extend %dark-version;
+    } @else {
+      @extend %light-version;
+    }
+
+    &.is-light {
+      @extend %light-version;
+    }
+
+    &.is-dark {
+      @extend %dark-version;
+    }
+  }
+
   .p-side-navigation__item,
   .p-side-navigation__item--title {
     // position relative for the absolutely positioned `.p-side-navigation__expand` button
@@ -15,6 +42,8 @@
   .p-side-navigation__expand {
     @include vf-button-base;
     background: none;
+
+    background-color: inherit;
     border: 0;
     border-radius: 0;
     font-size: inherit;
@@ -26,9 +55,14 @@
     right: 0;
     top: 0;
 
+    &:hover {
+      background: var(--color-sidenav-item-background-hover);
+      color: var(--color-sidenav-text-active);
+    }
+
     &::before {
       @extend %icon;
-      @include vf-icon-chevron;
+      @include vf-icon-chevron(var(--color-sidenav-toggle-icon));
       content: '';
       transform: rotate(-90deg);
       transition: transform 100ms;
@@ -58,56 +92,4 @@
     transform: translate3d(0, 0, 0);
     visibility: visible;
   }
-
-  // Theming for the expandable variant
-  @if ($theme-default-p-side-navigation == 'dark') {
-    .p-side-navigation,
-    [class*='p-side-navigation--'] {
-      @include vf-side-navigation-expandable-theme-dark;
-
-      &.is-light {
-        @include vf-side-navigation-expandable-theme-light;
-      }
-    }
-  } @else {
-    .p-side-navigation,
-    [class*='p-side-navigation--'] {
-      @include vf-side-navigation-expandable-theme-light;
-
-      &.is-dark {
-        @include vf-side-navigation-expandable-theme-dark;
-      }
-    }
-  }
-}
-
-@mixin vf-side-navigation-expandable-theme($color-sidenav-text-active, $color-sidenav-item-background-hover, $color-sidenav-toggle-icon) {
-  .p-side-navigation__expand {
-    background-color: inherit;
-    &::before {
-      @include vf-icon-chevron($color-sidenav-toggle-icon);
-    }
-
-    &:hover {
-      background: $color-sidenav-item-background-hover;
-      color: $color-sidenav-text-active;
-    }
-  }
-}
-
-@mixin vf-side-navigation-expandable-theme-light {
-  @include vf-side-navigation-expandable-theme(
-    $color-sidenav-text-active: $colors--light-theme--text-default,
-    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
-    $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
-  );
-}
-
-@mixin vf-side-navigation-expandable-theme-dark {
-  @include vf-side-navigation-expandable-theme(
-    $color-sidenav-text-active: $colors--dark-theme--text-default,
-    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
-    // color of toggle icon - needed because of lack of rgba support in icon mixin
-    $color-sidenav-toggle-icon: #999
-  );
 }
