@@ -499,7 +499,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   // when navigation search is expanded
-  .p-navigation.has-search-open {
+  .p-navigation.has-search-open,
+  .p-navigation--sliding.has-search-open {
     // make sure search in navigation renders on top of the overlay
     .p-navigation__nav {
       display: flex;
@@ -666,7 +667,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     &.has-menu-open {
       .p-navigation__banner .p-navigation__items {
-        display: block;
+        display: flex;
 
         @media (min-width: $breakpoint-navigation-threshold) {
           display: none;
@@ -682,6 +683,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         }
 
         @media (min-width: $breakpoint-navigation-threshold) {
+          display: flex;
           height: auto;
           overflow-x: visible;
 

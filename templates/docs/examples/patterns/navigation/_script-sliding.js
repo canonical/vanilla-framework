@@ -1,17 +1,34 @@
+const navigation = document.querySelector('.p-navigation--sliding');
+const toggles = document.querySelectorAll('.p-navigation__link[aria-controls]:not(.js-back)');
+const searchButtons = document.querySelectorAll('.js-search-button');
+const menuButton = document.querySelector('.js-menu-button');
+
+const hasSearch = searchButtons.length > 0;
+
 const initNavigationSliding = () => {
-  const navigation = document.querySelector('.p-navigation--sliding');
-
-  document.querySelector('.js-menu-button').addEventListener('click', function (e) {
-    if (navigation.classList.contains('has-menu-open')) {
-      navigation.classList.remove('has-menu-open');
-      e.target.innerHTML = 'Menu';
-    } else {
-      navigation.classList.add('has-menu-open');
-      e.target.innerHTML = 'Close menu';
+  const closeAll = () => {
+    if (hasSearch) {
+      closeSearch();
     }
-  });
+    resetToggles();
+    navigation.classList.remove('has-menu-open');
+    menuButton.innerHTML = 'Menu';
+  };
 
-  const toggles = document.querySelectorAll('.p-navigation__link[aria-controls]:not(.js-back)');
+  const keyPressHandler = (e) => {
+    if (e.key === 'Escape') {
+      closeAll();
+    }
+  };
+
+  const closeSearch = () => {
+    searchButtons.forEach((searchButton) => {
+      searchButton.removeAttribute('aria-pressed');
+    });
+
+    navigation.classList.remove('has-search-open');
+    document.removeEventListener('keyup', keyPressHandler);
+  };
 
   const toggleFocusableListItems = () => {
     const hiddenListItems = document.querySelectorAll('.p-navigation__dropdown[aria-hidden="true"] li');
@@ -25,6 +42,17 @@ const initNavigationSliding = () => {
       el.children[0].setAttribute('tabindex', '0');
     });
   };
+
+  menuButton.addEventListener('click', function (e) {
+    closeSearch();
+    if (navigation.classList.contains('has-menu-open')) {
+      navigation.classList.remove('has-menu-open');
+      e.target.innerHTML = 'Menu';
+    } else {
+      navigation.classList.add('has-menu-open');
+      e.target.innerHTML = 'Close menu';
+    }
+  });
 
   toggleFocusableListItems();
 
@@ -82,6 +110,43 @@ const initNavigationSliding = () => {
       toggleFocusableListItems();
     });
   });
+
+  if (hasSearch) {
+    const toggleSearch = (e) => {
+      e.preventDefault();
+
+      if (navigation.classList.contains('has-search-open')) {
+        closeAll();
+      } else {
+        closeAll();
+        openSearch(e);
+      }
+    };
+
+    searchButtons.forEach((searchButton) => {
+      searchButton.addEventListener('click', toggleSearch);
+    });
+
+    const overlay = document.querySelector('.p-navigation__search-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', closeAll);
+    }
+
+    const openSearch = (e) => {
+      e.preventDefault();
+
+      var searchInput = navigation.querySelector('.p-search-box__input');
+      var buttons = document.querySelectorAll('.js-search-button');
+
+      buttons.forEach((searchButton) => {
+        searchButton.setAttribute('aria-pressed', true);
+      });
+
+      navigation.classList.add('has-search-open');
+      searchInput.focus();
+      document.addEventListener('keyup', keyPressHandler);
+    };
+  }
 };
 
 initNavigationSliding();
