@@ -46,8 +46,7 @@ const initNavigationSliding = () => {
   menuButton.addEventListener('click', function (e) {
     closeSearch();
     if (navigation.classList.contains('has-menu-open')) {
-      navigation.classList.remove('has-menu-open');
-      e.target.innerHTML = 'Menu';
+      closeAll();
     } else {
       navigation.classList.add('has-menu-open');
       e.target.innerHTML = 'Close menu';

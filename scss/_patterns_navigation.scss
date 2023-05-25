@@ -245,7 +245,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   .p-navigation__tagged-logo {
     display: flex; // to prevent logo link from expanding full width
     margin-right: 0;
-    min-width: 13rem;
+    min-width: 7rem;
 
     .p-navigation__logo-tag {
       background-color: $color-accent;
@@ -667,8 +667,17 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     $animation-settings: map-get($animation-duration, brisk) ease;
 
     &.has-menu-open {
+      height: 100vh;
+      overflow-y: hidden;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        height: auto;
+        overflow-y: visible;
+      }
+
       .p-navigation__banner .p-navigation__items {
         display: flex;
+        flex-wrap: nowrap;
 
         @media (min-width: $breakpoint-navigation-threshold) {
           display: none;
@@ -692,6 +701,10 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
             display: flex;
           }
         }
+      }
+
+      :not(.p-navigation__plane).p-navigation__items::before {
+        content: none;
       }
     }
 
