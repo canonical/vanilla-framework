@@ -56,7 +56,9 @@
     white-space: nowrap;
 
     .p-chip__value {
+      @extend %small-text;
       color: var(--color-chip-value);
+      font-weight: $font-weight-bold;
     }
 
     .p-chip__lead,
@@ -86,11 +88,6 @@
       content: ': ';
     }
 
-    .p-chip__value {
-      @extend %small-text;
-      font-weight: $font-weight-bold;
-    }
-
     .p-chip__dismiss {
       @extend %icon;
       // also includes button and close icon styles in the theming section
@@ -114,6 +111,8 @@
       vertical-align: baseline;
     }
   }
+
+  /* stylelint-disable property-no-vendor-prefix, selector-max-type */
 
   span.p-chip,
   span.p-chip--positive,
@@ -166,6 +165,8 @@
       border-color: var(--color-chip-border);
     }
   }
+
+  /* stylelint-enable property-no-vendor-prefix, selector-max-type */
 
   @include vf-chip-colors('neutral', '.p-chip');
   @include vf-chip-colors('positive', '.p-chip--positive');

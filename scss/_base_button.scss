@@ -64,6 +64,9 @@
 
     &:disabled,
     &.is-disabled {
+      cursor: not-allowed;
+      opacity: $disabled-element-opacity;
+
       &:active,
       &[aria-pressed='true'],
       &[aria-selected='true'],
@@ -78,12 +81,6 @@
     &:focus,
     &:hover {
       text-decoration: none;
-    }
-
-    &:disabled,
-    &.is-disabled {
-      cursor: not-allowed;
-      opacity: $disabled-element-opacity;
     }
 
     &:last-child {
