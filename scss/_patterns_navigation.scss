@@ -247,6 +247,10 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     margin-right: 0;
     min-width: 7rem;
 
+    @media (min-width: $breakpoint-navigation-threshold) {
+      min-width: 13rem;
+    }
+
     .p-navigation__logo-tag {
       background-color: $color-accent;
       height: $navigation-logo-tag-height;
@@ -703,7 +707,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
         }
       }
 
-      :not(.p-navigation__plane).p-navigation__items::before {
+      .p-navigation__items:not(:first-child)::before {
         content: none;
       }
     }
