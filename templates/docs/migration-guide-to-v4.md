@@ -110,3 +110,10 @@ New style of brochure sites it based on 25% (on the desktop breakpoint) splits o
 ### White strip
 
 White strip was introduced in Vanilla 4.0 as a way to highlight sections on top of a new paper background. See [“Paper background”](#paper-background) section above for more information.
+
+<div class="p-strip">
+<hr>
+
+If you want to learn about migration to Vanilla 3.0, see [Vanilla 3.0 migration guide](/docs/migration-guide-to-v3).
+
+</div>
