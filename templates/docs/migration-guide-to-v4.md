@@ -24,6 +24,11 @@ Similarly headings level 3 and 4 use the same font size (1.5rem) with level 3 be
 
 Headings level 5 and 6 don’t change. They still use the same font size as default text (1rem), with level 5 being bold, and level 6 using italics.
 
+<div class="row--50-50">
+  <div class="col"><img src="https://assets.ubuntu.com/v1/39431a6d-vanilla-4.0-migration-typography-before.png" alt="Example showing heading typography in Vanilla version 3.0"></div>
+  <div class="col"><img src="https://assets.ubuntu.com/v1/dfa47513-vanilla-4.0-migration-typography-after.png" alt="Example showing new heading typography in Vanilla version 4.0"></div>
+</div>
+
 ### How to update
 
 Typography styles are built into the base styles of Vanilla and shouldn’t require any code updates. But, because this is a change that may affect the look of the website or UI make sure to QA any pages or templates that may be affected by the updated heading sizes.
@@ -36,7 +41,7 @@ You can search your codebase for any names listed below to find places that may 
 - Class names: `p-heading--1`, `p-heading--2`, `p-heading--3`, `p-heading--4`, (optionally `p-heading--5`, `p-heading--6`)
 - Placeholders `%vf-heading-1`, `%vf-heading-2`, `%vf-heading-3`, `%vf-heading-4`, (optionally `%vf-heading-5` `%vf-heading-6`)
 
-## Grid max width
+## New max width of the grid
 
 Alongside the typography changes width of the grid (max width of the page) has been adjusted as well by increasing the value of `$grid-max-width` variable from 72rem to 80rem.
 How to update
@@ -51,9 +56,13 @@ Because this change affects the look of the website, make sure you test your tem
 
 Some issues that may happen include:
 
-Images (for example in cards) that have a fixed width based on previous card size, this is especially true when using our image tag template that serves optimised images through Cloudinary
+Images (for example in cards) that have a fixed width based on previous card size, this is especially true when using our image tag template that serves optimised images through Cloudinary.
+
+<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/4fbf18e2-vanilla-4.0-migration-images-width.png" alt="Example showing wrong image widths after migrating to new page max width"></div>
 
 Old versions of global-nav have a setting for max width that may need to be adjusted.
+
+<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/1e8d2236-vanilla-4.0-migration-global-nav.png" alt="Example showing wrong global nav width after migrating to new page max width"></div>
 
 Please make sure to review any templates or components that may make assumptions based on page width.
 
