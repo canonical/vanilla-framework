@@ -1,11 +1,11 @@
-const navigation = document.querySelector('.p-navigation--sliding');
-const toggles = document.querySelectorAll('.p-navigation__link[aria-controls]:not(.js-back)');
-const searchButtons = document.querySelectorAll('.js-search-button');
-const menuButton = document.querySelector('.js-menu-button');
-
-const hasSearch = searchButtons.length > 0;
-
 const initNavigationSliding = () => {
+  const navigation = document.querySelector('.p-navigation--sliding');
+  const toggles = document.querySelectorAll('.p-navigation__link[aria-controls]:not(.js-back)');
+  const searchButtons = document.querySelectorAll('.js-search-button');
+  const menuButton = document.querySelector('.js-menu-button');
+
+  const hasSearch = searchButtons.length > 0;
+
   const closeAll = () => {
     if (hasSearch) {
       closeSearch();

@@ -666,187 +666,185 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  /* stylelint-disable max-nesting-depth */
-  .p-navigation--sliding {
-    $animation-settings: map-get($animation-duration, brisk) ease;
+  $sliding-nav-animation-settings: map-get($animation-duration, brisk) ease;
 
-    &.has-menu-open {
-      height: 100vh;
-      overflow-y: hidden;
+  .p-navigation--sliding.has-menu-open {
+    height: 100vh;
+    overflow-y: hidden;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      height: auto;
+      overflow-y: visible;
+    }
+
+    .p-navigation__banner .p-navigation__items {
+      display: flex;
+      flex-wrap: nowrap;
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        height: auto;
-        overflow-y: visible;
+        display: none;
       }
+    }
+    .p-navigation__nav {
+      display: block;
+      height: 100vh;
+      overflow-x: hidden;
 
-      .p-navigation__banner .p-navigation__items {
-        display: flex;
-        flex-wrap: nowrap;
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          display: none;
-        }
-      }
-      .p-navigation__nav {
+      .p-navigation__items {
         display: block;
-        height: 100vh;
-        overflow-x: hidden;
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: flex;
+        height: auto;
+        overflow-x: visible;
 
         .p-navigation__items {
-          display: block;
-        }
-
-        @media (min-width: $breakpoint-navigation-threshold) {
           display: flex;
-          height: auto;
-          overflow-x: visible;
-
-          .p-navigation__items {
-            display: flex;
-          }
         }
-      }
-
-      .p-navigation__items:not(:first-child)::before {
-        content: none;
       }
     }
 
-    .p-navigation__items {
-      transition: transform $animation-settings;
+    .p-navigation__items:not(:first-child)::before {
+      content: none;
+    }
+  }
 
-      &.is-active {
-        transform: translateX(-25vw);
+  /* stylelint-disable max-nesting-depth */
+  .p-navigation--sliding .p-navigation__items {
+    transition: transform $sliding-nav-animation-settings;
+
+    &.is-active {
+      transform: translateX(-25vw);
+      @media (min-width: $breakpoint-navigation-threshold) {
+        transform: none;
+      }
+      .p-navigation__dropdown {
+        transform: translateX(25vw);
         @media (min-width: $breakpoint-navigation-threshold) {
           transform: none;
         }
-        .p-navigation__dropdown {
-          transform: translateX(25vw);
+        &[aria-hidden='false'] {
+          transform: translateX(-75vw);
           @media (min-width: $breakpoint-navigation-threshold) {
             transform: none;
           }
-          &[aria-hidden='false'] {
-            transform: translateX(-75vw);
+          &.is-active {
+            transform: translateX(-100vw);
             @media (min-width: $breakpoint-navigation-threshold) {
               transform: none;
             }
-            &.is-active {
-              transform: translateX(-100vw);
-              @media (min-width: $breakpoint-navigation-threshold) {
-                transform: none;
-              }
-            }
           }
         }
       }
     }
-    /* stylelint-enable max-nesting-depth */
+  }
+  /* stylelint-enable max-nesting-depth */
 
-    .p-navigation__item--dropdown-toggle {
-      position: initial;
+  .p-navigation--sliding .p-navigation__item--dropdown-toggle {
+    position: initial;
 
-      &::after {
+    &::after {
+      content: none;
+    }
+
+    .p-navigation__link::after {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: $spv--large;
+      pointer-events: none;
+      position: absolute;
+      right: map-get($grid-margin-widths, small);
+      text-indent: calc(100% + 10rem);
+      top: 1rem;
+      transform: rotate(-90deg);
+      width: map-get($icon-sizes, default);
+      @include vf-icon-chevron($colors--dark-theme--text-default);
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        right: 0.5rem;
+        top: 1.2rem;
+        transform: none;
+      }
+    }
+
+    &.is-active > .p-navigation__link::after {
+      @media (min-width: $breakpoint-navigation-threshold) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .p-navigation--sliding .p-navigation__item--dropdown-close {
+    .p-navigation__link::after {
+      left: 1rem;
+      transform: rotate(90deg);
+    }
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: none;
+    }
+  }
+
+  /* stylelint-disable max-nesting-depth */
+
+  .p-navigation--sliding .p-navigation__dropdown {
+    display: block;
+    height: 100vh;
+    left: 100vw;
+    position: absolute;
+    top: 0;
+    transition: transform $sliding-nav-animation-settings;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      display: none;
+      height: auto;
+      left: auto;
+      min-width: unset;
+      top: unset;
+    }
+
+    &::before {
+      box-shadow: -100vw 15px 0 15px black;
+      content: '';
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      transition: opacity $sliding-nav-animation-settings;
+      width: 100%;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
         content: none;
       }
-
-      .p-navigation__link::after {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        content: '';
-        display: block;
-        height: $spv--large;
-        pointer-events: none;
-        position: absolute;
-        right: map-get($grid-margin-widths, small);
-        text-indent: calc(100% + 10rem);
-        top: 1rem;
-        transform: rotate(-90deg);
-        width: map-get($icon-sizes, default);
-        @include vf-icon-chevron($colors--dark-theme--text-default);
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          right: 0.5rem;
-          top: 1.2rem;
-          transform: none;
-        }
-      }
-
-      &.is-active > .p-navigation__link::after {
-        @media (min-width: $breakpoint-navigation-threshold) {
-          transform: rotate(180deg);
-        }
-      }
     }
 
-    .p-navigation__item--dropdown-close {
-      .p-navigation__link::after {
-        left: 1rem;
-        transform: rotate(90deg);
-      }
-      @media (min-width: $breakpoint-navigation-threshold) {
-        display: none;
-      }
-    }
-
-    /* stylelint-disable max-nesting-depth */
-
-    .p-navigation__dropdown {
-      display: block;
-      height: 100vh;
-      left: 100vw;
-      position: absolute;
-      top: 0;
-      transition: transform $animation-settings;
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        display: none;
-        height: auto;
-        left: auto;
-        min-width: unset;
-        top: unset;
-      }
-
+    &[aria-hidden='false'] {
       &::before {
-        box-shadow: -100vw 15px 0 15px black;
-        content: '';
-        height: 100%;
-        opacity: 0;
-        position: absolute;
-        transition: opacity $animation-settings;
-        width: 100%;
-
-        @media (min-width: $breakpoint-navigation-threshold) {
-          content: none;
-        }
+        opacity: 0.75;
       }
 
-      &[aria-hidden='false'] {
-        &::before {
-          opacity: 0.75;
-        }
+      display: block;
+      transform: translateX(-75vw);
 
-        display: block;
-        transform: translateX(-75vw);
+      @media (min-width: $breakpoint-navigation-threshold) {
+        transform: none;
 
-        @media (min-width: $breakpoint-navigation-threshold) {
-          transform: none;
-
-          .p-navigation__item--dropdown-close {
-            @media (min-width: $breakpoint-navigation-threshold) {
-              display: none;
-            }
+        .p-navigation__item--dropdown-close {
+          @media (min-width: $breakpoint-navigation-threshold) {
+            display: none;
           }
         }
+      }
 
-        &.is-active {
-          transform: translateX(-100vw);
-        }
+      &.is-active {
+        transform: translateX(-100vw);
       }
     }
-
-    /* stylelint-enable max-nesting-depth */
   }
+
+  /* stylelint-enable max-nesting-depth */
 
   // Theming
   @if ($theme-default-nav == 'dark') {
