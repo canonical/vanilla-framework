@@ -14,6 +14,28 @@ This migration guide explains what changes are introduced in Vanilla 4.0 and how
 
 Vanilla 4.0 is an interim release that keeps support of old (v3) style of components, and will introduce elements of new branding and components in the new style, deprecating any unnecessary old components on the way. Some of the new components have already been added, and the reminder about them is included in this guide as well.
 
+## Using alpha releases
+
+Vanilla 4.0 is currently in alpha stage. This means that it is not yet ready for production use, but you can start using it in your projects to test it and report any issues you find.
+
+Alpha versions are released to npm in `@next` tag and can be used as a dependency in your package.json:
+
+```json
+"dependencies": {
+  "vanilla-framework": "{{ version }}"
+}
+```
+
+You can check for the latest alpha version on [npm](https://www.npmjs.com/package/vanilla-framework?activeTab=versions) or on [GitHub](https://github.com/canonical/vanilla-framework/releases).
+
+If you want to test out the latest unreleased version you can point your dependencies to the `vanilla-4.0` branch directly:
+
+```json
+"dependencies": {
+  "vanilla-framework": "canonical/vanilla-framework#vanilla-4.0"
+}
+```
+
 ## Typography
 
 Vanilla 4.0 introduces updated heading styles that are built on fewer font-sizes. We also introduce the new variable Ubuntu font.
