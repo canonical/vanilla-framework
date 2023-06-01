@@ -59,20 +59,36 @@ If you have any custom styles or components built on top of Vanilla headings, or
 
 You can search your codebase for any names listed below to find places that may be affected:
 
-- Elements `h1`, `h2`, `h3`, `h4`, (`h5`, `h6` if you want to be thorough)
-- Class names: `p-heading--1`, `p-heading--2`, `p-heading--3`, `p-heading--4`, (optionally `p-heading--5`, `p-heading--6`)
-- Placeholders `%vf-heading-1`, `%vf-heading-2`, `%vf-heading-3`, `%vf-heading-4`, (optionally `%vf-heading-5` `%vf-heading-6`)
+<ul class="p-list--divided" style="max-width: 40rem">
+  <li class="p-list__item has-bullet">
+    Elements <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, (<code>h5</code>, <code>h6</code> if you want to be thorough)
+  </li>
+  <li class="p-list__item has-bullet">
+    Class names: <code>p-heading--1</code>, <code>p-heading--2</code>, <code>p-heading--3</code>, <code>p-heading--4</code>, (optionally <code>p-heading--5</code>, <code>p-heading--6</code>)
+  </li>
+  <li class="p-list__item has-bullet">
+    Placeholders <code>%vf-heading-1</code>, <code>%vf-heading-2</code>, <code>%vf-heading-3</code>, <code>%vf-heading-4</code>, (optionally <code>%vf-heading-5</code> <code>%vf-heading-6</code>)
+  </li>
+</ul>
 
 ## New max width of the grid
 
 Alongside the typography changes width of the grid (max width of the page) has been adjusted as well by increasing the value of `$grid-max-width` variable from 72rem to 80rem.
-How to update
+
+### How to update
+
 This change is automatic and doesn’t require any migration unless you have overridden the `$grid-max-width` value yourself.
 
 Search your codebase for `$grid-max-width`:
 
-- If you are overriding its value, make sure you still have to. It’s best to revert to default.
-- If you are using this variable anywhere make sure that relevant styles still work with the new value.
+<ul class="p-list--divided" style="max-width: 40rem">
+  <li class="p-list__item has-bullet">
+    If you are overriding its value, make sure you still have to. It’s best to revert to default.
+  </li>
+  <li class="p-list__item has-bullet">
+    If you are using this variable anywhere make sure that relevant styles still work with the new value.
+  </li>
+</ul>
 
 Because this change affects the look of the website, make sure you test your templates to see if there are any issues caused by width change.
 
