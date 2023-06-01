@@ -119,7 +119,7 @@ Hover effects and active states that assume white background
 
 To highlight sections of the page you can use a new white strip `p-strip--white`, which will create a strip with white background.
 
-For more information see paper background documentation, white strip component or brochure layout guidelines.
+For more information see [our documentation of paper background ](/docs/base/paper), [white strip component](/docs/patterns/strip#white-strip) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ## New components
 
@@ -131,7 +131,7 @@ Section and block components are containers that provide spacing between section
 
 In many cases new section components can replace existing strips (especially the ones that needed to have u-no-padding--top applied). Block component is used within a section.
 
-For more information see the section and block component documentation or brochure site layout guidelines.
+For more information see [the section and block component documentation](/docs/patterns/section) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ### Rule
 
@@ -139,11 +139,13 @@ New rule component provides a consistent way of adding horizontal lines that are
 
 Use the new component in places where previously hr with u-no-margin--bottom was used.
 
-For more information see the rule component documentation or brochure site layout guidelines.
+For more information see [the rule component documentation](/docs/patterns/rule) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ### Grid splits
 
 New style of brochure sites it based on 25% (on the desktop breakpoint) splits of the grid. While such layouts can be built with our existing 12 column grid, we now also provide the most common grid splits (such as 50/50, or 25/75) that should make building the pages in a new style simpler and more consistent.
+
+For more information see [the grid documentation](/docs/patterns/grid) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ### White strip
 
