@@ -48,7 +48,7 @@ View example of the dropdown pattern
 You can add nested dropdowns to the navigation by nesting one or more `p-navigation__dropdown` in `p-navigation__item--dropdown-toggle` components.
 They will be rendered as sliding panels that slide in from the right side of the screen on small screens and as dropdowns on larger screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/sliding-search" class="js-example">
+<div class="embedded-example" style="max-width: 40rem"><a href="/docs/examples/patterns/navigation/sliding-search" class="js-example" data-height="600">
 View example of the sliding pattern
 </a></div>
 
