@@ -87,9 +87,10 @@ const initNavigationSliding = () => {
         resetToggles(target);
       }
       if (target.getAttribute('aria-hidden') === 'true') {
-        target.setAttribute('aria-hidden', 'false');
         el.parentNode.classList.add('is-active');
         el.parentNode.parentNode.classList.add('is-active');
+        target.setAttribute('aria-hidden', 'false');
+        target.querySelector('li:nth-child(2) a').focus({preventScroll: true});
       } else {
         target.setAttribute('aria-hidden', 'true');
         el.parentNode.classList.remove('is-active');
@@ -99,14 +100,35 @@ const initNavigationSliding = () => {
     });
   });
 
+  // trap focus for last elements
+  document.querySelectorAll('.p-navigation__item--dropdown-toggle li:last-child > *').forEach(function (el) {
+    el.addEventListener('keydown', function (e) {
+      if (!e.shiftKey && e.key === 'Tab') {
+        const parent = el.parentNode.parentNode;
+        const firstItem = parent.querySelector('.p-navigation__item--dropdown-close button');
+        firstItem.focus();
+        e.preventDefault();
+      }
+    });
+  });
+
   document.querySelectorAll('.js-back').forEach(function (el) {
     el.addEventListener('click', function (e) {
       e.preventDefault();
       const target = el.parentNode.parentNode;
+      target.parentNode.querySelector('button').focus({preventScroll: true});
       target.setAttribute('aria-hidden', 'true');
       el.closest('.is-active').classList.remove('is-active');
       el.closest('.is-active').classList.remove('is-active');
       toggleFocusableListItems();
+    });
+    el.addEventListener('keydown', function (e) {
+      if (e.shiftKey && e.key === 'Tab') {
+        const parent = el.parentNode.parentNode;
+        const lastItem = parent.querySelector('li:last-child > *');
+        lastItem.focus();
+        e.preventDefault();
+      }
     });
   });
 
