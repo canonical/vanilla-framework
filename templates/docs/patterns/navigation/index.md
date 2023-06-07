@@ -45,6 +45,8 @@ View example of the dropdown pattern
 
 ## Sliding
 
+To use the sliding navigation pattern, add the `p-navigation--sliding` class to the root element of the navigation.
+
 You can add nested dropdowns to the navigation by nesting one or more `p-navigation__dropdown` in `p-navigation__item--dropdown-toggle` components.
 They will be rendered as sliding panels that slide in from the right side of the screen on small screens and as dropdowns on larger screens.
 
