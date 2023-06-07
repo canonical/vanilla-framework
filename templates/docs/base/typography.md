@@ -8,11 +8,116 @@ context:
 
 <hr>
 
-All text in Vanilla uses the [Ubuntu typeface](https://design.ubuntu.com/font/) , which can be used in your projects.
+## The Ubuntu typeface
+
+We use the [Ubuntu typeface](https://design.ubuntu.com/font/) exclusively. It was recently upgraded to a variable font, which features a weight and a width axis. It now also includes true small caps. Number figures to accompany the small caps are currently being finalised and will be available soon.
+
+<table style="table-layout: auto">
+<tbody>
+  <tr>
+    <td><strong>ABCDEFGHIJKLMNOPQRSTUVWXYZ</strong></td>
+    <td><strong>abcdefgijklmnopqrstuvwxyz</strong></td>
+    <td><strong>01234567890</strong></td>
+  </tr>
+  <tr>
+    <td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
+    <td>abcdefgijklmnopqrstuvwxyz</td>
+    <td>01234567890</td>
+  </tr>
+  <tr>
+    <td><em>ABCDEFGHIJKLMNOPQRSTUVWXYZ</em></td>
+    <td><em>abcdefgijklmnopqrstuvwxyz</em></td>
+    <td><em>01234567890</em></td>
+  </tr>
+  <tr>
+    <td><span class="p-text--small-caps">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></td>
+    <td><span class="p-text--small-caps">abcdefgijklmnopqrstuvwxyz</span></td>
+    <td>available soon</td>
+  </tr>
+</tbody>
+</table>
+
+## The subset we use
+
+### Width
+
+Even though a width axis is available, allowing text to be condensed, we do not use it in our design system. All text should be set with the width axis at its widest (100).
+
+### Weight
+
+We use a carefully selected set of weights in our heading hierarchy. As a general rule, we reduce the weight of light headings as the font-size increases. We keep the weight of bold headings the same, thereby increasing contrast between light and bold headings as we move up the type scale. The following table provides the full list of weights we use:
+
+| Weight | Use                                                 |
+| ------ | --------------------------------------------------- |
+| 100    | Display headings                                    |
+| 180    | H2, large screens                                   |
+| 230    | H2, medium screens                                  |
+| 300    | H4                                                  |
+| 400    | Small text, all UI elements, body text, H6 headings |
+| 500    | H5, H3, H1                                          |
+
+## Our type scale
+
+Our type scale consists of 5 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
+
+<table style="table-layout: auto">
+<thead>
+  <tr>
+    <th>Size</th>
+    <th>Use</th>
+    <th>Example</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>14px</td>
+    <td>Secondary text, side notes, etc.</td>
+    <td><small>Small secondary text</small></td>
+  </tr>
+  <tr>
+    <td>16px</td>
+    <td>Body text, all component, <code>h5</code> and <code>h6</code> headings.</td>
+    <td>
+      Standard body text
+      <p class="p-heading--5 u-no-margin--bottom">H5 heading</p>
+      <p class="p-heading--6">H6 heading</p>
+    </td>
+  </tr>
+  <tr>
+    <td>24px</td>
+    <td><code>h3</code> and <code>h4</code> level headings.</td>
+    <td>
+      <p class="p-heading--4 u-no-padding--top">H4 heading</p>
+      <p class="p-heading--3">H3 heading</p>
+    </td>
+  </tr>
+  <tr>
+    <td>32px</td>
+    <td><code>h1</code> and <code>h2</code> level headings on small and medium screens..</td>
+    <td>
+      <p class="p-heading--2 u-no-padding--top" style="font-size: 2rem; line-height: 2.5rem">H2 heading (small and medium screens)</p>
+      <p class="p-heading--1 u-no-padding--top" style="font-size: 2rem; line-height: 2.5rem">H1 heading (small and medium screens)</p>
+    </td>
+  </tr>
+  <tr>
+    <td>40px</td>
+    <td><code>h1</code> and <code>h2</code> level headings on large screens.</td>
+    <td>
+      <p class="p-heading--2 u-no-padding--top" style="font-size: 2.5rem; line-height: 3rem">H2 heading</p>
+      <p class="p-heading--1 u-no-padding--top" style="font-size: 2.5rem; line-height: 3rem">H1 heading</p>
+    </td>
+  </tr>
+  <tr>
+    <td>120px</td>
+    <td>Ad hoc display headings for important bespoke pages.</td>
+    <td><h1 style="font-size: 7.5rem; line-height: 8rem; font-weight: 100">Ubuntu Pro</h1></td>
+  </tr>
+</tbody>
+</table>
+
+### The value of `1rem`
 
 Vanilla's typographic scale has a base font-size of `1rem`.
-
-## The value of `1rem`
 
 The pixel value of `1rem` depends on the browser (in most cases, `16px`) and the user's browser settings.
 
@@ -23,46 +128,6 @@ To disable this behaviour, include the following after you import and include th
 ```scss
 $increase-font-size-on-larger-screens: false;
 ```
-
-Text elements in vanilla adhere to a type scale:
-
-- The base of the scale is the paragraph font-size (`1rem`)
-- The ratio of the scale is `1.14285714286` (16/14, so both 14 and 16 are members of the scale)
-
-Heading sizes are obtained by taking the ratio to a specified `power` listed in the table below.
-
-## Typographic scale
-
-|             | Small-Medium | Large        |
-| ----------- | ------------ | ------------ |
-| _<h1>_      |              |              |
-| `power`     | `6`          | `8`          |
-| font size   | `2.22819rem` | `2.91029rem` |
-| line height | `3rem`       | `3.5rem`     |
-| _<h2>_      |              |              |
-| `power`     | `4.5`        | `6`          |
-| font size   | `1.83274rem` | `2.22819rem` |
-| line height | `2.5rem`     | `3rem`       |
-| _<h3>_      |              |              |
-| `power`     | `3`          | `4`          |
-| font size   | `1.49271rem` | `1.70596rem` |
-| line height | `2rem`       | `2.5rem`     |
-| _<h4>_      |              |              |
-| `power`     | `1.5`        | `2`          |
-| font size   | `1.22176rem` | `1.30612rem` |
-| line height | `1.5rem`     | `2rem`       |
-| _<h5>_      |              |              |
-| `power`     | `1`          | `1`          |
-| font size   | `1rem`       | `1rem`       |
-| line height | `1.5rem`     | `1.5rem`     |
-| _<h6>_      |              |              |
-| `power`     | `1`          | `1`          |
-| font size   | `1rem`       | `1rem`       |
-| line height | `1.5rem`     | `1.5rem`     |
-| _<p>_       |              |              |
-| `power`     | `1`          | `1`          |
-| font size   | `1rem`       | `1rem`       |
-| line height | `1.5rem`     | `1.5rem`     |
 
 ## Heading classes
 
