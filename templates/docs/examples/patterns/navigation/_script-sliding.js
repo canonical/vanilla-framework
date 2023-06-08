@@ -3,6 +3,9 @@ const initNavigationSliding = () => {
   const toggles = document.querySelectorAll('.p-navigation__link[aria-controls]:not(.js-back)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
+  const dropdowns = document.querySelectorAll('ul.p-navigation__dropdown');
+  const mainList = dropdowns[0].parentNode.parentNode;
+  const lists = [...dropdowns, mainList];
 
   const hasSearch = searchButtons.length > 0;
 
@@ -30,19 +33,6 @@ const initNavigationSliding = () => {
     document.removeEventListener('keyup', keyPressHandler);
   };
 
-  const toggleFocusableListItems = () => {
-    const hiddenListItems = document.querySelectorAll('.p-navigation__dropdown[aria-hidden="true"] li');
-    const shownListItems = document.querySelectorAll('.p-navigation__dropdown[aria-hidden="false"] li');
-
-    hiddenListItems.forEach(function (el) {
-      el.children[0].setAttribute('tabindex', '-1');
-    });
-
-    shownListItems.forEach(function (el) {
-      el.children[0].setAttribute('tabindex', '0');
-    });
-  };
-
   menuButton.addEventListener('click', function (e) {
     closeSearch();
     if (navigation.classList.contains('has-menu-open')) {
@@ -50,21 +40,19 @@ const initNavigationSliding = () => {
     } else {
       navigation.classList.add('has-menu-open');
       e.target.innerHTML = 'Close menu';
+      setFocusable(mainList);
     }
   });
 
-  toggleFocusableListItems();
-
   const resetToggles = (exception) => {
-    toggles.forEach(function (el) {
-      const target = document.getElementById(el.getAttribute('aria-controls'));
+    toggles.forEach(function (toggle) {
+      const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (target === exception) {
         return;
       }
       target.setAttribute('aria-hidden', 'true');
-      el.parentNode.classList.remove('is-active');
-      el.parentNode.parentNode.classList.remove('is-active');
-      toggleFocusableListItems();
+      toggle.parentNode.classList.remove('is-active');
+      toggle.parentNode.parentNode.classList.remove('is-active');
     });
   };
 
@@ -77,58 +65,64 @@ const initNavigationSliding = () => {
     }
   });
 
-  toggles.forEach(function (el) {
-    el.addEventListener('click', function (e) {
+  const setFocusable = (target) => {
+    lists.forEach(function (list) {
+      const elements = list.querySelectorAll('ul > li > a, ul > li > button');
+      elements.forEach(function (element) {
+        element.setAttribute('tabindex', '-1');
+      });
+    });
+    target.querySelectorAll('li').forEach(function (element) {
+      if (element.parentNode === target) {
+        element.children[0].setAttribute('tabindex', '0');
+      }
+    });
+  };
+
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.getElementById(el.getAttribute('aria-controls'));
+      const target = document.getElementById(toggle.getAttribute('aria-controls'));
       const isNested = target.parentNode.parentNode.classList.contains('p-navigation__dropdown');
 
       if (!isNested) {
         resetToggles(target);
       }
       if (target.getAttribute('aria-hidden') === 'true') {
-        el.parentNode.classList.add('is-active');
-        el.parentNode.parentNode.classList.add('is-active');
+        toggle.parentNode.classList.add('is-active');
+        toggle.parentNode.parentNode.classList.add('is-active');
         target.setAttribute('aria-hidden', 'false');
-        target.querySelector('li:nth-child(2) a').focus({preventScroll: true});
+        setFocusable(target);
       } else {
         target.setAttribute('aria-hidden', 'true');
-        el.parentNode.classList.remove('is-active');
-        el.parentNode.parentNode.classList.remove('is-active');
-      }
-      toggleFocusableListItems();
-    });
-  });
-
-  // trap focus for last elements
-  document.querySelectorAll('.p-navigation__item--dropdown-toggle li:last-child > *').forEach(function (el) {
-    el.addEventListener('keydown', function (e) {
-      if (!e.shiftKey && e.key === 'Tab') {
-        const parent = el.parentNode.parentNode;
-        const firstItem = parent.querySelector('.p-navigation__item--dropdown-close button');
-        firstItem.focus();
-        e.preventDefault();
+        toggle.parentNode.classList.remove('is-active');
+        toggle.parentNode.parentNode.classList.remove('is-active');
       }
     });
   });
 
-  document.querySelectorAll('.js-back').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = el.parentNode.parentNode;
-      target.parentNode.querySelector('button').focus({preventScroll: true});
-      target.setAttribute('aria-hidden', 'true');
-      el.closest('.is-active').classList.remove('is-active');
-      el.closest('.is-active').classList.remove('is-active');
-      toggleFocusableListItems();
-    });
-    el.addEventListener('keydown', function (e) {
-      if (e.shiftKey && e.key === 'Tab') {
-        const parent = el.parentNode.parentNode;
-        const lastItem = parent.querySelector('li:last-child > *');
-        lastItem.focus();
-        e.preventDefault();
+  const goBackOneLevel = (e, backButton) => {
+    e.preventDefault();
+    const target = backButton.parentNode.parentNode;
+    target.setAttribute('aria-hidden', 'true');
+    backButton.closest('.is-active').classList.remove('is-active');
+    backButton.closest('.is-active').classList.remove('is-active');
+    setFocusable(target.parentNode.parentNode);
+  };
+
+  dropdowns.forEach(function (dropdown) {
+    console.log(window.getComputedStyle(dropdown.children[0], null).display);
+    dropdown.children[1].addEventListener('keydown', function (e) {
+      if (e.shiftKey && e.key === 'Tab' && window.getComputedStyle(dropdown.children[0], null).display === 'none') {
+        goBackOneLevel(e, dropdown.children[1].children[0]);
+        dropdown.parentNode.children[0].focus({preventScroll: true});
       }
+    });
+  });
+
+  document.querySelectorAll('.js-back').forEach(function (backButton) {
+    backButton.addEventListener('click', function (e) {
+      goBackOneLevel(e, backButton);
     });
   });
 
