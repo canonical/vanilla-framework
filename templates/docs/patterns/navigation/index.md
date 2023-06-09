@@ -43,6 +43,17 @@ By default, dropdowns are left-aligned with their parent; if you'd prefer the me
 View example of the dropdown pattern
 </a></div>
 
+## Sliding
+
+To use the sliding navigation pattern, add the `p-navigation--sliding` class to the root element of the navigation.
+
+You can add nested dropdowns to the navigation by nesting one or more `p-navigation__dropdown` in `p-navigation__item--dropdown-toggle` components.
+They will be rendered as sliding panels that slide in from the right side of the screen on small screens and as dropdowns on larger screens.
+
+<div class="embedded-example" style="max-width: 40rem"><a href="/docs/examples/patterns/navigation/sliding-search" class="js-example" data-height="600">
+View example of the sliding pattern
+</a></div>
+
 ## Expanding search box
 
 Expanding search in main navigation consists of couple of elements: two search toggle links (`.p-navigation__link--search-toggle`) - one inside `.p-navigation__banner` for mobile view and another in `.p-navigation__nav` as one of standard view items, the expanding search box (`.p-navigation__search`) and an overlay that covers whole screen when search is expanded (`.p-navigation__search-overlay`).
