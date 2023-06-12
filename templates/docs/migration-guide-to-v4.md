@@ -59,7 +59,7 @@ If you have any custom styles or components built on top of Vanilla headings, or
 
 You can search your codebase for any names listed below to find places that may be affected:
 
-<ul class="p-list--divided" style="max-width: 40rem">
+<ul class="p-list--divided u-text-max-width">
   <li class="p-list__item has-bullet">
     Elements <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, (<code>h5</code>, <code>h6</code> if you want to be thorough)
   </li>
@@ -81,7 +81,7 @@ This change is automatic and doesn’t require any migration unless you have ove
 
 Search your codebase for `$grid-max-width`:
 
-<ul class="p-list--divided" style="max-width: 40rem">
+<ul class="p-list--divided u-text-max-width">
   <li class="p-list__item has-bullet">
     If you are overriding its value, make sure you still have to. It’s best to revert to default.
   </li>
