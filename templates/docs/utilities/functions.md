@@ -32,9 +32,9 @@ This function tests the value of the background's colour and returns light or da
 ```scss
 @function vf-determine-text-color($background-color) {
   @if (lightness($background-color) > 50) {
-    @return $color-dark;
+    @return $colors--light-theme--text-default;
   } @else {
-    @return $color-x-light;
+    @return $colors--dark-theme--text-default;
   }
 }
 ```
