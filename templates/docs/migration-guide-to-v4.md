@@ -104,6 +104,12 @@ Old versions of global-nav have a setting for max width that may need to be adju
 
 Please make sure to review any templates or components that may make assumptions based on page width.
 
+## Updated text colour
+
+Vanilla 4.0 changes the default text colour to black `#000` (from previous `#111`). This change is automatic and doesn’t require any migration.
+
+If you have used the previous text colour (either by its value `#111` or by variable name `$color-dark`) in any custom styles or components, make sure to update them to use the new colour.
+
 ## Paper background
 
 Vanilla 4.0 introduces a new page background used on the brochure sites. It can be applied by adding the `is-paper` class to the body element.
