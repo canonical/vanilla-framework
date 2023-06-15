@@ -45,7 +45,7 @@
     "watch:essential": "sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css --watch",
     "watch": "yarn build && yarn watch:scss",
     "clean": "rm -rf build docs/static/css node_modules/ yarn-error.log",
-    "percy": "percy exec -- node snapshots.js",
+    "percy": "percy snapshot snapshots.js",
     "icon-svgs-to-mixins": "node scripts/convert-svgs-to-icon-mixins.js icons"
   },
   "files": [
@@ -57,7 +57,7 @@
   "devDependencies": {
     "@canonical/cookie-policy": "3.4.0",
     "@canonical/latest-news": "1.4.1",
-    "@percy/script": "1.1.0",
+    "@percy/cli": "1.26.0",
     "@testing-library/cypress": "9.0.0",
     "autoprefixer": "10.4.14",
     "cypress": "12.13.0",
