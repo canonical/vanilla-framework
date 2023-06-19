@@ -1,6 +1,14 @@
 @mixin vf-b-typography-definitions {
+  %vf-is-accented {
+    &.is-accented {
+      color: $color-accent;
+    }
+  }
+
   //@section Heading styling in placeholders
   %vf-heading-2 {
+    @extend %vf-is-accented;
+
     font-size: #{map-get($font-sizes, h2-mobile)}rem;
     font-style: normal;
     font-weight: 180;
@@ -28,6 +36,8 @@
   }
 
   %vf-heading-3 {
+    @extend %vf-is-accented;
+
     font-size: #{map-get($font-sizes, h3-mobile)}rem;
     font-style: normal;
     font-weight: 550;
@@ -50,6 +60,8 @@
   }
 
   %vf-heading-4 {
+    @extend %vf-is-accented;
+
     font-size: #{map-get($font-sizes, h4-mobile)}rem;
     font-style: normal;
     font-weight: 275;

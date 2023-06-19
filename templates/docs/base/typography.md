@@ -159,6 +159,14 @@ better suits your document style and tree.
 View example of the mixed headings pattern
 </a></div>
 
+## Accented headings
+
+The accent colour can be sparingly used to highlight headings to help them stand out from the rest of the page.
+
+<div class="embedded-example"><a href="/docs/examples/base/headings-accented/" class="js-example">
+View example of the accented headings pattern
+</a></div>
+
 ## Line length
 
 Line length, measured in number of characters per line (CPL), has been shown to affect reading speed and comprehension. While there is little consensus on what the optimal CPL value is, most studies test with values between 45 and 95 characters per line. <a href="https://en.wikipedia.org/wiki/Line_length">Wikipedia</a> has a good historical overview and a list of studies on the subject.
