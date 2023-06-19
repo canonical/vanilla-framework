@@ -127,6 +127,16 @@ To highlight sections of the page you can use a new white strip `p-strip--white`
 
 For more information see [our documentation of paper background ](/docs/base/paper), [white strip component](/docs/patterns/strip#white-strip) or [brochure layout guidelines](/docs/layouts/brochure).
 
+## Brand and accent colours
+
+In Vanilla 4.0 we clean up some of the colours used in the design system and introduce a new accent colour. The brand colour in `$color-brand` variable is updated to the Ubuntu orange value `#E95420` (from previous "brandless" `#333`). We also update the `$color-accent` variable to a new teal colour value `#0F95A1`.
+
+### How to update
+
+This change is automatic and doesn’t require any migration unless you have overridden the `$color-brand` or `$color-accent` values yourself. You should remove any overrides and use the new values if possible. If you are using these variables anywhere make sure that relevant styles still work with the new values.
+
+If you are using the `$color-brand` or `$color-accent` variable in any custom styles or components, make sure to verify they work as expected and review them with visual designer to make sure the new colours are used correctly.
+
 ## New components
 
 Before releasing Vanilla 4.0 we started adding new components to help building brochure sites in a new style. While these are not technically new to 4.0, it’s worth taking the migration opportunity and learning more about them, and start using them where feasible.
