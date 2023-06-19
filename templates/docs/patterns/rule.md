@@ -24,6 +24,8 @@ View example of a default horizontal rule
 
 You can add a highlight to a rule to make it stand out more. This is useful for drawing attention to a section of content.
 
+Highlighted rule can also be accented by adding `is-accented` modifier class.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/highlight" class="js-example">
 View example of a highlighted rule
 </a></div>
