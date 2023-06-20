@@ -14,13 +14,13 @@ It "anchors" elements that are far apart, and at risk of appearing floating in s
 
 It indicates the direction in which we want the viewer to read the content.
 
-### Default
+## Default
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">
 View example of a default horizontal rule
 </a></div>
 
-### Highlighted
+## Highlighted
 
 You can add a highlight to a rule to make it stand out more. This is useful for drawing attention to a section of content.
 
