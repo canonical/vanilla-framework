@@ -7,10 +7,14 @@
   }
 
   .p-rule--highlight {
-    @include vf-highlight-bar($color-x-dark);
-  }
+    @include vf-highlight-bar($colors--light-theme--text-default);
 
-  .p-rule--highlight.is-accent {
-    @include vf-highlight-bar($color-accent);
+    &.on-dark {
+      @include vf-highlight-bar($colors--dark-theme--text-default);
+    }
+
+    &.is-accent {
+      @include vf-highlight-bar($color-accent);
+    }
   }
 }
