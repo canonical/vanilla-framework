@@ -30,6 +30,14 @@ Highlighted rule can also be accented by adding `is-accent` modifier class.
 View example of a highlighted rule
 </a></div>
 
+## Dark theme
+
+To use rule component on dark background, add `on-dark` modifier class.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/highlight-dark" class="js-example">
+View example of a highlighted rule on dark background
+</a></div>
+
 ## Import
 
 To add a rule into your project, copy the snippet below and include it in your main Sass file.
