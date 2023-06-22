@@ -153,7 +153,9 @@ For more information see [the section and block component documentation](/docs/p
 
 New rule component provides a consistent way of adding horizontal lines that are a common element of the new style.
 
-Use the new component in places where previously hr with u-no-margin--bottom was used.
+Use the new component in places where previously an `hr` with `u-no-margin--bottom` class name was used.
+
+To use rule component on dark backgrounds use the `on-dark` modifier class.
 
 For more information see [the rule component documentation](/docs/patterns/rule) or [brochure layout guidelines](/docs/layouts/brochure).
 
