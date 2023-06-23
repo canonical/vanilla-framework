@@ -2,8 +2,17 @@
 
 @mixin vf-p-rule {
   .p-rule,
+  .p-rule--muted,
   .p-rule--highlight {
     @extend %u-no-margin--bottom--hr;
+  }
+
+  .p-rule--muted {
+    background-color: $colors--light-theme--border-low-contrast;
+
+    &.on-dark {
+      background-color: $colors--dark-theme--border-low-contrast;
+    }
   }
 
   .p-rule--highlight {
