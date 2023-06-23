@@ -22,6 +22,14 @@ The `.p-link--soft` class should be used on hyperlinks where many links are grou
 View example of the soft link pattern
 </a></div>
 
+## Dark
+
+The `.on-dark` class should be added on links that are placed on a dark background.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/links/links-dark/" class="js-example">
+View example of the dark link pattern
+</a></div>
+
 ## Inverted
 
 The `.p-link--inverted` class should be used where links are placed on a dark background.
