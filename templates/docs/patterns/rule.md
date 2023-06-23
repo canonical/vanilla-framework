@@ -20,9 +20,15 @@ It indicates the direction in which we want the viewer to read the content.
 View example of a default horizontal rule
 </a></div>
 
+## Muted
+
+You can add a muted rule to make it less prominent by using the `p-rule--muted` class name. This is useful for separating smaller blocks of content without drawing too much attention to the rule itself.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/muted" class="js-example">
+
 ## Highlighted
 
-You can add a highlight to a rule to make it stand out more. This is useful for drawing attention to a section of content.
+You can add a highlight to a rule to make it stand out more by using `p-rule--highlight` class name. This is useful for drawing attention to a section of content.
 
 Highlighted rule can also be accented by adding `is-accent` modifier class.
 

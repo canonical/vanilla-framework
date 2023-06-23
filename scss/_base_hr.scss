@@ -35,10 +35,6 @@
       @extend %u-no-margin--bottom--hr;
     }
 
-    &.is-muted {
-      background-color: $colors--light-theme--border-low-contrast;
-    }
-
     &.is-fixed-width {
       @extend %fixed-width-hr;
     }
@@ -50,7 +46,7 @@
       @include vf-hr-dark-theme;
     }
 
-    hr.is-light,
+    hr.is-light, // deprecated, use on-light instead
     hr.on-light {
       @include vf-hr-light-theme;
     }
@@ -59,7 +55,7 @@
       @include vf-hr-light-theme;
     }
 
-    hr.is-dark,
+    hr.is-dark, // deprecated, use on-dark instead
     hr.on-dark {
       @include vf-hr-dark-theme;
     }
@@ -69,15 +65,20 @@
 
 @mixin vf-hr-theme(
   // color of the horizontal rule line
-  $color-hr-line
+  $color-hr-line-default,
+  $color-hr-line-muted
 ) {
-  background: $color-hr-line;
+  background: $color-hr-line-default;
+
+  &.is-muted {
+    background-color: $color-hr-line-muted;
+  }
 }
 
 @mixin vf-hr-light-theme {
-  @include vf-hr-theme($colors--light-theme--border-default);
+  @include vf-hr-theme($color-hr-line-default: $colors--light-theme--border-default, $color-hr-line-muted: $colors--light-theme--border-low-contrast);
 }
 
 @mixin vf-hr-dark-theme {
-  @include vf-hr-theme($colors--dark-theme--border-default);
+  @include vf-hr-theme($color-hr-line-default: $colors--dark-theme--border-default, $color-hr-line-muted: $colors--dark-theme--border-low-contrast);
 }
