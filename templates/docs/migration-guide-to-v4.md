@@ -110,6 +110,16 @@ Vanilla 4.0 changes the default text colour to black `#000` (from previous `#111
 
 If you have used the previous text colour (either by its value `#111` or by variable name `$color-dark`) in any custom styles or components, make sure to update them to use the new colour.
 
+## Updated dark theme
+
+In Vanilla 4.0 we have updated some of the dark theme colours to be more accessible. This change is automatic and doesn’t require any migration.
+
+If you are using the dark strip (`.p-strip--dark`) make sure to test them to see if they still work well with the new colours.
+
+### Links on dark background
+
+In Vanilla 4.0 we introduced a new link style for links on dark background. Instead of using the default link colour or existing inverted link, new class `on-dark` should be added to text links that are placed on dark background. The inverted link `p-link--inverted` should be used only for links on backgrounds of unknown dark colour or on top of images.
+
 ## Paper background
 
 Vanilla 4.0 introduces a new page background used on the brochure sites. It can be applied by adding the `is-paper` class to the body element.

@@ -24,7 +24,7 @@ View example of the soft link pattern
 
 ## Dark
 
-The `.on-dark` class should be added on links that are placed on a dark background.
+The `.on-dark` class should be added on links that are placed on a solid dark background (`#2d2d2d` or darker).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/links/links-dark/" class="js-example">
 View example of the dark link pattern
@@ -32,7 +32,7 @@ View example of the dark link pattern
 
 ## Inverted
 
-The `.p-link--inverted` class should be used where links are placed on a dark background.
+When links are surrounded by regular, non-clickable text on backgrounds dark lighter than #2d2d2d, where it is impossible to obtain a blue colour that simultaneously has 3:1 contrast with surrounding white text, and at the same time, 4.5:1 contrast with the background (as per [WCAG rule 1.4.11](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)), for example on top of gradients or photographs, use the `.p-link--inverted` class.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/links/links-inverted/" class="js-example">
 View example of the inverted link pattern
