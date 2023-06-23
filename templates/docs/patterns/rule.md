@@ -25,6 +25,8 @@ View example of a default horizontal rule
 You can add a muted rule to make it less prominent by using the `p-rule--muted` class name. This is useful for separating smaller blocks of content without drawing too much attention to the rule itself.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/muted" class="js-example">
+View example of a muted horizontal rule
+</a></div>
 
 ## Highlighted
 
@@ -40,7 +42,7 @@ View example of a highlighted rule
 
 To use rule component on dark background, add `on-dark` modifier class.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rule/highlight-dark" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/dark" class="js-example">
 View example of a highlighted rule on dark background
 </a></div>
 
