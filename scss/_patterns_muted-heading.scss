@@ -2,5 +2,11 @@
 @mixin vf-p-muted-heading {
   .p-muted-heading {
     @extend %small-caps-text;
+    
+    margin-bottom: #{map-get($sp-after, p) - .5rem - map-get($nudges, p)};
+    
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--default-text;
+    }
   }
 }
