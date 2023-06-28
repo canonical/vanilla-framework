@@ -1359,6 +1359,18 @@
   }
 }
 
+@mixin vf-p-icon-error-grey {
+  .p-icon--error-grey {
+    @extend %icon;
+    @include vf-icon-error-grey($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-error-grey($color-x-light);
+    }
+  }
+}
+
 @mixin vf-p-icon-switcher-dashboard {
   .p-icon--switcher-dashboard {
     @extend %icon;
