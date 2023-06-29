@@ -235,7 +235,7 @@ Previously this style was implemented as `.p-text--x-small-capitalised` class na
 
 ## Text figures
 
-Text figures are numerals designed to echo the varying height and alignment to the baseline of lowercase text.
+Text figures are numerals designed to echo the varying height and alignment to the baseline of lower-case text.
 
 To apply the text figures styling, wrap the number in a span with the class `u-text-figures`.
 
@@ -244,7 +244,7 @@ To apply the text figures styling, wrap the number in a span with the class `u-t
     <div class="p-notification--positive">
       <div class="p-notification__content">
         <h5 class="p-notification__title">When to use:</h5>
-        <p class="p-notification__message">Text figures work best when placed within small caps where we've set them as the default and are generally recommended within blocks of lowercase text too, although we haven't set that as a default.</p>
+        <p class="p-notification__message">Text figures work best when placed within small caps where we've set them as the default and are generally recommended within blocks of lower-case text too, although we haven't set that as a default.</p>
       </div>
     </div>
   </div>
