@@ -151,13 +151,30 @@ If you are using the `$color-brand` or `$color-accent` variable in any custom st
 
 Before releasing Vanilla 4.0 we started adding new components to help building brochure sites in a new style. While these are not technically new to 4.0, it’s worth taking the migration opportunity and learning more about them, and start using them where feasible.
 
-### Section and block
+### Container
 
-Section and block components are containers that provide spacing between sections and subsections of content on brochure site pages.
+Container component is a wrapper that provides a consistent way of adding the bottom padding to the sections and subsections of content on the page.
 
-In many cases new section components can replace existing strips (especially the ones that needed to have u-no-padding--top applied). Block component is used within a section.
+In most cases new container components `.p-container` can replace existing strips (especially the ones that needed to have `u-no-padding--top` applied).
 
-For more information see [the section and block component documentation](/docs/patterns/section) or [brochure layout guidelines](/docs/layouts/brochure).
+It also has `.p-container--shallow` variant, usually used for subsections within a single container or strip, and `.p-container--deep` variant, used for highlighting pieces of content.
+
+#### Deprecated section and block
+
+<span class="p-status-label--negative">Deprecated</span>
+
+Section and block components were initially added before Vanilla 4.0 to serve similar purpose, but have been renamed to more flexible container component, as the semantic meaning of sections and blocks was too vague and often in conflict with the design.
+
+<ul class="p-list--divided u-text-max-width">
+  <li class="p-list__item has-bullet">
+    If you are using <code>p-section</code> component, replace it with <code>p-container</code>.
+  </li>
+  <li class="p-list__item has-bullet">
+    If you are using <code>p-block</code> component, replace it with <code>p-container--shallow</code>.
+  </li>
+</ul>
+
+For more information see [the container component documentation](/docs/patterns/container) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ### Rule
 

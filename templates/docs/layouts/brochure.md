@@ -26,7 +26,7 @@ context:
   </div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row--25-75">
     <div class="col">
       <p class="u-no-margin--bottom">
@@ -41,16 +41,16 @@ context:
   </div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row">
     <hr class="p-rule">
   </div>
   <div class="row--25-75">
     <div class="col">
-      <div class="p-block">
+      <div class="p-container--shallow">
         <h2>Layouts</h2>
       </div>
-      <div class="p-block">
+      <div class="p-container--shallow">
         <p>
           Layouts are controlled by a responsive grid that has 4, 6 or 12 columns depending on the browser window width.
           Having 12 columns is necessary in order to create versatile layouts, however, it provides far too many choices - few of which work well in a sequence of sections.
@@ -73,7 +73,7 @@ context:
   </div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row">
     <hr class="p-rule">
   </div>
@@ -102,7 +102,7 @@ context:
   </div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row">
     <hr class="p-rule">
   </div>
@@ -120,7 +120,7 @@ context:
   </div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row">
     <hr class="p-rule">
   </div>
@@ -156,7 +156,7 @@ it is very compact - as the headings do not push the body text down.</li>
   <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/50-50-split-structure" class="js-example">View an example of 50/50 split</a></div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row--25-75">
     <div class="col">
       <hr class="p-rule">
@@ -179,7 +179,7 @@ it is very compact - as the headings do not push the body text down.</li>
   <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/25-25-50-split-structure" class="js-example">View an example of 25/25/50 split</a></div>
 </section>
 
-<section class="p-section">
+<section class="p-container">
   <div class="row--25-75">
     <div class="col">
       <hr class="p-rule">
