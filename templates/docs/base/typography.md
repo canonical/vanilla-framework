@@ -32,7 +32,7 @@ We use the [Ubuntu typeface](https://design.ubuntu.com/font/) exclusively. It wa
   <tr>
     <td><span class="p-text--small-caps">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></td>
     <td><span class="p-text--small-caps">abcdefgijklmnopqrstuvwxyz</span></td>
-    <td>available soon</td>
+    <td><span class="p-text--small-caps">1234567890</span></td>
   </tr>
 </tbody>
 </table>
@@ -233,11 +233,33 @@ View example of the small caps text
 
 Previously this style was implemented as `.p-text--x-small-capitalised` class name. This name is now deprecated and will be removed in next major version of Vanilla, please use `.p-text--small-caps` instead.
 
-## Old-style numerals
+## Text figures
 
-Old-style numerals are a font feature that changes the appearance of numbers in text to match the height of lowercase letters. The small-caps text uses old-style numerals by default. To apply old-style numerals to other text, add the class `u-oldstyle-nums`.
+Text figures are numerals designed to echo the varying height and alignment to the baseline of lowercase text.
 
-<div class="embedded-example"><a href="/docs/examples/utilities/oldstyle-nums/" class="js-example">
+To apply the text figures styling, wrap the number in a span with the class `u-text-figures`.
+
+<div class="row--50-50">
+  <div class="col">
+    <div class="p-notification--positive">
+      <div class="p-notification__content">
+        <h5 class="p-notification__title">When to use:</h5>
+        <p class="p-notification__message">Text figures work best when placed within small caps where we've set them as the default and are generally recommended within blocks of lowercase text too, although we haven't set that as a default.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="p-notification--negative">
+      <div class="p-notification__content">
+        <h5 class="p-notification__title">When not to use:</h5>
+        <p class="p-notification__message">Text figures should never be used next to uppercase text. Care should be taken in tables and other scenarios where there is a lot of numeric data.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="embedded-example"><a href="/docs/examples/utilities/text-figures/" class="js-example">
 View example of the old-style numerals
 </a></div>
 
