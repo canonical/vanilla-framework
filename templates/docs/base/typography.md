@@ -233,6 +233,14 @@ View example of the small caps text
 
 Previously this style was implemented as `.p-text--x-small-capitalised` class name. This name is now deprecated and will be removed in next major version of Vanilla, please use `.p-text--small-caps` instead.
 
+## Old-style numerals
+
+Old-style numerals are a font feature that changes the appearance of numbers in text to match the height of lowercase letters. The small-caps text uses old-style numerals by default. To apply old-style numerals to other text, add the class `u-oldstyle-nums`.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/oldstyle-nums/" class="js-example">
+View example of the old-style numerals
+</a></div>
+
 ## Baseline alignment: small, extra small and paragraph text
 
 Because of the difference in line heights, small, extra small and paragraph text do not share the same baseline.
