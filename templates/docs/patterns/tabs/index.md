@@ -35,20 +35,16 @@ When you need to group a number of related blocks of content within an area on t
 View example of the tabs content pattern
 </a></div>
 
-
 ## Theming
 
 Tabs use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
-- Change the default: go to `_settings_themes.scss` and set `$theme-default-p-tabs` to `dark`
-- Override the default by adding a state to `p-tabs`: `on-dark` when the default navigation is light, or `on-light` when the default has been changed to dark:
+To change the default, go to `_settings_themes.scss` and set `$theme-default-p-tabs` to `dark`.
+To override the default, add a state to `p-tabs`: `on-dark` when the default navigation is light, or `on-light` when the default has been changed to dark:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tabs/content-dark" class="js-example">
 View example of the dark tabs content pattern
 </a></div>
-
-
-
 
 ## Import
 
