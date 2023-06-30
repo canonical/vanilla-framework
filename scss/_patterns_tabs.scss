@@ -1,9 +1,6 @@
 @import 'settings';
 
 @mixin vf-p-tabs {
-  // for _patterns_tabs.scss
-  $color-tabs-active-bar: $colors--light-theme--text-default !default;
-
   .p-tabs {
     border-radius: 0;
     overflow: hidden;
@@ -44,7 +41,6 @@
 
       align-items: center;
       border: none;
-      color: $colors--light-theme--text-default;
       display: flex;
       gap: $sph--small;
       height: 100%;
@@ -55,7 +51,6 @@
 
       &::before {
         @extend %vf-pseudo-border;
-        @include vf-transition(#{background-color, border-color}, snap, in);
 
         bottom: 0;
         z-index: 1;
@@ -71,20 +66,79 @@
         }
       }
 
+      &:active,
+      &[aria-selected='true'] {
+        // Hide the highlight when focussing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
+          content: none;
+        }
+      }
+    }
+  }
+  
+  // Theming
+  @if ($theme-default-p-tabs == 'dark') {
+    .p-tabs {
+      @include vf-p-tabs-dark-theme;
+    }
+
+    .p-tabs.is-light, // deprecated, use on-light instead
+    .p-tabs.on-light {
+      @include vf-p-tabs-light-theme;
+    }
+  } @else {
+    .p-tabs {
+      @include vf-p-tabs-light-theme;
+    }
+
+    .p-tabs.is-dark, // deprecated, use on-dark instead
+    .p-tabs.on-dark {
+      @include vf-p-tabs-dark-theme;
+    }
+  }
+  // stylelint-enable selector-max-type
+}
+
+
+@mixin vf-p-tabs-theme($colors--text-default, $colors--border-default) {
+  color: $colors--text-default;
+.p-tabs {
+    &__list::after {
+      background-color: $colors--border-default;
+    }
+
+    &__link {
+      @extend %vf-button-base;
+      @include vf-button-pattern(
+        $button-background-color: $color-transparent,
+        $button-hover-background-color: $color-transparent,
+        $button-active-background-color: $color-transparent,
+        $button-border-color: $color-transparent,
+        $button-hover-border-color: $color-transparent,
+        $button-active-border-color: $color-transparent,
+        $button-disabled-border-color: $color-transparent
+      );
+      @include vf-highlight-bar(transparent, bottom, false);
+
+      color: $colors--text-default;
+
       // Display the highlight when focussing in modern browsers that support
       // focus-visible.
       &:focus:not(:focus-visible) {
-        @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+        @include vf-highlight-bar($colors--text-default, bottom, false);
       }
 
       &:active,
+      &:hover,
       &[aria-selected='true'] {
-        @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+        @include vf-highlight-bar($colors--text-default, bottom, false);
 
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
         &:focus:not(:focus-visible) {
-          @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
+          @include vf-highlight-bar($colors--text-default, bottom, false);
         }
 
         // Hide the highlight when focussing (in combination with the parent
@@ -96,4 +150,12 @@
       }
     }
   }
+}  
+
+@mixin vf-p-tabs-light-theme {
+  @include vf-p-tabs-theme($colors--text-default: $colors--light-theme--text-default, $colors--border-default: $colors--light-theme--border-default);
+}
+
+@mixin vf-p-tabs-dark-theme {
+  @include vf-p-tabs-theme($colors--text-default: $colors--dark-theme--text-default, $colors--border-default: $colors--dark-theme--border-default);
 }
