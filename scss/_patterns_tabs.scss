@@ -98,7 +98,7 @@
   }
 }
 
-@mixin vf-p-tabs-theme($colors--text-default, $colors--border-default) {
+@mixin vf-p-tabs-theme($colors--text-default, $colors--border-default, $color-highlight-bar-hover) {
   color: $colors--text-default;
   .p-tabs {
     &__list::after {
@@ -125,8 +125,24 @@
         @include vf-highlight-bar($colors--text-default, bottom, false);
       }
 
+      &:hover {
+        @include vf-highlight-bar($color-highlight-bar-hover, bottom, false);
+
+        // Display the highlight when focussing (in combination with the parent
+        // states) in modern browsers that support focus-visible.
+        &:focus:not(:focus-visible) {
+          @include vf-highlight-bar($color-highlight-bar-hover, bottom, false);
+        }
+
+        // Hide the highlight when focussing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
+          content: none;
+        }
+      }
+
       &:active,
-      &:hover,
       &[aria-selected='true'] {
         @include vf-highlight-bar($colors--text-default, bottom, false);
 
@@ -148,9 +164,15 @@
 }
 
 @mixin vf-p-tabs-light-theme {
-  @include vf-p-tabs-theme($colors--text-default: $colors--light-theme--text-default, $colors--border-default: $colors--light-theme--border-default);
+  @include vf-p-tabs-theme($colors--text-default: $colors--light-theme--text-default, 
+  $colors--border-default: $colors--light-theme--border-default,
+  $color-highlight-bar-hover: $colors--light-theme--border-default
+  );
 }
 
 @mixin vf-p-tabs-dark-theme {
-  @include vf-p-tabs-theme($colors--text-default: $colors--dark-theme--text-default, $colors--border-default: $colors--dark-theme--border-default);
+  @include vf-p-tabs-theme($colors--text-default: $colors--dark-theme--text-default, 
+  $colors--border-default: $colors--dark-theme--border-default,
+  $color-highlight-bar-hover: $colors--dark-theme--border-default
+  );
 }
