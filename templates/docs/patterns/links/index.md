@@ -24,7 +24,7 @@ View example of the soft link pattern
 
 ## Dark
 
-The `.on-dark` class should be added on links that are placed on a solid dark background (`#2d2d2d` or darker).
+The `.is-dark` class should be added on links that are placed on a solid dark background (`#2d2d2d` or darker).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/links/links-dark/" class="js-example">
 View example of the dark link pattern
