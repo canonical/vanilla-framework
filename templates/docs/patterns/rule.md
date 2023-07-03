@@ -40,7 +40,7 @@ View example of a highlighted rule
 
 ## Dark theme
 
-To use rule component on dark background, add `on-dark` modifier class.
+To use rule component on dark background, add `is-dark` modifier class.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/dark" class="js-example">
 View example of a highlighted rule on dark background
