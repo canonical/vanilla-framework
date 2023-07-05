@@ -8,7 +8,17 @@
     }
   }
 
-  .p-block {
+  .p-section--deep {
+    // same as %section-padding--default
+    padding-bottom: $spv--strip-deep * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-deep;
+    }
+  }
+
+  .p-block, // deprecated, use .p-section--shallow
+  .p-section--shallow {
     // same as %section-padding--shallow
     padding-bottom: $spv--x-large;
   }

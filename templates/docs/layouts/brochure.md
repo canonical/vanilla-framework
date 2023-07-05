@@ -47,10 +47,10 @@ context:
   </div>
   <div class="row--25-75">
     <div class="col">
-      <div class="p-block">
+      <div class="p-section--shallow">
         <h2>Layouts</h2>
       </div>
-      <div class="p-block">
+      <div class="p-section--shallow">
         <p>
           Layouts are controlled by a responsive grid that has 4, 6 or 12 columns depending on the browser window width.
           Having 12 columns is necessary in order to create versatile layouts, however, it provides far too many choices - few of which work well in a sequence of sections.
