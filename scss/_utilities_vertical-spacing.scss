@@ -1,4 +1,8 @@
 @mixin vf-u-vertical-spacing($start: -3, $end: 3) {
+  // FIXME
+  // this utility works only on elements that don't have borders or backgrounds
+  // by adding an ::after pseudo-element it extends the inside of the element
+  // rather than modyfing the space after it
   %u-vertical-spacer {
     content: '';
     display: block;

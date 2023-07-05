@@ -151,13 +151,13 @@ If you are using the `$color-brand` or `$color-accent` variable in any custom st
 
 Before releasing Vanilla 4.0 we started adding new components to help building brochure sites in a new style. While these are not technically new to 4.0, it’s worth taking the migration opportunity and learning more about them, and start using them where feasible.
 
-### Section and block
+### Section
 
-Section and block components are containers that provide spacing between sections and subsections of content on brochure site pages.
+Section components are containers that provide spacing between sections and subsections of content on brochure site pages.
 
-In many cases new section components can replace existing strips (especially the ones that needed to have u-no-padding--top applied). Block component is used within a section.
+In many cases new section components can replace existing strips (especially the ones that needed to have u-no-padding--top applied). Shallow and deep sections allow to adjust spacing as needed.
 
-For more information see [the section and block component documentation](/docs/patterns/section) or [brochure layout guidelines](/docs/layouts/brochure).
+For more information see [the section component documentation](/docs/patterns/section) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ### Rule
 
