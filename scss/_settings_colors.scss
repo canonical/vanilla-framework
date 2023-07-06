@@ -34,6 +34,9 @@ $color-link: #06c !default;
 $color-link-visited: #7d42b8 !default;
 $color-focus: #2e96ff !default;
 
+$color-link-dark: #69c !default;
+$color-link-visited-dark: #a679d2 !default;
+
 // Focus modifications to meet AA 3:1 contrast ratio against
 // button background for positive/negative buttons
 $color-focus-positive: #003008 !default;
@@ -95,7 +98,7 @@ $states: (
 // --border-low-contrast  - low contrast version of border color, to be used when border needs more visibility (separators)
 
 // Light theme
-$colors--light-theme--text-default: #111 !default;
+$colors--light-theme--text-default: #000 !default;
 $colors--light-theme--text-muted: rgba($color-x-dark, $muted-text-opacity-amount) !default;
 $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-amount) !default;
 
@@ -106,7 +109,7 @@ $colors--light-theme--background-active: adjust-color($color-x-dark, $lightness:
 $colors--light-theme--background-hover: adjust-color($color-x-dark, $lightness: 100% * (1 - $hover-background-opacity-amount)) !default;
 $colors--light-theme--background-overlay: transparentize($color-dark, 0.15) !default;
 
-$colors--light-theme--border-default: rgba($color-x-dark, 0.15) !default;
+$colors--light-theme--border-default: rgba($color-x-dark, 0.2) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
@@ -152,15 +155,15 @@ $colors--dark-theme--text-hover: hsl(0, 0%, 76%) !default; // minimum contrast o
 $colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, $muted-text-opacity-amount) !default;
 $colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $inactive-text-opacity-amount) !default;
 
-$colors--dark-theme--background-default: hsl(0, 0%, 15%) !default;
-$colors--dark-theme--background-alt: hsl(0, 0%, 20%) !default;
+$colors--dark-theme--background-default: #262626 !default;
+$colors--dark-theme--background-alt: #2d2d2d !default;
 $colors--dark-theme--background-active: rgba($colors--dark-theme--text-default, $active-background-opacity-amount) !default;
 $colors--dark-theme--background-hover: rgba($colors--dark-theme--text-default, $hover-background-opacity-amount) !default;
 $colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !default;
 
-$colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.2) !default;
-$colors--dark-theme--border-high-contrast: hsl(0deg 0% 60%) !default;
-$colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.1) !default;
+$colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.3) !default;
+$colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.5) !default;
+$colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.05) !default;
 
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
@@ -198,9 +201,14 @@ $colors-dark-theme--tinted-borders: (
   information: hsl(210deg 80% 65%),
 );
 
+// Paper theme (work in progress)
+$colors--paper-theme--background-inputs: rgba($color-x-dark, $input-background-opacity-amount) !default;
+$colors--paper-theme--background-active: rgba($color-x-dark, $active-background-opacity-amount) !default;
+$colors--paper-theme--background-hover: rgba($color-x-dark, $hover-background-opacity-amount) !default;
+
 // Branding colors
-$color-brand: #333 !default;
+$color-ubuntu: #e95420; // Ubuntu orange, should not be overridden
+$color-brand: $color-ubuntu !default;
 $color-brand-dark: $color-brand !default;
-$color-brand-background: $colors--dark-theme--background-default;
-$color-accent: #e95420 !default;
-$color-accent-background: $color-brand !default;
+$color-accent: #0f95a1 !default;
+$color-accent-background: $colors--dark-theme--background-default !default; // changed from "brand" colour to dark theme background

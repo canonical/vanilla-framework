@@ -1,0 +1,23 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Paper background / Search box{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+{% set is_paper = True %}
+
+{% block content %}
+<form class="p-search-box on-paper">
+    <label class="u-off-screen" for="search">Search</label>
+    <input type="search" id="search" class="p-search-box__input" name="search" placeholder="Search" required autocomplete="on">
+    <button type="reset" class="p-search-box__reset"><i class="p-icon--close">Close</i></button>
+    <button type="submit" class="p-search-box__button"><i class="p-icon--search">Search</i></button>
+</form>
+
+<div class="p-card">
+    <form class="p-search-box on-paper">
+        <label class="u-off-screen" for="search">Search</label>
+        <input type="search" id="search" class="p-search-box__input" name="search" placeholder="Search" required autocomplete="on">
+        <button type="reset" class="p-search-box__reset"><i class="p-icon--close">Close</i></button>
+        <button type="submit" class="p-search-box__button"><i class="p-icon--search">Search</i></button>
+    </form>
+</div>
+{% endblock %}

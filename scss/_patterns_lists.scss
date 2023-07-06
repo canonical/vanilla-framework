@@ -1,5 +1,6 @@
 @import 'settings';
 $list-status-icon-height: $default-icon-size;
+$list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
@@ -13,21 +14,19 @@ $list-status-icon-height: $default-icon-size;
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
+    padding-left: calc(map-get($line-heights, default-text) + $list-step-bullet-margin);
+    position: relative;
 
     &::before {
-      align-self: start;
-      background-color: $color-x-light;
-      border: 1px solid $color-x-dark;
-      border-radius: 100%;
-      content: counter(li);
+      content: counter(li) '.';
       counter-increment: li;
-      direction: rtl;
       display: block;
-      font-size: map-get($base-font-sizes, base);
-      font-weight: $font-weight-regular-text;
+      height: map-get($line-heights, default-text);
       left: 0;
+      margin-right: $list-step-bullet-margin;
       position: absolute;
-      text-align: center;
+      text-align: right;
+      width: map-get($line-heights, default-text);
     }
   }
 
@@ -78,7 +77,7 @@ $list-status-icon-height: $default-icon-size;
     }
 
     &::before {
-      color: $color-dark;
+      color: $colors--light-theme--text-default;
       content: counters(list-item, '.') '. ';
       display: inline-block;
       text-align: right;
@@ -87,7 +86,7 @@ $list-status-icon-height: $default-icon-size;
 
   %vf-list-item-bullet {
     &::before {
-      color: $color-dark;
+      color: $colors--light-theme--text-default;
       content: '•';
       display: inline-block;
       text-align: right;
@@ -199,7 +198,7 @@ $list-status-icon-height: $default-icon-size;
 
     &::before {
       @extend %vf-list-item-state-base;
-      @include vf-icon-success;
+      @include vf-icon-success-grey($color-mid-dark);
     }
   }
 
@@ -208,7 +207,7 @@ $list-status-icon-height: $default-icon-size;
 
     &::before {
       @extend %vf-list-item-state-base;
-      @include vf-icon-error;
+      @include vf-icon-error-grey($color-mid-dark);
     }
   }
 
@@ -334,74 +333,35 @@ $list-status-icon-height: $default-icon-size;
 
   .p-stepped-list__title {
     @extend %numbered-step-title;
-
-    padding-left: $bullet-width-mobile + $sph--large;
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      padding-left: $bullet-width + $sph--large;
-    }
-
-    &::before {
-      // Need to account for the 1px border:
-      line-height: calc($bullet-width-mobile - 2px);
-      margin-right: $sph--large;
-      width: $bullet-width-mobile;
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        // Need to account for the 1px border:
-        line-height: calc($bullet-width - 2px);
-        width: $bullet-width;
-      }
-    }
-    .p-strip--dark &::before {
-      background-color: $color-x-dark;
-      border: 1px solid $color-x-light;
-    }
   }
 
   .p-stepped-list__title + .p-stepped-list__content {
-    margin-left: $bullet-width-mobile + $sph--large;
+    margin-left: $bullet-width-mobile + $list-step-bullet-margin;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-left: $bullet-width + $sph--large;
+      margin-left: $bullet-width + $list-step-bullet-margin;
     }
   }
 
-  @for $i from 6 through 1 {
+  @for $i from 4 through 1 {
     // Bullet sizes for each heading level
-    $bullet-width: map-get($line-heights, default-text);
-    $bullet-width-mobile: map-get($line-heights, default-text);
-    // h6 line height is the same as the bullet width so no need to apply any margin:
-    $bullet-margin: 0;
-    $bullet-margin-mobile: 0;
-
-    @if $i < 5 {
-      // To align the bullet with the title we need to use half
-      // the height difference between the bullet and the title and then add the
-      // nudge to position it with the lower case text.
-      $bullet-margin: calc((map-get($line-heights, h#{$i}) - $bullet-width) / 2) + map-get($nudges, h#{$i});
-      $bullet-margin-mobile: calc((map-get($line-heights, h#{$i}-mobile) - $bullet-width-mobile) / 2) + map-get($nudges, h#{$i});
-    }
+    $bullet-width: map-get($line-heights, h#{$i});
+    $bullet-width-mobile: map-get($line-heights, h#{$i}-mobile);
 
     .p-heading--#{$i}.p-stepped-list__title,
     h#{$i}.p-stepped-list__title {
-      padding-left: $bullet-width-mobile + $sph--large;
+      padding-left: $bullet-width-mobile + $list-step-bullet-margin;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        padding-left: $bullet-width + $sph--large;
+        padding-left: $bullet-width + $list-step-bullet-margin;
       }
 
       &::before {
-        // Need to account for the 1px border:
-        line-height: calc($bullet-width-mobile - 2px);
-        margin-right: $sph--large;
-        margin-top: $bullet-margin-mobile;
+        height: $bullet-width-mobile;
         width: $bullet-width-mobile;
 
         @media (min-width: $breakpoint-heading-threshold) {
-          // Need to account for the 1px border:
-          line-height: calc($bullet-width - 2px);
-          margin-top: $bullet-margin;
+          height: $bullet-width;
           width: $bullet-width;
         }
       }
@@ -409,10 +369,10 @@ $list-status-icon-height: $default-icon-size;
 
     .p-heading--#{$i}.p-stepped-list__title + .p-stepped-list__content,
     h#{$i}.p-stepped-list__title + .p-stepped-list__content {
-      margin-left: $bullet-width-mobile + $sph--large;
+      margin-left: $bullet-width-mobile + $list-step-bullet-margin;
 
       @media (min-width: $breakpoint-heading-threshold) {
-        margin-left: $bullet-width + $sph--large;
+        margin-left: $bullet-width + $list-step-bullet-margin;
       }
     }
   }
@@ -439,7 +399,6 @@ $list-status-icon-height: $default-icon-size;
       }
 
       .p-stepped-list__title {
-        display: flex;
         grid-column-end: span 6;
         margin-left: 0;
       }

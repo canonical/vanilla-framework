@@ -60,7 +60,6 @@
 
       border-left-style: solid;
       border-left-width: 1px;
-      border-radius: 0 $border-radius $border-radius 0;
       margin-right: $bar-thickness;
     }
   }
@@ -99,23 +98,38 @@
       }
     }
   }
+
+  .is-paper .p-search-box {
+    .p-search-box__input {
+      @include vf-search-box-paper-theme;
+    }
+  }
 }
 
-@mixin vf-search-box-theme($color-search-box-background, $color-search-box-border, $color-search-box-text) {
+@mixin vf-search-box-theme(
+  $color-search-box-background,
+  $color-search-box-background-hover,
+  $color-search-box-background-active,
+  $color-search-box-border,
+  $color-search-box-text
+) {
   //XXX: This should inherit from input color theming. Once that becomes available, delete this.
   background-color: $color-search-box-background;
   border-color: $color-search-box-border;
   color: $color-search-box-text;
 
+  &:hover,
+  &:-webkit-autofill:hover {
+    background-color: $color-search-box-background-hover !important;
+  }
+
   &:active,
   &:focus,
-  &:hover,
   &:-internal-autofill-selected,
   &:-webkit-autofill,
-  &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
     // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-    background-color: $color-search-box-background !important;
+    background-color: $color-search-box-background-active !important;
     border-color: $color-search-box-border !important;
   }
 }
@@ -123,6 +137,8 @@
 @mixin vf-search-box-light-theme {
   @include vf-search-box-theme(
     $color-search-box-background: $colors--light-theme--background-inputs,
+    $color-search-box-background-hover: $colors--light-theme--background-hover,
+    $color-search-box-background-active: $colors--light-theme--background-active,
     $color-search-box-border: $colors--light-theme--border-high-contrast,
     $color-search-box-text: $colors--light-theme--text-default
   );
@@ -131,6 +147,8 @@
 @mixin vf-search-box-dark-theme {
   @include vf-search-box-theme(
     $color-search-box-background: lighten($colors--dark-theme--background-default, 10%),
+    $color-search-box-background-hover: $colors--dark-theme--background-hover,
+    $color-search-box-background-active: $colors--dark-theme--background-active,
     $color-search-box-border: $color-x-light,
     $color-search-box-text: $colors--dark-theme--text-default
   );
@@ -138,4 +156,18 @@
   &::placeholder {
     color: $colors--dark-theme--text-default;
   }
+}
+
+@mixin vf-search-box-paper-theme {
+  // XXX: currently these colours are transparent,
+  // so they work both on paper and white backgrounds.
+  // We may need later to add a specific override for
+  // a white background within paper themed pages.
+  @include vf-search-box-theme(
+    $color-search-box-background: $colors--paper-theme--background-inputs,
+    $color-search-box-background-hover: $colors--paper-theme--background-hover,
+    $color-search-box-background-active: $colors--paper-theme--background-active,
+    $color-search-box-border: $colors--light-theme--border-high-contrast,
+    $color-search-box-text: $colors--light-theme--text-default
+  );
 }

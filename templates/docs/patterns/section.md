@@ -1,20 +1,18 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Section and block | Components
+  title: Section | Components
 ---
 
-# Sections and blocks
+# Sections
 
 <hr>
 
-Use sections and blocks for different types of elements on the page depending on your markup. They are used for managing the bottom space after each element.
+Use section components to wrap around parts of content on the page. They are used for managing the bottom space after each element.
 
-## Sections
+## Regular sections
 
 Use a section component (`.p-section`) for displaying subsequent sections on the page on a same background. They should be used in place of strips for most of the standard page content.
-
-Sections should not be nested inside each other or inside the strips.
 
 <div class="row">
   <div class="col-6 col-medium-3">
@@ -29,7 +27,7 @@ Sections should not be nested inside each other or inside the strips.
     <div class="p-notification--negative">
       <p class="p-notification__content">
         <span class="p-notification__title">Don't:</span>
-        <span class="p-notification__message">If a section of a page has a different background, or needs to be emphasised using deeper spacing use the <a href="/docs/patterns/strip">strip</a> component instead.</span>
+        <span class="p-notification__message">If a section of a page has a different background, use the <a href="/docs/patterns/strip">strip</a> component instead.</span>
       </p>
     </div>
   </div>
@@ -39,12 +37,26 @@ Sections should not be nested inside each other or inside the strips.
 View example of the "section" pattern
 </a></div>
 
-## Blocks
+## Shallow sections
 
-Use a block component (`.p-block`) to group larger chunks of content inside a single section or strip.
+Use a shallow section component (`.p-section--shallow`) to group larger chunks of content inside a single section or strip or to add a shallow spacing to a heading.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/section/block" class="js-example">
-View example of the "block" pattern
+<div class="embedded-example"><a href="/docs/examples/patterns/section/shallow" class="js-example">
+View example of the shallow section
+</a></div>
+
+<span class="p-status-label--negative">Deprecated</span>
+
+The block component `.p-block` previously served the same purpose, but is now deprecated and should not be used any more. Use the shallow section component instead.
+
+## Deep sections
+
+In cases when a section needs a deep spacing below it (for example at the bottom of the page), use a deep section component (`.p-section--deep`).
+
+Please not that to emphasize the sections of the page with both top and bottom spacing, a strip component should be used instead.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/section/deep" class="js-example">
+View example of the shallow section
 </a></div>
 
 ## Import
@@ -57,7 +69,7 @@ To import just this component into your project, copy the snippet below and incl
 @import 'vanilla-framework';
 @include vf-base;
 
-@include vf-p-container;
+@include vf-p-section;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.

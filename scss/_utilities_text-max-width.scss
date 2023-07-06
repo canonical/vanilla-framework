@@ -1,0 +1,14 @@
+@import 'settings';
+
+// Force child text elements (such as list items) to use text max width
+@mixin vf-u-text-max-width {
+  // currently we only need this on list items, as paragraphs and headings have max width by default
+
+  // stylelint-disable selector-max-type -- Utility needs to target elements
+  ul.u-text-max-width,
+  ol.u-text-max-width,
+  .u-text-max-width ul,
+  .u-text-max-width ol {
+    max-width: $text-max-width !important;
+  }
+}

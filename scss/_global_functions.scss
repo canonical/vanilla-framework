@@ -34,9 +34,9 @@
 // Test value of bg $color and return light or dark text color accordingly
 @function vf-contrast-text-color($color) {
   @if (lightness($color) > 55) {
-    @return $color-dark; // Lighter background, return dark color
+    @return $colors--light-theme--text-default; // Lighter background, return dark color
   } @else {
-    @return $color-x-light; // Darker background, return light color
+    @return $colors--dark-theme--text-default; // Darker background, return light color
   }
 }
 
@@ -44,9 +44,9 @@
 // variable.
 @function vf-determine-text-color($background-color) {
   @if (lightness($background-color) > 50) {
-    @return $color-dark;
+    @return $colors--light-theme--text-default;
   } @else {
-    @return $color-x-light;
+    @return $colors--dark-theme--text-default;
   }
 }
 
