@@ -24,19 +24,26 @@
     @extend %vf-strip;
 
     background-color: transparent;
+  }
 
-    &--light {
-      @extend %vf-strip;
+  .p-strip--light {
+    @extend %vf-strip;
 
-      background-color: $color-light;
-    }
+    background-color: $color-light;
+  }
 
-    &--dark {
-      @extend %vf-strip;
+  .p-strip--dark {
+    @extend %vf-strip;
 
-      background-color: $color-dark;
-      color: $color-light;
-    }
+    background-color: $colors--dark-theme--background-default;
+    color: $colors--dark-theme--text-default;
+  }
+
+  .p-strip--white {
+    @extend %vf-strip;
+
+    background-color: $color-x-light;
+    color: $colors--light-theme--text-default;
   }
 }
 
@@ -57,7 +64,7 @@
     background-size: cover;
 
     &.is-light {
-      color: $color-dark;
+      color: $colors--light-theme--text-default;
     }
 
     &.is-dark {

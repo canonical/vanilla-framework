@@ -95,18 +95,19 @@
     align-self: flex-start;
     flex-shrink: 0;
     height: auto;
-    margin-bottom: $spv--small;
     margin-right: $matrix-img-gutter;
     margin-top: 0;
     width: $matrix-img-width;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-top: -#{map-get($nudges, h4)};
+      // place image in the middle of the heading text
+      margin-top: calc(map-get($nudges, h4) + (map-get($line-heights, h4) - $matrix-img-width) / 2);
     }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        margin-top: -#{map-get($nudges, h4-large)};
+        // place image in the middle of the heading text
+        margin-top: calc(map-get($nudges, h4-large) + (map-get($line-heights, h4) - $matrix-img-width) / 2);
       }
     }
   }

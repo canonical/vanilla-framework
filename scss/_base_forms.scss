@@ -25,7 +25,7 @@
     border: 0 solid transparent;
     border-bottom: $input-border-thickness solid $colors--light-theme--text-default;
     border-radius: 0;
-    color: $color-dark;
+    color: $colors--light-theme--text-default;
     font-family: unquote($font-base-family);
     font-size: 1rem;
     font-weight: $font-weight-regular-text;
@@ -65,6 +65,25 @@
     @each $state, $color in $states {
       &.has-#{$state} {
         border: $input-border-thickness solid $color;
+      }
+    }
+
+    // adjust input background color for paper theme
+
+    // XXX: currently these colours are transparent,
+    // so they work both on paper and white backgrounds.
+    // We may need later to add a specific override for
+    // a white background within paper themed pages.
+    .is-paper & {
+      background-color: $colors--paper-theme--background-inputs;
+
+      &:hover {
+        background-color: $colors--paper-theme--background-hover;
+      }
+
+      &:active,
+      &:focus {
+        background-color: $colors--paper-theme--background-active;
       }
     }
   }
@@ -179,7 +198,7 @@
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
-    color: $color-dark;
+    color: $colors--light-theme--text-default;
     min-height: map-get($line-heights, default-text);
     padding-right: calc($default-icon-size + 2 * $sph--small);
     text-indent: 0.01px;
@@ -221,7 +240,6 @@
   fieldset {
     @extend %vf-card;
     @extend %vf-is-bordered;
-    @extend %vf-has-round-corners;
 
     margin-left: 0;
     margin-right: 0;

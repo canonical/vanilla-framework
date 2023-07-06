@@ -2,11 +2,28 @@
 
 @mixin vf-p-rule {
   .p-rule,
+  .p-rule--muted,
   .p-rule--highlight {
     @extend %u-no-margin--bottom--hr;
   }
 
+  .p-rule--muted {
+    background-color: $colors--light-theme--border-low-contrast;
+
+    &.is-dark {
+      background-color: $colors--dark-theme--border-low-contrast;
+    }
+  }
+
   .p-rule--highlight {
-    @include vf-highlight-bar($color-dark);
+    @include vf-highlight-bar($colors--light-theme--text-default);
+
+    &.is-dark {
+      @include vf-highlight-bar($colors--dark-theme--text-default);
+    }
+
+    &.is-accent {
+      @include vf-highlight-bar($color-accent);
+    }
   }
 }

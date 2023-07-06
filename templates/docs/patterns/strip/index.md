@@ -16,6 +16,16 @@ View example of the strip light pattern
 View example of the strip dark pattern
 </a></div>
 
+## White strip
+
+<span class="p-status-label--positive">New</span>
+
+The purpose of the white strip is to display some highlighted content on white background when page background is non-white (for when using paper page background).
+
+<div class="embedded-example"><a href="/docs/examples/patterns/strips/white/" class="js-example">
+View example of the white strip
+</a></div>
+
 ## Accent strip
 
 The purpose of the strip accent pattern is to display content with a

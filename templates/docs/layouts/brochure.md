@@ -32,7 +32,7 @@ context:
       <p class="u-no-margin--bottom">
         A page is a sequence of sections sandwiched between a header and a footer. To create a successful page, we need to get 3 things right:
       <p>
-      <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
+      <ul class="p-list--divided u-text-max-width">
         <li class="p-list__item has-bullet">choose section layouts that present content effectively,</li>
         <li class="p-list__item has-bullet">prevent adjacent sections from competing for attention,</li>
         <li class="p-list__item has-bullet">ensure the choices above, which are made individually per section, resulting in a coherent, well-paced page.</li>
@@ -47,10 +47,10 @@ context:
   </div>
   <div class="row--25-75">
     <div class="col">
-      <div class="p-block">
+      <div class="p-section--shallow">
         <h2>Layouts</h2>
       </div>
-      <div class="p-block">
+      <div class="p-section--shallow">
         <p>
           Layouts are controlled by a responsive grid that has 4, 6 or 12 columns depending on the browser window width.
           Having 12 columns is necessary in order to create versatile layouts, however, it provides far too many choices - few of which work well in a sequence of sections.
@@ -83,7 +83,7 @@ context:
     </div>
     <div class="col">
       <p>To remedy the “off by one column” problem, we use a system inspired by an oct-tree: Widths are multiples of 25% of the available space. This simple rule decimates the available choices, which has the following beneficial effects on our layouts:</p>
-      <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
+      <ul class="p-list--divided u-text-max-width">
         <li class="p-list__item has-bullet">creates up to 4 invisible "fault lines" (at 0%, 25%, 50%, 75%, or at the start of the first, fourth, sixth and ninth column), to one of which all content, across all sections, aligns</li>
         <li class="p-list__item has-bullet">facilitates scanning/skimming, enabling the reader to quickly navigate by headings for example </li>
         <li class="p-list__item has-bullet">induces a strong sense of internal coherence, order and consistency</li>
@@ -112,7 +112,7 @@ context:
     </div>
     <div class="col">
       <p>Before we look at examples, let's highlight a couple of considerations used in conjunction with the 25% rule:</p>
-      <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
+      <ul class="p-list--divided u-text-max-width">
         <li class="p-list__item has-bullet">Place larger blocks on the right-hand side of smaller blocks.  For example, if a heading is longer than the accompanying text, it would work better directly above it, rather than to the left of the text.</li>
         <li class="p-list__item has-bullet">Do not allow the quest for consistency to lead to monotony. Be mindful of pacing, and aim to create a rhythm of contrasts (large vs small, white space vs dense copy, etc ). This helps keep the page interesting and engaging.</li>
       </ul>
@@ -133,7 +133,7 @@ context:
           The 50/50 split
       </h2>
       <p>The 50/50 split is a very versatile layout. It places a short scannable part of the content (usually a heading) on the left-hand side. The rest of the content goes into the right-hand side. A few of the benefits of this layout:</p>
-      <ul class="p-list--divided" style="max-width: 40rem">{# TODO: replace with max-width utility when implemented #}
+      <ul class="p-list--divided u-text-max-width">
         <li class="p-list__item has-bullet">provides enough width for large headings (e.g. an h2) and long paragraphs;</li>
         <li class="p-list__item has-bullet">makes it easy to scan by headings;</li>
 <li class="p-list__item has-bullet">
