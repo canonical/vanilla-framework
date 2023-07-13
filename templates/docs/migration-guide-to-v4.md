@@ -129,6 +129,14 @@ If you are using the `$color-brand` or `$color-accent` variable in any custom st
 
 If you are using the old Suru strips (`.p-strip--suru` or `.p-strup--suru-topped`) make sure to test them to see if they still work well with the new colours. If you were depending on them using the old dark grey, you can revert to that by chaning the value of `$color-suru-middle` variable to `#333`.
 
+## Removed rounded corners
+
+In Vanilla 4.0 we remove rounded corners from all components. This change is automatic and doesn’t require any migration.
+
+The `$border-radius` variable still exists, but it’s value is now `0` and it’s deprecated. It will be removed in the future.
+
+If you are using the rounded corners in any custom styles or components, make sure to remove them.
+
 ## New components
 
 Before releasing Vanilla 4.0 we started adding new components to help building brochure sites in a new style. While these are not technically new to 4.0, it’s worth taking the migration opportunity and learning more about them, and start using them where feasible.
