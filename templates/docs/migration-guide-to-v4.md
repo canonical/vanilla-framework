@@ -119,11 +119,15 @@ For more information see [our documentation of paper background ](/docs/base/pap
 
 In Vanilla 4.0 we clean up some of the colours used in the design system and introduce a new accent colour. The brand colour in `$color-brand` variable is updated to the Ubuntu orange value `#E95420` (from previous "brandless" `#333`). We also update the `$color-accent` variable to a new teal colour value `#0F95A1`.
 
+Default brand colour is also reflected in old Suru backgrounds, which are now using Ubuntu orange instead of the previous dark grey. Please note that old style of Suru is deprecated and should not be used in new designs.
+
 ### How to update
 
 This change is automatic and doesn’t require any migration unless you have overridden the `$color-brand` or `$color-accent` values yourself. You should remove any overrides and use the new values if possible. If you are using these variables anywhere make sure that relevant styles still work with the new values.
 
 If you are using the `$color-brand` or `$color-accent` variable in any custom styles or components, make sure to verify they work as expected and review them with visual designer to make sure the new colours are used correctly.
+
+If you are using the old Suru strips (`.p-strip--suru` or `.p-strup--suru-topped`) make sure to test them to see if they still work well with the new colours. If you were depending on them using the old dark grey, you can revert to that by chaning the value of `$color-suru-middle` variable to `#333`.
 
 ## New components
 
