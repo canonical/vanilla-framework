@@ -150,10 +150,10 @@ it is very compact - as the headings do not push the body text down.</li>
         loading="auto|lazy"
         ) | safe
       }}
-      <p><a href="/docs/examples/layouts/brochure-site/50-50-split">View the example 50/50 split layout in the browser</a></p>
+      <p><a href="/docs/examples/brochure/50-50-split">View the example 50/50 split layout in the browser</a></p>
     </div>
   </div>
-  <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/50-50-split-structure" class="js-example">View an example of 50/50 split</a></div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/50-50-split-structure" class="js-example">View an example of 50/50 split</a></div>
 </section>
 
 <section class="p-section">
@@ -173,10 +173,10 @@ it is very compact - as the headings do not push the body text down.</li>
         loading="auto|lazy"
         ) | safe
       }}
-      <p><a href="/docs/examples/layouts/brochure-site/25-25-50-split">View the example 25/25/50 split layout in the browser</a></p>
+      <p><a href="/docs/examples/brochure/25-25-50-split">View the example 25/25/50 split layout in the browser</a></p>
     </div>
   </div>
-  <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/25-25-50-split-structure" class="js-example">View an example of 25/25/50 split</a></div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/25-25-50-split-structure" class="js-example">View an example of 25/25/50 split</a></div>
 </section>
 
 <section class="p-section">
@@ -198,10 +198,10 @@ it is very compact - as the headings do not push the body text down.</li>
         loading="auto|lazy"
         ) | safe
       }}
-      <p><a href="/docs/examples/layouts/brochure-site/25-75-split">View the example 25/75 split layout in the browser</a></p>
+      <p><a href="/docs/examples/brochure/25-75-split">View the example 25/75 split layout in the browser</a></p>
     </div>
   </div>
-  <div class="embedded-example"><a href="/docs/examples/layouts/brochure-site/25-75-split-structure" class="js-example">View an example of 25/75 split</a></div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/25-75-split-structure" class="js-example">View an example of 25/75 split</a></div>
 </section>
 
 <div class="p-notification--caution">

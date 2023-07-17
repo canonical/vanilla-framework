@@ -20,4 +20,4 @@ Add the `is-paper` class name to the `body` element to use it on the page.
 </body>
 ```
 
-[See an example page with paper background](/docs/examples/layouts/brochure-site/index).
+[See an example page with paper background](/docs/examples/brochure/index).
