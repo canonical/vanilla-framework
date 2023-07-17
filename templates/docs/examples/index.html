@@ -52,6 +52,16 @@
         </nav>
       </div>
       <div class="col-3">
+        <h2>Brochure site</h2>
+        <nav aria-label="Documentation: brochure patterns">
+          <ul class="p-list">
+            {% for example in examples.brochure %}
+              <li class="p-list__item">
+                <a href="/docs/examples/{{ example.path }}" class="p-link">{{ example.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
         <h2>Layouts</h2>
         <nav aria-label="Documentation: layouts">
           <ul class="p-list">
