@@ -1,0 +1,28 @@
+@mixin vf-p-hero {
+  .p-hero {
+    @extend %vf-row;
+    @extend %section-padding--default;
+
+    // same as padding on %section-padding--default
+    row-gap: $spv--strip-regular * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      row-gap: $spv--strip-regular;
+    }
+
+    .p-hero__header,
+    .p-hero__footer,
+    .p-hero__content {
+      grid-column-end: 13;
+      grid-column-start: 4;
+    }
+
+    .p-hero__suru {
+      aspect-ratio: 5.1775700934579; // exact aspect ration of the image
+      background-image: url('#{$assets-path}7f34ade9-website_suru_25.jpg');
+      background-size: contain;
+      grid-column-end: 13;
+      grid-column-start: 1;
+    }
+  }
+}
