@@ -30,6 +30,9 @@
       display: none; // only show suru on large screens
       grid-column-end: 13;
       grid-column-start: 1;
+      // suru background needs to expand to the padding of the grid container
+      margin-left: calc(-1 * map-get($grid-margin-widths, default));
+      margin-right: calc(-1 * map-get($grid-margin-widths, default));
 
       @media (min-width: $breakpoint-large) {
         display: block;
