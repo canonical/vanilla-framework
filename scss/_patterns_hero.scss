@@ -1,5 +1,7 @@
 @mixin vf-p-hero {
-  .p-hero {
+  .p-hero,
+  .p-hero--25-75,
+  .p-hero--50-50 {
     @extend %vf-row;
     @extend %section-padding--default;
 
@@ -36,6 +38,36 @@
 
       @media (min-width: $breakpoint-large) {
         display: block;
+      }
+    }
+  }
+
+  .p-hero--25-75 {
+    .p-hero__header {
+      @media (min-width: $breakpoint-large) {
+        grid-column-end: 4;
+        grid-column-start: 1;
+        grid-row: span 2; // header on the left should span 2 rows to cover content and footer
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .p-hero--50-50 {
+    .p-hero__header {
+      @media (min-width: $breakpoint-large) {
+        grid-column-end: 7;
+        grid-column-start: 1;
+        grid-row: span 2; // header on the left should span 2 rows to cover content and footer
+        margin-bottom: 0;
+      }
+    }
+
+    .p-hero__footer,
+    .p-hero__content {
+      @media (min-width: $breakpoint-large) {
+        grid-column-end: 13;
+        grid-column-start: 7;
       }
     }
   }
