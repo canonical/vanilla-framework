@@ -3,26 +3,37 @@
     @extend %vf-row;
     @extend %section-padding--default;
 
-    // same as padding on %section-padding--default
-    row-gap: $spv--strip-regular * 0.5;
-
-    @media (min-width: $breakpoint-large) {
-      row-gap: $spv--strip-regular;
-    }
-
     .p-hero__header,
     .p-hero__footer,
     .p-hero__content {
-      grid-column-end: 13;
-      grid-column-start: 4;
+      // same as padding on %section-padding--default
+      margin-bottom: $spv--strip-regular * 0.5;
+
+      @media (min-width: $breakpoint-large) {
+        margin-bottom: $spv--strip-regular;
+      }
+
+      @media (min-width: $breakpoint-large) {
+        grid-column-end: 13;
+        grid-column-start: 4;
+      }
+    }
+
+    .p-hero__footer {
+      margin-bottom: 0;
     }
 
     .p-hero__suru {
       aspect-ratio: 5.1775700934579; // exact aspect ration of the image
       background-image: url('#{$assets-path}7f34ade9-website_suru_25.jpg');
       background-size: contain;
+      display: none; // only show suru on large screens
       grid-column-end: 13;
       grid-column-start: 1;
+
+      @media (min-width: $breakpoint-large) {
+        display: block;
+      }
     }
   }
 }
