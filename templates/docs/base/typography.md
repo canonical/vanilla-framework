@@ -159,6 +159,14 @@ better suits your document style and tree.
 View example of the mixed headings pattern
 </a></div>
 
+## Display headings
+
+Display headings are reserved for the titles of important bespoke pages. They should be used sparingly by adding the `.p-heading--display` class to a `h1` heading element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/headings/display/" class="js-example">
+View example of the display headings pattern
+</a></div>
+
 ## Accented headings
 
 The accent colour can be sparingly used to highlight headings to help them stand out from the rest of the page.
