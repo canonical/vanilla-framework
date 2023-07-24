@@ -40,7 +40,7 @@ View example of the tabs content pattern
 Tabs use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
 To change the default, go to `_settings_themes.scss` and set `$theme-default-p-tabs` to `dark`.
-To override the default, add a state to `p-tabs`: `on-dark` when the default navigation is light, or `on-light` when the default has been changed to dark:
+To override the default, add a state to `p-tabs`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tabs/content-dark" class="js-example">
 View example of the dark tabs content pattern
