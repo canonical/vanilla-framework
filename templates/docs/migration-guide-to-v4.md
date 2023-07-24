@@ -118,7 +118,7 @@ If you are using the dark strip (`.p-strip--dark`) make sure to test them to see
 
 ### Links on dark background
 
-In Vanilla 4.0 we introduced a new link style for links on dark background. Instead of using the default link colour or existing inverted link, new class `on-dark` should be added to text links that are placed on dark background. The inverted link `p-link--inverted` should be used only for links on backgrounds of unknown dark colour or on top of images.
+In Vanilla 4.0 we introduced a new link style for links on dark background. Instead of using the default link colour or existing inverted link, new class `is-dark` should be added to text links that are placed on dark background. The inverted link `p-link--inverted` should be used only for links on backgrounds of unknown dark colour or on top of images.
 
 ## Paper background
 
@@ -151,13 +151,13 @@ If you are using the `$color-brand` or `$color-accent` variable in any custom st
 
 Before releasing Vanilla 4.0 we started adding new components to help building brochure sites in a new style. While these are not technically new to 4.0, it’s worth taking the migration opportunity and learning more about them, and start using them where feasible.
 
-### Section and block
+### Section
 
-Section and block components are containers that provide spacing between sections and subsections of content on brochure site pages.
+Section components are containers that provide spacing between sections and subsections of content on brochure site pages.
 
-In many cases new section components can replace existing strips (especially the ones that needed to have u-no-padding--top applied). Block component is used within a section.
+In many cases new section components can replace existing strips (especially the ones that needed to have u-no-padding--top applied). Shallow and deep sections allow to adjust spacing as needed.
 
-For more information see [the section and block component documentation](/docs/patterns/section) or [brochure layout guidelines](/docs/layouts/brochure).
+For more information see [the section component documentation](/docs/patterns/section) or [brochure layout guidelines](/docs/layouts/brochure).
 
 ### Rule
 
@@ -165,7 +165,7 @@ New rule component provides a consistent way of adding horizontal lines that are
 
 Use the new component in places where previously an `hr` with `u-no-margin--bottom` class name was used.
 
-To use rule component on dark backgrounds use the `on-dark` modifier class.
+To use rule component on dark backgrounds use the `is-dark` modifier class.
 
 For more information see [the rule component documentation](/docs/patterns/rule) or [brochure layout guidelines](/docs/layouts/brochure).
 

@@ -21,6 +21,8 @@
   @include vf-p-icon-copy;
   @include vf-p-icon-search;
   @include vf-p-icon-success;
+  @include vf-p-icon-success-grey;
+  @include vf-p-icon-error-grey;
   @include vf-p-icon-share;
   @include vf-p-icon-user;
   @include vf-p-icon-spinner;
@@ -1355,6 +1357,18 @@
     [class*='--dark'] &,
     &.is-light {
       @include vf-icon-success-grey($color-x-light);
+    }
+  }
+}
+
+@mixin vf-p-icon-error-grey {
+  .p-icon--error-grey {
+    @extend %icon;
+    @include vf-icon-error-grey($color-mid-dark);
+
+    [class*='--dark'] &,
+    &.is-light {
+      @include vf-icon-error-grey($color-x-light);
     }
   }
 }
