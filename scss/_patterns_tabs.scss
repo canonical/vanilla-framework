@@ -106,18 +106,10 @@
     }
 
     &__link {
-      @include vf-button-pattern(
-        $button-background-color: $color-transparent,
-        $button-hover-background-color: $color-transparent,
-        $button-active-background-color: $color-transparent,
-        $button-border-color: $color-transparent,
-        $button-hover-border-color: $color-transparent,
-        $button-active-border-color: $color-transparent,
-        $button-disabled-border-color: $color-transparent
-      );
-      @include vf-highlight-bar(transparent, bottom, false);
+      background-color: transparent;
 
       color: $colors--text-default;
+      @include vf-highlight-bar(transparent, bottom, false);
 
       // Display the highlight when focussing in modern browsers that support
       // focus-visible.
@@ -127,6 +119,12 @@
 
       &:hover {
         @include vf-highlight-bar($color-highlight-bar-hover, bottom, false);
+
+        &::before,
+        &:focus:not(:focus-visible)::before {
+          bottom: 1px;
+          height: calc($bar-thickness - 1px);
+        }
 
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
