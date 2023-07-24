@@ -35,6 +35,23 @@
     font-weight: 550;
   }
 
+  %vf-heading-display {
+    @extend %vf-heading-2;
+
+    font-size: #{map-get($font-sizes, display-mobile)}rem;
+    font-weight: 100;
+    line-height: map-get($line-heights, display-mobile);
+    margin-bottom: map-get($sp-after, display-mobile) - map-get($nudges, display-mobile);
+    padding-top: map-get($nudges, display-mobile);
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: #{map-get($font-sizes, display)}rem;
+      line-height: map-get($line-heights, display);
+      margin-bottom: map-get($sp-after, display) - map-get($nudges, display);
+      padding-top: map-get($nudges, display);
+    }
+  }
+
   %vf-heading-3 {
     @extend %vf-is-accent;
 

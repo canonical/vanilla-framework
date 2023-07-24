@@ -14,28 +14,6 @@ This migration guide explains what changes are introduced in Vanilla 4.0 and how
 
 Vanilla 4.0 is an interim release that keeps support of old (v3) style of components, and will introduce elements of new branding and components in the new style, deprecating any unnecessary old components on the way. Some of the new components have already been added, and the reminder about them is included in this guide as well.
 
-## Using alpha releases
-
-Vanilla 4.0 is currently in alpha stage. This means that it is not yet ready for production use, but you can start using it in your projects to test it and report any issues you find.
-
-Alpha versions are released to npm in `@next` tag and can be used as a dependency in your package.json:
-
-```json
-"dependencies": {
-  "vanilla-framework": "{{ version }}"
-}
-```
-
-You can check for the latest alpha version on [npm](https://www.npmjs.com/package/vanilla-framework?activeTab=versions) or on [GitHub](https://github.com/canonical/vanilla-framework/releases).
-
-If you want to test out the latest unreleased version you can point your dependencies to the `vanilla-4.0` branch directly:
-
-```json
-"dependencies": {
-  "vanilla-framework": "canonical/vanilla-framework#vanilla-4.0"
-}
-```
-
 ## Typography
 
 Vanilla 4.0 introduces updated heading styles that are built on fewer font-sizes. We also introduce the new variable Ubuntu font.
@@ -141,11 +119,23 @@ For more information see [our documentation of paper background ](/docs/base/pap
 
 In Vanilla 4.0 we clean up some of the colours used in the design system and introduce a new accent colour. The brand colour in `$color-brand` variable is updated to the Ubuntu orange value `#E95420` (from previous "brandless" `#333`). We also update the `$color-accent` variable to a new teal colour value `#0F95A1`.
 
+Default brand colour is also reflected in old Suru backgrounds, which are now using Ubuntu orange instead of the previous dark grey. Please note that old style of Suru is deprecated and should not be used in new designs.
+
 ### How to update
 
 This change is automatic and doesn’t require any migration unless you have overridden the `$color-brand` or `$color-accent` values yourself. You should remove any overrides and use the new values if possible. If you are using these variables anywhere make sure that relevant styles still work with the new values.
 
 If you are using the `$color-brand` or `$color-accent` variable in any custom styles or components, make sure to verify they work as expected and review them with visual designer to make sure the new colours are used correctly.
+
+If you are using the old Suru strips (`.p-strip--suru` or `.p-strup--suru-topped`) make sure to test them to see if they still work well with the new colours. If you were depending on them using the old dark grey, you can revert to that by chaning the value of `$color-suru-middle` variable to `#333`.
+
+## Removed rounded corners
+
+In Vanilla 4.0 we remove rounded corners from all components. This change is automatic and doesn’t require any migration.
+
+The `$border-radius` variable still exists, but it’s value is now `0` and it’s deprecated. It will be removed in the future.
+
+If you are using the rounded corners in any custom styles or components, make sure to remove them.
 
 ## New components
 

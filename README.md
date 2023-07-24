@@ -84,6 +84,6 @@ Keep up to date with all new developments and upcoming changes with Vanilla.
 - Follow us on Twitter [@vanillaframewrk](https://twitter.com/vanillaframewrk)
 - Read our latest blog posts at [Ubuntu Blog](https://blog.ubuntu.com/topics/design)
 
-Code licensed [LGPLv3](http://opensource.org/licenses/lgpl-3.0.html) by [Canonical Ltd](http://www.canonical.com/)
+Code licensed [LGPLv3](https://opensource.org/license/lgpl-3-0/) by [Canonical Ltd](http://www.canonical.com/)
 
 With ♥ from Canonical
