@@ -55,12 +55,13 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
 There are some special classes to help you build [common layout patterns](/docs/layouts/brochure). Instead of deciding how many columns each element should use for different screen sizes, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
 
-|                     | Large screens | Medium screens | Small screens   |
-| ------------------- | ------------- | -------------- | --------------- |
-| `.row--50-50`       | 50/50         | 50/50          | 100/100         |
-| `.row--25-75`       | 25/75         | 100/100        | 100/100         |
-| `.row--25-25-50`    | 25/25/50      | 50/50/100      | 100/100/100     |
-| `.row--25-25-25-25` | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
+|                              | Large screens | Medium screens | Small screens   |
+| ---------------------------- | ------------- | -------------- | --------------- |
+| `.row--50-50`                | 50/50         | 50/50          | 100/100         |
+| `.row--25-75`                | 25/75         | 100/100        | 100/100         |
+| `.row--25-75 .is-responsive` | 25/75         | 33/66          | 100/100         |
+| `.row--25-25-50`             | 25/25/50      | 50/50/100      | 100/100/100     |
+| `.row--25-25-25-25`          | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
 
 ### 50/50
 
@@ -70,7 +71,19 @@ There are some special classes to help you build [common layout patterns](/docs/
 
 ### 25/75
 
+The default variant of 25/75 split sets the layout only on large screens, stacking both columns on top of each other on small and medium screens. This is usually useful when main large column splits further with nested grid that would require full width of the page on medium screens.
+
+See responsive variant below if you want to keep the split layout on medium screens.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75/" class="js-example">
+    View example of 25/75 grid layout
+</a></div>
+
+#### 25/75 responsive
+
+Use the responsive variant by adding the `.is-responsive` class to the row container when you want to keep the split layout on medium screens. This is usually used when the main content part does not split further into columns.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-responsive/" class="js-example">
     View example of 25/75 grid layout
 </a></div>
 
