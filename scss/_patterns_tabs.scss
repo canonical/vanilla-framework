@@ -98,27 +98,27 @@
   }
 }
 
-@mixin vf-p-tabs-theme($colors--text-default, $colors--border-default, $color-highlight-bar-hover) {
-  color: $colors--text-default;
+@mixin vf-p-tabs-theme($color-tabs-text, $color-tabs-border, $color-tabs-highlight-hover) {
+  color: $color-tabs-text;
   .p-tabs {
     &__list::after {
-      background-color: $colors--border-default;
+      background-color: $color-tabs-border;
     }
 
     &__link {
       background-color: transparent;
 
-      color: $colors--text-default;
+      color: $color-tabs-text;
       @include vf-highlight-bar(transparent, bottom, false);
 
       // Display the highlight when focussing in modern browsers that support
       // focus-visible.
       &:focus:not(:focus-visible) {
-        @include vf-highlight-bar($colors--text-default, bottom, false);
+        @include vf-highlight-bar($color-tabs-text, bottom, false);
       }
 
       &:hover {
-        @include vf-highlight-bar($color-highlight-bar-hover, bottom, false);
+        @include vf-highlight-bar($color-tabs-highlight-hover, bottom, false);
 
         &::before,
         &:focus:not(:focus-visible)::before {
@@ -129,7 +129,7 @@
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
         &:focus:not(:focus-visible) {
-          @include vf-highlight-bar($color-highlight-bar-hover, bottom, false);
+          @include vf-highlight-bar($color-tabs-highlight-hover, bottom, false);
         }
 
         // Hide the highlight when focussing (in combination with the parent
@@ -142,12 +142,12 @@
 
       &:active,
       &[aria-selected='true'] {
-        @include vf-highlight-bar($colors--text-default, bottom, false);
+        @include vf-highlight-bar($color-tabs-text, bottom, false);
 
         // Display the highlight when focussing (in combination with the parent
         // states) in modern browsers that support focus-visible.
         &:focus:not(:focus-visible) {
-          @include vf-highlight-bar($colors--text-default, bottom, false);
+          @include vf-highlight-bar($color-tabs-text, bottom, false);
         }
 
         // Hide the highlight when focussing (in combination with the parent
@@ -163,16 +163,16 @@
 
 @mixin vf-p-tabs-light-theme {
   @include vf-p-tabs-theme(
-    $colors--text-default: $colors--light-theme--text-default,
-    $colors--border-default: $colors--light-theme--border-default,
-    $color-highlight-bar-hover: $colors--light-theme--border-default
+    $color-tabs-text: $colors--light-theme--text-default,
+    $color-tabs-border: $colors--light-theme--border-default,
+    $color-tabs-highlight-hover: $colors--light-theme--border-default
   );
 }
 
 @mixin vf-p-tabs-dark-theme {
   @include vf-p-tabs-theme(
-    $colors--text-default: $colors--dark-theme--text-default,
-    $colors--border-default: $colors--dark-theme--border-default,
-    $color-highlight-bar-hover: $colors--dark-theme--border-default
+    $color-tabs-text: $colors--dark-theme--text-default,
+    $color-tabs-border: $colors--dark-theme--border-default,
+    $color-tabs-highlight-hover: $colors--dark-theme--border-default
   );
 }
