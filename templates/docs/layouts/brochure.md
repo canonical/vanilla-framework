@@ -202,6 +202,7 @@ it is very compact - as the headings do not push the body text down.</li>
     </div>
   </div>
   <div class="embedded-example"><a href="/docs/examples/brochure/25-75-split-structure" class="js-example">View an example of 25/75 split</a></div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/25-75-split-responsive-structure" class="js-example">View an example of 25/75 responsive split</a></div>
 </section>
 
 <div class="p-notification--caution">
