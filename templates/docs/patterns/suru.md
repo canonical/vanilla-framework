@@ -8,9 +8,9 @@ context:
 
 <hr>
 
-Suru component can be used to display a visual separation between two sections of content.
+The Suru component can be used to display a visual separation between two sections of content.
 
-By default Suru should be used on the paper background. When used on dark background, add `is-dark` modifier class.
+By default, Suru should be used on the paper background. When used on dark background, add `is-dark` modifier class.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/suru/default" class="js-example">
 View example of the default Suru component
