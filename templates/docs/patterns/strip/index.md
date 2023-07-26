@@ -86,6 +86,15 @@ View example of the pattern strip is-shallow
 
 ## Suru strip
 
+<span class="p-status-label--negative">Deprecated</span>
+
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">Strips with old style of the Suru are now deprecated and should not be used on any new pages. Use a blank strip or <a href="/docs/patterns/suru">new Suru component</a> instead.</p>
+  </div>
+</div>
+
 This is a patterned strip that is ideal for overview or main pages, and can be used with images.
 
 The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables. A dark colour scheme is recommended, as the text colour is light by default.
@@ -95,6 +104,15 @@ View example of the Suru strip pattern
 </a></div>
 
 ## Topped Suru strip
+
+<span class="p-status-label--negative">Deprecated</span>
+
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">Strips with old style of the Suru are now deprecated and should not be used on any new pages. Use a blank strip or <a href="/docs/patterns/suru">new Suru component</a> instead.</p>
+  </div>
+</div>
 
 This is a patterned strip that is ideal for content pages.
 
