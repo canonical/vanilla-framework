@@ -3,9 +3,11 @@
 
 {% block standalone_css %}patterns_suru{% endblock %}
 
-{% set is_paper = True %}
+{% block style %}
+{# default dark background on the exanple body #}
+<style>body { background: #262626; }</style>
+{% endblock %}
+
 {% block content %}
-<div class="p-strip--dark" style="background: #262626;">
-    <div class="p-suru is-dark"></div>
-</div>
+<div class="p-suru is-dark"></div>
 {% endblock %}
