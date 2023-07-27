@@ -205,6 +205,23 @@ it is very compact - as the headings do not push the body text down.</li>
   <div class="embedded-example"><a href="/docs/examples/brochure/25-75-split-responsive-structure" class="js-example">View an example of 25/75 responsive split</a></div>
 </section>
 
+<section class="p-section">
+  <div class="row">
+    <hr class="p-rule">
+  </div>
+  <div class="row--25-75">
+    <div class="col">
+      <div class="p-section">
+        <h2>Section examples</h2>
+        <p>Below we present a few examples of how the sections can be used in practice. The examples are not meant to be exhaustive, but rather to give you a sense of how some commonly used sections can be built.</p>
+      </div>
+    </div>
+  </div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/hero-75-offset" class="js-example">View an example of the hero section with offset 75 layout</a></div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/hero-25-75" class="js-example">View an example of the hero section with 25/75 layout</a></div>
+  <div class="embedded-example"><a href="/docs/examples/brochure/hero-50-50" class="js-example">View an example of the hero section with 50/50 layout</a></div>
+</section>
+
 <div class="p-notification--caution">
   <div class="p-notification__content">
     <h5 class="p-notification__title">Work in progress</h5>
