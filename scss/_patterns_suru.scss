@@ -2,18 +2,20 @@
 
 @mixin vf-p-suru {
   .p-suru {
-    aspect-ratio: 5.1775700934579; // exact aspect ration of the image
+    aspect-ratio: calc(2216 / 428); // aspect ratio calculated from image dimensions
     background-image: url('#{$assets-path}7f34ade9-website_suru_25.jpg');
     background-size: contain;
     display: none; // only show suru on large screens
     margin: 0 auto;
     max-width: $grid-max-width;
 
+    // show suru only on large screens
     @media (min-width: $breakpoint-large) {
       display: block;
     }
 
     &.is-dark {
+      aspect-ratio: calc(2580 / 501); // aspect ratio calculated from image dimensions
       background-image: url('#{$assets-path}9469ef82-1_website_suru_DARK_25%20(1)122.jpg');
     }
   }
