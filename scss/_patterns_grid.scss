@@ -251,6 +251,12 @@
         &:nth-of-type(2) {
           @include vf-grid-column(4);
         }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          @include vf-grid-column(4);
+          grid-column-start: calc(3);
+        }
       }
 
       @media (min-width: $threshold-6-12-col) {
