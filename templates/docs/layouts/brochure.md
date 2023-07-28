@@ -217,8 +217,29 @@ it is very compact - as the headings do not push the body text down.</li>
       </div>
     </div>
   </div>
+  <div class="row--25-75">
+    <div class="col">
+      <hr class="p-rule">
+      <h3>Hero 75 offset</h3>
+      <p>The most common hero variant based on 25/75 grid with empty first column. Sub-heading, paragraph text section and CTA section are optional. This kind of hero is usually followed by a suru, and in such case the last content section of the hero should not have bottom spacing of its own.</p>
+    </div>
+  </div>
   <div class="embedded-example"><a href="/docs/examples/brochure/hero-75-offset" class="js-example">View an example of the hero section with offset 75 layout</a></div>
+  <div class="row--25-75">
+    <div class="col">
+      <hr class="p-rule">
+      <h3>Hero 25/75</h3>
+      <p>Hero based on 25/75 grid should be used for hero sections with shorter main title or more complicated content structure (including longer text or additional images).</p>
+    </div>
+  </div>
   <div class="embedded-example"><a href="/docs/examples/brochure/hero-25-75" class="js-example">View an example of the hero section with 25/75 layout</a></div>
+  <div class="row--25-75">
+    <div class="col">
+      <hr class="p-rule">
+      <h3>Hero 50/50</h3>
+      <p>Hero 50/50 can be used on pages where the 50/50 split is used predominantely. Usually it will not be followed by suru, as the default suru is aligned with 25/75 grid split.</p>
+    </div>
+  </div>
   <div class="embedded-example"><a href="/docs/examples/brochure/hero-50-50" class="js-example">View an example of the hero section with 50/50 layout</a></div>
 </section>
 
