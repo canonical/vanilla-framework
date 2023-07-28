@@ -1,0 +1,74 @@
+{% extends "_layouts/docs.html" %}
+
+{% block content %}
+
+<h1>Vanilla v3 changelog</h1>
+
+<table aria-label="Vanilla v3 changelog">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for version in releaseNotes if version.version.startswith("3.") %}
+    {% for feature in version.features if feature.status!="Removed" %}
+    <tr>
+      <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
+      <td>
+        {% if feature.status=="New" %}
+        <span class="p-status-label--positive">
+        {% elif feature.status=="Updated" %}
+        <span class="p-status-label--information">
+        {% elif feature.status=="Deprecated" %}
+        <span class="p-status-label--negative">
+        {% elif updatedFeatures[url]=="In Progress" %}
+        <span class="p-status-label--caution">
+        {% endif %}
+        {{ feature.status }}</span>
+      </td>
+      <td>{{ version.version }}</td>
+      <td>{{ feature.notes | safe }}</td>
+    </tr>
+
+    {% endfor %}
+    {% endfor %}
+
+  </tbody>
+</table>
+
+<h2> Components removed in 3.0</h2>
+
+The table below lists all the removed components and utilities in 3.0. For more information about how migrate to Vanilla 3.0 from previous versions, see <a href="/docs/migration-guide-to-v3">the migration guide</a>.
+
+<table aria-label="What's new in Vanilla {{versionMinor}}">
+  <thead>
+    <tr>
+      <th style="width: 20%">Component</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 10%">Version</th>
+      <th style="width: 55%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for version in releaseNotes %}
+    {% for feature in version.features if feature.status=="Removed" %}
+    <tr>
+      <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
+      <td>
+        <span class="p-status-label--negative">Removed</span>
+      </td>
+      <td>{{ version.version }}</td>
+      <td>{{ feature.notes | safe }}</td>
+    </tr>
+
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+To see what changed in Vanilla v2, see the <a href="/docs/changelog-v2">changelog for v2</a> page.
+{% endblock %}
