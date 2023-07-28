@@ -6,8 +6,6 @@ context:
 
 # Vanilla v2 Changelog
 
-<hr>
-
 <table>
   <thead>
     <tr>
