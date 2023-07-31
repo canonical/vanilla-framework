@@ -588,7 +588,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       position: absolute;
       right: map-get($grid-margin-widths, small);
       text-indent: calc(100% + 10rem);
-      top: calc($spv--large + map-get($nudges, x-small));
+      top: $spv--large;
       transform: rotate(-90deg);
       width: map-get($icon-sizes, default);
 
@@ -599,6 +599,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @media (min-width: $breakpoint-navigation-threshold) {
         right: calc($sph--small + 1px); // 1px for the border on selects. this aligns it with any selects underneath
         transform: rotate(0deg);
+        top: calc($spv--large + map-get($nudges, x-small));
       }
     }
 
