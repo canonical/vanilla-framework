@@ -102,51 +102,73 @@
   $margin-medium: map-get($grid-gutter-widths, default);
   $margin-large: map-get($grid-gutter-widths, default);
 
-  .p-logo-section__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: $spv--x-large;
-    // negates the margin of logos that sit in the first column
-    margin-left: -#{$margin-small};
-    width: calc(100% + $margin-small);
+  .p-logo-section,
+  .p-logo-section--dense {
+    .p-logo-section__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: $spv--x-large;
+      // negates the margin of logos that sit in the first column
+      margin-left: -#{$margin-small};
+      width: calc(100% + $margin-small);
 
-    @media (min-width: $threshold-4-6-col) {
-      margin-left: -$margin-medium;
-      width: calc(100% + $margin-medium);
+      @media (min-width: $threshold-4-6-col) {
+        margin-left: -$margin-medium;
+        width: calc(100% + $margin-medium);
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        margin-left: -$margin-large;
+        width: calc(100% + $margin-large);
+      }
     }
 
-    @media (min-width: $threshold-6-12-col) {
-      margin-left: -$margin-large;
-      width: calc(100% + $margin-large);
+    .p-logo-section__item {
+      align-items: center;
+      display: flex;
+      flex: 0 1 auto;
+      margin-left: $margin-small;
+
+      @media (min-width: $threshold-4-6-col) {
+        margin-left: $margin-medium;
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        margin-left: $margin-large;
+      }
+
+      @include vf-p-set-logo-section-item-width($breakpoint: small);
+      @include vf-p-set-logo-section-item-width($breakpoint: medium);
+      @include vf-p-set-logo-section-item-width($breakpoint: large, $column-span: 2);
+    }
+
+    .p-logo-section__logo {
+      height: auto;
+      width: 100%;
     }
   }
 
-  .p-logo-section__item {
-    align-items: center;
-    display: flex;
-    flex: 0 1 auto;
-    margin-left: $margin-small;
-
-    @media (min-width: $threshold-4-6-col) {
-      margin-left: $margin-medium;
-    }
-
-    @media (min-width: $threshold-6-12-col) {
-      margin-left: $margin-large;
-    }
-
-    @include vf-p-set-logo-section-item-width($breakpoint: small);
-    @include vf-p-set-logo-section-item-width($breakpoint: medium);
-    @include vf-p-set-logo-section-item-width($breakpoint: large, $column-span: 2);
-
-    .p-logo-section--dense & {
-      @include vf-p-set-logo-section-item-width($breakpoint: large);
-    }
+  .p-logo-section--dense .p-logo-section__item {
+    @include vf-p-set-logo-section-item-width($breakpoint: large);
   }
 
-  .p-logo-section__logo {
-    height: auto;
-    width: 100%;
+  .p-logo-section--variable-width {
+    .p-logo-section__items {
+      column-gap: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+    }
+
+    .p-logo-section__item {
+      margin: 0;
+      width: auto;
+    }
+
+    .p-logo-section__logo {
+      height: 8rem;
+      width: auto;
+    }
   }
 }
