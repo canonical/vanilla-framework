@@ -218,6 +218,18 @@ When using a password field, use this pattern to allow the user to toggle the pa
 View example of the password toggle
 </a></div>
 
+## Dark theme
+
+By default the form elements are displayed in the light theme. To display them in the dark theme, add the class `.is-dark` to the input elements.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/forms-dark/" class="js-example">
+View example of the dark form elements
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-validation-dark/" class="js-example">
+View example of the dark form elements
+</a></div>
+
 ## Accessibility
 
 Validated form input elements should indicate errors with `aria-invalid` attribute.
