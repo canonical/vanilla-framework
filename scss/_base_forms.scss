@@ -68,22 +68,29 @@
       }
     }
 
-    // adjust input background color for paper theme
+    // Theming
+    @if ($theme-default-forms == 'dark') {
+      @include vf-input-dark-theme;
 
-    // XXX: currently these colours are transparent,
-    // so they work both on paper and white backgrounds.
-    // We may need later to add a specific override for
-    // a white background within paper themed pages.
-    .is-paper & {
-      background-color: $colors--paper-theme--background-inputs;
-
-      &:hover {
-        background-color: $colors--paper-theme--background-hover;
+      &.is-light {
+        @include vf-input-light-theme;
       }
 
-      &:active,
-      &:focus {
-        background-color: $colors--paper-theme--background-active;
+      .is-paper &,
+      &.is-paper {
+        @include vf-input-paper-theme;
+      }
+    } @else {
+      @include vf-input-light-theme;
+
+      .is-dark &,
+      &.is-dark {
+        @include vf-input-dark-theme;
+      }
+
+      .is-paper &,
+      &.is-paper {
+        @include vf-input-paper-theme;
       }
     }
   }
@@ -193,12 +200,10 @@
     -webkit-appearance: none;
     appearance: none;
     // stylelint-enable property-no-vendor-prefix
-    background-color: $colors--light-theme--background-hover;
     background-position: right $sph--small center;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
-    color: $colors--light-theme--text-default;
     min-height: map-get($line-heights, default-text);
     padding-right: calc($default-icon-size + 2 * $sph--small);
     text-indent: 0.01px;
@@ -208,10 +213,6 @@
       cursor: pointer;
     }
 
-    option {
-      background-color: white;
-    }
-
     &[multiple],
     &[size] {
       background-image: none;
@@ -219,7 +220,6 @@
       height: auto;
 
       option {
-        background-color: $colors--light-theme--background-hover;
         font-weight: $font-weight-regular-text;
         line-height: calc($sp-unit * 2 - 2px);
         padding: $spv--x-small 0;
@@ -246,4 +246,53 @@
     padding: calc($spv--large - $input-border-thickness);
   }
   // stylelint-enable selector-max-type
+}
+
+@mixin vf-input-theme($color-background-default, $color-background-hover, $color-background-active, $color-border, $color-text) {
+  background-color: $color-background-default;
+  border-color: $color-border;
+  color: $color-text;
+
+  &:hover {
+    background-color: $color-background-hover;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-background-active;
+  }
+}
+
+@mixin vf-input-light-theme {
+  @include vf-input-theme(
+    $color-background-default: $colors--light-theme--background-inputs,
+    $color-background-hover: $colors--light-theme--background-hover,
+    $color-background-active: $colors--light-theme--background-active,
+    $color-border: $colors--light-theme--text-default,
+    $color-text: $colors--light-theme--text-default
+  );
+}
+
+@mixin vf-input-paper-theme {
+  // XXX: currently these colours are transparent,
+  // so they work both on paper and white backgrounds.
+  // We may need later to add a specific override for
+  // a white background within paper themed pages.
+  @include vf-input-theme(
+    $color-background-default: $colors--paper-theme--background-inputs,
+    $color-background-hover: $colors--paper-theme--background-hover,
+    $color-background-active: $colors--paper-theme--background-active,
+    $color-border: $colors--light-theme--text-default,
+    $color-text: $colors--light-theme--text-default
+  );
+}
+
+@mixin vf-input-dark-theme {
+  @include vf-input-theme(
+    $color-background-default: $colors--dark-theme--background-inputs,
+    $color-background-hover: $colors--dark-theme--background-hover,
+    $color-background-active: $colors--dark-theme--background-active,
+    $color-border: $colors--dark-theme--border-high-contrast,
+    $color-text: $colors--dark-theme--text-default
+  );
 }
