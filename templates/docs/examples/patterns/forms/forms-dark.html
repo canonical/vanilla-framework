@@ -1,0 +1,41 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Dark{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+
+{% block style %}
+<style>
+  body {
+    background: #262626;
+    color: #fff;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<form>
+  <label for="exampleTextInputHelp">Email address</label>
+  <input class="p-form-validation__input is-dark" type="email" id="exampleTextInputHelp" placeholder="example@canonical.com" name="exampleTextInputHelp" autocomplete="email" aria-describedby="exampleInputHelpMessage"/>
+  <p class="p-form-help-text" id="exampleInputHelpMessage">
+    A notification email will be sent to entered email address.
+  </p>
+
+  <label for="exampleSelect">Ubuntu releases</label>
+  <select class="is-dark" name="exampleSelect" id="exampleSelect" name="exampleSelect" placeholder="Select an option">
+    <option value="" disabled="disabled" selected>Select an option</option>
+    <option value="1">Cosmic Cuttlefish</option>
+    <option value="2">Bionic Beaver</option>
+    <option value="3">Xenial Xerus</option>
+  </select>
+
+  <label for="exampleTextarea">Comment</label>
+  <textarea id="exampleTextarea" class="is-dark" placeholder="Type your comment here..."></textarea>
+
+  <label class="p-checkbox is-dark">
+    <input type="checkbox" aria-labelledby="checkboxLabel4" class="p-checkbox__input" aria-describedby="exampleTickHelpMessage">
+    <span class="p-checkbox__label" id="checkboxLabel4">I agree to the Terms and Conditions</span>
+  </label>
+  <p class="p-form-help-text is-tick-element" id="exampleTickHelpMessage">By checking this you confirm that you have read and agree to the Terms and Conditions.</p>
+</form>
+{% endblock %}
