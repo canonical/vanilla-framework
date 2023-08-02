@@ -18,19 +18,6 @@
   }
 
   .is-success {
-    .p-form-validation__input {
-      background-color: $color-positive-background;
-      border-bottom-color: $color-positive;
-
-      &:hover {
-        background-color: $color-positive-background--hover;
-      }
-
-      &:focus {
-        background-color: $color-positive-background--focus;
-      }
-    }
-
     .p-form-validation__message {
       @extend %vf-validation-wrapper;
       @include vf-icon-success($color-positive);
@@ -40,39 +27,15 @@
   }
 
   .is-caution {
-    .p-form-validation__input {
-      background-color: $color-caution-background;
-      border-bottom-color: $color-caution;
-
-      &:hover {
-        background-color: $color-caution-background--hover;
-      }
-
-      &:focus {
-        background-color: $color-caution-background--focus;
-      }
-    }
-
     .p-form-validation__message {
       @extend %vf-validation-wrapper;
       @include vf-icon-warning($color-caution);
+
+      color: $color-caution;
     }
   }
 
   .is-error {
-    .p-form-validation__input {
-      background-color: $color-negative-background;
-      border-bottom-color: $color-negative;
-
-      &:hover {
-        background-color: $color-negative-background--hover;
-      }
-
-      &:focus {
-        background-color: $color-negative-background--focus;
-      }
-    }
-
     .p-form-validation__message {
       @extend %vf-validation-wrapper;
       @include vf-icon-error($color-negative);
@@ -80,4 +43,141 @@
       color: $color-negative;
     }
   }
+
+  // Theming
+  @if ($theme-default-forms == 'dark') {
+    .p-form-validation__input {
+      .is-success & {
+        @include vf-form-validation-success-dark-theme;
+      }
+
+      .is-caution & {
+        @include vf-form-validation-caution-dark-theme;
+      }
+
+      .is-error & {
+        @include vf-form-validation-error-dark-theme;
+      }
+    }
+  } @else {
+    .p-form-validation__input {
+      .is-success & {
+        @include vf-form-validation-success-light-theme;
+      }
+
+      .is-caution & {
+        @include vf-form-validation-caution-light-theme;
+      }
+
+      .is-error & {
+        @include vf-form-validation-error-light-theme;
+      }
+    }
+  }
+
+  .is-success .p-form-validation__input {
+    .is-dark &,
+    &.is-dark {
+      @include vf-form-validation-success-dark-theme;
+    }
+
+    &.is-light {
+      @include vf-form-validation-success-light-theme;
+    }
+  }
+
+  .is-caution .p-form-validation__input {
+    .is-dark &,
+    &.is-dark {
+      @include vf-form-validation-caution-dark-theme;
+    }
+
+    &.is-light {
+      @include vf-form-validation-caution-light-theme;
+    }
+  }
+
+  .is-error .p-form-validation__input {
+    .is-dark &,
+    &.is-dark {
+      @include vf-form-validation-error-dark-theme;
+    }
+
+    &.is-light {
+      @include vf-form-validation-error-light-theme;
+    }
+  }
+}
+
+@mixin vf-form-validation-state-theme($color-background-default, $color-background-hover, $color-background-active, $color-border, $color-text) {
+  background-color: $color-background-default;
+  border-bottom-color: $color-border;
+
+  &:hover {
+    background-color: $color-background-hover;
+  }
+
+  &:focus {
+    background-color: $color-background-active;
+  }
+}
+
+@mixin vf-form-validation-success-dark-theme {
+  @include vf-form-validation-state-theme(
+    $color-background-default: map-get($colors-dark-theme--tinted-backgrounds, 'positive', 'default'),
+    $color-background-hover: map-get($colors-dark-theme--tinted-backgrounds, 'positive', 'hover'),
+    $color-background-active: map-get($colors-dark-theme--tinted-backgrounds, 'positive', 'active'),
+    $color-border: $color-positive,
+    $color-text: $color-positive
+  );
+}
+
+@mixin vf-form-validation-caution-dark-theme {
+  @include vf-form-validation-state-theme(
+    $color-background-default: map-get($colors-dark-theme--tinted-backgrounds, 'caution', 'default'),
+    $color-background-hover: map-get($colors-dark-theme--tinted-backgrounds, 'caution', 'hover'),
+    $color-background-active: map-get($colors-dark-theme--tinted-backgrounds, 'caution', 'active'),
+    $color-border: $color-caution,
+    $color-text: $color-caution
+  );
+}
+
+@mixin vf-form-validation-error-dark-theme {
+  @include vf-form-validation-state-theme(
+    $color-background-default: map-get($colors-dark-theme--tinted-backgrounds, 'negative', 'default'),
+    $color-background-hover: map-get($colors-dark-theme--tinted-backgrounds, 'negative', 'hover'),
+    $color-background-active: map-get($colors-dark-theme--tinted-backgrounds, 'negative', 'active'),
+    $color-border: $color-negative,
+    $color-text: $color-negative
+  );
+}
+
+@mixin vf-form-validation-success-light-theme {
+  @include vf-form-validation-state-theme(
+    $color-background-default: $color-positive-background,
+    $color-background-hover: $color-positive-background--hover,
+    $color-background-active: $color-positive-background--focus,
+    $color-border: $color-positive,
+    $color-text: $color-positive
+  );
+}
+
+@mixin vf-form-validation-caution-light-theme {
+  @include vf-form-validation-state-theme(
+    $color-background-default: $color-caution-background,
+    $color-background-hover: $color-caution-background--hover,
+    $color-background-active: $color-caution-background--focus,
+    $color-border: $color-caution,
+    $color-text: $color-caution
+  );
+}
+
+@mixin vf-form-validation-error-light-theme {
+  @include vf-form-validation-state-theme(
+    $color-background-default: $color-negative-background,
+    $color-background-hover: $color-negative-background--hover,
+    $color-background-active: $color-negative-background--focus,
+    $color-border: $color-negative,
+    $color-text: $color-negative
+  );
 }
