@@ -248,7 +248,7 @@
   // stylelint-enable selector-max-type
 }
 
-@mixin vf-input-theme($color-background-default, $color-background-hover, $color-background-active, $color-border, $color-text) {
+@mixin vf-input-theme($color-background-default, $color-background-hover, $color-background-active, $color-background-option, $color-border, $color-text) {
   background-color: $color-background-default;
   border-color: $color-border;
   color: $color-text;
@@ -261,6 +261,18 @@
   &:focus {
     background-color: $color-background-active;
   }
+
+  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+  option,
+  option:checked {
+    background-color: $color-background-option;
+    color: $color-text;
+  }
+
+  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+  option:checked {
+    background-color: $color-background-active;
+  }
 }
 
 @mixin vf-input-light-theme {
@@ -268,6 +280,7 @@
     $color-background-default: $colors--light-theme--background-inputs,
     $color-background-hover: $colors--light-theme--background-hover,
     $color-background-active: $colors--light-theme--background-active,
+    $color-background-option: $colors--light-theme--background-alt,
     $color-border: $colors--light-theme--text-default,
     $color-text: $colors--light-theme--text-default
   );
@@ -282,6 +295,7 @@
     $color-background-default: $colors--paper-theme--background-inputs,
     $color-background-hover: $colors--paper-theme--background-hover,
     $color-background-active: $colors--paper-theme--background-active,
+    $color-background-option: $colors--light-theme--background-alt,
     $color-border: $colors--light-theme--text-default,
     $color-text: $colors--light-theme--text-default
   );
@@ -292,6 +306,7 @@
     $color-background-default: $colors--dark-theme--background-inputs,
     $color-background-hover: $colors--dark-theme--background-hover,
     $color-background-active: $colors--dark-theme--background-active,
+    $color-background-option: $colors--dark-theme--background-alt,
     $color-border: $colors--dark-theme--border-high-contrast,
     $color-text: $colors--dark-theme--text-default
   );
