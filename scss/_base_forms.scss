@@ -248,7 +248,7 @@
   // stylelint-enable selector-max-type
 }
 
-@mixin vf-input-theme($color-background-default, $color-background-hover, $color-background-active, $color-background-option, $color-border, $color-text) {
+@mixin vf-input-theme($color-background-default, $color-background-hover, $color-background-active, $color-background-option, $color-border, $color-text, $color-text-placeholder) {
   background-color: $color-background-default;
   border-color: $color-border;
   color: $color-text;
@@ -273,6 +273,10 @@
   option:checked {
     background-color: $color-background-active;
   }
+
+  &::placeholder {
+    color: $color-text-placeholder;
+  }
 }
 
 @mixin vf-input-light-theme {
@@ -282,7 +286,8 @@
     $color-background-active: $colors--light-theme--background-active,
     $color-background-option: $colors--light-theme--background-alt,
     $color-border: $colors--light-theme--text-default,
-    $color-text: $colors--light-theme--text-default
+    $color-text: $colors--light-theme--text-default,
+    $color-text-placeholder: $colors--light-theme--text-muted
   );
 }
 
@@ -297,7 +302,8 @@
     $color-background-active: $colors--paper-theme--background-active,
     $color-background-option: $colors--light-theme--background-alt,
     $color-border: $colors--light-theme--text-default,
-    $color-text: $colors--light-theme--text-default
+    $color-text: $colors--light-theme--text-default,
+    $color-text-placeholder: $colors--light-theme--text-muted
   );
 }
 
@@ -308,6 +314,7 @@
     $color-background-active: $colors--dark-theme--background-active,
     $color-background-option: $colors--dark-theme--background-alt,
     $color-border: $colors--dark-theme--border-high-contrast,
-    $color-text: $colors--dark-theme--text-default
+    $color-text: $colors--dark-theme--text-default,
+    $color-text-placeholder: $colors--dark-theme--text-muted
   );
 }
