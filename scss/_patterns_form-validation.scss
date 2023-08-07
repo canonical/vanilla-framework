@@ -13,29 +13,9 @@
 
   .p-form-validation__message {
     @extend %small-text;
+    @extend %vf-validation-wrapper;
 
     margin-top: -$sp-unit;
-  }
-
-  .is-success {
-    .p-form-validation__message {
-      @extend %vf-validation-wrapper;
-      @include vf-icon-success($color-positive);
-    }
-  }
-
-  .is-caution {
-    .p-form-validation__message {
-      @extend %vf-validation-wrapper;
-      @include vf-icon-warning($color-caution);
-    }
-  }
-
-  .is-error {
-    .p-form-validation__message {
-      @extend %vf-validation-wrapper;
-      @include vf-icon-error($color-negative);
-    }
   }
 
   // Theming
@@ -306,24 +286,30 @@
 
 @mixin vf-form-validation-message-success-dark-theme {
   @include vf-form-validation-message-state-theme($color-text: map-get($colors-dark-theme--tinted-borders, 'positive'));
+  @include vf-icon-success(map-get($colors-dark-theme--tinted-borders, 'positive'));
 }
 
 @mixin vf-form-validation-message-caution-dark-theme {
   @include vf-form-validation-message-state-theme($color-text: map-get($colors-dark-theme--tinted-borders, 'caution'));
+  @include vf-icon-warning(map-get($colors-dark-theme--tinted-borders, 'caution'));
 }
 
 @mixin vf-form-validation-message-error-dark-theme {
   @include vf-form-validation-message-state-theme($color-text: map-get($colors-dark-theme--tinted-borders, 'negative'));
+  @include vf-icon-error(map-get($colors-dark-theme--tinted-borders, 'negative'));
 }
 
 @mixin vf-form-validation-message-success-light-theme {
   @include vf-form-validation-message-state-theme($color-text: $color-positive);
+  @include vf-icon-success($color-positive);
 }
 
 @mixin vf-form-validation-message-caution-light-theme {
   @include vf-form-validation-message-state-theme($color-text: $colors--light-theme--text-default);
+  @include vf-icon-warning($color-caution);
 }
 
 @mixin vf-form-validation-message-error-light-theme {
   @include vf-form-validation-message-state-theme($color-text: $color-negative);
+  @include vf-icon-error($color-negative);
 }
