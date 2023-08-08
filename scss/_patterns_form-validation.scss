@@ -252,17 +252,17 @@
 
 @mixin vf-form-validation-message-success-dark-theme {
   @include vf-form-validation-message-state-theme($color-text: map-get($colors-dark-theme--tinted-borders, 'positive'));
-  @include vf-icon-success(map-get($colors-dark-theme--tinted-borders, 'positive'));
+  @include vf-icon-success($color: map-get($colors-dark-theme--tinted-borders, 'positive'), $color-symbol: $colors--dark-theme--background-default);
 }
 
 @mixin vf-form-validation-message-caution-dark-theme {
   @include vf-form-validation-message-state-theme($color-text: map-get($colors-dark-theme--tinted-borders, 'caution'));
-  @include vf-icon-warning(map-get($colors-dark-theme--tinted-borders, 'caution'));
+  @include vf-icon-warning($color: map-get($colors-dark-theme--tinted-borders, 'caution'), $color-symbol: $colors--dark-theme--background-default);
 }
 
 @mixin vf-form-validation-message-error-dark-theme {
   @include vf-form-validation-message-state-theme($color-text: map-get($colors-dark-theme--tinted-borders, 'negative'));
-  @include vf-icon-error(map-get($colors-dark-theme--tinted-borders, 'negative'));
+  @include vf-icon-error($color: map-get($colors-dark-theme--tinted-borders, 'negative'), $color-symbol: $colors--dark-theme--background-default);
 }
 
 @mixin vf-form-validation-message-success-light-theme {
