@@ -4,19 +4,23 @@
     @extend %small-caps-text;
   }
 
+  $logo-section-item-size: 8rem; // height of the logos on large screens;
+  $logo-section-item-gap: 3rem;
+  $logo-section-offset: 1rem; // offset by which rows are pulled closer together
+
   .p-logo-section,
   .p-logo-section--dense {
     .p-logo-section__item {
       display: inline-block;
       margin: 0;
-      margin-bottom: -1rem; // pull the next row of logos up
-      margin-right: 3rem;
-      margin-top: -1rem; // pull the previous row of logos down
+      margin-bottom: calc(-1 * $logo-section-offset); // pull the next row of logos up
+      margin-right: $logo-section-item-gap;
+      margin-top: calc(-1 * $logo-section-offset); // pull the previous row of logos down
     }
 
     .p-logo-section__logo {
       display: block;
-      height: 8rem;
+      height: $logo-section-item-size;
       max-width: none; // prevent logos from squishing on small screens
       width: auto;
     }
@@ -25,8 +29,8 @@
       line-height: 0; // prevent space between rows of inline logos
 
       // compensate for the negative margin on the logos
-      padding-bottom: 1rem;
-      padding-top: 1rem;
+      padding-bottom: $logo-section-offset;
+      padding-top: $logo-section-offset;
     }
   }
 
@@ -34,18 +38,18 @@
     .p-logo-section__item {
       display: inline-block;
       margin: 0;
-      margin-bottom: -0.5rem; // pull the next row of logos up
-      margin-right: 1.5rem;
-      margin-top: -0.5rem; // pull the previous row of logos down
+      margin-bottom: calc(-0.5 * $logo-section-offset); // pull the next row of logos up
+      margin-right: calc(0.5 * $logo-section-item-gap);
+      margin-top: calc(-0.5 * $logo-section-offset); // pull the previous row of logos down
     }
 
     .p-logo-section__logo {
-      height: 5rem;
+      height: calc(0.5 * $logo-section-item-size);
     }
 
     .p-logo-section__items {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
+      padding-bottom: calc(0.5 * $logo-section-offset);
+      padding-top: calc(0.5 * $logo-section-offset);
     }
   }
 }
