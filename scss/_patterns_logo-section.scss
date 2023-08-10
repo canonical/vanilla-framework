@@ -4,33 +4,68 @@
     @extend %small-caps-text;
   }
 
-  $logo-section-item-size: 8rem; // height of the logos on large screens;
-  $logo-section-item-gap: 3rem;
+  $logo-section-item-size: 8rem; // height of the logos on large screens
+  $logo-section-item-size-medium: 6rem; // height of the logos on medium screens
+  $logo-section-item-size-small: 4rem; // height of the logos on small screens
+
   $logo-section-offset: 1rem; // offset by which rows are pulled closer together
+  $logo-section-offset-medium: 0.75rem; // height of the logos on medium screens
+  $logo-section-offset-small: 0.5rem; // height of the logos on small screens
+
+  $logo-section-item-gap: 3rem;
+  $logo-section-item-gap-dense: calc(0.5 * $logo-section-item-gap);
 
   .p-logo-section,
   .p-logo-section--dense {
     .p-logo-section__item {
       display: inline-block;
       margin: 0;
-      margin-bottom: calc(-1 * $logo-section-offset); // pull the next row of logos up
+      margin-bottom: calc(-1 * $logo-section-offset-small); // pull the next row of logos up
       margin-right: $logo-section-item-gap;
-      margin-top: calc(-1 * $logo-section-offset); // pull the previous row of logos down
+      margin-top: calc(-1 * $logo-section-offset-small); // pull the previous row of logos down
+
+      @media (min-width: $breakpoint-small) {
+        margin-bottom: calc(-1 * $logo-section-offset-medium);
+        margin-top: calc(-1 * $logo-section-offset-medium);
+      }
+
+      @media (min-width: $breakpoint-large) {
+        margin-bottom: calc(-1 * $logo-section-offset);
+        margin-top: calc(-1 * $logo-section-offset);
+      }
     }
 
     .p-logo-section__logo {
       display: block;
-      height: $logo-section-item-size;
+      height: $logo-section-item-size-small;
       max-width: none; // prevent logos from squishing on small screens
       width: auto;
+
+      @media (min-width: $breakpoint-small) {
+        height: $logo-section-item-size-medium;
+      }
+
+      @media (min-width: $breakpoint-large) {
+        height: $logo-section-item-size;
+      }
     }
 
     .p-logo-section__items {
       line-height: 0; // prevent space between rows of inline logos
 
       // compensate for the negative margin on the logos
-      padding-bottom: $logo-section-offset;
-      padding-top: $logo-section-offset;
+      padding-bottom: $logo-section-offset-small;
+      padding-top: $logo-section-offset-small;
+
+      @media (min-width: $breakpoint-small) {
+        padding-bottom: $logo-section-offset-medium;
+        padding-top: $logo-section-offset-medium;
+      }
+
+      @media (min-width: $breakpoint-large) {
+        padding-bottom: $logo-section-offset;
+        padding-top: $logo-section-offset;
+      }
     }
   }
 
@@ -38,18 +73,18 @@
     .p-logo-section__item {
       display: inline-block;
       margin: 0;
-      margin-bottom: calc(-0.5 * $logo-section-offset); // pull the next row of logos up
-      margin-right: calc(0.5 * $logo-section-item-gap);
-      margin-top: calc(-0.5 * $logo-section-offset); // pull the previous row of logos down
+      margin-bottom: calc(-1 * $logo-section-offset-small); // pull the next row of logos up
+      margin-right: $logo-section-item-gap-dense;
+      margin-top: calc(-1 * $logo-section-offset-small); // pull the previous row of logos down
     }
 
     .p-logo-section__logo {
-      height: calc(0.5 * $logo-section-item-size);
+      height: $logo-section-item-size-small;
     }
 
     .p-logo-section__items {
-      padding-bottom: calc(0.5 * $logo-section-offset);
-      padding-top: calc(0.5 * $logo-section-offset);
+      padding-bottom: $logo-section-offset-small;
+      padding-top: $logo-section-offset-small;
     }
   }
 }
