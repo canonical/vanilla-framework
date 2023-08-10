@@ -39,6 +39,10 @@ To prevent orphaned logos on the last line, you can add line breaks with `<br>` 
 View example of the logo section pattern with line breaks
 </a></div>
 
+## Deprecated title element
+
+<span class="p-status-label--negative">Deprecated</span> The title element within logo section `p-logo-section__title` is deprecated and should not be used. Instead, if needed, use a heading element of an appropriate level based on the context of the page.
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
