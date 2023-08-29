@@ -1,5 +1,7 @@
 {% extends "_layouts/_root.html" %}
 
+{% set is_docs=True %}
+
 {% block custom_head %}
   <link rel="stylesheet" href="{{ versioned_static('build/css/docs/site.css') }}" />
 {% endblock %}
@@ -9,68 +11,71 @@
 
     {% block banner %}{% endblock %}
 
-    <aside class="l-full-width__sidebar">
 
-      <nav class="p-side-navigation is-sticky is-drawer-hidden" id="side-navigation-drawer" aria-label="Side">
 
-        <div class="u-hide--large p-strip--light is-shallow">
-          <div class="u-fixed-width">
-            <a href="#side-navigation-drawer" class="p-button has-icon u-no-margin js-drawer-toggle" aria-expanded="false"><i class="p-icon--menu"></i><span>Contents</span></a>
-          </div>
-        </div>
+    <div class="l-full-width">
 
-        <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer" aria-expanded="false"></div>
+      <aside class="l-start">
 
-          <div class="p-side-navigation__drawer">
-            <div class="p-strip is-shallow">
-              <div class="p-side-navigation__drawer-header">
-                <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="side-navigation-drawer">
-                  Toggle side navigation
-                </a>
-              </div>
+        <nav class="p-side-navigation is-sticky is-drawer-hidden" id="side-navigation-drawer" aria-label="Side">
 
-              {% macro side_nav_item(url, title) -%}
-                  <li class="p-side-navigation__item">
-                    <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
-                      {{ title | replace("{version}", version) }}
-                      {% if url in updatedFeatures %}
-                        <span class="p-side-navigation__status">
-                          {% if updatedFeatures[url]=="New" %}
-                          <span class="p-status-label--positive">
-                          {% elif updatedFeatures[url]=="Updated" %}
-                          <span class="p-status-label--information">
-                          {% elif updatedFeatures[url]=="Removed" %}
-                          <span class="p-status-label--negative">
-                          {% elif updatedFeatures[url]=="Deprecated" %}
-                          <span class="p-status-label--negative">
-                          {% elif updatedFeatures[url]=="In Progress" %}
-                          <span class="p-status-label--caution">    
-                          {% endif %}
-                          {{ updatedFeatures[url] }}
-                          </span>
-                        {% endif %}
-                    </a>
-                  </li>
-              {%- endmacro %}
-              
-              {% for item in sideNavigation %}
-              <ul class="p-side-navigation__list">
-                <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">{{ item.heading | replace("{version}", version) }}</span></li>
-                {% for subheading in item.subheadings %}
-                {{ side_nav_item(subheading.url, subheading.title) }}
-                {% endfor %}
-              </ul>
-              {% endfor %}
-
+          <div class="u-hide--large p-strip--light is-shallow">
+            <div class="u-fixed-width">
+              <a href="#side-navigation-drawer" class="p-button has-icon u-no-margin js-drawer-toggle" aria-expanded="false"><i class="p-icon--menu"></i><span>Contents</span></a>
             </div>
           </div>
-      </div>
-    </aside>
-    
-    <div class="p-strip is-shallow l-full-width">
+
+          <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="side-navigation-drawer" aria-expanded="false"></div>
+
+            <div class="p-side-navigation__drawer">
+              <div class="p-strip is-shallow">
+                <div class="p-side-navigation__drawer-header">
+                  <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="side-navigation-drawer">
+                    Toggle side navigation
+                  </a>
+                </div>
+
+                {% macro side_nav_item(url, title) -%}
+                    <li class="p-side-navigation__item">
+                      <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
+                        {{ title | replace("{version}", version) }}
+                        {% if url in updatedFeatures %}
+                          <span class="p-side-navigation__status">
+                            {% if updatedFeatures[url]=="New" %}
+                            <span class="p-status-label--positive">
+                            {% elif updatedFeatures[url]=="Updated" %}
+                            <span class="p-status-label--information">
+                            {% elif updatedFeatures[url]=="Removed" %}
+                            <span class="p-status-label--negative">
+                            {% elif updatedFeatures[url]=="Deprecated" %}
+                            <span class="p-status-label--negative">
+                            {% elif updatedFeatures[url]=="In Progress" %}
+                            <span class="p-status-label--caution">
+                            {% endif %}
+                            {{ updatedFeatures[url] }}
+                            </span>
+                          {% endif %}
+                      </a>
+                    </li>
+                {%- endmacro %}
+
+                {% for item in sideNavigation %}
+                <ul class="p-side-navigation__list">
+                  <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">{{ item.heading | replace("{version}", version) }}</span></li>
+                  {% for subheading in item.subheadings %}
+                  {{ side_nav_item(subheading.url, subheading.title) }}
+                  {% endfor %}
+                </ul>
+                {% endfor %}
+
+              </div>
+            </div>
+      </aside>
+
+
       <div class="l-main">
-        <div class="row">
-          <main class="col-12" id="main-content">
+        <div class="p-strip is-shallow">
+          <main class="u-fixed-width" id="main-content">
             {% block content %}
               {% if page_tabs %}
               <div class="p-strip u-no-padding--top">
@@ -82,8 +87,9 @@
 
               {{ content | safe }}
             {% endblock content %}
-          </main>
+            </main>
         </div>
+        {% include "_layouts/_footer.html" %}
       </div>
     </div>
 

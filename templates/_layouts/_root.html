@@ -56,7 +56,9 @@
 
     {% include "_layouts/_header.html" %}
     {% block body %}{% endblock %}
-    {% include "_layouts/_footer.html" %}
+    {% if not is_docs %}
+      {% include "_layouts/_footer.html" %}
+    {% endif %}
 
     <script src="{{ versioned_static('build/js/modules/cookie-policy.js') }}"></script>
     <script>
