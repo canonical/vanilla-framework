@@ -13,11 +13,11 @@
 
 
 
-    <div class="l-full-width">
+    <div class="l-docs">
 
-      <aside class="l-start">
+      <aside class="l-docs__sidebar">
 
-        <nav class="p-side-navigation is-sticky is-drawer-hidden" id="side-navigation-drawer" aria-label="Side">
+        <nav class="p-side-navigation--accordion is-sticky is-drawer-hidden" id="side-navigation-drawer" aria-label="Side">
 
           <div class="u-hide--large p-strip--light is-shallow">
             <div class="u-fixed-width">
@@ -59,39 +59,63 @@
                     </li>
                 {%- endmacro %}
 
-                {% for item in sideNavigation %}
                 <ul class="p-side-navigation__list">
-                  <li class="p-side-navigation__item--title"><span class="p-side-navigation__text">{{ item.heading | replace("{version}", version) }}</span></li>
-                  {% for subheading in item.subheadings %}
-                  {{ side_nav_item(subheading.url, subheading.title) }}
-                  {% endfor %}
-                </ul>
-                {% endfor %}
+                {% for item in sideNavigation %}
 
+                  <li class="p-side-navigation__item">
+                    <button class="p-side-navigation__accordion-button" aria-expanded="false">{{ item.heading | replace("{version}", version) }}</button>
+                    <ul class="p-side-navigation__list">
+                      {% for subheading in item.subheadings %}
+                      {{ side_nav_item(subheading.url, subheading.title) }}
+                      {% endfor %}
+                    </ul>
+                  </li>
+
+                {% endfor %}
+              </ul>
               </div>
             </div>
       </aside>
 
+      <div class="l-docs__title" id="main-content">
+        <div class="p-strip is-shallow u-no-padding--bottom">
+          <div class="u-fixed-width">
+            {% block content_title %}
 
-      <div class="l-main">
-        <div class="p-strip is-shallow">
-          <main class="u-fixed-width" id="main-content">
-            {% block content %}
-              {% if page_tabs %}
-              <div class="p-strip u-no-padding--top">
+              {% if title %}
                 <h1>{{ title.split('|')[0] }}</h1>
-              </div>
               {% endif %}
 
               {% include "_layouts/_component_tabs.html" %}
+              {% if not page_tabs %}
+              <hr>
+              {% endif %}
 
-              {{ content | safe }}
-            {% endblock content %}
-            </main>
+            {% endblock content_title %}
+          </div>
         </div>
-        {% include "_layouts/_footer.html" %}
+      </div>
+
+      <div class="l-docs__main">
+        <main class="u-fixed-width">
+          {% block content %}
+            {{ content | safe }}
+          {% endblock content %}
+          </main>
+      </div>
+
+      {# table of contents placeholder, to be filled by JS based on headings #}
+      <div class="l-docs__meta u-hide">
+        <aside class="p-table-of-contents">
+          <div class="p-table-of-contents__section">
+            <h4 class="p-table-of-contents__header">On this page:</h4>
+            <nav class="p-table-of-contents__nav" aria-label="Table of contents" id="toc">
+            </nav>
+          </div>
       </div>
     </div>
+
+    {% include "_layouts/_footer.html" %}
 
     <script>
       window.Prism = window.Prism || {};
