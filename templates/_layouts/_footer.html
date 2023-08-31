@@ -1,24 +1,65 @@
-<footer class="p-strip--light">
-    <div class="u-fixed-width">
-      <p class="u-no-margin--bottom">&copy; {{ now("%Y") }} Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
-      <nav aria-label="Footer">
-        <ul class="p-inline-list--middot u-no-margin--bottom">
-          <li class="p-inline-list__item">
-            <a href="https://github.com/canonical/vanilla-framework/releases/latest">Vanilla framework v{{ version }}</a>
-          </li>
-          <li class="p-inline-list__item">
-            <a href="https://www.ubuntu.com/legal">Legal info</a>
-          </li>
-          <li class="p-inline-list__item">
-            <a href="https://github.com/canonical/vanilla-framework/issues/new/choose">Report a bug</a>
-          </li>
-          <li class="p-inline-list__item">
-            <a href="#tracker-settings" class="js-revoke-cookie-manager">Manage your tracker settings</a>
-          </li>
-        </ul>
-        <span class="u-off-screen">
-          <a href="#">Go to the top of the page</a>
-        </span>
-      </nav>
+{% if is_docs %}
+<footer class="l-footer--sticky p-strip--dark">
+  <div class="l-docs__subgrid">
+    <div class="l-docs__sidebar u-fixed-width">
+      <p class="u-no-margin--bottom">&copy; {{ now("%Y") }} Canonical Ltd.</p>
     </div>
+    <div class="l-docs__main">
+      <div class="row">
+        <nav class="col-3" aria-label="Footer">
+          <ul class="p-list u-no-margin--bottom">
+            <li class="p-list__item">
+              <a href="https://github.com/canonical/vanilla-framework/releases/latest">Vanilla framework v{{ version }}</a>
+            </li>
+            <li class="p-list__item">
+              <a href="https://www.ubuntu.com/legal">Legal info</a>
+            </li>
+            <li class="p-list__item">
+              <a href="https://github.com/canonical/vanilla-framework/issues/new/choose">Report a bug</a>
+            </li>
+            <li class="p-list__item">
+              <a href="#tracker-settings" class="js-revoke-cookie-manager">Manage your tracker settings</a>
+            </li>
+          </ul>
+          <span class="u-off-screen">
+            <a href="#">Go to the top of the page</a>
+          </span>
+        </nav>
+        <div class="col-9">
+          <p class="u-no-margin--bottom">Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
+{% else %}
+<footer class="p-strip--dark">
+  <div class="row">
+    <div class="col-3">
+      <p class="u-no-margin--bottom">&copy; {{ now("%Y") }} Canonical Ltd.</p>
+    </div>
+    <nav class="col-3" aria-label="Footer">
+      <ul class="p-list u-no-margin--bottom">
+        <li class="p-list__item">
+          <a href="https://github.com/canonical/vanilla-framework/releases/latest">Vanilla framework v{{ version }}</a>
+        </li>
+        <li class="p-list__item">
+          <a href="https://www.ubuntu.com/legal">Legal info</a>
+        </li>
+        <li class="p-list__item">
+          <a href="https://github.com/canonical/vanilla-framework/issues/new/choose">Report a bug</a>
+        </li>
+        <li class="p-list__item">
+          <a href="#tracker-settings" class="js-revoke-cookie-manager">Manage your tracker settings</a>
+        </li>
+      </ul>
+      <span class="u-off-screen">
+        <a href="#">Go to the top of the page</a>
+      </span>
+    </nav>
+    <div class="col-6">
+      <p class="u-no-margin--bottom">Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+    </div>
+  </div>
+</footer>
+{% endif %}

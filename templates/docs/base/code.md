@@ -4,10 +4,6 @@ context:
   title: Code | Base elements
 ---
 
-# Code
-
-<hr>
-
 Vanilla gives you multiple ways to display code using the standard HTML elements.
 
 ## Inline
