@@ -1,0 +1,75 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Grid / CSS grid alignment{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+<div class="grid-demo">
+  <h4>Vanilla 12 column grid</h4>
+  <div class="row">
+    <div class="col-9">
+      <span>.col-9</span>
+    </div>
+    <div class="col-3">
+      <span>.col-3</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+    <div class="col-1">
+      <span>.col-1</span>
+    </div>
+  </div>
+</div>
+
+
+<h4>CSS grid with 9/3 split</h4>
+<style>
+  .css-row-9-3 {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    grid-gap: 0 2rem;
+  }
+</style>
+
+<div class="grid-demo">
+  <div class="css-row-9-3 u-fixed-width">
+    <div class="col"><span>= col 9</span></div>
+    <div class="col"><span>= col 3</span></div>
+  </div>
+
+</div>
+{% endblock %}
