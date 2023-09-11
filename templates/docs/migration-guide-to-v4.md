@@ -1,10 +1,10 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Migrating to Vanilla 4.0
+  title: Migrating to Vanilla 4
 ---
 
-# Vanilla 4.0 migration
+# Vanilla 4 migration
 
 <hr>
 
@@ -136,6 +136,14 @@ In Vanilla 4.0 we remove rounded corners from all components. This change is aut
 The `$border-radius` variable still exists, but it’s value is now `0` and it’s deprecated. It will be removed in the future.
 
 If you are using the rounded corners in any custom styles or components, make sure to remove them.
+
+## Updated logo section
+
+In Vanilla 4.2 we updated the style of logo section component to allow using logos of variable width. This introduced a breaking change for some of the old logo sections that were using images not aligned by design team.
+
+If you have logos that are not aligned properly, you can use the `.has-misaligned-images` class as a workaround to apply some basic styling to them, before you replace images with correctly spaced.
+
+For more information see [the logo section component documentation](/docs/patterns/logo-section#fallback-for-misaligned-logos).
 
 ## New components
 
