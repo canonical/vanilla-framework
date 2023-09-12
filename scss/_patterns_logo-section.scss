@@ -87,4 +87,36 @@
       padding-top: $logo-section-offset-small;
     }
   }
+
+  // fallback for old logo sections that may have logos not properly aligned by design team
+  .p-logo-section.has-misaligned-images,
+  .p-logo-section--dense.has-misaligned-images {
+    .p-logo-section__item {
+      margin-bottom: $spv--small;
+      margin-top: 0;
+
+      width: $logo-section-item-size-small;
+
+      @media (min-width: $breakpoint-small) {
+        width: $logo-section-item-size-medium;
+      }
+
+      @media (min-width: $breakpoint-large) {
+        width: $logo-section-item-size;
+      }
+    }
+
+    .p-logo-section__items {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+
+    .p-logo-section__logo {
+      height: auto;
+      width: 100%;
+    }
+  }
 }

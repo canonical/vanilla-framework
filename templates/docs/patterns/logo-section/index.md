@@ -43,6 +43,14 @@ View example of the logo section pattern with line breaks
 
 <span class="p-status-label--negative">Deprecated</span> The title element within logo section `p-logo-section__title` is deprecated and should not be used. Instead, if needed, use a heading element of an appropriate level based on the context of the page.
 
+## Fallback for misaligned logos
+
+In Vanilla 4.2 we introduced update to logo section component that breaks some old logo sections that were using images not aligned by design team. If you have logos that are not aligned properly, you can use the `.has-misaligned-images` class as a workaround to apply some basic styling to them, before you replace images with correctly spaced.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/logo-section-fallback/" class="js-example">
+View example of the logo section pattern with misaligned images
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
