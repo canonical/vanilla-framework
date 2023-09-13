@@ -74,7 +74,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: release
-      - name: Push to release branch  
+          fetch-depth: 0
+      - name: Push to release branch
         run: |
           git push --force
