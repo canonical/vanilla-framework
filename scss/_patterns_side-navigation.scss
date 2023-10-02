@@ -539,7 +539,7 @@
     .p-side-navigation--raw-html {
       @include vf-side-navigation-raw-html-theme-light;
 
-      &.is-light {
+      &.is-dark {
         @include vf-side-navigation-raw-html-theme-dark;
       }
     }
@@ -723,6 +723,20 @@
     $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
     $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
   );
+
+  .is-paper & {
+    @include vf-side-navigation-theme(
+      $color-sidenav-text-default: $colors--light-theme--text-inactive,
+      $color-sidenav-background-default: $color-paper,
+      $color-sidenav-background-overlay: $colors--light-theme--background-overlay,
+      $color-sidenav-text-active: $colors--light-theme--text-default,
+      $color-sidenav-item-background-active: $colors--paper-theme--background-active,
+      $color-sidenav-item-background-hover: $colors--paper-theme--background-hover,
+      $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
+      $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
+      $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
+    );
+  }
 }
 
 @mixin vf-side-navigation-theme-dark {
@@ -804,6 +818,17 @@
     $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
     $color-sidenav-list-border: $colors--light-theme--border-low-contrast
   );
+
+  .is-paper {
+    @include vf-side-navigation-raw-html-theme(
+      $color-sidenav-text-default: $colors--light-theme--text-inactive,
+      $color-sidenav-text-active: $colors--light-theme--text-default,
+      $color-sidenav-item-background-active: $colors--paper-theme--background-active,
+      $color-sidenav-item-background-hover: $colors--paper-theme--background-hover,
+      $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
+      $color-sidenav-list-border: $colors--light-theme--border-low-contrast
+    );
+  }
 }
 
 @mixin vf-side-navigation-raw-html-theme-dark {
