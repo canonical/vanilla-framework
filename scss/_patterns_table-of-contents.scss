@@ -2,54 +2,38 @@
 
 @mixin vf-p-table-of-contents {
   .p-table-of-contents {
-    border-top: 1px solid $color-mid-light;
-    font-size: 0.875rem;
-    padding: 0 $sp-large;
-
-    @media (min-width: $threshold-6-12-col) {
-      border-left: 1px solid $color-mid-light;
-      border-top: 0;
-      padding: 0 $sp-medium;
-    }
+    @extend %vf-grid-container-padding;
   }
 
   .p-table-of-contents__header {
-    color: $color-mid-dark;
-    font-size: $sp-medium;
-    line-height: 1.5;
-    margin-bottom: $sp-medium;
-    text-transform: uppercase;
+    @extend %muted-heading;
   }
 
   .p-table-of-contents__section {
-    padding: $sp-medium 0;
+    padding-bottom: $spv--large;
 
     &:not(:last-child) {
-      border-bottom: 1px dotted $color-mid-light;
+      border-bottom: 1px solid $color-mid-light;
     }
   }
 
-  .p-table-of-contents__nav {
+  .p-table-of-contents__list {
     list-style: none;
     margin: 0;
     padding: 0;
 
+    .p-table-of-contents__list {
+      margin-left: $sph--large;
+    }
+
     .p-table-of-contents__link {
-      border-bottom: 0;
-      color: $colors--light-theme--text-default;
-      margin-bottom: $sp-x-small;
-
-      &:visited {
-        color: $colors--light-theme--text-default;
-      }
-
-      &:hover {
-        color: $color-link;
-      }
+      display: block;
+      // paddings based on side navigation
+      padding-bottom: $spv--x-small;
+      padding-top: $spv--x-small;
 
       &.is-active {
         font-weight: $font-weight-bold;
-        padding-left: $sp-x-small;
       }
     }
   }
