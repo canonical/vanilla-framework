@@ -1,0 +1,98 @@
+@mixin vf-l-docs {
+  $l-documentation-sidebar-width: 15rem;
+
+  // we switch to full screen layout (with side navigation fixed to left side)
+  // when screen is big enough to fit 12 column grid and side navigation
+  $breakpoint-full-screen-layout: calc($breakpoint-large + $l-documentation-sidebar-width);
+
+  // root element for the documentation layout
+  .l-docs,
+  // root element for that can be used on a nested container to create a subgrid aligned with the main documentation layout grid
+  .l-docs__subgrid {
+    // container for the site global navigation header
+    .l-docs__header {
+      grid-area: header;
+    }
+
+    // left side container, for side navigation
+    .l-docs__sidebar {
+      grid-area: sidebar;
+    }
+
+    // main content title container
+    // will appear above table of contents on medium screens
+    .l-docs__title {
+      grid-area: title;
+    }
+
+    // metadata container (for table of contents, etc)
+    // will appear between title and content on medium screens
+    // and on the right side on large screens
+    .l-docs__meta {
+      grid-area: meta;
+    }
+
+    // main content container
+    // will appear below table of contents on medium screens
+    .l-docs__main {
+      grid-area: main;
+    }
+
+    // container for site global footer
+    .l-docs__footer {
+      grid-area: footer;
+    }
+  }
+
+  @media (min-width: $breakpoint-large) {
+    .l-docs {
+      display: grid;
+      grid-gap: 0;
+      grid-template-areas:
+        'header  header'
+        'sidebar title'
+        'sidebar meta'
+        'sidebar main'
+        'footer  footer';
+
+      grid-template-columns: $l-documentation-sidebar-width minmax(0, 1fr);
+      grid-template-rows: auto auto auto 1fr auto; // stretch main content to fill the space
+      width: 100%;
+    }
+
+    .l-docs__subgrid {
+      display: grid;
+      grid-template-areas: 'sidebar main meta';
+      grid-template-columns: $l-documentation-sidebar-width minmax(0, 1fr) min-content;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $breakpoint-full-screen-layout) {
+    .l-docs {
+      grid-template-areas:
+        'header  header header'
+        'sidebar title  meta'
+        'sidebar main   meta'
+        'footer  footer footer';
+
+      grid-template-columns: $l-documentation-sidebar-width minmax(0, 1fr) $l-documentation-sidebar-width;
+      grid-template-rows: auto auto 1fr auto; // stretch main content to fill the space
+
+      .l-docs__content {
+        display: contents;
+      }
+    }
+
+    .l-docs__subgrid {
+      grid-template-columns: $l-documentation-sidebar-width minmax(0, 1fr) $l-documentation-sidebar-width;
+    }
+
+    // on largest screens we want to keep the table of contents sticky
+    .l-docs__meta {
+      align-self: start;
+      position: sticky;
+      top: 0;
+    }
+  }
+}
