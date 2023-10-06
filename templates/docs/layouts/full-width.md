@@ -6,12 +6,11 @@ context:
 
 # Full-width site layout
 
-<div class="p-notification--caution">
+<div class="p-notification--negative">
   <div class="p-notification__content">
-    <h5 class="p-notification__title">Experimental</h5>
+    <h5 class="p-notification__title">Deprecated</h5>
     <p class="p-notification__message">
-      The full-width layout is currently considered as experimental and used only internally by Vanilla and Design sites.<br>
-      We may introduce breaking changes to it without major release.
+      The full-width layout was implemented as a proof of concept, but is now deprecated in favour of the new <a href="/docs/layouts/documentation">documentation layout</a>.
     </p>
   </div>
 </div>
