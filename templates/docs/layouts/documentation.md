@@ -10,79 +10,54 @@ context:
 
 ## Structure
 
-The documentation layout is built using Vanilla grid classes and common components. It consists of 3 horizontal areas that span the entire fixed width of the grid: header, content, footer.
+The documentation layout utilises the whole width of the screen reserving some space on the left for side bar (with side navigation) and space on the right for additional meta data (usually table of contents). The central main area of the screen is utilising the whole width of 12 column Vanilla grid for main documentation content.
 
-![Documentation layout structure](https://assets.ubuntu.com/v1/2725610a-Documentation+layout+text+to+curves.svg)
+![Documentation layout structure with table of contents below the title](https://assets.ubuntu.com/v1/e25d272e-vanilla-docs-layout-structure-large.png)
 
-At the large breakpoint, the content area is further divided into an aside (3 columns) and a main content area (9 columns).
+This area is split between a title on the top and content below it, to allow placing the table of contents in between on smaller screen sizes.
 
-At smaller breakpoints, the aside is moved off-screen and shown / hidden using a toggle.
+![Documentation layout structure on large screens with table of contents on the right](https://assets.ubuntu.com/v1/4f55cec2-vanilla-docs-layout-structure-medium.png)
+
+At smaller breakpoints, the sidebar is moved off-screen and shown / hidden using a toggle button.
 
 ### Header
 
-Place the [navigation component](/docs/patterns/navigation#global-navigation) and any other full width elements in the header. This could include a strip with a search, a hero element, etc.
+The header area (`.l-docs__header`) is meant to contain main top navigation of the site and any other full width elements to be shown above the documentation content, such as search.
 
-Style and contents of the documentation main navigation should be consistent with rest of the site.
+The elements within the header area need to use `.l-docs__subgrid` to align with the main content area.
 
-#### Search
+### Sidebar
 
-Documentation pages may have an optional search box in the main navigation.
+The sidebar area (`.l-docs__sidebar`) is rendered at the left side of the screen with a predefined fixed width. It's main purpose is to contain the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. The side navigation component has built-in responsive functionality which makes it appear / go off-screen using a toggle.
 
-Alternatively, a search can be added in a full-width area under the top navigation, but above the aside and main content in a [strip component](/docs/patterns/strip) with grid row inside. The specific styling of the strip can be customised to match the site branding or other design requirements.
+### Title
 
-### Content area
+The title area (`.l-docs__title`) is rendered at the top of the main content area. It's main purpose is to contain the title of the documentation page. It's separated from the content to allow placing the table of contents in between on smaller screen sizes.
 
-The content area is implemented as a regular strip (`.p-strip`) with a grid row (`.row`) inside. Within the standard Vanilla 12 column grid, 3 of the columns are reserved for the side navigation (`.col-3`) with the rest of the row width (9 columns, `.col-9`) is dedicated to the main documentation content.
+### Main content
 
-The aside area should contain the [side navigation component](/docs/patterns/navigation#side-navigation) with a list of all documentation pages. Grouping and nesting of navigation items should be used to build the logical structure of the documentation navigation. The side navigation component has built-in responsive functionality which makes it appear / go off-screen using a toggle.
+The main content area (`.l-docs__main`) is rendered in the central part of the screen. It's main purpose is to contain the main documentation content. It's separated from the title to allow placing the table of contents in between on smaller screen sizes.
 
-If the contents of the side navigation are generated in a way that doesn't provide the specific class names required by Vanilla, use a [raw HTML variant of the pattern](/docs/patterns/navigation#raw-html) to style the basic HTML lists of links.
+### Meta data
 
-The main content area is placed in a `col-9` grid container. Note that the number of columns available to use by content inside this container is equal to the number of columns the container spans. For the main content this means 9 available columns.
+The meta data area (`.l-docs__meta`) is rendered at the right side of the screen with a predefined fixed width. It's main purpose is to contain the [table of contents](/docs/patterns/table-of-contents) component with a list of all sections of the documentation page.
 
-A visualisation of the grid, and how to nest different layouts inside the main content container:
-
-<div class="grid-demo">
-  <div class="row">
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-    <div class="col-1">.col-1</div>
-  </div>
-</div>
-
-To split the main content area into 3 parts, use `col-3`:
-
-<div class="grid-demo">
-  <div class="row">
-    <div class="col-3">.col-3</div>
-    <div class="col-3">.col-3</div>
-    <div class="col-3">.col-3</div>
-  </div>
-</div>
-
-To split the main content into 2 parts, use `col-4`:
-
-<div class="grid-demo">
-  <div class="row">
-    <div class="col-4">.col-4</div>
-    <div class="col-4">.col-4</div>
-  </div>
-</div>
+When there is not enough space on the screen to render this area on right side of the screen, it's moved below the title area.
 
 ### Footer
 
-The footer is built using a [strip component](/docs/patterns/strip).
+The footer (`.l-docs__footer`) is rendered full width below the other areas and is meant to contain the site footer.
+
+The elements within the footer area need to use `.l-docs__subgrid` to align with the main content area.
 
 ## Example
 
-<div class="embedded-example"><a href="/docs/examples/layouts/documentation/" class="js-example" data-height="600">
+<div class="embedded-example"><a href="/docs/examples/layouts/docs/" class="js-example" data-height="600">
 View an example of the documentation layout
 </a></div>
 
-[View full screen example of the documentation layout](/docs/examples/layouts/documentation/).
+[View full screen example of the documentation layout](/docs/examples/layouts/docs/).
+
+## Legacy brochure site documentation layout
+
+For reference, you can check the [documentation of the legacy brochure site documentation layout](/docs/layouts/documentation-brochure) using existing 12 column grid and side navigation component.
