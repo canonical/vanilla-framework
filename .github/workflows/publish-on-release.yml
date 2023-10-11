@@ -64,13 +64,3 @@ jobs:
         run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
-
-  publish-website:
-    name: Publish to the production website
-    needs: [publish-assets]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Push to release branch  
-        run: |
-          git push --force origin release
