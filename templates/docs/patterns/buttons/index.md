@@ -107,7 +107,7 @@ View example of the processing button pattern
 
 The buttons use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
 
-- Override the default by adding a state to `p-putton`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
+- Override the default by adding a state to `p-button`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
 - Change the default: go to `_settings_themes.scss` and set `$theme-default-p-button` to `dark`
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/dark" class="js-example">
