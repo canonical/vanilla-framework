@@ -1,10 +1,13 @@
 ---
-name: Propose new pattern
-about: This template allows users to propose a new pattern
+name: Propose new component
+about: This template allows users to propose a new pattern or component
+title: ''
+labels: 'WG: Proposal'
+assignees: ''
 
 ---
 
-A pattern in Vanilla needs to be flexible enough that it can be used across a wide range of scenarios and shouldn't be constrained to a specific number of applications.
+A component in Vanilla needs to be flexible enough that it can be used across a wide range of scenarios and shouldn't be constrained to a specific number of applications.
 
 ## Visual
 
