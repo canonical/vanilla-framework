@@ -4,10 +4,6 @@ context:
   title: Color | Settings
 ---
 
-# Color
-
-<hr>
-
 These guidelines are the framework upon which we have built our system for how color is used in Vanilla, we use a fairly neutral color palette along with a traffic light palette.
 
 <div class="p-strip is-shallow">

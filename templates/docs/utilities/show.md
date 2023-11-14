@@ -4,10 +4,6 @@ context:
   title: Show | Utilities
 ---
 
-# Show
-
-<hr>
-
 Show an element within a certain breakpoint.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/show/" class="js-example">

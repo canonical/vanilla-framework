@@ -4,10 +4,6 @@ context:
   title: Hide | Utilities
 ---
 
-# Hide
-
-<hr>
-
 To hide an element from the user, use the class `u-hide`.
 
 ## Viewports

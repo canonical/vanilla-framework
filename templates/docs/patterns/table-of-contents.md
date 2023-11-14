@@ -4,10 +4,6 @@ context:
   title: Table of contents | Components
 ---
 
-# Table of contents
-
-<hr>
-
 A table of contents can be used to display supplementary links to a page.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/table-of-contents/default" class="js-example">

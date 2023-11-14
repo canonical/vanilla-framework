@@ -5,10 +5,6 @@ context:
   title: Media object | Components
 ---
 
-# Media object
-
-<hr>
-
 A media object should be used to display events or articles.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/media-object/media-object/" class="js-example">

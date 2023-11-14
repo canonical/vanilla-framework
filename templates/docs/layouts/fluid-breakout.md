@@ -4,10 +4,6 @@ context:
   title: Breaking out of the grid | Layouts
 ---
 
-# Breaking out of the grid
-
-<hr>
-
 In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins - for example, tables with many columns that would otherwise result in heavy truncation or wrapping, charts with a lot of detail along the x axis, or card layouts that aim to impress with the abundance of available content. The fluid breakout layout allows you to do this.
 
 ## Anatomy of the fluid breakout layout

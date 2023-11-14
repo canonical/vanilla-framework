@@ -4,10 +4,6 @@ context:
   title: Truncation | Utilities
 ---
 
-# Truncation
-
-<hr>
-
 To truncate text, use the class `u-truncate`.
 
 When applied to a parent container, it will truncate any elements placed inside, so long as the parent's width is set.

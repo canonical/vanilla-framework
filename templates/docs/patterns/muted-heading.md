@@ -5,10 +5,6 @@ context:
   title: Muted heading | Components
 ---
 
-# Muted heading
-
-<hr>
-
 A muted heading can be used to subtly provide context to content without the heading itself being too prominent.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/headings/muted/" class="js-example">

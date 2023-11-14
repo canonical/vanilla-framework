@@ -5,10 +5,6 @@ context:
   title: Image position | Utilities
 ---
 
-# Image position
-
-<hr>
-
 Image position is a utility to position an image within a parent container, in
 most cases it would be a strip.
 

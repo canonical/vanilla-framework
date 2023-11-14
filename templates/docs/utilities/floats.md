@@ -4,10 +4,6 @@ context:
   title: Floats | Utilities
 ---
 
-# Floats
-
-<hr>
-
 The float utilities allow you to float an element left or right.
 
 ## All screens

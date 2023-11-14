@@ -4,10 +4,6 @@ context:
   title: Margin collapse | Utilities
 ---
 
-# Margin collapse
-
-<hr>
-
 Remove one or more margins of an element.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/margin-collapse/" class="js-example">

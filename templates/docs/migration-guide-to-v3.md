@@ -4,10 +4,6 @@ context:
   title: Migrating to Vanilla 3.0
 ---
 
-# Migrating to Vanilla 3.0
-
-<hr>
-
 Vanilla 3.0 introduces a number of breaking changes, and this upgrade guide provides detailed instructions on the actions needed to make the transition a smooth one.
 
 ## Building and importing
@@ -442,7 +438,7 @@ The individual mixins for label variants have been removed. All necessary styles
 
 <div class="p-notification--information">
   <div class="p-notification__content">
-    <p class="p-notification__message">Since Vanilla 3.2 the label component has been renamed to status label. Refer to the <a href="/docs/patterns/status-labels">status label component</a> page for more details and code examples. 
+    <p class="p-notification__message">Since Vanilla 3.2 the label component has been renamed to status label. Refer to the <a href="/docs/patterns/status-labels">status label component</a> page for more details and code examples.
   </div>
 </div>
 

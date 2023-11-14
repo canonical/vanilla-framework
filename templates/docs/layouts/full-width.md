@@ -4,8 +4,6 @@ context:
   title: Full-width site layout | Layouts
 ---
 
-# Full-width site layout
-
 <div class="p-notification--negative">
   <div class="p-notification__content">
     <h5 class="p-notification__title">Deprecated</h5>

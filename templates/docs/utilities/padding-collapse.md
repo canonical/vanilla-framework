@@ -4,10 +4,6 @@ context:
   title: Padding collapse | Utilities
 ---
 
-# Padding collapse
-
-<hr>
-
 Remove one or more paddings on an element.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/padding-collapse/" class="js-example">
