@@ -4,10 +4,6 @@ context:
   title: Matrix | Components
 ---
 
-# Matrix
-
-<hr>
-
 The matrix component can be useful to display a selection of items in a format that is less linear than a normal list, using an image to describe each item.
 
 Items will display in one column on small screens. At resolutions above `$breakpoint-small`, items will display three per row.

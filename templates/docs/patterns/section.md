@@ -4,10 +4,6 @@ context:
   title: Section | Components
 ---
 
-# Sections
-
-<hr>
-
 Use section components to wrap around parts of content on the page. They are used for managing the bottom space after each element.
 
 ## Regular sections

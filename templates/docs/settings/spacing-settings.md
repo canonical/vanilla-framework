@@ -4,9 +4,6 @@ context:
   title: Spacing | Settings
 ---
 
-# Spacing
-
-<hr>
 Spacing in Vanilla is controlled via a set of variables. There are two kinds of variables - nudges, which keep text aligned to the baseline grid, and multiples of the spacing unit, which define vertical and horizontal spacing.
 
 ## The baseline grid

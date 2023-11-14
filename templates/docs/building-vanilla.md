@@ -4,10 +4,6 @@ context:
   title: Building with Vanilla
 ---
 
-# Building with Vanilla
-
-<hr>
-
 Here you will find information on how you can use different tools to build Vanilla into production CSS.
 
 ## Sass

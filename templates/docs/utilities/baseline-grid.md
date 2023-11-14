@@ -4,10 +4,6 @@ context:
   title: Font metrics | Utilities
 ---
 
-# Font metrics
-
-<hr>
-
 You can apply this utility to an element (such as `<body>`) to visualise the `.5rem` baseline grid to which text elements adhere.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/baseline-grid/" class="js-example">

@@ -4,10 +4,6 @@ context:
   title: Table layout | Settings
 ---
 
-# Table layout
-
-<hr>
-
 By default, tables in Vanilla use `table-layout: fixed`.
 
 There are cases where you might want to use `table-layout: auto` - e.g. in automatically generated tables. To do this, you need to set the `$table-layout-fixed` variable to `true`.

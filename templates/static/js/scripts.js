@@ -213,11 +213,13 @@
     }
   }
 
-  //
+  // accordion side navigation
   var currentPage = document.querySelector('.p-side-navigation__link[aria-current="page"]');
-  var parentList = currentPage.parentNode.parentNode;
-  parentList.setAttribute('aria-expanded', true);
-  parentList.previousElementSibling.setAttribute('aria-expanded', true);
+  if (currentPage) {
+    var parentList = currentPage.parentNode.parentNode;
+    parentList.setAttribute('aria-expanded', true);
+    parentList.previousElementSibling.setAttribute('aria-expanded', true);
+  }
 
   function setupSideNavigationExpandToggle(toggle) {
     const isExpanded = toggle.getAttribute('aria-expanded') === 'true';

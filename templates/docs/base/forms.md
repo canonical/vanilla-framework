@@ -4,10 +4,6 @@ context:
   title: Forms | Base elements
 ---
 
-# Forms
-
-<hr>
-
 Form controls have global styling defined at the HTML element level.
 
 Most labels and controls are 100% the width of the `<form>` parent element, unless you [specify inline layout](#inline).

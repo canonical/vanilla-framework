@@ -4,10 +4,6 @@ context:
   title: Breakpoints | Settings
 ---
 
-# Breakpoints
-
-<hr>
-
 Vanilla uses three main breakpoints for screen sizes, below you can see the setting, default width and device examples at which the content will scale.
 
 | Setting                            | Default value       | Device example    |

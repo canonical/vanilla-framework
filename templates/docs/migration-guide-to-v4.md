@@ -4,10 +4,6 @@ context:
   title: Migrating to Vanilla 4
 ---
 
-# Vanilla 4 migration
-
-<hr>
-
 Vanilla 4.0 doesn’t introduce any breaking changes on SCSS code level, or in terms of removed components. It is still a major version update because it introduces new heading typography and increases the grid width. These changes may lead to visual differences and bugs.
 
 This migration guide explains what changes are introduced in Vanilla 4.0 and how to QA them in your projects.

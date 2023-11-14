@@ -4,10 +4,6 @@ context:
   title: Images | Components
 ---
 
-# Images
-
-<hr>
-
 Enhance images by adding a variant style with a border or drop shadow.
 
 ## Image with border
