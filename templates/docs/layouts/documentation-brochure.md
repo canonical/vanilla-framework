@@ -1,12 +1,8 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Documentation | Layouts
+  title: Documentation brochure layout | Layouts
 ---
-
-# Documentation layout
-
-<hr>
 
 <div class="p-notification--caution">
   <div class="p-notification__content">

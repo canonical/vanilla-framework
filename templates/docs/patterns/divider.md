@@ -4,10 +4,6 @@ context:
   title: Divider | Components
 ---
 
-# Divider
-
-<hr>
-
 ## Responsive divider
 
 A responsive divider inserts divider lines between sections of content. On small screens (up to `$breakpoint-large`), the divider lines appear horizontally. On screens bigger than `$breakpoint-large`, the divider lines appear vertically, centered in the column gutters. This behaviour can be overridden for medium screens by applying `col-medium-...` to each column which will cause the divider lines to remain vertical for medium and large screens.

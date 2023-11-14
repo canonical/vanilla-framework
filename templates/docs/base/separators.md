@@ -4,10 +4,6 @@ context:
   title: Separators | Base elements
 ---
 
-# Separators
-
-<hr>
-
 Vanilla gives you multiple ways to separate parts of the content with a horizontal line.
 
 ## Horizontal rule

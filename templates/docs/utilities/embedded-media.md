@@ -4,10 +4,6 @@ context:
   title: Embedded media | Utilities
 ---
 
-# Embedded media
-
-<hr>
-
 Embed media objects such as videos, maps and calendars.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/embedded-media/" class="js-example" data-height="600">

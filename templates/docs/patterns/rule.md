@@ -4,10 +4,6 @@ context:
   title: Rule | Components
 ---
 
-# Rule
-
-<hr>
-
 The rule component indicates the beginning of a new group of elements. This might be at the section level, or between more granular elements, like paragraphs.
 
 It "anchors" elements that are far apart, and at risk of appearing floating in space.

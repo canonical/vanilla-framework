@@ -4,10 +4,6 @@ context:
   title: Slider | Components
 ---
 
-# Slider
-
-<hr>
-
 The `p-slider__wrapper` and `p-slider__input` classes should be used with `<input type="range">` elements
 when you want to provide a numeric representation of the slider value, as well as allow the user to specify a value.
 

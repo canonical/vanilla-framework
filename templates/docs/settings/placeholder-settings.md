@@ -4,10 +4,6 @@ context:
   title: Placeholders | Settings
 ---
 
-# Placeholders
-
-<hr>
-
 Vanilla uses several global placeholders to share common styles between components. These placeholders can be edited via the following placeholder variables, assuming a `$sp-unit` of `0.5rem`.
 
 <table>

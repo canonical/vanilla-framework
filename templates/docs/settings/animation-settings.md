@@ -4,10 +4,6 @@ context:
   title: Animations | Settings
 ---
 
-# Animations
-
-<hr>
-
 Vanilla provides a choice of duration and easing for animating components.
 
 ## Duration

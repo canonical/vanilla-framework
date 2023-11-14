@@ -4,10 +4,6 @@ context:
   title: Font metrics | Utilities
 ---
 
-# Font metrics
-
-<hr>
-
 Being able to visualise the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_(typography)">baseline</a> position, <a target="_blank" href="https://en.wikipedia.org/wiki/Cap_height">cap-height</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/X-height">x-height</a> of a typeface can be helpful, for example when trying to precisely align inline-block elements (like icons) to text.
 
 These properties are not directly accessible via css, but can be obtained from font-editing software like <a target="_blank" href="https://fontforge.github.io/">FontForge</a>. The values are stored in `_settings_font.scss` (the defaults apply to the Ubuntu font family). If you want to use this utility with another font, you will need to change the default values to match your font.

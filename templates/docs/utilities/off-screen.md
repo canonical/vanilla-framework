@@ -4,10 +4,6 @@ context:
   title: Off screen | Utilities
 ---
 
-# Off screen
-
-<hr>
-
 The `.u-off-screen` class will position an element out of the page flow and off-screen, while still making it available to screen readers.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/off-screen/" class="js-example">

@@ -4,10 +4,6 @@ context:
   title: Segmented control | Components
 ---
 
-# Segmented control
-
-<hr>
-
 Segmented control can be used in two ways:
 
 **Secondary tabs:** if the page already has a set of primary tabs used as navigation, this can be used as a sub-navigation of those primary tabs.

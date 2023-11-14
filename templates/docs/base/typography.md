@@ -4,10 +4,6 @@ context:
   title: Typography | Base elements
 ---
 
-# Typography
-
-<hr>
-
 ## The Ubuntu typeface
 
 We use the [Ubuntu typeface](https://design.ubuntu.com/font/) exclusively. It was recently upgraded to a variable font, which features a weight and a width axis. It now also includes true small caps. Number figures to accompany the small caps are currently being finalised and will be available soon.

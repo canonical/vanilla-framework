@@ -1,12 +1,8 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Application | Layouts
+  title: Application layout | Layouts
 ---
-
-# Application layout
-
-<hr>
 
 ## Structure
 

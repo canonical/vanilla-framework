@@ -4,10 +4,6 @@ context:
   title: Assets | Settings
 ---
 
-# Assets
-
-<hr>
-
 Assets might include images, icons or font files. If you wish to load these via a content delivery network (CDN), you can specify the CDN host using this variable.
 
 | Setting        | Default value                 |

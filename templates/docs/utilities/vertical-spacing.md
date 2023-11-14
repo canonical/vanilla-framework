@@ -4,10 +4,6 @@ context:
   title: Vertical spacing | Utilities
 ---
 
-# Vertical spacing
-
-<hr>
-
 The `.u-sv` set of utility classes adjusts the space after an element in positive or negative multiples of the baseline grid unit. A baseline grid unit is equivalent to `.5rem`.
 
 For example, to pull the next element `1rem` closer, apply `.u-sv-2`. To push it `.5rem` away from the current element, apply `u-sv1`.

@@ -4,10 +4,6 @@ context:
   title: Text max width | Utilities
 ---
 
-# Text max width
-
-<hr>
-
 We aim to limit text to a measure (line width) of around 90 characters. This is done for readability purposes, and is already applied to paragraphs and headings.
 
 To limit the width of text lists to match the line width of paragraphs use the `.u-text-max-width` utility class on the list element itself, or on a parent element.

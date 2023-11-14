@@ -4,8 +4,6 @@ context:
   title: Vanilla v2 Changelog
 ---
 
-# Vanilla v2 Changelog
-
 <table>
   <thead>
     <tr>

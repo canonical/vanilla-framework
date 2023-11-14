@@ -4,10 +4,6 @@ context:
   title: Align | Utilities
 ---
 
-# Align
-
-<hr>
-
 ## Content
 
 When you need to align elements within a container, you can use the `u-align` utilities to force them to align center, left or right.

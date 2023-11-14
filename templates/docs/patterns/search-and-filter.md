@@ -4,10 +4,6 @@ context:
   title: Search and filter | Components
 ---
 
-# Search and filter
-
-<hr>
-
 This pattern provides the ability to search and apply filter chips with a panel listing available options.
 
 This pattern requires JavaScript to provide the full functionality.

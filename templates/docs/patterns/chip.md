@@ -4,10 +4,6 @@ context:
   title: Chips | Components
 ---
 
-# Chips
-
-<hr>
-
 Use the chip component to display small actionable pieces of information.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/default" class="js-example">

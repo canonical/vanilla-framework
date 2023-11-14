@@ -1,12 +1,8 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Documentation | Layouts
+  title: Documentation layout | Layouts
 ---
-
-# Documentation layout
-
-<hr>
 
 ## Structure
 

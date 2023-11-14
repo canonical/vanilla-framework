@@ -4,10 +4,6 @@ context:
   title: Tables | Base elements
 ---
 
-# Tables
-
-<hr>
-
 Data tables are used to organize and display all information from a data set.
 
 <div class="embedded-example"><a href="/docs/examples/base/table/" class="js-example">
