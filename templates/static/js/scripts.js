@@ -209,7 +209,7 @@
     var toc = document.querySelector('#toc');
     if (toc) {
       toc.appendChild(list);
-      toc.closest(".u-hide").classList.remove("u-hide");
+      toc.closest('.u-hide').classList.remove('u-hide');
     }
   }
 
