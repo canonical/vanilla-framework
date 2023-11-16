@@ -3,6 +3,20 @@
     throw Error('VANILLA_VERSION not specified.');
   }
 
+  // throttling function calls, by Remy Sharp
+  // http://remysharp.com/2010/07/21/throttling-function-calls/
+  var throttle = function (fn, delay) {
+    var timer = null;
+    return function () {
+      var context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
+  };
+
   var CODEPEN_CONFIG = {
     title: 'Vanilla framework example',
     head: "<meta name='viewport' content='width=device-width, initial-scale=1'>",
@@ -146,6 +160,14 @@
     }
   }
 
+  function resizeIframe(iframe) {
+    if (iframe.contentDocument.readyState == 'complete') {
+      var frameHeight = iframe.contentDocument.body.scrollHeight;
+      var style = iframe.contentWindow.getComputedStyle(iframe.contentDocument.body);
+      iframe.height = frameHeight + 32 + 'px'; // accommodate for body margin
+    }
+  }
+
   function renderIframe(container, html, height) {
     var iframe = document.createElement('iframe');
 
@@ -163,9 +185,7 @@
       // Wait for content to load before determining height
       var resizeInterval = setInterval(function () {
         if (iframe.contentDocument.readyState == 'complete') {
-          var frameHeight = iframe.contentDocument.body.scrollHeight;
-          var style = iframe.contentWindow.getComputedStyle(iframe.contentDocument.body);
-          iframe.height = frameHeight + 32 + 'px'; // accommodate for body margin
+          resizeIframe(iframe);
           clearInterval(resizeInterval);
           fixScroll();
         }
@@ -175,6 +195,13 @@
       setTimeout(function () {
         clearInterval(resizeInterval);
       }, 5000);
+
+      window.addEventListener(
+        'resize',
+        throttle(function () {
+          resizeIframe(iframe);
+        }, 10)
+      );
     }
 
     return iframe;
