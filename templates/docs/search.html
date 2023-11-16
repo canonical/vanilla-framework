@@ -2,13 +2,15 @@
 
 {% block title %}Search results{% if query %} for "{{query}}"{% endif %}{% endblock %}
 
-{% block content %}
+{% block content_title %}
   {% if results and results.entries %}
     <h1 class="p-heading--2">We've found these results for your search <strong>"{{ query }}"</strong></h1>
   {% else %}
     <h1 class="p-heading--2">We haven't found any results for your search <strong>"{{ query }}"</strong>.</h1>
   {% endif %}
+{% endblock %}
 
+{% block content %}
   {% if  results and results.entries %}
   <div class="p-strip is-shallow">
     {% for item in results.entries %}
@@ -38,6 +40,5 @@
       </a>
     {% endif %}
   </div>
-
   {% endif %}
 {% endblock %}
