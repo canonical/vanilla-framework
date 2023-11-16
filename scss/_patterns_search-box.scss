@@ -79,29 +79,31 @@
     .p-search-box__input {
       @include vf-search-box-dark-theme;
     }
-
-    .p-search-box.is-light {
-      .p-search-box__input {
-        @include vf-search-box-light-theme;
-      }
-    }
   } @else {
     .p-search-box {
       .p-search-box__input {
         @include vf-search-box-light-theme;
       }
     }
-
-    .p-search-box.is-dark {
-      .p-search-box__input {
-        @include vf-search-box-dark-theme;
-      }
-    }
   }
 
+  // beware that the order of the following classes is important
+  // as they are used to override the default theme
   .is-paper .p-search-box {
     .p-search-box__input {
       @include vf-search-box-paper-theme;
+    }
+  }
+
+  .p-search-box.is-light {
+    .p-search-box__input {
+      @include vf-search-box-light-theme;
+    }
+  }
+
+  .p-search-box.is-dark {
+    .p-search-box__input {
+      @include vf-search-box-dark-theme;
     }
   }
 }
