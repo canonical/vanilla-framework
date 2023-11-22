@@ -6,19 +6,23 @@ context:
 
 Tooltips are text labels that appear when the user hovers over, focuses on, or touches an element on the screen.
 
-They can be used to provide information about concepts/terms/actions that are not self-explanatory or well known.
+Use tooltips to further explain concepts, terms, or actions that are not immediately clear or well known, but are not necessary for users to complete an action.
 
 <div class="p-notification--caution">
   <p class="p-notification__content">
-    <span class="p-notification__title">Avoid:</span>
-    <span class="p-notification__message">Using tooltips to provide instructions or guidance. They shouldn't be used to show rich information including images and formatted text and avoid placing over plain text or other places where they are not discoverable.</span>
+    <span class="p-notification__message">Do not use them for information the user needs, it hides important information from the user. For example, the user should not need to scroll over a tooltip to find out that a button is disabled. </span>
   </p>
 </div>
 
 <div class="p-notification--caution">
   <p class="p-notification__content">
-    <span class="p-notification__title">Avoid:</span>
-    <span class="p-notification__message">Tooltips shouldn't be used on disabled elements, such as buttons. It should be clear to the user why the button is disabled, without the tooltip needing to be revealed first.</span>
+    <span class="p-notification__message">Do not use tooltips for disabled elements, such as buttons. It should be clear to the user why the button is disabled, without the tooltip needing to be revealed first.</span>
+  </p>
+</div>
+
+<div class="p-notification--caution">
+<p class="p-notification__content">
+    <span class="p-notification__message"> Do not use tooltips for rich information (such as images and formatted text). Avoid using them over plain text or other places where users will not be able to find them.</span>
   </p>
 </div>
 
