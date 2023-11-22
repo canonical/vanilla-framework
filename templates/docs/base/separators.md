@@ -8,7 +8,7 @@ Vanilla gives you multiple ways to separate parts of the content with a horizont
 
 ## Horizontal rule
 
-Use the standard `<hr>` element to introduce section breaks.
+Use the standard `<hr />` element to introduce section breaks.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr/" class="js-example">
 View example of the horizontal line
@@ -16,7 +16,7 @@ View example of the horizontal line
 
 ### Muted horizontal rule
 
-Add the `is-muted` class to an `<hr>` to make the horizontal rule lighter in colour.
+Add the `is-muted` class to an `<hr />` to make the horizontal rule lighter in colour.
 This can be useful when trying to create a more subtle partitioning within a section within a container, or between standard horizontal rules.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr-muted/" class="js-example">
@@ -25,7 +25,7 @@ View example of the muted horizontal line
 
 ### Fixed width horizontal rule
 
-Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr>` in a `div` with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr>`.
+Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr />` in a `div` with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr />`.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr-fixed-width/" class="js-example">
 View example of the fixed-width horizontal line
