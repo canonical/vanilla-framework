@@ -16,7 +16,7 @@
     @extend %vf-has-box-shadow;
 
     display: none;
-    margin: 0;
+    margin: 0 0 $input-margin-bottom 0;
     max-width: 21rem;
     min-width: 10rem;
     padding: 0;
@@ -83,6 +83,8 @@
   }
 
   .p-contextual-menu__toggle {
+    // Remove margin bottom for the dropdown menu to be aligned with the toggle
+    margin-bottom: 0;
     // All buttons have a margin right, unless they are a last child.
     // In cases where contextual menu toggle is a button, we do not want it to
     // have a margin, but since it is never the last child in this pattern,
