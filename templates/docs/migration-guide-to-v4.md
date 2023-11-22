@@ -174,7 +174,7 @@ For more information see [the grid documentation](/docs/patterns/grid) or [broch
 White strip was introduced in Vanilla 4.0 as a way to highlight sections on top of a new paper background. See [“Paper background”](#paper-background) section above for more information.
 
 <div class="p-strip">
-<hr>
+<hr />
 
 If you want to learn about migration to Vanilla 3.0, see [Vanilla 3.0 migration guide](/docs/migration-guide-to-v3).
 

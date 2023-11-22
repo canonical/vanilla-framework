@@ -28,7 +28,7 @@ Vanilla uses three font weight settings in tandem with the Ubuntu font, which ca
 | `$font-weight-bold`            | `550`         | Most often used on elements with very small text to make them stand out |
 
 <br>
-<hr>
+<hr />
 
 ## Related
 
