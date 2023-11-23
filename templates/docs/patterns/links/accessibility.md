@@ -10,14 +10,14 @@ Links are used as navigational elements and can be used on their own or inline w
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects.
 
 #### Link text
 
-- As screen reader users can choose to read link text in isolation, avoid using non descriptive text like “Read more”, “Learn more”, “Click here” etc. Out of context, it isn’t obvious where these links take you.
-- Use unique link text where possible. Speech recognition software users may have a bad experience with duplicated link text.
-- Avoid using anything longer than a full sentence for a link.
-- Use judgement when linking URLs, think about how these may be read out.
+- Avoid using generic link descriptions such as “Read more”, “Learn more”, or “Click here”. Out of context, it isn’t obvious where these links take you. As screen reader users can choose to read link text in isolation.
+- Use unique link text where possible. Screen reader and speech recognition software users may have trouble differentiating links that have the same text but different destination or purpose.
+- Avoid using anything longer than a full sentence for a link, ideally ten words or fewer.
+- Use judgement when linking URLs, think about how these may be read out by a screen reader.
 
 #### Images
 
