@@ -4,7 +4,9 @@ context:
   title: Empty states | Components
 ---
 
-State zero or the empty state is a state where there is no data to display in the UI. It is most commonly used when a new feature is developed or a user interacts with the page for the first time. It can also be used when all data is deleted or unavailable. Empty states inform, support, and provide constructive guidance about the next steps when there is nothing to display.
+State zero or the empty state is the moment in the app where there is no data to display in the UI. It is most commonly used when a new feature is developed or a user interacts with the page for the first time. It can also be used when all data is deleted or unavailable.
+
+Empty states should inform, support, and guide users to next steps when there is nothing to display.
 
 ## No content
 
