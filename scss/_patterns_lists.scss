@@ -256,37 +256,6 @@ $list-step-bullet-margin: $sph--x-large;
       }
     }
   }
-
-  // Theming
-  @if ($theme-default-p-inline-list--middot == 'dark') {
-    .p-inline-list--middot {
-      @include vf-p-inline-list-middot-dark-theme;
-    }
-
-    .p-inline-list--middot.is-light {
-      @include vf-p-inline-list-middot-light-theme;
-    }
-  } @else {
-    .p-inline-list--middot {
-      @include vf-p-inline-list-middot-light-theme;
-    }
-
-    .p-inline-list--middot.is-dark {
-      @include vf-p-inline-list-middot-dark-theme;
-    }
-  }
-}
-
-@mixin vf-p-inline-list-middot-theme($color-list-text) {
-  color: $color-list-text;
-}
-
-@mixin vf-p-inline-list-middot-light-theme {
-  @include vf-p-inline-list-middot-theme($colors--light-theme--text-default);
-}
-
-@mixin vf-p-inline-list-middot-dark-theme {
-  @include vf-p-inline-list-middot-theme($colors--dark-theme--text-default);
 }
 
 @mixin vf-p-inline-list-stretch {
