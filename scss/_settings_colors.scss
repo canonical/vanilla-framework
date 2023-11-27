@@ -207,45 +207,10 @@ $colors--paper-theme--background-inputs: rgba($color-x-dark, $input-background-o
 $colors--paper-theme--background-active: rgba($color-x-dark, $active-background-opacity-amount) !default;
 $colors--paper-theme--background-hover: rgba($color-x-dark, $hover-background-opacity-amount) !default;
 
-// Theme colors exposed as CSS custom properties
-%vf-theme-light {
-  // SCSS variables need to be interpolated to work in CSS custom properties
-  --color--text-default: #{$colors--light-theme--text-default};
-  --color--text-muted: #{$colors--light-theme--text-muted};
-  --color--text-inactive: #{$colors--light-theme--text-inactive};
-
-  --color--background-default: #{$colors--light-theme--background-default};
-  --color--background-alt: #{$colors--light-theme--background-alt};
-  --color--background-inputs: #{$colors--light-theme--background-inputs};
-  --color--background-active: #{$colors--light-theme--background-active};
-  --color--background-hover: #{$colors--light-theme--background-hover};
-  --color--background-overlay: #{$colors--light-theme--background-overlay};
-
-  --color--border-default: #{$colors--light-theme--border-default};
-  --color--border-high-contrast: #{$colors--light-theme--border-high-contrast};
-  --color--border-low-contrast: #{$colors--light-theme--border-low-contrast};
-}
-
-%vf-theme-dark {
-  // SCSS variables need to be interpolated to work in CSS custom properties
-  --color--text-default: #{$colors--dark-theme--text-default};
-  --color--text-muted: #{$colors--dark-theme--text-muted};
-  --color--text-inactive: #{$colors--dark-theme--text-inactive};
-
-  --color--background-default: #{$colors--dark-theme--background-default};
-  --color--background-alt: #{$colors--dark-theme--background-alt};
-  --color--background-inputs: #{$colors--dark-theme--background-inputs};
-  --color--background-active: #{$colors--dark-theme--background-active};
-  --color--background-hover: #{$colors--dark-theme--background-hover};
-  --color--background-overlay: #{$colors--dark-theme--background-overlay};
-
-  --color--border-default: #{$colors--dark-theme--border-default};
-  --color--border-high-contrast: #{$colors--dark-theme--border-high-contrast};
-  --color--border-low-contrast: #{$colors--dark-theme--border-low-contrast};
-}
-
 // Current theme (based on CSS variables)
-// These variables should be used in components.
+// This is a mapping between SCSS variable and it's CSS property equivalent.
+// These SCSS variables should be used in components as colour values.
+// See _base_themes.scss for CSS custom properties definitions.
 $colors--theme--text-default: var(--color--text-default);
 $colors--theme--text-muted: var(--color--text-muted);
 $colors--theme--text-inactive: var(--color--text-inactive);
