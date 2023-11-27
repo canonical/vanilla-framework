@@ -2,6 +2,43 @@
 
 // Color themes
 @mixin vf-b-themes {
+  // Theme colors exposed as CSS custom properties
+  %vf-theme-light {
+    // SCSS variables need to be interpolated to work in CSS custom properties
+    --color--text-default: #{$colors--light-theme--text-default};
+    --color--text-muted: #{$colors--light-theme--text-muted};
+    --color--text-inactive: #{$colors--light-theme--text-inactive};
+
+    --color--background-default: #{$colors--light-theme--background-default};
+    --color--background-alt: #{$colors--light-theme--background-alt};
+    --color--background-inputs: #{$colors--light-theme--background-inputs};
+    --color--background-active: #{$colors--light-theme--background-active};
+    --color--background-hover: #{$colors--light-theme--background-hover};
+    --color--background-overlay: #{$colors--light-theme--background-overlay};
+
+    --color--border-default: #{$colors--light-theme--border-default};
+    --color--border-high-contrast: #{$colors--light-theme--border-high-contrast};
+    --color--border-low-contrast: #{$colors--light-theme--border-low-contrast};
+  }
+
+  %vf-theme-dark {
+    // SCSS variables need to be interpolated to work in CSS custom properties
+    --color--text-default: #{$colors--dark-theme--text-default};
+    --color--text-muted: #{$colors--dark-theme--text-muted};
+    --color--text-inactive: #{$colors--dark-theme--text-inactive};
+
+    --color--background-default: #{$colors--dark-theme--background-default};
+    --color--background-alt: #{$colors--dark-theme--background-alt};
+    --color--background-inputs: #{$colors--dark-theme--background-inputs};
+    --color--background-active: #{$colors--dark-theme--background-active};
+    --color--background-hover: #{$colors--dark-theme--background-hover};
+    --color--background-overlay: #{$colors--dark-theme--background-overlay};
+
+    --color--border-default: #{$colors--dark-theme--border-default};
+    --color--border-high-contrast: #{$colors--dark-theme--border-high-contrast};
+    --color--border-low-contrast: #{$colors--dark-theme--border-low-contrast};
+  }
+
   @at-root {
     :root {
       @extend %vf-theme-light;
