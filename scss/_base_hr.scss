@@ -27,8 +27,13 @@
   // stylelint-disable selector-max-type -- base styles can use type selectors
   hr {
     @extend %hr;
+    background: $colors--theme--border-default;
 
     margin-bottom: calc($spv--small - 1px);
+
+    &.is-muted {
+      background-color: $colors--theme--border-low-contrast;
+    }
 
     &.u-no-margin--bottom {
       // compensate for hr thickness, to make sure it doesn't drift from baseline grid
@@ -39,44 +44,5 @@
       @extend %fixed-width-hr;
     }
   }
-
-  // Theming
-  @if ($theme-default-hr == 'dark') {
-    hr {
-      @include vf-hr-dark-theme;
-    }
-
-    hr.is-light {
-      @include vf-hr-light-theme;
-    }
-  } @else {
-    hr {
-      @include vf-hr-light-theme;
-    }
-
-    hr.is-dark {
-      @include vf-hr-dark-theme;
-    }
-  }
   // stylelint-enable selector-max-type
-}
-
-@mixin vf-hr-theme(
-  // color of the horizontal rule line
-  $color-hr-line-default,
-  $color-hr-line-muted
-) {
-  background: $color-hr-line-default;
-
-  &.is-muted {
-    background-color: $color-hr-line-muted;
-  }
-}
-
-@mixin vf-hr-light-theme {
-  @include vf-hr-theme($color-hr-line-default: $colors--light-theme--border-default, $color-hr-line-muted: $colors--light-theme--border-low-contrast);
-}
-
-@mixin vf-hr-dark-theme {
-  @include vf-hr-theme($color-hr-line-default: $colors--dark-theme--border-default, $color-hr-line-muted: $colors--dark-theme--border-low-contrast);
 }
