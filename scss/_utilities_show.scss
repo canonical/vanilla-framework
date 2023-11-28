@@ -26,4 +26,28 @@
       }
     }
   }
+
+  // stylelint-disable selector-max-type
+  li.u-show {
+    display: list-item !important;
+
+    &--small {
+      @media (max-width: $breakpoint-small - 1) {
+        display: list-item !important;
+      }
+    }
+
+    &--medium {
+      @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) {
+        display: list-item !important;
+      }
+    }
+
+    &--large {
+      @media (min-width: $breakpoint-large) {
+        display: list-item !important;
+      }
+    }
+  }
+  // stylelint-enable selector-max-type
 }
