@@ -142,6 +142,15 @@ Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/release
 - [Side navigation](/docs/patterns/navigation#side-navigation)
 - [Search box](/docs/patterns/search-box)
 
+### Setting the default color theme per element / component
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <span class="p-notification__message">Setting default theme via SCSS variables is now deprecated. Use <code>is-dark</code> or <code>is-light</code> class names in HTML instead.</span>
+  </div>
+</div>
+
 | Element / Component | Variable                               | Default value |
 | ------------------- | -------------------------------------- | ------------- |
 | checkbox            | `$theme-default-forms`                 | `light`       |
@@ -154,15 +163,8 @@ Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/release
 | Side navigation     | `$theme-default-p-side-navigation`     | `light`       |
 | Search box          | `$theme-default-p-search-box`          | `light`       |
 
+The `_settings_themes.scss` file contains a list of variables that define the default theme for a subset of elements and components. Starting with Vanilla 4.6.0 this type of theming is deprecated.
+
+With new theming mechanism based on CSS custom properties, the default theme for all components remains light. To change the theme of given element and all its children, add `is-dark` or `is-light` class to it.
+
 Future releases will expand this list to include all elements and components.
-
-### Setting the default color theme per element / component
-
-To set the default theme to dark on any of the elements / components listed above:
-
-- Go to `_settings_themes.scss`
-- Set the value of the respective variable in the table above to 'dark'
-
-### Invoking a theme that is not currently a default
-
-Besides setting the default, you can invoke the non-default theme by adding a class to your markup. For the list of themed elements above, add `is-dark` (if the default for the respective element or component is `light`, or `is-light` if the default is dark.
