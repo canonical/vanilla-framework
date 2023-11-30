@@ -226,6 +226,43 @@ $colors--theme--border-default: var(--vf-color-border-default);
 $colors--theme--border-high-contrast: var(--vf-color-border-high-contrast);
 $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
 
+// Theme colors exposed as CSS custom properties
+@mixin vf-theme-light {
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-text-default: #{$colors--light-theme--text-default};
+  --vf-color-text-muted: #{$colors--light-theme--text-muted};
+  --vf-color-text-inactive: #{$colors--light-theme--text-inactive};
+
+  --vf-color-background-default: #{$colors--light-theme--background-default};
+  --vf-color-background-alt: #{$colors--light-theme--background-alt};
+  --vf-color-background-inputs: #{$colors--light-theme--background-inputs};
+  --vf-color-background-active: #{$colors--light-theme--background-active};
+  --vf-color-background-hover: #{$colors--light-theme--background-hover};
+  --vf-color-background-overlay: #{$colors--light-theme--background-overlay};
+
+  --vf-color-border-default: #{$colors--light-theme--border-default};
+  --vf-color-border-high-contrast: #{$colors--light-theme--border-high-contrast};
+  --vf-color-border-low-contrast: #{$colors--light-theme--border-low-contrast};
+}
+
+@mixin vf-theme-dark {
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-text-default: #{$colors--dark-theme--text-default};
+  --vf-color-text-muted: #{$colors--dark-theme--text-muted};
+  --vf-color-text-inactive: #{$colors--dark-theme--text-inactive};
+
+  --vf-color-background-default: #{$colors--dark-theme--background-default};
+  --vf-color-background-alt: #{$colors--dark-theme--background-alt};
+  --vf-color-background-inputs: #{$colors--dark-theme--background-inputs};
+  --vf-color-background-active: #{$colors--dark-theme--background-active};
+  --vf-color-background-hover: #{$colors--dark-theme--background-hover};
+  --vf-color-background-overlay: #{$colors--dark-theme--background-overlay};
+
+  --vf-color-border-default: #{$colors--dark-theme--border-default};
+  --vf-color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
+  --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
+}
+
 // Branding colors
 $color-ubuntu: #e95420; // Ubuntu orange, should not be overridden
 $color-brand: $color-ubuntu !default;
