@@ -170,7 +170,7 @@ def global_template_context():
             flask.request.path.replace("/docs/", "")
             .replace("/design/", "")
             .replace("/accessibility", "")
-            .replace("/design_guidelines", "")
+            .replace("/design-guidelines", "")
         )
 
         docs_slug = "" if docs_slug == "/docs" else docs_slug
