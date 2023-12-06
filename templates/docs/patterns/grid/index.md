@@ -57,16 +57,16 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
 There are some special classes to help you build [common layout patterns](/docs/layouts/brochure). Instead of deciding how many columns each element should use for different screen sizes, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
 
-|                                   | Large screens | Medium screens | Small screens   |
-| --------------------------------- | ------------- | -------------- | --------------- |
-| `.row--50-50`                     | 50/50         | 50/50          | 100/100         |
-| `.row--25-75-on-medium`           | -             | 50/50          | -               |
-| `.row--25-75-on-large`            | 50/50         | -              | -               |
-| `.row--25-75`                     | 25/75         | 100/100        | 100/100         |
-| `.row--25-75-on-medium`           | -             | 33/66          | -               |
-| `.row--25-75-on-large`            | 25/75         | -              | -               |
-| `.row--25-25-50`                  | 25/25/50      | 50/50/100      | 100/100/100     |
-| `.row--25-25-25-25`               | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
+|                         | Large screens | Medium screens | Small screens   |
+| ----------------------- | ------------- | -------------- | --------------- |
+| `.row--50-50`           | 50/50         | 50/50          | 100/100         |
+| `.row--25-75-on-medium` | -             | 50/50          | -               |
+| `.row--25-75-on-large`  | 50/50         | -              | -               |
+| `.row--25-75`           | 25/75         | 100/100        | 100/100         |
+| `.row--25-75-on-medium` | -             | 33/66          | -               |
+| `.row--25-75-on-large`  | 25/75         | -              | -               |
+| `.row--25-25-50`        | 25/25/50      | 50/50/100      | 100/100/100     |
+| `.row--25-25-25-25`     | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
 
 ### 50/50
 
