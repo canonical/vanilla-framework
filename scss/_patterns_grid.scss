@@ -197,6 +197,7 @@
   $col-50: calc($grid-columns / 2);
   $col-75: calc(($grid-columns / 4) * 3);
 
+  // 50/50 split on medium and large screens
   .row--50-50 {
     @extend %vf-row;
 
@@ -241,6 +242,73 @@
     }
   }
 
+  // 50/50 split just on medium screens
+  .row--50-50-on-medium {
+    @extend %vf-row;
+
+    > .col {
+      @media ($threshold-4-6-col <= width < $threshold-6-12-col) {
+        @include vf-grid-column($col-50-medium);
+      }
+    }
+  }
+
+  .row--25-75-on-medium {
+    @extend %vf-row;
+
+    > .col {
+      @media ($threshold-4-6-col <= width < $threshold-6-12-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-column(2);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column(4);
+        }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          @include vf-grid-column(4);
+          grid-column-start: calc(3);
+        }
+      }
+    }
+  }
+
+  // 50/50 split just on large screens
+  .row--50-50-on-large {
+    @extend %vf-row;
+
+    > .col {
+      @media (min-width: $threshold-6-12-col) {
+        @include vf-grid-column($col-50);
+      }
+    }
+  }
+
+  .row--25-75-on-large {
+    @extend %vf-row;
+
+    > .col {
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-column($col-25);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column($col-75);
+        }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          grid-column-start: calc($col-25 + 1);
+          @include vf-grid-column($col-75);
+        }
+      }
+    }
+  }
+
+  // deprecated - use .row--25-75-on-medium instead
   .row--25-75.is-split-on-medium {
     > .col {
       @media (min-width: $threshold-4-6-col) {
