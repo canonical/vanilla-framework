@@ -60,13 +60,16 @@ There are some special classes to help you build [common layout patterns](/docs/
 |                         | Large screens | Medium screens | Small screens   |
 | ----------------------- | ------------- | -------------- | --------------- |
 | `.row--50-50`           | 50/50         | 50/50          | 100/100         |
-| `.row--25-75-on-medium` | -             | 50/50          | -               |
-| `.row--25-75-on-large`  | 50/50         | -              | -               |
+| `.row--50-50-on-medium` | -             | 50/50          | -               |
+| `.row--50-50-on-large`  | 50/50         | -              | -               |
 | `.row--25-75`           | 25/75         | 100/100        | 100/100         |
 | `.row--25-75-on-medium` | -             | 33/66          | -               |
 | `.row--25-75-on-large`  | 25/75         | -              | -               |
 | `.row--25-25-50`        | 25/25/50      | 50/50/100      | 100/100/100     |
 | `.row--25-25-25-25`     | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
+
+Please note that these common patterns are meant for top level rows only and are not intended to be used for nested rows. You should not nest `row--50-50` inside another column.
+For nested rows, use the standard `.row` class, as described in [section about nested columns](#nested-columns) later on this page.
 
 ### 50/50
 
@@ -98,7 +101,7 @@ By utilising the responsive variants, you can also create a mixed layouts with 5
     View example of 25/75 mixed with 50/50 grid layout
 </a></div>
 
-<span class="p-status-label--negative">Deprecated</span> The use of `.is-split-on-medium` class with `.row--27-75` is now depreceted. Instead use `.row--27-75-on-medium` in combination with any other split on other screen sizes.
+<span class="p-status-label--negative">Deprecated</span> The use of `.is-split-on-medium` class with `.row--25-75` is now depreceted. Instead use `.row--25-75-on-medium` in combination with any other split on other screen sizes.
 
 ### 25/25/50
 
