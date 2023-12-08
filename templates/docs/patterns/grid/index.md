@@ -62,14 +62,29 @@ There are some special classes to help you build [common layout patterns](/docs/
 | `.row--50-50`           | 50/50         | 50/50          | 100/100         |
 | `.row--50-50-on-medium` | -             | 50/50          | -               |
 | `.row--50-50-on-large`  | 50/50         | -              | -               |
-| `.row--25-75`           | 25/75         | 100/100        | 100/100         |
+| `.row--25-75`           | 25/75         | 33/66          | 100/100         |
 | `.row--25-75-on-medium` | -             | 33/66          | -               |
 | `.row--25-75-on-large`  | 25/75         | -              | -               |
 | `.row--25-25-50`        | 25/25/50      | 50/50/100      | 100/100/100     |
 | `.row--25-25-25-25`     | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
 
-Please note that these common patterns are meant for top level rows only and are not intended to be used for nested rows. You should not nest `row--50-50` inside another column.
-For nested rows, use the standard `.row` class, as described in [section about nested columns](#nested-columns) later on this page.
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Nesting</h5>
+    <p class="p-notification__message">
+      These common patterns are meant for top level rows only and are <b>not intended to be nested</b>. You should not nest <code>row--50-50</code> inside another column.
+      For nested rows, use the standard <code>.row</code> class, as described in <a href="#nested-columns">section about nested columns</a>later on this page.</p>
+  </div>
+</div>
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">25/75 split changes in Vanilla 4.6.0</h5>
+    <p class="p-notification__message">
+      Vanilla 4.6.0, with introduction of responsive variants of row changed previous responsive behaviour of <code>.row--25-75</code>. The <code>is-split-on-medium</code> variant class was removed, as <code>.row--25-75</code> by default uses split layout on medium screens. See <a href="#responsive-5050-and-2575">responsive 50/50 and 25/75</a> section below for more details.
+    </p>
+  </div>
+</div>
 
 ### 50/50
 
@@ -101,7 +116,7 @@ By utilising the responsive variants, you can also create a mixed layouts with 5
     View example of 25/75 mixed with 50/50 grid layout
 </a></div>
 
-<span class="p-status-label--negative">Deprecated</span> The use of `.is-split-on-medium` class with `.row--25-75` is now depreceted. Instead use `.row--25-75-on-medium` in combination with any other split on other screen sizes.
+<span class="p-status-label--negative">Removed</span> The `.is-split-on-medium` class has been removed in Vanilla 4.6.0 as `.row--25-75` how implements same responsive behaviour by default. If you want to only use 25/75 split on large screens, use `.row--25-75-on-large`.
 
 ### 25/25/50
 
