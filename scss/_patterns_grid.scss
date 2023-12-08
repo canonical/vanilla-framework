@@ -214,6 +214,7 @@
     }
   }
 
+  // 25/75 split on medium and large screens
   .row--25-75 {
     @extend %vf-row;
 
@@ -221,7 +222,19 @@
       @include vf-grid-column($grid-columns-small);
 
       @media (min-width: $threshold-4-6-col) {
-        @include vf-grid-column($grid-columns-medium);
+        &:nth-of-type(1) {
+          @include vf-grid-column(2);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column(4);
+        }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          @include vf-grid-column(4);
+          grid-column-start: calc(3);
+        }
       }
 
       @media (min-width: $threshold-6-12-col) {
@@ -290,43 +303,6 @@
     @extend %vf-row;
 
     > .col {
-      @media (min-width: $threshold-6-12-col) {
-        &:nth-of-type(1) {
-          @include vf-grid-column($col-25);
-        }
-
-        &:nth-of-type(2) {
-          @include vf-grid-column($col-75);
-        }
-
-        // if there is only one column we offset it to the right
-        &:only-of-type {
-          grid-column-start: calc($col-25 + 1);
-          @include vf-grid-column($col-75);
-        }
-      }
-    }
-  }
-
-  // deprecated - use .row--25-75-on-medium instead
-  .row--25-75.is-split-on-medium {
-    > .col {
-      @media (min-width: $threshold-4-6-col) {
-        &:nth-of-type(1) {
-          @include vf-grid-column(2);
-        }
-
-        &:nth-of-type(2) {
-          @include vf-grid-column(4);
-        }
-
-        // if there is only one column we offset it to the right
-        &:only-of-type {
-          @include vf-grid-column(4);
-          grid-column-start: calc(3);
-        }
-      }
-
       @media (min-width: $threshold-6-12-col) {
         &:nth-of-type(1) {
           @include vf-grid-column($col-25);
