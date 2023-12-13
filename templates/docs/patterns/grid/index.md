@@ -88,15 +88,15 @@ There are some special classes to help you build [common layout patterns](/docs/
 
 ### 50/50
 
+The default variant of 50/50 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/50-50/" class="js-example">
     View example of 50/50 grid layout
 </a></div>
 
 ### 25/75
 
-The default variant of 25/75 split sets the layout only on large screens, stacking both columns on top of each other on small and medium screens. This is usually useful when main large column splits further with nested grid that would require full width of the page on medium screens.
-
-See responsive variant below if you want to keep the split layout on medium screens.
+The default variant of 25/75 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75/" class="js-example">
     View example of 25/75 grid layout
@@ -105,6 +105,8 @@ See responsive variant below if you want to keep the split layout on medium scre
 ### Responsive 50/50 and 25/75
 
 The default `.row--50-50` and `.row--25-75` splits provide the most common default layouts for all screen sizes, as described in the table above. To have more direct control over the layout on different screen sizes, you can use the responsive variants of these classes: `.row--50-50-on-medium` and `.row--25-75-on-medium`, will only apply given layout on medium screens, while `.row--50-50-on-large` and `.row--25-75-on-large` will only apply given layout on large screens.
+
+For example, to only have 25/75 split on large screens, you can use `.row--25-75-on-large`. This is usually useful when main large column splits further with nested grid that would require full width of the page on medium screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-responsive/" class="js-example">
     View example of 25/75 grid layout
@@ -120,11 +122,15 @@ By utilising the responsive variants, you can also create a mixed layouts with 5
 
 ### 25/25/50
 
+The row with 25/25/50 split sets this layout on large screens only, switching to 50/50 stacked on top of full width column on medium screen, and stacking all 3 columns on top of each other on small screens.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-25-50/" class="js-example">
     View example of 25/25/50 grid layout
 </a></div>
 
 ### 25/25/25/25
+
+The row with 25/25/25/25 split sets this layout on large screens only, switching to 50/50 stacked on top of 50/50 columns on medium screen, and stacking all 4 columns on top of each other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-25-25-25/" class="js-example">
     View example of 25/25/25/25 grid layout
