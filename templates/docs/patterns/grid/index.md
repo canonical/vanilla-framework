@@ -55,7 +55,9 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
 ## Common patterns
 
-There are some special classes to help you build [common layout patterns](/docs/layouts/brochure). Instead of deciding how many columns each element should use for different screen sizes, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
+On top of the regular row and column classes, we provide shortcut classes to help you build [often used layouts](/docs/layouts/brochure). Instead of specifying columns at each breakpoint, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
+
+N.B.: the shortcut classes are not nestable. If you need further subdivision inside a shortcut class, please use the regular grid classes. Take care to specify a number of columns that is available (e.g. 3 columns in a 25% container, 6 columns in a 50% container, etc). Specifying more columns than are available leads to misalignemnts.
 
 |                         | Large screens | Medium screens | Small screens   |
 | ----------------------- | ------------- | -------------- | --------------- |
@@ -72,7 +74,7 @@ There are some special classes to help you build [common layout patterns](/docs/
   <div class="p-notification__content">
     <h5 class="p-notification__title">Nesting</h5>
     <p class="p-notification__message">
-      These common patterns are meant for top level rows only and are <b>not intended to be nested</b>. You should not nest <code>row--50-50</code> inside another column.
+      These common patterns are meant for top level rows only and are <strong>not intended to be nested</strong>. You should not nest <code>row--50-50</code> inside another column.
       For nested rows, use the standard <code>.row</code> class, as described in <a href="#nested-columns">section about nested columns</a>later on this page.</p>
   </div>
 </div>
@@ -112,7 +114,7 @@ For example, to only have 25/75 split on large screens, you can use `.row--25-75
     View example of 25/75 grid layout
 </a></div>
 
-By utilising the responsive variants, you can also create a mixed layouts with 50/50 splits on medium screens and 25/75 on large screens, without the need to nest grids.
+By utilising the responsive variants, you can also create mixed layouts with 50/50 splits on medium screens and 25/75 on large screens, without the need to nest grids.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-mixed-responsive/" class="js-example">
     View example of 25/75 mixed with 50/50 grid layout
