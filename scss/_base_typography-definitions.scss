@@ -5,17 +5,21 @@
     }
   }
 
+  %vf-heading--common {
+    font-style: normal;
+    margin-top: 0;
+    max-width: $text-max-width;
+  }
+
   //@section Heading styling in placeholders
-  %vf-heading-2 {
+  %vf-heading-1 {
+    @extend %vf-heading--common;
     @extend %vf-is-accent;
 
     font-size: #{map-get($font-sizes, h2-mobile)}rem;
-    font-style: normal;
-    font-weight: 180;
+    font-weight: $font-weight-bold;
     line-height: map-get($line-heights, h2-mobile);
     margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, h2-mobile);
-    margin-top: 0;
-    max-width: $text-max-width;
     padding-top: map-get($nudges, h2-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -30,16 +34,28 @@
     }
   }
 
-  %vf-heading-1 {
-    @extend %vf-heading-2;
-    font-weight: 550;
+  %vf-heading-2 {
+    @extend %vf-heading--common;
+    @extend %vf-heading-1;
+    font-weight: 180; // custom font weight adjusted for h2
+
+    h1 + &,
+    .p-heading--1 + & {
+      // move it up under the heading above by the amoung of bottom margin + top padding
+      margin-top: calc(-1 * map-get($sp-after, h2-mobile));
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-top: calc(-1 * map-get($sp-after, h2));
+      }
+    }
   }
 
   %vf-heading-display {
+    @extend %vf-heading--common;
     @extend %vf-heading-2;
 
     font-size: #{map-get($font-sizes, display-mobile)}rem;
-    font-weight: 100;
+    font-weight: $font-weight-display-heading;
     line-height: map-get($line-heights, display-mobile);
     margin-bottom: map-get($sp-after, display-mobile) - map-get($nudges, display-mobile);
     padding-top: map-get($nudges, display-mobile);
@@ -53,15 +69,13 @@
   }
 
   %vf-heading-3 {
+    @extend %vf-heading--common;
     @extend %vf-is-accent;
 
     font-size: #{map-get($font-sizes, h3-mobile)}rem;
-    font-style: normal;
-    font-weight: 550;
+    font-weight: $font-weight-bold;
     line-height: map-get($line-heights, h3-mobile);
     margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, h3-mobile);
-    margin-top: 0;
-    max-width: $text-max-width;
     padding-top: map-get($nudges, h3-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -77,15 +91,13 @@
   }
 
   %vf-heading-4 {
+    @extend %vf-heading--common;
     @extend %vf-is-accent;
 
     font-size: #{map-get($font-sizes, h4-mobile)}rem;
-    font-style: normal;
-    font-weight: 275;
+    font-weight: 275; // custom font weight adjusted for h4
     line-height: map-get($line-heights, h4-mobile);
     margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, h4-mobile);
-    margin-top: 0;
-    max-width: $text-max-width;
     padding-top: map-get($nudges, h4-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
@@ -108,13 +120,12 @@
   }
 
   %vf-heading-5 {
+    @extend %vf-heading--common;
+
     font-size: 1rem;
-    font-style: normal;
     font-weight: $font-weight-bold;
     line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
-    margin-top: 0;
-    max-width: $text-max-width;
     padding-top: map-get($nudges, p);
 
     &.u-no-margin--bottom {
@@ -123,13 +134,13 @@
   }
 
   %vf-heading-6 {
+    @extend %vf-heading--common;
+
     font-size: 1rem;
     font-style: italic;
     font-weight: $font-weight-regular-text;
     line-height: map-get($line-heights, default-text);
     margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
-    margin-top: 0;
-    max-width: $text-max-width;
     padding-top: map-get($nudges, h6);
 
     @if ($increase-font-size-on-larger-screens) {
