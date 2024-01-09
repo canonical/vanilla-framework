@@ -16,21 +16,30 @@
     @extend %vf-heading--common;
     @extend %vf-is-accent;
 
-    font-size: #{map-get($font-sizes, h2-mobile)}rem;
+    font-size: #{map-get($font-sizes, h1-mobile)}rem;
     font-weight: $font-weight-bold;
-    line-height: map-get($line-heights, h2-mobile);
-    margin-bottom: map-get($sp-after, h2-mobile) - map-get($nudges, h2-mobile);
-    padding-top: map-get($nudges, h2-mobile);
+    line-height: map-get($line-heights, h1-mobile);
+    margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, h1-mobile);
+    padding-top: map-get($nudges, h1-mobile);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      font-size: #{map-get($font-sizes, h2)}rem;
-      line-height: map-get($line-heights, h2);
-      margin-bottom: map-get($sp-after, h2) - map-get($nudges, h2);
-      padding-top: map-get($nudges, h2);
+      font-size: #{map-get($font-sizes, h1)}rem;
+      line-height: map-get($line-heights, h1);
+      margin-bottom: map-get($sp-after, h1) - map-get($nudges, h1);
+      padding-top: map-get($nudges, h1);
     }
 
     &.u-no-margin--bottom {
-      @extend %u-no-margin--bottom--h2;
+      @extend %u-no-margin--bottom--h1;
+    }
+
+    & + & {
+      // move it up under the heading above by the amoung of bottom margin + top padding
+      margin-top: calc(-1 * map-get($sp-after, h1-mobile));
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-top: calc(-1 * map-get($sp-after, h1));
+      }
     }
   }
 
@@ -38,21 +47,10 @@
     @extend %vf-heading--common;
     @extend %vf-heading-1;
     font-weight: 180; // custom font weight adjusted for h2
-
-    h1 + &,
-    .p-heading--1 + & {
-      // move it up under the heading above by the amoung of bottom margin + top padding
-      margin-top: calc(-1 * map-get($sp-after, h2-mobile));
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        margin-top: calc(-1 * map-get($sp-after, h2));
-      }
-    }
   }
 
   %vf-heading-display {
     @extend %vf-heading--common;
-    @extend %vf-heading-2;
 
     font-size: #{map-get($font-sizes, display-mobile)}rem;
     font-weight: $font-weight-display-heading;
