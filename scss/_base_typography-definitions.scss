@@ -86,35 +86,21 @@
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--h3;
     }
+
+    & + & {
+      // move it up under the heading above by the amoung of bottom margin + top padding
+      margin-top: calc(-1 * map-get($sp-after, h3-mobile));
+
+      @media (min-width: $breakpoint-heading-threshold) {
+        margin-top: calc(-1 * map-get($sp-after, h3));
+      }
+    }
   }
 
   %vf-heading-4 {
     @extend %vf-heading--common;
-    @extend %vf-is-accent;
-
-    font-size: #{map-get($font-sizes, h4-mobile)}rem;
+    @extend %vf-heading-3;
     font-weight: 275; // custom font weight adjusted for h4
-    line-height: map-get($line-heights, h4-mobile);
-    margin-bottom: map-get($sp-after, h4-mobile) - map-get($nudges, h4-mobile);
-    padding-top: map-get($nudges, h4-mobile);
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      font-size: #{map-get($font-sizes, h4)}rem;
-      line-height: map-get($line-heights, h4);
-      margin-bottom: map-get($sp-after, h4) - map-get($nudges, h4);
-      padding-top: map-get($nudges, h4);
-    }
-
-    @if ($increase-font-size-on-larger-screens) {
-      @media (min-width: $breakpoint-x-large) {
-        margin-bottom: map-get($sp-after, h4) - map-get($nudges, h4-large);
-        padding-top: map-get($nudges, h4-large);
-      }
-    }
-
-    &.u-no-margin--bottom {
-      @extend %u-no-margin--bottom--h4;
-    }
   }
 
   %vf-heading-5 {
@@ -129,26 +115,24 @@
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--default-text;
     }
+
+    & + & {
+      // move it up under the heading above by the amoung of bottom margin + top padding
+      margin-top: calc(-1 * map-get($sp-after, p));
+    }
   }
 
   %vf-heading-6 {
     @extend %vf-heading--common;
+    @extend %vf-heading-5;
 
-    font-size: 1rem;
     font-style: italic;
     font-weight: $font-weight-regular-text;
-    line-height: map-get($line-heights, default-text);
-    margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
-    padding-top: map-get($nudges, h6);
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
         padding-top: map-get($nudges, h6-large);
       }
-    }
-
-    &.u-no-margin--bottom {
-      @extend %u-no-margin--bottom--default-text;
     }
   }
 
