@@ -33,7 +33,7 @@
       @extend %u-no-margin--bottom--h1;
     }
 
-    & + & {
+    &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
       // move it up under the heading above by the amoung of bottom margin + top padding
       margin-top: calc(-1 * map-get($sp-after, h1-mobile));
 
@@ -87,7 +87,7 @@
       @extend %u-no-margin--bottom--h3;
     }
 
-    & + & {
+    &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
       // move it up under the heading above by the amoung of bottom margin + top padding
       margin-top: calc(-1 * map-get($sp-after, h3-mobile));
 
@@ -116,7 +116,7 @@
       @extend %u-no-margin--bottom--default-text;
     }
 
-    & + & {
+    &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
       // move it up under the heading above by the amoung of bottom margin + top padding
       margin-top: calc(-1 * map-get($sp-after, p));
     }
