@@ -75,7 +75,7 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
     <td>Body text, all component, <code>h5</code> and <code>h6</code> headings.</td>
     <td>
       Standard body text
-      <p class="p-heading--5 u-no-margin--bottom">H5 heading</p>
+      <p class="p-heading--5">H5 heading</p>
       <p class="p-heading--6">H6 heading</p>
     </td>
   </tr>
@@ -92,7 +92,7 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
     <td><code>h1</code> and <code>h2</code> level headings on small and medium screens..</td>
     <td>
       <p class="p-heading--2 u-no-padding--top" style="font-size: 2rem; line-height: 2.5rem">H2 heading (small and medium screens)</p>
-      <p class="p-heading--1 u-no-padding--top" style="font-size: 2rem; line-height: 2.5rem">H1 heading (small and medium screens)</p>
+      <p class="p-heading--1" style="font-size: 2rem; line-height: 2.5rem">H1 heading (small and medium screens)</p>
     </td>
   </tr>
   <tr>
@@ -100,13 +100,13 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
     <td><code>h1</code> and <code>h2</code> level headings on large screens.</td>
     <td>
       <p class="p-heading--2 u-no-padding--top" style="font-size: 2.5rem; line-height: 3rem">H2 heading</p>
-      <p class="p-heading--1 u-no-padding--top" style="font-size: 2.5rem; line-height: 3rem">H1 heading</p>
+      <p class="p-heading--1" style="font-size: 2.5rem; line-height: 3rem">H1 heading</p>
     </td>
   </tr>
   <tr>
-    <td>120px</td>
+    <td>80px</td>
     <td>Ad hoc display headings for important bespoke pages.</td>
-    <td><h1 style="font-size: 7.5rem; line-height: 8rem; font-weight: 100">Ubuntu Pro</h1></td>
+    <td><h1 class="p-heading--display">Ubuntu Pro</h1></td>
   </tr>
 </tbody>
 </table>
