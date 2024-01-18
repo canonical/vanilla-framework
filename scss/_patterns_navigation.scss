@@ -7,6 +7,7 @@ $navigation-logo-tag-height-desktop: 2.3rem;
 $navigation-logo-banner-height: 3rem; // legacy logo height (small and medium screens)
 $navigation-logo-banner-height-desktop: 3.5rem; // legacy logo height (on large screens)
 $navigation-logo-size: 1rem;
+$navigation-logo-padding: calc(1.5rem + 0.19rem); // ~27px to align better with logos as originally designed in SVG
 $sph-navigation-link: 0.3rem;
 $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
@@ -31,7 +32,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: $sph--large;
+      padding-left: map-get($grid-margin-widths, default);
     }
   }
 
@@ -44,7 +45,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-right: $sph--large;
+      padding-right: map-get($grid-margin-widths, default);
     }
   }
 
@@ -71,7 +72,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     line-height: map-get($line-heights, default-text);
     margin: 0;
     overflow: hidden;
-    padding-left: calc(#{map-get($grid-margin-widths, small)} + #{$sph--x-large}); // allow navigation align with tag logo text on small screens
+    padding-left: calc(map-get($grid-margin-widths, small) + $navigation-logo-padding); // allow navigation align with tag logo text on small screens
     position: relative;
     text-align: left;
     text-overflow: ellipsis;
@@ -79,11 +80,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     width: 100%;
 
     @media (min-width: $threshold-4-6-col) {
-      padding-left: calc(#{map-get($grid-margin-widths, default)} + #{$sph--x-large});
+      padding-left: calc(map-get($grid-margin-widths, default) + $navigation-logo-padding);
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: $sph--large;
+      padding-left: map-get($grid-margin-widths, default);
     }
 
     &:visited,
@@ -282,7 +283,9 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__link {
       @extend %navigation-link;
 
-      padding-left: calc($sph--x-large + 0.19rem); // additional padding added to align better with logos as originally designed in SVG
+      // within logo we don't need a regular item padding
+      @extend %vf-reset-horizontal-padding;
+      padding-left: $navigation-logo-padding;
 
       &:hover {
         background-color: transparent !important;
@@ -430,8 +433,9 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     display: block;
     height: 100%; // keep the height of the navigation when 'Search' label is hidden
+
     padding-left: 0; // on small screens label is hidden, so we remove left padding as well
-    padding-right: 2 * $sph--small + map-get($icon-sizes, default);
+    padding-right: calc(map-get($grid-margin-widths, default) + map-get($icon-sizes, default));
     position: relative;
 
     // hide "search" label on small screens (only show the icon)
@@ -441,7 +445,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // show both label and icon on large screens
     @media (min-width: $breakpoint-large) {
-      padding-left: $sph--large;
+      padding-left: map-get($grid-margin-widths, default);
 
       .p-navigation__search-label {
         display: initial;
@@ -457,7 +461,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       height: $spv--large;
       pointer-events: none;
       position: absolute;
-      right: calc($sph--small + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+      right: calc(map-get($grid-margin-widths, default) / 2);
       text-indent: calc(100% + 10rem);
       top: calc($spv--medium + map-get($nudges, x-small));
       width: map-get($icon-sizes, default);
@@ -597,7 +601,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        right: calc($sph--small + 1px); // 1px for the border on selects. this aligns it with any selects underneath
+        right: calc(map-get($grid-margin-widths, default) / 2); // position by the center of grid margin
         top: calc($spv--large + map-get($nudges, x-small));
         transform: rotate(0deg);
       }
@@ -619,8 +623,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     .p-navigation__link {
-      // add padding to accommodate icon
-      padding-right: 2 * $sph--small + map-get($icon-sizes, default);
+      // increase padding to accommodate chevron icon
+      padding-right: map-get($grid-margin-widths, default) + map-get($icon-sizes, default);
     }
 
     &:first-child .p-navigation__link::before {
