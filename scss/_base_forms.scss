@@ -119,12 +119,12 @@
   label {
     cursor: pointer;
     display: inline-block;
+    line-height: map-get($line-heights, default-text); // on larger screens the label would have the wrong line height?
     margin-bottom: $spv--large - $spv-nudge;
     margin-top: 0;
     max-width: $text-max-width;
     padding-top: map-get($nudges, p);
     width: fit-content;
-    line-height: map-get($line-heights, default-text); // on larger screens the label would have the wrong line height?
 
     &.is-required::before {
       content: '* ';
