@@ -30,7 +30,9 @@
     font-size: 1rem;
     font-weight: $font-weight-regular-text;
     line-height: map-get($line-heights, default-text);
-    margin-bottom: $input-margin-bottom;
+    margin-bottom: calc(
+      $input-margin-bottom - 1px
+    ); //need to account for border, I set 1px directly cause suppixel rendering will ceil border to 1px and margin/padding are left on decimals
     min-width: 8em;
     padding-left: $sph--small;
     padding-right: $sph--small;
@@ -122,6 +124,7 @@
     max-width: $text-max-width;
     padding-top: map-get($nudges, p);
     width: fit-content;
+    line-height: map-get($line-heights, default-text); // on larger screens the label would have the wrong line height?
 
     &.is-required::before {
       content: '* ';
@@ -231,7 +234,9 @@
   textarea {
     @extend %vf-input-elements;
 
-    margin-bottom: $input-margin-bottom;
+    margin-bottom: calc(
+      $input-margin-bottom - 1px
+    ); //need to account for border, however suppixel rendering will, on certain screens, ceil the border to 1px but there would still be 1.5px removed from the margin which would drift the baseline
     overflow: auto;
     vertical-align: top;
   }
