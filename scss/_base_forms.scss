@@ -6,9 +6,12 @@
   @include vf-b-range;
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
-    padding-bottom: calc(
-      $input-vertical-padding - $input-border-thickness
-    ); //need to account for border, however suppixel rendering will, on certain screens, ceil the border to 1px but there would still be 1.5px removed from the margin which would drift the baseline
+    padding-bottom: calc($input-vertical-padding - $input-border-thickness);
+
+    @media only screen and (max-resolution: 1.99dppx) {
+      padding-bottom: calc($input-vertical-padding - 1px);
+    }
+
     padding-top: $input-vertical-padding;
   }
 
