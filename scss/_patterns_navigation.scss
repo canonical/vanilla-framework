@@ -180,13 +180,61 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  .p-navigation__row {
+  .p-navigation__row,
+  .p-navigation__row--25-75 {
     @extend %fixed-width-container;
     @extend %vf-reset-horizontal-padding;
   }
 
   .p-navigation__row--full-width {
     width: 100%;
+  }
+
+
+  .p-navigation__row--25-75 {
+    // ideally we'd like to extend row only on large screens,
+    // but that's not possible to use @extend inside media query
+    @extend %vf-row;
+
+    // when mobile navigation is displayed, remove default row padding
+    @media (width < $breakpoint-navigation-threshold) {
+      padding: 0;
+    }
+
+    // when large screen navigation is displayed, use 25/75 grid split
+    @media (min-width: $breakpoint-navigation-threshold) {
+      // remove padding from logo banner (the grid has its own padding)
+      .p-navigation__banner {
+        padding-left: 0;
+      }
+
+      // shift navigation items by the size of grid margin to align with grid
+      .p-navigation__items:first-child {
+        margin-left: calc(-1 * map-get($grid-margin-widths, default));
+      }
+
+      // on medium screen sizes (6 columns) use 2/4 column split
+      @media (min-width: $threshold-4-6-col) {
+        > .p-navigation__banner {
+          grid-column-end: span 2;
+        }
+
+        > .p-navigation__nav {
+          grid-column-end: span 4;
+        }
+      }
+
+      // on large screen sizes (12 columns) use 3/9 column split
+      @media (min-width: $threshold-6-12-col) {
+        > .p-navigation__banner {
+          grid-column-end: span 3;
+        }
+
+        > .p-navigation__nav {
+          grid-column-end: span 9;
+        }
+      }
+    }
   }
 
   .p-navigation__item,
