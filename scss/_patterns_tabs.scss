@@ -2,9 +2,8 @@
 
 @mixin vf-p-tabs {
   .p-tabs {
-    color: $colors--theme--text-default;
-
     border-radius: 0;
+    color: $colors--theme--text-default;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -42,13 +41,11 @@
         $button-active-border-color: $color-transparent,
         $button-disabled-border-color: $color-transparent
       );
-
-      background-color: transparent;
-      color: $colors--theme--text-default;
       @include vf-highlight-bar(transparent, bottom, false);
-
       align-items: center;
+      background-color: transparent;
       border: none;
+      color: $colors--theme--text-default;
       display: flex;
       gap: $sph--small;
       height: 100%;
@@ -56,36 +53,6 @@
       margin-bottom: 0;
       padding: $spv--medium $sph--large;
       position: relative;
-
-      // Display the highlight when focussing in modern browsers that support
-      // focus-visible.
-      &:focus:not(:focus-visible) {
-        @include vf-highlight-bar($colors--theme--text-default, bottom, false);
-      }
-
-      &:hover {
-        background-color: transparent;
-        @include vf-highlight-bar($colors--theme--border-default, bottom, false);
-
-        &::before,
-        &:focus:not(:focus-visible)::before {
-          bottom: 1px;
-          height: calc($bar-thickness - 1px);
-        }
-
-        // Display the highlight when focusing (in combination with the parent
-        // states) in modern browsers that support focus-visible.
-        &:focus:not(:focus-visible) {
-          @include vf-highlight-bar($colors--theme--border-default, bottom, false);
-        }
-
-        // Hide the highlight when focussing (in combination with the parent
-        // states) in browsers that don't support focus-visible.
-        &:focus::before,
-        &:focus::after {
-          content: none;
-        }
-      }
 
       &::before {
         @extend %vf-pseudo-border;
@@ -103,19 +70,49 @@
           content: none;
         }
       }
-      
+
+      // Display the highlight when focusing in modern browsers that support
+      // focus-visible.
+      &:focus:not(:focus-visible) {
+        @include vf-highlight-bar($colors--theme--text-default, bottom, false);
+      }
+
+      &:hover {
+        background-color: transparent;
+        @include vf-highlight-bar($colors--theme--border-default, bottom, false);
+
+        &::before,
+        &:focus:not(:focus-visible)::before {
+          bottom: 1px;
+          height: calc($bar-thickness - 1px);
+        }
+
+        // Hide the highlight when focusing (in combination with the parent
+        // states) in browsers that don't support focus-visible.
+        &:focus::before,
+        &:focus::after {
+          content: none;
+        }
+
+        // Display the highlight when focusing (in combination with the parent
+        // states) in modern browsers that support focus-visible.
+        &:focus:not(:focus-visible) {
+          @include vf-highlight-bar($colors--theme--border-default, bottom, false);
+        }
+      }
+
       &:active,
       &[aria-selected='true'] {
         background-color: transparent;
         @include vf-highlight-bar($colors--theme--text-default, bottom, false);
 
-        // Display the highlight when focussing (in combination with the parent
+        // Display the highlight when focusing (in combination with the parent
         // states) in modern browsers that support focus-visible.
         &:focus:not(:focus-visible) {
           @include vf-highlight-bar($colors--theme--text-default, bottom, false);
         }
 
-        // Hide the highlight when focussing (in combination with the parent
+        // Hide the highlight when focusing (in combination with the parent
         // states) in browsers that don't support focus-visible.
         &:focus::before,
         &:focus::after {
