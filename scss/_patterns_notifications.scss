@@ -76,9 +76,12 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
     @extend %vf-is-bordered;
     @extend %vf-bg--x-light;
 
+    background: $colors--theme--background-default;
     background-position: $sph--large $notification-icon-vert-offset;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
+    border-color: $colors--theme--border-default;
+    color: $colors--theme--text-default;
     margin-bottom: $spv--x-large;
     padding-bottom: calc($spv--small - 1px);
     padding-left: $notification-content-icon-space;
@@ -90,9 +93,10 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
     }
 
     &.is-borderless {
-      background-color: transparent;
+      background-color: $colors--theme--background-default;
       background-position: 0 $borderless-notification-icon-vert-offset;
       border: none;
+      color: $colors--theme--text-default;
       margin-top: 0;
       padding: 0 0 0 2 * $sph--large;
 
@@ -174,6 +178,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
     .p-notification__timestamp {
       @extend %default-text;
       @extend %muted-text;
+
+      color: $colors--theme--text-default;
     }
 
     .p-notification__actions {
@@ -187,6 +193,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 
     .p-notification__action {
       @extend %default-text;
+
+      color: $colors--theme--text-default;
     }
 
     .p-notification__action + .p-notification__action {
