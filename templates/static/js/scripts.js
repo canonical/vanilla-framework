@@ -155,7 +155,7 @@
         sideNavigation.classList.remove('is-drawer-expanded');
         sideNavigation.classList.remove('is-drawer-collapsed');
         sideNavigation.classList.add('is-drawer-hidden');
-      }, 10)
+      }, 10),
     );
   }
 
