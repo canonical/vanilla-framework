@@ -263,6 +263,18 @@ $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
   --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
 }
 
+@mixin vf-theme-paper {
+  // paper theme is based on dark theme with some background colours adjusted
+  @include vf-theme-light;
+
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-background-default: #{$color-paper};
+
+  --vf-color-background-inputs: #{$colors--paper-theme--background-inputs};
+  --vf-color-background-active: #{$colors--paper-theme--background-active};
+  --vf-color-background-hover: #{$colors--paper-theme--background-hover};
+}
+
 // Branding colors
 $color-ubuntu: #e95420; // Ubuntu orange, should not be overridden
 $color-brand: $color-ubuntu !default;
