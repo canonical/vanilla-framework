@@ -217,46 +217,17 @@
   // toggle to open side navigation is supposed to be in main content (on light background)
   // it's using default 'neutral' button look regardless of the theme used by side navigation
   .p-side-navigation__toggle {
-    
     &::before {
       @include vf-icon-chevron;
       transform: rotate(-90deg);
     }
   }
 
-  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__toggle--in-drawer.is-light::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-light .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__toggle--in-drawer.is-paper::before {
-      @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-paper .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-  
-  .p-side-navigation__toggle--in-drawer.is-dark::before {
-    @include vf-icon-chevron(#999);
-  }
-
-  .is-dark .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron(#999);
-  }
-
   .p-side-navigation__toggle--in-drawer {
     margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
 
     &::before {
+      @include vf-icon-chevron($colors--light-theme--text-inactive);
       transform: rotate(90deg);
     }
 
@@ -268,6 +239,31 @@
         color: $colors--theme--text-default;
       }
     }
+  }
+
+  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
+  .p-side-navigation__toggle--in-drawer.is-light::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .is-light .p-side-navigation__toggle--in-drawer::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .p-side-navigation__toggle--in-drawer.is-paper::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .is-paper .p-side-navigation__toggle--in-drawer::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .p-side-navigation__toggle--in-drawer.is-dark::before {
+    @include vf-icon-chevron(#999);
+  }
+
+  .is-dark .p-side-navigation__toggle--in-drawer::before {
+    @include vf-icon-chevron(#999);
   }
 
   @media (min-width: $threshold-6-12-col) {
@@ -321,7 +317,7 @@
       @include vf-side-navigation-spacing-left($prop: left);
 
       background: $colors--theme--border-low-contrast;
-      bottom: -0.5 * $spv--x-large; // place border in the middle of the margin      
+      bottom: -0.5 * $spv--x-large; // place border in the middle of the margin
     }
 
     .p-side-navigation--icons &::after {
@@ -400,6 +396,7 @@
     &:hover {
       background: $colors--theme--background-hover;
       color: $colors--theme--text-default;
+      text-decoration: none;
     }
 
     &:active,
@@ -428,10 +425,6 @@
     &:focus:not(:focus-visible)::before {
       display: block;
     }
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   .p-side-navigation__link {
@@ -440,35 +433,6 @@
     &:visited {
       color: $colors--theme--text-inactive;
     }
-  }
-
-  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__accordion-button.is-light::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-light .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__accordion-button.is-paper::before {
-      @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-paper .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-  
-  .p-side-navigation__accordion-button.is-dark::before {
-    @include vf-icon-chevron(#999);
-  }
-
-  .is-dark .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron(#999);
   }
 
   .p-side-navigation__accordion-button {
@@ -485,8 +449,9 @@
 
     &::before {
       @extend %icon;
+      @include vf-icon-chevron($colors--light-theme--text-inactive);
       @include vf-transition($property: transform, $duration: fast);
-      
+
       align-self: center;
       content: '';
       flex-shrink: 0;
@@ -518,6 +483,31 @@
 
       @include vf-transition(#{background-color, border-color});
     }
+  }
+
+  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
+  .p-side-navigation__accordion-button.is-light::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .is-light .p-side-navigation__accordion-button::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .p-side-navigation__accordion-button.is-paper::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .is-paper .p-side-navigation__accordion-button::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .p-side-navigation__accordion-button.is-dark::before {
+    @include vf-icon-chevron(#999);
+  }
+
+  .is-dark .p-side-navigation__accordion-button::before {
+    @include vf-icon-chevron(#999);
   }
 
   .p-side-navigation__heading,
