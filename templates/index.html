@@ -6,25 +6,32 @@
 {% block content %}
 <script defer src="https://buttons.github.io/buttons.js"></script>
 
-<div id="main-content" class="p-strip is-deep">
-  <div class="u-fixed-width">
-    <h1>A simple, extensible CSS framework</h1>
-    <p>Backed by open-source code and written in Sass by the Canonical Web Team.</p>
-    <ul class="p-inline-list u-no-margin--bottom">
-      <li class="p-inline-list__item">
-        <a href="/docs" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Docs link', 'eventLabel' : 'See the docs', 'eventValue' : undefined });" class="p-button--positive u-no-margin--bottom">Get started</a>
-      </li>
-      <li class="p-inline-list__item">
-        <a href="https://github.com/canonical/vanilla-framework/releases/latest" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download latest', 'eventValue' : undefined });" class="p-button u-no-margin--bottom">Download Vanilla v{{version}}</a>
-      </li>
-    </ul>
+<div id="main-content" class="p-section--hero">
+  <div class="row--25-75">
+    <div class="col">
+      <div class="p-section--shallow">
+        <h1>A simple, extensible CSS framework</h1>
+        <p class="p-heading--2">Backed by open-source code and written in Sass by the Canonical Web Team.</p>
+      </div>
+
+      <div class="p-section--shallow">
+        <ul class="p-inline-list u-no-margin--bottom">
+          <li class="p-inline-list__item">
+            <a href="/docs" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Docs link', 'eventLabel' : 'See the docs', 'eventValue' : undefined });" class="p-button--positive u-no-margin--bottom">Get started</a>
+          </li>
+          <li class="p-inline-list__item">
+            <a href="https://github.com/canonical/vanilla-framework/releases/latest" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Homepage', 'eventAction' : 'Downloads', 'eventLabel' : 'Download latest', 'eventValue' : undefined });" class="p-button u-no-margin--bottom">Download Vanilla v{{version}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="p-section">
   <div class="row">
     <hr />
-    <div class="col-4 col-medium-2">
+    <div class="col-3 col-start-large-4 col-medium-2">
       <div class="p-heading-icon">
         <div class="p-heading-icon__header is-stacked">
           {{ image (
@@ -42,7 +49,7 @@
         <p>Vanilla contains a responsive CSS grid, basic style for HTML elements and a selection of key useful patterns and utility classes that you can extend.</p>
       </div>
     </div>
-    <div class="col-4 col-medium-2">
+    <div class="col-3 col-medium-2">
       <div class="p-heading-icon">
         <div class="p-heading-icon__header is-stacked">
           {{ image (
@@ -60,7 +67,7 @@
         <p>Designed to be composable — you can include the whole framework to avail of all styles or you can use only what you need for your project.</p>
       </div>
     </div>
-    <div class="col-4 col-medium-2">
+    <div class="col-3 col-medium-2">
       <div class="p-heading-icon">
         <div class="p-heading-icon__header is-stacked">
           {{ image (
