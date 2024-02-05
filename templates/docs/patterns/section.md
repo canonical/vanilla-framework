@@ -55,6 +55,14 @@ Please not that to emphasize the sections of the page with both top and bottom s
 View example of the shallow section
 </a></div>
 
+## Hero sections
+
+Use a hero section component (`.p-section--hero`) to create a hero section with top padding to be placed at the top of the page.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/section/hero" class="js-example">
+View example of the hero section
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
