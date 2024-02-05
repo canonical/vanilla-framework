@@ -162,6 +162,10 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
       right: $sph--large * 0.5;
       top: $spv--small;
       width: $default-icon-size;
+
+      body.is-dark & {
+        @include vf-icon-close(hsl(0, 0%, 100%));
+      }
     }
 
     .p-notification__meta {
@@ -213,8 +217,12 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme-border-information, left, true);
+    @include vf-highlight-bar($color-information, left, true);
     @include vf-icon-info($color-mid-dark);
+  }
+
+  body.is-dark .p-notification {
+    @include vf-icon-info(hsl(0, 0%, 100%));
   }
 }
 
@@ -222,7 +230,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-positive {
   .p-notification--positive {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme-border-positive, left, true);
+    @include vf-highlight-bar($color-positive, left, true);
     @include vf-icon-success;
   }
 }
@@ -231,7 +239,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-caution {
   .p-notification--caution {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme-border-caution, left, true);
+    @include vf-highlight-bar($color-caution, left, true);
     @include vf-icon-warning;
   }
 }
@@ -240,7 +248,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-negative {
   .p-notification--negative {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme-border-negative, left, true);
+    @include vf-highlight-bar($color-negative, left, true);
     @include vf-icon-error;
   }
 }
@@ -249,7 +257,11 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme-border-information, left, true);
+    @include vf-highlight-bar($color-information, left, true);
     @include vf-icon-info($color-mid-dark);
+  }
+
+  body.is-dark .p-notification {
+    @include vf-icon-info(hsl(0, 0%, 100%));
   }
 }
