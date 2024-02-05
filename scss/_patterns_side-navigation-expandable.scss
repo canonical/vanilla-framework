@@ -12,35 +12,6 @@
     padding-right: 3rem;
   }
 
-  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  .p-side-navigation__expand::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__expand.is-light::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-light .p-side-navigation__expand::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__expand.is-paper::before {
-      @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-paper .p-side-navigation__expand::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-  
-  .p-side-navigation__expand.is-dark::before {
-    @include vf-icon-chevron(#999);
-  }
-
-  .is-dark .p-side-navigation__expand::before {
-    @include vf-icon-chevron(#999);
-  }
-
   .p-side-navigation__expand {
     @include vf-button-base;
     background: none;
@@ -58,6 +29,7 @@
 
     &::before {
       @extend %icon;
+      @include vf-icon-chevron($colors--light-theme--text-inactive);
       content: '';
       transform: rotate(-90deg);
       transition: transform 100ms;
@@ -68,21 +40,44 @@
       color: $colors--theme--text-default;
     }
   }
-  
-  
-  .p-side-navigation__expand[aria-expanded='true']{
+
+  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
+  .p-side-navigation__expand.is-light::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .is-light .p-side-navigation__expand::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .p-side-navigation__expand.is-paper::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .is-paper .p-side-navigation__expand::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  .p-side-navigation__expand.is-dark::before {
+    @include vf-icon-chevron(#999);
+  }
+
+  .is-dark .p-side-navigation__expand::before {
+    @include vf-icon-chevron(#999);
+  }
+
+  .p-side-navigation__expand[aria-expanded='true'] {
     background-color: inherit;
-    
+
     &::before {
       transform: rotate(0deg);
     }
-    
+
     &:hover {
       background: $colors--theme--background-hover;
       color: $colors--theme--text-default;
     }
   }
-
 
   // transition
   .p-side-navigation__list {
@@ -104,26 +99,4 @@
     transform: translate3d(0, 0, 0);
     visibility: visible;
   }
-
-  // Theming for the expandable variant
-  // @if ($theme-default-p-side-navigation == 'dark') {
-  //   .p-side-navigation,
-  //   [class*='p-side-navigation--'] {
-  //     @include vf-side-navigation-expandable-theme-dark;
-
-  //     &.is-light {
-  //       @include vf-side-navigation-expandable-theme-light;
-  //     }
-  //   }
-  // } @else {
-  //   .p-side-navigation,
-  //   [class*='p-side-navigation--'] {
-  //     @include vf-side-navigation-expandable-theme-light;
-
-  //     &.is-dark {
-  //       @include vf-side-navigation-expandable-theme-dark;
-  //     }
-  //   }
-  // }
 }
-
