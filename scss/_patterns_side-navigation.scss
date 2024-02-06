@@ -195,16 +195,6 @@
   .p-side-navigation__toggle,
   .p-side-navigation__toggle--in-drawer {
     @extend %vf-button-base;
-    @include vf-button-pattern(
-      $button-background-color: $color-transparent,
-      $button-border-color: $colors--theme--border-high-contrast,
-      $button-text-color: $colors--theme--text-inactive,
-      $button-hover-background-color: $colors--theme--background-hover,
-      $button-hover-border-color: $colors--theme--border-high-contrast,
-      $button-active-background-color: $colors--theme--background-active,
-      $button-active-border-color: $color-transparent
-    );
-
     &::before {
       @extend %icon;
 
@@ -217,6 +207,8 @@
   // toggle to open side navigation is supposed to be in main content (on light background)
   // it's using default 'neutral' button look regardless of the theme used by side navigation
   .p-side-navigation__toggle {
+    @include vf-button-pattern;
+
     &::before {
       @include vf-icon-chevron;
       transform: rotate(-90deg);
@@ -224,6 +216,15 @@
   }
 
   .p-side-navigation__toggle--in-drawer {
+    @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-border-color: $colors--theme--border-high-contrast,
+      $button-text-color: $colors--theme--text-inactive,
+      $button-hover-background-color: $colors--theme--background-hover,
+      $button-hover-border-color: $colors--theme--border-high-contrast,
+      $button-active-background-color: $colors--theme--background-active,
+      $button-active-border-color: $color-transparent
+    );
     margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
 
     &::before {
@@ -242,27 +243,17 @@
   }
 
   // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  .p-side-navigation__toggle--in-drawer.is-light::before {
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__toggle--in-drawer.is-light::before,
+  .p-side-navigation__toggle--in-drawer.is-paper::before,
+  body.is-light .p-side-navigation__toggle--in-drawer::before,
+  body.is-paper .p-side-navigation__toggle--in-drawer::before {
     @include vf-icon-chevron($colors--light-theme--text-inactive);
   }
 
-  .is-light .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__toggle--in-drawer.is-paper::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-paper .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__toggle--in-drawer.is-dark::before {
-    @include vf-icon-chevron(#999);
-  }
-
-  .is-dark .p-side-navigation__toggle--in-drawer::before {
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__toggle--in-drawer.is-dark::before,
+  body.is-dark .p-side-navigation__toggle--in-drawer::before {
     @include vf-icon-chevron(#999);
   }
 
@@ -386,7 +377,6 @@
 
   %side-navigation__link {
     @include vf-focus;
-    // color: $colors--theme--text-inactive;
 
     &,
     &:visited {
@@ -486,27 +476,17 @@
   }
 
   // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  .p-side-navigation__accordion-button.is-light::before {
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__accordion-button.is-light::before,
+  .p-side-navigation__accordion-button.is-paper::before,
+  body.is-light .p-side-navigation__accordion-button::before,
+  body.is-paper .p-side-navigation__accordion-button::before {
     @include vf-icon-chevron($colors--light-theme--text-inactive);
   }
 
-  .is-light .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__accordion-button.is-paper::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-paper .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__accordion-button.is-dark::before {
-    @include vf-icon-chevron(#999);
-  }
-
-  .is-dark .p-side-navigation__accordion-button::before {
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__accordion-button.is-dark::before,
+  body.is-dark .p-side-navigation__accordion-button::before {
     @include vf-icon-chevron(#999);
   }
 
