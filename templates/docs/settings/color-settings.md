@@ -163,7 +163,7 @@ Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/release
 | Side navigation     | `$theme-default-p-side-navigation`     | `light`       |
 | Search box          | `$theme-default-p-search-box`          | `light`       |
 
-The `_settings_themes.scss` file contains a list of variables that define the default theme for a subset of elements and components. Starting with Vanilla 4.6.0 this type of theming is deprecated.
+The `_settings_themes.scss` file contains a list of variables that define the default theme for a subset of elements and components. Starting with Vanilla 4.8.0 this type of theming is deprecated.
 
 With new theming mechanism based on CSS custom properties, the default theme for all components remains light. To change the theme of given element and all its children, add `is-dark` or `is-light` class to it.
 
