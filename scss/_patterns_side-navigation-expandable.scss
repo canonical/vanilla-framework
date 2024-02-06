@@ -42,27 +42,17 @@
   }
 
   // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  .p-side-navigation__expand.is-light::before {
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__expand.is-light::before,
+  .p-side-navigation__expand.is-paper::before,
+  body.is-light .p-side-navigation__expand::before,
+  body.is-paper .p-side-navigation__expand::before {
     @include vf-icon-chevron($colors--light-theme--text-inactive);
   }
 
-  .is-light .p-side-navigation__expand::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__expand.is-paper::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .is-paper .p-side-navigation__expand::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  .p-side-navigation__expand.is-dark::before {
-    @include vf-icon-chevron(#999);
-  }
-
-  .is-dark .p-side-navigation__expand::before {
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__expand.is-dark::before,
+  body.is-dark .p-side-navigation__expand::before {
     @include vf-icon-chevron(#999);
   }
 
