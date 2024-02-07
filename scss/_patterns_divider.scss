@@ -40,7 +40,12 @@
   }
 
   .p-divider__block {
+    color: $colors--theme--text-default;
     position: relative;
+
+    &:not(:first-child)::before {
+      background-color: $colors--theme--border-default;
+    }
 
     @include horizontal-dividers();
 
@@ -57,39 +62,4 @@
       @include vertical-dividers();
     }
   }
-
-  // Theming
-  @if ($theme-default-p-divider == 'dark') {
-    .p-divider__block {
-      @include vf-divider-dark-theme;
-    }
-
-    .p-divider.is-light .p-divider__block {
-      @include vf-divider-light-theme;
-    }
-  } @else {
-    .p-divider__block {
-      @include vf-divider-light-theme;
-    }
-
-    .p-divider.is-dark .p-divider__block {
-      @include vf-divider-dark-theme;
-    }
-  }
-}
-
-@mixin vf-divider-theme($color-divider-text, $color-divider-line) {
-  color: $color-divider-text;
-
-  &:not(:first-child)::before {
-    background-color: $color-divider-line;
-  }
-}
-
-@mixin vf-divider-light-theme {
-  @include vf-divider-theme($colors--light-theme--text-default, $colors--light-theme--border-default);
-}
-
-@mixin vf-divider-dark-theme {
-  @include vf-divider-theme($colors--dark-theme--text-default, $colors--dark-theme--border-default);
 }
