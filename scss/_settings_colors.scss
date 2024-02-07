@@ -113,6 +113,8 @@ $colors--light-theme--border-default: rgba($color-x-dark, 0.2) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
+$colors--light-theme--tick-element: #fff !default;
+
 $colors-light-theme--tinted-backgrounds: (
   neutral: (
     default: #f2f2f2,
@@ -165,6 +167,8 @@ $colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !defa
 $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.3) !default;
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.5) !default;
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.05) !default;
+
+$colors--dark-theme--tick-element: hsl(0, 0%, 100%) !default;
 
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
@@ -226,6 +230,8 @@ $colors--theme--border-default: var(--vf-color-border-default);
 $colors--theme--border-high-contrast: var(--vf-color-border-high-contrast);
 $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
 
+$colors--theme--tick-element: var(--vf-color-tick-element);
+
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light {
   // SCSS variables need to be interpolated to work in CSS custom properties
@@ -243,6 +249,8 @@ $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
   --vf-color-border-default: #{$colors--light-theme--border-default};
   --vf-color-border-high-contrast: #{$colors--light-theme--border-high-contrast};
   --vf-color-border-low-contrast: #{$colors--light-theme--border-low-contrast};
+
+  --vf-color-tick-element: #{$colors--light-theme--tick-element};
 }
 
 @mixin vf-theme-dark {
@@ -261,6 +269,8 @@ $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
   --vf-color-border-default: #{$colors--dark-theme--border-default};
   --vf-color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
   --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
+
+  --vf-color-tick-element: #{$colors--dark-theme--tick-element};
 }
 
 @mixin vf-theme-paper {
