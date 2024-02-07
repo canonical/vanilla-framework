@@ -3,13 +3,8 @@
 
 {% block standalone_css %}patterns_side-navigation{% endblock %}
 
-{% block style %}
-<style>body { background: #111 }</style>
-{% endblock %}
-
+{% set is_dark = True %}
 {% block content %}
-
-{% with is_dark = True %}
 <div class="row">
   <div class="col-4">
       {% include "docs/examples/patterns/side-navigation/_default.html" %}
@@ -23,7 +18,6 @@
     {% endwith %}
   </div>
 </div>
-{% endwith %}
 
 <script>
   {% include "docs/examples/patterns/side-navigation/_example_script.js" %}

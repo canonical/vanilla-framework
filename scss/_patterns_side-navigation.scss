@@ -106,7 +106,9 @@
   }
 
   .p-side-navigation__drawer {
+    background: $colors--theme--background-default;
     bottom: 0;
+    color: $colors--theme--text-default;
     left: 0;
     overflow: auto;
     position: fixed;
@@ -155,6 +157,7 @@
   .p-side-navigation__overlay {
     @include vf-transition(opacity);
 
+    background: $colors--theme--background-overlay;
     bottom: 0;
     left: 0;
     opacity: 0;
@@ -176,8 +179,10 @@
   }
 
   .p-side-navigation__drawer-header {
+    background: $colors--theme--background-default;
     border-bottom-style: solid;
     border-bottom-width: 1px;
+    border-color: $colors--theme--border-low-contrast;
     margin-bottom: $spv--small;
     padding-bottom: calc($spv--small - 1px); // compensate for border thickness
     padding-left: 0.25rem; // nudge to visually align icon with text
@@ -190,7 +195,6 @@
   .p-side-navigation__toggle,
   .p-side-navigation__toggle--in-drawer {
     @extend %vf-button-base;
-
     &::before {
       @extend %icon;
 
@@ -200,18 +204,57 @@
     }
   }
 
+  // toggle to open side navigation is supposed to be in main content (on light background)
+  // it's using default 'neutral' button look regardless of the theme used by side navigation
   .p-side-navigation__toggle {
+    @include vf-button-pattern;
+
     &::before {
+      @include vf-icon-chevron;
       transform: rotate(-90deg);
     }
   }
 
   .p-side-navigation__toggle--in-drawer {
+    @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-border-color: $colors--theme--border-high-contrast,
+      $button-text-color: $colors--theme--text-inactive,
+      $button-hover-background-color: $colors--theme--background-hover,
+      $button-hover-border-color: $colors--theme--border-high-contrast,
+      $button-active-background-color: $colors--theme--background-active,
+      $button-active-border-color: $color-transparent
+    );
     margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
 
     &::before {
+      @include vf-icon-chevron($colors--light-theme--text-inactive);
       transform: rotate(90deg);
     }
+
+    &[aria-expanded='true'] {
+      background-color: $color-transparent;
+
+      &:hover {
+        background: $colors--theme--background-hover;
+        color: $colors--theme--text-default;
+      }
+    }
+  }
+
+  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__toggle--in-drawer.is-light::before,
+  .p-side-navigation__toggle--in-drawer.is-paper::before,
+  body.is-light .p-side-navigation__toggle--in-drawer::before,
+  body.is-paper .p-side-navigation__toggle--in-drawer::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__toggle--in-drawer.is-dark::before,
+  body.is-dark .p-side-navigation__toggle--in-drawer::before {
+    @include vf-icon-chevron(#999);
   }
 
   @media (min-width: $threshold-6-12-col) {
@@ -259,10 +302,12 @@
   %side-navigation__list {
     @extend %vf-list;
     @extend %vf-pseudo-border--bottom;
+    color: $colors--theme--text-inactive;
 
     &::after {
       @include vf-side-navigation-spacing-left($prop: left);
 
+      background: $colors--theme--border-low-contrast;
       bottom: -0.5 * $spv--x-large; // place border in the middle of the margin
     }
 
@@ -313,6 +358,7 @@
     padding-top: $spv--x-small;
 
     .p-side-navigation__item--title > & {
+      color: $colors--theme--text-default;
       font-weight: $font-weight-bold;
     }
   }
@@ -332,6 +378,32 @@
   %side-navigation__link {
     @include vf-focus;
 
+    &,
+    &:visited {
+      color: $colors--theme--text-inactive;
+    }
+
+    &:hover {
+      background: $colors--theme--background-hover;
+      color: $colors--theme--text-default;
+      text-decoration: none;
+    }
+
+    &:active,
+    &.is-active,
+    &[aria-current='page'],
+    &[aria-current='true'] {
+      background: $colors--theme--background-active;
+      color: $colors--theme--text-default;
+      cursor: default;
+    }
+
+    &.is-active,
+    &[aria-current='page'],
+    &[aria-current='true'] {
+      @include vf-highlight-bar($colors--theme--text-default, left);
+    }
+
     // vf-highlight-bar is rendered above focus outline
     // so we need to hide it on focus
     &:focus::before {
@@ -343,20 +415,22 @@
     &:focus:not(:focus-visible)::before {
       display: block;
     }
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   .p-side-navigation__link {
     @extend %side-navigation__link;
+
+    &:visited {
+      color: $colors--theme--text-inactive;
+    }
   }
 
   .p-side-navigation__accordion-button {
     // reset default button styles
+    background-color: inherit;
     border: 0;
     border-radius: 0;
+    color: inherit;
     font-size: inherit;
     justify-content: flex-start;
     margin-bottom: 0;
@@ -365,6 +439,7 @@
 
     &::before {
       @extend %icon;
+      @include vf-icon-chevron($colors--light-theme--text-inactive);
       @include vf-transition($property: transform, $duration: fast);
 
       align-self: center;
@@ -374,13 +449,19 @@
       margin-right: $sph--large;
     }
 
+    &:hover {
+      background: $colors--theme--background-hover;
+      color: $colors--theme--text-default;
+    }
+
     // aria-selected controls the open and closed state for the accordion tab
     &[aria-expanded='true'] {
       // override base expanded button styles
       background-color: inherit;
 
       &:hover {
-        background-color: $colors--light-theme--background-hover;
+        background: $colors--theme--background-hover;
+        color: $colors--theme--text-default;
       }
       @include vf-transition(#{background-color, border-color});
     }
@@ -392,6 +473,21 @@
 
       @include vf-transition(#{background-color, border-color});
     }
+  }
+
+  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__accordion-button.is-light::before,
+  .p-side-navigation__accordion-button.is-paper::before,
+  body.is-light .p-side-navigation__accordion-button::before,
+  body.is-paper .p-side-navigation__accordion-button::before {
+    @include vf-icon-chevron($colors--light-theme--text-inactive);
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  .p-side-navigation__accordion-button.is-dark::before,
+  body.is-dark .p-side-navigation__accordion-button::before {
+    @include vf-icon-chevron(#999);
   }
 
   .p-side-navigation__heading,
@@ -468,6 +564,13 @@
     padding: 0; // padding will come from the link in heading
   }
 
+  .p-side-navigation__heading,
+  .p-side-navigation__heading--linked .p-side-navigation__link,
+  .p-side-navigation__item--title,
+  .p-side-navigation__item--title .p-side-navigation__link {
+    color: $colors--theme--text-default;
+  }
+
   // Styles for markup in raw HTML docs variant
   .p-side-navigation--raw-html {
     // stylelint-disable selector-max-type -- we support raw HTML markup for discourse-generated side nav
@@ -477,14 +580,39 @@
     h5,
     h6 {
       @extend %side-navigation__heading;
+      color: $colors--theme--text-default;
     }
 
     ul {
       @extend %side-navigation__list;
+
+      &::after {
+        background: $colors--theme--border-low-contrast;
+      }
     }
 
     li > a {
       @extend %side-navigation__link;
+
+      &,
+      &:visited {
+        color: $colors--theme--text-inactive;
+      }
+
+      &:hover {
+        background: $colors--theme--background-hover;
+        color: $colors--theme--text-default;
+      }
+
+      &:active,
+      &.is-active,
+      &[aria-current='page'],
+      &[aria-current='true'] {
+        @include vf-highlight-bar($colors--theme--text-default, left);
+
+        background: $colors--theme--background-active;
+        color: $colors--theme--text-default;
+      }
     }
 
     li > span,
@@ -509,46 +637,25 @@
     // stylelint-enable selector-max-type
   }
 
-  // Theming
-  @if ($theme-default-p-side-navigation == 'dark') {
-    .p-side-navigation,
-    [class*='p-side-navigation--'] {
-      @include vf-side-navigation-theme-dark;
+  @if mixin-exists(vf-application-layout--when-collapsed) {
+    .p-side-navigation__item.has-active-child {
+      // parent element that has active child should be selected when navigation is collapsed
+      @include vf-application-layout--when-collapsed() {
+        // @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
+        @include vf-highlight-bar($colors--theme--text-default, left);
 
-      &.is-light {
-        @include vf-side-navigation-theme-light;
+        background: $colors--theme--background-hover;
+        color: $colors--theme--text-default;
+      }
+
+      // parent element with active child should not be selected when navigation is expanded
+      @include vf-application-layout--when-expanded() {
+        @include vf-highlight-bar(transparent, left);
+
+        background: transparent;
+        color: $colors--theme--text-inactive;
       }
     }
-
-    .p-side-navigation--raw-html {
-      @include vf-side-navigation-raw-html-theme-dark;
-
-      &.is-light {
-        @include vf-side-navigation-raw-html-theme-light;
-      }
-    }
-  } @else {
-    .p-side-navigation,
-    [class*='p-side-navigation--'] {
-      @include vf-side-navigation-theme-light;
-
-      &.is-dark {
-        @include vf-side-navigation-theme-dark;
-      }
-    }
-
-    .p-side-navigation--raw-html {
-      @include vf-side-navigation-raw-html-theme-light;
-
-      &.is-dark {
-        @include vf-side-navigation-raw-html-theme-dark;
-      }
-    }
-  }
-
-  .is-paper .p-side-navigation__drawer,
-  .is-paper .p-side-navigation__drawer-header {
-    background: $color-paper;
   }
 }
 
@@ -569,281 +676,4 @@
   @media (min-width: $threshold-4-6-col) {
     #{$prop}: $multiplier * map-get($grid-margin-widths, default) + $offset;
   }
-}
-
-// theme
-@mixin vf-side-navigation-theme(
-  // default text color in sidebar
-  $color-sidenav-text-default,
-  // default background color (for the drawer)
-  $color-sidenav-background-default,
-  // background color the overlay
-  $color-sidenav-background-overlay,
-  // text color of highlighted items
-  $color-sidenav-text-active,
-  // background color of active items
-  $color-sidenav-item-background-active,
-  // background color of hovered items
-  $color-sidenav-item-background-hover,
-  // border color of active item
-  $color-sidenav-item-border-highlight,
-  // border color of items list
-  $color-sidenav-list-border,
-  // color of toggle icon - needed because of lack of rgba support in icon mixin
-  $color-sidenav-toggle-icon
-) {
-  & {
-    color: $color-sidenav-text-default;
-  }
-
-  // toggle to open side navigation is supposed to be in main content (on light background)
-  // it's using default 'neutral' button look regardless of the theme used by side navigation
-  .p-side-navigation__toggle {
-    @include vf-button-pattern;
-
-    &::before {
-      @include vf-icon-chevron;
-    }
-  }
-
-  .p-side-navigation__toggle--in-drawer {
-    @include vf-button-pattern(
-      $button-background-color: $color-transparent,
-      $button-border-color: $color-transparent,
-      $button-text-color: $color-sidenav-text-default,
-      $button-hover-background-color: $color-sidenav-item-background-hover,
-      $button-hover-border-color: $color-transparent,
-      $button-active-background-color: $color-sidenav-item-background-active,
-      $button-active-border-color: $color-transparent
-    );
-
-    &::before {
-      @include vf-icon-chevron($color-sidenav-toggle-icon);
-    }
-
-    &[aria-expanded='true'] {
-      background-color: $color-transparent;
-
-      &:hover {
-        background: $color-sidenav-item-background-hover;
-        color: $color-sidenav-text-active;
-      }
-    }
-  }
-
-  .p-side-navigation__drawer {
-    background: $color-sidenav-background-default;
-  }
-
-  .p-side-navigation__overlay {
-    background: $color-sidenav-background-overlay;
-  }
-
-  .p-side-navigation__drawer-header {
-    background: $color-sidenav-background-default;
-    border-color: $color-sidenav-list-border;
-  }
-
-  .p-side-navigation__list::after {
-    background: $color-sidenav-list-border;
-  }
-
-  .p-side-navigation__link {
-    &,
-    &:visited {
-      color: $color-sidenav-text-default;
-    }
-
-    &:hover {
-      background: $color-sidenav-item-background-hover;
-      color: $color-sidenav-text-active;
-    }
-
-    &:active,
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      background: $color-sidenav-item-background-active;
-      color: $color-sidenav-text-active;
-      cursor: default;
-    }
-
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-    }
-  }
-
-  .p-side-navigation__heading,
-  .p-side-navigation__heading--linked .p-side-navigation__link,
-  .p-side-navigation__item--title,
-  .p-side-navigation__item--title .p-side-navigation__link {
-    color: $color-sidenav-text-active;
-  }
-
-  .p-side-navigation__accordion-button {
-    background-color: inherit;
-    color: inherit;
-    &::before {
-      @include vf-icon-chevron($color-sidenav-toggle-icon);
-    }
-
-    &:hover {
-      background: $color-sidenav-item-background-hover;
-      color: $color-sidenav-text-active;
-    }
-  }
-
-  // styles applied when side nav is used in application layout
-  @if mixin-exists(vf-application-layout--when-collapsed) {
-    .p-side-navigation__item.has-active-child {
-      // parent element that has active child should be selected when navigation is collapsed
-      @include vf-application-layout--when-collapsed() {
-        @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-
-        background: $color-sidenav-item-background-hover;
-        color: $color-sidenav-text-active;
-      }
-
-      // parent element with active child should not be selected when navigation is expanded
-      @include vf-application-layout--when-expanded() {
-        @include vf-highlight-bar(transparent, left);
-
-        background: transparent;
-        color: $color-sidenav-text-default;
-      }
-    }
-  }
-}
-
-@mixin vf-side-navigation-theme-light {
-  @include vf-side-navigation-theme(
-    $color-sidenav-text-default: $colors--light-theme--text-inactive,
-    $color-sidenav-background-default: $colors--light-theme--background-default,
-    $color-sidenav-background-overlay: $colors--light-theme--background-overlay,
-    $color-sidenav-text-active: $colors--light-theme--text-default,
-    $color-sidenav-item-background-active: $colors--light-theme--background-active,
-    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
-    $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
-    $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
-    $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
-  );
-
-  .is-paper & {
-    @include vf-side-navigation-theme(
-      $color-sidenav-text-default: $colors--light-theme--text-inactive,
-      $color-sidenav-background-default: $color-paper,
-      $color-sidenav-background-overlay: $colors--light-theme--background-overlay,
-      $color-sidenav-text-active: $colors--light-theme--text-default,
-      $color-sidenav-item-background-active: $colors--paper-theme--background-active,
-      $color-sidenav-item-background-hover: $colors--paper-theme--background-hover,
-      $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
-      $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
-      $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
-    );
-  }
-}
-
-@mixin vf-side-navigation-theme-dark {
-  // FIXME:
-  // $color-sidenav-toggle-icon color should be same as $color-sidenav-text-default,
-  // but vf-url-friendly-color doesn't support rgba(),
-  // so we are using #999 as fallback for now
-  @include vf-side-navigation-theme(
-    $color-sidenav-text-default: $colors--dark-theme--text-inactive,
-    $color-sidenav-background-default: $colors--dark-theme--background-default,
-    $color-sidenav-background-overlay: $colors--dark-theme--background-overlay,
-    $color-sidenav-text-active: $colors--dark-theme--text-default,
-    $color-sidenav-item-background-active: $colors--dark-theme--background-active,
-    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
-    $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
-    $color-sidenav-list-border: $colors--dark-theme--border-low-contrast,
-    $color-sidenav-toggle-icon: #999
-  );
-}
-
-// Theme for markup in raw HTML docs variant
-@mixin vf-side-navigation-raw-html-theme(
-  // default text color in sidebar
-  $color-sidenav-text-default,
-  // text color of highlighted items
-  $color-sidenav-text-active,
-  // background color of active items
-  $color-sidenav-item-background-active,
-  // background color of hovered items
-  $color-sidenav-item-background-hover,
-  // border color of active item
-  $color-sidenav-item-border-highlight,
-  // border color of items list
-  $color-sidenav-list-border
-) {
-  // stylelint-disable selector-max-type
-  ul::after {
-    background: $color-sidenav-list-border;
-  }
-
-  li > a {
-    &,
-    &:visited {
-      color: $color-sidenav-text-default;
-    }
-
-    &:hover {
-      background: $color-sidenav-item-background-hover;
-      color: $color-sidenav-text-active;
-    }
-
-    &:active,
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-
-      background: $color-sidenav-item-background-active;
-      color: $color-sidenav-text-active;
-    }
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $color-sidenav-text-active;
-  }
-  // stylelint-enable selector-max-type
-}
-
-@mixin vf-side-navigation-raw-html-theme-light {
-  @include vf-side-navigation-raw-html-theme(
-    $color-sidenav-text-default: $colors--light-theme--text-inactive,
-    $color-sidenav-text-active: $colors--light-theme--text-default,
-    $color-sidenav-item-background-active: $colors--light-theme--background-active,
-    $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
-    $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
-    $color-sidenav-list-border: $colors--light-theme--border-low-contrast
-  );
-
-  .is-paper {
-    @include vf-side-navigation-raw-html-theme(
-      $color-sidenav-text-default: $colors--light-theme--text-inactive,
-      $color-sidenav-text-active: $colors--light-theme--text-default,
-      $color-sidenav-item-background-active: $colors--paper-theme--background-active,
-      $color-sidenav-item-background-hover: $colors--paper-theme--background-hover,
-      $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
-      $color-sidenav-list-border: $colors--light-theme--border-low-contrast
-    );
-  }
-}
-
-@mixin vf-side-navigation-raw-html-theme-dark {
-  @include vf-side-navigation-raw-html-theme(
-    $color-sidenav-text-default: $colors--dark-theme--text-inactive,
-    $color-sidenav-text-active: $colors--dark-theme--text-default,
-    $color-sidenav-item-background-active: $colors--dark-theme--background-active,
-    $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,
-    $color-sidenav-item-border-highlight: $colors--dark-theme--text-default,
-    $color-sidenav-list-border: $colors--dark-theme--border-low-contrast
-  );
 }

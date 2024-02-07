@@ -207,6 +207,74 @@ $colors--paper-theme--background-inputs: rgba($color-x-dark, $input-background-o
 $colors--paper-theme--background-active: rgba($color-x-dark, $active-background-opacity-amount) !default;
 $colors--paper-theme--background-hover: rgba($color-x-dark, $hover-background-opacity-amount) !default;
 
+// Current theme (based on CSS variables)
+// This is a mapping between SCSS variable and it's CSS property equivalent.
+// These SCSS variables should be used in components as colour values.
+// See _base_themes.scss for CSS custom properties definitions.
+$colors--theme--text-default: var(--vf-color-text-default);
+$colors--theme--text-muted: var(--vf-color-text-muted);
+$colors--theme--text-inactive: var(--vf-color-text-inactive);
+
+$colors--theme--background-default: var(--vf-color-background-default);
+$colors--theme--background-alt: var(--vf-color-background-alt);
+$colors--theme--background-inputs: var(--vf-color-background-inputs);
+$colors--theme--background-active: var(--vf-color-background-active);
+$colors--theme--background-hover: var(--vf-color-background-hover);
+$colors--theme--background-overlay: var(--vf-color-background-overlay);
+
+$colors--theme--border-default: var(--vf-color-border-default);
+$colors--theme--border-high-contrast: var(--vf-color-border-high-contrast);
+$colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
+
+// Theme colors exposed as CSS custom properties
+@mixin vf-theme-light {
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-text-default: #{$colors--light-theme--text-default};
+  --vf-color-text-muted: #{$colors--light-theme--text-muted};
+  --vf-color-text-inactive: #{$colors--light-theme--text-inactive};
+
+  --vf-color-background-default: #{$colors--light-theme--background-default};
+  --vf-color-background-alt: #{$colors--light-theme--background-alt};
+  --vf-color-background-inputs: #{$colors--light-theme--background-inputs};
+  --vf-color-background-active: #{$colors--light-theme--background-active};
+  --vf-color-background-hover: #{$colors--light-theme--background-hover};
+  --vf-color-background-overlay: #{$colors--light-theme--background-overlay};
+
+  --vf-color-border-default: #{$colors--light-theme--border-default};
+  --vf-color-border-high-contrast: #{$colors--light-theme--border-high-contrast};
+  --vf-color-border-low-contrast: #{$colors--light-theme--border-low-contrast};
+}
+
+@mixin vf-theme-dark {
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-text-default: #{$colors--dark-theme--text-default};
+  --vf-color-text-muted: #{$colors--dark-theme--text-muted};
+  --vf-color-text-inactive: #{$colors--dark-theme--text-inactive};
+
+  --vf-color-background-default: #{$colors--dark-theme--background-default};
+  --vf-color-background-alt: #{$colors--dark-theme--background-alt};
+  --vf-color-background-inputs: #{$colors--dark-theme--background-inputs};
+  --vf-color-background-active: #{$colors--dark-theme--background-active};
+  --vf-color-background-hover: #{$colors--dark-theme--background-hover};
+  --vf-color-background-overlay: #{$colors--dark-theme--background-overlay};
+
+  --vf-color-border-default: #{$colors--dark-theme--border-default};
+  --vf-color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
+  --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
+}
+
+@mixin vf-theme-paper {
+  // paper theme is based on dark theme with some background colours adjusted
+  @include vf-theme-light;
+
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-background-default: #{$color-paper};
+
+  --vf-color-background-inputs: #{$colors--paper-theme--background-inputs};
+  --vf-color-background-active: #{$colors--paper-theme--background-active};
+  --vf-color-background-hover: #{$colors--paper-theme--background-hover};
+}
+
 // Branding colors
 $color-ubuntu: #e95420; // Ubuntu orange, should not be overridden
 $color-brand: $color-ubuntu !default;
