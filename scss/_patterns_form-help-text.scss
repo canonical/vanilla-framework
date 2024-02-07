@@ -4,39 +4,11 @@
   .p-form-help-text {
     @extend %small-text;
 
-    color: $color-mid-dark;
+    color: $colors--theme--text-muted;
     margin-top: -$sp-unit;
 
     &.is-tick-element {
       margin-left: $sph--large + $form-tick-box-size;
     }
   }
-
-  @if ($theme-default-forms == 'dark') {
-    .p-form-help-text {
-      @include vf-form-help-text-dark-theme;
-    }
-  } @else {
-    .p-form-help-text {
-      @include vf-form-help-text-light-theme;
-    }
-  }
-
-  .is-dark .p-form-help-text,
-  .p-form-help-text.is-dark {
-    @include vf-form-help-text-dark-theme;
-  }
-
-  .is-light .p-form-help-text,
-  .p-form-help-text.is-light {
-    @include vf-form-help-text-light-theme;
-  }
-}
-
-@mixin vf-form-help-text-dark-theme {
-  color: $colors--dark-theme--text-muted;
-}
-
-@mixin vf-form-help-text-light-theme {
-  color: $colors--light-theme--text-muted;
 }
