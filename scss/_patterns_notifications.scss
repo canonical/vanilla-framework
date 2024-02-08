@@ -166,7 +166,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
       // FIXME: temporary workaround until icons have proper theme support
       // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
       body.is-dark & {
-        @include vf-icon-close(hsl(0, 0%, 100%));
+        @include vf-icon-close(rgba($colors--dark-theme--text-default, 0.3));
       }
     }
 
@@ -219,14 +219,14 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme--information, left, true);
-    @include vf-icon-info($color-mid-dark);
+    @include vf-highlight-bar($colors--theme--border-information, left, true);
+    @include vf-icon-info(#24598f);
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
   body.is-dark .p-notification {
-    @include vf-icon-info(hsl(0, 0%, 100%));
+    @include vf-icon-info(hsl(210deg 80% 65%));
   }
 }
 
@@ -234,8 +234,14 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-positive {
   .p-notification--positive {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme--positive, left, true);
-    @include vf-icon-success;
+    @include vf-highlight-bar($colors--theme--border-positive, left, true);
+    @include vf-icon-success(#0e8420);
+  }
+
+  // FIXME: temporary workaround until icons have proper theme support
+  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+  body.is-dark .p-notification--positive {
+    @include vf-icon-success(#62a36c, #262626);
   }
 }
 
@@ -243,8 +249,14 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-caution {
   .p-notification--caution {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme--caution, left, true);
-    @include vf-icon-warning;
+    @include vf-highlight-bar($colors--theme--border-caution, left, true);
+    @include vf-icon-warning(hsl(27deg 100% 39%));
+  }
+
+  // FIXME: temporary workaround until icons have proper theme support
+  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+  body.is-dark .p-notification--caution {
+    @include vf-icon-warning(#c48831, #262626);
   }
 }
 
@@ -252,8 +264,14 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-negative {
   .p-notification--negative {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme--negative, left, true);
-    @include vf-icon-error;
+    @include vf-highlight-bar($colors--theme--border-negative, left, true);
+    @include vf-icon-error(#c7162b);
+  }
+
+  // FIXME: temporary workaround until icons have proper theme support
+  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+  body.is-dark .p-notification--negative {
+    @include vf-icon-error(#d17b85, #262626);
   }
 }
 
@@ -261,13 +279,13 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
-    @include vf-highlight-bar($color--theme--information, left, true);
-    @include vf-icon-info($color-mid-dark);
+    @include vf-highlight-bar($colors--theme--border-information, left, true);
+    @include vf-icon-info(#24598f);
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  body.is-dark .p-notification {
-    @include vf-icon-info(hsl(0, 0%, 100%));
+  body.is-dark .p-notification--information {
+    @include vf-icon-info(hsl(210deg 80% 65%));
   }
 }
