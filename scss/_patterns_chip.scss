@@ -21,6 +21,7 @@ $chip-border-thickness: 1px;
 
     .p-chip__lead,
     .p-chip__value {
+      color: $colors--theme--text-default;
       display: inline;
       margin-bottom: 0;
       overflow: hidden;
@@ -64,234 +65,204 @@ $chip-border-thickness: 1px;
     }
   }
 
-  .p-chip,
-  .p-chip--positive,
-  .p-chip--caution,
-  .p-chip--negative,
-  .p-chip--information {
-    @extend %vf-chip;
-  }
-
-  // Theming
-  @if ($theme-default-p-chip == 'dark') {
-    .p-chip {
-      @include vf-chip-dark-theme;
-    }
-    .p-chip.is-light {
-      @include vf-chip-light-theme;
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip {
-      @include vf-chip-dark-theme($is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip.is-light {
-      @include vf-chip-light-theme($is-interactive: true);
-    }
-
-    .p-chip--positive {
-      @include vf-chip-dark-theme(positive);
-    }
-    .p-chip--positive.is-light {
-      @include vf-chip-light-theme(positive);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--positive {
-      @include vf-chip-dark-theme($chip-type: positive, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--positive.is-light {
-      @include vf-chip-light-theme($chip-type: positive, $is-interactive: true);
-    }
-
-    .p-chip--caution {
-      @include vf-chip-dark-theme(caution);
-    }
-    .p-chip--caution.is-light {
-      @include vf-chip-light-theme(caution);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--caution {
-      @include vf-chip-dark-theme($chip-type: caution, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--caution.is-light {
-      @include vf-chip-light-theme($chip-type: caution, $is-interactive: true);
-    }
-
-    .p-chip--negative {
-      @include vf-chip-dark-theme(negative);
-    }
-    .p-chip--negative.is-light {
-      @include vf-chip-light-theme(negative);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--negative {
-      @include vf-chip-dark-theme($chip-type: negative, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--negative.is-light {
-      @include vf-chip-light-theme($chip-type: negative, $is-interactive: true);
-    }
-
-    .p-chip--information {
-      @include vf-chip-dark-theme(information);
-    }
-    .p-chip--information.is-light {
-      @include vf-chip-light-theme(information);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--information {
-      @include vf-chip-dark-theme($chip-type: information, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--information.is-light {
-      @include vf-chip-light-theme($chip-type: information, $is-interactive: true);
-    }
-  } @else {
-    .p-chip {
-      @include vf-chip-light-theme;
-    }
-    .p-chip.is-dark {
-      @include vf-chip-dark-theme;
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip {
-      @include vf-chip-light-theme($is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip.is-dark {
-      @include vf-chip-dark-theme($is-interactive: true);
-    }
-
-    .p-chip--positive {
-      @include vf-chip-light-theme(positive);
-    }
-    .p-chip--positive.is-dark {
-      @include vf-chip-dark-theme(positive);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--positive {
-      @include vf-chip-light-theme($chip-type: positive, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--positive.is-dark {
-      @include vf-chip-dark-theme($chip-type: positive, $is-interactive: true);
-    }
-
-    .p-chip--caution {
-      @include vf-chip-light-theme(caution);
-    }
-    .p-chip--caution.is-dark {
-      @include vf-chip-dark-theme(caution);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--caution {
-      @include vf-chip-light-theme($chip-type: caution, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--caution.is-dark {
-      @include vf-chip-dark-theme($chip-type: caution, $is-interactive: true);
-    }
-
-    .p-chip--negative {
-      @include vf-chip-light-theme(negative);
-    }
-    .p-chip--negative.is-dark {
-      @include vf-chip-dark-theme(negative);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--negative {
-      @include vf-chip-light-theme($chip-type: negative, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--negative.is-dark {
-      @include vf-chip-dark-theme($chip-type: negative, $is-interactive: true);
-    }
-
-    .p-chip--information {
-      @include vf-chip-light-theme(information);
-    }
-    .p-chip--information.is-dark {
-      @include vf-chip-dark-theme(information);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--information {
-      @include vf-chip-light-theme($chip-type: information, $is-interactive: true);
-    }
-    // stylelint-disable-next-line selector-max-type
-    button.p-chip--information.is-dark {
-      @include vf-chip-dark-theme($chip-type: information, $is-interactive: true);
-    }
-  }
+  @include vf-chips-default;
+  @include vf-chips-positive;
+  @include vf-chips-caution;
+  @include vf-chips-negative;
+  @include vf-chips-information;
 }
 
-@mixin vf-chip-theme($chip-type: neutral, $is-interactive: false, $colors-chip-tinted-backgrounds, $colors-chip-tinted-borders, $color-chip-value, $color-chip-lead) {
-  @if (not map-has-key($colors-chip-tinted-backgrounds, $chip-type)) {
-    $chip-type: neutral;
-  }
+// Default notification styling
+@mixin vf-chips-default {
+  .p-chip {
+    @extend %vf-chip;
 
-  $color-background: map-get($colors-chip-tinted-backgrounds, $chip-type, 'default');
-  $color-background-hover: map-get($colors-chip-tinted-backgrounds, $chip-type, 'hover');
-  $color-background-active: map-get($colors-chip-tinted-backgrounds, $chip-type, 'active');
-  $color-border: map-get($colors-chip-tinted-borders, $chip-type);
+    background-color: $colors--theme--background-neutral-default;
+    border: $chip-border-thickness solid $colors--theme--border-neutral;
+    border-color: $colors--theme--border-neutral;
 
-  background-color: $color-background;
-  border: $chip-border-thickness solid $color-border;
-
-  .p-chip__value {
-    color: $color-chip-value;
-  }
-  .p-chip__lead,
-  .p-chip__lead + .p-chip__value::before {
-    color: $color-chip-lead;
-  }
-
-  @if ($is-interactive) {
     &:hover {
-      background-color: $color-background-hover;
-      border-color: $color-border;
+      background-color: $colors--theme--background-neutral-hover;
+      border-color: $colors--theme--border-neutral;
     }
     &[aria-pressed='true'],
     &.is-selected,
     &:active {
-      background-color: $color-background-active;
-      border-color: $color-border;
+      background-color: $colors--theme--background-neutral-active;
+      border-color: $colors--theme--border-neutral;
     }
-  } @else {
-    .p-chip__dismiss {
-      @include vf-icon-close($color-chip-lead);
+  }
 
-      @include vf-button-pattern(
-        $button-background-color: transparent,
-        $button-border-color: transparent,
-        $button-hover-background-color: $color-background-hover,
-        $button-hover-border-color: transparent,
-        $button-active-background-color: $color-background-active,
-        $button-active-border-color: transparent
-      );
-    }
+  .p-chip .p-chip__dismiss {
+    @include vf-icon-close(#000);
+    @include vf-button-pattern(
+      $button-background-color: transparent,
+      $button-border-color: transparent,
+      $button-hover-background-color: $colors--theme--background-neutral-hover,
+      $button-hover-border-color: transparent,
+      $button-active-background-color: $colors--theme--background-neutral-active,
+      $button-active-border-color: transparent
+    );
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  body.is-dark .p-chip .p-chip__dismiss {
+    @include vf-icon-close(#fff);
   }
 }
 
-@mixin vf-chip-light-theme($chip-type: neutral, $is-interactive: false) {
-  @include vf-chip-theme(
-    $chip-type: $chip-type,
-    $is-interactive: $is-interactive,
-    $colors-chip-tinted-backgrounds: $colors-light-theme--tinted-backgrounds,
-    $colors-chip-tinted-borders: $colors-light-theme--tinted-borders,
-    $color-chip-value: $colors--light-theme--text-default,
-    $color-chip-lead: $colors--light-theme--text-default
-  );
+@mixin vf-chips-positive {
+  .p-chip--positive {
+    @extend %vf-chip;
+
+    background-color: $colors--theme--background-positive-default;
+    border: $chip-border-thickness solid $colors--theme--border-positive;
+    border-color: $colors--theme--border-positive;
+
+    &:hover {
+      background-color: $colors--theme--background-positive-hover;
+      border-color: $colors--theme--border-positive;
+    }
+
+    &[aria-pressed='true'],
+    &.is-selected,
+    &:active {
+      background-color: $colors--theme--background-positive-active;
+      border-color: $colors--theme--border-positive;
+    }
+  }
+
+  .p-chip--positive .p-chip__dismiss {
+    @include vf-icon-close(#000);
+    @include vf-button-pattern(
+      $button-background-color: transparent,
+      $button-border-color: transparent,
+      $button-hover-background-color: $colors--theme--background-positive-hover,
+      $button-hover-border-color: transparent,
+      $button-active-background-color: $colors--theme--background-positive-active,
+      $button-active-border-color: transparent
+    );
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  body.is-dark .p-chip--positive .p-chip__dismiss {
+    @include vf-icon-close(#fff);
+  }
 }
 
-@mixin vf-chip-dark-theme($chip-type: neutral, $is-interactive: false) {
-  @include vf-chip-theme(
-    $chip-type: $chip-type,
-    $is-interactive: $is-interactive,
-    $colors-chip-tinted-backgrounds: $colors-dark-theme--tinted-backgrounds,
-    $colors-chip-tinted-borders: $colors-dark-theme--tinted-borders,
-    $color-chip-value: $colors--dark-theme--text-default,
-    $color-chip-lead: $colors--dark-theme--text-default
-  );
+@mixin vf-chips-caution {
+  .p-chip--caution {
+    @extend %vf-chip;
+
+    background-color: $colors--theme--background-caution-default;
+    border: $chip-border-thickness solid $colors--theme--border-caution;
+    border-color: $colors--theme--border-caution;
+
+    &:hover {
+      background-color: $colors--theme--background-caution-hover;
+      border-color: $colors--theme--border-caution;
+    }
+
+    &[aria-pressed='true'],
+    &.is-selected,
+    &:active {
+      background-color: $colors--theme--background-caution-active;
+      border-color: $colors--theme--border-caution;
+    }
+  }
+
+  .p-chip--caution .p-chip__dismiss {
+    @include vf-icon-close(#000);
+    @include vf-button-pattern(
+      $button-background-color: transparent,
+      $button-border-color: transparent,
+      $button-hover-background-color: $colors--theme--background-caution-hover,
+      $button-hover-border-color: transparent,
+      $button-active-background-color: $colors--theme--background-caution-active,
+      $button-active-border-color: transparent
+    );
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  body.is-dark .p-chip--caution .p-chip__dismiss {
+    @include vf-icon-close(#fff);
+  }
+}
+
+@mixin vf-chips-negative {
+  .p-chip--negative {
+    @extend %vf-chip;
+
+    background-color: $colors--theme--background-negative-default;
+    border: $chip-border-thickness solid $colors--theme--border-negative;
+    border-color: $colors--theme--border-negative;
+
+    &:hover {
+      background-color: $colors--theme--background-negative-hover;
+      border-color: $colors--theme--border-negative;
+    }
+
+    &[aria-pressed='true'],
+    &.is-selected,
+    &:active {
+      background-color: $colors--theme--background-negative-active;
+      border-color: $colors--theme--border-negative;
+    }
+  }
+
+  .p-chip--negative .p-chip__dismiss {
+    @include vf-icon-close(#000);
+    @include vf-button-pattern(
+      $button-background-color: transparent,
+      $button-border-color: transparent,
+      $button-hover-background-color: $colors--theme--background-negative-hover,
+      $button-hover-border-color: transparent,
+      $button-active-background-color: $colors--theme--background-negative-active,
+      $button-active-border-color: transparent
+    );
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  body.is-dark .p-chip--negative .p-chip__dismiss {
+    @include vf-icon-close(#fff);
+  }
+}
+
+@mixin vf-chips-information {
+  .p-chip--information {
+    @extend %vf-chip;
+
+    background-color: $colors--theme--background-information-default;
+    border: $chip-border-thickness solid $colors--theme--border-information;
+    border-color: $colors--theme--border-information;
+
+    &:hover {
+      background-color: $colors--theme--background-information-hover;
+      border-color: $colors--theme--border-information;
+    }
+
+    &[aria-pressed='true'],
+    &.is-selected,
+    &:active {
+      background-color: $colors--theme--background-information-active;
+      border-color: $colors--theme--border-information;
+    }
+  }
+
+  .p-chip--information .p-chip__dismiss {
+    @include vf-icon-close(#000);
+    @include vf-button-pattern(
+      $button-background-color: transparent,
+      $button-border-color: transparent,
+      $button-hover-background-color: $colors--theme--background-information-hover,
+      $button-hover-border-color: transparent,
+      $button-active-background-color: $colors--theme--background-information-active,
+      $button-active-border-color: transparent
+    );
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  body.is-dark .p-chip--information .p-chip__dismiss {
+    @include vf-icon-close(#fff);
+  }
 }
