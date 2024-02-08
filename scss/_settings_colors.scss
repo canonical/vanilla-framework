@@ -113,7 +113,7 @@ $colors--light-theme--border-default: rgba($color-x-dark, 0.2) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
-$colors--light-theme--tick-element: #fff !default;
+$colors--light-theme--link: $color-link !default;
 
 $colors-light-theme--tinted-backgrounds: (
   neutral: (
@@ -168,7 +168,7 @@ $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.3
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.5) !default;
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.05) !default;
 
-$colors--dark-theme--tick-element: hsl(0, 0%, 100%) !default;
+$colors--dark-theme--link: $color-link-dark !default;
 
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
@@ -230,7 +230,7 @@ $colors--theme--border-default: var(--vf-color-border-default);
 $colors--theme--border-high-contrast: var(--vf-color-border-high-contrast);
 $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
 
-$colors--theme--tick-element: var(--vf-color-tick-element);
+$colors--theme--link: var(--vf-color-link);
 
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light {
@@ -250,7 +250,7 @@ $colors--theme--tick-element: var(--vf-color-tick-element);
   --vf-color-border-high-contrast: #{$colors--light-theme--border-high-contrast};
   --vf-color-border-low-contrast: #{$colors--light-theme--border-low-contrast};
 
-  --vf-color-tick-element: #{$colors--light-theme--tick-element};
+  --vf-color-link: #{$colors--light-theme--link};
 }
 
 @mixin vf-theme-dark {
@@ -270,7 +270,7 @@ $colors--theme--tick-element: var(--vf-color-tick-element);
   --vf-color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
   --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
 
-  --vf-color-tick-element: #{$colors--dark-theme--tick-element};
+  --vf-color-link: #{$colors--dark-theme--link};
 }
 
 @mixin vf-theme-paper {
