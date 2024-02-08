@@ -1,6 +1,9 @@
 @import 'settings';
 
 @mixin vf-p-suru {
+  // https://assets.ubuntu.com/v1/70c2bbcd-0002_suru-main-50x50-dark.png
+  // https://assets.ubuntu.com/v1/e66e280b-0001_suru-main-50x50-light.png
+
   // add suru backgrounds to the themes
   @at-root {
     :root,
@@ -10,16 +13,19 @@
       // they need paper background
       --vf-suru-background: #{$color-paper};
       --vf-suru-25-75: url('#{$assets-path}505636a6-0000_suru-main-25x75-light.png');
+      --vf-suru-50-50: url('#{$assets-path}e66e280b-0001_suru-main-50x50-light.png');
     }
 
     .is-dark {
       --vf-suru-background: #{$colors--theme--background-default};
       --vf-suru-25-75: url('#{$assets-path}7ccd4f39-0003_suru-main-25x75-dark.png');
+      --vf-suru-50-50: url('#{$assets-path}70c2bbcd-0002_suru-main-50x50-dark.png');
     }
   }
 
   .p-suru,
-  .p-suru--25-75 {
+  .p-suru--25-75,
+  .p-suru--50-50 {
     background-color: var(--vf-suru-background);
 
     // padding top based on p-section--hero
@@ -48,6 +54,11 @@
       display: block;
       margin: 0 auto;
       max-width: $grid-max-width;
+    }
+
+    &.p-suru--50-50::after {
+      // aspect ratio of 50/50 background is the same, so no need to override
+      background-image: var(--vf-suru-50-50);
     }
   }
 }
