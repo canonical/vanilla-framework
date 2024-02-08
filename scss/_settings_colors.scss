@@ -219,6 +219,8 @@ $colors--theme--text-default: var(--vf-color-text-default);
 $colors--theme--text-muted: var(--vf-color-text-muted);
 $colors--theme--text-inactive: var(--vf-color-text-inactive);
 
+$colors--theme--link: var(--vf-color-link);
+
 $colors--theme--background-default: var(--vf-color-background-default);
 $colors--theme--background-alt: var(--vf-color-background-alt);
 $colors--theme--background-inputs: var(--vf-color-background-inputs);
@@ -230,7 +232,26 @@ $colors--theme--border-default: var(--vf-color-border-default);
 $colors--theme--border-high-contrast: var(--vf-color-border-high-contrast);
 $colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
 
-$colors--theme--link: var(--vf-color-link);
+$colors--theme--border-positive: var(--vf-color-border-positive);
+$colors--theme--border-negative: var(--vf-color-border-negative);
+$colors--theme--border-information: var(--vf-color-border-information);
+$colors--theme--border-caution: var(--vf-color-border-caution);
+
+$colors--theme--background-neutral-default: var(--vf-color-background-neutral-default);
+$colors--theme--background-neutral-hover: var(--vf-color-background-neutral-hover);
+$colors--theme--background-neutral-active: var(--vf-color-background-neutral-active);
+$colors--theme--background-positive-default: var(--vf-color-background-positive-default);
+$colors--theme--background-positive-hover: var(--vf-color-background-positive-hover);
+$colors--theme--background-positive-active: var(--vf-color-background-positive-active);
+$colors--theme--background-caution-default: var(--vf-color-background-caution-default);
+$colors--theme--background-caution-hover: var(--vf-color-background-caution-hover);
+$colors--theme--background-caution-active: var(--vf-color-background-caution-active);
+$colors--theme--background-negative-default: var(--vf-color-background-negative-default);
+$colors--theme--background-negative-hover: var(--vf-color-background-negative-hover);
+$colors--theme--background-negative-active: var(--vf-color-background-negative-active);
+$colors--theme--background-information-default: var(--vf-color-background-information-default);
+$colors--theme--background-information-hover: var(--vf-color-background-information-hover);
+$colors--theme--background-information-active: var(--vf-color-background-information-active);
 
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light {
@@ -239,6 +260,8 @@ $colors--theme--link: var(--vf-color-link);
   --vf-color-text-muted: #{$colors--light-theme--text-muted};
   --vf-color-text-inactive: #{$colors--light-theme--text-inactive};
 
+  --vf-color-link: #{$colors--light-theme--link};
+  
   --vf-color-background-default: #{$colors--light-theme--background-default};
   --vf-color-background-alt: #{$colors--light-theme--background-alt};
   --vf-color-background-inputs: #{$colors--light-theme--background-inputs};
@@ -250,7 +273,26 @@ $colors--theme--link: var(--vf-color-link);
   --vf-color-border-high-contrast: #{$colors--light-theme--border-high-contrast};
   --vf-color-border-low-contrast: #{$colors--light-theme--border-low-contrast};
 
-  --vf-color-link: #{$colors--light-theme--link};
+  --vf-color-border-positive: #{map-get($colors-light-theme--tinted-borders, positive)};
+  --vf-color-border-negative: #{map-get($colors-light-theme--tinted-borders, negative)};
+  --vf-color-border-information: #{map-get($colors-light-theme--tinted-borders, information)};
+  --vf-color-border-caution: #{map-get($colors-light-theme--tinted-borders, caution)};
+
+  --vf-color-background-neutral-default: #{map-get($colors-light-theme--tinted-backgrounds, neutral, default)};
+  --vf-color-background-neutral-hover: #{map-get($colors-light-theme--tinted-backgrounds, neutral, hover)};
+  --vf-color-background-neutral-active: #{map-get($colors-light-theme--tinted-backgrounds, neutral, active)};
+  --vf-color-background-positive-default: #{map-get($colors-light-theme--tinted-backgrounds, positive, default)};
+  --vf-color-background-positive-hover: #{map-get($colors-light-theme--tinted-backgrounds, positive, hover)};
+  --vf-color-background-positive-active: #{map-get($colors-light-theme--tinted-backgrounds, positive, active)};
+  --vf-color-background-caution-default: #{map-get($colors-light-theme--tinted-backgrounds, caution, default)};
+  --vf-color-background-caution-hover: #{map-get($colors-light-theme--tinted-backgrounds, caution, hover)};
+  --vf-color-background-caution-active: #{map-get($colors-light-theme--tinted-backgrounds, caution, active)};
+  --vf-color-background-negative-default: #{map-get($colors-light-theme--tinted-backgrounds, negative, default)};
+  --vf-color-background-negative-hover: #{map-get($colors-light-theme--tinted-backgrounds, negative, hover)};
+  --vf-color-background-negative-active: #{map-get($colors-light-theme--tinted-backgrounds, negative, active)};
+  --vf-color-background-information-default: #{map-get($colors-light-theme--tinted-backgrounds, information, default)};
+  --vf-color-background-information-hover: #{map-get($colors-light-theme--tinted-backgrounds, information, hover)};
+  --vf-color-background-information-active: #{map-get($colors-light-theme--tinted-backgrounds, information, active)};
 }
 
 @mixin vf-theme-dark {
@@ -258,7 +300,9 @@ $colors--theme--link: var(--vf-color-link);
   --vf-color-text-default: #{$colors--dark-theme--text-default};
   --vf-color-text-muted: #{$colors--dark-theme--text-muted};
   --vf-color-text-inactive: #{$colors--dark-theme--text-inactive};
-
+  
+  --vf-color-link: #{$colors--dark-theme--link};
+  
   --vf-color-background-default: #{$colors--dark-theme--background-default};
   --vf-color-background-alt: #{$colors--dark-theme--background-alt};
   --vf-color-background-inputs: #{$colors--dark-theme--background-inputs};
@@ -270,7 +314,26 @@ $colors--theme--link: var(--vf-color-link);
   --vf-color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
   --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
 
-  --vf-color-link: #{$colors--dark-theme--link};
+  --vf-color-border-positive: #{map-get($colors-dark-theme--tinted-borders, positive)};
+  --vf-color-border-negative: #{map-get($colors-dark-theme--tinted-borders, negative)};
+  --vf-color-border-information: #{map-get($colors-dark-theme--tinted-borders, information)};
+  --vf-color-border-caution: #{map-get($colors-dark-theme--tinted-borders, caution)};
+
+  --vf-color-background-neutral-default: #{map-get($colors-dark-theme--tinted-backgrounds, neutral, default)};
+  --vf-color-background-neutral-hover: #{map-get($colors-dark-theme--tinted-backgrounds, neutral, hover)};
+  --vf-color-background-neutral-active: #{map-get($colors-dark-theme--tinted-backgrounds, neutral, active)};
+  --vf-color-background-positive-default: #{map-get($colors-dark-theme--tinted-backgrounds, positive, default)};
+  --vf-color-background-positive-hover: #{map-get($colors-dark-theme--tinted-backgrounds, positive, hover)};
+  --vf-color-background-positive-active: #{map-get($colors-dark-theme--tinted-backgrounds, positive, active)};
+  --vf-color-background-caution-default: #{map-get($colors-dark-theme--tinted-backgrounds, caution, default)};
+  --vf-color-background-caution-hover: #{map-get($colors-dark-theme--tinted-backgrounds, caution, hover)};
+  --vf-color-background-caution-active: #{map-get($colors-dark-theme--tinted-backgrounds, caution, active)};
+  --vf-color-background-negative-default: #{map-get($colors-dark-theme--tinted-backgrounds, negative, default)};
+  --vf-color-background-negative-hover: #{map-get($colors-dark-theme--tinted-backgrounds, negative, hover)};
+  --vf-color-background-negative-active: #{map-get($colors-dark-theme--tinted-backgrounds, negative, active)};
+  --vf-color-background-information-default: #{map-get($colors-dark-theme--tinted-backgrounds, information, default)};
+  --vf-color-background-information-hover: #{map-get($colors-dark-theme--tinted-backgrounds, information, hover)};
+  --vf-color-background-information-active: #{map-get($colors-dark-theme--tinted-backgrounds, information, active)};
 }
 
 @mixin vf-theme-paper {
