@@ -1,16 +1,53 @@
 @import 'settings';
 
 @mixin vf-p-suru {
-  .p-suru {
-    aspect-ratio: calc(2216 / 428); // aspect ratio calculated from image dimensions
-    background-image: url('#{$assets-path}7f34ade9-website_suru_25.jpg');
-    background-size: contain;
-    margin: 0 auto;
-    max-width: $grid-max-width;
+  // add suru backgrounds to the themes
+  @at-root {
+    :root,
+    .is-light,
+    .is-paper {
+      // new suru backgrounds don't have while (light) version,
+      // they need paper background
+      --vf-suru-background: #{$color-paper};
+      --vf-suru-25-75: url('#{$assets-path}505636a6-0000_suru-main-25x75-light.png');
+    }
 
-    &.is-dark {
-      aspect-ratio: calc(2580 / 501); // aspect ratio calculated from image dimensions
-      background-image: url('#{$assets-path}9469ef82-1_website_suru_DARK_25%20(1)122.jpg');
+    .is-dark {
+      --vf-suru-background: #{$colors--theme--background-default};
+      --vf-suru-25-75: url('#{$assets-path}7ccd4f39-0003_suru-main-25x75-dark.png');
+    }
+  }
+
+  .p-suru,
+  .p-suru--25-75 {
+    background-color: var(--vf-suru-background);
+
+    // padding top based on p-section--hero
+    // bottom padding not needed (as it's covered by the suru background image)
+    padding-top: $spv--large;
+
+    // on large screens, same as %section-padding--shallow
+    @media (min-width: $breakpoint-large) {
+      padding-top: $spv--x-large;
+    }
+
+    // for backwards compatibility with p-suru used as a standalone component
+    // we remove top padding if there are no children
+    // for this to work there can't be any whitespace in the suru element
+    // <div class="p-suru"></div>
+    &:-moz-only-whitespace,
+    &:empty {
+      padding-top: 0;
+    }
+
+    &::after {
+      aspect-ratio: calc(2600 / 471); // aspect ratio calculated from image dimensions
+      background-image: var(--vf-suru-25-75);
+      background-size: contain;
+      content: '';
+      display: block;
+      margin: 0 auto;
+      max-width: $grid-max-width;
     }
   }
 }
