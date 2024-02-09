@@ -40,15 +40,15 @@
       // stylelint-disable-next-line selector-max-type
       body.is-dark &,
       &.is-dark {
-        @include vf-icon-warning($color: #c48831, $color-symbol: $colors--dark-theme--background-default);
+        @include vf-icon-warning($color: map-get($colors-dark-theme--tinted-borders, caution), $color-symbol: $colors--dark-theme--background-default);
       }
 
       // FIXME: Temporary workaround for unsupported theme colors in icons
       // stylelint-disable-next-line selector-max-type
-      body.is-light &
-      body.is-paper &,
       &.is-light,
-      &.is-paper {
+      &.is-paper,
+      body.is-light &,
+      body.is-paper & {
         @include vf-icon-warning($color: $color-caution);
       }
     }
@@ -76,14 +76,15 @@
       // stylelint-disable-next-line selector-max-type
       body.is-dark &,
       &.is-dark {
-        @include vf-icon-error($color: #d17b85, $color-symbol: $colors--dark-theme--background-default);
+        @include vf-icon-error($color: map-get($colors-dark-theme--tinted-borders, negative), $color-symbol: $colors--dark-theme--background-default);
       }
+
       // FIXME: Temporary workaround for unsupported theme colors in icons
       // stylelint-disable-next-line selector-max-type
-      body.is-light &
-      body.is-paper &,
       &.is-light,
-      &.is-paper {
+      &.is-paper,
+      body.is-light &,
+      body.is-paper & {
         @include vf-icon-error($color: $color-negative);
       }
     }
@@ -111,14 +112,14 @@
       // stylelint-disable-next-line selector-max-type
       body.is-dark &,
       &.is-dark {
-        @include vf-icon-success($color: #62a36c, $color-symbol: $colors--dark-theme--background-default);
+        @include vf-icon-success($color: map-get($colors-dark-theme--tinted-borders, positive), $color-symbol: $colors--dark-theme--background-default);
       }
 
       // FIXME: Temporary workaround for unsupported theme colors in icons
       // stylelint-disable-next-line selector-max-type
       &.is-light,
       &.is-paper,
-      body.is-light &
+      body.is-light &,
       body.is-paper & {
         @include vf-icon-success($color: $color-positive);
       }
