@@ -210,7 +210,7 @@
     @include vf-button-pattern;
 
     &::before {
-      @include vf-icon-chevron;
+      @include vf-icon-chevron; // this icon is not themed, as it's on a default 'neutral' button regardless of the theme
       transform: rotate(-90deg);
     }
   }
@@ -228,7 +228,7 @@
     margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
 
     &::before {
-      @include vf-icon-chevron($colors--light-theme--text-inactive);
+      @include vf-icon-chevron--themed;
       transform: rotate(90deg);
     }
 
@@ -240,21 +240,6 @@
         color: $colors--theme--text-default;
       }
     }
-  }
-
-  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  // stylelint-disable-next-line selector-max-type
-  .p-side-navigation__toggle--in-drawer.is-light::before,
-  .p-side-navigation__toggle--in-drawer.is-paper::before,
-  body.is-light .p-side-navigation__toggle--in-drawer::before,
-  body.is-paper .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  .p-side-navigation__toggle--in-drawer.is-dark::before,
-  body.is-dark .p-side-navigation__toggle--in-drawer::before {
-    @include vf-icon-chevron(#999);
   }
 
   @media (min-width: $threshold-6-12-col) {
@@ -439,7 +424,7 @@
 
     &::before {
       @extend %icon;
-      @include vf-icon-chevron($colors--light-theme--text-inactive);
+      @include vf-icon-chevron--themed;
       @include vf-transition($property: transform, $duration: fast);
 
       align-self: center;
@@ -473,21 +458,6 @@
 
       @include vf-transition(#{background-color, border-color});
     }
-  }
-
-  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  // stylelint-disable-next-line selector-max-type
-  .p-side-navigation__accordion-button.is-light::before,
-  .p-side-navigation__accordion-button.is-paper::before,
-  body.is-light .p-side-navigation__accordion-button::before,
-  body.is-paper .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  .p-side-navigation__accordion-button.is-dark::before,
-  body.is-dark .p-side-navigation__accordion-button::before {
-    @include vf-icon-chevron(#999);
   }
 
   .p-side-navigation__heading,
