@@ -11,12 +11,20 @@
       --vf-suru-background: #{$color-paper};
       --vf-suru-25-75: url('#{$assets-path}505636a6-0000_suru-main-25x75-light.png');
       --vf-suru-50-50: url('#{$assets-path}e66e280b-0001_suru-main-50x50-light.png');
+      --vf-suru-fan-top-right: url('#{$assets-path}ed94a429-0000_suru-corner-fan--top-right-light.jpg');
+      --vf-suru-fan-bottom-right: url('#{$assets-path}2adade55-suru-corner-fan--bottom-0000_light.jpg');
+      --vf-suru-pyramid-top-left: url('#{$assets-path}8846d6a5-suru-pyramid-top-corner_0000_light.jpg');
+      --vf-suru-pyramid-top-right: url('#{$assets-path}5d9f8cd3-suru-pyramid-top-right-corner_0000_light.jpg');
     }
 
     .is-dark {
       --vf-suru-background: #{$colors--theme--background-default};
       --vf-suru-25-75: url('#{$assets-path}7ccd4f39-0003_suru-main-25x75-dark.png');
       --vf-suru-50-50: url('#{$assets-path}70c2bbcd-0002_suru-main-50x50-dark.png');
+      --vf-suru-fan-top-right: url('#{$assets-path}fd6ef995-0001_suru-corner-fan--top-right-dark.jpg');
+      --vf-suru-fan-bottom-right: url('#{$assets-path}725af649-suru-corner-fan--bottom-0001_dark.jpg');
+      --vf-suru-pyramid-top-left: url('#{$assets-path}86ed5771-suru-pyramid-top-corner_0001_dark.jpg');
+      --vf-suru-pyramid-top-right: url('#{$assets-path}9f740811-suru-pyramid-top-right-corner_0001_dark.jpg');
     }
   }
 
@@ -24,6 +32,7 @@
   .p-suru--25-75,
   .p-suru--50-50 {
     background-color: var(--vf-suru-background);
+    color: $colors--theme--text-default;
 
     // padding top based on p-section--hero
     // bottom padding not needed (as it's covered by the suru background image)
@@ -57,5 +66,55 @@
       // aspect ratio of 50/50 background is the same, so no need to override
       background-image: var(--vf-suru-50-50);
     }
+  }
+
+  .p-suru--fan-top,
+  .p-suru--fan-bottom,
+  .p-suru--pyramid-left,
+  .p-suru--pyramid-right {
+    background-color: var(--vf-suru-background);
+    color: $colors--theme--text-default;
+
+    // same as %section-padding--default
+    padding-bottom: $spv--strip-regular * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-regular;
+    }
+
+    // padding top based on p-section--hero
+    // bottom padding not needed (as it's covered by the suru background image)
+    padding-top: $spv--large;
+
+    // on large screens, same as %section-padding--shallow
+    @media (min-width: $breakpoint-large) {
+      padding-top: $spv--x-large;
+    }
+  }
+
+  .p-suru--fan-top,
+  .p-suru--fan-bottom {
+    background-image: var(--vf-suru-fan-top-right);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 512px 385.5px; // based on image dimensions (2048x1542) scaled down by 0.25
+  }
+
+  .p-suru--fan-bottom {
+    background-image: var(--vf-suru-fan-bottom-right);
+    background-position: bottom right;
+  }
+
+  .p-suru--pyramid-right,
+  .p-suru--pyramid-left {
+    background-image: var(--vf-suru-pyramid-top-left);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 354px 258.75px; // based on image dimensions (1380x1035) scaled down by 0.25
+  }
+
+  .p-suru--pyramid-right {
+    background-image: var(--vf-suru-pyramid-top-right);
+    background-position: top right;
   }
 }
