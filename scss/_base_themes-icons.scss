@@ -1,0 +1,19 @@
+// ICON THEMES
+
+@at-root {
+  :root,
+  .is-light,
+  .is-paper {
+    @include vf-icon-chevron($color: $color-mid-dark, $property: --vf-icon-chevron);
+  }
+
+  [class*='--dark'] [class*="p-icon--"], // backwards compatibility
+  [class*="p-icon--"].is-light, // backwards compatibility
+  .is-dark {
+    @include vf-icon-chevron($color: $color-x-light, $property: --vf-icon-chevron);
+  }
+}
+
+@mixin vf-icon-chevron--themed {
+  background-image: var(--vf-icon-chevron);
+}

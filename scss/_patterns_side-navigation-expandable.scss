@@ -29,7 +29,7 @@
 
     &::before {
       @extend %icon;
-      @include vf-icon-chevron($colors--light-theme--text-inactive);
+      @include vf-icon-chevron--themed;
       content: '';
       transform: rotate(-90deg);
       transition: transform 100ms;
@@ -39,21 +39,6 @@
       background: $colors--theme--background-hover;
       color: $colors--theme--text-default;
     }
-  }
-
-  // FIXME: Temporary workaround for unsupported theme colors in vf-icon-chevron
-  // stylelint-disable-next-line selector-max-type
-  .p-side-navigation__expand.is-light::before,
-  .p-side-navigation__expand.is-paper::before,
-  body.is-light .p-side-navigation__expand::before,
-  body.is-paper .p-side-navigation__expand::before {
-    @include vf-icon-chevron($colors--light-theme--text-inactive);
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  .p-side-navigation__expand.is-dark::before,
-  body.is-dark .p-side-navigation__expand::before {
-    @include vf-icon-chevron(#999);
   }
 
   .p-side-navigation__expand[aria-expanded='true'] {
