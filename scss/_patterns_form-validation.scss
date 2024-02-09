@@ -33,24 +33,8 @@
     }
 
     .p-form-validation__message {
-      @include vf-icon-warning($color: map-get($colors-light-theme--tinted-borders, caution));
+      @include vf-themed-icon(warning);
       color: $colors--theme--border-caution;
-
-      // FIXME: Temporary workaround for unsupported theme colors in icons
-      // stylelint-disable-next-line selector-max-type
-      body.is-dark &,
-      &.is-dark {
-        @include vf-icon-warning($color: map-get($colors-dark-theme--tinted-borders, caution), $color-symbol: $colors--dark-theme--background-default);
-      }
-
-      // FIXME: Temporary workaround for unsupported theme colors in icons
-      // stylelint-disable-next-line selector-max-type
-      &.is-light,
-      &.is-paper,
-      body.is-light &,
-      body.is-paper & {
-        @include vf-icon-warning($color: map-get($colors-light-theme--tinted-borders, caution));
-      }
     }
   }
 
@@ -69,24 +53,8 @@
     }
 
     .p-form-validation__message {
-      @include vf-icon-error($color: map-get($colors-light-theme--tinted-borders, negative));
+      @include vf-themed-icon(error);
       color: $colors--theme--border-negative;
-
-      // FIXME: Temporary workaround for unsupported theme colors in icons
-      // stylelint-disable-next-line selector-max-type
-      body.is-dark &,
-      &.is-dark {
-        @include vf-icon-error($color: map-get($colors-dark-theme--tinted-borders, negative), $color-symbol: $colors--dark-theme--background-default);
-      }
-
-      // FIXME: Temporary workaround for unsupported theme colors in icons
-      // stylelint-disable-next-line selector-max-type
-      &.is-light,
-      &.is-paper,
-      body.is-light &,
-      body.is-paper & {
-        @include vf-icon-error($color: map-get($colors-light-theme--tinted-borders, negative));
-      }
     }
   }
 
@@ -105,24 +73,8 @@
     }
 
     .p-form-validation__message {
-      @include vf-icon-success($color: map-get($colors-light-theme--tinted-borders, positive));
+      @include vf-themed-icon(success);
       color: $colors--theme--border-positive;
-
-      // FIXME: Temporary workaround for unsupported theme colors in icons
-      // stylelint-disable-next-line selector-max-type
-      body.is-dark &,
-      &.is-dark {
-        @include vf-icon-success($color: map-get($colors-dark-theme--tinted-borders, positive), $color-symbol: $colors--dark-theme--background-default);
-      }
-
-      // FIXME: Temporary workaround for unsupported theme colors in icons
-      // stylelint-disable-next-line selector-max-type
-      &.is-light,
-      &.is-paper,
-      body.is-light &,
-      body.is-paper & {
-        @include vf-icon-success($color: map-get($colors-light-theme--tinted-borders, positive));
-      }
     }
   }
 }

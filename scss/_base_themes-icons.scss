@@ -1,19 +1,45 @@
 // ICON THEMES
 
-@at-root {
-  :root,
-  .is-light,
-  .is-paper {
-    @include vf-icon-chevron($color: $color-mid-dark, $property: --vf-icon-chevron);
-  }
+@mixin vf-b-themes-icons {
+  $colors--light-theme--icon: $color-mid-dark;
+  $colors--dark-theme--icon: $color-x-light;
 
-  [class*='--dark'] [class*="p-icon--"], // backwards compatibility
-  [class*="p-icon--"].is-light, // backwards compatibility
-  .is-dark {
-    @include vf-icon-chevron($color: $color-x-light, $property: --vf-icon-chevron);
+  @at-root {
+    :root,
+    .is-light,
+    .is-paper {
+      @include vf-icon-chevron($color: $colors--light-theme--icon, $property: --vf-icon-chevron);
+
+      @include vf-icon-error($color: map-get($colors-light-theme--tinted-borders, negative), $color-symbol: $colors--light-theme--background-default, $property: --vf-icon-error);
+      @include vf-icon-warning(
+        $color: map-get($colors-light-theme--tinted-borders, caution),
+        $color-symbol: $colors--light-theme--background-default,
+        $property: --vf-icon-warning
+      );
+      @include vf-icon-success(
+        $color: map-get($colors-light-theme--tinted-borders, positive),
+        $color-symbol: $colors--light-theme--background-default,
+        $property: --vf-icon-success
+      );
+    }
+
+    [class*='--dark'] [class*="p-icon--"], // backwards compatibility
+    [class*="p-icon--"].is-light, // backwards compatibility
+    .is-dark {
+      @include vf-icon-chevron($color: $colors--dark-theme--icon, $property: --vf-icon-chevron);
+
+      @include vf-icon-error($color: map-get($colors-dark-theme--tinted-borders, negative), $color-symbol: $colors--dark-theme--background-default, $property: --vf-icon-error);
+      @include vf-icon-warning($color: map-get($colors-dark-theme--tinted-borders, caution), $color-symbol: $colors--dark-theme--background-default, $property: --vf-icon-warning);
+      @include vf-icon-success($color: map-get($colors-dark-theme--tinted-borders, positive), $color-symbol: $colors--dark-theme--background-default, $property: --vf-icon-success);
+    }
   }
 }
 
-@mixin vf-icon-chevron--themed {
-  background-image: var(--vf-icon-chevron);
+$vf-themed-icons: chevron, error, warning, success;
+
+@mixin vf-themed-icon($icon) {
+  @if not(index($vf-themed-icons, $icon)) {
+    @error "The icon `#{$icon}` is not a themed icon. Please use one of the following: #{$vf-themed-icons}.";
+  }
+  background-image: var(--vf-icon-#{$icon});
 }
