@@ -38,12 +38,32 @@
       }
     }
 
+    // Theme set on body element
     .p-search-box__input {
+      background-color: $colors--theme--background-inputs;
+      border-color: $colors--theme--border-high-contrast;
+
+      color: $colors--theme--text-default;
       flex: 1 1 100%;
       margin-bottom: 0;
       padding-right: calc(2 * (2 * $spv-nudge + map-get($line-heights, default-text)));
       position: absolute;
       right: 0;
+
+      &:hover,
+      &:-webkit-autofill:hover {
+        background-color: $colors--theme--background-hover !important;
+      }
+
+      &:active,
+      &:focus,
+      &:-internal-autofill-selected,
+      &:-webkit-autofill,
+      &:-webkit-autofill:focus {
+        // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
+        background-color: $colors--theme--background-active !important;
+        border-color: $colors--theme--border-high-contrast !important;
+      }
 
       &::-webkit-search-cancel-button {
         -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
@@ -64,7 +84,6 @@
     }
   }
 
-  // Theming
   %transparent-button {
     &,
     &:active,
@@ -74,102 +93,4 @@
       border-width: 0;
     }
   }
-
-  @if ($theme-default-p-search-box == 'dark') {
-    .p-search-box__input {
-      @include vf-search-box-dark-theme;
-    }
-  } @else {
-    .p-search-box {
-      .p-search-box__input {
-        @include vf-search-box-light-theme;
-      }
-    }
-  }
-
-  // beware that the order of the following classes is important
-  // as they are used to override the default theme
-  .is-paper .p-search-box {
-    .p-search-box__input {
-      @include vf-search-box-paper-theme;
-    }
-  }
-
-  .p-search-box.is-light {
-    .p-search-box__input {
-      @include vf-search-box-light-theme;
-    }
-  }
-
-  .p-search-box.is-dark {
-    .p-search-box__input {
-      @include vf-search-box-dark-theme;
-    }
-  }
-}
-
-@mixin vf-search-box-theme(
-  $color-search-box-background,
-  $color-search-box-background-hover,
-  $color-search-box-background-active,
-  $color-search-box-border,
-  $color-search-box-text
-) {
-  //XXX: This should inherit from input color theming. Once that becomes available, delete this.
-  background-color: $color-search-box-background;
-  border-color: $color-search-box-border;
-  color: $color-search-box-text;
-
-  &:hover,
-  &:-webkit-autofill:hover {
-    background-color: $color-search-box-background-hover !important;
-  }
-
-  &:active,
-  &:focus,
-  &:-internal-autofill-selected,
-  &:-webkit-autofill,
-  &:-webkit-autofill:focus {
-    // XXX: remove important once the button {} selector is refactored to use themeing. At the moment, it trumps these.
-    background-color: $color-search-box-background-active !important;
-    border-color: $color-search-box-border !important;
-  }
-}
-
-@mixin vf-search-box-light-theme {
-  @include vf-search-box-theme(
-    $color-search-box-background: $colors--light-theme--background-inputs,
-    $color-search-box-background-hover: $colors--light-theme--background-hover,
-    $color-search-box-background-active: $colors--light-theme--background-active,
-    $color-search-box-border: $colors--light-theme--border-high-contrast,
-    $color-search-box-text: $colors--light-theme--text-default
-  );
-}
-
-@mixin vf-search-box-dark-theme {
-  @include vf-search-box-theme(
-    $color-search-box-background: lighten($colors--dark-theme--background-default, 10%),
-    $color-search-box-background-hover: $colors--dark-theme--background-hover,
-    $color-search-box-background-active: $colors--dark-theme--background-active,
-    $color-search-box-border: $color-x-light,
-    $color-search-box-text: $colors--dark-theme--text-default
-  );
-
-  &::placeholder {
-    color: $colors--dark-theme--text-default;
-  }
-}
-
-@mixin vf-search-box-paper-theme {
-  // XXX: currently these colours are transparent,
-  // so they work both on paper and white backgrounds.
-  // We may need later to add a specific override for
-  // a white background within paper themed pages.
-  @include vf-search-box-theme(
-    $color-search-box-background: $colors--paper-theme--background-inputs,
-    $color-search-box-background-hover: $colors--paper-theme--background-hover,
-    $color-search-box-background-active: $colors--paper-theme--background-active,
-    $color-search-box-border: $colors--light-theme--border-high-contrast,
-    $color-search-box-text: $colors--light-theme--text-default
-  );
 }
