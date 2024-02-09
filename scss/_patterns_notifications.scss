@@ -218,13 +218,13 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-information, left, true);
-    @include vf-icon-info(#24598f);
+    @include vf-icon-info($color: map-get($colors-light-theme--tinted-borders, information));
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
   body.is-dark .p-notification {
-    @include vf-icon-info(hsl(210deg 80% 65%));
+    @include vf-icon-info($color: map-get($colors-dark-theme--tinted-borders, information));
   }
 }
 
@@ -233,13 +233,13 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--positive {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-positive, left, true);
-    @include vf-icon-success(#0e8420);
+    @include vf-icon-success($color: map-get($colors-light-theme--tinted-borders, positive));
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
   body.is-dark .p-notification--positive {
-    @include vf-icon-success(#62a36c, #262626);
+    @include vf-icon-success(map-get($colors-dark-theme--tinted-borders, positive), $colors--dark-theme--background-default);
   }
 }
 
@@ -247,14 +247,14 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-caution {
   .p-notification--caution {
     @extend %vf-notification;
-    @include vf-highlight-bar(#cc7900, left, true);
-    @include vf-icon-warning(#cc7900);
+    @include vf-highlight-bar($colors--theme--border-caution, left, true);
+    @include vf-icon-warning($color: map-get($colors-light-theme--tinted-borders, caution));
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
   body.is-dark .p-notification--caution {
-    @include vf-icon-warning(#c48831, #262626);
+    @include vf-icon-warning(map-get($colors-dark-theme--tinted-borders, caution), $colors--dark-theme--background-default);
   }
 }
 
@@ -263,13 +263,13 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--negative {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-negative, left, true);
-    @include vf-icon-error(#c7162b);
+    @include vf-icon-error($color: map-get($colors-light-theme--tinted-borders, negative));
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
   body.is-dark .p-notification--negative {
-    @include vf-icon-error(#d17b85, #262626);
+    @include vf-icon-error(map-get($colors-dark-theme--tinted-borders, negative), $colors--dark-theme--background-default);
   }
 }
 
@@ -278,12 +278,12 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--information {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-information, left, true);
-    @include vf-icon-info(#24598f);
+    @include vf-icon-info($color: map-get($colors-light-theme--tinted-borders, information));
   }
 
   // FIXME: temporary workaround until icons have proper theme support
   // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
   body.is-dark .p-notification--information {
-    @include vf-icon-info(hsl(210deg 80% 65%));
+    @include vf-icon-info($color: map-get($colors-dark-theme--tinted-borders, information));
   }
 }
