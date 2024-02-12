@@ -184,7 +184,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
       @extend %default-text;
       @extend %muted-text;
 
-      color: $colors--theme--text-default;
+      color: $colors--theme--text-muted;
     }
 
     .p-notification__actions {
@@ -198,8 +198,11 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 
     .p-notification__action {
       @extend %default-text;
+      color: $color-link;
 
-      color: $colors--theme--text-default;
+      &:visited {
+        color: $color-link-visited;
+      }
     }
 
     .p-notification__action + .p-notification__action {
