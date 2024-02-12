@@ -4,11 +4,13 @@ context:
   title: Suru | Components
 ---
 
-The Suru component can be used to display a visual separation between two sections of content.
+The Suru component can be used to provide a background for hero section of the page or to display a visual separation between two sections of content.
 
-By default, Suru should be used on the paper background. When used on dark background, add `is-dark` modifier class.
+## Main suru
 
-## Main 25/75
+The main variant of suru component provides a visual separation between two sections of content (usually a hero and rest of the page). It has two layout options that align with 25/75 or 50/50 splits of the grid.
+
+### Main suru 25/75
 
 Use `.p-suru--25-75` to create a hero section with the main 25/75 Suru background. Suru component provides the necessary hero padding, background colour and the Suru image.
 
@@ -16,20 +18,48 @@ Use `.p-suru--25-75` to create a hero section with the main 25/75 Suru backgroun
 View example of the main 25/75 Suru component
 </a></div>
 
-## Main 50/50
+### Main suru 50/50
 
-Use `.p-suru--50/50` to create a hero section with the main 50/50 Suru background. Suru component provides the necessary hero padding, background colour and the Suru image.
+Use `.p-suru--50/50` to create a hero section with the main 50/50 suru background. Suru component provides the necessary hero padding, background colour and the suru image.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/suru/50-50" class="js-example">
 View example of the main 50/50 Suru component
 </a></div>
 
-## Standalone
+### Standalone main suru
 
-If needed, Suru can be used as a standalone component. This is useful when you need to create a visual separation between two sections of content.
+If needed, suru can be used as a standalone component. This is useful when you need to create a visual separation between two sections of content.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/suru/standalone" class="js-example">
 View example of the default Suru component
+</a></div>
+
+## Corner suru
+
+The corner variant of suru provides the background for the hero section of the page. We provide two styles of the corner suru (a fan and a pyramid suru), both with two possible placements.
+
+### Fan suru
+
+Use `.p-suru--fan-top` or `.p-suru-fan--bottom` to create a hero section with the fan Suru background. Suru component provides the necessary hero padding, background colour and the suru image.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-top" class="js-example">
+View example of the top fan Suru component
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-bottom" class="js-example">
+View example of the bottom fan Suru component
+</a></div>
+
+### Pyramid suru
+
+Use `.p-suru--pyramid-left` or `.p-suru--pyramid-right` to create a hero section with the pyramid suru background. Suru component provides the necessary hero padding, background colour and the suru image.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-top" class="js-example">
+View example of the left pyramid Suru component
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-bottom" class="js-example">
+View example of the right pyramid Suru component
 </a></div>
 
 ## Theming
