@@ -163,7 +163,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 
       // FIXME: temporary workaround until icons have proper theme support
       // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-      body.is-dark & {
+      .p-notification__close.is-dark,
+      body.is-dark .p-notification__close {
         @include vf-icon-close(rgba($colors--dark-theme--text-default, 0.3));
       }
     }
