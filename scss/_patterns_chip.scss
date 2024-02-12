@@ -43,6 +43,7 @@ $chip-border-thickness: 1px;
 
     .p-chip__dismiss {
       @extend %icon;
+      @include vf-icon-close($color: $colors--light-theme--text-default);
       // also includes button and close icon styles in the theming section
 
       align-self: center;
@@ -62,6 +63,12 @@ $chip-border-thickness: 1px;
     &.is-inline {
       margin: 0;
       vertical-align: baseline;
+    }
+
+    // stylelint-disable-next-line selector-max-type
+    body.is-dark & .p-chip__dismiss,
+    &.is-dark .p-chip__dismiss {
+      @include vf-icon-close($color: $colors--dark-theme--text-default);
     }
   }
 
@@ -94,7 +101,6 @@ $chip-border-thickness: 1px;
   }
 
   .p-chip .p-chip__dismiss {
-    @include vf-icon-close(#000);
     @include vf-button-pattern(
       $button-background-color: transparent,
       $button-border-color: transparent,
@@ -103,11 +109,6 @@ $chip-border-thickness: 1px;
       $button-active-background-color: $colors--theme--background-neutral-active,
       $button-active-border-color: transparent
     );
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  body.is-dark .p-chip .p-chip__dismiss {
-    @include vf-icon-close(#fff);
   }
 }
 
@@ -133,7 +134,6 @@ $chip-border-thickness: 1px;
   }
 
   .p-chip--positive .p-chip__dismiss {
-    @include vf-icon-close(#000);
     @include vf-button-pattern(
       $button-background-color: transparent,
       $button-border-color: transparent,
@@ -142,11 +142,6 @@ $chip-border-thickness: 1px;
       $button-active-background-color: $colors--theme--background-positive-active,
       $button-active-border-color: transparent
     );
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  body.is-dark .p-chip--positive .p-chip__dismiss {
-    @include vf-icon-close(#fff);
   }
 }
 
@@ -172,7 +167,6 @@ $chip-border-thickness: 1px;
   }
 
   .p-chip--caution .p-chip__dismiss {
-    @include vf-icon-close(#000);
     @include vf-button-pattern(
       $button-background-color: transparent,
       $button-border-color: transparent,
@@ -181,11 +175,6 @@ $chip-border-thickness: 1px;
       $button-active-background-color: $colors--theme--background-caution-active,
       $button-active-border-color: transparent
     );
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  body.is-dark .p-chip--caution .p-chip__dismiss {
-    @include vf-icon-close(#fff);
   }
 }
 
@@ -211,7 +200,6 @@ $chip-border-thickness: 1px;
   }
 
   .p-chip--negative .p-chip__dismiss {
-    @include vf-icon-close(#000);
     @include vf-button-pattern(
       $button-background-color: transparent,
       $button-border-color: transparent,
@@ -220,11 +208,6 @@ $chip-border-thickness: 1px;
       $button-active-background-color: $colors--theme--background-negative-active,
       $button-active-border-color: transparent
     );
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  body.is-dark .p-chip--negative .p-chip__dismiss {
-    @include vf-icon-close(#fff);
   }
 }
 
@@ -250,7 +233,6 @@ $chip-border-thickness: 1px;
   }
 
   .p-chip--information .p-chip__dismiss {
-    @include vf-icon-close(#000);
     @include vf-button-pattern(
       $button-background-color: transparent,
       $button-border-color: transparent,
@@ -259,10 +241,5 @@ $chip-border-thickness: 1px;
       $button-active-background-color: $colors--theme--background-information-active,
       $button-active-border-color: transparent
     );
-  }
-
-  // stylelint-disable-next-line selector-max-type
-  body.is-dark .p-chip--information .p-chip__dismiss {
-    @include vf-icon-close(#fff);
   }
 }
