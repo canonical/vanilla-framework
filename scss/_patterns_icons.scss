@@ -40,6 +40,12 @@
 }
 
 @mixin vf-p-icons-common {
+  // backwards compatibility for dark themed icons in --dark strips and with is-light class name
+  [class*='--dark'] [class*='p-icon--'],
+  [class*='p-icon--'].is-light {
+    @include vf-theme-dark;
+  }
+
   // stylelint-disable selector-max-type
   h1,
   .p-heading--1,
@@ -85,11 +91,11 @@
 @mixin vf-p-icon-anchor {
   .p-icon--anchor {
     @extend %icon;
-    @include vf-icon-anchor($color-mid-dark);
+    @include vf-icon-anchor($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-anchor($color-x-light);
+      @include vf-icon-anchor($colors--dark-theme--icon);
     }
   }
 }
@@ -97,11 +103,11 @@
 @mixin vf-p-icon-plus {
   .p-icon--plus {
     @extend %icon;
-    @include vf-icon-plus($color-mid-dark);
+    @include vf-icon-plus($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-plus($color-x-light);
+      @include vf-icon-plus($colors--dark-theme--icon);
     }
   }
 }
@@ -109,11 +115,11 @@
 @mixin vf-p-icon-minus {
   .p-icon--minus {
     @extend %icon;
-    @include vf-icon-minus($color-mid-dark);
+    @include vf-icon-minus($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-minus($color-x-light);
+      @include vf-icon-minus($colors--dark-theme--icon);
     }
   }
 }
@@ -121,11 +127,11 @@
 @mixin vf-p-icon-expand {
   .p-icon--expand {
     @extend %icon;
-    @include vf-icon-expand($color-mid-dark);
+    @include vf-icon-expand($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-expand($color-x-light);
+      @include vf-icon-expand($colors--dark-theme--icon);
     }
   }
 }
@@ -133,11 +139,11 @@
 @mixin vf-p-icon-collapse {
   .p-icon--collapse {
     @extend %icon;
-    @include vf-icon-collapse($color-mid-dark);
+    @include vf-icon-collapse($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-collapse($color-x-light);
+      @include vf-icon-collapse($colors--dark-theme--icon);
     }
   }
 }
@@ -157,11 +163,11 @@
 @mixin vf-p-icon-close {
   .p-icon--close {
     @extend %icon;
-    @include vf-icon-close($color-mid-dark);
+    @include vf-icon-close($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-close($color-x-light);
+      @include vf-icon-close($colors--dark-theme--icon);
     }
   }
 }
@@ -170,11 +176,11 @@
   .p-icon--help,
   .p-icon--question {
     @extend %icon;
-    @include vf-icon-help($color-mid-dark);
+    @include vf-icon-help($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-help($color-x-light);
+      @include vf-icon-help($colors--dark-theme--icon);
     }
   }
 }
@@ -182,11 +188,11 @@
 @mixin vf-p-icon-info {
   .p-icon--information {
     @extend %icon;
-    @include vf-icon-info($color-mid-dark);
+    @include vf-icon-info($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-info($color-x-light);
+      @include vf-icon-info($colors--dark-theme--icon);
     }
   }
 }
@@ -194,11 +200,11 @@
 @mixin vf-p-icon-delete {
   .p-icon--delete {
     @extend %icon;
-    @include vf-icon-delete($color-mid-dark);
+    @include vf-icon-delete($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-delete($color-x-light);
+      @include vf-icon-delete($colors--dark-theme--icon);
     }
   }
 }
@@ -220,11 +226,11 @@
 @mixin vf-p-icon-external-link {
   .p-icon--external-link {
     @extend %icon;
-    @include vf-icon-external-link($color-mid-dark);
+    @include vf-icon-external-link($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-external-link($color-x-light);
+      @include vf-icon-external-link($colors--dark-theme--icon);
     }
   }
 }
@@ -232,11 +238,11 @@
 @mixin vf-p-icon-drag {
   .p-icon--drag {
     @extend %icon;
-    @include vf-icon-drag($color-mid-dark);
+    @include vf-icon-drag($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-drag($color-x-light);
+      @include vf-icon-drag($colors--dark-theme--icon);
     }
   }
 }
@@ -244,11 +250,11 @@
 @mixin vf-p-icon-code {
   .p-icon--code {
     @extend %icon;
-    @include vf-icon-code($color-mid-dark);
+    @include vf-icon-code($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-code($color-x-light);
+      @include vf-icon-code($colors--dark-theme--icon);
     }
   }
 }
@@ -256,11 +262,11 @@
 @mixin vf-p-icon-menu {
   .p-icon--menu {
     @extend %icon;
-    @include vf-icon-menu($color-mid-dark);
+    @include vf-icon-menu($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-menu($color-x-light);
+      @include vf-icon-menu($colors--dark-theme--icon);
     }
   }
 }
@@ -268,11 +274,11 @@
 @mixin vf-p-icon-copy {
   .p-icon--copy {
     @extend %icon;
-    @include vf-icon-copy($color-mid-dark);
+    @include vf-icon-copy($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-copy($color-x-light);
+      @include vf-icon-copy($colors--dark-theme--icon);
     }
   }
 }
@@ -280,11 +286,11 @@
 @mixin vf-p-icon-search {
   .p-icon--search {
     @extend %icon;
-    @include vf-icon-search($color-mid-dark);
+    @include vf-icon-search($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-search($color-x-light);
+      @include vf-icon-search($colors--dark-theme--icon);
     }
   }
 }
@@ -299,11 +305,11 @@
 @mixin vf-p-icon-share {
   .p-icon--share {
     @extend %icon;
-    @include vf-icon-share($color-mid-dark);
+    @include vf-icon-share($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-share($color-x-light);
+      @include vf-icon-share($colors--dark-theme--icon);
     }
   }
 }
@@ -311,11 +317,11 @@
 @mixin vf-p-icon-user {
   .p-icon--user {
     @extend %icon;
-    @include vf-icon-user($color-mid-dark);
+    @include vf-icon-user($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-user($color-x-light);
+      @include vf-icon-user($colors--dark-theme--icon);
     }
   }
 }
@@ -323,11 +329,11 @@
 @mixin vf-p-icon-spinner {
   .p-icon--spinner {
     @extend %icon;
-    @include vf-icon-spinner($color-mid-dark);
+    @include vf-icon-spinner($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-spinner($color-x-light);
+      @include vf-icon-spinner($colors--dark-theme--icon);
     }
   }
 }
@@ -348,7 +354,7 @@
     // we use `is-dark` here, instead of `is-light` to match how all other components work with themes,
     // but other icons use `is-light` that we are going to deprecate
     &.is-dark {
-      @include vf-icon-github($color-x-light);
+      @include vf-icon-github($colors--dark-theme--icon);
     }
   }
 }
@@ -362,7 +368,7 @@
     // we use `is-dark` here, instead of `is-light` to match how all other components work with themes,
     // but other icons use `is-light` that we are going to deprecate
     &.is-dark {
-      @include vf-icon-twitter($color-x-light);
+      @include vf-icon-twitter($colors--dark-theme--icon);
     }
   }
 }
@@ -423,11 +429,11 @@
 @mixin vf-p-icon-applications {
   .p-icon--applications {
     @extend %icon;
-    @include vf-icon-applications($color-mid-dark);
+    @include vf-icon-applications($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-applications($color-x-light);
+      @include vf-icon-applications($colors--dark-theme--icon);
     }
   }
 }
@@ -435,11 +441,11 @@
 @mixin vf-p-icon-controllers {
   .p-icon--controllers {
     @extend %icon;
-    @include vf-icon-controllers($color-mid-dark);
+    @include vf-icon-controllers($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-controllers($color-x-light);
+      @include vf-icon-controllers($colors--dark-theme--icon);
     }
   }
 }
@@ -447,11 +453,11 @@
 @mixin vf-p-icon-fullscreen {
   .p-icon--fullscreen {
     @extend %icon;
-    @include vf-icon-fullscreen($color-mid-dark);
+    @include vf-icon-fullscreen($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-fullscreen($color-x-light);
+      @include vf-icon-fullscreen($colors--dark-theme--icon);
     }
   }
 }
@@ -459,11 +465,11 @@
 @mixin vf-p-icon-models {
   .p-icon--models {
     @extend %icon;
-    @include vf-icon-models($color-mid-dark);
+    @include vf-icon-models($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-models($color-x-light);
+      @include vf-icon-models($colors--dark-theme--icon);
     }
   }
 }
@@ -471,11 +477,11 @@
 @mixin vf-p-icon-machines {
   .p-icon--machines {
     @extend %icon;
-    @include vf-icon-machines($color-mid-dark);
+    @include vf-icon-machines($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-machines($color-x-light);
+      @include vf-icon-machines($colors--dark-theme--icon);
     }
   }
 }
@@ -483,11 +489,11 @@
 @mixin vf-p-icon-pin {
   .p-icon--pin {
     @extend %icon;
-    @include vf-icon-pin($color-mid-dark);
+    @include vf-icon-pin($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-pin($color-x-light);
+      @include vf-icon-pin($colors--dark-theme--icon);
     }
   }
 }
@@ -495,11 +501,11 @@
 @mixin vf-p-icon-units {
   .p-icon--units {
     @extend %icon;
-    @include vf-icon-units($color-mid-dark);
+    @include vf-icon-units($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-units($color-x-light);
+      @include vf-icon-units($colors--dark-theme--icon);
     }
   }
 }
@@ -509,11 +515,11 @@
 @mixin vf-p-icon-priority-critical {
   .p-icon--priority-critical {
     @extend %icon;
-    @include vf-icon-priority-critical($color-mid-dark);
+    @include vf-icon-priority-critical($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-priority-critical($color-x-light);
+      @include vf-icon-priority-critical($colors--dark-theme--icon);
     }
   }
 }
@@ -521,11 +527,11 @@
 @mixin vf-p-icon-priority-high {
   .p-icon--priority-high {
     @extend %icon;
-    @include vf-icon-priority-high($color-mid-dark);
+    @include vf-icon-priority-high($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-priority-high($color-x-light);
+      @include vf-icon-priority-high($colors--dark-theme--icon);
     }
   }
 }
@@ -533,11 +539,11 @@
 @mixin vf-p-icon-priority-low {
   .p-icon--priority-low {
     @extend %icon;
-    @include vf-icon-priority-low($color-mid-dark);
+    @include vf-icon-priority-low($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-priority-low($color-x-light);
+      @include vf-icon-priority-low($colors--dark-theme--icon);
     }
   }
 }
@@ -545,11 +551,11 @@
 @mixin vf-p-icon-priority-medium {
   .p-icon--priority-medium {
     @extend %icon;
-    @include vf-icon-priority-medium($color-mid-dark);
+    @include vf-icon-priority-medium($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-priority-medium($color-x-light);
+      @include vf-icon-priority-medium($colors--dark-theme--icon);
     }
   }
 }
@@ -557,11 +563,11 @@
 @mixin vf-p-icon-priority-negligible {
   .p-icon--priority-negligible {
     @extend %icon;
-    @include vf-icon-priority-negligible($color-mid-dark);
+    @include vf-icon-priority-negligible($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-priority-negligible($color-x-light);
+      @include vf-icon-priority-negligible($colors--dark-theme--icon);
     }
   }
 }
@@ -569,11 +575,11 @@
 @mixin vf-p-icon-priority-unknown {
   .p-icon--priority-unknown {
     @extend %icon;
-    @include vf-icon-priority-unknown($color-mid-dark);
+    @include vf-icon-priority-unknown($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-priority-unknown($color-x-light);
+      @include vf-icon-priority-unknown($colors--dark-theme--icon);
     }
   }
 }
@@ -581,11 +587,11 @@
 @mixin vf-p-icon-add-canvas {
   .p-icon--add-canvas {
     @extend %icon;
-    @include vf-icon-add-canvas($color-mid-dark);
+    @include vf-icon-add-canvas($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-add-canvas($color-x-light);
+      @include vf-icon-add-canvas($colors--dark-theme--icon);
     }
   }
 }
@@ -593,11 +599,11 @@
 @mixin vf-p-icon-add-logical-volume {
   .p-icon--add-logical-volume {
     @extend %icon;
-    @include vf-icon-add-logical-volume($color-mid-dark);
+    @include vf-icon-add-logical-volume($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-add-logical-volume($color-x-light);
+      @include vf-icon-add-logical-volume($colors--dark-theme--icon);
     }
   }
 }
@@ -605,11 +611,11 @@
 @mixin vf-p-icon-add-partition {
   .p-icon--add-partition {
     @extend %icon;
-    @include vf-icon-add-partition($color-mid-dark);
+    @include vf-icon-add-partition($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-add-partition($color-x-light);
+      @include vf-icon-add-partition($colors--dark-theme--icon);
     }
   }
 }
@@ -617,11 +623,11 @@
 @mixin vf-p-icon-back-to-top {
   .p-icon--back-to-top {
     @extend %icon;
-    @include vf-icon-back-to-top($color-mid-dark);
+    @include vf-icon-back-to-top($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-back-to-top($color-x-light);
+      @include vf-icon-back-to-top($colors--dark-theme--icon);
     }
   }
 }
@@ -629,11 +635,11 @@
 @mixin vf-p-icon-begin-downloading {
   .p-icon--begin-downloading {
     @extend %icon;
-    @include vf-icon-begin-downloading($color-mid-dark);
+    @include vf-icon-begin-downloading($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-begin-downloading($color-x-light);
+      @include vf-icon-begin-downloading($colors--dark-theme--icon);
     }
   }
 }
@@ -641,11 +647,11 @@
 @mixin vf-p-icon-bundle {
   .p-icon--bundle {
     @extend %icon;
-    @include vf-icon-bundle($color-mid-dark);
+    @include vf-icon-bundle($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-bundle($color-x-light);
+      @include vf-icon-bundle($colors--dark-theme--icon);
     }
   }
 }
@@ -653,11 +659,11 @@
 @mixin vf-p-icon-canvas {
   .p-icon--canvas {
     @extend %icon;
-    @include vf-icon-canvas($color-mid-dark);
+    @include vf-icon-canvas($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-canvas($color-x-light);
+      @include vf-icon-canvas($colors--dark-theme--icon);
     }
   }
 }
@@ -665,11 +671,11 @@
 @mixin vf-p-icon-change-version {
   .p-icon--change-version {
     @extend %icon;
-    @include vf-icon-change-version($color-mid-dark);
+    @include vf-icon-change-version($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-change-version($color-x-light);
+      @include vf-icon-change-version($colors--dark-theme--icon);
     }
   }
 }
@@ -677,11 +683,11 @@
 @mixin vf-p-icon-comments {
   .p-icon--comments {
     @extend %icon;
-    @include vf-icon-comments($color-mid-dark);
+    @include vf-icon-comments($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-comments($color-x-light);
+      @include vf-icon-comments($colors--dark-theme--icon);
     }
   }
 }
@@ -689,11 +695,11 @@
 @mixin vf-p-icon-conflict-grey {
   .p-icon--conflict-grey {
     @extend %icon;
-    @include vf-icon-conflict-grey($color-mid-dark);
+    @include vf-icon-conflict-grey($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-conflict-grey($color-x-light);
+      @include vf-icon-conflict-grey($colors--dark-theme--icon);
     }
   }
 }
@@ -701,11 +707,11 @@
 @mixin vf-p-icon-conflict-resolution-grey {
   .p-icon--conflict-resolution-grey {
     @extend %icon;
-    @include vf-icon-conflict-resolution-grey($color-mid-dark);
+    @include vf-icon-conflict-resolution-grey($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-conflict-resolution-grey($color-x-light);
+      @include vf-icon-conflict-resolution-grey($colors--dark-theme--icon);
     }
   }
 }
@@ -713,11 +719,11 @@
 @mixin vf-p-icon-conflict-resolution {
   .p-icon--conflict-resolution {
     @extend %icon;
-    @include vf-icon-conflict-resolution($color-positive, $color-x-light);
+    @include vf-icon-conflict-resolution($color-positive, $colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-conflict-resolution($color-positive, $color-x-light);
+      @include vf-icon-conflict-resolution($color-positive, $colors--dark-theme--icon);
     }
   }
 }
@@ -725,11 +731,11 @@
 @mixin vf-p-icon-conflict {
   .p-icon--conflict {
     @extend %icon;
-    @include vf-icon-conflict($color-caution, $color-x-light);
+    @include vf-icon-conflict($color-caution, $colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-conflict($color-caution, $color-x-light);
+      @include vf-icon-conflict($color-caution, $colors--dark-theme--icon);
     }
   }
 }
@@ -737,11 +743,11 @@
 @mixin vf-p-icon-connected {
   .p-icon--connected {
     @extend %icon;
-    @include vf-icon-connected($color-mid-dark);
+    @include vf-icon-connected($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-connected($color-x-light);
+      @include vf-icon-connected($colors--dark-theme--icon);
     }
   }
 }
@@ -749,11 +755,11 @@
 @mixin vf-p-icon-containers {
   .p-icon--containers {
     @extend %icon;
-    @include vf-icon-containers($color-mid-dark);
+    @include vf-icon-containers($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-containers($color-x-light);
+      @include vf-icon-containers($colors--dark-theme--icon);
     }
   }
 }
@@ -761,11 +767,11 @@
 @mixin vf-p-icon-copy-to-clipboard {
   .p-icon--copy-to-clipboard {
     @extend %icon;
-    @include vf-icon-copy-to-clipboard($color-mid-dark);
+    @include vf-icon-copy-to-clipboard($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-copy-to-clipboard($color-x-light);
+      @include vf-icon-copy-to-clipboard($colors--dark-theme--icon);
     }
   }
 }
@@ -773,11 +779,11 @@
 @mixin vf-p-icon-disconnect {
   .p-icon--disconnect {
     @extend %icon;
-    @include vf-icon-disconnect($color-mid-dark);
+    @include vf-icon-disconnect($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-disconnect($color-x-light);
+      @include vf-icon-disconnect($colors--dark-theme--icon);
     }
   }
 }
@@ -785,11 +791,11 @@
 @mixin vf-p-icon-edit {
   .p-icon--edit {
     @extend %icon;
-    @include vf-icon-edit($color-mid-dark);
+    @include vf-icon-edit($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-edit($color-x-light);
+      @include vf-icon-edit($colors--dark-theme--icon);
     }
   }
 }
@@ -797,11 +803,11 @@
 @mixin vf-p-icon-export {
   .p-icon--export {
     @extend %icon;
-    @include vf-icon-export($color-mid-dark);
+    @include vf-icon-export($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-export($color-x-light);
+      @include vf-icon-export($colors--dark-theme--icon);
     }
   }
 }
@@ -809,11 +815,11 @@
 @mixin vf-p-icon-exposed {
   .p-icon--exposed {
     @extend %icon;
-    @include vf-icon-exposed($color-mid-dark);
+    @include vf-icon-exposed($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-exposed($color-x-light);
+      @include vf-icon-exposed($colors--dark-theme--icon);
     }
   }
 }
@@ -821,11 +827,11 @@
 @mixin vf-p-icon-filter {
   .p-icon--filter {
     @extend %icon;
-    @include vf-icon-filter($color-mid-dark);
+    @include vf-icon-filter($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-filter($color-x-light);
+      @include vf-icon-filter($colors--dark-theme--icon);
     }
   }
 }
@@ -833,11 +839,11 @@
 @mixin vf-p-icon-fork {
   .p-icon--fork {
     @extend %icon;
-    @include vf-icon-fork($color-mid-dark);
+    @include vf-icon-fork($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-fork($color-x-light);
+      @include vf-icon-fork($colors--dark-theme--icon);
     }
   }
 }
@@ -845,11 +851,11 @@
 @mixin vf-p-icon-get-link {
   .p-icon--get-link {
     @extend %icon;
-    @include vf-icon-get-link($color-mid-dark);
+    @include vf-icon-get-link($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-get-link($color-x-light);
+      @include vf-icon-get-link($colors--dark-theme--icon);
     }
   }
 }
@@ -857,11 +863,11 @@
 @mixin vf-p-icon-halfscreen-bar {
   .p-icon--halfscreen-bar {
     @extend %icon;
-    @include vf-icon-halfscreen-bar($color-mid-dark);
+    @include vf-icon-halfscreen-bar($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-halfscreen-bar($color-x-light);
+      @include vf-icon-halfscreen-bar($colors--dark-theme--icon);
     }
   }
 }
@@ -869,11 +875,11 @@
 @mixin vf-p-icon-hide {
   .p-icon--hide {
     @extend %icon;
-    @include vf-icon-hide($color-mid-dark);
+    @include vf-icon-hide($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-hide($color-x-light);
+      @include vf-icon-hide($colors--dark-theme--icon);
     }
   }
 }
@@ -881,11 +887,11 @@
 @mixin vf-p-icon-highlight-off {
   .p-icon--highlight-off {
     @extend %icon;
-    @include vf-icon-highlight-off($color-mid-dark);
+    @include vf-icon-highlight-off($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-highlight-off($color-x-light);
+      @include vf-icon-highlight-off($colors--dark-theme--icon);
     }
   }
 }
@@ -893,11 +899,11 @@
 @mixin vf-p-icon-highlight-on {
   .p-icon--highlight-on {
     @extend %icon;
-    @include vf-icon-highlight-on($color-mid-dark);
+    @include vf-icon-highlight-on($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-highlight-on($color-x-light);
+      @include vf-icon-highlight-on($colors--dark-theme--icon);
     }
   }
 }
@@ -905,11 +911,11 @@
 @mixin vf-p-icon-home {
   .p-icon--home {
     @extend %icon;
-    @include vf-icon-home($color-mid-dark);
+    @include vf-icon-home($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-home($color-x-light);
+      @include vf-icon-home($colors--dark-theme--icon);
     }
   }
 }
@@ -917,11 +923,11 @@
 @mixin vf-p-icon-import {
   .p-icon--import {
     @extend %icon;
-    @include vf-icon-import($color-mid-dark);
+    @include vf-icon-import($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-import($color-x-light);
+      @include vf-icon-import($colors--dark-theme--icon);
     }
   }
 }
@@ -929,11 +935,11 @@
 @mixin vf-p-icon-in-progress {
   .p-icon--in-progress {
     @extend %icon;
-    @include vf-icon-in-progress($color-x-light, $color-mid-dark);
+    @include vf-icon-in-progress($colors--dark-theme--icon, $colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-in-progress($color-x-light, $color-mid-dark);
+      @include vf-icon-in-progress($colors--dark-theme--icon, $colors--light-theme--icon);
     }
   }
 }
@@ -941,11 +947,11 @@
 @mixin vf-p-icon-inspector-debug {
   .p-icon--inspector-debug {
     @extend %icon;
-    @include vf-icon-inspector-debug($color-mid-dark);
+    @include vf-icon-inspector-debug($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-inspector-debug($color-x-light);
+      @include vf-icon-inspector-debug($colors--dark-theme--icon);
     }
   }
 }
@@ -953,11 +959,11 @@
 @mixin vf-p-icon-loading-steps {
   .p-icon--loading-steps {
     @extend %icon;
-    @include vf-icon-loading-steps($color-mid-dark);
+    @include vf-icon-loading-steps($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-loading-steps($color-x-light);
+      @include vf-icon-loading-steps($colors--dark-theme--icon);
     }
   }
 }
@@ -965,11 +971,11 @@
 @mixin vf-p-icon-lock-locked-active {
   .p-icon--lock-locked-active {
     @extend %icon;
-    @include vf-icon-lock-locked-active($color-mid-dark);
+    @include vf-icon-lock-locked-active($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-lock-locked-active($color-x-light);
+      @include vf-icon-lock-locked-active($colors--dark-theme--icon);
     }
   }
 }
@@ -977,11 +983,11 @@
 @mixin vf-p-icon-lock-locked {
   .p-icon--lock-locked {
     @extend %icon;
-    @include vf-icon-lock-locked($color-mid-dark);
+    @include vf-icon-lock-locked($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-lock-locked($color-x-light);
+      @include vf-icon-lock-locked($colors--dark-theme--icon);
     }
   }
 }
@@ -989,11 +995,11 @@
 @mixin vf-p-icon-lock-unlock {
   .p-icon--lock-unlock {
     @extend %icon;
-    @include vf-icon-lock-unlock($color-mid-dark);
+    @include vf-icon-lock-unlock($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-lock-unlock($color-x-light);
+      @include vf-icon-lock-unlock($colors--dark-theme--icon);
     }
   }
 }
@@ -1001,11 +1007,11 @@
 @mixin vf-p-icon-maximise-bar {
   .p-icon--maximise-bar {
     @extend %icon;
-    @include vf-icon-maximise-bar($color-mid-dark);
+    @include vf-icon-maximise-bar($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-maximise-bar($color-x-light);
+      @include vf-icon-maximise-bar($colors--dark-theme--icon);
     }
   }
 }
@@ -1013,11 +1019,11 @@
 @mixin vf-p-icon-minimise-bar {
   .p-icon--minimise-bar {
     @extend %icon;
-    @include vf-icon-minimise-bar($color-mid-dark);
+    @include vf-icon-minimise-bar($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-minimise-bar($color-x-light);
+      @include vf-icon-minimise-bar($colors--dark-theme--icon);
     }
   }
 }
@@ -1025,11 +1031,11 @@
 @mixin vf-p-icon-mount-2 {
   .p-icon--mount-2 {
     @extend %icon;
-    @include vf-icon-mount-2($color-mid-dark);
+    @include vf-icon-mount-2($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-mount-2($color-x-light);
+      @include vf-icon-mount-2($colors--dark-theme--icon);
     }
   }
 }
@@ -1037,11 +1043,11 @@
 @mixin vf-p-icon-mount {
   .p-icon--mount {
     @extend %icon;
-    @include vf-icon-mount($color-mid-dark);
+    @include vf-icon-mount($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-mount($color-x-light);
+      @include vf-icon-mount($colors--dark-theme--icon);
     }
   }
 }
@@ -1049,11 +1055,11 @@
 @mixin vf-p-icon-open-terminal {
   .p-icon--open-terminal {
     @extend %icon;
-    @include vf-icon-open-terminal($color-mid-dark);
+    @include vf-icon-open-terminal($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-open-terminal($color-x-light);
+      @include vf-icon-open-terminal($colors--dark-theme--icon);
     }
   }
 }
@@ -1061,11 +1067,11 @@
 @mixin vf-p-icon-plans {
   .p-icon--plans {
     @extend %icon;
-    @include vf-icon-plans($color-mid-dark);
+    @include vf-icon-plans($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-plans($color-x-light);
+      @include vf-icon-plans($colors--dark-theme--icon);
     }
   }
 }
@@ -1073,11 +1079,11 @@
 @mixin vf-p-icon-pods {
   .p-icon--pods {
     @extend %icon;
-    @include vf-icon-pods($color-mid-dark);
+    @include vf-icon-pods($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-pods($color-x-light);
+      @include vf-icon-pods($colors--dark-theme--icon);
     }
   }
 }
@@ -1085,11 +1091,11 @@
 @mixin vf-p-icon-power-error {
   .p-icon--power-error {
     @extend %icon;
-    @include vf-icon-power-error($color-mid-dark);
+    @include vf-icon-power-error($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-power-error($color-x-light);
+      @include vf-icon-power-error($colors--dark-theme--icon);
     }
   }
 }
@@ -1097,11 +1103,11 @@
 @mixin vf-p-icon-power-off {
   .p-icon--power-off {
     @extend %icon;
-    @include vf-icon-power-off($color-mid-dark);
+    @include vf-icon-power-off($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-power-off($color-x-light);
+      @include vf-icon-power-off($colors--dark-theme--icon);
     }
   }
 }
@@ -1109,11 +1115,11 @@
 @mixin vf-p-icon-power-on {
   .p-icon--power-on {
     @extend %icon;
-    @include vf-icon-power-on($color-mid-dark, $color-x-light);
+    @include vf-icon-power-on($colors--light-theme--icon, $colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-power-on($color-mid-dark, $color-x-light);
+      @include vf-icon-power-on($colors--light-theme--icon, $colors--dark-theme--icon);
     }
   }
 }
@@ -1121,11 +1127,11 @@
 @mixin vf-p-icon-profile {
   .p-icon--profile {
     @extend %icon;
-    @include vf-icon-profile($color-mid-dark);
+    @include vf-icon-profile($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-profile($color-x-light);
+      @include vf-icon-profile($colors--dark-theme--icon);
     }
   }
 }
@@ -1133,11 +1139,11 @@
 @mixin vf-p-icon-restart {
   .p-icon--restart {
     @extend %icon;
-    @include vf-icon-restart($color-mid-dark);
+    @include vf-icon-restart($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-restart($color-x-light);
+      @include vf-icon-restart($colors--dark-theme--icon);
     }
   }
 }
@@ -1145,11 +1151,11 @@
 @mixin vf-p-icon-revisions {
   .p-icon--revisions {
     @extend %icon;
-    @include vf-icon-revisions($color-mid-dark);
+    @include vf-icon-revisions($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-revisions($color-x-light);
+      @include vf-icon-revisions($colors--dark-theme--icon);
     }
   }
 }
@@ -1157,11 +1163,11 @@
 @mixin vf-p-icon-security {
   .p-icon--security {
     @extend %icon;
-    @include vf-icon-security($color-mid-dark);
+    @include vf-icon-security($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-security($color-x-light);
+      @include vf-icon-security($colors--dark-theme--icon);
     }
   }
 }
@@ -1169,11 +1175,11 @@
 @mixin vf-p-icon-settings {
   .p-icon--settings {
     @extend %icon;
-    @include vf-icon-settings($color-mid-dark);
+    @include vf-icon-settings($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-settings($color-x-light);
+      @include vf-icon-settings($colors--dark-theme--icon);
     }
   }
 }
@@ -1181,11 +1187,11 @@
 @mixin vf-p-icon-show {
   .p-icon--show {
     @extend %icon;
-    @include vf-icon-show($color-mid-dark);
+    @include vf-icon-show($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-show($color-x-light);
+      @include vf-icon-show($colors--dark-theme--icon);
     }
   }
 }
@@ -1193,11 +1199,11 @@
 @mixin vf-p-icon-sort-both {
   .p-icon--sort-both {
     @extend %icon;
-    @include vf-icon-sort-both($color-mid-dark);
+    @include vf-icon-sort-both($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-sort-both($color-x-light);
+      @include vf-icon-sort-both($colors--dark-theme--icon);
     }
   }
 }
@@ -1205,11 +1211,11 @@
 @mixin vf-p-icon-sort-down {
   .p-icon--sort-down {
     @extend %icon;
-    @include vf-icon-sort-down($color-mid-dark);
+    @include vf-icon-sort-down($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-sort-down($color-x-light);
+      @include vf-icon-sort-down($colors--dark-theme--icon);
     }
   }
 }
@@ -1217,11 +1223,11 @@
 @mixin vf-p-icon-sort-up {
   .p-icon--sort-up {
     @extend %icon;
-    @include vf-icon-sort-up($color-mid-dark);
+    @include vf-icon-sort-up($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-sort-up($color-x-light);
+      @include vf-icon-sort-up($colors--dark-theme--icon);
     }
   }
 }
@@ -1229,11 +1235,11 @@
 @mixin vf-p-icon-starred {
   .p-icon--starred {
     @extend %icon;
-    @include vf-icon-starred($color-mid-dark);
+    @include vf-icon-starred($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-starred($color-x-light);
+      @include vf-icon-starred($colors--dark-theme--icon);
     }
   }
 }
@@ -1265,11 +1271,11 @@
 @mixin vf-p-icon-status-in-progress {
   .p-icon--status-in-progress {
     @extend %icon;
-    @include vf-icon-status-in-progress($color-information, $color-light, $color-x-light);
+    @include vf-icon-status-in-progress($color-information, $color-light, $colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-status-in-progress($color-information, $color-light, $color-x-light);
+      @include vf-icon-status-in-progress($color-information, $color-light, $colors--dark-theme--icon);
     }
   }
 }
@@ -1277,11 +1283,11 @@
 @mixin vf-p-icon-status-queued-small {
   .p-icon--status-queued-small {
     @extend %icon;
-    @include vf-icon-status-small($color-mid-dark);
+    @include vf-icon-status-small($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-status-small($color-x-light);
+      @include vf-icon-status-small($colors--dark-theme--icon);
     }
   }
 }
@@ -1289,11 +1295,11 @@
 @mixin vf-p-icon-status-queued {
   .p-icon--status-queued {
     @extend %icon;
-    @include vf-icon-status-queued($color-x-light);
+    @include vf-icon-status-queued($colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-status-queued($color-x-light);
+      @include vf-icon-status-queued($colors--dark-theme--icon);
     }
   }
 }
@@ -1325,11 +1331,11 @@
 @mixin vf-p-icon-status-waiting {
   .p-icon--status-waiting {
     @extend %icon;
-    @include vf-icon-status-waiting($color-caution, $color-mid-light, $color-light, $color-x-light);
+    @include vf-icon-status-waiting($color-caution, $color-mid-light, $color-light, $colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-status-waiting($color-caution, $color-mid-light, $color-light, $color-x-light);
+      @include vf-icon-status-waiting($color-caution, $color-mid-light, $color-light, $colors--dark-theme--icon);
     }
   }
 }
@@ -1337,11 +1343,11 @@
 @mixin vf-p-icon-status {
   .p-icon--status {
     @extend %icon;
-    @include vf-icon-status($color-mid-dark);
+    @include vf-icon-status($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-status($color-x-light);
+      @include vf-icon-status($colors--dark-theme--icon);
     }
   }
 }
@@ -1349,11 +1355,11 @@
 @mixin vf-p-icon-submit-bug {
   .p-icon--submit-bug {
     @extend %icon;
-    @include vf-icon-submit-bug($color-mid-dark);
+    @include vf-icon-submit-bug($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-submit-bug($color-x-light);
+      @include vf-icon-submit-bug($colors--dark-theme--icon);
     }
   }
 }
@@ -1361,11 +1367,11 @@
 @mixin vf-p-icon-success-grey {
   .p-icon--success-grey {
     @extend %icon;
-    @include vf-icon-success-grey($color-mid-dark);
+    @include vf-icon-success-grey($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-success-grey($color-x-light);
+      @include vf-icon-success-grey($colors--dark-theme--icon);
     }
   }
 }
@@ -1373,11 +1379,11 @@
 @mixin vf-p-icon-error-grey {
   .p-icon--error-grey {
     @extend %icon;
-    @include vf-icon-error-grey($color-mid-dark);
+    @include vf-icon-error-grey($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-error-grey($color-x-light);
+      @include vf-icon-error-grey($colors--dark-theme--icon);
     }
   }
 }
@@ -1385,11 +1391,11 @@
 @mixin vf-p-icon-switcher-dashboard {
   .p-icon--switcher-dashboard {
     @extend %icon;
-    @include vf-icon-switcher-dashboard($color-mid-dark);
+    @include vf-icon-switcher-dashboard($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-switcher-dashboard($color-x-light);
+      @include vf-icon-switcher-dashboard($colors--dark-theme--icon);
     }
   }
 }
@@ -1397,11 +1403,11 @@
 @mixin vf-p-icon-switcher-environments {
   .p-icon--switcher-environments {
     @extend %icon;
-    @include vf-icon-switcher-environments($color-mid-dark);
+    @include vf-icon-switcher-environments($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-switcher-environments($color-x-light);
+      @include vf-icon-switcher-environments($colors--dark-theme--icon);
     }
   }
 }
@@ -1409,11 +1415,11 @@
 @mixin vf-p-icon-switcher {
   .p-icon--switcher {
     @extend %icon;
-    @include vf-icon-switcher($color-mid-dark);
+    @include vf-icon-switcher($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-switcher($color-x-light);
+      @include vf-icon-switcher($colors--dark-theme--icon);
     }
   }
 }
@@ -1421,11 +1427,11 @@
 @mixin vf-p-icon-tag {
   .p-icon--tag {
     @extend %icon;
-    @include vf-icon-tag($color-mid-dark);
+    @include vf-icon-tag($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-tag($color-x-light);
+      @include vf-icon-tag($colors--dark-theme--icon);
     }
   }
 }
@@ -1433,11 +1439,11 @@
 @mixin vf-p-icon-task-outstanding {
   .p-icon--task-outstanding {
     @extend %icon;
-    @include vf-icon-task-outstanding($color-mid-dark);
+    @include vf-icon-task-outstanding($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-task-outstanding($color-x-light);
+      @include vf-icon-task-outstanding($colors--dark-theme--icon);
     }
   }
 }
@@ -1445,11 +1451,11 @@
 @mixin vf-p-icon-timed-out-grey {
   .p-icon--timed-out-grey {
     @extend %icon;
-    @include vf-icon-timed-out-grey($color-mid-dark);
+    @include vf-icon-timed-out-grey($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-timed-out-grey($color-x-light);
+      @include vf-icon-timed-out-grey($colors--dark-theme--icon);
     }
   }
 }
@@ -1457,11 +1463,11 @@
 @mixin vf-p-icon-timed-out {
   .p-icon--timed-out {
     @extend %icon;
-    @include vf-icon-timed-out($color-mid-dark);
+    @include vf-icon-timed-out($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-timed-out($color-x-light);
+      @include vf-icon-timed-out($colors--dark-theme--icon);
     }
   }
 }
@@ -1469,11 +1475,11 @@
 @mixin vf-p-icon-topic {
   .p-icon--topic {
     @extend %icon;
-    @include vf-icon-topic($color-mid-dark);
+    @include vf-icon-topic($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-topic($color-x-light);
+      @include vf-icon-topic($colors--dark-theme--icon);
     }
   }
 }
@@ -1481,11 +1487,11 @@
 @mixin vf-p-icon-unit-pending {
   .p-icon--unit-pending {
     @extend %icon;
-    @include vf-icon-unit-pending($color-mid-dark);
+    @include vf-icon-unit-pending($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-unit-pending($color-x-light);
+      @include vf-icon-unit-pending($colors--dark-theme--icon);
     }
   }
 }
@@ -1493,11 +1499,11 @@
 @mixin vf-p-icon-unit-running {
   .p-icon--unit-running {
     @extend %icon;
-    @include vf-icon-unit-running($color-positive, $color-x-light);
+    @include vf-icon-unit-running($color-positive, $colors--dark-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-unit-running($color-positive, $color-x-light);
+      @include vf-icon-unit-running($color-positive, $colors--dark-theme--icon);
     }
   }
 }
@@ -1505,11 +1511,11 @@
 @mixin vf-p-icon-unmount {
   .p-icon--unmount {
     @extend %icon;
-    @include vf-icon-unmount($color-mid-dark);
+    @include vf-icon-unmount($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-unmount($color-x-light);
+      @include vf-icon-unmount($colors--dark-theme--icon);
     }
   }
 }
@@ -1517,11 +1523,11 @@
 @mixin vf-p-icon-unstarred {
   .p-icon--unstarred {
     @extend %icon;
-    @include vf-icon-unstarred($color-mid-dark);
+    @include vf-icon-unstarred($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-unstarred($color-x-light);
+      @include vf-icon-unstarred($colors--dark-theme--icon);
     }
   }
 }
@@ -1529,11 +1535,11 @@
 @mixin vf-p-icon-user-group {
   .p-icon--user-group {
     @extend %icon;
-    @include vf-icon-user-group($color-mid-dark);
+    @include vf-icon-user-group($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-user-group($color-x-light);
+      @include vf-icon-user-group($colors--dark-theme--icon);
     }
   }
 }
@@ -1541,11 +1547,11 @@
 @mixin vf-p-icon-video-play {
   .p-icon--video-play {
     @extend %icon;
-    @include vf-icon-video-play($color-mid-dark);
+    @include vf-icon-video-play($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-video-play($color-x-light);
+      @include vf-icon-video-play($colors--dark-theme--icon);
     }
   }
 }
@@ -1553,11 +1559,11 @@
 @mixin vf-p-icon-warning-grey {
   .p-icon--warning-grey {
     @extend %icon;
-    @include vf-icon-warning-grey($color-mid-dark);
+    @include vf-icon-warning-grey($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
-      @include vf-icon-warning-grey($color-x-light);
+      @include vf-icon-warning-grey($colors--dark-theme--icon);
     }
   }
 }
@@ -1565,7 +1571,7 @@
 @mixin vf-p-icon-desktop {
   .p-icon--desktop {
     @extend %icon;
-    @include vf-icon-desktop($color-mid-dark);
+    @include vf-icon-desktop($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
@@ -1577,7 +1583,7 @@
 @mixin vf-p-icon-play {
   .p-icon--play {
     @extend %icon;
-    @include vf-icon-play($color-mid-dark);
+    @include vf-icon-play($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
@@ -1589,7 +1595,7 @@
 @mixin vf-p-icon-pause {
   .p-icon--pause {
     @extend %icon;
-    @include vf-icon-pause($color-mid-dark);
+    @include vf-icon-pause($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
@@ -1601,7 +1607,7 @@
 @mixin vf-p-icon-stop {
   .p-icon--stop {
     @extend %icon;
-    @include vf-icon-stop($color-mid-dark);
+    @include vf-icon-stop($colors--light-theme--icon);
 
     [class*='--dark'] &,
     &.is-light {
