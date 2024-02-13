@@ -1,45 +1,29 @@
 // ICON THEMES
 
-@mixin vf-b-themes-icons {
-  $colors--light-theme--icon: $color-mid-dark;
-  $colors--dark-theme--icon: $color-x-light;
+$colors--light-theme--icon: $color-mid-dark;
+$colors--dark-theme--icon: $color-x-light;
 
+@mixin vf-b-themes-icons {
   @at-root {
     :root,
     .is-light,
     .is-paper {
-      @include vf-icon-chevron($color: $colors--light-theme--icon, $property: --vf-icon-chevron);
-
-      @include vf-icon-error($color: map-get($colors-light-theme--tinted-borders, negative), $color-symbol: $colors--light-theme--background-default, $property: --vf-icon-error);
-      @include vf-icon-warning(
-        $color: map-get($colors-light-theme--tinted-borders, caution),
-        $color-symbol: $colors--light-theme--background-default,
-        $property: --vf-icon-warning
-      );
-      @include vf-icon-success(
-        $color: map-get($colors-light-theme--tinted-borders, positive),
-        $color-symbol: $colors--light-theme--background-default,
-        $property: --vf-icon-success
-      );
+      --vf-theme-light: initial;
+      --vf-theme-dark: ;
     }
 
     [class*='--dark'] [class*="p-icon--"], // backwards compatibility
     [class*="p-icon--"].is-light, // backwards compatibility
     .is-dark {
-      @include vf-icon-chevron($color: $colors--dark-theme--icon, $property: --vf-icon-chevron);
-
-      @include vf-icon-error($color: map-get($colors-dark-theme--tinted-borders, negative), $color-symbol: $colors--dark-theme--background-default, $property: --vf-icon-error);
-      @include vf-icon-warning($color: map-get($colors-dark-theme--tinted-borders, caution), $color-symbol: $colors--dark-theme--background-default, $property: --vf-icon-warning);
-      @include vf-icon-success($color: map-get($colors-dark-theme--tinted-borders, positive), $color-symbol: $colors--dark-theme--background-default, $property: --vf-icon-success);
+      --vf-theme-light: ;
+      --vf-theme-dark: initial;
     }
   }
 }
 
-$vf-themed-icons: chevron, error, warning, success;
-
-@mixin vf-themed-icon($icon) {
-  @if not(index($vf-themed-icons, $icon)) {
-    @error "The icon `#{$icon}` is not a themed icon. Please use one of the following: #{$vf-themed-icons}.";
-  }
-  background-image: var(--vf-icon-#{$icon});
+// based on:
+// https://lea.verou.me/blog/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/
+// https://lea.verou.me/blog/2021/10/custom-properties-with-defaults/
+@mixin vf-themed-property($property, $light-value, $dark-value) {
+  #{$property}: var(--vf-theme-light, #{$light-value}) var(--vf-theme-dark, #{$dark-value});
 }
