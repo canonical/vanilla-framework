@@ -20,7 +20,7 @@ View example of the main 25/75 Suru component
 
 ### Main suru 50/50
 
-Use `.p-suru--50/50` to create a hero section with the main 50/50 suru background. Suru component provides the necessary hero padding, background colour and the suru image.
+Use `.p-suru--50-50` to create a hero section with the main 50/50 suru background. Suru component provides the necessary hero padding, background colour and the suru image.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/suru/50-50" class="js-example">
 View example of the main 50/50 Suru component
@@ -29,6 +29,8 @@ View example of the main 50/50 Suru component
 ### Standalone main suru
 
 If needed, suru can be used as a standalone component. This is useful when you need to create a visual separation between two sections of content.
+
+If the top section is a hero, please use the proper `p-suru--25-75` or `p-suru--50-50` section instead.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/suru/standalone" class="js-example">
 View example of the default Suru component
@@ -40,7 +42,7 @@ The corner variant of suru provides the background for the hero section of the p
 
 ### Fan suru
 
-Use `.p-suru--fan-top` or `.p-suru-fan--bottom` to create a hero section with the fan Suru background. Suru component provides the necessary hero padding, background colour and the suru image.
+Use `.p-suru--fan-top` or `.p-suru--fan-bottom` to create a hero section with the fan Suru background. Suru component provides the necessary hero padding, background colour and the suru image.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-top" class="js-example">
 View example of the top fan Suru component
