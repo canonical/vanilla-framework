@@ -247,6 +247,9 @@ $colors--theme--background-information-default: var(--vf-color-background-inform
 $colors--theme--background-information-hover: var(--vf-color-background-information-hover);
 $colors--theme--background-information-active: var(--vf-color-background-information-active);
 
+$colors--theme--link-default: var(--vf-color-link-default);
+$colors--theme--link-visited: var(--vf-color-link-visited);
+
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light {
   // SCSS variables need to be interpolated to work in CSS custom properties
@@ -285,6 +288,9 @@ $colors--theme--background-information-active: var(--vf-color-background-informa
   --vf-color-background-information-default: #{map-get($colors-light-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-light-theme--tinted-backgrounds, information, hover)};
   --vf-color-background-information-active: #{map-get($colors-light-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-link-default: #{$color-link};
+  --vf-color-link-visited: #{$color-link-visited};
 }
 
 @mixin vf-theme-dark {
@@ -324,6 +330,9 @@ $colors--theme--background-information-active: var(--vf-color-background-informa
   --vf-color-background-information-default: #{map-get($colors-dark-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-dark-theme--tinted-backgrounds, information, hover)};
   --vf-color-background-information-active: #{map-get($colors-dark-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-link-default: #{$color-link-dark};
+  --vf-color-link-visited: #{$color-link-visited-dark};
 }
 
 @mixin vf-theme-paper {
