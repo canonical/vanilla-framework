@@ -115,6 +115,8 @@ $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
 $colors--light-theme--link: $color-link !default;
 
+$colors--light-theme--icon: $colors--light-theme--text-default !default;
+
 $colors-light-theme--tinted-backgrounds: (
   neutral: (
     default: #f2f2f2,
@@ -169,6 +171,8 @@ $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-defaul
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.05) !default;
 
 $colors--dark-theme--link: $color-link-dark !default;
+
+$colors--dark-theme--icon: $colors--dark-theme--text-default !default;
 
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
@@ -258,7 +262,7 @@ $colors--theme--link-default: var(--vf-color-link-default);
 $colors--theme--link-visited: var(--vf-color-link-visited);
 
 // Theme colors exposed as CSS custom properties
-@mixin vf-theme-light {
+@mixin vf-theme-light--colors {
   // SCSS variables need to be interpolated to work in CSS custom properties
   --vf-color-text-default: #{$colors--light-theme--text-default};
   --vf-color-text-muted: #{$colors--light-theme--text-muted};
@@ -302,7 +306,7 @@ $colors--theme--link-visited: var(--vf-color-link-visited);
   --vf-color-link-visited: #{$color-link-visited};
 }
 
-@mixin vf-theme-dark {
+@mixin vf-theme-dark--colors {
   // SCSS variables need to be interpolated to work in CSS custom properties
   --vf-color-text-default: #{$colors--dark-theme--text-default};
   --vf-color-text-muted: #{$colors--dark-theme--text-muted};
@@ -345,9 +349,9 @@ $colors--theme--link-visited: var(--vf-color-link-visited);
   --vf-color-link-visited: #{$color-link-visited-dark};
 }
 
-@mixin vf-theme-paper {
-  // paper theme is based on dark theme with some background colours adjusted
-  @include vf-theme-light;
+@mixin vf-theme-paper--colors {
+  // paper theme is based on light theme with some background colours adjusted
+  @include vf-theme-light--colors;
 
   // SCSS variables need to be interpolated to work in CSS custom properties
   --vf-color-background-default: #{$color-paper};
