@@ -1,5 +1,17 @@
-@mixin vf-icon-chevron($color: $color-mid-dark, $property: background-image) {
-  #{$property}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='#{vf-url-friendly-color($color)}' d='M8.187 11.748l6.187-6.187-1.06-1.061-5.127 5.127L3.061 4.5 2 5.561z'/%3E%3C/svg%3E");
+@function vf-icon-chevron-url($color: $color-mid-dark) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='#{vf-url-friendly-color($color)}' d='M8.187 11.748l6.187-6.187-1.06-1.061-5.127 5.127L3.061 4.5 2 5.561z'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-chevron($color: $color-mid-dark) {
+  background-image: vf-icon-chevron-url($color);
+}
+
+@mixin vf-icon-chevron-themed {
+  @include vf-themed-property(
+    $property: background-image,
+    $light-value: vf-icon-chevron-url($colors--light-theme--icon),
+    $dark-value: vf-icon-chevron-url($colors--dark-theme--icon)
+  );
 }
 
 @mixin vf-icon-anchor($color) {
@@ -38,12 +50,36 @@
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 6v6a1.5 1.5 0 001.356 1.493L6 13.5h4a1.5 1.5 0 001.493-1.356L11.5 12V6H13v6a3 3 0 01-3 3H6a3 3 0 01-3-3V6h1.5zm3 0v5.994H6V6h1.5zm2.498 0v5.994h-1.5V6h1.5zM8.5 0A2.5 2.5 0 0111 2.5V3h3v1.5H2V3h3v-.5A2.5 2.5 0 017.5 0h1zm0 1.5h-1a1 1 0 00-.993.883L6.5 2.5V3h3v-.5a1 1 0 00-.883-.993L8.5 1.5z' fill='#{vf-url-friendly-color($color)}' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
+@function vf-icon-error-url($color: $color-negative, $color-symbol: $color-x-light) {
+  @return url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle stroke='#{vf-url-friendly-color($color)}' stroke-width='1.5' fill='#{vf-url-friendly-color($color)}' cx='8' cy='8' r='6.25'/%3E%3Cpath fill='#{vf-url-friendly-color($color-symbol)}' fill-rule='nonzero' d='M10.282 4.638l1.06 1.06L9.05 7.99l2.293 2.292-1.06 1.06L7.99 9.05 5.7 11.343l-1.06-1.06 2.29-2.293L4.64 5.7l1.06-1.06 2.291 2.29z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 @mixin vf-icon-error($color: $color-negative, $color-symbol: $color-x-light, $property: background-image) {
-  #{$property}: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle stroke='#{vf-url-friendly-color($color)}' stroke-width='1.5' fill='#{vf-url-friendly-color($color)}' cx='8' cy='8' r='6.25'/%3E%3Cpath fill='#{vf-url-friendly-color($color-symbol)}' fill-rule='nonzero' d='M10.282 4.638l1.06 1.06L9.05 7.99l2.293 2.292-1.06 1.06L7.99 9.05 5.7 11.343l-1.06-1.06 2.29-2.293L4.64 5.7l1.06-1.06 2.291 2.29z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: vf-icon-error-url($color, $color-symbol);
+}
+
+@mixin vf-icon-error-themed {
+  @include vf-themed-property(
+    $property: background-image,
+    $light-value: vf-icon-error-url($color: map-get($colors-light-theme--tinted-borders, negative), $color-symbol: $colors--light-theme--background-default),
+    $dark-value: vf-icon-error-url($color: map-get($colors-dark-theme--tinted-borders, negative), $color-symbol: $colors--dark-theme--background-default)
+  );
+}
+
+@function vf-icon-warning-url($color: $color-caution, $color-symbol: $color-x-light) {
+  @return url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M9.34 1.2l5.842 11.627A1.5 1.5 0 0113.842 15H2.158a1.5 1.5 0 01-1.34-2.173L6.66 1.2a1.5 1.5 0 012.68 0z' fill='#{vf-url-friendly-color($color)}'/%3E%3Cpath d='M8.5 11a.5.5 0 01.492.41L9 11.5v1a.5.5 0 01-.41.492L8.5 13h-1a.5.5 0 01-.492-.41L7 12.5v-1a.5.5 0 01.41-.492L7.5 11h1zM9 5v4.5H7V5h2z' fill='#{vf-url-friendly-color($color-symbol)}'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @mixin vf-icon-warning($color: $color-caution, $color-symbol: $color-x-light, $property: background-image) {
-  #{$property}: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M9.34 1.2l5.842 11.627A1.5 1.5 0 0113.842 15H2.158a1.5 1.5 0 01-1.34-2.173L6.66 1.2a1.5 1.5 0 012.68 0z' fill='#{vf-url-friendly-color($color)}'/%3E%3Cpath d='M8.5 11a.5.5 0 01.492.41L9 11.5v1a.5.5 0 01-.41.492L8.5 13h-1a.5.5 0 01-.492-.41L7 12.5v-1a.5.5 0 01.41-.492L7.5 11h1zM9 5v4.5H7V5h2z' fill='#{vf-url-friendly-color($color-symbol)}'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: vf-icon-warning-url($color, $color-symbol);
+}
+
+@mixin vf-icon-warning-themed {
+  @include vf-themed-property(
+    $property: background-image,
+    $light-value: vf-icon-warning-url($color: map-get($colors-light-theme--tinted-borders, caution), $color-symbol: $colors--light-theme--background-default),
+    $dark-value: vf-icon-warning-url($color: map-get($colors-dark-theme--tinted-borders, caution), $color-symbol: $colors--dark-theme--background-default)
+  );
 }
 
 @mixin vf-icon-external-link($color) {
@@ -70,8 +106,20 @@
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.964 1a5.964 5.964 0 014.709 9.623l4.303 4.305-1.06 1.06-4.306-4.305A5.964 5.964 0 116.963 1zm0 1.5a4.464 4.464 0 100 8.927 4.464 4.464 0 000-8.927z' fill='#{vf-url-friendly-color($color)}' fill-rule='nonzero'/%3E%3C/svg%3E");
 }
 
+@function vf-icon-success-url($color: $color-positive, $color-symbol: $color-x-light) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='#{vf-url-friendly-color($color)}' d='M8 1a7 7 0 110 14A7 7 0 018 1zm2.83 3.502L6.863 9.884 5.174 8.096l-1.09 1.03 2.92 3.096 5.034-6.83-1.208-.89z'/%3E%3Cpath fill='#{vf-url-friendly-color($color-symbol)}' d='M10.83 4.502l1.208.89-5.033 6.83-2.922-3.096 1.091-1.03 1.689 1.789z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 @mixin vf-icon-success($color: $color-positive, $color-symbol: $color-x-light, $property: background-image) {
-  #{$property}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='#{vf-url-friendly-color($color)}' d='M8 1a7 7 0 110 14A7 7 0 018 1zm2.83 3.502L6.863 9.884 5.174 8.096l-1.09 1.03 2.92 3.096 5.034-6.83-1.208-.89z'/%3E%3Cpath fill='#{vf-url-friendly-color($color-symbol)}' d='M10.83 4.502l1.208.89-5.033 6.83-2.922-3.096 1.091-1.03 1.689 1.789z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: vf-icon-success-url($color, $color-symbol);
+}
+
+@mixin vf-icon-success-themed {
+  @include vf-themed-property(
+    $property: background-image,
+    $light-value: vf-icon-success-url($color: map-get($colors-light-theme--tinted-borders, positive), $color-symbol: $colors--light-theme--background-default),
+    $dark-value: vf-icon-success-url($color: map-get($colors-dark-theme--tinted-borders, positive), $color-symbol: $colors--dark-theme--background-default)
+  );
 }
 
 @mixin vf-icon-share($color) {
