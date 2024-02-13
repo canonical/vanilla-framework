@@ -40,6 +40,13 @@ View example of the default Suru component
 
 The corner variant of suru provides the background for the hero section of the page. We provide two styles of the corner suru (a fan and a pyramid suru), both with two possible placements.
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Responsiveness</h3>
+    <p class="p-notification__message">Corner suru backgrounds are <b>only displayed on large screens</b>, as on smaller screen sizes they would likely overlap with the content.</p>
+  </div>
+</div>
+
 ### Fan suru
 
 Use `.p-suru--fan-top` or `.p-suru--fan-bottom` to create a hero section with the fan Suru background. Suru component provides the necessary hero padding, background colour and the suru image.
