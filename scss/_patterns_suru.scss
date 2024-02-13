@@ -77,8 +77,6 @@
     background-color: var(--vf-suru-background);
     color: $colors--theme--text-default;
 
-    min-height: $vf-suru-min-height;
-
     // same as %section-padding--default
     padding-bottom: $spv--strip-regular * 0.5;
 
@@ -96,29 +94,39 @@
     }
   }
 
-  .p-suru--fan-top,
-  .p-suru--fan-bottom {
-    background-image: var(--vf-suru-fan-top-right);
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-size: 512px 385.5px; // based on image dimensions (2048x1542) scaled down by 0.25
-  }
+  // only apply suru background images on large screens
+  @media (min-width: $breakpoint-large) {
+    .p-suru--fan-top,
+    .p-suru--fan-bottom,
+    .p-suru--pyramid-left,
+    .p-suru--pyramid-right {
+      min-height: $vf-suru-min-height;
+    }
 
-  .p-suru--fan-bottom {
-    background-image: var(--vf-suru-fan-bottom-right);
-    background-position: bottom right;
-  }
+    .p-suru--fan-top,
+    .p-suru--fan-bottom {
+      background-image: var(--vf-suru-fan-top-right);
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: 512px 385.5px; // based on image dimensions (2048x1542) scaled down by 0.25
+    }
 
-  .p-suru--pyramid-right,
-  .p-suru--pyramid-left {
-    background-image: var(--vf-suru-pyramid-top-left);
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: 354px 258.75px; // based on image dimensions (1380x1035) scaled down by 0.25
-  }
+    .p-suru--fan-bottom {
+      background-image: var(--vf-suru-fan-bottom-right);
+      background-position: bottom right;
+    }
 
-  .p-suru--pyramid-right {
-    background-image: var(--vf-suru-pyramid-top-right);
-    background-position: top right;
+    .p-suru--pyramid-right,
+    .p-suru--pyramid-left {
+      background-image: var(--vf-suru-pyramid-top-left);
+      background-position: top left;
+      background-repeat: no-repeat;
+      background-size: 354px 258.75px; // based on image dimensions (1380x1035) scaled down by 0.25
+    }
+
+    .p-suru--pyramid-right {
+      background-image: var(--vf-suru-pyramid-top-right);
+      background-position: top right;
+    }
   }
 }
