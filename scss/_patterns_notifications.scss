@@ -147,7 +147,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 
     .p-notification__close {
       @extend %vf-hide-text;
-      @include vf-icon-close($color-mid-dark);
+      @include vf-icon-close-themed;
 
       background-color: transparent;
       background-position: center;
@@ -160,13 +160,6 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
       right: $sph--large * 0.5;
       top: $spv--small;
       width: $default-icon-size;
-
-      // FIXME: temporary workaround until icons have proper theme support
-      // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-      .p-notification__close.is-dark,
-      body.is-dark .p-notification__close {
-        @include vf-icon-close(rgba($colors--dark-theme--text-default, 0.3));
-      }
     }
 
     .p-notification__meta {
@@ -222,14 +215,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-information, left, true);
-    @include vf-icon-info($color: map-get($colors-light-theme--tinted-borders, information));
-  }
-
-  // FIXME: temporary workaround until icons have proper theme support
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  .p-notification.is-dark,
-  body.is-dark .p-notification {
-    @include vf-icon-info($color: map-get($colors-dark-theme--tinted-borders, information));
+    @include vf-icon-info-themed;
   }
 }
 
@@ -238,14 +224,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--positive {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-positive, left, true);
-    @include vf-icon-success($color: map-get($colors-light-theme--tinted-borders, positive));
-  }
-
-  // FIXME: temporary workaround until icons have proper theme support
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  .p-notification--positive.is-dark,
-  body.is-dark .p-notification--positive {
-    @include vf-icon-success(map-get($colors-dark-theme--tinted-borders, positive), $colors--dark-theme--background-default);
+    @include vf-icon-success-themed;
   }
 }
 
@@ -254,14 +233,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--caution {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-caution, left, true);
-    @include vf-icon-warning($color: map-get($colors-light-theme--tinted-borders, caution));
-  }
-
-  // FIXME: temporary workaround until icons have proper theme support
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  .p-notification--caution.is-dark,
-  body.is-dark .p-notification--caution {
-    @include vf-icon-warning(map-get($colors-dark-theme--tinted-borders, caution), $colors--dark-theme--background-default);
+    @include vf-icon-warning-themed;
   }
 }
 
@@ -270,14 +242,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--negative {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-negative, left, true);
-    @include vf-icon-error($color: map-get($colors-light-theme--tinted-borders, negative));
-  }
-
-  // FIXME: temporary workaround until icons have proper theme support
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  .p-notification--negative.is-dark,
-  body.is-dark .p-notification--negative {
-    @include vf-icon-error(map-get($colors-dark-theme--tinted-borders, negative), $colors--dark-theme--background-default);
+    @include vf-icon-error-themed;
   }
 }
 
@@ -286,13 +251,6 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   .p-notification--information {
     @extend %vf-notification;
     @include vf-highlight-bar($colors--theme--border-information, left, true);
-    @include vf-icon-info($color: map-get($colors-light-theme--tinted-borders, information));
-  }
-
-  // FIXME: temporary workaround until icons have proper theme support
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  .p-notification--information.is-dark,
-  body.is-dark .p-notification--information {
-    @include vf-icon-info($color: map-get($colors-dark-theme--tinted-borders, information));
+    @include vf-icon-info-themed;
   }
 }

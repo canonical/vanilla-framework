@@ -43,8 +43,7 @@ $chip-border-thickness: 1px;
 
     .p-chip__dismiss {
       @extend %icon;
-      @include vf-icon-close($color: $colors--light-theme--text-default);
-      // also includes button and close icon styles in the theming section
+      @include vf-icon-close-themed;
 
       align-self: center;
       background-size: map-get($icon-sizes, small);
@@ -63,12 +62,6 @@ $chip-border-thickness: 1px;
     &.is-inline {
       margin: 0;
       vertical-align: baseline;
-    }
-
-    // stylelint-disable-next-line selector-max-type
-    body.is-dark & .p-chip__dismiss,
-    &.is-dark .p-chip__dismiss {
-      @include vf-icon-close($color: $colors--dark-theme--text-default);
     }
   }
 

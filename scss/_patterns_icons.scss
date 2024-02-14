@@ -163,12 +163,7 @@
 @mixin vf-p-icon-close {
   .p-icon--close {
     @extend %icon;
-    @include vf-icon-close($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    &.is-light {
-      @include vf-icon-close($colors--dark-theme--icon);
-    }
+    @include vf-icon-close-themed;
   }
 }
 
@@ -188,12 +183,7 @@
 @mixin vf-p-icon-info {
   .p-icon--information {
     @extend %icon;
-    @include vf-icon-info($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    &.is-light {
-      @include vf-icon-info($colors--dark-theme--icon);
-    }
+    @include vf-icon-info-themed;
   }
 }
 
