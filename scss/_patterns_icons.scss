@@ -267,6 +267,20 @@
   }
 }
 
+@mixin vf-p-icon-success-grey {
+  .p-icon--success-grey {
+    @extend %icon;
+    @include vf-icon-success-grey-themed;
+  }
+}
+
+@mixin vf-p-icon-error-grey {
+  .p-icon--error-grey {
+    @extend %icon;
+    @include vf-icon-error-grey-themed;
+  }
+}
+
 @mixin vf-p-icon-facebook {
   .p-icon--facebook {
     @extend %social-icon;
@@ -1479,36 +1493,6 @@
     &.is-light, // DEPRECATED: use is-dark instead
     &.is-dark {
       @include vf-icon-submit-bug($colors--dark-theme--icon);
-    }
-  }
-}
-
-@mixin vf-p-icon-success-grey {
-  .p-icon--success-grey {
-    @extend %icon;
-    @include vf-icon-success-grey($colors--light-theme--icon);
-
-    // stylelint-disable-next-line selector-max-type -- allow theme class on body for legacy theming support on icons
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-success-grey($colors--dark-theme--icon);
-    }
-  }
-}
-
-@mixin vf-p-icon-error-grey {
-  .p-icon--error-grey {
-    @extend %icon;
-    @include vf-icon-error-grey($colors--light-theme--icon);
-
-    // stylelint-disable-next-line selector-max-type -- allow theme class on body for legacy theming support on icons
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-error-grey($colors--dark-theme--icon);
     }
   }
 }
