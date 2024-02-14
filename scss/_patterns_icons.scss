@@ -276,28 +276,14 @@
 @mixin vf-p-icon-github {
   .p-icon--github {
     @extend %social-icon;
-    @include vf-icon-github;
-
-    [class*='--dark'] &,
-    // we use `is-dark` here, instead of `is-light` to match how all other components work with themes,
-    // but other icons use `is-light` that we are going to deprecate
-    &.is-dark {
-      @include vf-icon-github($colors--dark-theme--icon);
-    }
+    @include vf-icon-github-themed;
   }
 }
 
 @mixin vf-p-icon-twitter {
   .p-icon--twitter {
     @extend %social-icon;
-    @include vf-icon-twitter;
-
-    [class*='--dark'] &,
-    // we use `is-dark` here, instead of `is-light` to match how all other components work with themes,
-    // but other icons use `is-light` that we are going to deprecate
-    &.is-dark {
-      @include vf-icon-twitter($colors--dark-theme--icon);
-    }
+    @include vf-icon-twitter-themed;
   }
 }
 
