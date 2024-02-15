@@ -8,7 +8,7 @@ Links are used to embed actions or pathways to more information, allowing users 
 
 ## Default
 
-Default links are a color defined by `$color-link` and are 10% darker when already visited.
+Default links are a color defined by the current theme.
 
 <div class="embedded-example"><a href="/docs/examples/base/links/" class="js-example">
 View example of the default link pattern
@@ -16,7 +16,7 @@ View example of the default link pattern
 
 ## Soft
 
-The `.p-link--soft` class should be used on hyperlinks where many links are grouped together, such as a link cloud.
+The `.p-link--soft` class uses the default text colour instead of link colour, and should be used on hyperlinks where many links are grouped together, such as a link cloud.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/links/links-soft/" class="js-example">
 View example of the soft link pattern
@@ -24,13 +24,20 @@ View example of the soft link pattern
 
 ## Dark
 
-The `.is-dark` class should be added on links that are placed on a solid dark background (`#2d2d2d` or darker).
+Links fully support the theming class names and will change colour based on the theme of their parent container.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/links/links-dark/" class="js-example">
 View example of the dark link pattern
 </a></div>
 
 ## Inverted
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">Inverted links are deprecated. Standard links in dark theme should be used instead.</p>
+  </div>
+</div>
 
 When links are surrounded by regular, non-clickable text on backgrounds dark lighter than #2d2d2d, where it is impossible to obtain a blue colour that simultaneously has 3:1 contrast with surrounding white text, and at the same time, 4.5:1 contrast with the background (as per [WCAG rule 1.4.11](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)), for example on top of gradients or photographs, use the `.p-link--inverted` class.
 
