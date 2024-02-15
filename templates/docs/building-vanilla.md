@@ -141,10 +141,12 @@ Now run the command with `yarn build`, which will bundle the code and put in a a
   <title>Vanilla using Webpack</title>
 </head>
 <body>
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-      <h1>Hello Vanilla!</h1>
-      <p>This page has been built using Webpack!</p>
+  <section class="p-strip">
+    <div class="row--25-75">
+      <div class="col">
+        <h1>Hello Vanilla!</h1>
+        <p>This page has been built using Webpack!</p>
+      </div>
     </div>
   </section>
   <script src="./dist/bundle.js"></script>
