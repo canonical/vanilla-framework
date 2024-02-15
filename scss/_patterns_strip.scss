@@ -20,59 +20,84 @@
 }
 
 @mixin vf-p-strip-default {
+  // default strip is theme-agnostic, it doesn't change the theme
+  // unless the theme class is specifically applied to it,
+  // in which case it will set the background and text colours
   .p-strip {
     @extend %vf-strip;
 
     background-color: transparent;
+
+    // themed versions of the strip should set the background and text colours
+    &.is-light,
+    &.is-paper,
+    &.is-dark {
+      background-color: $colors--theme--background-default;
+      color: $colors--theme--text-default;
+    }
   }
 
+  // highligted version if the strip is using the alternative background colour
+  // this is the recommended replacement for the deprecated .p-strip--white,
+  // .p-strip--light and .p-strip--accent
+  .p-strip--highlighted {
+    @extend %vf-strip;
+
+    background-color: $colors--theme--background-alt;
+    color: $colors--theme--text-default;
+  }
+
+  // DEPRECATED: use any other available p-strip instead
   .p-strip--light {
     @extend %vf-strip;
+    @include vf-theme-light;
 
-    background-color: $color-light;
+    background-color: $colors--theme--background-alt;
+    color: $colors--theme--text-default;
   }
 
+  // DEPRECATED: use .p-strip .is-dark instead
   .p-strip--dark {
     @extend %vf-strip;
+    @include vf-theme-dark;
 
-    background-color: $colors--dark-theme--background-default;
-    color: $colors--dark-theme--text-default;
+    background-color: $colors--theme--background-default;
+    color: $colors--theme--text-default;
   }
 
+  // DEPRECATED: use .p-strip--highlighted instead
   .p-strip--white {
     @extend %vf-strip;
+    @include vf-theme-light;
 
     background-color: $color-x-light;
-    color: $colors--light-theme--text-default;
+    color: $colors--theme--text-default;
   }
 }
 
+// DEPRECATED: use other available strip variants instead
 @mixin vf-p-strip-accent {
   .p-strip--accent {
     @extend %vf-strip;
+    @include vf-determine-theme-from-background($color-accent-background);
 
     background-color: $color-accent-background;
-    color: vf-determine-text-color($color-accent-background);
+    color: $colors--theme--text-default;
   }
 }
 
+// DEPRECATED: use other available strip variants or suru component instead
 @mixin vf-p-strip-image {
   .p-strip--image {
     @extend %vf-strip;
 
     background-repeat: no-repeat;
     background-size: cover;
-
-    &.is-light {
-      color: $colors--light-theme--text-default;
-    }
-
-    &.is-dark {
-      color: $color-x-light;
-    }
+    color: $colors--theme--text-default;
   }
 }
 
+// DEPRECATED: use other available strip variants instead
 @mixin vf-p-strip-bordered {
   [class*='p-strip'].is-bordered {
     @extend %vf-pseudo-border--bottom;
@@ -91,6 +116,7 @@
   }
 }
 
+// DEPRECATED:
 // gradient of the main suru slant
 $color-suru-start: lighten($color-brand, 10%) !default;
 $color-suru-middle: $color-brand !default;
@@ -107,6 +133,7 @@ $color-suru-slant-left: rgba(205, 205, 205, 0.55) !default;
 $color-suru-slant-right-fallback: rgba(205, 205, 205, 0.14) !default;
 $color-suru-slant-left-fallback: rgba(205, 205, 205, 0.14) !default;
 
+// DEPRECATED: use new .p-suru components instead
 @mixin vf-p-strip-suru {
   .p-strip--suru {
     @extend %vf-strip;
@@ -188,6 +215,7 @@ $color-suru-slant-left-fallback: rgba(205, 205, 205, 0.14) !default;
   }
 }
 
+// DEPRECATED: use new .p-suru components instead
 @mixin vf-p-strip-suru-topped {
   .p-strip--suru-topped {
     @extend %vf-strip;
