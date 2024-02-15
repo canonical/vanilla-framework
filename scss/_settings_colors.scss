@@ -85,6 +85,10 @@ $states: (
 // --text-disabled   - dimmed version of default text color, to be used on disabled controls
 // --text-muted      - muted version of default text color, to be used on elements with less prominence
 //
+// Link colors:
+// --link-default    - default link color
+// --link-visited    - visited link color
+//
 // Background colors:
 // --background           - default background color
 // --background-alt       - alternative version of background color, to be used to differentiate given surface
@@ -102,6 +106,9 @@ $colors--light-theme--text-default: #000 !default;
 $colors--light-theme--text-muted: rgba($color-x-dark, $muted-text-opacity-amount) !default;
 $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-amount) !default;
 
+$colors--light-theme--link-default: $color-link !default;
+$colors--light-theme--link-visited: $color-link-visited !default;
+
 $colors--light-theme--background-default: #fff !default;
 $colors--light-theme--background-alt: #f7f7f7 !default;
 $colors--light-theme--background-inputs: adjust-color($color-x-dark, $lightness: 100% * (1 - $input-background-opacity-amount)) !default;
@@ -113,7 +120,7 @@ $colors--light-theme--border-default: rgba($color-x-dark, 0.2) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
-$colors--light-theme--link: $color-link !default;
+$colors--light-theme--icon: $colors--light-theme--text-default !default;
 
 $colors-light-theme--tinted-backgrounds: (
   neutral: (
@@ -157,6 +164,9 @@ $colors--dark-theme--text-hover: hsl(0, 0%, 76%) !default; // minimum contrast o
 $colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, $muted-text-opacity-amount) !default;
 $colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $inactive-text-opacity-amount) !default;
 
+$colors--dark-theme--link-default: $color-link-dark !default;
+$colors--dark-theme--link-visited: $color-link-visited-dark !default;
+
 $colors--dark-theme--background-default: #262626 !default;
 $colors--dark-theme--background-alt: #2d2d2d !default;
 $colors--dark-theme--background-inputs: rgba($colors--dark-theme--text-default, $input-background-opacity-amount) !default;
@@ -168,7 +178,7 @@ $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.3
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.5) !default;
 $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.05) !default;
 
-$colors--dark-theme--link: $color-link-dark !default;
+$colors--dark-theme--icon: $colors--dark-theme--text-default !default;
 
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
@@ -219,7 +229,8 @@ $colors--theme--text-default: var(--vf-color-text-default);
 $colors--theme--text-muted: var(--vf-color-text-muted);
 $colors--theme--text-inactive: var(--vf-color-text-inactive);
 
-$colors--theme--link: var(--vf-color-link);
+$colors--theme--link-default: var(--vf-color-link-default);
+$colors--theme--link-visited: var(--vf-color-link-visited);
 
 $colors--theme--background-default: var(--vf-color-background-default);
 $colors--theme--background-alt: var(--vf-color-background-alt);
@@ -254,9 +265,6 @@ $colors--theme--background-information-default: var(--vf-color-background-inform
 $colors--theme--background-information-hover: var(--vf-color-background-information-hover);
 $colors--theme--background-information-active: var(--vf-color-background-information-active);
 
-$colors--theme--link-default: var(--vf-color-link-default);
-$colors--theme--link-visited: var(--vf-color-link-visited);
-
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light {
   // SCSS variables need to be interpolated to work in CSS custom properties
@@ -264,7 +272,9 @@ $colors--theme--link-visited: var(--vf-color-link-visited);
   --vf-color-text-muted: #{$colors--light-theme--text-muted};
   --vf-color-text-inactive: #{$colors--light-theme--text-inactive};
 
-  --vf-color-link: #{$colors--light-theme--link};
+  --vf-color-link-default: #{$colors--light-theme--link-default};
+  --vf-color-link-visited: #{$colors--light-theme--link-visited};
+
   --vf-color-background-default: #{$colors--light-theme--background-default};
   --vf-color-background-alt: #{$colors--light-theme--background-alt};
   --vf-color-background-inputs: #{$colors--light-theme--background-inputs};
@@ -297,9 +307,6 @@ $colors--theme--link-visited: var(--vf-color-link-visited);
   --vf-color-background-information-default: #{map-get($colors-light-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-light-theme--tinted-backgrounds, information, 'hover')};
   --vf-color-background-information-active: #{map-get($colors-light-theme--tinted-backgrounds, information, active)};
-
-  --vf-color-link-default: #{$color-link};
-  --vf-color-link-visited: #{$color-link-visited};
 }
 
 @mixin vf-theme-dark {
@@ -307,7 +314,10 @@ $colors--theme--link-visited: var(--vf-color-link-visited);
   --vf-color-text-default: #{$colors--dark-theme--text-default};
   --vf-color-text-muted: #{$colors--dark-theme--text-muted};
   --vf-color-text-inactive: #{$colors--dark-theme--text-inactive};
-  --vf-color-link: #{$colors--dark-theme--link};
+
+  --vf-color-link-default: #{$colors--dark-theme--link-default};
+  --vf-color-link-visited: #{$colors--dark-theme--link-visited};
+
   --vf-color-background-default: #{$colors--dark-theme--background-default};
   --vf-color-background-alt: #{$colors--dark-theme--background-alt};
   --vf-color-background-inputs: #{$colors--dark-theme--background-inputs};
@@ -340,9 +350,6 @@ $colors--theme--link-visited: var(--vf-color-link-visited);
   --vf-color-background-information-default: #{map-get($colors-dark-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-dark-theme--tinted-backgrounds, information, hover)};
   --vf-color-background-information-active: #{map-get($colors-dark-theme--tinted-backgrounds, information, active)};
-
-  --vf-color-link-default: #{$color-link-dark};
-  --vf-color-link-visited: #{$color-link-visited-dark};
 }
 
 @mixin vf-theme-paper {
