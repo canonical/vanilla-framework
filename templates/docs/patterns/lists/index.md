@@ -127,9 +127,7 @@ View example of the stepped list without headings
 
 ## Horizontal stepped
 
-The stepped list should be used for step by step instructions. This pattern is best
-used on a `.p-strip--light` as the description sections are displayed in a white
-box.
+The stepped list should be used for step by step instructions.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-stepped-detailed/" class="js-example">
 View example of the pattern stepped list detailed

@@ -77,7 +77,7 @@ Instead of deprecated [Suru strip](/docs/examples/patterns/strips/suru/) (`.p-st
 
 [Bordered strip](/docs/examples/patterns/strips/is-bordered/) (`.p-strip--bordered`) is now deprecated. If a horizontal line is needed to separate parts of content use standard [sections](/docs/patterns/section) and [the rule component](/docs/patterns/rule) instead.
 
-[Light strips](/docs/examples/patterns/strips/strips-light) (`p-strip--light`), [white strips](/docs/examples/patterns/strips/white) (`.p-strip--white`) and [accent strips](/docs/examples/patterns/strips/accent) (`.p-strip--accent`) are now deprecated. Use the new [highlighted strip](#highligted-strip) instead.
+[Light strips](/docs/examples/patterns/strips/strips-light) (`.p-strip--light`), [white strips](/docs/examples/patterns/strips/white) (`.p-strip--white`) and [accent strips](/docs/examples/patterns/strips/accent) (`.p-strip--accent`) are now deprecated. Use the new [highlighted strip](#highligted-strip) instead.
 
 [Dark strip](/docs/examples/patterns/strips/strips-dark) (`.p-strip--dark`) is now deprecated. Use the [new theming](#themes) by applying `is-dark` class name to the strip instead.
 
