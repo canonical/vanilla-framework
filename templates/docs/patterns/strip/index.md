@@ -6,11 +6,17 @@ context:
 
 The strip pattern provides a full width strip container in which to wrap a grid. It is an alternative to the section component, that surrounds its content with a padding both on the top and bottom, and is used usually when a change of the background is needed or to separate different sections of the page.
 
+Strips, similarly to sections, come in 3 sizes: regular (`.p-strip`), [deep](#deep-strip) (`.p-strip is-deep`) and [shallow](#shallow-strip) (`.p-strip is-shallow`).
+
+They fully support [theming](#themes). Changing the theme on the strip component itself will apply the background colour to the entire strip, and affect the theme of the strip content. You can choose between regular strip (with default background of the theme), or highlighted strip (with am alternative lighter version of the background colour).
+
 A `.p-strip` container should always be the parent of a `.row` (from the [Grid pattern](/docs/patterns/grid/)) and never the other way around.
 
 ## Regular strip
 
 The strip component is rarely used on its own as a container with just `.p-strip` class name. It is usually combined with other variants described below to provide a specific visual style.
+
+If you believe you need a plain `.p-strip` container, you likely want to use a [section](/docs/patterns/section) instead.
 
 ## Themes
 
@@ -23,7 +29,7 @@ View example of the strip dark pattern
 <div class="p-notification--caution">
   <div class="p-notification__content">
     <h3 class="p-notification__title">Deprecated</h3>
-    <p class="p-notification__message">In Vanilla 4.8.0 with the introduction of new theming system the old <code>p-strip--dark</code> is deprecated. Use a strip is <code>is-dark</code> class instead.</p>
+    <p class="p-notification__message">In Vanilla 4.8.0 with the introduction of new theming system the old <code>p-strip--dark</code> is deprecated. Use a strip with <code>is-dark</code> class instead.</p>
   </div>
 </div>
 
