@@ -73,13 +73,15 @@ The following strip variants are now deprecated and should not be used on any ne
 
 Instead of deprecated [Suru strip](/docs/examples/patterns/strips/suru/) (`.p-strip--suru`) and [topped Suru strip](/docs/examples/patterns/strips/suru-topped/) (`.p-strip--suru-topped`) use the new [Suru component](/docs/patterns/suru) instead.
 
-[Strips with arbitrary image backgrounds](/docs/examples/patterns/strips/image/) (`.p-strip--image`) are now also deprecated. For a hero section with a background use the new Suru component instead.
+[Strips with arbitrary image backgrounds](/docs/examples/patterns/strips/image/) (`.p-strip--image`) are now also deprecated. For a hero section with a background use the new [Suru component](/docs/patterns/suru) instead.
 
 [Bordered strip](/docs/examples/patterns/strips/is-bordered/) (`.p-strip--bordered`) is now deprecated. If a horizontal line is needed to separate parts of content use standard [sections](/docs/patterns/section) and [the rule component](/docs/patterns/rule) instead.
 
 [Light strips](/docs/examples/patterns/strips/strips-light) (`.p-strip--light`), [white strips](/docs/examples/patterns/strips/white) (`.p-strip--white`) and [accent strips](/docs/examples/patterns/strips/accent) (`.p-strip--accent`) are now deprecated. Use the new [highlighted strip](#highlighted-strip) instead.
 
 [Dark strip](/docs/examples/patterns/strips/strips-dark) (`.p-strip--dark`) is now deprecated. Use the [new theming](#themes) by applying `is-dark` class name to the strip instead.
+
+Legacy documentation of the [deprecated strip variants](/docs/patterns/strip/deprecated/) is available for reference until they are removed in the next major release of Vanilla.
 
 ## Import
 
