@@ -46,7 +46,6 @@
 
 @import 'settings';
 
-$color-snippet-heading-bg: rgba($color-x-dark, 0.08);
 $code-snippet-header-v-spacing: $spv--small;
 
 @mixin vf-p-code-snippet {
@@ -54,7 +53,7 @@ $code-snippet-header-v-spacing: $spv--small;
     margin-bottom: $spv--x-large;
 
     &.is-bordered {
-      border: 1px solid $colors--light-theme--border-low-contrast;
+      border: 1px solid $colors--theme--border-low-contrast;
     }
 
     .p-code-snippet__block,
@@ -74,13 +73,13 @@ $code-snippet-header-v-spacing: $spv--small;
       position: relative;
 
       &.is-windows-prompt::before {
-        @include vf-icon-chevron($color-mid-dark);
+        @include vf-icon-chevron-themed;
 
         transform: rotate(270deg);
       }
 
       &.is-url::before {
-        @include vf-icon-get-link($color-mid-dark);
+        @include vf-icon-get-link-themed;
       }
     }
 
@@ -94,7 +93,7 @@ $code-snippet-header-v-spacing: $spv--small;
 
     .p-code-snippet__header {
       align-items: flex-start;
-      background-color: $color-code-heading-background;
+      background-color: $colors--theme--background-active;
       display: flex;
       justify-content: space-between;
       padding-left: $sph--large;
@@ -115,7 +114,7 @@ $code-snippet-header-v-spacing: $spv--small;
     .p-code-snippet__dropdown {
       background-color: $color-transparent;
       border: 0;
-      color: $colors--light-theme--text-default;
+      color: $colors--theme--text-default;
       margin-bottom: 0;
       margin-left: $sph--small;
       min-width: min-content;
@@ -137,7 +136,7 @@ $code-snippet-header-v-spacing: $spv--small;
     }
 
     .p-code-snippet__dropdown + .p-code-snippet__dropdown {
-      border-left: 1px solid $colors--light-theme--border-default;
+      border-left: 1px solid $colors--theme--border-default;
     }
 
     .p-code-snippet__header.is-stacked {
@@ -154,7 +153,7 @@ $code-snippet-header-v-spacing: $spv--small;
       }
 
       .p-code-snippet__title + .p-code-snippet__dropdowns {
-        border-top: 1px solid $colors--light-theme--border-default;
+        border-top: 1px solid $colors--theme--border-default;
       }
     }
 

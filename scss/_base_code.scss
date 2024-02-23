@@ -25,7 +25,7 @@ $code-inline-padding: 0.25rem;
   code,
   kbd,
   samp {
-    background-color: $color-code-background;
+    background-color: $colors--theme--code-background-default;
     box-decoration-break: slice;
     color: inherit;
     line-height: map-get($line-heights, default-text) - $code-inline-padding;
@@ -59,8 +59,8 @@ $code-inline-padding: 0.25rem;
   }
 
   pre {
-    background-color: $color-code-background;
-    color: $colors--light-theme--text-default;
+    background-color: $colors--theme--code-background-default;
+    color: $colors--theme--text-default;
     display: block;
     margin-bottom: $spv--x-large;
     margin-top: 0;
@@ -81,7 +81,7 @@ $code-inline-padding: 0.25rem;
   %leading-linux-prompt-icon {
     &::before {
       @extend %icon;
-      @include vf-icon-linux-prompt($color-mid-dark);
+      @include vf-icon-linux-prompt-themed;
 
       content: '';
       left: $sph--large;
@@ -110,7 +110,7 @@ $code-inline-padding: 0.25rem;
     }
 
     &::before {
-      color: $color-mid-dark;
+      color: $colors--theme--text-muted;
       content: counter(line-numbering);
       counter-increment: line-numbering;
       height: 100%;
