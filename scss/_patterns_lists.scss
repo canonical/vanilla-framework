@@ -361,15 +361,17 @@ $list-step-bullet-margin: $sph--x-large;
 
     @supports (display: grid) {
       .p-stepped-list__content {
-        @media (min-width: $threshold-6-12-col) {
+        @media (min-width: $threshold-4-6-col) {
           grid-column-end: span 6;
           margin-top: 0;
         }
       }
 
       .p-stepped-list__title {
-        grid-column-end: span 6;
-        margin-left: 0;
+        @media (min-width: $threshold-4-6-col) {
+          grid-column-end: span 6 ;
+          margin-top: 0;
+        }
       }
     }
 
