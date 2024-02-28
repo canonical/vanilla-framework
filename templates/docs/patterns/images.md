@@ -32,7 +32,7 @@ View example of image with a caption
 
 ## Media element with spacing
 
-Adds 0.5rem of spacing to the top of a media element.
+Adds spacing to the top of a media element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/image/spacing/" class="js-example">
 View example of media element with spacing
