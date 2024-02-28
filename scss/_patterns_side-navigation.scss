@@ -509,6 +509,22 @@
         @include vf-side-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--accordion-offset);
       }
     }
+
+    // nested 4th level of navigation
+    .p-side-navigation__item--title .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item &,
+    .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item .p-side-navigation__item & {
+      @include vf-side-navigation-spacing-left($multiplier: 4);
+
+      // add spacing for variant with right side icons
+      .p-side-navigation--icons & {
+        @include vf-side-navigation-spacing-left($multiplier: 5, $offset: $sp-sidenav--icon-width);
+      }
+
+      // add spacing for variant with accordions
+      .p-side-navigation--accordion & {
+        @include vf-side-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--accordion-offset);
+      }
+    }
   }
 
   .p-side-navigation--icons {
