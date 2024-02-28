@@ -30,6 +30,14 @@ When an image needs a caption, it can be wrapped in a `<figure>` element, along 
 View example of image with a caption
 </a></div>
 
+## Media element with spacing
+
+Adds 0.5rem of spacing to the top of a media element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/spacing/" class="js-example">
+View example of media element with spacing
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
