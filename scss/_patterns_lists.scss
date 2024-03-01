@@ -4,7 +4,7 @@ $list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
   %numbered-step-container {
-    counter-reset: li;
+    counter-reset: list-item;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -18,8 +18,8 @@ $list-step-bullet-margin: $sph--x-large;
     position: relative;
 
     &::before {
-      content: counter(li) '.';
-      counter-increment: li;
+      content: counter(list-item) '.';
+      counter-increment: list-item;
       display: block;
       height: map-get($line-heights, default-text);
       left: 0;
@@ -71,7 +71,6 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   %vf-list-item-ordered {
-      counter-reset: li;
       &::marker {
       content: none;
       display: none;
@@ -79,8 +78,7 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       color: $colors--light-theme--text-default;
-      content: counters(li, '.') '. ';
-      counter-increment: li;
+      content: counters(list-item, '.') '. ';
       display: inline-block;
       text-align: right;
     }
