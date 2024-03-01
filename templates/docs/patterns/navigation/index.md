@@ -73,7 +73,7 @@ On small screens the search box and menu items can be expanded individually as t
 
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
 
-It allows grouping the links into navigation sections and nesting them up to three levels.
+It allows grouping the links into navigation sections and nesting them up to four levels.
 
 Current page in the side navigation should be highlighted by adding `aria-current="page"` attribute to the corresponding `p-side-navigation__link` element. Alternatively, if `aria-current` attribute cannot be set, the `is-active` class can be used instead.
 
