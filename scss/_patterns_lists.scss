@@ -3,6 +3,8 @@ $list-status-icon-height: $default-icon-size;
 $list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
+  // container for stepped lists (`ol`)
+  // defines the layout and resets the native browser counter
   %numbered-step-container {
     counter-reset: list-item;
     display: flex;
@@ -11,6 +13,14 @@ $list-step-bullet-margin: $sph--x-large;
     padding-left: 0;
   }
 
+  // list item for stepped lists (`li`)
+  // increments the default browser counter
+  %numbered-step-item {
+    counter-increment: list-item;
+  }
+
+  // title for stepped lists
+  // displays the title and step counter
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
@@ -19,7 +29,6 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       content: counter(list-item) '.';
-      counter-increment: list-item;
       display: block;
       height: map-get($line-heights, default-text);
       left: 0;
@@ -30,6 +39,7 @@ $list-step-bullet-margin: $sph--x-large;
     }
   }
 
+  // used with .p-list--nested-counter
   %nested-counter {
     // Counter is named and it will be reset for each "ol" element.
     counter-reset: list-item;
@@ -283,6 +293,8 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   .p-stepped-list__item {
+    @extend %numbered-step-item;
+
     // override unecessary col-8 class in markup; layout is handled with css below
     float: none;
     margin-left: 0;
@@ -375,6 +387,7 @@ $list-step-bullet-margin: $sph--x-large;
     }
 
     .p-stepped-list__item {
+      @extend %numbered-step-item;
       @extend %vf-row;
       @include vf-b-row-reset;
 
