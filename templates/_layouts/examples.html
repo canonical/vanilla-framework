@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="is-not-themed" data-is_not_themed="{{is_not_themed}}">
     <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework documentation</title>
 
     {% if is_standalone %}
@@ -46,6 +47,11 @@
             toggle.addEventListener('click', function (event) {
               body.classList.toggle('u-baseline-grid');
             });
+
+            var is_not_themed = document.getElementById('is-not-themed').getAttribute('data-is_not_themed');
+            var themeToggles = document.querySelector('.u-theme-toggle');
+
+            is_not_themed && themeToggles.classList.add('u-hide');
 
             var darkTheme = document.querySelector('.js-dark-theme-toggle');
             darkTheme.addEventListener('click', function (event) {
