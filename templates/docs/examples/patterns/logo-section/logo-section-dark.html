@@ -3,7 +3,16 @@
 
 {% block standalone_css %}patterns_logo-section{% endblock %}
 
-{%set is_dark = True%}
+{% block style %}
+<style>
+body {
+  background: #262626;
+  color: #FFF;
+}
+</style>
+{% endblock %}
+
+{% set is_not_themed = True %}
 {% block content %}
 <div class="u-fixed-width">
   <div class="p-logo-section">
