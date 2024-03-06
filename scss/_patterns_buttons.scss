@@ -21,6 +21,7 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
   }
 }
 
+// DEPRECATED: brand coloured button is deprecated, please use other type of button instead
 @mixin vf-button-brand {
   %p-button--brand-light {
     @include vf-button-pattern(
@@ -73,112 +74,41 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-positive {
-  %p-button--positive-light {
-    @include vf-button-pattern(
-      $button-background-color: $color-positive,
-      $button-hover-background-color: adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage),
-      $button-active-background-color: adjust-color($color-positive, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-background-color: $color-positive,
-      $button-border-color: $color-positive,
-      $button-hover-border-color: adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage),
-      $button-active-border-color: adjust-color($color-positive, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-border-color: $color-positive,
-      $button-text-color: vf-contrast-text-color($color-positive)
-    );
-
-    @include vf-focus($color-focus-positive);
-  }
-
-  %p-button--positive-dark {
-    @include vf-button-pattern(
-      $button-background-color: $color-positive-dark,
-      $button-hover-background-color: adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage),
-      $button-active-background-color: adjust-color($color-positive-dark, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-background-color: $color-positive-dark,
-      $button-border-color: $color-positive-dark,
-      $button-hover-border-color: adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage),
-      $button-active-border-color: adjust-color($color-positive-dark, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-border-color: $color-positive-dark,
-      $button-text-color: vf-contrast-text-color($color-positive-dark)
-    );
-
-    @include vf-focus($color-focus-positive);
-  }
-
   .p-button--positive {
     @extend %vf-button-base;
-
-    // Theming
-    @if ($theme-default-p-button == 'dark') {
-      @extend %p-button--positive-dark;
-
-      &.is-light {
-        @extend %p-button--positive-light;
-      }
-    } @else {
-      @extend %p-button--positive-light;
-
-      &.is-dark {
-        @extend %p-button--positive-dark;
-      }
-    }
-
     @extend %vf-button-white-success-icon;
+
+    @include vf-button-pattern(
+      $button-background-color: $colors--theme--button-positive-default,
+      $button-hover-background-color: $colors--theme--button-positive-hover,
+      $button-active-background-color: $colors--theme--button-positive-active,
+      $button-disabled-background-color: $colors--theme--button-positive-default,
+      $button-border-color: $colors--theme--button-positive-default,
+      $button-hover-border-color: $colors--theme--button-positive-hover,
+      $button-active-border-color: $colors--theme--button-positive-active,
+      $button-disabled-border-color: $colors--theme--button-positive-default,
+      $button-text-color: $colors--theme--button-positive-text
+    );
+    @include vf-focus($color-focus-positive);
   }
 }
 
 @mixin vf-button-negative {
-  %p-button--negative-light {
-    @include vf-button-pattern(
-      $button-background-color: $color-negative,
-      $button-hover-background-color: adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage),
-      $button-active-background-color: adjust-color($color-negative, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-background-color: $color-negative,
-      $button-border-color: $color-negative,
-      $button-hover-border-color: adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage),
-      $button-active-border-color: adjust-color($color-negative, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-border-color: $color-negative,
-      $button-text-color: vf-contrast-text-color($color-negative)
-    );
-
-    @include vf-focus($color-focus-negative);
-  }
-
-  %p-button--negative-dark {
-    @include vf-button-pattern(
-      $button-background-color: $color-negative-dark,
-      $button-hover-background-color: adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage),
-      $button-active-background-color: adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-background-color: $color-negative-dark,
-      $button-border-color: $color-negative-dark,
-      $button-hover-border-color: adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage),
-      $button-active-border-color: adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage),
-      $button-disabled-border-color: $color-negative-dark,
-      $button-text-color: vf-contrast-text-color($color-negative-dark)
-    );
-
-    @include vf-focus($color-focus-negative);
-  }
-
   .p-button--negative {
     @extend %vf-button-base;
-
-    // Theming
-    @if ($theme-default-p-button == 'dark') {
-      @extend %p-button--negative-dark;
-
-      &.is-light {
-        @extend %p-button--negative-light;
-      }
-    } @else {
-      @extend %p-button--negative-light;
-
-      &.is-dark {
-        @extend %p-button--negative-dark;
-      }
-    }
-
     @extend %vf-button-white-success-icon;
+
+    @include vf-button-pattern(
+      $button-background-color: $colors--theme--button-negative-default,
+      $button-hover-background-color: $colors--theme--button-negative-hover,
+      $button-active-background-color: $colors--theme--button-negative-active,
+      $button-disabled-background-color: $colors--theme--button-negative-default,
+      $button-border-color: $colors--theme--button-negative-default,
+      $button-hover-border-color: $colors--theme--button-negative-hover,
+      $button-active-border-color: $colors--theme--button-negative-active,
+      $button-disabled-border-color: $colors--theme--button-negative-default,
+      $button-text-color: $colors--theme--button-negative-text
+    );
   }
 }
 
