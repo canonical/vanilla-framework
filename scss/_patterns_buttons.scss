@@ -16,41 +16,8 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-plain {
-  %p-button-light {
-    @include vf-button-pattern();
-  }
-
-  %p-button-dark {
-    @include vf-button-pattern(
-      $button-background-color: $colors--dark-theme--background-default,
-      $button-text-color: $colors--dark-theme--text-default,
-      $button-disabled-background-color: $color-transparent,
-      $button-disabled-border-color: $colors--dark-theme--border-high-contrast,
-      $button-border-color: $colors--dark-theme--border-high-contrast,
-      $button-hover-background-color: $colors--dark-theme--background-hover,
-      $button-hover-border-color: $colors--dark-theme--border-high-contrast,
-      $button-active-background-color: $colors--dark-theme--background-active,
-      $button-active-border-color: $colors--dark-theme--border-high-contrast
-    );
-  }
-
   .p-button {
     @extend %vf-button-base;
-
-    // Theming
-    @if ($theme-default-p-button == 'dark') {
-      @extend %p-button-dark;
-
-      &.is-light {
-        @extend %p-button-light;
-      }
-    } @else {
-      @extend %p-button-light;
-
-      &.is-dark {
-        @extend %p-button-dark;
-      }
-    }
   }
 }
 
@@ -216,47 +183,17 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 }
 
 @mixin vf-button-base {
-  %p-button--base-light {
-    @include vf-button-pattern(
-      $button-background-color: $color-transparent,
-      $button-border-color: $color-transparent,
-      $button-hover-border-color: $color-transparent,
-      $button-active-border-color: $color-transparent,
-      $button-disabled-border-color: $color-transparent
-    );
-  }
-
-  %p-button--base-dark {
-    @include vf-button-pattern(
-      $button-background-color: $color-transparent,
-      $button-text-color: $colors--dark-theme--text-default,
-      $button-disabled-background-color: $color-transparent,
-      $button-hover-background-color: $colors--dark-theme--background-hover,
-      $button-active-background-color: $colors--dark-theme--background-active,
-      $button-border-color: $color-transparent,
-      $button-hover-border-color: $color-transparent,
-      $button-active-border-color: $color-transparent,
-      $button-disabled-border-color: $color-transparent
-    );
-  }
-
   .p-button--base {
     @extend %vf-button-base;
 
-    // Theming
-    @if ($theme-default-p-button == 'dark') {
-      @extend %p-button--base-dark;
-
-      &.is-light {
-        @extend %p-button--base-light;
-      }
-    } @else {
-      @extend %p-button--base-light;
-
-      &.is-dark {
-        @extend %p-button--base-dark;
-      }
-    }
+    // override default button styles with transparent background and border
+    @include vf-button-pattern(
+      $button-background-color: $color-transparent,
+      $button-border-color: $color-transparent,
+      $button-hover-border-color: $color-transparent,
+      $button-active-border-color: $color-transparent,
+      $button-disabled-border-color: $color-transparent
+    );
   }
 }
 
@@ -272,18 +209,18 @@ $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
     padding-left: 0;
     padding-right: 0;
 
+    // stylelint-disable-next-line selector-max-type -- buttons should not affect paragraph spacing
+    p & {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+
     &:hover {
       background: transparent;
     }
 
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--default-text;
-    }
-
-    // stylelint-disable-next-line selector-max-type -- buttons should not affect paragraph spacing
-    p & {
-      margin-bottom: 0;
-      padding-top: 0;
     }
   }
 }
