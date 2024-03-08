@@ -33,11 +33,11 @@
         body.classList.toggle('u-baseline-grid');
       });
 
-      var is_not_themed = document.getElementById('is-not-themed').getAttribute('data-is_not_themed');
+      // var is_not_themed = document.getElementById('is-not-themed').getAttribute('data-is_not_themed');
 
       var themeToggles = document.querySelector('.u-theme-toggle');
 
-      is_not_themed && themeToggles.classList.add('u-hide');
+      !show_theme_switch && themeToggles.classList.add('u-hide');
 
       var darkTheme = document.querySelector('.js-dark-theme-toggle');
       darkTheme.addEventListener('click', function (event) {
