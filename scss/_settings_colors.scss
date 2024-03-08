@@ -268,6 +268,16 @@ $colors--theme--background-information-default: var(--vf-color-background-inform
 $colors--theme--background-information-hover: var(--vf-color-background-information-hover);
 $colors--theme--background-information-active: var(--vf-color-background-information-active);
 
+$colors--theme--button-positive-default: var(--vf-color-button-positive-default);
+$colors--theme--button-positive-hover: var(--vf-color-button-positive-hover);
+$colors--theme--button-positive-active: var(--vf-color-button-positive-active);
+$colors--theme--button-positive-text: var(--vf-color-button-positive-text);
+
+$colors--theme--button-negative-default: var(--vf-color-button-negative-default);
+$colors--theme--button-negative-hover: var(--vf-color-button-negative-hover);
+$colors--theme--button-negative-active: var(--vf-color-button-negative-active);
+$colors--theme--button-negative-text: var(--vf-color-button-negative-text);
+
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light--colors {
   // SCSS variables need to be interpolated to work in CSS custom properties
@@ -311,6 +321,16 @@ $colors--theme--background-information-active: var(--vf-color-background-informa
   --vf-color-background-information-default: #{map-get($colors-light-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-light-theme--tinted-backgrounds, information, 'hover')};
   --vf-color-background-information-active: #{map-get($colors-light-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-button-positive-default: #{$color-positive};
+  --vf-color-button-positive-hover: #{adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-positive-active: #{adjust-color($color-positive, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-positive-text: #{vf-contrast-text-color($color-positive)};
+
+  --vf-color-button-negative-default: #{$color-negative};
+  --vf-color-button-negative-hover: #{adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-negative-active: #{adjust-color($color-negative, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-negative-text: #{vf-contrast-text-color($color-negative)};
 }
 
 @mixin vf-theme-dark--colors {
@@ -355,6 +375,16 @@ $colors--theme--background-information-active: var(--vf-color-background-informa
   --vf-color-background-information-default: #{map-get($colors-dark-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-dark-theme--tinted-backgrounds, information, hover)};
   --vf-color-background-information-active: #{map-get($colors-dark-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-button-positive-default: #{$color-positive-dark};
+  --vf-color-button-positive-hover: #{adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-positive-active: #{adjust-color($color-positive-dark, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-positive-text: #{vf-contrast-text-color($color-positive-dark)};
+
+  --vf-color-button-negative-default: #{$color-negative-dark};
+  --vf-color-button-negative-hover: #{adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-negative-active: #{adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-negative-text: #{vf-contrast-text-color($color-negative-dark)};
 }
 
 @mixin vf-theme-paper--colors {
