@@ -22,7 +22,7 @@
         '<div class="u-baseline-grid__toggle"><label class="p-switch"><input type="checkbox" class="p-switch__input js-baseline-toggle" /><span class="p-switch__slider"></span><span class="p-switch__label">Toggle baseline grid</span></label></div>',
       );
       var themes = fragmentFromString(
-        '<div class="u-theme-toggle"><button class="u-theme-toggle__button u-theme-toggle__dark js-dark-theme-toggle">Dark</button><button class="u-theme-toggle__button u-theme-toggle__light js-light-theme-toggle">Light</button><button class="u-theme-toggle__button u-theme-toggle__paper js-paper-theme-toggle">Paper</button></div>',
+        '<div class="u-theme-toggle is-light"><button class="u-theme-toggle__button u-theme-toggle__dark js-dark-theme-toggle">Dark</button><button class="u-theme-toggle__button u-theme-toggle__light js-light-theme-toggle">Light</button><button class="u-theme-toggle__button u-theme-toggle__paper js-paper-theme-toggle">Paper</button></div>',
       );
 
       body.appendChild(themes);
