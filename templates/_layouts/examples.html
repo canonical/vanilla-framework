@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta id="is-not-themed" data-is_not_themed="{{is_not_themed}}">
     <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework documentation</title>
 
     {% if is_standalone %}
@@ -15,7 +14,18 @@
     <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/docs/example.css') }}" />
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
     {% block style %}{% endblock %}
+
     <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+  
+    {% if is_not_themed %}
+    <script>
+      var show_theme_switch = false;
+    </script>
+    {% else %}
+    <script>
+      var show_theme_switch = true;
+    </script>
+    {% endif %}
   </head>
 
   <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
