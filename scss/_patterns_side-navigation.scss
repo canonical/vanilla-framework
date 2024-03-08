@@ -204,13 +204,11 @@
     }
   }
 
-  // toggle to open side navigation is supposed to be in main content (on light background)
-  // it's using default 'neutral' button look regardless of the theme used by side navigation
   .p-side-navigation__toggle {
     @include vf-button-pattern;
 
     &::before {
-      @include vf-icon-chevron; // this icon is not themed, as it's on a default 'neutral' button regardless of the theme
+      @include vf-icon-chevron-themed;
       transform: rotate(-90deg);
     }
   }
