@@ -122,6 +122,11 @@
 }
 
 @mixin vf-icon-info-themed {
+  @include vf-themed-icon($light-value: vf-icon-info-url($colors--light-theme--icon), $dark-value: vf-icon-info-url($colors--dark-theme--icon));
+}
+
+// for use with notifications
+@mixin vf-icon-info-coloured-themed {
   @include vf-themed-icon(
     $light-value: vf-icon-info-url(map-get($colors-light-theme--tinted-borders, information)),
     $dark-value: vf-icon-info-url(map-get($colors-dark-theme--tinted-borders, information))
