@@ -15,38 +15,18 @@
     <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
     {% block style %}{% endblock %}
 
+    {% if is_not_themed %}
     <script>
-      (function() {
-        function inIframe () {
-          try {
-            return window.self !== window.top;
-          } catch (e) {
-            return true;
-          }
-        }
-
-        function fragmentFromString(htmlString) {
-          var temp = document.createElement('template');
-          temp.innerHTML = htmlString;
-          return temp.content;
-        }
-
-        if (!inIframe()) {
-          document.documentElement.classList.add("u-baseline-grid");
-
-          document.addEventListener('DOMContentLoaded', function() {
-            var body = document.body;
-            var controls = fragmentFromString('<div class="u-baseline-grid__toggle"><label class="p-switch"><input type="checkbox" class="p-switch__input js-baseline-toggle" /><span class="p-switch__slider"></span><span class="p-switch__label">Toggle baseline grid</span></label></div>');
-            body.appendChild(controls);
-
-            var toggle = document.querySelector('.js-baseline-toggle');
-            toggle.addEventListener('click', function (event) {
-              body.classList.toggle('u-baseline-grid');
-            });
-          });
-        }
-      })();
+      var SHOW_THEME_SWITCH = false;
     </script>
+    {% else %}
+    <script>
+      var SHOW_THEME_SWITCH = true;
+    </script>
+    {% endif %}
+
+    <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+  
   </head>
 
   <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
