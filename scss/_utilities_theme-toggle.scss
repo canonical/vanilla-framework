@@ -1,0 +1,39 @@
+@import 'settings';
+
+@mixin vf-u-theme-toggle {
+  .u-theme-toggle {
+    bottom: $spv--x-large;
+    position: fixed;
+    right: $sp-unit * 30;
+    z-index: 100;
+
+    .u-theme-toggle__button {
+      margin: 0;
+
+      &:not(:last-child) {
+        border-right: 0;
+      }
+    }
+
+    .u-theme-toggle__dark {
+      background-color: $colors--dark-theme--background-default;
+      color: $colors--dark-theme--text-default;
+    }
+
+    .u-theme-toggle__light {
+      background-color: $colors--light-theme--background-default;
+      color: $colors--light-theme--text-default;
+    }
+    .u-theme-toggle__paper {
+      background-color: $color-paper;
+      color: $color-x-dark;
+    }
+  }
+
+  // hide the theme toggle in Percy
+  @media only percy {
+    .u-theme-toggle {
+      visibility: hidden !important;
+    }
+  }
+}
