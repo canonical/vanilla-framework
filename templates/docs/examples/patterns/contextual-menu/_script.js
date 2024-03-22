@@ -12,10 +12,6 @@ function toggleMenu(element, show, top) {
     element.setAttribute('aria-expanded', show);
     target.setAttribute('aria-hidden', !show);
 
-    if (typeof top !== 'undefined') {
-      target.style.top = top + 'px';
-    }
-
     if (show) {
       target.focus();
     }
