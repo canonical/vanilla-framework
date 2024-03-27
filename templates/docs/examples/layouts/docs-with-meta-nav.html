@@ -1,0 +1,359 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Documentation / Full width{% endblock %}
+
+{% block style %}
+<style>
+  body { margin: 0; }
+</style>
+{% endblock %}
+
+{% set is_paper = True %}
+{% block content %}
+
+
+<div class="l-docs">
+  <div class="l-docs__header">
+    <header id="navigation" class="p-navigation is-dark">
+      <div class="l-docs__subgrid">
+        <div class="l-docs__sidebar">
+          <div class="p-navigation__banner">
+            <div class="p-navigation__tagged-logo">
+              <a class="p-navigation__link" href="#">
+                <div class="p-navigation__logo-tag">
+                  <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+                </div>
+                <span class="p-navigation__logo-title">Ubuntu</span>
+              </a>
+            </div>
+            <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+            <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+          </div>
+        </div>
+        <div class="l-docs__main">
+          <div class="p-navigation__row u-fixed-width">
+            <nav class="p-navigation__nav" aria-label="Example main">
+              <ul class="p-navigation__items">
+                <li class="p-navigation__item">
+                  <a class="p-navigation__link" href="#">Products</a>
+                </li>
+                <li class="p-navigation__item">
+                  <a class="p-navigation__link" href="#">Services</a>
+                </li>
+                <li class="p-navigation__item">
+                  <a class="p-navigation__link" href="#">Partners</a>
+                </li>
+                <li class="p-navigation__item is-selected">
+                  <a class="p-navigation__link" href="#">Docs</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="l-docs__meta">
+          <div class="p-navigation__row u-fixed-width">
+            <nav class="p-navigation__nav" aria-label="Example secondary">
+              <ul class="p-navigation__items">
+                <li class="p-navigation__item">
+                  <a class="p-navigation__link" href="#">All Canonical</a>
+                </li>
+                <li class="p-navigation__item">
+                  <a class="p-navigation__link" href="#">Sign in</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="search-docs" class="p-strip is-bordered is-shallow l-docs__subgrid">
+      <div class="l-docs__sidebar u-hide--medium u-hide--small">
+        <div class="u-fixed-width">
+          <h5 class="u-sv-2">Documentation example</h5>
+        </div>
+      </div>
+      <div class="l-docs__main">
+        <div class="row">
+          <form class="p-search-box u-no-margin--bottom">
+            <input type="search" class="p-search-box__input" name="q" placeholder="Search documentation" required="" autocomplete="on"/>
+            <button type="reset" class="p-search-box__reset" name="close"><i class="p-icon--close">Close</i></button>
+            <button type="submit" class="p-search-box__button" name="submitSearch"><i class="p-icon--search">Search</i></button>
+          </form>
+        </div>
+      </div>
+  </section>
+  </div>
+
+  <aside class="l-docs__sidebar">
+    <nav class="p-side-navigation--raw-html is-sticky" id="drawer" aria-label="Table of contents">
+      <div class="u-hide--large p-strip is-shallow">
+        <div class="u-fixed-width">
+          <a href="#drawer" class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
+            Toggle side navigation
+          </a>
+        </div>
+      </div>
+
+      <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer"></div>
+
+      <div class="p-side-navigation__drawer">
+        <div class="p-side-navigation__drawer-header">
+          <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
+            Toggle side navigation
+          </a>
+        </div>
+        <h3>Side navigation</h3>
+        <ul>
+          <li>
+            <a>First page</a>
+          </li>
+          <li>
+            <a href="#">Second page</a>
+          </li>
+          <li>
+            <a href="#">Third page</a>
+          </li>
+          <li>
+            <strong>Sub section</strong>
+            <ul>
+              <li>
+                <a href="#">Second level link</a>
+              </li>
+              <li>
+                <a class="is-active" href="#">Current page</a>
+              </li>
+              <li>
+                <a href="#">Another second level link</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Last page</a>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="#"><strong>Another group</strong></a>
+          </li>
+          <li>
+            <a href="#">First page</a>
+          </li>
+          <li>
+            <a href="#">Second page</a>
+          </li>
+          <li>
+            <a href="#">Third page</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="l-docs__title" id="main-content">
+    <div class="p-section--shallow">
+      <div class="row">
+        <div class="col-12">
+          <h1>Main documentation content</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="l-docs__meta">
+    <div class="l-docs__sticky-container">
+      <aside class="p-table-of-contents">
+        <div class="p-table-of-contents__section">
+          <h2 class="p-table-of-contents__header">On this page</h2>
+          <nav class="p-table-of-contents__nav" aria-label="Table of contents">
+            <ul class="p-table-of-contents__list">
+              <li class="p-table-of-contents__item"><a class="p-table-of-contents__link" href="#link1">Install from snap</a></li>
+              <li class="p-table-of-contents__item"><a class="p-table-of-contents__link" href="#link2">Initialisation</a></li>
+              <li class="p-table-of-contents__item"><a class="p-table-of-contents__link is-active" href="#link3">Configuration verification</a></li>
+              <li class="p-table-of-contents__item"><a class="p-table-of-contents__link" href="#link4">Service statuses</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <main class="l-docs__main">
+      <div class="row">
+        <div class="col-12">
+          <p>Main documentation content block is contained in grid <code>col-9</code>. Any standard base elements or Vanilla components can be used in the documentation pages.</p>
+
+          <h2>Examples</h2>
+
+          <p>Below you can find examples of components commonly used in documentation</p>
+
+          <h3>Code blocks</h3>
+          <pre><code>// Import Vanilla framework
+    @import 'vanilla-framework';
+
+    // Include base Vanilla styles
+    @include vf-base;
+
+    // Include the components you want
+    @include vf-p-buttons;
+    @include vf-p-forms;
+    @include vf-p-links;
+    </code></pre>
+
+          <h3>Lists</h3>
+
+          <ul>
+            <li><a href="#docs/what-is-maas">What is MAAS – and what does it really do for me?</a></li>
+            <li><a href="#docs/maas-example-config">Can you show me an example datacentre using MAAS?</a></li>
+            <li><a href="#docs/what-is-maas#heading--how-maas-works">How does MAAS work, in detail?</a></li>
+            <li><a href="#docs/concepts-and-terms">What concepts might I need to understand before starting?</a></li>
+            <li><a href="#docs/explore-maas">Can I just install it and try it for myself?</a></li>
+          </ul>
+
+          <h3>Tables</h3>
+          <table aria-label="MAAS table example">
+            <thead>
+              <tr>
+                <th>Interface name</th>
+                <th>Description</th>
+                <th>Auto-connect</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#docs/account-control-interface">account-control</a></td>
+                <td>add/remove user accounts or change passwords</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td><a href="#docs/accounts-service-interface">accounts-service</a></td>
+                <td>allows communication with the accounts service</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td><a href="#docs/adb-support-interface">adb-support</a></td>
+                <td>allows operating as Android Debug Bridge service</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td><a href="#docs/alsa-interface">alsa</a></td>
+                <td>play or record sound</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td><a href="#docs/appstream-metadata-interface">appstream-metadata</a></td>
+                <td>allows access to AppStream metadata</td>
+                <td>no</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Notifications</h3>
+
+          <div class="p-notification">
+            <p class="p-notification__content">
+              In versions prior to <code>v.2.6.1</code> the <code>add-cloud</code> command only operates locally (there is no <code>--local</code> option).
+            </p>
+          </div>
+
+          <div class="p-notification--caution">
+            <p class="p-notification__content">
+              Multi-cloud functionality via <code>add-cloud</code> (not <code>add-k8s</code>) is available as “early access” and requires the use of a feature flag. Once the controller
+              is created, you can enable it with: <code>juju controller-config features="[multi-cloud]"</code>
+            </p>
+          </div>
+
+          <div class="p-notification--information">
+            <p class="p-notification__content">
+              Last updated 29 days ago.
+              <a href="#clouds/1100">Help improve this document in the forum</a>.
+            </p>
+          </div>
+
+          <h3>Grid</h3>
+
+          <p>Main documentation content block is contained in grid <code>col-9</code>.</p>
+
+          <p>For two columns split use two <code>col-4</code> columns.</p>
+          <div class="row">
+            <div class="col-4">
+              <ul class="p-list">
+                <li class="p-list__item"><a href="#docs/whats-new-2-6">New features in 2.6&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/clouds">Clouds&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/vsphere-cloud">Using VMware vSphere with Juju&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/k8s-cloud">Using Kubernetes with Juju&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/k8s-charms-tutorial">Understanding Kubernetes charms&nbsp;›</a></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <ul class="p-list">
+                <li class="p-list__item"><a href="#docs/migrating-models">Migrating models&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/bundle-reference">Bundle reference&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/microk8s-cloud">Using Juju with MicroK8s&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/removing-things">Removing things&nbsp;›</a></li>
+                <li class="p-list__item"><a href="#docs/controller-logins">Controller logins&nbsp;›</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <p>For three columns split use three <code>col-3</code> columns.</p>
+
+          <div class="row">
+            <div class="col-3">
+              <ul class="p-list--divided">
+                <li class="p-list__item"><a href="#docs/settings/animation-settings">Animation</a></li>
+                <li class="p-list__item"><a href="#docs/settings/assets-settings">Assets</a></li>
+                <li class="p-list__item"><a href="#docs/settings/breakpoint-settings">Breakpoint</a></li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <ul class="p-list--divided">
+                <li class="p-list__item"><a href="#docs/settings/color-settings">Color</a></li>
+                <li class="p-list__item"><a href="#docs/settings/font-settings">Font</a></li>
+                <li class="p-list__item"><a href="#docs/settings/layout-settings">Layout</a></li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <ul class="p-list--divided">
+                <li class="p-list__item"><a href="#docs/settings/placeholder-settings">Placeholder</a></li>
+                <li class="p-list__item"><a href="#docs/settings/spacing-settings">Spacing</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div class="l-docs__footer">
+    <footer class="p-strip is-dark l-docs__subgrid">
+      <div class="l-docs__sidebar">
+        <p style="padding-left: 1.5rem">© 2020 Canonical Ltd.</p>
+      </div>
+      <div class="l-docs__main">
+        <nav class="row" aria-label="Footer">
+          <div class="has-cookie">
+            <p><a class="is-dark" href="#">Ubuntu</a> and <a class="is-dark" href="#">Canonical</a> are registered trademarks of Canonical Ltd.</p>
+            <ul class="p-inline-list--middot">
+              <li class="p-inline-list__item">
+                <a class="is-dark" href="#"><small>Legal information</small></a>
+              </li>
+              <li class="p-inline-list__item">
+                <a class="is-dark" href="#"><small>Report a bug on this site</small></a>
+              </li>
+            </ul>
+            <span class="u-off-screen"><a href="#">Go to the top of the page</a></span>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+
+<script>
+  {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
+  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+</script>
+{% endblock %}

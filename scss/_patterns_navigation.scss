@@ -32,7 +32,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: map-get($grid-margin-widths, default);
+      padding-left: $sph--large;
     }
   }
 
@@ -45,7 +45,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-right: map-get($grid-margin-widths, default);
+      padding-right: $sph--large;
     }
   }
 
@@ -87,7 +87,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: map-get($grid-margin-widths, default);
+      padding-left: $sph--large;
     }
 
     &:visited,
@@ -189,6 +189,14 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     width: 100%;
   }
 
+  // when large screen navigation is displayed, use 25/75 grid split
+  @media (min-width: $breakpoint-navigation-threshold) {
+    // shift navigation items by the size of grid margin to align with grid
+    .p-navigation__items:first-child {
+      margin-left: calc(map-get($grid-margin-widths, default) - $sph--large);
+    }
+  }
+
   .p-navigation__row--25-75 {
     // ideally we'd like to extend row only on large screens,
     // but that's not possible to use @extend inside media query
@@ -208,7 +216,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       // shift navigation items by the size of grid margin to align with grid
       .p-navigation__items:first-child {
-        margin-left: calc(-1 * map-get($grid-margin-widths, default));
+        margin-left: calc(-1 * $sph--large);
       }
 
       // on medium screen sizes (6 columns) use 2/4 column split
@@ -484,7 +492,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     height: 100%; // keep the height of the navigation when 'Search' label is hidden
 
     padding-left: 0; // on small screens label is hidden, so we remove left padding as well
-    padding-right: calc(map-get($grid-margin-widths, default) + map-get($icon-sizes, default));
+    padding-right: calc(2 * $sph--small + map-get($icon-sizes, default));
     position: relative;
 
     // hide "search" label on small screens (only show the icon)
@@ -494,7 +502,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // show both label and icon on large screens
     @media (min-width: $breakpoint-large) {
-      padding-left: map-get($grid-margin-widths, default);
+      padding-left: $sph--large;
 
       .p-navigation__search-label {
         display: initial;
@@ -510,7 +518,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       height: $spv--large;
       pointer-events: none;
       position: absolute;
-      right: calc(map-get($grid-margin-widths, default) / 2);
+      right: $sph--small; // calc(map-get($grid-margin-widths, default) / 2);
       text-indent: calc(100% + 10rem);
       top: calc($spv--medium + map-get($nudges, x-small));
       width: map-get($icon-sizes, default);
