@@ -10,7 +10,7 @@ Buttons are clickable elements used to perform actions.
 
 ## Anatomy
 
-![anatomy|690x308](https://assets.ubuntu.com/v1/4a7db9b4-buttons-anatomy.png)
+![Anatomy of button component](https://assets.ubuntu.com/v1/4a7db9b4-buttons-anatomy.png)
 
 ## Usage
 
@@ -29,7 +29,7 @@ Buttons are clickable elements used to perform actions.
 
 On hover, the button background will look slightly darker to signal the user that the action is enabled.
 
-![hover|300x217.28](https://assets.ubuntu.com/v1/41cd8ce0-2.png)
+![Hovered buttons](https://assets.ubuntu.com/v1/41cd8ce0-2.png)
 
 ### Click/Interaction
 
@@ -39,13 +39,13 @@ On click, the button will perform the enunciated action.
 
 When the button is disabled, it will have a transparency of 50%. The cursor won’t change when the user hovers the button.
 
-![disabled|606x440](https://assets.ubuntu.com/v1/8aaa387c-3.png)
+![Disabled buttons](https://assets.ubuntu.com/v1/8aaa387c-3.png)
 
 ### Processing
 
 When a process is being carried out in the background, to indicate progress a spinning icon will replace the text of the button.
 
-![processing|104x84](https://assets.ubuntu.com/v1/e6ce3f57-4.png)
+![Button with processing status icon](https://assets.ubuntu.com/v1/e6ce3f57-4.png)
 
 ## Button Size
 
@@ -55,25 +55,25 @@ Buttons can be used in 3 sizes:
 
 This is the size most commonly used when vertical space is not a concern.
 
-![default size|314x106](https://assets.ubuntu.com/v1/3d9f0c3f-5.png)
+![Default button size](https://assets.ubuntu.com/v1/3d9f0c3f-5.png)
 
 ### Inline
 
 Use this size to place a button after a line of inline text, as a CTA for example.
 
-![inline button|690x80](https://assets.ubuntu.com/v1/e437672b-6.png)
+![Inline button](https://assets.ubuntu.com/v1/e437672b-6.png)
 
 ### Dense
 
 To use in contexts where vertical space is limited, this size reduces the vertical padding.
 
-![dense button|690x85](https://assets.ubuntu.com/v1/fbd6c86a-7.png)
+![Dense button](https://assets.ubuntu.com/v1/fbd6c86a-7.png)
 
 ### Small
 
 If you are working with small text and need a suitably sized button, this size combines a small font size with a tighter padding.
 
-![small button|690x83](https://assets.ubuntu.com/v1/95b8e282-8.png)
+![Small buttons](https://assets.ubuntu.com/v1/95b8e282-8.png)
 
 ## Variants
 
@@ -87,7 +87,7 @@ If you are working with small text and need a suitably sized button, this size c
 
 ### Default
 
-![default button|286x84](https://assets.ubuntu.com/v1/3053b0b1-9.png)
+![Default button](https://assets.ubuntu.com/v1/3053b0b1-9.png)
 
 #### Definition
 
@@ -110,27 +110,27 @@ A default button can be used to indicate a positive action that isn't necessaril
 
 #### Examples
 
-##### Ubuntu.com
+##### ubuntu.com
 
-![default ubuntu footer|690x105](https://assets.ubuntu.com/v1/00a85207-10.png)
+![Example of default button on Ubuntu website footer](https://assets.ubuntu.com/v1/00a85207-10.png)
 
-![default ubuntu|690x418](https://assets.ubuntu.com/v1/9a70df1a-11.png)
+![Default button on Ubuntu website card](https://assets.ubuntu.com/v1/9a70df1a-11.png)
 
 ##### maas.io
 
-![default maas|690x318](https://assets.ubuntu.com/v1/0fba4353-12.jpeg)
+![Default button on MAAS website hero section](https://assets.ubuntu.com/v1/0fba4353-12.jpeg)
 
 ##### snapcraft.io
 
-![default snap revert|690x44](https://assets.ubuntu.com/v1/5f1bc7fa-13.png)
+![Default button on Snapcraft action toolbar](https://assets.ubuntu.com/v1/5f1bc7fa-13.png)
 
-![default snap dropdown|690x58](https://assets.ubuntu.com/v1/3be2dd03-14.png)
+![Default button with dropdown on Snapcraft snap pages](https://assets.ubuntu.com/v1/3be2dd03-14.png)
 
-![default brand store|630x268](https://assets.ubuntu.com/v1/acaa9f06-15.png)
+![Default buttons in brand stores](https://assets.ubuntu.com/v1/acaa9f06-15.png)
 
 ### Base
 
-![base button|584x128](https://assets.ubuntu.com/v1/5ca35a78-16.png)
+![Base button](https://assets.ubuntu.com/v1/5ca35a78-16.png)
 
 #### Definition
 
@@ -152,11 +152,11 @@ A base button can be used to discreetly indicate an action with less emphasis. I
 
 ##### snapcraft.io
 
-![default snap revert|690x44](https://assets.ubuntu.com/v1/5f1bc7fa-17.png)
+![Example of base button in snapcraft action toolbar](https://assets.ubuntu.com/v1/5f1bc7fa-17.png)
 
 ### Positive
 
-![positive button|286x78](https://assets.ubuntu.com/v1/160f8cc4-18.png)
+![Positive button](https://assets.ubuntu.com/v1/160f8cc4-18.png)
 
 #### Definition
 
@@ -179,17 +179,17 @@ A positive button can be used to indicate a positive action that is the main cal
 
 ##### ubuntu.com
 
-![positive ubuntu desktop|690x362](https://assets.ubuntu.com/v1/1150558c-19.png)
+![Example of positive button on Ubuntu website hero section](https://assets.ubuntu.com/v1/1150558c-19.png)
 
-![positive ubuntu form|690x254](https://assets.ubuntu.com/v1/0283019c-20.png)
+![Example of positive button on Ubuntu website card](https://assets.ubuntu.com/v1/0283019c-20.png)
 
 ##### snapcraft.io
 
-![default snap revert|690x44](https://assets.ubuntu.com/v1/5f1bc7fa-21.png)
+![Example of positive button on Snapcraft action toolbar](https://assets.ubuntu.com/v1/5f1bc7fa-21.png)
 
 ### Negative
 
-![negative button|558x154](https://assets.ubuntu.com/v1/3223809b-22.png)
+![Negative button](https://assets.ubuntu.com/v1/3223809b-22.png)
 
 #### Definition
 
@@ -209,4 +209,4 @@ A negative button can be used to indicate a negative action that is destructive 
 
 ##### ubuntu.com
 
-![negative example ubuntu advantage|690x386](https://assets.ubuntu.com/v1/9927ff12-23.png)
+![Example of negative button in modal to cancel subscription](https://assets.ubuntu.com/v1/9927ff12-23.png)

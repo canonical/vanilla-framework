@@ -10,7 +10,7 @@ A switch is a control that toggles the state of an item **ON** or **OFF**.
 
 ## Anatomy
 
-![image|690x378](https://assets.ubuntu.com/v1/27b52b0d-switch-anatomy.png)
+![Anatomy of switch component](https://assets.ubuntu.com/v1/27b52b0d-switch-anatomy.png)
 
 1. **Switch control ON**
    When the switch is turned **ON**, the background turns blue and the handler moves to the right side. This happens in **any action event** on the **whole component** (either the switch or its label).
