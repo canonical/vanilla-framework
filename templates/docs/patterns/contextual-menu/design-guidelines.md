@@ -13,7 +13,7 @@ A contextual menu is a floating menu. It can be applied to any button or link th
 
 The contextual menu is made of these different parts:
 
-![|357x296](https://assets.ubuntu.com/v1/746507e8-1.png)
+![Anatomy of contextual menu](https://assets.ubuntu.com/v1/746507e8-1.png)
 
 1. Trigger (button or link). Main element that requires a contextual menu.
 2. Menu floating box
@@ -52,7 +52,7 @@ When you hover a selectable item in the contextual menu, it will have a hover st
 
 Example in Charmhub.io:
 
-![|194x130](https://assets.ubuntu.com/v1/5aabe390-2.png)
+![Hover state in contextual menu](https://assets.ubuntu.com/v1/5aabe390-2.png)
 
 ### Click
 
@@ -62,4 +62,4 @@ When clicking on a selectable item in the contextual menu it performs the action
 
 ### In Charmhub
 
-![|243x328](https://assets.ubuntu.com/v1/dec2af76-3.png)
+![Example of contextual menu](https://assets.ubuntu.com/v1/dec2af76-3.png)

@@ -16,7 +16,7 @@ To remove inconsistencies between various Vanilla components used for similar pu
 
 ## Anatomy
 
-![image|690x248](https://assets.ubuntu.com/v1/d7c43827-4.png)
+![Anatomy of badge component](https://assets.ubuntu.com/v1/d7c43827-4.png)
 
 Variant A: Undefined large number
 
@@ -63,7 +63,7 @@ Since there will never be more than 4 characters in our badge, we need to make a
 
 When the amount of items is only relevant for small values, this one is the variant that should be used. When the value grows further than 999, the badge will simply show **999+**.
 
-![image|85x64, 100%](https://assets.ubuntu.com/v1/2e3d33c3-6.png)
+![Badge with undefined large number 999+](https://assets.ubuntu.com/v1/2e3d33c3-6.png)
 
 This is the default variant and it should be used in most cases. Relevant large numbers are probably too important to be inside a badge.
 
@@ -81,4 +81,4 @@ When the value of the badge represents a type of information where differences b
 - 5,950.322 → **5.9M** (between 1M and 10M)
 - 52,433.950 → 52M
 
-![image|117x54](https://assets.ubuntu.com/v1/9377888a-7.png)
+![Badges with rounded large numbers](https://assets.ubuntu.com/v1/9377888a-7.png)
