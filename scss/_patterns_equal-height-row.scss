@@ -1,0 +1,214 @@
+@import 'settings';
+
+// wrapper mixin that provides relevant class selectors for 1st, 2nd and 3rd dividers
+@mixin position-divider-by-order-in-grid($divider-order, $large-screen: false) {
+  // for large screens, dividers are positioned as pseudo elements at row level
+  @if $large-screen {
+    @if $divider-order == 1 {
+      &.has-1st-divider::before {
+        @content;
+      }
+    }
+
+    @if $divider-order == 2 {
+      &.has-2nd-divider::after {
+        @content;
+      }
+    }
+
+    @if $divider-order == 3 {
+      // when 3rd-divider is present and 1st-divider is not present
+      &.has-3rd-divider:not(.has-1st-divider)::before,
+      // when 3rd-divider is present and 2nd-divider is not present
+      &.has-3rd-divider:not(.has-2nd-divider)::after {
+        @content;
+      }
+
+      // when only 3rd-divider is present
+      &.has-3rd-divider:not(.has-1st-divider):not(.has-2nd-divider)::before {
+        @content;
+      }
+
+      &.has-3rd-divider:not(.has-1st-divider):not(.has-2nd-divider)::after {
+        display: none;
+      }
+    }
+  } @else {
+    // for smaller screens, dividers are positioned as pseudo elements at column level
+    @if $divider-order == 1 {
+      &.has-1st-divider .p-equal-height-row__col::before {
+        @content;
+      }
+    }
+
+    @if $divider-order == 2 {
+      &.has-2nd-divider .p-equal-height-row__col::after {
+        @content;
+      }
+    }
+
+    @if $divider-order == 3 {
+      &.has-3rd-divider:not(.has-1st-divider) .p-equal-height-row__col::before,
+      &.has-3rd-divider:not(.has-2nd-divider) .p-equal-height-row__col::after {
+        @content;
+      }
+
+      &.has-3rd-divider:not(.has-1st-divider):not(.has-2nd-divider) .p-equal-height-row__col::before {
+        @content;
+      }
+
+      &.has-3rd-divider:not(.has-1st-divider):not(.has-2nd-divider) .p-equal-height-row__col::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin divider-styles($large-screen: false) {
+  // For each row or column grid we only have access to two pseudo elements
+  // if 1st-divider (::before) is present, assume 2nd-divider (::after) isn't, then 3rd-divider must be (::after)
+  // if 2nd-divider (::after) is present, assume 1st-divider (::before) isn't, then 3rd-divider must be (::before)
+  @if $large-screen {
+    &.has-1st-divider::before,
+    &.has-2nd-divider::after,
+    &.has-3rd-divider:not(.has-1st-divider)::before,
+    &.has-3rd-divider:not(.has-2nd-divider)::after {
+      @content;
+    }
+  } @else {
+    // For smaller screens, the divider pseudo elements are inserted at the column level
+    &.has-1st-divider .p-equal-height-row__col::before,
+    &.has-2nd-divider .p-equal-height-row__col::after,
+    &.has-3rd-divider:not(.has-1st-divider) .p-equal-height-row__col::before,
+    &.has-3rd-divider:not(.has-2nd-divider) .p-equal-height-row__col::after {
+      @content;
+    }
+  }
+}
+
+@mixin vf-p-equal-height-row {
+  .p-equal-height-row {
+    @extend %vf-row;
+    padding-bottom: $spv--strip-regular * 0.5;
+    position: relative;
+
+    .p-equal-height-row__col {
+      // smaller screens each column will have border top by default
+      border-top-color: $colors--theme--border-default;
+      border-top-style: solid;
+      border-top-width: 1px;
+      display: grid;
+      grid-column: span $grid-columns-small;
+      grid-row: span 4;
+      grid-template-rows: subgrid;
+      margin-top: -1px;
+      padding-bottom: $spv--small;
+      position: relative;
+
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        grid-column: span $grid-columns-medium;
+        grid-template-columns: subgrid;
+
+        // for medium screen, each column item will take half of the available cols from the parent grid
+        .p-equal-height-row__item {
+          grid-column: span calc($grid-columns-medium / 2);
+        }
+
+        // for medium screen, position the first column item on the left of the grid
+        .p-equal-height-row__item:first-child {
+          grid-row: span 100; // this needs to be sufficiently large so remaining column items won't get stretched
+        }
+      }
+
+      @media screen and (width >= $breakpoint-large) {
+        border: none;
+        grid-column: span calc($grid-columns / 4);
+        padding-bottom: 0;
+      }
+    }
+
+    // divider styles
+    @include divider-styles($large-screen: false) {
+      @extend %vf-pseudo-border;
+    }
+
+    // remove row level dividers for smaller screen sizes
+    @include divider-styles($large-screen: true) {
+      @extend %vf-pseudo-border;
+      display: none;
+    }
+
+    @include position-divider-by-order-in-grid(1) {
+      grid-row: 2;
+    }
+
+    @include position-divider-by-order-in-grid(2) {
+      grid-row: 3;
+    }
+
+    @include position-divider-by-order-in-grid(3) {
+      grid-row: 4;
+    }
+
+    @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+      // We don't need to insert divider below item-1 for medium screen size since item-1 gets positioned on the left
+      @include position-divider-by-order-in-grid(1) {
+        display: none;
+      }
+
+      @include position-divider-by-order-in-grid(2) {
+        grid-column: 4 / 7;
+        grid-row: 2;
+      }
+
+      @include position-divider-by-order-in-grid(3) {
+        grid-column: 4 / 7;
+        grid-row: 3;
+      }
+    }
+
+    @media screen and (width >= $breakpoint-large) {
+      padding-bottom: $spv--strip-regular;
+
+      // remove column level dividers for large screen sizes
+      @include divider-styles($large-screen: false) {
+        display: none;
+      }
+
+      @include divider-styles($large-screen: true) {
+        display: block;
+        grid-column-end: span 12;
+        grid-column-start: 1;
+        margin: auto;
+      }
+
+      @include position-divider-by-order-in-grid(1, $large-screen: true) {
+        grid-row: 2;
+      }
+
+      @include position-divider-by-order-in-grid(2, $large-screen: true) {
+        grid-row: 3;
+      }
+
+      @include position-divider-by-order-in-grid(3, $large-screen: true) {
+        grid-row: 4;
+      }
+    }
+  }
+
+  // support for 25-75 split on large screen size for this pattern
+  .row--25-75-on-large > .col,
+  .row > .col-9 {
+    & .p-equal-height-row {
+      grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
+
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
+      }
+
+      @media screen and (width >= $breakpoint-large) {
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+      }
+    }
+  }
+}
