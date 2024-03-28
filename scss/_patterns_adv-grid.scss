@@ -1,0 +1,115 @@
+@import 'settings';
+
+// Only have access to two pseudo elements, so if header (::after) is present then footer must be (::before)
+// Vise versa if content is present
+@mixin below-footer-divider {
+  &.has-divider-below-footer:not(.has-divider-below-header)::after,
+  &.has-divider-below-footer:not(.has-divider-below-content)::before {
+    background: var(--vf-color-border-default);
+    content: '';
+    display: block;
+    grid-column: span $grid-columns;
+    grid-row: 4;
+    height: 1px;
+    position: absolute;
+    width: 100%;
+  }
+
+  @media screen and (width < $breakpoint-large) {
+    &.has-divider-below-footer:not(.has-divider-below-header)::after,
+    &.has-divider-below-footer:not(.has-divider-below-content)::before {
+      display: none;
+    }
+  }
+}
+
+@mixin vf-p-adv-grid {
+  .p-adv-grid {
+    @extend %vf-row;
+
+    .p-adv-grid__row {
+      @include below-footer-divider();
+
+      display: grid;
+      grid-template-columns: subgrid;
+      position: relative;
+
+      &.has-divider-below-header::after,
+      &.has-divider-below-content::before {
+        background: var(--vf-color-border-default);
+        content: '';
+        display: block;
+        grid-column: span $grid-columns;
+        height: 1px;
+        position: absolute;
+        width: 100%;
+      }
+
+      &.has-divider-below-header::after {
+        grid-row: 2;
+      }
+
+      &.has-divider-below-content::before {
+        grid-row: 3;
+      }
+
+      @media screen and (width < $breakpoint-large) {
+        &.has-divider-below-header::after,
+        &.has-divider-below-content::before {
+          display: none;
+        }
+      }
+
+      .p-adv-grid__col {
+        display: grid;
+        grid-column: span calc($grid-columns / 4);
+        grid-row: span 10;
+        grid-template-rows: subgrid;
+      }
+    }
+
+    @media screen and (width < $breakpoint-large) {
+      .p-adv-grid__row .p-adv-grid__col {
+        border-top-color: $colors--theme--border-default;
+        border-top-style: solid;
+        border-top-width: 1px;
+        grid-column: span $grid-columns-medium;
+        grid-template-columns: subgrid;
+
+        .p-adv-grid__col-content {
+          grid-column: span calc($grid-columns-medium / 2);
+        }
+
+        .p-adv-grid__col-content:first-child {
+          grid-row: span 100;
+        }
+
+        // Always have a border top for last child of a column
+        .p-adv-grid__col-content:last-child {
+          border-top-color: $colors--theme--border-default;
+          border-top-style: solid;
+          border-top-width: 1px;
+        }
+
+        // If there is an hr for last child of a column, hide it
+        .p-adv-grid__col-content:last-child > .p-rule {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (width < $breakpoint-small) {
+      .p-adv-grid__row .p-adv-grid__col {
+        grid-column: span $grid-columns-small;
+
+        .p-adv-grid__col-content {
+          grid-column: span $grid-columns-small;
+        }
+
+        .p-adv-grid__col-content:first-child {
+          grid-row: auto;
+        }
+      }
+    }
+  }
+}
