@@ -10,7 +10,7 @@ A slider provides visual interaction for the user to make a selection from a spe
 
 ## Anatomy
 
-![anatomy|690x374](https://assets.ubuntu.com/v1/7538293c-anatomy.png)
+![Anatomy of slider component](https://assets.ubuntu.com/v1/7538293c-anatomy.png)
 
 ## Usage
 
@@ -41,6 +41,6 @@ When the slider is disabled it will have a transparency of 50% and will not be i
 
 ### ubuntu.com
 
-![tco calculator ubuntu|690x173](https://assets.ubuntu.com/v1/6612561b-Ubuntu%20Slider%20Design%20System.png)
+![Example of slider component in calculator on Ubuntu website](https://assets.ubuntu.com/v1/6612561b-Ubuntu%20Slider%20Design%20System.png)
 
-![ex uc infographic|690x549](https://assets.ubuntu.com/v1/10921b1c-ex%20uc%20infographic.png)
+![Example of slider component in an interactive infographic on Ubuntu website](https://assets.ubuntu.com/v1/10921b1c-ex%20uc%20infographic.png)

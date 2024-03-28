@@ -31,21 +31,21 @@ Most design systems only use tabs. This is what is currently available in some o
 
 #### With icon
 
-![\ 263x53](https://assets.ubuntu.com/v1/d0178f08-1.jpeg)
+![Segmented control with icons](https://assets.ubuntu.com/v1/d0178f08-1.jpeg)
 
 #### Without icon
 
-![\ 205x52](https://assets.ubuntu.com/v1/bc78ecaf-2.jpeg)
+![Segmented control without icons](https://assets.ubuntu.com/v1/bc78ecaf-2.jpeg)
 
 ### Dense
 
 #### With icon
 
-![\ 267x46](https://assets.ubuntu.com/v1/8c7693c5-3.jpeg)
+![Dense segmented control with icons](https://assets.ubuntu.com/v1/8c7693c5-3.jpeg)
 
 #### Without icon
 
-![\ 205x47](https://assets.ubuntu.com/v1/2c1cf8be-4.jpeg)
+![Dense segmented control without icons](https://assets.ubuntu.com/v1/2c1cf8be-4.jpeg)
 
 ## Usage
 
@@ -80,37 +80,37 @@ There are two main scenarios for using the segmented control:
 
 By default this component will always have one selected item (similar to tabs).
 
-![|263x53](https://assets.ubuntu.com/v1/d0178f08-5.jpeg)
+![Example segmented control with one selected item](https://assets.ubuntu.com/v1/d0178f08-5.jpeg)
 
 #### Hover
 
 On hover the background of the button will change to a light gray (current JAAS implementation).
 
-![|263x53](https://assets.ubuntu.com/v1/c927866d-6.jpeg)
+![Example segmented control with one hovered item](https://assets.ubuntu.com/v1/c927866d-6.jpeg)
 
 #### On click
 
 The segment that was previously selected will be unselected and the one clicked will now appear selected. By default this component acts as a mutually exclusive button.
 
-![|264x53](https://assets.ubuntu.com/v1/626f293a-7.jpeg)
+![Example segmented control after clicking on another item](https://assets.ubuntu.com/v1/626f293a-7.jpeg)
 
 ## Examples of this component in use
 
 ### JAAS
 
-![|624x209](https://assets.ubuntu.com/v1/8ce29790-8.png)
+![Example of segmented control component in JAAS toolbar](https://assets.ubuntu.com/v1/8ce29790-8.png)
 
 In JAAS the segmented button is used as a view switcher that will change the grouping of the models in the dashboard. The content remains the same, only the grouping is affected in this case.
 
 ### Charmhub
 
-![|624x349](https://assets.ubuntu.com/v1/5f706705-9.png)
+![Example of segmented control component in Charmhub](https://assets.ubuntu.com/v1/5f706705-9.png)
 
 On Charmhub the component has been used as well as a view switcher to change between the source code of the charm libraries, and the rendered docstrings in a processed way. In this case they also act as secondary tabs, since this content is already included within a set of regular tabs.
 
 ### MAAS
 
-![|624x255](https://assets.ubuntu.com/v1/4a66d5b3-10.png)
+![Example of segmented control component in MAAS](https://assets.ubuntu.com/v1/4a66d5b3-10.png)
 
 MAAS has included segmented buttons in their new designs for docs. In this case they act as a view switcher between docs for the UI or the CLI.
 

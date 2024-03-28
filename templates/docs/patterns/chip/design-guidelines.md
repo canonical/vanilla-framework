@@ -14,7 +14,7 @@ Chips can include a leading label for the metadata displayed in the chip. They c
 
 ## Anatomy
 
-![image|690x281](https://assets.ubuntu.com/v1/794a37b6-1.jpeg)
+![Chips anatomy](https://assets.ubuntu.com/v1/794a37b6-1.jpeg)
 
 The chip is a compact element based on a 24 px high container with a 1 px border and full height border radius. The border colour must satisfy 3:1 contrast against the background colour (more about this in the accessibility section).
 
@@ -35,7 +35,8 @@ Component elements:
 ### Examples
 
 Search & Filter:
-![image|690x62](https://assets.ubuntu.com/v1/961dbc68-2.png)
+
+![Chips in search and filter component](https://assets.ubuntu.com/v1/961dbc68-2.png)
 
 **Chip labels** are useful when the chip values in a certain context belong to different categories.
 The **close button** makes removing filters easier and faster.
@@ -69,12 +70,13 @@ This chip doesn’t use the default background colour. Instead, it has a semanti
 #### The look
 
 There are four semantic colours:
-![image|689x78](https://assets.ubuntu.com/v1/706255f6-3.png)
+![Example of chips in 4 semantic colours](https://assets.ubuntu.com/v1/706255f6-3.png)
 
 #### Usage
 
 The semantic colours can reinforce the chip's status or meaning in its context. These colours, however, should never be used as a single source of information. For example:
-![image|690x500](https://assets.ubuntu.com/v1/e1166493-4.jpeg)
+
+![Example chips usage](https://assets.ubuntu.com/v1/e1166493-4.jpeg)
 
 **Do not rely on colour alone to convey semantic meaning**, as this may not be enough for people with colour blindness. In the example above, the text explicitly states what each group of chips represents.
 
@@ -86,7 +88,7 @@ A special kind of chip with less height and padding.
 
 #### The look
 
-![image|690x32](https://assets.ubuntu.com/v1/5efc5bae-5.png)
+![Dense chip](https://assets.ubuntu.com/v1/5efc5bae-5.png)
 
 #### Usage
 
