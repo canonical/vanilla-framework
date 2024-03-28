@@ -10,7 +10,7 @@ Buttons are clickable elements used to perform actions.
 
 ## Anatomy
 
-![anatomy|690x308](https://assets.ubuntu.com/v1/11160e92-1.png)
+![anatomy|690x308](https://assets.ubuntu.com/v1/4a7db9b4-buttons-anatomy.png)
 
 ## Usage
 
@@ -210,26 +210,3 @@ A negative button can be used to indicate a negative action that is destructive 
 ##### ubuntu.com
 
 ![negative example ubuntu advantage|690x386](https://assets.ubuntu.com/v1/9927ff12-23.png)
-
-### Brand
-
-![brand button|476x148](https://assets.ubuntu.com/v1/0be337da-24.png)
-
-#### Definition
-
-A brand button can be used with the main colour of a brand.
-
-#### Usage
-
-##### When to use
-
-- To indicate a positive action
-- For secondary actions when a primary button for the main action is present
-- For high emphasis actions when a base button is present
-- For main actions when next to a link
-
-##### When not to use
-
-- Do not use as the main/prominent action when a primary button is also present
-- Do not use as a negative action
-- Do not use as a secondary action when a base button is present

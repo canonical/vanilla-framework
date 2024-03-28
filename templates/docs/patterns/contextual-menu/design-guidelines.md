@@ -7,7 +7,7 @@ context:
 
 ## Overview
 
-A contextual menu is a floating menu. It can be applied to any button, link or navigation item that requires a secondary menu.
+A contextual menu is a floating menu. It can be applied to any button or link that requires a secondary menu.
 
 ## Anatomy
 
@@ -15,7 +15,7 @@ The contextual menu is made of these different parts:
 
 ![|357x296](https://assets.ubuntu.com/v1/746507e8-1.png)
 
-1. Trigger (button, link or navigation item). Main element that requires a contextual menu.
+1. Trigger (button or link). Main element that requires a contextual menu.
 2. Menu floating box
 3. Divider (optional)
 4. Title for item’s group (optional)
@@ -40,7 +40,7 @@ The contextual menu is made of these different parts:
 
 ### Open
 
-Selecting (clicking) the main element that requires a secondary menu (button, link or navigation item) will open the contextual menu. It can be open by default.
+Selecting (clicking) the main element that requires a secondary menu (button or link) will open the contextual menu. It can be open by default.
 
 ### Alignment
 
