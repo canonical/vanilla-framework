@@ -2,7 +2,7 @@ const PORT = process.env.PORT || 8101;
 
 module.exports = async () => {
   const {default: GetSiteUrls} = await import('get-site-urls');
-  let links = await GetSiteUrls(`http://localhost:${PORT}/`);
+  let links = await GetSiteUrls(`http://0.0.0.0:${PORT}/`);
   let urls = [];
 
   links = links.found
