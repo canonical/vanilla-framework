@@ -2,26 +2,32 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 8101;
+const DOCS_URL = `http://localhost:${PORT}/docs/examples/`;
 
 async function getExampleFiles() {
-  //
+  // get all example files from templates folder
   let files = await fs.promises.readdir(path.join(process.cwd(), 'templates/docs/examples'), {recursive: true});
 
+  // filter only HTML example files in subfolders that are not partials
   files = files.filter((file) => path.dirname(file) !== '.' && file.endsWith('.html') && !path.basename(file).startsWith('_'));
 
   return files;
 }
 
-const DOCS_URL = `http://localhost:${PORT}/docs/examples/`;
-
 function getExampleUrls(files) {
+  // add standalone versions of the examples in base and patterns folders
+  const standaloneFiles = files.filter((file) => file.startsWith('base/') || file.startsWith('patterns/')).map((file) => path.join('standalone', file));
+
+  files = files.concat(standaloneFiles);
+
+  // map the file paths to URLs
   return files.map((file) => {
     file = file.replace('.html', '');
     return DOCS_URL + file;
   });
 }
 
-async function run() {
+async function getPercyConfigURLs() {
   let links = getExampleUrls(await getExampleFiles());
   let urls = [];
 
@@ -42,5 +48,5 @@ async function run() {
 }
 
 module.exports = async () => {
-  return await run();
+  return await getPercyConfigURLs();
 };
