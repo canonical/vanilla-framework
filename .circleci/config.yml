@@ -47,6 +47,7 @@ jobs:
           command: curl localhost:${PORT}/_status/check -I
       - run:
           name: Snapshot screenshots
+          no_output_timeout: 30m
           command: yarn percy
 
 workflows:
