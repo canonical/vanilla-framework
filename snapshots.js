@@ -1,15 +1,29 @@
+const fs = require('fs');
+const path = require('path');
+
 const PORT = process.env.PORT || 8101;
 
-module.exports = async () => {
-  const {default: GetSiteUrls} = await import('get-site-urls');
-  let links = await GetSiteUrls(`http://0.0.0.0:${PORT}/`);
-  let urls = [];
+async function getExampleFiles() {
+  //
+  let files = await fs.promises.readdir(path.join(process.cwd(), 'templates/docs/examples'), {recursive: true});
 
-  links = links.found
-    // only snapshot examples, not the whole site
-    .filter((url) => url.includes('/docs/examples/'))
-    // remove standalone examples listing from screenshots
-    .filter((url) => !url.match(/examples\/standalone$/));
+  files = files.filter((file) => path.dirname(file) !== '.' && file.endsWith('.html') && !path.basename(file).startsWith('_'));
+
+  return files;
+}
+
+const DOCS_URL = `http://localhost:${PORT}/docs/examples/`;
+
+function getExampleUrls(files) {
+  return files.map((file) => {
+    file = file.replace('.html', '');
+    return DOCS_URL + file;
+  });
+}
+
+async function run() {
+  let links = getExampleUrls(await getExampleFiles());
+  let urls = [];
 
   for (var i = 0; i < links.length; i++) {
     const url = links[i];
@@ -25,4 +39,8 @@ module.exports = async () => {
   }
 
   return urls;
+}
+
+module.exports = async () => {
+  return await run();
 };
