@@ -48,10 +48,7 @@ Please ensure the `aria-control` attribute matches an ID of an element. If `aria
 
 ## Theming
 
-The contextual menu uses Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
-
-- Change the default: go to `_settings_themes.scss` and set `$theme-default-p-contextual-menu` to `dark`
-- Override the default by adding a state to `p-contextual-menu`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
+The contextual menu uses the default inherited theme of the page or parent element. To override the default add `is-dark` or `is-light` class to the contextual menu.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/contextual-menu/dark" class="js-example">
 View example of the contextual menu with an is-dark class
