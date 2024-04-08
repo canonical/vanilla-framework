@@ -54,18 +54,10 @@
     @extend %vf-button-base;
 
     // Theming
-    @if ($theme-default-p-button == 'dark') {
+    @extend %p-button--brand-light;
+
+    &.is-dark {
       @extend %p-button--brand-dark;
-
-      &.is-light {
-        @extend %p-button--brand-light;
-      }
-    } @else {
-      @extend %p-button--brand-light;
-
-      &.is-dark {
-        @extend %p-button--brand-dark;
-      }
     }
 
     @extend %vf-button-white-success-icon;
