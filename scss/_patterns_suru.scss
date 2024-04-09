@@ -8,7 +8,7 @@
     :root,
     .is-light,
     .is-paper {
-      // new suru backgrounds don't have while (light) version,
+      // new suru backgrounds don't have white (light) version,
       // they need paper background
       --vf-suru-background: #{$color-paper};
       --vf-suru-25-75: url('#{$assets-path}505636a6-0000_suru-main-25x75-light.png');
@@ -17,6 +17,7 @@
       --vf-suru-fan-bottom-right: url('#{$assets-path}2adade55-suru-corner-fan--bottom-0000_light.jpg');
       --vf-suru-pyramid-top-left: url('#{$assets-path}8846d6a5-suru-pyramid-top-corner_0000_light.jpg');
       --vf-suru-pyramid-top-right: url('#{$assets-path}5d9f8cd3-suru-pyramid-top-right-corner_0000_light.jpg');
+      --vf-suru-divider: url('#{$assets-path}9e25feb2-suru-triangle-from-left-edge--_0000_light.jpg');
     }
 
     .is-dark {
@@ -27,6 +28,7 @@
       --vf-suru-fan-bottom-right: url('#{$assets-path}725af649-suru-corner-fan--bottom-0001_dark.jpg');
       --vf-suru-pyramid-top-left: url('#{$assets-path}86ed5771-suru-pyramid-top-corner_0001_dark.jpg');
       --vf-suru-pyramid-top-right: url('#{$assets-path}9f740811-suru-pyramid-top-right-corner_0001_dark.jpg');
+      --vf-suru-divider: url('#{$assets-path}9c0bee5c-suru-triangle-from-left-edge--_0001_dark.jpg');
     }
   }
 
@@ -85,7 +87,6 @@
     }
 
     // padding top based on p-section--hero
-    // bottom padding not needed (as it's covered by the suru background image)
     padding-top: $spv--large;
 
     // on large screens, same as %section-padding--shallow
@@ -128,5 +129,24 @@
       background-image: var(--vf-suru-pyramid-top-right);
       background-position: top right;
     }
+  }
+
+  .p-suru--divider {
+    background-color: var(--vf-suru-background);
+    background-image: var(--vf-suru-divider);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 640px 118.5px; // based on image dimensions (2560x474) scaled down by 0.25
+    color: $colors--theme--text-default;
+
+    // same as %section-padding--default
+    padding-bottom: $spv--strip-deep * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-deep;
+    }
+
+    // padding top based on p-section--hero
+    padding-top: $spv--large;
   }
 }
