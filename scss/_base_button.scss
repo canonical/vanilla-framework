@@ -77,8 +77,12 @@
     // stylelint-enable selector-max-type
   }
 
+  // FIXME: buttons are using a custom version of success icon that is not themed
+  // this should ideally be replaced with a themed icon that uses text colour
   %vf-button-white-success-icon {
-    // deprecated, is not needed anymore with new theming
+    & .p-icon--success {
+      @include vf-icon-success($color-x-light, $color-transparent);
+    }
   }
 
   %vf-button-has-icon {
