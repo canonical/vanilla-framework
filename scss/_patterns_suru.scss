@@ -133,25 +133,29 @@
 
   .p-suru--divider {
     background-color: var(--vf-suru-background);
-
     color: $colors--theme--text-default;
-
-    // // same as %section-padding--deep
-    // padding-bottom: $spv--strip-deep;
-
-    // // padding top based on p-section--hero
-    // padding-top: $spv--large;
+    // same as %section-padding--deep
+    padding-bottom: calc($spv--strip-deep / 2);
+    position: relative;
 
     // only apply suru background images on large screens
     @media (min-width: $breakpoint-large) {
-      background-image: var(--vf-suru-divider);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      background-size: 1280px 237px; // based on image dimensions (2560x474) scaled down by 0.5
+      padding-bottom: calc(2 * $spv--strip-deep);
 
-      height: 220px; // adjusted to center the line
-      margin-bottom: -110px;
-      margin-top: -110px;
+      &::after {
+        background-image: var(--vf-suru-divider);
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: 1280px 237px; // based on image dimensions (2560x474) scaled down by 0.5
+
+        bottom: calc((2 * $spv--strip-deep - 220px) / 2);
+        content: '';
+        display: block;
+
+        height: 220px;
+        position: absolute;
+        width: 100%;
+      }
     }
   }
 }
