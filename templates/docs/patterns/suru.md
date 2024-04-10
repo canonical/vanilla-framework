@@ -71,14 +71,19 @@ View example of the left pyramid Suru component
 View example of the right pyramid Suru component
 </a></div>
 
-## Theming
+## Divider suru
 
-Suru component is supported in paper and dark themes. When used in light theme, the paper version of the Suru component is used.
+Use `.p-suru--divider` to create a hero section with the divider suru background. Suru component provides the necessary deep padding around the divider, background colour and the suru image.
 
-You can change the theme by setting `is-dark` or `is-paper` modifier class on the component itself, or on any parent element.
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Responsiveness</h3>
+    <p class="p-notification__message">Divider suru backgrounds are <b>only displayed on large screens</b>, as on smaller screen sizes they would likely overlap with the content.</p>
+  </div>
+</div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/suru/dark" class="js-example">
-View example of the dark Suru component
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/divider" class="js-example">
+View example of the divider Suru component
 </a></div>
 
 ## Import
