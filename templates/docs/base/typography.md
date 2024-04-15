@@ -46,11 +46,10 @@ We use a carefully selected set of weights in our heading hierarchy. As a genera
 | Weight | Use                                                 |
 | ------ | --------------------------------------------------- |
 | 100    | Display headings                                    |
-| 180    | H2, large screens                                   |
-| 230    | H2, medium screens                                  |
-| 300    | H4                                                  |
+| 180    | H2                                                  |
+| 275    | H4                                                  |
 | 400    | Small text, all UI elements, body text, H6 headings |
-| 500    | H5, H3, H1                                          |
+| 550    | H5, H3, H1                                          |
 
 ## Our type scale
 
@@ -65,6 +64,11 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
   </tr>
 </thead>
 <tbody>
+<tr>
+    <td>12px</td>
+    <td>Badges, labels and chips.</td>
+    <td><p class="p-text--x-small">Very small text</p></td>
+  </tr>
   <tr>
     <td>14px</td>
     <td>Secondary text, side notes, etc.</td>
@@ -89,7 +93,7 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
   </tr>
   <tr>
     <td>32px</td>
-    <td><code>h1</code> and <code>h2</code> level headings on small and medium screens..</td>
+    <td><code>h1</code> and <code>h2</code> level headings on small and medium screens.</td>
     <td>
       <p class="p-heading--2 u-no-padding--top" style="font-size: 2rem; line-height: 2.5rem">H2 heading (small and medium screens)</p>
       <p class="p-heading--1" style="font-size: 2rem; line-height: 2.5rem">H1 heading (small and medium screens)</p>
@@ -104,8 +108,13 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
     </td>
   </tr>
   <tr>
+    <td>64px</td>
+    <td>Ad hoc display headings for important bespoke pages on small and medium screens.</td>
+    <td><h1 class="p-heading--display" style="font-size: 4rem; line-height: 4.5rem">Ubuntu Pro</h1></td>
+  </tr>
+  <tr>
     <td>80px</td>
-    <td>Ad hoc display headings for important bespoke pages.</td>
+    <td>Ad hoc display headings for important bespoke pages on large screens.</td>
     <td><h1 class="p-heading--display">Ubuntu Pro</h1></td>
   </tr>
 </tbody>
