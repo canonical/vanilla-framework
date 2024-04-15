@@ -53,7 +53,7 @@ We use a carefully selected set of weights in our heading hierarchy. As a genera
 
 ## Our type scale
 
-Our type scale consists of 5 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
+Our type scale consists of 8 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
 
 <table style="table-layout: auto">
 <thead>
