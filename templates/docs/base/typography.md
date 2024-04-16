@@ -115,7 +115,7 @@ Our type scale consists of 8 font sizes, expressed as rems (root em units). For 
   <tr>
     <td>80px</td>
     <td>Ad hoc display headings for important bespoke pages on large screens.</td>
-    <td><h1 class="p-heading--display">Ubuntu Pro</h1></td>
+    <td><h1 class="p-heading--display" style="font-size: 5rem; line-height: 5.5rem">Ubuntu Pro</h1></td>
   </tr>
 </tbody>
 </table>
