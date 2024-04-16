@@ -43,24 +43,47 @@ Even though a width axis is available, allowing text to be condensed, we do not 
 
 We use a carefully selected set of weights in our heading hierarchy. As a general rule, we reduce the weight of light headings as the font-size increases. We keep the weight of bold headings the same, thereby increasing contrast between light and bold headings as we move up the type scale. The following table provides the full list of weights we use:
 
-| Weight | Use                                                 |
-| ------ | --------------------------------------------------- |
-| 100    | Display headings                                    |
-| 180    | H2                                                  |
-| 275    | H4                                                  |
-| 400    | Small text, all UI elements, body text, H6 headings |
-| 550    | H5, H3, H1                                          |
+<table>
+  <thead>
+    <tr>
+      <th width="50%">Weight</th>
+      <th width="50%">Use</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>Display headings</td>
+      </tr>
+    <tr>
+      <td>180</td>
+      <td>H2</td>
+      </tr>
+    <tr>
+      <td>275</td>
+      <td>H4</td>
+      </tr>
+    <tr>
+      <td>400</td>
+      <td>Small text, all UI elements, body text, H6 headings</td>
+      </tr>
+    <tr>
+      <td>550</td>
+      <td>H5, H3, H1</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Our type scale
 
 Our type scale consists of 8 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
 
-<table style="table-layout: auto">
+<table>
 <thead>
   <tr>
-    <th>Size</th>
-    <th>Use</th>
-    <th>Example</th>
+    <th width="10%">Size</th>
+    <th width="40%">Use</th>
+    <th width="50%">Example</th>
   </tr>
 </thead>
 <tbody>
