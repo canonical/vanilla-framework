@@ -109,7 +109,7 @@
       background-image: var(--vf-suru-fan-top-right);
       background-position: top right;
       background-repeat: no-repeat;
-      background-size: 512px 385.5px; // based on image dimensions (2048x1542) scaled down by 0.25
+      background-size: 32rem 24.09rem; // based on image dimensions (2048x1542) scaled down by 0.25, coverted to rem
     }
 
     .p-suru--fan-bottom {
@@ -122,7 +122,7 @@
       background-image: var(--vf-suru-pyramid-top-left);
       background-position: top left;
       background-repeat: no-repeat;
-      background-size: 354px 258.75px; // based on image dimensions (1380x1035) scaled down by 0.25
+      background-size: 22.125rem 16.1718rem; // based on image dimensions (1380x1035) scaled down by 0.25, converted to rem
     }
 
     .p-suru--pyramid-right {
@@ -143,16 +143,18 @@
       padding-bottom: calc(2 * $spv--strip-deep);
 
       &::after {
+        $suru-divider-height: 13.75rem; // 220px / 16px = 13.75rem
+
         background-image: var(--vf-suru-divider);
         background-position: bottom left;
         background-repeat: no-repeat;
-        background-size: 1280px 237px; // based on image dimensions (2560x474) scaled down by 0.5
+        background-size: 80rem 14.8125rem; // based on image dimensions (2560x474) scaled down by 0.5, converted to rem
 
-        bottom: calc((2 * $spv--strip-deep - 220px) / 2);
+        bottom: calc((2 * $spv--strip-deep - $suru-divider-height) / 2);
         content: '';
         display: block;
 
-        height: 220px;
+        height: $suru-divider-height;
         position: absolute;
         width: 100%;
       }
