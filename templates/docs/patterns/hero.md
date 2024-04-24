@@ -17,7 +17,7 @@ This article explains how to design and build hero sections on brochure sites:
 
 ### Headings section
 
-In its simplest form, a hero is a single `h1` heading wrapped in a [section container](/docs/patterns/section#hero-sections) with `p-section--hero` class name (that provides the necessary 1.5rem top padding and 4rem bottom padding). The `h1` heading is the only required element in all heros. Examples of this type of usage can be found on [canonical.com/blog](https://canonical.com/blog), archive and similar pages.
+In its simplest form, a hero is a single `h1` heading wrapped in a [section container](/docs/patterns/section#hero-sections) with `p-section--hero` class name (that provides the necessary shallow top padding and deep bottom padding). The `h1` heading is the only required element in all hero sections. Examples of this type of usage can be found on [Canonical blog](https://canonical.com/blog), archive and similar pages.
 
 <div>
   <a href="/docs/examples/patterns/hero/hero-heading-1">
@@ -37,7 +37,7 @@ In its simplest form, a hero is a single `h1` heading wrapped in a [section cont
 
 ### Headings section with a subtitle
 
-Often the `h1` heading is followed by a subtitle or another kind of suplementary text. It should be implemented as a paragraph with `p-heading--2`. The spacing between `h1` and `h2`-sized headings is adjusted by Vanilla to shave off the excess margin and paddding. This makes them look like they are part of the same paragraph:
+Often the `h1` heading is followed by a subtitle or another kind of supplementary text. It should be implemented as a paragraph with `p-heading--2`. The spacing between `h1` and `h2`-sized headings is adjusted by Vanilla to shave off the excess margin and padding. This makes them look like they are part of the same paragraph:
 
 <div>
   <a href="/docs/examples/patterns/hero/hero-heading-2">
@@ -141,7 +141,7 @@ We have [utilities to show/hide](https://vanillaframework.io/docs/utilities/hide
 
 ### The 25/75% split on large screens
 
-The examples above use [the 25/75% section layout](/docs/patterns/grid#common-patterns). We have so far only placed content in the 75% column, leaving the first 3 columns of the 12-column large screen grid empty.
+The examples above use [the 25/75% section layout](/docs/patterns/grid#common-patterns). We have so far only placed content in the 75% column, leaving the first 3 columns of the 12 column large screen grid empty.
 
 The first three columns (25% column) can be used for purposes other than adding white space, provided content fits comfortably and doesn’t wrap excessively.
 
