@@ -75,7 +75,7 @@ N.B.: the shortcut classes are not nestable. If you need further subdivision ins
     <h5 class="p-notification__title">Nesting</h5>
     <p class="p-notification__message">
       These common patterns are meant for top level rows only and are <strong>not intended to be nested</strong>. You should not nest <code>row--50-50</code> inside another column.
-      For nested rows, use the standard <code>.row</code> class, as described in <a href="#nested-columns">section about nested columns</a>later on this page.</p>
+      For nested rows, use the standard <code>.row</code> class, as described in <a href="#nested-columns">section about nested columns</a> later on this page.</p>
   </div>
 </div>
 
