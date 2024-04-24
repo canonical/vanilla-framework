@@ -97,9 +97,7 @@ Below, the paragraph is followed by another pause, followed by a form element:
 
 ### Using horizontal rules
 
-We insert [rules](/docs/patterns/rule) (`p-rule`) when large blocks of content are followed by one or more small elements, to help turn the small elements into a block that doesn’t seem overshadowed by preceding content.
-
-A couple of examples below demonstrating both options below:
+We insert [muted rules](/docs/patterns/rule) (`p-rule--muted`) when large blocks of content are followed by one or more small elements, to help turn the small elements into a block that doesn’t seem overshadowed by preceding content.
 
 <div>
   <a href="/docs/examples/brochure/hero-rules">
