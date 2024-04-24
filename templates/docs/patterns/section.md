@@ -14,6 +14,8 @@ Use a hero section component (`.p-section--hero`) to create a hero section with 
 View example of the hero section
 </a></div>
 
+For more information on specific layouts and variants of hero section pattern, see the full [hero pattern documentation](/docs/patterns/hero).
+
 ## Regular sections
 
 Use a section component (`.p-section`) for displaying subsequent sections on the page on a same background. They should be used in place of strips for most of the standard page content.
