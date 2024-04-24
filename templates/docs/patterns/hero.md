@@ -17,7 +17,7 @@ This article explains how to design and build hero sections on brochure sites:
 
 ### Headings section
 
-In its simplest form, a hero is a single `h1` heading wrapped in a section container with `p-section--hero` class name (that provides the necessary 1.5rem top padding and 4rem bottom padding). The `h1` heading is the only required element in all heros. Examples of this type of usage can be found on [canonical.com/blog](https://canonical.com/blog), archive and similar pages.
+In its simplest form, a hero is a single `h1` heading wrapped in a [section container](/docs/patterns/section#hero-sections) with `p-section--hero` class name (that provides the necessary 1.5rem top padding and 4rem bottom padding). The `h1` heading is the only required element in all heros. Examples of this type of usage can be found on [canonical.com/blog](https://canonical.com/blog), archive and similar pages.
 
 <div>
   <a href="/docs/examples/brochure/hero-heading-1">
@@ -143,7 +143,7 @@ We have [utilities to show/hide](https://vanillaframework.io/docs/utilities/hide
 
 ### The 25/75% split on large screens
 
-The examples above use the 25/75% section layout. We have so far only placed content in the 75% column, leaving the first 3 columns of the 12-column large screen grid empty.
+The examples above use [the 25/75% section layout](/docs/patterns/grid#common-patterns). We have so far only placed content in the 75% column, leaving the first 3 columns of the 12-column large screen grid empty.
 
 The first three columns (25% column) can be used for purposes other than adding white space, provided content fits comfortably and doesn’t wrap excessively.
 
@@ -187,14 +187,13 @@ As a “signpost” - a place to insert relevant small logos for example.
 
 Wherever possible, take care to align the baseline of any text in the logo to the baseline of the `h1`. This can be done by exporting the logo with the needed amount of white space inside the image file itself:
 
-<!-- TODO: fix image -->
 <div>
   <a href="/docs/examples/brochure/hero-signpost">
     {{ image (
-      url="https://assets.ubuntu.com/v1/74fb0cc7-vanilla-docs-hero-layout-3.jpg",
+      url="https://assets.ubuntu.com/v1/00a46094-vanilla-docs-hero-layout-3.jpg",
       alt="",
       width="2464",
-      height="625",
+      height="641",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -210,15 +209,14 @@ By default, the 25/75 split is preserved on medium screens by using 2 and 4 of t
 
 It is fine as long as the content of first column is small enough to fit in 2 of the grid’s 6 columns, as in the following example:
 
-<!-- TODO: fix image -->
 <div class="row--25-75">
   <div class="col">
     <a href="/docs/examples/brochure/hero-signpost">
       {{ image (
-        url="https://assets.ubuntu.com/v1/20d3e0a4-vanilla-docs-hero-layout-5.jpg",
+        url="https://assets.ubuntu.com/v1/0099306a-vanilla-docs-hero-layout-4.jpg",
         alt="",
         width="1600",
-        height="673",
+        height="735",
         hi_def=True,
         loading="auto"
         ) | safe
@@ -228,17 +226,16 @@ It is fine as long as the content of first column is small enough to fit in 2 of
   </div>
 </div>
 
-In a case where content in the first column is too large to fit in 2 columns, or the content of second column being long enough to justify using full width of the screen, the layout should be adjusted to stack on medium screens (by using `row--25-75-on-large` variant).
+In a case where content in the first column is too large to fit in 2 columns, or the content of second column being long enough to justify using full width of the screen, the layout should be adjusted to stack on medium screens (by using `row--25-75-on-large` [variant](/docs/patterns/grid#common-patterns)).
 
-<!-- TODO: fix image -->
 <div class="row--25-75">
   <div class="col">
     <a href="/docs/examples/brochure/hero-nested-grid">
       {{ image (
-        url="https://assets.ubuntu.com/v1/1a900733-vanilla-docs-hero-layout-4.jpg",
+        url="https://assets.ubuntu.com/v1/f4ca6477-vanilla-docs-hero-layout-5.jpg",
         alt="",
         width="1600",
-        height="747",
+        height="761",
         hi_def=True,
         loading="auto"
         ) | safe
