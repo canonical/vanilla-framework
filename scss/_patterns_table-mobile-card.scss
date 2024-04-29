@@ -24,8 +24,9 @@
           width: 100%;
         }
 
-        tr {
-          border: $border;
+        // tbody selector needed to override the default table styles
+        tbody tr {
+          border: 1px solid $colors--theme--border-default;
           display: block;
           margin-bottom: $spv--x-large;
           padding: 0 $sph--large;
@@ -64,7 +65,7 @@
           }
 
           &:not(:first-child)::after {
-            background-color: $color-mid-light;
+            background-color: $colors--theme--border-low-contrast;
             content: '';
             height: 1px;
             left: 0;

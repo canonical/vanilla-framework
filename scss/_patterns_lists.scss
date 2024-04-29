@@ -3,14 +3,24 @@ $list-status-icon-height: $default-icon-size;
 $list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
+  // container for stepped lists (`ol`)
+  // defines the layout and resets the native browser counter
   %numbered-step-container {
-    counter-reset: li;
+    counter-reset: list-item;
     display: flex;
     flex-direction: column;
     list-style: none;
     padding-left: 0;
   }
 
+  // list item for stepped lists (`li`)
+  // increments the default browser counter
+  %numbered-step-item {
+    counter-increment: list-item;
+  }
+
+  // title for stepped lists
+  // displays the title and step counter
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
@@ -18,8 +28,7 @@ $list-step-bullet-margin: $sph--x-large;
     position: relative;
 
     &::before {
-      content: counter(li) '.';
-      counter-increment: li;
+      content: counter(list-item) '.';
       display: block;
       height: map-get($line-heights, default-text);
       left: 0;
@@ -30,6 +39,7 @@ $list-step-bullet-margin: $sph--x-large;
     }
   }
 
+  // used with .p-list--nested-counter
   %nested-counter {
     // Counter is named and it will be reset for each "ol" element.
     counter-reset: list-item;
@@ -111,7 +121,7 @@ $list-step-bullet-margin: $sph--x-large;
 }
 
 @mixin vf-list-item-divided {
-  box-shadow: inset 0px 1px 0px 0px $color-mid-x-light;
+  box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
   margin: 0;
   padding-bottom: $sph--large;
   padding-top: $sph--small;
@@ -121,7 +131,7 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   .p-list--divided > .p-list__item:first-child {
-    box-shadow: inset 0px 1px 0px 0px $color-mid-x-light;
+    box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
   }
 }
 
@@ -198,7 +208,7 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       @extend %vf-list-item-state-base;
-      @include vf-icon-success-grey($color-mid-dark);
+      @include vf-icon-success-grey-themed;
     }
   }
 
@@ -207,7 +217,7 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       @extend %vf-list-item-state-base;
-      @include vf-icon-error-grey($color-mid-dark);
+      @include vf-icon-error-grey-themed;
     }
   }
 
@@ -256,37 +266,6 @@ $list-step-bullet-margin: $sph--x-large;
       }
     }
   }
-
-  // Theming
-  @if ($theme-default-p-inline-list--middot == 'dark') {
-    .p-inline-list--middot {
-      @include vf-p-inline-list-middot-dark-theme;
-    }
-
-    .p-inline-list--middot.is-light {
-      @include vf-p-inline-list-middot-light-theme;
-    }
-  } @else {
-    .p-inline-list--middot {
-      @include vf-p-inline-list-middot-light-theme;
-    }
-
-    .p-inline-list--middot.is-dark {
-      @include vf-p-inline-list-middot-dark-theme;
-    }
-  }
-}
-
-@mixin vf-p-inline-list-middot-theme($color-list-text) {
-  color: $color-list-text;
-}
-
-@mixin vf-p-inline-list-middot-light-theme {
-  @include vf-p-inline-list-middot-theme($colors--light-theme--text-default);
-}
-
-@mixin vf-p-inline-list-middot-dark-theme {
-  @include vf-p-inline-list-middot-theme($colors--dark-theme--text-default);
 }
 
 @mixin vf-p-inline-list-stretch {
@@ -314,6 +293,8 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   .p-stepped-list__item {
+    @extend %numbered-step-item;
+
     // override unecessary col-8 class in markup; layout is handled with css below
     float: none;
     margin-left: 0;
@@ -387,24 +368,26 @@ $list-step-bullet-margin: $sph--x-large;
 @mixin vf-p-stepped-list-detailed {
   .p-stepped-list--detailed {
     @extend %numbered-step-container;
-
     margin-left: auto;
 
     @supports (display: grid) {
       .p-stepped-list__content {
-        @media (min-width: $threshold-6-12-col) {
+        @media (min-width: $threshold-4-6-col) {
           grid-column-end: span 6;
           margin-top: 0;
         }
       }
 
       .p-stepped-list__title {
-        grid-column-end: span 6;
-        margin-left: 0;
+        @media (min-width: $threshold-4-6-col) {
+          grid-column-end: span 6;
+          margin-top: 0;
+        }
       }
     }
 
     .p-stepped-list__item {
+      @extend %numbered-step-item;
       @extend %vf-row;
       @include vf-b-row-reset;
 
@@ -413,7 +396,7 @@ $list-step-bullet-margin: $sph--x-large;
         position: relative;
 
         &::after {
-          background-color: $colors--light-theme--border-low-contrast;
+          background-color: $colors--theme--border-low-contrast;
           content: '';
           height: 1px;
           left: 0;

@@ -74,11 +74,13 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
   // The mixin for basic notification styling
   %vf-notification {
     @extend %vf-is-bordered;
-    @extend %vf-bg--x-light;
 
+    background: $colors--theme--background-default;
     background-position: $sph--large $notification-icon-vert-offset;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
+    border-color: $colors--theme--border-default;
+    color: $colors--theme--text-default;
     margin-bottom: $spv--x-large;
     padding-bottom: calc($spv--small - 1px);
     padding-left: $notification-content-icon-space;
@@ -90,7 +92,6 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
     }
 
     &.is-borderless {
-      background-color: transparent;
       background-position: 0 $borderless-notification-icon-vert-offset;
       border: none;
       margin-top: 0;
@@ -145,7 +146,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 
     .p-notification__close {
       @extend %vf-hide-text;
-      @include vf-icon-close($color-mid-dark);
+      @include vf-icon-close-themed;
 
       background-color: transparent;
       background-position: center;
@@ -174,6 +175,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
     .p-notification__timestamp {
       @extend %default-text;
       @extend %muted-text;
+
+      color: $colors--theme--text-muted;
     }
 
     .p-notification__actions {
@@ -187,6 +190,11 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 
     .p-notification__action {
       @extend %default-text;
+      color: $colors--theme--link-default;
+
+      &:visited {
+        color: $colors--theme--link-visited;
+      }
     }
 
     .p-notification__action + .p-notification__action {
@@ -205,8 +213,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-default {
   .p-notification {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-information, left, true);
-    @include vf-icon-info($color-mid-dark);
+    @include vf-highlight-bar($colors--theme--border-information, left, true);
+    @include vf-icon-info-coloured-themed;
   }
 }
 
@@ -214,8 +222,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-positive {
   .p-notification--positive {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-positive, left, true);
-    @include vf-icon-success;
+    @include vf-highlight-bar($colors--theme--border-positive, left, true);
+    @include vf-icon-success-themed;
   }
 }
 
@@ -223,8 +231,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-caution {
   .p-notification--caution {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-caution, left, true);
-    @include vf-icon-warning;
+    @include vf-highlight-bar($colors--theme--border-caution, left, true);
+    @include vf-icon-warning-themed;
   }
 }
 
@@ -232,8 +240,8 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-negative {
   .p-notification--negative {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-negative, left, true);
-    @include vf-icon-error;
+    @include vf-highlight-bar($colors--theme--border-negative, left, true);
+    @include vf-icon-error-themed;
   }
 }
 
@@ -241,7 +249,7 @@ $notification-text-margin-bottom: $spv--large - $spv-nudge;
 @mixin vf-notifications-information {
   .p-notification--information {
     @extend %vf-notification;
-    @include vf-highlight-bar($color-information, left, true);
-    @include vf-icon-info($color-mid-dark);
+    @include vf-highlight-bar($colors--theme--border-information, left, true);
+    @include vf-icon-info-coloured-themed;
   }
 }

@@ -43,28 +43,55 @@ Even though a width axis is available, allowing text to be condensed, we do not 
 
 We use a carefully selected set of weights in our heading hierarchy. As a general rule, we reduce the weight of light headings as the font-size increases. We keep the weight of bold headings the same, thereby increasing contrast between light and bold headings as we move up the type scale. The following table provides the full list of weights we use:
 
-| Weight | Use                                                 |
-| ------ | --------------------------------------------------- |
-| 100    | Display headings                                    |
-| 180    | H2, large screens                                   |
-| 230    | H2, medium screens                                  |
-| 300    | H4                                                  |
-| 400    | Small text, all UI elements, body text, H6 headings |
-| 500    | H5, H3, H1                                          |
+<table>
+  <thead>
+    <tr>
+      <th width="50%">Weight</th>
+      <th width="50%">Use</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>Display headings</td>
+      </tr>
+    <tr>
+      <td>180</td>
+      <td>H2</td>
+      </tr>
+    <tr>
+      <td>275</td>
+      <td>H4</td>
+      </tr>
+    <tr>
+      <td>400</td>
+      <td>Small text, all UI elements, body text, H6 headings</td>
+      </tr>
+    <tr>
+      <td>550</td>
+      <td>H5, H3, H1</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Our type scale
 
-Our type scale consists of 5 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
+Our type scale consists of 8 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
 
-<table style="table-layout: auto">
+<table>
 <thead>
   <tr>
-    <th>Size</th>
-    <th>Use</th>
-    <th>Example</th>
+    <th width="10%">Size</th>
+    <th width="40%">Use</th>
+    <th width="50%">Example</th>
   </tr>
 </thead>
 <tbody>
+<tr>
+    <td>12px</td>
+    <td>Badges, labels and chips.</td>
+    <td><p class="p-text--x-small">Very small text</p></td>
+  </tr>
   <tr>
     <td>14px</td>
     <td>Secondary text, side notes, etc.</td>
@@ -89,7 +116,7 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
   </tr>
   <tr>
     <td>32px</td>
-    <td><code>h1</code> and <code>h2</code> level headings on small and medium screens..</td>
+    <td><code>h1</code> and <code>h2</code> level headings on small and medium screens.</td>
     <td>
       <p class="p-heading--2 u-no-padding--top" style="font-size: 2rem; line-height: 2.5rem">H2 heading (small and medium screens)</p>
       <p class="p-heading--1" style="font-size: 2rem; line-height: 2.5rem">H1 heading (small and medium screens)</p>
@@ -104,9 +131,14 @@ Our type scale consists of 5 font sizes, expressed as rems (root em units). For 
     </td>
   </tr>
   <tr>
+    <td>64px</td>
+    <td>Ad hoc display headings for important bespoke pages on small and medium screens.</td>
+    <td><h1 class="p-heading--display" style="font-size: 4rem; line-height: 4.5rem">Ubuntu Pro</h1></td>
+  </tr>
+  <tr>
     <td>80px</td>
-    <td>Ad hoc display headings for important bespoke pages.</td>
-    <td><h1 class="p-heading--display">Ubuntu Pro</h1></td>
+    <td>Ad hoc display headings for important bespoke pages on large screens.</td>
+    <td><h1 class="p-heading--display" style="font-size: 5rem; line-height: 5.5rem">Ubuntu Pro</h1></td>
   </tr>
 </tbody>
 </table>

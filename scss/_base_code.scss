@@ -1,6 +1,5 @@
 @import 'settings';
 
-$color-pre-bg: rgba($color-x-dark, 0.03);
 $digit-width: 1ch; // measured width of one character in the monospaced font
 $code-sidebar-width: calc($sph--large + (4 * $digit-width)) !default;
 $code-inline-padding: 0.25rem;
@@ -25,7 +24,7 @@ $code-inline-padding: 0.25rem;
   code,
   kbd,
   samp {
-    background-color: $color-code-background;
+    background-color: $colors--theme--background-code;
     box-decoration-break: slice;
     color: inherit;
     line-height: map-get($line-heights, default-text) - $code-inline-padding;
@@ -59,8 +58,8 @@ $code-inline-padding: 0.25rem;
   }
 
   pre {
-    background-color: $color-code-background;
-    color: $colors--light-theme--text-default;
+    background-color: $colors--theme--background-code;
+    color: $colors--theme--text-default;
     display: block;
     margin-bottom: $spv--x-large;
     margin-top: 0;
@@ -71,17 +70,10 @@ $code-inline-padding: 0.25rem;
     white-space: pre;
   }
 
-  // dark theme
-  [class*='--dark'] code,
-  code.is-dark {
-    background-color: $color-code-background-dark;
-    color: $colors--dark-theme--text-default;
-  }
-
   %leading-linux-prompt-icon {
     &::before {
       @extend %icon;
-      @include vf-icon-linux-prompt($color-mid-dark);
+      @include vf-icon-linux-prompt-themed;
 
       content: '';
       left: $sph--large;
@@ -110,7 +102,7 @@ $code-inline-padding: 0.25rem;
     }
 
     &::before {
-      color: $color-mid-dark;
+      color: $colors--theme--text-muted;
       content: counter(line-numbering);
       counter-increment: line-numbering;
       height: 100%;

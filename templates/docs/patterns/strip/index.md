@@ -4,69 +4,51 @@ context:
   title: Strip | Components
 ---
 
-The strip pattern provides a full width strip container in which to wrap a row. A strip can have light (`.p-strip--light`) or dark (`.p-strip--dark`) grey background.
+The strip pattern provides a full width strip container in which to wrap a grid. It is an alternative to the section component, that surrounds its content with a padding both on the top and bottom, and is used usually when a change of the background is needed or to separate different sections of the page.
+
+Strips, similarly to sections, come in 3 sizes: regular (`.p-strip`), [deep](#deep-strip) (`.p-strip is-deep`) and [shallow](#shallow-strip) (`.p-strip is-shallow`).
+
+They fully support [theming](#themes). Changing the theme on the strip component itself will apply the background colour to the entire strip, and affect the theme of the strip content. You can choose between regular strip (with default background of the theme), or highlighted strip (with am alternative lighter version of the background colour).
 
 A `.p-strip` container should always be the parent of a `.row` (from the [Grid pattern](/docs/patterns/grid/)) and never the other way around.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/strips-light/" class="js-example">
-View example of the strip light pattern
-</a></div>
+## Regular strip
 
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/strips-dark/" class="js-example">
+The strip component is rarely used on its own as a container with just `.p-strip` class name. It is usually combined with other variants described below to provide a specific visual style.
+
+If you believe you need a plain `.p-strip` container, you likely want to use a [section](/docs/patterns/section) instead.
+
+## Themes
+
+The strip component can be used to change the background colour of the section, by applying one of the theme class names, such as `is-dark`, `is-light` or `is-paper`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/strips/dark/" class="js-example">
 View example of the strip dark pattern
 </a></div>
 
-## White strip
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">In Vanilla 4.8.0 with the introduction of new theming system the old <code>p-strip--dark</code> is deprecated. Use a strip with <code>is-dark</code> class instead.</p>
+  </div>
+</div>
+
+## Highlighted strip
 
 <span class="p-status-label--positive">New</span>
 
-The purpose of the white strip is to display some highlighted content on white background when page background is non-white (for when using paper page background).
+The purpose of the highlighted strip (`.p-strip--highlighted`) is to display content with a lighter version of the background colour based on the current theme.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/white/" class="js-example">
-View example of the white strip
+<div class="embedded-example"><a href="/docs/examples/patterns/strips/highlighted/" class="js-example">
+View example of the highlighted strip
 </a></div>
 
-## Accent strip
-
-The purpose of the strip accent pattern is to display content with a
-highlighted strip using the accent colour.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/accent/" class="js-example">
-View example of the pattern strip accent
-</a></div>
-
-## Image strip
-
-This pattern allows for an image background to be appear as a background on a strip.
-
-<div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>
-    <span class="p-notification__message">Declare the background-image as an inline style attribute in the HTML.</span>
-  </p>
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">In Vanilla 4.8.0 with the introduction of new theming system and highlighted strip, the old <code>p-strip--light</code>, <code>p-strip--accent</code> are deprecated. Use a highlighted strip <code>p-strip--highlighted</code> instead.</p>
+  </div>
 </div>
-
-You can also add the classes '.is-light' and '.is-dark' to the strips to describe the background image.
-These classes will then override the text color to ensure it remains visible.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/image/" class="js-example">
-View example of the pattern strip image
-</a></div>
-
-## Bordered strip
-
-This pattern is used to add a dividing border at the bottom of the strip.
-
-<div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>
-    <span class="p-notification__message">This should be used when two strips of the same type are used after each other.</span>
-  </p>
-</div>
-
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/is-bordered/" class="js-example">
-View example of the pattern strip is-bordered
-</a></div>
 
 ## Deep strip
 
@@ -84,43 +66,28 @@ This state gives the strip smaller vertical padding.
 View example of the pattern strip is-shallow
 </a></div>
 
-## Suru strip
+## Deprecated
 
-<span class="p-status-label--negative">Deprecated</span>
-
-<div class="p-notification--negative">
+<div class="p-notification--caution">
   <div class="p-notification__content">
-    <h5 class="p-notification__title">Deprecated</h5>
-    <p class="p-notification__message">Strips with old style of the Suru are now deprecated and should not be used on any new pages. Use a blank strip or <a href="/docs/patterns/suru">new Suru component</a> instead.</p>
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">In Vanilla 4.8.0 with the introduction of new theming system and updated Suru component various legacy strip variants have been deprecated.</p>
   </div>
 </div>
 
-This is a patterned strip that is ideal for overview or main pages, and can be used with images.
+The following strip variants are now deprecated and should not be used on any new pages:
 
-The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables. A dark colour scheme is recommended, as the text colour is light by default.
+Instead of deprecated [Suru strip](/docs/examples/patterns/strips/suru/) (`.p-strip--suru`) and [topped Suru strip](/docs/examples/patterns/strips/suru-topped/) (`.p-strip--suru-topped`) use the new [Suru component](/docs/patterns/suru) instead.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/suru/" class="js-example">
-View example of the Suru strip pattern
-</a></div>
+[Strips with arbitrary image backgrounds](/docs/examples/patterns/strips/image/) (`.p-strip--image`) are now also deprecated. For a hero section with a background use the new [Suru component](/docs/patterns/suru) instead.
 
-## Topped Suru strip
+[Bordered strip](/docs/examples/patterns/strips/is-bordered/) (`.p-strip--bordered`) is now deprecated. If a horizontal line is needed to separate parts of content use standard [sections](/docs/patterns/section) and [the rule component](/docs/patterns/rule) instead.
 
-<span class="p-status-label--negative">Deprecated</span>
+[Light strips](/docs/examples/patterns/strips/strips-light) (`.p-strip--light`), [white strips](/docs/examples/patterns/strips/white) (`.p-strip--white`) and [accent strips](/docs/examples/patterns/strips/accent) (`.p-strip--accent`) are now deprecated. Use the new [highlighted strip](#highlighted-strip) instead.
 
-<div class="p-notification--negative">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Deprecated</h5>
-    <p class="p-notification__message">Strips with old style of the Suru are now deprecated and should not be used on any new pages. Use a blank strip or <a href="/docs/patterns/suru">new Suru component</a> instead.</p>
-  </div>
-</div>
+[Dark strip](/docs/examples/patterns/strips/strips-dark) (`.p-strip--dark`) is now deprecated. Use the [new theming](#themes) by applying `is-dark` class name to the strip instead.
 
-This is a patterned strip that is ideal for content pages.
-
-The colours of the solid gradient are based on `$color-brand` by default. The gradient colours can be customised by overriding the `$color-suru-start`, `$color-suru-middle` and `$color-suru-end` variables.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/strips/suru-topped/" class="js-example">
-View example of the topped Suru strip pattern
-</a></div>
+Legacy documentation of the [deprecated strip variants](/docs/patterns/strip/deprecated/) is available for reference until they are removed in the next major release of Vanilla.
 
 ## Import
 

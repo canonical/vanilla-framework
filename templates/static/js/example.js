@@ -200,7 +200,7 @@
         'resize',
         throttle(function () {
           resizeIframe(iframe);
-        }, 10)
+        }, 10),
       );
     }
 

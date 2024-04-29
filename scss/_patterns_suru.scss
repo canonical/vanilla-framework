@@ -1,16 +1,163 @@
 @import 'settings';
 
 @mixin vf-p-suru {
-  .p-suru {
-    aspect-ratio: calc(2216 / 428); // aspect ratio calculated from image dimensions
-    background-image: url('#{$assets-path}7f34ade9-website_suru_25.jpg');
-    background-size: contain;
-    margin: 0 auto;
-    max-width: $grid-max-width;
+  $vf-suru-min-height: 24rem;
 
-    &.is-dark {
-      aspect-ratio: calc(2580 / 501); // aspect ratio calculated from image dimensions
-      background-image: url('#{$assets-path}9469ef82-1_website_suru_DARK_25%20(1)122.jpg');
+  // add suru backgrounds to the themes
+  @at-root {
+    :root,
+    .is-light,
+    .is-paper {
+      // new suru backgrounds don't have white (light) version,
+      // they need paper background
+      --vf-suru-background: #{$color-paper};
+      --vf-suru-25-75: url('#{$assets-path}505636a6-0000_suru-main-25x75-light.png');
+      --vf-suru-50-50: url('#{$assets-path}e66e280b-0001_suru-main-50x50-light.png');
+      --vf-suru-fan-top-right: url('#{$assets-path}ed94a429-0000_suru-corner-fan--top-right-light.jpg');
+      --vf-suru-fan-bottom-right: url('#{$assets-path}2adade55-suru-corner-fan--bottom-0000_light.jpg');
+      --vf-suru-pyramid-top-left: url('#{$assets-path}8846d6a5-suru-pyramid-top-corner_0000_light.jpg');
+      --vf-suru-pyramid-top-right: url('#{$assets-path}5d9f8cd3-suru-pyramid-top-right-corner_0000_light.jpg');
+      --vf-suru-divider: url('#{$assets-path}9e25feb2-suru-triangle-from-left-edge--_0000_light.jpg');
+    }
+
+    .is-dark {
+      --vf-suru-background: #{$colors--theme--background-default};
+      --vf-suru-25-75: url('#{$assets-path}7ccd4f39-0003_suru-main-25x75-dark.png');
+      --vf-suru-50-50: url('#{$assets-path}70c2bbcd-0002_suru-main-50x50-dark.png');
+      --vf-suru-fan-top-right: url('#{$assets-path}fd6ef995-0001_suru-corner-fan--top-right-dark.jpg');
+      --vf-suru-fan-bottom-right: url('#{$assets-path}725af649-suru-corner-fan--bottom-0001_dark.jpg');
+      --vf-suru-pyramid-top-left: url('#{$assets-path}86ed5771-suru-pyramid-top-corner_0001_dark.jpg');
+      --vf-suru-pyramid-top-right: url('#{$assets-path}9f740811-suru-pyramid-top-right-corner_0001_dark.jpg');
+      --vf-suru-divider: url('#{$assets-path}9c0bee5c-suru-triangle-from-left-edge--_0001_dark.jpg');
+    }
+  }
+
+  .p-suru,
+  .p-suru--25-75,
+  .p-suru--50-50 {
+    background-color: var(--vf-suru-background);
+    color: $colors--theme--text-default;
+
+    // padding top based on p-section--hero
+    // bottom padding not needed (as it's covered by the suru background image)
+    padding-top: $spv--large;
+
+    // on large screens, same as %section-padding--shallow
+    @media (min-width: $breakpoint-large) {
+      padding-top: $spv--x-large;
+    }
+
+    // for backwards compatibility with p-suru used as a standalone component
+    // we remove top padding if there are no children
+    // for this to work there can't be any whitespace in the suru element
+    // <div class="p-suru"></div>
+    &:-moz-only-whitespace,
+    &:empty {
+      padding-top: 0;
+    }
+
+    &::after {
+      aspect-ratio: calc(2600 / 471); // aspect ratio calculated from image dimensions
+      background-image: var(--vf-suru-25-75);
+      background-size: contain;
+      content: '';
+      display: block;
+      margin: 0 auto;
+      max-width: $grid-max-width;
+    }
+
+    &.p-suru--50-50::after {
+      // aspect ratio of 50/50 background is the same, so no need to override
+      background-image: var(--vf-suru-50-50);
+    }
+  }
+
+  .p-suru--fan-top,
+  .p-suru--fan-bottom,
+  .p-suru--pyramid-left,
+  .p-suru--pyramid-right {
+    background-color: var(--vf-suru-background);
+    color: $colors--theme--text-default;
+
+    // same as %section-padding--default
+    padding-bottom: $spv--strip-regular * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-regular;
+    }
+
+    // padding top based on p-section--hero
+    padding-top: $spv--large;
+
+    // on large screens, same as %section-padding--shallow
+    @media (min-width: $breakpoint-large) {
+      padding-top: $spv--x-large;
+    }
+  }
+
+  // only apply suru background images on large screens
+  @media (min-width: $breakpoint-large) {
+    .p-suru--fan-top,
+    .p-suru--fan-bottom,
+    .p-suru--pyramid-left,
+    .p-suru--pyramid-right {
+      min-height: $vf-suru-min-height;
+    }
+
+    .p-suru--fan-top,
+    .p-suru--fan-bottom {
+      background-image: var(--vf-suru-fan-top-right);
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: 32rem 24.09rem; // based on image dimensions (2048x1542) scaled down by 0.25, coverted to rem
+    }
+
+    .p-suru--fan-bottom {
+      background-image: var(--vf-suru-fan-bottom-right);
+      background-position: bottom right;
+    }
+
+    .p-suru--pyramid-right,
+    .p-suru--pyramid-left {
+      background-image: var(--vf-suru-pyramid-top-left);
+      background-position: top left;
+      background-repeat: no-repeat;
+      background-size: 22.125rem 16.1718rem; // based on image dimensions (1380x1035) scaled down by 0.25, converted to rem
+    }
+
+    .p-suru--pyramid-right {
+      background-image: var(--vf-suru-pyramid-top-right);
+      background-position: top right;
+    }
+  }
+
+  .p-suru--divider {
+    background-color: var(--vf-suru-background);
+    color: $colors--theme--text-default;
+    // same as %section-padding--deep
+    padding-bottom: calc($spv--strip-deep / 2);
+    position: relative;
+
+    // only apply suru background images on large screens
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: calc(2 * $spv--strip-deep);
+
+      &::after {
+        $suru-divider-height: 13.75rem; // 220px / 16px = 13.75rem
+
+        background-image: var(--vf-suru-divider);
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: 80rem 14.8125rem; // based on image dimensions (2560x474) scaled down by 0.5, converted to rem
+
+        bottom: calc((2 * $spv--strip-deep - $suru-divider-height) / 2);
+        content: '';
+        display: block;
+
+        height: $suru-divider-height;
+        position: absolute;
+        width: 100%;
+      }
     }
   }
 }

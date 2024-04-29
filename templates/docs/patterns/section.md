@@ -6,6 +6,14 @@ context:
 
 Use section components to wrap around parts of content on the page. They are used for managing the bottom space after each element.
 
+## Hero sections
+
+Use a hero section component (`.p-section--hero`) to create a hero section with top padding to be placed at the top of the page.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/section/hero" class="js-example">
+View example of the hero section
+</a></div>
+
 ## Regular sections
 
 Use a section component (`.p-section`) for displaying subsequent sections on the page on a same background. They should be used in place of strips for most of the standard page content.

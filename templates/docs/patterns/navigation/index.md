@@ -12,24 +12,19 @@ sites.
 The navigation items are collapsed behind a "Menu" link in small screens and
 displayed horizontally on larger screens.
 
-<div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>
-    <span class="p-notification__message">By default, the width of the navigation is constrained to <code>$grid-max-width</code>. To make the navigation full width, replace <code>.p-navigation__row</code> with <code>.p-navigation__row--full-width</code>.</span>
-  </p>
-</div>
-
-The navigation pattern is one of the first patterns to implement the new theming architecture in Vanilla. The default is light. But, to switch to a dark navigation, you can either:
-
-- Override the value of the `$theme-default-nav` in `_settings_themes.scss` to `dark`
-- Add a state class to the `p-navigation` class: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark
-
 You can change the breakpoint at which the menu changes to a small screen menu
 by adjusting the `$breakpoint-navigation-threshold` variable from `_settings_breakpoints.scss`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/default/" class="js-example">
 View example of the navigation pattern
 </a></div>
+
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">New in Vanilla 4.7.0:</span>
+    <span class="p-notification__message">Starting with Vanilla 4.7.0 we recommend using new <code>p-navigation__row--25-75</code> in place of <code>p-navigation__row</code> on brochure websites to better align with the grid.</span>
+  </p>
+</div>
 
 ## Dropdown
 
@@ -39,7 +34,7 @@ To open the dropdown you need to set the `is-active` class on `p-navigation__ite
 
 By default, dropdowns are left-aligned with their parent; if you'd prefer the menu to be positioned from the right, use the `p-navigation__dropdown--right` modifier. This can be seen in the "My account" menu in the example.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown-dark" class="js-example">
 View example of the dropdown pattern
 </a></div>
 
@@ -72,13 +67,13 @@ On small screens the search box and menu items can be expanded individually as t
     <span class="p-notification__message">In Vanilla 3.2 we updated the way expanding search works on small screens and now it requires some changes to the HTML structure of menu items for small screens and additional JavaScript functionality for toggling the small screen navigation dropdowns.</p></span>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-light" class="js-example"> View example of the search navigation </a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-dark" class="js-example"> View example of the search navigation </a></div>
 
 ## Side navigation
 
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
 
-It allows grouping the links into navigation sections and nesting them up to three levels.
+It allows grouping the links into navigation sections and nesting them up to four levels.
 
 Current page in the side navigation should be highlighted by adding `aria-current="page"` attribute to the corresponding `p-side-navigation__link` element. Alternatively, if `aria-current` attribute cannot be set, the `is-active` class can be used instead.
 
@@ -196,9 +191,7 @@ For more information, read the dedicated [application layout documentation](/doc
 The side navigation is available in a light and a dark theme. The colours used by both themes in the [colour settings file](https://github.com/canonical/vanilla-framework/blob/main/scss/_settings_colors.scss).
 Overriding the colours of individual elements of the side navigation is discouraged, as this may lead to accessibility issues, or inconsistencies with other components that use the same theme.
 
-By default, the side navigation uses the light theme. To change the global default, set `$theme-default-p-side-navigation` to `dark`.
-
-To change the appearance of an individual instance of the side navigation, you can use the `is-dark` class.
+By default, the side navigation uses the current theme of the page. To change the appearance of an individual instance of the side navigation, you can use the `is-dark` class.
 
 For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 

@@ -50,6 +50,16 @@
   }
 }
 
+// Includes the theme variables based on the background color passed as an argument.
+// This is currently only used in the deprecated p-strip--accent.
+@mixin vf-determine-theme-from-background($background-color) {
+  @if (lightness($background-color) > 50) {
+    @include vf-theme-light;
+  } @else {
+    @include vf-theme-dark;
+  }
+}
+
 // Adds visual focus to elements on :focus-visible,
 // or :focus if the browser doesn't support the former
 @mixin vf-focus($color: $color-focus, $width: $bar-thickness, $has-validation: false) {

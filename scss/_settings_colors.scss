@@ -14,7 +14,7 @@ $color-input-shadow: rgba($color-x-dark, 0.12) !default;
 
 // SEMANTIC COLOURS
 $color-negative: #c7162b !default;
-$color-caution: #f99b11 !default;
+$color-caution: #cc7900 !default;
 $color-positive: #0e8420 !default;
 $color-information: #24598f !default;
 
@@ -49,6 +49,9 @@ $active-background-opacity-amount: 0.08;
 
 $muted-text-opacity-amount: 0.6;
 $inactive-text-opacity-amount: 0.75;
+
+$active-background-opacity-percentage: $active-background-opacity-amount * 100%;
+$hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
 // NON-SEMANTIC COLOURS
 $color-label-validated: #006b75;
@@ -85,6 +88,10 @@ $states: (
 // --text-disabled   - dimmed version of default text color, to be used on disabled controls
 // --text-muted      - muted version of default text color, to be used on elements with less prominence
 //
+// Link colors:
+// --link-default    - default link color
+// --link-visited    - visited link color
+//
 // Background colors:
 // --background           - default background color
 // --background-alt       - alternative version of background color, to be used to differentiate given surface
@@ -102,8 +109,12 @@ $colors--light-theme--text-default: #000 !default;
 $colors--light-theme--text-muted: rgba($color-x-dark, $muted-text-opacity-amount) !default;
 $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-amount) !default;
 
+$colors--light-theme--link-default: $color-link !default;
+$colors--light-theme--link-visited: $color-link-visited !default;
+
 $colors--light-theme--background-default: #fff !default;
 $colors--light-theme--background-alt: #f7f7f7 !default;
+$colors--light-theme--background-code: $color-code-background !default;
 $colors--light-theme--background-inputs: adjust-color($color-x-dark, $lightness: 100% * (1 - $input-background-opacity-amount)) !default;
 $colors--light-theme--background-active: adjust-color($color-x-dark, $lightness: 100% * (1 - $active-background-opacity-amount)) !default;
 $colors--light-theme--background-hover: adjust-color($color-x-dark, $lightness: 100% * (1 - $hover-background-opacity-amount)) !default;
@@ -112,6 +123,8 @@ $colors--light-theme--background-overlay: transparentize($color-dark, 0.15) !def
 $colors--light-theme--border-default: rgba($color-x-dark, 0.2) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
 $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
+
+$colors--light-theme--icon: $colors--light-theme--text-default !default;
 
 $colors-light-theme--tinted-backgrounds: (
   neutral: (
@@ -144,7 +157,7 @@ $colors-light-theme--tinted-backgrounds: (
 $colors-light-theme--tinted-borders: (
   neutral: $colors--light-theme--border-high-contrast,
   positive: $color-positive,
-  caution: hsl(27deg 100% 39%),
+  caution: $color-caution,
   negative: $color-negative,
   information: $color-information,
 );
@@ -155,16 +168,22 @@ $colors--dark-theme--text-hover: hsl(0, 0%, 76%) !default; // minimum contrast o
 $colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, $muted-text-opacity-amount) !default;
 $colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $inactive-text-opacity-amount) !default;
 
+$colors--dark-theme--link-default: $color-link-dark !default;
+$colors--dark-theme--link-visited: $color-link-visited-dark !default;
+
 $colors--dark-theme--background-default: #262626 !default;
 $colors--dark-theme--background-alt: #2d2d2d !default;
+$colors--dark-theme--background-code: $color-code-background-dark !default;
 $colors--dark-theme--background-inputs: rgba($colors--dark-theme--text-default, $input-background-opacity-amount) !default;
 $colors--dark-theme--background-active: rgba($colors--dark-theme--text-default, $active-background-opacity-amount) !default;
 $colors--dark-theme--background-hover: rgba($colors--dark-theme--text-default, $hover-background-opacity-amount) !default;
 $colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !default;
 
-$colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.3) !default;
+$colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.2) !default;
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.5) !default;
-$colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.05) !default;
+$colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default, 0.1) !default;
+
+$colors--dark-theme--icon: $colors--dark-theme--text-default !default;
 
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
@@ -206,6 +225,183 @@ $colors-dark-theme--tinted-borders: (
 $colors--paper-theme--background-inputs: rgba($color-x-dark, $input-background-opacity-amount) !default;
 $colors--paper-theme--background-active: rgba($color-x-dark, $active-background-opacity-amount) !default;
 $colors--paper-theme--background-hover: rgba($color-x-dark, $hover-background-opacity-amount) !default;
+
+// Current theme (based on CSS variables)
+// This is a mapping between SCSS variable and it's CSS property equivalent.
+// These SCSS variables should be used in components as colour values.
+// See _base_themes.scss for CSS custom properties definitions.
+$colors--theme--text-default: var(--vf-color-text-default);
+$colors--theme--text-muted: var(--vf-color-text-muted);
+$colors--theme--text-inactive: var(--vf-color-text-inactive);
+
+$colors--theme--link-default: var(--vf-color-link-default);
+$colors--theme--link-visited: var(--vf-color-link-visited);
+
+$colors--theme--background-default: var(--vf-color-background-default);
+$colors--theme--background-alt: var(--vf-color-background-alt);
+$colors--theme--background-code: var(--vf-color-background-code);
+$colors--theme--background-inputs: var(--vf-color-background-inputs);
+$colors--theme--background-active: var(--vf-color-background-active);
+$colors--theme--background-hover: var(--vf-color-background-hover);
+$colors--theme--background-overlay: var(--vf-color-background-overlay);
+
+$colors--theme--border-default: var(--vf-color-border-default);
+$colors--theme--border-high-contrast: var(--vf-color-border-high-contrast);
+$colors--theme--border-low-contrast: var(--vf-color-border-low-contrast);
+
+$colors--theme--border-neutral: var(--vf-color-border-neutral);
+$colors--theme--border-positive: var(--vf-color-border-positive);
+$colors--theme--border-negative: var(--vf-color-border-negative);
+$colors--theme--border-information: var(--vf-color-border-information);
+$colors--theme--border-caution: var(--vf-color-border-caution);
+
+$colors--theme--background-neutral-default: var(--vf-color-background-neutral-default);
+$colors--theme--background-neutral-hover: var(--vf-color-background-neutral-hover);
+$colors--theme--background-neutral-active: var(--vf-color-background-neutral-active);
+$colors--theme--background-positive-default: var(--vf-color-background-positive-default);
+$colors--theme--background-positive-hover: var(--vf-color-background-positive-hover);
+$colors--theme--background-positive-active: var(--vf-color-background-positive-active);
+$colors--theme--background-caution-default: var(--vf-color-background-caution-default);
+$colors--theme--background-caution-hover: var(--vf-color-background-caution-hover);
+$colors--theme--background-caution-active: var(--vf-color-background-caution-active);
+$colors--theme--background-negative-default: var(--vf-color-background-negative-default);
+$colors--theme--background-negative-hover: var(--vf-color-background-negative-hover);
+$colors--theme--background-negative-active: var(--vf-color-background-negative-active);
+$colors--theme--background-information-default: var(--vf-color-background-information-default);
+$colors--theme--background-information-hover: var(--vf-color-background-information-hover);
+$colors--theme--background-information-active: var(--vf-color-background-information-active);
+
+$colors--theme--button-positive-default: var(--vf-color-button-positive-default);
+$colors--theme--button-positive-hover: var(--vf-color-button-positive-hover);
+$colors--theme--button-positive-active: var(--vf-color-button-positive-active);
+$colors--theme--button-positive-text: var(--vf-color-button-positive-text);
+
+$colors--theme--button-negative-default: var(--vf-color-button-negative-default);
+$colors--theme--button-negative-hover: var(--vf-color-button-negative-hover);
+$colors--theme--button-negative-active: var(--vf-color-button-negative-active);
+$colors--theme--button-negative-text: var(--vf-color-button-negative-text);
+
+// Theme colors exposed as CSS custom properties
+@mixin vf-theme-light--colors {
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-text-default: #{$colors--light-theme--text-default};
+  --vf-color-text-muted: #{$colors--light-theme--text-muted};
+  --vf-color-text-inactive: #{$colors--light-theme--text-inactive};
+
+  --vf-color-link-default: #{$colors--light-theme--link-default};
+  --vf-color-link-visited: #{$colors--light-theme--link-visited};
+
+  --vf-color-background-default: #{$colors--light-theme--background-default};
+  --vf-color-background-alt: #{$colors--light-theme--background-alt};
+  --vf-color-background-code: #{$colors--light-theme--background-code};
+  --vf-color-background-inputs: #{$colors--light-theme--background-inputs};
+  --vf-color-background-active: #{$colors--light-theme--background-active};
+  --vf-color-background-hover: #{$colors--light-theme--background-hover};
+  --vf-color-background-overlay: #{$colors--light-theme--background-overlay};
+
+  --vf-color-border-default: #{$colors--light-theme--border-default};
+  --vf-color-border-high-contrast: #{$colors--light-theme--border-high-contrast};
+  --vf-color-border-low-contrast: #{$colors--light-theme--border-low-contrast};
+
+  --vf-color-border-neutral: #{map-get($colors-light-theme--tinted-borders, neutral)};
+  --vf-color-border-positive: #{map-get($colors-light-theme--tinted-borders, positive)};
+  --vf-color-border-negative: #{map-get($colors-light-theme--tinted-borders, negative)};
+  --vf-color-border-information: #{map-get($colors-light-theme--tinted-borders, information)};
+  --vf-color-border-caution: #{map-get($colors-light-theme--tinted-borders, caution)};
+
+  --vf-color-background-neutral-default: #{map-get($colors-light-theme--tinted-backgrounds, neutral, default)};
+  --vf-color-background-neutral-hover: #{map-get($colors-light-theme--tinted-backgrounds, neutral, 'hover')};
+  --vf-color-background-neutral-active: #{map-get($colors-light-theme--tinted-backgrounds, neutral, active)};
+  --vf-color-background-positive-default: #{map-get($colors-light-theme--tinted-backgrounds, positive, default)};
+  --vf-color-background-positive-hover: #{map-get($colors-light-theme--tinted-backgrounds, positive, 'hover')};
+  --vf-color-background-positive-active: #{map-get($colors-light-theme--tinted-backgrounds, positive, active)};
+  --vf-color-background-caution-default: #{map-get($colors-light-theme--tinted-backgrounds, caution, default)};
+  --vf-color-background-caution-hover: #{map-get($colors-light-theme--tinted-backgrounds, caution, 'hover')};
+  --vf-color-background-caution-active: #{map-get($colors-light-theme--tinted-backgrounds, caution, active)};
+  --vf-color-background-negative-default: #{map-get($colors-light-theme--tinted-backgrounds, negative, default)};
+  --vf-color-background-negative-hover: #{map-get($colors-light-theme--tinted-backgrounds, negative, 'hover')};
+  --vf-color-background-negative-active: #{map-get($colors-light-theme--tinted-backgrounds, negative, active)};
+  --vf-color-background-information-default: #{map-get($colors-light-theme--tinted-backgrounds, information, default)};
+  --vf-color-background-information-hover: #{map-get($colors-light-theme--tinted-backgrounds, information, 'hover')};
+  --vf-color-background-information-active: #{map-get($colors-light-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-button-positive-default: #{$color-positive};
+  --vf-color-button-positive-hover: #{adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-positive-active: #{adjust-color($color-positive, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-positive-text: #{vf-contrast-text-color($color-positive)};
+
+  --vf-color-button-negative-default: #{$color-negative};
+  --vf-color-button-negative-hover: #{adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-negative-active: #{adjust-color($color-negative, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-negative-text: #{vf-contrast-text-color($color-negative)};
+}
+
+@mixin vf-theme-dark--colors {
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-text-default: #{$colors--dark-theme--text-default};
+  --vf-color-text-muted: #{$colors--dark-theme--text-muted};
+  --vf-color-text-inactive: #{$colors--dark-theme--text-inactive};
+
+  --vf-color-link-default: #{$colors--dark-theme--link-default};
+  --vf-color-link-visited: #{$colors--dark-theme--link-visited};
+
+  --vf-color-background-default: #{$colors--dark-theme--background-default};
+  --vf-color-background-alt: #{$colors--dark-theme--background-alt};
+  --vf-color-background-code: #{$colors--dark-theme--background-code};
+  --vf-color-background-inputs: #{$colors--dark-theme--background-inputs};
+  --vf-color-background-active: #{$colors--dark-theme--background-active};
+  --vf-color-background-hover: #{$colors--dark-theme--background-hover};
+  --vf-color-background-overlay: #{$colors--dark-theme--background-overlay};
+
+  --vf-color-border-default: #{$colors--dark-theme--border-default};
+  --vf-color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
+  --vf-color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
+
+  --vf-color-border-neutral: #{map-get($colors-dark-theme--tinted-borders, neutral)};
+  --vf-color-border-positive: #{map-get($colors-dark-theme--tinted-borders, positive)};
+  --vf-color-border-negative: #{map-get($colors-dark-theme--tinted-borders, negative)};
+  --vf-color-border-information: #{map-get($colors-dark-theme--tinted-borders, information)};
+  --vf-color-border-caution: #{map-get($colors-dark-theme--tinted-borders, caution)};
+
+  --vf-color-background-neutral-default: #{map-get($colors-dark-theme--tinted-backgrounds, neutral, default)};
+  --vf-color-background-neutral-hover: #{map-get($colors-dark-theme--tinted-backgrounds, neutral, hover)};
+  --vf-color-background-neutral-active: #{map-get($colors-dark-theme--tinted-backgrounds, neutral, active)};
+  --vf-color-background-positive-default: #{map-get($colors-dark-theme--tinted-backgrounds, positive, default)};
+  --vf-color-background-positive-hover: #{map-get($colors-dark-theme--tinted-backgrounds, positive, hover)};
+  --vf-color-background-positive-active: #{map-get($colors-dark-theme--tinted-backgrounds, positive, active)};
+  --vf-color-background-caution-default: #{map-get($colors-dark-theme--tinted-backgrounds, caution, default)};
+  --vf-color-background-caution-hover: #{map-get($colors-dark-theme--tinted-backgrounds, caution, hover)};
+  --vf-color-background-caution-active: #{map-get($colors-dark-theme--tinted-backgrounds, caution, active)};
+  --vf-color-background-negative-default: #{map-get($colors-dark-theme--tinted-backgrounds, negative, default)};
+  --vf-color-background-negative-hover: #{map-get($colors-dark-theme--tinted-backgrounds, negative, hover)};
+  --vf-color-background-negative-active: #{map-get($colors-dark-theme--tinted-backgrounds, negative, active)};
+  --vf-color-background-information-default: #{map-get($colors-dark-theme--tinted-backgrounds, information, default)};
+  --vf-color-background-information-hover: #{map-get($colors-dark-theme--tinted-backgrounds, information, hover)};
+  --vf-color-background-information-active: #{map-get($colors-dark-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-button-positive-default: #{$color-positive-dark};
+  --vf-color-button-positive-hover: #{adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-positive-active: #{adjust-color($color-positive-dark, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-positive-text: #{vf-contrast-text-color($color-positive-dark)};
+
+  --vf-color-button-negative-default: #{$color-negative-dark};
+  --vf-color-button-negative-hover: #{adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-negative-active: #{adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-negative-text: #{vf-contrast-text-color($color-negative-dark)};
+}
+
+@mixin vf-theme-paper--colors {
+  // paper theme is based on light theme with some background colours adjusted
+  @include vf-theme-light--colors;
+
+  // SCSS variables need to be interpolated to work in CSS custom properties
+  --vf-color-background-default: #{$color-paper};
+  --vf-color-background-alt: #{$color-x-light};
+
+  --vf-color-background-inputs: #{$colors--paper-theme--background-inputs};
+  --vf-color-background-active: #{$colors--paper-theme--background-active};
+  --vf-color-background-hover: #{$colors--paper-theme--background-hover};
+}
 
 // Branding colors
 $color-ubuntu: #e95420; // Ubuntu orange, should not be overridden

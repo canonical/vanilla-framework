@@ -18,7 +18,7 @@
   // Default form input element styles
   %vf-input-elements {
     @extend %bordered-text-vertical-padding;
-    @include vf-focus($color-focus, $bar-thickness, true);
+    @include vf-focus($has-validation: true);
     @include vf-animation(#{background-color}, fast);
 
     // stylelint-disable property-no-vendor-prefix
@@ -26,11 +26,11 @@
     -moz-appearance: textfield;
     appearance: textfield;
     // stylelint-enable property-no-vendor-prefix
-    background-color: $colors--light-theme--background-inputs;
+    background-color: $colors--theme--background-inputs;
     border: 0 solid transparent;
-    border-bottom: $input-border-thickness solid $colors--light-theme--text-default;
+    border-bottom: $input-border-thickness solid $colors--theme--border-high-contrast;
     border-radius: 0;
-    color: $colors--light-theme--text-default;
+    color: $colors--theme--text-default;
     font-family: unquote($font-base-family);
     font-size: 1rem;
     font-weight: $font-weight-regular-text;
@@ -43,12 +43,28 @@
     width: 100%;
 
     &:hover {
-      background-color: $colors--light-theme--background-hover;
+      background-color: $colors--theme--background-hover;
     }
 
     &:active,
     &:focus {
-      background-color: $colors--light-theme--background-active;
+      background-color: $colors--theme--background-active;
+    }
+
+    // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+    option,
+    option:checked {
+      background-color: $colors--theme--background-alt;
+      color: $colors--theme--text-default;
+    }
+
+    // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
+    option:checked:not(:disabled) {
+      background-color: $colors--theme--background-active;
+    }
+
+    &::placeholder {
+      color: $colors--theme--text-muted;
     }
 
     &.is-dense {
@@ -72,32 +88,6 @@
         border: $input-border-thickness solid $color;
       }
     }
-
-    // Theming
-    @if ($theme-default-forms == 'dark') {
-      @include vf-input-dark-theme;
-
-      &.is-light {
-        @include vf-input-light-theme;
-      }
-
-      .is-paper &,
-      &.is-paper {
-        @include vf-input-paper-theme;
-      }
-    } @else {
-      @include vf-input-light-theme;
-
-      .is-dark &,
-      &.is-dark {
-        @include vf-input-dark-theme;
-      }
-
-      .is-paper &,
-      &.is-paper {
-        @include vf-input-paper-theme;
-      }
-    }
   }
 
   // Disabled form elements
@@ -108,14 +98,8 @@
 
   // Readonly form elements
   %vf-readonly-element {
-    color: $color-mid-light;
+    color: $colors--theme--text-muted;
     cursor: default;
-
-    &:hover,
-    &:active {
-      border-color: $color-mid-dark;
-      outline: none;
-    }
   }
 
   // stylelint-disable selector-max-type -- base styles can use type selectors
@@ -199,14 +183,14 @@
 
   // Select styles
   select {
-    @include vf-icon-chevron;
+    @include vf-icon-chevron-themed;
 
     // stylelint-disable property-no-vendor-prefix
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
     // stylelint-enable property-no-vendor-prefix
-    background-position: right $sph--small center;
+    background-position: right calc(map-get($grid-margin-widths, default) / 2) center;
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
@@ -252,75 +236,4 @@
     padding: calc($spv--large - $input-border-thickness);
   }
   // stylelint-enable selector-max-type
-}
-
-@mixin vf-input-theme($color-background-default, $color-background-hover, $color-background-active, $color-background-option, $color-border, $color-text, $color-text-placeholder) {
-  background-color: $color-background-default;
-  border-color: $color-border;
-  color: $color-text;
-
-  &:hover {
-    background-color: $color-background-hover;
-  }
-
-  &:active,
-  &:focus {
-    background-color: $color-background-active;
-  }
-
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  option,
-  option:checked {
-    background-color: $color-background-option;
-    color: $color-text;
-  }
-
-  // stylelint-disable-next-line selector-max-type -- base styles can use type selectors
-  option:checked:not(:disabled) {
-    background-color: $color-background-active;
-  }
-
-  &::placeholder {
-    color: $color-text-placeholder;
-  }
-}
-
-@mixin vf-input-light-theme {
-  @include vf-input-theme(
-    $color-background-default: $colors--light-theme--background-inputs,
-    $color-background-hover: $colors--light-theme--background-hover,
-    $color-background-active: $colors--light-theme--background-active,
-    $color-background-option: $colors--light-theme--background-alt,
-    $color-border: $colors--light-theme--text-default,
-    $color-text: $colors--light-theme--text-default,
-    $color-text-placeholder: $colors--light-theme--text-muted
-  );
-}
-
-@mixin vf-input-paper-theme {
-  // XXX: currently these colours are transparent,
-  // so they work both on paper and white backgrounds.
-  // We may need later to add a specific override for
-  // a white background within paper themed pages.
-  @include vf-input-theme(
-    $color-background-default: $colors--paper-theme--background-inputs,
-    $color-background-hover: $colors--paper-theme--background-hover,
-    $color-background-active: $colors--paper-theme--background-active,
-    $color-background-option: $colors--light-theme--background-alt,
-    $color-border: $colors--light-theme--text-default,
-    $color-text: $colors--light-theme--text-default,
-    $color-text-placeholder: $colors--light-theme--text-muted
-  );
-}
-
-@mixin vf-input-dark-theme {
-  @include vf-input-theme(
-    $color-background-default: $colors--dark-theme--background-inputs,
-    $color-background-hover: $colors--dark-theme--background-hover,
-    $color-background-active: $colors--dark-theme--background-active,
-    $color-background-option: $colors--dark-theme--background-alt,
-    $color-border: $colors--dark-theme--border-high-contrast,
-    $color-text: $colors--dark-theme--text-default,
-    $color-text-placeholder: $colors--dark-theme--text-muted
-  );
 }

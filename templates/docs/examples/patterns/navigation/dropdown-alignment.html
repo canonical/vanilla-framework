@@ -1,0 +1,93 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Dropdown alignment{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+<header id="navigation" class="p-navigation is-dark">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="" >
+          </div>
+          <span class="p-navigation__logo-title">Ubuntu</span>
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example main">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" id="link-2">
+          <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">LXD</button>
+          <ul class="p-navigation__dropdown" id="link-2-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle is-active" id="link-3">
+          <button href="#link-3-menu" aria-controls="link-3-menu" class="p-navigation__link">LXCFS</button>
+          <ul class="p-navigation__dropdown" id="link-3-menu" aria-hidden="false">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" id="link-4">
+          <button class="p-navigation__link" aria-controls="account-menu">
+            My account
+          </button>
+          <ul class="p-navigation__dropdown--right" id="account-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="p-strip is-shallow u-fixed-width">
+  <p>Navigation dropdowns on the right need to align with selects or search icons.</p>
+  <select>
+    <option>Test</option>
+  </select>
+
+  <form class="p-search-box">
+    <label class="u-off-screen" for="search">Search</label>
+    <input type="search" id="search" class="p-search-box__input" name="search" placeholder="Search" required autocomplete="on">
+    <button type="reset" class="p-search-box__reset"><i class="p-icon--close">Close</i></button>
+    <button type="submit" class="p-search-box__button"><i class="p-icon--search">Search</i></button>
+  </form>
+</div>
+
+<script>
+  {% include 'docs/examples/patterns/navigation/_script.js' %}
+
+initNavDropdowns('.p-navigation__item--dropdown-toggle')
+</script>
+{% endblock %}

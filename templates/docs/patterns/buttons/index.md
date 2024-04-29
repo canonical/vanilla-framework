@@ -45,14 +45,6 @@ A negative button can be used to indicate a negative action that is destructive 
 View example of the negative button pattern
 </a></div>
 
-## Brand
-
-You can use the brand button with the main color of your brand.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/buttons/brand/" class="js-example">
-View example of the brand button pattern
-</a></div>
-
 ## Link
 
 In some contexts you may need a button to look visually identical to a link.
@@ -105,14 +97,20 @@ View example of the processing button pattern
 
 ## Theming
 
-The buttons use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
-
-- Override the default by adding a state to `p-button`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
-- Change the default: go to `_settings_themes.scss` and set `$theme-default-p-button` to `dark`
+The buttons use Vanilla's theme colours. You can switch the theme by adding `is-dark`, `is-light` or `is-paper` class name on any parent element or the button itself.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/dark" class="js-example">
 View example of the buttons with an is-dark class
 </a></div>
+
+## Brand
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">Brand-coloured buttons are deprecated since Vanilla 4.9.0 and will be removed in future version of Vanilla. Please use another type of button instead.</p>
+  </div>
+</div>
 
 ## Import
 

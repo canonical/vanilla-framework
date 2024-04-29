@@ -1,0 +1,157 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Deprecated old logo{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+
+<p>Light theme with expanding search:</p>
+<header id="navigation" class="p-navigation">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__logo">
+        <a class="p-navigation__item" href="#">
+          <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/5d6da5c4-logo-canonical-aubergine.svg" alt="Canonical" width="95" />
+        </a>
+      </div>
+      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item is-selected">
+          <a class="p-navigation__link" href="#">Products</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Services</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Partners</a>
+        </li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <a href="#" class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </a>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form class="p-search-box">
+          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required="" aria-label="Search our sites">
+          <button type="reset" class="p-search-box__reset"><i class="p-icon--close"></i></button>
+          <button type="submit" class="p-search-box__button"><i class="p-icon--search"></i></button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="p-navigation__search-overlay"></div>
+</header>
+
+
+<p>Dark theme with search box:</p>
+
+<header id="navigation2" class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__logo">
+        <a class="p-navigation__item" href="#">
+          <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/3c7954dd-logo-canonical-white.svg" alt="" width="95" />
+        </a>
+      </div>
+      <a href="#navigation2" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation2-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example with a search box component">
+      <span class="u-off-screen">
+        <a href="#main-content">Jump to main content</a>
+      </span>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="#">Products</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="#">Services</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="#">Partners</a></li>
+      </ul>
+      <form class="p-search-box is-dark">
+        <label class="u-off-screen" for="search">Search</label>
+        <input type="search" class="p-search-box__input" name="search" placeholder="Search" id="search" required autocomplete="on">
+        <button type="reset" class="p-search-box__reset"><i class="p-icon--close is-light">Close</i></button>
+        <button type="submit" class="p-search-box__button"><i class="p-icon--search is-light">Search</i></button>
+      </form>
+    </nav>
+  </div>
+</header>
+
+
+<p>Dark theme with dropdowns:</p>
+
+<header id="navigation3" class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__logo">
+        <a class="p-navigation__item" href="#">
+          <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/20673d9f-lxd_primary--for-dark-bg.svg" alt="LXD" width="95">
+        </a>
+      </div>
+      <a href="#navigation3" class="p-navigation__toggle--open" title="menu">Menu</a>
+      <a href="#navigation3-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example main">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" id="link-2">
+          <a href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">LXD</a>
+          <ul class="p-navigation__dropdown" id="link-2-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle is-active" id="link-3">
+          <a href="#link-3-menu" aria-controls="link-3-menu" class="p-navigation__link">LXCFS</a>
+          <ul class="p-navigation__dropdown" id="link-3-menu" aria-hidden="false">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" id="link-4">
+          <a class="p-navigation__link" aria-controls="account-menu">
+            My account
+          </a>
+          <ul class="p-navigation__dropdown--right" id="account-menu" aria-hidden="true">
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  {% include 'docs/examples/patterns/navigation/_script-search.js' %}
+  {% include 'docs/examples/patterns/navigation/_script.js' %}
+
+  initNavDropdowns('.p-navigation__item--dropdown-toggle')
+</script>
+{% endblock %}
