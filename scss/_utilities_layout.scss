@@ -5,11 +5,15 @@
 
   @if ($table-layout-fixed) {
     .u-table-layout--auto {
-      table-layout: auto !important;
+      &, table {
+        table-layout: auto !important;
+      }
     }
   } @else {
     .u-table-layout--fixed {
-      table-layout: fixed !important;
+      &, table {
+        table-layout: fixed !important;
+      }
     }
   }
 }
