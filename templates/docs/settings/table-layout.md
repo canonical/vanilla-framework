@@ -12,3 +12,17 @@ Depending on the value of `$table-layout-fixed`, a utility class is generated to
 
 - If `$table-layout-fixed` is set to `true` (the default), you can use `u-table-layout--auto` to override it.
 - if `$table-layout-fixed` is set to `auto` it adds a utility called `u-table-layout--fixed`.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/table-layout/table-layout-default" class="js-example" data-height="120">
+View example of the default table layout
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/utilities/table-layout/table-layout-auto" class="js-example" data-height="120">
+View example of the automatic table layout
+</a></div>
+
+The table layout utility classes also apply to tables nested inside an element with the utility class.
+
+<div class="embedded-example"><a href="/docs/examples/utilities/table-layout/table-layout-auto-nested" class="js-example" data-height="120">
+View example of the automatic table layout applied to a nested table
+</a></div>
