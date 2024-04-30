@@ -6,11 +6,7 @@
   @include vf-b-range;
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
-    padding-bottom: calc($input-vertical-padding - $input-border-thickness);
-
-    @media only screen and (max-resolution: 1.99dppx) {
-      padding-bottom: calc($input-vertical-padding - 1px);
-    }
+    padding-bottom: $input-vertical-padding;
 
     padding-top: $input-vertical-padding;
   }
@@ -106,7 +102,6 @@
   label {
     cursor: pointer;
     display: inline-block;
-    line-height: map-get($line-heights, default-text); // on larger screens the label would have the wrong line height?
     margin-bottom: $spv--large - $spv-nudge;
     margin-top: 0;
     max-width: $text-max-width;

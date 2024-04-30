@@ -117,7 +117,7 @@ $sp-after: (
 $spv-nudge: map-get($nudges, p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
 $input-margin-bottom: $sp-unit * 4 - $spv-nudge * 2;
-$input-vertical-padding: $spv-nudge; //moved the -1px to the components themselfs since its different for button / input field
+$input-vertical-padding: calc($spv-nudge - 1px);
 
 // tick element variables
 $form-tick-box-size: 1rem;
