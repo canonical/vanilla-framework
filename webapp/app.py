@@ -52,7 +52,8 @@ TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
     {"login": "bartaz", "role": "Staff Web Engineer"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
-    {"login": "jmuzina", "role": "Software Engineer"}
+    {"login": "pastelcyborg", "role": "Web Engineer"},
+    {"login": "jmuzina", "role": "Web Engineer"}
 ]
 
 
