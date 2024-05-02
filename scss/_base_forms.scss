@@ -6,12 +6,7 @@
   @include vf-b-range;
   // Used in buttons, inputs
   %bordered-text-vertical-padding {
-    padding-bottom: calc($input-vertical-padding - $input-border-thickness);
-
-    @media only screen and (max-resolution: 1.99dppx) {
-      padding-bottom: calc($input-vertical-padding - 1px);
-    }
-
+    padding-bottom: calc($input-vertical-padding - var(--input-border-thickness));
     padding-top: $input-vertical-padding;
   }
 
@@ -28,7 +23,7 @@
     // stylelint-enable property-no-vendor-prefix
     background-color: $colors--theme--background-inputs;
     border: 0 solid transparent;
-    border-bottom: $input-border-thickness solid $colors--theme--border-high-contrast;
+    border-bottom: var(--input-border-thickness) solid $colors--theme--border-high-contrast;
     border-radius: 0;
     color: $colors--theme--text-default;
     font-family: unquote($font-base-family);
@@ -69,8 +64,8 @@
 
     &.is-dense {
       margin: 0 0 $spv-nudge-compensation 0;
-      padding-bottom: calc($spv-nudge - $spv--x-small - $input-border-thickness);
-      padding-top: calc($spv-nudge - $spv--x-small - $input-border-thickness);
+      padding-bottom: calc($spv-nudge - $spv--x-small - var(--input-border-thickness));
+      padding-top: calc($spv-nudge - $spv--x-small - var(--input-border-thickness));
     }
 
     &[disabled],
@@ -85,7 +80,7 @@
 
     @each $state, $color in $states {
       &.has-#{$state} {
-        border: $input-border-thickness solid $color;
+        border: var(--input-border-thickness) solid $color;
       }
     }
   }
@@ -233,7 +228,7 @@
 
     margin-left: 0;
     margin-right: 0;
-    padding: calc($spv--large - $input-border-thickness);
+    padding: calc($spv--large - var(--input-border-thickness));
   }
   // stylelint-enable selector-max-type
 }
