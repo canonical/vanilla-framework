@@ -65,7 +65,7 @@
                   <li class="p-side-navigation__item">
                     <button class="p-side-navigation__accordion-button" aria-expanded="false">{{ item.heading | replace("{version}", version) }}</button>
                     <ul class="p-side-navigation__list">
-                      {% for subheading in item.subheadings %}
+                      {% for subheading in item.subheadings['items'] %}
                       {{ side_nav_item(subheading.url, subheading.title) }}
                       {% endfor %}
                     </ul>
