@@ -50,9 +50,10 @@ session = talisker.requests.get_session()
 
 TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
-    {"login": "bartaz", "role": "Senior Web Engineer"},
+    {"login": "bartaz", "role": "Staff Web Engineer"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
-    {"login": "elioqoshi", "role": "UX Designer"},
+    {"login": "pastelcyborg", "role": "Web Engineer"},
+    {"login": "jmuzina", "role": "Web Engineer"}
 ]
 
 
