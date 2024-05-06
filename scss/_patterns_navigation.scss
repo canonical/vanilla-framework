@@ -872,51 +872,55 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
   /* stylelint-enable max-nesting-depth */
 
-  .p-navigation--sliding .p-navigation__item--dropdown-toggle {
-    position: initial;
+  .p-navigation--sliding {
+    // Default positioning for nested dropdown buttons. Overridden by subsequent styles.
+    .p-navigation__item--dropdown-toggle {
+      position: initial;
 
-    &::after {
-      content: none;
-    }
+      &::after {
+        content: none;
+      }
 
-    .p-navigation__link::after {
-      @include vf-icon-chevron-themed;
+      .p-navigation__link::after {
+        @include vf-icon-chevron-themed;
 
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: '';
-      display: block;
-      height: $spv--large;
-      pointer-events: none;
-      position: absolute;
-      right: map-get($grid-margin-widths, small);
-      text-indent: calc(100% + 10rem);
-      top: 1rem;
-      transform: rotate(-90deg);
-      width: map-get($icon-sizes, default);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: $spv--large;
+        pointer-events: none;
+        position: absolute;
+        right: map-get($grid-margin-widths, small);
+        text-indent: calc(100% + 10rem);
+        top: 1rem;
+        transform: rotate(-90deg);
+        width: map-get($icon-sizes, default);
 
-      @media (min-width: $breakpoint-navigation-threshold) {
-        right: 0.5rem;
-        top: 1.2rem;
-        transform: none;
+        @media (min-width: $breakpoint-navigation-threshold) {
+          right: 0.5rem;
+          top: 1.2rem;
+          transform: none;
+        }
+      }
+
+      &.is-active > .p-navigation__link::after {
+        @media (min-width: $breakpoint-navigation-threshold) {
+          transform: rotate(180deg);
+        }
       }
     }
 
-    &.is-active > .p-navigation__link::after {
-      @media (min-width: $breakpoint-navigation-threshold) {
-        transform: rotate(180deg);
+    // Style for the "go back" button that closes the current level of the sidenav dropdown. Overrides base style from above
+    .p-navigation__item--dropdown-close {
+      .p-navigation__link::after {
+        left: 1rem;
+        transform: rotate(90deg);
       }
-    }
-  }
-
-  .p-navigation--sliding .p-navigation__item--dropdown-close {
-    .p-navigation__link::after {
-      left: 1rem;
-      transform: rotate(90deg);
-    }
-    @media (min-width: $breakpoint-navigation-threshold) {
-      display: none;
+      @media (min-width: $breakpoint-navigation-threshold) {
+        display: none;
+      }
     }
   }
 }
