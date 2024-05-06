@@ -61,13 +61,10 @@ with open("side-navigation.yaml") as side_navigation_file:
 
         subheadings["items"] = subheadings_ordering_fn(subheadings["items"], by_attribute)
 
-        for item in subheadings["items"]:
-            alphabetize_heading_items(item, by_attribute)
-
         return heading
 
     for heading in SIDE_NAVIGATION:
-        alphabetize_heading_items(heading)
+        heading = alphabetize_heading_items(heading)
 
 
 app = FlaskBase(
