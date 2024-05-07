@@ -1,5 +1,3 @@
-name-template: 'v$NEXT_PATCH_VERSION'
-tag-template: 'v$NEXT_PATCH_VERSION'
 categories:
   - title: '🚀 Features'
     label: 'Feature 🎁'
@@ -11,13 +9,18 @@ categories:
     label: 'Documentation 📝'
   - title: '🔨 Maintenance'
     label: 'Maintenance 🔨'
+tag-template: 'some tag template $version'
 change-template: '- $TITLE by @$AUTHOR (#$NUMBER)'
 template: |
   ## Getting Vanilla Framework
 
   Install with NPM: https://www.npmjs.com/package/vanilla-framework
   Visit the documentation at https://vanillaframework.io/docs
+  
+  v: $RELEASE_VERSION
+  n: $RELEASE_NAME
+  t: $RELEASE_TAG
 
-  ## New in Vanilla v$NEXT_PATCH_VERSION
+  ## New in Vanilla $RELEASE_VERSION
 
   $CHANGES
