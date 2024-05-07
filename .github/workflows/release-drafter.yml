@@ -16,6 +16,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          ref: release-drafter-test-fork
           # Only need package.json as it is used by the get_version step to pass tag number into release-drafter
           sparse-checkout: package.json
 
