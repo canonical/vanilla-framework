@@ -3,7 +3,6 @@
 @mixin vf-p-equal-height-row {
   .p-equal-height-row {
     @extend %vf-row;
-    padding-bottom: $spv--strip-regular * 0.5;
     position: relative;
 
     .p-equal-height-row__col {
@@ -15,8 +14,8 @@
       grid-column: span $grid-columns-small;
       grid-row: span 4;
       grid-template-rows: subgrid;
+      margin-bottom: $spv--small;
       margin-top: -1px;
-      padding-bottom: $spv--small;
       position: relative;
 
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
@@ -37,7 +36,7 @@
       @media screen and (width >= $breakpoint-large) {
         border: none;
         grid-column: span calc($grid-columns / 4);
-        padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
 
@@ -56,8 +55,6 @@
     }
 
     @media screen and (width >= $breakpoint-large) {
-      padding-bottom: $spv--strip-regular;
-
       &.has-1st-divider::before,
       &.has-2nd-divider::after,
       &.has-3rd-divider:not(.has-1st-divider)::before,
