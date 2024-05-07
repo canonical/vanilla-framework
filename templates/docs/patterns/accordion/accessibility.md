@@ -6,7 +6,7 @@ context:
 
 ## How it works
 
-Accordions are a vertically stacked list of headings. They reduce the need for users to scroll through a lot of content, as the headings act as interactive elements which show or hide the related content.
+Accordions are a vertically stacked list of headings. They reduce scrolling with interactive headings that show or hide the related content.
 
 `Tab` and `Shift-Tab` are used to navigate forward and backward through each accordion header and all focusable elements in the accordion should be included in the tab order. `Enter` or `Space` expand and collapse each accordion panel.
 
@@ -17,9 +17,10 @@ The two main components are:
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component should follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/). Make sure this effort is maintained when the component is implemented across other projects.
 
-- Accordion titles should be descriptive; it should be obvious what information the content will contain.
+- Accordion headings should clearly describe what is in that accordion section.
+- Don’t use an accordion if it hides important information the user needs to complete actions on the page.
 - Ensure each tab button element is wrapped by a `div` element with a `p-accordion__heading` class and the `role=heading` attribute. This heading should have an appropriate `aria-level` label, depending on its position in the hierarchy of the page.
 - If the accordion panel associated with the heading is visible, then the button within the heading div must have `aria-expanded=”true”`
 - The heading button should have an `aria-controls` attribute set to the ID of the related accordion panel.
