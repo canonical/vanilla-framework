@@ -42,7 +42,8 @@ To import either or all of these components into your project, copy the snippets
 @import 'vanilla-framework';
 @include vf-base;
 
-// dependencies for the no content empty state example
+// dependencies for no content empty state example
+@include vf-p-headings;
 @include vf-p-grid;
 @include vf-u-align;
 @include vf-p-buttons;
@@ -55,9 +56,6 @@ To import either or all of these components into your project, copy the snippets
 @include vf-p-icons-common;
 @include vf-p-icon-search;
 @include vf-u-layout;
-
-// dependencies for user action triggered empty state example
-@include vf-u-vertically-center;
 
 // Dependencies for error management empty state example
 @include vf-u-hide;
