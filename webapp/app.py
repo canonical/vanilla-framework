@@ -32,10 +32,38 @@ with open("releases.yml") as releases_file:
 
 # Read side-navigation.yaml
 with open("side-navigation.yaml") as side_navigation_file:
+    # maps values of `side_navigation_file.subheadings.ordering` to their implementations
+    supported_orderings = {
+        "alphabetical": lambda subheadings, by_attribute: sorted(subheadings, key=lambda subheading: subheading[by_attribute])
+    }
+
     SIDE_NAVIGATION = yaml.load(
         side_navigation_file.read(),
         Loader=yaml.FullLoader,
     )
+
+    def alphabetize_heading_items(heading, by_attribute="title"):
+        """
+        Alphabetizes the sub-heading items contained by the heading
+        :param heading:
+        :param by_attribute: Key name of the attribute within each subheading item to use for alphabetization
+        :return: Altered `heading` with its subheading items alphabetized
+        """
+        subheadings = None
+        subheadings_ordering_identifier = None
+        subheadings_ordering_fn = None
+        try:
+            subheadings_ordering_identifier = heading["ordering"]
+            subheadings_ordering_fn = supported_orderings[subheadings_ordering_identifier]
+        except KeyError:
+            return heading
+
+        heading["subheadings"] = subheadings_ordering_fn(heading["subheadings"], by_attribute)
+
+        return heading
+
+    for heading in SIDE_NAVIGATION:
+        heading = alphabetize_heading_items(heading)
 
 
 app = FlaskBase(
