@@ -43,18 +43,11 @@ View example of the four items per column pattern using equal height row compone
 
 ### Cross-column dividers
 
-You can also insert dividers that span across all columns within a row using `.has-1st-divider`, `.has-2nd-divider` and `.has-3rd-divider`.
-
-<div class="p-notification--information">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Note:</h5>
-    <p class="p-notification__message">For smaller screen sizes i.e. <code>< $breakpoint-large</code> the divider will appear below relevant items within each column.</p>
-  </div>
-</div>
+You can also insert dividers that span across all columns within a row using `.has-divider-1`, `.has-divider-2` and `.has-divider-3`.
 
 <div class="p-notification--caution">
   <div class="p-notification__content">
-    <p class="p-notification__message">You may only have two dividers maximum. For example, if you have <code>.has-1st-divider</code> and <code>.has-2nd-divider</code> set for the row, then <code>.has-3rd-divider</code> will not be shown. This is a limitation due to usage of pseudo elements for visualising dividers that is capable of spanning across grid gaps.</p>
+    <p class="p-notification__message">You may only have two dividers maximum. For example, if you have <code>.has-divider-1</code> and <code>.has-divider-2</code> set for the row, then <code>.has-divider-3</code> will not be shown. This is a limitation due to usage of pseudo elements for visualising dividers that is capable of spanning across grid gaps.</p>
   </div>
 </div>
 
