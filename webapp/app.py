@@ -53,13 +53,12 @@ with open("side-navigation.yaml") as side_navigation_file:
         subheadings_ordering_identifier = None
         subheadings_ordering_fn = None
         try:
-            subheadings = heading["subheadings"]
-            subheadings_ordering_identifier = subheadings["ordering"]
+            subheadings_ordering_identifier = heading["ordering"]
             subheadings_ordering_fn = supported_orderings[subheadings_ordering_identifier]
         except KeyError:
             return heading
 
-        subheadings["items"] = subheadings_ordering_fn(subheadings["items"], by_attribute)
+        heading["subheadings"] = subheadings_ordering_fn(heading["subheadings"], by_attribute)
 
         return heading
 
