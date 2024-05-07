@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - release-drafter-test-fork
+      - main
   # temporary to allow testing the release drafter action
   pull_request:
     branches:
@@ -16,7 +17,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: release-drafter-test-fork
           # Only need package.json as it is used by the get_version step to pass tag number into release-drafter
           sparse-checkout: package.json
 
@@ -35,6 +35,5 @@ jobs:
          tag: "v${{ steps.get_version.outputs.version_number }}"
          name: "v${{ steps.get_version.outputs.version_number }}"
          version: "v${{ steps.get_version.outputs.version_number }}"
-         commitish: release-drafter-test-fork
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
