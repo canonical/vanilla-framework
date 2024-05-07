@@ -60,8 +60,8 @@ To import either or all of these components into your project, copy the snippets
 @include vf-u-vertically-center;
 
 // Dependencies for error management empty state example
-@include vf-p-rule;
 @include vf-u-hide;
+@include vf-p-section;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
