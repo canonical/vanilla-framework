@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-  # temporary to allow testing the release drafter action
-  pull_request:
-    branches:
-      - main
 
 jobs:
   update_release_draft:
@@ -21,16 +17,19 @@ jobs:
 
       - name: Get version number from package.json
         id: get_version
+        shell: bash
         run: |
           set -e
-          echo "::set-output name=version_number::$(jq -r '.version' package.json)"
+          echo "version_number=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
 
-      - name: Draft release notes
+      - name: Draft release notes for v${{ steps.get_version.outputs.version_number }}
         uses: release-drafter/release-drafter@v6
         with:
           # Setting tag and name override the name-template and tag-template.
           # See https://github.com/release-drafter/release-drafter?tab=readme-ov-file#action-inputs for more
-         tag: v${{ steps.get_version.outputs.version_number }}
-         name: v${{ steps.get_version.outputs.version_number }}
+         tag: "v${{ steps.get_version.outputs.version_number }}"
+         name: "v${{ steps.get_version.outputs.version_number }}"
+         version: "v${{ steps.get_version.outputs.version_number }}"
+         commitish: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
