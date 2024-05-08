@@ -3,6 +3,9 @@ import glob
 import json
 import os
 import random
+import re
+
+import werkzeug.routing
 import yaml
 import urllib
 import markupsafe
@@ -29,6 +32,9 @@ with open("build/classreferences.yaml") as data_yaml:
 
 with open("releases.yml") as releases_file:
     FEATURES_LIST = yaml.load(releases_file.read(), Loader=yaml.FullLoader)
+
+SUPPORTED_COLOR_THEMES = {"light", "dark", "paper"}
+DEFAULT_COLOR_THEME = "light"
 
 # Read side-navigation.yaml
 with open("side-navigation.yaml") as side_navigation_file:
@@ -84,12 +90,19 @@ TEAM_MEMBERS = [
     {"login": "jmuzina", "role": "Web Engineer"}
 ]
 
-
 # Helpers
 # ===
 def _get_title(title):
     yield title
 
+def _add_query_param_to_url(url, param_name, param_value):
+    parsed_url = urllib.parse.urlparse(url)
+    query_params = urllib.parse.parse_qs(parsed_url.query)
+    query_params[param_name] = param_value
+    encoded_query_params = urllib.parse.urlencode(query_params, doseq=True)
+    new_url_parts = (parsed_url.scheme, parsed_url.netloc, parsed_url.path, parsed_url.params, encoded_query_params, parsed_url.fragment)
+
+    return urllib.parse.urlunparse(new_url_parts)
 
 def _get_examples():
     # get all example files (but ignore partials that start with _)
@@ -123,6 +136,15 @@ def _get_examples():
         )
 
     return examples
+
+def _all_examples_to_paths_flat():
+    paths = set()
+    examples = _get_examples()
+    for ex_type in examples:
+        for example in examples[ex_type]:
+            paths.add(example['path'])
+
+    return paths
 
 
 def _make_github_request(endpoint):
@@ -254,6 +276,7 @@ template_finder_view = TemplateFinder.as_view("template_finder")
 
 @app.route("/docs/examples")
 def examples_index():
+    print("examples index")
     return flask.render_template(
         "docs/examples/index.html", examples=_get_examples()
     )
@@ -261,6 +284,7 @@ def examples_index():
 
 @app.route("/docs/examples/standalone")
 def standalone_examples_index():
+    print("standalone index")
     return flask.render_template(
         "docs/examples/standalone.html", examples=_get_examples()
     )
@@ -268,11 +292,13 @@ def standalone_examples_index():
 
 @app.route("/docs/examples/standalone/<path:example_path>")
 def standalone_example(example_path):
+    print("standalone")
     try:
         return flask.render_template(
             f"docs/examples/{example_path}.html", is_standalone=True
         )
     except jinja2.exceptions.TemplateNotFound:
+        print("standalone 404")
         return flask.abort(404)
 
 
@@ -294,6 +320,36 @@ def contribute_index():
     response.cache_control.public = True
 
     return response
+
+def get_available_themes_for_endpoint():
+    return SUPPORTED_COLOR_THEMES
+
+def process_color_theme():
+    requested_color_theme = flask.request.args.get("theme")
+    supported_themes_for_endpoint = get_available_themes_for_endpoint()
+    apply_color_theme = None
+    if requested_color_theme is not None and requested_color_theme in SUPPORTED_COLOR_THEMES:
+        apply_color_theme = requested_color_theme
+    else:
+        apply_color_theme = DEFAULT_COLOR_THEME
+
+    redirect_url = _add_query_param_to_url(flask.request.url, "theme", apply_color_theme)
+    redirect_url = _add_query_param_to_url(redirect_url, "available_themes", ','.join(supported_themes_for_endpoint))
+    if flask.request.url != redirect_url:
+        return flask.redirect(redirect_url, code=307)
+
+with app.app_context():
+    exs = _all_examples_to_paths_flat()
+    exs_res = '|'.join([re.escape(ex) for ex in exs])
+    exs_match = rf'^/docs/examples/(?:standalone/)?(?:{exs_res})$'
+
+    @flask.current_app.before_request
+    def preprocess():
+        if flask.request.endpoint == 'static':
+            return
+
+        if re.match(exs_match, flask.request.path):
+            return process_color_theme()
 
 
 app.add_url_rule("/", view_func=template_finder_view)
