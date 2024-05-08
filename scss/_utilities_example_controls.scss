@@ -1,0 +1,25 @@
+@import 'settings';
+
+@include vf-base;
+@include vf-p-segmented-control;
+@include vf-p-forms;
+@include vf-p-forms-inline;
+
+@mixin vf-u-example-controls {
+  .u-example-controls {
+    position: fixed;
+    bottom: $spv--x-large;
+    right: $sp-unit * 3;
+    align-items: center;
+    padding: $spv--small 0 $spv--small $sph--x-large;
+    background-color: $colors--theme--background-default;
+
+    @media (max-width: $breakpoint-large) {
+      padding-right: $sph--x-large;
+    }
+
+    @media only percy {
+      visibility: hidden !important;
+    }
+  }
+}
