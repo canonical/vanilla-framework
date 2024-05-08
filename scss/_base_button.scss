@@ -9,8 +9,8 @@
   }
 
   %vf-button-dense-vertical-padding {
-    padding-bottom: calc($spv-nudge - $sp-unit * 0.5 - var(--input-border-thickness));
-    padding-top: calc($spv-nudge - $sp-unit * 0.5 - var(--input-border-thickness));
+    padding-bottom: calc($spv-nudge - $sp-unit * 0.5 - $input-border-thickness);
+    padding-top: calc($spv-nudge - $sp-unit * 0.5 - $input-border-thickness);
   }
 
   %vf-button-base {
@@ -18,7 +18,7 @@
     @include vf-focus;
 
     border-style: solid;
-    border-width: var(--input-border-thickness);
+    border-width: $input-border-thickness;
     cursor: pointer;
     display: inline-block;
     font-size: 1rem;
@@ -26,7 +26,7 @@
     justify-content: center;
     line-height: map-get($line-heights, default-text);
     margin: 0 $sph--large $input-margin-bottom 0;
-    padding: calc($input-vertical-padding - var(--input-border-thickness)) $sph--large;
+    padding: calc($input-vertical-padding - $input-border-thickness) $sph--large;
     text-align: center;
     text-decoration: none;
 
@@ -56,13 +56,13 @@
       font-size: #{map-get($font-sizes, small)}rem;
       line-height: map-get($line-heights, small);
       margin-bottom: $input-margin-bottom - $sp-unit;
-      padding: calc(map-get($nudges, small) - var(--input-border-thickness)) $sph--small;
+      padding: calc(map-get($nudges, small) - $input-border-thickness) $sph--small;
     }
 
     &.is-small.is-dense {
       margin-bottom: $spv-nudge-compensation;
-      padding-bottom: calc($spv-nudge - $sp-unit * 0.5 - var(--input-border-thickness));
-      padding-top: calc($spv-nudge - $sp-unit * 0.5 - var(--input-border-thickness));
+      padding-bottom: calc($spv-nudge - $sp-unit * 0.5 - $input-border-thickness);
+      padding-top: calc($spv-nudge - $sp-unit * 0.5 - $input-border-thickness);
     }
 
     // The following rules address buttons nested in <p>'s;
