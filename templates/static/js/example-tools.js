@@ -1,7 +1,7 @@
-const SUPPORTED_THEMES = ['Light', 'Dark', 'Paper'];
-const [DEFAULT_COLOR_THEME] = SUPPORTED_THEMES;
 const COLOR_THEME_QUERY_PARAM_NAME = 'theme';
-var activeTheme = DEFAULT_COLOR_THEME;
+const COLOR_THEMES_SUPPORTED_QUERY_PARAM_NAME = 'available_themes';
+var availableThemes = [];
+var activeTheme;
 
 (function () {
   function inIframe() {
@@ -102,19 +102,13 @@ var activeTheme = DEFAULT_COLOR_THEME;
 
     document.addEventListener('DOMContentLoaded', function () {
       var body = document.body;
-      var requestedColorTheme = getQueryParameters().get(COLOR_THEME_QUERY_PARAM_NAME);
+      availableThemes = getQueryParameters()?.get(COLOR_THEMES_SUPPORTED_QUERY_PARAM_NAME)?.split(',');
+      var requestedTheme = getQueryParameters()?.get(COLOR_THEME_QUERY_PARAM_NAME) || availableThemes[0];
+      activeTheme = requestedTheme;
+      console.log({requestedTheme, availableThemes});
+      selectColorTheme(requestedTheme);
 
-      // Validate requested color theme
-      if (
-        requestedColorTheme
-        && SUPPORTED_THEMES.some(supportedTheme => supportedTheme.toLowerCase() === requestedColorTheme.toLowerCase())
-      ) {
-        selectColorTheme(requestedColorTheme);
-      } else {
-        selectColorTheme(DEFAULT_COLOR_THEME);
-      }
-
-      var themeSwitcherControls = SUPPORTED_THEMES.map(themeLabel => `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeLabel)} ${convertThemeNameToJsTogglerClassName(themeLabel)}" role="button" aria-selected="${activeTheme === themeLabel.toLowerCase()}" id="theme-selector-${themeLabel.toLowerCase()}" data-color-theme-name="${themeLabel.toLowerCase()}">${themeLabel}</button>`);
+      var themeSwitcherControls = availableThemes.map(themeLabel => `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeLabel)} ${convertThemeNameToJsTogglerClassName(themeLabel)}" role="button" aria-selected="${activeTheme === themeLabel.toLowerCase()}" id="theme-selector-${themeLabel.toLowerCase()}" data-color-theme-name="${themeLabel.toLowerCase()}">${themeLabel}</button>`);
       var themeSwitcherSegmentedControl = fragmentFromString(`<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list" role="list">${themeSwitcherControls.join('')}</div></div>`)
       var baselineGridControl = fragmentFromString('<div class="u-baseline-grid__toggle"><label class="p-switch"><input type="checkbox" class="p-switch__input js-baseline-toggle" /><span class="p-switch__slider"></span><span class="p-switch__label">Toggle baseline grid</span></label></div>')
 
