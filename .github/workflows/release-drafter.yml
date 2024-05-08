@@ -27,9 +27,8 @@ jobs:
         with:
           # Setting tag and name override the name-template and tag-template.
           # See https://github.com/release-drafter/release-drafter?tab=readme-ov-file#action-inputs for more
-         tag: "v${{ steps.get_version.outputs.version_number }}"
-         name: "v${{ steps.get_version.outputs.version_number }}"
-         version: ${{ steps.get_version.outputs.version_number }}
+         tag: v${{ steps.get_version.outputs.version_number }}
+         name: v${{ steps.get_version.outputs.version_number }}
          commitish: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
