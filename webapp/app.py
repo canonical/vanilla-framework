@@ -2,10 +2,8 @@
 import glob
 import json
 import os
-import random
 import re
 
-import werkzeug.routing
 import yaml
 import urllib
 import markupsafe
@@ -21,7 +19,7 @@ from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam.search import build_search_view
 from canonicalwebteam import image_template
 from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
-
+from webapp.color_theme import _apply_color_theme
 
 # Constants
 with open("package.json") as package_json:
@@ -33,22 +31,19 @@ with open("build/classreferences.yaml") as data_yaml:
 with open("releases.yml") as releases_file:
     FEATURES_LIST = yaml.load(releases_file.read(), Loader=yaml.FullLoader)
 
-with open("color-themes.yml") as color_themes_file:
-    color_theme_file_content = yaml.load(color_themes_file.read(), Loader=yaml.FullLoader)
-    SUPPORTED_COLOR_THEMES = color_theme_file_content["themes"]
-    DEFAULT_COLOR_THEME = color_theme_file_content["default_theme"]
-
 # Read side-navigation.yaml
 with open("side-navigation.yaml") as side_navigation_file:
     # maps values of `side_navigation_file.subheadings.ordering` to their implementations
     supported_orderings = {
-        "alphabetical": lambda subheadings, by_attribute: sorted(subheadings, key=lambda subheading: subheading[by_attribute])
+        "alphabetical": lambda subheadings, by_attribute: sorted(subheadings,
+                                                                 key=lambda subheading: subheading[by_attribute])
     }
 
     SIDE_NAVIGATION = yaml.load(
         side_navigation_file.read(),
         Loader=yaml.FullLoader,
     )
+
 
     def alphabetize_heading_items(heading, by_attribute="title"):
         """
@@ -70,9 +65,9 @@ with open("side-navigation.yaml") as side_navigation_file:
 
         return heading
 
+
     for heading in SIDE_NAVIGATION:
         heading = alphabetize_heading_items(heading)
-
 
 app = FlaskBase(
     __name__,
@@ -92,26 +87,12 @@ TEAM_MEMBERS = [
     {"login": "jmuzina", "role": "Web Engineer"}
 ]
 
+
 # Helpers
 # ===
 def _get_title(title):
     yield title
 
-def _add_query_param_to_url(url, param_name, param_value):
-    """
-    Modifies a `url` by adding `param_name=param_value` to the query string.
-    :param url:
-    :param param_name:
-    :param param_value:
-    :return: `url` after adding `param_name=param_value` to the query string.
-    """
-    parsed_url = urllib.parse.urlparse(url)
-    query_params = urllib.parse.parse_qs(parsed_url.query)
-    query_params[param_name] = param_value
-    encoded_query_params = urllib.parse.urlencode(query_params, doseq=True)
-    new_url_parts = (parsed_url.scheme, parsed_url.netloc, parsed_url.path, parsed_url.params, encoded_query_params, parsed_url.fragment)
-
-    return urllib.parse.urlunparse(new_url_parts)
 
 def _get_examples():
     # get all example files (but ignore partials that start with _)
@@ -145,6 +126,7 @@ def _get_examples():
         )
 
     return examples
+
 
 def _get_all_examples_paths():
     """
@@ -219,32 +201,6 @@ def _filter_contributors(contributors):
     ]
 
 
-def _get_available_themes_for_path(example_path):
-    print(example_path)
-    return SUPPORTED_COLOR_THEMES
-
-def _apply_color_theme():
-    """
-    Applies color theme and supported color theme to the requested route.
-    """
-    requested_color_theme = flask.request.args.get("theme")
-    supported_color_themes_for_path = _get_available_themes_for_path(flask.request.path)
-
-    # Valid color theme requested
-    if requested_color_theme is not None and requested_color_theme in supported_color_themes_for_path:
-        apply_color_theme = requested_color_theme
-    else:
-        apply_color_theme = DEFAULT_COLOR_THEME
-
-    # Construct a new URL with the query parameters updated
-    redirect_url = _add_query_param_to_url(flask.request.url, "theme", apply_color_theme)
-    redirect_url = _add_query_param_to_url(redirect_url, "available_themes", ','.join(supported_color_themes_for_path))
-
-    # Redirect the user to the modified URL if they are not currently at that address
-    if flask.request.url != redirect_url:
-        return flask.redirect(redirect_url, code=307)
-
-
 # Global context settings
 @app.context_processor
 def global_template_context():
@@ -287,17 +243,19 @@ def global_template_context():
         "updatedFeatures": updated_features,
     }
 
+
 # Request preprocessing
 with app.app_context():
     example_paths = _get_all_examples_paths()
     all_examples_regex = '|'.join([re.escape(example_path) for example_path in example_paths])
     example_match = rf'^/docs/examples/(?:standalone/)?(?:{all_examples_regex})$'
 
+
     @app.before_request
     def preprocess():
-        # Only care about applying color theme for example component pages
+        # Only apply color theme for example component pages
         if re.match(example_match, flask.request.path):
-            return _apply_color_theme()
+            return _apply_color_theme(flask.request.path)
 
 
 @app.template_filter()
@@ -307,8 +265,8 @@ def markdown(text):
 
 def class_reference(component=None):
     component = (
-        component
-        or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
+            component
+            or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
     )
     data = CLASS_REFERENCES["class-references"][component]
     return markupsafe.Markup(
@@ -326,7 +284,6 @@ template_finder_view = TemplateFinder.as_view("template_finder")
 
 @app.route("/docs/examples")
 def examples_index():
-    print("examples index")
     return flask.render_template(
         "docs/examples/index.html", examples=_get_examples()
     )
@@ -334,7 +291,6 @@ def examples_index():
 
 @app.route("/docs/examples/standalone")
 def standalone_examples_index():
-    print("standalone index")
     return flask.render_template(
         "docs/examples/standalone.html", examples=_get_examples()
     )
@@ -342,13 +298,11 @@ def standalone_examples_index():
 
 @app.route("/docs/examples/standalone/<path:example_path>")
 def standalone_example(example_path):
-    print("standalone")
     try:
         return flask.render_template(
             f"docs/examples/{example_path}.html", is_standalone=True
         )
     except jinja2.exceptions.TemplateNotFound:
-        print("standalone 404")
         return flask.abort(404)
 
 
@@ -370,6 +324,7 @@ def contribute_index():
     response.cache_control.public = True
 
     return response
+
 
 app.add_url_rule("/", view_func=template_finder_view)
 app.add_url_rule(
