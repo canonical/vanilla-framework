@@ -1,18 +1,17 @@
 @import 'settings';
 
-@include vf-base;
-@include vf-p-segmented-control;
-@include vf-p-forms;
-@include vf-p-forms-inline;
-
 @mixin vf-u-example-controls {
+  @include vf-b-button;
+  @include vf-p-segmented-control;
+  @include vf-p-forms-inline;
+
   .u-example-controls {
-    position: fixed;
-    bottom: $spv--x-large;
-    right: $sp-unit * 3;
     align-items: center;
-    padding: $spv--small 0 $spv--small $sph--x-large;
     background-color: $colors--theme--background-default;
+    bottom: $spv--x-large;
+    padding: $spv--small 0 $spv--small $sph--x-large;
+    position: fixed;
+    right: $sp-unit * 3;
 
     .u-theme-toggle__button {
       text-transform: capitalize;
