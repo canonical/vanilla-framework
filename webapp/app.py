@@ -33,8 +33,10 @@ with open("build/classreferences.yaml") as data_yaml:
 with open("releases.yml") as releases_file:
     FEATURES_LIST = yaml.load(releases_file.read(), Loader=yaml.FullLoader)
 
-SUPPORTED_COLOR_THEMES = {"light", "dark", "paper"}
-DEFAULT_COLOR_THEME = "light"
+with open("color-themes.yml") as color_themes_file:
+    color_theme_file_content = yaml.load(color_themes_file.read(), Loader=yaml.FullLoader)
+    SUPPORTED_COLOR_THEMES = color_theme_file_content["themes"]
+    DEFAULT_COLOR_THEME = color_theme_file_content["default_theme"]
 
 # Read side-navigation.yaml
 with open("side-navigation.yaml") as side_navigation_file:
@@ -96,6 +98,13 @@ def _get_title(title):
     yield title
 
 def _add_query_param_to_url(url, param_name, param_value):
+    """
+    Modifies a `url` by adding `param_name=param_value` to the query string.
+    :param url:
+    :param param_name:
+    :param param_value:
+    :return: `url` after adding `param_name=param_value` to the query string.
+    """
     parsed_url = urllib.parse.urlparse(url)
     query_params = urllib.parse.parse_qs(parsed_url.query)
     query_params[param_name] = param_value
@@ -137,7 +146,10 @@ def _get_examples():
 
     return examples
 
-def _all_examples_to_paths_flat():
+def _get_all_examples_paths():
+    """
+    :return: Set of all paths to example component files from the root of the site. I.E., /docs/examples/patterns/buttons/alignment
+    """
     paths = set()
     examples = _get_examples()
     for ex_type in examples:
@@ -207,6 +219,32 @@ def _filter_contributors(contributors):
     ]
 
 
+def _get_available_themes_for_path(example_path):
+    print(example_path)
+    return SUPPORTED_COLOR_THEMES
+
+def _apply_color_theme():
+    """
+    Applies color theme and supported color theme to the requested route.
+    """
+    requested_color_theme = flask.request.args.get("theme")
+    supported_color_themes_for_path = _get_available_themes_for_path(flask.request.path)
+
+    # Valid color theme requested
+    if requested_color_theme is not None and requested_color_theme in supported_color_themes_for_path:
+        apply_color_theme = requested_color_theme
+    else:
+        apply_color_theme = DEFAULT_COLOR_THEME
+
+    # Construct a new URL with the query parameters updated
+    redirect_url = _add_query_param_to_url(flask.request.url, "theme", apply_color_theme)
+    redirect_url = _add_query_param_to_url(redirect_url, "available_themes", ','.join(supported_color_themes_for_path))
+
+    # Redirect the user to the modified URL if they are not currently at that address
+    if flask.request.url != redirect_url:
+        return flask.redirect(redirect_url, code=307)
+
+
 # Global context settings
 @app.context_processor
 def global_template_context():
@@ -248,6 +286,18 @@ def global_template_context():
         "releaseNotes": FEATURES_LIST,
         "updatedFeatures": updated_features,
     }
+
+# Request preprocessing
+with app.app_context():
+    example_paths = _get_all_examples_paths()
+    all_examples_regex = '|'.join([re.escape(example_path) for example_path in example_paths])
+    example_match = rf'^/docs/examples/(?:standalone/)?(?:{all_examples_regex})$'
+
+    @app.before_request
+    def preprocess():
+        # Only care about applying color theme for example component pages
+        if re.match(example_match, flask.request.path):
+            return _apply_color_theme()
 
 
 @app.template_filter()
@@ -320,37 +370,6 @@ def contribute_index():
     response.cache_control.public = True
 
     return response
-
-def get_available_themes_for_endpoint():
-    return SUPPORTED_COLOR_THEMES
-
-def process_color_theme():
-    requested_color_theme = flask.request.args.get("theme")
-    supported_themes_for_endpoint = get_available_themes_for_endpoint()
-    apply_color_theme = None
-    if requested_color_theme is not None and requested_color_theme in SUPPORTED_COLOR_THEMES:
-        apply_color_theme = requested_color_theme
-    else:
-        apply_color_theme = DEFAULT_COLOR_THEME
-
-    redirect_url = _add_query_param_to_url(flask.request.url, "theme", apply_color_theme)
-    redirect_url = _add_query_param_to_url(redirect_url, "available_themes", ','.join(supported_themes_for_endpoint))
-    if flask.request.url != redirect_url:
-        return flask.redirect(redirect_url, code=307)
-
-with app.app_context():
-    exs = _all_examples_to_paths_flat()
-    exs_res = '|'.join([re.escape(ex) for ex in exs])
-    exs_match = rf'^/docs/examples/(?:standalone/)?(?:{exs_res})$'
-
-    @flask.current_app.before_request
-    def preprocess():
-        if flask.request.endpoint == 'static':
-            return
-
-        if re.match(exs_match, flask.request.path):
-            return process_color_theme()
-
 
 app.add_url_rule("/", view_func=template_finder_view)
 app.add_url_rule(
