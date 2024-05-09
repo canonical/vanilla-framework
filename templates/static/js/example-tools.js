@@ -39,8 +39,7 @@ var activeTheme;
     if (reload && currentQueryParams.get(key) !== value) {
       currentQueryParams.set(key, value);
       window.location.search = currentQueryParams.toString();
-    }
-    else {
+    } else {
       var url = new URL(window.location.href);
       url.searchParams.set(key, value);
       window.history.pushState(null, '', url.toString());
@@ -72,7 +71,7 @@ var activeTheme;
    * @returns {string}
    */
   function convertThemeNameToTogglerUtilityClassName(themeName) {
-    return `u-theme-toggle__${themeName.toLowerCase()}`
+    return `u-theme-toggle__${themeName.toLowerCase()}`;
   }
 
   /**
@@ -82,17 +81,21 @@ var activeTheme;
   function selectColorTheme(themeToSelect) {
     // Apply the color theme to the document body
     document.body.classList.add(convertThemeNameToClassName(themeToSelect));
-    // Remove the old color theme from the document body
-    if (themeToSelect !== activeTheme) document.body.classList.remove(convertThemeNameToClassName(activeTheme));
 
     // Update address bar to reflect the newly selected color theme
     setQueryParameter(COLOR_THEME_QUERY_PARAM_NAME, themeToSelect.toLowerCase());
 
     // Update theme selector button states to reflect which one is currently active
     var themeButtonToSelect = document.querySelector(`.${convertThemeNameToJsTogglerClassName(themeToSelect)}`);
-    themeButtonToSelect?.setAttribute('aria-selected', "true");
-    var themeButtonCurrentlySelected = document.querySelector(`.${convertThemeNameToJsTogglerClassName(activeTheme)}`);
-    themeButtonCurrentlySelected?.setAttribute('aria-selected', 'false');
+    themeButtonToSelect?.setAttribute('aria-selected', 'true');
+
+    if (activeTheme) {
+      var themeButtonCurrentlySelected = document.querySelector(`.${convertThemeNameToJsTogglerClassName(activeTheme)}`);
+      themeButtonCurrentlySelected?.setAttribute('aria-selected', 'false');
+
+      // Remove the old color theme from the document body
+      if (themeToSelect !== activeTheme) document.body.classList.remove(convertThemeNameToClassName(activeTheme));
+    }
 
     activeTheme = themeToSelect;
   }
@@ -102,39 +105,44 @@ var activeTheme;
 
     document.addEventListener('DOMContentLoaded', function () {
       var body = document.body;
-      availableThemes = getQueryParameters()?.get(COLOR_THEMES_SUPPORTED_QUERY_PARAM_NAME)?.split(',');
-      var requestedTheme = getQueryParameters()?.get(COLOR_THEME_QUERY_PARAM_NAME) || availableThemes[0];
-      activeTheme = requestedTheme;
-      console.log({requestedTheme, availableThemes});
-      selectColorTheme(requestedTheme);
-
-      var themeSwitcherControls = availableThemes.map(themeLabel => `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeLabel)} ${convertThemeNameToJsTogglerClassName(themeLabel)}" role="button" aria-selected="${activeTheme === themeLabel.toLowerCase()}" id="theme-selector-${themeLabel.toLowerCase()}" data-color-theme-name="${themeLabel.toLowerCase()}">${themeLabel}</button>`);
-      var themeSwitcherSegmentedControl = fragmentFromString(`<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list" role="list">${themeSwitcherControls.join('')}</div></div>`)
-      var baselineGridControl = fragmentFromString('<div class="u-baseline-grid__toggle"><label class="p-switch"><input type="checkbox" class="p-switch__input js-baseline-toggle" /><span class="p-switch__slider"></span><span class="p-switch__label">Toggle baseline grid</span></label></div>')
-
       var controls = document.createElement('div');
       controls.classList.add('u-example-controls', 'p-form', 'p-form--inline');
-      controls.appendChild(themeSwitcherSegmentedControl);
+      var queryParameters = getQueryParameters();
+
+      availableThemes = queryParameters.get(COLOR_THEMES_SUPPORTED_QUERY_PARAM_NAME)?.split(',');
+      var requestedTheme = queryParameters.get(COLOR_THEME_QUERY_PARAM_NAME) || availableThemes[0] || 'light';
+
+      selectColorTheme(requestedTheme);
+      if (availableThemes?.length > 1) {
+        var themeSwitcherControls = availableThemes.map(
+          (themeLabel) =>
+            `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeLabel)} ${convertThemeNameToJsTogglerClassName(themeLabel)}" role="button" aria-selected="${activeTheme === themeLabel.toLowerCase()}" id="theme-selector-${themeLabel.toLowerCase()}" data-color-theme-name="${themeLabel.toLowerCase()}">${themeLabel}</button>`,
+        );
+        var themeSwitcherSegmentedControl = fragmentFromString(
+          `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list" role="list">${themeSwitcherControls.join('')}</div></div>`,
+        );
+
+        controls.appendChild(themeSwitcherSegmentedControl);
+      }
+      var baselineGridControl = fragmentFromString(
+        '<div class="u-baseline-grid__toggle"><label class="p-switch"><input type="checkbox" class="p-switch__input js-baseline-toggle" /><span class="p-switch__slider"></span><span class="p-switch__label">Toggle baseline grid</span></label></div>',
+      );
       controls.appendChild(baselineGridControl);
+
       body.appendChild(controls);
+
+      // Below code relies on the controls already existing in the DOM, so must come after `body.appendChild`.
+      var themeToggleButtons = document.querySelectorAll('.u-theme-toggle__button');
+      themeToggleButtons.forEach((themeToggleButton) => {
+        themeToggleButton.addEventListener('click', () => {
+          selectColorTheme(themeToggleButton.getAttribute('data-color-theme-name'));
+        });
+      });
 
       var toggle = document.querySelector('.js-baseline-toggle');
       toggle.addEventListener('click', function (event) {
         body.classList.toggle('u-baseline-grid');
       });
-
-      var themeToggleContainer = document.querySelector('.u-theme-toggle');
-
-      if (!SHOW_THEME_SWITCH) {
-        themeToggleContainer.classList.add('u-hide');
-      }
-
-      var themeToggleButtons = document.querySelectorAll('.u-theme-toggle__button');
-      themeToggleButtons.forEach(themeToggleButton => {
-        themeToggleButton.addEventListener('click', () => {
-          selectColorTheme(themeToggleButton.getAttribute('data-color-theme-name'))
-        })
-      })
     });
   }
 })();
