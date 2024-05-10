@@ -2,10 +2,33 @@
 
 @import '../vanilla';
 @include vf-u-baseline-grid;
-@include vf-u-example-controls;
+@include vf-b-button;
+@include vf-p-segmented-control;
+@include vf-p-forms-inline;
 
 // stylelint-disable selector-max-type -- examples can use type selectors
 body {
   margin: 1rem;
 }
 // stylelint-enable selector-max-type
+
+.u-example-controls {
+  align-items: center;
+  background-color: $colors--theme--background-default;
+  bottom: $spv--x-large;
+  padding: $spv--small 0 $spv--small $sph--x-large;
+  position: fixed;
+  right: $sp-unit * 3;
+
+  .u-theme-toggle__button {
+    text-transform: capitalize;
+  }
+
+  @media (max-width: $breakpoint-large) {
+    padding-right: $sph--x-large;
+  }
+
+  @media only percy {
+    visibility: hidden !important;
+  }
+}
