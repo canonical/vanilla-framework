@@ -121,7 +121,7 @@ var activeTheme;
             `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeLabel)} ${convertThemeNameToJsTogglerClassName(themeLabel)}" role="button" aria-selected="${activeTheme === themeLabel.toLowerCase()}" id="theme-selector-${themeLabel.toLowerCase()}" data-color-theme-name="${themeLabel.toLowerCase()}">${themeLabel}</button>`,
         );
         var themeSwitcherSegmentedControl = fragmentFromString(
-          `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list" role="list">${themeSwitcherControls.join('')}</div></div>`,
+          `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list">${themeSwitcherControls.join('')}</div></div>`,
         );
 
         controls.appendChild(themeSwitcherSegmentedControl);
