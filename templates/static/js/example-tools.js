@@ -42,7 +42,9 @@ var activeTheme;
     } else {
       var url = new URL(window.location.href);
       url.searchParams.set(key, value);
-      window.history.pushState(null, '', url.toString());
+      if (window.location.href !== url.toString()) {
+        window.history.replaceState(null, null, url.toString());
+      }
     }
     return getQueryParameters();
   }
