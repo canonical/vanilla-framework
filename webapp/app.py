@@ -2,8 +2,7 @@
 import glob
 import json
 import os
-import re
-
+import random
 import yaml
 import urllib
 import markupsafe
@@ -19,7 +18,7 @@ from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam.search import build_search_view
 from canonicalwebteam import image_template
 from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
-from webapp.color_theme import _apply_color_theme
+
 
 # Constants
 with open("package.json") as package_json:
@@ -35,15 +34,13 @@ with open("releases.yml") as releases_file:
 with open("side-navigation.yaml") as side_navigation_file:
     # maps values of `side_navigation_file.subheadings.ordering` to their implementations
     supported_orderings = {
-        "alphabetical": lambda subheadings, by_attribute: sorted(subheadings,
-                                                                 key=lambda subheading: subheading[by_attribute])
+        "alphabetical": lambda subheadings, by_attribute: sorted(subheadings, key=lambda subheading: subheading[by_attribute])
     }
 
     SIDE_NAVIGATION = yaml.load(
         side_navigation_file.read(),
         Loader=yaml.FullLoader,
     )
-
 
     def alphabetize_heading_items(heading, by_attribute="title"):
         """
@@ -65,9 +62,9 @@ with open("side-navigation.yaml") as side_navigation_file:
 
         return heading
 
-
     for heading in SIDE_NAVIGATION:
         heading = alphabetize_heading_items(heading)
+
 
 app = FlaskBase(
     __name__,
@@ -126,19 +123,6 @@ def _get_examples():
         )
 
     return examples
-
-
-def _get_all_examples_paths():
-    """
-    :return: Set of all paths to example component files from the root of the site. I.E., /docs/examples/patterns/buttons/alignment
-    """
-    paths = set()
-    examples = _get_examples()
-    for ex_type in examples:
-        for example in examples[ex_type]:
-            paths.add(example['path'])
-
-    return paths
 
 
 def _make_github_request(endpoint):
@@ -244,20 +228,6 @@ def global_template_context():
     }
 
 
-# Request preprocessing
-with app.app_context():
-    example_paths = _get_all_examples_paths()
-    all_examples_regex = '|'.join([re.escape(example_path) for example_path in example_paths])
-    example_match = rf'^/docs/examples/(?:standalone/)?(?:{all_examples_regex})$'
-
-
-    @app.before_request
-    def preprocess():
-        # Only apply color theme for example component pages
-        if re.match(example_match, flask.request.path):
-            return _apply_color_theme(flask.request.path)
-
-
 @app.template_filter()
 def markdown(text):
     return markupsafe.Markup(mistune.markdown(text))
@@ -265,8 +235,8 @@ def markdown(text):
 
 def class_reference(component=None):
     component = (
-            component
-            or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
+        component
+        or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
     )
     data = CLASS_REFERENCES["class-references"][component]
     return markupsafe.Markup(

@@ -1,7 +1,7 @@
+const SUPPORTED_THEMES = ['light', 'dark', 'paper'];
+const [DEFAULT_COLOR_THEME] = SUPPORTED_THEMES;
 const COLOR_THEME_QUERY_PARAM_NAME = 'theme';
-const COLOR_THEMES_SUPPORTED_QUERY_PARAM_NAME = 'available_themes';
-var availableThemes = [];
-var activeTheme;
+var activeTheme = DEFAULT_COLOR_THEME;
 
 (function () {
   function inIframe() {
@@ -41,7 +41,11 @@ var activeTheme;
       window.location.search = currentQueryParams.toString();
     } else {
       var url = new URL(window.location.href);
-      url.searchParams.set(key, value);
+      if (value) {
+        url.searchParams.set(key, value);
+      } else {
+        url.searchParams.delete(key);
+      }
       if (window.location.href !== url.toString()) {
         window.history.replaceState(null, null, url.toString());
       }
@@ -55,7 +59,7 @@ var activeTheme;
    * @returns {string}
    */
   function convertThemeNameToClassName(themeName) {
-    return `is-${themeName.toLowerCase()}`;
+    return `is-${themeName}`;
   }
 
   /**
@@ -64,7 +68,7 @@ var activeTheme;
    * @returns {string}
    */
   function convertThemeNameToJsTogglerClassName(themeName) {
-    return `js-${themeName.toLowerCase()}-theme-toggle`;
+    return `js-${themeName}-theme-toggle`;
   }
 
   /**
@@ -73,7 +77,7 @@ var activeTheme;
    * @returns {string}
    */
   function convertThemeNameToTogglerUtilityClassName(themeName) {
-    return `u-theme-toggle__${themeName.toLowerCase()}`;
+    return `u-theme-toggle__${themeName}`;
   }
 
   /**
@@ -83,6 +87,8 @@ var activeTheme;
   function selectColorTheme(themeToSelect) {
     // Apply the color theme to the document body
     document.body.classList.add(convertThemeNameToClassName(themeToSelect));
+    // Remove the old color theme from the document body
+    if (themeToSelect !== activeTheme) document.body.classList.remove(convertThemeNameToClassName(activeTheme));
 
     // Update address bar to reflect the newly selected color theme
     setQueryParameter(COLOR_THEME_QUERY_PARAM_NAME, themeToSelect.toLowerCase());
@@ -90,14 +96,8 @@ var activeTheme;
     // Update theme selector button states to reflect which one is currently active
     var themeButtonToSelect = document.querySelector(`.${convertThemeNameToJsTogglerClassName(themeToSelect)}`);
     themeButtonToSelect?.setAttribute('aria-selected', 'true');
-
-    if (activeTheme) {
-      var themeButtonCurrentlySelected = document.querySelector(`.${convertThemeNameToJsTogglerClassName(activeTheme)}`);
-      themeButtonCurrentlySelected?.setAttribute('aria-selected', 'false');
-
-      // Remove the old color theme from the document body
-      if (themeToSelect !== activeTheme) document.body.classList.remove(convertThemeNameToClassName(activeTheme));
-    }
+    var themeButtonCurrentlySelected = document.querySelector(`.${convertThemeNameToJsTogglerClassName(activeTheme)}`);
+    themeButtonCurrentlySelected?.setAttribute('aria-selected', 'false');
 
     activeTheme = themeToSelect;
   }
@@ -110,21 +110,41 @@ var activeTheme;
       var controls = document.createElement('div');
       controls.classList.add('u-example-controls', 'p-form', 'p-form--inline');
       var queryParameters = getQueryParameters();
+      var requestedTheme = queryParameters.get(COLOR_THEME_QUERY_PARAM_NAME);
+      if (SHOW_THEME_SWITCH) {
+        // Some examples (i.e., button / dark) are pre-themed by their jinja template.
+        // if this is the case we don't modify the body class (it's already set); we just mark that theme as active.
+        var preExistingClassFromTemplate = SUPPORTED_THEMES.find((themeName) => body.classList.contains(convertThemeNameToClassName(themeName)));
 
-      availableThemes = queryParameters.get(COLOR_THEMES_SUPPORTED_QUERY_PARAM_NAME)?.split(',');
-      var requestedTheme = queryParameters.get(COLOR_THEME_QUERY_PARAM_NAME) || availableThemes[0] || 'light';
+        if (preExistingClassFromTemplate) {
+          activeTheme = preExistingClassFromTemplate;
+        } else if (!requestedTheme) {
+          // No template-defined theme & no query-param-requested theme; fallback to default
+          selectColorTheme(DEFAULT_COLOR_THEME);
+        }
 
-      selectColorTheme(requestedTheme);
-      if (availableThemes?.length > 1) {
-        var themeSwitcherControls = availableThemes.map(
-          (themeLabel) =>
-            `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeLabel)} ${convertThemeNameToJsTogglerClassName(themeLabel)}" role="button" aria-selected="${activeTheme === themeLabel.toLowerCase()}" id="theme-selector-${themeLabel.toLowerCase()}" data-color-theme-name="${themeLabel.toLowerCase()}">${themeLabel}</button>`,
-        );
-        var themeSwitcherSegmentedControl = fragmentFromString(
-          `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list">${themeSwitcherControls.join('')}</div></div>`,
-        );
+        if (requestedTheme) {
+          if (SUPPORTED_THEMES.includes(requestedTheme)) {
+            selectColorTheme(requestedTheme);
+          } else {
+            // Query param used to request a theme that is not supported
+            selectColorTheme(DEFAULT_COLOR_THEME);
+          }
+        }
 
-        controls.appendChild(themeSwitcherSegmentedControl);
+        if (SUPPORTED_THEMES?.length > 1) {
+          var themeSwitcherControls = SUPPORTED_THEMES.map(
+            (themeName) =>
+              `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeName)} ${convertThemeNameToJsTogglerClassName(themeName)}" role="button" aria-selected="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${themeName}</button>`,
+          );
+          var themeSwitcherSegmentedControl = fragmentFromString(
+            `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list">${themeSwitcherControls.join('')}</div></div>`,
+          );
+
+          controls.appendChild(themeSwitcherSegmentedControl);
+        }
+      } else if (requestedTheme) {
+        setQueryParameter(COLOR_THEME_QUERY_PARAM_NAME, null);
       }
       var baselineGridControl = fragmentFromString(
         '<div class="u-baseline-grid__toggle"><label class="p-switch"><input type="checkbox" class="p-switch__input js-baseline-toggle" /><span class="p-switch__slider"></span><span class="p-switch__label">Toggle baseline grid</span></label></div>',

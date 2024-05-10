@@ -5,7 +5,11 @@
 
   <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer-icons"></div>
 
-  <nav class="p-side-navigation__drawer" aria-label="Example side navigation with icons">
+  {% if is_dark %}
+  <!-- dark background color should be changed via color theme variables, inline style is used here for example purposes -->
+  {% endif %}
+  <nav class="p-side-navigation__drawer" aria-label="Example side navigation with icons"
+    style="{% if is_dark %}background: #003b4e;{% elif not is_paper %}background: #f7f7f7{% endif %}">
     <div class="p-side-navigation__drawer-header">
       <button class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer-icons">
         Toggle side navigation
