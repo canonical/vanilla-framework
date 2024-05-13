@@ -108,7 +108,7 @@ var activeTheme = DEFAULT_COLOR_THEME;
     document.addEventListener('DOMContentLoaded', function () {
       var body = document.body;
       var controls = document.createElement('div');
-      controls.classList.add('u-example-controls', 'p-form', 'p-form--inline');
+      controls.classList.add('p-example-controls', 'p-form', 'p-form--inline');
       var queryParameters = getQueryParameters();
       var requestedTheme = queryParameters.get(COLOR_THEME_QUERY_PARAM_NAME);
       if (SHOW_THEME_SWITCH) {
