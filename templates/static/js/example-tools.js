@@ -67,17 +67,8 @@ var activeTheme = DEFAULT_COLOR_THEME;
    * @param {String} themeName
    * @returns {string}
    */
-  function convertThemeNameToJsTogglerClassName(themeName) {
+  function convertThemeNameToButtonIdentifier(themeName) {
     return `js-${themeName}-theme-toggle`;
-  }
-
-  /**
-   * Converts a theme name to its toggler utility class name, used for applying style to the toggler button
-   * @param {String} themeName
-   * @returns {string}
-   */
-  function convertThemeNameToTogglerUtilityClassName(themeName) {
-    return `u-theme-toggle__${themeName}`;
   }
 
   /**
@@ -94,10 +85,12 @@ var activeTheme = DEFAULT_COLOR_THEME;
     setQueryParameter(COLOR_THEME_QUERY_PARAM_NAME, themeToSelect.toLowerCase());
 
     // Update theme selector button states to reflect which one is currently active
-    var themeButtonToSelect = document.querySelector(`.${convertThemeNameToJsTogglerClassName(themeToSelect)}`);
+    var themeButtonToSelect = document.getElementById(convertThemeNameToButtonIdentifier(themeToSelect));
     themeButtonToSelect?.setAttribute('aria-selected', 'true');
-    var themeButtonCurrentlySelected = document.querySelector(`.${convertThemeNameToJsTogglerClassName(activeTheme)}`);
-    themeButtonCurrentlySelected?.setAttribute('aria-selected', 'false');
+    if (activeTheme) {
+      var themeButtonToDeselect = document.getElementById(convertThemeNameToButtonIdentifier(activeTheme));
+      themeButtonToDeselect?.setAttribute('aria-selected', 'false');
+    }
 
     activeTheme = themeToSelect;
   }
@@ -135,7 +128,7 @@ var activeTheme = DEFAULT_COLOR_THEME;
         if (SUPPORTED_THEMES?.length > 1) {
           var themeSwitcherControls = SUPPORTED_THEMES.map(
             (themeName) =>
-              `<button class="p-segmented-control__button u-theme-toggle__button is-dense ${convertThemeNameToTogglerUtilityClassName(themeName)} ${convertThemeNameToJsTogglerClassName(themeName)}" role="button" aria-selected="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${themeName}</button>`,
+              `<button id="${convertThemeNameToButtonIdentifier(themeName)}" class="p-segmented-control__button u-theme-toggle__button is-dense" role="button" aria-selected="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${themeName}</button>`,
           );
           var themeSwitcherSegmentedControl = fragmentFromString(
             `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list">${themeSwitcherControls.join('')}</div></div>`,
