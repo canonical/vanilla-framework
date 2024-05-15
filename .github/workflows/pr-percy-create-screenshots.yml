@@ -1,0 +1,120 @@
+name: "Create Percy screenshots"
+
+on:
+  workflow_run:
+    workflows:
+      - "Upload artifacts for Percy screenshots"
+    types:
+      - completed
+
+jobs:
+  upload:
+    name: Build project with proposed changes & take Percy snapshots
+    runs-on: ubuntu-latest
+    outputs:
+      pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
+    steps:
+      - name: Verify that triggering workflow run passed
+        run: |
+          if [[ "${{ github.event.workflow_run.conclusion }}" != "success" ]]; then
+            echo "Previous workflow run was not successful."
+            exit 1
+          else
+            echo "Previous workflow run was successful."
+          fi
+      - name: Checkout SCM
+        uses: actions/checkout@v4
+
+      - name: Download artifact from workflow run
+        uses: actions/download-artifact@v4
+        with:
+          name: "web-artifact-${{ github.event.workflow_run.id }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event.workflow_run.repository.full_name }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Replace SCM files with artifact files
+        run: |
+          set -e
+          rm -rf templates/docs/examples/ scss/
+          tar xzf build.tar.gz
+          rm build.tar.gz
+          mv examples/ templates/docs/.
+
+      - name: Install Python
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: 3.10.14
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn && pip3 install -r requirements.txt
+
+      - name: Build
+        run: yarn build
+
+      - name: Start testing server
+        env:
+          SECRET_KEY: local_development_fake_key
+        run: ./entrypoint 0.0.0.0:8101 &
+
+      - name: Wait for server availability
+        run: |
+          sleep_interval_secs=2
+          max_wait_time_secs=30
+          wait_time_secs=0
+          while [ "$wait_time_secs" -lt "$max_wait_time_secs" ]; do
+            if curl -s localhost:8101/_status/check -I; then
+              echo "Server is up!"
+              break
+            else
+              wait_time_secs=$((wait_time_secs + sleep_interval_secs))
+              if [ "$wait_time_secs" -ge "$max_wait_time_secs" ]; then
+                echo "[TIMEOUT ERROR]: Local testing server failed to respond within $max_wait_time_secs seconds!"
+                exit 1
+              else
+                echo "Waiting for server to start..."
+                sleep "$sleep_interval_secs"
+              fi
+            fi
+          done
+
+      - name: Get PR data
+        if: github.event.workflow_run.event=='pull_request'
+        id: get_pr_data
+        run: |
+          echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
+          echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+
+      - name: Take screenshots & upload to Percy
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_PULL_REQUEST: ${{ steps.get_pr_data.outputs.pr }}
+          PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
+        run: yarn percy
+
+  # Add a check to the PR to show that screenshots were sent to Percy
+  # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
+  apply_pr_check:
+    name: Apply PR check
+    needs: upload
+    if: github.event.workflow_run.event=='pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply PR check
+        id: create_check_run
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/${{github.repository}}/check-runs
+          owner: octokit
+          repo: request-action
+          name: "percy_upload"
+          head_sha: "${{ needs.upload.outputs.pr_head_sha }}"
+          status: completed
+          conclusion: success
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
