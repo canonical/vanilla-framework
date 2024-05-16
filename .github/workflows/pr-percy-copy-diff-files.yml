@@ -18,7 +18,9 @@ jobs:
             scss/
 
       - name: Make artifact directory
-        run: mkdir -p artifact
+        run: |
+          mkdir -p artifact
+          cp -R templates/docs/examples/ scss/ artifact/.
 
         # Archive the PR number associated with this workflow since it won't be available in the base workflow context
         # https://github.com/orgs/community/discussions/25220
@@ -29,14 +31,9 @@ jobs:
           echo ${{ github.event.number }} > pr_num.txt
           echo ${{ github.event.pull_request.head.sha }} > pr_head_sha.txt
 
-      - name: Compress artifact
-        working-directory: artifact
-        run: |
-          cp -R ../templates/docs/examples/ ../scss/ .
-          tar -czf build.tar.gz *
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: "web-artifact-${{ github.run_id }}"
-          path: artifact/build.tar.gz
+          path: |
+            artifact/*

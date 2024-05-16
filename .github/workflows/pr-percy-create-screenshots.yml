@@ -29,6 +29,9 @@ jobs:
       - name: Checkout SCM
         uses: actions/checkout@v4
 
+      - name: Remove SCM files that will be replaced by artifact files
+        run: rm -rf scss/ templates/docs/examples/
+
       - name: Download artifact from workflow run
         uses: actions/download-artifact@v4
         with:
@@ -48,9 +51,6 @@ jobs:
       - name: Move artifact files into place to replace SCM
         run: |
           set -e
-          rm -rf templates/docs/examples/ scss/
-          tar xzf build.tar.gz
-          rm build.tar.gz
           mv examples/ templates/docs/.
 
       - name: Install Python
