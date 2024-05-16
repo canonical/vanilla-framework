@@ -13,9 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
+      percy_build_link: ${{ steps.percy_snapshot.outputs.build_link }}
+      percy_org_id: ${{ steps.percy_snapshot.outputs.org_id }}
+      percy_build_id: ${{ steps.percy_snapshot.outputs.build_id }}
     steps:
       - name: Verify that triggering workflow run passed
         run: |
+          set -e
           if [[ "${{ github.event.workflow_run.conclusion }}" != "success" ]]; then
             echo "Previous workflow run was not successful."
             exit 1
@@ -64,6 +68,7 @@ jobs:
 
       - name: Wait for server availability
         run: |
+          set -e
           sleep_interval_secs=2
           max_wait_time_secs=30
           wait_time_secs=0
@@ -87,15 +92,26 @@ jobs:
         if: github.event.workflow_run.event=='pull_request'
         id: get_pr_data
         run: |
+          set -e
           echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
           echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
 
-      - name: Take screenshots & upload to Percy
+      - name: Take snapshots & upload to Percy
+        id: percy_snapshot
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_PULL_REQUEST: ${{ steps.get_pr_data.outputs.pr }}
           PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
-        run: yarn percy
+        run: |
+          set -e
+          percy_output=$(yarn percy)
+          build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+          org_id=$(echo "$build_link" | cut -d '/' -f 4)
+          build_id=$(echo "$build_link" | cut -d '/' -f 7)
+          echo "build_link=$build_link" >> $GITHUB_OUTPUT
+          echo "org_id=$org_id" >> $GITHUB_OUTPUT
+          echo "build_id=$build_id" >> $GITHUB_OUTPUT
+          echo "Percy build created at $build_link"
 
   # Add a check to the PR to show that screenshots were sent to Percy
   # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
@@ -113,8 +129,13 @@ jobs:
           owner: octokit
           repo: request-action
           name: "percy_upload"
-          head_sha: "${{ needs.upload.outputs.pr_head_sha }}"
+          head_sha: ${{ needs.upload.outputs.pr_head_sha }}
           status: completed
           conclusion: success
+          details_url: ${{ needs.upload.outputs.percy_build_link }}
+          output: |
+            title: "Percy build"
+            summary: "Percy build #${{ needs.upload.outputs.percy_build_id }} created"
+            text: "Percy build was created at ${{ needs.upload.outputs.percy_build_link }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
