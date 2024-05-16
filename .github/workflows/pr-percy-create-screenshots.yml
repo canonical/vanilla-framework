@@ -104,6 +104,7 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_PULL_REQUEST: ${{ steps.get_pr_data.outputs.pr }}
           PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
+          PERCY_CLIENT_ERROR_LOGS: false
         run: |
           set -e
           percy_output=$(yarn percy)
