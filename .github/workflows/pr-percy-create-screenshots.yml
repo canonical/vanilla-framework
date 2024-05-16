@@ -75,6 +75,8 @@ jobs:
           while [ "$wait_time_secs" -lt "$max_wait_time_secs" ]; do
             if curl -s localhost:8101/_status/check -I; then
               echo "Server is up!"
+              # sometimes if we start the server too soon after it starts responding, percy snapshot errors.
+              sleep 5
               break
             else
               wait_time_secs=$((wait_time_secs + sleep_interval_secs))
