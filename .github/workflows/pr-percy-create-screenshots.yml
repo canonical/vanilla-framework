@@ -107,14 +107,25 @@ jobs:
           PERCY_CLIENT_ERROR_LOGS: false
         run: |
           set -e
+          
           percy_output=$(yarn percy)
+          
+          if [[ $percy_output =~ "Build not created" ]]; then
+            echo "Build not created."
+            exit 1
+          else
+            echo "Build created successfully"
+          fi
+          
           build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
           org_id=$(echo "$build_link" | cut -d '/' -f 4)
           build_id=$(echo "$build_link" | cut -d '/' -f 7)
+          
           echo "build_link=$build_link" >> $GITHUB_OUTPUT
           echo "org_id=$org_id" >> $GITHUB_OUTPUT
           echo "build_id=$build_id" >> $GITHUB_OUTPUT
-          echo "Percy build created at $build_link"
+          
+          echo "Percy build $build_id created at $build_link"
 
   # Add a check to the PR to show that screenshots were sent to Percy
   # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
