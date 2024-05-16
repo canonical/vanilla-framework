@@ -37,7 +37,15 @@ jobs:
           repository: ${{ github.event.workflow_run.repository.full_name }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      - name: Replace SCM files with artifact files
+      - name: Get PR data
+        if: github.event.workflow_run.event=='pull_request'
+        id: get_pr_data
+        run: |
+          set -e
+          echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
+          echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+
+      - name: Move artifact files into place to replace SCM
         run: |
           set -e
           rm -rf templates/docs/examples/ scss/
@@ -89,14 +97,6 @@ jobs:
               fi
             fi
           done
-
-      - name: Get PR data
-        if: github.event.workflow_run.event=='pull_request'
-        id: get_pr_data
-        run: |
-          set -e
-          echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
-          echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
 
       - name: Take snapshots & upload to Percy
         id: percy_snapshot
