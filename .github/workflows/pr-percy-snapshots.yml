@@ -1,15 +1,16 @@
-name: "Create Percy screenshots"
+name: "Percy screenshots"
 
 on:
   workflow_run:
     workflows:
-      - "Upload artifacts for Percy screenshots"
+      - "Prepare Percy build"
     types:
       - completed
 
 jobs:
   upload:
     name: Build project with proposed changes & take Percy snapshots
+    if: github.event.workflow_run.conclusion=='success'
     runs-on: ubuntu-latest
     outputs:
       pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
@@ -44,16 +45,6 @@ jobs:
           set -e
           echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
           echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
-
-      - name: Verify that triggering workflow run passed
-        run: |
-          set -e
-          if [[ "${{ github.event.workflow_run.conclusion }}" != "success" ]]; then
-            echo "Previous workflow run was not successful."
-            exit 1
-          else
-            echo "Previous workflow run was successful."
-          fi
 
       - name: Move artifact files into place to replace SCM
         run: |
@@ -111,23 +102,27 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WRITE }}
           # This identifies the diff in the percy diffs list
           PERCY_BRANCH: "pull/${{ steps.get_pr_data.outputs.pr }}"
-          #PERCY_BRANCH: "${{ github.event.workflow_run.head_repository.full_name }}/${{ github.event.workflow_run.head_branch }}"
-          #PERCY_PULL_REQUEST: ${{ steps.get_pr_data.outputs.pr }}
           PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
           PERCY_CLIENT_ERROR_LOGS: false
         run: |
           set -e
           
+          # Start a percy build and capture the stdout
           percy_output=$(yarn percy)
           
+          # Fail if the Percy stdout contains "Build not created"
           if [[ $percy_output =~ "Build not created" ]]; then
             echo "Build not created."
             exit 1
           else
             echo "Build created successfully"
+            echo $percy_output
           fi
-          
+
+          # Extract the build link from the stdout of the snapshot command
           build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+          
+          # Using '/' to split the $build_link, extract the organization and build identifiers
           org_id=$(echo "$build_link" | cut -d '/' -f 4)
           build_id=$(echo "$build_link" | cut -d '/' -f 7)
           
@@ -135,7 +130,7 @@ jobs:
           echo "org_id=$org_id" >> $GITHUB_OUTPUT
           echo "build_id=$build_id" >> $GITHUB_OUTPUT
           
-          echo "Percy build $build_id created at $build_link"
+          echo "Percy build created at $build_link"
 
       - name: Wait for Percy build to complete
         run: npx percy build:wait --build ${{ steps.percy_snapshot.outputs.build_id }}
@@ -146,26 +141,28 @@ jobs:
       - name: Get Percy build results
         id: percy_build_results
         run: |
+          # Fetch Percy build details
           response=$(curl --request GET \
           	--url https://percy.io/api/v1/builds/${{ steps.percy_snapshot.outputs.build_id }} \
             --header "Authorization: Token ${{ secrets.PERCY_TOKEN_READ }}"
           )
-
+          
+          # Extract attributes of build and remove quotes
           build_state=$(echo $response | jq '.data.attributes."state"' | tr -d '"')
           review_state=$(echo $response | jq '.data.attributes."review-state"' | tr -d '"')
           review_state_reason=$(echo $response | jq '.data.attributes."review-state-reason"' | tr -d '"')
           num_snapshots=$(echo $response | jq '.data.attributes."total-snapshots"' | tr -d '"')
-          
+
           echo "build state $build_state"
           echo "review_state $review_state"
           echo "review_state_reason $review_state_reason"
           echo "num_snapshots $num_snapshots"
-          
+
           echo "build_state=$build_state" >> $GITHUB_OUTPUT
           echo "review_state=$review_state" >> $GITHUB_OUTPUT
           echo "review_state_reason=$review_state_reason" >> $GITHUB_OUTPUT
           echo "num_snapshots=$num_snapshots" >> $GITHUB_OUTPUT
-          
+
           if [ "$review_state" != "approved" ]; then
             echo "Percy diffs were detected."
             exit 1
