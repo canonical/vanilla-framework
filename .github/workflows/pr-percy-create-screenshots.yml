@@ -10,6 +10,7 @@ on:
 jobs:
   upload:
     name: Build project with proposed changes & take Percy snapshots
+    if: github.event.workflow_run.conclusion=='success'
     runs-on: ubuntu-latest
     outputs:
       pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
@@ -17,15 +18,6 @@ jobs:
       percy_org_id: ${{ steps.percy_snapshot.outputs.org_id }}
       percy_build_id: ${{ steps.percy_snapshot.outputs.build_id }}
     steps:
-      - name: Verify that triggering workflow run passed
-        run: |
-          set -e
-          if [[ "${{ github.event.workflow_run.conclusion }}" != "success" ]]; then
-            echo "Previous workflow run was not successful."
-            exit 1
-          else
-            echo "Previous workflow run was successful."
-          fi
       - name: Checkout SCM
         uses: actions/checkout@v4
 
