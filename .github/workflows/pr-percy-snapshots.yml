@@ -98,10 +98,16 @@ jobs:
           PERCY_CLIENT_ERROR_LOGS: false
         run: |
           set -e
+          # Start a percy build and capture the stdout
           percy_output=$(yarn percy)
+          
+          # Extract the build link from the stdout of the snapshot command
           build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+          
+          # Using '/' to split the $build_link, extract the organization and build identifiers
           org_id=$(echo "$build_link" | cut -d '/' -f 4)
           build_id=$(echo "$build_link" | cut -d '/' -f 7)
+          
           echo "build_link=$build_link" >> $GITHUB_OUTPUT
           echo "org_id=$org_id" >> $GITHUB_OUTPUT
           echo "build_id=$build_id" >> $GITHUB_OUTPUT
