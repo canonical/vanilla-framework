@@ -100,10 +100,8 @@ jobs:
         id: percy_snapshot
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WRITE }}
-          # This identifies the diff in the percy diffs list
+          # This identifies the diff by name in the percy diffs list
           PERCY_BRANCH: "pull/${{ steps.get_pr_data.outputs.pr }}"
-          #PERCY_BRANCH: "${{ github.event.workflow_run.head_repository.full_name }}/${{ github.event.workflow_run.head_branch }}"
-          #PERCY_PULL_REQUEST: ${{ steps.get_pr_data.outputs.pr }}
           PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
           PERCY_CLIENT_ERROR_LOGS: false
         run: |
