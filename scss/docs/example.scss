@@ -13,19 +13,22 @@ body {
 // stylelint-enable selector-max-type
 
 .p-example-controls {
+  @include vf-transition($property: #{transform, box-shadow, visibility}, $duration: snap);
   align-items: center;
-  background-color: $colors--theme--background-default;
-  bottom: $spv--x-large;
-  padding: $spv--small 0 $spv--small $sph--x-large;
+  background-color: var(--vf-color-background-alt);
+  bottom: 0;
+  box-shadow: $box-shadow--deep;
+  display: flex;
+  flex-flow: row wrap;
+  gap: $sp-unit;
+  justify-content: space-between;
+  left: 0;
+  padding: 0.25rem;
   position: fixed;
-  right: $sp-unit * 3;
+  right: 0;
 
   .u-theme-toggle__button {
     text-transform: capitalize;
-  }
-
-  @media (max-width: $breakpoint-large) {
-    padding-right: $sph--x-large;
   }
 
   @media only percy {
