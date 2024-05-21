@@ -96,8 +96,6 @@ jobs:
         with:
           branch_name: "pull/${{ steps.get_pr_data.outputs.pr }}"
           commitsh: ${{ steps.get_pr_data.outputs.sha }}
-        secrets:
-          PERCY_TOKEN_WRITE: ${{ secrets.PERCY_TOKEN_WRITE }}
 
   # Add a check to the PR to show that screenshots were sent to Percy
   # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
