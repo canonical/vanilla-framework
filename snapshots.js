@@ -31,7 +31,7 @@ async function getPercyConfigURLs() {
   let links = getExampleUrls(await getExampleFiles());
   let urls = [];
 
-  for (var i = 0; i < 1; i++) {
+  for (var i = 0; i < links.length; i++) {
     const url = links[i];
 
     const path = new URL(url).pathname.replace(/\/?$/, '/');
