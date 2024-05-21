@@ -1,0 +1,143 @@
+name: "Percy screenshots"
+
+on:
+  workflow_run:
+    workflows:
+      - "Prepare Percy build"
+    types:
+      - completed
+
+jobs:
+  upload:
+    name: Build project with proposed changes & take Percy snapshots
+    if: github.event.workflow_run.conclusion=='success'
+    runs-on: ubuntu-latest
+    outputs:
+      pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
+      percy_build_link: ${{ steps.percy_snapshot.outputs.build_link }}
+      percy_org_id: ${{ steps.percy_snapshot.outputs.org_id }}
+      percy_build_id: ${{ steps.percy_snapshot.outputs.build_id }}
+    steps:
+      - name: Checkout SCM
+        uses: actions/checkout@v4
+
+      - name: Download artifact from workflow run
+        uses: actions/download-artifact@v4
+        with:
+          name: "web-artifact-${{ github.event.workflow_run.id }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event.workflow_run.repository.full_name }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Replace SCM files with artifact files
+        run: |
+          set -e
+          rm -rf templates/docs/examples/ scss/
+          tar xzf build.tar.gz
+          rm build.tar.gz
+          mv examples/ templates/docs/.
+
+      - name: Install Python
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: 3.10.14
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn && pip3 install -r requirements.txt
+
+      - name: Build
+        run: yarn build
+
+      - name: Start testing server
+        env:
+          SECRET_KEY: local_development_fake_key
+        run: ./entrypoint 0.0.0.0:8101 &
+
+      - name: Wait for server availability
+        run: |
+          set -e
+          sleep_interval_secs=2
+          max_wait_time_secs=30
+          wait_time_secs=0
+          while [ "$wait_time_secs" -lt "$max_wait_time_secs" ]; do
+            if curl -s localhost:8101/_status/check -I; then
+              echo "Server is up!"
+              # sometimes if we start the server too soon after it starts responding, percy snapshot errors happen.
+              sleep 5
+              break
+            else
+              wait_time_secs=$((wait_time_secs + sleep_interval_secs))
+              if [ "$wait_time_secs" -ge "$max_wait_time_secs" ]; then
+                echo "[TIMEOUT ERROR]: Local testing server failed to respond within $max_wait_time_secs seconds!"
+                exit 1
+              else
+                echo "Waiting for server to start..."
+                sleep "$sleep_interval_secs"
+              fi
+            fi
+          done
+
+      - name: Get PR data
+        if: github.event.workflow_run.event=='pull_request'
+        id: get_pr_data
+        run: |
+          set -e
+          echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
+          echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+
+      - name: Take snapshots & upload to Percy
+        id: percy_snapshot
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WRITE }}
+          # This identifies the diff by name in the percy diffs list
+          PERCY_BRANCH: "pull/${{ steps.get_pr_data.outputs.pr }}"
+          PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
+          PERCY_CLIENT_ERROR_LOGS: false
+        run: |
+          set -e
+          # Start a percy build and capture the stdout
+          percy_output=$(yarn percy)
+          
+          # Extract the build link from the stdout of the snapshot command
+          build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+          
+          # Using '/' to split the $build_link, extract the organization and build identifiers
+          org_id=$(echo "$build_link" | cut -d '/' -f 4)
+          build_id=$(echo "$build_link" | cut -d '/' -f 7)
+          
+          echo "build_link=$build_link" >> $GITHUB_OUTPUT
+          echo "org_id=$org_id" >> $GITHUB_OUTPUT
+          echo "build_id=$build_id" >> $GITHUB_OUTPUT
+          echo "Percy build created at $build_link"
+
+  # Add a check to the PR to show that screenshots were sent to Percy
+  # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
+  apply_pr_check:
+    name: Apply PR check
+    needs: upload
+    if: github.event.workflow_run.event=='pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply PR check
+        id: create_check_run
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/${{github.repository}}/check-runs
+          owner: octokit
+          repo: request-action
+          name: "percy_upload"
+          head_sha: ${{ needs.upload.outputs.pr_head_sha }}
+          status: completed
+          conclusion: success
+          details_url: ${{ needs.upload.outputs.percy_build_link }}
+          output: |
+            title: "Percy build"
+            summary: "Percy build #${{ needs.upload.outputs.percy_build_id }} created"
+            text: "Percy build was created at ${{ needs.upload.outputs.percy_build_link }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
