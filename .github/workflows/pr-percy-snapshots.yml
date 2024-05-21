@@ -92,28 +92,12 @@ jobs:
 
       - name: Take snapshots & upload to Percy
         id: percy_snapshot
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WRITE }}
-          # This identifies the diff by name in the percy diffs list
-          PERCY_BRANCH: "pull/${{ steps.get_pr_data.outputs.pr }}"
-          PERCY_COMMIT: ${{ steps.get_pr_data.outputs.sha }}
-          PERCY_CLIENT_ERROR_LOGS: false
-        run: |
-          set -e
-          # Start a percy build and capture the stdout
-          percy_output=$(yarn percy)
-          
-          # Extract the build link from the stdout of the snapshot command
-          build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
-          
-          # Using '/' to split the $build_link, extract the organization and build identifiers
-          org_id=$(echo "$build_link" | cut -d '/' -f 4)
-          build_id=$(echo "$build_link" | cut -d '/' -f 7)
-          
-          echo "build_link=$build_link" >> $GITHUB_OUTPUT
-          echo "org_id=$org_id" >> $GITHUB_OUTPUT
-          echo "build_id=$build_id" >> $GITHUB_OUTPUT
-          echo "Percy build created at $build_link"
+        uses: './.github/workflows/percy-snapshot.yml'
+        with:
+          branch_name: "pull/${{ steps.get_pr_data.outputs.pr }}"
+          commitsh: ${{ steps.get_pr_data.outputs.sha }}
+        secrets:
+          PERCY_TOKEN_WRITE: ${{ secrets.PERCY_TOKEN_WRITE }}
 
   # Add a check to the PR to show that screenshots were sent to Percy
   # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
