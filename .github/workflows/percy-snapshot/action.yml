@@ -1,0 +1,111 @@
+name: Percy Snapshot
+description: Starts Vanilla local server, captures example snapshots, & uploads them to Percy
+inputs:
+  commitsh:
+    required: true
+    description: SHA signature of commit triggering the build
+  branch_name:
+    required: true
+    description: Name of the branch that Percy is being run against
+  percy_token_write:
+    required: true
+    description: Percy token with write access
+outputs:
+  build_link:
+    description: Link to the Percy build triggered by this workflow
+    value: ${{ steps.percy_snapshot.outputs.build_link }}
+  build_id:
+    description: ID of the Percy build triggered by this workflow
+    value: ${{ steps.percy_snapshot.outputs.build_id }}
+  org_id:
+    description: ID of the organization associated with the Percy build
+    value: ${{ steps.percy_snapshot.outputs.org_id }}
+runs:
+  using: composite
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v5.1.0
+      with:
+        python-version: 3.10.14
+
+    - name: Install NodeJS
+      uses: actions/setup-node@v4.0.2
+      with:
+        node-version: 20
+
+    - name: Install dependencies
+      shell: bash
+      run: yarn && pip3 install -r requirements.txt
+
+    - name: Build
+      shell: bash
+      run: yarn build
+
+    - name: Start testing server
+      shell: bash
+      env:
+        SECRET_KEY: local_development_fake_key
+      run: ./entrypoint 0.0.0.0:8101 &
+
+    - name: Wait for server availability
+      shell: bash
+      run: |
+        set -e
+        sleep_interval_secs=2
+        max_wait_time_secs=30
+        wait_time_secs=0
+        while [ "$wait_time_secs" -lt "$max_wait_time_secs" ]; do
+          if curl -s localhost:8101/_status/check -I; then
+            echo "Server is up!"
+            # sometimes if we start the server too soon after it starts responding, percy snapshot errors happen.
+            sleep 5
+            break
+          else
+            wait_time_secs=$((wait_time_secs + sleep_interval_secs))
+            if [ "$wait_time_secs" -ge "$max_wait_time_secs" ]; then
+              echo "[TIMEOUT ERROR]: Local testing server failed to respond within $max_wait_time_secs seconds!"
+              exit 1
+            else
+              echo "Waiting for server to start..."
+              sleep "$sleep_interval_secs"
+            fi
+          fi
+        done
+
+    - name: Take snapshots & upload to Percy
+      shell: bash
+      id: percy_snapshot
+      env:
+        PERCY_TOKEN: ${{ inputs.percy_token_write }}
+        # This identifies the diff by name in the percy diffs list
+        PERCY_BRANCH: ${{ inputs.branch_name }}
+        PERCY_COMMIT: ${{ inputs.commitsh }}
+        PERCY_CLIENT_ERROR_LOGS: false
+      run: |
+        set -e
+        # Start a percy build and capture the stdout
+
+        # Start a percy build and capture the stdout and stderr
+        percy_output=$(yarn percy 2>&1)
+        
+        echo "$percy_output"
+        
+        # Fail if the Percy stdout contains "Build not created"
+        if echo "$percy_output" | grep -q "Build not created"; then
+          echo "Percy build not created."
+          exit 1
+        else
+          echo "Percy build created successfully"
+        fi
+        
+        # Extract the build link from the stdout of the snapshot command
+        build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+        
+        # Using '/' to split the $build_link, extract the organization and build identifiers
+        org_id=$(echo "$build_link" | cut -d '/' -f 4)
+        build_id=$(echo "$build_link" | cut -d '/' -f 7)
+        
+        echo "build_link=$build_link" >> $GITHUB_OUTPUT
+        echo "org_id=$org_id" >> $GITHUB_OUTPUT
+        echo "build_id=$build_id" >> $GITHUB_OUTPUT
+        echo "Percy build created at $build_link"
