@@ -1,0 +1,61 @@
+name: Percy Snapshot
+
+on:
+  workflow_call:
+    inputs:
+      commitsh:
+        required: true
+        description: SHA signature of commit triggering the build
+        type: string
+      branch_name:
+        required: true
+        description: Name of the branch that Percy is being run against
+        type: string
+        default: main
+    secrets:
+      PERCY_TOKEN_WRITE:
+        required: true
+        description: Percy token with write access
+    outputs:
+      build_link:
+        description: Link to the Percy build triggered by this workflow
+        value: ${{ jobs.deploy.outputs.build_link }}
+      build_id:
+        description: ID of the Percy build triggered by this workflow
+        value: ${{ jobs.deploy.outputs.build_id }}
+      org_id:
+        description: ID of the organization associated with the Percy build
+        value: ${{ jobs.deploy.outputs.org_id }}
+jobs:
+  deploy:
+    name: Snapshot
+    runs-on: ubuntu-latest
+    outputs:
+      build_link: ${{ steps.percy_snapshot.outputs.build_link }}
+      build_id: ${{ steps.percy_snapshot.outputs.build_id }}
+      org_id: ${{ steps.percy_snapshot.outputs.org_id }}
+    steps:
+      - name: Take snapshots & upload to Percy
+        id: percy_snapshot
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WRITE }}
+          # This identifies the diff by name in the percy diffs list
+          PERCY_BRANCH: ${{ inputs.branch_name }}
+          PERCY_COMMIT: ${{ inputs.commitsh }}
+          PERCY_CLIENT_ERROR_LOGS: false
+        run: |
+          set -e
+          # Start a percy build and capture the stdout
+          percy_output=$(yarn percy)
+          
+          # Extract the build link from the stdout of the snapshot command
+          build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+          
+          # Using '/' to split the $build_link, extract the organization and build identifiers
+          org_id=$(echo "$build_link" | cut -d '/' -f 4)
+          build_id=$(echo "$build_link" | cut -d '/' -f 7)
+          
+          echo "build_link=$build_link" >> $GITHUB_OUTPUT
+          echo "org_id=$org_id" >> $GITHUB_OUTPUT
+          echo "build_id=$build_id" >> $GITHUB_OUTPUT
+          echo "Percy build created at $build_link"
