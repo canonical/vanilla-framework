@@ -1,0 +1,34 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Only need package.json as it is used by the get_version step to pass tag number into release-drafter
+          sparse-checkout: package.json
+
+      - name: Get version number from package.json
+        id: get_version
+        shell: bash
+        run: |
+          set -e
+          echo "version_number=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
+
+      - name: Draft release notes for v${{ steps.get_version.outputs.version_number }}
+        uses: release-drafter/release-drafter@v6
+        with:
+          # Setting tag and name override the name-template and tag-template.
+          # See https://github.com/release-drafter/release-drafter?tab=readme-ov-file#action-inputs for more
+         tag: v${{ steps.get_version.outputs.version_number }}
+         name: v${{ steps.get_version.outputs.version_number }}
+         commitish: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

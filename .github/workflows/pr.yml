@@ -1,0 +1,72 @@
+name: PR
+
+on: pull_request
+
+env:
+  PORT: 8765
+  SECRET_KEY: insecure_test_key
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+      - name: Build import.css test file without sourcemaps
+        run: npx sass --style=compressed --no-source-map scss/standalone/import.scss:build/css/standalone/import.css
+      - name: Check if import test file exists but is empty
+        run: test $(find build/css/standalone -name import.css -size -5)
+      - name: Show size of the build file
+        run: stat -c '%s' build/css/build.css
+
+  linkchecker:
+    name: linkchecker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
+      - name: Run server with Docker
+        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
+      - name: Check server status
+        run: curl localhost:${PORT}/_status/check -I
+      - name: Install linkchecker
+        run: sudo pip install LinkChecker
+      - name: Check internal links
+        run: linkchecker --no-warnings --ignore-url /search --ignore-url https://res.cloudinary.com --ignore-url q_auto --ignore-url  fl_sanitize --ignore-url  c_fill --ignore-url  e_sharpen --ignore-url  w_[0-9]* --ignore-url  h_[0-9]* http://localhost:${PORT}
+
+  cypress:
+    name: Cypress
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
+      - name: Run server with Docker
+        run: docker run -p ${PORT}:80 --env SECRET_KEY=${SECRET_KEY} testrun &
+      - name: Check server status
+        run: curl localhost:${PORT}/_status/check -I
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          config: baseUrl=http://localhost:${{ env.PORT }}
+
+  inclusive-naming-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check inclusive naming
+        uses: canonical/inclusive-naming@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-check
+          fail-on-error: true
