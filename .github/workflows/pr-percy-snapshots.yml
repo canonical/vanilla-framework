@@ -37,51 +37,6 @@ jobs:
           rm build.tar.gz
           mv examples/ templates/docs/.
 
-      - name: Install Python
-        uses: actions/setup-python@v5.1.0
-        with:
-          python-version: 3.10.14
-
-      - name: Install NodeJS
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: yarn && pip3 install -r requirements.txt
-
-      - name: Build
-        run: yarn build
-
-      - name: Start testing server
-        env:
-          SECRET_KEY: local_development_fake_key
-        run: ./entrypoint 0.0.0.0:8101 &
-
-      - name: Wait for server availability
-        run: |
-          set -e
-          sleep_interval_secs=2
-          max_wait_time_secs=30
-          wait_time_secs=0
-          while [ "$wait_time_secs" -lt "$max_wait_time_secs" ]; do
-            if curl -s localhost:8101/_status/check -I; then
-              echo "Server is up!"
-              # sometimes if we start the server too soon after it starts responding, percy snapshot errors happen.
-              sleep 5
-              break
-            else
-              wait_time_secs=$((wait_time_secs + sleep_interval_secs))
-              if [ "$wait_time_secs" -ge "$max_wait_time_secs" ]; then
-                echo "[TIMEOUT ERROR]: Local testing server failed to respond within $max_wait_time_secs seconds!"
-                exit 1
-              else
-                echo "Waiting for server to start..."
-                sleep "$sleep_interval_secs"
-              fi
-            fi
-          done
-
       - name: Get PR data
         if: github.event.workflow_run.event=='pull_request'
         id: get_pr_data

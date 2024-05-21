@@ -8,6 +8,9 @@ jobs:
     name: Take Percy snapshots
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout SCM
+        uses: actions/checkout@v4
+
       - uses: ./.github/workflows/percy-snapshot.yml
         with:
           branch_name: main
