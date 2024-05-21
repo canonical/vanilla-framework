@@ -1,8 +1,11 @@
 name: Update Percy Baseline
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
 jobs:
   snapshot:
     name: Take Percy snapshots
@@ -11,7 +14,8 @@ jobs:
       - name: Checkout SCM
         uses: actions/checkout@v4
 
-      - uses: ./.github/workflows/percy-snapshot.yml
+      - uses: ./.github/workflows/percy-snapshot
         with:
           branch_name: main
           commitsh: ${{ github.sha }}
+          percy_token_write: ${{ secrets.PERCY_TOKEN_WRITE }}
