@@ -318,6 +318,9 @@ $list-step-bullet-margin: $sph--x-large;
 
   .p-stepped-list__title + .p-stepped-list__content {
     margin-left: $bullet-width-mobile + $list-step-bullet-margin;
+    @media (min-width: $threshold-6-12-col) {
+      padding-top: $sp-unit;
+    }
 
     @media (min-width: $breakpoint-heading-threshold) {
       margin-left: $bullet-width + $list-step-bullet-margin;
@@ -392,7 +395,6 @@ $list-step-bullet-margin: $sph--x-large;
       @include vf-b-row-reset;
 
       @media (min-width: $threshold-6-12-col) {
-        padding-top: $sp-unit;
         position: relative;
 
         &::after {
