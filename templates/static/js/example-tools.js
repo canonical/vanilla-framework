@@ -63,12 +63,21 @@ var activeTheme = DEFAULT_COLOR_THEME;
   }
 
   /**
-   * Converts a theme name to its JS toggler class name, used for targeting it with JS events
+   * Converts a theme name to its JS toggler identifier name, used for targeting it with JS events
    * @param {String} themeName
    * @returns {string}
    */
   function convertThemeNameToButtonIdentifier(themeName) {
     return `js-${themeName}-theme-toggle`;
+  }
+
+  /**
+   * Converts a string to titlecase (first letter capitalized & subsequent letters lowercase)
+   * @param {String} str
+   * @returns {string}
+   */
+  function titleCase(str) {
+    return `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`;
   }
 
   /**
@@ -128,7 +137,7 @@ var activeTheme = DEFAULT_COLOR_THEME;
         if (SUPPORTED_THEMES?.length > 1) {
           var themeSwitcherControls = SUPPORTED_THEMES.map(
             (themeName) =>
-              `<button id="${convertThemeNameToButtonIdentifier(themeName)}" class="p-segmented-control__button u-theme-toggle__button is-dense" role="button" aria-selected="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${themeName}</button>`,
+              `<button id="${convertThemeNameToButtonIdentifier(themeName)}" class="p-segmented-control__button p-theme-toggle__button is-dense" role="button" aria-selected="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${titleCase(themeName)}</button>`,
           );
           var themeSwitcherSegmentedControl = fragmentFromString(
             `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list">${themeSwitcherControls.join('')}</div></div>`,
@@ -147,7 +156,7 @@ var activeTheme = DEFAULT_COLOR_THEME;
       body.appendChild(controls);
 
       // Below code relies on the controls already existing in the DOM, so must come after `body.appendChild`.
-      var themeToggleButtons = document.querySelectorAll('.u-theme-toggle__button');
+      var themeToggleButtons = document.querySelectorAll('.p-theme-toggle__button');
       themeToggleButtons.forEach((themeToggleButton) => {
         themeToggleButton.addEventListener('click', () => {
           selectColorTheme(themeToggleButton.getAttribute('data-color-theme-name'));
