@@ -1,0 +1,81 @@
+name: "Percy screenshots"
+
+on:
+  workflow_run:
+    workflows:
+      - "Prepare Percy build"
+    types:
+      - completed
+
+jobs:
+  upload:
+    name: Build project with proposed changes & take Percy snapshots
+    if: github.event.workflow_run.conclusion=='success'
+    runs-on: ubuntu-latest
+    outputs:
+      pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
+      percy_build_link: ${{ steps.percy_snapshot.outputs.build_link }}
+      percy_org_id: ${{ steps.percy_snapshot.outputs.org_id }}
+      percy_build_id: ${{ steps.percy_snapshot.outputs.build_id }}
+    steps:
+      - name: Checkout SCM
+        uses: actions/checkout@v4
+
+      - name: Download artifact from workflow run
+        uses: actions/download-artifact@v4
+        with:
+          name: "web-artifact-${{ github.event.workflow_run.id }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event.workflow_run.repository.full_name }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Replace SCM files with artifact files
+        run: |
+          set -e
+          rm -rf templates/docs/examples/ scss/
+          tar xzf build.tar.gz
+          rm build.tar.gz
+          mv examples/ templates/docs/.
+
+      - name: Get PR data
+        if: github.event.workflow_run.event=='pull_request'
+        id: get_pr_data
+        run: |
+          set -e
+          echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
+          echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+
+      - name: Take snapshots & upload to Percy
+        id: percy_snapshot
+        uses: './.github/workflows/percy-snapshot'
+        with:
+          branch_name: "pull/${{ steps.get_pr_data.outputs.pr }}"
+          commitsh: ${{ steps.get_pr_data.outputs.sha }}
+          percy_token_write: ${{ secrets.PERCY_TOKEN_WRITE }}
+
+  # Add a check to the PR to show that screenshots were sent to Percy
+  # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
+  apply_pr_check:
+    name: Apply PR check
+    needs: upload
+    if: github.event.workflow_run.event=='pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply PR check
+        id: create_check_run
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/${{github.repository}}/check-runs
+          owner: octokit
+          repo: request-action
+          name: "percy_upload"
+          head_sha: ${{ needs.upload.outputs.pr_head_sha }}
+          status: completed
+          conclusion: success
+          details_url: ${{ needs.upload.outputs.percy_build_link }}
+          output: |
+            title: "Percy build"
+            summary: "Percy build #${{ needs.upload.outputs.percy_build_id }} created"
+            text: "Percy build was created at ${{ needs.upload.outputs.percy_build_link }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

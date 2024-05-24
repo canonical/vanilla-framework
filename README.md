@@ -1,6 +1,5 @@
 # ![vanilla](https://assets.ubuntu.com/v1/70041419-vanilla-framework.png?w=35 'Vanilla') Vanilla Framework
 
-[![CircleCI build status](https://circleci.com/gh/canonical/vanilla-framework.svg?style=shield)](https://circleci.com/gh/canonical/vanilla-framework)
 [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 [![Downloads](http://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
 [![devDependency Status](https://david-dm.org/canonical/vanilla-framework/dev-status.svg)](https://david-dm.org/canonical/vanilla-framework#info=devDependencies)

@@ -1,0 +1,42 @@
+name: "Prepare Percy build"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  copy_artifact:
+    name: Copy changed files to GHA artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            templates/docs/examples/
+            scss/
+
+      - name: Make artifact directory
+        run: mkdir -p artifact
+
+        # Archive the PR number associated with this workflow since it won't be available in the base workflow context
+        # https://github.com/orgs/community/discussions/25220
+      - name: Archive PR data
+        if: github.event_name=='pull_request'
+        working-directory: artifact
+        run: |
+          echo ${{ github.event.number }} > pr_num.txt
+          echo ${{ github.event.pull_request.head.sha }} > pr_head_sha.txt
+
+      - name: Compress artifact
+        working-directory: artifact
+        run: |
+          cp -R ../templates/docs/examples/ ../scss/ .
+          tar -czf build.tar.gz *
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "web-artifact-${{ github.run_id }}"
+          path: artifact/build.tar.gz
