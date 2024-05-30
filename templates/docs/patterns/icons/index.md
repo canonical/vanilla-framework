@@ -26,6 +26,28 @@ context:
 
 {% set social_icons = ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'github', 'rss', 'email'] %}
 
+<!--
+    'chevron-up' and 'chevron-down' are class names, not mixin names; instead use 'chevron' for mixin import
+    TODO We should fix this icon-mixin naming discrepancy in the next major version.
+    See https://github.com/canonical/vanilla-framework/pull/5100
+-->
+
+{% set standard_icon_mixin_names = standard_icons | map('replace', 'chevron-down', 'chevron') | map('replace', 'chevron-up', 'chevron') | list %}
+
+<!--
+  'information' is a class name, not a mixin name; instead use 'info' for mixin import
+  TODO We should fix this icon-mixin naming discrepancy in the next major version.
+  See https://github.com/canonical/vanilla-framework/pull/5100
+-->
+
+{% set status_icon_mixin_names = status_icons | map('replace', 'information', 'info') | list %}
+
+<!--
+  Remove duplicates from the list of mixin names; otherwise there would be two 'chevron' entries
+-->
+
+{% set base_icon_mixin_names = (standard_icon_mixin_names + status_icon_mixin_names + social_icons) | unique %}
+
 Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/icons/icons-light" class="js-example">
@@ -131,9 +153,8 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icons-common;
 
 // include only the icons that you use in your project
-{% for icon in standard_icons + status_icons + social_icons %}@include vf-p-icon-{{ icon }};
+{% for mixin_name in base_icon_mixin_names %}@include vf-p-icon-{{ mixin_name }};
 {% endfor %}
-
 // additional icons
 {% for icon in additional_icons %}@include vf-p-icon-{{ icon }};
 {% endfor %}
