@@ -18,7 +18,7 @@ context:
 </section>
 {%- endmacro %}
 
-{% set standard_icons = ['plus', 'minus', 'expand', 'collapse', 'spinner', 'drag', 'close', 'help', 'delete', 'external-link', 'chevron-down', 'chevron-up', 'menu', 'code', 'copy', 'search', 'share', 'user', 'anchor', 'show', 'hide', 'error-grey', 'success-grey'] %}
+{% set standard_icons = ['plus', 'minus', 'expand', 'collapse', 'spinner', 'drag', 'close', 'help', 'delete', 'external-link', 'chevron-down', 'chevron-up', 'chevron-left', 'chevron-right', 'menu', 'code', 'copy', 'search', 'share', 'user', 'anchor', 'show', 'hide', 'error-grey', 'success-grey'] %}
 
 {% set status_icons = ['error',  'warning', 'success', 'information'] %}
 
