@@ -27,12 +27,18 @@ context:
 {% set social_icons = ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'github', 'rss', 'email'] %}
 
 <!--
-    'chevron-up' and 'chevron-down' are class names, not mixin names; instead use 'chevron' for mixin import
+    'chevron-up', 'chevron-down', 'chevron-left', 'chevron-right' are class names, not mixin names; instead use 'chevron' for mixin import
     TODO We should fix this icon-mixin naming discrepancy in the next major version.
     See https://github.com/canonical/vanilla-framework/pull/5100
 -->
 
-{% set standard_icon_mixin_names = standard_icons | map('replace', 'chevron-down', 'chevron') | map('replace', 'chevron-up', 'chevron') | list %}
+{% set standard_icon_mixin_names = standard_icons
+  | map('replace', 'chevron-down', 'chevron')
+  | map('replace', 'chevron-up', 'chevron')
+  | map('replace', 'chevron-left', 'chevron')
+  | map('replace', 'chevron-right', 'chevron')
+  | list
+%}
 
 <!--
   'information' is a class name, not a mixin name; instead use 'info' for mixin import
