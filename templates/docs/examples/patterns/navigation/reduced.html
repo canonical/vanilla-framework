@@ -1,0 +1,241 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Reduced{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+<header id="navigation" class="p-navigation--sliding is-reduced is-dark js-enabled">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg">
+          </div>
+          <span class="p-navigation__logo-title">Canonical Ubuntu</span>
+        </a>
+      </div>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <a href="/search" class="js-search-button p-navigation__link--search-toggle" aria-label="Search"></a>
+        </li>
+        <li class="p-navigation__item">
+          <a href="/navigation" class="js-menu-button p-navigation__link">Menu</a>
+        </li>
+      </ul>
+    </div>
+    <nav class="p-navigation__nav js-show-nav" aria-label="Categories">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="products">
+          <a class="p-navigation__link" href="#" aria-controls="products-content" tabindex="0">Products</a>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="use-case">
+          <a class="p-navigation__link" href="#" aria-controls="use-case-content" tabindex="0">Use cases</a>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="support">
+          <a class="p-navigation__link" href="/navigation#support-navigation" aria-controls="support-content"
+            tabindex="0">Support</a>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="community">
+          <a class="p-navigation__link" href="#" aria-controls="community-content" tabindex="0">Community</a>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="get-ubuntu">
+          <a class="p-navigation__link" href="/navigation#get-ubuntu-navigation" aria-controls="#get-ubuntu-content"
+            tabindex="0">Get Ubuntu</a>
+        </li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle global-nav-mobile global-nav" role="menuitem" id="all-canonical">
+          <button href="#canonical-products" aria-controls="canonical-products"
+            class="p-navigation__link global-nav__header-link-anchor" id="all-canonical-link" aria-expanded="false">All
+            Canonical</button>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle js-account" role="menuitem" id="canonical-login">
+          <a href="/login" class="p-navigation__link" style="padding-right: 1rem;" tabindex="0">Sign in</a>
+        </li>
+        <li class="p-navigation__item">
+          <a href="/search" class="js-search-button p-navigation__link--search-toggle"></a>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form action="/search" class="p-search-box is-light">
+          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required=""
+            aria-label="Search our sites">
+          <button type="reset" class="p-search-box__reset">
+            <i class="p-icon--close"></i>
+          </button>
+          <button type="submit" class="p-search-box__button">
+            <i class="p-icon--search"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <div class="p-navigation__search-overlay"></div>
+</header>
+
+<div id="secondary-navigation" class="p-navigation is-secondary is-dark">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="/desktop">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+          </div>
+          <span class="p-navigation__logo-title">Ubuntu&nbsp;Desktop</span>
+        </a>
+      </div>
+      <a href="#" class="p-navigation__toggle--open" title="Toggle navigation"><i
+          class="p-icon--chevron-down is-light"></i></a>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Ubuntu&nbsp;Desktop navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item ">
+          <a class="p-navigation__link" href="/desktop/organisations">Organisations</a>
+        </li>
+        <li class="p-navigation__item ">
+          <a class="p-navigation__link" href="/desktop/developers">Developers</a>
+        </li>
+        <li class="p-navigation__item ">
+          <a class="p-navigation__link" href="/desktop/flavours">Flavours</a>
+        </li>
+        <li class="p-navigation__item ">
+          <a class="p-navigation__link" href="/desktop/wsl">WSL</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<main id="main-content" class="inner-wrapper">
+  <section class="p-section--hero">
+    <div class="row--50-50">
+      <div class="col">
+        <h1>Ubuntu for desktops</h1>
+        <p data-gtm-vis-recent-on-screen1014405_503="498" data-gtm-vis-first-on-screen1014405_503="498"
+          data-gtm-vis-total-visible-time1014405_503="100" data-gtm-vis-has-fired1014405_503="1">The number 1 open
+          source operating system powers millions of PCs and laptops around the world.</p>
+        <p data-gtm-vis-has-fired1014405_503="1">
+          <a href="/download/desktop" class="p-button--positive">Download Ubuntu Desktop</a>
+        </p>
+      </div>
+      <div class="col">
+        <div class="u-embedded-media">
+          <iframe class="u-embedded-media__element" width="560" height="315"
+            src="https://www.youtube.com/embed/q5yM4ZYwB_s?enablejsapi=1&amp;origin=https%3A%2F%2Fubuntu.com"
+            title="Ubuntu 24.04 LTS Noble Numbat | 20 years of Ubuntu" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="" data-gtm-yt-inspected-1014405_342="true" id="848140519" data-gtm-yt-inspected-33="true"
+            data-gtm-yt-inspected-38="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section">
+    <div class="u-fixed-width p-section--shallow">
+      <hr class="p-rule">
+      <h2>The secure, modern operating system used by millions</h2>
+    </div>
+    <div class="row">
+      <div class="col-start-large-4 col-9 col-medium-5 col-start-medium-2">
+        <hr class="p-rule is-muted">
+        <div class="row p-section--shallow">
+          <div class="col-3 col-medium-2">
+            <h3 class="p-heading--5" data-gtm-vis-recent-on-screen1014405_499="218002"
+              data-gtm-vis-first-on-screen1014405_499="218002" data-gtm-vis-total-visible-time1014405_499="100"
+              data-gtm-vis-has-fired1014405_499="1">The preferred choice for professional developers</h3>
+          </div>
+          <div class="col-6 col-medium-3">
+            <p data-gtm-vis-has-fired1014405_503="1">
+              Each release of Ubuntu delivers the latest applications, libraries and toolchains. Ubuntu is a primary
+              platform for all major IDEs, game development tools and AI/ML software.
+            </p>
+          </div>
+        </div>
+        <hr class="p-rule is-muted">
+        <div class="row p-section--shallow">
+          <div class="col-3 col-medium-2">
+            <h3 class="p-heading--5" data-gtm-vis-has-fired1014405_499="1">Everything you need to daily drive</h3>
+          </div>
+          <div class="col-6 col-medium-3">
+            <p data-gtm-vis-has-fired1014405_503="1">
+              Ubuntu offers essential applications for web browsing, messaging, gaming, and content creation, including
+              Firefox, Chrome, Discord, Steam, and OBS Studio, supporting all your daily computing needs.
+            </p>
+          </div>
+        </div>
+        <hr class="p-rule is-muted">
+        <div class="row p-section--shallow">
+          <div class="col-3 col-medium-2">
+            <h3 class="p-heading--5" data-gtm-vis-has-fired1014405_499="1">Private and secure by design</h3>
+          </div>
+          <div class="col-6 col-medium-3">
+            <p data-gtm-vis-has-fired1014405_503="1">
+              With regular updates and built-in security features, Ubuntu prioritises user privacy and system integrity,
+              making it the secure choice for those who value data protection.
+            </p>
+          </div>
+        </div>
+        <hr class="p-rule is-muted">
+        <div class="row p-section--shallow">
+          <div class="col-3 col-medium-2">
+            <h3 class="p-heading--5" data-gtm-vis-has-fired1014405_499="1">Deep integration with enterprise tools</h3>
+          </div>
+          <div class="col-6 col-medium-3">
+            <p data-gtm-vis-has-fired1014405_503="1">
+              Ubuntu seamlessly integrates with enterprise environments, <a href="/pro">Ubuntu Pro</a> provides extended
+              security patching and compliance tooling alongside support for third party identity management tools.
+            </p>
+          </div>
+        </div>
+        <hr class="p-rule is-muted">
+        <div class="row">
+          <div class="col-3 col-medium-2">
+            <h3 class="p-heading--5" data-gtm-vis-has-fired1014405_499="1">Fully open source</h3>
+          </div>
+          <div class="col-6 col-medium-3">
+            <p data-gtm-vis-has-fired1014405_503="1">
+              Ubuntu has always been free to download, use and share. We believe in the power of open source software;
+              Ubuntu could not exist without its worldwide community of voluntary developers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  /**
+    * Basic JS to simulate some of the navigation functionalty
+  */
+
+  const navigation = document.querySelector(".p-navigation--sliding");
+
+  // Toggle search bar
+  const searchToggles = document.querySelectorAll(".p-navigation__link--search-toggle");
+  searchToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      navigation.classList.toggle("has-search-open");
+    });
+  });
+
+  // Toggle menu dropdown on mobile
+  const menuToggle = document.querySelector(".js-menu-button");
+  menuToggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    navigation.classList.toggle("has-menu-open");
+  });
+
+  // Toggle secondary navigation menu on mobile
+  const secondaryNavMenu = document.querySelector(".p-navigation.is-secondary .p-navigation__nav");
+  const secondaryNavToggle = document.querySelector(".p-navigation__toggle--open");
+  secondaryNavToggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    secondaryNavMenu.classList.toggle("is-open");
+  });
+</script>
+{% endblock %}
