@@ -1,0 +1,2186 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Meganav sliding (Ubuntu.com){% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+<header id="navigation" class="p-navigation--sliding is-dark js-enabled">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+          </div>
+          <span class="p-navigation__logo-title">Canonical Ubuntu</span>
+        </a>
+      </div>
+      <ul class="p-navigation__items">
+        <!-- this is default Vanilla -->
+        <li class="p-navigation__item">
+          <button class="js-search-button p-navigation__link--search-toggle">
+          <span class="p-navigation__search-label">Search</span>
+          </button>
+        </li>
+        <li class="p-navigation__item">
+          <button class="js-menu-button p-navigation__link">Menu</button>
+        </li>
+        <!-- Ubuntu.com has no JS version as below: -->
+        <!--
+          <li class="p-navigation__item">
+            <a href="/search" class="js-search-button p-navigation__link--search-toggle" aria-label="Search"></a>
+          </li>
+          <li class="p-navigation__item">
+            <a href="#/navigation" class="js-menu-button p-navigation__link">Menu</a>
+          </li>
+          -->
+      </ul>
+    </div>
+    <nav class="p-navigation__nav js-show-nav" aria-label="Categories" style="">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="products" onmouseenter="fetchDropdown('/templates/meganav/products', 'products', event); this.onmouseenter = null;">
+          <a class="p-navigation__link" href="/navigation#products-navigation" aria-controls="products-content-mobile" tabindex="0" onfocus="fetchDropdown('/templates/meganav/products', 'products');">Products</a>
+          <ul class="p-navigation__dropdown dropdown-content-mobile" id="products-content-mobile" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="products-back">
+              <button class="p-navigation__link js-back" href="products-content-mobile" aria-controls="products-content-mobile" tabindex="-1">
+              Back
+              </button>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-featured" data-id="products-featured">
+              <button class="p-navigation__link" href="#products-featured-content-mobile" aria-controls="products-featured-content-mobile" role="tab" tabindex="-1">
+              Featured
+              </button>
+              <ul class="p-navigation__dropdown" id="products-featured-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-featured-back">
+                  <button class="p-navigation__link js-back" href="products-featured-content-mobile" aria-controls="products-featured-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/desktop" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Desktop</span>
+                  <br>
+                  <small class="is-muted">Fast, modern and secure Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/server" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Server</span>
+                  <br>
+                  <small class="is-muted">Scalable Linux for the cloud</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://maas.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MAAS</span>
+                  <br>
+                  <small class="is-muted">Bare metal provisioning</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://snapcraft.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Snapcraft</span>
+                  <br>
+                  <small class="is-muted">App store for Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/openstack" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>OpenStack</span>
+                  <br>
+                  <small class="is-muted">Private cloud provisioning</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://multipass.run/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Multipass</span>
+                  <br>
+                  <small class="is-muted">VMs for Windows, macOS &amp; Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro</span>
+                  <br>
+                  <small class="is-muted">Security &amp; compliance subscription</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/support" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Enterprise-grade support</span>
+                  <br>
+                  <small class="is-muted">24/7 support for the full-stack</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/security/livepatch" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Livepatch</span>
+                  <br>
+                  <small class="is-muted">Stay patched and defer reboots</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/kubernetes" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Kubernetes</span>
+                  <br>
+                  <small class="is-muted">Containerised workloads</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://charmhub.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Charmhub</span>
+                  <br>
+                  <small class="is-muted">Charmed Operators marketplace</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://juju.is/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Juju</span>
+                  <br>
+                  <small class="is-muted">Orchestration engine for operators</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Certified hardware</span>
+                  <br>
+                  <small class="is-muted">Ubuntu hardware you can trust</small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-ubuntu-os" data-id="products-ubuntu-os">
+              <button class="p-navigation__link" href="#products-ubuntu-os-content-mobile" aria-controls="products-ubuntu-os-content-mobile" role="tab" tabindex="-1">
+              Ubuntu OS
+              </button>
+              <ul class="p-navigation__dropdown" id="products-ubuntu-os-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-ubuntu-os-back">
+                  <button class="p-navigation__link js-back" href="products-ubuntu-os-content-mobile" aria-controls="products-ubuntu-os-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/desktop" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Desktop</span>
+                  <br>
+                  <small class="is-muted">Fast, modern and secure Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/server" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Server</span>
+                  <br>
+                  <small class="is-muted">Scalable Linux for the cloud</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro</span>
+                  <br>
+                  <small class="is-muted">Security &amp; compliance subscription</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/core" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Core</span>
+                  <br>
+                  <small class="is-muted">Embedded Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/security/fips" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>FIPS for Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Secure Linux for government</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/desktop/wsl" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>WSL</span>
+                  <br>
+                  <small class="is-muted">Windows Subsystem for Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://multipass.run/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Multipass</span>
+                  <br>
+                  <small class="is-muted">VMs for Windows, macOS &amp; Linux</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/upgrading-ubuntu-desktop" tabindex="-1">Upgrade Ubuntu</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://help.ubuntu.com/" tabindex="-1">Ubuntu documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-desktop" tabindex="-1">Desktop install</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/server/docs/installation" tabindex="-1">Server install</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/server/docs" tabindex="-1">Server guide</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/cloud/public-cloud" tabindex="-1">Ubuntu on public clouds</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-private-cloud" data-id="products-private-cloud">
+              <button class="p-navigation__link" href="#products-private-cloud-content-mobile" aria-controls="products-private-cloud-content-mobile" role="tab" tabindex="-1">
+              Private cloud
+              </button>
+              <ul class="p-navigation__dropdown" id="products-private-cloud-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-private-cloud-back">
+                  <button class="p-navigation__link js-back" href="products-private-cloud-content-mobile" aria-controls="products-private-cloud-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/openstack" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>OpenStack</span>
+                  <br>
+                  <small class="is-muted">Enterprise private cloud</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/server" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Server</span>
+                  <br>
+                  <small class="is-muted">Scalable Linux for the cloud</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/landscape" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Landscape</span>
+                  <br>
+                  <small class="is-muted">Monitor and manage machines</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://maas.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MAAS</span>
+                  <br>
+                  <small class="is-muted">Bare metal provisioning</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/ceph" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ceph</span>
+                  <br>
+                  <small class="is-muted">Open source storage</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://anbox-cloud.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Anbox Cloud</span>
+                  <br>
+                  <small class="is-muted">Virtualised Android on demand</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://juju.is/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Juju</span>
+                  <br>
+                  <small class="is-muted">Orchestrator engine for operators</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/openstack/consulting" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Private cloud build</span>
+                  <br>
+                  <small class="is-muted">OpenStack implementation</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://microstack.run/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MicroStack</span>
+                  <br>
+                  <small class="is-muted">Cloud-native OpenStack</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/microcloud" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MicroCloud</span>
+                  <br>
+                  <small class="is-muted">Lightweight, automated clouds</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/server/docs" tabindex="-1">Server documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://maas.io/docs" tabindex="-1">MAAS documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://microstack.run/docs/single-node" tabindex="-1">MicroStack installation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/blog/data-centre-networking-what-is-sdn" tabindex="-1">Data Centre Networking blog</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/openstack/pricing-calculator" tabindex="-1">OpenStack pricing</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/openstack/consulting" tabindex="-1">Private cloud consulting</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/blog/private_cloud_avoiding_operational_costs" tabindex="-1">Private cloud: Avoiding the high cost of operations</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-public-cloud" data-id="products-public-cloud">
+              <button class="p-navigation__link" href="#products-public-cloud-content-mobile" aria-controls="products-public-cloud-content-mobile" role="tab" tabindex="-1">
+              Public cloud
+              </button>
+              <ul class="p-navigation__dropdown" id="products-public-cloud-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-public-cloud-back">
+                  <button class="p-navigation__link js-back" href="products-public-cloud-content-mobile" aria-controls="products-public-cloud-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/cloud/public-cloud" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu on public clouds</span>
+                  <br>
+                  <small class="is-muted">The most popular cloud OS</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/aws" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu on AWS</span>
+                  <br>
+                  <small class="is-muted">AWS Marketplace</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/azure" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu on Azure</span>
+                  <br>
+                  <small class="is-muted">Microsoft Azure Marketplace</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/gcp" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu on GCP</span>
+                  <br>
+                  <small class="is-muted">Google Cloud Marketplace</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/aws/workspaces" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu WorkSpaces</span>
+                  <br>
+                  <small class="is-muted">Virtual desktops on AWS</small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-virtualisation" data-id="products-virtualisation">
+              <button class="p-navigation__link" href="#products-virtualisation-content-mobile" aria-controls="products-virtualisation-content-mobile" role="tab" tabindex="-1">
+              Virtualisation
+              </button>
+              <ul class="p-navigation__dropdown" id="products-virtualisation-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-virtualisation-back">
+                  <button class="p-navigation__link js-back" href="products-virtualisation-content-mobile" aria-controls="products-virtualisation-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://multipass.run/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Multipass</span>
+                  <br>
+                  <small class="is-muted">VMs for Windows, macOS &amp; Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/lxd" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>LXD</span>
+                  <br>
+                  <small class="is-muted">Linux containers and VMs</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/desktop/wsl" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>WSL</span>
+                  <br>
+                  <small class="is-muted">Windows Subsystem for Linux</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://snapcraft.io/blog/what-is-virtualisation-the-basics" tabindex="-1">What is virtualisation?</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://multipass.run/docs" tabindex="-1">Multipass documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/server/docs/virtualization-multipass" tabindex="-1">Virtualisation docs in the server guide</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://wiki.ubuntu.com/WSL" tabindex="-1">What is WSL?</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support" tabindex="-1">Install Ubuntu on Windows 11</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-on-wsl2-on-windows-10" tabindex="-1">Install Ubuntu on Windows 10</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-security-and-support" data-id="products-security-and-support">
+              <button class="p-navigation__link" href="#products-security-and-support-content-mobile" aria-controls="products-security-and-support-content-mobile" role="tab" tabindex="-1">
+              Security and support
+              </button>
+              <ul class="p-navigation__dropdown" id="products-security-and-support-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-security-and-support-back">
+                  <button class="p-navigation__link js-back" href="products-security-and-support-content-mobile" aria-controls="products-security-and-support-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro</span>
+                  <br>
+                  <small class="is-muted">Security &amp; compliance subscription</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/support" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro + support</span>
+                  <br>
+                  <small class="is-muted">24/7 support for the full-stack</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/security/esm" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>ESM</span>
+                  <br>
+                  <small class="is-muted">10 years of security maintenance</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/landscape" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Landscape</span>
+                  <br>
+                  <small class="is-muted">Monitor and manage machines</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/security/livepatch" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Livepatch</span>
+                  <br>
+                  <small class="is-muted">Stay patched without reboots</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/aws/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro for AWS</span>
+                  <br>
+                  <small class="is-muted">Amazon Web Services support</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/azure/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro for Azure</span>
+                  <br>
+                  <small class="is-muted">Microsoft Azure cloud support</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/gcp/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro for GCP</span>
+                  <br>
+                  <small class="is-muted">Google Cloud support</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/security/certifications" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Certifications and hardening</span>
+                  <br>
+                  <small class="is-muted">CIS, DISA-STIG, FIPS compliance</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/confidential-computing" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Confidential computing</span>
+                  <br>
+                  <small class="is-muted">Protect your data in use</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/pricing/pro" tabindex="-1">Ubuntu Pro pricing</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/pricing/consulting" tabindex="-1">Open infrastructure consulting</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/certified" tabindex="-1">Certified hardware</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/security/cves" tabindex="-1">CVE reports</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/security/notices" tabindex="-1">Ubuntu Security Notices (USN)</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-kubernetes" data-id="products-kubernetes">
+              <button class="p-navigation__link" href="#products-kubernetes-content-mobile" aria-controls="products-kubernetes-content-mobile" role="tab" tabindex="-1">
+              Kubernetes
+              </button>
+              <ul class="p-navigation__dropdown" id="products-kubernetes-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-kubernetes-back">
+                  <button class="p-navigation__link js-back" href="products-kubernetes-content-mobile" aria-controls="products-kubernetes-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/kubernetes" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Kubernetes</span>
+                  <br>
+                  <small class="is-muted">Containerised workloads</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://microk8s.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MicroK8s</span>
+                  <br>
+                  <small class="is-muted">Simplest way to get Kubernetes</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/kubernetes/charmed-k8s" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Charmed Kubernetes</span>
+                  <br>
+                  <small class="is-muted">Composable K8s for the enterprise</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/ai/what-is-kubeflow" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Kubeflow</span>
+                  <br>
+                  <small class="is-muted">Machine learning toolkit for K8s</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/kubernetes/docs" tabindex="-1">Kubernetes documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/kubernetes/docs/quickstart" tabindex="-1">Getting started with Kubernetes</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/kubernetes/compare" tabindex="-1">Distributions comparison</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://juju.is/cloud-native-kubernetes-usage-report-2022" tabindex="-1">Cloud native operations report</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="http://microk8s.io/docs/getting-started" tabindex="-1">Getting started with MicroK8s</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://charmed-kubeflow.io/docs/install" tabindex="-1">Kubeflow installation tutorial</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-ai-and-data" data-id="products-ai-and-data">
+              <button class="p-navigation__link" href="#products-ai-and-data-content-mobile" aria-controls="products-ai-and-data-content-mobile" role="tab" tabindex="-1">
+              AI and data
+              </button>
+              <ul class="p-navigation__dropdown" id="products-ai-and-data-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-ai-and-data-back">
+                  <button class="p-navigation__link js-back" href="products-ai-and-data-content-mobile" aria-controls="products-ai-and-data-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/ai" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>AI/ML</span>
+                  <br>
+                  <small class="is-muted">AI and machine learning on Ubuntu</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://charmed-kubeflow.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Kubeflow</span>
+                  <br>
+                  <small class="is-muted">End-to-end MLOps platform</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/ai/mlflow" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MLflow</span>
+                  <br>
+                  <small class="is-muted">Lightweight ML platform</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Data solutions</span>
+                  <br>
+                  <small class="is-muted">Enterprise data management at scale</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data/kafka" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Kafka</span>
+                  <br>
+                  <small class="is-muted">Streaming data platform</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data/spark" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Spark</span>
+                  <br>
+                  <small class="is-muted">Big data processing</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data/mongodb" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MongoDB</span>
+                  <br>
+                  <small class="is-muted">NoSQL database management</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data/postgresql" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>PostgreSQL</span>
+                  <br>
+                  <small class="is-muted">Relational database management</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data/mysql" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MySQL</span>
+                  <br>
+                  <small class="is-muted">Relational database management</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://canonical.com/data/opensearch" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>OpenSearch</span>
+                  <br>
+                  <small class="is-muted">Search and analytics suite</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://charmed-kubeflow.io/docs" tabindex="-1">Kubeflow documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://documentation.ubuntu.com/charmed-mlflow/en/latest/" tabindex="-1">MLflow documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://canonical.com/data/docs" tabindex="-1">Data documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/mlops-toolkit/" tabindex="-1">MLOps toolkit</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/open-source-big-data-ai" tabindex="-1">Guide to big data and AI</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-certified-hardware" data-id="products-certified-hardware">
+              <button class="p-navigation__link" href="#products-certified-hardware-content-mobile" aria-controls="products-certified-hardware-content-mobile" role="tab" tabindex="-1">
+              Certified hardware
+              </button>
+              <ul class="p-navigation__dropdown" id="products-certified-hardware-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-certified-hardware-back">
+                  <button class="p-navigation__link js-back" href="products-certified-hardware-content-mobile" aria-controls="products-certified-hardware-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Certified hardware</span>
+                  <br>
+                  <small class="is-muted">Ubuntu hardware you can trust</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified?q=&amp;limit=20&amp;category=Laptop&amp;category=Desktop" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>PC and laptops</span>
+                  <br>
+                  <small class="is-muted">Certified for Ubuntu</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified/servers" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Servers</span>
+                  <br>
+                  <small class="is-muted">Hardware for data centres</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified/devices" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>IoT devices</span>
+                  <br>
+                  <small class="is-muted">Stable and secure devices</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified/socs" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>SoCs</span>
+                  <br>
+                  <small class="is-muted">System on a Chip hardware</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified?q=&amp;limit=20&amp;vendor=Raspberry+Pi+Foundation" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Raspberry Pi</span>
+                  <br>
+                  <small class="is-muted">Certified Pi devices</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/certified/why-certified" tabindex="-1">Why use Certified devices?</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://canonical.com/partners/become-a-partner" tabindex="-1">Certify your device</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://www.brighttalk.com/webcast/6793/497538" tabindex="-1">Why certification matters for AIoT</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://www.brighttalk.com/webcast/6793/514263" tabindex="-1">Industrial Pi use cases webinar</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/blog/why-you-should-buy-a-pre-installed-ubuntu-workstation" tabindex="-1">Why buy a preinstalled workstation?</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-iot-and-edge" data-id="products-iot-and-edge">
+              <button class="p-navigation__link" href="#products-iot-and-edge-content-mobile" aria-controls="products-iot-and-edge-content-mobile" role="tab" tabindex="-1">
+              IoT and edge
+              </button>
+              <ul class="p-navigation__dropdown" id="products-iot-and-edge-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-iot-and-edge-back">
+                  <button class="p-navigation__link js-back" href="products-iot-and-edge-content-mobile" aria-controls="products-iot-and-edge-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/core" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Core</span>
+                  <br>
+                  <small class="is-muted">Embedded Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/internet-of-things/appstore" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>IoT App Store</span>
+                  <br>
+                  <small class="is-muted">Private app store for Linux and IoT</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/internet-of-things/management" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Device management</span>
+                  <br>
+                  <small class="is-muted">Manage fleets of IoT devices</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified/devices" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Certified devices</span>
+                  <br>
+                  <small class="is-muted">Hardware/OS compatibility</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://mir-server.io/ubuntu-frame" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Frame</span>
+                  <br>
+                  <small class="is-muted">Embedded graphical displays</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/robotics/ros-esm" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>ROS ESM</span>
+                  <br>
+                  <small class="is-muted">Expanded security for robots</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/real-time" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Real-time Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Low-latency kernel</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/core/services" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>IoT Professional Services</span>
+                  <br>
+                  <small class="is-muted">Bring IoT devices to market</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/a-practical-guide-to-iot-lifecycle-management" tabindex="-1">Guide to IoT lifecycle management</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/blog/canonical-joins-the-connectivity-standards-alliance" tabindex="-1">Canonical joins the CSA</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/robot-operating-system-choice" tabindex="-1">Pick the OS for your robots</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/embedded-linux-make-or-buy" tabindex="-1">Embedded Linux: make or buy?</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/raspberry-pi-core" tabindex="-1">Try Ubuntu Core on Raspberry Pi</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/bridge-the-IT-OT-gap-Industry4" tabindex="-1">Industry 4.0 webinar</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="products-developer-tools" data-id="products-developer-tools">
+              <button class="p-navigation__link" href="#products-developer-tools-content-mobile" aria-controls="products-developer-tools-content-mobile" role="tab" tabindex="-1">
+              Developer tools
+              </button>
+              <ul class="p-navigation__dropdown" id="products-developer-tools-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="products-developer-tools-back">
+                  <button class="p-navigation__link js-back" href="products-developer-tools-content-mobile" aria-controls="products-developer-tools-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://snapcraft.io/about" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Snaps</span>
+                  <br>
+                  <small class="is-muted">Containerised applications for Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://snapcraft.io/build" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Snapcraft</span>
+                  <br>
+                  <small class="is-muted">Build and publish your snaps</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://snapcraft.io" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Snap Store</span>
+                  <br>
+                  <small class="is-muted">App store for Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://juju.is/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Juju</span>
+                  <br>
+                  <small class="is-muted">Orchestrator engine for operators</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://charmhub.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Charmhub</span>
+                  <br>
+                  <small class="is-muted">Software operators collection</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://jaas.ai/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>JAAS</span>
+                  <br>
+                  <small class="is-muted">Auditing and compliance for Juju</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://snapcraft.io/docs" tabindex="-1">Snap documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/create-your-first-snap" tabindex="-1">Create your first snap</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://juju.is/docs" tabindex="-1">Juju documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://juju.is/docs/juju/tutorial" tabindex="-1">Getting started with Juju</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://juju.is/docs/sdk/from-zero-to-hero-write-your-first-kubernetes-charm" tabindex="-1">Write your first charm</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!-- use cases -->
+
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="use-case" onmouseenter="fetchDropdown('/templates/meganav/use-case', 'use-case', event); this.onmouseenter = null;">
+          <a class="p-navigation__link" href="/navigation#use-case-navigation" aria-controls="use-case-content-mobile" tabindex="0" onfocus="fetchDropdown('/templates/meganav/use-case', 'use-case');">Use cases</a>
+          <ul class="p-navigation__dropdown dropdown-content-mobile" id="use-case-content-mobile" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="use-case-back">
+              <button class="p-navigation__link js-back" href="use-case-content-mobile" aria-controls="use-case-content-mobile" tabindex="-1">
+              Back
+              </button>
+            </li>
+            <p class="p-muted-heading is-muted u-no-padding--top">By solution</p>
+            <li class="p-navigation__dropdown-item">
+              <a href="/ai" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>AI/ML</span>
+              <br>
+              <small class="is-muted">MLOps tools</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/security/certifications" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Compliance</span>
+              <br>
+              <small class="is-muted">Certifications and hardening</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/confidential-computing" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Confidential computing</span>
+              <br>
+              <small class="is-muted">Protect your data in use</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/containers" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Containers</span>
+              <br>
+              <small class="is-muted">Ubuntu for container operations</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="https://canonical.com/data" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Data solutions</span>
+              <br>
+              <small class="is-muted">Enterprise data management at scale</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/edge-computing" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Edge computing</span>
+              <br>
+              <small class="is-muted">Micro clouds</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/hpc" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>HPC and supercomputing</span>
+              <br>
+              <small class="is-muted">High-performance computing</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/internet-of-things" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>IoT</span>
+              <br>
+              <small class="is-muted">Internet of Things</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/managed" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Managed IT services</span>
+              <br>
+              <small class="is-muted">Fully managed open source solutions</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/observability" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Observability</span>
+              <br>
+              <small class="is-muted">Monitoring tools</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/openstack/consulting" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Private cloud and data centre</span>
+              <br>
+              <small class="is-muted">OpenStack implementation</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/cloud/public-cloud" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Public cloud</span>
+              <br>
+              <small class="is-muted">Ubuntu across public clouds</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/security" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Security</span>
+              <br>
+              <small class="is-muted">Enterprise-grade security</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/internet-of-things/smart-displays" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Signage</span>
+              <br>
+              <small class="is-muted">Smart displays and kiosks</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/ceph" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Storage</span>
+              <br>
+              <small class="is-muted">Scalable software-defined storage</small>
+              </a>
+            </li>
+            <p class="p-muted-heading is-muted" style="padding-top: 1rem;">By industry</p>
+            <li class="p-navigation__dropdown-item">
+              <a href="/automotive" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Automotive</span>
+              <br>
+              <small class="is-muted">Smarter vehicles and factories</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/financial-services" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Financial services</span>
+              <br>
+              <small class="is-muted">Innovate with open source</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/gov" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Government</span>
+              <br>
+              <small class="is-muted">Public sector and federal</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/industrial" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Industrial</span>
+              <br>
+              <small class="is-muted">The factory of the future</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/robotics" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Robotics</span>
+              <br>
+              <small class="is-muted">Build and deploy robots with Ubuntu</small>
+              </a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a href="/telco" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+              <span>Telco</span>
+              <br>
+              <small class="is-muted">Carrier-grade solutions</small>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <!-- next -->
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="support" onmouseenter="fetchDropdown('/templates/meganav/support', 'support', event); this.onmouseenter = null;">
+          <a class="p-navigation__link" href="/navigation#support-navigation" aria-controls="support-content-mobile" tabindex="0" onfocus="fetchDropdown('/templates/meganav/support', 'support');">Support</a>
+          <ul class="p-navigation__dropdown dropdown-content-mobile" id="support-content-mobile" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="support-back">
+              <button class="p-navigation__link js-back" href="support-content-mobile" aria-controls="support-content-mobile" tabindex="-1">
+              Back
+              </button>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="support-enterprise" data-id="support-enterprise">
+              <button class="p-navigation__link" href="#support-enterprise-content-mobile" aria-controls="support-enterprise-content-mobile" role="tab" tabindex="-1">
+              Enterprise
+              </button>
+              <ul class="p-navigation__dropdown" id="support-enterprise-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="support-enterprise-back">
+                  <button class="p-navigation__link js-back" href="support-enterprise-content-mobile" aria-controls="support-enterprise-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/support" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Enterprise-grade support</span>
+                  <br>
+                  <small class="is-muted">24/7 support for the full-stack</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro</span>
+                  <br>
+                  <small class="is-muted">Security &amp; compliance subscription</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/azure/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro for Azure</span>
+                  <br>
+                  <small class="is-muted">Microsoft Azure cloud support</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/aws/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro for AWS</span>
+                  <br>
+                  <small class="is-muted">Amazon Web Services support</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/gcp/pro" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Pro for GCP</span>
+                  <br>
+                  <small class="is-muted">Google Cloud support</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/managed/apps" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Managed apps</span>
+                  <br>
+                  <small class="is-muted">Fully managed open source</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/managed" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Managed infrastructure</span>
+                  <br>
+                  <small class="is-muted">Managed IT services</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/18-04" tabindex="-1">Upgrade from 18.04</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/pro/why-pro" tabindex="-1">Why Ubuntu Pro?</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/security/esm" tabindex="-1">Expanded Security Maintenance</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/pricing/pro" tabindex="-1">Pricing</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/pricing/consulting" tabindex="-1">Open infrastructure consulting</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="support-resources" data-id="support-resources">
+              <button class="p-navigation__link" href="#support-resources-content-mobile" aria-controls="support-resources-content-mobile" role="tab" tabindex="-1">
+              Resources
+              </button>
+              <ul class="p-navigation__dropdown" id="support-resources-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="support-resources-back">
+                  <button class="p-navigation__link js-back" href="support-resources-content-mobile" aria-controls="support-resources-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://help.ubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Read documentation</span>
+                  <br>
+                  <small class="is-muted">Official Ubuntu Documentation</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/blog" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Read the blogs</span>
+                  <br>
+                  <small class="is-muted">Blogs from Canonical</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/engage" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Case studies, whitepapers &amp; webinars</span>
+                  <br>
+                  <small class="is-muted">Resource hub</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/tutorials" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Tutorials</span>
+                  <br>
+                  <small class="is-muted">Guides for development</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://askubuntu.com" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ask Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Q&amp;A site for users and developers</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Certified hardware</span>
+                  <br>
+                  <small class="is-muted">Ubuntu hardware you can trust</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/about" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>About Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Introduction to the OS</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://ubuntuforums.org/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu forums</span>
+                  <br>
+                  <small class="is-muted">Discuss Ubuntu with other users</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage?resource=webinar" tabindex="-1">Webinars</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage?resource=case+study" tabindex="-1">Case studies</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage?resource=whitepaper" tabindex="-1">Whitepapers</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/credentials" tabindex="-1">Become an Ubuntu-certified engineer</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://www.youtube.com/c/UbuntuOS" tabindex="-1">Videos</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="community" onmouseenter="fetchDropdown('/templates/meganav/community', 'community', event); this.onmouseenter = null;">
+          <a class="p-navigation__link" href="/navigation#community-navigation" aria-controls="community-content-mobile" tabindex="0" onfocus="fetchDropdown('/templates/meganav/community', 'community');">Community</a>
+          <ul class="p-navigation__dropdown dropdown-content-mobile" id="community-content-mobile" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="community-back">
+              <button class="p-navigation__link js-back" href="community-content-mobile" aria-controls="community-content-mobile" tabindex="-1">
+              Back
+              </button>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="community-learning-resources" data-id="community-learning-resources">
+              <button class="p-navigation__link" href="#community-learning-resources-content-mobile" aria-controls="community-learning-resources-content-mobile" role="tab" tabindex="-1">
+              Learning resources
+              </button>
+              <ul class="p-navigation__dropdown" id="community-learning-resources-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="community-learning-resources-back">
+                  <button class="p-navigation__link js-back" href="community-learning-resources-content-mobile" aria-controls="community-learning-resources-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/tutorials/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Tutorials</span>
+                  <br>
+                  <small class="is-muted">Guides for development</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://help.ubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Documentation</span>
+                  <br>
+                  <small class="is-muted">Official Ubuntu documentation</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://www.youtube.com/ubuntuonair" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu on Air</span>
+                  <br>
+                  <small class="is-muted">Community-focused videos</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://discourse.ubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Discourse</span>
+                  <br>
+                  <small class="is-muted">Coordinating the Ubuntu project</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://askubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ask Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Q&amp;A for users and developers</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://ubuntuforums.org/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Forums</span>
+                  <br>
+                  <small class="is-muted">Discuss Ubuntu with other users</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/masters-conference" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Masters</span>
+                  <br>
+                  <small class="is-muted">Get inspired by IT practitioners</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/upgrading-ubuntu-desktop" tabindex="-1">Upgrade Ubuntu</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://help.ubuntu.com/" tabindex="-1">Official Ubuntu documentation</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-desktop" tabindex="-1">Install guide</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/tutorial-guidelines" tabindex="-1">How to write a tutorial</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="community-forums" data-id="community-forums">
+              <button class="p-navigation__link" href="#community-forums-content-mobile" aria-controls="community-forums-content-mobile" role="tab" tabindex="-1">
+              Forums
+              </button>
+              <ul class="p-navigation__dropdown" id="community-forums-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="community-forums-back">
+                  <button class="p-navigation__link js-back" href="community-forums-content-mobile" aria-controls="community-forums-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://askubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ask Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Q&amp;A for users and developers</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://ubuntuforums.org/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Forums</span>
+                  <br>
+                  <small class="is-muted">Discuss Ubuntu with other users</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://help.ubuntu.com/community/InternetRelayChat" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Chat on IRC</span>
+                  <br>
+                  <small class="is-muted">Speak to Ubuntu users</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://discourse.ubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Discourse</span>
+                  <br>
+                  <small class="is-muted">Coordinating the Ubuntu project</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://ubuntuforums.org/forumdisplay.php?f=125" tabindex="-1">Forum: New to Ubuntu</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://ubuntuforums.org/forumdisplay.php?f=327" tabindex="-1">Forum: Ubuntu Official Flavours Support</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://ubuntuforums.org/forumdisplay.php?f=434" tabindex="-1">Forum: Ubuntu, Linux and OS Chat</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://discourse.ubuntu.com/c/community/78" tabindex="-1">Ubuntu Community on Discourse</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="community-contribute-to-ubuntu" data-id="community-contribute-to-ubuntu">
+              <button class="p-navigation__link" href="#community-contribute-to-ubuntu-content-mobile" aria-controls="community-contribute-to-ubuntu-content-mobile" role="tab" tabindex="-1">
+              Contribute to Ubuntu
+              </button>
+              <ul class="p-navigation__dropdown" id="community-contribute-to-ubuntu-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="community-contribute-to-ubuntu-back">
+                  <button class="p-navigation__link js-back" href="community-contribute-to-ubuntu-content-mobile" aria-controls="community-contribute-to-ubuntu-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/contribute/translation-localisation" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Translate and localise</span>
+                  <br>
+                  <small class="is-muted">Translate into your language</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/contribute/qa-testing" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>QA and testing</span>
+                  <br>
+                  <small class="is-muted">Test releases and features</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://help.ubuntu.com/community/ReportingBugs" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Report bugs</span>
+                  <br>
+                  <small class="is-muted">Report bugs on Launchpad</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/contribute/ubuntu-development" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu development</span>
+                  <br>
+                  <small class="is-muted">Help maintain Ubuntu OS</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/contribute/application-development" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Application development</span>
+                  <br>
+                  <small class="is-muted">Create and maintain software</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://wiki.ubuntu.com/DocumentationTeam/SystemDocumentation" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Improve documentation</span>
+                  <br>
+                  <small class="is-muted">Help write the docs</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/contribute/art-design" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Art and design</span>
+                  <br>
+                  <small class="is-muted">Contribute your artwork</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/download/desktop/thank-you" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Donate</span>
+                  <br>
+                  <small class="is-muted">Donate to the Ubuntu project</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/locos/join" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Local community teams</span>
+                  <br>
+                  <small class="is-muted">Join a community team</small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="community-mission-and-governance" data-id="community-mission-and-governance">
+              <button class="p-navigation__link" href="#community-mission-and-governance-content-mobile" aria-controls="community-mission-and-governance-content-mobile" role="tab" tabindex="-1">
+              Mission and governance
+              </button>
+              <ul class="p-navigation__dropdown" id="community-mission-and-governance-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="community-mission-and-governance-back">
+                  <button class="p-navigation__link js-back" href="community-mission-and-governance-content-mobile" aria-controls="community-mission-and-governance-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/mission" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Our mission</span>
+                  <br>
+                  <small class="is-muted">What we stand for</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/code-of-conduct" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu code of conduct</span>
+                  <br>
+                  <small class="is-muted">Expectations of participants</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/diversity" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Diversity policy</span>
+                  <br>
+                  <small class="is-muted">Our stance on diversity</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/governance" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Project governance</span>
+                  <br>
+                  <small class="is-muted">How the project is governed</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://discourse.ubuntu.com/t/what-is-the-ubuntu-community-council/706" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Community Council</span>
+                  <br>
+                  <small class="is-muted">Governing body for the project</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/governance/teams" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Teams</span>
+                  <br>
+                  <small class="is-muted">The teams in the project</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/locos/join" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Local community teams</span>
+                  <br>
+                  <small class="is-muted">Join a community team</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://discourse.ubuntu.com/t/community-council-meeting-agendas-schedule/708" tabindex="-1">Community Council agenda</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://wiki.ubuntu.com/TechnicalBoard" tabindex="-1">Ubuntu Technical Board</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://wiki.ubuntu.com/TechnicalBoardAgenda" tabindex="-1">Technical Board agenda</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="community-keep-up-to-date" data-id="community-keep-up-to-date">
+              <button class="p-navigation__link" href="#community-keep-up-to-date-content-mobile" aria-controls="community-keep-up-to-date-content-mobile" role="tab" tabindex="-1">
+              Keep up to date
+              </button>
+              <ul class="p-navigation__dropdown" id="community-keep-up-to-date-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="community-keep-up-to-date-back">
+                  <button class="p-navigation__link js-back" href="community-keep-up-to-date-content-mobile" aria-controls="community-keep-up-to-date-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/blog" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Read the blogs</span>
+                  <br>
+                  <small class="is-muted">Ubuntu blogs</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://discourse.ubuntu.com/c/uwn/124" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Weekly Newsletter</span>
+                  <br>
+                  <small class="is-muted">Sign up for our newsletter</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://lists.ubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Mailing lists</span>
+                  <br>
+                  <small class="is-muted">All the public mailing lists</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="http://planet.ubuntu.com/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Planet</span>
+                  <br>
+                  <small class="is-muted">Blogs by Ubuntu members</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/community/governance/teams" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Teams</span>
+                  <br>
+                  <small class="is-muted">The teams in the project</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://discourse.ubuntu.com/t/joining-the-ubuntu-weekly-newsletter-team/40929" tabindex="-1">Join the Weekly Newsletter Team</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://www.facebook.com/ubuntulinux" tabindex="-1">Facebook</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://twitter.com/ubuntu" tabindex="-1">Twitter</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://www.youtube.com/c/UbuntuOS" tabindex="-1">YouTube</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://www.instagram.com/ubuntu_os/" tabindex="-1">Instagram</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://github.com/ubuntu" tabindex="-1">GitHub</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="get-ubuntu" onmouseenter="fetchDropdown('/templates/meganav/get-ubuntu', 'get-ubuntu', event); this.onmouseenter = null;">
+          <a class="p-navigation__link" href="/navigation#get-ubuntu-navigation" aria-controls="get-ubuntu-content-mobile" tabindex="0" onfocus="fetchDropdown('/templates/meganav/get-ubuntu', 'get-ubuntu');">Get Ubuntu</a>
+          <ul class="p-navigation__dropdown dropdown-content-mobile" id="get-ubuntu-content-mobile" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="get-ubuntu-back">
+              <button class="p-navigation__link js-back" href="get-ubuntu-content-mobile" aria-controls="get-ubuntu-content-mobile" tabindex="-1">
+              Back
+              </button>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu-desktop" data-id="get-ubuntu-desktop">
+              <button class="p-navigation__link" href="#get-ubuntu-desktop-content-mobile" aria-controls="get-ubuntu-desktop-content-mobile" role="tab" tabindex="-1">
+              Desktop
+              </button>
+              <ul class="p-navigation__dropdown" id="get-ubuntu-desktop-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="get-ubuntu-desktop-back">
+                  <button class="p-navigation__link js-back" href="get-ubuntu-desktop-content-mobile" aria-controls="get-ubuntu-desktop-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/desktop" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Desktop</span>
+                  <br>
+                  <small class="is-muted">Free and reliable desktop OS</small>
+                  </a>
+                  <a href="/download/desktop" class="p-button--positive" tabindex="-1">Download Ubuntu Desktop</a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/download/flavours" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu flavours</span>
+                  <br>
+                  <small class="is-muted">Variations of Ubuntu OS</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu-ready PC and laptops</span>
+                  <br>
+                  <small class="is-muted">Certified hardware</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/upgrading-ubuntu-desktop" tabindex="-1">Upgrade Ubuntu Desktop</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://help.ubuntu.com/lts/ubuntu-help/index.html" tabindex="-1">24.04 desktop guide</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://help.ubuntu.com/22.04/ubuntu-help/index.html" tabindex="-1">22.04 desktop guide</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-desktop" tabindex="-1">Installation tutorial</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/try-ubuntu-before-you-install" tabindex="-1">Try before installing</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage" tabindex="-1">Case studies, whitepapers &amp; webinars</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials" tabindex="-1">All Ubuntu tutorials</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu-server" data-id="get-ubuntu-server">
+              <button class="p-navigation__link" href="#get-ubuntu-server-content-mobile" aria-controls="get-ubuntu-server-content-mobile" role="tab" tabindex="-1">
+              Server
+              </button>
+              <ul class="p-navigation__dropdown" id="get-ubuntu-server-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="get-ubuntu-server-back">
+                  <button class="p-navigation__link js-back" href="get-ubuntu-server-content-mobile" aria-controls="get-ubuntu-server-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/server" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Server</span>
+                  <br>
+                  <small class="is-muted">Scalable Linux for the cloud</small>
+                  </a>
+                  <a href="/download/server" class="p-button--positive" tabindex="-1">Get Ubuntu Server</a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://maas.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>MAAS</span>
+                  <br>
+                  <small class="is-muted">Bare metal provisioning</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified/servers" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Certified hardware</span>
+                  <br>
+                  <small class="is-muted">Ubuntu hardware you can trust</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/cloud/public-cloud" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Public clouds</span>
+                  <br>
+                  <small class="is-muted">AWS, Azure and Google Cloud</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://multipass.run/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Multipass</span>
+                  <br>
+                  <small class="is-muted">VMs for Windows, macOS &amp; Linux</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/server/docs" tabindex="-1">Server guide</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-server" tabindex="-1">Installation tutorial</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/server/arm" tabindex="-1">ARM</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/server/power" tabindex="-1">IBM Power</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/server/s390x" tabindex="-1">s390x</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/risc-v" tabindex="-1">RISC-V</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu-raspberry-pi" data-id="get-ubuntu-raspberry-pi">
+              <button class="p-navigation__link" href="#get-ubuntu-raspberry-pi-content-mobile" aria-controls="get-ubuntu-raspberry-pi-content-mobile" role="tab" tabindex="-1">
+              Raspberry Pi
+              </button>
+              <ul class="p-navigation__dropdown" id="get-ubuntu-raspberry-pi-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="get-ubuntu-raspberry-pi-back">
+                  <button class="p-navigation__link js-back" href="get-ubuntu-raspberry-pi-content-mobile" aria-controls="get-ubuntu-raspberry-pi-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/download/raspberry-pi" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu for Raspberry Pi</span>
+                  <br>
+                  <small class="is-muted">Single board computer</small>
+                  </a>
+                  <a href="/download/raspberry-pi" class="p-button--positive" tabindex="-1">Get Ubuntu for Raspberry Pi</a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/download/raspberry-pi-core" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Core for Raspberry Pi</span>
+                  <br>
+                  <small class="is-muted">Embedded Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified?q=&amp;limit=20&amp;vendor=Raspberry+Pi+Foundation" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu-ready Pi devices</span>
+                  <br>
+                  <small class="is-muted">Certified hardware</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-desktop" tabindex="-1">Desktop installation tutorial</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/how-to-install-ubuntu-on-your-raspberry-pi" tabindex="-1">Server installation tutorial</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/raspberry-pi-core" tabindex="-1">Core installation tutorial</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/engage/raspberry-pi-livestream" tabindex="-1">Introduction video</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/how-to-kubernetes-cluster-on-raspberry-pi" tabindex="-1">Build a Kubernetes cluster on Raspberry Pi</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu-ubuntu-for-iot" data-id="get-ubuntu-ubuntu-for-iot">
+              <button class="p-navigation__link" href="#get-ubuntu-ubuntu-for-iot-content-mobile" aria-controls="get-ubuntu-ubuntu-for-iot-content-mobile" role="tab" tabindex="-1">
+              Ubuntu for IoT
+              </button>
+              <ul class="p-navigation__dropdown" id="get-ubuntu-ubuntu-for-iot-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="get-ubuntu-ubuntu-for-iot-back">
+                  <button class="p-navigation__link js-back" href="get-ubuntu-ubuntu-for-iot-content-mobile" aria-controls="get-ubuntu-ubuntu-for-iot-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/core" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu Core</span>
+                  <br>
+                  <small class="is-muted">Embedded Linux</small>
+                  </a>
+                  <a href="/download/core" class="p-button--positive" tabindex="-1">Get Ubuntu Core</a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/internet-of-things" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Internet of Things</span>
+                  <br>
+                  <small class="is-muted">Ubuntu for IoT</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/core/services" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Smart things as a service</span>
+                  <br>
+                  <small class="is-muted">Deliver IoT devices to market</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/certified?q=&amp;limit=20&amp;category=Device&amp;category=SoC" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu-ready devices</span>
+                  <br>
+                  <small class="is-muted">Certified hardware</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/embedded" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Embedded Linux</span>
+                  <br>
+                  <small class="is-muted">Developers, apps and hardware</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/real-time" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Real-time Ubuntu</span>
+                  <br>
+                  <small class="is-muted">Low-latency kernel</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/xilinx" tabindex="-1">AMD Evaluation kits &amp; SOMs</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/iot/intel-iotg" tabindex="-1">Intel IoT platforms</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/mediatek-genio" tabindex="-1">Mediatek Genio</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/nvidia-jetson" tabindex="-1">NVIDIA Jetson</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/raspberry-pi" tabindex="-1">Raspberry Pi</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/download/risc-v" tabindex="-1">RISC-V platforms</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu-develop-on-ubuntu" data-id="get-ubuntu-develop-on-ubuntu">
+              <button class="p-navigation__link" href="#get-ubuntu-develop-on-ubuntu-content-mobile" aria-controls="get-ubuntu-develop-on-ubuntu-content-mobile" role="tab" tabindex="-1">
+              Develop on Ubuntu
+              </button>
+              <ul class="p-navigation__dropdown" id="get-ubuntu-develop-on-ubuntu-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="get-ubuntu-develop-on-ubuntu-back">
+                  <button class="p-navigation__link js-back" href="get-ubuntu-develop-on-ubuntu-content-mobile" aria-controls="get-ubuntu-develop-on-ubuntu-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/about/packages" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Deb, snap and charm packages</span>
+                  <br>
+                  <small class="is-muted">Deliver Ubuntu software</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://snapcraft.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Publish apps</span>
+                  <br>
+                  <small class="is-muted">For users, servers and devices</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://charmhub.io/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Cloud packages</span>
+                  <br>
+                  <small class="is-muted">Deploy and operate cloud software</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/ai" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>AI and machine learning</span>
+                  <br>
+                  <small class="is-muted">Develop AI models</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/credentials" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Ubuntu certification for engineers</span>
+                  <br>
+                  <small class="is-muted">Professional endorsement</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/cloud/public-cloud" tabindex="-1">Ubuntu on public clouds</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/blog/minimal-ubuntu-released" tabindex="-1">Minimal Ubuntu for containers</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://cloud-init.io/" tabindex="-1">Customise cloud instances</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/model-driven-operations" tabindex="-1">Model driven operations</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://jaas.ai/" tabindex="-1">Juju for standardised operations</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/kubernetes" tabindex="-1">Charmed Kubernetes</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://microk8s.io/" tabindex="-1">MicroK8s - single node k8s</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="https://maas.io/" tabindex="-1">MAAS - fast server provisioning</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu-windows-macos" data-id="get-ubuntu-windows-macos">
+              <button class="p-navigation__link" href="#get-ubuntu-windows-macos-content-mobile" aria-controls="get-ubuntu-windows-macos-content-mobile" role="tab" tabindex="-1">
+              Windows &amp; macOS
+              </button>
+              <ul class="p-navigation__dropdown" id="get-ubuntu-windows-macos-content-mobile" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="get-ubuntu-windows-macos-back">
+                  <button class="p-navigation__link js-back" href="get-ubuntu-windows-macos-content-mobile" aria-controls="get-ubuntu-windows-macos-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="/desktop/wsl" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>WSL</span>
+                  <br>
+                  <small class="is-muted">Windows Subsystem for Linux</small>
+                  </a>
+                </li>
+                <li class="p-navigation__dropdown-item">
+                  <a href="https://multipass.run/" class="p-link--inverted" onclick="event.stopPropagation()" tabindex="-1">
+                  <span>Multipass</span>
+                  <br>
+                  <small class="is-muted">Ubuntu VMs for Windows and macOS</small>
+                  </a>
+                </li>
+                <ul class="p-list p-navigation__secondary-links">
+                  <p class="p-muted-heading is-muted">Quick links</p>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support" tabindex="-1">Install Ubuntu on WSL for Windows 11</a>
+                  </li>
+                  <li class="p-list__item">
+                    <a class="p-navigation__secondary-link" href="/tutorials/install-ubuntu-on-wsl2-on-windows-10" tabindex="-1">Install Ubuntu on WSL for Windows 10</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle global-nav-mobile global-nav" role="menuitem" id="all-canonical">
+          <button href="#canonical-products" aria-controls="canonical-products-mobile" class="p-navigation__link global-nav__header-link-anchor" id="all-canonical-link" aria-expanded="false" tabindex="0">All Canonical</button>
+          <ul class="p-navigation__dropdown dropdown-content-mobile" id="all-canonical-content-mobile" aria-hidden="true">
+            <li class="p-navigation__item--dropdown-close" id="all-canonical-content-mobile-back">
+              <button class="p-navigation__link js-back" href="all-canonical-content-mobile" aria-controls="all-canonical-content-mobile" tabindex="-1">
+              Back
+              </button>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle global-nav__dropdown-toggle" id="all-canonical-products">
+              <button href="#all-canonical-products-content-mobile" class="p-navigation__link global-nav__header-link-anchor" tabindex="-1">Products</button>
+              <ul id="all-canonical-products-content-mobile" class="p-navigation__dropdown" aria-hidden="true">
+                <li class="p-navigation__item--dropdown-close" id="all-canonical-products-content-mobile-back">
+                  <button class="p-navigation__link js-back" href="all-canonical-products-content-mobile" aria-controls="all-canonical-products-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/" tabindex="-1">Canonical</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/" tabindex="-1">Ubuntu</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/pro" tabindex="-1">Ubuntu Pro</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://snapcraft.io/" tabindex="-1">Snapcraft</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/lxd" tabindex="-1">LXD</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://maas.io/" tabindex="-1">MAAS</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/openstack" tabindex="-1">OpenStack</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/ceph" tabindex="-1">Ceph</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/kubernetes" tabindex="-1">Kubernetes</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://juju.is/" tabindex="-1">Juju</a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle global-nav__dropdown-toggle" id="all-canonical-also-from-canonical">
+              <button href="#all-canonical-also-from-canonical-content-mobile" class="p-navigation__link global-nav__header-link-anchor" tabindex="-1">Also from Canonical</button>
+              <ul id="all-canonical-also-from-canonical-content-mobile" class="p-navigation__dropdown" aria-hidden="true">
+                <li class="p-navigation__item--dropdown-close" id="all-canonical-also-from-canonical-content-mobile-back">
+                  <button class="p-navigation__link js-back" href="all-canonical-also-from-canonical-content-mobile" aria-controls="all-canonical-also-from-canonical-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://anbox-cloud.io/" tabindex="-1">Anbox Cloud</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://launchpad.net" tabindex="-1">Launchpad</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/download/cloud" tabindex="-1">Ubuntu on public clouds</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://multipass.run/" tabindex="-1">Multipass</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://cloud-init.io/" tabindex="-1">Cloud-init</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/landscape" tabindex="-1">Landscape</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="http://www.netplan.io/" tabindex="-1">Netplan</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://charmed-kubeflow.io/" tabindex="-1">Charmed Kubeflow</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://microcloud.is/" tabindex="-1">MicroCloud</a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle global-nav__dropdown-toggle" id="all-canonical-about">
+              <button href="#all-canonical-about-content-mobile" class="p-navigation__link global-nav__header-link-anchor" tabindex="-1">About</button>
+              <ul id="all-canonical-about-content-mobile" class="p-navigation__dropdown u-no-margin--bottom" aria-hidden="true">
+                <li class="p-navigation__item--dropdown-close" id="all-canonical-about-content-mobile-back">
+                  <button class="p-navigation__link js-back" href="all-canonical-about-content-mobile" aria-controls="all-canonical-about-content-mobile" tabindex="-1">
+                  Back
+                  </button>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/" tabindex="-1">Canonical</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/press-centre" tabindex="-1">Press centre</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/careers" tabindex="-1">Careers</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/blog" tabindex="-1">Blog</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://docs.ubuntu.com/" tabindex="-1">Documentation</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://ubuntu.com/engage" tabindex="-1">Resources</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/partners" tabindex="-1">Partners</a>
+                </li>
+                <li>
+                  <a class="p-navigation__dropdown-item" href="https://canonical.com/contact-us" tabindex="-1">Contact us</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle js-account" role="menuitem" id="canonical-login">
+          <button href="#" class="p-navigation__link is-signed-in" aria-controls="canonical-login-content-mobile" aria-expanded="false" aria-haspopup="true" tabindex="0">Account</button>
+          <ul class="p-navigation__dropdown" id="canonical-login-content-mobile" aria-hidden="true">
+            <li class="p-navigation__item--dropdown-close" id="canonical-login-back">
+              <button class="p-navigation__link js-back" href="canonical-login-content-mobile" aria-controls="canonical-login-content-mobile" tabindex="-1" "="">
+              Back
+              </button>
+            </li>
+            <li class="p-navigation__account-name u-no-padding--bottom">
+              <p class="p-text--small" data-gtm-vis-has-fired1014405_503="1" tabindex="0">Logged in as <br>
+                <strong>bartek.szopka@canonical.com</strong>
+              </p>
+              <hr class="is-dark u-no-margin">
+            </li>
+            <li class="p-navigation__dropdown-item"><a class="p-link--inverted" href="/pro/dashboard" onclick="event.stopPropagation()" tabindex="-1">Ubuntu Pro dashboard</a></li>
+            <li class="p-navigation__dropdown-item">
+              <a class="p-link--inverted" href="/account/invoices" onclick="event.stopPropagation()" tabindex="-1">Invoices &amp; Payments</a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a class="p-link--inverted" href="https://login.ubuntu.com/" onclick="event.stopPropagation()" tabindex="-1">Account settings</a>
+            </li>
+            <li class="p-navigation__dropdown-item">
+              <a class="p-link--inverted" href="/logout" onclick="event.stopPropagation()" tabindex="-1">Logout</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item">
+          <a href="/search" class="js-search-button p-navigation__link--search-toggle" tabindex="0"></a>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form action="/search" class="p-search-box is-light">
+          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required="" aria-label="Search our sites">
+          <button type="reset" class="p-search-box__reset">
+          <i class="p-icon--close"></i>
+          </button>
+          <button type="submit" class="p-search-box__button">
+          <i class="p-icon--search"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="p-navigation__search-overlay"></div>
+  <div id="control-height"></div>
+</header>
+
+<script>
+  {% include 'docs/examples/patterns/navigation/_script-sliding.js' %}
+
+  function fetchDropdown() {}
+</script>
+{% endblock %}
+
+{% block style %}
+  <style>
+    body { margin: 0; }
+  </style>
+{% endblock %}
