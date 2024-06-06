@@ -26,11 +26,11 @@ context:
 
 {% set social_icons = ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'github', 'rss', 'email'] %}
 
-<!--
-    'chevron-up', 'chevron-down', 'chevron-left', 'chevron-right' are class names, not mixin names; instead use 'chevron' for mixin import
-    TODO We should fix this icon-mixin naming discrepancy in the next major version.
-    See https://github.com/canonical/vanilla-framework/pull/5100
--->
+{#
+'chevron-up', 'chevron-down', 'chevron-left', 'chevron-right' are class names, not mixin names; instead use 'chevron' for mixin import
+TODO We should fix this icon-mixin naming discrepancy in the next major version.
+See https://github.com/canonical/vanilla-framework/pull/5100
+#}
 
 {% set standard_icon_mixin_names = standard_icons
   | map('replace', 'chevron-down', 'chevron')
@@ -40,17 +40,17 @@ context:
   | list
 %}
 
-<!--
-  'information' is a class name, not a mixin name; instead use 'info' for mixin import
-  TODO We should fix this icon-mixin naming discrepancy in the next major version.
-  See https://github.com/canonical/vanilla-framework/pull/5100
--->
+{#
+'information' is a class name, not a mixin name; instead use 'info' for mixin import
+TODO We should fix this icon-mixin naming discrepancy in the next major version.
+See https://github.com/canonical/vanilla-framework/pull/5100
+#}
 
 {% set status_icon_mixin_names = status_icons | map('replace', 'information', 'info') | list %}
 
-<!--
-  Remove duplicates from the list of mixin names; otherwise there would be two 'chevron' entries
--->
+{#
+Remove duplicates from the list of mixin names; otherwise there would be two 'chevron' entries
+#}
 
 {% set base_icon_mixin_names = (standard_icon_mixin_names + status_icon_mixin_names + social_icons) | unique %}
 
