@@ -1,32 +1,46 @@
 @mixin vf-p-navigation-reduced {
+  // TODO:
+  // - [ ] --reduced needs to extend the --sliding navigation
+  // - [ ] spacing as variables
+  // - [ ] colors as variables
+  // - [ ] extract sticky to separate class name
+  // - [ ] refactor search
+  // - [ ] mobile chevron in secondary navigation
+  // - [ ] review use of media queries
+  // - [ ] "muted" color in the reduced nav
+  // - [ ] remove the need for "secondary" modifier
+  // - [ ] reduced nav background color (mobile/desktop)
+  // - [ ] reduced nav theme?
   .p-navigation--reduced {
     position: relative;
 
-    .p-navigation__logo-tag {
-      display: none;
-    }
+    // logo overrides for reduced navigation
 
+    // orange logo tag is hidden in reduced navigation
     .p-navigation__tagged-logo {
       .p-navigation__link {
         padding-left: 0;
       }
+
+      .p-navigation__logo-tag {
+        display: none;
+      }
     }
 
-    .p-navigation__link,
+    // reduced nav logo text uses default font size (on small screens)
     .p-navigation__logo-title {
-      color: $color-x-light;
-      line-height: map-get($line-heights, small);
-      font-size: 1rem;
+      font-size: #{map-get($font-sizes, default)}rem;
     }
 
-    @media (min-width: $breakpoint-navigation-threshold - 1) {
+    @media (min-width: $breakpoint-navigation-threshold) {
       .p-navigation__items:first-child {
         margin-left: -1rem;
       }
 
       .p-navigation__link,
       .p-navigation__logo-title {
-        color: $color-mid-light;
+        // FIXME: what color?
+        color: $colors--theme--text-muted; // $color-mid-light;
         font-size: #{map-get($font-sizes, small)}rem;
         line-height: map-get($line-heights, x-small);
         margin: 0;
@@ -38,7 +52,7 @@
     }
 
     .p-navigation__link--search-toggle {
-      @media (min-width: $breakpoint-navigation-threshold - 1) {
+      @media (min-width: $breakpoint-navigation-threshold) {
         &::after {
           top: 0.5rem;
           right: 1.5rem;
@@ -50,7 +64,7 @@
       }
     }
 
-    @media (min-width: $breakpoint-navigation-threshold - 1) {
+    @media (min-width: $breakpoint-navigation-threshold) {
       &.has-search-open {
         .p-navigation__nav .p-navigation__items {
           display: inline-flex;
@@ -71,6 +85,7 @@
           }
         }
 
+        // FIXME: this doesn't seem to work anyway
         .p-navigation.is-secondary {
           display: none;
         }
@@ -78,8 +93,7 @@
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      background-color: $color-dark;
-
+      background-color: #111; // $colors--dark-theme--background-alt;
       .p-navigation__link {
         padding: 0.5rem 1rem 0.5rem 1rem;
       }
@@ -98,11 +112,14 @@
     }
   }
 
-  .p-navigation.is-secondary {
+  .p-navigation.is-sticky,
+  [class^='p-navigation--'].is-sticky {
     position: sticky;
     top: 0;
     z-index: 9;
+  }
 
+  .p-navigation.is-secondary {
     .p-navigation__nav.is-open {
       display: flex;
 
