@@ -34,7 +34,7 @@ To open the dropdown you need to set the `is-active` class on `p-navigation__ite
 
 By default, dropdowns are left-aligned with their parent; if you'd prefer the menu to be positioned from the right, use the `p-navigation__dropdown--right` modifier. This can be seen in the "My account" menu in the example.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown-dark" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown-alignment" class="js-example">
 View example of the dropdown pattern
 </a></div>
 
@@ -195,7 +195,7 @@ By default, the side navigation uses the current theme of the page. To change th
 
 For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 
-[See example of side navigation with dark theme](/docs/examples/patterns/side-navigation/dark).
+[See example of side navigation with dark theme](/docs/examples/patterns/side-navigation/side-navigation?theme=dark).
 
 ## Import
 

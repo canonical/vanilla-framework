@@ -39,10 +39,6 @@ View example of the tabs content pattern
 
 Tabs use the default inherited theme of the page or parent element. To override the default add `is-dark` or `is-light` class to the contextual menu.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tabs/content-dark" class="js-example">
-View example of the dark tabs content pattern
-</a></div>
-
 ## Import
 
 To import just the standard tab component into your project, copy the snippet below and include it in your main Sass file.

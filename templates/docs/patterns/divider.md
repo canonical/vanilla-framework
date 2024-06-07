@@ -21,10 +21,6 @@ By default, the responsive divider uses the current theme of the page or its par
 
 For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/divider/dark/" class="js-example">
-View example of the divider list with an is-dark class
-</a></div>
-
 ## Import
 
 To add dividers into your project, copy the snippet below and include it in your main Sass file.

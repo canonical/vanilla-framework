@@ -95,14 +95,6 @@ When replacing a label in a button with a loading icon make sure to keep the wid
 View example of the processing button pattern
 </a></div>
 
-## Theming
-
-The buttons use Vanilla's theme colours. You can switch the theme by adding `is-dark`, `is-light` or `is-paper` class name on any parent element or the button itself.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/buttons/dark" class="js-example">
-View example of the buttons with an is-dark class
-</a></div>
-
 ## Brand
 
 <div class="p-notification--caution">

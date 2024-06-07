@@ -42,14 +42,6 @@ The default chip has margins and padding set so it aligns to paragraphs and with
 View example of the inline chip pattern
 </a></div>
 
-## Dark chips
-
-To use chips on a dark background the `is-dark` class can be applied. If the chip includes the dismiss icon, you'll need to add the `is-light` class to the icon. To ensure the dark chips are accessible, the background colour used must `#2b2b2b` or darker:
-
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/dark" class="js-example">
-View example of the dark chip pattern
-</a></div>
-
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
