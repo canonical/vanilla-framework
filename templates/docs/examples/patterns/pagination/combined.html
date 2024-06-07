@@ -1,0 +1,14 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Pagination / Combined{% endblock %}
+
+{% block standalone_css %}patterns_pagination{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/pagination/pagination.html' %}</section>
+<section>{% include 'docs/examples/patterns/pagination/pagination-deprecated.html' %}</section>
+<section>{% include 'docs/examples/patterns/pagination/pagination-disabled.html' %}</section>
+<section>{% include 'docs/examples/patterns/pagination/pagination-truncated.html' %}</section>
+<section>{% include 'docs/examples/patterns/pagination/pagination-verbose.html' %}</section>
+{% endwith %}
+{% endblock %}

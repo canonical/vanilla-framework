@@ -1,0 +1,12 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Empty state / Combined{% endblock %}
+
+{% block standalone_css %}patterns_empty-state{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/empty-state/error-management.html' %}</section>
+<section>{% include 'docs/examples/patterns/empty-state/no-content.html' %}</section>
+<section>{% include 'docs/examples/patterns/empty-state/user-triggered.html' %}</section>
+{% endwith %}
+{% endblock %}

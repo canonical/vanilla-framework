@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework documentation</title>
 
+    {% if not is_combined %}
     {% if is_standalone %}
     <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/' + (self.standalone_css() if self.standalone_css is defined else 'base') + '.css') }}" />
     {% else %}
@@ -26,6 +27,7 @@
     {% endif %}
 
     <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+    {% endif %}
   
   </head>
 

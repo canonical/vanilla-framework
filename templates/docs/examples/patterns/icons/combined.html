@@ -1,0 +1,18 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Icons / Combined{% endblock %}
+
+{% block standalone_css %}patterns_icons{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ versioned_static('build/css/standalone/patterns_icons-additional.css') }}" />
+{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/icons/icons-additional.html' %}</section>
+<section>{% include 'docs/examples/patterns/icons/icons-dark-deprecated.html' %}</section>
+<section>{% include 'docs/examples/patterns/icons/icons-links.html' %}</section>
+<section>{% include 'docs/examples/patterns/icons/icons-social.html' %}</section>
+<section>{% include 'docs/examples/patterns/icons/standard.html' %}</section>
+{% endwith %}
+{% endblock %}

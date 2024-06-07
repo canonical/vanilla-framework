@@ -1,0 +1,11 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Table of Contents / Combined{% endblock %}
+
+{% block standalone_css %}patterns_table-of-contents{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/table-of-contents/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/table-of-contents/sections.html' %}</section>
+{% endwith %}
+{% endblock %}

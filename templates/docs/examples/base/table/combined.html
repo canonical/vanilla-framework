@@ -1,0 +1,11 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Table / Combined{% endblock %}
+
+{% block standalone_css %}base{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/base/table/default.html' %}</section>
+<section>{% include 'docs/examples/base/table/empty.html' %}</section>
+{% endwith %}
+{% endblock %}

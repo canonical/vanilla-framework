@@ -1,0 +1,11 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Headings / Combined{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/base/headings/default.html' %}</section>
+<section>{% include 'docs/examples/base/headings/accented.html' %}</section>
+{% endwith %}
+{% endblock %}

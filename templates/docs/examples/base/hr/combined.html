@@ -1,0 +1,12 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}HR / Combined{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/base/hr/default.html' %}</section>
+<section>{% include 'docs/examples/base/hr/fixed-width.html' %}</section>
+<section>{% include 'docs/examples/base/hr/muted.html' %}</section>
+{% endwith %}
+{% endblock %}

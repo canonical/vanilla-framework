@@ -10,7 +10,7 @@ Vanilla gives you multiple ways to display code using the standard HTML elements
 
 When you refer to code inline with other text, use the <code>&lt;code></code> tag.
 
-<div class="embedded-example"><a href="/docs/examples/base/code-inline/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/code/inline/" class="js-example">
 View example of inline code
 </a></div>
 
@@ -28,7 +28,7 @@ View example of the base pre block
 `
 **Pre-formatted code block:**
 
-<div class="embedded-example"><a href="/docs/examples/base/code-block/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/code/block/" class="js-example">
 View example of the base code block
 </a></div>
 
