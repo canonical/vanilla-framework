@@ -138,7 +138,9 @@ Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/release
 - [Contextual menu](/docs/patterns/contextual-menu)
 - [Lists / Divider](/docs/patterns/lists#responsive-divider)
 - [Lists / Middot](/docs/patterns/lists#middot)
+- [Modal](/docs/patterns/modal)
 - [Navigation](/docs/patterns/navigation)
+- [Segmented control](/docs/patterns/segmented-control)
 - [Side navigation](/docs/patterns/navigation#side-navigation)
 - [Search box](/docs/patterns/search-box)
 
