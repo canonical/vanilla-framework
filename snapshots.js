@@ -62,30 +62,25 @@ async function getPercyConfigURLs() {
     const widths = getWidthsForExample(path);
     const themes = getThemesForExample(path);
 
+    // Take one snapshot per theme at the last breakpoint
     themes.forEach((theme) => {
-      numSnapshots += widths.length;
-
       urls.push({
         url: `${url}?theme=${theme}`,
-        name: path,
-        widths,
+        name: `${path.slice(0, path.length - 1)}?theme=${theme}`,
+        widths: [widths[widths.length - 1]],
       });
+    });
+
+    // Take one snapshot per breakpoint at default theme.
+    // Ignore the last breakpoint as it has already been snapshotted while covering themes.
+    urls.push({
+      url,
+      name: path,
+      widths: widths.slice(0, widths.length - 1),
     });
   });
 
-  console.log('Total snapshots: ' + numSnapshots);
-
-  fs.writeFileSync(
-    'percy_snapshots_report.json',
-    JSON.stringify(
-      {
-        numSnapshots,
-        urls,
-      },
-      null,
-      2,
-    ),
-  );
+  console.log('Total snapshots: ' + urls.length);
 
   return urls;
 }
