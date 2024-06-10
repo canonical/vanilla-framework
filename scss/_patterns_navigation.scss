@@ -404,6 +404,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       justify-content: space-between;
       margin-right: map-get($grid-margin-widths, default);
       width: 100%;
+
+      // in documentation layout navigation items need to be aligned with the grid of the content
+      // so we substract the navigation item padding from the grid margin
+      .l-docs__main & {
+        margin-left: calc(map-get($grid-margin-widths, default) - $sph--large);
+      }
     }
   }
 
