@@ -54,7 +54,6 @@ function getWidthsForExample(url) {
 async function getPercyConfigURLs() {
   let links = getExampleUrls(await getExampleFiles());
   let urls = [];
-  let numSnapshots = 0;
 
   links.forEach((url) => {
     const path = new URL(url).pathname.replace(/\/?$/, '/');

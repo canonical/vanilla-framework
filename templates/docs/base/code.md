@@ -25,7 +25,6 @@ To create a pre-formatted block, use either `<pre>` (where preserving white spac
 <div class="embedded-example"><a href="/docs/examples/base/pre/" class="js-example">
 View example of the base pre block
 </a></div>
-`
 **Pre-formatted code block:**
 
 <div class="embedded-example"><a href="/docs/examples/base/code/block/" class="js-example">

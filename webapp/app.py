@@ -110,6 +110,9 @@ def _get_examples():
         examples_length = len("docs/examples/")
         # Remove "docs/examples/" and extension for the path
         example_path = os.path.splitext(template_path[examples_length:])[0]
+        # Ignore "combined" templates
+        if example_path.endswith("/combined"):
+            continue
 
         outermost_parent = example_path.split(os.sep).pop(0)
 
