@@ -1,5 +1,5 @@
 # This workflow runs Percy against non-draft PRs that have changes in relevant examples filepaths.
-name: "Percy [pushed]"
+name: "Percy [pushed] / Prepare build"
 
 on:
   pull_request:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   copy_artifact:
-    name: Prepare build
+    name: Copy changed files to GHA artifact
     # Ignore draft PRS and PRs with the Percy label
     # If we run tests against PRs with the Percy label, we will run tests twice (test is also ran by the labelling workflow)
     if: ${{ !github.event.pull_request.draft && !contains(github.event.pull_request.labels.*.name, vars.PERCY_TEST_REQUESTED_LABEL_NAME) }}
