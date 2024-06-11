@@ -1,5 +1,5 @@
 # This workflow ensures Percy is executed against PRs with the Percy required label, regardless of which paths were changed
-name: "Percy [labeled]"
+name: "Percy [labeled] / Prepare build"
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ on:
 
 jobs:
   copy_artifact:
-    name: Prepare build
+    name: Copy changed files to GHA artifact
     if: contains(github.event.pull_request.labels.*.name, vars.PERCY_TEST_REQUESTED_LABEL_NAME)
     uses: ./.github/workflows/percy-prepare.yml
     with:
