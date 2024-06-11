@@ -85,16 +85,16 @@
       color: $color-dark;
     }
 
-    &:after {
+    &::after {
       @extend %icon;
       // FIXME: to do when icons are themed
-      @include vf-p-icon-get-link;
-      content: "";
-      display: inline-block;
+      @include vf-icon-get-link($colors--light-theme--icon);
+
+      content: '';
+      margin-left: 0.5rem;
       padding: 1rem;
       top: 0.75rem;
       visibility: hidden;
-      margin-left: 0.5rem;
     }
 
     &:hover {
