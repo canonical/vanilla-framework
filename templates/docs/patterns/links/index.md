@@ -61,6 +61,14 @@ The `.p-link--skip` link is used to help keyboard users navigate quickly to the 
 View example of the back to skip link pattern
 </a></div>
 
+## Anchor link
+
+The `.p-link--anchor-heading` class is used to add a visual on-hover state to anchor links.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/links/links-anchor/" class="js-example">
+View example of the back to anchor link pattern
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.

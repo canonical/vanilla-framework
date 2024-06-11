@@ -77,4 +77,30 @@
     padding: 0 $sph--small 0 $sph--large;
     text-decoration: none;
   }
+
+  .p-link--anchor-heading {
+    color: $color-dark;
+
+    &:visited {
+      color: $color-dark;
+    }
+
+    &:after {
+      @extend %icon;
+      // FIXME: to do when icons are themed
+      @include vf-p-icon-get-link;
+      content: "";
+      display: inline-block;
+      padding: 1rem;
+      top: 0.75rem;
+      visibility: hidden;
+      margin-left: 0.5rem;
+    }
+
+    &:hover {
+      &::after {
+        visibility: visible;
+      }
+    }
+  }
 }
