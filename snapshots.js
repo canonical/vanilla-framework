@@ -2,31 +2,43 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 8101;
-const DOCS_URL = `http://localhost:${PORT}/docs/examples/`;
 
-async function getExampleFiles() {
-  // get all example files from templates folder
-  let files = await fs.promises.readdir(path.join(process.cwd(), 'templates/docs/examples'), {recursive: true});
+/**
+ * URL of the local server where the examples are hosted.
+ * This URL is used to generate the snapshot URLs.
+ */
+const EXAMPLES_BASE_URL = `http://localhost:${PORT}/docs/examples/`;
+/** Relative path to the examples directory from the project root. */
+const EXAMPLES_RELATIVE_DIR = 'templates/docs/examples';
 
-  // filter only HTML example files in subfolders that are not partials
-  files = Array.from(
-    new Set(
-      files
-        .filter((file) => path.dirname(file) !== '.' && file.endsWith('.html') && !path.basename(file).startsWith('_'))
-        .map((file) => {
-          // Replace files that have a `combined.html` sibling file with the combined file
-          // Deduping necessary to avoid including `combined.html` multiple times
-          const fileDir = path.dirname(file);
-          const combinedFilePathRelative = path.join(fileDir, 'combined.html');
-          const combinedFilePathAbsolute = path.join(process.cwd(), `templates/docs/examples/${combinedFilePathRelative}`);
-          const combinedFileExists = fs.existsSync(combinedFilePathAbsolute);
-          if (!combinedFileExists) return file;
-          return combinedFilePathRelative;
-        }),
-    ),
-  );
+/**
+ * Get the example files to snapshot from a directory.
+ * @param dir {String} Directory path to get example files from.
+ * @returns {Promise<String[]>} Array of example file paths, relative to `EXAMPLES_RELATIVE_DIR`.
+ */
+async function getExampleFiles(dir = EXAMPLES_RELATIVE_DIR) {
+  let files = [];
+  let absDir = path.join(process.cwd(), dir);
+  const entries = await fs.promises.readdir(absDir, {withFileTypes: true});
 
-  return files;
+  for (let entry of entries) {
+    const fullPath = path.join(absDir, entry.name);
+    if (entry.isDirectory()) {
+      if (fs.existsSync(`${fullPath}/combined.html`)) {
+        // Combined HTML file found. Assume it combines all examples in the directory and subdirectories.
+        files.push(path.join(dir, entry.name, 'combined.html'));
+      } else {
+        // Get examples from the subdirectory
+        files.push(...(await getExampleFiles(path.join(dir, entry.name))));
+      }
+    } else if (entry.isFile() && entry.name.endsWith('.html') && !entry.name.startsWith('_')) {
+      // Ignore partials & non-HTML files
+      files.push(path.join(dir, entry.name));
+    }
+  }
+
+  // Return the relative paths
+  return files.map((file) => file.replace(`${EXAMPLES_RELATIVE_DIR}/`, ''));
 }
 
 function getExampleUrls(files) {
@@ -38,27 +50,58 @@ function getExampleUrls(files) {
   // map the file paths to URLs
   return files.map((file) => {
     file = file.replace('.html', '');
-    return DOCS_URL + file;
+    return EXAMPLES_BASE_URL + file;
   });
 }
 
-function getThemesForExample(url) {
+/**
+ * Given an example path, returns the color themes to snapshot.
+ * @param filepath {String} Path (relative to `EXAMPLES_RELATIVE_DIR`) of the example file.
+ * @returns {string[]} Array of color theme names to snapshot.
+ *  These must match color theme query parameter names accepted by example-tools.js.
+ */
+function getThemesForExample(filepath) {
   return ['light', 'dark', 'paper'];
 }
 
-function getWidthsForExample(url) {
-  const isResponsive = url.indexOf('responsive') >= 0;
-  return isResponsive ? [375, 800, 1280] : [375, 1280];
+/**
+ * Given an example path, return the widths to snapshot.
+ * @param filepath {String} Path (relative to `EXAMPLES_RELATIVE_DIR`) of the example file.
+ * @returns {Promise<Number[]>} Array of widths to snapshot, from smallest to largest.
+ */
+async function getWidthsForExample(filepath) {
+  let widths = new Set([
+    375, // Mobile
+    1280, // Desktop
+  ]);
+
+  if (filepath.endsWith('combined/')) {
+    /** Parent directory (remove combined/ path). We also remove 'standalone/' to ensure the directory is a file path. */
+    let parentDirectory = path.join('templates', filepath.replace(/(combined|standalone)\//g, ''));
+    let siblingFiles = await getExampleFiles(parentDirectory);
+    for (let siblingFile of siblingFiles) {
+      let siblingWidths = await getWidthsForExample(siblingFile);
+      siblingWidths.forEach((width) => widths.add(width));
+    }
+  }
+  const isResponsive = filepath.includes('responsive');
+
+  if (isResponsive) {
+    widths.add(800); // Tablet
+  }
+
+  return Array.from(widths).sort((a, b) => a - b);
 }
 
 async function getPercyConfigURLs() {
-  let links = getExampleUrls(await getExampleFiles());
+  let files = await getExampleFiles();
+  let links = getExampleUrls(files);
   let urls = [];
+  let numSnapshots = 0;
 
-  links.forEach((url) => {
+  for (let url of links) {
     const path = new URL(url).pathname.replace(/\/?$/, '/');
-
-    const widths = getWidthsForExample(path);
+    const widths = await getWidthsForExample(path);
     const themes = getThemesForExample(path);
 
     // Take one snapshot per theme at the last breakpoint
@@ -68,6 +111,7 @@ async function getPercyConfigURLs() {
         name: `${path.slice(0, path.length - 1)}?theme=${theme}`,
         widths: [widths[widths.length - 1]],
       });
+      numSnapshots += 1;
     });
 
     // Take one snapshot per breakpoint at default theme.
@@ -77,9 +121,10 @@ async function getPercyConfigURLs() {
       name: path,
       widths: widths.slice(0, widths.length - 1),
     });
-  });
+    numSnapshots += widths.length - 1;
+  }
 
-  console.log('Total snapshots: ' + urls.length);
+  console.log('Total snapshots: ' + numSnapshots);
 
   return urls;
 }
