@@ -4,6 +4,68 @@
 {% block standalone_css %}patterns_navigation{% endblock %}
 
 {% block content %}
+
+{% macro build_link_list(n, group) %}
+{% for i in range(n) %}
+<li>
+  <a href="#" class="p-navigation__dropdown-item">
+    {{ group }} item {{ i + 1 }}
+    <span class="u-text--muted">Description for {{ group }} item {{ i + 1 }}</span>
+  </a>
+</li>
+{% endfor %}
+{% endmacro %}
+
+{% macro build_secondary_links(n) %}
+<li class="p-navigation__dropdown-item">
+  <ul class="p-list p-navigation__secondary-links">
+    <li class="p-list__item">
+      <h2 class="p-muted-heading" tabindex="0">Quick links</h2>
+    </li>
+    {% for i in range(1, n + 1) %}
+    <li class="p-list__item">
+      <a class="p-navigation__secondary-link" href="/quick-link-{{ i }}" tabindex="0">Quick link {{ i }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</li>
+{% endmacro %}
+
+{% macro build_button_link() %}
+<li class="p-navigation__dropdown-item">
+  <a href="#" class="is-muted">
+    <strong>Generic item</strong>
+    <br>
+    <small>Description for generic item</small>
+  </a>
+  <br>
+  <a href="#" class="p-button--positive">Generic button</a>
+</li>
+{% endmacro %}
+
+
+{% macro build_dropdown_items(group_name, count) %}
+{% for i in range(1, count + 1) %}
+{% set subgroup_id = group_name ~ '-group-' ~ i %}
+{% set subgroup_name = group_name ~ ' group ' ~ i %}
+<li class="p-navigation__item--dropdown-toggle" id="{{ subgroup_id }}">
+  <button aria-controls="{{ subgroup_id }}-menu" class="p-navigation__link">
+    {{ subgroup_name }}
+  </button>
+  <ul class="p-navigation__dropdown" id="{{ subgroup_id }}-menu" aria-hidden="true">
+    <li class="p-navigation__item--dropdown-close" id="{{ subgroup_id }}-back">
+      <button aria-controls="{{ subgroup_id }}-menu" class="p-navigation__link js-back">
+        Back
+      </button>
+    </li>
+    {{ build_button_link() }}
+    {{ build_link_list(16, subgroup_name) }}
+    {{ build_secondary_links(6) }}
+  </ul>
+</li>
+{% endfor %}
+{% endmacro %}
+
 <style>
   /* move account menu to the right side */
   .p-navigation__nav .p-navigation__items:first-child {
@@ -18,7 +80,7 @@
     display: block;
   }
 
-/* TODO, bugs
+  /* TODO, bugs
 
 - mobile dropdown scrolls
 
@@ -30,7 +92,7 @@
       <div class="p-navigation__tagged-logo">
         <a class="p-navigation__link" href="#">
           <div class="p-navigation__logo-tag">
-            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="" >
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
           </div>
           <span class="p-navigation__logo-title">Canonical Ubuntu</span>
         </a>
@@ -48,6 +110,7 @@
     </div>
     <nav class="p-navigation__nav" id="main-nav" aria-label="Example main">
       <ul class="p-navigation__items">
+        <!-- products -->
         <li class="p-navigation__item--dropdown-toggle" id="products">
           <button href="#link-1-menu" aria-controls="products-menu" class="p-navigation__link">
             Products
@@ -58,21 +121,7 @@
                 Back
               </button>
             </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
+            {{ build_dropdown_items('Products', 8) }}
           </ul>
         </li>
 
@@ -87,155 +136,26 @@
                 Back
               </button>
             </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">By solution</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">AI/ML
-                <span class="u-text--muted">MLOps tools</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Compliance
-                <span class="u-text--muted">Certifications and hardening</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Confidential computing
-                <span class="u-text--muted">Protect your data in use</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Containers
-                <span class="u-text--muted">Ubuntu for container operations</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Data solutions
-                <span class="u-text--muted">Enterprise data management at scale</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Edge computing
-                <span class="u-text--muted">Micro clouds</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">HPC and supercomputing
-                <span class="u-text--muted">High-performance computing</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">IoT
-                <span class="u-text--muted">Internet of Things</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Managed IT services
-                <span class="u-text--muted">Fully managed open source solutions</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Observability
-                <span class="u-text--muted">Monitoring tools</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Public cloud
-                <span class="u-text--muted">Ubuntu across public clouds</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Security
-                <span class="u-text--muted">Enterprise-grade security</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Signage
-                <span class="u-text--muted">Smart displays and kiosks</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Storage
-                <span class="u-text--muted">Scalable software-defined storage</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">By Industry</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Automotive
-                <span class="u-text--muted">Smarter vehicles and factories</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Financial services
-                <span class="u-text--muted">Innovate with open source</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Government
-                <span class="u-text--muted">Public sector and federal</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Industrial
-                <span class="u-text--muted">The factory of the future</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Robotics
-                <span class="u-text--muted">Build and deploy robots with Ubuntu</span></a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Telco
-                <span class="u-text--muted">Carrier-grade solutions</span></a>
-            </li>
-
+            {{ build_button_link() }}
+            {{ build_link_list(24, "Use cases") }}
           </ul>
         </li>
 
         <!-- support -->
         <li class="p-navigation__item--dropdown-toggle" id="support">
-          <button  aria-controls="support-menu" class="p-navigation__link">
+          <button aria-controls="support-menu" class="p-navigation__link">
             Support
           </button>
           <ul class="p-navigation__dropdown" id="support-menu" aria-hidden="true">
             <li class="p-navigation__item--dropdown-close" id="support-back">
-              <button  aria-controls="support-menu" class="p-navigation__link js-back">
+              <button aria-controls="support-menu" class="p-navigation__link js-back">
                 Back
               </button>
             </li>
-            <li>
-              <li class="p-navigation__item--dropdown-toggle" id="enterprise">
-                <button aria-controls="enterprise-menu" class="p-navigation__link">
-                  Enterprise
-                </button>
-                <ul class="p-navigation__dropdown" id="enterprise-menu" aria-hidden="true">
-                  <li class="p-navigation__item--dropdown-close" id="enterprise-back">
-                    <button aria-controls="enterprise-menu" class="p-navigation__link js-back">
-                      Back
-                    </button>
-                  </li>
-                  <li>
-                    <a href="#" class="p-navigation__dropdown-item">Introduction</a>
-                  </li>
-                  <li>
-                    <a href="#" class="p-navigation__dropdown-item">News</a>
-                  </li>
-                  <li>
-                    <a href="#" class="p-navigation__dropdown-item">Getting started</a>
-                  </li>
-                </ul>
-              </li>
-            </li>
-            <li>
-              <li class="p-navigation__item--dropdown-toggle" id="resources">
-                <button  aria-controls="resources-menu" class="p-navigation__link">
-                  Resources
-                </button>
-                <ul class="p-navigation__dropdown" id="resources-menu" aria-hidden="true">
-                  <li class="p-navigation__item--dropdown-close" id="resources-back">
-                    <button h aria-controls="resources-menu" class="p-navigation__link js-back">
-                      Back
-                    </button>
-                  </li>
-                  <li>
-                    <a href="#" class="p-navigation__dropdown-item">Introduction</a>
-                  </li>
-                  <li>
-                    <a href="#" class="p-navigation__dropdown-item">News</a>
-                  </li>
-                  <li>
-                    <a href="#" class="p-navigation__dropdown-item">Getting started</a>
-                  </li>
-                </ul>
-              </li>
-            </li>
+            {{ build_dropdown_items('Support', 4) }}
           </ul>
         </li>
+
         <!-- community -->
         <li class="p-navigation__item--dropdown-toggle" id="community">
           <button aria-controls="community-menu" class="p-navigation__link">
@@ -247,23 +167,11 @@
                 Back
               </button>
             </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
+            {{ build_link_list(4, "Community") }}
+            {{ build_secondary_links(4) }}
           </ul>
         </li>
+
         <!-- get ubuntu -->
         <li class="p-navigation__item--dropdown-toggle" id="get-ubuntu">
           <button aria-controls="get-ubuntu-menu" class="p-navigation__link">
@@ -275,96 +183,23 @@
                 Back
               </button>
             </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
+            {{ build_link_list(20, "Get Ubuntu") }}
           </ul>
         </li>
         <!-- all canonical -->
         <li class="p-navigation__item--dropdown-toggle" id="all-canonical">
-          <button  aria-controls="all-canonical-menu" class="p-navigation__link">
+          <button aria-controls="all-canonical-menu" class="p-navigation__link">
             All Canonical
           </button>
           <ul class="p-navigation__dropdown" id="all-canonical-menu" aria-hidden="true">
             <li class="p-navigation__item--dropdown-close" id="all-canonical-back">
-              <button  aria-controls="all-canonical-menu" class="p-navigation__link js-back">
+              <button aria-controls="all-canonical-menu" class="p-navigation__link js-back">
                 Back
               </button>
             </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">TODO</a>
-            </li>
+            {{ build_link_list(12, "All Canonical") }}
           </ul>
         </li>
-<!--
-        <li class="p-navigation__item--dropdown-toggle" id="link-2">
-          <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">
-            LXCFS
-          </button>
-          <ul class="p-navigation__dropdown" id="link-2-menu" aria-hidden="true">
-            <li class="p-navigation__item--dropdown-close" id="link-2-back">
-              <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link js-back">
-                Back
-              </button>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">News</a>
-            </li>
-            <li>
-              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
-            </li>
-            <li class="p-navigation__item--dropdown-toggle" id="link-4">
-              <button href="#link-4-menu" aria-controls="link-4-menu" class="p-navigation__link">
-                Nested Layer
-              </button>
-              <ul class="p-navigation__dropdown" id="link-4-menu" aria-hidden="true">
-                <li class="p-navigation__item--dropdown-close" id="link-4-back">
-                  <button href="#link-4-menu" aria-controls="link-4-menu" class="p-navigation__link js-back">
-                    Back
-                  </button>
-                </li>
-                <li>
-                  <a href="#" class="p-navigation__dropdown-item">Introduction</a>
-                </li>
-                <li>
-                  <a href="#" class="p-navigation__dropdown-item">News</a>
-                </li>
-                <li>
-                  <a href="#" class="p-navigation__dropdown-item">Getting started</a>
-                </li>
-              </ul>
-            </li>
-
-          </ul>
-        </li>
--->
 
         <!-- account -->
         <li class="p-navigation__item--dropdown-toggle" id="accounts">
@@ -404,7 +239,8 @@
       </ul>
       <div class="p-navigation__search">
         <form class="p-search-box">
-          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required="" aria-label="Search our sites">
+          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required=""
+            aria-label="Search our sites">
           <button type="reset" class="p-search-box__reset"><i class="p-icon--close"></i></button>
           <button type="submit" class="p-search-box__button"><i class="p-icon--search"></i></button>
         </form>
@@ -420,7 +256,9 @@
 {% endblock %}
 
 {% block style %}
-  <style>
-    body { margin: 0; }
-  </style>
+<style>
+  body {
+    margin: 0;
+  }
+</style>
 {% endblock %}
