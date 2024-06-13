@@ -72,7 +72,7 @@ jobs:
       - name: Extract release notes sections
         id: extract_release_notes
         run: |
-          RELEASE_NOTES="${{ github.event.release.body }}"
+          RELEASE_NOTES=$(echo "${{ github.event.release.body }}" | jq -R . | jq -r .)
           FEATURES=$(echo "$RELEASE_NOTES" | sed -n '/## 🚀 Features/,/## /p' | sed '$d')
           BUG_FIXES=$(echo "$RELEASE_NOTES" | sed -n '/## 🐛 Bug Fixes/,/## /p' | sed '$d')
           MAINTENANCE=$(echo "$RELEASE_NOTES" | sed -n '/## 🔨 Maintenance/,/## /p' | sed '$d')
