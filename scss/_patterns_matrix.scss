@@ -15,7 +15,7 @@
   }
 
   .p-matrix__item {
-    border-top: 1px solid $color-mid-light;
+    border-top: 1px solid $colors--theme--border-low-contrast;
     display: flex;
     flex: 1 1 auto;
     padding-bottom: $spv--large;
@@ -40,8 +40,10 @@
       }
     }
 
+    // TODO: Multiple redundant properties between this media query and the one
+    // below
     @media (min-width: $threshold-6-12-col) {
-      border-right: 1px solid $color-mid-light;
+      border-right: 1px solid $colors--theme--border-low-contrast;
       padding-left: $spv--large;
       padding-right: $spv--large;
       width: 33.333%;
@@ -67,7 +69,7 @@
 
     @media (min-width: $threshold-6-12-col) {
       // 3 items per row
-      border-right: 1px solid $color-mid-light;
+      border-right: 1px solid $colors--theme--border-low-contrast;
       width: 33.333%;
 
       &:empty {
