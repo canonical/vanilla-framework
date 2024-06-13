@@ -29,13 +29,13 @@
 
     &[aria-sort='ascending']::after {
       @extend %heading-icon;
+
+      -webkit-transform: rotate(180deg); // stylelint-disable-line property-no-vendor-prefix
+      transform: rotate(180deg);
     }
 
     &[aria-sort='descending']::after {
       @extend %heading-icon;
-
-      -webkit-transform: rotate(180deg); // stylelint-disable-line property-no-vendor-prefix
-      transform: rotate(180deg);
     }
 
     &[aria-sort]:hover {
