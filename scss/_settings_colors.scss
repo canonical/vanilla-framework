@@ -13,6 +13,7 @@ $color-x-dark: #000 !default;
 $color-input-shadow: rgba($color-x-dark, 0.12) !default;
 
 // SEMANTIC COLOURS
+$color-neutral: $color-mid-dark;
 $color-negative: #c7162b !default;
 $color-caution: #cc7900 !default;
 $color-positive: #0e8420 !default;
@@ -21,8 +22,11 @@ $color-information: #24598f !default;
 $color-paper: #f3f3f3 !default;
 
 // for dark themes
+$color-neutral-dark: $color-neutral;
 $color-negative-dark: #a11223 !default;
 $color-positive-dark: #008013 !default;
+$color-caution-dark: $color-caution;
+$color-information-dark: $color-information;
 
 // STATE VARIABLES
 $disabled-element-opacity: 0.33;
@@ -278,6 +282,11 @@ $colors--theme--background-information-default: var(--vf-color-background-inform
 $colors--theme--background-information-hover: var(--vf-color-background-information-hover);
 $colors--theme--background-information-active: var(--vf-color-background-information-active);
 
+$colors--theme--button-neutral-default: var(--vf-color-button-neutral-default);
+$colors--theme--button-neutral-hover: var(--vf-color-button-neutral-hover);
+$colors--theme--button-neutral-active: var(--vf-color-button-neutral-active);
+$colors--theme--button-neutral-text: var(--vf-color-button-neutral-text);
+
 $colors--theme--button-positive-default: var(--vf-color-button-positive-default);
 $colors--theme--button-positive-hover: var(--vf-color-button-positive-hover);
 $colors--theme--button-positive-active: var(--vf-color-button-positive-active);
@@ -335,6 +344,11 @@ $colors--theme--accent: var(--vf-color-accent);
   --vf-color-background-information-hover: #{map-get($colors-light-theme--tinted-backgrounds, information, 'hover')};
   --vf-color-background-information-active: #{map-get($colors-light-theme--tinted-backgrounds, information, active)};
 
+  --vf-color-button-neutral-default: #{$color-neutral};
+  --vf-color-button-neutral-hover: #{adjust-color($color-neutral, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-neutral-active: #{adjust-color($color-neutral, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-neutral-text: #{vf-contrast-text-color($color-neutral)};
+
   --vf-color-button-positive-default: #{$color-positive};
   --vf-color-button-positive-hover: #{adjust-color($color-positive, $lightness: -$hover-background-opacity-percentage)};
   --vf-color-button-positive-active: #{adjust-color($color-positive, $lightness: -$active-background-opacity-percentage)};
@@ -391,6 +405,11 @@ $colors--theme--accent: var(--vf-color-accent);
   --vf-color-background-information-default: #{map-get($colors-dark-theme--tinted-backgrounds, information, default)};
   --vf-color-background-information-hover: #{map-get($colors-dark-theme--tinted-backgrounds, information, hover)};
   --vf-color-background-information-active: #{map-get($colors-dark-theme--tinted-backgrounds, information, active)};
+
+  --vf-color-button-neutral-default: #{$color-neutral-dark};
+  --vf-color-button-neutral-hover: #{adjust-color($color-neutral-dark, $lightness: -$hover-background-opacity-percentage)};
+  --vf-color-button-neutral-active: #{adjust-color($color-neutral-dark, $lightness: -$active-background-opacity-percentage)};
+  --vf-color-button-neutral-text: #{vf-contrast-text-color($color-neutral-dark)};
 
   --vf-color-button-positive-default: #{$color-positive-dark};
   --vf-color-button-positive-hover: #{adjust-color($color-positive-dark, $lightness: -$hover-background-opacity-percentage)};
