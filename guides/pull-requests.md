@@ -93,23 +93,10 @@ large to comfortably `Squash and merge`, then default to `Rebase and merge`.
 ## Documentation site status labels
 
 To help draw a user's attention to new features while navigating the docs, we
-use status labels in the sidebar navigation, and within the example's
+use status labels in the sidebar navigation and within the example's
 documentation.
 
-Any affected examples in your PR should have an appropriate label - `new`,
-`updated`, or `deprecated` - added to the
-[sidebar navigation](/templates/_layouts/docs.html). This can be done by passing
-a third argument to any instance of `side_nav_item()` in that file, e.g.:
-
-```
-{{ side_nav_item("/docs/patterns/contextual-menu", "Contextual menu", 'updated) }}
-```
-
-An example's documentation should then also include a status label within the
-body of the page, using the appropriate label:
-
-```
-<span class="p-status-label--positive">New</span>
-<span class="p-status-label--information">Updated</span>
-<span class="p-status-label--negative">Deprecated</span>
-```
+Any affected examples in your PR should have an appropriate label - `New`,
+`Updated`, or `Deprecated` - these are pulled from the `status` key within the
+Releases YAML file mentioned above. The appropriate indicator will then
+automatically be added to each page/UI element.
