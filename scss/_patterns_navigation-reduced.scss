@@ -2,15 +2,15 @@
   // TODO:
   // - [ ] --reduced needs to extend the --sliding navigation
   // - [ ] spacing as variables
-  // - [ ] colors as variables
   // - [ ] extract sticky to separate class name
   // - [ ] refactor search
-  // - [ ] mobile chevron in secondary navigation
   // - [ ] review use of media queries
-  // - [ ] "muted" color in the reduced nav
+  // - [ ] mobile chevron in secondary navigation
   // - [ ] remove the need for "secondary" modifier
-  // - [ ] reduced nav background color (mobile/desktop)
-  // - [ ] reduced nav theme?
+  // - [x] reduced nav theme?
+  // - [x] colors as variables
+  // - [x] "muted" color in the reduced nav
+  // - [x] reduced nav background color (mobile/desktop)
   .p-navigation--reduced {
     position: relative;
 
@@ -33,23 +33,34 @@
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      .p-navigation__items:first-child {
-        margin-left: -1rem;
-      }
+      background-color: $colors--theme--background-alt;
 
+      // adjust font size for reduced nav on large screens
       .p-navigation__link,
       .p-navigation__logo-title {
-        // FIXME: what color?
-        color: $colors--theme--text-muted; // $color-mid-light;
+        color: $colors--theme--text-muted;
         font-size: #{map-get($font-sizes, small)}rem;
         line-height: map-get($line-heights, x-small);
-        margin: 0;
       }
 
-      .p-navigation__link::after {
-        top: 0.75rem;
+      .p-navigation__link {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+      }
+
+      .p-navigation__item--dropdown-toggle .p-navigation__link {
+        padding-right: 2rem;
+
+        &::after {
+          top: 0.5rem;
+        }
+      }
+
+      .p-navigation__item--dropdown-toggle.is-active {
+        background-color: $colors--theme--background-default;
       }
     }
+
+    // search
 
     .p-navigation__link--search-toggle {
       @media (min-width: $breakpoint-navigation-threshold) {
@@ -71,7 +82,7 @@
         }
 
         .p-navigation__search {
-          background-color: $colors--dark-theme--background-default;
+          background-color: $colors--theme--background-default;
           justify-content: center;
           left: 0;
           padding: 0.625rem 1rem;
@@ -89,25 +100,6 @@
         .p-navigation.is-secondary {
           display: none;
         }
-      }
-    }
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      background-color: #111; // $colors--dark-theme--background-alt;
-      .p-navigation__link {
-        padding: 0.5rem 1rem 0.5rem 1rem;
-      }
-
-      .p-navigation__item--dropdown-toggle .p-navigation__link {
-        padding-right: 2rem;
-
-        &::after {
-          top: 0.5rem;
-        }
-      }
-
-      .p-navigation__item--dropdown-toggle.is-active {
-        background-color: $colors--theme--background-default;
       }
     }
   }
