@@ -17,7 +17,7 @@
 {% endmacro %}
 
 {% macro build_secondary_links(n) %}
-<li class="p-navigation__dropdown-item">
+<li class="p-navigation__dropdown-item no-hover">
   <ul class="p-list p-navigation__secondary-links">
     <li class="p-list__item">
       <h2 class="p-muted-heading" tabindex="0">Quick links</h2>
@@ -34,12 +34,11 @@
 {% macro build_button_link() %}
 <li class="p-navigation__dropdown-item">
   <a href="#" class="is-muted">
-    <strong>Generic item</strong>
+    <span>Generic item</span>
     <br>
     <small>Description for generic item</small>
   </a>
-  <br>
-  <a href="#" class="p-button--positive">Generic button</a>
+  <a href="#" class="p-button--positive u-no-margin">Generic button</a>
 </li>
 {% endmacro %}
 
@@ -78,6 +77,20 @@
 
   .p-navigation__dropdown-item .u-text--muted {
     display: block;
+  }
+
+  .p-navigation__dropdown-item a.is-muted {
+    color: var(--vf-color-text-default);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .p-navigation__dropdown-item a.is-muted:hover {
+    text-decoration: none;
+  }
+
+  .p-navigation__dropdown-item.no-hover:hover {
+    background-color: transparent;
   }
 
   /* TODO, bugs
