@@ -64,9 +64,12 @@
 
     .p-navigation__link--search-toggle {
       @media (min-width: $breakpoint-navigation-threshold) {
+        // FIXME: update padding in default Vanilla search toggle
+        padding-right: 1rem;
+
         &::after {
+          right: 0.5rem;
           top: 0.5rem;
-          right: 1.5rem;
         }
       }
 
@@ -81,25 +84,28 @@
           display: inline-flex;
         }
 
-        .p-navigation__search {
-          background-color: $colors--theme--background-default;
-          justify-content: center;
-          left: 0;
-          padding: 0.625rem 1rem;
-          position: absolute;
-          top: 2rem;
-          width: 100%;
-
-          .p-search-box {
-            margin: 0;
-            max-width: 50rem;
-          }
+        .p-navigation__link--search-toggle::after {
+          @include vf-icon-close-themed;
         }
+        // .p-navigation__search {
+        //   background-color: $colors--theme--background-default;
+        //   justify-content: center;
+        //   left: 0;
+        //   padding: 0.625rem 1rem;
+        //   position: absolute;
+        //   top: 2rem;
+        //   width: 100%;
 
-        // FIXME: this doesn't seem to work anyway
-        .p-navigation.is-secondary {
-          display: none;
-        }
+        //   .p-search-box {
+        //     margin: 0;
+        //     max-width: 50rem;
+        //   }
+        // }
+
+        // // FIXME: this doesn't seem to work anyway
+        // .p-navigation.is-secondary {
+        //   display: none;
+        // }
       }
     }
   }
