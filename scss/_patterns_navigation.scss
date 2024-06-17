@@ -32,7 +32,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: map-get($grid-margin-widths, default);
+      padding-left: $sph--large;
     }
   }
 
@@ -45,7 +45,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-right: map-get($grid-margin-widths, default);
+      padding-right: $sph--large;
     }
   }
 
@@ -67,7 +67,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     &:hover {
-      background-color: $colors--theme--background-alt;
+      background-color: $colors--theme--background-hover;
     }
 
     &[aria-pressed='true'],
@@ -110,7 +110,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
-      padding-left: map-get($grid-margin-widths, default);
+      padding-left: $sph--large;
     }
   }
 
@@ -227,7 +227,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       // shift navigation items by the size of grid margin to align with grid
       .p-navigation__items:first-child {
-        margin-left: calc(-1 * map-get($grid-margin-widths, default));
+        margin-left: calc(-1 * $sph--large);
       }
 
       // on medium screen sizes (6 columns) use 2/4 column split
@@ -404,6 +404,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       justify-content: space-between;
       margin-right: map-get($grid-margin-widths, default);
       width: 100%;
+
+      // in documentation layout navigation items need to be aligned with the grid of the content
+      // so we substract the navigation item padding from the grid margin
+      .l-docs__main & {
+        margin-left: calc(map-get($grid-margin-widths, default) - $sph--large);
+      }
     }
   }
 
@@ -424,7 +430,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   [class*='p-navigation__item'].is-selected > .p-navigation__link {
-    background-color: $colors--theme--background-alt;
+    background-color: $colors--theme--background-hover;
 
     @include vf-highlight-bar($colors--theme--text-default, left, true);
 
@@ -508,7 +514,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     height: 100%; // keep the height of the navigation when 'Search' label is hidden
 
     padding-left: 0; // on small screens label is hidden, so we remove left padding as well
-    padding-right: calc(map-get($grid-margin-widths, default) + map-get($icon-sizes, default));
+    padding-right: calc(2 * $sph--small + map-get($icon-sizes, default)); // TODO: 2x sp small, or just large?
     position: relative;
 
     // hide "search" label on small screens (only show the icon)
@@ -518,7 +524,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // show both label and icon on large screens
     @media (min-width: $breakpoint-large) {
-      padding-left: map-get($grid-margin-widths, default);
+      padding-left: $sph--large;
 
       .p-navigation__search-label {
         display: initial;
@@ -536,7 +542,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       height: $spv--large;
       pointer-events: none;
       position: absolute;
-      right: calc(map-get($grid-margin-widths, default) / 2);
+      right: calc($sph--large / 2);
       text-indent: calc(100% + 10rem);
       top: calc($spv--medium + map-get($nudges, x-small));
       width: map-get($icon-sizes, default);
@@ -679,7 +685,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
 
       @media (min-width: $breakpoint-navigation-threshold) {
-        right: calc(map-get($grid-margin-widths, default) / 2); // position by the center of grid margin
+        right: calc($sph--large / 2); // position by the center of grid margin
         top: calc($spv--large + map-get($nudges, x-small));
         transform: rotate(0deg);
       }
@@ -702,7 +708,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     .p-navigation__link {
       // increase padding to accommodate chevron icon
-      padding-right: map-get($grid-margin-widths, default) + map-get($icon-sizes, default);
+      padding-right: calc(2 * $sph--small + map-get($icon-sizes, default));
     }
 
     &:first-child .p-navigation__link::before {

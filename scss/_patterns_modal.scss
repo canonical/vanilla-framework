@@ -5,7 +5,7 @@
 
   .p-modal {
     align-items: center;
-    background: transparentize($color-dark, 0.15);
+    background: $colors--theme--background-overlay;
     bottom: 0;
     display: flex;
     height: 100vh;
@@ -21,9 +21,11 @@
   }
 
   .p-modal__dialog {
-    @extend %vf-card;
+    @extend %vf-card-padding;
     @extend %vf-has-box-shadow;
 
+    background-color: $colors--theme--background-default;
+    color: $colors--theme--text-default;
     left: $sph--x-large;
     margin-bottom: 0;
     max-height: calc(100% - 2 * $spv--large);
@@ -46,7 +48,7 @@
   .p-modal__header {
     @extend %vf-pseudo-border--bottom;
 
-    background: $color-x-light;
+    background: $colors--theme--background-default;
     display: flex;
     justify-content: space-between;
     margin-bottom: $spv--small;
@@ -65,8 +67,8 @@
   }
 
   .p-modal__close {
+    @include vf-icon-close-themed;
     background: {
-      image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='90' width='90'%3E%3Cg color='%23000'%3E%3Cpath fill='none' d='M0 0h90v90H0z'/%3E%3Cpath d='M14.52 6L6 14.52 36.48 45 6 75.49 14.52 84 45 53.52 75.48 84 84 75.49 53.52 45 84 14.52 75.48 6 45 36.49z' fill='%23888'/%3E%3C/g%3E%3C/svg%3E");
       position: center;
       repeat: no-repeat;
       size: $icon-size;
@@ -83,10 +85,6 @@
     text-indent: -999em;
     top: 0;
     width: $icon-size;
-
-    &:focus {
-      outline: $bar-thickness solid $color-focus;
-    }
   }
 
   .p-modal__footer {

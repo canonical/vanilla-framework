@@ -87,7 +87,7 @@ $list-step-bullet-margin: $sph--x-large;
     }
 
     &::before {
-      color: $colors--light-theme--text-default;
+      color: $colors--theme--text-default;
       content: counters(list-item, '.') '. ';
       display: inline-block;
       text-align: right;
@@ -96,7 +96,7 @@ $list-step-bullet-margin: $sph--x-large;
 
   %vf-list-item-bullet {
     &::before {
-      color: $colors--light-theme--text-default;
+      color: $colors--theme--text-default;
       content: '•';
       display: inline-block;
       text-align: right;
@@ -172,10 +172,6 @@ $list-step-bullet-margin: $sph--x-large;
       &.is-crossed::before {
         top: $spv--medium;
       }
-    }
-
-    &.is-split .p-list__item:last-of-type {
-      border-bottom: 1px solid $color-mid-light;
     }
 
     & & {
@@ -318,6 +314,9 @@ $list-step-bullet-margin: $sph--x-large;
 
   .p-stepped-list__title + .p-stepped-list__content {
     margin-left: $bullet-width-mobile + $list-step-bullet-margin;
+    @media (min-width: $threshold-6-12-col) {
+      padding-top: $spv-nudge;
+    }
 
     @media (min-width: $breakpoint-heading-threshold) {
       margin-left: $bullet-width + $list-step-bullet-margin;
@@ -392,7 +391,6 @@ $list-step-bullet-margin: $sph--x-large;
       @include vf-b-row-reset;
 
       @media (min-width: $threshold-6-12-col) {
-        padding-top: $sp-unit;
         position: relative;
 
         &::after {

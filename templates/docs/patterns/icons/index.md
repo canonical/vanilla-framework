@@ -18,13 +18,41 @@ context:
 </section>
 {%- endmacro %}
 
-{% set standard_icons = ['plus', 'minus', 'expand', 'collapse', 'spinner', 'drag', 'close', 'help', 'delete', 'external-link', 'chevron-down', 'chevron-up', 'menu', 'code', 'copy', 'search', 'share', 'user', 'anchor', 'show', 'hide', 'error-grey', 'success-grey'] %}
+{% set standard_icons = ['plus', 'minus', 'expand', 'collapse', 'spinner', 'drag', 'close', 'help', 'delete', 'external-link', 'chevron-down', 'chevron-up', 'chevron-left', 'chevron-right', 'menu', 'code', 'copy', 'search', 'share', 'user', 'anchor', 'show', 'hide', 'error-grey', 'success-grey'] %}
 
 {% set status_icons = ['error',  'warning', 'success', 'information'] %}
 
 {% set additional_icons = ['applications', 'controllers', 'fullscreen', 'models', 'machines', 'pin', 'units', 'priority-critical', 'priority-high', 'priority-low', 'priority-medium', 'priority-negligible', 'priority-unknown', 'add-canvas', 'add-logical-volume', 'add-partition', 'back-to-top', 'begin-downloading', 'bundle', 'canvas', 'change-version', 'comments', 'conflict-grey', 'conflict-resolution-grey', 'conflict-resolution', 'conflict', 'connected', 'containers', 'copy-to-clipboard', 'desktop', 'disconnect', 'edit', 'export', 'exposed', 'filter', 'fork', 'get-link', 'halfscreen-bar', 'highlight-off', 'highlight-on', 'home', 'import', 'in-progress', 'inspector-debug', 'loading-steps', 'lock-locked-active', 'lock-locked', 'lock-unlock', 'maximise-bar', 'minimise-bar', 'mount-2', 'mount', 'open-terminal', 'pause', 'plans', 'play', 'pods', 'power-error', 'power-off', 'power-on', 'profile', 'restart', 'revisions', 'security', 'settings', 'sort-both', 'sort-down', 'sort-up', 'starred', 'status-failed-small', 'status-in-progress-small', 'status-in-progress', 'status-queued-small', 'status-queued', 'status-succeeded-small', 'status-waiting-small', 'status-waiting', 'status', 'stop', 'submit-bug', 'switcher-dashboard', 'switcher-environments', 'switcher', 'tag', 'task-outstanding', 'timed-out-grey', 'timed-out', 'topic', 'unit-pending', 'unit-running', 'unmount', 'unstarred', 'user-group', 'video-play', 'warning-grey'] %}
 
 {% set social_icons = ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'github', 'rss', 'email'] %}
+
+{#
+'chevron-up', 'chevron-down', 'chevron-left', 'chevron-right' are class names, not mixin names; instead use 'chevron' for mixin import
+TODO We should fix this icon-mixin naming discrepancy in the next major version.
+See https://github.com/canonical/vanilla-framework/pull/5100
+#}
+
+{% set standard_icon_mixin_names = standard_icons
+  | map('replace', 'chevron-down', 'chevron')
+  | map('replace', 'chevron-up', 'chevron')
+  | map('replace', 'chevron-left', 'chevron')
+  | map('replace', 'chevron-right', 'chevron')
+  | list
+%}
+
+{#
+'information' is a class name, not a mixin name; instead use 'info' for mixin import
+TODO We should fix this icon-mixin naming discrepancy in the next major version.
+See https://github.com/canonical/vanilla-framework/pull/5100
+#}
+
+{% set status_icon_mixin_names = status_icons | map('replace', 'information', 'info') | list %}
+
+{#
+Remove duplicates from the list of mixin names; otherwise there would be two 'chevron' entries
+#}
+
+{% set base_icon_mixin_names = (standard_icon_mixin_names + status_icon_mixin_names + social_icons) | unique %}
 
 Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`.
 
@@ -131,9 +159,8 @@ If you use a limited set of icons you may want to include them individually to r
 @include vf-p-icons-common;
 
 // include only the icons that you use in your project
-{% for icon in standard_icons + status_icons + social_icons %}@include vf-p-icon-{{ icon }};
+{% for mixin_name in base_icon_mixin_names %}@include vf-p-icon-{{ mixin_name }};
 {% endfor %}
-
 // additional icons
 {% for icon in additional_icons %}@include vf-p-icon-{{ icon }};
 {% endfor %}
