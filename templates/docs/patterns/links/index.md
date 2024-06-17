@@ -10,7 +10,7 @@ Links are used to embed actions or pathways to more information, allowing users 
 
 Default links are a color defined by the current theme.
 
-<div class="embedded-example"><a href="/docs/examples/base/links/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/text/links/" class="js-example">
 View example of the default link pattern
 </a></div>
 

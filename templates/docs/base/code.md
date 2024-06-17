@@ -20,7 +20,7 @@ To create a pre-formatted block, use either `<pre>` (where preserving white spac
 
 **Pre-formatted block:**
 
-<div class="embedded-example"><a href="/docs/examples/base/pre/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/text/pre/" class="js-example">
 View example of the base pre block
 </a></div>
 
