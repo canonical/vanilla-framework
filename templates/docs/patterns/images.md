@@ -23,13 +23,7 @@ This is useful for aligning images or other content with mismatching aspect rati
 All image containers center the `.p-image-container__image` element inside them by default.
 If you need to change image alignment within the image container, use the [image position utility](/docs/utilities/image-position).
 
-| CSS Class                      | Aspect ratio |
-| ------------------------------ | ------------ |
-| `p-image-container--16-9`      | 16:9         |
-| `p-image-container--3-2`       | 3:2          |
-| `p-image-container--2-3`       | 2:3          |
-| `p-image-container--cinematic` | 2.4:1        |
-| `p-image-container--square`    | 1:1          |
+See the [class references section](#class-reference) for more information on the available aspect ratio classes.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/image/container/aspect-ratio/16-9" class="js-example">
 View example of image container with 16/9 aspect ratio
@@ -80,6 +74,10 @@ Adds spacing to the top of a media element. This is usually needed when image or
 <div class="embedded-example"><a href="/docs/examples/patterns/image/spacing/" class="js-example">
 View example of media element with spacing
 </a></div>
+
+## Class reference
+
+{{ class_reference("image-container") }}
 
 ## Import
 
