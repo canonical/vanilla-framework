@@ -1,6 +1,9 @@
 name: Percy Snapshot
 description: Starts Vanilla local server, captures example snapshots, & uploads them to Percy
 inputs:
+  pr_number:
+    required: false
+    description: Identifier of a pull request to associate with this Percy build. I.E. github.com/{repo}/pull/{pr_number}
   commitsh:
     required: true
     description: SHA signature of commit triggering the build
@@ -81,6 +84,8 @@ runs:
         PERCY_BRANCH: ${{ inputs.branch_name }}
         PERCY_COMMIT: ${{ inputs.commitsh }}
         PERCY_CLIENT_ERROR_LOGS: false
+        # If PR number is set & a Percy-GHA integration is set up, this allows Percy to set status on the PR
+        PERCY_PULL_REQUEST: ${{ inputs.pr_number }}
       run: |
         set -e
         # Start a percy build and capture the stdout

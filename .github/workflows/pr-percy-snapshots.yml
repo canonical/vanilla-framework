@@ -3,7 +3,8 @@ name: "Percy screenshots"
 on:
   workflow_run:
     workflows:
-      - "Prepare Percy build"
+      - "Percy [pushed]"
+      - "Percy [labeled]"
     types:
       - completed
 
@@ -14,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
+      pr_number: ${{ steps.get_pr_data.outputs.pr_number }}
       percy_build_link: ${{ steps.percy_snapshot.outputs.build_link }}
       percy_org_id: ${{ steps.percy_snapshot.outputs.org_id }}
       percy_build_id: ${{ steps.percy_snapshot.outputs.build_id }}
@@ -21,20 +23,23 @@ jobs:
       - name: Checkout SCM
         uses: actions/checkout@v4
 
+      - name: Remove SCM directories that will be replaced by artifact files
+        run: |
+          set -e
+          rm -rf templates/docs/examples/ scss/
+
       - name: Download artifact from workflow run
         uses: actions/download-artifact@v4
         with:
-          name: "web-artifact-${{ github.event.workflow_run.id }}"
+          name: "percy-testing-web-artifact"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.event.workflow_run.repository.full_name }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      - name: Replace SCM files with artifact files
+      - name: Move artifact files into place to replace SCM
         run: |
           set -e
-          rm -rf templates/docs/examples/ scss/
-          tar xzf build.tar.gz
-          rm build.tar.gz
+          # artifact directory contains `scss/`, `/examples`, `pr_num.txt`, and `pr_head_sha.txt`. `/examples` must be moved to `templates/docs/`.
           mv examples/ templates/docs/.
 
       - name: Get PR data
@@ -43,17 +48,19 @@ jobs:
         run: |
           set -e
           echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
-          echo "pr=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+          echo "pr_number=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
 
       - name: Take snapshots & upload to Percy
         id: percy_snapshot
-        uses: './.github/workflows/percy-snapshot'
+        uses: "./.github/workflows/percy-snapshot"
         with:
-          branch_name: "pull/${{ steps.get_pr_data.outputs.pr }}"
+          branch_name: "pull/${{ steps.get_pr_data.outputs.pr_number }}"
+          pr_number: ${{ steps.get_pr_data.outputs.pr_number }}
           commitsh: ${{ steps.get_pr_data.outputs.sha }}
           percy_token_write: ${{ secrets.PERCY_TOKEN_WRITE }}
 
   # Add a check to the PR to show that screenshots were sent to Percy
+  # Manual status check to be removed once IS-GHA integration is complete
   # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
   apply_pr_check:
     name: Apply PR check
@@ -65,7 +72,7 @@ jobs:
         id: create_check_run
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/${{github.repository}}/check-runs
+          route: POST /repos/${{ github.repository }}/check-runs
           owner: octokit
           repo: request-action
           name: "percy_upload"
