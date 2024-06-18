@@ -10,7 +10,6 @@ on:
       - "scss/**"
     types:
       - opened
-      - ready_for_review
       - synchronize
 
 jobs:
@@ -24,3 +23,5 @@ jobs:
       pr_number: ${{ github.event.number }}
       repository: ${{ github.repository }}
       commitsh: ${{ github.event.pull_request.head.sha }}
+
+# Completion should trigger `pr-percy-snapshots` workflow.
