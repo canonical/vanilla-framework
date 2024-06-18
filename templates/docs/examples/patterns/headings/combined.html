@@ -1,0 +1,13 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Headings / Combined{% endblock %}
+
+{% block standalone_css %}patterns_headings{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/headings/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/headings/display.html' %}</section>
+<section>{% include 'docs/examples/patterns/headings/mixed.html' %}</section>
+<section>{% include 'docs/examples/patterns/headings/muted.html' %}</section>
+{% endwith %}
+{% endblock %}
