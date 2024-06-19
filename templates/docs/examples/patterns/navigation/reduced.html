@@ -72,8 +72,12 @@
           <span class="p-navigation__logo-title">Ubuntu&nbsp;Desktop</span>
         </a>
       </div>
-      <a href="#" class="p-navigation__toggle--open" title="Toggle navigation"><i
-          class="p-icon--chevron-down is-light"></i></a>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <button class="js-secondary-menu-toggle-button p-navigation__link" aria-controls="secondary-navigation" title="Toggle navigation"><i
+            class="p-icon--chevron-down"></i></button>
+        </li>
+      </ul>
     </div>
     <nav class="p-navigation__nav" aria-label="Ubuntu&nbsp;Desktop navigation">
       <ul class="p-navigation__items">
@@ -192,36 +196,7 @@
 </main>
 
 <script>
-  /**
-    * Basic JS to simulate some of the navigation functionalty
-  */
-
-  const navigation = document.querySelector(".p-navigation--sliding");
-  const secondaryNavigation = document.querySelector(".p-navigation.is-secondary");
-  // Toggle search bar
-  const searchToggles = document.querySelectorAll(".p-navigation__link--search-toggle");
-  searchToggles.forEach((toggle) => {
-    toggle.addEventListener("click", (event) => {
-      event.preventDefault();
-      navigation.classList.toggle("has-search-open");
-      secondaryNavigation.classList.toggle("has-search-open");
-      document.querySelector("input[type='search']").focus();
-    });
-  });
-
-  // Toggle menu dropdown on mobile
-  const menuToggle = document.querySelector(".js-menu-button");
-  menuToggle.addEventListener("click", (event) => {
-    event.preventDefault();
-    navigation.classList.toggle("has-menu-open");
-  });
-
-  // Toggle secondary navigation menu on mobile
-  const secondaryNavMenu = document.querySelector(".p-navigation.is-secondary .p-navigation__nav");
-  const secondaryNavToggle = document.querySelector(".p-navigation__toggle--open");
-  secondaryNavToggle.addEventListener("click", (event) => {
-    event.preventDefault();
-    secondaryNavMenu.classList.toggle("is-open");
-  });
+  {% include 'docs/examples/patterns/navigation/_script-sliding.js' %}
 </script>
+
 {% endblock %}
