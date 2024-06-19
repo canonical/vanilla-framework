@@ -140,7 +140,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   .p-navigation,
-  .p-navigation--sliding {
+  .p-navigation--sliding,
+  .p-navigation--reduced {
     background-color: $colors--theme--background-default;
     display: flex;
     flex-direction: column;
@@ -596,7 +597,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   // when navigation search is expanded
   .p-navigation.has-search-open,
-  .p-navigation--sliding.has-search-open {
+  .p-navigation--sliding.has-search-open,
+  .p-navigation--reduced.has-search-open {
     // make sure search in navigation renders on top of the overlay
     .p-navigation__nav {
       display: flex;
@@ -761,7 +763,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   $sliding-nav-animation-settings: map-get($animation-duration, brisk) ease;
 
-  .p-navigation--sliding.has-menu-open {
+  .p-navigation--sliding.has-menu-open,
+  .p-navigation--reduced.has-menu-open {
     height: 100vh;
     overflow-y: hidden;
 
@@ -804,7 +807,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
 
   /* stylelint-disable max-nesting-depth -- allow deep nesting for sliding navigation */
-  .p-navigation--sliding .p-navigation__dropdown {
+  .p-navigation--sliding .p-navigation__dropdown,
+  .p-navigation--reduced .p-navigation__dropdown {
     display: block;
     height: 100vh;
     left: 100vw;
@@ -859,7 +863,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  .p-navigation--sliding .p-navigation__items {
+  .p-navigation--sliding .p-navigation__items,
+  .p-navigation--reduced .p-navigation__items {
     transition: transform $sliding-nav-animation-settings;
 
     &.is-active {
@@ -890,7 +895,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   }
   /* stylelint-enable max-nesting-depth */
 
-  .p-navigation--sliding {
+  .p-navigation--sliding,
+  .p-navigation--reduced {
     // Default positioning for nested dropdown buttons. Overridden by subsequent styles.
     .p-navigation__item--dropdown-toggle {
       position: initial;
