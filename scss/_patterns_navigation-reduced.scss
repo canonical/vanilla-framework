@@ -1,11 +1,11 @@
 @mixin vf-p-navigation-reduced {
   // TODO:
   // - [ ] --reduced needs to extend the --sliding navigation
-  // - [ ] fix search on mobile
-  // - [ ] dropdowns behaviours on mobile
-  // - [ ] review use of media queries
-  // - [ ] mobile chevron in secondary navigation
-  // - [ ] remove the need for "secondary" modifier
+  // - [x] fix search on mobile
+  // - [x] dropdowns behaviours on mobile
+  // - [x] review use of media queries
+  // - [x] mobile chevron in secondary navigation
+  // - [x] remove the need for "secondary" modifier
   // - [x] extract the sticky modifier to main navigation
   // - [x] refactor search
   // - [x] extract sticky to separate class name
@@ -78,27 +78,21 @@
       }
     }
 
+    // hide secondary navigation banner when search is open on mobile
+    &.has-search-open + .has-search-open .p-navigation__banner {
+      display: none;
+    }
     @media (min-width: $breakpoint-navigation-threshold) {
+      &.has-search-open + .has-search-open .p-navigation__banner {
+        display: initial;
+      }
+
       &.has-search-open {
         // make sure reduced navigation items remain visible when search is open
         .p-navigation__nav .p-navigation__items {
           display: inline-flex;
         }
       }
-    }
-  }
-
-  .p-navigation.is-secondary {
-    .p-navigation__nav.is-open {
-      display: flex;
-
-      .p-navigation__items {
-        display: block;
-      }
-    }
-
-    .p-navigation__toggle--open.is-open {
-      transform: rotate(-180deg);
     }
   }
 }
