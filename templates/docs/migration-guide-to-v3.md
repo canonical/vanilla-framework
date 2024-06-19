@@ -317,7 +317,7 @@ Refer to [navigation dropdowns documentation](/docs/patterns/navigation#dropdown
 
 ### Expanding search box
 
-If a search box is being used in the top navigation, you now have the option to use the new [expanding search](/docs/examples/patterns/navigation/search-dark) component. We haven't removed the old search box, so this update is completely optional.
+If a search box is being used in the top navigation, you now have the option to use the new [expanding search](/docs/examples/patterns/navigation/search) component. We haven't removed the old search box, so this update is completely optional.
 
 ## Form elements
 
