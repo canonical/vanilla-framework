@@ -90,11 +90,9 @@ inline list items.
 View example of the middot list pattern
 </a></div>
 
-The utility class `.is-dark` can also be applied to a middot list:
+The utility class `.is-dark` can also be applied to a middot list.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-mid-dot-dark/" class="js-example">
-View example of the middot list with an is-dark class
-</a></div>
+[View example of the middot list with an `is-dark` class](/docs/examples/patterns/lists/lists-mid-dot?theme=dark).
 
 ## Inline stretched
 
