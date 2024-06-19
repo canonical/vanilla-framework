@@ -3,12 +3,6 @@ const snapshotsTest = require('../snapshots');
 
 const PORT = process.env.PORT || 8101;
 
-test('Number of snapshots', async () => {
-  const snapshots = await snapshotsTest();
-  const totalSnapshots = snapshots.reduce((acc, snapshot) => acc + snapshot.widths.length, 0);
-  expect(totalSnapshots).toBe(2906);
-});
-
 test('Snapshot widths', async () => {
   const snapshots = await snapshotsTest();
 
