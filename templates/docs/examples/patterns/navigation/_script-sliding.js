@@ -1,11 +1,15 @@
 const initNavigationSliding = () => {
   const navigation = document.querySelector('.p-navigation--sliding');
-  const toggles = document.querySelectorAll('.p-navigation__link[aria-controls]:not(.js-back)');
+  const secondaryNavigation = document.querySelector('.p-navigation--sliding + .p-navigation');
+  const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
   const dropdowns = document.querySelectorAll('ul.p-navigation__dropdown');
-  const mainList = dropdowns[0].parentNode.parentNode;
-  const lists = [...dropdowns, mainList];
+  const lists = [...dropdowns];
+  const mainList = dropdowns[0] ? dropdowns[0].parentNode.parentNode : null;
+  if (mainList) {
+    lists.push(mainList);
+  }
 
   const hasSearch = searchButtons.length > 0;
 
@@ -15,6 +19,14 @@ const initNavigationSliding = () => {
     }
     resetToggles();
     navigation.classList.remove('has-menu-open');
+    if (secondaryNavigation) {
+      secondaryNavigation.classList.remove('has-menu-open');
+      let icon = secondaryNavigation.querySelector('.p-icon--chevron-up');
+      if (icon) {
+        icon.classList.remove('p-icon--chevron-up');
+        icon.classList.add('p-icon--chevron-down');
+      }
+    }
     menuButton.innerHTML = 'Menu';
   };
 
@@ -30,10 +42,14 @@ const initNavigationSliding = () => {
     });
 
     navigation.classList.remove('has-search-open');
+    if (secondaryNavigation) {
+      secondaryNavigation.classList.remove('has-search-open');
+    }
     document.removeEventListener('keyup', keyPressHandler);
   };
 
   menuButton.addEventListener('click', function (e) {
+    e.preventDefault();
     closeSearch();
     if (navigation.classList.contains('has-menu-open')) {
       closeAll();
@@ -44,18 +60,34 @@ const initNavigationSliding = () => {
     }
   });
 
+  const secondaryNavToggle = document.querySelector('.js-secondary-menu-toggle-button');
+  secondaryNavToggle.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeSearch();
+    if (secondaryNavigation.classList.contains('has-menu-open')) {
+      closeAll();
+    } else {
+      secondaryNavigation.classList.add('has-menu-open');
+      let icon = secondaryNavToggle.querySelector('.p-icon--chevron-down');
+      icon.classList.remove('p-icon--chevron-down');
+      icon.classList.add('p-icon--chevron-up');
+    }
+  });
+
   const resetToggles = (exception) => {
     toggles.forEach(function (toggle) {
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
-      if (target === exception) {
+      if (!target || target === exception) {
         return;
       }
+      console.log(toggle, target);
       target.setAttribute('aria-hidden', 'true');
       toggle.parentNode.classList.remove('is-active');
       toggle.parentNode.parentNode.classList.remove('is-active');
     });
   };
 
+  // when clicking outside navigation, close all dropdowns
   document.addEventListener('click', function (event) {
     const target = event.target;
     if (target.closest) {
@@ -72,11 +104,13 @@ const initNavigationSliding = () => {
         element.setAttribute('tabindex', '-1');
       });
     });
-    target.querySelectorAll('li').forEach(function (element) {
-      if (element.parentNode === target) {
-        element.children[0].setAttribute('tabindex', '0');
-      }
-    });
+    if (target) {
+      target.querySelectorAll('li').forEach(function (element) {
+        if (element.parentNode === target) {
+          element.children[0].setAttribute('tabindex', '0');
+        }
+      });
+    }
   };
 
   toggles.forEach(function (toggle) {
@@ -151,6 +185,9 @@ const initNavigationSliding = () => {
       e.preventDefault();
 
       var searchInput = navigation.querySelector('.p-search-box__input');
+      if (!searchInput) {
+        searchInput = secondaryNavigation.querySelector('.p-search-box__input');
+      }
       var buttons = document.querySelectorAll('.js-search-button');
 
       buttons.forEach((searchButton) => {
@@ -158,6 +195,9 @@ const initNavigationSliding = () => {
       });
 
       navigation.classList.add('has-search-open');
+      if (secondaryNavigation) {
+        secondaryNavigation.classList.add('has-search-open');
+      }
       searchInput.focus();
       document.addEventListener('keyup', keyPressHandler);
     };
