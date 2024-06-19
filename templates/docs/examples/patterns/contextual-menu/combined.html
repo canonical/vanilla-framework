@@ -1,0 +1,17 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Contextual menu / Combined{% endblock %}
+
+{% block standalone_css %}patterns_contextual-menu-combined{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/contextual-menu/default.html' %}</section>
+<section>
+  {# Add spacing between the contextual menu examples to make sure they don't overlap #}
+  {% for _ in range(8) %}
+  <div class="u-sv3"></div>
+  {% endfor %}
+</section>
+<section>{% include 'docs/examples/patterns/contextual-menu/with-indicator.html' %}</section>
+{% endwith %}
+{% endblock %}
