@@ -27,11 +27,16 @@
     {% endif %}
 
     <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+    {% else %}
+      <meta name="combined_template_name" content="{{ self._TemplateReference__context.name }}">
     {% endif %}
   
   </head>
 
   <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
+    {% if is_combined %}
+    <small>{{ self._TemplateReference__context.name }}</small>
+    {% endif %}
     {% block content %}{% endblock %}
   </body>
 </html>
