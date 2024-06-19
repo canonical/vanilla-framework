@@ -3,7 +3,19 @@
 
 {% block standalone_css %}patterns_links{% endblock %}
 
-{% set is_dark = True %}
+{# Check if we're in a combined view to avoid setting the color theme for the entire combined example #}
+{% if not is_combined %}
+  {% set is_dark = True %}
+  {% set is_not_themed = True %}
+{% endif %}
+
 {% block content %}
+{% if is_combined %}
+  <!--
+    This component is intended to be used on a dark background.
+    However, in light & paper combined examples, it will appear with a lighter background.
+    It has been left in the combined example for simplicity rather than re-engineer the example, due to it being deprecated.
+  -->
+{% endif %}
 <a href="#" class="p-link--inverted">Package & publish your app</a>
 {% endblock %}
