@@ -1,6 +1,6 @@
 const initNavigationSliding = () => {
-  const navigation = document.querySelector('.p-navigation--sliding');
-  const secondaryNavigation = document.querySelector('.p-navigation--sliding + .p-navigation');
+  const navigation = document.querySelector('.p-navigation--sliding, .p-navigation--reduced');
+  const secondaryNavigation = document.querySelector('.p-navigation--reduced + .p-navigation');
   const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
@@ -91,7 +91,7 @@ const initNavigationSliding = () => {
   document.addEventListener('click', function (event) {
     const target = event.target;
     if (target.closest) {
-      if (!target.closest('.p-navigation--sliding')) {
+      if (!target.closest('.p-navigation--sliding, .p-navigation--reduced')) {
         resetToggles();
       }
     }
