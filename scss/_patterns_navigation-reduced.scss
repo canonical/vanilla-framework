@@ -1,12 +1,15 @@
 @mixin vf-p-navigation-reduced {
   // TODO:
   // - [ ] --reduced needs to extend the --sliding navigation
-  // - [ ] spacing as variables
-  // - [ ] extract sticky to separate class name
-  // - [ ] refactor search
+  // - [ ] fix search on mobile
+  // - [ ] dropdowns behaviours on mobile
   // - [ ] review use of media queries
   // - [ ] mobile chevron in secondary navigation
   // - [ ] remove the need for "secondary" modifier
+  // - [ ] extract the sticky modifier to main navigation
+  // - [x] refactor search
+  // - [x] extract sticky to separate class name
+  // - [x] spacing as variables
   // - [x] reduced nav theme?
   // - [x] colors as variables
   // - [x] "muted" color in the reduced nav
@@ -14,7 +17,7 @@
   .p-navigation--reduced {
     position: relative;
 
-    // logo overrides for reduced navigation
+    // LOGO OVERRIDES FOR REDUCED NAVIGATION
 
     // orange logo tag is hidden in reduced navigation
     .p-navigation__tagged-logo {
@@ -32,6 +35,7 @@
       font-size: #{map-get($font-sizes, default)}rem;
     }
 
+    // REDUCED SIZE OF NAVIGATION ON LARGE SCREENS
     @media (min-width: $breakpoint-navigation-threshold) {
       background-color: $colors--theme--background-alt;
 
@@ -44,14 +48,13 @@
       }
 
       .p-navigation__link {
-        padding: 0.5rem 1rem 0.5rem 1rem;
+        padding-bottom: $spv--small;
+        padding-top: $spv--small;
       }
 
       .p-navigation__item--dropdown-toggle .p-navigation__link {
-        padding-right: 2rem;
-
         &::after {
-          top: 0.5rem;
+          top: $spv--small;
         }
       }
 
@@ -60,52 +63,27 @@
       }
     }
 
-    // search
+    // SEARCH IN REDUCED NAVIGATION
 
     .p-navigation__link--search-toggle {
-      @media (min-width: $breakpoint-navigation-threshold) {
-        // FIXME: update padding in default Vanilla search toggle
-        padding-right: 1rem;
-
-        &::after {
-          right: 0.5rem;
-          top: 0.5rem;
-        }
-      }
-
+      // search label is always hidden in reduced navigation
       .p-navigation__search-label {
         display: none;
+      }
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        &::after {
+          top: $spv--small;
+        }
       }
     }
 
     @media (min-width: $breakpoint-navigation-threshold) {
       &.has-search-open {
+        // make sure reduced navigation items remain visible when search is open
         .p-navigation__nav .p-navigation__items {
           display: inline-flex;
         }
-
-        .p-navigation__link--search-toggle::after {
-          @include vf-icon-close-themed;
-        }
-        // .p-navigation__search {
-        //   background-color: $colors--theme--background-default;
-        //   justify-content: center;
-        //   left: 0;
-        //   padding: 0.625rem 1rem;
-        //   position: absolute;
-        //   top: 2rem;
-        //   width: 100%;
-
-        //   .p-search-box {
-        //     margin: 0;
-        //     max-width: 50rem;
-        //   }
-        // }
-
-        // // FIXME: this doesn't seem to work anyway
-        // .p-navigation.is-secondary {
-        //   display: none;
-        // }
       }
     }
   }
