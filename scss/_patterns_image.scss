@@ -1,6 +1,60 @@
+/*
+  @classreference
+  image-container:
+    Image container:
+      .p-image-container:
+        Main element of the image component.
+      "&.is-highlighted":
+        Highlighted variant, to be used to highlight contents.
+      .p-image-container--16-9:
+        Wraps contents in a container with an aspect ratio of 16:9.
+      .p-image-container--3-2:
+        Wraps contents in a container with an aspect ratio of 3:2.
+      .p-image-container--2-3:
+        Wraps contents in a container with an aspect ratio of 2:3.
+      .p-image-container--cinematic:
+        Wraps contents in a container with an aspect ratio of 2.4:1.
+      .p-image-container--square:
+        Wraps contents in a container with an aspect ratio of 1:1.
+    Image:
+      .p-image-container__image:
+        Image element within an image container.
+*/
+
 @import 'settings';
 
 @mixin vf-p-image {
+  .p-image-container,
+  [class^='p-image-container--'] {
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    .p-image-container__image {
+      object-fit: contain;
+    }
+    &.is-highlighted {
+      background: $colors--theme--background-alt;
+    }
+  }
+
+  .p-image-container--16-9 {
+    aspect-ratio: 16/9;
+  }
+  .p-image-container--3-2 {
+    aspect-ratio: 3/2;
+  }
+  .p-image-container--2-3 {
+    aspect-ratio: 2/3;
+  }
+  .p-image-container--cinematic {
+    aspect-ratio: 2.4/1;
+  }
+  .p-image-container--square {
+    aspect-ratio: 1/1;
+  }
+
+  // Deprecated; will be removed in v5
   .p-image--bordered {
     border: {
       color: $color-mid-light;
@@ -9,6 +63,7 @@
     }
   }
 
+  // Deprecated; will be removed in v5
   .p-image--shadowed {
     box-shadow: 0 1px 5px 1px transparentize($color-mid-light, 0.8);
   }
