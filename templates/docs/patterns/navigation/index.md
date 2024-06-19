@@ -34,7 +34,7 @@ To open the dropdown you need to set the `is-active` class on `p-navigation__ite
 
 By default, dropdowns are left-aligned with their parent; if you'd prefer the menu to be positioned from the right, use the `p-navigation__dropdown--right` modifier. This can be seen in the "My account" menu in the example.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown-dark" class="js-example">
 View example of the dropdown pattern
 </a></div>
 
@@ -67,7 +67,7 @@ On small screens the search box and menu items can be expanded individually as t
     <span class="p-notification__message">In Vanilla 3.2 we updated the way expanding search works on small screens and now it requires some changes to the HTML structure of menu items for small screens and additional JavaScript functionality for toggling the small screen navigation dropdowns.</p></span>
 </div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search" class="js-example"> View example of the search navigation </a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-dark" class="js-example"> View example of the search navigation </a></div>
 
 ## Side navigation
 

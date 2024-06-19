@@ -1,0 +1,66 @@
+{% extends "_layouts/examples.html" %}
+
+{% block title %}Navigation / Search dark{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+
+<header id="navigation" class="p-navigation is-dark">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+          </div>
+          <span class="p-navigation__logo-title">Ubuntu</span>
+        </a>
+      </div>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <button class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </button>
+        </li>
+        <li class="p-navigation__item">
+          <button class="js-menu-button p-navigation__link">Menu</button>
+        </li>
+      </ul>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example main">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item is-selected">
+          <a class="p-navigation__link" href="#">Products</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Services</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Partners</a>
+        </li>
+      </ul>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <button class="js-search-button p-navigation__link--search-toggle">
+            <span class="p-navigation__search-label">Search</span>
+          </button>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form class="p-search-box">
+          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required="" aria-label="Search our sites">
+          <button type="reset" class="p-search-box__reset"><i class="p-icon--close"></i></button>
+          <button type="submit" class="p-search-box__button"><i class="p-icon--search"></i></button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="p-navigation__search-overlay"></div>
+</header>
+
+<script>
+  {% include 'docs/examples/patterns/navigation/_script-search.js' %}
+</script>
+
+{% endblock %}
