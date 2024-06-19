@@ -7,31 +7,40 @@
     <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework documentation</title>
 
     {% if not is_combined %}
-    {% if is_standalone %}
-    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/' + (self.standalone_css() if self.standalone_css is defined else 'base') + '.css') }}" />
-    {% else %}
-    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/build.css') }}" />
-    {% endif %}
-    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/docs/example.css') }}" />
-    <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
-    {% block style %}{% endblock %}
+      {% if is_standalone %}
+        <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/' + (self.standalone_css() if self.standalone_css is defined else 'base') + '.css') }}" />
+      {% else %}
+        <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/build.css') }}" />
+      {% endif %}
+      <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/docs/example.css') }}" />
+      <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
+      {% block style %}{% endblock %}
 
-    {% if is_not_themed %}
-    <script>
-      var SHOW_THEME_SWITCH = false;
-    </script>
-    {% else %}
-    <script>
-      var SHOW_THEME_SWITCH = true;
-    </script>
-    {% endif %}
-
-    <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+      {% if is_not_themed %}
+        <script>
+          var SHOW_THEME_SWITCH = false;
+        </script>
+        {% else %}
+        <script>
+          var SHOW_THEME_SWITCH = true;
+        </script>
+      {% endif %}
+      <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+    {% elif is_standalone and spacing_below and spacing_below > 0 %}
+      <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/combined.css') }}" />
     {% endif %}
   
   </head>
 
   <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
     {% block content %}{% endblock %}
+    {% if is_combined and spacing_below and spacing_below > 0 %}
+    <section>
+      {# Add spacing below the combined example if spacing option was passed in #}
+      {% for _ in range(spacing_below) %}
+      <div class="u-sv3"></div>
+      {% endfor %}
+    </section>
+    {% endif %}
   </body>
 </html>
