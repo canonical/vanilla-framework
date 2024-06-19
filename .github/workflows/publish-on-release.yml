@@ -67,7 +67,7 @@ jobs:
   
   notify-figma:
     name: Notify Figma library maintainers
-    # needs: publish-npm
+    needs: publish-npm
     runs-on: ubuntu-latest
     steps:
       - name: Extract release notes sections
@@ -83,7 +83,7 @@ jobs:
           $(echo "$RELEASE_NOTES" | sed -n '/## 🔨 Maintenance/,/## /p' | sed '$d')
           EOF
           )
-          
+
           echo "change_summary=$(echo "$CHANGE_SUMMARY" | jq -sRr @json)" >> $GITHUB_OUTPUT
 
       - name: Notify Figma library maintainers
