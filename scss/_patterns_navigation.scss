@@ -524,10 +524,9 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // show both label and icon on large screens
     @media (min-width: $breakpoint-large) {
-      padding-left: $sph--large;
-
       .p-navigation__search-label {
         display: initial;
+        padding-left: $sph--large;
       }
     }
 
@@ -610,6 +609,11 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     .p-navigation__search-overlay {
       opacity: 0.5;
       pointer-events: all;
+    }
+
+    // change search toggle icon to close icon
+    .p-navigation__link--search-toggle::after {
+      @include vf-icon-close-themed;
     }
   }
 
