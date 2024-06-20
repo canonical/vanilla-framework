@@ -3,7 +3,7 @@ const snapshotsTest = require('../snapshots');
 
 const PORT = process.env.PORT || 8101;
 
-test('Snapshot widths', async () => {
+test('Returns correct widths for snapshots, including additional breakpoint for responsive examples', async () => {
   const snapshots = await snapshotsTest();
 
   const failedUrls = snapshots.filter((snapshot) => {
@@ -24,21 +24,21 @@ test('Snapshot widths', async () => {
   expect(failedUrls).toHaveLength(0);
 });
 
-test('Unique snapshot names', async () => {
+test('Returns snapshots with unique names', async () => {
   const snapshots = await snapshotsTest();
   const snapshotNames = snapshots.map((snapshot) => snapshot.name);
   const uniqueSnapshotNames = new Set(snapshotNames);
   expect(uniqueSnapshotNames.size).toBe(snapshotNames.length);
 });
 
-test('Unique snapshot urls', async () => {
+test('Returns snapshots with unique URLs', async () => {
   const snapshots = await snapshotsTest();
   const snapshotUrls = snapshots.map((snapshot) => snapshot.url);
   const uniqueSnapshotUrls = new Set(snapshotUrls);
   expect(uniqueSnapshotUrls.size).toBe(snapshotUrls.length);
 });
 
-test('Snapshot valid URL', async () => {
+test('Returns snapshots with valid URLs', async () => {
   const snapshots = await snapshotsTest();
   const failedUrls = snapshots.filter((snapshot) => {
     try {
@@ -51,13 +51,13 @@ test('Snapshot valid URL', async () => {
   expect(failedUrls).toHaveLength(0);
 });
 
-test('Snapshot base URL', async () => {
+test('Returns snapshots with correct base URLs', async () => {
   const snapshots = await snapshotsTest();
   const failedUrls = snapshots.filter((snapshot) => !snapshot.url.startsWith(`http://localhost:${PORT}/docs/examples/`));
   expect(failedUrls).toHaveLength(0);
 });
 
-test('Themes', async () => {
+test('Returns snapshots with only the expected set of color themes', async () => {
   const snapshots = await snapshotsTest();
   const encounteredThemes = snapshots.reduce((acc, snapshot) => {
     const url = new URL(snapshot.url);
