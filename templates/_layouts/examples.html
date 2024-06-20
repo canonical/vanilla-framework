@@ -1,42 +1,44 @@
-<!DOCTYPE html>
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework documentation</title>
-
-    {% if not is_combined %}
-    {% if is_standalone %}
-    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/standalone/' + (self.standalone_css() if self.standalone_css is defined else 'base') + '.css') }}" />
-    {% else %}
-    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/build.css') }}" />
-    {% endif %}
-    <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/docs/example.css') }}" />
-    <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
-    {% block style %}{% endblock %}
-
-    {% if is_not_themed %}
-    <script>
-      var SHOW_THEME_SWITCH = false;
-    </script>
-    {% else %}
-    <script>
-      var SHOW_THEME_SWITCH = true;
-    </script>
-    {% endif %}
-
-    <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
-    {% else %}
-      <meta name="combined_template_name" content="{{ self._TemplateReference__context.name }}">
-    {% endif %}
-  
-  </head>
-
-  <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
-    {% if is_combined %}
-    <small>{{ self._TemplateReference__context.name }}</small>
-    {% endif %}
-    {% block content %}{% endblock %}
+{% macro body() %}
+  <body {% if is_dark %}class="is-dark" {% elif is_paper %}class="is-paper" {% endif %}>
+  {% block content %}{% endblock %}
   </body>
-</html>
+{% endmacro %}
+
+{% if not is_combined %}
+{# In the non-combined case, render an entire HTML page #}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% block title %}{% endblock %}{% if self.title() %} | {% endif %}Examples | Vanilla framework
+        documentation</title>
+
+      {% if is_standalone %}
+        <link rel="stylesheet" type="text/css"
+            href="{{ versioned_static('build/css/standalone/' + (self.standalone_css() if self.standalone_css is defined else 'base') + '.css') }}" />
+      {% else %}
+        <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/build.css') }}" />
+      {% endif %}
+        <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/docs/example.css') }}" />
+        <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
+      {% block style %}{% endblock %}
+
+      {% if is_not_themed %}
+        <script>
+          var SHOW_THEME_SWITCH = false;
+        </script>
+      {% else %}
+        <script>
+          var SHOW_THEME_SWITCH = true;
+        </script>
+      {% endif %}
+
+      <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
+    </head>
+    {{ body() }}
+  </html>
+{% else %}
+  {# In the combined case, render just the body, as the HTML & head is handled by the combined example #}
+  {{ body() }}
+{% endif %}
