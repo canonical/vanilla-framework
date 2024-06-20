@@ -40,17 +40,15 @@
   </html>
 {% else %}
   {# Include a link to the embedded template #}
-  <small><a href="/{{ self._TemplateReference__context.name }}">{{ self._TemplateReference__context.name }}</a></small>
+  <div>
+    <small><a href="/{{ self._TemplateReference__context.name }}">{{ self._TemplateReference__context.name }}</a></small>
+  </div>
   {# In the combined case, render just the body, as the HTML & head is handled by the combined example #}
   {{ body_content() }}
-{% endif %}
-
-  <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
-    {% block content %}{% endblock %}
-    {% if is_combined and spacing_below and spacing_below > 0 %}
+  {% if is_combined and spacing_below and spacing_below > 0 %}
     <div style="margin-bottom: {{ spacing_below }}rem">
       <!-- This is a spacer to ensure the content following this example is not obscured by this example's content. -->
     </div>
-    {% endif %}
-  </body>
+  {% endif %}
+{% endif %}
 </html>
