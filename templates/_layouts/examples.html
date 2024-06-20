@@ -1,7 +1,5 @@
-{% macro body() %}
-  <body {% if is_dark %}class="is-dark" {% elif is_paper %}class="is-paper" {% endif %}>
+{% macro body_content() %}
   {% block content %}{% endblock %}
-  </body>
 {% endmacro %}
 
 {% if not is_combined %}
@@ -36,9 +34,13 @@
 
       <script defer src="{{ versioned_static('js/example-tools.js') }}"></script>
     </head>
-    {{ body() }}
+    <body {% if is_dark %}class="is-dark" {% elif is_paper %}class="is-paper" {% endif %}>
+      {{ body_content() }}
+    </body>
   </html>
 {% else %}
+  {# Include a link to the embedded template #}
+  <small><a href="/{{ self._TemplateReference__context.name }}">{{ self._TemplateReference__context.name }}</a></small>
   {# In the combined case, render just the body, as the HTML & head is handled by the combined example #}
-  {{ body() }}
+  {{ body_content() }}
 {% endif %}
