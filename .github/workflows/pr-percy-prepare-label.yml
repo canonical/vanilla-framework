@@ -1,0 +1,23 @@
+# This workflow ensures Percy is executed against PRs with the Percy required label, regardless of which paths were changed
+name: "Percy (labeled)"
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+        # workflow runs after a label is added to the PR, or when a commit is added to a PR with the Percy label
+      - labeled
+      - synchronize
+
+jobs:
+  copy_artifact:
+    name: Copy changed files to GHA artifact
+    if: contains(github.event.pull_request.labels.*.name, vars.PERCY_TEST_REQUESTED_LABEL_NAME)
+    uses: ./.github/workflows/percy-prepare.yml
+    with:
+      pr_number: ${{ github.event.number }}
+      repository: ${{ github.repository }}
+      commitsh: ${{ github.event.pull_request.head.sha }}
+
+# Completion should trigger `pr-percy-snapshots` workflow.
