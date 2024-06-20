@@ -30,25 +30,33 @@
     display: grid;
     justify-content: center;
     text-align: center;
-    .p-image-container__image {
-      object-fit: contain;
-    }
     &.is-highlighted {
       background: $colors--theme--background-alt;
     }
   }
 
+  /*
+    To make images in aspect ratio containers responsive, we need to do a padding hack
+    This forces the image to respect aspect ratio on smaller screens
+    The calculation is (1 - (<smaller_dimension_aspect_ratio> / <larger_dimension_aspect_ratio>)) / 2
+    For tall aspect ratios (e.g. 2:3), the padding is applied to the top and bottom
+    For wide aspect ratios (e.g. 16:9), the padding is applied to the left and right
+   */
   .p-image-container--16-9 {
     aspect-ratio: 16/9;
+    padding: 0 21.875%;
   }
   .p-image-container--3-2 {
     aspect-ratio: 3/2;
+    padding: 0 16.667%;
   }
   .p-image-container--2-3 {
     aspect-ratio: 2/3;
+    padding: 16.667% 0;
   }
   .p-image-container--cinematic {
     aspect-ratio: 2.4/1;
+    padding: 0 29.166%;
   }
   .p-image-container--square {
     aspect-ratio: 1/1;
