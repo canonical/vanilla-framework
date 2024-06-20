@@ -85,9 +85,11 @@
   </form>
 </div>
 
-<script>
-  {% include 'docs/examples/patterns/navigation/_script.js' %}
+{% if not is_combined %}
+  <script>
+    {% include 'docs/examples/patterns/navigation/_script.js' %}
 
-initNavDropdowns('.p-navigation__item--dropdown-toggle')
-</script>
+  initNavDropdowns('.p-navigation__item--dropdown-toggle')
+  </script>
+{% endif %}
 {% endblock %}

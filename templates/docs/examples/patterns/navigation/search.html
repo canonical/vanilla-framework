@@ -59,8 +59,9 @@
   <div class="p-navigation__search-overlay"></div>
 </header>
 
-<script>
-  {% include 'docs/examples/patterns/navigation/_script-search.js' %}
-</script>
-
+{% if not is_combined %}
+  <script>
+    {% include 'docs/examples/patterns/navigation/_script-search.js' %}
+  </script>
+{% endif %}
 {% endblock %}
