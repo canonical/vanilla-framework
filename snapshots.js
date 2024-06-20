@@ -15,7 +15,7 @@ const EXAMPLES_RELATIVE_DIR = 'templates/docs/examples';
 /**
  * Get the example files to snapshot from a directory.
  * @param dir {String} Directory path to get example files from.
- * @returns {Promise<String[]>} Array of example file paths, relative to `EXAMPLES_RELATIVE_DIR`.
+ * @returns {Promise<String[]>} Array of example url paths, relative to site root
  */
 async function getExampleFiles(dir = EXAMPLES_RELATIVE_DIR) {
   let files = [];
@@ -44,53 +44,48 @@ async function getExampleFiles(dir = EXAMPLES_RELATIVE_DIR) {
 
 /**
  * Converts example relative paths to example URLs
- * @param fileNames {String[]} - Array of file names (relative to `EXAMPLES_RELATIVE_DIR`) to generate URLs for.
+ * @param urlPaths {String[]} - Array of url paths, relative to the site root
  * @returns {String[]} Array of URLs to snapshot.
  */
-function getExampleUrlsFromExamplePaths(fileNames) {
+function getExampleUrlsFromExamplePaths(urlPaths) {
   // add standalone versions of the examples in base and patterns folders
-  const standaloneFiles = fileNames.filter((file) => file.startsWith('base/') || file.startsWith('patterns/')).map((file) => path.join('standalone', file));
+  const standaloneUrls = urlPaths.filter((file) => file.startsWith('base/') || file.startsWith('patterns/')).map((file) => path.join('standalone', file));
 
-  fileNames = fileNames.concat(standaloneFiles);
+  urlPaths = urlPaths.concat(standaloneUrls);
 
   // map the file paths to URLs
-  return fileNames.map((file) => {
-    file = file.replace('.html', '');
-    return EXAMPLES_BASE_URL + file;
+  return urlPaths.map((url) => {
+    url = url.replace('.html', '');
+    return EXAMPLES_BASE_URL + url;
   });
 }
 
 /**
- * Given an example path, returns the color themes to snapshot.
- * @param filepath {String} Path (relative to `EXAMPLES_RELATIVE_DIR`) of the example file.
- * @returns {String[]} Array of color theme names to snapshot.
- *  These must match color theme query parameter names accepted by example-tools.js.
- */
-function getThemesForExample(filepath) {
-  return ['light', 'dark', 'paper'];
-}
-
-/**
  * Given an example path, return the widths to snapshot.
- * @param filepath {String} Path (relative to `EXAMPLES_RELATIVE_DIR`) of the example file.
+ * @param urlPath {String} Relative url to the example, from the siteroot
  * @returns {Promise<Number[]>} Array of widths to snapshot, from smallest to largest.
  */
-async function getWidthsForExample(filepath) {
+async function getWidthsForExample(urlPath) {
   let widths = new Set([
     375, // Mobile
     1280, // Desktop
   ]);
 
-  if (filepath.endsWith('combined/')) {
+  /**
+   * We need to make sure that combined examples that embed responsive examples are also responsive.
+   * To do this, we need to get the widths of the sibling files in the parent directory.
+   * We then accumulate the widths of the sibling files and add them to the current example.
+   */
+  if (urlPath.endsWith('combined/')) {
     /** Parent directory (remove combined/ path). We also remove 'standalone/' to ensure the directory is a file path. */
-    let parentDirectory = path.join('templates', filepath.replace(/(combined|standalone)\//g, ''));
+    let parentDirectory = path.join('templates', urlPath.replace(/(combined|standalone)\//g, ''));
     let siblingFiles = await getExampleFiles(parentDirectory);
     for (let siblingFile of siblingFiles) {
       let siblingWidths = await getWidthsForExample(siblingFile);
       siblingWidths.forEach((width) => widths.add(width));
     }
   }
-  const isResponsive = filepath.includes('responsive');
+  const isResponsive = urlPath.includes('responsive');
 
   if (isResponsive) {
     widths.add(800); // Tablet
@@ -106,14 +101,14 @@ async function getWidthsForExample(filepath) {
  * @see https://www.browserstack.com/docs/percy/take-percy-snapshots/snapshots-via-cli#advanced-options
  */
 async function getPercyConfigURLs() {
-  let files = await getExampleFiles();
-  let links = getExampleUrlsFromExamplePaths(files);
+  const links = getExampleUrlsFromExamplePaths(await getExampleFiles());
   let urls = [];
 
   for (let url of links) {
     const path = new URL(url).pathname.replace(/\/?$/, '/');
     const widths = await getWidthsForExample(path);
-    const themes = getThemesForExample(path);
+    // TODO this could be functionalized to get the proper themes for a given example.
+    const themes = ['light', 'dark', 'paper'];
 
     // Take one snapshot per theme at the last breakpoint
     themes.forEach((theme) => {
