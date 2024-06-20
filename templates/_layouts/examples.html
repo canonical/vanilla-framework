@@ -35,12 +35,9 @@
   <body {% if is_dark %}class="is-dark"{% elif is_paper %}class="is-paper"{% endif %}>
     {% block content %}{% endblock %}
     {% if is_combined and spacing_below and spacing_below > 0 %}
-    <section>
-      {# Add spacing below the combined example if spacing option was passed in #}
-      {% for _ in range(spacing_below) %}
-      <div class="u-sv3"></div>
-      {% endfor %}
-    </section>
+    <div style="margin-bottom: {{ spacing_below }}rem">
+      <!-- This is a spacer to ensure the content following this example is not obscured by this example's content. -->
+    </div>
     {% endif %}
   </body>
 </html>
