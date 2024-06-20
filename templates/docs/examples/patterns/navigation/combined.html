@@ -8,40 +8,25 @@
 <section>{% include 'docs/examples/patterns/navigation/default.html' %}</section>
 <section>{% include 'docs/examples/patterns/navigation/deprecated.html' %}</section>
 <section>{% include 'docs/examples/patterns/navigation/deprecated-dark.html' %}</section>
-
-<section>{% include 'docs/examples/patterns/navigation/deprecated-logo.html' %}</section>
 <section>
-  {# Add spacing between the navigation examples to make sure they don't overlap #}
-  {% for _ in range(8) %}
-  <div class="u-sv3"></div>
-  {% endfor %}
-</section>
-<section>{% include 'docs/examples/patterns/navigation/dropdown.html' %}</section>
-<section>
-  {# Add spacing between the navigation examples to make sure they don't overlap #}
-  {% for _ in range(8) %}
-  <div class="u-sv3"></div>
-  {% endfor %}
-</section>
-<section>{% include 'docs/examples/patterns/navigation/dropdown-dark.html' %}</section>
-<section>
-  {# Add spacing between the navigation examples to make sure they don't overlap #}
-  {% for _ in range(8) %}
-  <div class="u-sv3"></div>
-  {% endfor %}
+  {% with spacing_below = 15 %}
+  {% include 'docs/examples/patterns/navigation/deprecated-logo.html' %}
+  {% endwith %}
 </section>
 <section>
-  {# Add spacing between the navigation examples to make sure they don't overlap #}
-  {% for _ in range(2) %}
-  <div class="u-sv3"></div>
-  {% endfor %}
+  {% with spacing_below = 15 %}
+    {% include 'docs/examples/patterns/navigation/dropdown.html' %}
+  {% endwith %}
 </section>
-<section>{% include 'docs/examples/patterns/navigation/dropdown-alignment.html' %}</section>
 <section>
-  {# Add spacing between the navigation examples to make sure they don't overlap #}
-  {% for _ in range(2) %}
-  <div class="u-sv3"></div>
-  {% endfor %}
+  {% with spacing_below = 15 %}
+    {% include 'docs/examples/patterns/navigation/dropdown-dark.html' %}
+  {% endwith %}
+</section>
+<section>
+  {% with spacing_below = 2 %}
+    {% include 'docs/examples/patterns/navigation/dropdown-alignment.html' %}
+  {% endwith %}
 </section>
 <section>{% include 'docs/examples/patterns/navigation/full-width.html' %}</section>
 <section>{% include 'docs/examples/patterns/navigation/search.html' %}</section>
