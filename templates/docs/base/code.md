@@ -14,8 +14,6 @@ When you refer to code inline with other text, use the <code>&lt;code></code> ta
 View example of inline code
 </a></div>
 
-An inline `code` element can be nested within a `.p-strip--dark` element, and can also use the `.is-dark` utility class as necessary.
-
 ## Block
 
 To create a pre-formatted block, use either `<pre>` (where preserving white space is important, but the text is not necessarily code) or `<pre><code>` (to indicate the contents are a piece of code):
