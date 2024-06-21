@@ -68,6 +68,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     @include vf-transition($property: #{transform, box-shadow}, $duration: fast);
 
     bottom: 0;
+    // TODO: Update with theme colors?
     box-shadow: $panel-drop-shadow;
     height: 100vh;
     left: 0;
@@ -88,6 +89,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     &.is-collapsed:focus-within {
+      // TODO: Update with theme colors?
       box-shadow: $panel-drop-shadow;
       transform: none;
     }
@@ -133,6 +135,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
     }
 
     .l-navigation:hover {
+      // TODO: Update with theme colors?
       box-shadow: $panel-drop-shadow;
     }
 
@@ -229,7 +232,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   }
 
   .l-application .l-status {
-    border-top: 1px solid $colors--light-theme--border-low-contrast;
+    border-top: 1px solid $colors--theme--border-low-contrast;
     grid-area: status;
     z-index: 102;
   }
@@ -237,6 +240,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
   .l-application .l-aside {
     @include vf-transition($property: #{transform, box-shadow, visibility}, $duration: snap);
 
+    // TODO: Update with theme colors?
     box-shadow: $panel-drop-shadow;
     grid-area: main;
     justify-self: right;
@@ -265,7 +269,7 @@ $application-layout--side-nav-width-expanded: 15rem !default;
 
     @media (min-width: $application-layout--breakpoint-side-nav-collapsed) {
       &.is-pinned {
-        border-left: 1px solid $colors--light-theme--border-low-contrast;
+        border-left: 1px solid $colors--theme--border-low-contrast;
         box-shadow: none;
         grid-area: aside;
         justify-self: auto;
