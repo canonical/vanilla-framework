@@ -1,0 +1,14 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Paper / Combined{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% set is_paper = true %}
+{% set is_not_themed = true %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/base/paper/input-on-paper.html' %}</section>
+<section>{% include 'docs/examples/base/paper/search-box-on-paper.html' %}</section>
+{% endwith %}
+{% endblock %}
