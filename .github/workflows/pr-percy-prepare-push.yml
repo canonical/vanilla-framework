@@ -17,7 +17,7 @@ jobs:
     name: Copy changed files to GHA artifact
     # Ignore draft PRS and PRs with the Percy label
     # If we run tests against PRs with the Percy label, we will run tests twice (test is also ran by the labelling workflow)
-    if: ${{ !github.event.pull_request.draft && !contains(github.event.pull_request.labels.*.name, vars.PERCY_TEST_REQUESTED_LABEL_NAME) }}
+    if: "!github.event.pull_request.draft && !contains(toJson(github.event.pull_request.labels.*.name), 'Review: Percy needed')"
     uses: ./.github/workflows/percy-prepare.yml
     with:
       pr_number: ${{ github.event.number }}
