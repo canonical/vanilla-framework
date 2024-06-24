@@ -6,7 +6,7 @@ context:
 
 Data tables are used to organize and display all information from a data set.
 
-<div class="embedded-example"><a href="/docs/examples/base/table/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/table/default" class="js-example">
 View example of the base table
 </a></div>
 
