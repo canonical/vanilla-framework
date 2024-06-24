@@ -1,0 +1,32 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Hero / Higher Order Component{% endblock %}
+{% block standalone_css %}patterns_hero{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% set is_paper = True %}
+{% block content %}
+
+<section class="p-section--hero">
+  <div class="row--50-50 is-shallow">
+    <div class="col">
+      <div class="p-section--shallow">
+        <h1>H1 - ideally one line, up to two</h1>
+        <h2>H2 placeholder - aim for one line, 2 is acceptable, more - use a p</h2>
+      </div>
+      <div class="p-section">
+        <p>Generally, the height of the right hand side of a 50/50 split should contain more content than the left hand side.</p>
+      </div>
+      {% include 'docs/examples/patterns/cta/block.html' %}
+    </div>
+    <div class="col">
+      <div class="p-image-wrapper">
+        <img class="p-image-wrapper__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="" height="375">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

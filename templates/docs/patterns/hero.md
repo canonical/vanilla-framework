@@ -304,3 +304,8 @@ For more complicated layouts utilise both columns of the 25/75% split and a nest
 Suru backgrounds are a common way to provide visual separation between hero and rest of the page.
 
 Check out the [Suru component documentation](/docs/patterns/suru) for more information on how to use it and relevant examples.
+
+## Higher Order Component
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc" class="js-example">
+View example of the hero higher-order component
+</a></div>
