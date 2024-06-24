@@ -247,13 +247,13 @@ View example of the base definition list
 
 ## Blockquotes and citations
 
-<div class="embedded-example"><a href="/docs/examples/base/blockquotes/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/blockquotes/" class="js-example">
 View example of the base blockquotes
 </a></div>
 
 ## Small text
 
-<div class="embedded-example"><a href="/docs/examples/base/small/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/small/" class="js-example">
 View example of the small text
 </a></div>
 
@@ -314,25 +314,25 @@ Small caps style used to be implemented as extra small text variant with `.p-tex
 
 ## Strong text
 
-<div class="embedded-example"><a href="/docs/examples/base/strong/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/strong/" class="js-example">
 View example of the strong text
 </a></div>
 
 ## Superscripted text
 
-<div class="embedded-example"><a href="/docs/examples/base/sup/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/sup/" class="js-example">
 View example of the superscripted pattern
 </a></div>
 
 ## Subscripted text
 
-<div class="embedded-example"><a href="/docs/examples/base/sub/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/sub/" class="js-example">
 View example of the subscripted pattern
 </a></div>
 
 ## Abbreviation
 
-<div class="embedded-example"><a href="/docs/examples/base/abbr/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/abbr/" class="js-example">
 View example of the abbreviation pattern
 </a></div>
 
@@ -340,7 +340,7 @@ View example of the abbreviation pattern
 
 If you are using the variable Ubuntu font, it comes in six weights; thin, light, regular, medium, bold and extra bold.
 
-<div class="embedded-example"><a href="/docs/examples/base/font-weights/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/typography/font-weights/" class="js-example">
 View example of the Ubuntu font weights.
 </a></div>
 
