@@ -70,15 +70,6 @@ jobs:
     needs: publish-npm
     runs-on: ubuntu-latest
     steps:
-      - name: Extract release notes sections
-        id: extract_release_notes
-        run: |
-          RELEASE_NOTES=$(echo "${{ github.event.release.body }}" | jq -R . | jq -r .)
-          FEATURES=$(echo "$RELEASE_NOTES" | sed -n '/## 🚀 Features/,/## /p' | sed '$d')
-          BUG_FIXES=$(echo "$RELEASE_NOTES" | sed -n '/## 🐛 Bug Fixes/,/## /p' | sed '$d')
-          MAINTENANCE=$(echo "$RELEASE_NOTES" | sed -n '/## 🔨 Maintenance/,/## /p' | sed '$d')
-          CHANGE_SUMMARY="\n$FEATURES\n\n$BUG_FIXES\n\n$MAINTENANCE\n"
-          echo "change_summary=$CHANGE_SUMMARY" >> $GITHUB_OUTPUT
       - name: Notify Figma library maintainers
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"source": "Vanilla CSS", "change-summary": "${{ steps.extract_release_notes.outputs.change_summary }}"}' ${{ secrets.FIGMA_LIBRARY_ALERT_URL }}
+          curl -X POST -H "Content-Type: application/json" -d '{ "source": "Vanilla CSS", "change-summary": " [Vanilla release notes](${{ github.event.release.html_url }})" }' ${{ secrets.FIGMA_LIBRARY_ALERT_URL }}
