@@ -99,9 +99,7 @@ View example of the processing button pattern
 
 The buttons use Vanilla's theme colours. You can switch the theme by adding `is-dark`, `is-light` or `is-paper` class name on any parent element or the button itself.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/buttons/dark" class="js-example">
-View example of the buttons with an is-dark class
-</a></div>
+[View example of a dark theme button](/docs/examples/patterns/buttons/default?theme=dark)
 
 ## Brand
 
