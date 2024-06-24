@@ -1,0 +1,22 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}HR / Combined{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>
+  <h2>This is some text followed by a rule</h2>
+  {% include 'docs/examples/base/hr/default.html' %}
+</section>
+<section>
+  <h2>This is some text followed by a rule</h2>
+  {% include 'docs/examples/base/hr/fixed-width.html' %}
+</section>
+<section>
+  <h2>This is some text followed by a rule</h2>
+  {% include 'docs/examples/base/hr/muted.html' %}
+</section>
+<h2>This is some text preceded by a rule</h2>
+{% endwith %}
+{% endblock %}
