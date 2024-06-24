@@ -1,0 +1,15 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Contextual menu / Combined{% endblock %}
+
+{% block standalone_css %}patterns_contextual-menu{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>
+  {% with spacing_below = 12 %}
+    {% include 'docs/examples/patterns/contextual-menu/default.html' %}
+  {% endwith %}
+</section>
+<section>{% include 'docs/examples/patterns/contextual-menu/with-indicator.html' %}</section>
+{% endwith %}
+{% endblock %}
