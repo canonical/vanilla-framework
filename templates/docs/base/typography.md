@@ -199,7 +199,7 @@ View example of the display headings pattern
 
 The accent colour can be sparingly used to highlight headings to help them stand out from the rest of the page.
 
-<div class="embedded-example"><a href="/docs/examples/base/headings-accented/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/base/headings/accented/" class="js-example">
 View example of the accented headings pattern
 </a></div>
 
