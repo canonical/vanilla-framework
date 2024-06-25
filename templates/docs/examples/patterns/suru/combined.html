@@ -1,0 +1,19 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Suru / Combined{% endblock %}
+
+{% block standalone_css %}patterns_suru{% endblock %}
+
+{% set is_paper = True %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/suru/50-50.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/divider.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/fan-bottom.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/fan-pyramid-left.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/fan-pyramid-right.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/fan-top.html' %}</section>
+<section>{% include 'docs/examples/patterns/suru/standalone.html' %}</section>
+{% endwith %}
+{% endblock %}
