@@ -1,19 +1,4 @@
 @mixin vf-p-navigation-reduced {
-  // TODO:
-  // - [ ] --reduced needs to extend the --sliding navigation
-  // - [x] fix search on mobile
-  // - [x] dropdowns behaviours on mobile
-  // - [x] review use of media queries
-  // - [x] mobile chevron in secondary navigation
-  // - [x] remove the need for "secondary" modifier
-  // - [x] extract the sticky modifier to main navigation
-  // - [x] refactor search
-  // - [x] extract sticky to separate class name
-  // - [x] spacing as variables
-  // - [x] reduced nav theme?
-  // - [x] colors as variables
-  // - [x] "muted" color in the reduced nav
-  // - [x] reduced nav background color (mobile/desktop)
   .p-navigation--reduced {
     position: relative;
 
@@ -84,7 +69,7 @@
     }
     @media (min-width: $breakpoint-navigation-threshold) {
       &.has-search-open + .has-search-open .p-navigation__banner {
-        display: initial;
+        display: flex; // reset to value as defined in _patterns_navigation.scss
       }
 
       &.has-search-open {
