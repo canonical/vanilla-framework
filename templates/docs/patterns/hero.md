@@ -306,6 +306,15 @@ Suru backgrounds are a common way to provide visual separation between hero and 
 Check out the [Suru component documentation](/docs/patterns/suru) for more information on how to use it and relevant examples.
 
 ## Higher Order Component
+
+### 50-50 Split
+
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-50-50" class="js-example">
 View example of the hero higher-order component in 50-50 split
+</a></div>
+
+### 75-20 Split
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-75-25" class="js-example">
+View example of the hero higher-order component in 75-25 split
 </a></div>
