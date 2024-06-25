@@ -216,15 +216,9 @@ View example of the password toggle
 
 ## Dark theme
 
-By default the form elements are displayed in the light theme. To display them in the dark theme, add the class `.is-dark` to the input elements.
+By default, the form elements are displayed in the light theme. To display them in the dark theme, add the class `.is-dark` to the input elements.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/forms/forms-dark/" class="js-example">
-View example of the dark form elements
-</a></div>
-
-<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-validation-dark/" class="js-example">
-View example of the dark form elements
-</a></div>
+View example of [dark form validation](/docs/examples/patterns/forms/form-validation?theme=dark).
 
 ## Accessibility
 
