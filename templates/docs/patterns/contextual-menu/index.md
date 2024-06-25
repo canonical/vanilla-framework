@@ -50,9 +50,7 @@ Please ensure the `aria-control` attribute matches an ID of an element. If `aria
 
 The contextual menu uses the default inherited theme of the page or parent element. To override the default add `is-dark` or `is-light` class to the contextual menu.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/contextual-menu/dark" class="js-example">
-View example of the contextual menu with an is-dark class
-</a></div>
+[View example of the contextual menu with an is-dark class](/docs/examples/patterns/contextual-menu/default?theme=dark)
 
 ## Import
 

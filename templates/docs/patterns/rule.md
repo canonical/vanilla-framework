@@ -40,9 +40,7 @@ View example of a highlighted rule
 
 To use rule component on dark background, add `is-dark` modifier class.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rule/dark" class="js-example">
-View example of a highlighted rule on dark background
-</a></div>
+[View example of a highlighted rule on dark background](/docs/examples/patterns/rule/default?theme=dark).
 
 ## Import
 

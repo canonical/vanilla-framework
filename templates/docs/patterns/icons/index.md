@@ -56,7 +56,7 @@ Remove duplicates from the list of mixin names; otherwise there would be two 'ch
 
 Icons provide visual context and enhance usability, they can be added via an `<i>` element like so: `<i class="p-icon--{name}"></i>`.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/icons/icons-light" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/icons/standard" class="js-example">
 View example of icons
 </a></div>
 
