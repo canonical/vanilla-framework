@@ -318,3 +318,9 @@ View example of the hero higher-order component in 50-50 split
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-75-25" class="js-example">
 View example of the hero higher-order component in 75-25 split
 </a></div>
+
+### 50-50 Split (Full Cover Image)
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-50-50-full-cover-image" class="js-example">
+View example of the hero higher-order component in 50-50 split with an image set to cover the bottom area
+</a></div>
