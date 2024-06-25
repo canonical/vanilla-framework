@@ -23,56 +23,38 @@
 
 @import 'settings';
 
-/**
-    * Applies padding to maintain aspect ratio
-    * To make images in aspect ratio containers responsive, we need to do a padding hack
-    * This forces the image to respect aspect ratio on smaller screens.
-    * However, this may force the image to reduce its size in cases where its size is close to an exact fit of its container.
-    * @param {number} $width - The width part of the aspect ratio. I.E., for 16/9, width is 16
-    * @param {number} $height - The height part of the aspect ratio. I.E., for 16/9, width is 9
-    * @see https://nikitahl.com/css-aspect-ratio#padding-hack for reference
- */
-@mixin image_aspect_ratio_padding($width, $height) {
-  $smaller: min($width, $height);
-  $larger: max($width, $height);
-  $aspect_ratio_offset_padding: calc((1 - ($smaller / $larger)) / 2 * 100%);
-
-  @if $width >= $height {
-    // For wide images, apply padding to the sides
-    padding: 0 $aspect_ratio_offset_padding;
-  } @else {
-    // For tall images, apply padding to the top and bottom
-    padding: $aspect_ratio_offset_padding 0;
-  }
-}
-
 @mixin vf-p-image {
   .p-image-container,
   [class^='p-image-container--'] {
     align-items: center;
-    display: grid;
+    display: flex;
     justify-content: center;
     text-align: center;
+
     &.is-highlighted {
       background: $colors--theme--background-alt;
+    }
+
+    .p-image-container__image {
+      // max height prevents the image from stretching the container
+      // when the aspect ratio is set, and object-fit ensures the aspect ratio
+      // of the image content is maintained
+      max-height: 100%;
+      object-fit: contain;
     }
   }
 
   .p-image-container--16-9 {
     aspect-ratio: 16/9;
-    @include image_aspect_ratio_padding(16, 9);
   }
   .p-image-container--3-2 {
     aspect-ratio: 3/2;
-    @include image_aspect_ratio_padding(3, 2);
   }
   .p-image-container--2-3 {
     aspect-ratio: 2/3;
-    @include image_aspect_ratio_padding(2, 3);
   }
   .p-image-container--cinematic {
     aspect-ratio: 2.4/1;
-    @include image_aspect_ratio_padding(2.4, 1);
   }
   .p-image-container--square {
     aspect-ratio: 1/1;
