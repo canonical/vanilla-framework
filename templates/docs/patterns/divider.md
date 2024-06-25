@@ -21,9 +21,7 @@ By default, the responsive divider uses the current theme of the page or its par
 
 For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/divider/dark/" class="js-example">
-View example of the divider list with an is-dark class
-</a></div>
+[See an example of a divider list with an is-dark class](/docs/examples/patterns/divider/default?theme=dark)
 
 ## Import
 
