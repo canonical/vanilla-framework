@@ -26,9 +26,7 @@ View example of the soft link pattern
 
 Links fully support the theming class names and will change colour based on the theme of their parent container.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/links/links-dark/" class="js-example">
-View example of the dark link pattern
-</a></div>
+[View example of the dark link pattern](/docs/examples/patterns/links/default?theme=dark).
 
 ## Inverted
 
