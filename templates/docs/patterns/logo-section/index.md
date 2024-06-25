@@ -13,7 +13,7 @@ The logo section ensures each logo has the same height, and the width depends on
 
 - When you need to span the whole width of the grid, place the logo section within parent container with the class `.u-fixed-width`. (This class matches the overall fixed width of the grid, but doesn't create a css grid context for its children)
 
-<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/logo-section/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/default" class="js-example">
 View example of the logo section pattern
 </a></div>
 
