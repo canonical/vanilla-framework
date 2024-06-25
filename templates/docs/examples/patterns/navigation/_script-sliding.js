@@ -6,7 +6,7 @@ const initNavigationSliding = () => {
   const menuButton = document.querySelector('.js-menu-button');
   const dropdowns = document.querySelectorAll('ul.p-navigation__dropdown');
   const lists = [...dropdowns];
-  const mainList = dropdowns[0] ? dropdowns[0].parentNode.parentNode : null;
+  const mainList = dropdowns[0]?.parentNode?.parentNode;
   if (mainList) {
     lists.push(mainList);
   }
@@ -80,7 +80,6 @@ const initNavigationSliding = () => {
       if (!target || target === exception) {
         return;
       }
-      console.log(toggle, target);
       target.setAttribute('aria-hidden', 'true');
       toggle.parentNode.classList.remove('is-active');
       toggle.parentNode.parentNode.classList.remove('is-active');
@@ -117,20 +116,22 @@ const initNavigationSliding = () => {
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
-      const isNested = target.parentNode.parentNode.classList.contains('p-navigation__dropdown');
+      if (target) {
+        const isNested = target.parentNode.parentNode.classList.contains('p-navigation__dropdown');
 
-      if (!isNested) {
-        resetToggles(target);
-      }
-      if (target.getAttribute('aria-hidden') === 'true') {
-        toggle.parentNode.classList.add('is-active');
-        toggle.parentNode.parentNode.classList.add('is-active');
-        target.setAttribute('aria-hidden', 'false');
-        setFocusable(target);
-      } else {
-        target.setAttribute('aria-hidden', 'true');
-        toggle.parentNode.classList.remove('is-active');
-        toggle.parentNode.parentNode.classList.remove('is-active');
+        if (!isNested) {
+          resetToggles(target);
+        }
+        if (target.getAttribute('aria-hidden') === 'true') {
+          toggle.parentNode.classList.add('is-active');
+          toggle.parentNode.parentNode.classList.add('is-active');
+          target.setAttribute('aria-hidden', 'false');
+          setFocusable(target);
+        } else {
+          target.setAttribute('aria-hidden', 'true');
+          toggle.parentNode.classList.remove('is-active');
+          toggle.parentNode.parentNode.classList.remove('is-active');
+        }
       }
     });
   });
@@ -145,7 +146,6 @@ const initNavigationSliding = () => {
   };
 
   dropdowns.forEach(function (dropdown) {
-    console.log(window.getComputedStyle(dropdown.children[0], null).display);
     dropdown.children[1].addEventListener('keydown', function (e) {
       if (e.shiftKey && e.key === 'Tab' && window.getComputedStyle(dropdown.children[0], null).display === 'none') {
         goBackOneLevel(e, dropdown.children[1].children[0]);
