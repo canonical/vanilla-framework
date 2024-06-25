@@ -336,3 +336,9 @@ View example of the hero higher-order component in 50-50 split with a tall image
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-fallback" class="js-example">
 View example of the hero higher-order component in fallback configuration
 </a></div>
+
+### 25-75 With Signpost Logo
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-25-75-signpost" class="js-example">
+View example of the hero higher-order component in 25-75 split with a signpost logo
+</a></div>
