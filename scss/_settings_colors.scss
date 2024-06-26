@@ -29,13 +29,14 @@ $disabled-element-opacity: 0.33;
 
 $shadow-opacity: 0.2;
 
-// Link colors
+// Link and focus colors
 $color-link: #06c !default;
 $color-link-visited: #7d42b8 !default;
 $color-focus: #2e96ff !default;
 
 $color-link-dark: #69c !default;
 $color-link-visited-dark: #a679d2 !default;
+$color-focus-dark: #9cf !default;
 
 // Focus modifications to meet AA 3:1 contrast ratio against
 // button background for positive/negative buttons
@@ -88,9 +89,10 @@ $states: (
 // --text-disabled   - dimmed version of default text color, to be used on disabled controls
 // --text-muted      - muted version of default text color, to be used on elements with less prominence
 //
-// Link colors:
+// Link and focus colors:
 // --link-default    - default link color
 // --link-visited    - visited link color
+// --focus           - focus highlight/outline color
 //
 // Background colors:
 // --background           - default background color
@@ -111,6 +113,7 @@ $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-
 
 $colors--light-theme--link-default: $color-link !default;
 $colors--light-theme--link-visited: $color-link-visited !default;
+$colors--light-theme--focus: $color-focus !default;
 
 $colors--light-theme--background-default: #fff !default;
 $colors--light-theme--background-alt: #f7f7f7 !default;
@@ -170,6 +173,7 @@ $colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $ina
 
 $colors--dark-theme--link-default: $color-link-dark !default;
 $colors--dark-theme--link-visited: $color-link-visited-dark !default;
+$colors--dark-theme--focus: $color-focus-dark !default;
 
 $colors--dark-theme--background-default: #262626 !default;
 $colors--dark-theme--background-alt: #202020 !default;
@@ -236,6 +240,7 @@ $colors--theme--text-inactive: var(--vf-color-text-inactive);
 
 $colors--theme--link-default: var(--vf-color-link-default);
 $colors--theme--link-visited: var(--vf-color-link-visited);
+$colors--theme--focus: var(--vf-color-focus);;
 
 $colors--theme--background-default: var(--vf-color-background-default);
 $colors--theme--background-alt: var(--vf-color-background-alt);
@@ -290,6 +295,7 @@ $colors--theme--button-negative-text: var(--vf-color-button-negative-text);
 
   --vf-color-link-default: #{$colors--light-theme--link-default};
   --vf-color-link-visited: #{$colors--light-theme--link-visited};
+  --vf-color-focus: #{$colors--light-theme--focus};
 
   --vf-color-background-default: #{$colors--light-theme--background-default};
   --vf-color-background-alt: #{$colors--light-theme--background-alt};
@@ -344,6 +350,7 @@ $colors--theme--button-negative-text: var(--vf-color-button-negative-text);
 
   --vf-color-link-default: #{$colors--dark-theme--link-default};
   --vf-color-link-visited: #{$colors--dark-theme--link-visited};
+  --vf-color-focus: #{$colors--dark-theme--focus};
 
   --vf-color-background-default: #{$colors--dark-theme--background-default};
   --vf-color-background-alt: #{$colors--dark-theme--background-alt};
