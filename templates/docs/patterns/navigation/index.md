@@ -195,7 +195,7 @@ By default, the side navigation uses the current theme of the page. To change th
 
 For more details about themes in Vanilla refer to the [Color theming](/docs/settings/color-settings#color-theming) section of the documentation.
 
-[See example of side navigation with dark theme](/docs/examples/patterns/side-navigation/dark).
+[See example of side navigation with dark theme](/docs/examples/patterns/side-navigation/default?theme=dark).
 
 ## Import
 
