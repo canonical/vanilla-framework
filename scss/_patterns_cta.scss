@@ -1,0 +1,19 @@
+@import 'settings';
+
+@mixin vf-p-cta {
+  .p-cta-block {
+    // same as %section-padding--shallow
+    padding-bottom: $spv--x-large;
+
+    @media screen and (min-width: $breakpoint-large) {
+      // CTA is shifted to middle of the page on larger displays
+      margin-left: auto;
+      width: 50%;
+    }
+  }
+
+  .p-cta-block > .p-cta-block__link {
+    // Link needs to wrap as a single block
+    display: inline-block;
+  }
+}
