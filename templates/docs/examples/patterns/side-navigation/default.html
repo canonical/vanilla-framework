@@ -18,10 +18,11 @@
   </div>
 </div>
 
-{% if not is_combined %}
-<script>
-  {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
-  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
-</script>
-{% endif %}
+{% endblock %}
+
+{% block script %}
+    <script>
+        {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
+        {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+    </script>
 {% endblock %}

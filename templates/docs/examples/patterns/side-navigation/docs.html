@@ -5,10 +5,10 @@
 
 {% block content %}
 {% include "docs/examples/patterns/side-navigation/_docs.html" %}
+{% endblock %}
 
-{% if not is_combined %}
-<script>
-  {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
-</script>
-{% endif %}
+{% block script %}
+    <script>
+        {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+    </script>
 {% endblock %}
