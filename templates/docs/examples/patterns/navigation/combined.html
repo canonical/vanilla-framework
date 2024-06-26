@@ -1,0 +1,38 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Combined{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/navigation/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/deprecated.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/deprecated-dark.html' %}</section>
+<section>
+  {% with spacing_below = 15 %}
+  {% include 'docs/examples/patterns/navigation/deprecated-logo.html' %}
+  {% endwith %}
+</section>
+<section>
+  {% with spacing_below = 15 %}
+    {% include 'docs/examples/patterns/navigation/dropdown.html' %}
+  {% endwith %}
+</section>
+<section>
+  {% with spacing_below = 15 %}
+    {% include 'docs/examples/patterns/navigation/dropdown-dark.html' %}
+  {% endwith %}
+</section>
+<section>
+  {% with spacing_below = 2 %}
+    {% include 'docs/examples/patterns/navigation/dropdown-alignment.html' %}
+  {% endwith %}
+</section>
+<section>{% include 'docs/examples/patterns/navigation/full-width.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/search.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/search-dark.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/sliding.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/sliding-dark.html' %}</section>
+<section>{% include 'docs/examples/patterns/navigation/sliding-search.html' %}</section>
+{% endwith %}
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "_layouts/examples.html" %}
 
-{% block title %}Navigation / Search light{% endblock %}
+{% block title %}Navigation / Search{% endblock %}
 
 {% block standalone_css %}patterns_navigation{% endblock %}
 
@@ -59,8 +59,10 @@
   <div class="p-navigation__search-overlay"></div>
 </header>
 
-<script>
-  {% include 'docs/examples/patterns/navigation/_script-search.js' %}
-</script>
+{% endblock %}
 
+{% block script %}
+    <script>
+        {% include 'docs/examples/patterns/navigation/_script-search.js' %}
+    </script>
 {% endblock %}

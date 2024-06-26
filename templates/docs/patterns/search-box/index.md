@@ -35,7 +35,7 @@ Vanilla Search box component is used for the search field, but it's wrapped into
 
 When search box is expanded the overlay element (`p-navigation__search-overlay`) is faded in to cover all the contents of the page (except the search box itself). Clicking anywhere on the overlay (or hitting Escape key) closes the search box.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-light" class="js-example"> View example of the search navigation </a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/search" class="js-example"> View example of the search navigation </a></div>
 
 ## Import
 

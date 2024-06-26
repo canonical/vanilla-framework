@@ -21,7 +21,6 @@
         <link rel="stylesheet" type="text/css" href="{{ versioned_static('build/css/docs/example.css') }}" />
         <link rel="icon" href="https://assets.ubuntu.com/v1/ab36e6ed-vanilla_favicon_32px.png" type="image/x-icon" />
       {% block style %}{% endblock %}
-
       {% if is_not_themed %}
         <script>
           var SHOW_THEME_SWITCH = false;
@@ -36,6 +35,7 @@
     </head>
     <body {% if is_dark %}class="is-dark" {% elif is_paper %}class="is-paper" {% endif %}>
       {{ body_content() }}
+      {% block script %}{% endblock %}
     </body>
   </html>
 {% else %}
