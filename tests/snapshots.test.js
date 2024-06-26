@@ -5,12 +5,12 @@ const PORT = process.env.PORT || 8101;
 
 /**
  * Combined examples that embed responsive examples.
- * @type {Map<string, boolean>} Mapping of example urls to whether they embed responsive examples.
+ * @type {Array<String>} Mapping of example urls to whether they embed responsive examples.
  */
-const RESPONSIVE_COMBINED_EXAMPLES = new Map([
-  ['patterns/grid/combined', true],
-  ['patterns/divider/combined', true],
-]);
+const RESPONSIVE_COMBINED_EXAMPLES = [
+  'patterns/grid/combined',
+  'patterns/divider/combined'
+]
 
 test('Returns correct widths for snapshots, including additional breakpoint for responsive examples', async () => {
   const snapshots = await snapshotsTest();
@@ -28,7 +28,7 @@ test('Returns correct widths for snapshots, including additional breakpoint for 
       if (
         snapshot.url.includes('responsive') ||
         // Check if the snapshot is a combined example that embeds responsive examples
-        (snapshot.url.endsWith('combined') && RESPONSIVE_COMBINED_EXAMPLES.has(snapshotPathFromExamplesDir) && RESPONSIVE_COMBINED_EXAMPLES.get(snapshotPathFromExamplesDir))
+        (snapshot.url.endsWith('combined') && RESPONSIVE_COMBINED_EXAMPLES.includes(snapshotPathFromExamplesDir))
       ) {
         expectedWidths.add(800);
       }
