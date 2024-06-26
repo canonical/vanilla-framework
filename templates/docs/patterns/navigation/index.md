@@ -69,6 +69,23 @@ On small screens the search box and menu items can be expanded individually as t
 
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/search-dark" class="js-example"> View example of the search navigation </a></div>
 
+## Sticky
+
+Top navigation can be made sticky by adding the `is-sticky` class to the root element of the navigation.
+
+## Reduced
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Work in progress:</h3>
+    <p class="p-notification__message">Reduced navigation is part of a larger piece of work to upstream the ubuntu.com navigation to Vanilla. These changes are introduced gradualy and may not be fully functional or documented yet.</p>
+  </div>
+</div>
+
+When used on websites with more complex information archutecture there may be a need to provide two levels of top navigation. In such case the reduced navigation pattern can be used to provide a top level navigation (that would contain the top level navigation items, as on website home page), followed by standard navigation, that would serve as a secondary navigation for the current section of the website.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/reduced" class="js-example">View example of the reduced navigation pattern</a></div>
+
 ## Side navigation
 
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
