@@ -71,9 +71,12 @@
   </div>
 </header>
 
-<script>
-  {% include 'docs/examples/patterns/navigation/_script.js' %}
+{% endblock %}
 
-initNavDropdowns('.p-navigation__item--dropdown-toggle')
-</script>
+{% block script %}
+    <script>
+        {% include 'docs/examples/patterns/navigation/_script.js' %}
+
+        initNavDropdowns('.p-navigation__item--dropdown-toggle')
+    </script>
 {% endblock %}
