@@ -71,11 +71,11 @@
   </div>
 </header>
 
-{% if not is_combined %}
+{% block script %}
   <script>
     {% include 'docs/examples/patterns/navigation/_script.js' %}
 
     initNavDropdowns('.p-navigation__item--dropdown-toggle')
   </script>
-{% endif %}
+{% endblock %}
 {% endblock %}
