@@ -1,0 +1,17 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Search and filter / Combined{% endblock %}
+
+{% block standalone_css %}patterns_search-and-filter{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/search-and-filter/default.html' %}</section>
+<section>
+  {% with spacing_below = 23 %}
+  {% include 'docs/examples/patterns/search-and-filter/expanded.html' %}
+  {% endwith %}
+</section>
+<section>{% include 'docs/examples/patterns/search-and-filter/chip-overflow.html' %}</section>
+<section>{% include 'docs/examples/patterns/search-and-filter/with-search-prompt.html' %}</section>
+{% endwith %}
+{% endblock %}
