@@ -11,7 +11,7 @@
   .app-demo > .l-navigation .l-navigation__drawer,
   .app-demo > .l-aside,
   .app-demo > .l-status {
-    border: 1px solid #d9d9d9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>
 {% endblock %}
@@ -20,105 +20,70 @@
 <div class="l-application app-demo" role="presentation">
   <div class="l-navigation-bar">
     <div class="p-panel">
-      <div class="p-panel__header">
-        <h4 class="p-panel__title"><code>l-navigation-bar</code></h4>
+      <code>l-navigation-bar</code>
 
-        <div class="p-panel__controls">
-          <button class="u-float-right js-menu-toggle is-dense u-no-margin">Menu</button>
-        </div>
-      </div>
+      <button class="js-menu-toggle is-dense u-float-right u-no-margin">Menu</button>
     </div>
   </div>
 
-  <header class="l-navigation">
+  <header class="l-navigation is-collapsed">
     <div class="l-navigation__drawer">
       <div class="p-panel">
-        <div class="p-panel__header">
-          <h4 class="p-panel__title"><code>l-navigation</code></h4>
+        <code>l-navigation</code>
 
-          <div class="p-panel__controls u-hide--large">
-            <button class="js-menu-pin is-dense u-no-margin u-hide--small">Pin</button>
-            <button class="js-menu-close is-dense u-no-margin u-hide--medium">Close</button>
-          </div>
-        </div>
-        <div class="p-panel__content">
-          <div class="p-side-navigation--icons">
-            <nav aria-label="Main navigation">
-              <ul class="p-side-navigation__list">
-                <li class="p-side-navigation__item--title">
-                  <a class="p-side-navigation__link" href="#"><span class="p-side-navigation__label">Demo nav item</span></a>
-                </li>
-                <li class="p-side-navigation__item">
-                  <a class="p-side-navigation__link" href="#"><span class="p-side-navigation__label">Demo nav item</span></a>
-                </li>
-                <li class="p-side-navigation__item">
-                  <a class="p-side-navigation__link" href="#"><span class="p-side-navigation__label">Demo nav item</span></a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        <button class="js-menu-pin is-dense u-float-right u-no-margin u-hide--small u-hide--large">Pin</button>
+        <button class="js-menu-close is-dense u-float-right u-no-margin u-hide--medium u-hide--large">Close</button>
       </div>
     </div>
   </header>
 
   <main class="l-main">
     <div class="p-panel">
-      <div class="p-panel__header">
-        <h4 class="p-panel__title"><code>l-main</code></h4>
+      <code>l-main</code>
 
-        <div class="p-panel__controls">
-          <button class="js-aside-open">Open aside panel</button>
-        </div>
-      </div>
+      <button class="js-aside-open is-dense u-no-margin u-float-right">Open aside panel</button>
 
-      <div class="p-panel__content">
-        <div class="u-fixed-width">
-          <table aria-label="Table with demo content">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Demo content</th>
-                <th>Demo content</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Demo content</th>
-                <td>Demo content</td>
-                <td>Demo content</td>
-              </tr>
-              <tr>
-                <th>Demo content</th>
-                <td>Demo content</td>
-                <td>Demo content</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Demo content</th>
-                <td>Demo content</td>
-                <td>Demo content</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+      <div class="u-fixed-width">
+        <table aria-label="Table with demo content">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Demo content</th>
+              <th>Demo content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Demo content</th>
+              <td>Demo content</td>
+              <td>Demo content</td>
+            </tr>
+            <tr>
+              <th>Demo content</th>
+              <td>Demo content</td>
+              <td>Demo content</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Demo content</th>
+              <td>Demo content</td>
+              <td>Demo content</td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </div>
   </main>
 
   <aside class="l-aside" id="aside-panel">
     <div class="p-panel">
-      <div class="p-panel__header">
-        <h4 class="p-panel__title"><code>l-aside</code></h4>
+      <code>l-aside</code>
 
-        <div class="p-panel__controls">
-          <button class="js-aside-pin is-dense">Pin</button>
-          <button class="js-aside-close is-dense">Close</button>
-        </div>
-      </div>
+      <button class="js-aside-pin is-dense u-float-right u-no-margin">Pin</button>
+      <button class="js-aside-close is-dense u-float-right u-no-margin">Close</button>
 
-      <div class="p-panel__content">
+      <div>
         <p>Panel width: <button class="is-inline is-dense js-aside-resize" data-resize-class="is-narrow" aria-controls="aside-panel">narrow</button> <button class="is-dense is-inline js-aside-resize" data-resize-class="" aria-controls="aside-panel">default</button> <button class="is-dense is-inline js-aside-resize" data-resize-class="is-wide" aria-controls="aside-panel">wide</button></p>
       </div>
     </div>
@@ -126,9 +91,7 @@
 
   <aside class="l-status">
     <div class="p-panel">
-      <div class="u-fixed-width">
-        <code>l-status</code>
-      </div>
+      <code>l-status</code>
     </div>
   </aside>
 </div>
