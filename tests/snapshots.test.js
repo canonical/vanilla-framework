@@ -7,10 +7,7 @@ const PORT = process.env.PORT || 8101;
  * Combined examples that embed responsive examples.
  * @type {Array<String>} Mapping of example urls to whether they embed responsive examples.
  */
-const RESPONSIVE_COMBINED_EXAMPLES = [
-  'patterns/grid/combined',
-  'patterns/divider/combined'
-]
+const RESPONSIVE_COMBINED_EXAMPLES = ['patterns/grid/combined', 'patterns/divider/combined'];
 
 test('Returns correct widths for snapshots, including additional breakpoint for responsive examples', async () => {
   const snapshots = await snapshotsTest();
