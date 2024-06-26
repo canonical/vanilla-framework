@@ -273,6 +273,23 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     @extend %navigation-link;
   }
 
+  .p-navigation__link--menu-toggle {
+    @extend %navigation-link;
+
+    &::after {
+      @extend %icon;
+      @include vf-icon-chevron-themed;
+      content: '';
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .has-menu-open &::after {
+      transform: rotate(180deg);
+    }
+  }
+
   // navigation logo
   .p-navigation__banner {
     @extend %navigation-link-responsive-padding-left;
@@ -282,7 +299,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     justify-content: space-between;
     padding-right: 0;
 
-    .p-navigation__link {
+    .p-navigation__link,
+    .p-navigation__link--menu-toggle {
       // reset padding for navigation links in the navigation banner
       @extend %navigation-link-responsive-padding-horizontal;
       @extend %navigation-link-responsive-padding-vertical;

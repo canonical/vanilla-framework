@@ -21,11 +21,6 @@ const initNavigationSliding = () => {
     navigation.classList.remove('has-menu-open');
     if (secondaryNavigation) {
       secondaryNavigation.classList.remove('has-menu-open');
-      let icon = secondaryNavigation.querySelector('.p-icon--chevron-up');
-      if (icon) {
-        icon.classList.remove('p-icon--chevron-up');
-        icon.classList.add('p-icon--chevron-down');
-      }
     }
     menuButton.innerHTML = 'Menu';
   };
@@ -68,9 +63,6 @@ const initNavigationSliding = () => {
       closeAll();
     } else {
       secondaryNavigation.classList.add('has-menu-open');
-      let icon = secondaryNavToggle.querySelector('.p-icon--chevron-down');
-      icon.classList.remove('p-icon--chevron-down');
-      icon.classList.add('p-icon--chevron-up');
     }
   });
 
