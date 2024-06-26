@@ -13,7 +13,7 @@ on:
 jobs:
   copy_artifact:
     name: Copy changed files to GHA artifact
-    if: "contains(toJson(github.event.pull_request.labels.*.name), 'Review: Percy needed')"
+    if: "(github.event.action == 'synchronize' && contains(toJson(github.event.pull_request.labels.*.name), 'Review: Percy needed')) || (github.event.action == 'labeled' && github.event.label.name == 'Review: Percy needed')"
     uses: ./.github/workflows/percy-prepare.yml
     with:
       pr_number: ${{ github.event.number }}
