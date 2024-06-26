@@ -27,14 +27,20 @@
   .p-image-container,
   [class^='p-image-container--'] {
     align-items: center;
-    display: grid;
+    display: flex;
     justify-content: center;
     text-align: center;
-    .p-image-container__image {
-      object-fit: contain;
-    }
+
     &.is-highlighted {
       background: $colors--theme--background-alt;
+    }
+
+    .p-image-container__image {
+      // max height prevents the image from stretching the container
+      // when the aspect ratio is set, and object-fit ensures the aspect ratio
+      // of the image content is maintained
+      max-height: 100%;
+      object-fit: contain;
     }
   }
 
