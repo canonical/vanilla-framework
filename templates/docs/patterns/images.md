@@ -29,6 +29,14 @@ See the [class references section](#class-reference) for more information on the
 View example of image container with 16/9 aspect ratio
 </a></div>
 
+## Cover image
+
+Cover images are used to fill the entire container, cropping the image if necessary. This can be combined with the aspect ratio modifier to crop the image to a specific aspect ratio.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover" class="js-example">
+View example of cover image
+</a></div>
+
 ## Image with border
 
 <div class="p-notification--caution">
