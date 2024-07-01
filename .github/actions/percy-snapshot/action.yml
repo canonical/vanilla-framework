@@ -87,13 +87,12 @@ runs:
         # If PR number is set & a Percy-GHA integration is set up, this allows Percy to set status on the PR
         PERCY_PULL_REQUEST: ${{ inputs.pr_number }}
       run: |
-        set -e
-        # Start a percy build and capture the stdout
-
         # Start a percy build and capture the stdout and stderr
-        percy_output=$(yarn percy 2>&1)
-        
-        echo "$percy_output"
+        percy_output=$(
+          {
+            yarn percy 2>&1
+          } | tee /dev/stderr
+        )
         
         # Fail if the Percy stdout contains "Build not created"
         if echo "$percy_output" | grep -q "Build not created"; then
@@ -105,6 +104,8 @@ runs:
         
         # Extract the build link from the stdout of the snapshot command
         build_link=$(echo "$percy_output" | sed -n 's/.*Finalized build #.*: \(https:\/\/percy.io\/[^ ]*\).*/\1/p')
+        # Sanitize the build link to remove any newlines or spaces
+        build_link=$(echo "$build_link" | tr -d '\n' | tr -d ' ')
         
         # Using '/' to split the $build_link, extract the organization and build identifiers
         org_id=$(echo "$build_link" | cut -d '/' -f 4)
