@@ -32,8 +32,12 @@ async function getExampleFiles(dir = EXAMPLES_RELATIVE_DIR) {
         // Get examples from the subdirectory
         files.push(...(await getExampleFiles(path.join(dir, entry.name))));
       }
+      // Ignore partials, non-HTML files, & the examples index
     } else if (entry.isFile() && entry.name.endsWith('.html') && !entry.name.startsWith('_')) {
-      // Ignore partials & non-HTML files
+      if ((dir === EXAMPLES_RELATIVE_DIR && entry.name === 'index.html') || entry.name === 'standalone.html') {
+        // Ignore the examples index
+        continue;
+      }
       files.push(path.join(dir, entry.name));
     }
   }
@@ -50,9 +54,7 @@ async function getExampleFiles(dir = EXAMPLES_RELATIVE_DIR) {
 function getExampleUrlsFromExamplePaths(urlPaths) {
   // add standalone versions of the examples in base and patterns folders
   const standaloneUrls = urlPaths.filter((file) => file.startsWith('base/') || file.startsWith('patterns/')).map((file) => path.join('standalone', file));
-
   urlPaths = urlPaths.concat(standaloneUrls);
-
   // map the file paths to URLs
   return urlPaths.map((url) => {
     url = url.replace('.html', '');
