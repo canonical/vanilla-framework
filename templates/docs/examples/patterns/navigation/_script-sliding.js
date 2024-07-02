@@ -47,7 +47,7 @@ const initNavigationSliding = () => {
   const resetToggles = (exception) => {
     toggles.forEach(function (toggle) {
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
-      if (target === exception) {
+      if (!target || target === exception) {
         return;
       }
       target.setAttribute('aria-hidden', 'true');
