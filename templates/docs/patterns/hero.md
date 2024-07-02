@@ -299,31 +299,25 @@ For more complicated layouts utilise both columns of the 25/75% split and a nest
 
 [See example of a hero with a signpost logo and nested grid row in 75% column](/docs/examples/patterns/hero/hero-nested-grid)
 
-## Suru
+### 50/50 split
 
-Suru backgrounds are a common way to provide visual separation between hero and rest of the page.
-
-Check out the [Suru component documentation](/docs/patterns/suru) for more information on how to use it and relevant examples.
-
-## 50-50 Split
-
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50" class="js-example" data-height="550">
 View example of the hero pattern in 50-50 split
 </a></div>
 
-## 50-50 Split (Full Cover Image)
+#### With cover image
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image" class="js-example" data-height="550">
 View example of the hero pattern in 50-50 split with an image set to cover the bottom area
 </a></div>
 
-### 50-50 Split (Vertical Image)
+#### With tall image
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-vertical-image" class="js-example">
 View example of the hero pattern in 50-50 split with a tall image
 </a></div>
 
-## 75-20 Split
+### 75/25 Split
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-75-25" class="js-example">
 View example of the hero pattern in 75-25 split
@@ -335,8 +329,14 @@ View example of the hero pattern in 75-25 split
 View example of the hero pattern in fallback configuration
 </a></div>
 
-### 25-75 With Signpost Logo
+### 25/75 Split with signpost logo
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hoc-25-75-signpost" class="js-example">
-View example of the hero higher-order component in 25-75 split with a signpost logo
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost" class="js-example">
+View example of the hero pattern in 25-75 split with a signpost logo
 </a></div>
+
+## Suru
+
+Suru backgrounds are a common way to provide visual separation between hero and rest of the page.
+
+Check out the [Suru component documentation](/docs/patterns/suru) for more information on how to use it and relevant examples.
