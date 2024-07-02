@@ -185,7 +185,7 @@ Wherever possible, take care to align the baseline of any text in the logo to th
 
 By default, the 25/75 split is preserved on medium screens by using 2 and 4 of the available columns (turning it into 33/66% split).
 
-It is fine as long as the content of first column is small enough to fit in 2 of the grid’s 6 columns, as in the following example:
+This is fine as long as the content of first column is small enough to fit in 2 of the grid’s 6 columns, as in the following example:
 
 <div class="row--25-75">
   <div class="col">
@@ -281,17 +281,71 @@ For more complicated layouts utilise both columns of the 25/75% split and a nest
 
 [See example of a hero with a signpost logo and nested grid row in 75% column](/docs/examples/patterns/hero/hero-nested-grid)
 
-### 50/50 split
+### The 50/50% split on large screens
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50" class="js-example" data-height="550">
-View example of the hero pattern in 50-50 split
-</a></div>
+By default, the 50/50 split is preserved on medium screens by using 3 of the available columns per side.
 
-#### With cover image
+This is fine as long as the content of first column is small enough to fit in 3 of the grid’s 6 columns, as in the following example:
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image" class="js-example" data-height="550">
-View example of the hero pattern in 50-50 split with an image set to cover the bottom area
-</a></div>
+<div class="row--25-75">
+  <div class="col">
+    <a href="/docs/examples/patterns/hero/hero-50-50">
+      {{ image (
+        url="https://assets.ubuntu.com/v1/6ef5e859-vanilla-docs-hero-layout-50-50-medium.png",
+        alt="",
+        width="907",
+        height="580",
+        hi_def=True,
+        loading="auto"
+        ) | safe
+      }}
+    </a>
+    <br>
+    <a href="/docs/examples/patterns/hero/hero-50-50">See example of a hero with 50/50 layout split on medium screen.</a>
+  </div>
+</div>
+
+In a case where content in the first column is too large to fit in 3 columns, or the content of second column being long enough to justify using full width of the screen, the layout should be adjusted to stack on medium screens (by using `row--50-50-on-large` [variant](/docs/patterns/grid#common-patterns)).
+
+<div class="row--25-75">
+  <div class="col">
+    <a href="/docs/examples/patterns/hero/hero-50-50-on-large">
+      {{ image (
+        url="https://assets.ubuntu.com/v1/a7191cb7-vanilla-docs-hero-layout-50-50-on-large-medium-20240702.png",
+        alt="",
+        width="952",
+        height="851",
+        hi_def=True,
+        loading="auto"
+        ) | safe
+      }}
+    </a>
+    <br>
+    <a href="/docs/examples/patterns/hero/hero-50-50-on-large">See example of a hero with 50/50 layout stacked on medium screens</a>
+  </div>
+</div>
+
+### The 50/50% split with a full-cover image
+
+If you have a particularly wide image that should span the fill width of the 50/50 split, you can set the image to cover the bottom area of the hero section by adding a `.p-image-container.is-cover` as an additional child of a `.row--50-50-on-large`:
+
+<div class="row--25-75">
+  <div class="col">
+    <a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image">
+      {{ image (
+        url="https://assets.ubuntu.com/v1/be964aa9-vanilla-docs-hero-layout-50-50-full-cover-image.png",
+        alt="",
+        width="1229",
+        height="1016",
+        hi_def=True,
+        loading="auto"
+        ) | safe
+      }}
+    </a>
+    <br>
+    <a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image">See example of a hero with 50/50 layout and a full-cover image along the bottom.</a>
+  </div>
+</div>
 
 #### With tall image
 
