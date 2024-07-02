@@ -1,0 +1,33 @@
+@import 'settings';
+
+@mixin vf-p-quote-wrapper {
+  .p-quote-wrapper .p-quote-wrapper__heading {
+    @media screen and (max-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-shallow;
+    }
+  }
+
+  .p-quote-wrapper .p-quote-wrapper__heading,
+  .p-quote-wrapper .p-quote-wrapper__logo,
+  .p-quote-wrapper .p-quote-wrapper__quote {
+    padding-top: $spv--small;
+  }
+
+  .p-quote-wrapper .p-quote-wrapper__logo {
+    @media screen and (max-width: $breakpoint-large) {
+      padding-top: $spv--x-large;
+    }
+  }
+
+  .p-quote-wrapper .p-quote-wrapper__quote {
+    font-style: italic;
+  }
+
+  .p-quote-wrapper .p-quote-wrapper__citation {
+    padding-top: $spv--x-small;
+
+    .p-quote-wrapper__citation-role {
+      color: $colors--theme--text-muted;
+    }
+  }
+}

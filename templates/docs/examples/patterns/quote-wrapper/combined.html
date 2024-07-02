@@ -1,0 +1,12 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Quote wrapper / Combined{% endblock %}
+
+{% block standalone_css %}patterns_quote-wrapper{% endblock %}
+
+{% block content %}
+    {% with is_combined = true %}
+        <section>{% include 'docs/examples/patterns/quote-wrapper/default.html' %}</section>
+        <section>{% include 'docs/examples/patterns/quote-wrapper/h2.html' %}</section>
+        <section>{% include 'docs/examples/patterns/quote-wrapper/h4.html' %}</section>
+    {% endwith %}
+{% endblock %}
