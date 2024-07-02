@@ -2,7 +2,16 @@
 
 // Default status label styling
 @mixin vf-p-status-label {
-  %vf-status-label {
+  .p-status-label,
+  .p-label,
+  .p-status-label--positive,
+  .p-label--positive,
+  .p-status-label--caution,
+  .p-label--caution,
+  .p-status-label--information,
+  .p-label--information,
+  .p-status-label--negative,
+  .p-label--negative {
     @extend %x-small-text;
     @extend %u-no-margin--bottom--small;
 
@@ -16,42 +25,32 @@
 
   .p-status-label,
   .p-label {
-    @extend %vf-status-label;
-
-    background-color: $color-mid-dark;
-    color: $color-x-light;
+    background-color: $colors--theme--button-neutral-default;
+    color: $colors--theme--button-neutral-text;
   }
 
   .p-status-label--positive,
   .p-label--positive {
-    @extend %vf-status-label;
-
-    background-color: $color-positive;
-    color: $color-x-light;
+    background-color: $colors--theme--button-positive-default;
+    color: $colors--theme--button-positive-text;
   }
 
   .p-status-label--caution,
   .p-label--caution {
-    @extend %vf-status-label;
-
-    background-color: $color-caution;
-    color: $colors--light-theme--text-default;
+    background-color: $colors--theme--button-caution-default;
+    color: $colors--theme--button-caution-text;
   }
 
   .p-status-label--information,
   .p-label--information {
-    @extend %vf-status-label;
-
-    background-color: $color-information;
-    color: $color-x-light;
+    background-color: $colors--theme--button-information-default;
+    color: $colors--theme--button-information-text;
   }
 
   .p-status-label--negative,
   .p-label--negative {
-    @extend %vf-status-label;
-
-    background-color: $color-negative;
-    color: $color-x-light;
+    background-color: $colors--theme--button-negative-default;
+    color: $colors--theme--button-negative-text;
   }
 }
 
