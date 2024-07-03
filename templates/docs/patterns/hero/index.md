@@ -22,10 +22,10 @@ In its simplest form, a hero is a single `h1` heading wrapped in a [section cont
 <div>
   <a href="/docs/examples/patterns/hero/hero-heading-1">
     {{ image (
-      url="https://assets.ubuntu.com/v1/5fed18a8-vanilla-docs-hero-single-heading-20240702.png",
+      url="https://assets.ubuntu.com/v1/9c285bce-vanilla-docs-hero-1.jpg",
       alt="",
-      width="1380",
-      height="76",
+      width="2464",
+      height="368",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -42,10 +42,10 @@ Often the `h1` heading is followed by a subtitle or another kind of supplementar
 <div>
   <a href="/docs/examples/patterns/hero/hero-heading-2">
     {{ image (
-      url="https://assets.ubuntu.com/v1/0c9918e8-vanilla-hero-docs-h2-20240702.png",
+      url="https://assets.ubuntu.com/v1/96f7b929-vanilla-docs-hero-2.jpg",
       alt="",
-      width="1380",
-      height="131",
+      width="2464",
+      height="447",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -64,10 +64,10 @@ In the following example, we have a headings section, then pause, then a paragra
 <div>
   <a href="/docs/examples/patterns/hero/hero-sections">
     {{ image (
-      url="https://assets.ubuntu.com/v1/15ad6158-vanilla-docs-hero-layout-sections-20240702.png",
+      url="https://assets.ubuntu.com/v1/1b4c51ac-vanilla-docs-hero-3.jpg",
       alt="",
-      width="1380",
-      height="239",
+      width="2464",
+      height="721",
       hi_def=True,
       loading="auto|lazy"
       ) | safe
@@ -82,10 +82,10 @@ Below, the paragraph is followed by another pause, followed by a form element:
 <div>
   <a href="/docs/examples/patterns/hero/hero-sections-search">
     {{ image (
-      url="https://assets.ubuntu.com/v1/fc3b11f5-vanilla-docs-hero-layout-sections-search-20240702.png",
+      url="https://assets.ubuntu.com/v1/ef213b79-vanilla-docs-hero-4.jpg",
       alt="",
-      width="1380",
-      height="301",
+      width="2464",
+      height="785",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -94,6 +94,26 @@ Below, the paragraph is followed by another pause, followed by a form element:
 </div>
 
 [See example of a hero with a form element](/docs/examples/patterns/hero/hero-sections-search)
+
+### Using horizontal rules
+
+We insert [muted rules](/docs/patterns/rule) (`p-rule--muted`) when large blocks of content are followed by one or more small elements, to help turn the small elements into a block that doesn’t seem overshadowed by preceding content.
+
+<div>
+  <a href="/docs/examples/patterns/hero/hero-rules">
+    {{ image (
+      url="https://assets.ubuntu.com/v1/ff310d3b-vanilla-docs-hero-5.jpg",
+      alt="",
+      width="2464",
+      height="897",
+      hi_def=True,
+      loading="auto"
+      ) | safe
+    }}
+  </a>
+</div>
+
+[See example of a hero with horizontal rules](/docs/examples/patterns/hero/hero-rules)
 
 ### Deliberate line breaks
 
@@ -104,10 +124,10 @@ We have [utilities to show/hide](https://vanillaframework.io/docs/utilities/hide
 <div>
   <a href="/docs/examples/patterns/hero/hero-line-breaks">
     {{ image (
-      url="https://assets.ubuntu.com/v1/22edd875-vanilla-docs-hero-layout-line-breaks-20240702.png",
+      url="https://assets.ubuntu.com/v1/9daafb94-vanilla-docs-hero-6.jpg",
       alt="",
-      width="1380",
-      height="400",
+      width="2464",
+      height="817",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -132,10 +152,10 @@ As a container for content that is known to be short and unlikely to become long
 <div>
   <a href="/docs/examples/patterns/hero/hero-404">
     {{ image (
-      url="https://assets.ubuntu.com/v1/745601c4-vanilla-docs-hero-layout-404-20240702.png",
+      url="https://assets.ubuntu.com/v1/868ab9c8-vanilla-docs-hero-layout-1.jpg",
       alt="",
-      width="1380",
-      height="275",
+      width="2464",
+      height="673",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -148,10 +168,10 @@ As a container for content that is known to be short and unlikely to become long
 <div>
   <a href="/docs/examples/patterns/hero/hero-blog">
     {{ image (
-      url="https://assets.ubuntu.com/v1/827416c3-vanilla-docs-hero-layout-blog-portrait-20240702.png",
+      url="https://assets.ubuntu.com/v1/f84666c6-vanilla-docs-hero-layout-2.jpg",
       alt="",
-      width="1380",
-      height="226",
+      width="2464",
+      height="721",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -168,10 +188,10 @@ Wherever possible, take care to align the baseline of any text in the logo to th
 <div>
   <a href="/docs/examples/patterns/hero/hero-signpost">
     {{ image (
-      url="https://assets.ubuntu.com/v1/200f008d-vanilla-docs-hero-layout-signpost-grid-20240702.png",
+      url="https://assets.ubuntu.com/v1/00a46094-vanilla-docs-hero-layout-3.jpg",
       alt="",
-      width="1380",
-      height="453",
+      width="2464",
+      height="641",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -185,22 +205,21 @@ Wherever possible, take care to align the baseline of any text in the logo to th
 
 By default, the 25/75 split is preserved on medium screens by using 2 and 4 of the available columns (turning it into 33/66% split).
 
-This is fine as long as the content of first column is small enough to fit in 2 of the grid’s 6 columns, as in the following example:
+It is fine as long as the content of first column is small enough to fit in 2 of the grid’s 6 columns, as in the following example:
 
 <div class="row--25-75">
   <div class="col">
     <a href="/docs/examples/patterns/hero/hero-signpost">
       {{ image (
-        url="https://assets.ubuntu.com/v1/1d1a57b3-vanilla-docs-hero-layout-25-75-medium-20240702.png",
+        url="https://assets.ubuntu.com/v1/0099306a-vanilla-docs-hero-layout-4.jpg",
         alt="",
-        width="951",
-        height="387",
+        width="1600",
+        height="735",
         hi_def=True,
         loading="auto"
         ) | safe
       }}
     </a>
-    <br>
     <a href="/docs/examples/patterns/hero/hero-signpost">See example of a hero with 25/75 layout split on medium screens</a>
   </div>
 </div>
@@ -209,19 +228,18 @@ In a case where content in the first column is too large to fit in 2 columns, or
 
 <div class="row--25-75">
   <div class="col">
-    <a href="/docs/examples/patterns/hero/hero-signpost-nested-grid">
+    <a href="/docs/examples/patterns/hero/hero-nested-grid">
       {{ image (
-        url="https://assets.ubuntu.com/v1/31892c30-vanilla-docs-hero-layout-25-75-medium-nested-20240702.png",
+        url="https://assets.ubuntu.com/v1/f4ca6477-vanilla-docs-hero-layout-5.jpg",
         alt="",
-        width="951",
-        height="399",
+        width="1600",
+        height="761",
         hi_def=True,
         loading="auto"
         ) | safe
       }}
     </a>
-    <br>
-    <a href="/docs/examples/patterns/hero/hero-signpost-nested-grid">See example of a hero with 25/75 layout stacked on medium screens</a>
+    <a href="/docs/examples/patterns/hero/hero-nested-grid">See example of a hero with 25/75 layout stacked on medium screens</a>
   </div>
 </div>
 
@@ -232,12 +250,12 @@ We encourage examining the content and finding a layout that makes better use of
 Layouts where the 25% column on desktop is empty automatically stretch the 75% container to fill the full width on medium screens. Any nested layouts, like the "Resources" and "Get in touch" section in the example below, should be handled on case-by-case basis. Here, they are adapted into a 33/66% layout, providing more space to the section that needs it:
 
 <div>
-    <a href="/docs/examples/patterns/hero/hero-line-breaks">
+  <a href="/docs/examples/patterns/hero/hero-line-breaks">
     {{ image (
-      url="https://assets.ubuntu.com/v1/22edd875-vanilla-docs-hero-layout-line-breaks-20240702.png",
+      url="https://assets.ubuntu.com/v1/371c9de8-vanilla-docs-hero-layout-6.jpg",
       alt="",
-      width="1380",
-      height="400",
+      width="2464",
+      height="849",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -249,10 +267,10 @@ Layouts where the 25% column on desktop is empty automatically stretch the 75% c
   <div class="col">
     <a href="/docs/examples/patterns/hero/hero-line-breaks">
       {{ image (
-        url="https://assets.ubuntu.com/v1/904fe507-vanilla-docs-hero-layout-line-breaks-medium-nested-20240702.png",
+        url="https://assets.ubuntu.com/v1/618e6977-vanilla-docs-hero-layout-7.jpg",
         alt="",
-        width="766",
-        height="323",
+        width="1600",
+        height="621",
         hi_def=True,
         loading="auto"
         ) | safe
@@ -268,10 +286,10 @@ For more complicated layouts utilise both columns of the 25/75% split and a nest
 <div>
   <a href="/docs/examples/patterns/hero/hero-nested-grid">
     {{ image (
-      url="https://assets.ubuntu.com/v1/58a79ef9-vanilla-docs-hero-layout-nested-grid-20240702.png",
+      url="https://assets.ubuntu.com/v1/a77be808-vanilla-docs-hero-layout-8.jpg",
       alt="",
-      width="1380",
-      height="330",
+      width="2464",
+      height="754",
       hi_def=True,
       loading="auto"
       ) | safe
@@ -280,96 +298,6 @@ For more complicated layouts utilise both columns of the 25/75% split and a nest
 </div>
 
 [See example of a hero with a signpost logo and nested grid row in 75% column](/docs/examples/patterns/hero/hero-nested-grid)
-
-### The 50/50% split on large screens
-
-By default, the 50/50 split is preserved on medium screens by using 3 of the available columns per side.
-
-This is fine as long as the content of first column is small enough to fit in 3 of the grid’s 6 columns, as in the following example:
-
-<div class="row--25-75">
-  <div class="col">
-    <a href="/docs/examples/patterns/hero/hero-50-50">
-      {{ image (
-        url="https://assets.ubuntu.com/v1/6ef5e859-vanilla-docs-hero-layout-50-50-medium.png",
-        alt="",
-        width="907",
-        height="580",
-        hi_def=True,
-        loading="auto"
-        ) | safe
-      }}
-    </a>
-    <br>
-    <a href="/docs/examples/patterns/hero/hero-50-50">See example of a hero with 50/50 layout split on medium screen.</a>
-  </div>
-</div>
-
-In a case where content in the first column is too large to fit in 3 columns, or the content of second column being long enough to justify using full width of the screen, the layout should be adjusted to stack on medium screens (by using `row--50-50-on-large` [variant](/docs/patterns/grid#common-patterns)).
-
-<div class="row--25-75">
-  <div class="col">
-    <a href="/docs/examples/patterns/hero/hero-50-50-on-large">
-      {{ image (
-        url="https://assets.ubuntu.com/v1/a7191cb7-vanilla-docs-hero-layout-50-50-on-large-medium-20240702.png",
-        alt="",
-        width="952",
-        height="851",
-        hi_def=True,
-        loading="auto"
-        ) | safe
-      }}
-    </a>
-    <br>
-    <a href="/docs/examples/patterns/hero/hero-50-50-on-large">See example of a hero with 50/50 layout stacked on medium screens</a>
-  </div>
-</div>
-
-### The 50/50% split with a full-cover image
-
-If you have a particularly wide image that should span the fill width of the 50/50 split, you can set the image to cover the bottom area of the hero section by adding a `.p-image-container.is-cover` as an additional child of a `.row--50-50-on-large`:
-
-<div class="row--25-75">
-  <div class="col">
-    <a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image">
-      {{ image (
-        url="https://assets.ubuntu.com/v1/be964aa9-vanilla-docs-hero-layout-50-50-full-cover-image.png",
-        alt="",
-        width="1229",
-        height="1016",
-        hi_def=True,
-        loading="auto"
-        ) | safe
-      }}
-    </a>
-    <br>
-    <a href="/docs/examples/patterns/hero/hero-50-50-full-cover-image">See example of a hero with 50/50 layout and a full-cover image along the bottom.</a>
-  </div>
-</div>
-
-#### With tall image
-
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-vertical-image" class="js-example">
-View example of the hero pattern in 50-50 split with a tall image
-</a></div>
-
-### 75/25 Split
-
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-75-25" class="js-example">
-View example of the hero pattern in 75-25 split
-</a></div>
-
-### Fallback
-
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-fallback" class="js-example">
-View example of the hero pattern in fallback configuration
-</a></div>
-
-### 25/75 Split with signpost logo
-
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost" class="js-example">
-View example of the hero pattern in 25-75 split with a signpost logo
-</a></div>
 
 ## Suru
 

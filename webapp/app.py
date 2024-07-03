@@ -199,11 +199,14 @@ def global_template_context():
     if flask.request.path == "/docs/search":
         docs_slug = ""
     else:
+        # If this grows much more we should consider a more robust / less hard-coded solution
+        # Perhaps we could iterate through tab keys found in `component_tabs.yaml` instead of hard-coding them here
         docs_slug = (
             flask.request.path.replace("/docs/", "")
             .replace("/design/", "")
             .replace("/accessibility", "")
             .replace("/design-guidelines", "")
+            .replace("/25-75", "")
         )
 
         docs_slug = "" if docs_slug == "/docs" else docs_slug
