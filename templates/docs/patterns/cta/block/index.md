@@ -11,6 +11,10 @@ A CTA (call to action) block is a pattern that is used to encourage users to tak
 View example of the CTA block pattern
 </a></div>
 
+## Class reference
+
+{{ class_reference("cta-block") }}
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
