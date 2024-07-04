@@ -36,12 +36,27 @@
 
       .p-navigation__item--dropdown-toggle .p-navigation__link {
         &::after {
+          @include vf-icon-chevron-muted;
           top: $spv--small;
         }
       }
 
       .p-navigation__item--dropdown-toggle.is-active {
         background-color: $colors--theme--background-default;
+
+        .p-navigation__link {
+          color: $colors--theme--text-default;
+        }
+
+        .p-navigation__link::after {
+          @include vf-icon-chevron-themed;
+        }
+      }
+
+      .p-navigation__link--search-toggle {
+        &::after {
+          @include vf-icon-search-muted;
+        }
       }
     }
 
