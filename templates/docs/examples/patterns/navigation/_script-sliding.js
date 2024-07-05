@@ -37,9 +37,6 @@ const initNavigationSliding = () => {
     });
 
     navigation.classList.remove('has-search-open');
-    if (secondaryNavigation) {
-      secondaryNavigation.classList.remove('has-search-open');
-    }
     document.removeEventListener('keyup', keyPressHandler);
   };
 
@@ -56,15 +53,17 @@ const initNavigationSliding = () => {
   });
 
   const secondaryNavToggle = document.querySelector('.js-secondary-menu-toggle-button');
-  secondaryNavToggle.addEventListener('click', (event) => {
-    event.preventDefault();
-    closeSearch();
-    if (secondaryNavigation.classList.contains('has-menu-open')) {
-      closeAll();
-    } else {
-      secondaryNavigation.classList.add('has-menu-open');
-    }
-  });
+  if (secondaryNavToggle) {
+    secondaryNavToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      closeSearch();
+      if (secondaryNavigation.classList.contains('has-menu-open')) {
+        closeAll();
+      } else {
+        secondaryNavigation.classList.add('has-menu-open');
+      }
+    });
+  }
 
   const resetToggles = (exception) => {
     toggles.forEach(function (toggle) {
@@ -187,9 +186,6 @@ const initNavigationSliding = () => {
       });
 
       navigation.classList.add('has-search-open');
-      if (secondaryNavigation) {
-        secondaryNavigation.classList.add('has-search-open');
-      }
       searchInput.focus();
       document.addEventListener('keyup', keyPressHandler);
     };
