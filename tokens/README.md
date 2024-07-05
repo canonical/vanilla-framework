@@ -40,3 +40,16 @@ conventions, and file format:
 - How exactly would each file be categorized (i.e. `space`)?
 - `.vf-color-link-dark` vs. `.vf-color-dark-link`
 - Do we want to follow CTI structure? https://amzn.github.io/style-dictionary/#/tokens?id=category-type-item
+
+### Proposed solutions
+
+- Stick to CTI as closely as possible for predictable, reliable naming:
+  `color-text-link-base`, `color-text-link-visited`
+- Use theme postfixes in all instances where colors are involved:
+  `color-text-link-base-light`, `color-text-link-visited-dark`
+- Use prefixes on all tokens:
+  `vf-color-text-link-base-light`
+- Stick with SD schema, as they seem to be the primary drivers of standards
+- All token name segments should match/align with known CSS terminology:
+  `margin`, not `size` or `space`
+- Start with minimal set of keys in JSON, add as needed
