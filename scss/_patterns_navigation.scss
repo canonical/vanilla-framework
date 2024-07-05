@@ -155,6 +155,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // p-search-box overrides
     .p-search-box {
+      background-color: $colors--theme--background-default;
       flex: 1 0 auto;
       margin-left: map-get($grid-margin-widths, small);
       margin-right: map-get($grid-margin-widths, small);
@@ -626,6 +627,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     // make sure search in navigation renders on top of the overlay
     .p-navigation__nav {
       display: flex;
+      position: relative;
       z-index: 60;
     }
 
@@ -636,7 +638,14 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     // show expanded search box
     .p-navigation__search {
+      background-color: $colors--theme--background-default;
       display: flex;
+      position: absolute;
+      width: 100%;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        background-color: transparent;
+      }
     }
 
     // fade in search overlay

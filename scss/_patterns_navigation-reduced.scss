@@ -1,5 +1,8 @@
 @mixin vf-p-navigation-reduced {
   .p-navigation--reduced {
+    // height of reduced navigation calculated from line height and padding
+    $reduced-nav-height: calc(map-get($line-heights, x-small) + 2 * $spv--small);
+
     position: relative;
     z-index: 99; // display above sticky top navigation, but below modals/overlays
 
@@ -75,20 +78,17 @@
       }
     }
 
-    // hide secondary navigation banner when search is open on mobile
-    &.has-search-open + .has-search-open .p-navigation__banner {
-      display: none;
-    }
     @media (min-width: $breakpoint-navigation-threshold) {
-      &.has-search-open + .has-search-open .p-navigation__banner {
-        display: flex; // reset to value as defined in _patterns_navigation.scss
-      }
-
       &.has-search-open {
         // make sure reduced navigation items remain visible when search is open
         // both classes needed for specificity
         .p-navigation__nav .p-navigation__items {
           display: inline-flex;
+        }
+
+        // position the search under the reduced navigation
+        .p-navigation__search {
+          top: $reduced-nav-height;
         }
       }
     }
