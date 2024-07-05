@@ -31,6 +31,12 @@ conventions, and file format:
 
 - Do we want to maintain BEM-style conventions in our variables (`--`)?
 - What's the best way for us to handle icons?
-- Do we want to prefix all our variables?
+- Do we want to prefix all our variables? If so, with what prefix?
 - Are we fully confident sticking with SD schema, rather than W3C?
 - Which JSON keys should we use? Is `description` desirable?
+- No postfix vs. `-default` for elements with "default" styling
+- No postfix vs. `-light` for light themed elements
+- Do we want to use primitives?
+- How exactly would each file be categorized (i.e. `space`)?
+- `.vf-color-link-dark` vs. `.vf-color-dark-link`
+- Do we want to follow CTI structure? https://amzn.github.io/style-dictionary/#/tokens?id=category-type-item
