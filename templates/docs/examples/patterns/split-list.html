@@ -1,9 +1,166 @@
 {% extends "_layouts/examples.html" %}
 {% block title %}Split list{% endblock %}
 
-{% block standalone_css %}patterns_matrix{% endblock %}
+{% block standalone_css %}patterns_split-list{% endblock %}
 
 {% block content %}
+<div>
+  <div class="u-fixed-width">
+    title
+  </div>
+
+  <div>
+    <ul>
+      <li class="u-fixed-width">
+        <div>
+          title
+        </div>
+
+        <div>
+          desc
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div>
+  <div class="u-fixed-width">
+    title
+  </div>
+
+  <div>
+    <ul>
+      <li class="row--50-50">
+        <div class="col">
+          title
+        </div>
+
+        <div class="col">
+          desc
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row--50-50">
+  <div class="col">
+    title
+  </div>
+
+  <div class="col">
+    <ul>
+      <li class="row--50-50">
+        <div class="col">
+          title
+        </div>
+
+        <div class="col">
+          desc
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div>
+  <div class="u-fixed-width">
+    title
+  </div>
+
+  <div>
+    <ul>
+      <li class="row--25-25-50">
+        <div class="col">
+          &nbsp;
+        </div>
+
+        <div class="col">
+          title
+        </div>
+
+        <div class="col">
+          desc
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<br><br><br>
+
+<div class="row--50-50-on-large">
+  <div class="col">
+    title
+  </div>
+
+  <div class="col">
+    <ul>
+      <li class="row--50-50-on-medium row--50-50-on-large">
+        <div class="col">
+          title
+        </div>
+
+        <div class="col">
+          desc
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="p-split-list">
+  <div class="p-section--shallow">
+    <h2 class="p-split-list__title">
+      H2 - this can take up to two lines, but best to stick to one line.
+    </h2>
+  </div>
+
+  <div>
+    <dl class="p-split-list__list">
+      <dt class="p-split-list__list-item-title">
+        <h5 class="p-split-list__list-item-title-text">
+          Rich portfolio of products
+        </h5>
+      </dt>
+      <dd class="p-split-list__list-item-description">
+        <p class="p-split-list__list-item-description-text">
+          Resell the full range of Canonical’s portfolio of private and public
+          cloud products: Openstack, Kubernetes, IoT, support, security and
+          compliance for Ubuntu.
+        </p>
+      </dd>
+
+      <dt class="p-split-list__list-item-title">
+        <h5 class="p-split-list__list-item-title-text">
+          Sales enablement
+        </h5>
+      </dt>
+      <dd class="p-split-list__list-item-description">
+        <p class="p-split-list__list-item-description-text">
+          Canonical can help train your field sales and presales teams and
+          provide you with sales collateral and permission to use the Canonical
+          and Ubuntu trademarks in your own materials.
+        </p>
+      </dd>
+
+      <dt class="p-split-list__list-item-title">
+        <h5 class="p-split-list__list-item-title-text">
+          Access to Canonical partner portal
+        </h5>
+      </dt>
+      <dd class="p-split-list__list-item-description">
+        <p class="p-split-list__list-item-description-text">
+          We host a partner portal with product and solutions collaterals,
+          agreed pricing, incentives and a deal registration system.
+        </p>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+
 <ul class="p-matrix">
   <li class="p-matrix__item">
     <img class="p-matrix__img" src="https://assets.ubuntu.com/v1/60d9b81e-picto-canonical.svg" alt="">
