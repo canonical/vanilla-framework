@@ -1,3 +1,45 @@
 @import 'settings';
 
-@mixin vf-p-split-list {}
+@mixin vf-p-split-list {
+  * {
+    border: 1px solid red;
+  }
+
+  .p-split-list {
+    // background: blue;
+    border-top: 1px solid $colors--theme--border-default;
+
+    .p-split-list__list {
+      // border-top: 1px solid $colors--theme--border-low-contrast;
+    }
+
+    .p-split-list__list-item-title {
+      border-top: 1px solid $colors--theme--border-low-contrast;
+      margin-bottom: 0;
+      margin-top: $spv--x-large;
+      padding-bottom: 0;
+      padding-top: $spv--medium;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .p-split-list__list-item-title-text {
+      margin: 0;
+      padding: 0;
+    }
+
+    .p-split-list__list-item-description {
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-top: $spv--small;
+      padding: 0;
+    }
+
+    .p-split-list__list-item-description-text {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
