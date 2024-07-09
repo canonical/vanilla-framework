@@ -25,7 +25,7 @@ To import just this component into your project, copy the snippet below and incl
 @import 'vanilla-framework';
 @include vf-base;
 
-@include vf-p-cta;
+@include vf-p-cta-block;
 @include vf-p-buttons;
 ```
 
