@@ -1,5 +1,6 @@
 {% extends "_layouts/examples.html" %}
-{% from "_macros/split-list.jinja" import split_list with context %}
+{% from "_macros/split-list.jinja" import split_list %}
+{% from "_macros/split-list-html.jinja" import split_list_html %}
 
 {% block title %}Split list{% endblock %}
 
@@ -482,6 +483,18 @@
    }, {
      'title': 'Sales enablement',
      'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
+   }]) }}
+
+<h6>full width, full width, 25-25-75 (Jinja macro w/ HTML)</h6>
+
+{{ split_list_html(variant=1,
+   title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
+   list_items=[{
+     'title': '<h5>Rich portfolio of products</h5>',
+     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
+   }, {
+     'title': '<h5>Sales enablement</h5>',
+     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
    }]) }}
 
 <br><br><br>
