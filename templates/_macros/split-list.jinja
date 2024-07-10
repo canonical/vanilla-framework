@@ -3,7 +3,11 @@
   <hr class="u-hide--small">
 
   <div class="row">
-    <div class="col">
+    {% if variant == 1 or variant == 2 %}
+      <div class="col">
+    {% else %}
+      <div class="col-6">
+    {% endif %}
       <div class="p-section--shallow">
         <h2>
           {{ title }}
@@ -11,11 +15,19 @@
       </div>
     </div>
 
-    <div class="col-9 col-start-large-4">
+    {% if variant == 1 or variant == 2 %}
+      <div class="col-9 col-start-large-4">
+    {% else %}
+      <div class="col-6">
+    {% endif %}
       {% for list_item in list_items %}
         <div class="row">
           <div class="col">
-            <hr>
+            {% if variant == 1 or variant == 2 or loop.index != 1 %}
+              <hr>
+            {% else %}
+              <hr class="u-hide--large">
+            {% endif %}
           </div>
         </div>
 
@@ -24,8 +36,10 @@
             <div class="col-3">
           {% elif variant == 2 %}
             <div class="col-medium-3 col-3">
-          {% else %}
-            <div>
+          {% elif variant == 3 %}
+            <div class="col-medium-3 col-3">
+          {% elif variant == 4 %}
+            <div class="col-3">
           {% endif %}
             <h5>
               {{ list_item.title }}
@@ -36,8 +50,10 @@
             <div class="col-6">
           {% elif variant == 2 %}
             <div class="col-medium-3 col-6">
-          {% else %}
-            <div>
+          {% elif variant == 3 %}
+            <div class="col-medium-3 col-3">
+          {% elif variant == 4 %}
+            <div class="col-3">
           {% endif %}
             <p>
               {{ list_item.description }}
