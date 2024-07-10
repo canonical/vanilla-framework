@@ -1,0 +1,39 @@
+{% macro split_list(variant=1, title='', list_items=[{}]) -%}
+<div class="u-fixed-width">
+  <hr class="u-hide--small">
+
+  <div class="row">
+    <div class="col">
+      <div class="p-section--shallow">
+        <h2>
+          {{ title }}
+        </h2>
+      </div>
+    </div>
+
+    <div class="col-9 col-start-large-4">
+      {% for list_item in list_items %}
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3">
+            <h5>
+              {{ list_item.title }}
+            </h5>
+          </div>
+
+          <div class="col-6">
+            <p>
+              {{ list_item.description }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{%- endmacro %}
