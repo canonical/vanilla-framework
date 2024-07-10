@@ -1,0 +1,66 @@
+# Params
+# variant: component permutations on mobile, tablet, and desktop
+#   1: full width, full width, 25-25-75
+#   2: full width, 50-50, 25-25-75
+#   3: full width, 50-50, 50-50
+#   4: full width, full width, 50-50
+# title: split list title text
+# list_items: array of content objects for list
+#   [{ 'title': string, 'description': string }]
+{% macro split_list_html(variant=1, title='', list_items=[{}]) -%}
+<div class="u-fixed-width">
+  <hr class="u-hide--small">
+
+  <div class="row">
+    {% if variant == 1 or variant == 2 %}
+      <div class="col-12">
+    {% else %}
+      <div class="col-6">
+    {% endif %}
+      <div class="p-section--shallow">
+        {{ title }}
+      </div>
+    </div>
+
+    {% if variant == 1 or variant == 2 %}
+      <div class="col-9 col-start-large-4">
+    {% else %}
+      <div class="col-6">
+    {% endif %}
+      {% for list_item in list_items %}
+        <div class="row">
+          <div class="col-12">
+            {% if variant == 1 or variant == 2 or loop.index != 1 %}
+              <hr>
+            {% else %}
+              <hr class="u-hide--large">
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row">
+          {% if variant == 1 or variant == 4 %}
+            <div class="col-3">
+          {% else %}
+            <div class="col-medium-3 col-3">
+          {% endif %}
+            {{ list_item.title }}
+          </div>
+
+          {% if variant == 1 %}
+            <div class="col-6">
+          {% elif variant == 2 %}
+            <div class="col-medium-3 col-6">
+          {% elif variant == 3 %}
+            <div class="col-medium-3 col-3">
+          {% elif variant == 4 %}
+            <div class="col-3">
+          {% endif %}
+            {{ list_item.description }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{%- endmacro %}
