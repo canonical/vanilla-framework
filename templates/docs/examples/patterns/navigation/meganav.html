@@ -1,0 +1,133 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Meganav{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% macro dropdown(id, title) %}
+<div class="p-navigation__dropdown is-meganav"  data-level="1" id="{{ id }}" aria-hidden="true">
+  <ul class="p-list u-no-margin u-hide--large">
+    <li class="p-navigation__item--dropdown-close" id="{{ id }}-back">
+      <button aria-controls="{{ id }}" class="p-navigation__link js-back">
+        Back
+      </button>
+    </li>
+    <li>
+      <a href="#" class="p-navigation__dropdown-item">TODO...</a>
+    </li>
+    <li>
+      <a href="#" class="p-navigation__dropdown-item">TODO....</a>
+    </li>
+  </ul>
+  <div class="p-strip is-shallow u-hide--small u-hide--medium">
+    <div class="row--25-75">
+      <div class="col"><p class="p-muted-heading">{{ title }}</p></div>
+      <div class="col">
+        <p class="p-muted-heading">Example desktop {{ title }} menu</p>
+        <p>Some custom meganav content...</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+
+{% block content %}
+<header id="navigation" class="p-navigation--sliding is-dark">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+          </div>
+          <span class="p-navigation__logo-title">Canonical Ubuntu</span>
+        </a>
+      </div>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <a href="#/search" class="js-search-button p-navigation__link--search-toggle" aria-label="Search"></a>
+        </li>
+        <li class="p-navigation__item">
+          <a href="#/navigation" class="js-menu-button p-navigation__link">Menu</a>
+        </li>
+      </ul>
+    </div>
+    <nav class="p-navigation__nav js-show-nav" aria-label="Categories">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="products">
+          <a class="p-navigation__link" href="#" aria-controls="products-content" tabindex="0">Products</a>
+          {{ dropdown('products-content', 'Products') }}
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="use-case">
+          <a class="p-navigation__link" href="#" aria-controls="use-case-content" tabindex="0">Use cases</a>
+          {{ dropdown('use-case-content', 'Use cases') }}
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="support">
+          <a class="p-navigation__link" href="#" aria-controls="support-content" tabindex="0">Support</a>
+          {{ dropdown('support-content', 'Support') }}
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="community">
+          <a class="p-navigation__link" href="#" aria-controls="community-content" tabindex="0">Community</a>
+          {{ dropdown('community-content', 'Community') }}
+        </li>
+        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="get-ubuntu">
+          <a class="p-navigation__link" href="#" aria-controls="get-ubuntu-content" tabindex="0">Get Ubuntu</a>
+          {{ dropdown('get-ubuntu-content', 'Get Ubuntu') }}
+        </li>
+        <li class="p-navigation__item--dropdown-toggle is-right-shifted" role="menuitem" id="all-canonical">
+          <button aria-controls="canonical-products" class="p-navigation__link" id="all-canonical-link" aria-expanded="false">All Canonical</button>
+            <ul class="p-navigation__dropdown" id="canonical-products" aria-hidden="true" data-level="1">
+              <li class="p-navigation__item--dropdown-close" id="link-6-back">
+                <button aria-controls="canonical-products" class="p-navigation__link js-back">
+                  Back
+                </button>
+              </li>
+              <li>
+                <a href="#" class="p-navigation__dropdown-item">TODO...</a>
+              </li>
+              <li>
+                <a href="#" class="p-navigation__dropdown-item">TODO....</a>
+              </li>
+            </ul>
+        </li>
+        <li class="p-navigation__item js-account" role="menuitem" id="canonical-login">
+          <a href="#" class="p-navigation__link" tabindex="0">Sign in</a>
+        </li>
+        <li class="p-navigation__item">
+          <a href="#" class="js-search-button p-navigation__link--search-toggle" aria-label="Toggle search"></a>
+        </li>
+      </ul>
+      <div class="p-navigation__search">
+        <form class="p-search-box">
+          <input type="search" class="p-search-box__input" name="q" placeholder="Search our sites" required="" aria-label="Search our sites">
+          <button type="reset" class="p-search-box__reset"><i class="p-icon--close"></i></button>
+          <button type="submit" class="p-search-box__button"><i class="p-icon--search"></i></button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="p-navigation__search-overlay"></div>
+</header>
+
+<main id="main-content" class="inner-wrapper">
+  <section class="p-section--hero">
+    <div class="row--25-75">
+      <div class="col">
+        <h1>Ubuntu for desktops</h1>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block script %}
+  <script>
+      {% include 'docs/examples/patterns/navigation/_script-sliding.js' %}
+  </script>
+{% endblock %}
+
+{% block style %}
+  <style>
+    body { margin: 0; }
+  </style>
+{% endblock %}

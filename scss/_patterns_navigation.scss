@@ -143,6 +143,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   .p-navigation--sliding,
   .p-navigation--reduced {
     background-color: $colors--theme--background-default;
+    color: $colors--theme--text-default;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -416,6 +417,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       display: flex;
       flex-wrap: wrap;
       margin-top: 0; // prevents bottom border of nav from moving 1px
+      position: static;
     }
   }
 
@@ -760,6 +762,29 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
     &:first-child .p-navigation__link::before {
       content: none;
+    }
+  }
+
+  .p-navigation--sliding .p-navigation__dropdown.is-meganav {
+    // on desktop display full width meganav dropdowns
+    @media (min-width: $breakpoint-navigation-threshold) {
+      position: absolute;
+      left: 0;
+      right: 0;
+
+      .row,
+      .row--25-75 {
+        // FIXME: target all grid classes
+        margin: 0 auto;
+        padding: 0 1.5rem; // FIXME: get from variable
+      }
+    }
+  }
+  .p-navigation__dropdown-container {
+    display: none;
+
+    .p-navigation__item--dropdown-toggle.is-active & {
+      display: block;
     }
   }
 
