@@ -14,6 +14,7 @@ const initNavigationSliding = () => {
   const hasSearch = searchButtons.length > 0;
 
   const closeAll = () => {
+    console.log('closeAll');
     if (hasSearch) {
       closeSearch();
     }
@@ -66,7 +67,9 @@ const initNavigationSliding = () => {
   }
 
   const resetToggles = (exception) => {
+    console.log('resetToggles');
     toggles.forEach(function (toggle) {
+      console.log('resetToggles ', toggle);
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (!target || target === exception) {
         return;
@@ -108,8 +111,8 @@ const initNavigationSliding = () => {
       e.preventDefault();
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (target) {
-        const isNested = target.parentNode.parentNode.classList.contains('p-navigation__dropdown');
-
+        const isNested = !target.closest('.p-navigation__dropdown');
+        console.log('isNested', isNested);
         if (!isNested) {
           resetToggles(target);
         }
@@ -129,7 +132,7 @@ const initNavigationSliding = () => {
 
   const goBackOneLevel = (e, backButton) => {
     e.preventDefault();
-    const target = backButton.parentNode.parentNode;
+    const target = backButton.closest('.p-navigation__dropdown');
     target.setAttribute('aria-hidden', 'true');
     backButton.closest('.is-active').classList.remove('is-active');
     backButton.closest('.is-active').classList.remove('is-active');
