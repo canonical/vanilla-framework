@@ -4,7 +4,7 @@
 
   <div class="row">
     {% if variant == 1 or variant == 2 %}
-      <div class="col">
+      <div class="col-12">
     {% else %}
       <div class="col-6">
     {% endif %}
@@ -22,7 +22,7 @@
     {% endif %}
       {% for list_item in list_items %}
         <div class="row">
-          <div class="col">
+          <div class="col-12">
             {% if variant == 1 or variant == 2 or loop.index != 1 %}
               <hr>
             {% else %}
@@ -32,14 +32,10 @@
         </div>
 
         <div class="row">
-          {% if variant == 1 %}
+          {% if variant == 1 or variant == 4 %}
             <div class="col-3">
-          {% elif variant == 2 %}
+          {% else %}
             <div class="col-medium-3 col-3">
-          {% elif variant == 3 %}
-            <div class="col-medium-3 col-3">
-          {% elif variant == 4 %}
-            <div class="col-3">
           {% endif %}
             <h5>
               {{ list_item.title }}
