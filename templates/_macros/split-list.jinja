@@ -20,13 +20,25 @@
         </div>
 
         <div class="row">
-          <div class="col-3">
+          {% if variant == 1 %}
+            <div class="col-3">
+          {% elif variant == 2 %}
+            <div class="col-medium-3 col-3">
+          {% else %}
+            <div>
+          {% endif %}
             <h5>
               {{ list_item.title }}
             </h5>
           </div>
 
-          <div class="col-6">
+          {% if variant == 1 %}
+            <div class="col-6">
+          {% elif variant == 2 %}
+            <div class="col-medium-3 col-6">
+          {% else %}
+            <div>
+          {% endif %}
             <p>
               {{ list_item.description }}
             </p>
