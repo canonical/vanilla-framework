@@ -1,4 +1,6 @@
 {% extends "_layouts/examples.html" %}
+{% from "_macros/split-list.jinja" import split_list with context %}
+
 {% block title %}Split list{% endblock %}
 
 {% block standalone_css %}patterns_split-list{% endblock %}
@@ -433,4 +435,18 @@
     </div>
   </div>
 </div>
+
+<h6>full width, full width, 25-25-75 (Jinja macro)</h6>
+
+<p>{{ split_list(variant=1,
+      title='H2 - this can take up to two lines, but best to stick to one line.',
+      list_items=[{
+        'title': 'Rich portfolio of products',
+        'description': 'Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.'
+      }, {
+        'title': 'Sales enablement',
+        'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
+      }]) }}</p>
+
+<br><br><br>
 {% endblock %}
