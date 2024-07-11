@@ -765,21 +765,36 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
   }
 
-  .p-navigation--sliding .p-navigation__dropdown.is-meganav {
+  .p-navigation--reduced .p-navigation__dropdown.is-full-width,
+  .p-navigation--sliding .p-navigation__dropdown.is-full-width {
+    .p-navigation__dropdown-content {
+      display: none;
+    }
+
     // on desktop display full width meganav dropdowns
     @media (min-width: $breakpoint-navigation-threshold) {
-      position: absolute;
       left: 0;
+      position: absolute;
       right: 0;
 
-      .row,
-      .row--25-75 {
-        // FIXME: target all grid classes
-        margin: 0 auto;
-        padding: 0 1.5rem; // FIXME: get from variable
+      // hide mobile sliding menu on full width view
+      .p-navigation__dropdown-content-mobile {
+        display: none;
+      }
+
+      .p-navigation__dropdown-content {
+        display: block;
       }
     }
+
+    // rows think they are nested (because they are inside of navigation row)
+    // we need to reset them back to original state
+    .row,
+    [class*='row--'] {
+      @extend %fixed-width-container--common-properties;
+    }
   }
+
   .p-navigation__dropdown-container {
     display: none;
 
