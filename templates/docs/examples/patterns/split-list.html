@@ -1,7 +1,4 @@
 {% extends "_layouts/examples.html" %}
-{% from "_macros/split-list.jinja" import split_list %}
-{% from "_macros/split-list-html.jinja" import split_list_html %}
-{% from "_macros/split-list-compact.jinja" import split_list_compact %}
 {% from "_macros/split-list-new.jinja" import split_list_new %}
 
 {% block title %}Split list{% endblock %}
@@ -446,86 +443,6 @@
     </div>
   </div>
 </div>
-
-<br><br><br><br><br>
-
-<h6>full width, full width, 25-25-75 (Jinja macro)</h6>
-
-{{ split_list(variant=1,
-   title='H2 - this can take up to two lines, but best to stick to one line.',
-   is_subtitle_in_header=false,
-   subtitle='A private cloud provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.',
-   list_items=[{
-     'title': 'Rich portfolio of products',
-     'description': 'Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.'
-   }, {
-     'title': 'Sales enablement',
-     'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
-   }]) }}
-
-<h6>full width, 50-50, 25-25-75 (Jinja macro)</h6>
-
-{{ split_list(variant=2,
-   title='H2 - this can take up to two lines, but best to stick to one line.',
-   is_subtitle_in_header=true,
-   subtitle='A private cloud provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.',
-   list_items=[{
-     'title': 'Rich portfolio of products',
-     'description': 'Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.'
-   }, {
-     'title': 'Sales enablement',
-     'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
-   }]) }}
-
-<h6>full width, 50-50, 50-50 (Jinja macro)</h6>
-
-{{ split_list(variant=3,
-   title='H2 - this can take up to two lines, but best to stick to one line.',
-   subtitle='A private cloud provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.',
-   list_items=[{
-     'title': 'Rich portfolio of products',
-     'description': 'Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.'
-   }, {
-     'title': 'Sales enablement',
-     'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
-   }]) }}
-
-<h6>full width, full width, 50-50 (Jinja macro)</h6>
-
-{{ split_list(variant=4,
-   title='H2 - this can take up to two lines, but best to stick to one line.',
-   subtitle='A private cloud provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.',
-   list_items=[{
-     'title': 'Rich portfolio of products',
-     'description': 'Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.'
-   }, {
-     'title': 'Sales enablement',
-     'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
-   }]) }}
-
-<h6>full width, full width, 25-25-75 (Jinja macro w/ HTML)</h6>
-
-{{ split_list_html(variant=1,
-   title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>full width, full width, 25-25-75 (Jinja macro, compact)</h6>
-
-{{ split_list_compact(variant=1,
-   title='H2 - this can take up to two lines, but best to stick to one line.',
-   list_items=[{
-     'title': 'Rich portfolio of products',
-     'description': 'Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.'
-   }, {
-     'title': 'Sales enablement',
-     'description': 'Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.'
-   }]) }}
 
 <br><br><br><br><br>
 
