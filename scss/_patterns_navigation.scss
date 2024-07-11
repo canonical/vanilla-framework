@@ -768,12 +768,18 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
   .p-navigation--reduced .p-navigation__dropdown.is-full-width,
   .p-navigation--sliding .p-navigation__dropdown.is-full-width {
     .p-navigation__dropdown-content {
-      display: none;
+      @extend %vf-has-box-shadow;
+      @include vf-transition(transform, snap);
+      background-color: $colors--theme--background-default;
+      display: none; // hide on small screens
     }
 
     // on desktop display full width meganav dropdowns
     @media (min-width: $breakpoint-navigation-threshold) {
+      background-color: $color-transparent;
+      box-shadow: none;
       left: 0;
+      overflow: hidden;
       position: absolute;
       right: 0;
 
@@ -784,7 +790,12 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
       .p-navigation__dropdown-content {
         display: block;
+        transform: translateY(0);
       }
+    }
+
+    &.is-collapsed .p-navigation__dropdown-content {
+      transform: translateY(-101%);
     }
 
     // rows think they are nested (because they are inside of navigation row)
