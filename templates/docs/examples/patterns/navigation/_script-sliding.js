@@ -121,11 +121,18 @@ const initNavigationSliding = () => {
           toggle.parentNode.classList.add('is-active');
           toggle.parentNode.parentNode.classList.add('is-active');
           target.setAttribute('aria-hidden', 'false');
+
+          requestAnimationFrame(() => {
+            target.classList.remove('is-collapsed');
+          });
           setFocusable(target);
         } else {
-          target.setAttribute('aria-hidden', 'true');
-          toggle.parentNode.classList.remove('is-active');
-          toggle.parentNode.parentNode.classList.remove('is-active');
+          target.classList.add('is-collapsed');
+          setTimeout(() => {
+            target.setAttribute('aria-hidden', 'true');
+            toggle.parentNode.classList.remove('is-active');
+            toggle.parentNode.parentNode.classList.remove('is-active');
+          }, 100);
         }
       }
     });
