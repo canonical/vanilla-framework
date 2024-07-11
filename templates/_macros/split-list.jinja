@@ -7,7 +7,11 @@
 # title: split list title text
 # list_items: array of content objects for list
 #   [{ 'title': string, 'description': string }]
-{% macro split_list(variant=1, title='', list_items=[{}]) -%}
+{% macro split_list(variant=1, title='', subtitle='', list_items=[{}]) -%}
+{% set has_subtitle = subtitle != '' %}
+
+{{ has_subtitle}}
+
 <div class="u-fixed-width">
   <hr class="u-hide--small">
 
@@ -29,6 +33,16 @@
     {% else %}
       <div class="col-6">
     {% endif %}
+      {% if has_subtitle and (variant == 1 or variant == 2) %}
+        <div class="row">
+          <div class="col-6 col-start-large-4">
+            <p>
+              {{ subtitle }}
+            </p>
+          </div>
+        </div>
+      {% endif %}
+
       {% for list_item in list_items %}
         <div class="row">
           <div class="col-12">
