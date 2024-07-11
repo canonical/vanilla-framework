@@ -1,24 +1,24 @@
 # Params
 # title: split list title text
-# subtitle: split list subtitle text
-# is_subtitle_full_width_on_desktop: whether subtitle has its own row on desktop
-#   (vs. 50/50 split)
+# description: split list description text
+# is_description_full_width_on_desktop: whether description has its own row on
+#   desktop (vs. 50/50 split)
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet (vs. 50/50 split)
 # list_items: array of content objects for list
 #   [{ 'title': string, 'description': string }]
 {% macro split_list(
   title='',
-  subtitle='',
-  is_subtitle_full_width_on_desktop=true,
+  description='',
+  is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true,
   list_items=[{}]) -%}
-{% set has_subtitle = subtitle != '' %}
+{% set has_description = description != '' %}
 
 <div class="u-fixed-width">
   <hr class="u-hide--small">
-    {% if has_subtitle == true %}
-      {% if is_subtitle_full_width_on_desktop == true %}
+    {% if has_description == true %}
+      {% if is_description_full_width_on_desktop == true %}
         <div class="row">
           <div class="col-12">
             {{ title }}
@@ -27,7 +27,7 @@
 
         <div class="row">
           <div class="col-6 col-start-large-7">
-            {{ subtitle }}
+            {{ description }}
           </div>
         </div>
       {% else %}
@@ -37,7 +37,7 @@
           </div>
 
           <div class="col-6">
-            {{ subtitle }}
+            {{ description }}
           </div>
         </div>
       {% endif %}
