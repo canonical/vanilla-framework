@@ -109,6 +109,7 @@ const initNavigationSliding = () => {
   toggles.forEach(function (toggle) {
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
+      closeSearch();
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (target) {
         const isNested = !target.closest('.p-navigation__dropdown');

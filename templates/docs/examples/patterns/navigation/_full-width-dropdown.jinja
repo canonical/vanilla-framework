@@ -1,0 +1,30 @@
+{% macro dropdown(id, title) %}
+<div class="p-navigation__dropdown is-full-width"  data-level="1" id="{{ id }}" aria-hidden="true">
+  <div class="p-navigation__dropdown-content-mobile">
+    <ul class="p-list u-no-margin">{# TODO: use p-list temporarly, we will later have more specific styling class name for it #}
+      <li class="p-navigation__item--dropdown-close" id="{{ id }}-back">
+        <button aria-controls="{{ id }}" class="p-navigation__link js-back">
+          Back
+        </button>
+      </li>
+      <li>
+        <a href="#" class="p-navigation__dropdown-item">TODO...</a>
+      </li>
+      <li>
+        <a href="#" class="p-navigation__dropdown-item">TODO....</a>
+      </li>
+    </ul>
+  </div>
+  <div class="p-navigation__dropdown-content">
+    <div class="p-strip is-shallow">
+      <div class="row--25-75">
+        <div class="col"><p class="p-muted-heading">{{ title }}</p></div>
+        <div class="col">
+          <p class="p-muted-heading">Example desktop {{ title }} menu</p>
+          <p>Some custom meganav content...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
