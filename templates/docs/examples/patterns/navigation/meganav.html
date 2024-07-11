@@ -1,35 +1,9 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Navigation / Meganav{% endblock %}
+{% from "docs/examples/patterns/navigation/_full-width-dropdown.jinja" import dropdown %}
+
+{% block title %}Navigation / Full width dropdowns{% endblock %}
 
 {% block standalone_css %}patterns_navigation{% endblock %}
-
-{% macro dropdown(id, title) %}
-<div class="p-navigation__dropdown is-meganav"  data-level="1" id="{{ id }}" aria-hidden="true">
-  <ul class="p-list u-no-margin u-hide--large">
-    <li class="p-navigation__item--dropdown-close" id="{{ id }}-back">
-      <button aria-controls="{{ id }}" class="p-navigation__link js-back">
-        Back
-      </button>
-    </li>
-    <li>
-      <a href="#" class="p-navigation__dropdown-item">TODO...</a>
-    </li>
-    <li>
-      <a href="#" class="p-navigation__dropdown-item">TODO....</a>
-    </li>
-  </ul>
-  <div class="p-strip is-shallow u-hide--small u-hide--medium">
-    <div class="row--25-75">
-      <div class="col"><p class="p-muted-heading">{{ title }}</p></div>
-      <div class="col">
-        <p class="p-muted-heading">Example desktop {{ title }} menu</p>
-        <p>Some custom meganav content...</p>
-      </div>
-    </div>
-  </div>
-</div>
-{% endmacro %}
-
 
 {% block content %}
 <header id="navigation" class="p-navigation--sliding is-dark">
