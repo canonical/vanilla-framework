@@ -121,7 +121,7 @@ const initNavigationSliding = () => {
           toggle.parentNode.classList.add('is-active');
           toggle.parentNode.parentNode.classList.add('is-active');
           target.setAttribute('aria-hidden', 'false');
-
+          navigation.classList.add('has-menu-open');
           requestAnimationFrame(() => {
             target.classList.remove('is-collapsed');
           });
@@ -132,6 +132,7 @@ const initNavigationSliding = () => {
             target.setAttribute('aria-hidden', 'true');
             toggle.parentNode.classList.remove('is-active');
             toggle.parentNode.parentNode.classList.remove('is-active');
+            navigation.classList.remove('has-menu-open');
           }, 100);
         }
       }
