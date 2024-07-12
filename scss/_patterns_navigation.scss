@@ -741,6 +741,8 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     }
 
     &.is-active {
+      background: $colors--theme--background-active;
+
       &::after {
         transform: rotate(0deg);
 
@@ -771,6 +773,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       @extend %vf-has-box-shadow;
       @include vf-transition(transform, snap);
       background-color: $colors--theme--background-default;
+      border-top: 1px solid $colors--theme--border-default;
       display: none; // hide on small screens
     }
 
@@ -849,6 +852,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   .p-navigation--sliding.has-menu-open,
   .p-navigation--reduced.has-menu-open {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px 100vh;
     height: 100vh;
     overflow-y: hidden;
     position: fixed;
@@ -857,7 +861,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
     @media (min-width: $breakpoint-navigation-threshold) {
       height: auto;
       overflow-y: visible;
-      position: static;
+      position: relative;
       width: auto;
     }
 
