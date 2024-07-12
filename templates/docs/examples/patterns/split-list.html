@@ -86,5 +86,44 @@
      'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
    }]) }}
 
+<h6>with complex, multi-line HTML strings</h6>
+
+{{ split_list(title='
+    <h2>
+      H2 - this can take up to two lines, but best to stick to one line.
+    </h2>',
+   description='
+    <p>
+      A <u>private cloud</u> provides organisations with on-demand compute,
+      storage and other resources that can be accessed over the network and
+      that are reserved exclusively for them - either in their own data centre
+      or via a 3rd party.
+    </p>',
+   is_description_full_width_on_desktop=true,
+   is_list_full_width_on_tablet=true,
+   list_items=[{
+     'title': '
+        <h5>
+          Rich portfolio of products
+        </h5>',
+     'description': '
+        <p>
+          Resell the full range of Canonical’s portfolio of private and public
+          cloud products: <a href="#">Openstack</a>, Kubernetes, IoT, support,
+          security and compliance for Ubuntu.
+        </p>'
+   }, {
+     'title': '
+        <h5>
+          Sales enablement
+        </h5>',
+     'description': '
+        <p>
+          Canonical can help train your field sales and presales teams and
+          provide you with sales collateral and permission to use the Canonical
+          and Ubuntu trademarks in your own materials.
+        </p>'
+   }]) }}
+
 <br><br><br>
 {% endblock %}
