@@ -5,6 +5,17 @@
     @extend %vf-row;
     position: relative;
 
+    // Required to override styles in %vf-row
+    @supports (display: grid) {
+      grid-gap: 0 map-get($grid-gutter-widths, small);
+      grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
+
+      @media (min-width: $threshold-6-12-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+        grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+      }
+    }
+
     .p-equal-height-row__col {
       // smaller screens each column will have border top by default
       border-top-color: $colors--theme--border-low-contrast;
@@ -19,12 +30,11 @@
       position: relative;
 
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-column: span $grid-columns-medium;
         grid-template-columns: subgrid;
 
-        // for medium screen, each column item will take half of the available cols from the parent grid
+        // each column item will take half of the available cols from the parent grid
         .p-equal-height-row__item {
-          grid-column: span calc($grid-columns-medium / 2);
+          grid-column: span calc($grid-columns-small / ($grid-columns-small / 2));
         }
 
         // for medium screen, position the first column item on the left of the grid
@@ -33,6 +43,7 @@
         }
       }
 
+      // each column item will take half of the available cols from the parent grid
       @media screen and (width >= $breakpoint-large) {
         border: none;
         grid-column: span calc($grid-columns / 4);
@@ -94,10 +105,6 @@
   .row > .col-9 {
     & .p-equal-height-row {
       grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
-
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
-      }
 
       @media screen and (width >= $breakpoint-large) {
         grid-template-columns: repeat(9, minmax(0, 1fr));
