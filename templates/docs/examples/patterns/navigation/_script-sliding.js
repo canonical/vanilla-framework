@@ -85,7 +85,7 @@ const initNavigationSliding = () => {
     const target = event.target;
     if (target.closest) {
       if (!target.closest('.p-navigation--sliding, .p-navigation--reduced')) {
-        resetToggles();
+        closeAll();
       }
     }
   });
@@ -121,10 +121,18 @@ const initNavigationSliding = () => {
           toggle.parentNode.classList.add('is-active');
           toggle.parentNode.parentNode.classList.add('is-active');
           target.setAttribute('aria-hidden', 'false');
-          navigation.classList.add('has-menu-open');
-          requestAnimationFrame(() => {
+
+          // only animate the dropdown if menu is not open, otherwise just switch the visible one
+          if (!navigation.classList.contains('has-menu-open')) {
+            // trigger the CSS transition
+            requestAnimationFrame(() => {
+              target.classList.remove('is-collapsed');
+            });
+          } else {
+            // make it appear immediately
             target.classList.remove('is-collapsed');
-          });
+          }
+          navigation.classList.add('has-menu-open');
           setFocusable(target);
         } else {
           target.classList.add('is-collapsed');
