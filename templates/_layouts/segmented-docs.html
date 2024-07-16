@@ -1,0 +1,32 @@
+{% extends "_layouts/docs.html" %}
+
+{% block content %}
+  <div class="p-segmented-control">
+    <div class="p-segmented-control__list" role="tablist" aria-label="{{ title }}">
+      {%  for tab in segmented_tabs %}
+        <button class="p-segmented-control__button" role="tab" aria-selected="{{ tab.selected | lower }}" aria-controls="{{ tab.id }}-tab" id="{{ tab.id }}">{{ tab.title }}</button>
+      {%  endfor %}
+    </div>
+  </div>
+
+  {% for tab in segmented_tabs %}
+    <div tabindex="0" role="tabpanel" id="{{ tab.id }}-tab" aria-labelledby="{{ tab.id }}" {% if not tab.selected %}hidden="hidden"{% endif %}>
+      {%  if tab.example.before_example_content %}
+        {{ tab.example.before_example_content | safe }}
+      {% endif %}
+      <div class="embedded-example"><a href="{{ tab.example.path }}" class="js-example js-ignore-embed">
+        {{ tab.title }}
+      </a></div>
+      {%  if tab.example.after_example_content %}
+        {{ tab.example.after_example_content | safe }}
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {{ content | safe }}
+
+  <script>
+      {% include 'docs/examples/patterns/tabs/_script.js' %}
+  </script>
+
+{% endblock content %}

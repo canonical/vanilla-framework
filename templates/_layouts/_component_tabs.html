@@ -1,21 +1,39 @@
-{%if page_tabs %}
-<nav class="p-tabs" aria-label="{{slug}} documentation menu">
+{% if page_tabs and '/docs/' in path %}
+<nav class="p-tabs" aria-label="{{ slug }} documentation menu">
   <ul class="p-tabs__list">
     <li class="p-tabs__item">
-      <a href="/docs/{{ slug }}" class="p-tabs__link" {% if "/docs/" in path and "/accessibility" not in path
-        and "/design-guidelines" not in path %}aria-selected="true" {% endif %}>Implementation</a>
+      <a href="/docs/{{ slug }}" class="p-tabs__link"
+         {% if "/accessibility" not in path and "/design-guidelines" not in path and "/25-75" not in path %}aria-selected="true" {% endif %}>
+        Implementation
+      </a>
     </li>
     {% if page_tabs.accessibility %}
-    <li class="p-tabs__item">
-      <a href="/docs/{{ slug }}/accessibility" class="p-tabs__link" {% if "/accessibility" in path
-        %}aria-selected="true" {% endif %}>Accessibility</a>
-    </li>
+      <li class="p-tabs__item">
+        <a href="/docs/{{ slug }}/accessibility" class="p-tabs__link"
+           {% if "/accessibility" in path %}aria-selected="true" {% endif %}>
+          Accessibility
+        </a>
+      </li>
     {% endif %}
     {% if page_tabs.design_guidelines %}
-    <li class="p-tabs__item">
-      <a href="/docs/{{ slug }}/design-guidelines" class="p-tabs__link" {% if "/design-guidelines" in path %}aria-selected="true" {% endif%}>Design guidelines</a>
-    </li>
+      <li class="p-tabs__item">
+        <a href="/docs/{{ slug }}/design-guidelines" class="p-tabs__link"
+           {% if "/design-guidelines" in path %}aria-selected="true" {% endif %}>
+          Design guidelines
+        </a>
+      </li>
+    {% endif %}
+
+    {% if slug == 'patterns/hero' %}
+      {% if page_tabs['25-75'] %}
+        <li class="p-tabs__item">
+          <a href="/docs/{{ slug }}/25-75" class="p-tabs__link"
+             {% if "/25-75" in path %}aria-selected="true" {% endif %}>
+            25/75% Split
+          </a>
+        </li>
+      {% endif %}
     {% endif %}
   </ul>
 </nav>
-{%endif%}
+{% endif %}

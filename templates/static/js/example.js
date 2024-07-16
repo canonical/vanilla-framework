@@ -38,6 +38,10 @@
     [].slice.call(examples).forEach(fetchExample);
   });
 
+  /**
+   * Fetches example content from the given URL and renders it in the page.
+   * @param {HTMLAnchorElement} exampleElement - Placeholder element containing the URL to fetch. It will be hidden after the content is fetched.
+   */
   function fetchExample(exampleElement) {
     var link = exampleElement.href;
     var request = new XMLHttpRequest();
@@ -45,13 +49,28 @@
     request.onreadystatechange = function () {
       if (request.status === 200 && request.readyState === 4) {
         var html = request.responseText;
-        renderExample(exampleElement, html);
+        if (!exampleElement.classList.contains('js-ignore-embed')) {
+          renderEmbeddedExample(exampleElement, html);
+        } else {
+          renderRawExample(exampleElement, getBodyFromHtml(html));
+        }
         exampleElement.style.display = 'none';
       }
     };
 
     request.open('GET', link, true);
     request.send(null);
+  }
+
+  /**
+   * Given an HTML string, returns just the body content.
+   * @param {String} html HTML to parse the body from
+   * @returns {String} HTML content of the body tag
+   */
+  function getBodyFromHtml(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    return doc.body?.innerHTML;
   }
 
   function createPreCode(source, lang) {
@@ -77,7 +96,7 @@
     return pre;
   }
 
-  function renderExample(placementElement, html) {
+  function renderEmbeddedExample(placementElement, html) {
     var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
     var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
     var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
@@ -136,6 +155,27 @@
     if (Prism) {
       Prism.highlightAllUnder(codeSnippet);
     }
+  }
+
+  /**
+   * Renders a raw HTML example's content in the page.
+   * @param {HTMLAnchorElement} placementElement Placeholder element that will be replaced by rendered example.
+   * @param {String} html Raw HTML content to render.
+   */
+  function renderRawExample(placementElement, html) {
+    const rawExampleWrapper = document.createElement('div');
+
+    const rawExampleContainer = document.createElement('div');
+    rawExampleContainer.classList.add('p-strip--highlighted', 'is-shallow');
+    rawExampleContainer.innerHTML = html;
+
+    const fullExampleLink = document.createElement('a');
+    fullExampleLink.href = placementElement.href;
+    fullExampleLink.innerText = 'View full example';
+
+    rawExampleWrapper.appendChild(rawExampleContainer);
+    rawExampleWrapper.appendChild(fullExampleLink);
+    placementElement.parentNode.appendChild(rawExampleWrapper);
   }
 
   function renderDropdown(header, options) {
