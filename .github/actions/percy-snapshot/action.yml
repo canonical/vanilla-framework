@@ -87,6 +87,8 @@ runs:
         # If PR number is set & a Percy-GHA integration is set up, this allows Percy to set status on the PR
         PERCY_PULL_REQUEST: ${{ inputs.pr_number }}
         PERCY_PAGE_LOAD_TIMEOUT: 120000
+        LOG_LEVEL: debug
+        PERCY_DEBUG: "*"
       run: |
         # Start a percy build and capture the stdout and stderr
         percy_output=$(
