@@ -14,7 +14,6 @@ const initNavigationSliding = () => {
   const hasSearch = searchButtons.length > 0;
 
   const closeAll = () => {
-    console.log('closeAll');
     if (hasSearch) {
       closeSearch();
     }
@@ -67,9 +66,7 @@ const initNavigationSliding = () => {
   }
 
   const resetToggles = (exception) => {
-    console.log('resetToggles');
     toggles.forEach(function (toggle) {
-      console.log('resetToggles ', toggle);
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (!target || target === exception) {
         return;
@@ -113,7 +110,6 @@ const initNavigationSliding = () => {
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (target) {
         const isNested = !target.closest('.p-navigation__dropdown');
-        console.log('isNested', isNested);
         if (!isNested) {
           resetToggles(target);
         }
