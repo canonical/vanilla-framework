@@ -1,47 +1,31 @@
 {% macro tabs(buttons=[], aria_label='') -%}
   <div class="p-tabs">
     <div class="p-tabs__list" role="tablist" aria-label="{{ aria_label }}">
-      <div class="p-tabs__item">
-        <button
-          class="p-tabs__link"
-          role="tab"
-          aria-selected="true"
-          aria-controls="olm-tab"
-          id="olm"
-        >Charmed Operator Lifecycle Manager</button>
-      </div>
-      <div class="p-tabs__item">
-        <button
-          class="p-tabs__link"
-          role="tab"
-          aria-selected="false"
-          aria-controls="operator-tab"
-          id="operator"
-          tabindex="-1"
-        >Charmed Operator SDK</button>
-      </div>
-      <div class="p-tabs__item">
-        <button
-          class="p-tabs__link"
-          role="tab"
-          aria-selected="false"
-          aria-controls="charmhub-tab"
-          id="charmhub"
-          tabindex="-1"
-        >Charmhub</button>
-      </div>
+      {% for button in buttons %}
+        <div class="p-tabs__item">
+          <button
+            class="p-tabs__link"
+            role="tab"
+            aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+            aria-controls="tab-content-{{ loop.index }}"
+            id="tab-button-{{ loop.index }}"
+            {% if not loop.first %}tabindex="-1"{% endif %}
+          >
+            {{ button }}
+          </button>
+        </div>
+      {% endfor %}
     </div>
 
-    <div tabindex="0" role="tabpanel" id="olm-tab" aria-labelledby="olm">
-      {{ caller('tab_01') }}
-    </div>
-
-    <div tabindex="0" role="tabpanel" id="operator-tab" aria-labelledby="operator" hidden="hidden">
-      {{ caller('tab_02') }}
-    </div>
-
-    <div tabindex="0" role="tabpanel" id="charmhub-tab" aria-labelledby="charmhub" hidden="hidden">
-      {{ caller('tab_03') }}
-    </div>
+    {% for button in buttons %}
+      <div tabindex="0"
+        role="tabpanel"
+        id="tab-content-{{ loop.index }}"
+        aria-labelledby="tab-button-{{ loop.index }}"
+        {% if not loop.first %}hidden="hidden"{% endif %}
+      >
+        {{ caller('tab_' + loop.index|string) }}
+      </div>
+    {% endfor %}
   </div>
 {%- endmacro %}

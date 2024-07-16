@@ -6,54 +6,8 @@
 {% block standalone_css %}patterns_tabs{% endblock %}
 
 {% block content %}
-<div class="p-tabs">
-  <div class="p-tabs__list" role="tablist" aria-label="Juju technology">
-    <div class="p-tabs__item">
-      <button
-        class="p-tabs__link"
-        role="tab"
-        aria-selected="true"
-        aria-controls="olm-tab"
-        id="olm"
-      >Charmed Operator Lifecycle Manager</button>
-    </div>
-    <div class="p-tabs__item">
-      <button
-        class="p-tabs__link"
-        role="tab"
-        aria-selected="false"
-        aria-controls="operator-tab"
-        id="operator"
-        tabindex="-1"
-      >Charmed Operator SDK</button>
-    </div>
-    <div class="p-tabs__item">
-      <button
-        class="p-tabs__link"
-        role="tab"
-        aria-selected="false"
-        aria-controls="charmhub-tab"
-        id="charmhub"
-        tabindex="-1"
-      >Charmhub</button>
-    </div>
-  </div>
-
-  <div tabindex="0" role="tabpanel" id="olm-tab" aria-labelledby="olm">
-    <p>A system to help you move from configuration management to application management across your hybrid cloud estate - through sharable, reusable, tiny applications called Charmed Operators.</p>
-  </div>
-
-  <div tabindex="0" role="tabpanel" id="operator-tab" aria-labelledby="operator" hidden="hidden">
-    <p>A set of tools to help you write Charmed Operators and to package them as Charms.</p>
-  </div>
-
-  <div tabindex="0" role="tabpanel" id="charmhub-tab" aria-labelledby="charmhub" hidden="hidden">
-    <p>A repository for charms - from Observability to Data to Identity and more.</p>
-  </div>
-</div>
-
-{% call(content) tabs(aria_label='Juju technology') %}
-  {% if content == 'tab_01' %}
+{% call(content) tabs(buttons=['Charmed Operator Lifecycle Manager', 'Charmed Operator SDK', 'Charmhub'], aria_label='Juju technology') %}
+  {% if content == 'tab_1' %}
     <p>
       A system to help you move from configuration management to application
       management across your hybrid cloud estate - through sharable, reusable,
@@ -61,14 +15,14 @@
     </p>
   {% endif %}
 
-  {% if content == 'tab_02' %}
+  {% if content == 'tab_2' %}
     <p>
       A set of tools to help you write Charmed Operators and to package them as
       Charms.
     </p>
   {% endif %}
 
-  {% if content == 'tab_03' %}
+  {% if content == 'tab_3' %}
     <p>
       A repository for charms - from Observability to Data to Identity and more.
     </p>
