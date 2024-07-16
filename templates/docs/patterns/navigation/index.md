@@ -86,6 +86,21 @@ When used on websites with more complex information archutecture there may be a 
 
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/reduced" class="js-example">View example of the reduced navigation pattern</a></div>
 
+## Full-width dropdowns
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Work in progress:</h3>
+    <p class="p-notification__message">Full-width dropdowns are part of a larger piece of work to upstream the ubuntu.com navigation to Vanilla. These changes are introduced gradualy and may not be fully functional or documented yet.</p>
+  </div>
+</div>
+
+Instead of standard navigation dropdown menus a full-width dropdowns can be used to provide more space for the content of the dropdown.
+
+To use them add `.is-full-width` class name to `.p-navigation__dropdown` element. Inside of it you need two containers for desktop `.p-navigation__dropdown-content` and mobile `.p-navigation__dropdown-content--mobile` content. The mobile content will be displayed on small screens and desktop content on larger screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown-full-width" class="js-example">View example of the full-width dropdown pattern</a></div>
+
 ## Side navigation
 
 The side navigation pattern can be used to provide more detailed navigation alongside your content.
