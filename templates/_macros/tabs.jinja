@@ -1,0 +1,47 @@
+{% macro tabs(buttons=[], aria_label='') -%}
+  <div class="p-tabs">
+    <div class="p-tabs__list" role="tablist" aria-label="{{ aria_label }}">
+      <div class="p-tabs__item">
+        <button
+          class="p-tabs__link"
+          role="tab"
+          aria-selected="true"
+          aria-controls="olm-tab"
+          id="olm"
+        >Charmed Operator Lifecycle Manager</button>
+      </div>
+      <div class="p-tabs__item">
+        <button
+          class="p-tabs__link"
+          role="tab"
+          aria-selected="false"
+          aria-controls="operator-tab"
+          id="operator"
+          tabindex="-1"
+        >Charmed Operator SDK</button>
+      </div>
+      <div class="p-tabs__item">
+        <button
+          class="p-tabs__link"
+          role="tab"
+          aria-selected="false"
+          aria-controls="charmhub-tab"
+          id="charmhub"
+          tabindex="-1"
+        >Charmhub</button>
+      </div>
+    </div>
+
+    <div tabindex="0" role="tabpanel" id="olm-tab" aria-labelledby="olm">
+      {{ caller('tab_01') }}
+    </div>
+
+    <div tabindex="0" role="tabpanel" id="operator-tab" aria-labelledby="operator" hidden="hidden">
+      {{ caller('tab_02') }}
+    </div>
+
+    <div tabindex="0" role="tabpanel" id="charmhub-tab" aria-labelledby="charmhub" hidden="hidden">
+      {{ caller('tab_03') }}
+    </div>
+  </div>
+{%- endmacro %}

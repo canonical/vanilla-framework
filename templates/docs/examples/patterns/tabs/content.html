@@ -1,4 +1,6 @@
 {% extends "_layouts/examples.html" %}
+{% from "_macros/tabs.jinja" import tabs %}
+
 {% block title %}Tabs / Tabbed Content{% endblock %}
 
 {% block standalone_css %}patterns_tabs{% endblock %}
@@ -49,6 +51,29 @@
     <p>A repository for charms - from Observability to Data to Identity and more.</p>
   </div>
 </div>
+
+{% call(content) tabs(aria_label='Juju technology') %}
+  {% if content == 'tab_01' %}
+    <p>
+      A system to help you move from configuration management to application
+      management across your hybrid cloud estate - through sharable, reusable,
+      tiny applications called Charmed Operators.
+    </p>
+  {% endif %}
+
+  {% if content == 'tab_02' %}
+    <p>
+      A set of tools to help you write Charmed Operators and to package them as
+      Charms.
+    </p>
+  {% endif %}
+
+  {% if content == 'tab_03' %}
+    <p>
+      A repository for charms - from Observability to Data to Identity and more.
+    </p>
+  {% endif %}
+{% endcall %}
 
 <script>
   {% include 'docs/examples/patterns/tabs/_script.js' %}
