@@ -1,4 +1,4 @@
-{% macro image_container(img_url, width, alt='', aspect_ratio='16/9', is_highlighted=false) -%}
+{% macro image_container(img_url, width, alt='', aspect_ratio='', is_highlighted=false, is_cover=false) -%}
   {% if aspect_ratio == '16/9' %}
     {% set aspect_ratio_class = 'p-image-container--16-9' %}
   {% elif aspect_ratio == '3/2' %}
@@ -10,10 +10,10 @@
   {% elif aspect_ratio == 'square' %}
     {% set aspect_ratio_class = 'p-image-container--square' %}
   {% else %}
-    TODO
+    {% set aspect_ratio_class = 'p-image-container' %}
   {% endif %}
 
-  <div class="{{ aspect_ratio_class }}{% if is_highlighted == true %} is-highlighted{% endif %}">
+  <div class="{{ aspect_ratio_class }}{% if is_highlighted == true %} is-highlighted{% endif %}{% if is_cover == true %} is-cover{% endif %}">
     <img class="p-image-container__image" src="{{ img_url }}" width="{{ width }}" alt="{{ alt }}">
   </div>
 {%- endmacro %}
