@@ -206,6 +206,22 @@ const initNavigationSliding = () => {
       document.addEventListener('keyup', keyPressHandler);
     };
   }
+
+  // throttle util (for window resize event)
+  var throttle = function (fn, delay) {
+    var timer = null;
+    return function () {
+      var context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
+  };
+
+  // hide side navigation drawer when screen is resized
+  window.addEventListener('resize', throttle(closeAll, 10));
 };
 
 initNavigationSliding();
