@@ -1,0 +1,14 @@
+{% macro list_divided() -%}
+  <ul class="p-list--divided">
+    {% for number in range(1, 10) %}
+      {% set list_item_content = caller('list_item_' + number|string) %}
+      {% set has_content = list_item_content|trim|length > 0 %}
+
+      {% if has_content %}
+        <li class="p-list__item has-bullet">
+          {{ list_item_content }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{%- endmacro %}
