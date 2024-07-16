@@ -1,8 +1,14 @@
 {% macro image_container(img_url, width, alt='', aspect_ratio='16/9', is_highlighted=false) -%}
   {% if aspect_ratio == '16/9' %}
     {% set aspect_ratio_class = 'p-image-container--16-9' %}
+  {% elif aspect_ratio == '3/2' %}
+    {% set aspect_ratio_class = 'p-image-container--3-2' %}
+  {% elif aspect_ratio == '2/3' %}
+    {% set aspect_ratio_class = 'p-image-container--2-3' %}
+  {% elif aspect_ratio == 'cinematic' %}
+    {% set aspect_ratio_class = 'p-image-container--cinematic' %}
   {% elif aspect_ratio == 'square' %}
-    TODO
+    {% set aspect_ratio_class = 'p-image-container--square' %}
   {% else %}
     TODO
   {% endif %}
