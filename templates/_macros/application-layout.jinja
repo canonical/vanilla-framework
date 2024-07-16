@@ -1,0 +1,291 @@
+{% macro application_layout() -%}
+  <div class="l-application" role="presentation">
+    <div class="l-navigation-bar">
+      <div class="p-panel is-dark">
+        <div class="p-panel__header">
+          {{ caller('bar_header') }}
+        </div>
+      </div>
+    </div>
+
+    <header class="l-navigation is-collapsed">
+      <div class="l-navigation__drawer">
+        <div class="p-panel is-dark">
+          <div class="p-panel__header is-sticky">
+            {{ caller('drawer_header') }}
+          </div>
+
+          <div class="p-panel__content">
+            {{ caller('drawer_content') }}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="l-main">
+      <div class="p-panel">
+        <div class="p-panel__header">
+          <h4 class="p-panel__title">8 models: 3 blocked, 2 alerts, 3 running</h4>
+          <div class="p-panel__controls">
+            <button class="u-no-margin--bottom js-aside-open">Open aside</button>
+          </div>
+        </div>
+        <div class="p-panel__content">
+          <div class="u-fixed-width">
+            <table aria-label="JAAS table example" class="p-main-table">
+              <thead>
+                <tr>
+                  <th><span class="status-icon is-blocked">Blocked (3)</span></th>
+                  <th></th>
+                  <th>Owner</th>
+                  <th>Cloud/Region</th>
+                  <th>Credential</th>
+                  <th>Controller</th>
+                  <th class="u-align--right">Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-test-model-uuid="2f995dee-392e-4459-8eb9-839c501590af">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/gomboli@external/hadoopspark">hadoopspark</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr0">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>11</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr0">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr1">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr1">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr2">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>6</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr2">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-east1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">Algebra-json</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+                <tr data-test-model-uuid="d291b9ed-1e66-4023-84fe-57130e17a0b2">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/gomboli@external/mymodel4">mymodel4</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr3">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>7</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr3">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr4">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>11</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr4">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr5">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>11</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr5">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+                <tr data-test-model-uuid="5f612488-b60b-4256-814a-ba1abaa7db23">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/gomboli@external/testing">testing</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr6">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>2</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr6">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr7">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>2</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr7">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr8">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>4</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr8">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/europe-west1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+              </tbody>
+            </table>
+            <table aria-label="JAAS table example" class="p-main-table">
+              <thead>
+                <tr>
+                  <th><span class="status-icon is-alert">Alert (2)</span></th>
+                  <th></th>
+                  <th>Owner</th>
+                  <th>Cloud/Region</th>
+                  <th>Credential</th>
+                  <th>Controller</th>
+                  <th class="u-align--right">Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-test-model-uuid="e1e81a64-3385-4779-8643-05e3d5ed4523">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/gomboli@external/canonical-kubernetes">canonical-kubernetes</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr9">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>6</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr9">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr10">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr10">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr11">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr11">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+                <tr data-test-model-uuid="7ffe956a-06ac-4ae9-8aac-04eba4a93da5">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/gomboli@external/mymodel">mymodel</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr12">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>6</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr12">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr13">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr13">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr14">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>10</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr14">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">gomboli</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-east1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">clean-algebra-206308</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+              </tbody>
+            </table>
+            <table aria-label="JAAS table example" class="p-main-table">
+              <thead>
+                <tr>
+                  <th><span class="status-icon is-running">Running (3)</span></th>
+                  <th></th>
+                  <th>Owner</th>
+                  <th>Cloud/Region</th>
+                  <th>Credential</th>
+                  <th>Controller</th>
+                  <th class="u-align--right">Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-test-model-uuid="57650e3c-815f-4540-89df-81fd5d70b7ef">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/hatch@external/group-test">group-test</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr15">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>9</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr15">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr16">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr16">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr17">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr17">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">hatch</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">admin</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+                <tr data-test-model-uuid="e6782960-fb0b-460e-82a1-64ee03f9a39b">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/hatch@external/new-search-aggregate">new-search-aggregate</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr18">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>2</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr18">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr19">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr19">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr20">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr20">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">hatch</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">jujuongce</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+                <tr data-test-model-uuid="930f4bb0-070a-462a-8d4e-19d9772c08f2">
+                  <td class="" data-test-column="name">
+                    <div><a href="#/models/hatch@external/unplaced">unplaced</a></div>
+                  </td>
+                  <td class="has-overflow" data-test-column="summary">
+                    <div class="u-flex">
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr21">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>5</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr21">Applications</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr22">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr22">Units</span>
+                      </div>
+                      <div class="u-flex--block p-tooltip--top-center" aria-describedby="tp-cntr23">
+                        <div class="has-icon"><i class="p-icon--information"></i><span>0</span></div><span class="p-tooltip__message" role="tooltip" id="tp-cntr23">Machines</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="" data-test-column="owner"><a href="#_" class="p-link--soft">hatch</a></td>
+                  <td class="" data-test-column="cloud"><a href="#_" class="p-link--soft">google/us-central1</a></td>
+                  <td class="" data-test-column="credential"><a href="#_" class="p-link--soft">juju</a></td>
+                  <td class="" data-test-column="controller">JAAS</td>
+                  <td class="u-align--right" data-test-column="updated">2020-06-17</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="l-aside" id="aside-panel">
+      <div class="p-panel">
+        <div class="p-panel__header">
+          <h4 class="p-panel__title">Aside panel</h4>
+          <div class="p-panel__controls">
+            <button class="p-button--base js-aside-close u-no-margin--bottom has-icon"><i class="p-icon--close"></i></button>
+          </div>
+        </div>
+        <div class="p-panel__content">
+          {% include "docs/examples/patterns/forms/_form-stacked.html" %}
+        </div>
+      </div>
+    </aside>
+
+    <aside class="l-status">
+      <div class="p-panel demo-status">
+        <div class="u-fixed-width">
+          Status bar
+        </div>
+      </div>
+    </aside>
+  </div>
+{%- endmacro %}

@@ -1,4 +1,6 @@
 {% extends "_layouts/examples.html" %}
+{% from "_macros/application-layout.jinja" import application_layout %}
+
 {% block title %}Application / Default{% endblock %}
 
 {% block style %}
@@ -311,6 +313,36 @@
     </div>
   </aside>
 </div>
+
+{% call(content) application_layout() %}
+  {% if content == 'bar_header' %}
+    <a class="p-panel__logo" href="#">
+      <img class="p-panel__logo-icon" src="https://assets.ubuntu.com/v1/7144ec6d-logo-jaas-icon.svg" alt="" width="24" height="24">
+      <img class="p-panel__logo-name is-fading-when-collapsed" src="https://assets.ubuntu.com/v1/2e04d794-logo-jaas.svg" alt="JAAS" height="16">
+    </a>
+
+    <div class="p-panel__controls">
+      <span class="p-panel__toggle js-menu-toggle">Menu</span>
+    </div>
+  {% endif %}
+
+  {% if content == 'drawer_header' %}
+    <a class="p-panel__logo" href="#">
+      <img class="p-panel__logo-icon" src="https://assets.ubuntu.com/v1/7144ec6d-logo-jaas-icon.svg" alt="" width="24" height="24">
+      <img class="p-panel__logo-name is-fading-when-collapsed" src="https://assets.ubuntu.com/v1/2e04d794-logo-jaas.svg" alt="JAAS" height="16">
+    </a>
+
+    <div class="p-panel__controls u-hide--large">
+      <button class="p-button--base is-dark has-icon u-no-margin u-hide--medium js-menu-close"><i class="is-light p-icon--close"></i></button>
+      <button class="p-button--base is-dark has-icon u-no-margin u-hide--small js-menu-pin"><i class="is-light p-icon--pin"></i></button>
+    </div>
+  {% endif %}
+
+  {% if content == 'drawer_content' %}
+    {% set is_dark = True %}
+    {% include "docs/examples/patterns/side-navigation/_layout-application.html" %}
+  {% endif %}
+{% endcall %}
 
 <script>
 {% include "docs/examples/layouts/application/_script.js" %}
