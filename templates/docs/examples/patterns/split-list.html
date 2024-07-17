@@ -1,6 +1,7 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/split-list.jinja" import split_list %}
 {% from "_macros/split-list-new.jinja" import split_list_new %}
+{% from "_macros/split-list-header.jinja" import split_list_header %}
 {% from "_macros/split-list-item.jinja" import split_list_item %}
 
 {% block title %}Split list{% endblock %}
@@ -184,12 +185,32 @@
    }]) }}
 #}
 
-{% call split_list_new(
+{% call(content) split_list_new(
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true) %}
-  {% call split_list_item() %}
-    <h1>Hero section</h1>
-  {% endcall %}
+  {% if content == 'header' %}
+    {% call(content) split_list_header(is_description_full_width_on_desktop=true) %}
+      {% if content == 'title' %}
+        title
+      {% endif %}
+
+      {% if content == 'description' %}
+        description
+      {% endif %}
+    {% endcall %}
+  {% endif %}
+
+  {% if content == 'list' %}
+    {% call(content) split_list_item(is_list_full_width_on_tablet=true) %}
+      {% if content == 'title' %}
+        title
+      {% endif %}
+
+      {% if content == 'description' %}
+        description
+      {% endif %}
+    {% endcall %}
+  {% endif %}
 {% endcall %}
 
 <br><br><br>

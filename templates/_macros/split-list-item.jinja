@@ -1,3 +1,40 @@
-{% macro split_list_item() -%}
-  {{ caller() }}
+{% macro split_list_item(is_list_full_width_on_tablet=true) -%}
+  {% set title_content = caller('title') %}
+  {% set description_content = caller('description') %}
+
+  {% if is_list_full_width_on_tablet == true %}
+    <div class="row">
+      <div class="col-9 col-start-large-4">
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3 col-start-large-4">
+        {{ title_content }}
+      </div>
+
+      <div class="col-6">
+        {{ description_content }}
+      </div>
+    </div>
+  {% else %}
+    {% for list_item in list_items %}
+      <div class="row">
+        <div class="col-9 col-start-large-4">
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-medium-3 col-3 col-start-large-4">
+          {{ title_content }}
+        </div>
+
+        <div class="col-medium-3 col-6">
+          {{ description_content }}
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
 {%- endmacro %}

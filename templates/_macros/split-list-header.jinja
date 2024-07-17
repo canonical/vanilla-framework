@@ -1,0 +1,37 @@
+{% macro split_list_header(is_description_full_width_on_desktop=true) -%}
+  {% set title_content = caller('title') %}
+  {% set description_content = caller('description') %}
+  {% set has_description = description_content|trim|length > 0 %}
+
+  {% if has_description == true %}
+    {% if is_description_full_width_on_desktop == true %}
+      <div class="row">
+        <div class="col-12">
+          {{ title_content }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-start-large-7">
+          {{ description_content }}
+        </div>
+      </div>
+    {% else %}
+      <div class="row">
+        <div class="col-6">
+          {{ title_content }}
+        </div>
+
+        <div class="col-6">
+          {{ description_content }}
+        </div>
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="row">
+      <div class="col-12">
+        {{ title_content }}
+      </div>
+    </div>
+  {% endif %}
+{%- endmacro %}
