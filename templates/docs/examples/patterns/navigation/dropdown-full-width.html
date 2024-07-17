@@ -6,7 +6,7 @@
 {% block standalone_css %}patterns_navigation{% endblock %}
 
 {% block content %}
-<header id="navigation" class="p-navigation--sliding is-dark">
+<header id="navigation" class="p-navigation--sliding is-dark has-menu-open">
   <div class="p-navigation__row--25-75">
     <div class="p-navigation__banner">
       <div class="p-navigation__tagged-logo">
@@ -32,9 +32,9 @@
           <a class="p-navigation__link" href="#" aria-controls="products-content" tabindex="0">Products</a>
           {{ dropdown('products-content', 'Products') }}
         </li>
-        <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="use-case">
+        <li class="p-navigation__item--dropdown-toggle is-active" role="menuitem" id="use-case">
           <a class="p-navigation__link" href="#" aria-controls="use-case-content" tabindex="0">Use cases</a>
-          {{ dropdown('use-case-content', 'Use cases') }}
+          {{ dropdown('use-case-content', 'Use cases', True) }}
         </li>
         <li class="p-navigation__item--dropdown-toggle" role="menuitem" id="support">
           <a class="p-navigation__link" href="#" aria-controls="support-content" tabindex="0">Support</a>

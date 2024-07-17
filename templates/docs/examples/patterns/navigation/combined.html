@@ -35,5 +35,10 @@
 <section>{% include 'docs/examples/patterns/navigation/sliding-dark.html' %}</section>
 <section>{% include 'docs/examples/patterns/navigation/sliding-search.html' %}</section>
 <section>{% include 'docs/examples/patterns/navigation/reduced.html' %}</section>
+<section style="overflow: hidden">{# prevent overlay from spilling out on other examples #}
+  {% with spacing_below = 15 %}
+    {% include 'docs/examples/patterns/navigation/dropdown-full-width.html' %}
+  {% endwith %}
+</section>
 {% endwith %}
 {% endblock %}

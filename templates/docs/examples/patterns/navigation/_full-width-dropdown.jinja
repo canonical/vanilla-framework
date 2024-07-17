@@ -1,5 +1,5 @@
-{% macro dropdown(id, title) %}
-<div class="p-navigation__dropdown is-full-width is-collapsed"  data-level="1" id="{{ id }}" aria-hidden="true">
+{% macro dropdown(id, title, is_open=False) %}
+<div class="p-navigation__dropdown is-full-width {% if not is_open %}is-collapsed{% endif %}"  data-level="1" id="{{ id }}" {% if not is_open %}aria-hidden="true"{% endif %}>
   <div class="p-navigation__dropdown-content-mobile">
     <ul class="p-list u-no-margin">{# TODO: use p-list temporarly, we will later have more specific styling class name for it #}
       <li class="p-navigation__item--dropdown-close" id="{{ id }}-back">
