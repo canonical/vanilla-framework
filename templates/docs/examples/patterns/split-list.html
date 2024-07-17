@@ -9,181 +9,7 @@
 {% block standalone_css %}patterns_split-list{% endblock %}
 
 {% block content %}
-{#
-<h6>has_description = true, is_description_full_width_on_desktop = true, is_list_full_width_on_tablet = true</h6>
-
-{{ split_list(title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   description='<p>A <u>private cloud</u> provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.</p>',
-   is_description_full_width_on_desktop=true,
-   is_list_full_width_on_tablet=true,
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>has_description = true, is_description_full_width_on_desktop = true, is_list_full_width_on_tablet = false</h6>
-
-{{ split_list(title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   description='<p>A <u>private cloud</u> provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.</p>',
-   is_description_full_width_on_desktop=true,
-   is_list_full_width_on_tablet=false,
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>has_description = true, is_description_full_width_on_desktop = false, is_list_full_width_on_tablet = true</h6>
-
-{{ split_list(title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   description='<p>A <u>private cloud</u> provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.</p>',
-   is_description_full_width_on_desktop=false,
-   is_list_full_width_on_tablet=true,
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>has_description = true, is_description_full_width_on_desktop = false, is_list_full_width_on_tablet = false</h6>
-
-{{ split_list(title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   description='<p>A <u>private cloud</u> provides organisations with on-demand compute, storage and other resources that can be accessed over the network and that are reserved exclusively for them - either in their own data centre or via a 3rd party.</p>',
-   is_description_full_width_on_desktop=false,
-   is_list_full_width_on_tablet=false,
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>has_description = false, is_list_full_width_on_tablet = true</h6>
-
-{{ split_list(title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   is_list_full_width_on_tablet=true,
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>has_description = false, is_list_full_width_on_tablet = false</h6>
-
-{{ split_list(title='<h2>H2 - this can take up to two lines, but best to stick to one line.</h2>',
-   is_list_full_width_on_tablet=false,
-   list_items=[{
-     'title': '<h5>Rich portfolio of products</h5>',
-     'description': '<p>Resell the full range of Canonical’s portfolio of private and public cloud products: Openstack, Kubernetes, IoT, support, security and compliance for Ubuntu.</p>'
-   }, {
-     'title': '<h5>Sales enablement</h5>',
-     'description': '<p>Canonical can help train your field sales and presales teams and provide you with sales collateral and permission to use the Canonical and Ubuntu trademarks in your own materials.</p>'
-   }]) }}
-
-<h6>with complex, multi-line HTML strings</h6>
-
-{{ split_list(title='
-    <h2>
-      H2 - this can take up to two lines, but best to stick to one line.
-    </h2>',
-   description='
-    <p>
-      A <u>private cloud</u> provides organisations with on-demand compute,
-      storage and other resources that can be accessed over the network and
-      that are reserved exclusively for them - either in their own data centre
-      or via a 3rd party.
-    </p>',
-   is_description_full_width_on_desktop=true,
-   is_list_full_width_on_tablet=false,
-   list_items=[{
-     'title': '
-        <h5>
-          Rich portfolio of products
-        </h5>',
-     'description': '
-        <p>
-          Resell the full range of Canonical’s portfolio of private and public
-          cloud products: <a href="#">Openstack</a>, Kubernetes, IoT, support,
-          security and compliance for Ubuntu.
-        </p>'
-   }, {
-     'title': '
-        <h5>
-          Sales enablement
-        </h5>',
-     'description': '
-        <p>
-          Canonical can help train your field sales and presales teams and
-          provide you with sales collateral and permission to use the Canonical
-          and Ubuntu trademarks in your own materials.
-        </p>'
-   }, {
-    'title': '
-       <h5>
-         Sales enablement
-       </h5>',
-    'description': '
-       <ul class="p-list--divided">
-         <li class="p-list__item has-bullet">
-           Balance compute load in the cloud
-
-           <ul class="p-list--divided">
-             <li class="p-list__item has-bullet">Balance compute load in the cloud</li>
-           </ul>
-         </li>
-         <li class="p-list__item is-ticked">
-           Balance compute load in the cloud
-
-           <ul class="p-list--divided">
-             <li class="p-list__item is-ticked">Balance compute load in the cloud</li>
-           </ul>
-         </li>
-         <li class="p-list__item">
-           Balance compute load in the cloud
-
-           <ul class="p-list--divided">
-             <li class="p-list__item">Balance compute load in the cloud</li>
-           </ul>
-         </li>
-       </ul>'
-   }, {
-    'title': '
-       <img src="https://assets.ubuntu.com/v1/56e5a802-spark-logo.png" width="100">',
-    'description': '
-       <div class="p-section--shallow">
-         <h1>
-           Apache Spark<sup>®</sup> operations,<br class="u-hide--small">
-           simplified
-         </h1>
-       </div>
-
-       <div class="p-section--shallow">
-         <p>
-           Secure and automate the deployment, maintenance and upgrades of Spark
-           on Kubernetes. Run your big data clusters across private and public
-           clouds.
-         </p>
-       </div>
-
-       <hr class="p-rule--muted">
-
-       <div class="p-media-container">
-         <a class="p-button--positive" href="#">
-           Contact us
-         </a>
-       </div>'
-   }]) }}
-#}
+<h6>parent/child Macros</h6>
 
 {% call(slot) split_list_new() %}
   {% set is_full_width_description = true %}
@@ -240,6 +66,53 @@
         </p>
       {% endif %}
     {% endcall %}
+  {% endif %}
+{% endcall %}
+
+<h6>single Macro</h6>
+
+{% call(slot) split_list(is_description_full_width_on_desktop=true, is_list_full_width_on_tablet=true) %}
+  {% if slot == 'title' %}
+    <h2>
+      H2 - this can take up to two lines, but best to stick to one line.
+    </h2>
+  {% endif %}
+
+  {% if slot == 'description' %}
+    <p>
+      A <u>private cloud</u> provides organisations with on-demand compute,
+      storage and other resources that can be accessed over the network and
+      that are reserved exclusively for them - either in their own data centre
+      or via a 3rd party.
+    </p>
+  {% endif %}
+
+  {% if slot == 'list_item_title_1' %}
+    <h5>
+      Rich portfolio of products
+    </h5>
+  {% endif %}
+
+  {% if slot == 'list_item_description_1' %}
+    <p>
+      Resell the full range of Canonical’s portfolio of private and public
+      cloud products: Openstack, Kubernetes, IoT, support, security and
+      compliance for Ubuntu.
+    </p>
+  {% endif %}
+
+  {% if slot == 'list_item_title_2' %}
+    <h5>
+      Sales enablement
+    </h5>
+  {% endif %}
+
+  {% if slot == 'list_item_description_2' %}
+    <p>
+      Canonical can help train your field sales and presales teams and
+      provide you with sales collateral and permission to use the Canonical
+      and Ubuntu trademarks in your own materials.
+    </p>
   {% endif %}
 {% endcall %}
 
