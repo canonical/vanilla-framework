@@ -185,16 +185,19 @@
    }]) }}
 #}
 
-{% call(content) split_list_new() %}
-  {% if content == 'header' %}
-    {% call(content) split_list_header(is_description_full_width_on_desktop=true) %}
-      {% if content == 'title' %}
+{% call(slot) split_list_new() %}
+  {% set is_full_width_description = true %}
+  {% set is_full_width_list = true %}
+
+  {% if slot == 'header' %}
+    {% call(slot) split_list_header(is_full_width_description) %}
+      {% if slot == 'title' %}
         <h2>
           H2 - this can take up to two lines, but best to stick to one line.
         </h2>
       {% endif %}
 
-      {% if content == 'description' %}
+      {% if slot == 'description' %}
         <p>
           A <u>private cloud</u> provides organisations with on-demand compute,
           storage and other resources that can be accessed over the network and
@@ -205,14 +208,36 @@
     {% endcall %}
   {% endif %}
 
-  {% if content == 'list' %}
-    {% call(content) split_list_item(is_list_full_width_on_tablet=true) %}
-      {% if content == 'title' %}
-        title
+  {% if slot == 'list' %}
+    {% call(slot) split_list_item(is_full_width_list) %}
+      {% if slot == 'title' %}
+        <h5>
+          Rich portfolio of products
+        </h5>
       {% endif %}
 
-      {% if content == 'description' %}
-        description
+      {% if slot == 'description' %}
+        <p>
+          Resell the full range of Canonical’s portfolio of private and public
+          cloud products: Openstack, Kubernetes, IoT, support, security and
+          compliance for Ubuntu.
+        </p>
+      {% endif %}
+    {% endcall %}
+
+    {% call(slot) split_list_item(is_full_width_list) %}
+      {% if slot == 'title' %}
+        <h5>
+          Sales enablement
+        </h5>
+      {% endif %}
+
+      {% if slot == 'description' %}
+        <p>
+          Canonical can help train your field sales and presales teams and
+          provide you with sales collateral and permission to use the Canonical
+          and Ubuntu trademarks in your own materials.
+        </p>
       {% endif %}
     {% endcall %}
   {% endif %}
