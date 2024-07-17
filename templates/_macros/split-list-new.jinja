@@ -1,0 +1,83 @@
+{% macro split_list_new(
+  title='',
+  description='',
+  is_description_full_width_on_desktop=true,
+  is_list_full_width_on_tablet=true,
+  list_items=[{}]) -%}
+{% set has_description = description != '' %}
+
+{{ caller() }}
+
+<div class="u-fixed-width">
+  <hr class="u-hide--small">
+    {% if has_description == true %}
+      {% if is_description_full_width_on_desktop == true %}
+        <div class="row">
+          <div class="col-12">
+            {{ title }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-start-large-7">
+            {{ description }}
+          </div>
+        </div>
+      {% else %}
+        <div class="row">
+          <div class="col-6">
+            {{ title }}
+          </div>
+
+          <div class="col-6">
+            {{ description }}
+          </div>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="row">
+        <div class="col-12">
+          {{ title }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if is_list_full_width_on_tablet == true %}
+      {% for list_item in list_items %}
+        <div class="row">
+          <div class="col-9 col-start-large-4">
+            <hr>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 col-start-large-4">
+            {{ list_item.title }}
+          </div>
+
+          <div class="col-6">
+            {{ list_item.description }}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for list_item in list_items %}
+        <div class="row">
+          <div class="col-9 col-start-large-4">
+            <hr>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-medium-3 col-3 col-start-large-4">
+            {{ list_item.title }}
+          </div>
+
+          <div class="col-medium-3 col-6">
+            {{ list_item.description }}
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+</div>
+{%- endmacro %}
