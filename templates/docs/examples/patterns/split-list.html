@@ -185,17 +185,22 @@
    }]) }}
 #}
 
-{% call(content) split_list_new(
-  is_description_full_width_on_desktop=true,
-  is_list_full_width_on_tablet=true) %}
+{% call(content) split_list_new() %}
   {% if content == 'header' %}
     {% call(content) split_list_header(is_description_full_width_on_desktop=true) %}
       {% if content == 'title' %}
-        title
+        <h2>
+          H2 - this can take up to two lines, but best to stick to one line.
+        </h2>
       {% endif %}
 
       {% if content == 'description' %}
-        description
+        <p>
+          A <u>private cloud</u> provides organisations with on-demand compute,
+          storage and other resources that can be accessed over the network and
+          that are reserved exclusively for them - either in their own data centre
+          or via a 3rd party.
+        </p>
       {% endif %}
     {% endcall %}
   {% endif %}
