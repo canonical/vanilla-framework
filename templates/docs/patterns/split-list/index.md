@@ -67,19 +67,19 @@ and use in your Jinja-based project.
 
 ### Params
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| `is_description_full_width_on_desktop` | boolean | `true` | Whether the `description` element should appear full-width on its own row on desktop |
-| `is_list_full_width_on_tablet` | boolean | `true` | Whether the list items should appear full-width on their own rows on tablet |
+| Param                                  | Type    | Default | Description                                                                          |
+| -------------------------------------- | ------- | ------- | ------------------------------------------------------------------------------------ |
+| `is_description_full_width_on_desktop` | boolean | `true`  | Whether the `description` element should appear full-width on its own row on desktop |
+| `is_list_full_width_on_tablet`         | boolean | `true`  | Whether the list items should appear full-width on their own rows on tablet          |
 
 ### Slots
 
-| Name | Description |
-| --- | --- |
-| `title` | HTML to be rendered as the Split List title |
-| `description` | HTML to be rendered as the Split List description; if omitted, `title` will always display full-width |
-| `list_item_title_1` - `list_item_title_10` | HTML to be rendered for each list item's title; max of 10 |
-| `list_item_description_1` - `list_item_description_10` | HTML to be rendered for each list item's description; max of 10 |
+| Name                                                   | Description                                                                                           |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `title`                                                | HTML to be rendered as the Split List title                                                           |
+| `description`                                          | HTML to be rendered as the Split List description; if omitted, `title` will always display full-width |
+| `list_item_title_1` - `list_item_title_10`             | HTML to be rendered for each list item's title; max of 10                                             |
+| `list_item_description_1` - `list_item_description_10` | HTML to be rendered for each list item's description; max of 10                                       |
 
 <div class="p-notification--information">
   <p class="p-notification__content">
