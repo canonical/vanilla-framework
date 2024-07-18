@@ -1,4 +1,5 @@
 {% from "_macros/cta/cta-block.jinja" import cta_block %}
+{% from "_macros/image-container.jinja" import image_container %}
 
 # Params
 # title_text: Hero title text (required)
@@ -7,7 +8,7 @@
 #   If false, image will be in its own row (stacked below header/description)
 # image_src: image source URL (required)
 # image_alt: image alt text
-# image_aspect_ratio: aspect ratio identifier of the image, from the `p-image-container` component
+# image_aspect_ratio: image aspect ratio (16/9, 3/2, 2/3, cinematic, square)
 # image_full_cover: whether the image should span the full width of the bottom of the hero section
 # image_hidden_breakpoints: list of breakpoints where the image should be hidden, e.g. ["large", "medium"] to only show on small screens
 # cta_primary_text: primary CTA button text, shown in a primary-colored button. Leave blank to hide CTA block.
@@ -24,6 +25,7 @@
   image_src = "",
   image_alt = "",
   image_aspect_ratio = "",
+  image_highlighted = false,
   image_full_cover = false,
   image_hidden_breakpoints = [],
   cta_primary_text = "",
@@ -71,8 +73,8 @@
   {% endmacro %}
 
   {% macro _hero_image() -%}
-    <div class="p-image-container{% if has_specific_image_aspect_ratio %}--{{ image_aspect_ratio|trim }}{% endif %} {% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %} is-cover">
-      <img class="p-image-container__image" src="{{ image_src }}" alt="{{ image_alt }}">
+    <div class="{% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %}">
+      {{ image_container(image_src, alt=image_alt, aspect_ratio=image_aspect_ratio, is_highlighted=image_highlighted, is_cover=True) }}
     </div>
   {% endmacro %}
 
