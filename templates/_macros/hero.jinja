@@ -77,7 +77,7 @@
   {% endmacro %}
 
   <section class="p-section--hero">
-    <div class="row--50-50{% if is_full_width_on_tablet %}-on-large{% endif %}">
+    <div class="{% if is_full_width_on_tablet %}row--50-50-on-large{% else %}row--50-50{% endif %}">
       <div class="col">
         {% if image_full_cover %}
           {{ hero_title_block() }}
