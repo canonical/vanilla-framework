@@ -13,7 +13,7 @@ const initNavigationSliding = () => {
 
   const hasSearch = searchButtons.length > 0;
 
-  const closeAll = () => {
+  const closeAllDropdowns = () => {
     if (hasSearch) {
       closeSearch();
     }
@@ -27,7 +27,7 @@ const initNavigationSliding = () => {
 
   const keyPressHandler = (e) => {
     if (e.key === 'Escape') {
-      closeAll();
+      closeAllDropdowns();
     }
   };
 
@@ -44,7 +44,7 @@ const initNavigationSliding = () => {
     e.preventDefault();
     closeSearch();
     if (navigation.classList.contains('has-menu-open')) {
-      closeAll();
+      closeAllDropdowns();
     } else {
       navigation.classList.add('has-menu-open');
       e.target.innerHTML = 'Close menu';
@@ -58,7 +58,7 @@ const initNavigationSliding = () => {
       event.preventDefault();
       closeSearch();
       if (secondaryNavigation.classList.contains('has-menu-open')) {
-        closeAll();
+        closeAllDropdowns();
       } else {
         secondaryNavigation.classList.add('has-menu-open');
       }
@@ -82,7 +82,7 @@ const initNavigationSliding = () => {
     const target = event.target;
     if (target.closest) {
       if (!target.closest('.p-navigation--sliding, .p-navigation--reduced')) {
-        closeAll();
+        closeAllDropdowns();
       }
     }
   });
@@ -109,10 +109,12 @@ const initNavigationSliding = () => {
       closeSearch();
       const target = document.getElementById(toggle.getAttribute('aria-controls'));
       if (target) {
-        const isNested = !target.closest('.p-navigation__dropdown');
+        // check if the toggled dropdown is child of another dropdown
+        const isNested = !!target.parentNode.closest('.p-navigation__dropdown');
         if (!isNested) {
           resetToggles(target);
         }
+
         if (target.getAttribute('aria-hidden') === 'true') {
           toggle.parentNode.classList.add('is-active');
           toggle.parentNode.parentNode.classList.add('is-active');
@@ -172,9 +174,9 @@ const initNavigationSliding = () => {
       e.preventDefault();
 
       if (navigation.classList.contains('has-search-open')) {
-        closeAll();
+        closeAllDropdowns();
       } else {
-        closeAll();
+        closeAllDropdowns();
         openSearch(e);
       }
     };
@@ -185,7 +187,7 @@ const initNavigationSliding = () => {
 
     const overlay = document.querySelector('.p-navigation__search-overlay');
     if (overlay) {
-      overlay.addEventListener('click', closeAll);
+      overlay.addEventListener('click', closeAllDropdowns);
     }
 
     const openSearch = (e) => {
@@ -221,7 +223,7 @@ const initNavigationSliding = () => {
   };
 
   // hide side navigation drawer when screen is resized
-  window.addEventListener('resize', throttle(closeAll, 10));
+  window.addEventListener('resize', throttle(closeAllDropdowns, 10));
 };
 
 initNavigationSliding();
