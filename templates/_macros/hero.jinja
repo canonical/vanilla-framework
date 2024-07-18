@@ -73,9 +73,7 @@
   {% endmacro %}
 
   {% macro _hero_image() -%}
-    <div class="{% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %}">
-      {{ image_container(image_src, alt=image_alt, aspect_ratio=image_aspect_ratio, is_highlighted=image_highlighted, is_cover=True) }}
-    </div>
+    {{ image_container(image_src, alt=image_alt, aspect_ratio=image_aspect_ratio, image_hidden_breakpoints=image_hidden_breakpoints, is_highlighted=image_highlighted, is_cover=True) }}
   {% endmacro %}
 
   <section class="p-section--hero">
