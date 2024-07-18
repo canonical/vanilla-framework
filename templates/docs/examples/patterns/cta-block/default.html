@@ -1,11 +1,13 @@
 {% extends "_layouts/examples.html" %}
+{% from "_macros/cta/cta-block.jinja" import cta_block %}
+
 {% block title %}CTA Block{% endblock %}
 
 {% block standalone_css %}patterns_cta{% endblock %}
 
 {% block content %}
-<div class="p-cta-block">
-    <a href="#" class="p-button--positive">Learn more</a>
-    <a href="#">Contact us ›</a>
-</div>
+  {{ cta_block(
+    primary_text="Learn more",
+    secondary_text="Contact us ›"
+  )}}
 {% endblock %}

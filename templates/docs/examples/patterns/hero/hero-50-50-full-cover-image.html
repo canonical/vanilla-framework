@@ -1,35 +1,27 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Hero / 50/50 / Full Cover Image{% endblock %}
+{% from "_macros/hero.jinja" import hero %}
+
+{% block title %}Hero / 50/50 / Full cover image{% endblock %}
 {% block standalone_css %}patterns_hero{% endblock %}
 
 {% set is_paper = True %}
 {% block content %}
 
-<section class="p-section--hero">
-  <div class="row--50-50-on-large">
-    <div class="col">
-      <h1 class="u-no-margin--bottom">H1 - ideally one line, up to two</h1>
-    </div>
-    <div class="col">
-      <div class="p-section--shallow">
-        <h2>H2 placeholder - aim for one line, 2 is acceptable.</h2>
-      </div>
-      <div class="p-section--shallow">
-        <p>Generally, the height of the right hand side of a 50/50 split should contain more content than
-          the left
-          hand side.</p>
-      </div>
-      <div class="p-cta-block">
-        <a href="#" class="p-button--positive">Learn more</a>
-        <a href="#">Contact us ›</a>
-      </div>
-    </div>
-    <div class="p-image-container-16-9 is-cover">
-      <img class="p-image-container__image"
-           src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg"
-           alt="">
-    </div>
-  </div>
-</section>
+{% call(slot) hero(
+  title_text="H1 - ideally one line, up to two",
+  subtitle_text="H2 placeholder - aim for one line, 2 is acceptable.",
+  image_src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg",
+  image_aspect_ratio="cinematic",
+  image_full_cover=True,
+  show_cta=True,
+  cta_secondary_text="Contact us ›"
+) %}
+    {% if slot == 'description' %}
+      <p>
+        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side.
+      </p>
+    {% endif %}
+  {% endcall %}
 
 {% endblock %}

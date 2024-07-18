@@ -1,0 +1,111 @@
+{% from "_macros/cta/cta-block.jinja" import cta_block %}
+
+# Params
+# title_text: Hero title text (required)
+# subtitle_text: Hero subtitle text
+# is_full_width_on_tablet: whether image is in its own row on tablet.
+#   If false, image will be in its own row (stacked below header/description)
+# image_src: image source URL (required)
+# image_alt: image alt text
+# image_aspect_ratio: aspect ratio identifier of the image, from the `p-image-container` component
+# image_full_cover: whether the image should span the full width of the bottom of the hero section
+# image_hidden_breakpoints: list of breakpoints where the image should be hidden, e.g. ["large", "medium"] to only show on small screens
+# show_cta: whether to show the call-to-action block
+# cta_primary_text: primary CTA button text, shown in a primary-colored button
+# cta_primary_url: primary CTA button URL
+# cta_secondary_text: secondary CTA button text, shown as a link
+# cta_secondary_url: secondary CTA button URL
+# Slots
+# description: slot for additional paragraph-style content below the title and subtitle
+
+{% macro hero(
+  title_text="",
+  subtitle_text="",
+  is_full_width_on_tablet = true,
+  image_src = "",
+  image_alt = "",
+  image_aspect_ratio = "",
+  image_full_cover = false,
+  image_hidden_breakpoints = [],
+  show_cta = false,
+  cta_primary_text = "Learn more",
+  cta_primary_url = "#",
+  cta_secondary_text = "",
+  cta_secondary_url = "#"
+)-%}
+  {% set has_subtitle = subtitle_text|trim|length > 0 %}
+  {% set description_content = caller('description') %}
+  {% set has_description = description_content|trim|length > 0 %}
+  {% set has_specific_image_aspect_ratio = image_aspect_ratio|trim|length > 0 %}
+  {% set has_cta = show_cta and cta_primary_text|trim|length > 0 %}
+
+  {% macro hero_title_block() -%}
+    <h1 class="{% if image_full_cover %}u-no-margin--bottom{% endif %}">
+      {{ title_text }}
+    </h1>
+  {% endmacro %}
+
+  {% macro hero_subtitle_block() -%}
+    {% if has_subtitle %}
+      <h2>
+        {{ subtitle_text }}
+      </h2>
+    {% endif %}
+  {% endmacro %}
+
+  {% macro hero_cta_block() -%}
+    {% if has_cta %}
+      {{ cta_block(
+        primary_text=cta_primary_text,
+        primary_url=cta_primary_url,
+        secondary_text=cta_secondary_text,
+        secondary_url=cta_secondary_url
+      ) }}
+    {% endif %}
+  {% endmacro %}
+
+  {% macro hero_description_block() -%}
+    {% if has_description %}
+      <div class="p-section--shallow">
+        {{ description_content }}
+      </div>
+    {% endif %}
+  {% endmacro %}
+
+  {% macro hero_image() -%}
+    <div class="p-image-container{% if has_specific_image_aspect_ratio %}--{{ image_aspect_ratio|trim }}{% endif %} {% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %}{% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %} is-cover">
+      <img class="p-image-container__image" src="{{ image_src }}" alt="{{ image_alt }}">
+    </div>
+  {% endmacro %}
+
+  <section class="p-section--hero">
+    <div class="row--50-50{% if is_full_width_on_tablet %}-on-large{% endif %}">
+      <div class="col">
+        {% if image_full_cover %}
+          {{ hero_title_block() }}
+        {% else %}
+          <div class="p-section--shallow">
+            {{ hero_title_block() }}
+            {{ hero_subtitle_block() }}
+          </div>
+          {{ hero_description_block() }}
+          {{ hero_cta_block() }}
+        {% endif %}
+      </div>
+      <div class="col">
+        {% if image_full_cover %}
+          {{ hero_subtitle_block() }}
+          {{ hero_description_block() }}
+          {{ hero_cta_block() }}
+        {% else %}
+          <div class="p-section--shallow">
+            {{ hero_image() }}
+          </div>
+        {% endif %}
+      </div>
+      {% if image_full_cover %}
+        {{ hero_image() }}
+      {% endif %}
+    </div>
+  </section>
+{% endmacro %}
