@@ -37,13 +37,13 @@
   {% set has_specific_image_aspect_ratio = image_aspect_ratio|trim|length > 0 %}
   {% set has_cta = cta_primary_text|trim|length > 0 %}
 
-  {% macro hero_title_block() -%}
+  {% macro _hero_title_block() -%}
     <h1 class="{% if image_full_cover %}u-no-margin--bottom{% endif %}">
       {{ title_text }}
     </h1>
   {% endmacro %}
 
-  {% macro hero_subtitle_block() -%}
+  {% macro _hero_subtitle_block() -%}
     {% if has_subtitle %}
       <h2>
         {{ subtitle_text }}
@@ -51,7 +51,7 @@
     {% endif %}
   {% endmacro %}
 
-  {% macro hero_cta_block() -%}
+  {% macro _hero_cta_block() -%}
     {% if has_cta %}
       {{ cta_block(
         primary_text=cta_primary_text,
@@ -62,7 +62,7 @@
     {% endif %}
   {% endmacro %}
 
-  {% macro hero_description_block() -%}
+  {% macro _hero_description_block() -%}
     {% if has_description %}
       <div class="p-section--shallow">
         {{ description_content }}
@@ -70,7 +70,7 @@
     {% endif %}
   {% endmacro %}
 
-  {% macro hero_image() -%}
+  {% macro _hero_image() -%}
     <div class="p-image-container{% if has_specific_image_aspect_ratio %}--{{ image_aspect_ratio|trim }}{% endif %} {% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %} is-cover">
       <img class="p-image-container__image" src="{{ image_src }}" alt="{{ image_alt }}">
     </div>
@@ -80,27 +80,27 @@
     <div class="{% if is_full_width_on_tablet %}row--50-50-on-large{% else %}row--50-50{% endif %}">
       <div class="col">
         {% if image_full_cover %}
-          {{ hero_title_block() }}
+          {{ _hero_title_block() }}
         {% else %}
           <div class="p-section--shallow">
-            {{ hero_title_block() }}
-            {{ hero_subtitle_block() }}
+            {{ _hero_title_block() }}
+            {{ _hero_subtitle_block() }}
           </div>
-          {{ hero_description_block() }}
-          {{ hero_cta_block() }}
+          {{ _hero_description_block() }}
+          {{ _hero_cta_block() }}
         {% endif %}
       </div>
       <div class="col">
         {% if image_full_cover %}
-          {{ hero_subtitle_block() }}
-          {{ hero_description_block() }}
-          {{ hero_cta_block() }}
+          {{ _hero_subtitle_block() }}
+          {{ _hero_description_block() }}
+          {{ _hero_cta_block() }}
         {% else %}
-          {{ hero_image() }}
+          {{ _hero_image() }}
         {% endif %}
       </div>
       {% if image_full_cover %}
-        {{ hero_image() }}
+        {{ _hero_image() }}
       {% endif %}
     </div>
   </section>
