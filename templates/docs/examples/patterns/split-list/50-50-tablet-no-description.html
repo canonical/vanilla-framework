@@ -1,0 +1,44 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/split-list.jinja" import split_list %}
+
+{% block title %}Split list / 50/50 on tablet w/o description{% endblock %}
+
+{% block standalone_css %}patterns_split-list{% endblock %}
+
+{% block content %}
+{% call(slot) split_list(is_list_full_width_on_tablet=false) %}
+  {% if slot == 'title' %}
+    <h2>
+      H2 - this can take up to two lines, but best to stick to one line.
+    </h2>
+  {% endif %}
+
+  {% if slot == 'list_item_title_1' %}
+    <h5>
+      Rich portfolio of products
+    </h5>
+  {% endif %}
+
+  {% if slot == 'list_item_description_1' %}
+    <p>
+      Resell the full range of Canonical’s portfolio of private and public
+      cloud products: Openstack, Kubernetes, IoT, support, security and
+      compliance for Ubuntu.
+    </p>
+  {% endif %}
+
+  {% if slot == 'list_item_title_2' %}
+    <h5>
+      Sales enablement
+    </h5>
+  {% endif %}
+
+  {% if slot == 'list_item_description_2' %}
+    <p>
+      Canonical can help train your field sales and presales teams and
+      provide you with sales collateral and permission to use the Canonical
+      and Ubuntu trademarks in your own materials.
+    </p>
+  {% endif %}
+{% endcall %}
+{% endblock %}
