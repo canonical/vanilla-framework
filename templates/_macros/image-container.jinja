@@ -3,10 +3,11 @@
 # width: image width (required)
 # alt: image alt text
 # aspect_ratio: image aspect ratio (16/9, 3/2, 2/3, cinematic, square)
-# image_hidden_breakpoints: list of breakpoints where the image should be hidden, e.g. ["large", "medium"] to only show on small screens
+# image_hidden_on_devices: list of devices ("mobile", "tablet", or "desktop") where the image should be hidden.
+#   e.g. ["mobile"] to only show on tablet and desktop
 # is_highlighted: whether the image wrapper is highlighted (provides extra background contrast)
 # is_cover: whether the image should span the full width of the container
-{% macro image_container(img_url, width, alt='', aspect_ratio='', image_hidden_breakpoints=[], is_highlighted=false, is_cover=false) -%}
+{% macro image_container(img_url, width, alt='', aspect_ratio='', image_hidden_on_devices=[], is_highlighted=false, is_cover=false) -%}
   {% if aspect_ratio == '16/9' %}
     {% set aspect_ratio_class = 'p-image-container--16-9' %}
   {% elif aspect_ratio == '3/2' %}
@@ -21,7 +22,22 @@
     {% set aspect_ratio_class = 'p-image-container' %}
   {% endif %}
 
-  <div class="{{ aspect_ratio_class }}{% if is_highlighted == true %} is-highlighted{% endif %}{% if is_cover == true %} is-cover{% endif %} {% for breakpoint in image_hidden_breakpoints %}u-hide--{{ breakpoint }} {% endfor %}">
+  {% set device_breakpoint_mappings = {
+    "mobile": "small",
+    "tablet": "medium",
+    "desktop": "large"
+  } %}
+
+  {% set hidden_breakpoint_classes_list = [] %}
+  {% for device_identifier in image_hidden_on_devices %}
+    {% if device_identifier in device_breakpoint_mappings %}
+      {% set _ = hidden_breakpoint_classes_list.append("u-hide--" + device_breakpoint_mappings[device_identifier]) %}
+    {% endif %}
+  {% endfor %}
+
+  {% set hidden_breakpoint_classes_str = hidden_breakpoint_classes_list | join(' ') %}
+
+  <div class="{{ aspect_ratio_class }}{% if is_highlighted == true %} is-highlighted{% endif %}{% if is_cover == true %} is-cover{% endif %} {{ hidden_breakpoint_classes_str }}">
     <img class="p-image-container__image" src="{{ img_url }}" width="{{ width }}" alt="{{ alt }}">
   </div>
 {%- endmacro %}

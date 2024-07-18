@@ -10,7 +10,7 @@
 # image_alt: image alt text
 # image_aspect_ratio: image aspect ratio (16/9, 3/2, 2/3, cinematic, square)
 # image_full_cover: whether the image should span the full width of the bottom of the hero section
-# image_hidden_breakpoints: list of breakpoints where the image should be hidden, e.g. ["large", "medium"] to only show on small screens
+# image_hidden_on_devices: list of devices where the image should be hidden, e.g. ["desktop", "tablet"] to only show on small screens
 # cta_primary_text: primary CTA button text, shown in a primary-colored button. Leave blank to hide CTA block.
 # cta_primary_url: primary CTA button URL
 # cta_secondary_text: secondary CTA button text, shown as a link
@@ -27,7 +27,7 @@
   image_aspect_ratio = "",
   image_highlighted = false,
   image_full_cover = false,
-  image_hidden_breakpoints = [],
+  image_hidden_on_devices = [],
   cta_primary_text = "",
   cta_primary_url = "#",
   cta_secondary_text = "",
@@ -73,7 +73,7 @@
   {% endmacro %}
 
   {% macro _hero_image() -%}
-    {{ image_container(image_src, alt=image_alt, aspect_ratio=image_aspect_ratio, image_hidden_breakpoints=image_hidden_breakpoints, is_highlighted=image_highlighted, is_cover=True) }}
+    {{ image_container(image_src, alt=image_alt, aspect_ratio=image_aspect_ratio, image_hidden_on_devices=image_hidden_on_devices, is_highlighted=image_highlighted, is_cover=True) }}
   {% endmacro %}
 
   <section class="p-section--hero">
