@@ -12,9 +12,7 @@
   subtitle_text="H2 placeholder - aim for one line, 2 is acceptable.",
   image_src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg",
   image_aspect_ratio="cinematic",
-  image_full_cover=True,
-  cta_primary_text="Learn more",
-  cta_secondary_text="Contact us ›"
+  image_full_cover=True
 ) %}
     {% if slot == 'description' %}
       <p>
@@ -22,6 +20,12 @@
         hand side.
       </p>
     {% endif %}
+  {% if slot == 'cta_primary' %}
+    Learn more
+  {% endif %}
+  {% if slot == 'cta_secondary' %}
+    Contact us ›
+  {% endif %}
   {% endcall %}
 
 {% endblock %}

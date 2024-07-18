@@ -6,8 +6,12 @@
 {% block standalone_css %}patterns_cta{% endblock %}
 
 {% block content %}
-  {{ cta_block(
-    primary_text="Learn more",
-    secondary_text="Contact us ›"
-  )}}
+  {% call(slot) cta_block() %}
+    {% if slot == 'primary' -%}
+      Learn more
+    {% endif -%}
+    {%- if slot == 'secondary' -%}
+      Contact us ›
+    {% endif -%}
+  {% endcall -%}
 {% endblock %}

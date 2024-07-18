@@ -1,20 +1,21 @@
 # Params
-# primary_text: primary CTA button text, shown in a primary-colored button
 # primary_url: primary CTA button URL
-# secondary_text: secondary CTA button text, shown as a link
 # secondary_url: secondary CTA button URL
+# Slots
+# primary: primary CTA button text
+# secondary: secondary CTA button text
 {% macro cta_block(
-  primary_text = "Learn more",
   primary_url = "#",
-  secondary_text = "",
   secondary_url = "#"
-) %}
-{% set has_secondary = secondary_text|trim|length > 0 %}
+)-%}
+  {% set primary_content = caller('primary') %}
+  {% set secondary_content = caller('secondary') %}
+  {% set has_secondary = secondary_content|trim|length > 0 %}
 
 <div class="p-cta-block">
-  <a href="{{ primary_url }}" class="p-button--positive">{{ primary_text }}</a>
+  <a href="{{ primary_url }}" class="p-button--positive">{{ primary_content | safe }}</a>
   {% if has_secondary -%}
-    <a href="{{ secondary_url }}">{{ secondary_text }}</a>
+    <a href="{{ secondary_url }}">{{ secondary_content | safe }}</a>
   {%- endif %}
 </div>
 
