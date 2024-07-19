@@ -6,15 +6,15 @@
 {% macro split_list(
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true) -%}
-  {% set title_content = caller('title') %}
-  {% set description_content = caller('description') %}
-  {% set has_description = description_content|trim|length > 0 %}
+  {%- set title_content = caller('title') -%}
+  {%- set description_content = caller('description') -%}
+  {%- set has_description = description_content|trim|length > 0 -%}
 
   <div class="u-fixed-width">
     <hr class="u-hide--small">
 
-    {% if has_description == true %}
-      {% if is_description_full_width_on_desktop == true %}
+    {% if has_description == true -%}
+      {%- if is_description_full_width_on_desktop == true -%}
         <div class="row">
           <div class="col-12">
             {{ title_content }}
@@ -26,7 +26,7 @@
             {{ description_content }}
           </div>
         </div>
-      {% else %}
+      {%- else -%}
         <div class="row">
           <div class="col-6">
             {{ title_content }}
@@ -36,23 +36,23 @@
             {{ description_content }}
           </div>
         </div>
-      {% endif %}
-    {% else %}
+      {%- endif -%}
+    {%- else -%}
       <div class="row">
         <div class="col-12">
           {{ title_content }}
         </div>
       </div>
-    {% endif %}
+    {%- endif -%}
 
-    {% for number in range(1, 10) %}
-      {% set list_item_title_content = caller('list_item_title_' + number|string) %}
-      {% set has_title_content = list_item_title_content|trim|length > 0 %}
-      {% set list_item_description_content = caller('list_item_description_' + number|string) %}
-      {% set has_description_content = list_item_description_content|trim|length > 0 %}
+    {%- for number in range(1, 10) -%}
+      {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
+      {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
+      {%- set list_item_description_content = caller('list_item_description_' + number|string) -%}
+      {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
 
-      {% if has_title_content and has_description_content %}
-        {% if is_list_full_width_on_tablet == true %}
+      {%- if has_title_content and has_description_content -%}
+        {%- if is_list_full_width_on_tablet == true %}
           <div class="row">
             <div class="col-9 col-start-large-4">
               <hr>
@@ -68,7 +68,7 @@
               {{ list_item_description_content }}
             </div>
           </div>
-        {% else %}
+        {%- else %}
           <div class="row">
             <div class="col-9 col-start-large-4">
               <hr>
@@ -84,8 +84,8 @@
               {{ list_item_description_content }}
             </div>
           </div>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor %}
   </div>
 {%- endmacro %}
