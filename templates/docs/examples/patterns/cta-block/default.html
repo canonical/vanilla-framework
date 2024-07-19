@@ -1,17 +1,12 @@
 {% extends "_layouts/examples.html" %}
-{% from "_macros/cta/cta-block.jinja" import cta_block %}
 
 {% block title %}CTA Block{% endblock %}
 
 {% block standalone_css %}patterns_cta{% endblock %}
 
 {% block content %}
-  {% call(slot) cta_block() %}
-    {% if slot == 'primary' -%}
-      Learn more
-    {% endif -%}
-    {%- if slot == 'secondary' -%}
-      Contact us ›
-    {% endif -%}
-  {% endcall -%}
+<div class="p-cta-block">
+  <a href="#" class="p-button--positive">Learn more</a>
+  <a href="#">Contact us ›</a>
+</div>
 {% endblock %}

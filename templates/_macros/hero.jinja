@@ -1,41 +1,32 @@
-{% from "_macros/cta/cta-block.jinja" import cta_block %}
-{% from "_macros/image-container.jinja" import image_container %}
-
-# Params
-# title_text: Hero title text (required)
+# Params# title_text: Hero title text (required)
 # subtitle_text: Hero subtitle text
 # is_full_width_on_tablet: whether image is in its own row on tablet.
 #   If false, image will be in its own row (stacked below header/description)
-# image_src: image source URL (required)
-# image_alt: image alt text
-# image_aspect_ratio: image aspect ratio (16/9, 3/2, 2/3, cinematic, square)
-# image_full_cover: whether the image should span the full width of the bottom of the hero section
-# image_hidden_on_devices: list of devices where the image should be hidden, e.g. ["desktop", "tablet"] to only show on small screens
+# cta_primary_text: primary CTA button text, shown in a primary-colored button. Leave blank to hide CTA block.
 # cta_primary_url: primary CTA button URL
+# cta_secondary_text: secondary CTA button text, shown as a link
 # cta_secondary_url: secondary CTA button URL
 # Slots
 # description: slot for additional paragraph-style content below the title and subtitle
+# image: slot for image content
 
 {% macro hero(
   title_text="",
   subtitle_text="",
   is_full_width_on_tablet = true,
-  image_src = "",
-  image_alt = "",
-  image_aspect_ratio = "",
-  image_highlighted = false,
   image_full_cover = false,
-  image_hidden_on_devices = [],
+  cta_primary_text = "",
   cta_primary_url = "#",
+  cta_secondary_text = "",
   cta_secondary_url = "#"
 )-%}
   {% set has_subtitle = subtitle_text|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {% set has_specific_image_aspect_ratio = image_aspect_ratio|trim|length > 0 %}
-  {% set cta_primary_content = caller('cta_primary') %}
-  {% set cta_secondary_content = caller('cta_secondary') %}
-  {% set has_cta = cta_primary_content|trim|length > 0 %}
+  {% set has_cta = cta_primary_text|trim|length > 0 %}
+  {% set has_cta_secondary = has_cta and cta_secondary_text|trim|length > 0 %}
+  {% set image_content = caller('image') %}
 
   {% macro _hero_title_block() -%}
     <h1 class="{% if image_full_cover %}u-no-margin--bottom{% endif %}">
@@ -53,22 +44,12 @@
 
   {% macro _hero_cta_block() -%}
     {% if has_cta %}
-{#      {{ cta_block(#}
-{#        primary_text=cta_primary_text,#}
-{#        primary_url=cta_primary_url,#}
-{#        secondary_text=cta_secondary_text,#}
-{#        secondary_url=cta_secondary_url#}
-{#      ) }}#}
-
-      {% call(slot) cta_block() %}
-        {% if slot == 'primary' %}
-          {{ cta_primary_content }}
-        {% endif %}
-        {% if slot == 'secondary' %}
-          {{ cta_secondary_content }}
-        {% endif %}
-      {% endcall %}
-
+      <div class="p-cta-block">
+        <a href="{{ cta_primary_url }}" class="p-button--positive">{{ cta_primary_text }}</a>
+        {% if has_cta_secondary -%}
+          <a href="{{ cta_secondary_url }}">{{ cta_secondary_text }}</a>
+        {%- endif %}
+      </div>
     {% endif %}
   {% endmacro %}
 
@@ -78,10 +59,6 @@
         {{ description_content }}
       </div>
     {% endif %}
-  {% endmacro %}
-
-  {% macro _hero_image() -%}
-    {{ image_container(image_src, alt=image_alt, aspect_ratio=image_aspect_ratio, image_hidden_on_devices=image_hidden_on_devices, is_highlighted=image_highlighted, is_cover=True) }}
   {% endmacro %}
 
   <section class="p-section--hero">
@@ -104,11 +81,11 @@
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
         {% else %}
-          {{ _hero_image() }}
+          {{ image_content }}
         {% endif %}
       </div>
       {% if image_full_cover %}
-        {{ _hero_image() }}
+        {{ image_content }}
       {% endif %}
     </div>
   </section>

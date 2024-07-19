@@ -10,9 +10,9 @@
 {% call(slot) hero(
   title_text="H1 - ideally one line, up to two",
   subtitle_text="H2 placeholder - aim for one line, 2 is acceptable.",
-  image_src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg",
-  image_aspect_ratio="cinematic",
-  image_full_cover=True
+  image_full_cover=True,
+  cta_primary_text="Learn more",
+  cta_secondary_text="Contact us ›"
 ) %}
     {% if slot == 'description' %}
       <p>
@@ -20,11 +20,10 @@
         hand side.
       </p>
     {% endif %}
-  {% if slot == 'cta_primary' %}
-    Learn more
-  {% endif %}
-  {% if slot == 'cta_secondary' %}
-    Contact us ›
+  {% if slot == 'image' %}
+    <div class="p-image-container--cinematic is-cover">
+      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
+    </div>
   {% endif %}
   {% endcall %}
 
