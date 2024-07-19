@@ -11,7 +11,8 @@
 # description: paragraph-style content below the title and subtitle
 # cta_primary: contents of the primary CTA button
 # cta_secondary: contents of the secondary CTA button
-# image: slot for image content (required)
+# image: slot for image content
+# signpost_image: slot for signpost image (required for 25/75 layout)
 
 {% macro hero(
   title_text='',
@@ -31,6 +32,8 @@
   {% set has_cta = cta_primary_content|trim|length > 0 %}
   {% set has_cta_secondary = cta_secondary_content|trim|length > 0 %}
   {% set image_content = caller('image') %}
+  {% set has_image = image_content|trim|length > 0 %}
+  {% set signpost_image_content = caller('signpost_image') %}
 
   {# User can pass layout as "X-Y" or "X/Y" #}
   {% set layout = layout | trim | replace('/', '-') %}
@@ -38,8 +41,12 @@
     {% set layout = 'fallback' %}
   {% endif %}
 
-  {# Full cover image only supported on 50-50 layout #}
-  {% set is_image_full_cover = is_image_full_cover and layout == '50-50' %}
+  {% if layout == '25-75' and has_image %}
+    {# Signpost layouts with images are always full-cover #}
+    {% set is_image_full_cover = true %}
+  {% endif %}
+
+  {% set has_full_cover_image = has_image and is_image_full_cover and layout in ['50-50', '25-75'] %}
 
   {# Construct grid classes from params input #}
   {% set row_classes = [] %}
@@ -63,8 +70,16 @@
   {% endif %}
 
   {% macro _hero_title_block() -%}
-    {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
-    <h1 class="{% if is_image_full_cover %}u-no-margin--bottom{% endif %}">
+    {% set header_classes = [] %}
+    {% if has_full_cover_image and layout != '25-75' %}
+      {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
+      {{ header_classes.append('u-no-margin--bottom') or "" }}
+    {% endif %}
+    {% if layout == '25-75' %}
+      {# On 25-75 signpost, header top should align with top of the signpost to its left. #}
+      {{ header_classes.append('u-no-padding--top') or "" }}
+    {% endif %}
+    <h1 class="{{ header_classes | join(' ') }}">
       {{ title_text }}
     </h1>
   {% endmacro %}
@@ -99,19 +114,30 @@
   <section class="p-section--hero">
     <div class="{{ row_classes | join(' ') }}">
       <div class="{{ col_classes[0] }}">
-        {% if is_image_full_cover %}
+        {% if has_full_cover_image and layout != '25-75' %}
           {{ _hero_title_block() }}
         {% else %}
+          {% if layout == '25-75' %}
+            <div class="p-section--shallow">
+              {{ signpost_image_content }}
+            </div>
+          {% else %}
+            {{ _hero_title_block() }}
+            {{ _hero_subtitle_block() }}
+            {{ _hero_description_block() }}
+            {{ _hero_cta_block() }}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="{{ col_classes[1] }}">
+        {% if layout == '25-75' %}
           <div class="p-section--shallow">
             {{ _hero_title_block() }}
             {{ _hero_subtitle_block() }}
           </div>
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
-        {% endif %}
-      </div>
-      <div class="{{ col_classes[1] }}">
-        {% if is_image_full_cover %}
+        {% elif has_full_cover_image %}
           {{ _hero_subtitle_block() }}
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
@@ -119,7 +145,7 @@
           {{ image_content }}
         {% endif %}
       </div>
-      {% if is_image_full_cover %}
+      {% if has_full_cover_image %}
         {{ image_content }}
       {% endif %}
     </div>

@@ -1,0 +1,37 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/hero.jinja" import hero %}
+
+{% block title %}Hero / Signpost logo / Full cover image{% endblock %}
+{% block standalone_css %}patterns_hero{% endblock %}
+
+{% set is_paper = true %}
+{% block content %}
+  {% call(slot) hero(
+  title_text='<code>H1</code> - ideally one line, up to two',
+  subtitle_text='<code>H2</code> placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
+  layout='25/75',
+  is_image_full_cover=true
+) %}
+    {% if slot == 'signpost_image' %}
+      <img src="https://assets.ubuntu.com/v1/50775949-risc-v-logo.svg" alt="">
+    {% endif %}
+    {% if slot == 'description' %}
+      <p>
+        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side.
+      </p>
+    {% endif %}
+    {% if slot == 'cta_primary' %}
+      Learn more
+    {% endif %}
+    {% if slot == 'cta_secondary' %}
+      Contact us ›
+    {% endif %}
+    {% if slot == 'image' %}
+      <div class="p-image-container--cinematic is-cover">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
+      </div>
+    {% endif %}
+  {% endcall %}
+
+{% endblock %}
