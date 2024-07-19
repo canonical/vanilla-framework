@@ -2,8 +2,8 @@
 # title_text: Hero title text (required)
 # subtitle_text: Hero subtitle text
 # layout: layout of hero section. Options are '50/50', '75/25', '25/75', 'fallback'
-# is_layout_responsive_on_tablet: whether the layout should be applied to the tablet size specifically. Applies "-on-medium" to row class in 50/50 and 25/75 layouts
-# is_layout_responsive_on_desktop: whether the layout should be applied to the desktop size specifically. Applies "-on-large" to row class in 50/50 and 25/75 layouts
+# is_split_on_tablet: whether the layout is split on tablet. Applies "-on-medium" to row class in 50/50 and 25/75 layouts. If false, the layout is stacked on tablet.
+# is_split_on_desktop: whether the layout is split on desktop. Applies "-on-large" to row class in 50/50 and 25/75 layouts. If false, the layout is stacked on desktop, provided is_split_on_tablet is true.
 # is_image_full_cover: whether the image should span full width of the hero. Only supported on 50/50 layout
 # cta_primary_url: primary CTA button URL
 # cta_secondary_url: secondary CTA button URL
@@ -17,8 +17,8 @@
   title_text="",
   subtitle_text="",
   layout="fallback",
-  is_layout_responsive_on_tablet = false,
-  is_layout_responsive_on_desktop = true,
+  is_split_on_tablet = false,
+  is_split_on_desktop = true,
   is_image_full_cover = false,
   cta_primary_url = "#",
   cta_secondary_url = "#"
@@ -46,11 +46,11 @@
   {% set col_classes = ['col', 'col'] %}
   {% if layout in ['50-50', '25-75'] %}
     {# Responsive breakpoint classes were requested #}
-    {% if is_layout_responsive_on_tablet or is_layout_responsive_on_desktop %}
-      {% if is_layout_responsive_on_tablet %}
+    {% if is_split_on_tablet or is_split_on_desktop %}
+      {% if is_split_on_tablet %}
         {% set _ = row_classes.append('row--' + layout + '-on-medium') %}
       {% endif %}
-      {% if is_layout_responsive_on_desktop %}
+      {% if is_split_on_desktop %}
         {% set _ = row_classes.append('row--' + layout + '-on-large') %}
       {% endif %}
     {% else %}
