@@ -1,6 +1,6 @@
 # Params
-# title_text: Hero title text (required)
-# subtitle_text: Hero subtitle text
+# header_text: Hero header text (required)
+# subheader_text: Hero subheader text
 # layout: layout of hero section. Options are '50/50', '75/25', '25/75', 'fallback'
 # layout_responsive_on_tablet: whether the layout should be applied to the tablet size specifically. Applies "-on-medium" to row class in 50/50 and 25/75 layouts
 # layout_responsive_on_desktop: whether the layout should be applied to the desktop size specifically. Applies "-on-large" to row class in 50/50 and 25/75 layouts
@@ -9,14 +9,14 @@
 # cta_secondary_text: secondary CTA button text, shown as a link
 # cta_secondary_url: secondary CTA button URL
 # Slots
-# description: paragraph-style content below the title and subtitle
+# description: paragraph-style content below the header and subheader
 # cta_primary: contents of the primary CTA button
 # cta_secondary: contents of the secondary CTA button
-# image: slot for image content
+# image: slot for image content (required)
 
 {% macro hero(
-  title_text="",
-  subtitle_text="",
+  header_text="",
+  subheader_text="",
   layout="fallback",
   layout_responsive_on_tablet = false,
   layout_responsive_on_desktop = true,
@@ -24,7 +24,7 @@
   cta_primary_url = "#",
   cta_secondary_url = "#"
 )-%}
-  {% set has_subtitle = subtitle_text|trim|length > 0 %}
+  {% set has_subheader = subheader_text|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {% set cta_primary_content = caller('cta_primary') %}
@@ -63,17 +63,17 @@
     {% set col_classes = ['col-9', 'col-3'] %}
   {% endif %}
 
-  {% macro _hero_title_block() -%}
+  {% macro _hero_header_block() -%}
     {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
     <h1 class="{% if image_full_cover %}u-no-margin--bottom{% endif %}">
-      {{ title_text }}
+      {{ header_text }}
     </h1>
   {% endmacro %}
 
-  {% macro _hero_subtitle_block() -%}
-    {% if has_subtitle %}
+  {% macro _hero_subheader_block() -%}
+    {% if has_subheader %}
       <h2>
-        {{ subtitle_text }}
+        {{ subheader_text }}
       </h2>
     {% endif %}
   {% endmacro %}
@@ -101,11 +101,11 @@
     <div class="{{ row_classes | join(' ') }}">
       <div class="{{ col_classes[0] }}">
         {% if image_full_cover %}
-          {{ _hero_title_block() }}
+          {{ _hero_header_block() }}
         {% else %}
           <div class="p-section--shallow">
-            {{ _hero_title_block() }}
-            {{ _hero_subtitle_block() }}
+            {{ _hero_header_block() }}
+            {{ _hero_subheader_block() }}
           </div>
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
@@ -113,7 +113,7 @@
       </div>
       <div class="{{ col_classes[1] }}">
         {% if image_full_cover %}
-          {{ _hero_subtitle_block() }}
+          {{ _hero_subheader_block() }}
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
         {% else %}
