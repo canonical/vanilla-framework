@@ -48,17 +48,17 @@
     {# Responsive breakpoint classes were requested #}
     {% if is_split_on_tablet or is_split_on_desktop %}
       {% if is_split_on_tablet %}
-        {% set _ = row_classes.append('row--' + layout + '-on-medium') %}
+        {{ row_classes.append('row--' + layout + '-on-medium') or "" }}
       {% endif %}
       {% if is_split_on_desktop %}
-        {% set _ = row_classes.append('row--' + layout + '-on-large') %}
+        {{ row_classes.append('row--' + layout + '-on-large') or "" }}
       {% endif %}
     {% else %}
-      {% set _ = row_classes.append('row--' + layout) %}
+      {{ row_classes.append('row--' + layout) or "" }}
     {% endif %}
   {% elif layout  == '75-25' %}
     {# there is no .row--75-25 class, so we use unmodified row and col-9 and col-3 to create 75-25 layout #}
-    {% set _ = row_classes.append('row') %}
+    {{ row_classes.append('row') or "" }}
     {% set col_classes = ['col-9', 'col-3'] %}
   {% endif %}
 
