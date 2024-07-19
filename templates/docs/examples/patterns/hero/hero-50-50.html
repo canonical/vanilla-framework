@@ -9,15 +9,19 @@
 
 {% call(slot) hero(
   title_text="H1 - ideally one line, up to two",
-  subtitle_text="H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph",
-  cta_primary_text="Learn more",
-  cta_secondary_text="Contact us ›"
+  subtitle_text="H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph"
 ) %}
   {% if slot == 'description' %}
     <p>
       Generally, the height of the right hand side of a 50/50 split should contain more content than the left
       hand side.
     </p>
+  {% endif %}
+  {% if slot == 'cta_primary' %}
+    Learn more
+  {% endif %}
+  {% if slot == 'cta_secondary' %}
+    Contact us ›
   {% endif %}
   {% if slot == 'image' %}
     <div class="p-image-container--3-2 is-cover">

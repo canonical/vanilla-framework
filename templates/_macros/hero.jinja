@@ -7,7 +7,9 @@
 # cta_secondary_text: secondary CTA button text, shown as a link
 # cta_secondary_url: secondary CTA button URL
 # Slots
-# description: slot for additional paragraph-style content below the title and subtitle
+# description: paragraph-style content below the title and subtitle
+# cta_primary: contents of the primary CTA button
+# cta_secondary: contents of the secondary CTA button
 # image: slot for image content
 
 {% macro hero(
@@ -15,17 +17,16 @@
   subtitle_text="",
   is_full_width_on_tablet = true,
   image_full_cover = false,
-  cta_primary_text = "",
   cta_primary_url = "#",
-  cta_secondary_text = "",
   cta_secondary_url = "#"
 )-%}
   {% set has_subtitle = subtitle_text|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
-  {% set has_specific_image_aspect_ratio = image_aspect_ratio|trim|length > 0 %}
-  {% set has_cta = cta_primary_text|trim|length > 0 %}
-  {% set has_cta_secondary = has_cta and cta_secondary_text|trim|length > 0 %}
+  {% set cta_primary_content = caller('cta_primary') %}
+  {% set cta_secondary_content = caller('cta_secondary') %}
+  {% set has_cta = cta_primary_content|trim|length > 0 %}
+  {% set has_cta_secondary = cta_secondary_content|trim|length > 0 %}
   {% set image_content = caller('image') %}
 
   {% macro _hero_title_block() -%}
@@ -45,9 +46,9 @@
   {% macro _hero_cta_block() -%}
     {% if has_cta %}
       <div class="p-cta-block">
-        <a href="{{ cta_primary_url }}" class="p-button--positive">{{ cta_primary_text }}</a>
+        <a href="{{ cta_primary_url }}" class="p-button--positive">{{ cta_primary_content }}</a>
         {% if has_cta_secondary -%}
-          <a href="{{ cta_secondary_url }}">{{ cta_secondary_text }}</a>
+          <a href="{{ cta_secondary_url }}">{{ cta_secondary_content }}</a>
         {%- endif %}
       </div>
     {% endif %}
