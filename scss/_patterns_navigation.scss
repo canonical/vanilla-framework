@@ -797,6 +797,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       }
     }
 
+    // collapsed dropdowns are animated off-screen
     &.is-collapsed .p-navigation__dropdown-content {
       transform: translateY(-101%);
     }
@@ -852,7 +853,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   .p-navigation--sliding.has-menu-open,
   .p-navigation--reduced.has-menu-open {
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px 100vh;
+    box-shadow: $colors--theme--background-overlay 0px 0px 0px 100vh;
     height: 100vh;
     overflow-y: hidden;
     position: fixed;
