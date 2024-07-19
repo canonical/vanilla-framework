@@ -63,11 +63,11 @@ View example of the bottom fan Suru component
 
 Use `.p-suru--pyramid-left` or `.p-suru--pyramid-right` to create a hero section with the pyramid suru background. Suru component provides the necessary hero padding, background colour and the suru image.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-top" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-pyramid-left" class="js-example">
 View example of the left pyramid Suru component
 </a></div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-bottom" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/suru/fan-pyramid-right" class="js-example">
 View example of the right pyramid Suru component
 </a></div>
 
