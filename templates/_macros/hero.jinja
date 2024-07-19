@@ -1,7 +1,9 @@
-# Params# title_text: Hero title text (required)
+# Params
+# title_text: Hero title text (required)
 # subtitle_text: Hero subtitle text
-# is_full_width_on_tablet: whether image is in its own row on tablet.
-#   If false, image will be in its own row (stacked below header/description)
+# layout: layout of hero section. Options are '50/50', '75/25', '25/75', 'fallback'
+# layout_responsive_on_tablet: whether the layout should be applied to the tablet size specifically. Applies "-on-medium" to row class in 50/50 and 25/75 layouts
+# layout_responsive_on_desktop: whether the layout should be applied to the desktop size specifically. Applies "-on-large" to row class in 50/50 and 25/75 layouts
 # cta_primary_text: primary CTA button text, shown in a primary-colored button. Leave blank to hide CTA block.
 # cta_primary_url: primary CTA button URL
 # cta_secondary_text: secondary CTA button text, shown as a link
@@ -15,7 +17,9 @@
 {% macro hero(
   title_text="",
   subtitle_text="",
-  is_full_width_on_tablet = true,
+  layout="fallback",
+  layout_responsive_on_tablet = false,
+  layout_responsive_on_desktop = true,
   image_full_cover = false,
   cta_primary_url = "#",
   cta_secondary_url = "#"
@@ -29,7 +33,38 @@
   {% set has_cta_secondary = cta_secondary_content|trim|length > 0 %}
   {% set image_content = caller('image') %}
 
+  {# User can pass layout as "X-Y" or "X/Y" #}
+  {% set layout = layout | trim | replace('/', '-') %}
+  {% if layout not in ['50-50', '75-25', '25-75', 'fallback'] %}
+    {% set layout = 'fallback' %}
+  {% endif %}
+
+  {# Full cover image only supported on 50-50 layout #}
+  {% set image_full_cover = image_full_cover and layout == '50-50' %}
+
+  {# Construct grid classes from params input #}
+  {% set row_classes = [] %}
+  {% set col_classes = ['col', 'col'] %}
+  {% if layout in ['50-50', '25-75'] %}
+    {# Responsive breakpoint classes were requested #}
+    {% if layout_responsive_on_tablet or layout_responsive_on_desktop %}
+      {% if layout_responsive_on_tablet %}
+        {% set _ = row_classes.append('row--' + layout + '-on-medium') %}
+      {% endif %}
+      {% if layout_responsive_on_desktop %}
+        {% set _ = row_classes.append('row--' + layout + '-on-large') %}
+      {% endif %}
+    {% else %}
+      {% set _ = row_classes.append('row--' + layout) %}
+    {% endif %}
+  {% elif layout  == '75-25' %}
+    {# there is no .row--75-25 class, so we use unmodified row and col-9 and col-3 to create 75-25 layout #}
+    {% set _ = row_classes.append('row') %}
+    {% set col_classes = ['col-9', 'col-3'] %}
+  {% endif %}
+
   {% macro _hero_title_block() -%}
+    {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
     <h1 class="{% if image_full_cover %}u-no-margin--bottom{% endif %}">
       {{ title_text }}
     </h1>
@@ -63,8 +98,8 @@
   {% endmacro %}
 
   <section class="p-section--hero">
-    <div class="{% if is_full_width_on_tablet %}row--50-50-on-large{% else %}row--50-50{% endif %}">
-      <div class="col">
+    <div class="{{ row_classes | join(' ') }}">
+      <div class="{{ col_classes[0] }}">
         {% if image_full_cover %}
           {{ _hero_title_block() }}
         {% else %}
@@ -76,7 +111,7 @@
           {{ _hero_cta_block() }}
         {% endif %}
       </div>
-      <div class="col">
+      <div class="{{ col_classes[1] }}">
         {% if image_full_cover %}
           {{ _hero_subtitle_block() }}
           {{ _hero_description_block() }}
