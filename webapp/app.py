@@ -178,15 +178,27 @@ def _get_contributors():
     return contributors
 
 
-def _filter_contributors(contributors):
-    # Distinguish team_members from contributors
-
-    member_usernames = [member["login"] for member in TEAM_MEMBERS]
+def _filter_team_members_from_contributors(contributors):
+    member_usernames = {member["login"] for member in TEAM_MEMBERS}
     return [
         contributor
         for contributor in contributors
         if contributor["login"] not in member_usernames
     ]
+
+
+def _filter_bots_from_contributors(contributors):
+    return [
+        contributor
+        for contributor in contributors
+        if contributor["type"].lower() != "bot"
+    ]
+
+
+def _filter_contributors(contributors):
+    return _filter_bots_from_contributors(
+        _filter_team_members_from_contributors(contributors)
+    )
 
 
 # Global context settings
