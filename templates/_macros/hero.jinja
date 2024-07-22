@@ -30,7 +30,7 @@
 
   {% if layout == '50-50-full-width-image' and has_image %}
     {% set layout = '50-50' %}
-    {% set is_image_full_width = true %}
+    {% set has_full_width_image = true %}
   {% endif %}
 
   {# Construct grid classes from params input #}
@@ -47,7 +47,7 @@
 
   {% macro _hero_title_block() -%}
     {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
-    <h1 class="{% if is_image_full_width %}u-no-margin--bottom{% endif %}">
+    <h1 class="{% if has_full_width_image %}u-no-margin--bottom{% endif %}">
       {{ title }}
     </h1>
   {% endmacro %}
@@ -78,30 +78,29 @@
 
   <section class="p-section--hero">
     <div class="{{ row_classes | join(' ') }}">
-      <div class="{{ col_classes[0] }}">
-        {% if is_image_full_width %}
+      {% if has_full_width_image %}
+        <div class="{{ col_classes[0] }}">
           {{ _hero_title_block() }}
-        {% else %}
+        </div>
+        <div class="{{ col_classes[1] }}">
+          {{ _hero_subtitle_block() }}
+          {{ _hero_description_block() }}
+          {{ _hero_cta_block() }}
+        </div>
+        {{ image_content }}
+      {% else %}
+        <div class="{{ col_classes[0] }}">
           <div class="p-section--shallow">
             {{ _hero_title_block() }}
             {{ _hero_subtitle_block() }}
           </div>
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
-        {% endif %}
-      </div>
-      {% if has_image %}
-        <div class="{{ col_classes[1] }}">
-          {% if is_image_full_width %}
-            {{ _hero_subtitle_block() }}
-            {{ _hero_description_block() }}
-            {{ _hero_cta_block() }}
-          {% else %}
-            {{ image_content }}
-          {% endif %}
         </div>
-        {% if is_image_full_width %}
-          {{ image_content }}
+        {% if has_image %}
+          <div class="{{ col_classes[1] }}">
+            {{ image_content }}
+          </div>
         {% endif %}
       {% endif %}
     </div>
