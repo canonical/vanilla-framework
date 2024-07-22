@@ -1,4 +1,5 @@
 const initNavigationSliding = () => {
+  const ANIMATION_SNAP_DURATION = 100;
   const navigation = document.querySelector('.p-navigation--sliding, .p-navigation--reduced');
   const secondaryNavigation = document.querySelector('.p-navigation--reduced + .p-navigation');
   const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back-button)');
@@ -71,10 +72,41 @@ const initNavigationSliding = () => {
       if (!target || target === exception) {
         return;
       }
-      target.setAttribute('aria-hidden', 'true');
-      toggle.parentNode.classList.remove('is-active');
-      toggle.parentNode.parentNode.classList.remove('is-active');
+      collapseDropdown(toggle, target);
     });
+  };
+
+  const collapseDropdown = (dropdownToggleButton, targetDropdown, animated = false) => {
+    const closeHandler = () => {
+      targetDropdown.setAttribute('aria-hidden', 'true');
+      dropdownToggleButton.parentNode.classList.remove('is-active');
+      dropdownToggleButton.parentNode.parentNode.classList.remove('is-active');
+    };
+
+    targetDropdown.classList.add('is-collapsed');
+    if (animated) {
+      setTimeout(closeHandler, ANIMATION_SNAP_DURATION);
+    } else {
+      closeHandler();
+    }
+  };
+
+  const expandDropdown = (dropdownToggleButton, targetDropdown, animated = false) => {
+    dropdownToggleButton.parentNode.classList.add('is-active');
+    dropdownToggleButton.parentNode.parentNode.classList.add('is-active');
+    targetDropdown.setAttribute('aria-hidden', 'false');
+
+    if (animated) {
+      // trigger the CSS transition
+      requestAnimationFrame(() => {
+        targetDropdown.classList.remove('is-collapsed');
+      });
+    } else {
+      // make it appear immediately
+      targetDropdown.classList.remove('is-collapsed');
+    }
+
+    setFocusable(targetDropdown);
   };
 
   // when clicking outside navigation, close all dropdowns
@@ -116,30 +148,12 @@ const initNavigationSliding = () => {
         }
 
         if (target.getAttribute('aria-hidden') === 'true') {
-          toggle.parentNode.classList.add('is-active');
-          toggle.parentNode.parentNode.classList.add('is-active');
-          target.setAttribute('aria-hidden', 'false');
-
           // only animate the dropdown if menu is not open, otherwise just switch the visible one
-          if (!navigation.classList.contains('has-menu-open')) {
-            // trigger the CSS transition
-            requestAnimationFrame(() => {
-              target.classList.remove('is-collapsed');
-            });
-          } else {
-            // make it appear immediately
-            target.classList.remove('is-collapsed');
-          }
+          expandDropdown(toggle, target, !navigation.classList.contains('has-menu-open'));
           navigation.classList.add('has-menu-open');
-          setFocusable(target);
         } else {
-          target.classList.add('is-collapsed');
-          setTimeout(() => {
-            target.setAttribute('aria-hidden', 'true');
-            toggle.parentNode.classList.remove('is-active');
-            toggle.parentNode.parentNode.classList.remove('is-active');
-            navigation.classList.remove('has-menu-open');
-          }, 100);
+          collapseDropdown(toggle, target, true);
+          navigation.classList.remove('has-menu-open');
         }
       }
     });
