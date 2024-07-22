@@ -67,6 +67,9 @@ N.B.: the shortcut classes are not nestable. If you need further subdivision ins
 | `.row--25-75`           | 25/75         | 33/66          | 100/100         |
 | `.row--25-75-on-medium` | -             | 33/66          | -               |
 | `.row--25-75-on-large`  | 25/75         | -              | -               |
+| `.row--75-25`           | 75/25         | 66/33          | 100/100         |
+| `.row--75-25-on-medium` | -             | 66/33          | -               |
+| `.row--75-25-on-large`  | 75/25         | -              | -               |
 | `.row--25-25-50`        | 25/25/50      | 50/50/100      | 100/100/100     |
 | `.row--25-25-25-25`     | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
 
@@ -104,20 +107,40 @@ The default variant of 25/75 split sets the layout on large and medium screens, 
     View example of 25/75 grid layout
 </a></div>
 
-### Responsive 50/50 and 25/75
+### 75/25
 
-The default `.row--50-50` and `.row--25-75` splits provide the most common default layouts for all screen sizes, as described in the table above. To have more direct control over the layout on different screen sizes, you can use the responsive variants of these classes: `.row--50-50-on-medium` and `.row--25-75-on-medium`, will only apply given layout on medium screens, while `.row--50-50-on-large` and `.row--25-75-on-large` will only apply given layout on large screens.
+The default variant of 75/25 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/75-25/" class="js-example">
+    View example of 75/25 grid layout
+</a></div>
+
+### Responsive 50/50, 25/75, and 75/25
+
+The default `.row--50-50`, `.row--25-75`, and `.row--75-25` splits provide the most common default layouts for all screen sizes, as described in the table above.
+
+To have more direct control over the layout on different screen sizes, you can use the responsive variants of these classes: `.row--50-50-on-medium`, `.row--25-75-on-medium`, and `.row--75-25-on-medium` will only apply given layout on medium screens, while `.row--50-50-on-large`, `.row--25-75-on-large`, and `.row--75-25-on-large` will only apply given layout on large screens.
 
 For example, to only have 25/75 split on large screens, you can use `.row--25-75-on-large`. This is usually useful when main large column splits further with nested grid that would require full width of the page on medium screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-responsive/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-responsive-large/" class="js-example">
     View example of 25/75 grid layout
 </a></div>
 
-By utilising the responsive variants, you can also create mixed layouts with 50/50 splits on medium screens and 25/75 on large screens, without the need to nest grids.
+This can also be accomplished with the 75/25 split using `.row--75-25-on-large`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/75-25-responsive-large/" class="js-example">
+    View example of 75/25 grid layout
+</a></div>
+
+By utilising the responsive variants, you can also create mixed layouts with 50/50 splits on medium screens and 25/75 or 75/25 on large screens, without the need to nest grids.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-mixed-responsive/" class="js-example">
     View example of 25/75 mixed with 50/50 grid layout
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/75-25-mixed-responsive/" class="js-example">
+    View example of 75/25 mixed with 50/50 grid layout
 </a></div>
 
 <span class="p-status-label--negative">Removed</span> The `.is-split-on-medium` class has been removed in Vanilla 4.6.0 as `.row--25-75` how implements same responsive behaviour by default. If you want to only use 25/75 split on large screens, use `.row--25-75-on-large`.

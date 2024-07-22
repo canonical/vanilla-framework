@@ -319,6 +319,77 @@
     }
   }
 
+  // 75/25 split on medium and large screens
+  .row--75-25 {
+    @extend %vf-row;
+
+    > .col {
+      @include vf-grid-column($grid-columns-small);
+
+      @media (min-width: $threshold-4-6-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-column(4);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column(2);
+        }
+
+        // if there is only one column, use the whole width
+        &:only-of-type {
+          @include vf-grid-column(6);
+        }
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-column($col-75);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column($col-25);
+        }
+      }
+    }
+  }
+
+  .row--75-25-on-medium {
+    @extend %vf-row;
+
+    > .col {
+      @media ($threshold-4-6-col <= width < $threshold-6-12-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-column(4);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column(2);
+        }
+
+        // if there is only one column, use the whole width
+        &:only-of-type {
+          @include vf-grid-column(6);
+        }
+      }
+    }
+  }
+
+  .row--75-25-on-large {
+    @extend %vf-row;
+
+    > .col {
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-column($col-75);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-column($col-25);
+        }
+      }
+    }
+  }
+
   .row--25-25-50 {
     @extend %vf-row;
 
