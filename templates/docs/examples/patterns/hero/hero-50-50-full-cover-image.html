@@ -8,10 +8,9 @@
 {% block content %}
 
 {% call(slot) hero(
-  title_text='<code>H1</code> - ideally one line, up to two',
-  subtitle_text='<code>H2</code> placeholder - aim for one line, 2 is acceptable.',
-  layout='50/50',
-  is_image_full_cover=true
+  title='<code>H1</code> - ideally one line, up to two',
+  subtitle='<code>H2</code> placeholder - aim for one line, 2 is acceptable.',
+  layout='50/50-full-width-image'
 ) %}
   {% if slot == 'description' %}
     <p>
@@ -19,11 +18,9 @@
       hand side.
     </p>
   {% endif %}
-  {% if slot == 'cta_primary' %}
-    Learn more
-  {% endif %}
-  {% if slot == 'cta_secondary' %}
-    Contact us ›
+  {% if slot == 'cta' %}
+    <a href="#" class="p-button--positive">Learn more</a>
+    <a href="{{ cta_secondary_url }}">Contact us ›</a>
   {% endif %}
   {% if slot == 'image' %}
     <div class="p-image-container--cinematic is-cover">
