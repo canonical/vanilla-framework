@@ -1,7 +1,7 @@
 const initNavigationSliding = () => {
   const navigation = document.querySelector('.p-navigation--sliding, .p-navigation--reduced');
   const secondaryNavigation = document.querySelector('.p-navigation--reduced + .p-navigation');
-  const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back)');
+  const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back-button)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
   const dropdowns = document.querySelectorAll('ul.p-navigation__dropdown');
@@ -163,7 +163,7 @@ const initNavigationSliding = () => {
     });
   });
 
-  document.querySelectorAll('.js-back').forEach(function (backButton) {
+  document.querySelectorAll('.js-back-button').forEach(function (backButton) {
     backButton.addEventListener('click', function (e) {
       goBackOneLevel(e, backButton);
     });
