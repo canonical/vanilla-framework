@@ -187,25 +187,20 @@ def _filter_team_members_from_contributors(contributors):
     ]
 
 
-def _is_not_renovate_bot(contributor):
-    # Using "login" to check for renovate-bot as
-    # GitHub treats it as a user, i.e., type: "User"
-    
-    return contributor["login"] != "renovate-bot"
-
-
 def _filter_bots_from_contributors(contributors):
     return [
         contributor
         for contributor in contributors
         if (
-            contributor["type"].lower() != "bot" 
-            and _is_not_renovate_bot(contributor)
+            contributor["type"].lower() != "bot"
+            and contributor["id"] != 25180681 # renovate-bot
         )
     ]
 
 
 def _filter_contributors(contributors):
+    # Distinguish team_members and bots from contributors
+
     return _filter_bots_from_contributors(
         _filter_team_members_from_contributors(contributors)
     )
