@@ -769,7 +769,7 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
 
   .p-navigation--reduced .p-navigation__dropdown.is-full-width,
   .p-navigation--sliding .p-navigation__dropdown.is-full-width {
-    .p-navigation__dropdown-content {
+    .p-navigation__dropdown-content--full-width {
       @extend %vf-has-box-shadow;
       @include vf-transition(transform, snap);
       background-color: $colors--theme--background-default;
@@ -787,18 +787,18 @@ $spv-navigation-logo-bottom-position: 0.125rem; // 2px when 1rem is 16px
       right: 0;
 
       // hide mobile sliding menu on full width view
-      .p-navigation__dropdown-content-mobile {
+      .p-navigation__dropdown-content--sliding {
         display: none;
       }
 
-      .p-navigation__dropdown-content {
+      .p-navigation__dropdown-content--full-width {
         display: block;
         transform: translateY(0);
       }
     }
 
     // collapsed dropdowns are animated off-screen
-    &.is-collapsed .p-navigation__dropdown-content {
+    &.is-collapsed .p-navigation__dropdown-content--full-width {
       transform: translateY(-101%);
     }
 

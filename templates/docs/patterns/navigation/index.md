@@ -97,7 +97,7 @@ When used on websites with more complex information archutecture there may be a 
 
 Instead of standard navigation dropdown menus a full-width dropdowns can be used to provide more space for the content of the dropdown.
 
-To use them add `.is-full-width` class name to `.p-navigation__dropdown` element. Inside of it you need two containers for desktop `.p-navigation__dropdown-content` and mobile `.p-navigation__dropdown-content--mobile` content. The mobile content will be displayed on small screens and desktop content on larger screens.
+To use them add `.is-full-width` class name to `.p-navigation__dropdown` element. Inside of it you need two containers for full-width desktop dropdown content `.p-navigation__dropdown-content--full-width` and mobile sliding navigation `.p-navigation__dropdown-content--sliding` content. The mobile content will be displayed on small screens only and desktop content on larger screens (based on the value of `$breakpoint-navigation-threshold`).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/navigation/dropdown-full-width" class="js-example">View example of the full-width dropdown pattern</a></div>
 
