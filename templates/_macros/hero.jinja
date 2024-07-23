@@ -1,93 +1,61 @@
 # Params
-# title_text: Hero title text (required)
-# subtitle_text: Hero subtitle text
-# layout: layout of hero section. Options are '50/50', '75/25', '25/75', 'fallback'
-# is_split_on_tablet: whether the layout is split on tablet. Applies "-on-medium" to row class in 50/50 and 25/75 layouts. If false, the layout is stacked on tablet.
-# is_split_on_desktop: whether the layout is split on desktop. Applies "-on-large" to row class in 50/50 and 25/75 layouts. If false, the layout is stacked on desktop, provided is_split_on_tablet is true.
-# is_image_full_cover: whether the image should span full width of the hero. Only supported on 50/50 layout
-# cta_primary_url: primary CTA button URL
-# cta_secondary_url: secondary CTA button URL
+# title: Hero title text (required)
+# subtitle: Hero subtitle text
+# layout: layout of hero section. Options are '50/50', '50/50-full-width-image', '75/25', '25/75', 'fallback'
+# is_split_on_medium: whether the layout is split on tablet. Applies "-on-medium" to row class in 50/50 and 25/75 layouts. If false, the layout is stacked on tablet.
 # Slots
 # description: paragraph-style content below the title and subtitle
-# cta_primary: contents of the primary CTA button
-# cta_secondary: contents of the secondary CTA button
+# cta: call-to-action block below the description
 # image: slot for image content
-# signpost_image: slot for signpost image (required for 25/75 layout)
 
 {% macro hero(
-  title_text='',
-  subtitle_text='',
+  title='',
+  subtitle='',
   layout="fallback",
-  is_split_on_tablet = false,
-  is_split_on_desktop = true,
-  is_image_full_cover = false,
-  cta_primary_url = '#',
-  cta_secondary_url = '#'
+  is_split_on_medium = false
 ) -%}
-  {% set has_subtitle = subtitle_text|trim|length > 0 %}
+  {% set has_subtitle = subtitle|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
-  {% set cta_primary_content = caller('cta_primary') %}
-  {% set cta_secondary_content = caller('cta_secondary') %}
-  {% set has_cta = cta_primary_content|trim|length > 0 %}
-  {% set has_cta_secondary = cta_secondary_content|trim|length > 0 %}
+  {% set cta_content = caller('cta') %}
+  {% set has_cta = cta_content|trim|length > 0 %}
   {% set image_content = caller('image') %}
   {% set has_image = image_content|trim|length > 0 %}
-  {% set signpost_image_content = caller('signpost_image') %}
 
   {# User can pass layout as "X-Y" or "X/Y" #}
   {% set layout = layout | trim | replace('/', '-') %}
-  {% if layout not in ['50-50', '75-25', '25-75', 'fallback'] %}
+  {% if layout not in ['50-50', '50-50-full-width-image', '75-25', '25-75', 'fallback'] %}
     {% set layout = 'fallback' %}
   {% endif %}
 
-  {% if layout == '25-75' and has_image %}
-    {# Signpost layouts with images are always full-cover #}
-    {% set is_image_full_cover = true %}
+  {% if layout == '50-50-full-width-image' and has_image %}
+    {% set layout = '50-50' %}
+    {% set has_full_width_image = true %}
   {% endif %}
-
-  {% set has_full_cover_image = has_image and is_image_full_cover and layout in ['50-50', '25-75'] %}
 
   {# Construct grid classes from params input #}
   {% set row_classes = [] %}
   {% set col_classes = ['col', 'col'] %}
-  {% if layout in ['50-50', '25-75'] %}
+  {% if layout in ['50-50'] %}
     {# Responsive breakpoint classes were requested #}
-    {% if is_split_on_tablet or is_split_on_desktop %}
-      {% if is_split_on_tablet %}
-        {{ row_classes.append('row--' + layout + '-on-medium') or "" }}
-      {% endif %}
-      {% if is_split_on_desktop %}
-        {{ row_classes.append('row--' + layout + '-on-large') or "" }}
-      {% endif %}
+    {% if not is_split_on_medium %}
+      {{ row_classes.append('row--' + layout + '-on-large') or "" }}
     {% else %}
       {{ row_classes.append('row--' + layout) or "" }}
     {% endif %}
-  {% elif layout  == '75-25' %}
-    {# there is no .row--75-25 class, so we use unmodified row and col-9 and col-3 to create 75-25 layout #}
-    {{ row_classes.append('row') or "" }}
-    {% set col_classes = ['col-9', 'col-3'] %}
   {% endif %}
 
   {% macro _hero_title_block() -%}
-    {% set header_classes = [] %}
-    {% if has_full_cover_image and layout != '25-75' %}
-      {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
-      {{ header_classes.append('u-no-margin--bottom') or "" }}
-    {% endif %}
-    {% if layout == '25-75' %}
-      {# On 25-75 signpost, header top should align with top of the signpost to its left. #}
-      {{ header_classes.append('u-no-padding--top') or "" }}
-    {% endif %}
-    <h1 class="{{ header_classes | join(' ') }}">
-      {{ title_text }}
+    {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
+    <h1 class="{% if has_full_width_image %}u-no-margin--bottom{% endif %}">
+      {{ title }}
     </h1>
   {% endmacro %}
 
   {% macro _hero_subtitle_block() -%}
     {% if has_subtitle %}
       <h2>
-        {{ subtitle_text }}
+        {{ subtitle }}
       </h2>
     {% endif %}
   {% endmacro %}
@@ -95,10 +63,7 @@
   {% macro _hero_cta_block() -%}
     {% if has_cta %}
       <div class="p-cta-block">
-        <a href="{{ cta_primary_url }}" class="p-button--positive">{{ cta_primary_content }}</a>
-        {% if has_cta_secondary -%}
-          <a href="{{ cta_secondary_url }}">{{ cta_secondary_content }}</a>
-        {%- endif %}
+        {{ cta_content }}
       </div>
     {% endif %}
   {% endmacro %}
@@ -113,41 +78,34 @@
 
   <section class="p-section--hero">
     <div class="{{ row_classes | join(' ') }}">
-      <div class="{{ col_classes[0] }}">
-        {% if has_full_cover_image and layout != '25-75' %}
+      {% if has_full_width_image %}
+        <div class="{{ col_classes[0] }}">
           {{ _hero_title_block() }}
-        {% else %}
-          {% if layout == '25-75' %}
-            <div class="p-section--shallow">
-              {{ signpost_image_content }}
-            </div>
-          {% else %}
-            {{ _hero_title_block() }}
+        </div>
+        <div class="{{ col_classes[1] }}">
+          <div class="p-section--shallow">
             {{ _hero_subtitle_block() }}
-            {{ _hero_description_block() }}
-            {{ _hero_cta_block() }}
-          {% endif %}
-        {% endif %}
-      </div>
-      <div class="{{ col_classes[1] }}">
-        {% if layout == '25-75' %}
+          </div>
+          {{ _hero_description_block() }}
+          {{ _hero_cta_block() }}
+        </div>
+        {{ image_content }}
+      {% else %}
+        <div class="{{ col_classes[0] }}">
           <div class="p-section--shallow">
             {{ _hero_title_block() }}
             {{ _hero_subtitle_block() }}
           </div>
           {{ _hero_description_block() }}
           {{ _hero_cta_block() }}
-        {% elif has_full_cover_image %}
-          {{ _hero_subtitle_block() }}
-          {{ _hero_description_block() }}
-          {{ _hero_cta_block() }}
-        {% else %}
-          {{ image_content }}
+        </div>
+        {% if has_image %}
+          <div class="{{ col_classes[1] }}">
+            {{ image_content }}
+          </div>
         {% endif %}
-      </div>
-      {% if has_full_cover_image %}
-        {{ image_content }}
       {% endif %}
     </div>
   </section>
 {% endmacro %}
+

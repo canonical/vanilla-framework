@@ -1,7 +1,7 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/hero.jinja" import hero %}
 
-{% block title %}Hero / 50/50{% endblock %}
+{% block title %}Hero / 50/50 / Full width image{% endblock %}
 {% block standalone_css %}patterns_hero{% endblock %}
 
 {% set is_paper = true %}
@@ -9,8 +9,8 @@
 
 {% call(slot) hero(
   title='<code>H1</code> - ideally one line, up to two',
-  subtitle='<code>H2</code> placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
-  layout='50/50'
+  subtitle='<code>H2</code> placeholder - aim for one line, 2 is acceptable.',
+  layout='50/50-full-width-image'
 ) %}
   {% if slot == 'description' %}
     <p>
@@ -23,10 +23,10 @@
     <a href="{{ cta_secondary_url }}">Contact us ›</a>
   {% endif %}
   {% if slot == 'image' %}
-    <div class="p-image-container--3-2 is-cover">
-      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg" alt="">
+    <div class="p-image-container--cinematic is-cover">
+      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
     </div>
   {% endif %}
-{% endcall %}
+  {% endcall %}
 
 {% endblock %}
