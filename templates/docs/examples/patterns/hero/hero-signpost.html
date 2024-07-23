@@ -7,8 +7,8 @@
 {% set is_paper = True %}
 {% block content %}
 {% call(slot) hero(
-  title_text='<code>H1</code> - ideally one line, up to two',
-  subtitle_text='<code>H2</code> placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
+  title='<code>H1</code> - ideally one line, up to two',
+  subtitle='<code>H2</code> placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
   layout='25/75'
 ) %}
   {% if slot == 'signpost_image' %}
@@ -20,11 +20,9 @@
       hand side.
     </p>
   {% endif %}
-  {% if slot == 'cta_primary' %}
-    Learn more
-  {% endif %}
-  {% if slot == 'cta_secondary' %}
-    Contact us ›
+  {% if slot == 'cta' %}
+    <a href="#" class="p-button--positive">Learn more</a>
+    <a href="#">Contact us ›</a>
   {% endif %}
 {% endcall %}
 
