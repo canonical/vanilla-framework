@@ -113,7 +113,7 @@ const initNavigationSliding = () => {
   document.addEventListener('click', function (event) {
     const target = event.target;
     if (target.closest) {
-      if (!target.closest('.p-navigation--sliding, .p-navigation--reduced')) {
+      if (!target.closest('.p-navigation, .p-navigation--sliding, .p-navigation--reduced')) {
         closeAllDropdowns();
       }
     }
