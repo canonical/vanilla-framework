@@ -50,6 +50,13 @@
      {% endif %}
   {% endif %}
 
+  {% if layout == 'fallback' %}
+    {# Fallback partially uses 50-50 layout, so set a fallback flag and set layout to 50-50 #}
+    {% set is_fallback = true %}
+    {% set layout = '50-50' %}
+    {% set has_full_width_image = false %}
+  {% endif %}
+
   {# Construct grid classes from params input #}
   {% set row_classes = [] %}
   {% set col_classes = ['col', 'col'] %}
@@ -103,8 +110,28 @@
   {% endmacro %}
 
   <section class="p-section--hero">
+    {% if is_fallback %}
+      <div class="row">
+        <div class="col">
+          <div class="p-section--shallow">
+            {{ _hero_title_block() }}
+            {{ _hero_subtitle_block() }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
     <div class="{{ row_classes | join(' ') }}">
-      {% if has_full_width_image and not has_signpost_image %}
+      {% if is_fallback %}
+        <div class="{{ col_classes[0] }}">
+          {{ _hero_description_block() }}
+          {{ _hero_cta_block() }}
+        </div>
+        {% if has_image %}
+          <div class="{{ col_classes[1] }}">
+            {{ image_content }}
+          </div>
+        {% endif %}
+      {% elif has_full_width_image and not has_signpost_image %}
         <div class="{{ col_classes[0] }}">
           {{ _hero_title_block() }}
         </div>
@@ -151,4 +178,3 @@
     </div>
   </section>
 {% endmacro %}
-
