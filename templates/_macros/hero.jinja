@@ -2,14 +2,17 @@
 # title: Hero title text (required)
 # subtitle: Hero subtitle text
 # layout: layout of hero section. Options are '50/50', '50/50-full-width-image', '75/25', '25/75', 'fallback'
-# is_split_on_medium: whether the layout is split on tablet. Applies "-on-medium" to row class in 50/50 and 25/75 layouts. If false, the layout is stacked on tablet.
+# is_split_on_medium: whether the layout is split on tablet in 50/50, 25/75, and 75/25 layouts.
+#   If false, the layout is stacked on tablet.
+#   If true, the layout is split on tablet.
 # Slots
 # description: paragraph-style content below the title and subtitle
 # cta: call-to-action block below the description
 # image: slot for image content
+# signpost_image: slot for signpost (left column) image content in 25/75 layout. Required for 25/75 layout.
 
 {% macro hero(
-  title='',
+  title,
   subtitle='',
   layout="fallback",
   is_split_on_medium = false
@@ -21,6 +24,8 @@
   {% set has_cta = cta_content|trim|length > 0 %}
   {% set image_content = caller('image') %}
   {% set has_image = image_content|trim|length > 0 %}
+  {% set signpost_image_content = caller('signpost_image') %}
+  {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
 
   {# User can pass layout as "X-Y" or "X/Y" #}
   {% set layout = layout | trim | replace('/', '-') %}
@@ -33,10 +38,22 @@
     {% set has_full_width_image = true %}
   {% endif %}
 
+   {% if layout == '25-75' %}
+     {% if has_signpost_image %}
+       {% if has_image %}
+        {# Signpost layouts with images are always full-width #}
+        {% set has_full_width_image = true %}
+       {% endif %}
+     {% else %}
+       {# 25-75 signpost must include a signpost image. #}
+       {% set layout = 'fallback' %}
+     {% endif %}
+  {% endif %}
+
   {# Construct grid classes from params input #}
   {% set row_classes = [] %}
   {% set col_classes = ['col', 'col'] %}
-  {% if layout in ['50-50'] %}
+  {% if layout in ['50-50', '25-75'] %}
     {# Responsive breakpoint classes were requested #}
     {% if not is_split_on_medium %}
       {{ row_classes.append('row--' + layout + '-on-large') or "" }}
@@ -46,8 +63,9 @@
   {% endif %}
 
   {% macro _hero_title_block() -%}
-    {# On full-cover, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
-    <h1 class="{% if has_full_width_image %}u-no-margin--bottom{% endif %}">
+    {# On 25-75 signpost, header top should align with top of the signpost to its left. #}
+    {# On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
+    <h1 class="{% if layout == '25-75' and has_signpost_image %}u-no-padding--top{% elif has_full_width_image %}u-no-margin--bottom{% endif %}">
       {{ title }}
     </h1>
   {% endmacro %}
@@ -76,9 +94,17 @@
     {% endif %}
   {% endmacro %}
 
+  {% macro _hero_signpost_image_block() -%}
+    {% if layout == '25-75' and has_signpost_image %}
+      <div class="p-section--shallow">
+        {{ signpost_image_content }}
+      </div>
+    {% endif %}
+  {% endmacro %}
+
   <section class="p-section--hero">
     <div class="{{ row_classes | join(' ') }}">
-      {% if has_full_width_image %}
+      {% if has_full_width_image and not has_signpost_image %}
         <div class="{{ col_classes[0] }}">
           {{ _hero_title_block() }}
         </div>
@@ -90,6 +116,23 @@
           {{ _hero_cta_block() }}
         </div>
         {{ image_content }}
+      {% elif has_signpost_image %}
+        {# 25/75 Signpost layout #}
+        <div class="{{ col_classes[0] }}">
+          {{ _hero_signpost_image_block() }}
+        </div>
+        <div class="{{ col_classes[1] }}">
+          <div class="p-section--shallow">
+            {{ _hero_title_block() }}
+            {{ _hero_subtitle_block() }}
+          </div>
+          {{ _hero_description_block() }}
+          {{ _hero_cta_block() }}
+        </div>
+        {% if has_image %}
+          {# Signpost with image is always full-width, so set it after the columns #}
+          {{ image_content }}
+        {% endif %}
       {% else %}
         <div class="{{ col_classes[0] }}">
           <div class="p-section--shallow">
