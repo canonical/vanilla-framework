@@ -5,12 +5,8 @@ const initNavigationSliding = () => {
   const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back-button)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
-  const dropdowns = document.querySelectorAll('ul.p-navigation__dropdown');
-  const lists = [...dropdowns];
-  const mainList = dropdowns[0]?.parentNode?.parentNode;
-  if (mainList) {
-    lists.push(mainList);
-  }
+  const dropdownNavLists = document.querySelectorAll('.js-dropdown-nav-list');
+  const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.js-dropdown-nav-list'))[0];
 
   const hasSearch = searchButtons.length > 0;
 
@@ -49,7 +45,7 @@ const initNavigationSliding = () => {
     } else {
       navigation.classList.add('has-menu-open');
       e.target.innerHTML = 'Close menu';
-      setFocusable(mainList);
+      setFocusable(topNavList);
     }
   });
 
@@ -119,19 +115,35 @@ const initNavigationSliding = () => {
     }
   });
 
+  const setListFocusable = (list) => {
+    // turn on focusability for all direct children in the target dropdown
+    if (list) {
+      for (const item of list.children) {
+        item.children[0].setAttribute('tabindex', '0');
+      }
+    }
+  };
+
   const setFocusable = (target) => {
-    lists.forEach(function (list) {
-      const elements = list.querySelectorAll('ul > li > a, ul > li > button');
-      elements.forEach(function (element) {
-        element.setAttribute('tabindex', '-1');
-      });
+    // turn off focusability for all dropdown lists in the navigation
+    dropdownNavLists.forEach(function (list) {
+      if (list != topNavList) {
+        const elements = list.querySelectorAll('ul > li > a, ul > li > button');
+        elements.forEach(function (element) {
+          element.setAttribute('tabindex', '-1');
+        });
+      }
     });
-    if (target) {
-      target.querySelectorAll('li').forEach(function (element) {
-        if (element.parentNode === target) {
-          element.children[0].setAttribute('tabindex', '0');
-        }
+
+    // if target dropdown is not a list, find the list in it
+    const isList = target.classList.contains('js-dropdown-nav-list');
+    if (!isList) {
+      // find all lists in the target dropdown and make them focusable
+      target.querySelectorAll('.js-dropdown-nav-list').forEach(function (element) {
+        setListFocusable(element);
       });
+    } else {
+      setListFocusable(target);
     }
   };
 
@@ -168,7 +180,7 @@ const initNavigationSliding = () => {
     setFocusable(target.parentNode.parentNode);
   };
 
-  dropdowns.forEach(function (dropdown) {
+  dropdownNavLists.forEach(function (dropdown) {
     dropdown.children[1].addEventListener('keydown', function (e) {
       if (e.shiftKey && e.key === 'Tab' && window.getComputedStyle(dropdown.children[0], null).display === 'none') {
         goBackOneLevel(e, dropdown.children[1].children[0]);
