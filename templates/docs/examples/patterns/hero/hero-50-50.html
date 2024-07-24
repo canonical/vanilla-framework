@@ -11,22 +11,22 @@
   title='<code>H1</code> - ideally one line, up to two',
   subtitle='<code>H2</code> placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
   layout='50/50'
-) %}
-  {% if slot == 'description' %}
-    <p>
-      Generally, the height of the right hand side of a 50/50 split should contain more content than the left
-      hand side.
-    </p>
-  {% endif %}
-  {% if slot == 'cta' %}
-    <a href="#" class="p-button--positive">Learn more</a>
-    <a href="#">Contact us ›</a>
-  {% endif %}
-  {% if slot == 'image' %}
-    <div class="p-image-container--3-2 is-cover">
-      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg" alt="">
-    </div>
-  {% endif %}
-{% endcall %}
+) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side.
+      </p>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <a href="#" class="p-button--positive">Learn more</a>
+      <a href="#">Contact us ›</a>
+    {%- endif -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--3-2 is-cover">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg" alt="">
+      </div>
+    {%- endif -%}
+{% endcall -%}
 
 {% endblock %}

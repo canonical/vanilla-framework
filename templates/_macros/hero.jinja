@@ -10,12 +10,11 @@
 # cta: call-to-action block below the description
 # image: slot for image content
 # signpost_image: slot for signpost (left column) image content in 25/75 layout. Required for 25/75 layout.
-
 {% macro hero(
   title,
   subtitle='',
   layout="fallback",
-  is_split_on_medium = false
+  is_split_on_medium=false
 ) -%}
   {% set has_subtitle = subtitle|trim|length > 0 %}
   {% set description_content = caller('description') %}
@@ -27,7 +26,6 @@
   {% set signpost_image_content = caller('signpost_image') %}
   {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
 
-  {# User can pass layout as "X-Y" or "X/Y" #}
   {% set layout = layout | trim | replace('/', '-') %}
   {% if layout not in ['50-50', '50-50-full-width-image', '75-25', '25-75', 'fallback'] %}
     {% set layout = 'fallback' %}
@@ -38,33 +36,26 @@
     {% set has_full_width_image = true %}
   {% endif %}
 
-   {% if layout == '25-75' %}
-     {% if has_signpost_image %}
-       {% if has_image %}
-        {# Signpost layouts with images are always full-width #}
+  {% if layout == '25-75' %}
+    {% if has_signpost_image %}
+      {% if has_image %}
         {% set has_full_width_image = true %}
-       {% endif %}
-     {% else %}
-       {# 25-75 signpost must include a signpost image. #}
-       {% set layout = 'fallback' %}
-     {% endif %}
+      {% endif %}
+    {% else %}
+      {% set layout = 'fallback' %}
+    {% endif %}
   {% endif %}
 
   {% if layout == 'fallback' %}
-    {# Fallback partially uses 50-50 layout, so set a fallback flag and set layout to 50-50 #}
     {% set is_fallback = true %}
     {% set layout = '50-50' %}
-
-    {# Restrict layout choices to make sure fallback looks consistent #}
     {% set has_full_width_image = false %}
     {% set is_split_on_medium = false %}
   {% endif %}
 
-  {# Construct grid classes from params input #}
   {% set row_classes = [] %}
   {% set col_classes = ['col', 'col'] %}
   {% if layout in ['50-50', '25-75', '75-25'] %}
-    {# Responsive breakpoint classes were requested #}
     {% if not is_split_on_medium %}
       {{ row_classes.append('row--' + layout + '-on-large') or "" }}
     {% else %}
@@ -72,112 +63,110 @@
     {% endif %}
   {% endif %}
 
-  {% macro _hero_title_block() -%}
-    {# On 25-75 signpost, header top should align with top of the signpost to its left. #}
-    {# On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
+  {%- macro _hero_title_block() -%}
+    {# On 25-75 signpost, header top should align with top of the signpost to its left. -#}
+    {# On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
     <h1 class="{% if layout == '25-75' and has_signpost_image %}u-no-padding--top{% elif has_full_width_image %}u-no-margin--bottom{% endif %}">
       {{ title }}
     </h1>
-  {% endmacro %}
+  {%- endmacro %}
 
-  {% macro _hero_subtitle_block() -%}
+  {%- macro _hero_subtitle_block() -%}
     {% if has_subtitle %}
       <h2>
         {{ subtitle }}
       </h2>
     {% endif %}
-  {% endmacro %}
+  {%- endmacro %}
 
-  {% macro _hero_cta_block() -%}
-    {% if has_cta %}
+  {%- macro _hero_cta_block() -%}
+    {% if has_cta -%}
       <div class="p-cta-block">
         {{ cta_content }}
       </div>
     {% endif %}
-  {% endmacro %}
+  {%- endmacro %}
 
-  {% macro _hero_description_block() -%}
+  {%- macro _hero_description_block() -%}
     {% if has_description %}
       <div class="p-section--shallow">
         {{ description_content }}
       </div>
     {% endif %}
-  {% endmacro %}
+  {%- endmacro %}
 
-  {% macro _hero_signpost_image_block() -%}
-    {% if layout == '25-75' and has_signpost_image %}
+  {%- macro _hero_signpost_image_block() -%}
+    {% if layout == '25-75' and has_signpost_image -%}
       <div class="p-section--shallow">
         {{ signpost_image_content }}
       </div>
     {% endif %}
-  {% endmacro %}
+  {%- endmacro %}
 
   <section class="p-section--hero">
-    {% if is_fallback %}
+    {% if is_fallback -%}
       <div class="row">
         <div class="col">
           <div class="p-section--shallow">
-            {{ _hero_title_block() }}
-            {{ _hero_subtitle_block() }}
+            {{ _hero_title_block() -}}
+            {{ _hero_subtitle_block() -}}
           </div>
         </div>
       </div>
-    {% endif %}
+    {% endif -%}
     <div class="{{ row_classes | join(' ') }}">
-      {% if is_fallback %}
+      {%- if is_fallback %}
         <div class="{{ col_classes[0] }}">
-          {{ _hero_description_block() }}
-          {{ _hero_cta_block() }}
+          {{- _hero_description_block() -}}
+          {{ _hero_cta_block() -}}
         </div>
-        {% if has_image %}
+        {% if has_image -%}
           <div class="{{ col_classes[1] }}">
             {{ image_content }}
           </div>
-        {% endif %}
+        {% endif -%}
       {% elif has_full_width_image and not has_signpost_image %}
         <div class="{{ col_classes[0] }}">
           {{ _hero_title_block() }}
         </div>
         <div class="{{ col_classes[1] }}">
           <div class="p-section--shallow">
-            {{ _hero_subtitle_block() }}
+            {{- _hero_subtitle_block() -}}
           </div>
-          {{ _hero_description_block() }}
-          {{ _hero_cta_block() }}
+          {{- _hero_description_block() -}}
+          {{- _hero_cta_block() -}}
         </div>
-        {{ image_content }}
+        {{ image_content -}}
       {% elif has_signpost_image %}
-        {# 25/75 Signpost layout #}
         <div class="{{ col_classes[0] }}">
-          {{ _hero_signpost_image_block() }}
+          {{ _hero_signpost_image_block() -}}
         </div>
         <div class="{{ col_classes[1] }}">
           <div class="p-section--shallow">
-            {{ _hero_title_block() }}
-            {{ _hero_subtitle_block() }}
+            {{ _hero_title_block() -}}
+            {{ _hero_subtitle_block() -}}
           </div>
-          {{ _hero_description_block() }}
-          {{ _hero_cta_block() }}
+          {{- _hero_description_block() -}}
+          {{- _hero_cta_block() -}}
         </div>
         {% if has_image %}
-          {# Signpost with image is always full-width, so set it after the columns #}
-          {{ image_content }}
-        {% endif %}
+          {{- image_content }}
+        {% endif -%}
       {% else %}
         <div class="{{ col_classes[0] }}">
           <div class="p-section--shallow">
-            {{ _hero_title_block() }}
-            {{ _hero_subtitle_block() }}
+            {{ _hero_title_block() -}}
+            {{ _hero_subtitle_block() -}}
           </div>
-          {{ _hero_description_block() }}
-          {{ _hero_cta_block() }}
+          {{- _hero_description_block() -}}
+          {{- _hero_cta_block() -}}
         </div>
-        {% if has_image %}
+        {% if has_image -%}
           <div class="{{ col_classes[1] }}">
             {{ image_content }}
           </div>
-        {% endif %}
-      {% endif %}
+        {% endif -%}
+      {% endif -%}
     </div>
   </section>
-{% endmacro %}
+{%- endmacro %}
