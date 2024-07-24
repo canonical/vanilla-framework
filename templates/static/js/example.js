@@ -78,6 +78,7 @@
   }
 
   function renderExample(placementElement, html) {
+    html = html_beautify(html);
     var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
     var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
     var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
@@ -86,10 +87,11 @@
     var bodyHTML = bodyPattern.exec(html)[1].trim();
     var headHTML = headPattern.exec(html)[1].trim();
 
-    var htmlSource = stripScriptsFromSource(bodyHTML);
-    var jsSource = getScriptFromSource(bodyHTML);
+    var htmlSource = html_beautify(stripScriptsFromSource(bodyHTML));
+    var jsSource = js_beautify(getScriptFromSource(bodyHTML));
     var cssSource = getStyleFromSource(headHTML);
     var externalScripts = getExternalScriptsFromSource(html);
+
     var codePenData = {
       html: htmlSource,
       css: cssSource,
