@@ -2,7 +2,7 @@
 # title: Hero title text (required)
 # subtitle: Hero subtitle text
 # layout: layout of hero section. Options are '50/50', '50/50-full-width-image', '75/25', '25/75', 'fallback'
-# is_split_on_medium: whether the layout is split on tablet. Applies "-on-large" to row class in 50/50 and 25/75 layouts.
+# is_split_on_medium: whether the layout is split on tablet in 50/50, 25/75, and 75/25 layouts.
 #   If false, the layout is stacked on tablet.
 #   If true, the layout is split on tablet.
 # Slots
@@ -63,15 +63,9 @@
   {% endif %}
 
   {% macro _hero_title_block() -%}
-    {% set header_classes = [] %}
-    {% if layout == '25-75' and has_signpost_image %}
-      {# On 25-75 signpost, header top should align with top of the signpost to its left. #}
-      {{ header_classes.append('u-no-padding--top') or "" }}
-    {% elif has_full_width_image %}
-      {# On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
-      {{ header_classes.append('u-no-margin--bottom') or "" }}
-    {% endif %}
-    <h1 class="{{ header_classes | join(' ') }}">
+    {# On 25-75 signpost, header top should align with top of the signpost to its left. #}
+    {# On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  #}
+    <h1 class="{% if layout == '25-75' and has_signpost_image %}u-no-padding--top{% elif has_full_width_image %}u-no-margin--bottom{% endif %}">
       {{ title }}
     </h1>
   {% endmacro %}
