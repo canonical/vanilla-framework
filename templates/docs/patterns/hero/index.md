@@ -45,3 +45,7 @@ View example of the hero pattern in 50/50 split
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-fallback" class="js-example">
 View example of the hero pattern in fallback configuration
 </a></div>
+
+## Import
+
+Since Patterns leverage many other parts of Vanilla in their composition and content, we recommend [importing the entirety of Vanilla](/docs#install) for full support.
