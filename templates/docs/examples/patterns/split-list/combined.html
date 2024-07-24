@@ -1,0 +1,15 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Split list / Combined{% endblock %}
+
+{% block standalone_css %}patterns_split_list{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/split-list/50-50-desktop-with-description.html' %}</section>
+<section>{% include 'docs/examples/patterns/split-list/50-50-tablet-no-description.html' %}</section>
+<section>{% include 'docs/examples/patterns/split-list/50-50-tablet-with-description.html' %}</section>
+<section>{% include 'docs/examples/patterns/split-list/50-50-with-description.html' %}</section>
+<section>{% include 'docs/examples/patterns/split-list/full-width-no-description.html' %}</section>
+<section>{% include 'docs/examples/patterns/split-list/full-width-with-description.html' %}</section>
+{% endwith %}
+{% endblock %}
