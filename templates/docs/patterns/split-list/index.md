@@ -45,12 +45,6 @@ View example of the matrix pattern
 
 ## Import
 
-<div class="p-notification--information">
-  <p class="p-notification__content">
-    <span class="p-notification__title">Note:</span>
-    <span class="p-notification__message">Since Patterns leverage many other parts of Vanilla in their composition and content, we recommend importing the entirety of Vanilla for full support.</span>
-  </p>
-</div>
-
-To import and use this Pattern in your project, follow the steps on the
-[Vanilla installation guide](/docs#install) to include all of the Vanilla framework.
+Since Patterns leverage many other parts of Vanilla in their composition and
+content, we recommend [importing the entirety of Vanilla](/docs#install) for
+full support.
