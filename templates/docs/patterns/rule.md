@@ -12,7 +12,7 @@ It indicates the direction in which we want the viewer to read the content.
 
 ## Default
 
-Main page sections are often separated by horizontal rules. You can use the `p-rule` class name to create a default horizontal rule.
+Main page sections are often separated by horizontal rules.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">
 View example of a default horizontal rule
@@ -20,7 +20,7 @@ View example of a default horizontal rule
 
 ## Muted
 
-Muted rules are usually used within sections of content. You can add a muted rule to make it less prominent by using the `p-rule--muted` class name. This is useful for separating smaller blocks of content without drawing too much attention to the rule itself.
+Muted rules are usually used within sections of content. You can add a muted rule to make it less prominent by using the `is-muted` class name. This is useful for separating smaller blocks of content without drawing too much attention to the rule itself.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/muted" class="js-example">
 View example of a muted horizontal rule
