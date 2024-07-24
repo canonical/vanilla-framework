@@ -8,7 +8,7 @@ Here you will find information on customising Vanilla to suit your project.
 
 ## Overriding default settings
 
-To override the default settings you must do so _before_ you include Vanilla in your main Sass file. It is good practice to include custom styles in a separate settings file. A list of configurable settings can be found in the [Related section](#related).
+To override the default settings you must do so _before_ you include Vanilla in your main Sass file. It is good practice to include custom styles in a separate settings file. A list of configurable settings can be found in the [Related settings section](#related-settings).
 
 ```
 // Override default Vanilla settings in your main Sass file
