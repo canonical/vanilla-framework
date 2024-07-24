@@ -54,7 +54,10 @@
     {# Fallback partially uses 50-50 layout, so set a fallback flag and set layout to 50-50 #}
     {% set is_fallback = true %}
     {% set layout = '50-50' %}
+
+    {# Restrict layout choices to make sure fallback looks consistent #}
     {% set has_full_width_image = false %}
+    {% set is_split_on_medium = false %}
   {% endif %}
 
   {# Construct grid classes from params input #}
