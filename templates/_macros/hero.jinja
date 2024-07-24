@@ -53,7 +53,7 @@
   {# Construct grid classes from params input #}
   {% set row_classes = [] %}
   {% set col_classes = ['col', 'col'] %}
-  {% if layout in ['50-50', '25-75'] %}
+  {% if layout in ['50-50', '25-75', '75-25'] %}
     {# Responsive breakpoint classes were requested #}
     {% if not is_split_on_medium %}
       {{ row_classes.append('row--' + layout + '-on-large') or "" }}
