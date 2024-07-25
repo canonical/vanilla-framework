@@ -32,7 +32,7 @@ View example of the hero pattern in 50/50 that is split on medium and small
 
 The above hero layouts place the hero image in the right column by default. However, this is not suitable for very wide images.
 If you have a very wide image or otherwise want your image to take up the full hero width, place the title by itself in the first column,
-and place the image by itself outside the grid columns with <code>.p-image-container .is-cover</code>.
+and place the image in a <code>.p-image-container .is-cover</code> at the same level as the grid columns.
 This will make the image take up the full width of the hero.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-width-image" class="js-example">
@@ -41,9 +41,16 @@ View example of the hero pattern in 50/50 split with a full-width image
 
 ## 25/75 "signpost"
 
+If you have a small image that you want to associate with the hero title, you can use the "signpost" layout.
+This places the image in a small column besides the primary hero content.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost" class="js-example">
 View example of the hero pattern in 50/50 split
 </a></div>
+
+This layout also supports a full-width image. Place the image in a <code>.p-image-container .is-cover</code>at the same
+level as the hero grid columns to make it take full width beneath the rest of the hero. This is identical to the
+full-width image layout for the [50/50 layout](#50-50-with-full-width-image).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost-full-width-image" class="js-example">
 View example of the hero pattern in 50/50 split
@@ -51,15 +58,35 @@ View example of the hero pattern in 50/50 split
 
 ## 75/25
 
+If you have a large amount of text content to place in the body of the hero, and/or a portrait-oriented image, you can use the
+75/25 layout. This places the image in a small column besides the hero text.
+
+The <code>.row--75-25</code> class is used to maintain the 75/25 split on medium screens.
+If you find that the image is too tall on small screens, you can use <code>.u-hide--small</code> to hide the image on small screens.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-75-25" class="js-example">
 View example of the hero pattern in 50/50 split
 </a></div>
 
 ## Fallback
 
+If you have a very large amount of text content that is difficult to balance with the hero image, you can use the fallback layout.
+This places the title and subtitle in their own row above the rest of the hero content.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-fallback" class="js-example">
 View example of the hero pattern in fallback configuration
 </a></div>
+
+## Dependencies
+
+This pattern makes use of the following Vanilla building blocks:
+
+- [Button](/docs/patterns/button)
+- [CTA Block](/docs/patterns/cta-block)
+- [Grid](/docs/patterns/grid)
+- [Hide](/docs/utilities/hide)
+- [Image](/docs/patterns/image)
+- [Section](/docs/patterns/section)
 
 ## Import
 
