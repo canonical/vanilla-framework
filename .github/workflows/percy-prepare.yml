@@ -25,6 +25,7 @@ jobs:
         with:
           sparse-checkout: |
             templates/docs/examples/
+            templates/_macros/
             scss/
           ref: ${{ github.event.inputs.commitsh }}
           repository: ${{ github.event.inputs.repository }}
@@ -32,7 +33,7 @@ jobs:
       - name: Populate artifact directory
         run: |
           mkdir -p artifact
-          cp -R templates/docs/examples/ scss/ artifact/.
+          cp -R templates/docs/examples/ templates/_macros/ scss/ artifact/.
         
       # Archive the PR number associated with this workflow since it won't be available in the base workflow context
       # https://github.com/orgs/community/discussions/25220

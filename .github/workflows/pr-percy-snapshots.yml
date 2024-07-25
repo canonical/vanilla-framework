@@ -27,7 +27,7 @@ jobs:
       - name: Remove SCM directories that will be replaced by artifact files
         run: |
           set -e
-          rm -rf templates/docs/examples/ scss/
+          rm -rf templates/docs/examples/ templates/_macros/ scss/
 
       - name: Download artifact from workflow run
         uses: actions/download-artifact@v4
@@ -40,8 +40,10 @@ jobs:
       - name: Move artifact files into place to replace SCM
         run: |
           set -e
-          # artifact directory contains `scss/`, `/examples`, `pr_num.txt`, and `pr_head_sha.txt`. `/examples` must be moved to `templates/docs/`.
+          # artifact directory contains `scss/`, `examples/`, `_macros/`, `pr_num.txt`, and `pr_head_sha.txt`. 
+          # `/examples` and `_macros/` must be moved to `templates/`.
           mv examples/ templates/docs/.
+          mv _macros/ templates/.
 
       - name: Get PR data
         if: github.event.workflow_run.event=='pull_request'
