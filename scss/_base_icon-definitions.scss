@@ -21,6 +21,25 @@
   @include vf-themed-icon($light-value: vf-icon-chevron-url($colors--light-theme--icon), $dark-value: vf-icon-chevron-url($colors--dark-theme--icon));
 }
 
+@mixin vf-icon-chevron-up-themed {
+  @include vf-themed-icon($light-value: vf-icon-chevron-url($colors--light-theme--icon), $dark-value: vf-icon-chevron-url($colors--dark-theme--icon));
+  transform: rotate(180deg);
+}
+
+@mixin vf-icon-chevron-right-themed {
+  @include vf-themed-icon($light-value: vf-icon-chevron-url($colors--light-theme--icon), $dark-value: vf-icon-chevron-url($colors--dark-theme--icon));
+  transform: rotate(-90deg);
+}
+
+@mixin vf-icon-chevron-down-themed {
+  @include vf-icon-chevron-themed;
+}
+
+@mixin vf-icon-chevron-left-themed {
+  @include vf-themed-icon($light-value: vf-icon-chevron-url($colors--light-theme--icon), $dark-value: vf-icon-chevron-url($colors--dark-theme--icon));
+  transform: rotate(90deg);
+}
+
 @mixin vf-icon-chevron-muted {
   @include vf-themed-icon($light-value: vf-icon-chevron-url($colors--light-theme--text-muted), $dark-value: vf-icon-chevron-url($colors--dark-theme--text-muted));
 }
