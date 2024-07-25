@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Hero | Components
+  title: Hero | Patterns
 ---
 
 A hero is a prominent banner section, typically used to quickly capture the user's attention after they land on the page.
