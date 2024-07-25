@@ -3,6 +3,7 @@
     // height of reduced navigation calculated from line height and padding
     $reduced-nav-height: calc(map-get($line-heights, x-small) + 2 * $spv--small);
 
+    background-color: $colors--theme--background-alt;
     position: relative;
     z-index: 99; // display above sticky top navigation, but below modals/overlays
 
@@ -24,13 +25,17 @@
 
     // reduced nav logo text uses default font size (on small screens)
     .p-navigation__logo-title {
+      color: $colors--theme--text-muted;
       font-size: #{map-get($font-sizes, default)}rem;
+    }
+
+    // links in the banner (Menu toggle, search toggle) use muted text colour
+    .p-navigation__banner .p-navigation__link {
+      color: $colors--theme--text-muted;
     }
 
     // REDUCED SIZE OF NAVIGATION ON LARGE SCREENS
     @media (min-width: $breakpoint-navigation-threshold) {
-      background-color: $colors--theme--background-alt;
-
       // adjust font size for reduced nav on large screens
       .p-navigation__link,
       .p-navigation__logo-title {
@@ -73,6 +78,11 @@
     // SEARCH IN REDUCED NAVIGATION
 
     .p-navigation__link--search-toggle {
+      // use muted icon to align with text colour
+      &::after {
+        @include vf-icon-search-muted;
+      }
+
       // search label is always hidden in reduced navigation
       .p-navigation__search-label {
         display: none;
