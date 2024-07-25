@@ -39,19 +39,18 @@ jobs:
 
       - name: Move artifact files into place to replace SCM
         run: |
-          set -e
-          # artifact directory contains `scss/`, `examples/`, `_macros/`, `pr_num.txt`, and `pr_head_sha.txt`. 
-          # `/examples` and `_macros/` must be moved to `templates/`.
+          # artifact directory contains `scss/`, `examples/`, `macros/`, `pr_num.txt`, and `pr_head_sha.txt`. 
+          # `/examples` and `macros/` must be moved to `templates/`.
           mv examples/ templates/docs/.
-          mv _macros/ templates/.
+          mv macros/ templates/_macros
 
       - name: Get PR data
         if: github.event.workflow_run.event=='pull_request'
         id: get_pr_data
         run: |
-          set -e
           echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
           echo "pr_number=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+          tree
 
       - name: Take snapshots & upload to Percy
         id: percy_snapshot
