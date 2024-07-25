@@ -4,14 +4,14 @@ context:
   title: Hero | Patterns
 ---
 
-A hero is a prominent banner section, typically used to quickly capture the user's attention after they land on the page.
+A hero is a prominent banner section typically used to quickly capture the user's attention after they land on the page.
 Depending on the size and composition of your content, you can choose from a variety of hero layouts.
 
 ## 50/50
 
 ### 50/50 on large
 
-You can use <code>.row--50-50-on-large</code> to create a 50/50 hero that is split on large screens, and stacked on small and medium screens.
+You can use <code>.row--50-50-on-large</code> to create a 50/50 hero that is split on large screens and stacked on small and medium screens.
 This is useful when your hero contents, especially your image, are not suitably balanced when viewed on medium screens.
 This makes your hero somewhat safer to use, as it helps to avoid awkward content sizing on medium screens, making all content stack vertically.
 
@@ -31,7 +31,7 @@ View example of the hero pattern in 50/50 that is split on medium and small
 ### 50/50 with full-width image
 
 The above hero layouts place the hero image in the right column by default. However, this is not suitable for very wide images.
-If you have a very wide image or otherwise want your image to take up the full hero width, place the title by itself in the first column,
+If you have a very wide image or otherwise want your image to take up the full hero width, place the title by itself in the first column
 and place the image in a <code>.p-image-container .is-cover</code> at the same level as the grid columns.
 This will make the image take up the full width of the hero.
 
@@ -42,7 +42,7 @@ View example of the hero pattern in 50/50 split with a full-width image
 ## 25/75 "signpost"
 
 If you have a small image that you want to associate with the hero title, you can use the "signpost" layout.
-This places the image in a small column besides the primary hero content.
+This places the image in a small column beside the primary hero content.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost" class="js-example">
 View example of the hero pattern in 50/50 split
@@ -58,8 +58,8 @@ View example of the hero pattern in 50/50 split
 
 ## 75/25
 
-If you have a large amount of text content to place in the body of the hero, and/or a portrait-oriented image, you can use the
-75/25 layout. This places the image in a small column besides the hero text.
+If you have a large amount of text content to place in the body of the hero and/or a portrait-oriented image, you can use the
+75/25 layout. This places the image in a small column beside the hero text.
 
 The <code>.row--75-25</code> class is used to maintain the 75/25 split on medium screens.
 If you find that the image is too tall on small screens, you can use <code>.u-hide--small</code> to hide the image on small screens.
