@@ -2,6 +2,7 @@ const {URL} = require('url');
 const snapshotsTest = require('../snapshots');
 
 const PORT = process.env.PORT || 8101;
+const THEMES = ['light', 'dark', 'paper'];
 
 /**
  * Combined examples that embed responsive examples.
@@ -42,6 +43,28 @@ test('Returns correct widths for snapshots, including additional breakpoint for 
 
     return JSON.stringify(snapshot.widths) !== JSON.stringify(expectedWidths);
   });
+  expect(failedUrls).toHaveLength(0);
+});
+
+test('Returned snapshots have only one url per theme', async () => {
+  const snapshots = await snapshotsTest();
+  const encountered = new Map();
+  snapshots.forEach((snapshot) => {
+    const url = new URL(snapshot.url);
+    const theme = url.searchParams.get('theme');
+    if (!encountered.has(url.pathname)) {
+      encountered.set(url.pathname, 0);
+    }
+    encountered.set(url.pathname, encountered.get(url.pathname) + 1);
+  });
+
+  const failedUrls = snapshots
+    .map((snapshot) => snapshot.url)
+    .filter((snapshotAbsoluteUrl) => {
+      const url = new URL(snapshotAbsoluteUrl);
+      return encountered.get(url.pathname) !== THEMES.length;
+    });
+
   expect(failedUrls).toHaveLength(0);
 });
 
