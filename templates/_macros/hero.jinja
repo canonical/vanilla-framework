@@ -26,6 +26,7 @@
   {% set signpost_image_content = caller('signpost_image') %}
   {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
 
+  {#- User can pass layout as "X-Y" or "X/Y" -#}
   {% set layout = layout | trim | replace('/', '-') %}
   {% if layout not in ['50-50', '50-50-full-width-image', '75-25', '25-75', 'fallback'] %}
     {% set layout = 'fallback' %}
@@ -39,23 +40,30 @@
   {% if layout == '25-75' %}
     {% if has_signpost_image %}
       {% if has_image %}
+        {#- Signpost layouts with images are always full-width -#}
         {% set has_full_width_image = true %}
       {% endif %}
     {% else %}
+      {#- 25-75 signpost must include a signpost image. -#}
       {% set layout = 'fallback' %}
     {% endif %}
   {% endif %}
 
   {% if layout == 'fallback' %}
+    {#- Fallback partially uses 50-50 layout, so set a fallback flag and set layout to 50-50 -#}
     {% set is_fallback = true %}
     {% set layout = '50-50' %}
+
+    {#- Restrict layout choices to make sure fallback looks consistent -#}
     {% set has_full_width_image = false %}
     {% set is_split_on_medium = false %}
   {% endif %}
 
+  {#- Construct grid classes from params input -#}
   {% set row_classes = [] %}
   {% set col_classes = ['col', 'col'] %}
   {% if layout in ['50-50', '25-75', '75-25'] %}
+    {#- Responsive breakpoint classes were requested -#}
     {% if not is_split_on_medium %}
       {{ row_classes.append('row--' + layout + '-on-large') or "" }}
     {% else %}
@@ -145,6 +153,7 @@
         </div>
         {{ image_content -}}
       {% elif has_signpost_image %}
+        {#- 25/75 Signpost layout -#}
         <div class="{{ col_classes[0] }}">
           {{ _hero_signpost_image_block() -}}
         </div>
@@ -157,6 +166,7 @@
           {{- _hero_cta_block() -}}
         </div>
         {% if has_image %}
+          {#- Signpost with image is always full-width, so set it after the columns -#}
           {{- image_content }}
         {% endif -%}
       {% else %}
