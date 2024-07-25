@@ -15,6 +15,10 @@
   $logo-section-item-gap: 3rem;
   $logo-section-item-gap-dense: calc(0.5 * $logo-section-item-gap);
 
+  // TODO: Many styles for the dense variant within this block are overridden
+  // below; this should be separated into a "common" styles block for regular
+  // and dense variants and a block used solely for the regular variant,
+  // leaving the block at the bottom of the file for the dense variant
   .p-logo-section,
   .p-logo-section--dense {
     .p-logo-section__item {
@@ -73,18 +77,18 @@
     .p-logo-section__item {
       display: inline-block;
       margin: 0;
-      margin-bottom: calc(-1 * $logo-section-offset-small); // pull the next row of logos up
+      margin-bottom: calc(-1 * $logo-section-offset-medium); // pull the next row of logos up
       margin-right: $logo-section-item-gap-dense;
-      margin-top: calc(-1 * $logo-section-offset-small); // pull the previous row of logos down
+      margin-top: calc(-1 * $logo-section-offset-medium); // pull the previous row of logos down
     }
 
     .p-logo-section__logo {
-      height: $logo-section-item-size-small;
+      height: $logo-section-item-size-medium;
     }
 
     .p-logo-section__items {
-      padding-bottom: $logo-section-offset-small;
-      padding-top: $logo-section-offset-small;
+      padding-bottom: $logo-section-offset-medium;
+      padding-top: $logo-section-offset-medium;
     }
   }
 
