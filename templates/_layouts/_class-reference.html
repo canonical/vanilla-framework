@@ -1,14 +1,26 @@
 {%- for element, items in data.items() -%}
 <hr />
-<div class="row">
-    <div class="col-2 col-medium-1"><h4 class="p-muted-heading">{{ element }}</h4></div>
-    <div class="col-7 col-medium-5">
+<div class="row--25-75-on-large">
+    <div class="col">
+      <h4 class="p-muted-heading">
+        {{ element }}
+      </h4>
+    </div>
+    <div class="col">
         <div class="row">
             {%- for classname, description in items.items() -%}
-            <div class="col-3 col-medium-2"><p><code>{{ classname }}</code></p></div>
-            <div class="col-4 col-medium-3">{{ description | markdown }}</div>
+            <div class="col-3 col-medium-2">
+              <p>
+                <code>{{ classname }}</code>
+              </p>
+            </div>
+            <div class="col-6 col-medium-4">
+              {{ description | markdown }}
+            </div>
             {%- if not loop.last -%}
-            <div class="col-7 col-medium-5"><hr/></div>
+            <div class="col-9 col-medium-6">
+              <hr/>
+            </div>
             {%- endif -%}
             {%- endfor -%}
         </div>
