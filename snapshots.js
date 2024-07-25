@@ -65,13 +65,21 @@ function getExampleUrlsFromExamplePaths(urlPaths) {
 /**
  * Given an example path, return the widths to snapshot.
  * @param urlPath {String} Relative url to the example, from the siteroot
+ * @param theme {String} theme the example is being captured in
  * @returns {Promise<Number[]>} Array of widths to snapshot, from smallest to largest.
  */
-async function getWidthsForExample(urlPath) {
+async function getWidthsForExample(urlPath, theme) {
   let widths = new Set([
-    375, // Mobile
     1280, // Desktop
   ]);
+
+  if (theme !== 'light') {
+    // Non-light themes are only captured at one width
+    return Array.from(widths);
+  }
+
+  // Light theme is also captured at 375px for mobile
+  widths.add(375);
 
   /**
    * We need to make sure that combined examples that embed responsive examples are also responsive.
@@ -83,14 +91,15 @@ async function getWidthsForExample(urlPath) {
     let parentDirectory = path.join('templates', urlPath.replace(/(combined|standalone)\//g, ''));
     let siblingFiles = await getExampleFiles(parentDirectory);
     for (let siblingFile of siblingFiles) {
-      let siblingWidths = await getWidthsForExample(siblingFile);
+      let siblingWidths = await getWidthsForExample(siblingFile, theme);
       siblingWidths.forEach((width) => widths.add(width));
     }
   }
   const isResponsive = urlPath.includes('responsive');
 
   if (isResponsive) {
-    widths.add(800); // Tablet
+    // Responsive light theme is also captured at 800px for tablet
+    widths.add(800);
   }
 
   // Sort the widths so that the snapshots are taken in order of increasing width
@@ -106,28 +115,23 @@ async function getPercyConfigURLs() {
   const links = getExampleUrlsFromExamplePaths(await getExampleFiles());
   let urls = [];
 
-  for (let url of links) {
-    const path = new URL(url).pathname.replace(/\/?$/, '/');
-    const widths = await getWidthsForExample(path);
+  for (let link of links) {
+    const path = new URL(link).pathname.replace(/\/?$/, '/');
     // TODO this could be functionalized to get the proper themes for a given example.
     const themes = ['light', 'dark', 'paper'];
 
-    // Take one snapshot per theme at the last breakpoint
-    themes.forEach((theme) => {
-      urls.push({
-        url: `${url}?theme=${theme}`,
-        name: `${path.slice(0, path.length - 1)}?theme=${theme}`,
-        widths: [widths[widths.length - 1]],
-      });
-    });
+    for (const theme of themes) {
+      const url = `${link}?theme=${theme}`;
+      const name = `${path.slice(0, path.length - 1)}?theme=${theme}`;
+      const widths = await getWidthsForExample(path, theme);
 
-    // Take one snapshot per breakpoint at default theme.
-    // Ignore the last breakpoint as it has already been snapshotted while covering themes.
-    urls.push({
-      url,
-      name: path,
-      widths: widths.slice(0, widths.length - 1),
-    });
+      // Light theme captured responsively, other themes captured at the largest width
+      urls.push({
+        url,
+        name,
+        widths: theme === 'light' ? widths : [widths[widths.length - 1]],
+      });
+    }
   }
 
   return urls;
