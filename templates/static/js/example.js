@@ -54,9 +54,28 @@
     request.send(null);
   }
 
+  /**
+   * Format source code based on language
+   * @param {String} source - source code to format
+   * @param {String} lang - language of the source code
+   * @returns {String} formatted source code
+   */
+  function formatSource(source, lang) {
+    switch (lang) {
+      case 'html':
+        return html_beautify(source, {indent_size: 2});
+      case 'js':
+        return js_beautify(source, {indent_size: 2});
+      case 'css':
+        return css_beautify(source, {indent_size: 2});
+      default:
+        return source;
+    }
+  }
+
   function createPreCode(source, lang) {
     var code = document.createElement('code');
-    code.appendChild(document.createTextNode(source));
+    code.appendChild(document.createTextNode(formatSource(source, lang)));
 
     var pre = document.createElement('pre');
     pre.classList.add('p-code-snippet__block');
@@ -78,7 +97,6 @@
   }
 
   function renderExample(placementElement, html) {
-    html = html_beautify(html);
     var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
     var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
     var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
@@ -87,11 +105,10 @@
     var bodyHTML = bodyPattern.exec(html)[1].trim();
     var headHTML = headPattern.exec(html)[1].trim();
 
-    var htmlSource = html_beautify(stripScriptsFromSource(bodyHTML));
-    var jsSource = js_beautify(getScriptFromSource(bodyHTML));
+    var htmlSource = stripScriptsFromSource(bodyHTML);
+    var jsSource = getScriptFromSource(bodyHTML);
     var cssSource = getStyleFromSource(headHTML);
     var externalScripts = getExternalScriptsFromSource(html);
-
     var codePenData = {
       html: htmlSource,
       css: cssSource,
