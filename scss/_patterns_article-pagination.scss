@@ -3,7 +3,6 @@
 @mixin vf-p-article-pagination {
   %chevron-icon {
     @extend %icon;
-    @include vf-icon-chevron-themed;
 
     content: '';
     position: absolute;
@@ -73,9 +72,9 @@
 
     &::before {
       @extend %chevron-icon;
+      @include vf-icon-chevron-left-themed;
 
       left: $sp-small;
-      transform: rotate(90deg);
     }
   }
 
@@ -95,9 +94,9 @@
 
     &::after {
       @extend %chevron-icon;
+      @include vf-icon-chevron-right-themed;
 
       right: $sp-small;
-      transform: rotate(-90deg);
     }
   }
 }
