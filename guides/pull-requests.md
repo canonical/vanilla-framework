@@ -86,14 +86,14 @@ ensure that PRs to not introduce visual regressions. Your PR will be tested by P
 - PR is against the `main` branch
 - One of the following is true:
   - PR passes Percy selectivity filters
-    - PR changes files in the `scss/` or `templates/docs/examples/` directories
+    - PR changes files in the `scss/`, `templates/docs/examples/`, or `templates/_macros/` directories
     - PR is not a draft
   - PR is labeled with "Review: Percy needed"
 
 To ensure optimal Percy usage, we suggest the following PR flow:
 
 1. Open the PR (against `main`) in such a way that it causes an initial Percy test to run.
-   - If your PR makes changes to files in the `scss/` or `templates/docs/examples/` directories, it will be automatically
+   - If your PR makes changes to files in the above directories, it will be automatically
      tested as long as it is not marked as a draft.
    - Applying the "Review: Percy needed" label to the PR ensures that it is always tested.
 2. Review the initial [Percy build](https://percy.io/bb49709b/vanilla-framework).
@@ -107,7 +107,7 @@ To ensure optimal Percy usage, we suggest the following PR flow:
 #### Merging a PR
 
 After the necessary review steps have been completed and the PR is ready to be
-merged, the creator of the PR should merge it themself. The type of merge to use
+merged, the creator of the PR should merge it themselves. The type of merge to use
 should be decided using the following logic:
 
 - If the PR is small - for example, a PR consisting of 2 commits that modify
