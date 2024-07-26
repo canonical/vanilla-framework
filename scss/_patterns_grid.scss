@@ -39,7 +39,7 @@
   // (see https://github.com/canonical/vanilla-framework/issues/3199)
   .grid-demo .col,
   .grid-demo [class*='#{$grid-column-prefix}'] {
-    background: transparentize($color-negative, 0.9);
+    background: $colors--theme--background-negative-default;
     margin-bottom: $spv--small;
   }
 
@@ -167,11 +167,12 @@
 
   // variants
 
+  // deprecated, will be removed in v5
   .row.is-bordered {
     position: relative;
 
     &::before {
-      background: $color-mid-light;
+      background: $colors--theme--border-low-contrast;
       content: '';
       height: 1px;
       left: map-get($grid-margin-widths, small);
