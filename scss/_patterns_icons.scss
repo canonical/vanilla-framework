@@ -130,21 +130,23 @@
 
 @mixin vf-p-icon-chevron {
   .p-icon--chevron-up {
-    transform: rotate(180deg);
-  }
-  .p-icon--chevron-left {
-    transform: rotate(90deg);
+    @include vf-icon-chevron-up-themed;
   }
   .p-icon--chevron-right {
-    transform: rotate(-90deg);
+    @include vf-icon-chevron-right-themed;
+  }
+  .p-icon--chevron-down {
+    @include vf-icon-chevron-down-themed;
+  }
+  .p-icon--chevron-left {
+    @include vf-icon-chevron-left-themed;
   }
 
-  .p-icon--chevron-left,
+  .p-icon--chevron-up,
   .p-icon--chevron-right,
   .p-icon--chevron-down,
-  .p-icon--chevron-up {
+  .p-icon--chevron-left {
     @extend %icon;
-    @include vf-icon-chevron-themed;
   }
 }
 
