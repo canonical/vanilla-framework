@@ -77,17 +77,6 @@ This places the title and subtitle in their own row above the rest of the hero c
 View example of the hero pattern in fallback configuration
 </a></div>
 
-## Dependencies
-
-This pattern makes use of the following Vanilla building blocks:
-
-- [Button](/docs/patterns/button)
-- [CTA Block](/docs/patterns/cta-block)
-- [Grid](/docs/patterns/grid)
-- [Hide](/docs/utilities/hide)
-- [Image](/docs/patterns/image)
-- [Section](/docs/patterns/section)
-
 ## Import
 
 Since Patterns leverage many other parts of Vanilla in their composition and content, we recommend [importing the entirety of Vanilla](/docs#install) for full support.
