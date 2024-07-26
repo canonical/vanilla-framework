@@ -39,6 +39,9 @@ jobs:
 
       - name: Move artifact files into place to replace SCM
         run: |
+          # ensure the examples & macros dirs exist
+          mkdir -p examples
+          mkdir -p macros
           # artifact directory contains `scss/`, `examples/`, `macros/`, `pr_num.txt`, and `pr_head_sha.txt`. 
           # `/examples` and `macros/` must be moved to `templates/`.
           mv examples/ templates/docs/.
