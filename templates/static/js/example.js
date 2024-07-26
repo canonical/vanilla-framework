@@ -61,15 +61,21 @@
    * @returns {String} formatted source code
    */
   function formatSource(source, lang) {
-    switch (lang) {
-      case 'html':
-        return html_beautify(source, {indent_size: 2});
-      case 'js':
-        return js_beautify(source, {indent_size: 2});
-      case 'css':
-        return css_beautify(source, {indent_size: 2});
-      default:
-        return source;
+    try {
+      switch (lang) {
+        case 'html':
+          return html_beautify(source, {indent_size: 2});
+        case 'js':
+          return js_beautify(source, {indent_size: 2});
+        case 'css':
+          return css_beautify(source, {indent_size: 2});
+        default:
+          return source;
+      }
+    } catch (error) {
+      // If beautify fails (e.g. invalid source, CDN outage, error upstream), return original source
+      console.error(`Failed to format ${lang} source code: ${error}`, `This could be due to invalid ${lang} source code, an issue with the formatter, or a CDN outage.`, {source});
+      return source;
     }
   }
 
