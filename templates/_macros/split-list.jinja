@@ -9,6 +9,8 @@
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
+  {%- set cta_content = caller('cta') -%}
+  {%- set has_cta = cta_content|trim|length > 0 -%}
 
   <div class="u-fixed-width">
     <hr class="u-hide--small">
@@ -86,6 +88,16 @@
           </div>
         {%- endif -%}
       {%- endif -%}
-    {%- endfor %}
+    {% endfor %}
+
+    {% if has_cta == true -%}
+      <div class="p-cta-block">
+        <div class="row">
+          <div class="col-6 col-start-large-7">
+            {{ cta_content }}
+          </div>
+        </div>
+      </div>
+    {%- endif %}
   </div>
 {%- endmacro %}
