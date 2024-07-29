@@ -1,21 +1,14 @@
 {% extends "_layouts/examples.html" %}
-{% from "_macros/split-list.jinja" import split_list %}
+{% from "_macros/tiered-list.jinja" import tiered_list %}
 
-{% block title %}Split list / Full-width w/ description{% endblock %}
+{% block title %}Tiered list / Full-width w/o description{% endblock %}
 
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
-{%- call(slot) split_list(is_description_full_width_on_desktop=true, is_list_full_width_on_tablet=true) -%}
+{%- call(slot) tiered_list(is_list_full_width_on_tablet=true) -%}
   {%- if slot == 'title' -%}
     <h2>H2 - this can take up to two lines, but best to stick to one line.</h2>
-  {%- endif -%}
-
-  {%- if slot == 'description' -%}
-    <p>A <u>private cloud</u> provides organisations with on-demand compute,
-    storage and other resources that can be accessed over the network and
-    that are reserved exclusively for them - either in their own data centre
-    or via a 3rd party.</p>
   {%- endif -%}
 
   {%- if slot == 'list_item_title_1' -%}
