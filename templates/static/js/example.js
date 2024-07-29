@@ -64,11 +64,11 @@
     try {
       switch (lang) {
         case 'html':
-          return html_beautify(source, {indent_size: 2});
+          return window.html_beautify(source, {indent_size: 2});
         case 'js':
-          return js_beautify(source, {indent_size: 2});
+          return window.js_beautify(source, {indent_size: 2});
         case 'css':
-          return css_beautify(source, {indent_size: 2});
+          return window.css_beautify(source, {indent_size: 2});
         default:
           return source;
       }
