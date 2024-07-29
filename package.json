@@ -31,7 +31,7 @@
     "build": "yarn build-scss && yarn build-js && yarn build-class-references",
     "build-scss": "sass --load-path=node_modules --embed-sources --style=compressed scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
-    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules && cp node_modules/js-beautify/js/lib/beautify.js node_modules/js-beautify/js/lib/beautify-html.js node_modules/js-beautify/js/lib/beautify-css.js templates/static/js",
+    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules && cp node_modules/js-beautify/js/lib/beautify.js node_modules/js-beautify/js/lib/beautify-html.js node_modules/js-beautify/js/lib/beautify-css.js build/js/modules",
     "build-class-references": "node scripts/create-class-references.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
