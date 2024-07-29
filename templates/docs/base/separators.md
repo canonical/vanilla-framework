@@ -10,6 +10,9 @@ Vanilla gives you multiple ways to separate parts of the content with a horizont
 
 Use the standard `<hr />` element to introduce section breaks.
 
+By default, all horizontal rules should be muted. This regular, non-muted
+variant is only used at the top of content sections, above headings.
+
 <div class="embedded-example"><a href="/docs/examples/base/hr/default" class="js-example">
 View example of the horizontal line
 </a></div>
@@ -18,6 +21,9 @@ View example of the horizontal line
 
 Add the `is-muted` class to an `<hr />` to make the horizontal rule lighter in colour.
 This can be useful when trying to create a more subtle partitioning within a section within a container, or between standard horizontal rules.
+
+By default, all horizontal rules should be muted. The regular, non-muted variant
+is only used at the top of content sections, above headings.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr/muted/" class="js-example">
 View example of the muted horizontal line
