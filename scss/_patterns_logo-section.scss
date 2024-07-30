@@ -4,12 +4,10 @@
     @extend %small-caps-text;
   }
 
-  $logo-section-item-size: 8rem; // height of the logos on large screens
-  $logo-section-item-size-medium: 6rem; // height of the logos on medium screens
+  $logo-section-item-size: 6.5rem; // height of the logos on large screens
   $logo-section-item-size-small: 4rem; // height of the logos on small screens
 
   $logo-section-offset: 1rem; // offset by which rows are pulled closer together
-  $logo-section-offset-medium: 0.75rem; // height of the logos on medium screens
   $logo-section-offset-small: 0.5rem; // height of the logos on small screens
 
   $logo-section-item-gap: 3rem;
@@ -28,11 +26,6 @@
       margin-right: $logo-section-item-gap;
       margin-top: calc(-1 * $logo-section-offset-small); // pull the previous row of logos down
 
-      @media (min-width: $breakpoint-small) {
-        margin-bottom: calc(-1 * $logo-section-offset-medium);
-        margin-top: calc(-1 * $logo-section-offset-medium);
-      }
-
       @media (min-width: $breakpoint-large) {
         margin-bottom: calc(-1 * $logo-section-offset);
         margin-top: calc(-1 * $logo-section-offset);
@@ -44,10 +37,6 @@
       height: $logo-section-item-size-small;
       max-width: none; // prevent logos from squishing on small screens
       width: auto;
-
-      @media (min-width: $breakpoint-small) {
-        height: $logo-section-item-size-medium;
-      }
 
       @media (min-width: $breakpoint-large) {
         height: $logo-section-item-size;
@@ -61,34 +50,10 @@
       padding-bottom: $logo-section-offset-small;
       padding-top: $logo-section-offset-small;
 
-      @media (min-width: $breakpoint-small) {
-        padding-bottom: $logo-section-offset-medium;
-        padding-top: $logo-section-offset-medium;
-      }
-
       @media (min-width: $breakpoint-large) {
         padding-bottom: $logo-section-offset;
         padding-top: $logo-section-offset;
       }
-    }
-  }
-
-  .p-logo-section--dense {
-    .p-logo-section__item {
-      display: inline-block;
-      margin: 0;
-      margin-bottom: calc(-1 * $logo-section-offset-medium); // pull the next row of logos up
-      margin-right: $logo-section-item-gap-dense;
-      margin-top: calc(-1 * $logo-section-offset-medium); // pull the previous row of logos down
-    }
-
-    .p-logo-section__logo {
-      height: 6.5rem;
-    }
-
-    .p-logo-section__items {
-      padding-bottom: $logo-section-offset-medium;
-      padding-top: $logo-section-offset-medium;
     }
   }
 
@@ -100,10 +65,6 @@
       margin-top: 0;
 
       width: $logo-section-item-size-small;
-
-      @media (min-width: $breakpoint-small) {
-        width: $logo-section-item-size-medium;
-      }
 
       @media (min-width: $breakpoint-large) {
         width: $logo-section-item-size;
