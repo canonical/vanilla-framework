@@ -31,9 +31,7 @@
 
         <div class="row">
           <div class="col-6 col-start-large-7">
-            <div class="p-section--shallow">
-              {{ description_content }}
-            </div>
+            {{ description_content }}
           </div>
         </div>
       {%- else -%}
@@ -45,9 +43,7 @@
           </div>
 
           <div class="col-6">
-            <div class="p-section--shallow">
-              {{ description_content }}
-            </div>
+            {{ description_content }}
           </div>
         </div>
       {%- endif -%}
@@ -59,48 +55,50 @@
       </div>
     {%- endif -%}
 
-    {%- for number in range(1, 25) -%}
-      {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
-      {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
-      {%- set list_item_description_content = caller('list_item_description_' + number|string) -%}
-      {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
+    <div class="p-section--shallow">
+      {%- for number in range(1, 25) -%}
+        {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
+        {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
+        {%- set list_item_description_content = caller('list_item_description_' + number|string) -%}
+        {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
 
-      {%- if has_title_content and has_description_content -%}
-        {%- if is_list_full_width_on_tablet == true %}
-          <div class="row">
-            <div class="col-9 col-start-large-4">
-              <hr class="is-muted">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 col-start-large-4">
-              {{ list_item_title_content }}
+        {%- if has_title_content and has_description_content -%}
+          {%- if is_list_full_width_on_tablet == true %}
+            <div class="row">
+              <div class="col-9 col-start-large-4">
+                <hr class="is-muted">
+              </div>
             </div>
 
-            <div class="col-6">
-              {{ list_item_description_content }}
-            </div>
-          </div>
-        {%- else %}
-          <div class="row">
-            <div class="col-9 col-start-large-4">
-              <hr class="is-muted">
-            </div>
-          </div>
+            <div class="row">
+              <div class="col-3 col-start-large-4">
+                {{ list_item_title_content }}
+              </div>
 
-          <div class="row">
-            <div class="col-medium-3 col-3 col-start-large-4">
-              {{ list_item_title_content }}
+              <div class="col-6">
+                {{ list_item_description_content }}
+              </div>
+            </div>
+          {%- else %}
+            <div class="row">
+              <div class="col-9 col-start-large-4">
+                <hr class="is-muted">
+              </div>
             </div>
 
-            <div class="col-medium-3 col-6">
-              {{ list_item_description_content }}
+            <div class="row">
+              <div class="col-medium-3 col-3 col-start-large-4">
+                {{ list_item_title_content }}
+              </div>
+
+              <div class="col-medium-3 col-6">
+                {{ list_item_description_content }}
+              </div>
             </div>
-          </div>
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
-    {% endfor %}
+      {% endfor %}
+    </div>
 
     {% if has_cta == true -%}
       <div class="p-cta-block">
