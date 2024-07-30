@@ -12,7 +12,7 @@ It indicates the direction in which we want the viewer to read the content.
 
 ## Default
 
-Main page sections are often separated by horizontal rules.
+Main page sections are often separated by horizontal rules. You can use the `p-rule` class name to create a default horizontal rule. Note: Currently, the class does not provide any visual changes. 
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">
 View example of a default horizontal rule
