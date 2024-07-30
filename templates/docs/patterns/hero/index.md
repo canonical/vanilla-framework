@@ -7,18 +7,27 @@ context:
 A hero is a prominent banner section typically used to quickly capture the user's attention after they land on the page.
 Depending on the size and composition of your content, you can choose from a variety of hero layouts.
 
-The hero is constructed using the following inputs:
+## Inputs
 
-| Input                                                      | Description                                                                                                                                                                            |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>layout</code> (**required**)                         | One of: <ul><li><code>50/50</code></li><li><code>50/50-full-width-image</code></li><li><code>25/75</code></li><li><code>75/25</code></li><li><code>fallback</code> (default)</li></ul> |
-| <code>title</code>                                         | Hero title text, displayed as H1                                                                                                                                                       |
-| <code>subtitle</code>                                      | Hero subtitle text, displayed as H2                                                                                                                                                    |
-| <code>is_split_on_medium</code>                            | Whether the layout is split on medium in 50/50, 25/75, and 75/25 layouts                                                                                                               |
-| <code>description</code>                                   | Free paragraph text                                                                                                                                                                    |
-| <code>cta</code>                                           | Call to action block                                                                                                                                                                   |
-| <code>image</code>                                         | Primary hero image                                                                                                                                                                     |
-| <code>signpost_image</code> (**required on 25/75 layout**) | Signpost image                                                                                                                                                                         |
+The hero is constructed using a combination of parameters and slots.
+
+The parameters are used to define the layout and less free-form content like the title and subtitle.
+
+| Parameter            | Description                                                                                                                                                                                                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Layout               | One of: <ul><li><a href="#5050">50/50</a></li><li><a href="#5050-with-full-width-image">50/50 with full-width image</a></li><li><a href="#2575-signpost">25/75 Signpost</a></li><li><a href="#7525">75/25</a></li><li><a href="#fallback">Fallback</a> (default)</li></ul> |
+| Title (**required**) | Hero title text, displayed as H1                                                                                                                                                                                                                                           |
+| Subtitle             | Hero subtitle text, displayed as H2                                                                                                                                                                                                                                        |
+| Is split on medium   | Whether the layout is split on medium in 50/50, 25/75, and 75/25 layouts                                                                                                                                                                                                   |
+
+The slots are used to define free-form content.
+
+| Slot                 | Description                                                              |
+| -------------------- | ------------------------------------------------------------------------ |
+| Description          | Free paragraph text                                                      |
+| Call to action block | [Call to action block](/docs/patterns/cta-block) next to the description |
+| Image                | Primary hero image                                                       |
+| Signpost image       | Signpost image                                                           |
 
 ## 50/50
 
@@ -44,7 +53,7 @@ side-by-side on medium screens.
 View example of the hero pattern in 50/50 that is split on medium and small
 </a></div>
 
-### 50/50 with full-width image
+### 50/50 with full width image
 
 The above hero layouts place the hero image in the right column by default. However, this is not suitable for very wide
 images.
