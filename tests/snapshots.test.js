@@ -1,6 +1,6 @@
 const {URL} = require('url');
 const snapshotsTest = require('../snapshots');
-const {SNAPSHOT_BREAKPOINTS, SNAPSHOT_COLOR_THEMES, PORT} = require('../snapshots');
+const {SNAPSHOT_BREAKPOINTS, SNAPSHOT_COLOR_THEMES, PORT, DEFAULT_COLOR_THEME, COLOR_THEME_QUERY_PARAM_NAME} = require('../snapshots');
 
 /**
  * Combined examples that embed responsive examples.
@@ -14,7 +14,7 @@ test('Returns correct widths for snapshots, including additional breakpoint for 
   const failedUrls = snapshots.filter((snapshot) => {
     const url = new URL(snapshot.url);
     const snapshotPathFromExamplesDir = url.pathname.replace('/docs/examples/', '').replace(/standalone\//g, '');
-    const theme = url.searchParams.get('theme')?.toLowerCase()?.trim();
+    const theme = url.searchParams.get(COLOR_THEME_QUERY_PARAM_NAME)?.toLowerCase()?.trim();
 
     // All urls must have a theme param
     if (!theme) return true;
@@ -22,8 +22,8 @@ test('Returns correct widths for snapshots, including additional breakpoint for 
     // All snapshots are captured at desktop width
     let expectedWidths = new Set([SNAPSHOT_BREAKPOINTS.desktop]);
 
-    if (theme === 'light') {
-      // Light snapshots captured at multiple breakpoints
+    if (theme === DEFAULT_COLOR_THEME) {
+      // Default theme snapshots captured at multiple breakpoints
       expectedWidths.add(SNAPSHOT_BREAKPOINTS.mobile);
 
       const isResponsive =
@@ -49,7 +49,7 @@ test('Returned snapshots have only one url per theme', async () => {
   const encountered = new Map();
   snapshots.forEach((snapshot) => {
     const url = new URL(snapshot.url);
-    const theme = url.searchParams.get('theme');
+    const theme = url.searchParams.get(COLOR_THEME_QUERY_PARAM_NAME);
     if (!encountered.has(url.pathname)) {
       encountered.set(url.pathname, 0);
     }
@@ -103,10 +103,10 @@ test('Returns snapshots with only the expected set of color themes', async () =>
   const snapshots = await snapshotsTest();
   const encounteredThemes = snapshots.reduce((acc, snapshot) => {
     const url = new URL(snapshot.url);
-    if (!url.searchParams.has('theme')) {
+    if (!url.searchParams.has(COLOR_THEME_QUERY_PARAM_NAME)) {
       return acc;
     }
-    return acc.add(url.searchParams.get('theme'));
+    return acc.add(url.searchParams.get(COLOR_THEME_QUERY_PARAM_NAME));
   }, new Set());
   expect(JSON.stringify(encounteredThemes)).toBe(JSON.stringify(new Set(SNAPSHOT_COLOR_THEMES)));
 });

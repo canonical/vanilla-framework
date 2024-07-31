@@ -23,6 +23,11 @@ const SNAPSHOT_BREAKPOINTS = {
 /** All supported color themes */
 const SNAPSHOT_COLOR_THEMES = ['light', 'dark', 'paper'];
 
+const DEFAULT_COLOR_THEME = 'light';
+
+/** Name of the query parameter used to request a specific color theme for an example */
+const COLOR_THEME_QUERY_PARAM_NAME = 'theme';
+
 /**
  * Get the example files to snapshot from a directory.
  * @param dir {String} Directory path to get example files from.
@@ -82,12 +87,12 @@ function getExampleUrlsFromExamplePaths(urlPaths) {
 async function getWidthsForExample(urlPath, theme) {
   let widths = new Set([SNAPSHOT_BREAKPOINTS.desktop]);
 
-  if (theme !== 'light') {
-    // Non-light themes are only captured at one width
+  if (theme !== DEFAULT_COLOR_THEME) {
+    // Non-default themes are only captured at one width
     return Array.from(widths);
   }
 
-  // Light theme is also captured at mobile size
+  // Default theme is also captured at mobile size
   widths.add(SNAPSHOT_BREAKPOINTS.mobile);
 
   /**
@@ -107,7 +112,7 @@ async function getWidthsForExample(urlPath, theme) {
   const isResponsive = urlPath.includes('responsive');
 
   if (isResponsive) {
-    // Responsive light theme is also captured at tablet size
+    // Responsive default theme is also captured at tablet size
     widths.add(SNAPSHOT_BREAKPOINTS.tablet);
   }
 
@@ -126,18 +131,17 @@ async function getPercyConfigURLs() {
 
   for (let link of links) {
     const path = new URL(link).pathname.replace(/\/?$/, '/');
-    // TODO this could be functionalized to get the proper themes for a given example.
 
     for (const theme of SNAPSHOT_COLOR_THEMES) {
-      const url = `${link}?theme=${theme}`;
-      const name = `${path.slice(0, path.length - 1)}?theme=${theme}`;
+      const url = `${link}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
+      const name = `${path.slice(0, path.length - 1)}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
       const widths = await getWidthsForExample(path, theme);
 
-      // Light theme captured responsively, other themes captured at the largest width
+      // Default theme captured responsively, other themes captured at the largest width
       urls.push({
         url,
         name,
-        widths: theme === 'light' ? widths : [widths[widths.length - 1]],
+        widths: theme === DEFAULT_COLOR_THEME ? widths : [widths[widths.length - 1]],
       });
     }
   }
@@ -149,4 +153,6 @@ module.exports = getPercyConfigURLs;
 module.exports.EXAMPLES_RELATIVE_DIR = EXAMPLES_RELATIVE_DIR;
 module.exports.SNAPSHOT_BREAKPOINTS = SNAPSHOT_BREAKPOINTS;
 module.exports.SNAPSHOT_COLOR_THEMES = SNAPSHOT_COLOR_THEMES;
+module.exports.DEFAULT_COLOR_THEME = DEFAULT_COLOR_THEME;
+module.exports.COLOR_THEME_QUERY_PARAM_NAME = COLOR_THEME_QUERY_PARAM_NAME;
 module.exports.PORT = PORT;
