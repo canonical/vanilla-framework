@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+/** Port of the local webserver running the Vanilla site */
 const PORT = process.env.PORT || 8101;
 
 /**
@@ -11,6 +12,16 @@ const EXAMPLES_BASE_URL = `http://localhost:${PORT}/docs/examples/`;
 
 /** Relative path to the examples directory from the project root. */
 const EXAMPLES_RELATIVE_DIR = 'templates/docs/examples';
+
+/** Breakpoints at which to take snapshots, mapped to pixel width */
+const SNAPSHOT_BREAKPOINTS = {
+  desktop: 1280,
+  tablet: 800,
+  mobile: 375,
+};
+
+/** All supported color themes */
+const SNAPSHOT_COLOR_THEMES = ['light', 'dark', 'paper'];
 
 /**
  * Get the example files to snapshot from a directory.
@@ -69,17 +80,15 @@ function getExampleUrlsFromExamplePaths(urlPaths) {
  * @returns {Promise<Number[]>} Array of widths to snapshot, from smallest to largest.
  */
 async function getWidthsForExample(urlPath, theme) {
-  let widths = new Set([
-    1280, // Desktop
-  ]);
+  let widths = new Set([SNAPSHOT_BREAKPOINTS.desktop]);
 
   if (theme !== 'light') {
     // Non-light themes are only captured at one width
     return Array.from(widths);
   }
 
-  // Light theme is also captured at 375px for mobile
-  widths.add(375);
+  // Light theme is also captured at mobile size
+  widths.add(SNAPSHOT_BREAKPOINTS.mobile);
 
   /**
    * We need to make sure that combined examples that embed responsive examples are also responsive.
@@ -98,8 +107,8 @@ async function getWidthsForExample(urlPath, theme) {
   const isResponsive = urlPath.includes('responsive');
 
   if (isResponsive) {
-    // Responsive light theme is also captured at 800px for tablet
-    widths.add(800);
+    // Responsive light theme is also captured at tablet size
+    widths.add(SNAPSHOT_BREAKPOINTS.tablet);
   }
 
   // Sort the widths so that the snapshots are taken in order of increasing width
@@ -118,9 +127,8 @@ async function getPercyConfigURLs() {
   for (let link of links) {
     const path = new URL(link).pathname.replace(/\/?$/, '/');
     // TODO this could be functionalized to get the proper themes for a given example.
-    const themes = ['light', 'dark', 'paper'];
 
-    for (const theme of themes) {
+    for (const theme of SNAPSHOT_COLOR_THEMES) {
       const url = `${link}?theme=${theme}`;
       const name = `${path.slice(0, path.length - 1)}?theme=${theme}`;
       const widths = await getWidthsForExample(path, theme);
@@ -137,6 +145,8 @@ async function getPercyConfigURLs() {
   return urls;
 }
 
-module.exports = async () => {
-  return await getPercyConfigURLs();
-};
+module.exports = getPercyConfigURLs;
+module.exports.EXAMPLES_RELATIVE_DIR = EXAMPLES_RELATIVE_DIR;
+module.exports.SNAPSHOT_BREAKPOINTS = SNAPSHOT_BREAKPOINTS;
+module.exports.SNAPSHOT_COLOR_THEMES = SNAPSHOT_COLOR_THEMES;
+module.exports.PORT = PORT;

@@ -1,8 +1,6 @@
 const {URL} = require('url');
 const snapshotsTest = require('../snapshots');
-
-const PORT = process.env.PORT || 8101;
-const THEMES = ['light', 'dark', 'paper'];
+const {SNAPSHOT_BREAKPOINTS, SNAPSHOT_COLOR_THEMES, PORT} = require('../snapshots');
 
 /**
  * Combined examples that embed responsive examples.
@@ -21,12 +19,12 @@ test('Returns correct widths for snapshots, including additional breakpoint for 
     // All urls must have a theme param
     if (!theme) return true;
 
-    // All snapshots are captured at 1280px width
-    let expectedWidths = new Set([1280]);
+    // All snapshots are captured at desktop width
+    let expectedWidths = new Set([SNAPSHOT_BREAKPOINTS.desktop]);
 
     if (theme === 'light') {
       // Light snapshots captured at multiple breakpoints
-      expectedWidths.add(375);
+      expectedWidths.add(SNAPSHOT_BREAKPOINTS.mobile);
 
       const isResponsive =
         snapshot.url.includes('responsive') ||
@@ -34,8 +32,8 @@ test('Returns correct widths for snapshots, including additional breakpoint for 
         (url.pathname.endsWith('combined') && RESPONSIVE_COMBINED_EXAMPLES.includes(snapshotPathFromExamplesDir));
 
       if (isResponsive) {
-        // Responsive snapshots are also captured at 800px
-        expectedWidths.add(800);
+        // Responsive snapshots are also captured at tablet size
+        expectedWidths.add(SNAPSHOT_BREAKPOINTS.tablet);
       }
     }
 
@@ -62,7 +60,7 @@ test('Returned snapshots have only one url per theme', async () => {
     .map((snapshot) => snapshot.url)
     .filter((snapshotAbsoluteUrl) => {
       const url = new URL(snapshotAbsoluteUrl);
-      return encountered.get(url.pathname) !== THEMES.length;
+      return encountered.get(url.pathname) !== SNAPSHOT_COLOR_THEMES.length;
     });
 
   expect(failedUrls).toHaveLength(0);
@@ -110,5 +108,5 @@ test('Returns snapshots with only the expected set of color themes', async () =>
     }
     return acc.add(url.searchParams.get('theme'));
   }, new Set());
-  expect(JSON.stringify(encounteredThemes)).toBe(JSON.stringify(new Set(['light', 'dark', 'paper'])));
+  expect(JSON.stringify(encounteredThemes)).toBe(JSON.stringify(new Set(SNAPSHOT_COLOR_THEMES)));
 });
