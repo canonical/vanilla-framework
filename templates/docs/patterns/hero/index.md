@@ -9,25 +9,16 @@ Depending on the size and composition of your content, you can choose from a var
 
 ## Inputs
 
-The hero is constructed using a combination of parameters and slots.
+The hero pattern is defined by:
 
-The parameters are used to define the layout and less free-form content like the title and subtitle.
-
-| Parameter            | Description                                                                                                                                                                                                                                                                |
+| Input                | Description                                                                                                                                                                                                                                                                |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Layout               | One of: <ul><li><a href="#5050">50/50</a></li><li><a href="#5050-with-full-width-image">50/50 with full-width image</a></li><li><a href="#2575-signpost">25/75 Signpost</a></li><li><a href="#7525">75/25</a></li><li><a href="#fallback">Fallback</a> (default)</li></ul> |
-| Title (**required**) | Hero title text, displayed as H1                                                                                                                                                                                                                                           |
-| Subtitle             | Hero subtitle text, displayed as H2                                                                                                                                                                                                                                        |
-| Is split on medium   | Whether the layout is split on medium in 50/50, 25/75, and 75/25 layouts                                                                                                                                                                                                   |
-
-The slots are used to define free-form content.
-
-| Slot                 | Description                                                              |
-| -------------------- | ------------------------------------------------------------------------ |
-| Description          | Free paragraph text                                                      |
-| Call to action block | [Call to action block](/docs/patterns/cta-block) next to the description |
-| Image                | Primary hero image                                                       |
-| Signpost image       | Signpost image                                                           |
+| Title (**required**) | Title text, displayed as H1                                                                                                                                                                                                                                                |
+| Subtitle             | Subtitle text, displayed as H2                                                                                                                                                                                                                                             |
+| Description          | Free paragraph text                                                                                                                                                                                                                                                        |
+| Call to action block | [Call to action block](/docs/patterns/cta-block) next to the description                                                                                                                                                                                                   |
+| Image                | Image content                                                                                                                                                                                                                                                              |
 
 ## 50/50
 
