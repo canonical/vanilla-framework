@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Hero | Components
+  title: Hero | Patterns
 ---
 
 This article explains how to design and build hero sections on brochure sites:
