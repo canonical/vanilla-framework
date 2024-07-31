@@ -72,11 +72,22 @@ const initNavigationSliding = () => {
     });
   };
 
+  const setActiveDropdown = (dropdownToggleButton, isActive = true) => {
+    const dropdownToggleEl = dropdownToggleButton.closest('.p-navigation__item--dropdown-toggle');
+    dropdownToggleEl.classList.toggle('is-active', isActive); //parentNode.classList.remove('is-active');
+
+    let parentLevelDropdown = dropdownToggleEl.closest('.p-navigation__dropdown');
+    // if there is no parent dropdown (we are on the top level), set the nav items list to active
+    if (!parentLevelDropdown) {
+      parentLevelDropdown = dropdownToggleEl.closest('.p-navigation__items');
+    }
+    parentLevelDropdown.classList.toggle('is-active', isActive);
+  };
+
   const collapseDropdown = (dropdownToggleButton, targetDropdown, animated = false) => {
     const closeHandler = () => {
       targetDropdown.setAttribute('aria-hidden', 'true');
-      dropdownToggleButton.parentNode.classList.remove('is-active');
-      dropdownToggleButton.parentNode.parentNode.classList.remove('is-active');
+      setActiveDropdown(dropdownToggleButton, false);
     };
 
     targetDropdown.classList.add('is-collapsed');
@@ -88,8 +99,7 @@ const initNavigationSliding = () => {
   };
 
   const expandDropdown = (dropdownToggleButton, targetDropdown, animated = false) => {
-    dropdownToggleButton.parentNode.classList.add('is-active');
-    dropdownToggleButton.parentNode.parentNode.classList.add('is-active');
+    setActiveDropdown(dropdownToggleButton);
     targetDropdown.setAttribute('aria-hidden', 'false');
 
     if (animated) {
@@ -175,8 +185,9 @@ const initNavigationSliding = () => {
     e.preventDefault();
     const target = backButton.closest('.p-navigation__dropdown');
     target.setAttribute('aria-hidden', 'true');
-    backButton.closest('.is-active').classList.remove('is-active');
-    backButton.closest('.is-active').classList.remove('is-active');
+    // backButton.closest('.is-active').classList.remove('is-active');
+    // backButton.closest('.is-active').classList.remove('is-active');
+    setActiveDropdown(backButton, false);
     setFocusable(target.parentNode.parentNode);
   };
 
