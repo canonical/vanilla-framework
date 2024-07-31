@@ -116,21 +116,19 @@ async function getPercyConfigURLs() {
   let urls = [];
 
   for (let link of links) {
-    const url = new URL(link);
-    const path = url.pathname.replace(/\/?$/, '/');
+    const path = new URL(link).pathname.replace(/\/?$/, '/');
     // TODO this could be functionalized to get the proper themes for a given example.
     const themes = ['light', 'dark', 'paper'];
 
     for (const theme of themes) {
-      const snapshotUrl = `${link}?theme=${theme}`;
+      const url = `${link}?theme=${theme}`;
       const name = `${path.slice(0, path.length - 1)}?theme=${theme}`;
       const widths = await getWidthsForExample(path, theme);
 
       // Light theme captured responsively, other themes captured at the largest width
       urls.push({
-        url: snapshotUrl,
+        url,
         name,
-        testCase: url.pathname.replace(/standalone\//g, ''),
         widths: theme === 'light' ? widths : [widths[widths.length - 1]],
       });
     }
