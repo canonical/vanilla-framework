@@ -5,18 +5,23 @@ context:
 ---
 
 A hero is a prominent banner section typically used to quickly capture the user's attention after they land on the page.
-Depending on the size and composition of your content, you can choose from a variety of hero layouts.
+Depending on the size and composition of your content, you can choose from a variety of hero layouts:
 
-The hero pattern is defined by:
+- [50/50](#5050)
+- [50/50 with full-width image](#5050-with-full-width-image)
+- [25/75 Signpost](#2575-signpost)
+- [75/25](#7525)
+- [Fallback](#fallback) (default)
 
-| Input                | Description                                                                                                                                                                                                                                                                |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout               | One of: <ul><li><a href="#5050">50/50</a></li><li><a href="#5050-with-full-width-image">50/50 with full-width image</a></li><li><a href="#2575-signpost">25/75 Signpost</a></li><li><a href="#7525">75/25</a></li><li><a href="#fallback">Fallback</a> (default)</li></ul> |
-| Title (**required**) | <code>h1</code> title text                                                                                                                                                                                                                                                 |
-| Subtitle             | <code>h2</code> subtitle text                                                                                                                                                                                                                                              |
-| Description          | <code>p</code> description text                                                                                                                                                                                                                                            |
-| Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description                                                                                                                                                                                                   |
-| Image                | Main hero visual                                                                                                                                                                                                                                                           |
+The hero pattern is composed of the following elements:
+
+| Element              | Description                                                              |
+| -------------------- | ------------------------------------------------------------------------ |
+| Title (**required**) | <code>h1</code> title text                                               |
+| Subtitle             | <code>h2</code> subtitle text                                            |
+| Description          | <code>p</code> description text                                          |
+| Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description |
+| Image                | Main hero visual                                                         |
 
 ## 50/50
 
