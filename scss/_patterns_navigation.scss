@@ -8,6 +8,7 @@ $navigation-logo-size: 1rem;
 $navigation-logo-padding: calc(1.5rem + 0.1rem); // ~25.6px to align better with logos as originally designed in SVG
 $sph-navigation-link: 0.3rem;
 $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
+$navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--medium);
 
 @mixin vf-p-navigation {
   // placeholders
@@ -861,7 +862,7 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
     }
     .p-navigation__nav {
       display: block;
-      height: 100vh;
+      height: calc(100vh - $navigation-height);
       overflow-x: hidden;
 
       .p-navigation__items {
@@ -888,7 +889,7 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
   .p-navigation--sliding .p-navigation__dropdown,
   .p-navigation--reduced .p-navigation__dropdown {
     display: block;
-    height: 100vh;
+    height: calc(100vh - $navigation-height);
     left: 100vw;
     position: absolute;
     top: 0;
@@ -902,8 +903,9 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
       top: unset;
     }
 
+    // overlay to create fade out effect on parent level
     &::before {
-      box-shadow: -100vw 15px 0 15px black;
+      box-shadow: -100vw 0 0 0 $colors--light-theme--background-overlay;
       content: '';
       height: 100%;
       opacity: 0;
@@ -916,10 +918,14 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
       }
     }
 
+    &[aria-hidden='true'] {
+      overflow: hidden; // prevent scrolling when dropdown is off screen
+    }
+
     &[aria-hidden='false'],
     &:not([aria-hidden]) {
       &::before {
-        @include vf-themed-property(opacity, 0.33, 0.75);
+        opacity: 1;
       }
 
       display: block;
