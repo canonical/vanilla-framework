@@ -5,10 +5,10 @@ context:
 ---
 
 The tiered list pattern is used to easily implement a list of paired titles and
-descriptions, complete with a top-level title and description. An optional CTA
-block is placed at the bottom of the content as well. Depending on the size and
-composition of your content, you can choose from a variety of tiered list
-layouts.
+descriptions, complete with a top-level title and description. An optional [CTA
+block](/docs/patterns/cta-block) is placed at the bottom of the content as well.
+Depending on the size and composition of your content, you can choose from a
+variety of tiered list layouts.
 
 ## 50/50 on desktop w/ description
 
