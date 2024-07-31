@@ -131,6 +131,8 @@ async function getPercyConfigURLs() {
 
   for (let link of links) {
     const path = new URL(link).pathname.replace(/\/?$/, '/');
+    const url = new URL(link);
+    const path = url.pathname.replace(/\/?$/, '/');
 
     for (const theme of SNAPSHOT_COLOR_THEMES) {
       const url = `${link}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
@@ -139,9 +141,10 @@ async function getPercyConfigURLs() {
 
       // Default theme captured responsively, other themes captured at the largest width
       urls.push({
-        url,
+        url: snapshotUrl,
         name,
         widths,
+        testCase: url.pathname.replace(/standalone\//g, ''),
       });
     }
   }
