@@ -5,10 +5,27 @@ context:
 ---
 
 The tiered list pattern is used to easily implement a list of paired titles and
-descriptions, complete with a top-level title and description. An optional [CTA
+descriptions underneath a top-level title and description. An optional [CTA
 block](/docs/patterns/cta-block) is placed at the bottom of the content as well.
 Depending on the size and composition of your content, you can choose from a
-variety of tiered list layouts.
+variety of tiered list layouts:
+
+- [50/50 on desktop w/ description](#5050-on-desktop-w-description)
+- [50/50 on tablet w/o description](#5050-on-tablet-wo-description)
+- [50/50 on tablet w/ description](#5050-on-tablet-w-description)
+- [50/50 w/ description](#5050-w-description)
+- [Full-width w/o description](#full-width-wo-description)
+- [Full-width w/ description](#full-width-w-description)
+
+The tiered list pattern is composed of the following elements:
+
+| Element               | Description                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| Title (**required**)  | <code>h2</code> title text                                        |
+| Description           | <code>p</code> description text                                   |
+| List item title       | Title text/content                                                |
+| List item description | Description text/content                                          |
+| Call to action block  | [Call to action block](/docs/patterns/cta-block) beneath the list |
 
 ## 50/50 on desktop w/ description
 
