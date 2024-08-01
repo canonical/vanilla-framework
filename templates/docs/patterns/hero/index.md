@@ -11,7 +11,7 @@ Depending on the size and composition of your content, you can choose from a var
 - [50/50 with full-width image](#5050-with-full-width-image)
 - [25/75 Signpost](#2575-signpost)
 - [75/25](#7525)
-- [Fallback](#fallback) (default)
+- [Fallback](#fallback)
 
 The hero pattern is composed of the following elements:
 
