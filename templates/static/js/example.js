@@ -54,9 +54,34 @@
     request.send(null);
   }
 
+  /**
+   * Format source code based on language
+   * @param {String} source - source code to format
+   * @param {String} lang - language of the source code
+   * @returns {String} formatted source code
+   */
+  function formatSource(source, lang) {
+    try {
+      switch (lang) {
+        case 'html':
+          return window.html_beautify(source, {indent_size: 2});
+        case 'js':
+          return window.js_beautify(source, {indent_size: 2});
+        case 'css':
+          return window.css_beautify(source, {indent_size: 2});
+        default:
+          return source;
+      }
+    } catch (error) {
+      // If beautify fails (e.g. invalid source, CDN outage, error upstream), return original source
+      console.error(`Failed to format ${lang} source code: ${error}`, `This could be due to invalid ${lang} source code, an issue with the formatter, or a CDN outage.`, {source});
+      return source;
+    }
+  }
+
   function createPreCode(source, lang) {
     var code = document.createElement('code');
-    code.appendChild(document.createTextNode(source));
+    code.appendChild(document.createTextNode(formatSource(source, lang)));
 
     var pre = document.createElement('pre');
     pre.classList.add('p-code-snippet__block');

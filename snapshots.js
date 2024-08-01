@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+/** Port of the local webserver running the Vanilla site */
 const PORT = process.env.PORT || 8101;
 
 /**
@@ -11,6 +12,21 @@ const EXAMPLES_BASE_URL = `http://localhost:${PORT}/docs/examples/`;
 
 /** Relative path to the examples directory from the project root. */
 const EXAMPLES_RELATIVE_DIR = 'templates/docs/examples';
+
+/** Breakpoints at which to take snapshots, mapped to pixel width */
+const SNAPSHOT_BREAKPOINTS = {
+  desktop: 1280,
+  tablet: 800,
+  mobile: 375,
+};
+
+/** All supported color themes */
+const SNAPSHOT_COLOR_THEMES = ['light', 'dark', 'paper'];
+
+const DEFAULT_COLOR_THEME = 'light';
+
+/** Name of the query parameter used to request a specific color theme for an example */
+const COLOR_THEME_QUERY_PARAM_NAME = 'theme';
 
 /**
  * Get the example files to snapshot from a directory.
@@ -65,13 +81,19 @@ function getExampleUrlsFromExamplePaths(urlPaths) {
 /**
  * Given an example path, return the widths to snapshot.
  * @param urlPath {String} Relative url to the example, from the siteroot
+ * @param theme {String} theme the example is being captured in
  * @returns {Promise<Number[]>} Array of widths to snapshot, from smallest to largest.
  */
-async function getWidthsForExample(urlPath) {
-  let widths = new Set([
-    375, // Mobile
-    1280, // Desktop
-  ]);
+async function getWidthsForExample(urlPath, theme) {
+  let widths = new Set([SNAPSHOT_BREAKPOINTS.desktop]);
+
+  if (theme !== DEFAULT_COLOR_THEME) {
+    // Non-default themes are only captured at one width
+    return Array.from(widths);
+  }
+
+  // Default theme is also captured at mobile size
+  widths.add(SNAPSHOT_BREAKPOINTS.mobile);
 
   /**
    * We need to make sure that combined examples that embed responsive examples are also responsive.
@@ -83,14 +105,15 @@ async function getWidthsForExample(urlPath) {
     let parentDirectory = path.join('templates', urlPath.replace(/(combined|standalone)\//g, ''));
     let siblingFiles = await getExampleFiles(parentDirectory);
     for (let siblingFile of siblingFiles) {
-      let siblingWidths = await getWidthsForExample(siblingFile);
+      let siblingWidths = await getWidthsForExample(siblingFile, theme);
       siblingWidths.forEach((width) => widths.add(width));
     }
   }
   const isResponsive = urlPath.includes('responsive');
 
   if (isResponsive) {
-    widths.add(800); // Tablet
+    // Responsive default theme is also captured at tablet size
+    widths.add(SNAPSHOT_BREAKPOINTS.tablet);
   }
 
   // Sort the widths so that the snapshots are taken in order of increasing width
@@ -106,33 +129,30 @@ async function getPercyConfigURLs() {
   const links = getExampleUrlsFromExamplePaths(await getExampleFiles());
   let urls = [];
 
-  for (let url of links) {
-    const path = new URL(url).pathname.replace(/\/?$/, '/');
-    const widths = await getWidthsForExample(path);
-    // TODO this could be functionalized to get the proper themes for a given example.
-    const themes = ['light', 'dark', 'paper'];
+  for (let link of links) {
+    const path = new URL(link).pathname.replace(/\/?$/, '/');
 
-    // Take one snapshot per theme at the last breakpoint
-    themes.forEach((theme) => {
+    for (const theme of SNAPSHOT_COLOR_THEMES) {
+      const url = `${link}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
+      const name = `${path.slice(0, path.length - 1)}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
+      const widths = await getWidthsForExample(path, theme);
+
+      // Default theme captured responsively, other themes captured at the largest width
       urls.push({
-        url: `${url}?theme=${theme}`,
-        name: `${path.slice(0, path.length - 1)}?theme=${theme}`,
-        widths: [widths[widths.length - 1]],
+        url,
+        name,
+        widths,
       });
-    });
-
-    // Take one snapshot per breakpoint at default theme.
-    // Ignore the last breakpoint as it has already been snapshotted while covering themes.
-    urls.push({
-      url,
-      name: path,
-      widths: widths.slice(0, widths.length - 1),
-    });
+    }
   }
 
   return urls;
 }
 
-module.exports = async () => {
-  return await getPercyConfigURLs();
-};
+module.exports = getPercyConfigURLs;
+module.exports.EXAMPLES_RELATIVE_DIR = EXAMPLES_RELATIVE_DIR;
+module.exports.SNAPSHOT_BREAKPOINTS = SNAPSHOT_BREAKPOINTS;
+module.exports.SNAPSHOT_COLOR_THEMES = SNAPSHOT_COLOR_THEMES;
+module.exports.DEFAULT_COLOR_THEME = DEFAULT_COLOR_THEME;
+module.exports.COLOR_THEME_QUERY_PARAM_NAME = COLOR_THEME_QUERY_PARAM_NAME;
+module.exports.PORT = PORT;

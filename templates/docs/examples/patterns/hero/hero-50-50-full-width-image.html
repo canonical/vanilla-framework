@@ -1,19 +1,17 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/hero.jinja" import hero %}
 
-{% block title %}Hero / Signpost logo{% endblock %}
+{% block title %}Hero / 50/50 / Full width image{% endblock %}
 {% block standalone_css %}patterns_hero{% endblock %}
 
-{% set is_paper = True %}
+{% set is_paper = true %}
 {% block content %}
+
 {% call(slot) hero(
   title='H1 - ideally one line, up to two',
-  subtitle='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
-  layout='25/75'
+  subtitle='H2 placeholder - aim for one line, 2 is acceptable.',
+  layout='50/50-full-width-image'
 ) -%}
-  {%- if slot == 'signpost_image' -%}
-    <img src="https://assets.ubuntu.com/v1/50775949-risc-v-logo.svg" alt="">
-  {%- endif -%}
   {%- if slot == 'description' -%}
     <p>
       Generally, the height of the right hand side of a 50/50 split should contain more content than the left
@@ -24,6 +22,11 @@
     <a href="#" class="p-button--positive">Learn more</a>
     <a href="#">Contact us ›</a>
   {%- endif -%}
-{%- endcall -%}
+  {%- if slot == 'image' -%}
+    <div class="p-image-container--cinematic is-cover">
+      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
+    </div>
+  {% endif -%}
+{% endcall -%}
 
 {% endblock %}

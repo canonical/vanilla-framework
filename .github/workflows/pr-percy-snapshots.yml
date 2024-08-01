@@ -39,6 +39,9 @@ jobs:
 
       - name: Move artifact files into place to replace SCM
         run: |
+          # ensure the examples & macros dirs exist
+          mkdir -p examples
+          mkdir -p macros
           # artifact directory contains `scss/`, `examples/`, `macros/`, `pr_num.txt`, and `pr_head_sha.txt`. 
           # `/examples` and `macros/` must be moved to `templates/`.
           mv examples/ templates/docs/.
@@ -60,31 +63,3 @@ jobs:
           pr_number: ${{ steps.get_pr_data.outputs.pr_number }}
           commitsh: ${{ steps.get_pr_data.outputs.sha }}
           percy_token_write: ${{ secrets.PERCY_TOKEN_WRITE }}
-
-  # Add a check to the PR to show that screenshots were sent to Percy
-  # Manual status check to be removed once IS-GHA integration is complete
-  # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#create-a-check-run
-  apply_pr_check:
-    name: Apply PR check
-    needs: upload
-    if: github.event.workflow_run.event=='pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Apply PR check
-        id: create_check_run
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/${{ github.repository }}/check-runs
-          owner: octokit
-          repo: request-action
-          name: "percy_upload"
-          head_sha: ${{ needs.upload.outputs.pr_head_sha }}
-          status: completed
-          conclusion: success
-          details_url: ${{ needs.upload.outputs.percy_build_link }}
-          output: |
-            title: "Percy build"
-            summary: "Percy build #${{ needs.upload.outputs.percy_build_id }} created"
-            text: "Percy build was created at ${{ needs.upload.outputs.percy_build_link }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
