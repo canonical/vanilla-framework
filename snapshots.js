@@ -141,7 +141,7 @@ async function getPercyConfigURLs() {
       urls.push({
         url,
         name,
-        widths: theme === DEFAULT_COLOR_THEME ? widths : [widths[widths.length - 1]],
+        widths,
       });
     }
   }
