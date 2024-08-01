@@ -320,10 +320,10 @@ app.add_url_rule(
     "/docs/search",
     "search",
     build_search_view(
+        app=app,
         session=session,
         site="vanillaframework.io/docs",
         template_path="docs/search.html",
     ),
 )
 app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
-
