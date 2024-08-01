@@ -25,6 +25,13 @@ View example of the logo section pattern inside a six column parent container
 
 ## Dense
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">The dense variant is deprecated. Use the default <code>.p-logo-section</code> instead.</p>
+  </div>
+</div>
+
 If you need to show more smaller logos you can use dense version of logo section with `p-logo-section--dense`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/logo-section/logo-section-dense/" class="js-example">
