@@ -2,10 +2,8 @@
 
 $lightness-threshold: 70;
 $navigation-logo-tag-width: 1.375rem; // 22px when 1rem is 16px
-$navigation-logo-tag-height: 2rem; // medium & small height of the tag logo
-$navigation-logo-tag-height-desktop: 2.375rem; // 38px when 1rem is 16px
-$navigation-logo-banner-height: 3rem; // legacy logo height (small and medium screens)
-$navigation-logo-banner-height-desktop: 3.5rem; // legacy logo height (on large screens)
+$navigation-logo-tag-height: 2.375rem; // 38px when 1rem is 16px
+$navigation-logo-banner-height: 3.5rem; // legacy logo height (on large screens)
 $navigation-logo-size: 1rem;
 $navigation-logo-padding: calc(1.5rem + 0.1rem); // ~25.6px to align better with logos as originally designed in SVG
 $sph-navigation-link: 0.3rem;
@@ -14,13 +12,8 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
 @mixin vf-p-navigation {
   // placeholders
   %navigation-link-responsive-padding-vertical {
-    padding-bottom: $spv--medium;
-    padding-top: $spv--medium;
-
-    @media (min-width: $breakpoint-navigation-threshold) {
-      padding-bottom: $spv--large;
-      padding-top: $spv--large;
-    }
+    padding-bottom: $spv--large;
+    padding-top: $spv--large;
   }
 
   %navigation-link-responsive-padding-left {
@@ -326,10 +319,6 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
     height: $navigation-logo-banner-height;
     margin: 0 $sph--large 0 0;
 
-    @media (min-width: $breakpoint-navigation-threshold) {
-      height: $navigation-logo-banner-height-desktop;
-    }
-
     .p-navigation__item {
       @include vf-focus;
 
@@ -356,10 +345,6 @@ $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
       position: absolute;
       top: 0;
       width: $navigation-logo-tag-width;
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        height: $navigation-logo-tag-height-desktop;
-      }
     }
 
     .p-navigation__logo-icon {
