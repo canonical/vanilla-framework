@@ -10,12 +10,12 @@ block](/docs/patterns/cta-block) is placed at the bottom of the content as well.
 Depending on the size and composition of your content, you can choose from a
 variety of tiered list layouts:
 
-- [50/50 on desktop w/ description](#5050-on-desktop-w-description)
-- [50/50 on tablet w/o description](#5050-on-tablet-wo-description)
-- [50/50 on tablet w/ description](#5050-on-tablet-w-description)
-- [50/50 w/ description](#5050-w-description)
-- [Full-width w/o description](#full-width-wo-description)
-- [Full-width w/ description](#full-width-w-description)
+- [50/50 on desktop with description](#5050-on-desktop-with-description)
+- [50/50 on tablet without description](#5050-on-tablet-without-description)
+- [50/50 on tablet with description](#5050-on-tablet-with-description)
+- [50/50 with description](#5050-with-description)
+- [Full-width without description](#full-width-without-description)
+- [Full-width with description](#full-width-with-description)
 
 The tiered list pattern is composed of the following elements:
 
@@ -27,7 +27,7 @@ The tiered list pattern is composed of the following elements:
 | List item description | Description text/content                                          |
 | Call to action block  | [Call to action block](/docs/patterns/cta-block) beneath the list |
 
-## 50/50 on desktop w/ description
+## 50/50 on desktop with description
 
 This variant contains a top-level description which is presented side-by-side
 with its title on desktop screen sizes.
@@ -36,17 +36,17 @@ with its title on desktop screen sizes.
 View example of the tiered list pattern
 </a></div>
 
-## 50/50 on tablet w/o description
+## 50/50 on tablet without description
 
 This variant does not contain a top-level description and its child list is
 presented with its titles side-by-side with its descriptions on tablet screen
 sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-no-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-without-description/" class="js-example">
 View example of the tiered list pattern
 </a></div>
 
-## 50/50 on tablet w/ description
+## 50/50 on tablet with description
 
 This variant contains a top-level description and its child list is presented
 with its titles side-by-side with its descriptions on tablet screen sizes.
@@ -55,7 +55,7 @@ with its titles side-by-side with its descriptions on tablet screen sizes.
 View example of the tiered list pattern
 </a></div>
 
-## 50/50 w/ description
+## 50/50 with description
 
 This variant contains a top-level description. Its title and description are
 presented side-by-side on desktop screen sizes, and its child list is presented
@@ -65,17 +65,17 @@ side-by-side on tablet screen sizes.
 View example of the tiered list pattern
 </a></div>
 
-## Full-width w/o description
+## Full-width without description
 
 This variant does not contain a top-level description, and both its title and
 child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-no-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-without-description/" class="js-example">
 View example of the tiered list pattern
 </a></div>
 
-## Full-width w/ description
+## Full-width with description
 
 This variant contains a top-level description, and its title, description, and
 child list are presented full-width on desktop and tablet screen sizes
