@@ -2,15 +2,15 @@
 
 @mixin vf-p-list-tree {
   %list-tree-icon {
-    $icon-size: 0.9375rem; // 15px
+    $icon-size: 1rem;
 
     content: ' ';
     display: block;
     height: $icon-size;
-    left: -0.75rem;
+    left: -0.25rem;
     pointer-events: none;
     position: absolute;
-    top: 0.4rem;
+    top: 0.3rem;
     width: $icon-size;
   }
 
@@ -32,9 +32,6 @@
       &[aria-hidden='false']::after {
         @extend %list-tree-icon;
         @include vf-icon-chevron-down-themed;
-
-        // At this point we need to push this icon above the --group icon.
-        z-index: 1;
       }
     }
   }
@@ -49,12 +46,8 @@
     &::before {
       content: ' ';
       display: block;
-      height: 1px;
-      left: -$sp-x-small;
       pointer-events: none;
       position: absolute;
-      top: 0.8rem;
-      width: 0.625rem;
     }
   }
 
