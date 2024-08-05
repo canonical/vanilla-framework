@@ -18,23 +18,27 @@
       margin-top: -1px;
       position: relative;
 
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-column: span $grid-columns-medium;
-        grid-template-columns: subgrid;
+      // background: lightblue;
+
+      @media screen and ($breakpoint-small <= width) {
+        border: none;
+        grid-column: span calc($grid-columns-medium / 2);
+        // grid-template-columns: subgrid;
+
+        // background: lightpink;
 
         // for medium screen, each column item will take half of the available cols from the parent grid
         .p-equal-height-row__item {
-          grid-column: span calc($grid-columns-medium / 2);
+          // grid-column: span calc($grid-columns-medium / 2);
         }
 
         // for medium screen, position the first column item on the left of the grid
         .p-equal-height-row__item:first-child {
-          grid-row: span 100; // this needs to be sufficiently large so remaining column items won't get stretched
+          // grid-row: span 100; // this needs to be sufficiently large so remaining column items won't get stretched
         }
       }
 
       @media screen and (width >= $breakpoint-large) {
-        border: none;
         grid-column: span calc($grid-columns / 4);
         margin-bottom: 0;
       }
@@ -55,7 +59,7 @@
       display: none;
     }
 
-    @media screen and (width >= $breakpoint-large) {
+    @media screen and ($breakpoint-small <= width) {
       &.has-divider-1::before,
       &.has-divider-2::after,
       &.has-divider-3:not(.has-divider-1)::before,
