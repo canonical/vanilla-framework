@@ -3,6 +3,7 @@
 @mixin vf-p-equal-height-row {
   .p-equal-height-row {
     @extend %vf-row;
+
     position: relative;
 
     .p-equal-height-row__col {
@@ -49,43 +50,40 @@
     &.has-divider-2::after,
     &.has-divider-3:not(.has-divider-1)::before,
     &.has-divider-3:not(.has-divider-2)::after {
-      // row level dividers are not visible on smaller screen sizes
       @extend %vf-pseudo-border;
-      background-color: $colors--theme--border-low-contrast; // override border color to be low contrast
+
+      // override border color to be low contrast
+      background-color: $colors--theme--border-low-contrast;
+      // row level dividers are not visible on smaller screen sizes
       display: none;
+      grid-column-end: span 12;
+      grid-column-start: 1;
+      margin: auto;
+
+      @media screen and (width >= $breakpoint-large) {
+        display: block;
+      }
     }
 
-    @media screen and (width >= $breakpoint-large) {
-      &.has-divider-1::before,
-      &.has-divider-2::after,
-      &.has-divider-3:not(.has-divider-1)::before,
-      &.has-divider-3:not(.has-divider-2)::after {
-        display: block;
-        grid-column-end: span 12;
-        grid-column-start: 1;
-        margin: auto;
-      }
+    &.has-divider-1::before {
+      grid-row: 2;
+    }
 
-      &.has-divider-1::before {
-        grid-row: 2;
-      }
+    &.has-divider-2::after {
+      grid-row: 3;
+    }
 
-      &.has-divider-2::after {
-        grid-row: 3;
-      }
+    // when 3rd-divider is present and 1st-divider is not present
+    &.has-divider-3:not(.has-divider-1)::before,
+    // when 3rd-divider is present and 2nd-divider is not present
+    &.has-divider-3:not(.has-divider-2)::after,
+    // when only 3rd-divider is present
+    &.has-divider-3:not(.has-divider-1):not(.has-divider-2)::before {
+      grid-row: 4;
+    }
 
-      // when 3rd-divider is present and 1st-divider is not present
-      &.has-divider-3:not(.has-divider-1)::before,
-      // when 3rd-divider is present and 2nd-divider is not present
-      &.has-divider-3:not(.has-divider-2)::after,
-      // when only 3rd-divider is present
-      &.has-divider-3:not(.has-divider-1):not(.has-divider-2)::before {
-        grid-row: 4;
-      }
-
-      &.has-divider-3:not(.has-divider-1):not(.has-divider-2)::after {
-        display: none;
-      }
+    &.has-divider-3:not(.has-divider-1):not(.has-divider-2)::after {
+      display: none;
     }
   }
 
