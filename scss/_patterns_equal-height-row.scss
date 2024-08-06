@@ -1,13 +1,14 @@
 @import 'settings';
 
 @mixin vf-p-equal-height-row {
-  .p-equal-height-row {
+  .p-equal-height-row,
+  .p-equal-height-row--wrap {
     @extend %vf-row;
 
     position: relative;
 
     .p-equal-height-row__col {
-      // smaller screens each column will have border top by default
+      // At smaller sizes, each column will have top border by default
       border-top-color: $colors--theme--border-low-contrast;
       border-top-style: solid;
       border-top-width: 1px;
@@ -29,14 +30,18 @@
         grid-column: span $grid-columns-medium;
         grid-template-columns: subgrid;
 
-        // for medium screen, each column item will take half of the available cols from the parent grid
+        // At medium size, each column item will take half of the available
+        // cols from the parent grid
         .p-equal-height-row__item {
           grid-column: span calc($grid-columns-medium / 2);
         }
 
-        // for medium screen, position the first column item on the left of the grid
+        // At medium size, position the first column item on the left of the
+        // grid
         .p-equal-height-row__item:first-child {
-          grid-row: span 100; // this needs to be sufficiently large so remaining column items won't get stretched
+          // This needs to be sufficiently large so remaining column items won't
+          // get stretched
+          grid-row: span 100;
         }
       }
 
@@ -49,18 +54,18 @@
 
     // DIVIDERS
 
-    // For each row or column grid we only have access to two pseudo elements
-    // if 1st-divider (::before) is present, assume 2nd-divider (::after) isn't, then 3rd-divider must be (::after)
-    // if 2nd-divider (::after) is present, assume 1st-divider (::before) isn't, then 3rd-divider must be (::before)
+    // For each row or column grid we only have access to two pseudo elements:
+    // If 1st-divider (::before) is present, assume 2nd-divider (::after) isn't, then 3rd-divider must be (::after)
+    // If 2nd-divider (::after) is present, assume 1st-divider (::before) isn't, then 3rd-divider must be (::before)
     &.has-divider-1::before,
     &.has-divider-2::after,
     &.has-divider-3:not(.has-divider-1)::before,
     &.has-divider-3:not(.has-divider-2)::after {
       @extend %vf-pseudo-border;
 
-      // override border color to be low contrast
+      // Override border color to be low contrast
       background-color: $colors--theme--border-low-contrast;
-      // row level dividers are not visible on smaller screen sizes
+      // Row-level dividers are not visible on smaller screen sizes
       display: none;
       grid-column-end: span 12;
       grid-column-start: 1;
@@ -79,11 +84,11 @@
       grid-row: 3;
     }
 
-    // when 3rd-divider is present and 1st-divider is not present
+    // When 3rd-divider is present and 1st-divider is not present
     &.has-divider-3:not(.has-divider-1)::before,
-    // when 3rd-divider is present and 2nd-divider is not present
+    // When 3rd-divider is present and 2nd-divider is not present
     &.has-divider-3:not(.has-divider-2)::after,
-    // when only 3rd-divider is present
+    // When only 3rd-divider is present
     &.has-divider-3:not(.has-divider-1):not(.has-divider-2)::before {
       grid-row: 4;
     }
@@ -93,7 +98,9 @@
     }
   }
 
-  // support for 25-75 split on large screen size for this pattern
+  // ADVANCED GRID SUPPORT
+
+  // Support for 25-75 split on large screen size
   .row--25-75-on-large > .col,
   .row > .col-9 {
     & .p-equal-height-row {
@@ -105,6 +112,29 @@
 
       @media screen and (width >= $breakpoint-large) {
         grid-template-columns: repeat(9, minmax(0, 1fr));
+      }
+    }
+  }
+
+  // WRAP VARIANT
+
+  // This variant displays multiple columns side-by-side and wraps them at
+  // medium size; we have to unset some grid properties from the default
+  // variant to enable this functionality
+  .p-equal-height-row--wrap {
+    .p-equal-height-row__col {
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        // Fit 2 columns onto each row at medium size
+        grid-column: span calc($grid-columns-medium / 2);
+        grid-template-columns: none;
+
+        .p-equal-height-row__item {
+          grid-column: auto;
+        }
+
+        .p-equal-height-row__item:first-child {
+          grid-row: auto;
+        }
       }
     }
   }
