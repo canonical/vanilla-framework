@@ -17,7 +17,7 @@ responsive behavior is shown below:
 | `$breakpoint-small` - `$breakpoint-large` | Each column spans across the entire parent grid. The first item within each column is placed on the left of the other column items. |
 | Greater than `$breakpoint-large`          | Columns within the row are displayed horizontally. Column items are vertically stacked.                                             |
 
-When using the `p-equal-height-row--wrap` variant, this responsive behavior is
+When using the [wrap variant](#wrap-variant), this responsive behavior is
 modified slightly:
 
 | Screen size (px)                          | Behavior                                                                                |
