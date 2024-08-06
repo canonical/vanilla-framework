@@ -67,6 +67,25 @@ Used as a four column row grid (`.p-equal-height-row`) spanning the whole width 
 View example of the four column row pattern using equal height row component.
 </a></div>
 
+## Wrap variant
+
+By applying the modifier class `p-equal-height-row--wrap` to a four column row
+variant, row items will wrap at medium screen sizes. They will also retain their
+vertical orientation across all breakpoints.
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <p class="p-notification__message">
+      The <code>p-equal-height-row--wrap</code> modifier is not compatible with
+      the three column row variant due to its use of a 25-75 grid.
+    </p>
+  </div>
+</div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/equal-height-row/4-items-per-column-wrap/" class="js-example">
+View example of the four column row pattern using equal height row component.
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.
