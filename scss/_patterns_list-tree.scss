@@ -12,6 +12,10 @@
     position: absolute;
     top: 0.3rem;
     width: $icon-size;
+
+    @media (min-width: $threshold-4-6-col) {
+      left: 0;
+    }
   }
 
   .p-list-tree {
@@ -40,7 +44,12 @@
     @include vf-focus-themed;
 
     margin-top: $sp-xx-small;
-    padding-left: 0.8rem;
+    padding-left: map-get($grid-margin-widths, small);
+
+    @media (min-width: $threshold-4-6-col) {
+      padding-left: map-get($grid-margin-widths, default);
+    }
+
     position: relative;
 
     &::before {
@@ -64,8 +73,13 @@
     background: transparent;
     border: 0;
     font-weight: normal;
-    margin: 0 0.5rem 0 -1.75rem;
-    padding: 0 0.5rem 0 1.75rem;
+    margin: 0 0.5rem 0 -1.5rem;
+    padding: 0 0.5rem 0 1.5rem;
+
+    @media (min-width: $threshold-4-6-col) {
+      margin-left: -1.75rem;
+    }
+
     transition-duration: 0s;
 
     &:hover {
