@@ -73,15 +73,13 @@ const initNavigationSliding = () => {
   };
 
   const setActiveDropdown = (dropdownToggleButton, isActive = true) => {
-    const dropdownToggleEl = dropdownToggleButton.closest('.p-navigation__item--dropdown-toggle');
-    dropdownToggleEl.classList.toggle('is-active', isActive); //parentNode.classList.remove('is-active');
+    // set active state of the dropdown toggle (to slide the panel into view)
+    const dropdownToggleEl = dropdownToggleButton.closest('.js-navigation-dropdown-toggle');
+    dropdownToggleEl?.classList.toggle('is-active', isActive);
 
-    let parentLevelDropdown = dropdownToggleEl.closest('.p-navigation__dropdown');
-    // if there is no parent dropdown (we are on the top level), set the nav items list to active
-    if (!parentLevelDropdown) {
-      parentLevelDropdown = dropdownToggleEl.closest('.p-navigation__items');
-    }
-    parentLevelDropdown.classList.toggle('is-active', isActive);
+    // set active state of the parent dropdown panel (to fade it out of view)
+    const parentLevelDropdown = dropdownToggleEl.closest('.js-navigation-sliding-panel');
+    parentLevelDropdown?.classList.toggle('is-active', isActive);
   };
 
   const collapseDropdown = (dropdownToggleButton, targetDropdown, animated = false) => {
@@ -185,8 +183,6 @@ const initNavigationSliding = () => {
     e.preventDefault();
     const target = backButton.closest('.p-navigation__dropdown');
     target.setAttribute('aria-hidden', 'true');
-    // backButton.closest('.is-active').classList.remove('is-active');
-    // backButton.closest('.is-active').classList.remove('is-active');
     setActiveDropdown(backButton, false);
     setFocusable(target.parentNode.parentNode);
   };
