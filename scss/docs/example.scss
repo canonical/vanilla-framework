@@ -12,6 +12,13 @@ body {
 }
 // stylelint-enable selector-max-type
 
+// Displays the contents of the `class` attribute on all column descendants
+.u-show-col-classes {
+  [class*='col-']::before {
+    content: '.' attr(class);
+  }
+}
+
 .p-example-controls {
   @include vf-transition($property: #{transform, box-shadow, visibility}, $duration: snap);
   align-items: center;
