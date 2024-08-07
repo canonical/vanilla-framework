@@ -123,17 +123,11 @@
 
   // ADVANCED GRID SUPPORT
 
-  // Support for 25-75 split on large screen size; note that this is not
-  // compatible with wrap variant
+  // Support for 25-75 split on large screen size
   .row--25-75-on-large > .col,
   .row > .col-9 {
-    & .p-equal-height-row {
-      grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
-
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
-      }
-
+    & .p-equal-height-row,
+    & .p-equal-height-row--wrap {
       @media screen and (width >= $breakpoint-large) {
         grid-template-columns: repeat(9, minmax(0, 1fr));
       }
