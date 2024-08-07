@@ -35,7 +35,7 @@ Each column can have up to 4 sub-grid items that will maintain equal heights
 between columns.
 
 <div class="embedded-example">
-  <a href="/docs/examples/patterns/equal-height-row/4-items-per-column/" class="js-example">
+  <a href="/docs/examples/patterns/equal-height-row/4-items-per-column-responsive/" class="js-example">
     View example of the four items per column pattern using equal height row component.
   </a>
 </div>
@@ -64,7 +64,7 @@ pattern on large screen sizes (`.row--25-75-on-large`). The row
 of three columns.
 
 <div class="embedded-example">
-  <a href="/docs/examples/patterns/equal-height-row/3-column-row/" class="js-example">
+  <a href="/docs/examples/patterns/equal-height-row/3-column-row-responsive/" class="js-example">
     View example of the three column row pattern using equal height row component.
   </a>
 </div>
@@ -77,7 +77,7 @@ is a sub-grid and may have up to four items (`.p-equal-height-row__item`) within
 it.
 
 <div class="embedded-example">
-  <a href="/docs/examples/patterns/equal-height-row/default/" class="js-example">
+  <a href="/docs/examples/patterns/equal-height-row/default-responsive/" class="js-example">
     View example of the four column row pattern using equal height row component.
   </a>
 </div>
@@ -90,7 +90,7 @@ variant, row items will wrap at medium screen sizes. They will also retain
 their vertical orientation across all breakpoints.
 
 <div class="embedded-example">
-  <a href="/docs/examples/patterns/equal-height-row/4-items-per-column-wrap/" class="js-example">
+  <a href="/docs/examples/patterns/equal-height-row/4-items-per-column-wrap-responsive/" class="js-example">
     View example of the four column row pattern using equal height row component.
   </a>
 </div>
