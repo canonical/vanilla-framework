@@ -9,18 +9,18 @@ items within a row format. This is achieved using the CSS `subgrid` feature
 which allows column grids to share the same layout used in the parent row grid.
 
 In addition to enforcing column grid item alignment within each row, default
-responsive behavior is shown below:
+responsive behaviour is shown below:
 
-| Screen size (px)                          | Behavior                                                                                                                            |
+| Screen size (px)                          | Behaviour                                                                                                                           |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Less than `$breakpoint-small`             | Each column spans across the entire parent grid. Column items are vertically stacked.                                               |
 | `$breakpoint-small` - `$breakpoint-large` | Each column spans across the entire parent grid. The first item within each column is placed on the left of the other column items. |
 | Greater than `$breakpoint-large`          | Columns within the row are displayed horizontally. Column items are vertically stacked.                                             |
 
-When using the [wrap variant](#wrap-variant), this responsive behavior is
+When using the [wrap variant](#wrap-variant), this responsive behaviour is
 modified slightly:
 
-| Screen size (px)                          | Behavior                                                                                |
+| Screen size (px)                          | Behaviour                                                                               |
 | ----------------------------------------- | --------------------------------------------------------------------------------------- |
 | Less than `$breakpoint-small`             | Each column spans across the entire parent grid. Column items are vertically stacked.   |
 | `$breakpoint-small` - `$breakpoint-large` | Columns wrap, 2 per row. Column items are vertically stacked.                           |
@@ -85,18 +85,9 @@ it.
 ## Wrap variant
 
 By applying the modifier class `p-equal-height-row--wrap` to a
-[four column row](#four-column-row) variant, row items will wrap at medium
-screen sizes. They will also retain their vertical orientation across all
-breakpoints.
-
-<div class="p-notification--caution">
-  <div class="p-notification__content">
-    <p class="p-notification__message">
-      The <code>p-equal-height-row--wrap</code> modifier is not compatible with
-      the three column row variant due to its use of a 25-75 grid.
-    </p>
-  </div>
-</div>
+[three column row](#three-column-row) or [four column row](#four-column-row)
+variant, row items will wrap at medium screen sizes. They will also retain
+their vertical orientation across all breakpoints.
 
 <div class="embedded-example">
   <a href="/docs/examples/patterns/equal-height-row/4-items-per-column-wrap/" class="js-example">
