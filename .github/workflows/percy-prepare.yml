@@ -27,7 +27,7 @@ jobs:
             templates/docs/examples/
             templates/_macros/
             scss/
-            build/scss/tokens/
+            build/scss/
           ref: ${{ github.event.inputs.commitsh }}
           repository: ${{ github.event.inputs.repository }}
 
@@ -45,7 +45,7 @@ jobs:
           # underscore-prefixed directories are ignored by GH artifacts, so we need to copy to a non-prefixed directory
           cp -R templates/_macros/. templates/macros/
 
-          cp -R templates/docs/examples/ templates/macros/ scss/ build/scss/tokens/ artifact/
+          cp -R templates/docs/examples/ templates/macros/ scss/ build/scss/ artifact/
 
 
       # Archive the PR number associated with this workflow since it won't be available in the base workflow context
