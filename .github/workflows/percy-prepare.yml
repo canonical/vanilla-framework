@@ -27,12 +27,15 @@ jobs:
             templates/docs/examples/
             templates/_macros/
             scss/
+            tokens/
+            sd.config.json
           ref: ${{ github.event.inputs.commitsh }}
           repository: ${{ github.event.inputs.repository }}
 
       - name: Populate artifact directory
         run: |
           # Create needed directories so `cp` doesn't fail
+          # If a PR is made that doesn't have these directories in the source, the CPs at the end of the step will fail
           mkdir -p artifact
           mkdir -p tokens
           mkdir -p templates/docs/examples/
