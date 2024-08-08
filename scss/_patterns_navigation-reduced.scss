@@ -30,6 +30,12 @@
       font-weight: $font-weight-regular-text;
     }
 
+    // reduced padding on small screens
+    .p-navigation__link {
+      padding-bottom: $spv--medium;
+      padding-top: $spv--medium;
+    }
+
     // links in the banner (Menu toggle, search toggle) use muted text colour
     .p-navigation__banner .p-navigation__link {
       color: $colors--theme--text-muted;
@@ -82,6 +88,7 @@
       // use muted icon to align with text colour
       &::after {
         @include vf-icon-search-muted;
+        top: calc($spv--medium + map-get($nudges, x-small));
       }
 
       // search label is always hidden in reduced navigation
