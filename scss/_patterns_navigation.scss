@@ -8,13 +8,18 @@ $navigation-logo-size: 1rem;
 $navigation-logo-padding: calc(1.5rem + 0.1rem); // ~25.6px to align better with logos as originally designed in SVG
 $sph-navigation-link: 0.3rem;
 $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
-$navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--medium);
+$navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large); // navigation bar height based on line height and paddings
 
 @mixin vf-p-navigation {
   // placeholders
   %navigation-link-responsive-padding-vertical {
-    padding-bottom: $spv--large;
-    padding-top: $spv--large;
+    padding-bottom: $spv--medium;
+    padding-top: $spv--medium;
+
+    @media (min-width: $breakpoint-navigation-threshold) {
+      padding-bottom: $spv--large;
+      padding-top: $spv--large;
+    }
   }
 
   %navigation-link-responsive-padding-left {
@@ -299,7 +304,8 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--medium
     .p-navigation__link--menu-toggle {
       // reset padding for navigation links in the navigation banner
       @extend %navigation-link-responsive-padding-horizontal;
-      @extend %navigation-link-responsive-padding-vertical;
+      padding-bottom: $spv--large;
+      padding-top: $spv--large;
 
       // remove navigation separator for navigation links in the navigation banner
       &::before {
@@ -565,12 +571,8 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--medium
       position: absolute;
       right: calc($sph--large / 2);
       text-indent: calc(100% + 10rem);
-      top: calc($spv--medium + map-get($nudges, x-small));
+      top: calc($spv--large + map-get($nudges, x-small));
       width: map-get($icon-sizes, default);
-
-      @media (min-width: $breakpoint-navigation-threshold) {
-        top: calc($spv--large + map-get($nudges, x-small));
-      }
     }
   }
 
