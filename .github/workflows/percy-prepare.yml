@@ -34,9 +34,11 @@ jobs:
         run: |
           # Create needed directories so `cp` doesn't fail
           mkdir -p artifact
+          mkdir -p tokens
           mkdir -p templates/docs/examples/
           mkdir -p templates/_macros/
           mkdir -p templates/macros/
+          touch sd.config.json
           
           echo "Contents before copying to artifact"
           tree .
@@ -44,7 +46,7 @@ jobs:
           # underscore-prefixed directories are ignored by GH artifacts, so we need to copy to a non-prefixed directory
           cp -R templates/_macros/. templates/macros/
           
-          cp -R templates/docs/examples/ templates/macros/ scss/ artifact/
+          cp -R templates/docs/examples/ templates/macros/ scss/ tokens/ sd.config.json artifact/
 
         
       # Archive the PR number associated with this workflow since it won't be available in the base workflow context
