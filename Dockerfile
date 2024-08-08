@@ -16,6 +16,7 @@ FROM node:20 AS yarn-dependencies
 WORKDIR /srv
 ADD package.json package.json
 ADD yarn.lock yarn.lock
+ADD sd.config.json sd.config.json
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install
 
 
@@ -24,6 +25,7 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn PUPPETEER_SKIP_CHROMI
 FROM yarn-dependencies AS build-vanilla
 ADD scripts scripts
 ADD scss scss
+ADD tokens tokens
 RUN yarn run build
 
 
