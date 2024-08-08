@@ -9,8 +9,7 @@ on:
       - "templates/docs/examples/**"
       - "templates/_macros/**"
       - "scss/**"
-      - "tokens/**"
-      - "sd.config.json"
+      - "build/scss/tokens/**"
     types:
       - opened
       - synchronize
@@ -24,6 +23,7 @@ jobs:
     uses: ./.github/workflows/percy-prepare.yml
     with:
       pr_number: ${{ github.event.number }}
+      repository: ${{ github.repository }}
       commitsh: ${{ github.event.pull_request.head.sha }}
 
 # Completion should trigger `pr-percy-snapshots` workflow.
