@@ -893,6 +893,11 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
     top: 0;
     transition: transform $sliding-nav-animation-settings;
 
+    // set background of child elements to properly cover parent dropdown levels when scrolling
+    & > * {
+      background: $colors--theme--background-default;
+    }
+
     @media (min-width: $breakpoint-navigation-threshold) {
       display: none;
       height: auto;
