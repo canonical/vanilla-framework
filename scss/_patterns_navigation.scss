@@ -984,6 +984,30 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
 
   .p-navigation--sliding,
   .p-navigation--reduced {
+    // FIXME
+    // We want to add some additional spacing on the bottom of the sliding dropdowns
+    // so that the last item is not directly at the bottom of the screen when scrolling,
+    // but because of the way it's currently implemented, the only way to achieve this
+    // is to add padding to the last item in the dropdown.
+    // This is a temporary solution until we can find a better way to implement this, but
+    // it may require bigger restructuring of the sliding navigation.
+
+    // top (1st) level navigation dropdown
+    .p-navigation__nav .p-navigation__items,
+    // 2nd level navigation dropdown (that has separate mobile and desktop versions)
+    .p-navigation__dropdown-content--sliding,
+    // further nested levels
+    // (because of some weird style combination we have to select last child instead of adding padding on dropdown container itself)
+    .p-navigation__dropdown > :last-child {
+      // should be enough to make some space at the bottom
+      // and workaround the issues of 100vh not taking address toolbar into account
+      padding-bottom: 3rem;
+
+      @media (min-width: $breakpoint-navigation-threshold) {
+        padding-bottom: 0;
+      }
+    }
+
     // Default positioning for nested dropdown buttons. Overridden by subsequent styles.
     .p-navigation__item--dropdown-toggle {
       position: initial;
