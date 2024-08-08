@@ -27,7 +27,7 @@ jobs:
       - name: Remove SCM directories that will be replaced by artifact files
         run: |
           set -e
-          rm -rf templates/docs/examples/ templates/_macros/ scss/ build/scss/
+          rm -rf templates/docs/examples/ templates/_macros/ scss/
 
       - name: Download artifact from workflow run
         uses: actions/download-artifact@v4
@@ -42,7 +42,7 @@ jobs:
           # ensure the examples & macros dirs exist
           mkdir -p examples
           mkdir -p macros
-          # artifact directory contains `scss/`, `build/scss/`, `examples/`, `macros/`, `pr_num.txt`, and `pr_head_sha.txt`.
+          # artifact directory contains `scss/`, `examples/`, `macros/`, `pr_num.txt`, and `pr_head_sha.txt`.
           # `/examples` and `macros/` must be moved to `templates/`.
           mv examples/ templates/docs/.
           mv macros/ templates/_macros
