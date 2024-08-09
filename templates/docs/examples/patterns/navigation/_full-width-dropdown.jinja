@@ -1,5 +1,5 @@
-{% macro _build_fake_link_list(n, group_name) %}
-{% for i in range(n) %}
+{%- macro _build_fake_link_list(n, group_name) -%}
+{%- for i in range(n) -%}
 <li>
   <a href="#" class="p-navigation__dropdown-item">
     {{ group_name }} item {{ i + 1 }}
@@ -7,25 +7,25 @@
     <span class="u-text--muted">Description for {{ group_name }} item {{ i + 1 }}</span>
   </a>
 </li>
-{% endfor %}
-{% endmacro %}
+{%- endfor -%}
+{%- endmacro -%}
 
-{% macro _build_fake_quick_links(n, group_name) %}
+{%- macro _build_fake_quick_links(n, group_name) -%}
 <li class="p-navigation__dropdown-item no-hover">
   <ul class="p-list p-navigation__secondary-links">
     <li class="p-list__item">
       <h2 class="p-muted-heading" tabindex="0">Quick links</h2>
     </li>
-    {% for i in range(1, n + 1) %}
+    {%- for i in range(1, n + 1) -%}
     <li class="p-list__item">
       <a class="p-navigation__secondary-link" href="#quick-link-{{ i }}" tabindex="0">{{ group_name }} quick link {{ i }}</a>
     </li>
-    {% endfor %}
+    {%- endfor -%}
   </ul>
 </li>
-{% endmacro %}
+{%- endmacro -%}
 
-{% macro _build_fake_button_link(group_name) %}
+{%- macro _build_fake_button_link(group_name) -%}
 <li class="p-navigation__dropdown-item">
   <a href="#" class="p-link--inverted">
     <span>{{ group_name }}</span>
@@ -35,12 +35,12 @@
   <br>
   <a href="#" class="p-button--positive u-no-margin">{{ group_name }}</a>
 </li>
-{% endmacro %}
+{%- endmacro -%}
 
-{% macro _build_fake_dropdown_items(group_name, links_count, has_cta_button=False, sub_links_count=15, quick_links_count=0) %}
-{% for i in range(1, links_count + 1) %}
-{% set subgroup_id = group_name ~ '-group-' ~ i %}
-{% set subgroup_name = group_name ~ ' ' ~ i %}
+{%- macro _build_fake_dropdown_items(group_name, links_count, has_cta_button=False, sub_links_count=15, quick_links_count=0) -%}
+{%- for i in range(1, links_count + 1) -%}
+{%- set subgroup_id = group_name ~ '-group-' ~ i -%}
+{%- set subgroup_name = group_name ~ ' ' ~ i -%}
 <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" id="{{ subgroup_id }}">
   <button aria-controls="{{ subgroup_id }}-menu" class="p-navigation__link">
     {{ subgroup_name }}
@@ -51,20 +51,20 @@
         Back
       </button>
     </li>
-    {% if has_cta_button %}
+    {%- if has_cta_button -%}
       {{ _build_fake_button_link(subgroup_name) }}
-    {% endif %}
+    {%- endif -%}
     {{ _build_fake_link_list(sub_links_count, subgroup_name) }}
-    {% if quick_links_count > 0 %}
+    {%- if quick_links_count > 0 -%}
       {{ _build_fake_quick_links(quick_links_count, subgroup_name) }}
-    {% endif %}
+    {%- endif -%}
   </ul>
 </li>
-{% endfor %}
-{% endmacro %}
+{%- endfor -%}
+{%- endmacro -%}
 
-{% macro build_fake_dropdown(id, title, is_open=False, links_count=3, has_cta_button=False, sub_links_count=16, quick_links_count=0) %}
-<div class="p-navigation__dropdown is-full-width {% if not is_open %}is-collapsed{% endif %} js-navigation-sliding-panel"  data-level="1" id="{{ id }}" {% if not is_open %}aria-hidden="true"{% endif %}>
+{%- macro build_fake_dropdown(id, title, is_open=False, links_count=3, has_cta_button=False, sub_links_count=16, quick_links_count=0) -%}
+<div class="p-navigation__dropdown is-full-width {% if not is_open %}is-collapsed{% endif %} js-navigation-sliding-panel"  data-level="1" id="{{ id }}" {%- if not is_open -%}aria-hidden="true"{%- endif -%}>
   <div class="p-navigation__dropdown-content--sliding">
     <ul class="p-list u-no-margin js-dropdown-nav-list">{# TODO: use p-list temporarly, we will later have more specific styling class name for it #}
       <li class="p-navigation__item--dropdown-close" id="{{ id }}-back">
@@ -144,4 +144,4 @@
     </div>
   </div>
 </div>
-{% endmacro %}
+{%- endmacro -%}
