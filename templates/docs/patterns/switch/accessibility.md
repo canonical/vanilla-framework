@@ -23,5 +23,5 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 - [WAI-ARIA names and descriptions definition](https://www.w3.org/TR/wai-aria-practices-1.1/#names_and_descriptions_definition)
 - [MDN Web accessibility - Switch role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role)
 - Guidelines:
-  - [WCAG20 - Name, Role, Value](https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html)
+  - [WCAG22 - Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value)
   - [WCAG22 - On Input](https://www.w3.org/WAI/WCAG22/Understanding/on-input)

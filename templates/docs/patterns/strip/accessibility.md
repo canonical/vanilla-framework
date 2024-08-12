@@ -24,4 +24,4 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 
 ## Resources
 
-[WCAG20 - Non-text Content](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+[WCAG22 - Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content)
