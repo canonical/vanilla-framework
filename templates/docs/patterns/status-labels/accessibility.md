@@ -21,5 +21,5 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 
 Applicable WCAG guidelines:
 
-- [WCAG22 - Use of Color](https://www.w3.org/TR/WCAG22/#use-of-color)
-- [WCAG22 - Sensory Characteristics](https://www.w3.org/TR/WCAG22/#sensory-characteristics)
+- [1.4.1: Use of Color](https://www.w3.org/TR/WCAG22/#use-of-color)
+- [1.3.3: Sensory Characteristics](https://www.w3.org/TR/WCAG22/#sensory-characteristics)

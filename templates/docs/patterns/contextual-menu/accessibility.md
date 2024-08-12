@@ -29,5 +29,5 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 ## Resources
 
 - [WAI-ARIA practices - Menu button](https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton)
-- [WCAG22 - Understanding focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible)
+- [WCAG22 - Understanding Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible)
 - [WAI-ARIA - Menu role](https://www.w3.org/TR/wai-aria-1.2/#menu)

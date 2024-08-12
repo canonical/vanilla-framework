@@ -33,6 +33,6 @@ This component should follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org
 - [WAI-ARIA Examples: Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html)
 - [Carbon design systems - Accordion accessibility](https://carbondesignsystem.com/components/accordion/accessibility)
 - Guidelines:
-  - [WCAG22 - Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships)
-  - [WCAG22 - Keyboard Accessible](https://www.w3.org/TR/WCAG22/#keyboard)
-  - [WCAG22 - No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap)
+  - [1.3.1: Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships)
+  - [2.1.1: Keyboard](https://www.w3.org/TR/WCAG22/#keyboard)
+  - [2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap)

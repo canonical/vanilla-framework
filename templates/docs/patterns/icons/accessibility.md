@@ -26,5 +26,5 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 - [Are your icons accessible?](https://www.system-concepts.com/insights/are-your-icons-usable-and-accessible/)
 - [Keyboard - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard)
 - Guidelines
-  - [WCAG22 - Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content)
-  - [WCAG22 - Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
+  - [1.1.1: Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content)
+  - [WCAG22 - Understanding Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
