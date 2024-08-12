@@ -14,7 +14,7 @@ To prevent screen reader announcement of the visual separators between links, th
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - The breadcrumb text should reflect the page title accurately and concisely.
 - The breadcrumb should remain in the same relative order and location on each web page.
@@ -26,5 +26,5 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - [WAI-ARIA practices: Breadcrumbs](https://www.w3.org/TR/wai-aria-practices/#breadcrumb)
 - [WAI-ARIA practices: Breadcrumb example](https://www.w3.org/TR/wai-aria-practices/#breadcrumb)
 - Guidelines:
-  - [2.4.4: Link Purpose in Context](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)
-  - [3.2.3: Consistent Navigation](https://www.w3.org/TR/WCAG21/#consistent-navigation)
+  - [WCAG22 - Link Purpose in Context](https://www.w3.org/TR/WCAG22/#link-purpose-in-context)
+  - [WCAG22 - Consistent Navigation](https://www.w3.org/TR/WCAG22/#consistent-navigation)
