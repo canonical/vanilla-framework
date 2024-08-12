@@ -29,8 +29,8 @@ This component should follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org
 
 ## Resources
 
-- [W3C WAI-ARIA Accordion (Sections With Show/Hide Functionality)](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion)
-- [WAI-ARIA Examples: Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html)
+- [W3C WAI-ARIA Accordion (Sections With Show/Hide Functionality)](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/)
+- [WAI-ARIA Examples: Accordion](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/)
 - [Carbon design systems - Accordion accessibility](https://carbondesignsystem.com/components/accordion/accessibility)
 - Guidelines:
   - [1.3.1: Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships)

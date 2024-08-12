@@ -23,8 +23,8 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 
 ## Resources
 
-- [WAI-ARIA practices: Breadcrumbs](https://www.w3.org/TR/wai-aria-practices/#breadcrumb)
-- [WAI-ARIA practices: Breadcrumb example](https://www.w3.org/TR/wai-aria-practices/#breadcrumb)
+- [WAI-ARIA practices: Breadcrumbs](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/)
+- [WAI-ARIA practices: Breadcrumb example](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/)
 - Guidelines:
   - [2.4.4: Link Purpose (in Context)](https://www.w3.org/TR/WCAG22/#link-purpose-in-context)
   - [3.2.3: Consistent Navigation](https://www.w3.org/TR/WCAG22/#consistent-navigation)
