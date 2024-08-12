@@ -28,7 +28,7 @@ This component strives to follow WCAG 2.2 (level AA guidelines), and care must b
 ## Resources
 
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.1 : aria-live](https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/#aria-live)
-- [WAI-ARIA Authoring Practices 1.1: alert](https://www.w3.org/TR/wai-aria-practices-1.1/#alert)
+- [WAI-ARIA Authoring Practices 1.1: alert](https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
 - [User Notifications • Forms • WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.1: aria-controls](https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/#aria-controls)
 - [ARIA live regions - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)

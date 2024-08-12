@@ -23,4 +23,4 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 - Guidelines
   - [1.4.13: Content on Hover or Focus](https://www.w3.org/TR/WCAG22/#content-on-hover-or-focus)
   - [WCAG22 Techniques - aria](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1)
-  - [WAI-ARIA practices - Tooltip](https://www.w3.org/TR/wai-aria-practices-1.1/#tooltip)
+  - [WAI-ARIA practices - Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
