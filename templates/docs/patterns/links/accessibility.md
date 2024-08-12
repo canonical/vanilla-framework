@@ -39,4 +39,4 @@ Note: It’s important to use button and link elements accurately. Controls with
 - [WAI-ARIA practices: Links ](https://www.w3.org/TR/wai-aria-practices/#link)
 - [Yale usability & Web Accessibility - Links](https://usability.yale.edu/web-accessibility/articles/links)
 - Guidelines:
-  - [WCAG22 - Link Purpose in Context](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
+  - [WCAG22 - Link Purpose (in Context)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
