@@ -10,7 +10,7 @@ The button component is used to trigger an action or event - this could be openi
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - A button, once focussed should be activated by using the `Space` or `Enter` keys.
 - The button should have an accurate description. This can be as text in the button, or by using `aria-label` or `aria-labelledby`.
