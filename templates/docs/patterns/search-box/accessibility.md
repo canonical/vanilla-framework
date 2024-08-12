@@ -12,7 +12,7 @@ It's a focusable component, and in the expanding search box where only the icon 
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Make sure to have a descriptive `aria-label` for the search input.
 - Usually, it shouldn’t be possible to search with an empty input field, so indicate this with the `required` attribute on the input.
