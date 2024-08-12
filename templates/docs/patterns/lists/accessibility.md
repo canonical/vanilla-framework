@@ -21,7 +21,7 @@ It’s important to make sure that all content which is visibly a list has the c
 
 ## Resources
 
-- [WAI-ARIA practices: Lists ](https://www.w3.org/TR/wai-aria-1.1/#list)
+- [WAI-ARIA practices: Lists](https://www.w3.org/TR/wai-aria-1.1/#list)
 - [Web Accessibility Initiatives (WAI) page on the structure of Web content](https://www.w3.org/WAI/tutorials/page-structure/content/#lists)
 - Guidelines:
   - [WCAG22 - Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships)

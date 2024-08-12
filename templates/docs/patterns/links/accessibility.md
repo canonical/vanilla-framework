@@ -36,7 +36,7 @@ Note: It’s important to use button and link elements accurately. Controls with
 
 ## Resources
 
-- [WAI-ARIA practices: Links ](https://www.w3.org/TR/wai-aria-practices/#link)
+- [WAI-ARIA practices: Links ](https://www.w3.org/WAI/ARIA/apg/patterns/link/)
 - [Yale usability & Web Accessibility - Links](https://usability.yale.edu/web-accessibility/articles/links)
 - Guidelines:
   - [WCAG22 - Link Purpose (in Context)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context)

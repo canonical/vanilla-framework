@@ -29,5 +29,5 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 - [A11y style guide - Pagination navigation](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
 - [Design system digital - Pagination](https://designsystem.digital.gov/components/pagination/)
 - Guidelines:
-  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/TR/wai-aria-practices-1.1/#general-principles-of-landmark-design)
-  - [WAI-ARIA practices - Navigation](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_lh_navigation)
+  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/)
+  - [WAI-ARIA practices - Navigation](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/)

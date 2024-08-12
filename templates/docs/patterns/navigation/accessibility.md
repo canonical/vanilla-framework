@@ -40,5 +40,5 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 
 - [Carbon Design System - Navigation](https://www.carbondesignsystem.com/patterns/global-header/#accessibility)
 - Guidelines:
-  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/TR/wai-aria-practices-1.1/#general-principles-of-landmark-design)
-  - [WAI-ARIA practices - Navigation](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_lh_navigation)
+  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/)
+  - [WAI-ARIA practices - Navigation](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/)
