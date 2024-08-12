@@ -24,4 +24,4 @@ This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3
 - [WAI-ARIA examples - Grid layout ](https://www.w3.org/TR/wai-aria-practices/examples/grid/LayoutGrids.html)
 - [WAI-ARIA practices - Grid](https://www.w3.org/TR/wai-aria-practices-1.1/#grid)
 - Guidelines
-  - [WCAG22 - Focus order](https://www.w3.org/TR/WCAG22/#focus-order)
+  - [2.4.3: Focus Order](https://www.w3.org/TR/WCAG22/#focus-order)
