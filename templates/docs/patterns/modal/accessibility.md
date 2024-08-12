@@ -27,4 +27,4 @@ JavaScript needs to be used to ensure:
 
 - [Modal Dialog Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
 - [WAI-ARIA practices: Dialog (Modal)](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)
-- [WCAG22 - No Keyboard Trap](https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html)
+- [WCAG22 - No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap)
