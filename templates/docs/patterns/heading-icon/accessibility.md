@@ -22,4 +22,4 @@ The heading icon pattern includes an icon next to the heading to add emphasis. I
 - [WAI tutorials - Images](https://www.w3.org/WAI/tutorials/images/)
 - [An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
 - Applicable WCAG guidelines:
-  - [WCAG 2.1 - 1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=111#non-text-content)
+  - [WCAG22 - Non-text Content](https://www.w3.org/WAI/WCAG22/quickref/#non-text-content)
