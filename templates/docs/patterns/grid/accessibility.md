@@ -10,7 +10,7 @@ The grid gives the ability to maintain semantic meaning in the page, while placi
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Each column containing text should span a minimum of 3 columns.
 - Only columns should be direct children of rows.
@@ -24,4 +24,4 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - [WAI-ARIA examples - Grid layout ](https://www.w3.org/TR/wai-aria-practices/examples/grid/LayoutGrids.html)
 - [WAI-ARIA practices - Grid](https://www.w3.org/TR/wai-aria-practices-1.1/#grid)
 - Guidelines
-  - [WCAG 2.1 - 2.4.3 Focus order](https://www.w3.org/TR/WCAG21/#focus-order)
+  - [WCAG22 - Focus order](https://www.w3.org/TR/WCAG22/#focus-order)
