@@ -10,7 +10,7 @@ Modal is used to overlay an area of the screen with a prompt, dialog or interact
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - The element that serves as the modal container should have a role of dialog and `aria-modal` set to `true`.
 - The dialog has a label specified by `aria-labelledby` property that refers to a visible modal title.

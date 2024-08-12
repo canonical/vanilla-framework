@@ -14,7 +14,7 @@ Each page link has an `aria-label` including the word “page” along with the 
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - It’s always recommended to use the native HTML elements where possible, but if you aren’t using a `nav` element to wrap the pagination, add `role=”navigation”` to the wrapping element.
 - Provide a descriptive `aria-label` for any Pagination component’s `nav` element that describes its purpose. For example, if the pagination component is used to navigate through a set of search results, an appropriate label could be `aria-label="search results page"`.
