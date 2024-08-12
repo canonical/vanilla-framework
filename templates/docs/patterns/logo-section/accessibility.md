@@ -10,7 +10,7 @@ The logo section showcases a group of related images or logos. It works by ensur
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Use a header that explains why the logos are on the page. It can be as simple as “Our partners” for example.
 - Images should always contain an `alt` attribute.
@@ -24,4 +24,4 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - [WAI tutorials - Images](https://www.w3.org/WAI/tutorials/images/)
 - [An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
 - Applicable WCAG guidelines:
-  - [WCAG 2.1 - 1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=111#non-text-content)
+  - [WCAG22 - Non-text Content](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=111#non-text-content)
