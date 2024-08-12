@@ -17,7 +17,7 @@ The two main components are:
 
 ## Considerations
 
-This component should follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/). Make sure this effort is maintained when the component is implemented across other projects.
+This component should follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/). Make sure this effort is maintained when the component is implemented across other projects.
 
 - Accordion headings should clearly describe what is in that accordion section.
 - Don’t use an accordion if it hides important information the user needs to complete actions on the page.
@@ -33,6 +33,6 @@ This component should follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org
 - [WAI-ARIA Examples: Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html)
 - [Carbon design systems - Accordion accessibility](https://carbondesignsystem.com/components/accordion/accessibility)
 - Guidelines:
-  - [1.3.1: Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-  - [2.1.1: Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard)
-  - [2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
+  - [WCAG22 - Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships)
+  - [WCAG22 - Keyboard Accessible](https://www.w3.org/TR/WCAG22/#keyboard)
+  - [WCAG22 - No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap)
