@@ -133,6 +133,7 @@ View example of the base form fieldset
 </a></div>
 
 You can add `is-required` to `<legend>` to indicate required fields.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/fieldset-required/" class="js-example">
   View example of fieldset required fields
 </a></div>
