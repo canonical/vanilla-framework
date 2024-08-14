@@ -4,7 +4,7 @@ $list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
   // container for stepped lists (`ol`)
-  // defines the layout and resets the native browser counter
+  // defines the layout and resets a custom counter
   %numbered-step-container {
     counter-reset: p-stepped-list-counter-top;
     display: flex;
@@ -14,7 +14,7 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   // list item for stepped lists (`li`)
-  // increments the default browser counter
+  // increments the custom counter
   %numbered-step-item {
     counter-increment: p-stepped-list-counter-top;
   }
@@ -203,9 +203,8 @@ $list-step-bullet-margin: $sph--x-large;
 
   // stylelint-disable selector-max-type -- we want to target ordered lists
   ol.p-list--divided {
-    list-style: none;
-
     counter-reset: p-stepped-list-counter-nested;
+    list-style: none;
 
     .p-list__item {
       @extend %vf-list-item-ordered;
