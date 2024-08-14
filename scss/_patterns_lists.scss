@@ -6,7 +6,7 @@ $list-step-bullet-margin: $sph--x-large;
   // container for stepped lists (`ol`)
   // defines the layout and resets the native browser counter
   %numbered-step-container {
-    counter-reset: list-item;
+    counter-reset: p-stepped-list-counter-top;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -16,7 +16,7 @@ $list-step-bullet-margin: $sph--x-large;
   // list item for stepped lists (`li`)
   // increments the default browser counter
   %numbered-step-item {
-    counter-increment: list-item;
+    counter-increment: p-stepped-list-counter-top;
   }
 
   // title for stepped lists
@@ -28,7 +28,7 @@ $list-step-bullet-margin: $sph--x-large;
     position: relative;
 
     &::before {
-      content: counter(list-item) '.';
+      content: counter(p-stepped-list-counter-top) '.';
       display: block;
       height: map-get($line-heights, default-text);
       left: 0;
@@ -48,7 +48,7 @@ $list-step-bullet-margin: $sph--x-large;
       counter-increment: p-list-nested-counter-top;
 
       &::marker {
-        content: counters(p-list-nested-counter-top, '.') '. ';
+        content: counter(p-list-nested-counter-top) '. ';
       }
 
       // Counter is named and it will be reset for each nested "ol" element.
@@ -95,6 +95,8 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   %vf-list-item-ordered {
+    counter-increment: p-stepped-list-counter-nested;
+
     &::marker {
       content: none;
       display: none;
@@ -102,7 +104,7 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       color: $colors--theme--text-default;
-      content: counters(list-item, '.') '. ';
+      content: counter(p-stepped-list-counter-top) '.' counter(p-stepped-list-counter-nested) '. ';
       display: inline-block;
       text-align: right;
     }
@@ -202,6 +204,8 @@ $list-step-bullet-margin: $sph--x-large;
   // stylelint-disable selector-max-type -- we want to target ordered lists
   ol.p-list--divided {
     list-style: none;
+
+    counter-reset: p-stepped-list-counter-nested;
 
     .p-list__item {
       @extend %vf-list-item-ordered;
