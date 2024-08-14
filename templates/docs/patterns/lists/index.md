@@ -29,6 +29,13 @@ View example of the divided list pattern
 
 You can use the class `.p-list--divided` to style an ordered list.
 
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">This list type only officially supports one level of nesting - additional levels of nesting may not inherit the correct numbered ordering.</span>
+  </p>
+</div>
+
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-dividers-ordered/" class="js-example">
 View example of the ordered divided list pattern
 </a></div>
@@ -60,6 +67,13 @@ View example of the list pattern
 ## Nested Count
 
 If you want nested ordered lists to have numbers based on their parents, you can add the class `p-list--nested-counter` to the ordered list element.
+
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">This list type only officially supports one level of nesting - additional levels of nesting may not inherit the correct numbered ordering.</span>
+  </p>
+</div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-count/" class="js-example">
 View example of the pattern nested counter
@@ -129,6 +143,13 @@ View example of the pattern stepped list detailed
 
 The stepped list can be combined with a `.p-list--divided` list to provide more
 granular step-by-step instructions.
+
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">This list type only officially supports one level of nesting - additional levels of nesting may not inherit the correct numbered ordering.</span>
+  </p>
+</div>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-stepped-detailed/" class="js-example">
 View example of the pattern stepped list detailed
