@@ -14,7 +14,7 @@ Each page link has an `aria-label` including the word “page” along with the 
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - It’s always recommended to use the native HTML elements where possible, but if you aren’t using a `nav` element to wrap the pagination, add `role=”navigation”` to the wrapping element.
 - Provide a descriptive `aria-label` for any Pagination component’s `nav` element that describes its purpose. For example, if the pagination component is used to navigate through a set of search results, an appropriate label could be `aria-label="search results page"`.
@@ -29,5 +29,5 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 - [A11y style guide - Pagination navigation](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
 - [Design system digital - Pagination](https://designsystem.digital.gov/components/pagination/)
 - Guidelines:
-  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/TR/wai-aria-practices-1.1/#general-principles-of-landmark-design)
-  - [WAI-ARIA practices - Navigation](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_lh_navigation)
+  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/)
+  - [WAI-ARIA practices - Navigation](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/)

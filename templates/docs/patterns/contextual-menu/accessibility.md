@@ -18,7 +18,7 @@ The contextual menu is a secondary menu which can be applied to any button. The 
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - The control element should have the `role=”button”`, in our example we use the native button element.
 - JavaScript will be needed to show/hide the content of the menu. The script should find the toggle element `.p-contextual-menu__toggle`, and what it controls via `aria-controls`.
@@ -28,6 +28,6 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 ## Resources
 
-- [WAI-ARIA practices - Menu button](https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton)
-- [WCAG 2.1 - 2.4.7: Understanding focus visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible)
+- [WAI-ARIA practices - Menu button](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/)
+- [WCAG22 - Understanding Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible)
 - [WAI-ARIA - Menu role](https://www.w3.org/TR/wai-aria-1.2/#menu)

@@ -12,7 +12,7 @@ The element is focusable, and the `Spacebar` changes the state of the switch the
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Each switch should have a clear and concise label
 - Adding `aria-checked=”true”` or `aria-checked=”false”` will set the switch to on or off respectively.
@@ -20,8 +20,8 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 ## Resources
 
-- [WAI-ARIA names and descriptions definition](https://www.w3.org/TR/wai-aria-practices-1.1/#names_and_descriptions_definition)
+- [WAI-ARIA names and descriptions definition](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/)
 - [MDN Web accessibility - Switch role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role)
 - Guidelines:
-  - [4.1.2 Name, Role, Value](https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html)
-  - [ 3.2.2 On Input](https://www.w3.org/WAI/WCAG21/Understanding/on-input)
+  - [WCAG22 - Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value)
+  - [WCAG22 - On Input](https://www.w3.org/WAI/WCAG22/Understanding/on-input)

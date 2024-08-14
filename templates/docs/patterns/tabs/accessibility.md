@@ -23,7 +23,7 @@ This component does not have a semantic counterpart in HTML, so it uses several 
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Tab text should be concise and make it clear what content they link to/nest.
 - There should be a clear relationship between the tabs and the tab panels.
@@ -33,9 +33,9 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 ## Resources
 
-- [Example of Tabs with Automatic Activation](https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html)
-- [WAI-ARIA practices: Tabs](https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel)
+- [Example of Tabs with Automatic Activation](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/)
+- [WAI-ARIA practices: Tabs](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 - Guidelines:
-  - [1.3.1: Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-  - [2.1.1: Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard)
-  - [2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
+  - [1.3.1: Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships)
+  - [2.1.1: Keyboard](https://www.w3.org/TR/WCAG22/#keyboard)
+  - [2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap)

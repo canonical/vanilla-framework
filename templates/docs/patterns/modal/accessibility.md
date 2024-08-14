@@ -10,7 +10,7 @@ Modal is used to overlay an area of the screen with a prompt, dialog or interact
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - The element that serves as the modal container should have a role of dialog and `aria-modal` set to `true`.
 - The dialog has a label specified by `aria-labelledby` property that refers to a visible modal title.
@@ -25,6 +25,6 @@ JavaScript needs to be used to ensure:
 
 ## Resources
 
-- [Modal Dialog Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
+- [Modal Dialog Example](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
 - [WAI-ARIA practices: Dialog (Modal)](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)
-- [No Keyboard Trap: Understanding SC 2.1.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html)
+- [WCAG22 - No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap)

@@ -10,7 +10,7 @@ Links are used as navigational elements and can be used on their own or inline w
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects.
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects.
 
 #### Link text
 
@@ -36,7 +36,7 @@ Note: It’s important to use button and link elements accurately. Controls with
 
 ## Resources
 
-- [WAI-ARIA practices: Links ](https://www.w3.org/TR/wai-aria-practices/#link)
+- [WAI-ARIA practices: Links ](https://www.w3.org/WAI/ARIA/apg/patterns/link/)
 - [Yale usability & Web Accessibility - Links](https://usability.yale.edu/web-accessibility/articles/links)
 - Guidelines:
-  - [2.4.4: Link Purpose in Context](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
+  - [WCAG22 - Link Purpose (in Context)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context)
