@@ -3,8 +3,8 @@ $list-status-icon-height: $default-icon-size;
 $list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
-  // container for .p-stepped-list and .p-stepped-list--detailed ordered lists
-  // defines the layout and resets a custom counter
+  // Container for .p-stepped-list and .p-stepped-list--detailed ordered lists;
+  // Defines the layout and resets a custom counter
   %numbered-step-container {
     counter-reset: p-stepped-list-counter;
     display: flex;
@@ -13,14 +13,14 @@ $list-step-bullet-margin: $sph--x-large;
     padding-left: 0;
   }
 
-  // list item for .p-stepped-list and .p-stepped-list--detailed ordered lists
-  // increments the custom counter
+  // List item for .p-stepped-list and .p-stepped-list--detailed ordered lists;
+  // Increments the custom counter
   %numbered-step-item {
     counter-increment: p-stepped-list-counter;
   }
 
-  // title for .p-stepped-list and .p-stepped-list--detailed ordered lists
-  // displays the title and step counter
+  // Title for .p-stepped-list and .p-stepped-list--detailed ordered lists;
+  // Displays the title and step counter
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
@@ -39,7 +39,7 @@ $list-step-bullet-margin: $sph--x-large;
     }
   }
 
-  // used with .p-list--nested-counter
+  // Styles for .p-list--nested-counter
   %nested-counter {
     // Counter is named and it will be reset for each "ol" element.
     counter-reset: p-list-nested-counter-top;
@@ -119,6 +119,8 @@ $list-step-bullet-margin: $sph--x-large;
       }
     }
 
+    // If .p-list--divided is within another .p-list--divided, display counter
+    // as decimal nested under parent number
     ol.p-list--divided {
       counter-reset: p-list-divided-nested-counter;
 
