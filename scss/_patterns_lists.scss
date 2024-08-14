@@ -42,13 +42,26 @@ $list-step-bullet-margin: $sph--x-large;
   // used with .p-list--nested-counter
   %nested-counter {
     // Counter is named and it will be reset for each "ol" element.
-    counter-reset: list-item;
-    li::marker {
-      // "counters" function returns a string representing the current value of the named counter ("list-item").
-      // It is used to insert a string between different levels of nested counters.
-      // Source: https://www.w3schools.com/css/css_counters.asp
-      content: counters(list-item, '.') '. ';
-      counter-increment: list-item;
+    counter-reset: top;
+
+    li {
+      counter-increment: top;
+
+      &::marker {
+        content: counters(top, '.') '. ';
+      }
+
+      ol {
+        counter-reset: nested;
+
+        li {
+          counter-increment: nested;
+
+          &::marker {
+            content: counter(top) '.' counter(nested) '. ';
+          }
+        }
+      }
     }
   }
 
