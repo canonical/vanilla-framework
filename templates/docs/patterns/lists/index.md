@@ -121,9 +121,16 @@ View example of the stepped list without headings
 
 ## Horizontal stepped
 
-The stepped list should be used for step by step instructions.
+The stepped list should be used for step-by-step instructions.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-stepped-detailed/" class="js-example">
+View example of the pattern stepped list detailed
+</a></div>
+
+The stepped list can be combined with a `.p-list--divided` list to provide more
+granular step-by-step instructions.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/list-nested-stepped-detailed/" class="js-example">
 View example of the pattern stepped list detailed
 </a></div>
 
