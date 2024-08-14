@@ -46,23 +46,23 @@ $list-step-bullet-margin: $sph--x-large;
 
     li {
       counter-increment: p-list-nested-counter-top;
+    }
 
-      &::marker {
-        content: counter(p-list-nested-counter-top) '. ';
-      }
+    li::marker {
+      content: counter(p-list-nested-counter-top) '. ';
+    }
 
-      // Counter is named and it will be reset for each nested "ol" element.
-      ol {
-        counter-reset: p-list-nested-counter-nested;
+    // Counter is named and it will be reset for each nested "ol" element.
+    li ol {
+      counter-reset: p-list-nested-counter-nested;
+    }
 
-        li {
-          counter-increment: p-list-nested-counter-nested;
+    li ol li {
+      counter-increment: p-list-nested-counter-nested;
+    }
 
-          &::marker {
-            content: counter(p-list-nested-counter-top) '.' counter(p-list-nested-counter-nested) '. ';
-          }
-        }
-      }
+    li ol li::marker {
+      content: counter(p-list-nested-counter-top) '.' counter(p-list-nested-counter-nested) '. ';
     }
   }
 
