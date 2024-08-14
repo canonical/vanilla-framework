@@ -104,9 +104,14 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       color: $colors--theme--text-default;
-      content: counter(p-stepped-list-counter-top) '.' counter(p-stepped-list-counter-nested) '. ';
+      content: counter(p-stepped-list-counter-nested) '.';
       display: inline-block;
       text-align: right;
+
+      .p-stepped-list &,
+      .p-stepped-list--detailed & {
+        content: counter(p-stepped-list-counter-top) '.' counter(p-stepped-list-counter-nested) '.';
+      }
     }
   }
 
