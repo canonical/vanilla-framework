@@ -14,7 +14,7 @@ In dismissible notifications, an `aria-controls` attribute on the close button r
 
 ## Considerations
 
-This component strives to follow WCAG 2.1 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow WCAG 2.2 (level AA guidelines), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Avoid adding both `aria-live="assertive"` and `role="alert"` to maximize compatibility as this causes double speaking issues in `VoiceOver` on iOS.
 - Avoid frequent notifications as frequent interruptions may inhibit usability for people with visual and cognitive impairments.
@@ -28,11 +28,11 @@ This component strives to follow WCAG 2.1 (level AA guidelines), and care must b
 ## Resources
 
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.1 : aria-live](https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/#aria-live)
-- [WAI-ARIA Authoring Practices 1.1: alert](https://www.w3.org/TR/wai-aria-practices-1.1/#alert)
+- [WAI-ARIA Authoring Practices 1.1: alert](https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
 - [User Notifications • Forms • WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.1: aria-controls](https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/#aria-controls)
 - [ARIA live regions - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 - Applicable WCAG guidelines:
-  - [Guideline 2.2.3 - No timing](https://www.w3.org/WAI/WCAG21/quickref/#no-timing)
-  - [Guideline 3.2 - Predictable](https://www.w3.org/WAI/WCAG21/quickref/#predictable)
-  - [Guideline 3.3 - Input assistance](https://www.w3.org/WAI/WCAG21/quickref/#input-assistance)
+  - [WCAG22 - No Timing](https://www.w3.org/WAI/WCAG22/quickref/#no-timing)
+  - [WCAG22 - Predictable](https://www.w3.org/WAI/WCAG22/quickref/#predictable)
+  - [WCAG22 - Input Assistance](https://www.w3.org/WAI/WCAG22/quickref/#input-assistance)

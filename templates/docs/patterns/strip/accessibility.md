@@ -10,7 +10,7 @@ A Strip is a full-width content container. They provide visual interest and brea
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - The starting point of your page should be a well structured and accessible source document. Ensure the document remains in a logical order for screen readers, irrespective of how the content looks visually
 - The headings in the Strips should follow the heading hierarchy of the page.
@@ -24,4 +24,4 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 ## Resources
 
-[W3C Non-text content](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+[WCAG22 - Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content)

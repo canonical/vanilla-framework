@@ -10,7 +10,7 @@ A tooltip is text that appears in a small overlay on demand, usually when hoveri
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - Be sure to include the `aria-describedby` attribute with the `id` of the description.
 - They should be discoverable, avoid placing them in over a word in a sentence for example.
@@ -21,6 +21,6 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 - Inclusive Components by Heydon Pickering
 - Guidelines
-  - [WCAG21 - Content on hover or focus](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus)
-  - [WCAG21 Techniques - aria](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1)
-  - [WAI-ARIA practices - Tooltip](https://www.w3.org/TR/wai-aria-practices-1.1/#tooltip)
+  - [1.4.13: Content on Hover or Focus](https://www.w3.org/TR/WCAG22/#content-on-hover-or-focus)
+  - [WCAG22 Techniques - aria](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1)
+  - [WAI-ARIA practices - Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)

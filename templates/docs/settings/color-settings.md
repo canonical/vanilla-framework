@@ -103,7 +103,7 @@ These guidelines are the framework upon which we have built our system for how c
 
 ## Accessibility
 
-It’s important for us to meet all web accessibility standards. Vanilla encourages meeting the minimum contrast ratios specified by WCAG 2.1 Level AA for text, icons and background colors.
+It’s important for us to meet all web accessibility standards. Vanilla encourages meeting the minimum contrast ratios specified by WCAG 2.2 Level AA for text, icons and background colors.
 
 <div class="p-strip is-shallow">
   <div class="row">

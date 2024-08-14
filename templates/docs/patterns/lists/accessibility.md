@@ -10,7 +10,7 @@ Lists provide orientation for users by letting them know when a collection of it
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 Be sure to use the correct list type for your content:
 
@@ -21,7 +21,7 @@ It’s important to make sure that all content which is visibly a list has the c
 
 ## Resources
 
-- [WAI-ARIA practices: Lists ](https://www.w3.org/TR/wai-aria-1.1/#list)
+- [WAI-ARIA practices: Lists](https://www.w3.org/TR/wai-aria-1.1/#list)
 - [Web Accessibility Initiatives (WAI) page on the structure of Web content](https://www.w3.org/WAI/tutorials/page-structure/content/#lists)
 - Guidelines:
-  - [SC 1.3.1 Info and Relationships](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
+  - [WCAG22 - Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships)

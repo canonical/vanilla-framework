@@ -27,7 +27,7 @@ Consider the size that navigation elements are displayed at. They should be easi
 
 ## Considerations
 
-This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3.org/TR/WCAG21/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
+This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
 - The visual order of the UI objects that is read by assistive technologies should match with the source code.
 - Give each navigation element a unique and clear label. Do not include the word “navigation” in the `aria-label`, as this would be repeated by the screen reader.
@@ -40,5 +40,5 @@ This component strives to follow [WCAG 2.1 (level AA) guidelines](https://www.w3
 
 - [Carbon Design System - Navigation](https://www.carbondesignsystem.com/patterns/global-header/#accessibility)
 - Guidelines:
-  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/TR/wai-aria-practices-1.1/#general-principles-of-landmark-design)
-  - [WAI-ARIA practices - Navigation](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_lh_navigation)
+  - [WAI-ARIA practices - General principles of landmark design](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/)
+  - [WAI-ARIA practices - Navigation](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/)
