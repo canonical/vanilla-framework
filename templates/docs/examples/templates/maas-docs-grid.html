@@ -4,11 +4,6 @@
 {% block style %}
 <style>
   body { margin: 0; }
-
-  /* Make the search box stand out from its highlighted strip background */
-  #search-docs.is-maas-docs .p-search-box__input {
-    background-color: #e2e2e2 !important;
-  }
 </style>
 {% endblock %}
 
@@ -47,12 +42,13 @@
   </div>
 </header>
 
-<section id="search-docs" class="p-strip--highlighted is-shallow is-maas-docs">
+<section id="search-docs" class="p-strip--highlighted is-shallow">
   <div class="row">
     <form class="p-search-box u-no-margin--bottom">
       <input aria-label="search" type="search" class="p-search-box__input" name="q" placeholder="Search documentation" required="" autocomplete="on">
       <button type="reset" class="p-search-box__reset" name="close"><i class="p-icon--close">Close</i></button>
       <button type="submit" name="submitSearch" class="p-search-box__button"><i class="p-icon--search">Search</i></button>
+
     </form>
   </div>
 </section>
