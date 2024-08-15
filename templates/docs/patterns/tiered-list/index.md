@@ -27,6 +27,27 @@ The tiered list pattern is composed of the following elements:
 | List item description | Description text/content                                          |
 | Call to action block  | [Call to action block](/docs/patterns/cta-block) beneath the list |
 
+## Macro
+
+The tiered list pattern is offered via a Jinja Macro for ease of use. This
+Macro accepts the following parameters:
+
+| Parameter | Type    | Default | Description                                              |
+| --------- | ------- | ------- | -------------------------------------------------------- |
+| `variant` | integer | `1`     | Layout variant; see following table for full description |
+
+#### `variant`
+
+The `variant` parameter allows the user to switch between a variety of tiered
+list layouts:
+
+| `variant` | Name                                                                                                                                                 | Description element required? | Tablet layout | Desktop layout |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------- | -------------- |
+| `1`       | [50/50 on desktop with description](#5050-on-desktop-with-description)                                                                               | Yes                           | Full-width    | 50/50          |
+| `2`       | [50/50 on tablet without description](#5050-on-tablet-without-description), <br>[50/50 on tablet with description](#5050-on-tablet-with-description) | No                            | 50/50         | Full-width     |
+| `3`       | [50/50 with description](#5050-with-description)                                                                                                     | Yes                           | 50/50         | 50/50          |
+| `4`       | [Full-width without description](#full-width-without-description), <br>[Full-width with description](#full-width-with-description)                   | No                            | Full-width    | Full-width     |
+
 ## 50/50 on desktop with description
 
 This variant contains a top-level description which is presented side-by-side
