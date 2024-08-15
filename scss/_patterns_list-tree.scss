@@ -24,6 +24,10 @@
       color: $colors--theme--link-default;
       text-decoration: underline;
     }
+
+    &.is-active {
+      color: $colors--theme--link-default;
+    }
   }
 
   .p-list-tree {
@@ -61,8 +65,8 @@
     }
   }
 
-  // Override active button background
-  .p-list-tree__toggle[aria-expanded='true'] {
+  // Hide the default expanded button styling for toggles, unless they are active
+  .p-list-tree__toggle[aria-expanded='true']:not(.is-active) {
     background: $colors--theme--background-default;
   }
 

@@ -56,10 +56,45 @@ function setupListTreeToggle(listTreeToggle) {
   });
 }
 
+/**
+ * Attaches event listeners for the list tree link.
+ * @param {HTMLElement} listTreeLink - `.p-list-tree__toggle` or `.p-list-tree__item` element to set up.
+ * @param {HTMLElement[]} otherTreeLinks - Other `.p-list-tree__toggle` or `.p-list-tree__item` elements on the page.
+ */
+function setupListTreeLink(listTreeLink, otherTreeLinks) {
+  listTreeLink.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Toggle active state on this tree link.
+    if (listTreeLink.classList.contains('is-active')) {
+      listTreeLink.classList.remove('is-active');
+    } else {
+      listTreeLink.classList.add('is-active');
+    }
+
+    // Disable active state on other tree links.
+    otherTreeLinks.forEach(otherTreeLink => {
+      otherTreeLink.classList.remove('is-active');
+    })
+  });
+}
+
 // Set up all list trees on the page.
 var listTreeToggles = document.querySelectorAll('.p-list-tree__toggle');
 for (var i = 0, l = listTreeToggles.length; i < l; i++) {
   setupListTreeToggle(listTreeToggles[i]);
 }
+
+// Set up all the links on the page.
+var listTreeItems = document.querySelectorAll('.p-list-tree__item:not(.p-list-tree__item--group)');
+var listTreeLinkItems = [...listTreeToggles, ...listTreeItems];
+for (var i = 0; i < listTreeLinkItems.length; i++) {
+  setupListTreeLink(
+    listTreeLinkItems[i],
+    // all items besides this one
+    listTreeLinkItems.filter((_, j) => i !== j)
+  );
+}
+
 </script>
 {% endblock %}
