@@ -14,6 +14,18 @@
     width: $icon-size;
   }
 
+  .p-list-tree__item:not(.p-list-tree__item--group),
+  .p-list-tree__toggle {
+    color: $colors--theme--text-default;
+    cursor: pointer;
+
+    &:hover {
+      background: transparent;
+      color: $colors--theme--link-default;
+      text-decoration: underline;
+    }
+  }
+
   .p-list-tree {
     list-style-type: none;
     margin-left: $sp-x-small;
@@ -64,11 +76,5 @@
     padding: 0 0.5rem 0 1.5rem;
 
     transition-duration: 0s;
-
-    &:hover {
-      background: transparent;
-      color: $colors--theme--link-default;
-      text-decoration: underline;
-    }
   }
 }
