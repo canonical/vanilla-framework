@@ -132,6 +132,12 @@ You can use the `<fieldset>` element to divide the form into different logical s
 View example of the base form fieldset
 </a></div>
 
+You can add `is-required` to `<legend>` to indicate required fields.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/fieldset-required/" class="js-example">
+  View example of fieldset required fields
+</a></div>
+
 ## Inline
 
 By applying the class `.p-form--inline` and wrapping any form control in `.p-form__group` you can change the layout style of any form to be inline.
