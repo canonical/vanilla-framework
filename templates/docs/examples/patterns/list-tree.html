@@ -52,6 +52,11 @@ function setupListTreeToggle(listTreeToggle) {
   listTreeToggle.addEventListener('click', function(event) {
     event.preventDefault();
     var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
+
+    // If the button is expanded, ignore closing it if the click is on the button text. User must click the icon pseudo-element.
+    if (!expand && event.clientX >= listTreeToggle.getBoundingClientRect().left + (16 * 1.5)) {
+        return;
+    }
     toggleElement(listTreeToggle, expand);
   });
 }
