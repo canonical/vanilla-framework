@@ -9,9 +9,7 @@
 # list_item_title_[1-25]: title element of each child list item
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
-{% macro tiered_list(
-  is_description_full_width_on_desktop=true,
-  is_list_full_width_on_tablet=true) -%}
+{% macro tiered_list(variant=1) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
@@ -22,7 +20,7 @@
     <hr class="u-hide--small">
 
     {% if has_description == true -%}
-      {%- if is_description_full_width_on_desktop == true -%}
+      {%- if variant in [2, 4] -%}
         <div class="u-fixed-width">
           <div class="p-section--shallow">
             {{ title_content }}
@@ -63,7 +61,7 @@
         {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
 
         {%- if has_title_content and has_description_content -%}
-          {%- if is_list_full_width_on_tablet == true %}
+          {%- if variant in [1, 4] %}
             <div class="row">
               <div class="col-9 col-start-large-4">
                 <hr class="is-muted">
