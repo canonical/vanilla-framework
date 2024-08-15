@@ -24,10 +24,11 @@
       color: $colors--theme--link-default;
       text-decoration: underline;
     }
+  }
 
-    &.is-active {
-      color: $colors--theme--link-default;
-    }
+  .p-list-tree__item.is-active:not(.p-list-tree__item--group),
+  .p-list-tree__item.p-list-tree__item--group > .p-list-tree__toggle[aria-expanded='true'].is-highlighted.is-active {
+    color: $colors--theme--link-default;
   }
 
   .p-list-tree {
@@ -67,7 +68,7 @@
   }
 
   // Hide the default expanded button styling for toggles, unless they are active
-  .p-list-tree__toggle[aria-expanded='true']:not(.is-active) {
+  .p-list-tree__toggle[aria-expanded='true']:not(.is-highlighted) {
     background: $colors--theme--background-default;
   }
 
