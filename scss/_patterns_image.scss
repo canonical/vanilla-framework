@@ -48,7 +48,7 @@ $breakpoints: (
   ),
 );
 
-@mixin aspect-ratio-classes($aspect-ratios) {
+@mixin aspect-ratio-classes {
   @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
     .p-image-container--#{$aspect-ratio} {
       aspect-ratio: $aspect-ratio-value;
@@ -116,7 +116,7 @@ $breakpoints: (
     }
   }
 
-  @include aspect-ratio-classes($aspect-ratios);
+  @include aspect-ratio-classes;
 
   // Deprecated; will be removed in v5
   .p-image--bordered {
