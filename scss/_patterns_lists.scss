@@ -3,24 +3,24 @@ $list-status-icon-height: $default-icon-size;
 $list-step-bullet-margin: $sph--x-large;
 
 @mixin vf-p-list-placeholders {
-  // container for stepped lists (`ol`)
-  // defines the layout and resets the native browser counter
+  // Container for .p-stepped-list and .p-stepped-list--detailed ordered lists;
+  // Defines the layout and resets a custom counter
   %numbered-step-container {
-    counter-reset: list-item;
+    counter-reset: p-stepped-list-counter;
     display: flex;
     flex-direction: column;
     list-style: none;
     padding-left: 0;
   }
 
-  // list item for stepped lists (`li`)
-  // increments the default browser counter
+  // List item for .p-stepped-list and .p-stepped-list--detailed ordered lists;
+  // Increments the custom counter
   %numbered-step-item {
-    counter-increment: list-item;
+    counter-increment: p-stepped-list-counter;
   }
 
-  // title for stepped lists
-  // displays the title and step counter
+  // Title for .p-stepped-list and .p-stepped-list--detailed ordered lists;
+  // Displays the title and step counter
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
@@ -28,7 +28,7 @@ $list-step-bullet-margin: $sph--x-large;
     position: relative;
 
     &::before {
-      content: counter(list-item) '.';
+      content: counter(p-stepped-list-counter) '.';
       display: block;
       height: map-get($line-heights, default-text);
       left: 0;
@@ -39,16 +39,30 @@ $list-step-bullet-margin: $sph--x-large;
     }
   }
 
-  // used with .p-list--nested-counter
+  // Styles for .p-list--nested-counter
   %nested-counter {
     // Counter is named and it will be reset for each "ol" element.
-    counter-reset: list-item;
+    counter-reset: p-list-nested-counter-top;
+
+    li {
+      counter-increment: p-list-nested-counter-top;
+    }
+
     li::marker {
-      // "counters" function returns a string representing the current value of the named counter ("list-item").
-      // It is used to insert a string between different levels of nested counters.
-      // Source: https://www.w3schools.com/css/css_counters.asp
-      content: counters(list-item, '.') '. ';
-      counter-increment: list-item;
+      content: counter(p-list-nested-counter-top) '. ';
+    }
+
+    // Counter is named and it will be reset for each nested "ol" element.
+    li ol {
+      counter-reset: p-list-nested-counter-nested;
+    }
+
+    li ol li {
+      counter-increment: p-list-nested-counter-nested;
+    }
+
+    li ol li::marker {
+      content: counter(p-list-nested-counter-top) '.' counter(p-list-nested-counter-nested) '. ';
     }
   }
 
@@ -80,7 +94,10 @@ $list-step-bullet-margin: $sph--x-large;
     top: $spv--small;
   }
 
+  // Styles for .p-list--divided ordered lists
   %vf-list-item-ordered {
+    counter-increment: p-list-divided-counter;
+
     &::marker {
       content: none;
       display: none;
@@ -88,9 +105,32 @@ $list-step-bullet-margin: $sph--x-large;
 
     &::before {
       color: $colors--theme--text-default;
-      content: counters(list-item, '.') '. ';
+      // If .p-list--divided ordered list is not within stepped list, display
+      // counter as unique whole number
+      content: counter(p-list-divided-counter) '.';
       display: inline-block;
       text-align: right;
+
+      // If .p-list--divided ordered list is within a stepped list, display
+      // counter as decimal nested under parent number
+      .p-stepped-list &,
+      .p-stepped-list--detailed & {
+        content: counter(p-stepped-list-counter) '.' counter(p-list-divided-counter) '.';
+      }
+    }
+
+    // If .p-list--divided is within another .p-list--divided, display counter
+    // as decimal nested under parent number
+    ol.p-list--divided {
+      counter-reset: p-list-divided-nested-counter;
+
+      .p-list__item {
+        counter-increment: p-list-divided-nested-counter;
+
+        &::before {
+          content: counter(p-list-divided-counter) '.' counter(p-list-divided-nested-counter) '.';
+        }
+      }
     }
   }
 
@@ -187,6 +227,7 @@ $list-step-bullet-margin: $sph--x-large;
 
   // stylelint-disable selector-max-type -- we want to target ordered lists
   ol.p-list--divided {
+    counter-reset: p-list-divided-counter;
     list-style: none;
 
     .p-list__item {
