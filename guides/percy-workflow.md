@@ -1,7 +1,7 @@
 ## Percy visual testing
 
 We use [Percy](https://percy.io) for visual testing. Percy tests are run against pull requests to
-ensure that PRs to not introduce visual regressions. Your PR will be tested by Percy if it meets the following conditions:
+ensure that PRs do not introduce visual regressions. Your PR will be tested by Percy if it meets the following conditions:
 
 - PR is against the `main` branch
 - One of the following is true:
@@ -42,10 +42,12 @@ as the new Percy baseline that all future PRs will be compared against.
 The [prepare workflow](../.github/workflows/percy-prepare.yml) checks out a merge commit of a PR and `main`, then
 uploads all files in the PR that have any affects on the visual appearance of the design system as a GitHub artefact.
 
-#### Snapshot Workflow
+#### PR Snapshot Workflow
 
 The [snapshot workflow](../.github/workflows/pr-percy-snapshots.yml) downloads the artefacts from the [prepare workflow](#prepare-workflow)
 and calls the [Percy snapshot action](../.github/actions/percy-snapshot/action.yml) to build, run, & visually test Vanilla.
+
+The PR snapshot workflow is always called after the completion of the [prepare workflow](#prepare-workflow).
 
 ### Example snapshots
 

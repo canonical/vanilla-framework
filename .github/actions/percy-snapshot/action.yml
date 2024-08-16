@@ -80,7 +80,7 @@ runs:
       id: percy_snapshot
       env:
         PERCY_TOKEN: ${{ inputs.percy_token_write }}
-        # This identifies the diff by name in the percy diffs list
+        # This is used to name the build on the Percy dashboard. For PRs, it is `pull/{pr_number}`, and for baseline, it is `main`.
         PERCY_BRANCH: ${{ inputs.branch_name }}
         # HEAD commit SHA signature that triggered this test
         PERCY_COMMIT: ${{ inputs.commitsh }}
