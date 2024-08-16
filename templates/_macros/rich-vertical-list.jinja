@@ -61,6 +61,7 @@
             <div class="p-logo-section__items">
               {%- for logo_section_image in logo_section_images -%}
                 <div class="p-logo-section__item">
+                  {#- We assume the content is an img.p-logo-section__image -#}
                   {{ logo_section_image }}
                 </div>
               {%- endfor -%}
@@ -81,6 +82,7 @@
       <!--Optional list-->
       <ul class="p-list--divided">
        {% for list_item in list_items %}
+         {#- We assume the content is an li.p-list__item -#}
           {{- list_item -}}
         {% endfor %}
       </ul>
