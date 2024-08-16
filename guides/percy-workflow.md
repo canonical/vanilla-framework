@@ -90,7 +90,7 @@ If `combined.html` is found in a directory, [snapshots.js](../snapshots.js) will
 ##### Creating a combined example
 
 1. Create a Jinja template file named `combined.html` in any subdirectory of `templates/docs/examples/`
-2. In your `content` block, create a `with` block that sets the flag `is_combined` to `true`. This will ensure that the base example template renders the example without the `{% block script %}` and `{% block style %}` tags and adds links to the individual examples.
+2. In your `content` block, create a `with` block that sets the flag `is_combined` to `true`. This will ensure that the [base example template](../templates/_layouts/examples.html) renders the example without the `{% block script %}` and `{% block style %}` tags and adds links to the individual examples.
 3. Include the examples you want to combine in the `combined.html` file using `{% include 'path/to/example.html' %}` inside the `with` block. It is good practice to separate the examples in `<section>` tags.
 
 For example, see the [combined example for the button pattern](../templates/docs/examples/patterns/buttons/combined.html).
