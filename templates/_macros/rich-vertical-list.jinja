@@ -35,6 +35,7 @@
     {% endfor %}
   {% endif %}
 
+  {#- Construct list of logo section images in the top-level macro -#}
   {% set logo_section_images = [] %}
   {% if has_logo_section %}
     {% for logo_section_image_index in range(1, max_logo_section_images + 1) %}
@@ -46,12 +47,14 @@
     {% endfor %}
   {% endif %}
 
-  {%- macro _text_column_contents(logo_section_images, list_items) -%}
+  {%- macro _text_column_contents(logo_section_images, list_items) %}
+    <!--Mandatory title-->
     <div class="p-section--shallow">
       <h2>{{ title }}</h2>
     </div>
 
-    {%- if logo_section_images|length > 0 -%}
+    {%- if logo_section_images|length > 0 %}
+      <!--Optional logo section-->
       <div class="u-fixed-width">
         <div class="p-logo-section">
           <div class="p-logo-section__items">
@@ -66,12 +69,14 @@
     {%- endif -%}
 
     {%- if has_description %}
+      <!--Optional description-->
       <div class="p-section--shallow">
         {{- description_content -}}
       </div>
     {%- endif -%}
 
-    {%- if list_items | length > 0 -%}
+    {%- if list_items | length > 0 %}
+      <!--Optional list-->
       <ul class="p-list--divided">
        {% for list_item in list_items %}
           {{- list_item -}}
@@ -79,7 +84,8 @@
       </ul>
     {%- endif -%}
 
-    {%- if has_cta -%}
+    {%- if has_cta %}
+      <!--Optional CTA block-->
       <div class="p-cta-block">
         {{- cta_content -}}
       </div>
@@ -87,7 +93,8 @@
 
   {%- endmacro -%}
 
-  {%- macro _image_column_contents() -%}
+  {%- macro _image_column_contents() %}
+    <!--Mandatory image-->
     <div class="p-section--shallow">
       {{- image_content -}}
     </div>
@@ -103,6 +110,7 @@
         {{- _image_column_contents() -}}
       </div>
     {%- else -%}
+      <!--For flipped layout, place the image contents in the first column and the text in the second column-->
       <div class="col">
         {{- _image_column_contents() -}}
       </div>
