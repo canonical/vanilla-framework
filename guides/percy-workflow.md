@@ -73,7 +73,7 @@ The following table shows the widths at which snapshots are captured and which e
 
 Each width is captured as a separate screenshot, and counts as an additional screenshot in Percy's pricing model.
 
-### Snapshot browsers
+#### Snapshot browsers
 
 Percy can be configured to take snapshots in multiple browsers. Each additional browser counts as an additional set of screenshots in Percy's pricing model.
 Vanilla is currently only tested on Chrome. To add additional browsers, view the [Percy project settings page](https://percy.io/bb49709b/vanilla-framework/settings).
