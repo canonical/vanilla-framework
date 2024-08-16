@@ -50,22 +50,46 @@ runs [snapshots.js](../snapshots.js) which returns a list of all the snapshots t
 
 Percy uses our [examples](https://vanillaframework.io/docs/examples) to take snapshots of all components, patterns, and utilities in Vanilla.
 
-`snapshots.js` will take a snapshot of an example template file if the following conditions are met:
+[snapshots.js](../snapshots.js) will take a snapshot of an example template file if the following conditions are met:
 - Is an HTML file in `templates/docs/examples/`
 - File is not a partial (does not start with `_`)
 - File is not included in a combined example (is not in the same directory as a combined example or in a directory that descends from a directory with a combined example)
+
+#### Snapshot widths
+Each snapshot object returned by [snapshots.js](../snapshots.js) has a `widths` array property that specifies the widths (in pixels) at which the snapshot should be captured.
+The following table shows the widths at which snapshots are captured and which examples they apply to:
+
+| Device  | Width (px) | Captured on                                                                                                                                    |
+|---------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Desktop | 1,280      | All examples                                                                                                                                   |
+| Tablet  | 800        | All examples with `responsive` in their names, and [combined examples](#combined-examples) that include a `responsive` file in their directory |
+| Mobile  | 375        | Default theme only (currently `light`)                                                                                                         |
+
+Each width is captured as a separate screenshot, and counts as an additional screenshot in Percy's pricing model.
+
+### Snapshot browsers
+Percy can be configured to take snapshots in multiple browsers. Each additional browser counts as an additional set of screenshots in Percy's pricing model.
+Vanilla is currently only tested on Chrome. To add additional browsers, view the [Percy project settings page](https://percy.io/bb49709b/vanilla-framework/settings).
 
 #### Combined examples
 Combined examples are a way to show all the variants of a component or pattern on the same page. This helps us keep our 
 Percy usage down by only taking one snapshot of a component or pattern, rather than one for each variant.
 Combined examples follow a naming convention: they must be named `combined.html`. 
-If `combined.html` is found in a directory, `snapshots.js` will assume that every example in that directory (and its subdirectories) is rendered in the `combined.html` file.
+If `combined.html` is found in a directory, [snapshots.js](../snapshots.js) will assume that every example in that directory (and its subdirectories) is rendered in the `combined.html` file.
 
-##### Combined example considerations
-Combined examples do not currently include the JavaScript or CSS that is included in individual examples by `{% block script %}` and `{% block style %}` tags.
+**Combined examples do not currently include the JavaScript or CSS that is included in individual examples by `{% block script %}` and `{% block style %}` tags.**
+
+##### Creating a combined example
+1. Create a Jinja template file named `combined.html` in any subdirectory of `templates/docs/examples/`
+2. In your `content` block, create a `with` block that sets the flag `is_combined` to `true`. This will ensure that the base example template renders the example without the `{% block script %}` and `{% block style %}` tags and adds links to the individual examples.
+3. Include the examples you want to combine in the `combined.html` file using `{% include 'path/to/example.html' %}` inside the `with` block. It is good practice to separate the examples in `<section>` tags.
+
+For example, see the [combined example for the button pattern](../templates/docs/examples/patterns/buttons/combined.html).
+
+##### Spacing below examples
 
 If an example's content is expected to overflow its body (such as a dropdown or tooltip), you can use the `spacing_below` parameter to add space below the example.
-`spacing_below` `rems` will be added beneath the example as `margin-bottom`. 
+`spacing_below` `rems` will be added beneath the example as `margin-bottom`.
 
 For example:
 ```html
@@ -75,4 +99,42 @@ For example:
 {% endwith %}
 ```
 
-For more information about running Percy from the CLI, see the [Percy CLI documentation](https://www.browserstack.com/docs/percy/take-percy-snapshots/snapshots-via-cli#advanced-options).
+### Testing
+[snapshots.test.js](../tests/snapshots.test.js) is a Jest testing file used to test the output of the [snapshots.js](../snapshots.js) file.
+It tests that the snapshots are correctly generated. It is run as part of our wider testing script (`yarn test`), but you can also execute it directly by running `npx jest tests/snapshots.test.js`.
+
+[snapshots.js](../snapshots.js) considers `combined.html` to require responsive snapshots if a sibling or descendant file contains `responsive` in its name. 
+[snapshots.test.js](../tests/snapshots.test.js) does not read the filesystem to decide whether a combined snapshot is responsive.
+If you add a combined example that must be captured responsively, you must add the path of that example to `RESPONSIVE_COMBINED_EXAMPLES` in [snapshots.test.js](../tests/snapshots.test.js).
+
+### PR File Inclusion
+Only some of a pull request's files are represented in each pull request snapshot test. Depending on which files need to be changed, 
+you may need to make a separate pull request to make changes to `main` before a pull request will use your changes in Percy testing.
+
+#### Files included in Percy tests
+- Visual files:
+  - `scss/`
+  - `templates/docs/examples/`
+  - `templates/_macros/`
+  - `tokens/`
+  - `sd.config.json`
+- Workflows that are run on the `pull_request` trigger, including (but not limited to):
+  - [Prepare workflow](workflows/percy-prepare.yml)
+  - [Prepare (labelled) workflow](workflows/pr-percy-prepare-label.yml)
+  - [Prepare (pushed) workflow](workflows/pr-percy-prepare-push.yml)
+
+Changes to other files should be added to a separate PR and merged before testing a PR that requires their changes.
+Otherwise, the changes will not be included in Percy tests. 
+This notably includes:
+- Dependencies
+  - `Dockerfile`
+  - `package.json`
+  - `requirements.txt`
+- Workflows that are run on the `workflow_run` trigger:
+  - [PR snapshots workflow](workflows/pr-percy-snapshots.yml)
+  - [Snapshot action](actions/percy-snapshot/action.yml)
+- `snapshots.js` and `snapshots.test.js`
+
+### Additional resources
+- [Percy CLI documentation](https://www.browserstack.com/docs/percy/take-percy-snapshots/snapshots-via-cli#advanced-options)
+- [Percy environment variables](https://www.browserstack.com/docs/percy/get-started/set-env-var#Percy_SDK)
