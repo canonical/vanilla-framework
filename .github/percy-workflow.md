@@ -95,7 +95,9 @@ For example:
 ```html
 <!-- Add `12rem` of space below the example -->
 {% with spacing_below = 12 %}
-  {% include 'docs/examples/patterns/contextual-menu/default.html' %}
+  <section>
+    {% include 'docs/examples/patterns/contextual-menu/default.html' %}
+  </section>
 {% endwith %}
 ```
 
