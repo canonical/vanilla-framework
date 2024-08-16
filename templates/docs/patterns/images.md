@@ -34,28 +34,28 @@ View example of image container with 16/9 aspect ratio
 You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
 See the table below for a list of all aspect ratio class names and their corresponding aspect ratios on each breakpoint.
 
-| Class name                                           | Large | Medium | Small |
-| ---------------------------------------------------- | ----- | ------ | ----- |
-| <code>.p-image-container--16-9</code>                | 16:9  | 16:9   | 16:9  |
-| <code>.p-image-container--16-9-on-large</code>       | 16:9  | -      | -     |
-| <code>.p-image-container--16-9-on-medium</code>      | -     | 16:9   | -     |
-| <code>.p-image-container--16-9-on-small</code>       | -     | -      | 16:9  |
-| <code>.p-image-container--3-2</code>                 | 3:2   | 3:2    | 3:2   |
-| <code>.p-image-container--3-2-on-large</code>        | 3:2   | -      | -     |
-| <code>.p-image-container--3-2-on-medium</code>       | -     | 3:2    | -     |
-| <code>.p-image-container--3-2-on-small</code>        | -     | -      | 3:2   |
-| <code>.p-image-container--2-3</code>                 | 2:3   | 2:3    | 2:3   |
-| <code>.p-image-container--2-3-on-large</code>        | 2:3   | -      | -     |
-| <code>.p-image-container--2-3-on-medium</code>       | -     | 2:3    | -     |
-| <code>.p-image-container--2-3-on-small</code>        | -     | -      | 2:3   |
-| <code>.p-image-container--cinematic</code>           | 2.4:1 | 2.4:1  | 2.4:1 |
-| <code>.p-image-container--cinematic-on-large</code>  | 2.4:1 | -      | -     |
-| <code>.p-image-container--cinematic-on-medium</code> | -     | 2.4:1  | -     |
-| <code>.p-image-container--cinematic-on-small</code>  | -     | -      | 2.4:1 |
-| <code>.p-image-container--square</code>              | 1:1   | 1:1    | 1:1   |
-| <code>.p-image-container--square-on-large</code>     | 1:1   | -      | -     |
-| <code>.p-image-container--square-on-medium</code>    | -     | 1:1    | -     |
-| <code>.p-image-container--square-on-small</code>     | -     | -      | 1:1   |
+| Class name                                | Large | Medium | Small |
+| ----------------------------------------- | ----- | ------ | ----- |
+| `.p-image-container--16-9`                | 16:9  | 16:9   | 16:9  |
+| `.p-image-container--16-9-on-large`       | 16:9  | -      | -     |
+| `.p-image-container--16-9-on-medium`      | -     | 16:9   | -     |
+| `.p-image-container--16-9-on-small`       | -     | -      | 16:9  |
+| `.p-image-container--3-2`                 | 3:2   | 3:2    | 3:2   |
+| `.p-image-container--3-2-on-large`        | 3:2   | -      | -     |
+| `.p-image-container--3-2-on-medium`       | -     | 3:2    | -     |
+| `.p-image-container--3-2-on-small`        | -     | -      | 3:2   |
+| `.p-image-container--2-3`                 | 2:3   | 2:3    | 2:3   |
+| `.p-image-container--2-3-on-large`        | 2:3   | -      | -     |
+| `.p-image-container--2-3-on-medium`       | -     | 2:3    | -     |
+| `.p-image-container--2-3-on-small`        | -     | -      | 2:3   |
+| `.p-image-container--cinematic`           | 2.4:1 | 2.4:1  | 2.4:1 |
+| `.p-image-container--cinematic-on-large`  | 2.4:1 | -      | -     |
+| `.p-image-container--cinematic-on-medium` | -     | 2.4:1  | -     |
+| `.p-image-container--cinematic-on-small`  | -     | -      | 2.4:1 |
+| `.p-image-container--square`              | 1:1   | 1:1    | 1:1   |
+| `.p-image-container--square-on-large`     | 1:1   | -      | -     |
+| `.p-image-container--square-on-medium`    | -     | 1:1    | -     |
+| `.p-image-container--square-on-small`     | -     | -      | 1:1   |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/image/container/aspect-ratio/responsive" class="js-example">
 View example of an image container with aspect ratios that respond to the screen size
