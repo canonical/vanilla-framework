@@ -102,7 +102,7 @@ For example:
 ```
 
 ### Testing
-[snapshots.test.js](../tests/snapshots.test.js) is a Jest testing file used to test the output of the [snapshots.js](../snapshots.js) file.
+[snapshots.test.js](../tests/snapshots.test.js) is a [Jest](https://jestjs.io/) testing file used to test the output of the [snapshots.js](../snapshots.js) file.
 It tests that the snapshots are correctly generated. It is run as part of our wider testing script (`yarn test`), but you can also execute it directly by running `npx jest tests/snapshots.test.js`.
 
 [snapshots.js](../snapshots.js) considers `combined.html` to require responsive snapshots if a sibling or descendant file contains `responsive` in its name. 
