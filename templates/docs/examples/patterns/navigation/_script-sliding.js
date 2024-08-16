@@ -255,8 +255,18 @@ const initNavigationSliding = () => {
     };
   };
 
-  // hide side navigation drawer when screen is resized
-  window.addEventListener('resize', throttle(closeAllDropdowns, 10));
+  // hide side navigation drawer when screen is resized horizontally
+  let previousWidth = window.innerWidth;
+  window.addEventListener(
+    'resize',
+    throttle(function () {
+      const currentWidth = window.innerWidth;
+      if (currentWidth !== previousWidth) {
+        closeAllDropdowns();
+        previousWidth = currentWidth;
+      }
+    }, 10),
+  );
 };
 
 initNavigationSliding();
