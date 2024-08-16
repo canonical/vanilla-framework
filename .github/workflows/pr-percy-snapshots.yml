@@ -21,15 +21,14 @@ jobs:
       percy_org_id: ${{ steps.percy_snapshot.outputs.org_id }}
       percy_build_id: ${{ steps.percy_snapshot.outputs.build_id }}
     steps:
+      # Checkout `main` branch of Vanilla
       - name: Checkout SCM
         uses: actions/checkout@v4
 
       - name: Remove SCM directories that will be replaced by artifact files
-        run: |
-          set -e
-          rm -rf templates/docs/examples/ templates/_macros/ tokens/ sd.config.json scss/
+        run: rm -rf templates/docs/examples/ templates/_macros/ tokens/ sd.config.json scss/
 
-      - name: Download artifact from workflow run
+      - name: Download artifact from prepare workflow
         uses: actions/download-artifact@v4
         with:
           name: "percy-testing-web-artifact"
@@ -37,6 +36,9 @@ jobs:
           repository: ${{ github.event.workflow_run.repository.full_name }}
           run-id: ${{ github.event.workflow_run.id }}
 
+      # Downloading the artifact in the previous step also extracts its contents into `./`.
+      # However, there are some files in the artifact that are not in the same place as Vanilla expects them to be.
+      # This step moves those files to the correct place.
       - name: Move artifact files into place to replace SCM
         run: |
           # ensure the examples & macros dirs exist for backwards compatibility in case they aren't in the PR artifact
@@ -48,15 +50,19 @@ jobs:
           mv examples/ templates/docs/.
           mv macros/ templates/_macros
 
+      # The `pr_num.txt` and `pr_head_sha.txt` files are used to pass the PR number and head SHA from the PR to this workflow.
+      # This is required as the `workflow_run` context of this workflow has no access to the context of the PR that triggered the `pr-percy-prepare` workflow.
       - name: Get PR data
         if: github.event.workflow_run.event=='pull_request'
         id: get_pr_data
         run: |
           echo "sha=$(cat pr_head_sha.txt)" >> $GITHUB_OUTPUT
           echo "pr_number=$(cat pr_num.txt)" >> $GITHUB_OUTPUT
+          # Debugging step to show the full contents ot he filesystem just before the Percy snapshot step
           tree
 
-      - name: Take snapshots & upload to Percy
+      # Composite action uses the filesystem we have prepared for it with this workflow
+      - name: Build, run, and test Vanilla
         id: percy_snapshot
         uses: "./.github/actions/percy-snapshot"
         with:
