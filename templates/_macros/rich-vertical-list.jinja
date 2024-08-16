@@ -1,0 +1,109 @@
+# Params
+# title (string) (required): Title of the rich vertical list
+# flipped (boolean) (optional): Whether the list items are flipped so image is on the left and the text is on the right. Defaults to false.
+# Slots
+# description: Paragraph-style description content
+# logo_section_image_[1-8]: Logo section image, assumed to be img.p-logo-section__logo
+# list_item_[1-15]: List item content, assumed to be li.p-list__item
+# image (required)
+{% macro rich_vertical_list(
+  title,
+  flipped=false
+) -%}
+  {% set description_content = caller('description') %}
+  {% set has_description = description_content|trim|length > 0 %}
+  {% set has_logo_section = caller('logo_section_image_1')|trim|length > 0 %}
+  {% set cta_content = caller('cta') %}
+  {% set has_cta = cta_content|trim|length > 0 %}
+  {% set has_list = caller('list_item_1')|trim|length > 0 %}
+  {% set image_content = caller('image') %}
+  {% set max_list_items = 15 %}
+  {% set max_logo_section_images = 8 %}
+
+  {#-
+    Construct list of list items using caller in the top-level macro
+    The _text_column_contents macro will not have access to the caller block, so we need to extract the list items here.
+  -#}
+  {% set list_items = [] %}
+  {% if has_list %}
+    {% for list_item_index in range(1, max_list_items + 1) %}
+      {% set list_item_content = caller('list_item_' + list_item_index|string) %}
+      {% set has_list_item_content = list_item_content|trim|length > 0 %}
+      {% if has_list_item_content %}
+        {{ list_items.append(list_item_content) or ""}}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% set logo_section_images = [] %}
+  {% if has_logo_section %}
+    {% for logo_section_image_index in range(1, max_logo_section_images + 1) %}
+      {% set logo_section_image_content = caller('logo_section_image_' + logo_section_image_index|string) %}
+      {% set has_logo_section_image = logo_section_image_content|trim|length > 1 %}
+      {% if has_logo_section_image %}
+        {{ logo_section_images.append(logo_section_image_content) or ""}}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {%- macro _text_column_contents(logo_section_images, list_items) -%}
+    <div class="p-section--shallow">
+      <h2>{{ title }}</h2>
+    </div>
+
+    {%- if logo_section_images|length > 0 -%}
+      <div class="u-fixed-width">
+        <div class="p-logo-section">
+          <div class="p-logo-section__items">
+            {%- for logo_section_image in logo_section_images -%}
+              <div class="p-logo-section__item">
+                {{ logo_section_image }}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if has_description %}
+      <div class="p-section--shallow">
+        {{- description_content -}}
+      </div>
+    {%- endif -%}
+
+    {%- if list_items | length > 0 -%}
+      <ul class="p-list--divided">
+       {% for list_item in list_items %}
+          {{ list_item }}
+        {% endfor %}
+      </ul>
+    {%- endif -%}
+
+  {%- endmacro -%}
+
+  {%- macro _image_column_contents() -%}
+    <div class="p-section--shallow">
+      {{- image_content -}}
+    </div>
+  {%- endmacro -%}
+
+  <hr>
+  <div class="row--50-50">
+    {% if not flipped -%}
+      <div class="col">
+        {{- _text_column_contents(logo_section_images, list_items) -}}
+      </div>
+      <div class="col">
+        {{- _image_column_contents() -}}
+      </div>
+    {%- else -%}
+      <div class="col">
+        {{- _image_column_contents() -}}
+      </div>
+      <div class="col">
+        {{- _text_column_contents(logo_section_images, list_items) -}}
+      </div>
+    {%- endif -%}
+  </div>
+
+{%- endmacro %}
