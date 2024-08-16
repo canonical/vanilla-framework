@@ -22,6 +22,14 @@ To flip the image and text, simply reverse the ordering of the columns in the ma
 View example of the vertical rich list pattern
 </a></div>
 
+### Minimal
+
+The only mandatory elements in the rich vertical list are the title and the image. These can be flipped as desired. The rest of the content is optional.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/minimal" class="js-example">
+View example of the vertical rich list pattern
+</a></div>
+
 ## Import
 
 Since Patterns leverage many other parts of Vanilla in their composition and content, we

@@ -1,0 +1,18 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/rich-vertical-list.jinja" import rich_vertical_list %}
+
+{% block title %}Rich list / Vertical / Minimal{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {% call(slot) rich_vertical_list(
+  title='H2 - this can take up to two lines, but best to stick to one line.'
+) -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--2-3 is-cover">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg"
+             alt="Factory floor">
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+{% endblock %}
