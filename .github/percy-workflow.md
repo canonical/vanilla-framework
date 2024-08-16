@@ -140,3 +140,4 @@ This notably includes:
 ### Additional resources
 - [Percy CLI documentation](https://www.browserstack.com/docs/percy/take-percy-snapshots/snapshots-via-cli#advanced-options)
 - [Percy environment variables](https://www.browserstack.com/docs/percy/get-started/set-env-var#Percy_SDK)
+- [Percy workflow blog post](https://ubuntu.com/blog/visual-testing-github-actions-migration-test-optimisation)
