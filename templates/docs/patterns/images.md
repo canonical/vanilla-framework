@@ -29,6 +29,37 @@ See the [class references section](#class-reference) for more information on the
 View example of image container with 16/9 aspect ratio
 </a></div>
 
+### Responsive aspect ratio
+
+You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
+
+| Class name                                           | Large | Medium | Small |
+| ---------------------------------------------------- | ----- | ------ | ----- |
+| <code>.p-image-container--16-9</code>                | 16:9  | 16:9   | 16:9  |
+| <code>.p-image-container--16-9-on-large</code>       | 16:9  | -      | -     |
+| <code>.p-image-container--16-9-on-medium</code>      | -     | 16:9   | -     |
+| <code>.p-image-container--16-9-on-small</code>       | -     | -      | 16:9  |
+| <code>.p-image-container--3-2</code>                 | 3:2   | 3:2    | 3:2   |
+| <code>.p-image-container--3-2-on-large</code>        | 3:2   | -      | -     |
+| <code>.p-image-container--3-2-on-medium</code>       | -     | 3:2    | -     |
+| <code>.p-image-container--3-2-on-small</code>        | -     | -      | 3:2   |
+| <code>.p-image-container--2-3</code>                 | 2:3   | 2:3    | 2:3   |
+| <code>.p-image-container--2-3-on-large</code>        | 2:3   | -      | -     |
+| <code>.p-image-container--2-3-on-medium</code>       | -     | 2:3    | -     |
+| <code>.p-image-container--2-3-on-small</code>        | -     | -      | 2:3   |
+| <code>.p-image-container--cinematic</code>           | 2.4:1 | 2.4:1  | 2.4:1 |
+| <code>.p-image-container--cinematic-on-large</code>  | 2.4:1 | -      | -     |
+| <code>.p-image-container--cinematic-on-medium</code> | -     | 2.4:1  | -     |
+| <code>.p-image-container--cinematic-on-small</code>  | -     | -      | 2.4:1 |
+| <code>.p-image-container--square</code>              | 1:1   | 1:1    | 1:1   |
+| <code>.p-image-container--square-on-large</code>     | 1:1   | -      | -     |
+| <code>.p-image-container--square-on-medium</code>    | -     | 1:1    | -     |
+| <code>.p-image-container--square-on-small</code>     | -     | -      | 1:1   |
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/aspect-ratio/responsive" class="js-example">
+View example of an image container with aspect ratios that respond to the screen size
+</a></div>
+
 ## Cover image
 
 Cover images are used to fill the entire container, cropping the image if necessary. This can be combined with the aspect ratio modifier to crop the image to a specific aspect ratio.
