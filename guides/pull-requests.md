@@ -80,7 +80,7 @@ apply the relevant `-1` Labels.
 
 #### Percy visual testing
 
-Please review the [Percy visual testing](../.github/percy-workflow.md) documentation for a detailed overview of how to work with the Percy visual testing system.
+Please review the [Percy visual testing](percy-workflow.md) documentation for a detailed overview of how to work with the Percy visual testing system.
 
 #### Merging a PR
 
