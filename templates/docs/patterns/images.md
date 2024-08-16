@@ -32,6 +32,7 @@ View example of image container with 16/9 aspect ratio
 ### Responsive aspect ratio
 
 You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
+See the table below for a list of all aspect ratio class names and their corresponding aspect ratios on each breakpoint.
 
 | Class name                                           | Large | Medium | Small |
 | ---------------------------------------------------- | ----- | ------ | ----- |
