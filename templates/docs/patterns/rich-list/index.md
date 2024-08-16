@@ -10,6 +10,17 @@ The rich list is used to display a list alongside a title, logo section, image, 
 
 The vertical rich list splits content vertically. By default, text is on the left and the image is on the right.
 
+The vertical rich list pattern is composed of the following elements:
+
+| Element              | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| Title (**required**) | <code>h2</code> title text                                                                     |
+| Logo section         | Up to 8 [logo section](/docs/patterns/logo-section) logos                                      |
+| Description          | <code>p</code> description text                                                                |
+| List                 | A [divided list](/docs/patterns/lists#ticked-with-horizontal-divider) with up to 15 list items |
+| Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description                       |
+| Image (**required**) | Main list visual                                                                               |
+
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/default" class="js-example">
 View example of the vertical rich list pattern
 </a></div>
