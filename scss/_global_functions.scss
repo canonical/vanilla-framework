@@ -102,39 +102,6 @@
   }
 }
 
-// Adds visual focus to elements on :focus-visible,
-// or :focus if the browser doesn't support the former
-@mixin vf-focus($color: $colors--theme--focus, $width: $bar-thickness, $has-validation: false) {
-  &:focus {
-    outline: $width solid $color;
-    outline-offset: -#{$width};
-  }
-
-  &:focus-visible {
-    outline: $width solid $color;
-    outline-offset: -#{$width};
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: 0;
-    outline-offset: 0;
-  }
-
-  @if ($has-validation) {
-    .is-error &:focus {
-      outline-color: $color-negative;
-    }
-
-    .is-caution &:focus {
-      outline-color: $color-caution;
-    }
-
-    .is-success &:focus {
-      outline-color: $color-positive;
-    }
-  }
-}
-
 // Raises a number to a power (https://css-tricks.com/snippets/sass/power-function/)
 @function pow($number, $exponent) {
   $value: 1;
