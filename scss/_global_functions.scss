@@ -60,13 +60,10 @@
   }
 }
 
-// Adds visual focus to elements on :focus-visible,
-// or :focus if the browser doesn't support the former
+// Adds visual focus to elements on :focus-visible or :focus if the browser
+// doesn't support the former
 @mixin vf-focus($light-color: $colors--light-theme--focus, $dark-color: $colors--dark-theme--focus, $width: $bar-thickness, $has-validation: false) {
-  .is-light &,
-  .is-paper & {
-    --vf-focus-outline-color: #{$light-color};
-  }
+  --vf-focus-outline-color: #{$light-color};
 
   .is-dark & {
     --vf-focus-outline-color: #{$dark-color};
