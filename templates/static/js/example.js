@@ -38,20 +38,33 @@
     [].slice.call(examples).forEach(fetchExample);
   });
 
-  function fetchExample(exampleElement) {
-    var link = exampleElement.href;
+  async function fetchResponseText(url) {
     var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function () {
-      if (request.status === 200 && request.readyState === 4) {
-        var html = request.responseText;
-        renderExample(exampleElement, html);
-        exampleElement.style.display = 'none';
-      }
-    };
+    const prms = new Promise(function(resolve, reject)  {
+      request.onreadystatechange = function () {
+        if (request.status === 200 && request.readyState === 4) {
+          resolve(request.responseText);
+        } else if (request.status > 0 && (request.status < 200 || request.status >= 300)) {
+          reject('Failed to fetch example ' + url + ' with status ' + request.status);
+        }
+      };
+    });
 
-    request.open('GET', link, true);
+    request.open('GET', url, true);
     request.send(null);
+
+    return prms;
+  }
+
+  async function fetchExample(exampleElement) {
+    const [renderedHtml, rawHtml] = await Promise.all([
+      fetchResponseText(exampleElement.href),
+      fetchResponseText(exampleElement.href.replace(/docs/, '/').replace(/standalone/, '/'))
+    ]);
+
+    renderExample(exampleElement, renderedHtml, rawHtml);
+    exampleElement.style.display = 'none';
   }
 
   /**
@@ -102,19 +115,21 @@
     return pre;
   }
 
-  function renderExample(placementElement, html) {
+  function renderExample(placementElement, renderedHtml, rawHtml) {
     var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+    var contentPattern = /{% block content %}([\s\S]*?){% endblock %}/;
     var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
     var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
 
-    var title = titlePattern.exec(html)[1].trim();
-    var bodyHTML = bodyPattern.exec(html)[1].trim();
-    var headHTML = headPattern.exec(html)[1].trim();
+    var title = titlePattern.exec(renderedHtml)[1].trim();
+    var bodyHTML = bodyPattern.exec(renderedHtml)[1].trim();
+    var headHTML = headPattern.exec(renderedHtml)[1].trim();
+    var contentTemplate = contentPattern.exec(rawHtml)[1].trim();
 
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
     var cssSource = getStyleFromSource(headHTML);
-    var externalScripts = getExternalScriptsFromSource(html);
+    var externalScripts = getExternalScriptsFromSource(renderedHtml);
     var codePenData = {
       html: htmlSource,
       css: cssSource,
@@ -141,11 +156,11 @@
     codeSnippet.appendChild(header);
 
     placementElement.parentNode.insertBefore(codeSnippet, placementElement);
-    renderIframe(codeSnippet, html, height);
+    renderIframe(codeSnippet, renderedHtml, height);
 
     // Build code block structure
     var options = ['html'];
-    codeSnippet.appendChild(createPreCode(htmlSource, 'html'));
+    codeSnippet.appendChild(createPreCode(contentTemplate, 'html'));
     if (jsSource) {
       codeSnippet.appendChild(createPreCode(jsSource, 'js'));
       options.push('js');
