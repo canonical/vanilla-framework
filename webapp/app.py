@@ -3,6 +3,7 @@ import glob
 import json
 import os
 import random
+import werkzeug
 import yaml
 import urllib
 import markupsafe
@@ -286,15 +287,32 @@ def standalone_examples_index():
     )
 
 
-@app.route("/docs/examples/standalone/<path:example_path>")
-def standalone_example(example_path):
+@app.route("/docs/examples/<path:example_path>")
+def example(example_path, is_standalone=False, is_raw=False):
     try:
+        # If the user has requested the raw template, serve it directly
+        if is_raw:
+            raw_example_path = f"../templates/docs/examples/{example_path}.html"
+            # separate directory from file name so that flask.send_from_directory() can prevent malicious file access
+            raw_example_directory = os.path.dirname(raw_example_path)
+            raw_example_file_name = os.path.basename(raw_example_path)
+            return flask.send_from_directory(raw_example_directory, raw_example_file_name, mimetype="text/raw", max_age=86400)
+
         return flask.render_template(
-            f"docs/examples/{example_path}.html", is_standalone=True
+            f"docs/examples/{example_path}.html", is_standalone=is_standalone
         )
-    except jinja2.exceptions.TemplateNotFound:
+    except (jinja2.exceptions.TemplateNotFound, werkzeug.exceptions.NotFound):
         return flask.abort(404)
 
+
+@app.route("/docs/examples/standalone/<path:example_path>")
+def standalone_example(example_path):
+    return example(example_path, is_standalone=True)
+
+
+@app.route("/examples/<path:example_path>")
+def example_raw(example_path):
+    return example(example_path, is_raw=True)
 
 @app.route("/contribute")
 def contribute_index():
