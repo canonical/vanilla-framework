@@ -6,21 +6,21 @@
     display: initial !important;
 
     &--small {
-      @media (max-width: $breakpoint-small - 1) {
+      @media (width < $breakpoint-small) {
         display: inherit !important;
         display: initial !important;
       }
     }
 
     &--medium {
-      @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) {
+      @media ($breakpoint-small <= width < $breakpoint-large) {
         display: inherit !important;
         display: initial !important;
       }
     }
 
     &--large {
-      @media (min-width: $breakpoint-large) {
+      @media ($breakpoint-large <= width) {
         display: inherit !important;
         display: initial !important;
       }
