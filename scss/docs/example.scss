@@ -20,18 +20,22 @@ body {
   box-shadow: $box-shadow--deep;
   display: flex;
   flex-flow: row wrap;
-  gap: $sph--x-large;
+  gap: $sph--small;
   left: 0;
   padding: $spv--x-small $sph--x-small;
   position: fixed;
   right: 0;
 
+  // Above *all* other elements.
+  z-index: 1000000;
+
   .p-example-controls__close-button {
     margin-left: auto;
   }
 
-  // Above *all* other elements.
-  z-index: 1000000;
+  @media (min-width: $breakpoint-small) {
+    gap: $sph--large;
+  }
 
   @media only percy {
     visibility: hidden !important;
