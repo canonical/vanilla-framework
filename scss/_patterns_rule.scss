@@ -1,6 +1,13 @@
 @import 'settings';
 
 @mixin vf-p-rule {
+  // Deprecated, to be removed in v5
+  .p-rule,
+  .p-rule--muted,
+  .p-rule--highlight {
+    @extend %u-no-margin--bottom--hr;
+  }
+
   .p-rule--muted {
     background-color: $colors--theme--border-low-contrast;
   }
