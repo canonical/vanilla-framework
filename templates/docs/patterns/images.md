@@ -34,28 +34,138 @@ View example of image container with 16/9 aspect ratio
 You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
 See the table below for a list of all aspect ratio class names and their corresponding aspect ratios on each breakpoint.
 
-| Class name                                | Large | Medium | Small |
-| ----------------------------------------- | ----- | ------ | ----- |
-| `.p-image-container--16-9`                | 16:9  | 16:9   | 16:9  |
-| `.p-image-container--16-9-on-large`       | 16:9  | -      | -     |
-| `.p-image-container--16-9-on-medium`      | -     | 16:9   | -     |
-| `.p-image-container--16-9-on-small`       | -     | -      | 16:9  |
-| `.p-image-container--3-2`                 | 3:2   | 3:2    | 3:2   |
-| `.p-image-container--3-2-on-large`        | 3:2   | -      | -     |
-| `.p-image-container--3-2-on-medium`       | -     | 3:2    | -     |
-| `.p-image-container--3-2-on-small`        | -     | -      | 3:2   |
-| `.p-image-container--2-3`                 | 2:3   | 2:3    | 2:3   |
-| `.p-image-container--2-3-on-large`        | 2:3   | -      | -     |
-| `.p-image-container--2-3-on-medium`       | -     | 2:3    | -     |
-| `.p-image-container--2-3-on-small`        | -     | -      | 2:3   |
-| `.p-image-container--cinematic`           | 2.4:1 | 2.4:1  | 2.4:1 |
-| `.p-image-container--cinematic-on-large`  | 2.4:1 | -      | -     |
-| `.p-image-container--cinematic-on-medium` | -     | 2.4:1  | -     |
-| `.p-image-container--cinematic-on-small`  | -     | -      | 2.4:1 |
-| `.p-image-container--square`              | 1:1   | 1:1    | 1:1   |
-| `.p-image-container--square-on-large`     | 1:1   | -      | -     |
-| `.p-image-container--square-on-medium`    | -     | 1:1    | -     |
-| `.p-image-container--square-on-small`     | -     | -      | 1:1   |
+<table>
+  <thead>
+    <tr>
+      <th style="width: 400px; max-width: 75svw;">Class name</th>
+      <th>Large</th>
+      <th>Medium</th>
+      <th>Small</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.p-image-container--16-9</code></td>
+      <td>16:9</td>
+      <td>16:9</td>
+      <td>16:9</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--16-9-on-large</code></td>
+      <td>16:9</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--16-9-on-medium</code></td>
+      <td>-</td>
+      <td>16:9</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--16-9-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>16:9</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2</code></td>
+      <td>3:2</td>
+      <td>3:2</td>
+      <td>3:2</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2-on-large</code></td>
+      <td>3:2</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2-on-medium</code></td>
+      <td>-</td>
+      <td>3:2</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>3:2</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3</code></td>
+      <td>2:3</td>
+      <td>2:3</td>
+      <td>2:3</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3-on-large</code></td>
+      <td>2:3</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3-on-medium</code></td>
+      <td>-</td>
+      <td>2:3</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>2:3</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic</code></td>
+      <td>2.4:1</td>
+      <td>2.4:1</td>
+      <td>2.4:1</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic-on-large</code></td>
+      <td>2.4:1</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic-on-medium</code></td>
+      <td>-</td>
+      <td>2.4:1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>2.4:1</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square</code></td>
+      <td>1:1</td>
+      <td>1:1</td>
+      <td>1:1</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square-on-large</code></td>
+      <td>1:1</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square-on-medium</code></td>
+      <td>-</td>
+      <td>1:1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>1:1</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/image/container/aspect-ratio/responsive" class="js-example">
 View example of an image container with aspect ratios that respond to the screen size
