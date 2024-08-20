@@ -31,7 +31,7 @@
       width: 33.333%;
     }
 
-    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1) {
+    @media ($threshold-4-6-col <= width < $threshold-6-12-col) {
       flex-direction: column;
 
       &:nth-child(2),
@@ -142,7 +142,7 @@
   .p-matrix__desc {
     margin-bottom: $spv-nudge-compensation;
 
-    @media (max-width: $breakpoint-heading-threshold - 1) {
+    @media (width < $breakpoint-heading-threshold) {
       margin-top: -#{$sp-unit};
     }
 
