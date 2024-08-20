@@ -149,7 +149,7 @@
       grid-column: 2 / -1;
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      @media (max-width: $threshold-4-6-col - 1) {
+      @media (width < $threshold-4-6-col) {
         grid-template-columns: repeat(1, minmax(0, 1fr));
         width: $l-fluid-breakout-main-child-width;
       }
@@ -163,7 +163,7 @@
       &:nth-child(2) {
         justify-content: flex-end;
 
-        @media (max-width: $threshold-4-6-col - 1) {
+        @media (width < $threshold-4-6-col) {
           justify-content: flex-start;
         }
       }
