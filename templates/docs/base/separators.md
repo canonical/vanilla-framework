@@ -71,6 +71,13 @@ View example of the separator component
 
 ## Bordered strips
 
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">The bordered strip component is now deprecated. Please use the <a href="/docs/patterns/strip#highlighted-strip">highlighted strip</a> instead.</p>
+  </div>
+</div>
+
 For content contained in strips, use [the bordered strip variant](/docs/patterns/strip#bordered-strip).
 
 <div class="embedded-example"><a href="/docs/examples/patterns/strips/is-bordered/" class="js-example">
