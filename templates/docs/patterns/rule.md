@@ -13,7 +13,7 @@ It indicates the direction in which we want the viewer to read the content.
 <div class="p-notification--negative">
   <div class="p-notification__content">
     <h5 class="p-notification__title">Deprecated</h5>
-    <p class="p-notification__message">The rule component is now deprecated. Use the <a href="/docs/base/separators#no-bottom-margin">base separator with no bottom margin</a> instead.</p>
+    <p class="p-notification__message">The rule component is now deprecated. Use the <a href="/docs/base/separators#no-bottom-margin">base rule with no bottom margin</a> instead.</p>
   </div>
 </div>
 
