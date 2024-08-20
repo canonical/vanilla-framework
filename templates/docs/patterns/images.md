@@ -29,6 +29,153 @@ See the [class references section](#class-reference) for more information on the
 View example of image container with 16/9 aspect ratio
 </a></div>
 
+### Responsive aspect ratio
+
+It can be useful to change the aspect ratio of an image container, depending on the screen size.
+Using a tall aspect ratio on a small screen, or a wide aspect ratio on a large screen, may waste page space or make the image's details less visible.
+For example, the cinematic aspect ratio (2.4:1) is great in cases where there are at least 9 columns available.
+However, using this aspect ratio on a small screen may make the image too small to see its details, so aspect ratios like 16:9 or 3:2 may be more appropriate.
+
+You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
+See the table below for a list of all aspect ratio class names and their corresponding aspect ratios on each breakpoint.
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 400px; max-width: 75svw;">Class name</th>
+      <th>Large</th>
+      <th>Medium</th>
+      <th>Small</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.p-image-container--16-9</code></td>
+      <td>16:9</td>
+      <td>16:9</td>
+      <td>16:9</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--16-9-on-large</code></td>
+      <td>16:9</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--16-9-on-medium</code></td>
+      <td>-</td>
+      <td>16:9</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--16-9-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>16:9</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2</code></td>
+      <td>3:2</td>
+      <td>3:2</td>
+      <td>3:2</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2-on-large</code></td>
+      <td>3:2</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2-on-medium</code></td>
+      <td>-</td>
+      <td>3:2</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--3-2-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>3:2</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3</code></td>
+      <td>2:3</td>
+      <td>2:3</td>
+      <td>2:3</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3-on-large</code></td>
+      <td>2:3</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3-on-medium</code></td>
+      <td>-</td>
+      <td>2:3</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--2-3-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>2:3</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic</code></td>
+      <td>2.4:1</td>
+      <td>2.4:1</td>
+      <td>2.4:1</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic-on-large</code></td>
+      <td>2.4:1</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic-on-medium</code></td>
+      <td>-</td>
+      <td>2.4:1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--cinematic-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>2.4:1</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square</code></td>
+      <td>1:1</td>
+      <td>1:1</td>
+      <td>1:1</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square-on-large</code></td>
+      <td>1:1</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square-on-medium</code></td>
+      <td>-</td>
+      <td>1:1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>.p-image-container--square-on-small</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>1:1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/aspect-ratio/responsive" class="js-example">
+View example of an image container with aspect ratios that respond to the screen size
+</a></div>
+
 ## Cover image
 
 Cover images are used to fill the entire container, cropping the image if necessary. This can be combined with the aspect ratio modifier to crop the image to a specific aspect ratio.
