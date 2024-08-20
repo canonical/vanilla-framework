@@ -10,6 +10,13 @@ It "anchors" elements that are far apart, and at risk of appearing floating in s
 
 It indicates the direction in which we want the viewer to read the content.
 
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">The rule component is now deprecated. Use the <a href="/docs/base/separators#no-bottom-margin">base separator with no bottom margin</a> instead.</p>
+  </div>
+</div>
+
 ## Default
 
 Main page sections are often separated by horizontal rules. You can use the `p-rule` class name to create a default horizontal rule.
@@ -30,7 +37,7 @@ View example of a muted horizontal rule
 
 You can add a highlight to a rule to make it stand out more by using `p-rule--highlight` class name. This is useful for drawing attention to a section of content.
 
-Highlighted rule can also be accented by adding `is-accent` modifier class.
+Highlighted rules can also be accented by adding the `is-accent` modifier class.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/highlight" class="js-example">
 View example of a highlighted rule
