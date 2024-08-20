@@ -154,7 +154,7 @@ var activeTheme = DEFAULT_COLOR_THEME;
       controls.appendChild(baselineGridControl);
 
       const closeButtonFragment = fragmentFromString(`
-        <button class="p-button--negative is-dense p-example-controls__close-button" id="js-example-toolbar-close-button">
+        <button class="p-button is-dense p-example-controls__close-button" id="js-example-toolbar-close-button">
           Close
         </button>
       `);
