@@ -29,6 +29,30 @@ is only used at the top of content sections, above headings.
 View example of the muted horizontal line
 </a></div>
 
+### Highlighted horizontal rule
+
+Add the `is-highlighted` class to an `<hr />` to make the rule stand out more. This is useful for drawing attention to a section of content.
+
+<div class="embedded-example"><a href="/docs/examples/base/hr/highlighted/" class="js-example">
+View example of the highlighted horizontal line
+</a></div>
+
+Highlighted rules can also be accented by adding the `is-accent` modifier class.
+
+<div class="embedded-example"><a href="/docs/examples/base/hr/accented/" class="js-example">
+View example of the accented horizontal line
+</a></div>
+
+### No bottom margin
+
+By default, the horizontal rule has a bottom margin to keep the content following it aligned to the baseline.
+In cases where the content following the rule has top spacing to align itself to the baseline by itself, the bottom margin should be removed.
+To remove the default bottom margin from the horizontal rule, add the `.u-no-margin--bottom` class from the [margin collapse](/docs/utilities/margin-collapse) utility.
+
+<div class="embedded-example"><a href="/docs/examples/base/hr/no-bottom-margin" class="js-example">
+View example of the horizontal line with no bottom margin
+</a></div>
+
 ### Fixed width horizontal rule
 
 Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap an `<hr />` in a `div` with class `row`. To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `<hr />`.
@@ -46,6 +70,13 @@ View example of the separator component
 </a></div>
 
 ## Bordered strips
+
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">The bordered strip component is now deprecated. Please use the <a href="/docs/patterns/strip#highlighted-strip">highlighted strip</a> instead.</p>
+  </div>
+</div>
 
 For content contained in strips, use [the bordered strip variant](/docs/patterns/strip#bordered-strip).
 
