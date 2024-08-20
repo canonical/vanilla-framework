@@ -80,29 +80,7 @@ apply the relevant `-1` Labels.
 
 #### Percy visual testing
 
-We use [Percy](https://percy.io) for visual testing. Percy tests are run against pull requests to
-ensure that PRs to not introduce visual regressions. Your PR will be tested by Percy if it meets the following conditions:
-
-- PR is against the `main` branch
-- One of the following is true:
-  - PR passes Percy selectivity filters
-    - PR changes files in the `scss/`, `templates/docs/examples/`, or `templates/_macros/` directories
-    - PR is not a draft
-  - PR is labeled with "Review: Percy needed"
-
-To ensure optimal Percy usage, we suggest the following PR flow:
-
-1. Open the PR (against `main`) in such a way that it causes an initial Percy test to run.
-   - If your PR makes changes to files in the above directories, it will be automatically
-     tested as long as it is not marked as a draft.
-   - Applying the "Review: Percy needed" label to the PR ensures that it is always tested.
-2. Review the initial [Percy build](https://percy.io/bb49709b/vanilla-framework).
-3. If there are additional changes needed to the PR through the review process, you can remove the "Review: Percy needed"
-   label and mark the PR as a draft to prevent additional Percy tests from running.
-4. Once the PR is ready for final review, remove the draft status and reapply the "Review: Percy needed" label to trigger
-   a final Percy test.
-5. If the Percy test passes, apply "Review: Percy +1" to indicate that the PR has passed Percy testing.
-6. If all other reviews have been completed, the PR is ready to be merged.
+Please review the [Percy visual testing](percy-workflow.md) documentation for a detailed overview of how to work with the Percy visual testing system.
 
 #### Merging a PR
 
