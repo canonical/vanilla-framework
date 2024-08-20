@@ -56,7 +56,7 @@ $aspect-ratios: (
         }
       }
     } @else if $min-width {
-      @media (min-width: $min-width) {
+      @media (width >= $min-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
           .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
             aspect-ratio: $aspect-ratio-value;
@@ -64,7 +64,7 @@ $aspect-ratios: (
         }
       }
     } @else if $max-width {
-      @media (max-width: $max-width) {
+      @media (width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
           .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
             aspect-ratio: $aspect-ratio-value;
