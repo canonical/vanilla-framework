@@ -38,7 +38,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: yarn && pip3 install -r requirements.txt
+      run: yarn install && pip3 install -r requirements.txt
 
     - name: Build
       shell: bash
@@ -80,13 +80,16 @@ runs:
       id: percy_snapshot
       env:
         PERCY_TOKEN: ${{ inputs.percy_token_write }}
-        # This identifies the diff by name in the percy diffs list
+        # This is used to name the build on the Percy dashboard. For PRs, it is `pull/{pr_number}`, and for baseline, it is `main`.
         PERCY_BRANCH: ${{ inputs.branch_name }}
+        # HEAD commit SHA signature that triggered this test
         PERCY_COMMIT: ${{ inputs.commitsh }}
-        PERCY_CLIENT_ERROR_LOGS: false
         # If PR number is set & a Percy-GHA integration is set up, this allows Percy to set status on the PR
         PERCY_PULL_REQUEST: ${{ inputs.pr_number }}
+        # GH runner sometimes runs into issues loading assets (large images especially) in the default 30s timeout.
+        # This increases the timeout to 2 minutes to allow for more time to load assets.
         PERCY_PAGE_LOAD_TIMEOUT: 120000
+        # Debugging vars to show more console output and diagnose issues with Percy
         LOG_LEVEL: debug
         PERCY_DEBUG: "*"
       run: |
