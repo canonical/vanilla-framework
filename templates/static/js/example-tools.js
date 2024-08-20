@@ -153,7 +153,16 @@ var activeTheme = DEFAULT_COLOR_THEME;
       );
       controls.appendChild(baselineGridControl);
 
+      const closeButtonFragment = fragmentFromString(`
+        <button class="p-button is-dense p-example-controls__close-button" id="js-example-toolbar-close-button">
+          Close
+        </button>
+      `);
+      controls.appendChild(closeButtonFragment);
       body.appendChild(controls);
+
+      var closeButton = document.getElementById('js-example-toolbar-close-button');
+      closeButton.addEventListener('click', () => controls.remove());
 
       // Below code relies on the controls already existing in the DOM, so must come after `body.appendChild`.
       var themeToggleButtons = document.querySelectorAll('.p-theme-toggle__button');
