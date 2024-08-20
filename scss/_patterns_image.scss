@@ -18,12 +18,62 @@
         Wraps contents in a container with an aspect ratio of 2.4:1.
       .p-image-container--square:
         Wraps contents in a container with an aspect ratio of 1:1.
+      .p-image-container--(16-9|3-2|2-3|cinematic|square)-on-(small|medium|large):
+        Wraps contents in a container with the specified aspect ratio on the specified breakpoint.
     Image:
       .p-image-container__image:
         Image element within an image container.
 */
 
 @import 'settings';
+
+// Mapping of aspect ratio class names to their `aspect-ratio` values (width / height).
+$aspect-ratios: (
+  '16-9': calc(16 / 9),
+  '3-2': calc(3 / 2),
+  '2-3': calc(2 / 3),
+  'cinematic': 2.4,
+  'square': 1,
+);
+
+@mixin aspect-ratio-classes {
+  @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+    .p-image-container--#{$aspect-ratio} {
+      aspect-ratio: $aspect-ratio-value;
+    }
+  }
+
+  @each $breakpoint-name, $breakpoint-bounds-pair in $breakpoint-bounds {
+    $min-width: map-get($breakpoint-bounds-pair, min);
+    $max-width: map-get($breakpoint-bounds-pair, max);
+
+    @if $min-width and $max-width {
+      @media ($min-width <= width < $max-width) {
+        @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
+            aspect-ratio: $aspect-ratio-value;
+          }
+        }
+      }
+    } @else if $min-width {
+      @media (width >= $min-width) {
+        @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
+            aspect-ratio: $aspect-ratio-value;
+          }
+        }
+      }
+    } @else if $max-width {
+      @media (width < $max-width) {
+        @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
+            aspect-ratio: $aspect-ratio-value;
+          }
+        }
+      }
+    }
+  }
+}
 
 @mixin vf-p-image {
   .p-image-container,
@@ -54,21 +104,7 @@
     }
   }
 
-  .p-image-container--16-9 {
-    aspect-ratio: 16/9;
-  }
-  .p-image-container--3-2 {
-    aspect-ratio: 3/2;
-  }
-  .p-image-container--2-3 {
-    aspect-ratio: 2/3;
-  }
-  .p-image-container--cinematic {
-    aspect-ratio: 2.4/1;
-  }
-  .p-image-container--square {
-    aspect-ratio: 1/1;
-  }
+  @include aspect-ratio-classes;
 
   // Deprecated; will be removed in v5
   .p-image--bordered {

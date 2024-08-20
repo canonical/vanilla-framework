@@ -5,3 +5,19 @@ $breakpoint-large: 1036px !default;
 $breakpoint-navigation-threshold: $breakpoint-large !default;
 $breakpoint-heading-threshold: $breakpoint-large !default;
 $breakpoint-x-large: 1681px !default; // exclude most laptops
+
+// Mapping of breakpoint names to the min and max widths at which they apply.
+$breakpoint-bounds: (
+  small: (
+    min: null,
+    max: $breakpoint-small,
+  ),
+  medium: (
+    min: $breakpoint-small,
+    max: $breakpoint-large,
+  ),
+  large: (
+    min: $breakpoint-large,
+    max: null,
+  ),
+);
