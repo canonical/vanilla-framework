@@ -19,13 +19,13 @@ from a variety of tiered list layouts:
 
 The tiered list pattern is composed of the following elements:
 
-| Element               | Description                                            |
-| --------------------- | ------------------------------------------------------ |
-| Title (**required**)  | <code>h2</code> title text                             |
-| Description           | <code>p</code> description text; CTA block             |
-| List item title       | Title text/content                                     |
-| List item description | Description text/content; CTA block                    |
-| Call to action block  | [CTA block](/docs/patterns/cta-block) beneath the list |
+| Element               | Description                                                            |
+| --------------------- | ---------------------------------------------------------------------- |
+| Title (**required**)  | <code>h2</code> title text                                             |
+| Description           | <code>p</code> description text; [CTA block](/docs/patterns/cta-block) |
+| List item title       | Title text/content                                                     |
+| List item description | Description text/content; [CTA block](/docs/patterns/cta-block)        |
+| Call to action block  | [CTA block](/docs/patterns/cta-block) beneath the list                 |
 
 ## 50/50 on desktop with description
 
