@@ -74,18 +74,6 @@ function shouldToggleCollapse(event, node, expand) {
 }
 
 /**
- * Gets an HTML element's ancestors
- * @param {Node} node - The node to get the ancestors of.
- * @returns {HTMLElement[]} - An array of the node's ancestors.
- */
-function getNodeAncestors(node) {
-  const linkNode = getParentToggleButton(node);
-  if (!linkNode || node.isSameNode(linkNode)) return [];
-
-  return [linkNode, ...getNodeAncestors(linkNode)];
-}
-
-/**
  * Gets the toggle button responsible for toggling the visibility of a given node
  * @param {HTMLElement} node - The node to get the toggle button for.
  * @returns {HTMLButtonElement|null} - The toggle button for the node, or null if none exists.
@@ -99,7 +87,11 @@ function getParentToggleButton(node) {
 
   if (!parentGroup) return null;
 
-  return parentGroup.querySelector('.p-list-tree__toggle');
+  const parentToggle = parentGroup.querySelector('.p-list-tree__toggle');
+
+  if (node.isSameNode(parentToggle)) return null;
+
+  return parentToggle;
 }
 
 /**
@@ -127,24 +119,28 @@ function setupListTreeLink(listTreeLink, otherTreeLinks) {
 
     setClass(listTreeLink, 'is-active', true);
 
-    // Highlight the link if it's a toggle button (it has children)
-    if (listTreeLink.classList.contains('p-list-tree__toggle')) {
-      setClass(listTreeLink, 'is-highlighted', true);
+    const isToggle = listTreeLink.classList.contains('p-list-tree__toggle');
+    const parent = getParentToggleButton(listTreeLink);
+
+    if (parent && !isToggle) {
+      setClass(parent, 'is-highlighted', true);
     }
 
-    const ancestors = getNodeAncestors(listTreeLink);
-
-    // Highlight all ancestors
-    ancestors.forEach(ancestor => {
-      setClass(ancestor, 'is-highlighted', true);
-    });
+    // Highlight the link if it's a toggle button (it has children)
+    if (isToggle) {
+      setClass(listTreeLink, 'is-highlighted', true);
+      // If the toggle button has a parent, un-highlight the parent.
+      if (parent) {
+        setClass(parent, 'is-highlighted', false);
+      }
+    }
 
     otherTreeLinks.forEach(otherTreeLink => {
       // Disable active state on other tree links.
       setClass(otherTreeLink, 'is-active', false);
 
       // Disable highlighted state on non-ancestor tree links.
-      if (!ancestors.includes(otherTreeLink)) {
+      if (!parent?.isSameNode(otherTreeLink)) {
         setClass(otherTreeLink, 'is-highlighted', false);
       }
     })
