@@ -74,27 +74,6 @@ function shouldToggleCollapse(event, node, expand) {
 }
 
 /**
- * Gets the toggle button responsible for toggling the visibility of a given node
- * @param {HTMLElement} node - The node to get the toggle button for.
- * @returns {HTMLButtonElement|null} - The toggle button for the node, or null if none exists.
- */
-function getParentToggleButton(node) {
-  const parentGroup = node
-      ?.parentNode
-      ?.parentNode
-      ?.closest('.p-list-tree__item--group')
-      ?.closest('.p-list-tree__item--group');
-
-  if (!parentGroup) return null;
-
-  const parentToggle = parentGroup.querySelector('.p-list-tree__toggle');
-
-  if (node.isSameNode(parentToggle)) return null;
-
-  return parentToggle;
-}
-
-/**
  * Adds or removes a class from an element.
  * @param {HTMLElement} element - The element to add or remove the class from.
  * @param {String} className - The class to add or remove.
@@ -119,30 +98,8 @@ function setupListTreeLink(listTreeLink, otherTreeLinks) {
 
     setClass(listTreeLink, 'is-active', true);
 
-    const isToggle = listTreeLink.classList.contains('p-list-tree__toggle');
-    const parent = getParentToggleButton(listTreeLink);
-
-    if (parent && !isToggle) {
-      setClass(parent, 'is-highlighted', true);
-    }
-
-    // Highlight the link if it's a toggle button (it has children)
-    if (isToggle) {
-      setClass(listTreeLink, 'is-highlighted', true);
-      // If the toggle button has a parent, un-highlight the parent.
-      if (parent) {
-        setClass(parent, 'is-highlighted', false);
-      }
-    }
-
     otherTreeLinks.forEach(otherTreeLink => {
-      // Disable active state on other tree links.
       setClass(otherTreeLink, 'is-active', false);
-
-      // Disable highlighted state on non-ancestor tree links.
-      if (!parent?.isSameNode(otherTreeLink)) {
-        setClass(otherTreeLink, 'is-highlighted', false);
-      }
     })
   });
 }
