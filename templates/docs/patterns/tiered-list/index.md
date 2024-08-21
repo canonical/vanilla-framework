@@ -5,10 +5,10 @@ context:
 ---
 
 The tiered list pattern is used to easily implement a list of paired titles and
-descriptions underneath a top-level title and description. An optional [CTA
-block](/docs/patterns/cta-block) is placed at the bottom of the content as well.
-Depending on the size and composition of your content, you can choose from a
-variety of tiered list layouts:
+descriptions underneath a top-level title and description. Optional [CTA
+blocks](/docs/patterns/cta-block) can be placed at various points in the content
+as well. Depending on the size and composition of your content, you can choose
+from a variety of tiered list layouts:
 
 - [50/50 on desktop with description](#5050-on-desktop-with-description)
 - [50/50 on tablet without description](#5050-on-tablet-without-description)
@@ -19,13 +19,13 @@ variety of tiered list layouts:
 
 The tiered list pattern is composed of the following elements:
 
-| Element               | Description                                                       |
-| --------------------- | ----------------------------------------------------------------- |
-| Title (**required**)  | <code>h2</code> title text                                        |
-| Description           | <code>p</code> description text                                   |
-| List item title       | Title text/content                                                |
-| List item description | Description text/content                                          |
-| Call to action block  | [Call to action block](/docs/patterns/cta-block) beneath the list |
+| Element               | Description                                            |
+| --------------------- | ------------------------------------------------------ |
+| Title (**required**)  | <code>h2</code> title text                             |
+| Description           | <code>p</code> description text; CTA block             |
+| List item title       | Title text/content                                     |
+| List item description | Description text/content; CTA block                    |
+| Call to action block  | [CTA block](/docs/patterns/cta-block) beneath the list |
 
 ## 50/50 on desktop with description
 
@@ -82,6 +82,20 @@ child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example">
+View example of the tiered list pattern
+</a></div>
+
+## Additional CTA options
+
+In addition to the CTA block placed below the list, you're also able to add CTA
+blocks below the top-level description text, as well as below each list item's
+description text.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description-cta/" class="js-example">
+View example of the tiered list pattern
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-list-item-cta/" class="js-example">
 View example of the tiered list pattern
 </a></div>
 
