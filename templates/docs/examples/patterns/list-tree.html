@@ -53,24 +53,8 @@ function setupListTreeToggle(listTreeToggle) {
     event.preventDefault();
     var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
 
-    if (!shouldToggleCollapse(event, listTreeToggle, expand)) {
-      return;
-    }
-
     toggleElement(listTreeToggle, expand);
   });
-}
-
-/**
- * Determines if the collapse should be toggled based on the event and the node.
- * @param {MouseEvent} event - The event that triggered the toggle.
- * @param {HTMLElement} node - The node to toggle the collapse on.
- * @param {Boolean} expand - Whether the node should be expanded or collapsed.
- * @returns {Boolean} - Whether the collapse should be toggled.
- */
-function shouldToggleCollapse(event, node, expand) {
-  // If the button is expanded, ignore collapsing it if the click is on the button text. User must click the icon pseudo-element.
-  return expand || event.clientX < node.getBoundingClientRect().left + (16 * 1.5);
 }
 
 /**
