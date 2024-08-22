@@ -11,19 +11,19 @@
     body: /<body[^>]*>((.|[\n\r])*)<\/body>/im,
     jinja: /{% block content %}([\s\S]*?){% endblock %}/,
     title: /<title[^>]*>((.|[\n\r])*)<\/title>/im,
-    head: /<head[^>]*>((.|[\n\r])*)<\/head>/im
-  }
+    head: /<head[^>]*>((.|[\n\r])*)<\/head>/im,
+  };
 
   /**
    * Mapping of all example mode options to their labels
    * @type {{html: string, css: string, js: string, jinja: string}}
    */
   const exampleOptionLabels = {
-    'html': "HTML",
-    'css': "CSS",
-    'js': "JS",
-    'jinja': "Jinja"
-  }
+    html: 'HTML',
+    css: 'CSS',
+    js: 'JS',
+    jinja: 'Jinja',
+  };
 
   // throttling function calls, by Remy Sharp
   // http://remysharp.com/2010/07/21/throttling-function-calls/
@@ -68,7 +68,7 @@
   async function fetchExampleResponseText(url) {
     var request = new XMLHttpRequest();
 
-    const result = new Promise(function(resolve, reject)  {
+    const result = new Promise(function (resolve, reject) {
       request.onreadystatechange = function () {
         if (request.status === 200 && request.readyState === 4) {
           resolve(request.responseText);
@@ -102,7 +102,7 @@
           // Raw templates are served at `/<path-to-example>`, without `/docs/` in front. Remove `/docs/`.
           .replace(/docs/, '/')
           // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
-          .replace(/standalone/, '/')
+          .replace(/standalone/, '/'),
       );
       exampleRequests.push(fetchRaw);
     }
@@ -145,7 +145,7 @@
    * @param {Boolean} hide Whether the pre-code should be hidden initially
    * @returns {HTMLPreElement} Code snippet containing the source code
    */
-  function createPreCode(source, lang, hide=true) {
+  function createPreCode(source, lang, hide = true) {
     var code = document.createElement('code');
     code.appendChild(document.createTextNode(formatSource(source, lang)));
 
@@ -176,7 +176,7 @@
    */
   function getExampleSection(sectionKey, documentHTML) {
     const pattern = exampleContentPatterns[sectionKey];
-    return pattern?.exec(documentHTML)?.[1]?.trim() || "";
+    return pattern?.exec(documentHTML)?.[1]?.trim() || '';
   }
 
   /**
@@ -229,7 +229,7 @@
     if (hasJinjaTemplate) {
       codeSnippet.appendChild(createPreCode(templateHTML, 'jinja', false));
       // Make sure Jinja comes first if it's supported, so it's the default option
-      options.unshift('jinja')
+      options.unshift('jinja');
     }
     codeSnippet.appendChild(createPreCode(bodyHTML, 'html', hasJinjaTemplate));
     if (jsSource) {
