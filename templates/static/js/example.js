@@ -3,6 +3,28 @@
     throw Error('VANILLA_VERSION not specified.');
   }
 
+  /**
+   * Mapping of example keys to the regex patterns used to strip them out of an example
+   * @type {{body: RegExp, jinja: RegExp, title: RegExp, head: RegExp}}
+   */
+  const exampleContentPatterns = {
+    body: /<body[^>]*>((.|[\n\r])*)<\/body>/im,
+    jinja: /{% block content %}([\s\S]*?){% endblock %}/,
+    title: /<title[^>]*>((.|[\n\r])*)<\/title>/im,
+    head: /<head[^>]*>((.|[\n\r])*)<\/head>/im
+  }
+
+  /**
+   * Mapping of all example mode options to their labels
+   * @type {{html: string, css: string, js: string, jinja: string}}
+   */
+  const exampleOptionLabels = {
+    'html': "HTML",
+    'css': "CSS",
+    'js': "JS",
+    'jinja': "Jinja"
+  }
+
   // throttling function calls, by Remy Sharp
   // http://remysharp.com/2010/07/21/throttling-function-calls/
   var throttle = function (fn, delay) {
@@ -57,6 +79,10 @@
     return prms;
   }
 
+  /**
+   * Fetches the requested example and replaces the example element with the content and code snippet of the example.
+   * @param {HTMLAnchorElement} exampleElement `a.js-example` element with `href` set to the address of the example to fetch
+   */
   async function fetchExample(exampleElement) {
     // TODO - integrate fetching/rendering more cleanly in future
     const fetchRendered = fetchResponseText(exampleElement.href);
@@ -80,13 +106,14 @@
   /**
    * Format source code based on language
    * @param {String} source - source code to format
-   * @param {String} lang - language of the source code
+   * @param {'html'|'jinja'|'js'|'css'} lang - language of the source code
    * @returns {String} formatted source code
    */
   function formatSource(source, lang) {
     try {
       switch (lang) {
         case 'html':
+        case 'jinja':
           return window.html_beautify(source, {indent_size: 2});
         case 'js':
           return window.js_beautify(source, {indent_size: 2});
@@ -102,7 +129,14 @@
     }
   }
 
-  function createPreCode(source, lang) {
+  /**
+   * Create `pre`-formatted code for a block of source
+   * @param {String} source Unformatted source code
+   * @param {'html'|'jinja'|'js'|'css'} lang Language of the source code
+   * @param {Boolean} hide Whether the pre-code should be hidden initially
+   * @returns {HTMLPreElement} Code snippet containing the source code
+   */
+  function createPreCode(source, lang, hide=true) {
     var code = document.createElement('code');
     code.appendChild(document.createTextNode(formatSource(source, lang)));
 
@@ -112,7 +146,7 @@
     // TODO: move max-height elsewhere to CSS?
     pre.style.maxHeight = '300px';
 
-    if (lang !== 'html') {
+    if (hide) {
       pre.classList.add('u-hide');
     }
 
@@ -125,17 +159,29 @@
     return pre;
   }
 
-  function renderExample(placementElement, renderedHtml, rawHtml) {
-    var bodyPattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
-    var contentPattern = /{% block content %}([\s\S]*?){% endblock %}/;
-    var titlePattern = /<title[^>]*>((.|[\n\r])*)<\/title>/im;
-    var headPattern = /<head[^>]*>((.|[\n\r])*)<\/head>/im;
+  /**
+   * Extract a section of HTML from the document
+   * @param {'body'|'jinja'|'title'|'head'} sectionKey The key/type of content to be extracted
+   * @param {String} documentHTML The example's full HTML content. This may be rendered or raw Jinja template.
+   * @returns {String} The requested section of the document, or an empty string if it was not found.
+   */
+  function getExampleSection(sectionKey, documentHTML) {
+    const pattern = exampleContentPatterns[sectionKey];
+    return pattern?.exec(documentHTML)?.[1]?.trim() || "";
+  }
 
-    var title = titlePattern.exec(renderedHtml)[1].trim();
-    var bodyHTML = bodyPattern.exec(renderedHtml)[1].trim();
-    var headHTML = headPattern.exec(renderedHtml)[1].trim();
-    // Use the raw HTML if it was passed in. Otherwise, use the rendered HTML.
-    var contentTemplate = (rawHtml ? contentPattern.exec(rawHtml) : bodyPattern.exec(renderedHtml))[1].trim();
+  /**
+   * Replaces an example placeholder element with its rendered result and code snippet.
+   * @param {HTMLAnchorElement} placementElement `a.js-example` element used as a placeholder for the example to render
+   * @param {String} renderedHtml Full document HTML of the example as it is shown to end-users
+   * @param {String|null} jinjaTemplate Jinja Template of the example as it may be used by developers, if supported
+   */
+  function renderExample(placementElement, renderedHtml, jinjaTemplate) {
+    const bodyHTML = getExampleSection('body', renderedHtml);
+    const headHTML = getExampleSection('head', renderedHtml);
+    const title = getExampleSection('title', renderedHtml);
+    const templateHtml = getExampleSection('jinja', jinjaTemplate);
+    const hasJinjaTemplate = templateHtml?.length > 0;
 
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
@@ -171,7 +217,12 @@
 
     // Build code block structure
     var options = ['html'];
-    codeSnippet.appendChild(createPreCode(contentTemplate, 'html'));
+    if (hasJinjaTemplate) {
+      codeSnippet.appendChild(createPreCode(templateHtml, 'jinja', false));
+      // Make sure Jinja comes first if it's supported, so it's the default option
+      options.unshift('jinja')
+    }
+    codeSnippet.appendChild(createPreCode(bodyHTML, 'html', hasJinjaTemplate));
     if (jsSource) {
       codeSnippet.appendChild(createPreCode(jsSource, 'js'));
       options.push('js');
@@ -189,24 +240,29 @@
     }
   }
 
-  function renderDropdown(header, options) {
+  /**
+   * Renders a dropdown containing the code snippet options, allowing user to switch between multiple views.
+   * @param {HTMLDivElement} codeSnippetHeader The header element of the code snippet
+   * @param {('html'|'jinja'|'js'|'css')[]} codeSnippetModes List of code snippet mode options
+   */
+  function renderDropdown(codeSnippetHeader, codeSnippetModes) {
     // only add dropdown if there is more than one code block
-    if (options.length > 1) {
+    if (codeSnippetModes.length > 1) {
       var dropdownsEl = document.createElement('div');
       dropdownsEl.classList.add('p-code-snippet__dropdowns');
 
       var selectEl = document.createElement('select');
       selectEl.classList.add('p-code-snippet__dropdown');
 
-      options.forEach(function (option) {
+      codeSnippetModes.forEach(function (option) {
         var optionHTML = document.createElement('option');
         optionHTML.value = option.toLowerCase();
-        optionHTML.innerText = option.toUpperCase();
+        optionHTML.innerText = exampleOptionLabels[option] || option.toLowerCase();
         selectEl.appendChild(optionHTML);
       });
 
       dropdownsEl.appendChild(selectEl);
-      header.appendChild(dropdownsEl);
+      codeSnippetHeader.appendChild(dropdownsEl);
       attachDropdownEvents(selectEl);
     }
   }
