@@ -60,10 +60,15 @@
     [].slice.call(examples).forEach(fetchExample);
   });
 
-  async function fetchResponseText(url) {
+  /**
+   * Sends a `GET` request to `url` to request an example's contents.
+   * @param {String} url Address of the example
+   * @returns {Promise<String>} Response text
+   */
+  async function fetchExampleResponseText(url) {
     var request = new XMLHttpRequest();
 
-    const prms = new Promise(function(resolve, reject)  {
+    const result = new Promise(function(resolve, reject)  {
       request.onreadystatechange = function () {
         if (request.status === 200 && request.readyState === 4) {
           resolve(request.responseText);
@@ -76,7 +81,7 @@
     request.open('GET', url, true);
     request.send(null);
 
-    return prms;
+    return result;
   }
 
   /**
@@ -85,22 +90,26 @@
    */
   async function fetchExample(exampleElement) {
     // TODO - integrate fetching/rendering more cleanly in future
-    const fetchRendered = fetchResponseText(exampleElement.href);
-    var proms = [fetchRendered];
+    /** Rendered HTML that will be seen by users */
+    const fetchRendered = fetchExampleResponseText(exampleElement.href);
+
+    var exampleRequests = [fetchRendered];
+
     // If the example requires raw template rendering, request the raw template file as well
     if (exampleElement.classList.contains('js-show-template')) {
-      const fetchRaw = fetchResponseText(
+      const fetchRaw = fetchExampleResponseText(
         exampleElement.href
+          // Raw templates are served at `/<path-to-example>`, without `/docs/` in front. Remove `/docs/`.
           .replace(/docs/, '/')
+          // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
           .replace(/standalone/, '/')
       );
-      proms.push(fetchRaw);
+      exampleRequests.push(fetchRaw);
     }
 
-    const [renderedHtml, rawHtml] = await Promise.all(proms);
+    const [renderedHtml, rawHtml] = await Promise.all(exampleRequests);
 
     renderExample(exampleElement, renderedHtml, rawHtml);
-    exampleElement.style.display = 'none';
   }
 
   /**
@@ -180,8 +189,8 @@
     const bodyHTML = getExampleSection('body', renderedHtml);
     const headHTML = getExampleSection('head', renderedHtml);
     const title = getExampleSection('title', renderedHtml);
-    const templateHtml = getExampleSection('jinja', jinjaTemplate);
-    const hasJinjaTemplate = templateHtml?.length > 0;
+    const templateHTML = getExampleSection('jinja', jinjaTemplate);
+    const hasJinjaTemplate = templateHTML?.length > 0;
 
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
@@ -218,7 +227,7 @@
     // Build code block structure
     var options = ['html'];
     if (hasJinjaTemplate) {
-      codeSnippet.appendChild(createPreCode(templateHtml, 'jinja', false));
+      codeSnippet.appendChild(createPreCode(templateHTML, 'jinja', false));
       // Make sure Jinja comes first if it's supported, so it's the default option
       options.unshift('jinja')
     }
@@ -238,6 +247,9 @@
     if (Prism) {
       Prism.highlightAllUnder(codeSnippet);
     }
+
+    // The example has been rendered successfully, hide the placeholder element.
+    placementElement.style.display = 'none';
   }
 
   /**
