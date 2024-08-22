@@ -58,10 +58,20 @@
   }
 
   async function fetchExample(exampleElement) {
-    const [renderedHtml, rawHtml] = await Promise.all([
-      fetchResponseText(exampleElement.href),
-      fetchResponseText(exampleElement.href.replace(/docs/, '/').replace(/standalone/, '/'))
-    ]);
+    // TODO - integrate fetching/rendering more cleanly in future
+    const fetchRendered = fetchResponseText(exampleElement.href);
+    var proms = [fetchRendered];
+    // If the example requires raw template rendering, request the raw template file as well
+    if (exampleElement.classList.contains('js-show-template')) {
+      const fetchRaw = fetchResponseText(
+        exampleElement.href
+          .replace(/docs/, '/')
+          .replace(/standalone/, '/')
+      );
+      proms.push(fetchRaw);
+    }
+
+    const [renderedHtml, rawHtml] = await Promise.all(proms);
 
     renderExample(exampleElement, renderedHtml, rawHtml);
     exampleElement.style.display = 'none';
@@ -124,7 +134,8 @@
     var title = titlePattern.exec(renderedHtml)[1].trim();
     var bodyHTML = bodyPattern.exec(renderedHtml)[1].trim();
     var headHTML = headPattern.exec(renderedHtml)[1].trim();
-    var contentTemplate = contentPattern.exec(rawHtml)[1].trim();
+    // Use the raw HTML if it was passed in. Otherwise, use the rendered HTML.
+    var contentTemplate = (rawHtml ? contentPattern.exec(rawHtml) : bodyPattern.exec(renderedHtml))[1].trim();
 
     var htmlSource = stripScriptsFromSource(bodyHTML);
     var jsSource = getScriptFromSource(bodyHTML);
