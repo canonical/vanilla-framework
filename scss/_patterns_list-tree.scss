@@ -66,11 +66,6 @@
     }
   }
 
-  // Hide the default expanded button styling for toggles
-  .p-list-tree__toggle[aria-expanded='true'] {
-    background: $colors--theme--background-default;
-  }
-
   .p-list-tree__toggle {
     @include vf-focus-themed;
 
@@ -80,5 +75,11 @@
     margin: 0 0 0 (-$sph--x-large);
     padding: 0 $sph--small 0 $sph--x-large;
     transition-duration: 0s;
+
+    // Hide the default button styling for toggles
+    &[aria-expanded='true'],
+    &:hover {
+      background: $colors--theme--background-default;
+    }
   }
 }
