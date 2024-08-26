@@ -1,5 +1,5 @@
 # Params
-# title (string) (required): Title of the rich vertical list
+# title_text (string) (required): Title of the rich vertical list
 # flipped (boolean) (optional): Whether the list items are flipped so image is on the left and the text is on the right. Defaults to false.
 # Slots
 # description: Paragraph-style description content
@@ -7,7 +7,7 @@
 # list_item_[1-15]: List item content, assumed to be li.p-list__item
 # image (required)
 {% macro rich_vertical_list(
-  title,
+  title_text,
   flipped=false
 ) -%}
   {% set description_content = caller('description') %}
@@ -50,7 +50,7 @@
   {%- macro _text_column_contents(logo_section_images, list_items) %}
     <!--Mandatory title-->
     <div class="p-section--shallow">
-      <h2>{{ title }}</h2>
+      <h2>{{ title_text }}</h2>
     </div>
 
     {%- if logo_section_images|length > 0 %}
