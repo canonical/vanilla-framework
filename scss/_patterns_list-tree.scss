@@ -1,17 +1,18 @@
 @import 'settings';
 
 @mixin vf-p-list-tree {
-  %list-tree-icon {
-    $icon-size: 1rem;
+  $list-tree-toggle-icon-size: 1rem;
+  $list-tree-item-indent-size: calc($sph--large + $list-tree-toggle-icon-size + 0.25rem);
 
+  %list-tree-icon {
     content: ' ';
     display: block;
-    height: $icon-size;
+    height: $list-tree-toggle-icon-size;
     left: 0;
     pointer-events: none;
     position: absolute;
     top: 0.3rem;
-    width: $icon-size;
+    width: $list-tree-toggle-icon-size;
   }
 
   .p-list-tree__item:not(.p-list-tree__item--group),
@@ -55,7 +56,7 @@
     @include vf-focus-themed;
 
     margin-top: $sp-xx-small;
-    padding-left: $sph--large;
+    padding-left: $list-tree-item-indent-size;
     position: relative;
   }
 
@@ -72,8 +73,8 @@
     background: transparent;
     border: 0;
     font-weight: normal;
-    margin: 0 0 0 (-$sph--x-large);
-    padding: 0 $sph--small 0 $sph--x-large;
+    margin: 0 0 0 (-$list-tree-item-indent-size);
+    padding: 0 $sph--small 0 $list-tree-item-indent-size;
     transition-duration: 0s;
 
     // Hide the default button styling for toggles
