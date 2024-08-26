@@ -80,6 +80,7 @@
       {% set title_class = "u-no-margin--bottom" %}
     {%- endif -%}
 
+    <!-- Title block -->
     {#- Only add a class attribute if needed -#}
     <h1{% if title_class|trim|length > 0 %} class="{{ title_class }}"{% endif %}>
       {{ title_text }}
@@ -88,6 +89,7 @@
 
   {%- macro _hero_subtitle_block() -%}
     {% if has_subtitle %}
+      <!-- Optional subtitle block -->
       <h2>
         {{ subtitle_text }}
       </h2>
@@ -96,6 +98,7 @@
 
   {%- macro _hero_cta_block() -%}
     {% if has_cta -%}
+      <!-- Optional CTA block -->
       <div class="p-cta-block">
         {{ cta_content }}
       </div>
@@ -104,6 +107,7 @@
 
   {%- macro _hero_description_block() -%}
     {% if has_description %}
+      <!-- Optional description block -->
       <div class="p-section--shallow">
         {{ description_content }}
       </div>
@@ -112,6 +116,7 @@
 
   {%- macro _hero_signpost_image_block() -%}
     {% if layout == '25-75' and has_signpost_image -%}
+      <!-- Signpost image block -->
       <div class="p-section--shallow">
         {{ signpost_image_content }}
       </div>
@@ -130,12 +135,13 @@
       </div>
     {% endif -%}
     <div class="{{ row_classes | join(' ') }}">
-      {%- if is_fallback %}
+      {%- if is_fallback -%}
         <div class="{{ col_classes[0] }}">
           {{- _hero_description_block() -}}
           {{ _hero_cta_block() -}}
         </div>
         {% if has_image -%}
+          <!-- Optional image block -->
           <div class="{{ col_classes[1] }}">
             {{ image_content }}
           </div>
@@ -151,6 +157,7 @@
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}
         </div>
+        <!-- Full-width image -->
         {{ image_content -}}
       {% elif has_signpost_image %}
         {#- 25/75 Signpost layout -#}
@@ -167,6 +174,7 @@
         </div>
         {% if has_image %}
           {#- Signpost with image is always full-width, so set it after the columns -#}
+          <!--- Full width image underneath signpost hero -->
           {{- image_content }}
         {% endif -%}
       {% else %}
@@ -179,6 +187,7 @@
           {{- _hero_cta_block() -}}
         </div>
         {% if has_image -%}
+          <!-- Optional image block -->
           <div class="{{ col_classes[1] }}">
             {{ image_content }}
           </div>
