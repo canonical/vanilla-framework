@@ -17,11 +17,31 @@ The hero pattern is composed of the following elements:
 
 | Element              | Description                                                              |
 | -------------------- | ------------------------------------------------------------------------ |
-| Title (**required**) | <code>h1</code> title text                                               |
-| Subtitle             | <code>h2</code> subtitle text                                            |
-| Description          | <code>p</code> description text                                          |
+| Title (**required**) | `h1` title text                                                          |
+| Subtitle             | `h2` subtitle text                                                       |
+| Description          | `p` description text                                                     |
 | Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description |
 | Image                | Main hero visual                                                         |
+
+## Jinja Macro
+
+### Parameters
+
+| Name                 | Description                                                                                                   | Type      | Is Required | Default      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------- | --------- | ----------- | ------------ |
+| `layout`             | Choice of hero layout. Options are `'50/50'`, `'50/50-full-width-image'`, `'75/25'`, `'25/75'`, `'fallback'`. | `String`  | Yes         | `'fallback'` |
+| `title_text`         | `h1` title text                                                                                               | `String`  | Yes         | `N/A`        |
+| `subtitle_text`      | `h2` subtitle text                                                                                            | `String`  | No          | `N/A`        |
+| `is_split_on_medium` | Whether the layout is split on tablet-sized devices.                                                          | `Boolean` | Yes         | `false`      |
+
+### Slots
+
+| Name             | Description                                                                                                        | Is Required                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| `description`    | Paragraph-style content below the title and subtitle.                                                              | No                                              |
+| `cta`            | Contents of a [Call to action block](/docs/patterns/cta-block) beneath the title and description.                  | Yes                                             |
+| `image`          | Image content.                                                                                                     | Required when `layout='50/50-full-width-image'` |
+| `signpost_image` | Small image (such as a logo) to place in the left column of the 25/75 Hero. It is only used when `layout='25/75'`. | Required when `layout='25/75'`                  |
 
 ## 50/50
 
@@ -52,7 +72,8 @@ View example of the hero pattern in 50/50 that is split on medium and small
 The above hero layouts place the hero image in the right column by default. However, this is not suitable for very wide
 images.
 If you have a very wide image or otherwise want your image to take up the full hero width, place the title by itself in
-the first column and place the image in a <code>.p-image-container .is-cover</code> at the same level as the grid columns.
+the first column and place the image in a <code>.p-image-container .is-cover</code> at the same level as the grid
+columns.
 This will make the image take up the full width of the hero.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-width-image" class="js-example">
