@@ -1,0 +1,36 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}List tree / Expanded{% endblock %}
+
+{% block standalone_css %}patterns_list-tree{% endblock %}
+
+{% block content %}
+  <ul class="p-list-tree" aria-multiselectable="true" role="tree">
+    <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+      <button class="p-list-tree__toggle" id="sub-1-btn" aria-controls="sub-1" aria-expanded="true">/folder</button>
+      <ul class="p-list-tree" role="group" id="sub-1" aria-hidden="false" aria-labelledby="sub-1-btn">
+        <li class="p-list-tree__item" role="treeitem">file</li>
+      </ul>
+    </li>
+    <li class="p-list-tree__item" role="treeitem">charm-helpers-sync.yaml</li>
+    <li class="p-list-tree__item" role="treeitem">config.yaml</li>
+    <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+      <button class="p-list-tree__toggle" id="sub-2-btn" aria-controls="sub-2" aria-expanded="true">/files</button>
+      <ul class="p-list-tree" role="group" id="sub-2" aria-hidden="false" aria-labelledby="sub-2-btn">
+        <li class="p-list-tree__item" role="treeitem">default_rsync</li>
+        <li class="p-list-tree__item" role="treeitem">nagios_plugin.py</li>
+        <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+          <button class="p-list-tree__toggle" id="sub-3-btn"  aria-controls="sub-3" aria-expanded="true">/plugins</button>
+          <ul class="p-list-tree" role="group" id="sub-3" aria-hidden="false" aria-labelledby="sub-3-btn">
+            <li class="p-list-tree__item" role="treeitem">check_mem.pl</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block script %}
+  <script>
+      {% include 'docs/examples/patterns/list-tree/_script-list-tree.js' %}
+  </script>
+{% endblock %}
