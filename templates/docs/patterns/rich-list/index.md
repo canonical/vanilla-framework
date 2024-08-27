@@ -6,6 +6,12 @@ context:
 
 The rich list is used to display a list alongside a title, logo section, image, and call-to-action block.
 
+The list inside the rich list is a divided list, which is a list with a horizontal divider between each item.
+The list items can be [bulletless](/docs/patterns/lists#bulletless-with-horizontal-divider),
+[bulleted](/docs/patterns/lists#bulleted-with-horizontal-divider),
+[ticked](/docs/patterns/lists#ticked-with-horizontal-divider),
+or [numbered](/docs/patterns/lists#ordered-lists-with-horizontal-divider).
+
 ## Vertical
 
 The vertical rich list splits content vertically. By default, text is on the left and the image is on the right.
@@ -21,7 +27,7 @@ The vertical rich list pattern is composed of the following elements:
 | Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description                       |
 | Image (**required**) | Main list visual                                                                               |
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/default" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/ticked" class="js-example">
 View example of the vertical rich list pattern
 </a></div>
 
@@ -29,7 +35,7 @@ View example of the vertical rich list pattern
 
 To flip the image and text, simply reverse the ordering of the columns in the markup.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/flipped" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/ticked-flipped" class="js-example">
 View example of the vertical rich list pattern
 </a></div>
 

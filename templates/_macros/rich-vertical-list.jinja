@@ -1,5 +1,6 @@
 # Params
 # title_text (string) (required): Title of the rich vertical list
+# list_item_tick_style (string) (optional): Type of list item tick styling. Options are "bullet", "tick", "number".
 # flipped (boolean) (optional): Whether the list items are flipped so image is on the left and the text is on the right. Defaults to false.
 # Slots
 # description: Paragraph-style description content
@@ -8,6 +9,7 @@
 # image (required)
 {% macro rich_vertical_list(
   title_text,
+  list_item_tick_style="",
   flipped=false
 ) -%}
   {% set description_content = caller('description') %}
@@ -19,6 +21,22 @@
   {% set has_list = caller('list_item_1')|trim|length > 0 %}
   {% set image_content = caller('image') %}
   {% set max_list_items = 15 %}
+
+  {% set list_item_tick_style=list_item_tick_style|trim|lower %}
+  {% if list_item_tick_style|length > 0 and list_item_tick_style not in ['bullet', 'tick', 'number'] %}
+    {% set list_item_tick_style = '' %}
+  {% endif %}
+
+  {% if list_item_tick_style == "bullet" %}
+    {% set list_item_tick_class = "has-bullet" %}
+  {% elif list_item_tick_style == "tick" %}
+    {% set list_item_tick_class = "is-ticked" %}
+  {% endif %}
+
+  {% set list_element_type = "ul" %}
+  {% if list_item_tick_style == "number" %}
+    {% set list_element_type = "ol" %}
+  {% endif %}
 
   {#-
     Construct list of list items using caller in the top-level macro
@@ -59,12 +77,13 @@
 
     {%- if list_items|length > 0 %}
       <!--Optional list-->
-      <ul class="p-list--divided">
+      <{{ list_element_type }} class="p-list--divided">
        {% for list_item in list_items %}
-         {#- We assume the content is an li.p-list__item -#}
-          {{- list_item -}}
+         <li class="p-list__item {{ list_item_tick_class }}">
+           {{- list_item -}}
+         </li>
         {% endfor %}
-      </ul>
+      </{{ list_element_type }}>
     {%- endif -%}
 
     {%- if has_cta %}

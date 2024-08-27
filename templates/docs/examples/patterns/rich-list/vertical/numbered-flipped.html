@@ -1,11 +1,12 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/rich-vertical-list.jinja" import rich_vertical_list %}
 
-{% block title %}Rich list / Vertical / Default{% endblock %}
+{% block title %}Rich list / Vertical / Numbered / Flipped{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
   {% call(slot) rich_vertical_list(
     title_text='H2 - this can take up to two lines, but best to stick to one line.',
+    list_item_tick_style="number",
     flipped=true
   ) -%}
     {%- if slot == 'description' -%}
