@@ -103,15 +103,3 @@ View example of the hero pattern in fallback configuration
 
 Since Patterns leverage many other parts of Vanilla in their composition and content, we
 recommend [importing the entirety of Vanilla](/docs#install) for full support.
-
-### Macro
-
-If you'd like to use the Jinja Macro, first follow the
-[Jinja Macros build instructions](/docs/building-vanilla#jinja-macros). The
-hero pattern can then be imported as such:
-
-```
-{% raw -%}
-{% from "_macros/vf_hero.jinja" import vf_hero %}
-{%- endraw %}
-```
