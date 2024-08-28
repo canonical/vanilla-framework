@@ -65,17 +65,17 @@ Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebu
 ## Jinja Macros
 
 A variety of Vanilla's components and patterns are offered as
-[Jinja Macros](https://jinja.palletsprojects.com/templates/#macros), which may
+[Jinja macros](https://jinja.palletsprojects.com/templates/#macros), which may
 be useful to you if you build sites using the
-[Jinja](https://jinja.palletsprojects.com/) templating engine. These Macros can
+[Jinja](https://jinja.palletsprojects.com/) templating engine. These macros can
 help abstract away some of the complexity of Vanilla's HTML, making producing
 complex page layouts simpler and faster.
 
-In order to pull Vanilla's Macros into your project, you may need to expose them
+In order to pull Vanilla's macros into your project, you may need to expose them
 to your webserver or templating engine. An example of this using Flask and Jinja
 might look like the following:
 
-```
+```python
 from flask import Flask
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -92,7 +92,7 @@ app.jinja_loader = loader
 
 ```
 
-After making the Macros available to your webserver/templating engine, see the
+After making the macros available to your webserver/templating engine, see the
 individual component/pattern docs for import and usage instructions.
 
 ## Webpack
