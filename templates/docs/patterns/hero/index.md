@@ -188,7 +188,7 @@ This is useful when your hero contents, especially your image, are not suitably 
 This makes your hero somewhat safer to use, as it helps to avoid awkward content sizing on medium screens, making all
 content stack vertically.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 split
 </a></div>
 
@@ -198,7 +198,7 @@ You can use <code>.row--50-50</code> to create a 50/50 hero that is split on lar
 This is useful when your available vertical space is limited, and your hero contents are suitably balanced to be viewed
 side-by-side on medium screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-split-on-medium" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-split-on-medium" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 that is split on medium and small
 </a></div>
 
@@ -211,7 +211,7 @@ the first column and place the image in a <code>.p-image-container .is-cover</co
 columns.
 This will make the image take up the full width of the hero.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-width-image" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-width-image" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 split with a full-width image
 </a></div>
 
@@ -220,7 +220,7 @@ View example of the hero pattern in 50/50 split with a full-width image
 If you have a small image that you want to associate with the hero title, you can use the "signpost" layout.
 This places the image in a small column beside the primary hero content.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 split
 </a></div>
 
@@ -228,7 +228,7 @@ This layout also supports a full-width image. Place the image in a <code>.p-imag
 level as the hero grid columns to make it take full width beneath the rest of the hero. This is identical to the
 full-width image layout for the [50/50 layout](#50-50-with-full-width-image).
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost-full-width-image" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-signpost-full-width-image" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 split
 </a></div>
 
@@ -241,7 +241,7 @@ The <code>.row--75-25</code> class is used to maintain the 75/25 split on medium
 If you find that the image is too tall on small screens, you can use <code>.u-hide--small</code> to hide the image on
 small screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-75-25" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-75-25" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 split
 </a></div>
 
@@ -251,7 +251,7 @@ If you have a very large amount of text content that is difficult to balance wit
 fallback layout.
 This places the title and subtitle in their own row above the rest of the hero content.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-fallback" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-fallback" class="js-example" data-lang="jinja">
 View example of the hero pattern in fallback configuration
 </a></div>
 
