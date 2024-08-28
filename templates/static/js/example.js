@@ -97,10 +97,13 @@
 
     // If the example requires raw template rendering, request the raw template file as well
     if (exampleElement.getAttribute('data-lang') === 'jinja') {
+      var exampleURL = new URL(exampleElement.href);
+      var queryParams = new URLSearchParams(exampleURL.search);
+      queryParams.set('raw', true);
+      exampleURL.search = queryParams.toString();
+
       const fetchRaw = fetchExampleResponseText(
-        exampleElement.href
-          // Raw templates are served at `/<path-to-example>`, without `/docs/` in front. Remove `/docs/`.
-          .replace(/docs/, '/')
+        exampleURL.href
           // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
           .replace(/standalone/, '/'),
       );
