@@ -32,7 +32,7 @@ The tiered list pattern is composed of the following elements:
 This variant contains a top-level description which is presented side-by-side
 with its title on desktop screen sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description/" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -42,7 +42,7 @@ This variant does not contain a top-level description and its child list is
 presented with its titles side-by-side with its descriptions on tablet screen
 sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-without-description/" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-without-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -51,7 +51,7 @@ View example of the tiered list pattern
 This variant contains a top-level description and its child list is presented
 with its titles side-by-side with its descriptions on tablet screen sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-with-description/" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -61,7 +61,7 @@ This variant contains a top-level description. Its title and description are
 presented side-by-side on desktop screen sizes, and its child list is presented
 side-by-side on tablet screen sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-with-description/" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -71,7 +71,7 @@ This variant does not contain a top-level description, and both its title and
 child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-without-description/" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-without-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -81,7 +81,7 @@ This variant contains a top-level description, and its title, description, and
 child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example js-show-template">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
