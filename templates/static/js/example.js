@@ -96,7 +96,7 @@
     var exampleRequests = [fetchRendered];
 
     // If the example requires raw template rendering, request the raw template file as well
-    if (exampleElement.classList.contains('js-show-template')) {
+    if (exampleElement.getAttribute('data-lang') === 'jinja') {
       const fetchRaw = fetchExampleResponseText(
         exampleElement.href
           // Raw templates are served at `/<path-to-example>`, without `/docs/` in front. Remove `/docs/`.
