@@ -4,7 +4,8 @@ context:
   title: Building with Vanilla
 ---
 
-Here you will find information on how you can use different tools to build Vanilla into production CSS.
+Here you will find information on how you can use different tools to build
+Vanilla into production HTML and CSS.
 
 ## Sass
 
@@ -72,6 +73,39 @@ To watch for changes in your Sass files, add the following script to your `packa
 ```
 
 Now if you open an extra terminal and run `yarn watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
+
+## Jinja Macros
+
+A variety of Vanilla's components and patterns are offered as
+[Jinja macros](https://jinja.palletsprojects.com/templates/#macros), which may
+be useful to you if you build sites using the
+[Jinja](https://jinja.palletsprojects.com/) templating engine. These macros can
+help abstract away some of the complexity of Vanilla's HTML, making producing
+complex page layouts simpler and faster.
+
+In order to pull Vanilla's macros into your project, you may need to expose them
+to your webserver or templating engine. An example of this using Flask and Jinja
+might look like the following:
+
+```python
+from flask import Flask
+from jinja2 import ChoiceLoader, FileSystemLoader
+
+app = Flask(__name__)
+
+# ChoiceLoader attempts loading templates from each path in successive order
+loader = ChoiceLoader([
+    FileSystemLoader('templates'),
+    FileSystemLoader('node_modules/vanilla-framework/templates/')
+])
+
+# Loader supplied to jinja_loader overwrites default jinja_loader
+app.jinja_loader = loader
+
+```
+
+After making the macros available to your webserver/templating engine, see the
+individual component/pattern docs for import and usage instructions.
 
 ## Webpack
 
