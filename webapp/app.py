@@ -288,8 +288,9 @@ def standalone_examples_index():
 
 
 @app.route("/docs/examples/<path:example_path>")
-def example(example_path, is_standalone=False, is_raw=False):
+def example(example_path, is_standalone=False):
     try:
+        is_raw = (flask.request.args.get("raw") or "").lower() == "true"
         # If the user has requested the raw template, serve it directly
         if is_raw:
             raw_example_path = f"../templates/docs/examples/{example_path}.html"
@@ -309,10 +310,6 @@ def example(example_path, is_standalone=False, is_raw=False):
 def standalone_example(example_path):
     return example(example_path, is_standalone=True)
 
-
-@app.route("/examples/<path:example_path>")
-def example_raw(example_path):
-    return example(example_path, is_raw=True)
 
 @app.route("/contribute")
 def contribute_index():
