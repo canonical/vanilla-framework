@@ -132,6 +132,8 @@ To import the Hero Jinja macro, copy the following import statement into your Ji
 {% endraw %}
 ```
 
+View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros) for macro installation instructions.
+
 ### SCSS
 
 Since Patterns leverage many other parts of Vanilla in their composition and content, we
