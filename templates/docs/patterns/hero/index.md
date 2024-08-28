@@ -122,5 +122,17 @@ View example of the hero pattern in fallback configuration
 
 ## Import
 
+### Jinja Macro
+
+To import the Hero Jinja macro, copy the following import statement into your Jinja template.
+
+```jinja
+{% raw -%}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+{% endraw %}
+```
+
+### SCSS
+
 Since Patterns leverage many other parts of Vanilla in their composition and content, we
 recommend [importing the entirety of Vanilla](/docs#install) for full support.
