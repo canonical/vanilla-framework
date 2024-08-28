@@ -104,3 +104,15 @@ View example of the tiered list pattern
 Since Patterns leverage many other parts of Vanilla in their composition and
 content, we recommend [importing the entirety of Vanilla](/docs#install) for
 full support.
+
+### Macro
+
+If you'd like to use the Jinja Macro, first follow the
+[Jinja Macros build instructions](/docs/building-vanilla#jinja-macros). The
+tiered list pattern can then be imported as such:
+
+```
+{% raw -%}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+{%- endraw %}
+```
