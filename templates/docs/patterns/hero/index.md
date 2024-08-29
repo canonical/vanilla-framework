@@ -27,90 +27,94 @@ The hero pattern is composed of the following elements:
 
 ### Parameters
 
-<table class="p-table--mobile-card">
-  <thead>
-    <tr>
-      <th style="width: 190px; max-width: 30svw;">Name</th>
-      <th>Is Required</th>
-      <th style="width: 200px; max-width: 20svw;">Type</th>
-      <th>Default</th>
-      <th style="width: 250px; max-width: 40svw;">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td data-heading="Name"><code>layout</code></td>
-      <td data-heading="Is Required">Yes</td>
-      <td style="white-space: wrap;" data-heading="Type">
-        One of:
-        <ul class="p-list">
-          <li class="p-list__item has-bullet"><code>'50/50'</code></li>
-          <li class="p-list__item has-bullet"><code>'50/50-full-width-image'</code></li>
-          <li class="p-list__item has-bullet"><code>'75/25'</code></li>
-          <li class="p-list__item has-bullet"><code>'25/75'</code></li>
-          <li class="p-list__item has-bullet"><code>'fallback'</code></li>
-        </ul>
-      </td>
-      <td data-heading="Default"><code>'fallback'</code></td>
-      <td data-heading="Description">Choice of hero layout.</td>
-    </tr>
-    <tr>
-      <td data-heading="Name"><code>title_text</code></td>
-      <td data-heading="Is Required">Yes</td>
-      <td data-heading="Type"><code>string</code></td>
-      <td data-heading="Default"><code>N/A</code></td>
-      <td style="white-space: wrap;" data-heading="Description"><code>h1</code> title text</td>
-    </tr>
-    <tr>
-      <td data-heading="Name"><code>subtitle_text</code></td>
-      <td data-heading="Is Required">No</td>
-      <td data-heading="Type"><code>string</code></td>
-      <td data-heading="Default"><code>N/A</code></td>
-      <td style="white-space: wrap;" data-heading="Description"><code>h2</code> subtitle text</td>
-    </tr>
-    <tr>
-      <td data-heading="Name"><code>is_split_on_medium</code></td>
-      <td data-heading="Is Required">Yes</td>
-      <td data-heading="Type"><code>boolean</code></td>
-      <td data-heading="Default"><code>false</code></td>
-      <td style="white-space: wrap;" data-heading="Description">Whether the layout is split on tablet-sized devices.</td>
-    </tr>
-  </tbody>
-</table>
+<div style="overflow: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 190px;">Name</th>
+        <th style="width: 100px;">Is Required</th>
+        <th style="width: 200px;">Type</th>
+        <th style="width: 150px;">Default</th>
+        <th style="width: 250px;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>layout</code></td>
+        <td>Yes</td>
+        <td>
+          One of:
+          <ul class="p-list">
+            <li class="p-list__item has-bullet"><code>'50/50'</code></li>
+            <li class="p-list__item has-bullet"><code>'50/50-full-width-image'</code></li>
+            <li class="p-list__item has-bullet"><code>'75/25'</code></li>
+            <li class="p-list__item has-bullet"><code>'25/75'</code></li>
+            <li class="p-list__item has-bullet"><code>'fallback'</code></li>
+          </ul>
+        </td>
+        <td><code>'fallback'</code></td>
+        <td>Choice of hero layout.</td>
+      </tr>
+      <tr>
+        <td><code>title_text</code></td>
+        <td>Yes</td>
+        <td><code>string</code></td>
+        <td><code>N/A</code></td>
+        <td><code>h1</code> title text</td>
+      </tr>
+      <tr>
+        <td><code>subtitle_text</code></td>
+        <td>No</td>
+        <td><code>string</code></td>
+        <td><code>N/A</code></td>
+        <td><code>h2</code> subtitle text</td>
+      </tr>
+      <tr>
+        <td><code>is_split_on_medium</code></td>
+        <td>Yes</td>
+        <td><code>boolean</code></td>
+        <td><code>false</code></td>
+        <td>Whether the layout is split on tablet-sized devices.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Slots
 
-<table class="p-table--mobile-card">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Is Required</th>
-      <th style="width: 400px; max-width: 50svw;">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td data-heading="Name"><code>description</code></td>
-      <td style="white-space: wrap;" data-heading="Is Required">No</td>
-      <td style="white-space: wrap;" data-heading="Description">Paragraph-style content below the title and subtitle.</td>
-    </tr>
-    <tr>
-      <td data-heading="Name"><code>cta</code></td>
-      <td style="white-space: wrap;" data-heading="Is Required">Yes</td>
-      <td style="white-space: wrap;" data-heading="Description">Contents of a <a href="/docs/patterns/cta-block">Call to action block</a> beneath the title and description.</td>
-    </tr>
-    <tr>
-      <td data-heading="Name"><code>image</code></td>
-      <td style="white-space: wrap;" data-heading="Is Required">Yes, when <code>layout='50/50-full-width-image'</code></td>
-      <td style="white-space: wrap;" data-heading="Description">Image content.</td>
-    </tr>
-    <tr>
-      <td data-heading="Name"><code>signpost_image</code></td>
-      <td style="white-space: wrap;" data-heading="Is Required">Yes, when <code>layout='25/75'</code></td>
-      <td style="white-space: wrap;" data-heading="Description">Small image (such as a logo) to place in the left column of the 25/75 Hero.</td>
-    </tr>
-  </tbody>
-</table>
+<div style="overflow: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 155px;">Name</th>
+        <th style="width: 200px;">Is Required</th>
+        <th style="width: 400px;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>description</code></td>
+        <td>No</td>
+        <td>Paragraph-style content below the title and subtitle.</td>
+      </tr>
+      <tr>
+        <td><code>cta</code></td>
+        <td>Yes</td>
+        <td>Contents of a <a href="/docs/patterns/cta-block">Call to action block</a> beneath the title and description.</td>
+      </tr>
+      <tr>
+        <td><code>image</code></td>
+        <td>Yes, when <code>layout='50/50-full-width-image'</code></td>
+        <td>Image content.</td>
+      </tr>
+      <tr>
+        <td><code>signpost_image</code></td>
+        <td>Yes, when <code>layout='25/75'</code></td>
+        <td>Small image (such as a logo) to place in the left column of the 25/75 Hero.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 50/50
 
