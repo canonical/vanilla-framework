@@ -27,12 +27,12 @@ The hero pattern is composed of the following elements:
 
 ### Parameters
 
-| Name                 | Description                                                                                                   | Type      | Is Required | Default      |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- | --------- | ----------- | ------------ |
-| `layout`             | Choice of hero layout. Options are `'50/50'`, `'50/50-full-width-image'`, `'75/25'`, `'25/75'`, `'fallback'`. | `String`  | Yes         | `'fallback'` |
-| `title_text`         | `h1` title text                                                                                               | `String`  | Yes         | `N/A`        |
-| `subtitle_text`      | `h2` subtitle text                                                                                            | `String`  | No          | `N/A`        |
-| `is_split_on_medium` | Whether the layout is split on tablet-sized devices.                                                          | `Boolean` | Yes         | `false`      |
+| Name                 | Is Required | Type      | Default      | Description                                                                                                   |
+|----------------------|-------------|-----------|--------------|---------------------------------------------------------------------------------------------------------------|
+| `layout`             | Yes         | `String`  | `'fallback'` | Choice of hero layout. Options are `'50/50'`, `'50/50-full-width-image'`, `'75/25'`, `'25/75'`, `'fallback'`. |
+| `title_text`         | Yes         | `String`  | `N/A`        | `h1` title text                                                                                               |
+| `subtitle_text`      | No          | `String`  | `N/A`        | `h2` subtitle text                                                                                            |
+| `is_split_on_medium` | Yes         | `Boolean` | `false`      | Whether the layout is split on tablet-sized devices.                                                          |
 
 ### Slots
 
