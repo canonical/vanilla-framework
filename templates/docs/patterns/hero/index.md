@@ -80,12 +80,37 @@ The hero pattern is composed of the following elements:
 
 ### Slots
 
-| Name             | Is Required                                 | Description                                                                                       |
-| ---------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `description`    | No                                          | Paragraph-style content below the title and subtitle.                                             |
-| `cta`            | Yes                                         | Contents of a [Call to action block](/docs/patterns/cta-block) beneath the title and description. |
-| `image`          | Yes, when `layout='50/50-full-width-image'` | Image content.                                                                                    |
-| `signpost_image` | Yes, when `layout='25/75'`                  | Small image (such as a logo) to place in the left column of the 25/75 Hero.                       |
+<table class="p-table--mobile-card">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Is Required</th>
+      <th style="width: 400px; max-width: 50svw;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-heading="Name"><code>description</code></td>
+      <td style="white-space: wrap;" data-heading="Is Required">No</td>
+      <td style="white-space: wrap;" data-heading="Description">Paragraph-style content below the title and subtitle.</td>
+    </tr>
+    <tr>
+      <td data-heading="Name"><code>cta</code></td>
+      <td style="white-space: wrap;" data-heading="Is Required">Yes</td>
+      <td style="white-space: wrap;" data-heading="Description">Contents of a <a href="/docs/patterns/cta-block">Call to action block</a> beneath the title and description.</td>
+    </tr>
+    <tr>
+      <td data-heading="Name"><code>image</code></td>
+      <td style="white-space: wrap;" data-heading="Is Required">Yes, when <code>layout='50/50-full-width-image'</code></td>
+      <td style="white-space: wrap;" data-heading="Description">Image content.</td>
+    </tr>
+    <tr>
+      <td data-heading="Name"><code>signpost_image</code></td>
+      <td style="white-space: wrap;" data-heading="Is Required">Yes, when <code>layout='25/75'</code></td>
+      <td style="white-space: wrap;" data-heading="Description">Small image (such as a logo) to place in the left column of the 25/75 Hero.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 50/50
 
