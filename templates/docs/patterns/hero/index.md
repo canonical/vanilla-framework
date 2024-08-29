@@ -16,7 +16,7 @@ Depending on the size and composition of your content, you can choose from a var
 The hero pattern is composed of the following elements:
 
 | Element              | Description                                                              |
-| -------------------- | ------------------------------------------------------------------------ |
+|----------------------|--------------------------------------------------------------------------|
 | Title (**required**) | `h1` title text                                                          |
 | Subtitle             | `h2` subtitle text                                                       |
 | Description          | `p` description text                                                     |
@@ -29,15 +29,15 @@ The hero pattern is composed of the following elements:
 
 | Name                 | Is Required | Type      | Default      | Description                                                                                                   |
 |----------------------|-------------|-----------|--------------|---------------------------------------------------------------------------------------------------------------|
-| `layout`             | Yes         | `String`  | `'fallback'` | Choice of hero layout. Options are `'50/50'`, `'50/50-full-width-image'`, `'75/25'`, `'25/75'`, `'fallback'`. |
-| `title_text`         | Yes         | `String`  | `N/A`        | `h1` title text                                                                                               |
-| `subtitle_text`      | No          | `String`  | `N/A`        | `h2` subtitle text                                                                                            |
-| `is_split_on_medium` | Yes         | `Boolean` | `false`      | Whether the layout is split on tablet-sized devices.                                                          |
+| `layout`             | Yes         | `string`  | `'fallback'` | Choice of hero layout. Options are `'50/50'`, `'50/50-full-width-image'`, `'75/25'`, `'25/75'`, `'fallback'`. |
+| `title_text`         | Yes         | `string`  | `N/A`        | `h1` title text                                                                                               |
+| `subtitle_text`      | No          | `string`  | `N/A`        | `h2` subtitle text                                                                                            |
+| `is_split_on_medium` | Yes         | `boolean` | `false`      | Whether the layout is split on tablet-sized devices.                                                          |
 
 ### Slots
 
 | Name             | Description                                                                                                        | Is Required                                     |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+|------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
 | `description`    | Paragraph-style content below the title and subtitle.                                                              | No                                              |
 | `cta`            | Contents of a [Call to action block](/docs/patterns/cta-block) beneath the title and description.                  | Yes                                             |
 | `image`          | Image content.                                                                                                     | Required when `layout='50/50-full-width-image'` |
