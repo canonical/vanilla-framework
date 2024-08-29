@@ -184,7 +184,7 @@
 
     if (lang) {
       pre.setAttribute('data-lang', lang);
-      pre.classList.add('language-' + (EXAMPLE_OPTIONS_CFG[lang].langIdentifier || lang));
+      pre.classList.add('language-' + (EXAMPLE_OPTIONS_CFG[lang]?.langIdentifier || lang));
     }
 
     pre.appendChild(code);
