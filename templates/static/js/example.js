@@ -7,7 +7,7 @@
    * Mapping of example keys to the regex patterns used to strip them out of an example
    * @type {{body: RegExp, jinja: RegExp, title: RegExp, head: RegExp}}
    */
-  const exampleContentPatterns = {
+  const EXAMPLE_CONTENT_PATTERNS = {
     body: /<body[^>]*>((.|[\n\r])*)<\/body>/im,
     jinja: /{% block content %}([\s\S]*?){% endblock %}/,
     title: /<title[^>]*>((.|[\n\r])*)<\/title>/im,
@@ -15,14 +15,34 @@
   };
 
   /**
-   * Mapping of all example mode options to their labels
-   * @type {{html: string, css: string, js: string, jinja: string}}
+   * Object representing the structure for language option mappings.
+   * @typedef {Object} ExampleLanguageConfig
+   * @property {string} label - Human-readable label.
+   * @property {string} langIdentifier - Prism language identifier.
    */
-  const exampleOptionLabels = {
-    html: 'HTML',
-    css: 'CSS',
-    js: 'JS',
-    jinja: 'Jinja',
+
+  /**
+   * Mapping of example keys to their configurations.
+   * @type {{jinja: ExampleLanguageConfig, css: ExampleLanguageConfig, js: ExampleLanguageConfig, html: ExampleLanguageConfig}}
+   */
+  const EXAMPLE_OPTIONS_CFG = {
+    html: {
+      label: 'HTML',
+      langIdentifier: 'html',
+    },
+    css: {
+      label: 'CSS',
+      langIdentifier: 'css',
+    },
+    js: {
+      label: 'JS',
+      langIdentifier: 'js',
+    },
+    jinja: {
+      label: 'Jinja',
+      // While `jinja2` is an option on Prism, it does not seem to highlight syntax properly. So use HTML instead.
+      langIdentifier: 'html',
+    },
   };
 
   // throttling function calls, by Remy Sharp
@@ -164,7 +184,7 @@
 
     if (lang) {
       pre.setAttribute('data-lang', lang);
-      pre.classList.add('language-' + lang);
+      pre.classList.add('language-' + (EXAMPLE_OPTIONS_CFG[lang].langIdentifier || lang));
     }
 
     pre.appendChild(code);
@@ -178,7 +198,7 @@
    * @returns {String} The requested section of the document, or an empty string if it was not found.
    */
   function getExampleSection(sectionKey, documentHTML) {
-    const pattern = exampleContentPatterns[sectionKey];
+    const pattern = EXAMPLE_CONTENT_PATTERNS[sectionKey];
     return pattern?.exec(documentHTML)?.[1]?.trim() || '';
   }
 
@@ -272,7 +292,7 @@
       codeSnippetModes.forEach(function (option) {
         var optionHTML = document.createElement('option');
         optionHTML.value = option.toLowerCase();
-        optionHTML.innerText = exampleOptionLabels[option] || option.toLowerCase();
+        optionHTML.innerText = EXAMPLE_OPTIONS_CFG[option]?.label || option.toLowerCase();
         selectEl.appendChild(optionHTML);
       });
 
