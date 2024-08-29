@@ -249,12 +249,11 @@
 
     // Build code block structure
     var options = ['html'];
+    codeSnippet.appendChild(createPreCode(bodyHTML, 'html', false));
     if (hasJinjaTemplate) {
-      codeSnippet.appendChild(createPreCode(templateHTML, 'jinja', false));
-      // Make sure Jinja comes first if it's supported, so it's the default option
-      options.unshift('jinja');
+      codeSnippet.appendChild(createPreCode(templateHTML, 'jinja'));
+      options.push('jinja');
     }
-    codeSnippet.appendChild(createPreCode(bodyHTML, 'html', hasJinjaTemplate));
     if (jsSource) {
       codeSnippet.appendChild(createPreCode(jsSource, 'js'));
       options.push('js');
