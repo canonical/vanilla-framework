@@ -47,10 +47,10 @@
 
   // throttling function calls, by Remy Sharp
   // http://remysharp.com/2010/07/21/throttling-function-calls/
-  var throttle = function (fn, delay) {
-    var timer = null;
+  const throttle = function (fn, delay) {
+    let timer = null;
     return function () {
-      var context = this,
+      let context = this,
         args = arguments;
       clearTimeout(timer);
       timer = setTimeout(function () {
@@ -59,7 +59,7 @@
     };
   };
 
-  var CODEPEN_CONFIG = {
+  const CODEPEN_CONFIG = {
     title: 'Vanilla framework example',
     head: "<meta name='viewport' content='width=device-width, initial-scale=1'>",
     stylesheets: [
@@ -75,7 +75,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    var examples = document.querySelectorAll('.js-example');
+    const examples = document.querySelectorAll('.js-example');
 
     [].slice.call(examples).forEach(fetchExample);
   });
@@ -86,7 +86,7 @@
    * @returns {Promise<String>} Response text
    */
   async function fetchExampleResponseText(url) {
-    var request = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
 
     const result = new Promise(function (resolve, reject) {
       request.onreadystatechange = function () {
@@ -119,12 +119,12 @@
     /** Rendered HTML that will be seen by users */
     const fetchRendered = fetchExampleResponseText(exampleElement.href);
 
-    var exampleRequests = [fetchRendered];
+    let exampleRequests = [fetchRendered];
 
     // If the example requires raw template rendering, request the raw template file as well
     if (exampleElement.getAttribute('data-lang') === 'jinja') {
-      var exampleURL = new URL(exampleElement.href);
-      var queryParams = new URLSearchParams(exampleURL.search);
+      let exampleURL = new URL(exampleElement.href);
+      let queryParams = new URLSearchParams(exampleURL.search);
       queryParams.set('raw', true);
       exampleURL.search = queryParams.toString();
 
@@ -139,7 +139,7 @@
     try {
       const [renderedHtml, rawHtml] = await Promise.all(exampleRequests);
       renderExample(exampleElement, renderedHtml, rawHtml);
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     }
   }
@@ -178,10 +178,10 @@
    * @returns {HTMLPreElement} Code snippet containing the source code
    */
   function createPreCode(source, lang, hide = true) {
-    var code = document.createElement('code');
+    let code = document.createElement('code');
     code.appendChild(document.createTextNode(formatSource(source, lang)));
 
-    var pre = document.createElement('pre');
+    let pre = document.createElement('pre');
     pre.classList.add('p-code-snippet__block');
 
     // TODO: move max-height elsewhere to CSS?
@@ -224,26 +224,26 @@
     const templateHTML = getExampleSection('jinja', jinjaTemplate);
     const hasJinjaTemplate = templateHTML?.length > 0;
 
-    var htmlSource = stripScriptsFromSource(bodyHTML);
-    var jsSource = getScriptFromSource(bodyHTML);
-    var cssSource = getStyleFromSource(headHTML);
-    var externalScripts = getExternalScriptsFromSource(renderedHtml);
-    var codePenData = {
+    const htmlSource = stripScriptsFromSource(bodyHTML);
+    const jsSource = getScriptFromSource(bodyHTML);
+    const cssSource = getStyleFromSource(headHTML);
+    const externalScripts = getExternalScriptsFromSource(renderedHtml);
+    const codePenData = {
       html: htmlSource,
       css: cssSource,
       js: jsSource,
       externalJS: externalScripts,
     };
 
-    var height = placementElement.getAttribute('data-height');
+    const height = placementElement.getAttribute('data-height');
 
-    var codeSnippet = document.createElement('div');
+    let codeSnippet = document.createElement('div');
 
     codeSnippet.classList.add('p-code-snippet', 'is-bordered');
 
-    var header = document.createElement('div');
+    let header = document.createElement('div');
     header.classList.add('p-code-snippet__header');
-    var titleEl = document.createElement('h5');
+    let titleEl = document.createElement('h5');
     titleEl.classList.add('p-code-snippet__title');
 
     // example page title is structured as "... | Examples | Vanilla documentation"
@@ -257,7 +257,7 @@
     renderIframe(codeSnippet, renderedHtml, height);
 
     // Build code block structure
-    var options = ['html'];
+    let options = ['html'];
     codeSnippet.appendChild(createPreCode(bodyHTML, 'html', false));
     if (hasJinjaTemplate) {
       codeSnippet.appendChild(createPreCode(templateHTML, 'jinja'));
@@ -291,14 +291,14 @@
   function renderDropdown(codeSnippetHeader, codeSnippetModes) {
     // only add dropdown if there is more than one code block
     if (codeSnippetModes.length > 1) {
-      var dropdownsEl = document.createElement('div');
+      let dropdownsEl = document.createElement('div');
       dropdownsEl.classList.add('p-code-snippet__dropdowns');
 
-      var selectEl = document.createElement('select');
+      let selectEl = document.createElement('select');
       selectEl.classList.add('p-code-snippet__dropdown');
 
       codeSnippetModes.forEach(function (option) {
-        var optionHTML = document.createElement('option');
+        let optionHTML = document.createElement('option');
         optionHTML.value = option.toLowerCase();
         optionHTML.innerText = EXAMPLE_OPTIONS_CFG[option]?.label || option.toLowerCase();
         selectEl.appendChild(optionHTML);
@@ -312,20 +312,19 @@
 
   function resizeIframe(iframe) {
     if (iframe.contentDocument.readyState == 'complete') {
-      var frameHeight = iframe.contentDocument.body.scrollHeight;
-      var style = iframe.contentWindow.getComputedStyle(iframe.contentDocument.body);
+      let frameHeight = iframe.contentDocument.body.scrollHeight;
       iframe.height = frameHeight + 32 + 'px'; // accommodate for body margin
     }
   }
 
   function renderIframe(container, html, height) {
-    var iframe = document.createElement('iframe');
+    let iframe = document.createElement('iframe');
 
     if (height) {
       iframe.height = height + 'px';
     }
     container.appendChild(iframe);
-    var doc = iframe.contentWindow.document;
+    let doc = iframe.contentWindow.document;
     doc.open();
     doc.write(html);
     doc.close();
@@ -333,7 +332,7 @@
     // if height wasn't specified, try to determine it from example content
     if (!height) {
       // Wait for content to load before determining height
-      var resizeInterval = setInterval(function () {
+      let resizeInterval = setInterval(function () {
         if (iframe.contentDocument.readyState == 'complete') {
           resizeIframe(iframe);
           clearInterval(resizeInterval);
@@ -358,16 +357,16 @@
   }
 
   function renderCodePenEditLink(snippet, sourceData) {
-    var html = sourceData.html === null ? '' : sourceData.html;
-    var css = sourceData.css === null ? '' : sourceData.css;
-    var js = sourceData.js === null ? '' : sourceData.js;
+    let html = sourceData.html === null ? '' : sourceData.html;
+    let css = sourceData.css === null ? '' : sourceData.css;
+    let js = sourceData.js === null ? '' : sourceData.js;
 
     if (html || css || js) {
-      var container = document.createElement('div');
-      var form = document.createElement('form');
-      var input = document.createElement('input');
-      var link = document.createElement('a');
-      var data = {
+      let container = document.createElement('div');
+      let form = document.createElement('form');
+      let input = document.createElement('input');
+      let link = document.createElement('a');
+      const data = {
         title: CODEPEN_CONFIG.title,
         head: CODEPEN_CONFIG.head,
         html: html,
@@ -377,7 +376,7 @@
         js_external: sourceData.externalJS.join(';'),
       };
       // Replace double quotes to avoid errors on CodePen
-      var JSONstring = JSON.stringify(data).replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+      const JSONstring = JSON.stringify(data).replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
       container.classList.add('p-code-snippet__header');
 
@@ -415,17 +414,17 @@
   }
 
   function getStyleFromSource(source) {
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.innerHTML = source;
-    var style = div.querySelector('style');
+    let style = div.querySelector('style');
     return style ? style.innerHTML.trim() : null;
   }
 
   function stripScriptsFromSource(source) {
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.innerHTML = source;
-    var scripts = div.getElementsByTagName('script');
-    var i = scripts.length;
+    let scripts = div.getElementsByTagName('script');
+    let i = scripts.length;
     while (i--) {
       scripts[i].parentNode.removeChild(scripts[i]);
     }
@@ -433,16 +432,16 @@
   }
 
   function getScriptFromSource(source) {
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.innerHTML = source;
-    var script = div.querySelector('script');
+    let script = div.querySelector('script');
     return script ? script.innerHTML.trim() : null;
   }
 
   function getExternalScriptsFromSource(source) {
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.innerHTML = source;
-    var scripts = div.querySelectorAll('script[src]');
+    let scripts = div.querySelectorAll('script[src]');
     scripts = [].slice.apply(scripts).map(function (s) {
       return s.src;
     });
@@ -463,12 +462,12 @@
   */
   function attachDropdownEvents(dropdown) {
     dropdown.addEventListener('change', function (e) {
-      var snippet = e.target.closest('.p-code-snippet');
+      let snippet = e.target.closest('.p-code-snippet');
 
       // toggle code blocks visibility based on selected language
-      for (var i = 0; i < dropdown.options.length; i++) {
-        var lang = dropdown.options[i].value;
-        var block = snippet && snippet.querySelector("[data-lang='" + lang + "']");
+      for (let i = 0; i < dropdown.options.length; i++) {
+        let lang = dropdown.options[i].value;
+        let block = snippet && snippet.querySelector("[data-lang='" + lang + "']");
 
         if (lang === e.target.value) {
           block.classList.remove('u-hide');
