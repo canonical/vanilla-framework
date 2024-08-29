@@ -174,10 +174,10 @@
    * Create `pre`-formatted code for a block of source
    * @param {String} source Unformatted source code
    * @param {'html'|'jinja'|'js'|'css'} lang Language of the source code
-   * @param {Boolean} hide Whether the pre-code should be hidden initially
+   * @param {Boolean} isHidden Whether the pre-code should be hidden initially
    * @returns {HTMLPreElement} Code snippet containing the source code
    */
-  function createPreCode(source, lang, hide = true) {
+  function createPreCode(source, lang, isHidden = true) {
     let code = document.createElement('code');
     code.appendChild(document.createTextNode(formatSource(source, lang)));
 
@@ -187,7 +187,7 @@
     // TODO: move max-height elsewhere to CSS?
     pre.style.maxHeight = '300px';
 
-    if (hide) {
+    if (isHidden) {
       pre.classList.add('u-hide');
     }
 
