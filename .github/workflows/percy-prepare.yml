@@ -1,25 +1,25 @@
 # This workflow is triggered by the `pr-percy-prepare` workflows.
-# It checks out the SCSS/example markup changes and uploads them to Github as an artifact.
+# It checks out the SCSS/example markup changes and uploads them to GitHub as an artifact.
 name: "Prepare Percy build"
 
 on:
   workflow_call:
-    inputs:
+    inputs: 
       pr_number:
         required: true
         type: number
-      repository:
-        required: true
-        type: string
+        description: "The PR number associated with the workflow call"
       commitsh:
         required: true
         type: string
+        description: "The SHA signature of the HEAD commit associated with the workflow call"
 
 jobs:
   copy_artifact:
-    name: Copy changed files to GHA artifact
+    name: Copy visual testing files to GitHub Actions artifact
     runs-on: ubuntu-latest
     steps:
+      # Checkout only the files that are needed for visual testing and safe for the snapshots workflow to run
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
@@ -27,26 +27,27 @@ jobs:
             templates/docs/examples/
             templates/_macros/
             scss/
-          ref: ${{ github.event.inputs.commitsh }}
-          repository: ${{ github.event.inputs.repository }}
+            tokens/
+            sd.config.json
 
       - name: Populate artifact directory
         run: |
-          # Create needed directories so `cp` doesn't fail
+          # Create needed directories so `cp` doesn't fail. This is for backwards compatibility with PRs that are based on commits that don't have these directories.
+          # If a PR is made that doesn't have these directories in the source, the CPs at the end of the step will fail
           mkdir -p artifact
+          mkdir -p tokens
           mkdir -p templates/docs/examples/
           mkdir -p templates/_macros/
           mkdir -p templates/macros/
-          mkdir -p build/scss/
-
+          
           echo "Contents before copying to artifact"
           tree .
-
+          
           # underscore-prefixed directories are ignored by GH artifacts, so we need to copy to a non-prefixed directory
           cp -R templates/_macros/. templates/macros/
-
-          cp -R templates/docs/examples/ templates/macros/ scss/ artifact/ tokens/ sd.config.json
-
+          
+          # Copy all of the needed files to the artifact directory
+          cp -R templates/docs/examples/ templates/macros/ scss/ tokens/ sd.config.json artifact/
 
       # Archive the PR number associated with this workflow since it won't be available in the base workflow context
       # https://github.com/orgs/community/discussions/25220
@@ -59,6 +60,7 @@ jobs:
           echo "Contents of artifact"
           tree .
 
+      # Upload artifact so the `pr-percy-snapshots` workflow can pick it up
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
