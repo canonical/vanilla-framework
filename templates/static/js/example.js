@@ -74,28 +74,11 @@ import {throttle} from './shared/utils.js';
    * @returns {Promise<String>} Response text
    */
   async function fetchExampleResponseText(url) {
-    let request = new XMLHttpRequest();
-
-    const result = new Promise(function (resolve, reject) {
-      request.onreadystatechange = function () {
-        // If the request is not complete, do nothing
-        if (request.readyState !== 4) {
-          return;
-        }
-        // Request is complete and successful
-        if (request.status === 200 && request.readyState === 4) {
-          resolve(request.responseText);
-        } else {
-          // Request failed
-          reject('Failed to fetch example ' + url + ' with status ' + request.status);
-        }
-      };
-    });
-
-    request.open('GET', url, true);
-    request.send(null);
-
-    return result;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch example ${url} with status ${response.status}`);
+    }
+    return response.text();
   }
 
   /**
