@@ -1,3 +1,5 @@
+import {throttle} from './shared/utils.js';
+
 (function () {
   if (!window.VANILLA_VERSION) {
     throw Error('VANILLA_VERSION not specified.');
@@ -43,20 +45,6 @@
       // While `jinja2` is an option on Prism, it does not seem to highlight syntax properly. So use HTML instead.
       langIdentifier: 'html',
     },
-  };
-
-  // throttling function calls, by Remy Sharp
-  // http://remysharp.com/2010/07/21/throttling-function-calls/
-  const throttle = function (fn, delay) {
-    let timer = null;
-    return function () {
-      let context = this,
-        args = arguments;
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        fn.apply(context, args);
-      }, delay);
-    };
   };
 
   const CODEPEN_CONFIG = {
