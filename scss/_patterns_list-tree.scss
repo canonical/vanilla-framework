@@ -15,7 +15,7 @@
     width: $list-tree-toggle-icon-size;
   }
 
-  .p-list-tree__item:not(.p-list-tree__item--group),
+  .p-list-tree__item:not(.p-list-tree__item--group) > .p-list-tree__link,
   .p-list-tree__toggle {
     color: $colors--theme--text-default;
     cursor: pointer;
@@ -24,11 +24,6 @@
       color: $colors--theme--link-default;
       text-decoration: underline;
     }
-  }
-
-  .p-list-tree__item.is-active:not(.p-list-tree__item--group),
-  .p-list-tree__item.p-list-tree__item--group > .p-list-tree__toggle[aria-expanded='true'].is-active {
-    color: $colors--theme--link-default;
   }
 
   .p-list-tree {
@@ -58,6 +53,12 @@
     margin-top: $sp-xx-small;
     padding-left: $list-tree-item-indent-size;
     position: relative;
+  }
+
+  // Highlight active nodes
+  .p-list-tree__item.is-active:not(.p-list-tree__item--group) > .p-list-tree__link,
+  .p-list-tree__item.p-list-tree__item--group > .p-list-tree__toggle[aria-expanded='true'].is-active {
+    color: $colors--theme--link-default;
   }
 
   .p-list-tree__toggle[aria-expanded='false'] {
