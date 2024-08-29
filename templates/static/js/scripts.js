@@ -1,7 +1,19 @@
-import {throttle} from './shared/utils.js';
-
 // Setup toggling of side navigation drawer
 (function () {
+  // throttling function calls, by Remy Sharp
+  // http://remysharp.com/2010/07/21/throttling-function-calls/
+  var throttle = function (fn, delay) {
+    var timer = null;
+    return function () {
+      var context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
+  };
+
   var expandedSidenavContainer = null;
   var lastFocus = null;
   var ignoreFocusChanges = false;
