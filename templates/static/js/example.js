@@ -246,7 +246,7 @@ import {throttle} from './shared/utils.js';
 
     // Build code block structure
     let options = ['html'];
-    codeSnippet.appendChild(createPreCode(bodyHTML, 'html', false));
+    codeSnippet.appendChild(createPreCode(htmlSource, 'html', false));
     if (hasJinjaTemplate) {
       codeSnippet.appendChild(createPreCode(templateHTML, 'jinja'));
       options.push('jinja');
