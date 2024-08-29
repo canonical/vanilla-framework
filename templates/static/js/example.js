@@ -90,9 +90,15 @@
 
     const result = new Promise(function (resolve, reject) {
       request.onreadystatechange = function () {
+        // If the request is not complete, do nothing
+        if (request.readyState !== 4) {
+          return;
+        }
+        // Request is complete and successful
         if (request.status === 200 && request.readyState === 4) {
           resolve(request.responseText);
-        } else if (request.status > 0 && (request.status < 200 || request.status >= 300)) {
+        } else {
+          // Request failed
           reject('Failed to fetch example ' + url + ' with status ' + request.status);
         }
       };
@@ -130,9 +136,12 @@
       exampleRequests.push(fetchRaw);
     }
 
-    const [renderedHtml, rawHtml] = await Promise.all(exampleRequests);
-
-    renderExample(exampleElement, renderedHtml, rawHtml);
+    try {
+      const [renderedHtml, rawHtml] = await Promise.all(exampleRequests);
+      renderExample(exampleElement, renderedHtml, rawHtml);
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   /**
