@@ -16,17 +16,17 @@ $color-dark: $vf-color-base-dark !default;
 $color-x-dark: $vf-color-base-x-dark !default;
 
 // SEMANTIC COLOURS
-$color-negative: $vf-color-base-negative !default;
+$color-negative: $vf-color-light-base-negative !default;
 $color-caution: $vf-color-base-caution !default;
-$color-positive: $vf-color-base-positive !default;
+$color-positive: $vf-color-light-base-positive !default;
 $color-information: $vf-color-base-information !default;
 
 $color-paper: $vf-color-base-paper !default;
 $color-paper-alt: $vf-color-base-paper-alt !default;
 
 // for dark themes
-$color-negative-dark: $vf-color-base-negative-dark !default;
-$color-positive-dark: $vf-color-base-positive-dark !default;
+$color-negative-dark: $vf-color-dark-base-negative !default;
+$color-positive-dark: $vf-color-dark-base-positive !default;
 
 // STATE VARIABLES
 // TODO: Should opacity be part of color tokens?
@@ -35,17 +35,17 @@ $disabled-element-opacity: 0.33;
 $shadow-opacity: 0.2;
 
 // Link and focus colors
-$color-link: $vf-color-link !default;
-$color-link-visited: $vf-color-link-visited !default;
-$color-focus: $vf-color-focus !default;
+$color-link: $vf-color-light-link !default;
+$color-link-visited: $vf-color-light-link-visited !default;
+$color-focus: $vf-color-light-focus !default;
 
-$color-link-dark: $vf-color-link-dark !default;
-$color-link-visited-dark: $vf-color-link-visited-dark !default;
-$color-focus-dark: $vf-color-focus-dark !default;
+$color-link-dark: $vf-color-dark-link !default;
+$color-link-visited-dark: $vf-color-dark-link-visited !default;
+$color-focus-dark: $vf-color-dark-focus !default;
 
 // Focus modifications to meet AA 3:1 contrast ratio against
 // button background for positive buttons
-$color-focus-positive: $vf-color-focus-positive !default;
+$color-focus-positive: $vf-color-light-focus-positive !default;
 
 // Button background color changes
 $input-background-opacity-amount: 0.04;
@@ -59,8 +59,8 @@ $active-background-opacity-percentage: $active-background-opacity-amount * 100%;
 $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
 // NON-SEMANTIC COLOURS
-$color-code-background: $vf-color-code-background;
-$color-code-background-dark: $vf-color-code-background-dark;
+$color-code-background: $vf-color-light-code-background;
+$color-code-background-dark: $vf-color-dark-code-background;
 
 $states: (
   error: $color-negative,
@@ -99,7 +99,7 @@ $states: (
 // --accent         - default accent color
 
 // Light theme
-$colors--light-theme--text-default: $vf-color-text-default !default;
+$colors--light-theme--text-default: $vf-color-light-text-default !default;
 $colors--light-theme--text-muted: rgba($color-x-dark, $muted-text-opacity-amount) !default;
 $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-amount) !default;
 
@@ -107,8 +107,8 @@ $colors--light-theme--link-default: $color-link !default;
 $colors--light-theme--link-visited: $color-link-visited !default;
 $colors--light-theme--focus: $color-focus !default;
 
-$colors--light-theme--background-default: $vf-color-background-default !default;
-$colors--light-theme--background-alt: $vf-color-background-alt !default;
+$colors--light-theme--background-default: $vf-color-light-background-default !default;
+$colors--light-theme--background-alt: $vf-color-light-background-alt !default;
 $colors--light-theme--background-code: $color-code-background !default;
 $colors--light-theme--background-inputs: adjust-color($color-x-dark, $lightness: 100% * (1 - $input-background-opacity-amount)) !default;
 $colors--light-theme--background-active: adjust-color($color-x-dark, $lightness: 100% * (1 - $active-background-opacity-amount)) !default;
@@ -160,7 +160,7 @@ $colors-light-theme--tinted-borders: (
 );
 
 // Dark theme
-$colors--dark-theme--text-default: $vf-color-text-default-dark !default;
+$colors--dark-theme--text-default: $vf-color-dark-text-default !default;
 $colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, $muted-text-opacity-amount) !default;
 $colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $inactive-text-opacity-amount) !default;
 
@@ -168,8 +168,8 @@ $colors--dark-theme--link-default: $color-link-dark !default;
 $colors--dark-theme--link-visited: $color-link-visited-dark !default;
 $colors--dark-theme--focus: $color-focus-dark !default;
 
-$colors--dark-theme--background-default: $vf-color-background-default-dark !default;
-$colors--dark-theme--background-alt: $vf-color-background-alt-dark !default;
+$colors--dark-theme--background-default: $vf-color-dark-background-default !default;
+$colors--dark-theme--background-alt: $vf-color-dark-background-alt !default;
 $colors--dark-theme--background-code: $color-code-background-dark !default;
 $colors--dark-theme--background-inputs: #2f2f2f !default;
 $colors--dark-theme--background-active: #373737 !default;
@@ -216,11 +216,11 @@ $colors-dark-theme--tinted-backgrounds: (
 // different from existing base colors; for example, `$color-positive-dark` is
 // different from this positive dark tinted border color
 $colors-dark-theme--tinted-borders: (
-  neutral: $vf-color-border-tinted-neutral-dark,
-  positive: $vf-color-border-tinted-positive-dark,
-  caution: $vf-color-border-tinted-caution-dark,
-  negative: $vf-color-border-tinted-negative-dark,
-  information: $vf-color-border-tinted-information-dark,
+  neutral: $vf-color-dark-border-tinted-neutral,
+  positive: $vf-color-dark-border-tinted-positive,
+  caution: $vf-color-dark-border-tinted-caution,
+  negative: $vf-color-dark-border-tinted-negative,
+  information: $vf-color-dark-border-tinted-information,
 );
 
 // Paper theme (work in progress)
