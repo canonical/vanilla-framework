@@ -1,4 +1,4 @@
-import {throttle} from './shared/utils.js';
+import {throttle, fetchResponseText} from './shared/utils.js';
 
 (function () {
   if (!window.VANILLA_VERSION) {
@@ -69,26 +69,13 @@ import {throttle} from './shared/utils.js';
   });
 
   /**
-   * Sends a `GET` request to `url` to request an example's contents.
-   * @param {String} url Address of the example
-   * @returns {Promise<String>} Response text
-   */
-  async function fetchExampleResponseText(url) {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch example ${url} with status ${response.status}`);
-    }
-    return response.text();
-  }
-
-  /**
    * Fetches the requested example and replaces the example element with the content and code snippet of the example.
    * @param {HTMLAnchorElement} exampleElement `a.js-example` element with `href` set to the address of the example to fetch
    */
   async function fetchExample(exampleElement) {
     // TODO - integrate fetching/rendering more cleanly in future
     /** Rendered HTML that will be seen by users */
-    const fetchRendered = fetchExampleResponseText(exampleElement.href);
+    const fetchRendered = fetchResponseText(exampleElement.href);
 
     let exampleRequests = [fetchRendered];
 
@@ -99,7 +86,7 @@ import {throttle} from './shared/utils.js';
       queryParams.set('raw', true);
       exampleURL.search = queryParams.toString();
 
-      const fetchRaw = fetchExampleResponseText(
+      const fetchRaw = fetchResponseText(
         exampleURL.href
           // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
           .replace(/standalone/, '/'),
