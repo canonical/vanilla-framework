@@ -36,12 +36,12 @@ The hero pattern is composed of the following elements:
 
 ### Slots
 
-| Name             | Is Required                                     | Description                                                                                                        |
-|------------------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| `description`    | No                                              | Paragraph-style content below the title and subtitle.                                                              |
-| `cta`            | Yes                                             | Contents of a [Call to action block](/docs/patterns/cta-block) beneath the title and description.                  |
-| `image`          | Required when `layout='50/50-full-width-image'` | Image content.                                                                                                     |
-| `signpost_image` | Required when `layout='25/75'`                  | Small image (such as a logo) to place in the left column of the 25/75 Hero. It is only used when `layout='25/75'`. |
+| Name             | Is Required                                 | Description                                                                                       |
+|------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `description`    | No                                          | Paragraph-style content below the title and subtitle.                                             |
+| `cta`            | Yes                                         | Contents of a [Call to action block](/docs/patterns/cta-block) beneath the title and description. |
+| `image`          | Yes, when `layout='50/50-full-width-image'` | Image content.                                                                                    |
+| `signpost_image` | Yes, when `layout='25/75'`                  | Small image (such as a logo) to place in the left column of the 25/75 Hero.                       |
 
 ## 50/50
 
