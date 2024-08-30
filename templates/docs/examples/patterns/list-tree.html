@@ -80,20 +80,6 @@ function setupListTreeToggle(listTreeToggle) {
 }
 
 /**
- * Adds or removes a class from an element.
- * @param {HTMLElement} element - The element to add or remove the class from.
- * @param {String} className - The class to add or remove.
- * @param {Boolean} add - Whether to add or remove the class.
- */
-function setClass(element, className, add) {
-  if (add) {
-    element.classList.add(className);
-  } else {
-    element.classList.remove(className);
-  }
-}
-
-/**
  * Attaches event listeners for the list tree link.
  * @param {HTMLElement} listTreeLink - `.p-list-tree__toggle` or `.p-list-tree__item` element to set up.
  * @param {HTMLElement[]} otherTreeLinks - Other `.p-list-tree__toggle` or `.p-list-tree__item` elements on the page.
@@ -102,10 +88,10 @@ function setupListTreeLink(listTreeLink, otherTreeLinks) {
   listTreeLink.addEventListener('click', function(event) {
     event.preventDefault();
 
-    setClass(listTreeLink, 'is-active', true);
+    listTreeLink.classList.add('is-active');
 
     otherTreeLinks.forEach(otherTreeLink => {
-      setClass(otherTreeLink, 'is-active', false);
+      otherTreeLink.classList.remove('is-active');
     })
   });
 }
