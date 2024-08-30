@@ -1,0 +1,69 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}List tree / Legacy{% endblock %}
+
+{% block standalone_css %}patterns_list-tree{% endblock %}
+
+{% block content %}
+<ul class="p-list-tree" aria-multiselectable="true" role="tree">
+  <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+    <button class="p-list-tree__toggle" id="sub-1-btn" aria-controls="sub-1" aria-expanded="false">/folder</button>
+    <ul class="p-list-tree" role="group" id="sub-1" aria-hidden="true" aria-labelledby="sub-1-btn">
+      <li class="p-list-tree__item" role="treeitem">file</li>
+    </ul>
+  </li>
+  <li class="p-list-tree__item" role="treeitem">
+    <a href="#">charm-helpers-sync.yaml</a>
+  </li>
+  <li class="p-list-tree__item" role="treeitem">
+    <a href="#">config.yaml</a>
+  </li>
+  <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+    <button class="p-list-tree__toggle" id="sub-2-btn" aria-controls="sub-2" aria-expanded="false">/files</button>
+    <ul class="p-list-tree" role="group" id="sub-2" aria-hidden="true" aria-labelledby="sub-2-btn">
+      <li class="p-list-tree__item" role="treeitem">default_rsync</li>
+      <li class="p-list-tree__item" role="treeitem">nagios_plugin.py</li>
+      <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+        <button class="p-list-tree__toggle" id="sub-3-btn"  aria-controls="sub-3" aria-expanded="false">/plugins</button>
+        <ul class="p-list-tree" role="group" id="sub-3" aria-hidden="true" aria-labelledby="sub-3-btn">
+          <li class="p-list-tree__item" role="treeitem">check_mem.pl</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<script>
+  /**
+   Toggles the necessary aria- attributes' values on the elements
+   to handle showing and hiding them.
+   @param {HTMLElement} element The toggle element controlling the visibility.
+   @param {Boolean} show Whether to show or hide the target.
+   */
+  function toggleElement(element, show) {
+    var target = document.getElementById(element.getAttribute('aria-controls'));
+
+    if (target) {
+      element.setAttribute('aria-expanded', show);
+      target.setAttribute('aria-hidden', !show);
+    }
+  }
+
+  /**
+   Attaches event listeners for the list tree toggle.
+   @param {HTMLElement} listTreeToggle The list tree toggle element.
+   */
+  function setupListTreeToggle(listTreeToggle) {
+    listTreeToggle.addEventListener('click', function(event) {
+      event.preventDefault();
+      var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
+      toggleElement(listTreeToggle, expand);
+    });
+  }
+
+  // Set up all list trees on the page.
+  var listTreeToggles = document.querySelectorAll('.p-list-tree__toggle');
+  for (var i = 0, l = listTreeToggles.length; i < l; i++) {
+    setupListTreeToggle(listTreeToggles[i]);
+  }
+</script>
+{% endblock %}
