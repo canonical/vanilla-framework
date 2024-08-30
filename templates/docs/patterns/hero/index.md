@@ -17,9 +17,9 @@ The hero pattern is composed of the following elements:
 
 | Element              | Description                                                              |
 | -------------------- | ------------------------------------------------------------------------ |
-| Title (**required**) | `h1` title text                                                          |
-| Subtitle             | `h2` subtitle text                                                       |
-| Description          | `p` description text                                                     |
+| Title (**required**) | Title text (to be placed in `h1` heading)                                |
+| Subtitle             | Subtitle text (using `h2` style)                                         |
+| Description          | Description text (one or more paragraphs)                                |
 | Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description |
 | Image                | Main hero visual                                                         |
 
