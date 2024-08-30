@@ -202,7 +202,7 @@ To import the Hero Jinja macro, copy the following import statement into your Ji
 ```jinja
 {% raw -%}
 {% from "_macros/vf_hero.jinja" import vf_hero %}
-{% endraw %}
+{%- endraw -%}
 ```
 
 View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros) for macro installation instructions.
