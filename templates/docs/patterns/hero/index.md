@@ -28,14 +28,14 @@ The hero pattern is composed of the following elements:
 ### Parameters
 
 <div style="overflow: auto;">
-  <table>
+  <table style="overflow: visible; width: auto;">
     <thead>
       <tr>
-        <th style="width: 190px;">Name</th>
-        <th style="width: 100px;">Is Required</th>
-        <th style="width: 200px;">Type</th>
-        <th style="width: 150px;">Default</th>
-        <th style="width: 250px;">Description</th>
+        <th style="width: 20%;">Name</th>
+        <th style="width: 15%;">Is Required</th>
+        <th style="width: 20%;">Type</th>
+        <th style="width: 15%;">Default</th>
+        <th style="width: 30%;">Description</th>
       </tr>
     </thead>
     <tbody>
@@ -83,12 +83,12 @@ The hero pattern is composed of the following elements:
 ### Slots
 
 <div style="overflow: auto;">
-  <table>
+  <table style="overflow: visible; width: auto;">
     <thead>
       <tr>
-        <th style="width: 155px;">Name</th>
-        <th style="width: 200px;">Is Required</th>
-        <th style="width: 400px;">Description</th>
+        <th style="width: 20%;">Name</th>
+        <th style="width: 25%;">Is Required</th>
+        <th style="width: 55%;">Description</th>
       </tr>
     </thead>
     <tbody>
