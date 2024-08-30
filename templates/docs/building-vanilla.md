@@ -33,24 +33,36 @@ Now run `yarn build-css`, which will convert any Sass files in the `src/` folder
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-1-btn" role="tab" aria-controls="sub-1" aria-expanded="false">dist</button>
     <ul class="p-list-tree" id="sub-1" role="tabpanel" aria-hidden="true" aria-labelledby="sub-1-btn">
-      <li class="p-list-tree__item">style.css</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">style.css</a>
+      </li>
     </ul>
   </li>
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-2-btn" role="tab" aria-controls="sub-2" aria-expanded="false">node_modules</button>
     <ul class="p-list-tree" id="sub-2" role="tabpanel" aria-hidden="true" aria-labelledby="sub-2-btn">
-      <li class="p-list-tree__item">modules</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">modules</a>
+      </li>
     </ul>
   </li>
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-3-btn" role="tab" aria-controls="sub-3" aria-expanded="false">src</button>
     <ul class="p-list-tree" id="sub-3" role="tabpanel" aria-hidden="true" aria-labelledby="sub-3-btn">
-      <li class="p-list-tree__item">style.scss</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">style.scss</a>
+      </li>
     </ul>
   </li>
-  <li class="p-list-tree__item">index.html</li>
-  <li class="p-list-tree__item">package.json</li>
-  <li class="p-list-tree__item">yarn.lock</li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">index.html</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">package.json</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">yarn.lock</a>
+  </li>
 </ul>
 
 To watch for changes in your Sass files, add the following script to your `package.json`:
@@ -176,26 +188,42 @@ Your project's folder structure should now look something like this:
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-4-btn" role="tab" aria-controls="sub-4" aria-expanded="false">dist</button>
     <ul class="p-list-tree" id="sub-4" role="tabpanel" aria-hidden="true" aria-labelledby="sub-4-btn">
-      <li class="p-list-tree__item">bundle.js</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">bundle.js</a>
+      </li>
     </ul>
   </li>
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-5-btn" role="tab" aria-controls="sub-5" aria-expanded="false">node_modules</button>
     <ul class="p-list-tree" id="sub-5" role="tabpanel" aria-hidden="true" aria-labelledby="sub-5-btn">
-      <li class="p-list-tree__item">modules</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">modules</a>
+      </li>
     </ul>
   </li>
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-6-btn" role="tab" aria-controls="sub-6" aria-expanded="false">src</button>
     <ul class="p-list-tree" id="sub-6" role="tabpanel" aria-hidden="true" aria-labelledby="sub-6-btn">
-      <li class="p-list-tree__item">app.js</li>
-      <li class="p-list-tree__item">style.scss</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">app.js</a>
+      </li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">style.scss</a>
+      </li>
     </ul>
   </li>
-  <li class="p-list-tree__item">index.html</li>
-  <li class="p-list-tree__item">package.json</li>
-  <li class="p-list-tree__item">webpack.config.js</li>
-  <li class="p-list-tree__item">yarn.lock</li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">index.html</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">package.json</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">webpack.config.js</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">yarn.lock</a>
+  </li>
 </ul>
 
 To provide the same browser support as Vanilla, you should also include [autoprefixer](https://www.npmjs.com/package/autoprefixer) in the build pipeline via [postcss-loader](https://www.npmjs.com/package/postcss-loader).
@@ -240,25 +268,39 @@ Now run `gulp build-css`, which will convert any Sass files in the `src/` folder
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-7-btn" role="tab" aria-controls="sub-7" aria-expanded="false">dist</button>
     <ul class="p-list-tree" id="sub-7" role="tabpanel" aria-hidden="true" aria-labelledby="sub-7-btn">
-      <li class="p-list-tree__item">style.css</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">style.css</a>
+      </li>
     </ul>
   </li>
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-8-btn" role="tab" aria-controls="sub-8" aria-expanded="false">node_modules</button>
     <ul class="p-list-tree" id="sub-8" role="tabpanel" aria-hidden="true" aria-labelledby="sub-8-btn">
-      <li class="p-list-tree__item">modules</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">modules</a>
+      </li>
     </ul>
   </li>
   <li class="p-list-tree__item p-list-tree__item--group">
     <button class="p-list-tree__toggle" id="sub-9-btn" role="tab" aria-controls="sub-9" aria-expanded="false">src</button>
     <ul class="p-list-tree" id="sub-9" role="tabpanel" aria-hidden="true" aria-labelledby="sub-9-btn">
-      <li class="p-list-tree__item">style.scss</li>
+      <li class="p-list-tree__item">
+        <a class="p-list-tree__link" tabindex="0">style.scss</a>
+      </li>
     </ul>
   </li>
-  <li class="p-list-tree__item">gulpfile.js</li>
-  <li class="p-list-tree__item">index.html</li>
-  <li class="p-list-tree__item">package.json</li>
-  <li class="p-list-tree__item">yarn.lock</li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">gulpfile.js</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">index.html</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">package.json</a>
+  </li>
+  <li class="p-list-tree__item">
+    <a class="p-list-tree__link" tabindex="0">yarn.lock</a>
+  </li>
 </ul>
 
 If you open an extra terminal and run `gulp watch-css`, the CSS will be rebuilt every time your Sass files are edited and saved.
@@ -284,14 +326,5 @@ git submodule update
 ```
 
 <script>
-  var listTreeToggle = document.querySelectorAll('.p-list-tree__toggle');
-  for (var i = 0; i < listTreeToggle.length; i++) {
-    listTreeToggle[i].addEventListener('click', function(e) {
-      e.preventDefault();
-      var listTree = this.nextElementSibling;
-      var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
-      this.setAttribute('aria-expanded', expand);
-      listTree.setAttribute('aria-hidden', !expand);
-    });
-  }
+  {% include 'docs/examples/patterns/list-tree/_script.js' %}
 </script>
