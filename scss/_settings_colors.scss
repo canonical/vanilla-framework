@@ -106,6 +106,9 @@ $states: (
 // --border-default       - default border color
 // --border-high-contrast - high contrast version of border color, to be used when border needs more visibility (form inputs, etc)
 // --border-low-contrast  - low contrast version of border color, to be used when border needs more visibility (separators)
+//
+// Highlight colors:
+// --accent         - default accent color
 
 // Light theme
 $colors--light-theme--text-default: #000 !default;
@@ -290,6 +293,8 @@ $colors--theme--button-negative-hover: var(--vf-color-button-negative-hover);
 $colors--theme--button-negative-active: var(--vf-color-button-negative-active);
 $colors--theme--button-negative-text: var(--vf-color-button-negative-text);
 
+$colors--theme--accent: var(--vf-color-accent);
+
 // Theme colors exposed as CSS custom properties
 @mixin vf-theme-light--colors {
   // SCSS variables need to be interpolated to work in CSS custom properties
@@ -345,6 +350,8 @@ $colors--theme--button-negative-text: var(--vf-color-button-negative-text);
   --vf-color-button-negative-hover: #{adjust-color($color-negative, $lightness: -$hover-background-opacity-percentage)};
   --vf-color-button-negative-active: #{adjust-color($color-negative, $lightness: -$active-background-opacity-percentage)};
   --vf-color-button-negative-text: #{vf-contrast-text-color($color-negative)};
+
+  --vf-color-accent: #{$color-accent};
 }
 
 @mixin vf-theme-dark--colors {
@@ -401,6 +408,8 @@ $colors--theme--button-negative-text: var(--vf-color-button-negative-text);
   --vf-color-button-negative-hover: #{adjust-color($color-negative-dark, $lightness: -$hover-background-opacity-percentage)};
   --vf-color-button-negative-active: #{adjust-color($color-negative-dark, $lightness: -$active-background-opacity-percentage)};
   --vf-color-button-negative-text: #{vf-contrast-text-color($color-negative-dark)};
+
+  --vf-color-accent: #{$color-accent-dark};
 }
 
 @mixin vf-theme-paper--colors {
@@ -421,4 +430,5 @@ $color-ubuntu: #e95420; // Ubuntu orange, should not be overridden
 $color-brand: $color-ubuntu !default;
 $color-brand-dark: $color-brand !default;
 $color-accent: #0f95a1 !default;
+$color-accent-dark: #70bbc2 !default;
 $color-accent-background: $colors--dark-theme--background-default !default; // changed from "brand" colour to dark theme background
