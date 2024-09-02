@@ -62,7 +62,7 @@
 
 // Adds visual focus to elements on :focus-visible or :focus if the browser
 // doesn't support the former
-@mixin vf-focus($light-color: $colors--light-theme--focus, $dark-color: $colors--dark-theme--focus, $width: $bar-thickness, $has-validation: false) {
+@mixin vf-focus-themed($light-color: $colors--light-theme--focus, $dark-color: $colors--dark-theme--focus, $width: $bar-thickness, $has-validation: false) {
   --vf-focus-outline-color: #{$light-color};
 
   .is-dark & {
@@ -97,6 +97,12 @@
       outline-color: $color-positive;
     }
   }
+}
+
+// This mixin is deprecated and will be removed in a future version of Vanilla.
+// Please use vf-focus-themed instead.
+@mixin vf-focus($color: $colors--theme--focus, $width: $bar-thickness, $has-validation: false) {
+  @include vf-focus-themed($light-color: $color, $width: $width, $has-validation: $has-validation);
 }
 
 // Raises a number to a power (https://css-tricks.com/snippets/sass/power-function/)
