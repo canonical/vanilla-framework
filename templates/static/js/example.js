@@ -1,5 +1,3 @@
-import {throttle, fetchResponseText} from './shared/utils.js';
-
 (function () {
   if (!window.VANILLA_VERSION) {
     throw Error('VANILLA_VERSION not specified.');
@@ -75,7 +73,7 @@ import {throttle, fetchResponseText} from './shared/utils.js';
   async function fetchExample(exampleElement) {
     // TODO - integrate fetching/rendering more cleanly in future
     /** Rendered HTML that will be seen by users */
-    const fetchRendered = fetchResponseText(exampleElement.href);
+    const fetchRendered = window.fetchResponseText(exampleElement.href);
 
     let exampleRequests = [fetchRendered];
 
@@ -86,7 +84,7 @@ import {throttle, fetchResponseText} from './shared/utils.js';
       queryParams.set('raw', true);
       exampleURL.search = queryParams.toString();
 
-      const fetchRaw = fetchResponseText(
+      const fetchRaw = window.fetchResponseText(
         exampleURL.href
           // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
           .replace(/standalone/, '/'),

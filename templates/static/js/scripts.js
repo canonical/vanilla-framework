@@ -1,5 +1,3 @@
-import {throttle} from './shared/utils.js';
-
 // Setup toggling of side navigation drawer
 (function () {
   var expandedSidenavContainer = null;
@@ -135,7 +133,7 @@ import {throttle} from './shared/utils.js';
     // hide side navigation drawer when screen is resized
     window.addEventListener(
       'resize',
-      throttle(function () {
+      window.throttle(function () {
         toggles.forEach((toggle) => {
           return toggle.setAttribute('aria-expanded', false);
         });
