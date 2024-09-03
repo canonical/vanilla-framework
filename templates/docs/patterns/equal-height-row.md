@@ -95,6 +95,10 @@ their vertical orientation across all breakpoints.
   </a>
 </div>
 
+## Class reference
+
+{{ class_reference("equal-height-row") }}
+
 ## Import
 
 To import just this component into your project, copy the snippet below and
