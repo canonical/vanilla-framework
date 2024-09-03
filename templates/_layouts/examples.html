@@ -40,9 +40,9 @@
   </html>
 {% else %}
   {# Include a link to the embedded template #}
-  <div>
+  <p>
     <small><a href="/{{ self._TemplateReference__context.name }}">{{ self._TemplateReference__context.name }}</a></small>
-  </div>
+  </p>
   {# In the combined case, render just the body, as the HTML & head is handled by the combined example #}
   {{ body_content() }}
   {% if is_combined and spacing_below and spacing_below > 0 %}
