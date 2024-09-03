@@ -57,9 +57,9 @@ function setupListTreeLink(listTreeLink) {
 
     // Remove active state from any other active nodes in this tree
     const linksToDeactivate = parentTree.querySelectorAll('.is-active');
-    linksToDeactivate.forEach(linkToDeactivate => {
+    linksToDeactivate.forEach((linkToDeactivate) => {
       linkToDeactivate.classList.remove('is-active');
-    })
+    });
 
     activeTarget.classList.add('is-active');
   });
@@ -75,7 +75,5 @@ for (var i = 0, l = listTreeToggles.length; i < l; i++) {
 var listTreeItems = document.querySelectorAll('li.p-list-tree__item:not(.p-list-tree__item--group)');
 var listTreeLinks = [...listTreeItems, ...listTreeToggles];
 for (var i = 0; i < listTreeLinks.length; i++) {
-  setupListTreeLink(
-    listTreeLinks[i]
-  );
+  setupListTreeLink(listTreeLinks[i]);
 }
