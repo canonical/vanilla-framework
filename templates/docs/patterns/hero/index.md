@@ -43,14 +43,12 @@ The hero pattern is composed of the following elements:
         <td><code>layout</code></td>
         <td>Yes</td>
         <td>
-          One of:
-          <ul class="p-list">
-            <li class="p-list__item has-bullet"><code>'50/50'</code></li>
-            <li class="p-list__item has-bullet"><code>'50/50-full-width-image'</code></li>
-            <li class="p-list__item has-bullet"><code>'75/25'</code></li>
-            <li class="p-list__item has-bullet"><code>'25/75'</code></li>
-            <li class="p-list__item has-bullet"><code>'fallback'</code></li>
-          </ul>
+          One of:<br>
+            <code>'50/50'</code>,<br>
+            <code>'50/50-full-width-image'</code>,<br>
+            <code>'75/25'</code>,<br>
+            <code>'25/75'</code>,<br>
+            <code>'fallback'</code>
         </td>
         <td><code>'fallback'</code></td>
         <td>Choice of hero layout.</td>
