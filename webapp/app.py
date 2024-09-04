@@ -297,7 +297,7 @@ def example(example_path, is_standalone=False):
             # separate directory from file name so that flask.send_from_directory() can prevent malicious file access
             raw_example_directory = os.path.dirname(raw_example_path)
             raw_example_file_name = os.path.basename(raw_example_path)
-            return flask.send_from_directory(raw_example_directory, raw_example_file_name, mimetype="text/raw", max_age=86400)
+            return flask.send_from_directory(raw_example_directory, raw_example_file_name, mimetype="text/raw")
 
         return flask.render_template(
             f"docs/examples/{example_path}.html", is_standalone=is_standalone
