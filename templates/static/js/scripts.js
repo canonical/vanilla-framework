@@ -1,5 +1,19 @@
 // Setup toggling of side navigation drawer
 (function () {
+  // throttling function calls, by Remy Sharp
+  // http://remysharp.com/2010/07/21/throttling-function-calls/
+  const throttle = function (fn, delay) {
+    let timer = null;
+    return function () {
+      let context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
+  };
+
   var expandedSidenavContainer = null;
   var lastFocus = null;
   var ignoreFocusChanges = false;
@@ -133,7 +147,7 @@
     // hide side navigation drawer when screen is resized
     window.addEventListener(
       'resize',
-      window.throttle(function () {
+      throttle(function () {
         toggles.forEach((toggle) => {
           return toggle.setAttribute('aria-expanded', false);
         });
