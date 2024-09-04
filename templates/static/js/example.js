@@ -3,6 +3,20 @@
     throw Error('VANILLA_VERSION not specified.');
   }
 
+  // throttling function calls, by Remy Sharp
+  // http://remysharp.com/2010/07/21/throttling-function-calls/
+  const throttle = function (fn, delay) {
+    let timer = null;
+    return function () {
+      let context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
+  };
+
   /**
    * Mapping of example keys to the regex patterns used to strip them out of an example
    * @type {{body: RegExp, jinja: RegExp, title: RegExp, head: RegExp}}
@@ -67,13 +81,38 @@
   });
 
   /**
+   * `fetch()` wrapper that throws an error if the response is not OK.
+   * @param {String} url Address to fetch
+   * @param {RequestInit} opts Options for the fetch request
+   * @returns {Promise<Response>} Response object
+   * @throws {Error} If the response is not in the 200 (OK) range
+   */
+  const fetchResponse = async function (url, opts = {}) {
+    const response = await fetch(url, opts);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch example ${url} with status ${response.status}`);
+    }
+    return response;
+  };
+
+  /**
+   * Fetch the response text of a URL.
+   * @param {String} url Address to fetch
+   * @returns {Promise<String>} Response text
+   * @throws {Error} If the response is not in the 200 (OK) range
+   */
+  const fetchResponseText = async function (url) {
+    return (await fetchResponse(url)).text();
+  };
+
+  /**
    * Fetches the requested example and replaces the example element with the content and code snippet of the example.
    * @param {HTMLAnchorElement} exampleElement `a.js-example` element with `href` set to the address of the example to fetch
    */
   async function fetchExample(exampleElement) {
     // TODO - integrate fetching/rendering more cleanly in future
     /** Rendered HTML that will be seen by users */
-    const fetchRendered = window.fetchResponseText(exampleElement.href);
+    const fetchRendered = fetchResponseText(exampleElement.href);
 
     let exampleRequests = [fetchRendered];
 
@@ -84,7 +123,7 @@
       queryParams.set('raw', true);
       exampleURL.search = queryParams.toString();
 
-      const fetchRaw = window.fetchResponseText(
+      const fetchRaw = fetchResponseText(
         exampleURL.href
           // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
           .replace(/standalone/, '/'),
