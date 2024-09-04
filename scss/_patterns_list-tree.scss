@@ -15,14 +15,6 @@
     width: $list-tree-toggle-icon-size;
   }
 
-  .p-list-tree {
-    display: block !important;
-
-    .p-list-tree::after {
-      display: none !important;
-    }
-  }
-
   .p-list-tree__link,
   .p-list-tree__toggle {
     color: $colors--theme--text-default;
@@ -88,6 +80,19 @@
     &[aria-expanded='true'],
     &:hover {
       background: $colors--theme--background-default;
+    }
+  }
+
+  .p-list-tree {
+    display: block !important;
+
+    .p-list-tree::before {
+      display: none !important;
+    }
+
+    .p-list-tree::after {
+      @extend %list-tree-icon;
+      @include vf-icon-chevron-right-themed;
     }
   }
 }
