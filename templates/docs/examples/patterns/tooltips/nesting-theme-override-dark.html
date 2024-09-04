@@ -1,0 +1,13 @@
+{% extends "_layouts/examples.html" %}
+{% from "docs/examples/patterns/tooltips/_nesting-theme-override.jinja" import tooltip_nesting_theme_override %}
+
+{% block title %}Tooltips / Overridden theme / Dark{% endblock %}
+
+{% block standalone_css %}patterns_tooltips{% endblock %}
+
+{% set is_dark = True %}
+{% set is_not_themed = true %}
+
+{% block content %}
+{{ tooltip_nesting_theme_override('dark', is_combined) }}
+{% endblock %}

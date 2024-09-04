@@ -52,19 +52,21 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
 
     @include vf-theme-dark; // Default to dark theme
 
-    // Apply light theme if an ancestor has the `is-dark` class
+    // stylelint-disable selector-max-type -- Tooltip theming is based on theming of the document body.
+    // Apply light theme if the page or the tooltip component is dark
     body.is-dark &,
     .p-tooltip.is-dark & {
       @include vf-theme-light;
     }
 
-    // Override to dark theme if an ancestor has `is-light` or `is-paper` class
+    // Override to dark theme if the page or the tooltip component is light or paper
     body.is-light &,
     body.is-paper &,
     .p-tooltip.is-light &,
     .p-tooltip.is-paper & {
       @include vf-theme-dark;
     }
+    // stylelint-enable selector-max-type
 
     .is-detached & {
       display: block;
