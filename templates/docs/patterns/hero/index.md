@@ -32,7 +32,7 @@ The hero pattern is composed of the following elements:
     <thead>
       <tr>
         <th style="width: 20%;">Name</th>
-        <th style="width: 15%;">Is Required</th>
+        <th style="width: 10%;">Is required</th>
         <th style="width: 20%;">Type</th>
         <th style="width: 15%;">Default</th>
         <th style="width: 30%;">Description</th>
