@@ -15,6 +15,16 @@
     width: $list-tree-toggle-icon-size;
   }
 
+  %list-tree-expand-icon {
+    @extend %list-tree-icon;
+    @include vf-icon-chevron-right-themed;
+  }
+
+  %list-tree-collapse-icon {
+    @extend %list-tree-icon;
+    @include vf-icon-chevron-down-themed;
+  }
+
   .p-list-tree__link,
   .p-list-tree__toggle {
     color: $colors--theme--text-default;
@@ -45,8 +55,7 @@
       }
 
       &[aria-hidden='false']::before {
-        @extend %list-tree-icon;
-        @include vf-icon-chevron-down-themed;
+        @extend %list-tree-expand-icon;
       }
     }
   }
@@ -61,8 +70,7 @@
 
   .p-list-tree__toggle[aria-expanded='false'] {
     &::before {
-      @extend %list-tree-icon;
-      @include vf-icon-chevron-right-themed;
+      @extend %list-tree-collapse-icon;
     }
   }
 
@@ -83,16 +91,14 @@
     }
   }
 
-  .p-list-tree {
+  // MAAS static tree styling (`.p-list-tree--static`)
+  .p-list-tree/*--static*/ {
+    // Force the entire tree to be visible
     display: block !important;
 
-    .p-list-tree::before {
-      display: none !important;
-    }
-
-    .p-list-tree::after {
-      @extend %list-tree-icon;
-      @include vf-icon-chevron-right-themed;
+    // Hide the collapse button
+    .p-list-tree__toggle::before {
+        @extend %list-tree-expand-icon;
     }
   }
 }
