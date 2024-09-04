@@ -53,13 +53,16 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
     @include vf-theme-dark; // Default to dark theme
 
     // Apply light theme if an ancestor has the `is-dark` class
-    .is-dark & {
+    body.is-dark &,
+    .p-tooltip.is-dark & {
       @include vf-theme-light;
     }
 
     // Override to dark theme if an ancestor has `is-light` or `is-paper` class
-    .is-light &,
-    .is-paper & {
+    body.is-light &,
+    body.is-paper &,
+    .p-tooltip.is-light &,
+    .p-tooltip.is-paper & {
       @include vf-theme-dark;
     }
 
