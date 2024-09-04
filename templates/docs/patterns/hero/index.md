@@ -33,7 +33,7 @@ The hero pattern is composed of the following elements:
       <tr>
         <th style="width: 20%;">Name</th>
         <th style="width: 10%;">Is required</th>
-        <th style="width: 20%;">Type</th>
+        <th style="width: 25%;">Type</th>
         <th style="width: 15%;">Default</th>
         <th style="width: 30%;">Description</th>
       </tr>
@@ -43,11 +43,11 @@ The hero pattern is composed of the following elements:
         <td><code>layout</code></td>
         <td>Yes</td>
         <td>
-          One of:<br>
-            <code>'50/50'</code>,<br>
-            <code>'50/50-full-width-image'</code>,<br>
-            <code>'75/25'</code>,<br>
-            <code>'25/75'</code>,<br>
+          One of:
+            <code>'50/50'</code>,
+            <code>'50/50-full-width-image'</code>,
+            <code>'75/25'</code>,
+            <code>'25/75'</code>,
             <code>'fallback'</code>
         </td>
         <td><code>'fallback'</code></td>
@@ -85,7 +85,7 @@ The hero pattern is composed of the following elements:
     <thead>
       <tr>
         <th style="width: 20%;">Name</th>
-        <th style="width: 25%;">Is Required</th>
+        <th style="width: 25%;">Is required</th>
         <th style="width: 55%;">Description</th>
       </tr>
     </thead>
