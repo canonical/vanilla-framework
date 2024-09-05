@@ -130,19 +130,18 @@ async function getPercyConfigURLs() {
   let urls = [];
 
   for (let link of links) {
-    for (const theme of SNAPSHOT_COLOR_THEMES) {
-      const url = new URL(`${link}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`);
-      const path = url.pathname.replace(/\/?$/, '/');
+    const path = new URL(link).pathname.replace(/\/?$/, '/');
 
+    for (const theme of SNAPSHOT_COLOR_THEMES) {
+      const url = `${link}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
       const name = `${path.slice(0, path.length - 1)}?${COLOR_THEME_QUERY_PARAM_NAME}=${theme}`;
       const widths = await getWidthsForExample(path, theme);
 
       // Default theme captured responsively, other themes captured at the largest width
       urls.push({
-        url: url.href,
+        url,
         name,
         widths,
-        testCase: url.pathname.replace(/standalone\//g, ''),
       });
     }
   }
