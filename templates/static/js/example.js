@@ -77,7 +77,11 @@
   document.addEventListener('DOMContentLoaded', function () {
     const examples = document.querySelectorAll('.js-example');
 
-    [].slice.call(examples).forEach(fetchExample);
+    [].slice.call(examples).forEach((placementElement) => {
+      renderExample(placementElement).catch((error) => {
+        console.error('Failed to render example', {placementElement, error});
+      });
+    });
   });
 
   /**
@@ -111,40 +115,6 @@
   };
 
   /**
-   * Fetches the requested example and replaces the example element with the content and code snippet of the example.
-   * @param {HTMLAnchorElement} exampleElement `a.js-example` element with `href` set to the address of the example to fetch
-   */
-  async function fetchExample(exampleElement) {
-    // TODO - integrate fetching/rendering more cleanly in future
-    /** Rendered HTML that will be seen by users */
-    const fetchRendered = fetchResponseText(exampleElement.href);
-
-    const exampleRequests = [fetchRendered];
-
-    // If the example requires raw template rendering, request the raw template file as well
-    if (exampleElement.getAttribute('data-lang') === 'jinja') {
-      const exampleURL = new URL(exampleElement.href);
-      const queryParams = new URLSearchParams(exampleURL.search);
-      queryParams.set('raw', true);
-      exampleURL.search = queryParams.toString();
-
-      const fetchRaw = fetchResponseText(
-        exampleURL.href
-          // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
-          .replace(/standalone/, '/'),
-      );
-      exampleRequests.push(fetchRaw);
-    }
-
-    try {
-      const [renderedHtml, rawHtml] = await Promise.all(exampleRequests);
-      renderExample(exampleElement, renderedHtml, rawHtml);
-    } catch (err) {
-      console.error('An error occurred while fetching an example', exampleElement, err);
-    }
-  }
-
-  /**
    * Format source code based on language
    * @param {String} source - source code to format
    * @param {'html'|'jinja'|'js'|'css'} lang - language of the source code
@@ -172,14 +142,14 @@
 
   /**
    * Create `pre`-formatted code for a block of source
-   * @param {String} source Unformatted source code
+   * @param {String} source Formatted source code
    * @param {'html'|'jinja'|'js'|'css'} lang Language of the source code
    * @param {Boolean} isHidden Whether the pre-code should be hidden initially
    * @returns {HTMLPreElement} Code snippet containing the source code
    */
   function createPreCode(source, lang, isHidden = true) {
     const code = document.createElement('code');
-    code.appendChild(document.createTextNode(formatSource(source, lang)));
+    code.appendChild(document.createTextNode(source));
 
     const pre = document.createElement('pre');
     pre.classList.add('p-code-snippet__block');
@@ -212,72 +182,135 @@
   }
 
   /**
+   * Fetches the rendered HTML of an example and extracts the relevant sections for rendering and code snippets.
+   * @param {HTMLElement} placementElement The placeholder element for the example
+   * @returns {Promise<{rendered: String, body: String}>} The rendered HTML and source code of the example
+   */
+  async function fetchHtmlSource(placementElement) {
+    const renderedHtml = await fetchResponseText(placementElement.href);
+    const bodyHTML = getExampleSection('body', renderedHtml);
+
+    return {rendered: renderedHtml, body: bodyHTML};
+  }
+
+  /**
+   * Fetches the raw Jinja template of an example and returns the Jinja content block
+   * @param {HTMLElement} placementElement The placeholder element for the example
+   * @returns {Promise<String>} The Jinja content block of the example
+   */
+  async function fetchJinjaContentBlock(placementElement) {
+    // Raw templates are not served at standalone paths, so strip it from the URL if it was found.
+    const exampleUrl = new URL(`${placementElement.href.replace(/standalone/, '/')}`);
+
+    // Add `?raw=true` query parameter to the URL to request the raw Jinja template
+    const queryParams = new URLSearchParams(exampleUrl.search);
+    queryParams.set('raw', true);
+    exampleUrl.search = queryParams.toString();
+
+    const rawJinjaTemplate = await fetchResponseText(exampleUrl.toString());
+    return formatSource(getExampleSection('jinja', rawJinjaTemplate), 'jinja');
+  }
+
+  /**
    * Replaces an example placeholder element with its rendered result and code snippet.
    * @param {HTMLAnchorElement} placementElement `a.js-example` element used as a placeholder for the example to render
    * @param {String} renderedHtml Full document HTML of the example as it is shown to end-users
    * @param {String|null} jinjaTemplate Jinja Template of the example as it may be used by developers, if supported
    */
-  function renderExample(placementElement, renderedHtml, jinjaTemplate) {
-    const bodyHTML = getExampleSection('body', renderedHtml);
-    const headHTML = getExampleSection('head', renderedHtml);
-    const title = getExampleSection('title', renderedHtml);
-    const templateHTML = getExampleSection('jinja', jinjaTemplate);
-    const hasJinjaTemplate = templateHTML?.length > 0;
-
-    const htmlSource = stripScriptsFromSource(bodyHTML);
-    const jsSource = getScriptFromSource(bodyHTML);
-    const cssSource = getStyleFromSource(headHTML);
-    const externalScripts = getExternalScriptsFromSource(renderedHtml);
-    const codePenData = {
-      html: htmlSource,
-      css: cssSource,
-      js: jsSource,
-      externalJS: externalScripts,
-    };
-
-    const height = placementElement.getAttribute('data-height');
-
+  async function renderExample(placementElement) {
     const codeSnippet = document.createElement('div');
-
     codeSnippet.classList.add('p-code-snippet', 'is-bordered');
 
     const header = document.createElement('div');
     header.classList.add('p-code-snippet__header');
+
     const titleEl = document.createElement('h5');
     titleEl.classList.add('p-code-snippet__title');
 
-    // example page title is structured as "... | Examples | Vanilla documentation"
-    // we want to strip anything after first | pipe
-    titleEl.innerText = title.split('|')[0];
+    const srcData = {
+      html: undefined,
+      jinja: undefined,
+      css: undefined,
+      js: undefined,
+      codePen: undefined,
+    };
 
-    header.appendChild(titleEl);
-    codeSnippet.appendChild(header);
+    const exampleRequests = [];
 
-    placementElement.parentNode.insertBefore(codeSnippet, placementElement);
-    renderIframe(codeSnippet, renderedHtml, height);
+    const fetchHtml = fetchHtmlSource(placementElement).then(({rendered: renderedHtml, body: bodyHtml}) => {
+      const title = getExampleSection('title', renderedHtml).split('|')[0];
+      const headHtml = getExampleSection('head', renderedHtml);
+      const htmlBodySource = formatSource(stripScriptsFromSource(bodyHtml), 'html');
+      const jsSource = formatSource(getScriptFromSource(bodyHtml), 'js');
+      const cssSource = formatSource(getStyleFromSource(headHtml), 'css');
+      const externalScripts = getExternalScriptsFromSource(renderedHtml);
 
-    // Build code block structure
-    const options = ['html'];
-    codeSnippet.appendChild(createPreCode(htmlSource, 'html', false));
-    if (hasJinjaTemplate) {
-      codeSnippet.appendChild(createPreCode(templateHTML, 'jinja'));
-      options.push('jinja');
+      titleEl.innerText = title;
+      header.appendChild(titleEl);
+      codeSnippet.appendChild(header);
+      placementElement.parentNode.insertBefore(codeSnippet, placementElement);
+
+      // HTML iframe is required, so throw if it fails
+      if (renderedHtml) {
+        renderIframe(codeSnippet, renderedHtml, placementElement.getAttribute('data-height'));
+      } else {
+        throw new Error('Failed to render HTML iframe');
+      }
+
+      // HTML source is required, so throw if it fails
+      if (htmlBodySource) {
+        srcData.html = htmlBodySource;
+      } else {
+        throw new Error('Failed to render HTML source code');
+      }
+
+      // The rest of the views are optional
+      if (jsSource) {
+        srcData.js = jsSource;
+      }
+      if (cssSource) {
+        srcData.css = cssSource;
+      }
+      srcData.codePen = {
+        html: htmlBodySource,
+        css: cssSource,
+        js: jsSource,
+        externalJS: externalScripts,
+      };
+    });
+    exampleRequests.push(fetchHtml);
+
+    if (placementElement.getAttribute('data-lang') === 'jinja') {
+      // Perform jinja template fetching if the example was marked as a Jinja template
+      const fetchJinja = fetchJinjaContentBlock(placementElement).then((contentBlock) => {
+        const hasJinjaTemplate = contentBlock?.length > 0;
+        if (hasJinjaTemplate) {
+          srcData.jinja = contentBlock;
+        }
+      });
+      exampleRequests.push(fetchJinja);
     }
-    if (jsSource) {
-      codeSnippet.appendChild(createPreCode(jsSource, 'js'));
-      options.push('js');
-    }
-    if (cssSource) {
-      codeSnippet.appendChild(createPreCode(cssSource, 'css'));
-      options.push('css');
-    }
 
-    renderDropdown(header, options);
-    renderCodePenEditLink(codeSnippet, codePenData);
+    // Perform as much of the data fetching and processing as possible in parallel
+    await Promise.all(exampleRequests);
+    // Code after this point depends on the data above being fully fetched, so must come after an `await` block
+
+    // Gather the languages that have source code available, in the order they should be displayed
+    // We can't rely on order of these languages being made available in the promise blocks above due to async nature
+    const languageOptions = ['html', 'jinja', 'js', 'css'].filter((lang) => srcData[lang]);
+    const sourceBlocks = languageOptions.map((lang, idx) => createPreCode(srcData[lang], lang, idx > 0));
+
+    sourceBlocks.forEach((block) => codeSnippet.appendChild(block));
 
     if (Prism) {
       Prism.highlightAllUnder(codeSnippet);
     }
+
+    if (srcData.codePen) {
+      renderCodePenEditLink(codeSnippet, srcData.codePen);
+    }
+
+    renderDropdown(header, languageOptions);
 
     // The example has been rendered successfully, hide the placeholder element.
     placementElement.style.display = 'none';
@@ -290,7 +323,7 @@
    */
   function renderDropdown(codeSnippetHeader, codeSnippetModes) {
     // only add dropdown if there is more than one code block
-    if (codeSnippetModes.length === 0) return;
+    if (codeSnippetModes.length <= 1) return;
 
     const dropdownsEl = document.createElement('div');
     dropdownsEl.classList.add('p-code-snippet__dropdowns');
@@ -308,7 +341,6 @@
     dropdownsEl.appendChild(selectEl);
     codeSnippetHeader.appendChild(dropdownsEl);
     attachDropdownEvents(selectEl);
-
   }
 
   function resizeIframe(iframe) {
