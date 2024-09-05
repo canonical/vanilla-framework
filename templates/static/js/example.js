@@ -88,11 +88,16 @@
    * @throws {Error} If the response is not in the 200 (OK) range
    */
   const fetchResponse = async function (url, opts = {}) {
-    const response = await fetch(url, opts);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch example ${url} with status ${response.status}`);
+    try {
+      const response = await fetch(url, opts);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch example ${url} with status ${response.status}`);
+      }
+      return response;
+    } catch (err) {
+      console.error('An error occurred while performing a fetch request', err);
+      throw err;
     }
-    return response;
   };
 
   /**
@@ -102,7 +107,7 @@
    * @throws {Error} If the response is not in the 200 (OK) range
    */
   const fetchResponseText = async function (url) {
-    return (await fetchResponse(url)).text();
+    return fetchResponse(url).then((response) => response.text());
   };
 
   /**
@@ -135,7 +140,7 @@
       const [renderedHtml, rawHtml] = await Promise.all(exampleRequests);
       renderExample(exampleElement, renderedHtml, rawHtml);
     } catch (err) {
-      console.error(err);
+      console.error('An error occurred while fetching an example', exampleElement, err);
     }
   }
 
