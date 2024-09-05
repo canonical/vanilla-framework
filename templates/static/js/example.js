@@ -8,7 +8,7 @@
   const throttle = function (fn, delay) {
     let timer = null;
     return function () {
-      let context = this,
+      const context = this,
         args = arguments;
       clearTimeout(timer);
       timer = setTimeout(function () {
@@ -114,12 +114,12 @@
     /** Rendered HTML that will be seen by users */
     const fetchRendered = fetchResponseText(exampleElement.href);
 
-    let exampleRequests = [fetchRendered];
+    const exampleRequests = [fetchRendered];
 
     // If the example requires raw template rendering, request the raw template file as well
     if (exampleElement.getAttribute('data-lang') === 'jinja') {
-      let exampleURL = new URL(exampleElement.href);
-      let queryParams = new URLSearchParams(exampleURL.search);
+      const exampleURL = new URL(exampleElement.href);
+      const queryParams = new URLSearchParams(exampleURL.search);
       queryParams.set('raw', true);
       exampleURL.search = queryParams.toString();
 
@@ -173,10 +173,10 @@
    * @returns {HTMLPreElement} Code snippet containing the source code
    */
   function createPreCode(source, lang, isHidden = true) {
-    let code = document.createElement('code');
+    const code = document.createElement('code');
     code.appendChild(document.createTextNode(formatSource(source, lang)));
 
-    let pre = document.createElement('pre');
+    const pre = document.createElement('pre');
     pre.classList.add('p-code-snippet__block');
 
     // TODO: move max-height elsewhere to CSS?
@@ -232,13 +232,13 @@
 
     const height = placementElement.getAttribute('data-height');
 
-    let codeSnippet = document.createElement('div');
+    const codeSnippet = document.createElement('div');
 
     codeSnippet.classList.add('p-code-snippet', 'is-bordered');
 
-    let header = document.createElement('div');
+    const header = document.createElement('div');
     header.classList.add('p-code-snippet__header');
-    let titleEl = document.createElement('h5');
+    const titleEl = document.createElement('h5');
     titleEl.classList.add('p-code-snippet__title');
 
     // example page title is structured as "... | Examples | Vanilla documentation"
@@ -252,7 +252,7 @@
     renderIframe(codeSnippet, renderedHtml, height);
 
     // Build code block structure
-    let options = ['html'];
+    const options = ['html'];
     codeSnippet.appendChild(createPreCode(htmlSource, 'html', false));
     if (hasJinjaTemplate) {
       codeSnippet.appendChild(createPreCode(templateHTML, 'jinja'));
@@ -286,14 +286,14 @@
   function renderDropdown(codeSnippetHeader, codeSnippetModes) {
     // only add dropdown if there is more than one code block
     if (codeSnippetModes.length > 1) {
-      let dropdownsEl = document.createElement('div');
+      const dropdownsEl = document.createElement('div');
       dropdownsEl.classList.add('p-code-snippet__dropdowns');
 
-      let selectEl = document.createElement('select');
+      const selectEl = document.createElement('select');
       selectEl.classList.add('p-code-snippet__dropdown');
 
       codeSnippetModes.forEach(function (option) {
-        let optionHTML = document.createElement('option');
+        const optionHTML = document.createElement('option');
         optionHTML.value = option.toLowerCase();
         optionHTML.innerText = EXAMPLE_OPTIONS_CFG[option]?.label || option.toLowerCase();
         selectEl.appendChild(optionHTML);
@@ -307,19 +307,19 @@
 
   function resizeIframe(iframe) {
     if (iframe.contentDocument.readyState == 'complete') {
-      let frameHeight = iframe.contentDocument.body.scrollHeight;
+      const frameHeight = iframe.contentDocument.body.scrollHeight;
       iframe.height = frameHeight + 32 + 'px'; // accommodate for body margin
     }
   }
 
   function renderIframe(container, html, height) {
-    let iframe = document.createElement('iframe');
+    const iframe = document.createElement('iframe');
 
     if (height) {
       iframe.height = height + 'px';
     }
     container.appendChild(iframe);
-    let doc = iframe.contentWindow.document;
+    const doc = iframe.contentWindow.document;
     doc.open();
     doc.write(html);
     doc.close();
@@ -327,7 +327,7 @@
     // if height wasn't specified, try to determine it from example content
     if (!height) {
       // Wait for content to load before determining height
-      let resizeInterval = setInterval(function () {
+      const resizeInterval = setInterval(function () {
         if (iframe.contentDocument.readyState == 'complete') {
           resizeIframe(iframe);
           clearInterval(resizeInterval);
@@ -352,15 +352,15 @@
   }
 
   function renderCodePenEditLink(snippet, sourceData) {
-    let html = sourceData.html === null ? '' : sourceData.html;
-    let css = sourceData.css === null ? '' : sourceData.css;
-    let js = sourceData.js === null ? '' : sourceData.js;
+    const html = sourceData.html === null ? '' : sourceData.html;
+    const css = sourceData.css === null ? '' : sourceData.css;
+    const js = sourceData.js === null ? '' : sourceData.js;
 
     if (html || css || js) {
-      let container = document.createElement('div');
-      let form = document.createElement('form');
-      let input = document.createElement('input');
-      let link = document.createElement('a');
+      const container = document.createElement('div');
+      const form = document.createElement('form');
+      const input = document.createElement('input');
+      const link = document.createElement('a');
       const data = {
         title: CODEPEN_CONFIG.title,
         head: CODEPEN_CONFIG.head,
@@ -409,16 +409,16 @@
   }
 
   function getStyleFromSource(source) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = source;
-    let style = div.querySelector('style');
+    const style = div.querySelector('style');
     return style ? style.innerHTML.trim() : null;
   }
 
   function stripScriptsFromSource(source) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = source;
-    let scripts = div.getElementsByTagName('script');
+    const scripts = div.getElementsByTagName('script');
     let i = scripts.length;
     while (i--) {
       scripts[i].parentNode.removeChild(scripts[i]);
@@ -427,14 +427,14 @@
   }
 
   function getScriptFromSource(source) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = source;
-    let script = div.querySelector('script');
+    const script = div.querySelector('script');
     return script ? script.innerHTML.trim() : null;
   }
 
   function getExternalScriptsFromSource(source) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = source;
     let scripts = div.querySelectorAll('script[src]');
     scripts = [].slice.apply(scripts).map(function (s) {
@@ -457,12 +457,12 @@
   */
   function attachDropdownEvents(dropdown) {
     dropdown.addEventListener('change', function (e) {
-      let snippet = e.target.closest('.p-code-snippet');
+      const snippet = e.target.closest('.p-code-snippet');
 
       // toggle code blocks visibility based on selected language
       for (let i = 0; i < dropdown.options.length; i++) {
-        let lang = dropdown.options[i].value;
-        let block = snippet && snippet.querySelector("[data-lang='" + lang + "']");
+        const lang = dropdown.options[i].value;
+        const block = snippet && snippet.querySelector("[data-lang='" + lang + "']");
 
         if (lang === e.target.value) {
           block.classList.remove('u-hide');
