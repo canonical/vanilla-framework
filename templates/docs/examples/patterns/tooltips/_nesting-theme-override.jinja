@@ -1,0 +1,26 @@
+{#-
+  Reusable macro for generating consistent tooltip examples that override the theme of the tooltip based on the theme of the parent element.
+  Params
+    tooltip_background_theme (string) (required): The theme to apply to the tooltip message.
+    is_combined (boolean): Whether the example is being rendered as part of a combined example. Defaults to false.
+-#}
+{%- macro tooltip_nesting_theme_override(tooltip_background_theme, is_combined) -%}
+  {%- if tooltip_background_theme == 'dark' -%}
+    {%- set inverse_theme = 'light' -%}
+  {%- else %}
+    {%- set inverse_theme = 'dark' -%}
+  {%- endif -%}
+
+  <p>{% if not is_combined %}This content is inside a {{ tooltip_background_theme }}-themed page. {% endif %}The strip below uses the {{ inverse_theme }} theme.</p>
+  <div class="p-strip is-{{ inverse_theme }}">
+    <button class="p-tooltip is-{{ inverse_theme }}" aria-describedby="override-tooltip-theme">
+      Correct
+      <span class="p-tooltip__message" role="tooltip" id="override-tooltip-theme">This tooltip is {{ tooltip_background_theme }}-themed to contrast with the {{ inverse_theme }} strip.</span>
+    </button>
+    <hr class="is-muted">
+    <button class="p-tooltip" aria-describedby="default-tooltip-theme">
+      Incorrect
+      <span class="p-tooltip__message" role="tooltip" id="default-tooltip-theme">This tooltip inverts the {{ tooltip_background_theme }} theme of the body, instead of the {{ inverse_theme }} strip.</span>
+    </button>
+  </div>
+{%- endmacro -%}

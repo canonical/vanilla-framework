@@ -34,9 +34,9 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
   .p-tooltip__message {
     @extend %small-text;
 
-    background-color: $color-dark;
+    background-color: $colors--theme--background-alt;
     border: 0;
-    color: $color-x-light;
+    color: $colors--theme--text-default;
     display: none;
     left: -2 * $triangle-height;
     margin-bottom: 0;
@@ -50,6 +50,24 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
     white-space: pre;
     z-index: 11; // one step above p-navigation's z-index
 
+    @include vf-theme-dark; // Default to dark theme
+
+    // stylelint-disable selector-max-type -- Tooltip theming is based on theming of the document body.
+    // Apply light theme if the page or the tooltip component is dark
+    body.is-dark &,
+    .p-tooltip.is-dark & {
+      @include vf-theme-light;
+    }
+
+    // Override to dark theme if the page or the tooltip component is light or paper
+    body.is-light &,
+    body.is-paper &,
+    .p-tooltip.is-light &,
+    .p-tooltip.is-paper & {
+      @include vf-theme-dark;
+    }
+    // stylelint-enable selector-max-type
+
     .is-detached & {
       display: block;
     }
@@ -57,7 +75,7 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
     // tooltip
     &::before {
       border: {
-        bottom: $triangle-height solid $color-dark;
+        bottom: $triangle-height solid $colors--theme--background-alt;
         left: $triangle-height solid transparent;
         right: $triangle-height solid transparent;
       }
@@ -152,7 +170,7 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
           bottom: $triangle-height solid transparent;
           left: $triangle-height solid transparent;
           right: $triangle-height solid transparent;
-          top: $triangle-height solid $color-dark;
+          top: $triangle-height solid $colors--theme--background-alt;
         }
 
         bottom: -2 * $triangle-height;
@@ -186,7 +204,7 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
           bottom: $triangle-height solid transparent;
           left: $triangle-height solid transparent;
           right: $triangle-height solid transparent;
-          top: $triangle-height solid $color-dark;
+          top: $triangle-height solid $colors--theme--background-alt;
         }
 
         bottom: -2 * $triangle-height;
@@ -223,7 +241,7 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
           bottom: $triangle-height solid transparent;
           left: $triangle-height solid transparent;
           right: $triangle-height solid transparent;
-          top: $triangle-height solid $color-dark;
+          top: $triangle-height solid $colors--theme--background-alt;
         }
 
         bottom: -2 * $triangle-height;
@@ -257,7 +275,7 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
         border: {
           bottom: $triangle-height solid transparent;
           left: $triangle-height solid transparent;
-          right: $triangle-height solid $color-dark;
+          right: $triangle-height solid $colors--theme--background-alt;
           top: $triangle-height solid transparent;
         }
 
@@ -296,7 +314,7 @@ $tooltip-overlay-top-border-radius: 0% 0% 100% 100%;
       &::before {
         border: {
           bottom: $triangle-height solid transparent;
-          left: $triangle-height solid $color-dark;
+          left: $triangle-height solid $colors--theme--background-alt;
           right: $triangle-height solid transparent;
           top: $triangle-height solid transparent;
         }
