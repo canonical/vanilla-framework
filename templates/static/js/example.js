@@ -290,24 +290,25 @@
    */
   function renderDropdown(codeSnippetHeader, codeSnippetModes) {
     // only add dropdown if there is more than one code block
-    if (codeSnippetModes.length > 1) {
-      const dropdownsEl = document.createElement('div');
-      dropdownsEl.classList.add('p-code-snippet__dropdowns');
+    if (codeSnippetModes.length === 0) return;
 
-      const selectEl = document.createElement('select');
-      selectEl.classList.add('p-code-snippet__dropdown');
+    const dropdownsEl = document.createElement('div');
+    dropdownsEl.classList.add('p-code-snippet__dropdowns');
 
-      codeSnippetModes.forEach(function (option) {
-        const optionHTML = document.createElement('option');
-        optionHTML.value = option.toLowerCase();
-        optionHTML.innerText = EXAMPLE_OPTIONS_CFG[option]?.label || option.toLowerCase();
-        selectEl.appendChild(optionHTML);
-      });
+    const selectEl = document.createElement('select');
+    selectEl.classList.add('p-code-snippet__dropdown');
 
-      dropdownsEl.appendChild(selectEl);
-      codeSnippetHeader.appendChild(dropdownsEl);
-      attachDropdownEvents(selectEl);
-    }
+    codeSnippetModes.forEach(function (option) {
+      const optionHTML = document.createElement('option');
+      optionHTML.value = option.toLowerCase();
+      optionHTML.innerText = EXAMPLE_OPTIONS_CFG[option]?.label || option.toLowerCase();
+      selectEl.appendChild(optionHTML);
+    });
+
+    dropdownsEl.appendChild(selectEl);
+    codeSnippetHeader.appendChild(dropdownsEl);
+    attachDropdownEvents(selectEl);
+
   }
 
   function resizeIframe(iframe) {
