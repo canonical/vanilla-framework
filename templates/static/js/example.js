@@ -183,14 +183,23 @@
 
   /**
    * Fetches the rendered HTML of an example and extracts the relevant sections for rendering and code snippets.
-   * @param {HTMLElement} placementElement The placeholder element for the example
-   * @returns {Promise<{rendered: String, body: String}>} The rendered HTML and source code of the example
+   * @param {HTMLAnchorElement} placementElement The placeholder element for the example
+   * @returns {Promise<{renderedHtml: String, bodyHtml: String, title: String, jsSource: String, externalScripts: NodeListOf<Element>, cssSource: String}>} The extracted sections of the example
    */
   async function fetchHtmlSource(placementElement) {
     const renderedHtml = await fetchResponseText(placementElement.href);
-    const bodyHTML = getExampleSection('body', renderedHtml);
+    let bodyHtml = getExampleSection('body', renderedHtml);
 
-    return {rendered: renderedHtml, body: bodyHTML};
+    // Extract JS from the body before we strip it out
+    const jsSource = formatSource(getScriptFromSource(bodyHtml), 'js');
+    bodyHtml = formatSource(stripScriptsFromSource(bodyHtml), 'html');
+
+    const title = getExampleSection('title', renderedHtml).split('|')[0];
+    const headHtml = getExampleSection('head', renderedHtml);
+    const cssSource = formatSource(getStyleFromSource(headHtml), 'css');
+    const externalScripts = getExternalScriptsFromSource(renderedHtml);
+
+    return {renderedHtml, bodyHtml, title, jsSource, externalScripts, cssSource};
   }
 
   /**
@@ -214,8 +223,6 @@
   /**
    * Replaces an example placeholder element with its rendered result and code snippet.
    * @param {HTMLAnchorElement} placementElement `a.js-example` element used as a placeholder for the example to render
-   * @param {String} renderedHtml Full document HTML of the example as it is shown to end-users
-   * @param {String|null} jinjaTemplate Jinja Template of the example as it may be used by developers, if supported
    */
   async function renderExample(placementElement) {
     const codeSnippet = document.createElement('div');
@@ -237,14 +244,7 @@
 
     const exampleRequests = [];
 
-    const fetchHtml = fetchHtmlSource(placementElement).then(({rendered: renderedHtml, body: bodyHtml}) => {
-      const title = getExampleSection('title', renderedHtml).split('|')[0];
-      const headHtml = getExampleSection('head', renderedHtml);
-      const htmlBodySource = formatSource(stripScriptsFromSource(bodyHtml), 'html');
-      const jsSource = formatSource(getScriptFromSource(bodyHtml), 'js');
-      const cssSource = formatSource(getStyleFromSource(headHtml), 'css');
-      const externalScripts = getExternalScriptsFromSource(renderedHtml);
-
+    const fetchHtml = fetchHtmlSource(placementElement).then(({renderedHtml, bodyHtml, title, jsSource, externalScripts, cssSource}) => {
       titleEl.innerText = title;
       header.appendChild(titleEl);
       codeSnippet.appendChild(header);
@@ -258,8 +258,8 @@
       }
 
       // HTML source is required, so throw if it fails
-      if (htmlBodySource) {
-        srcData.html = htmlBodySource;
+      if (bodyHtml) {
+        srcData.html = bodyHtml;
       } else {
         throw new Error('Failed to render HTML source code');
       }
@@ -272,7 +272,7 @@
         srcData.css = cssSource;
       }
       srcData.codePen = {
-        html: htmlBodySource,
+        html: bodyHtml,
         css: cssSource,
         js: jsSource,
         externalJS: externalScripts,
