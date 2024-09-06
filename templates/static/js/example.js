@@ -234,43 +234,32 @@
     const titleEl = document.createElement('h5');
     titleEl.classList.add('p-code-snippet__title');
 
+    // Example data will be asynchronously fetched and placed here on promise resolution.
     const srcData = {
       html: undefined,
+      renderedHtml: undefined,
       jinja: undefined,
       css: undefined,
       js: undefined,
       codePen: undefined,
+      title: undefined,
     };
 
     const exampleRequests = [];
 
     const fetchHtml = fetchRenderedHtml(placementElement).then(({renderedHtml, bodyHtml, title, jsSource, externalScripts, cssSource}) => {
-      titleEl.innerText = title;
-      header.appendChild(titleEl);
-      codeSnippet.appendChild(header);
-      placementElement.parentNode.insertBefore(codeSnippet, placementElement);
-
-      // HTML iframe is required, so throw if it fails
-      if (renderedHtml) {
-        renderIframe(codeSnippet, renderedHtml, placementElement.getAttribute('data-height'));
-      } else {
-        throw new Error('Failed to render HTML iframe');
-      }
-
-      // HTML source is required, so throw if it fails
-      if (bodyHtml) {
+      // There are required, so throw if they failed
+      if (renderedHtml && bodyHtml && title) {
+        srcData.renderedHtml = renderedHtml;
         srcData.html = bodyHtml;
+        srcData.title = title;
       } else {
-        throw new Error('Failed to render HTML source code');
+        throw new Error('Failed to fetch HTML for example iframe and HTML source.');
       }
 
       // The rest of the views are optional
-      if (jsSource) {
-        srcData.js = jsSource;
-      }
-      if (cssSource) {
-        srcData.css = cssSource;
-      }
+      srcData.js = jsSource;
+      srcData.css = cssSource;
       srcData.codePen = {
         html: bodyHtml,
         css: cssSource,
@@ -293,7 +282,13 @@
 
     // Perform as much of the data fetching and processing as possible in parallel
     await Promise.all(exampleRequests);
-    // Code after this point depends on the data above being fully fetched, so must come after an `await` block
+    // Code after this point depends on the data above being fully fetched, so must come after an `await`
+
+    titleEl.innerText = srcData.title;
+    header.appendChild(titleEl);
+    codeSnippet.appendChild(header);
+    placementElement.parentNode.insertBefore(codeSnippet, placementElement);
+    renderIframe(codeSnippet, srcData.renderedHtml, placementElement.getAttribute('data-height'));
 
     // Gather the languages that have source code available, in the order they should be displayed
     // We can't rely on order of these languages being made available in the promise blocks above due to async nature
@@ -302,8 +297,8 @@
       // THe first language option that was found is displayed by default. The rest are viewable using dropdown.
       .map((lang, idx) => createPreCode(srcData[lang], lang, idx > 0));
 
+    // Code snippet must be populated with code before Prism can highlight it
     sourceBlocks.forEach((block) => codeSnippet.appendChild(block));
-
     if (Prism) {
       Prism.highlightAllUnder(codeSnippet);
     }
