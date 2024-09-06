@@ -2,7 +2,19 @@
 @import 'settings_colors';
 
 // Global placeholder settings
-$input-border-thickness: 1.5px;
+:root {
+  // On low pixel density devices a 1.5px border would computed as 1px.
+  // If we use $input-border-thickness = 1.5px in the calculation and the user is on a low pixel density screen
+  // then the border is rendered as 1px, but we still eg. subtract 1.5px from the padding which will throw off the baseline grid alignment.
+  // So we have to check if the users screen is capable of displaying 0.5px steps at runtime. This is only possible with CSS variables.
+  --vf-input-border-thickness: 1.5px;
+
+  @media only screen and (max-resolution: 1.99dppx) {
+    --vf-input-border-thickness: 1px;
+  }
+}
+
+$input-border-thickness: var(--vf-input-border-thickness);
 $bar-thickness: 0.1875rem !default; // 3px at 16px fontsize, expressed in rems so it scales with text if the root font-size changes at a breakpoint
 $border-radius: 0; // deprecated, will be removed in future version of Vanilla
 $border: $input-border-thickness solid $colors--theme--border-default !default;
