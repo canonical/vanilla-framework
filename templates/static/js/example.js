@@ -186,7 +186,7 @@
    * @param {HTMLAnchorElement} placementElement The placeholder element for the example
    * @returns {Promise<{renderedHtml: String, bodyHtml: String, title: String, jsSource: String, externalScripts: NodeListOf<Element>, cssSource: String}>} The extracted sections of the example
    */
-  async function fetchHtmlSource(placementElement) {
+  async function fetchRenderedHtml(placementElement) {
     const renderedHtml = await fetchResponseText(placementElement.href);
     let bodyHtml = getExampleSection('body', renderedHtml);
 
@@ -244,7 +244,7 @@
 
     const exampleRequests = [];
 
-    const fetchHtml = fetchHtmlSource(placementElement).then(({renderedHtml, bodyHtml, title, jsSource, externalScripts, cssSource}) => {
+    const fetchHtml = fetchRenderedHtml(placementElement).then(({renderedHtml, bodyHtml, title, jsSource, externalScripts, cssSource}) => {
       titleEl.innerText = title;
       header.appendChild(titleEl);
       codeSnippet.appendChild(header);
