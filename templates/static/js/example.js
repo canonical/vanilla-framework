@@ -39,7 +39,7 @@
    * Mapping of example keys to their configurations.
    * @type {{jinja: ExampleLanguageConfig, css: ExampleLanguageConfig, js: ExampleLanguageConfig, html: ExampleLanguageConfig}}
    */
-  const EXAMPLE_OPTIONS_CFG = {
+  const EXAMPLE_LANGUAGE_OPTION_CONFIG = {
     html: {
       label: 'HTML',
       langIdentifier: 'html',
@@ -163,7 +163,7 @@
 
     if (lang) {
       pre.setAttribute('data-lang', lang);
-      pre.classList.add('language-' + (EXAMPLE_OPTIONS_CFG[lang]?.langIdentifier || lang));
+      pre.classList.add('language-' + (EXAMPLE_LANGUAGE_OPTION_CONFIG[lang]?.langIdentifier || lang));
     }
 
     pre.appendChild(code);
@@ -334,7 +334,7 @@
     codeSnippetModes.forEach(function (option) {
       const optionHTML = document.createElement('option');
       optionHTML.value = option.toLowerCase();
-      optionHTML.innerText = EXAMPLE_OPTIONS_CFG[option]?.label || option.toLowerCase();
+      optionHTML.innerText = EXAMPLE_LANGUAGE_OPTION_CONFIG[option]?.label || option.toLowerCase();
       selectEl.appendChild(optionHTML);
     });
 
