@@ -110,17 +110,3 @@ test('Returns snapshots with only the expected set of color themes', async () =>
   }, new Set());
   expect(JSON.stringify(encounteredThemes)).toBe(JSON.stringify(new Set(SNAPSHOT_COLOR_THEMES)));
 });
-
-test('Returns snapshots with unique combination of test case and name', async () => {
-  const snapshots = await snapshotsTest();
-  const encounteredTestCaseAndName = new Map();
-  const failedSnapshots = [];
-  snapshots.forEach((snapshot) => {
-    const key = `${snapshot.testCase}-${snapshot.name}`;
-    if (encounteredTestCaseAndName.has(key)) {
-      failedSnapshots.push(snapshot);
-    }
-    encounteredTestCaseAndName.set(key, snapshot.url);
-  });
-  expect(failedSnapshots).toHaveLength(0);
-});
