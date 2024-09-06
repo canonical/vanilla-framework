@@ -297,8 +297,10 @@
 
     // Gather the languages that have source code available, in the order they should be displayed
     // We can't rely on order of these languages being made available in the promise blocks above due to async nature
-    const languageOptions = ['html', 'jinja', 'js', 'css'].filter((lang) => srcData[lang]);
-    const sourceBlocks = languageOptions.map((lang, idx) => createPreCode(srcData[lang], lang, idx > 0));
+    const languageOptions = ['jinja', 'html', 'js', 'css'].filter((lang) => srcData[lang]);
+    const sourceBlocks = languageOptions
+      // THe first language option that was found is displayed by default. The rest are viewable using dropdown.
+      .map((lang, idx) => createPreCode(srcData[lang], lang, idx > 0));
 
     sourceBlocks.forEach((block) => codeSnippet.appendChild(block));
 
