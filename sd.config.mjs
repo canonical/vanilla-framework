@@ -3,6 +3,8 @@ import StyleDictionary from 'style-dictionary';
 console.log('Style Dictionary build started...');
 console.log('==============================================');
 
+// This transform determines if the target token's file is within a theme
+// directory, and if so, splices the theme name into the token name
 StyleDictionary.registerTransform({
   name: 'name/theme',
   type: 'name',
@@ -27,6 +29,13 @@ StyleDictionary.registerTransform({
   },
 });
 
+// This transform adds a prefix to the beginning of each token name
+StyleDictionary.registerTransform({
+  name: 'name/prefix',
+  type: 'name',
+  transform: (token) => `vf-${token.name}`,
+});
+
 // List of scss transforms acquired from:
 // https://github.com/amzn/style-dictionary/blob/main/lib/common/transformGroups.js
 StyleDictionary.registerTransformGroup({
@@ -47,6 +56,7 @@ StyleDictionary.registerTransformGroup({
     'transition/css/shorthand',
     'shadow/css/shorthand',
     'name/theme',
+    'name/prefix',
   ],
 });
 
@@ -59,7 +69,6 @@ const baseSd = await styleDictionary.extend({
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
-      prefix: 'vf',
       buildPath: 'build/scss/',
       files: [
         {
@@ -81,7 +90,6 @@ const lightSd = await styleDictionary.extend({
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
-      prefix: 'vf',
       buildPath: 'build/scss/',
       files: [
         {
@@ -104,7 +112,6 @@ const darkSd = await styleDictionary.extend({
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
-      prefix: 'vf',
       buildPath: 'build/scss/',
       files: [
         {
