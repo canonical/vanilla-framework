@@ -8,7 +8,7 @@ console.log('==============================================');
 StyleDictionary.registerTransform({
   name: 'name/theme',
   type: 'name',
-  transform: function (token) {
+  transform: (token) => {
     let theme = null;
     const jsonFilePath = token.filePath;
     const tokenPath = token.path;
