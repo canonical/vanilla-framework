@@ -87,15 +87,8 @@ const modes = ['light', 'dark', 'paper'];
 
 const styleDictionary = new StyleDictionary();
 
-console.log(`☀️ Building light mode...`);
-
-const extendedSd = await styleDictionary.extend({
-  // include: [
-  //   `tokens/**/!(*.${modes.join(`|*.`)}).json5`
-  // ],
-
-  source: [`tokens/color/dark/link.json`],
-
+const baseSd = await styleDictionary.extend({
+  source: [`tokens/color/base.json`],
   platforms: {
     scss: {
       transformGroup: 'custom/scss',
@@ -103,7 +96,7 @@ const extendedSd = await styleDictionary.extend({
       buildPath: 'build/scss/',
       files: [
         {
-          destination: '_tokens.scss',
+          destination: 'tokens.base.scss',
           format: 'scss/variables',
         },
       ],
@@ -111,8 +104,49 @@ const extendedSd = await styleDictionary.extend({
   },
 });
 
-// FINALLY, BUILD ALL THE PLATFORMS
-await extendedSd.buildAllPlatforms();
+await baseSd.buildAllPlatforms();
+
+console.log(`☀️ Building light mode...`);
+
+const lightSd = await styleDictionary.extend({
+  include: [`tokens/color/base.json`],
+  source: [`tokens/color/light/*.json`],
+  platforms: {
+    scss: {
+      transformGroup: 'custom/scss',
+      prefix: 'vf',
+      buildPath: 'build/scss/',
+      files: [
+        {
+          destination: 'tokens.light.scss',
+          format: 'scss/variables',
+        },
+      ],
+    },
+  },
+});
+
+await lightSd.buildAllPlatforms();
+
+const darkSd = await styleDictionary.extend({
+  include: [`tokens/color/base.json`],
+  source: [`tokens/color/dark/*.json`],
+  platforms: {
+    scss: {
+      transformGroup: 'custom/scss',
+      prefix: 'vf',
+      buildPath: 'build/scss/',
+      files: [
+        {
+          destination: 'tokens.dark.scss',
+          format: 'scss/variables',
+        },
+      ],
+    },
+  },
+});
+
+await darkSd.buildAllPlatforms();
 
 console.log('\n==============================================');
 console.log('\nBuild completed!');
