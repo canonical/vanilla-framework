@@ -1,0 +1,59 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}List tree / Default / Expanded{% endblock %}
+
+{% block standalone_css %}patterns_list-tree{% endblock %}
+
+{% block content %}
+<ul class="p-list-tree" aria-multiselectable="true" role="tree">
+  <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+    <button class="p-list-tree__toggle" id="sub-1-btn" aria-controls="sub-1" aria-expanded="true">/folder</button>
+    <ul class="p-list-tree" role="group" id="sub-1" aria-hidden="false" aria-labelledby="sub-1-btn">
+      <li class="p-list-tree__item" role="treeitem">
+        <a class="p-list-tree__link" href="#" tabindex="0">file</a>
+      </li>
+    </ul>
+  </li>
+  <li class="p-list-tree__item" role="treeitem">
+    <a class="p-list-tree__link" href="#" tabindex="0">
+      charm-helpers-sync.yaml
+    </a>
+  </li>
+  <li class="p-list-tree__item" role="treeitem">
+    <a class="p-list-tree__link" href="#" tabindex="0">
+      config.yaml
+    </a>
+  </li>
+  <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+    <button class="p-list-tree__toggle" id="sub-2-btn" aria-controls="sub-2" aria-expanded="true">/files</button>
+    <ul class="p-list-tree" role="group" id="sub-2" aria-hidden="false" aria-labelledby="sub-2-btn">
+      <li class="p-list-tree__item" role="treeitem">
+        <a class="p-list-tree__link" href="#" tabindex="0">
+          default_rsync
+        </a>
+      </li>
+      <li class="p-list-tree__item" role="treeitem">
+        <a class="p-list-tree__link" href="#" tabindex="0">
+          nagios_plugin.py
+        </a>
+      </li>
+      <li class="p-list-tree__item p-list-tree__item--group" role="treeitem">
+        <button class="p-list-tree__toggle" id="sub-3-btn"  aria-controls="sub-3" aria-expanded="true">/plugins</button>
+        <ul class="p-list-tree" role="group" id="sub-3" aria-hidden="false" aria-labelledby="sub-3-btn">
+          <li class="p-list-tree__item" role="treeitem">
+            <a class="p-list-tree__link" href="#" tabindex="0">
+              check_mem.pl
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+{% endblock %}
+
+
+{% block script %}
+<script>
+  {% include 'docs/examples/patterns/list-tree/_script.js' %}
+</script>
+{% endblock %}

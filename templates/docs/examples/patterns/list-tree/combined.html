@@ -1,0 +1,12 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}List tree / Combined{% endblock %}
+
+{% block standalone_css %}patterns_list-tree{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/list-tree/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/list-tree/expanded.html' %}</section>
+<section>{% include 'docs/examples/patterns/list-tree/legacy.html' %}</section>
+{% endwith %}
+{% endblock %}
