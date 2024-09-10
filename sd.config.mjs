@@ -88,7 +88,7 @@ console.log('🌞 Building light theme variables...');
 
 const lightSd = await styleDictionary.extend({
   include: ['tokens/color/base.json'],
-  source: ['tokens/color/light/*.json'],
+  source: ['tokens/**/light/*.json'],
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
@@ -110,7 +110,7 @@ console.log('🌚 Building dark theme variables...');
 
 const darkSd = await styleDictionary.extend({
   include: ['tokens/color/base.json'],
-  source: ['tokens/color/dark/*.json'],
+  source: ['tokens/**/dark/*.json'],
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
