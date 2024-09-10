@@ -62,10 +62,10 @@ StyleDictionary.registerTransformGroup({
 
 const styleDictionary = new StyleDictionary();
 
-console.log(`🏠 Building base variables...`);
+console.log('🏠 Building base variables...');
 
 const baseSd = await styleDictionary.extend({
-  source: [`tokens/color/base.json`],
+  source: ['tokens/color/base.json', 'tokens/font/*.json'],
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
@@ -82,11 +82,11 @@ const baseSd = await styleDictionary.extend({
 
 await baseSd.buildAllPlatforms();
 
-console.log(`🌞 Building light theme variables...`);
+console.log('🌞 Building light theme variables...');
 
 const lightSd = await styleDictionary.extend({
-  include: [`tokens/color/base.json`],
-  source: [`tokens/color/light/*.json`],
+  include: ['tokens/color/base.json'],
+  source: ['tokens/color/light/*.json'],
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
@@ -104,11 +104,11 @@ const lightSd = await styleDictionary.extend({
 
 await lightSd.buildAllPlatforms();
 
-console.log(`🌚 Building dark theme variables...`);
+console.log('🌚 Building dark theme variables...');
 
 const darkSd = await styleDictionary.extend({
-  include: [`tokens/color/base.json`],
-  source: [`tokens/color/dark/*.json`],
+  include: ['tokens/color/base.json'],
+  source: ['tokens/color/dark/*.json'],
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
