@@ -1,10 +1,10 @@
 {% extends "_layouts/examples.html" %}
-{% from "_macros/rich-vertical-list.jinja" import rich_vertical_list %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
 
 {% block title %}Rich list / Vertical / Ticked / Default{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
-  {% call(slot) rich_vertical_list(
+  {% call(slot) vf_rich_vertical_list(
     title_text='H2 - this can take up to two lines, but best to stick to one line.',
     list_item_tick_style="tick"
   ) -%}

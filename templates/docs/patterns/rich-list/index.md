@@ -10,7 +10,7 @@ The list inside the rich list is a divided list, which is a list with a horizont
 The list items can be [bulletless](/docs/patterns/lists#bulletless-with-horizontal-divider),
 [bulleted](/docs/patterns/lists#bulleted-with-horizontal-divider),
 [ticked](/docs/patterns/lists#ticked-with-horizontal-divider),
-or [numbered](/docs/patterns/lists#ordered-lists-with-horizontal-divider).
+or [ordered](/docs/patterns/lists#ordered-lists-with-horizontal-divider).
 
 ## Vertical
 

@@ -1,16 +1,16 @@
 # Params
 # title_text (string) (required): Title of the rich vertical list
 # list_item_tick_style (string) (optional): Type of list item tick styling. Options are "bullet", "tick", "number".
-# flipped (boolean) (optional): Whether the list items are flipped so image is on the left and the text is on the right. Defaults to false.
+# is_flipped (boolean) (optional): Whether the list items are flipped so image is on the left and the text is on the right. Defaults to false.
 # Slots
 # description: Paragraph-style description content
 # logo_section Logo section block
 # list_item_[1-15]: List item content, assumed to be li.p-list__item
 # image (required)
-{% macro rich_vertical_list(
+{% macro vf_rich_vertical_list(
   title_text,
   list_item_tick_style="",
-  flipped=false
+  is_flipped=false
 ) -%}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
@@ -104,7 +104,7 @@
 
   <hr>
   <div class="row--50-50-on-large">
-    {% if not flipped -%}
+    {% if not is_flipped -%}
       <div class="col">
         {{- _text_column_contents(list_items) -}}
       </div>
