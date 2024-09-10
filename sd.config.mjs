@@ -1,3 +1,5 @@
+// TODO: Add paper theme compiled Sass variable file
+
 import StyleDictionary from 'style-dictionary';
 
 console.log('Style Dictionary build started...');
