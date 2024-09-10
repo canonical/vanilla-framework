@@ -1,5 +1,5 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}List tree{% endblock %}
+{% block title %}List tree / Legacy{% endblock %}
 
 {% block standalone_css %}patterns_list-tree{% endblock %}
 
@@ -33,37 +33,37 @@
 </ul>
 
 <script>
-/**
-  Toggles the necessary aria- attributes' values on the elements
-  to handle showing and hiding them.
-  @param {HTMLElement} element The toggle element controlling the visibility.
-  @param {Boolean} show Whether to show or hide the target.
-*/
-function toggleElement(element, show) {
-  var target = document.getElementById(element.getAttribute('aria-controls'));
+  /**
+   Toggles the necessary aria- attributes' values on the elements
+   to handle showing and hiding them.
+   @param {HTMLElement} element The toggle element controlling the visibility.
+   @param {Boolean} show Whether to show or hide the target.
+   */
+  function toggleElement(element, show) {
+    var target = document.getElementById(element.getAttribute('aria-controls'));
 
-  if (target) {
-    element.setAttribute('aria-expanded', show);
-    target.setAttribute('aria-hidden', !show);
+    if (target) {
+      element.setAttribute('aria-expanded', show);
+      target.setAttribute('aria-hidden', !show);
+    }
   }
-}
 
-/**
-  Attaches event listeners for the list tree toggle.
-  @param {HTMLElement} listTreeToggle The list tree toggle element.
-*/
-function setupListTreeToggle(listTreeToggle) {
-  listTreeToggle.addEventListener('click', function(event) {
-    event.preventDefault();
-    var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
-    toggleElement(listTreeToggle, expand);
-  });
-}
+  /**
+   Attaches event listeners for the list tree toggle.
+   @param {HTMLElement} listTreeToggle The list tree toggle element.
+   */
+  function setupListTreeToggle(listTreeToggle) {
+    listTreeToggle.addEventListener('click', function(event) {
+      event.preventDefault();
+      var expand = this.getAttribute('aria-expanded') === 'true' ? false : true;
+      toggleElement(listTreeToggle, expand);
+    });
+  }
 
-// Set up all list trees on the page.
-var listTreeToggles = document.querySelectorAll('.p-list-tree__toggle');
-for (var i = 0, l = listTreeToggles.length; i < l; i++) {
-  setupListTreeToggle(listTreeToggles[i]);
-}
+  // Set up all list trees on the page.
+  var listTreeToggles = document.querySelectorAll('.p-list-tree__toggle');
+  for (var i = 0, l = listTreeToggles.length; i < l; i++) {
+    setupListTreeToggle(listTreeToggles[i]);
+  }
 </script>
 {% endblock %}
