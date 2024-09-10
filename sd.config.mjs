@@ -2,6 +2,8 @@
 
 import StyleDictionary from 'style-dictionary';
 
+const THEME_LIST = ['light', 'dark', 'paper'];
+
 console.log('Style Dictionary build started...');
 console.log('==============================================');
 
@@ -11,20 +13,12 @@ StyleDictionary.registerTransform({
   name: 'name/theme',
   type: 'name',
   transform: (token) => {
-    let theme = null;
-    const jsonFilePath = token.filePath;
+    const tokenFilePathArr = token.filePath.split('/');
+    const tokenThemePathFragment = tokenFilePathArr[2];
     const tokenPath = token.path;
 
-    if (jsonFilePath.includes('light')) {
-      theme = 'light';
-    } else if (jsonFilePath.includes('dark')) {
-      theme = 'dark';
-    } else if (jsonFilePath.includes('paper')) {
-      theme = 'paper';
-    }
-
-    if (theme) {
-      tokenPath.splice(1, 0, theme);
+    if (THEME_LIST.includes(tokenThemePathFragment)) {
+      tokenPath.splice(1, 0, tokenThemePathFragment);
     }
 
     return tokenPath.join('-');
@@ -82,6 +76,7 @@ const baseSd = await styleDictionary.extend({
   },
 });
 
+await baseSd.cleanAllPlatforms();
 await baseSd.buildAllPlatforms();
 
 console.log('🌞 Building light theme variables...');
@@ -104,6 +99,7 @@ const lightSd = await styleDictionary.extend({
   },
 });
 
+await lightSd.cleanAllPlatforms();
 await lightSd.buildAllPlatforms();
 
 console.log('🌚 Building dark theme variables...');
@@ -126,6 +122,7 @@ const darkSd = await styleDictionary.extend({
   },
 });
 
+await darkSd.cleanAllPlatforms();
 await darkSd.buildAllPlatforms();
 
 console.log('==============================================');
