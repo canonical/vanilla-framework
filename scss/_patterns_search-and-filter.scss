@@ -121,10 +121,14 @@
       margin: 0;
       position: relative;
 
-      // Restrict the height of the search box to the height of the search container
-      &,
-      & > * {
-        height: 100%;
+      & > .u-off-screen {
+        // Prevents the bottom margin of the search bottom from growing the height of the search container
+        @extend %u-no-margin--bottom;
+
+        // Make sure the hidden search button appears on top of the input field
+        &:focus {
+          z-index: 1;
+        }
       }
     }
 
