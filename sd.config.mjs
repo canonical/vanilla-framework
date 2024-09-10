@@ -61,7 +61,7 @@ const styleDictionary = new StyleDictionary();
 console.log('🏠 Building base variables...');
 
 const baseSd = await styleDictionary.extend({
-  source: ['tokens/color/base.json', 'tokens/font/*.json'],
+  source: ['tokens/color/base.json', 'tokens/dimension/*.json', 'tokens/font/*.json'],
   platforms: {
     scss: {
       transformGroup: 'vanilla/scss',
