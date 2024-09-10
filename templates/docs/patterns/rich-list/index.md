@@ -41,7 +41,7 @@ View example of the vertical rich list pattern
 
 ### Minimal
 
-The only mandatory elements in the rich vertical list are the title and the image, and one of optional elements. The rest of the content is optional.
+The only mandatory elements in the rich vertical list are the title and the image, and one of the other (optional) elements.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list/vertical/minimal" class="js-example">
 View example of the vertical rich list pattern
