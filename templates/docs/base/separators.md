@@ -6,7 +6,7 @@ context:
 
 Vanilla gives you multiple ways to separate parts of the content with a horizontal line.
 
-The default `<hr>` element is used to separate content sections. For any additonal styling options (muted or highlighted separators) use the [rule component](/docs/patterns/rule).
+The default `<hr>` element is used to separate content sections. For any additional styling options (muted or highlighted separators) use the [rule component](/docs/patterns/rule).
 
 ## Horizontal rule
 
