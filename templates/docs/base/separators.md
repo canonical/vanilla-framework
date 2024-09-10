@@ -6,6 +6,8 @@ context:
 
 Vanilla gives you multiple ways to separate parts of the content with a horizontal line.
 
+The default `<hr>` element is used to separate content sections. For any additonal styling options (muted or highlighted separators) use the [rule component](/docs/patterns/rule).
+
 ## Horizontal rule
 
 Use the standard `<hr />` element to introduce section breaks.
@@ -19,6 +21,13 @@ View example of the horizontal line
 
 ### Muted horizontal rule
 
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">The muted variant is now deprecated. Please use the <a href="/docs/patterns/rule#muted">muted rule</a> instead.</p>
+  </div>
+</div>
+
 Add the `is-muted` class to an `<hr />` to make the horizontal rule lighter in colour.
 This can be useful when trying to create a more subtle partitioning within a section within a container, or between standard horizontal rules.
 
@@ -27,30 +36,6 @@ is only used at the top of content sections, above headings.
 
 <div class="embedded-example"><a href="/docs/examples/base/hr/muted/" class="js-example">
 View example of the muted horizontal line
-</a></div>
-
-### Highlighted horizontal rule
-
-Add the `is-highlighted` class to an `<hr />` to make the rule stand out more. This is useful for drawing attention to a section of content.
-
-<div class="embedded-example"><a href="/docs/examples/base/hr/highlighted/" class="js-example">
-View example of the highlighted horizontal line
-</a></div>
-
-Highlighted rules can also be accented by adding the `is-accent` modifier class.
-
-<div class="embedded-example"><a href="/docs/examples/base/hr/accented/" class="js-example">
-View example of the accented horizontal line
-</a></div>
-
-### No bottom margin
-
-By default, the horizontal rule has a bottom margin to keep the content following it aligned to the baseline.
-In cases where the content following the rule has top spacing to align itself to the baseline by itself, the bottom margin should be removed.
-To remove the default bottom margin from the horizontal rule, add the `.u-no-margin--bottom` class from the [margin collapse](/docs/utilities/margin-collapse) utility.
-
-<div class="embedded-example"><a href="/docs/examples/base/hr/no-bottom-margin" class="js-example">
-View example of the horizontal line with no bottom margin
 </a></div>
 
 ### Fixed width horizontal rule
@@ -62,6 +47,13 @@ View example of the fixed-width horizontal line
 </a></div>
 
 ## Separator
+
+<div class="p-notification--negative">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <p class="p-notification__message">The separator component is now deprecated. Please use the <a href="/docs/patterns/rule">rule</a> component for separators, and <a href="/docs/patterns/strip">strip</a> or <a href="/docs/patterns/section">section</a> for spacing instead.</p>
+  </div>
+</div>
 
 To separate block sections of the page, use the separator component `<hr class="p-separator">`.
 

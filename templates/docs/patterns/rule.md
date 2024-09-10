@@ -10,16 +10,11 @@ It "anchors" elements that are far apart, and at risk of appearing floating in s
 
 It indicates the direction in which we want the viewer to read the content.
 
-<div class="p-notification--negative">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Deprecated</h5>
-    <p class="p-notification__message">The rule component is now deprecated. Use the <a href="/docs/base/separators#no-bottom-margin">base rule with no bottom margin</a> instead.</p>
-  </div>
-</div>
-
 ## Default
 
 Main page sections are often separated by horizontal rules. You can use the `p-rule` class name to create a default horizontal rule.
+
+This is an equivalent of the base `<hr>` element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">
 View example of a default horizontal rule
