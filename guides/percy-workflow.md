@@ -11,7 +11,7 @@ ensure that PRs do not introduce visual regressions. Your PR will be tested by P
       - `templates/docs/examples/`
       - `templates/_macros/`
       - `tokens/`
-      - `sd.config.mjs`
+      - `sd.config.json`
     - PR is not a draft
   - PR is labeled with "Review: Percy needed"
     - Note that a Percy (labeled) workflow will be triggered on each labelling and synchronisation event on PRs to `main`. They will be skipped shortly after starting if the PR does not have the "Review: Percy needed" label.
@@ -132,7 +132,7 @@ you may need to make a separate pull request to make changes to `main` before a 
   - `templates/docs/examples/`
   - `templates/_macros/`
   - `tokens/`
-  - `sd.config.mjs`
+  - `sd.config.json`
 - Workflows that are run on the `pull_request` trigger, including (but not limited to):
   - [Prepare workflow](../.github/workflows/percy-prepare.yml)
   - [Prepare (labelled) workflow](../.github/workflows/pr-percy-prepare-label.yml)
