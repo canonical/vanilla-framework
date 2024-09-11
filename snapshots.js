@@ -141,12 +141,12 @@ async function getPercyConfigURLs() {
       urls.push({
         url,
         name,
-        widths: [widths[widths.length - 1]],
+        widths,
       });
     }
   }
 
-  return urls.filter((url) => url.name.includes('standalone/patterns/search-and-filter/combined?theme=light'));
+  return urls;
 }
 
 module.exports = getPercyConfigURLs;
