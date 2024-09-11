@@ -1,0 +1,47 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Validation / Dense{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% block content %}
+  <form>
+    <div class="p-form-validation is-error">
+      <label for="exampleTextInputError">Email address</label>
+      <input class="p-form-validation__input is-dense" type="email" id="exampleTextInputError"
+             placeholder="example@canonical.com" name="exampleTextInputError" autocomplete="email" aria-invalid="true"
+             aria-describedby="exampleInputErrorMessage"/>
+      <p class="p-form-validation__message" id="exampleInputErrorMessage">This field is required.</p>
+    </div>
+
+    <div class="p-form-validation is-caution">
+      <label for="exampleTextInputCaution">Mail configuration ID</label>
+      <input class="p-form-validation__input is-dense" type="text" id="exampleTextInputCaution" placeholder="14"
+             name="exampleTextInputCaution" autocomplete="on" aria-describedby="exampleInputCautionMessage"/>
+      <p class="p-form-validation__message" id="exampleInputCautionMessage">No validation is performed in preview
+        mode.</p>
+    </div>
+
+    <div class="p-form-validation is-success">
+      <label for="exampleTextInputSuccess">Card number</label>
+      <input class="p-form-validation__input is-dense" type="text" id="exampleTextInputSuccess"
+             placeholder="**** **** **** ****" name="exampleTextInputSuccess" autocomplete="off"
+             aria-describedby="exampleInputSuccessMessage"/>
+      <p class="p-form-validation__message" id="exampleInputSuccessMessage">Verified.</p>
+    </div>
+
+    <div class="p-form-validation is-error">
+      <label for="exampleSelectInputError">Ubuntu releases</label>
+      <div class="p-form-validation__select-wrapper is-dense">
+        <select class="p-form-validation__input is-dense" id="exampleSelectInputError" name="exampleSelectInputError"
+                aria-invalid="true" aria-describedby="exampleSelectErrorMessage">
+          <option value="">--Select an option--</option>
+          <option value="1">Cosmic Cuttlefish</option>
+          <option value="2">Bionic Beaver</option>
+          <option value="3">Xenial Xerus</option>
+        </select>
+      </div>
+      <p class="p-form-validation__message" id="exampleSelectErrorMessage">You need to select an OS to complete your
+        install.</p>
+    </div>
+  </form>
+{% endblock %}
