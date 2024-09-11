@@ -4,7 +4,7 @@ name: "Prepare Percy build"
 
 on:
   workflow_call:
-    inputs:
+    inputs: 
       pr_number:
         required: true
         type: number
@@ -28,7 +28,7 @@ jobs:
             templates/_macros/
             scss/
             tokens/
-            sd.config.mjs
+            sd.config.json
 
       - name: Populate artifact directory
         run: |
@@ -39,15 +39,15 @@ jobs:
           mkdir -p templates/docs/examples/
           mkdir -p templates/_macros/
           mkdir -p templates/macros/
-
+          
           echo "Contents before copying to artifact"
           tree .
-
+          
           # underscore-prefixed directories are ignored by GH artifacts, so we need to copy to a non-prefixed directory
           cp -R templates/_macros/. templates/macros/
-
+          
           # Copy all of the needed files to the artifact directory
-          cp -R templates/docs/examples/ templates/macros/ scss/ tokens/ sd.config.mjs artifact/
+          cp -R templates/docs/examples/ templates/macros/ scss/ tokens/ sd.config.json artifact/
 
       # Archive the PR number associated with this workflow since it won't be available in the base workflow context
       # https://github.com/orgs/community/discussions/25220
