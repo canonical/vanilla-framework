@@ -1,53 +1,46 @@
-@import '../build/scss/tokens.base';
-@import '../build/scss/tokens.light';
-@import '../build/scss/tokens.dark';
-
-@import 'settings_colors_deprecated';
-
 // Global color settings
-$color-transparent: $vf-color-base-transparent !default;
+$color-transparent: transparent !default;
 
 // Generic gray values (used in elements that have not been themed yet)
-$color-x-light: $vf-color-base-x-light !default;
-$color-light: $vf-color-base-light !default;
-$color-mid-x-light: $vf-color-base-mid-x-light !default;
-$color-mid-light: $vf-color-base-mid-light !default;
-$color-mid: $vf-color-base-mid !default;
-$color-mid-dark: $vf-color-base-mid-dark !default;
-$color-dark: $vf-color-base-dark !default;
-$color-x-dark: $vf-color-base-x-dark !default;
+$color-x-light: #fff !default;
+$color-light: #f7f7f7 !default;
+$color-mid-x-light: #e5e5e5 !default;
+$color-mid-light: #d9d9d9 !default;
+$color-mid: #999 !default;
+$color-mid-dark: #666 !default;
+$color-dark: #111 !default;
+$color-x-dark: #000 !default;
+$color-input-shadow: rgba($color-x-dark, 0.12) !default;
 
 // SEMANTIC COLOURS
-$color-negative: $vf-color-light-base-negative !default;
-$color-caution: $vf-color-light-base-caution !default;
-$color-positive: $vf-color-light-base-positive !default;
-$color-information: $vf-color-light-base-information !default;
+$color-negative: #c7162b !default;
+$color-caution: #cc7900 !default;
+$color-positive: #0e8420 !default;
+$color-information: #24598f !default;
 
-$color-paper: $vf-color-base-paper-default !default;
-$color-paper-alt: $vf-color-base-paper-alt !default;
+$color-paper: #f3f3f3 !default;
 
 // for dark themes
-$color-negative-dark: $vf-color-dark-base-negative !default;
-$color-positive-dark: $vf-color-dark-base-positive !default;
+$color-negative-dark: #a11223 !default;
+$color-positive-dark: #008013 !default;
 
 // STATE VARIABLES
-// TODO: Should opacity be part of color tokens?
 $disabled-element-opacity: 0.33;
 
 $shadow-opacity: 0.2;
 
 // Link and focus colors
-$color-link: $vf-color-light-text-link-default !default;
-$color-link-visited: $vf-color-light-text-link-visited !default;
-$color-focus: $vf-color-light-focus-default !default;
+$color-link: #06c !default;
+$color-link-visited: #7d42b8 !default;
+$color-focus: #2e96ff !default;
 
-$color-link-dark: $vf-color-dark-text-link-default !default;
-$color-link-visited-dark: $vf-color-dark-text-link-visited !default;
-$color-focus-dark: $vf-color-dark-focus-default !default;
+$color-link-dark: #69c !default;
+$color-link-visited-dark: #a679d2 !default;
+$color-focus-dark: #9cf !default;
 
 // Focus modifications to meet AA 3:1 contrast ratio against
 // button background for positive buttons
-$color-focus-positive: $vf-color-light-focus-positive !default;
+$color-focus-positive: #003008 !default;
 
 // Button background color changes
 $input-background-opacity-amount: 0.04;
@@ -61,8 +54,23 @@ $active-background-opacity-percentage: $active-background-opacity-amount * 100%;
 $hover-background-opacity-percentage: $hover-background-opacity-amount * 100%;
 
 // NON-SEMANTIC COLOURS
-$color-code-background: $vf-color-light-code-background;
-$color-code-background-dark: $vf-color-dark-code-background;
+$color-label-validated: #006b75;
+$color-code-background: rgba($color-x-dark, 0.03);
+$color-code-background-dark: rgba($color-x-light, 0.3);
+$color-code-heading-background: rgba($color-x-dark, 0.08);
+
+// Background colours for form elements
+$color-positive-background: #edf8eb;
+$color-positive-background--hover: #e5f6e2;
+$color-positive-background--focus: #e0f4dc;
+
+$color-caution-background: #f8efe8;
+$color-caution-background--hover: #f5e7dd;
+$color-caution-background--focus: #f3e2d6;
+
+$color-negative-background: #f8e9e8;
+$color-negative-background--hover: #f5dfdd;
+$color-negative-background--focus: #f3d8d6;
 
 $states: (
   error: $color-negative,
@@ -101,7 +109,7 @@ $states: (
 // --accent         - default accent color
 
 // Light theme
-$colors--light-theme--text-default: $vf-color-light-text-default !default;
+$colors--light-theme--text-default: #000 !default;
 $colors--light-theme--text-muted: rgba($color-x-dark, $muted-text-opacity-amount) !default;
 $colors--light-theme--text-inactive: rgba($color-x-dark, $inactive-text-opacity-amount) !default;
 
@@ -109,8 +117,8 @@ $colors--light-theme--link-default: $color-link !default;
 $colors--light-theme--link-visited: $color-link-visited !default;
 $colors--light-theme--focus: $color-focus !default;
 
-$colors--light-theme--background-default: $vf-color-light-background-default !default;
-$colors--light-theme--background-alt: $vf-color-light-background-alt !default;
+$colors--light-theme--background-default: #fff !default;
+$colors--light-theme--background-alt: #f7f7f7 !default;
 $colors--light-theme--background-code: $color-code-background !default;
 $colors--light-theme--background-inputs: adjust-color($color-x-dark, $lightness: 100% * (1 - $input-background-opacity-amount)) !default;
 $colors--light-theme--background-active: adjust-color($color-x-dark, $lightness: 100% * (1 - $active-background-opacity-amount)) !default;
@@ -123,8 +131,6 @@ $colors--light-theme--border-low-contrast: rgba($color-x-dark, 0.1) !default;
 
 $colors--light-theme--icon: $colors--light-theme--text-default !default;
 
-// TODO: Due to the uses of calculation and sass variables here, this would be
-// non-trivial to move to tokens; how should it be handled?
 $colors-light-theme--tinted-backgrounds: (
   neutral: (
     default: #f2f2f2,
@@ -162,7 +168,8 @@ $colors-light-theme--tinted-borders: (
 );
 
 // Dark theme
-$colors--dark-theme--text-default: $vf-color-dark-text-default !default;
+$colors--dark-theme--text-default: hsl(0, 0%, 100%) !default;
+$colors--dark-theme--text-hover: hsl(0, 0%, 76%) !default; // minimum contrast on primary that satisfies contrast checker AA
 $colors--dark-theme--text-muted: rgba($colors--dark-theme--text-default, $muted-text-opacity-amount) !default;
 $colors--dark-theme--text-inactive: rgba($colors--dark-theme--text-default, $inactive-text-opacity-amount) !default;
 
@@ -170,8 +177,8 @@ $colors--dark-theme--link-default: $color-link-dark !default;
 $colors--dark-theme--link-visited: $color-link-visited-dark !default;
 $colors--dark-theme--focus: $color-focus-dark !default;
 
-$colors--dark-theme--background-default: $vf-color-dark-background-default !default;
-$colors--dark-theme--background-alt: $vf-color-dark-background-alt !default;
+$colors--dark-theme--background-default: #262626 !default;
+$colors--dark-theme--background-alt: #202020 !default;
 $colors--dark-theme--background-code: $color-code-background-dark !default;
 $colors--dark-theme--background-inputs: #2f2f2f !default;
 $colors--dark-theme--background-active: #373737 !default;
@@ -184,8 +191,6 @@ $colors--dark-theme--border-low-contrast: rgba($colors--dark-theme--text-default
 
 $colors--dark-theme--icon: $colors--dark-theme--text-default !default;
 
-// TODO: Due to the uses of calculation and sass variables here, this would be
-// non-trivial to move to tokens; how should it be handled?
 $colors-dark-theme--tinted-backgrounds: (
   neutral: (
     default: rgba(255, 255, 255, 0.15),
@@ -214,15 +219,12 @@ $colors-dark-theme--tinted-backgrounds: (
   ),
 );
 
-// TODO: Colors here are not defined in base colors, partially due to them being
-// different from existing base colors; for example, `$color-positive-dark` is
-// different from this positive dark tinted border color
 $colors-dark-theme--tinted-borders: (
-  neutral: $vf-color-dark-border-tinted-neutral,
-  positive: $vf-color-dark-border-tinted-positive,
-  caution: $vf-color-dark-border-tinted-caution,
-  negative: $vf-color-dark-border-tinted-negative,
-  information: $vf-color-dark-border-tinted-information,
+  neutral: hsl(0deg 0% 65%),
+  positive: #62a36c,
+  caution: #c48831,
+  negative: #d17b85,
+  information: hsl(210deg 80% 65%),
 );
 
 // Paper theme (work in progress)
@@ -409,7 +411,7 @@ $colors--theme--accent: var(--vf-color-accent);
 
   // SCSS variables need to be interpolated to work in CSS custom properties
   --vf-color-background-default: #{$color-paper};
-  --vf-color-background-alt: #{$color-paper-alt};
+  --vf-color-background-alt: #{#ebebeb};
 
   --vf-color-background-inputs: #{$colors--paper-theme--background-inputs};
   --vf-color-background-active: #{$colors--paper-theme--background-active};
@@ -417,9 +419,9 @@ $colors--theme--accent: var(--vf-color-accent);
 }
 
 // Branding colors
-$color-ubuntu: $vf-color-light-brand-ubuntu; // Ubuntu orange, should not be overridden
+$color-ubuntu: #e95420; // Ubuntu orange, should not be overridden
 $color-brand: $color-ubuntu !default;
 $color-brand-dark: $color-brand !default;
-$color-accent: $vf-color-light-brand-accent !default;
-$color-accent-dark: $vf-color-dark-brand-accent !default;
+$color-accent: #0f95a1 !default;
+$color-accent-dark: #70bbc2 !default;
 $color-accent-background: $colors--dark-theme--background-default !default; // changed from "brand" colour to dark theme background
