@@ -73,6 +73,19 @@
 
 // Default notification styling
 @mixin vf-chips-default {
+  // stylelint-disable selector-max-type -- allow button selector for interactive chips
+
+  // Status-color chips all use the button pattern mixin to set their colors, so they already have most button styling.
+  // We need to add the default button styling to the link default chip as well.
+  a.p-chip {
+    @include vf-button-pattern;
+  }
+
+  a[class*='p-chip']:hover {
+    text-decoration: none;
+  }
+  // stylelint-enable selector-max-type
+
   .p-chip {
     @extend %vf-chip;
 
