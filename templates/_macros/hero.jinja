@@ -72,10 +72,7 @@
   {% endif %}
 
   {%- macro _hero_title_block() -%}
-    {%- if layout == '25-75' and has_signpost_image -%}
-      {#- On 25-75 signpost, header top should align with top of the signpost to its left. -#}
-      {% set title_class = "u-no-padding--top" %}
-    {%- elif has_full_width_image -%}
+    {%- if has_full_width_image -%}
       {#- On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
       {% set title_class = "u-no-margin--bottom" %}
     {%- endif -%}
