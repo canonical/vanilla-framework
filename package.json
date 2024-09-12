@@ -29,7 +29,7 @@
   "scripts": {
     "start": "yarn build && yarn serve",
     "build": "yarn build-scss && yarn build-js && yarn build-class-references",
-    "build-tokens": "((style-dictionary build --verbose --config ./sd.config.json) || true)",
+    "build-tokens": "((node ./sd.config.mjs) || true)",
     "build-scss": "yarn build-tokens && sass --load-path=node_modules --embed-sources --style=compressed --silence-deprecation=mixed-decls scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed --silence-deprecation=mixed-decls scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules && cp node_modules/js-beautify/js/lib/beautify.js node_modules/js-beautify/js/lib/beautify-html.js node_modules/js-beautify/js/lib/beautify-css.js build/js/modules",
@@ -78,5 +78,6 @@
     "stylelint-prettier": "5.0.2",
     "svgo": "3.3.2",
     "yaml": "2.5.0"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
