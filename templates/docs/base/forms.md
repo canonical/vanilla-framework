@@ -189,6 +189,14 @@ Descriptive text relating to the element's validation status should use the clas
 View example of form validation patterns
 </a></div>
 
+### Dense form validation select wrapper
+
+To create a [dense input](#dense-form-elements) inside a `p-form-validation__select-wrapper`, add the `.is-dense` class to the select wrapper, not the input.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-validation-select-wrapper-dense" class="js-example">
+View example of form validation patterns
+</a></div>
+
 ## Required
 
 Apply the class `.is-required` to mandatory input fields. You should also add a legend to the form to be explicit about the meaning of the asterisk.
