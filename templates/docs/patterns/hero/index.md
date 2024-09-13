@@ -40,39 +40,77 @@ The hero pattern is composed of the following elements:
     </thead>
     <tbody>
       <tr>
-        <td><code>layout</code></td>
-        <td>Yes</td>
+        <td>
+          <code>layout</code>
+        </td>
+        <td>
+          Yes
+        </td>
         <td>
           One of:<br>
-            <code>'50/50'</code>,<br>
-            <code>'50/50-full-width-image'</code>,<br>
-            <code>'75/25'</code>,<br>
-            <code>'25/75'</code>,<br>
-            <code>'fallback'</code>
+          <code>'50/50'</code>,<br>
+          <code>'50/50-full-width-image'</code>,<br>
+          <code>'75/25'</code>,<br>
+          <code>'25/75'</code>,<br>
+          <code>'fallback'</code>
         </td>
-        <td><code>'fallback'</code></td>
-        <td>Choice of hero layout</td>
+        <td>
+          <code>'fallback'</code>
+        </td>
+        <td>
+          Choice of hero layout
+        </td>
       </tr>
       <tr>
-        <td><code>title_text</code></td>
-        <td>Yes</td>
-        <td><code>string</code></td>
-        <td><code>N/A</code></td>
-        <td><code>h1</code> title text</td>
+        <td>
+          <code>title_text</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          <code>h1</code> title text
+        </td>
       </tr>
       <tr>
-        <td><code>subtitle_text</code></td>
-        <td>No</td>
-        <td><code>string</code></td>
-        <td><code>N/A</code></td>
-        <td><code>h2</code> subtitle text</td>
+        <td>
+          <code>subtitle_text</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          <code>h2</code> subtitle text
+        </td>
       </tr>
       <tr>
-        <td><code>is_split_on_medium</code></td>
-        <td>Yes</td>
-        <td><code>boolean</code></td>
-        <td><code>false</code></td>
-        <td>Whether the layout is split on tablet-sized devices</td>
+        <td>
+          <code>is_split_on_medium</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>false</code>
+        </td>
+        <td>
+          Whether the layout is split on tablet-sized devices
+        </td>
       </tr>
     </tbody>
   </table>
@@ -91,24 +129,50 @@ The hero pattern is composed of the following elements:
     </thead>
     <tbody>
       <tr>
-        <td><code>description</code></td>
-        <td>No</td>
-        <td>Paragraph-style content below the title and subtitle.</td>
+        <td>
+          <code>description</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Paragraph-style content below the title and subtitle
+        </td>
       </tr>
       <tr>
-        <td><code>cta</code></td>
-        <td>Yes</td>
-        <td>Contents of a <a href="/docs/patterns/cta-block">Call to action block</a> beneath the title and description.</td>
+        <td>
+          <code>cta</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          Contents of a <a href="/docs/patterns/cta-block">Call to action
+          block</a> beneath the title and description
+        </td>
       </tr>
       <tr>
-        <td><code>image</code></td>
-        <td>Yes, when <code>layout='50/50-full-width-image'</code></td>
-        <td>Image content.</td>
+        <td>
+          <code>image</code>
+        </td>
+        <td>
+          Yes, when <code>layout='50/50-full-width-image'</code>
+        </td>
+        <td>
+          Image content
+        </td>
       </tr>
       <tr>
-        <td><code>signpost_image</code></td>
-        <td>Yes, when <code>layout='25/75'</code></td>
-        <td>Small image (such as a logo) to place in the left column of the 25/75 Hero.</td>
+        <td>
+          <code>signpost_image</code>
+        </td>
+        <td>
+          Yes, when <code>layout='25/75'</code>
+        </td>
+        <td>
+          Small image (such as a logo) to place in the left column of the
+          25/75 Hero
+        </td>
       </tr>
     </tbody>
   </table>
