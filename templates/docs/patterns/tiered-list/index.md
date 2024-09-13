@@ -137,6 +137,18 @@ The tiered list pattern is composed of the following elements:
           Description element of each child list item; max of 25
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>cta</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Contents of a <a href="/docs/patterns/cta-block">CTA block</a> at the
+          bottom of the pattern
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
