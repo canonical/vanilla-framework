@@ -15,13 +15,13 @@ Depending on the size and composition of your content, you can choose from a var
 
 The hero pattern is composed of the following elements:
 
-| Element              | Description                                                              |
-| -------------------- | ------------------------------------------------------------------------ |
-| Title (**required**) | Title text (to be placed in `h1` heading)                                |
-| Subtitle             | Subtitle text (using `h2` style)                                         |
-| Description          | Description text (one or more paragraphs)                                |
-| Call to action block | [Call to action block](/docs/patterns/cta-block) beneath the description |
-| Image                | Main hero visual                                                         |
+| Element              | Description                                                   |
+| -------------------- | ------------------------------------------------------------- |
+| Title (**required**) | Title text (to be placed in `h1` heading)                     |
+| Subtitle             | Subtitle text (using `h2` style)                              |
+| Description          | Description text (one or more paragraphs)                     |
+| Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description |
+| Image                | Main hero visual                                              |
 
 ## Jinja Macro
 
@@ -147,8 +147,8 @@ The hero pattern is composed of the following elements:
           Yes
         </td>
         <td>
-          Contents of a <a href="/docs/patterns/cta-block">Call to action
-          block</a> beneath the title and description
+          Contents of a <a href="/docs/patterns/cta-block">CTA block</a> beneath
+          the title and description
         </td>
       </tr>
       <tr>
