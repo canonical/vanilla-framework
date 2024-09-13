@@ -28,11 +28,11 @@ The hero pattern is composed of the following elements:
 ### Parameters
 
 <div style="overflow: auto;">
-  <table style="overflow: visible; width: auto;">
+  <table style="overflow: visible;">
     <thead>
       <tr>
         <th style="width: 20%;">Name</th>
-        <th style="width: 10%;">Is required</th>
+        <th style="width: 10%;">Required?</th>
         <th style="width: 25%;">Type</th>
         <th style="width: 15%;">Default</th>
         <th style="width: 30%;">Description</th>
@@ -43,15 +43,15 @@ The hero pattern is composed of the following elements:
         <td><code>layout</code></td>
         <td>Yes</td>
         <td>
-          One of:
-            <code>'50/50'</code>,
-            <code>'50/50-full-width-image'</code>,
-            <code>'75/25'</code>,
-            <code>'25/75'</code>,
+          One of:<br>
+            <code>'50/50'</code>,<br>
+            <code>'50/50-full-width-image'</code>,<br>
+            <code>'75/25'</code>,<br>
+            <code>'25/75'</code>,<br>
             <code>'fallback'</code>
         </td>
         <td><code>'fallback'</code></td>
-        <td>Choice of hero layout.</td>
+        <td>Choice of hero layout</td>
       </tr>
       <tr>
         <td><code>title_text</code></td>
@@ -72,7 +72,7 @@ The hero pattern is composed of the following elements:
         <td>Yes</td>
         <td><code>boolean</code></td>
         <td><code>false</code></td>
-        <td>Whether the layout is split on tablet-sized devices.</td>
+        <td>Whether the layout is split on tablet-sized devices</td>
       </tr>
     </tbody>
   </table>
@@ -81,11 +81,11 @@ The hero pattern is composed of the following elements:
 ### Slots
 
 <div style="overflow: auto;">
-  <table style="overflow: visible; width: auto;">
+  <table style="overflow: visible;">
     <thead>
       <tr>
         <th style="width: 20%;">Name</th>
-        <th style="width: 25%;">Is required</th>
+        <th style="width: 25%;">Required?</th>
         <th style="width: 55%;">Description</th>
       </tr>
     </thead>
@@ -195,7 +195,8 @@ View example of the hero pattern in fallback configuration
 
 ### Jinja Macro
 
-To import the Hero Jinja macro, copy the following import statement into your Jinja template.
+To import the Hero Jinja macro, copy the following import statement into your
+Jinja template.
 
 ```jinja
 {% raw -%}
@@ -203,7 +204,8 @@ To import the Hero Jinja macro, copy the following import statement into your Ji
 {%- endraw -%}
 ```
 
-View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros) for macro installation instructions.
+View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros)
+for macro installation instructions.
 
 ### SCSS
 

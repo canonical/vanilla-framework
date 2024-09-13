@@ -27,6 +27,120 @@ The tiered list pattern is composed of the following elements:
 | List item description | Description text/content with optional [CTA block](/docs/patterns/cta-block)        |
 | Call to action block  | [CTA block](/docs/patterns/cta-block) beneath the list                              |
 
+## Jinja Macro
+
+### Parameters
+
+<div style="overflow: auto;">
+  <table style="overflow: visible; width: auto;">
+    <thead>
+      <tr>
+        <th style="width: 20%;">Name</th>
+        <th style="width: 15%;">Required?</th>
+        <th style="width: 15%;">Type</th>
+        <th style="width: 15%;">Default</th>
+        <th style="width: 35%;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>is_description_full_width_on_desktop</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>true</code>
+        </td>
+        <td>
+          Whether the description element should be full-width on desktop
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_list_full_width_on_tablet</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>true</code>
+        </td>
+        <td>
+          Whether the list element should be full-width on tablet
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Slots
+
+<div style="overflow: auto;">
+  <table style="overflow: visible;">
+    <thead>
+      <tr>
+        <th style="width: 30%;">Name</th>
+        <th style="width: 25%;">Required?</th>
+        <th style="width: 45%;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>title</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          Title sentence displayed at the top of the pattern
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>description</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Description paragraph displayed below the title
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>list_item_title_[1-25]</code>
+        </td>
+        <td>
+          Yes, at least 1
+        </td>
+        <td>
+          Title element of each child list item; max of 25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>list_item_description_[1-25]</code>
+        </td>
+        <td>
+          Yes, at least 1
+        </td>
+        <td>
+          Description element of each child list item; max of 25
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ## 50/50 on desktop with description
 
 This variant contains a top-level description which is presented side-by-side
@@ -100,6 +214,20 @@ View example of the tiered list pattern
 </a></div>
 
 ## Import
+
+### Jinja Macro
+
+To import the Tiered List Jinja macro, copy the following import statement into
+your Jinja template:
+
+```jinja
+{% raw -%}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+{%- endraw -%}
+```
+
+View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros)
+for macro installation instructions.
 
 Since Patterns leverage many other parts of Vanilla in their composition and
 content, we recommend [importing the entirety of Vanilla](/docs#install) for
