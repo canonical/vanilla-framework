@@ -31,39 +31,15 @@
 
     .p-equal-height-row__col {
       // At smaller sizes, each column will have top border by default
-      border-top-color: $colors--theme--border-low-contrast;
-      border-top-style: solid;
-      border-top-width: 1px;
       display: grid;
-      grid-column: span $grid-columns-small;
+      grid-column: span 3;
       grid-row: span 4;
       grid-template-rows: subgrid;
       margin-bottom: $spv--small;
       position: relative;
 
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-column: span $grid-columns-medium;
-        grid-template-columns: subgrid;
-
-        // At medium size, each column item will take half of the available
-        // cols from the parent grid
-        .p-equal-height-row__item {
-          grid-column: span calc($grid-columns-medium / 2);
-        }
-
-        // At medium size, position the first column item on the left of the
-        // grid
-        .p-equal-height-row__item:first-child {
-          // This needs to be sufficiently large so remaining column items won't
-          // get stretched
-          grid-row: span 100;
-        }
-      }
-
-      @media screen and (width >= $breakpoint-large) {
-        border: none;
-        grid-column: span calc($grid-columns / 4);
-        margin-bottom: 0;
+      @media screen and (width <= $breakpoint-small) {
+        grid-column: span 4;
       }
     }
 
