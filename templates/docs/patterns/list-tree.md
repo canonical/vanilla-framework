@@ -12,7 +12,10 @@ Each directory can be opened or collapse using `aria-hidden`, set `true` for ope
 View example of the list tree pattern
 </a></div>
 
-## Legacy Version
+<h2>
+  Legacy Version
+  <div class="p-status-label--information u-align--middle">Updated</div>
+</h2>
 
 <div class="p-notification--caution">
   <div class="p-notification__content">

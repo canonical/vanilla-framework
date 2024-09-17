@@ -124,7 +124,10 @@ The `<input type="range">` allows a user to select from a specified range of val
 View example of the slider pattern
 </a></div>
 
-## Fieldset
+<h2>
+  Fieldset
+  <div class="p-status-label--positive u-align--middle">New</div>
+</h2>
 
 You can use the `<fieldset>` element to divide the form into different logical sections.
 

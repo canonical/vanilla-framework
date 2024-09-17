@@ -54,7 +54,10 @@ To use rule component on dark background, add `is-dark` modifier class.
 
 [View example of a highlighted rule on dark background](/docs/examples/patterns/rule/default?theme=dark).
 
-## Deprecated
+<h2>
+  Deprecated
+  <div class="p-status-label--information u-align--middle">Updated</div>
+</h2>
 
 Rule component replaces the following deprecated styles:
 
