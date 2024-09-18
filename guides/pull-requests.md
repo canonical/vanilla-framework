@@ -80,7 +80,8 @@ apply the relevant `-1` Labels.
 
 #### Percy visual testing
 
-Please review the [Percy visual testing](percy-workflow.md) documentation for a detailed overview of how to work with the Percy visual testing system.
+Please review the [Percy visual testing](percy-workflow.md) documentation for a
+detailed overview of how to work with the Percy visual testing system.
 
 #### Merging a PR
 
@@ -104,5 +105,13 @@ documentation.
 
 Any affected examples in your PR should have an appropriate label - `New`,
 `Updated`, or `Deprecated` - these are pulled from the `status` key within the
-Releases YAML file mentioned above. The appropriate indicator will then
-automatically be added to each page/UI element.
+[Releases YAML file](/releases.yml) mentioned above. The appropriate indicator
+will then automatically be added to the sidebar navigation.
+
+Additionally, you should manually add a status label to the appropriate
+heading on the docs page of each component you make changes to - this is done by
+using the [status label component](/scss/_patterns_status-label.scss).
+
+When a new version of Vanilla is set to be released, any manually-added status
+labels should be removed. Sidebar status labels set using the Releases YAML file
+will automatically be updated.
