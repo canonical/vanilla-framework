@@ -110,7 +110,27 @@ will then automatically be added to the sidebar navigation.
 
 Additionally, you should manually add a status label to the appropriate
 heading on the docs page of each component you make changes to - this is done by
-using the [status label component](/scss/_patterns_status-label.scss).
+using the [status label component](/scss/_patterns_status-label.scss):
+
+```html
+<!-- An example of a New feature heading -->
+<h2>
+  Wrap variant
+  <div class="p-status-label--positive u-align--middle">New</div>
+</h2>
+
+<!-- An example of an Updated feature heading -->
+<h2>
+  Fieldset
+  <div class="p-status-label--information u-align--middle">Updated</div>
+</h2>
+
+<!-- An example of a Deprecated feature heading -->
+<h2>
+  Separator
+  <div class="p-status-label--negative u-align--middle">Deprecated</div>
+</h2>
+```
 
 When a new version of Vanilla is set to be released, any manually-added status
 labels should be removed. Sidebar status labels set using the Releases YAML file
