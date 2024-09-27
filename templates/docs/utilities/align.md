@@ -6,7 +6,9 @@ context:
 
 ## Content
 
-When you need to align elements within a container, you can use the `u-align` utilities to force them to align center, left or right.
+When you need to horizontally align inline or flex elements within a container,
+you can use the `u-align` utilities to force them to align center, left or
+right.
 
 <div class="embedded-example"><a href="/docs/examples/utilities/align/content" class="js-example">
 View example of the content align utility
@@ -20,9 +22,18 @@ If you only need text to be aligned, you can use the `u-align-text` utilities.
 View example of the text align utility
 </a></div>
 
+<h2>
+  Vertical alignment
+  <div class="p-status-label--positive u-vertical-align--middle">New</div>
+</h2>
+
+If you need to vertically align inline elements to the middle of their
+container, you can use the `u-vertical-align--middle` utility.
+
 ## Import
 
-To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+To import just this utility into your project, copy the snippet below and
+include it in your main Sass file.
 
 ```scss
 // import Vanilla and include base mixins
@@ -33,4 +44,5 @@ To import just this utility into your project, copy the snippet below and includ
 @include vf-u-align;
 ```
 
-For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in
+your projects, which includes overrides and importing instructions.
