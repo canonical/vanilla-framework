@@ -13,7 +13,7 @@ View example of the CTA block pattern
 
 <h2>
   Borderless
-  <div class="p-status-label--positive u-align--middle">New</div>
+  <div class="p-status-label--positive u-vertical-align--middle">New</div>
 </h2>
 
 The CTA block can be used without a border. This is useful when the CTA block is stacked beneath related content.

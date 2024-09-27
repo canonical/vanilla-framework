@@ -126,7 +126,7 @@ View example of the slider pattern
 
 <h2>
   Fieldset
-  <div class="p-status-label--information u-align--middle">Updated</div>
+  <div class="p-status-label--information u-vertical-align--middle">Updated</div>
 </h2>
 
 You can use the `<fieldset>` element to divide the form into different logical sections.

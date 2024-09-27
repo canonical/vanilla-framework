@@ -14,7 +14,7 @@ View example of the list tree pattern
 
 <h2>
   Legacy Version
-  <div class="p-status-label--information u-align--middle">Updated</div>
+  <div class="p-status-label--information u-vertical-align--middle">Updated</div>
 </h2>
 
 <div class="p-notification--caution">

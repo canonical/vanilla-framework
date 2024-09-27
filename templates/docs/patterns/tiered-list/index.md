@@ -87,7 +87,7 @@ View example of the tiered list pattern
 
 <h2>
   Additional CTA options
-  <div class="p-status-label--information u-align--middle">Updated</div>
+  <div class="p-status-label--information u-vertical-align--middle">Updated</div>
 </h2>
 
 In addition to the CTA block placed below the list, you may also add CTA blocks

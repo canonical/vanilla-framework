@@ -17,7 +17,7 @@ View example of the image container with a highlighted background
 
 <h2>
   Image container with aspect ratio
-  <div class="p-status-label--positive u-align--middle">New</div>
+  <div class="p-status-label--positive u-vertical-align--middle">New</div>
 </h2>
 
 You can modify the aspect ratio of an image container to neatly wrap an image in a container of the desired aspect ratio.

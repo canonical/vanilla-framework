@@ -116,19 +116,19 @@ using the [status label component](/scss/_patterns_status-label.scss):
 <!-- An example of a New feature heading -->
 <h2>
   Wrap variant
-  <div class="p-status-label--positive u-align--middle">New</div>
+  <div class="p-status-label--positive u-vertical-align--middle">New</div>
 </h2>
 
 <!-- An example of an Updated feature heading -->
 <h2>
   Fieldset
-  <div class="p-status-label--information u-align--middle">Updated</div>
+  <div class="p-status-label--information u-vertical-align--middle">Updated</div>
 </h2>
 
 <!-- An example of a Deprecated feature heading -->
 <h2>
   Separator
-  <div class="p-status-label--negative u-align--middle">Deprecated</div>
+  <div class="p-status-label--negative u-vertical-align--middle">Deprecated</div>
 </h2>
 ```
 
