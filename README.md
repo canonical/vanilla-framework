@@ -11,8 +11,6 @@ Vanilla Framework is an extensible CSS framework, built using [Sass](http://sass
 [Documentation](https://vanillaframework.io/docs) |
 [Join the mailing list](http://canonical.us3.list-manage2.com/subscribe?u=56dac47c206ba0f58ec25f314&id=36f7d8394e)
 
-test
-
 ## Table of contents
 
 - [Using Vanilla](#using-vanilla)
