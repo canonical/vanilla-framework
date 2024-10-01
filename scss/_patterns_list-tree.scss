@@ -96,10 +96,14 @@
     // Force the entire tree to be visible
     display: block !important;
 
-    // Replace expand button with collapse button
+    // Always show the collapse button
     // This is only needed if you are running a script, like react components, that changes the `aria-hidden` of the `.p-list-tree`.
     .p-list-tree--static::before {
       @extend %list-tree-collapse-icon;
+    }
+    // Hide the default expand button
+    .p-list-tree__toggle::before {
+      display: none;
     }
   }
 }
