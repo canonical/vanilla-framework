@@ -10,16 +10,11 @@ It "anchors" elements that are far apart, and at risk of appearing floating in s
 
 It indicates the direction in which we want the viewer to read the content.
 
-<div class="p-notification--negative">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Deprecated</h5>
-    <p class="p-notification__message">The rule component is now deprecated. Use the <a href="/docs/base/separators#no-bottom-margin">base rule with no bottom margin</a> instead.</p>
-  </div>
-</div>
-
 ## Default
 
 Main page sections are often separated by horizontal rules. You can use the `p-rule` class name to create a default horizontal rule.
+
+This is an equivalent of the base `<hr>` element.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">
 View example of a default horizontal rule
@@ -43,11 +38,30 @@ Highlighted rules can also be accented by adding the `is-accent` modifier class.
 View example of a highlighted rule
 </a></div>
 
+## Fixed width
+
+Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap a `p-rule` component in a `row`.
+
+To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `p-rule`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/fixed-width/" class="js-example">
+View example of the fixed-width rule component
+</a></div>
+
 ## Dark theme
 
 To use rule component on dark background, add `is-dark` modifier class.
 
 [View example of a highlighted rule on dark background](/docs/examples/patterns/rule/default?theme=dark).
+
+## Deprecated
+
+Rule component replaces the following deprecated styles:
+
+- muted horizontal line `<hr class="is-muted">`: use `p-rule--muted` instead
+- fixed width horizontal line `<hr class="is-fixed-width">`: use `<div class="row"><hr class="p-rule"></div>` or `<hr class="p-rule is-fixed-width">` instead
+- separator `<hr class="p-separator">`: use rule component nested in a strip or section instead
+- bordered strip `<div class="p-strip is-bordered">`: use highlighted strip, or a rule component instead
 
 ## Import
 

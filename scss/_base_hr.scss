@@ -27,20 +27,10 @@
   // stylelint-disable selector-max-type -- base styles can use type selectors
   hr {
     @extend %hr;
-    background: $colors--theme--border-default;
 
-    margin-bottom: calc($spv--small - 1px);
-
+    // DEPRECATED: use `.p-rule--muted` instead
     &.is-muted {
       background-color: $colors--theme--border-low-contrast;
-    }
-
-    &.is-highlighted {
-      @include vf-highlight-bar($colors--theme--text-default);
-
-      &.is-accent {
-        @include vf-highlight-bar($colors--theme--accent);
-      }
     }
 
     &.u-no-margin--bottom {
@@ -48,6 +38,7 @@
       @extend %u-no-margin--bottom--hr;
     }
 
+    // DEPRECATED: use rule component inside of the grid instead
     &.is-fixed-width {
       @extend %fixed-width-hr;
     }

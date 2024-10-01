@@ -1,11 +1,14 @@
 @import 'settings';
 
 @mixin vf-p-rule {
-  // Deprecated, to be removed in v5
   .p-rule,
   .p-rule--muted,
   .p-rule--highlight {
-    @extend %u-no-margin--bottom--hr;
+    @extend %hr;
+
+    &.is-fixed-width {
+      @extend %fixed-width-hr;
+    }
   }
 
   .p-rule--muted {

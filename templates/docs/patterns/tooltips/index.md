@@ -26,6 +26,26 @@ In some cases you may need the tooltip element to exist outside of the element i
 View example of the detached tooltips pattern
 </a></div>
 
+## Theming
+
+Tooltips use the inverse theme of their background to contrast them from surrounding content. By default, this works by inverting the theme applied to the document body.
+For example, tooltips inside a `<body class="is-dark">` will use the light theme.
+
+If a tooltip is inside of an element with a different theme than the document body, you should apply the theme class (`.is-dark`, `.is-light`, or `.is-paper`)
+of the tooltip's background to the tooltip element, so that the tooltip inverts the theme of its background, not the document body.
+
+For example, if you have a tooltip inside a dark-themed element on a light-themed page, add the `.is-dark` class to the `.p-tooltip` to ensure that the tooltip uses the light theme.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tooltips/nesting-theme-override-light" class="js-example">
+View example of the tooltips pattern with a light theme override
+</a></div>
+
+Conversely, if you have a tooltip inside a light-themed element on a dark-themed page, add the `.is-light` class to the `.p-tooltip` to ensure that the tooltip uses the dark theme.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tooltips/nesting-theme-override-dark" class="js-example">
+View example of the tooltips pattern with a dark theme override
+</a></div>
+
 ## Import
 
 To import just this component into your project, copy the snippet below and include it in your main Sass file.

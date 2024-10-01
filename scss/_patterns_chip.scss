@@ -1,6 +1,5 @@
 @use 'sass:math';
 @import 'settings';
-$chip-border-thickness: 1px;
 
 @mixin vf-p-chip {
   %vf-chip {
@@ -13,10 +12,10 @@ $chip-border-thickness: 1px;
     display: inline-flex;
     margin: 0 $sph--small $input-margin-bottom 0;
     max-width: 100%;
-    padding: calc($spv--x-small - $chip-border-thickness) $sph--small; // account for border thickness using calc
+    padding: calc($spv--x-small - $input-border-thickness) $sph--small; // account for border thickness using calc
     position: relative;
     user-select: none;
-    vertical-align: calc($chip-border-thickness - map-get($nudges, p));
+    vertical-align: calc($input-border-thickness - map-get($nudges, p));
     white-space: nowrap;
 
     .p-chip__lead,
@@ -78,7 +77,7 @@ $chip-border-thickness: 1px;
     @extend %vf-chip;
 
     background-color: $colors--theme--background-neutral-default;
-    border: $chip-border-thickness solid $colors--theme--border-neutral;
+    border: $input-border-thickness solid $colors--theme--border-neutral;
     border-color: $colors--theme--border-neutral;
   }
 
@@ -115,7 +114,7 @@ $chip-border-thickness: 1px;
     @extend %vf-chip;
 
     background-color: $colors--theme--background-positive-default;
-    border: $chip-border-thickness solid $colors--theme--border-positive;
+    border: $input-border-thickness solid $colors--theme--border-positive;
     border-color: $colors--theme--border-positive;
   }
 
@@ -152,7 +151,7 @@ $chip-border-thickness: 1px;
     @extend %vf-chip;
 
     background-color: $colors--theme--background-caution-default;
-    border: $chip-border-thickness solid $colors--theme--border-caution;
+    border: $input-border-thickness solid $colors--theme--border-caution;
     border-color: $colors--theme--border-caution;
   }
 
@@ -189,7 +188,7 @@ $chip-border-thickness: 1px;
     @extend %vf-chip;
 
     background-color: $colors--theme--background-negative-default;
-    border: $chip-border-thickness solid $colors--theme--border-negative;
+    border: $input-border-thickness solid $colors--theme--border-negative;
     border-color: $colors--theme--border-negative;
   }
 
@@ -226,7 +225,7 @@ $chip-border-thickness: 1px;
     @extend %vf-chip;
 
     background-color: $colors--theme--background-information-default;
-    border: $chip-border-thickness solid $colors--theme--border-information;
+    border: $input-border-thickness solid $colors--theme--border-information;
     border-color: $colors--theme--border-information;
   }
 
