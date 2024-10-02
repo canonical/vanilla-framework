@@ -5,24 +5,24 @@
   {%- endif -%}
   <div class="{{ row_class }}">
     {%- for column in columns -%}
-      {% set column_classes = [] %}
+      {%- set column_classes = [] -%}
       {%- for breakpoint in column.breakpoints -%}
-        {% if breakpoint.num_columns > 0 %}
+        {%- if breakpoint.num_columns > 0 -%}
           {% set span_class_name = col_class_prefix + breakpoint.name + '-' + (breakpoint.num_columns | string) %}
           {%- if breakpoint.name == 'large' -%}
-            {% set span_class_name = span_class_name | replace('-large', '') %}
+            {%- set span_class_name = span_class_name | replace('-large', '') -%}
           {%- endif -%}
         {% else %}
           {% set span_class_name = 'u-hide--' + breakpoint.name %}
         {%- endif -%}
-        {{ column_classes.append(span_class_name) or "" }}
+        {{- column_classes.append(span_class_name) or "" -}}
         {%- if 'start' in breakpoint and breakpoint.start > 0 -%}
           {% set offset_class_name = col_class_prefix + 'start-' + breakpoint.name + '-' + (breakpoint.start | string) %}
-          {{ column_classes.append(offset_class_name) or "" }}
+          {{- column_classes.append(offset_class_name) or "" -}}
         {%- endif -%}
         {%- if 'order' in breakpoint and breakpoint.order > 0 -%}
           {% set order_class_name = col_class_prefix + 'order-' + breakpoint.name + '-' + (breakpoint.order | string) %}
-          {{ column_classes.append(order_class_name) or "" }}
+          {{- column_classes.append(order_class_name) or "" -}}
         {%- endif -%}
       {%- endfor -%}
       <div class="{{ column_classes | join(' ') }}">
