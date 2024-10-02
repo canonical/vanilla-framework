@@ -1,0 +1,30 @@
+{% extends "_layouts/examples.html" %}
+{% from "docs/examples/patterns/grid/_grid-example.jinja" import grid_example %}
+
+{% block title %}Grid / 4 columns on medium / Offsets{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+  <div class="grid-demo">
+    {{ grid_example(
+      row_class="row--4-cols-medium",
+      columns=[
+        {
+          'breakpoints': [
+            {'name': 'large', 'num_columns': 6, 'start': 4},
+            {'name': 'medium', 'num_columns': 1, 'start': 3},
+            {'name': 'small', 'num_columns': 1, 'start': 1}
+          ]
+        },
+        {
+          'breakpoints': [
+            {'name': 'large', 'num_columns': 3, 'start': 10},
+            {'name': 'medium', 'num_columns': 1, 'start': 4},
+            {'name': 'small', 'num_columns': 2, 'start': 3}
+          ]
+        }
+      ]
+    ) }}
+  </div>
+{% endblock %}

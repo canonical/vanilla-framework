@@ -25,10 +25,13 @@ Vanilla has a responsive grid with the following columns and gutters:
       <td>1.0rem</td>
     </tr>
     <tr>
-      <td><code>$breakpoint-small</code> - <code>$breakpoint-large</code></td>
-      <td>6</td>
-      <td>2.0rem</td>
-      <td>1.5rem</td>
+      <td rowspan="2"><code>$breakpoint-small</code> - <code>$breakpoint-large</code></td>
+      <td>6 (using <code>.row</code>)</td>
+      <td rowspan="2">2.0rem</td>
+      <td rowspan="2">1.5rem</td>
+    </tr>
+    <tr>
+      <td>4 (using <code>.row--4-cols</code> - see <a href="#4-column-grid-on-medium-screens">docs</a>).</td>
     </tr>
     <tr>
       <td>Greater than <code>$breakpoint-large</code></td>
@@ -51,6 +54,17 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/default/" class="js-example">
     View example of the default grid
+</a></div>
+
+## 4-column grid on medium screens
+
+Vanilla is moving towards a layout where each breakpoint has a multiple of 4 columns. This allows for more consistency in layouts and easier design decisions.
+Currently, `.row` has 6 columns on medium screens, but this will be changed to 4 columns in the future.
+To use a multiple of 4 columns on every breakpoint, use the `.row--4-col` class at every level of grid nesting. The same `.col-*` classes can be used as in the default grid.
+`.row--4-col` has the same grid behaviour as `.row` but with 4 columns on the medium breakpoint instead of 6.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/4-columns-medium-responsive" class="js-example">
+    View example of the 4-column grid
 </a></div>
 
 ## Common patterns

@@ -3,20 +3,25 @@
 // CSS grid implementation of columns for all screens sizes
 @mixin vf-grid-column($col) {
   @supports (display: grid) {
-    grid-column-end: span #{$col};
+    // Get the smaller of the parent column span count or the grid row's maximum column count
+    // This prevents columns from using more columns than their grid row allows
+    --vf-grid-colspan: min(#{$col}, var(--vf-grid-columns));
+
+    grid-column-end: span var(--vf-grid-colspan);
 
     //nesting
     @if $col > 1 {
-      & .row {
-        grid-template-columns: repeat($col, minmax(0, 1fr));
+      & .#{$grid-row-class},
+      & .#{$grid-row-4-cols-class} {
+        grid-template-columns: repeat(var(--vf-grid-colspan), minmax(0, 1fr));
       }
     }
   }
 }
 
-@mixin vf-grid-column-reordering($label, $col-count, $reset: false) {
+@mixin vf-grid-column-reordering($label, $col-count, $reset: false, $row-class: $grid-row-class) {
   @for $i from 1 through $col-count {
-    .row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
+    .#{$row-class} [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
       @if $reset {
         grid-column-start: initial;
       } @else {
@@ -34,6 +39,17 @@
   }
 }
 
+// span full width on some breakpoint (to match block level element behaviour)
+@mixin vf-grid-span-full-grid($min-width: None) {
+  @if $min-width == None {
+    grid-column: auto / span var(--vf-grid-columns);
+  } @else {
+    @media (min-width: $min-width) {
+      grid-column: auto / span var(--vf-grid-columns);
+    }
+  }
+}
+
 @mixin vf-p-grid {
   // FIXME: this should be removed from framework SCSS
   // (see https://github.com/canonical/vanilla-framework/issues/3199)
@@ -43,18 +59,29 @@
     margin-bottom: $spv--small;
   }
 
-  .row {
+  .#{$grid-row-class} {
     @extend %vf-row;
+  }
+
+  .#{$grid-row-4-cols-class} {
+    @extend %vf-row-medium-4;
   }
 
   // mobile grid
 
   // by default medium and large screen col classes should span full width on mobile (to match block level element behaviour)
   %span-full-grid-on-mobile {
-    grid-column: auto / span $grid-columns-small;
+    @include vf-grid-span-full-grid;
   }
 
   @for $i from 1 through $grid-columns-medium {
+    .#{$grid-medium-col-prefix}#{$i} {
+      @extend %span-full-grid-on-mobile;
+      @extend %display-block;
+    }
+  }
+
+  @for $i from 1 through $grid-columns-medium-4 {
     .#{$grid-medium-col-prefix}#{$i} {
       @extend %span-full-grid-on-mobile;
       @extend %display-block;
@@ -79,12 +106,9 @@
   }
 
   // tablet grid
-
   // on medium/tablet screens, small and large grid class names span full width (to match block level element behaviour)
   %span-full-grid-on-tablet {
-    @media (min-width: $threshold-4-6-col) {
-      grid-column: auto / span $grid-columns-medium;
-    }
+    @include vf-grid-span-full-grid($threshold-4-small-4-med-col);
   }
 
   @for $i from 1 through $grid-columns-small {
@@ -100,8 +124,20 @@
   }
 
   // col-medium-X classes define grid for medium screens
+  // col-medium-X classes for grids with 6 columns on medium
   @media (min-width: $threshold-4-6-col) {
     @for $i from $grid-columns-medium through 1 {
+      .#{$grid-medium-col-prefix}#{$i} {
+        @include vf-grid-column($i);
+
+        width: 100%;
+      }
+    }
+  }
+
+  // col-medium-X classes for grids with 4 columns on medium
+  @media (min-width: $threshold-4-small-4-med-col) {
+    @for $i from $grid-columns-medium-4 through 1 {
       .#{$grid-medium-col-prefix}#{$i} {
         @include vf-grid-column($i);
 
@@ -114,9 +150,7 @@
 
   // on desktop screens small and medium grid class names span full width (to match block level element behaviour)
   %span-full-grid-on-desktop {
-    @media (min-width: $threshold-6-12-col) {
-      grid-column: auto / span $grid-columns;
-    }
+    @include vf-grid-span-full-grid($threshold-4-med-12-col);
   }
 
   @for $i from 1 through $grid-columns-small {
@@ -131,8 +165,14 @@
     }
   }
 
+  @for $i from 1 through $grid-columns-medium-4 {
+    .#{$grid-medium-col-prefix}#{$i} {
+      @extend %span-full-grid-on-desktop;
+    }
+  }
+
   // col-X class names define grid on large/desktop screens
-  @media (min-width: $threshold-6-12-col) {
+  @media (min-width: $threshold-4-med-12-col) {
     @for $i from $grid-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-large-col-prefix}#{$i} {
@@ -146,21 +186,25 @@
   $offsets: (
     (small, 0, $threshold-4-6-col, $grid-columns-small),
     (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium),
+    (medium-new, $threshold-4-small-4-med-col, $threshold-4-med-12-col, $grid-columns-medium-4),
     (large, $threshold-6-12-col, false, $grid-columns)
   );
 
   @each $label, $breakpoint-min, $breakpoint-reset, $col-count in $offsets {
     @if $breakpoint-min == 0 {
       @include vf-grid-column-reordering($label, $col-count);
+      @include vf-grid-column-reordering($label, $col-count, $row-class: $grid-row-4-cols-class);
     } @else {
       @media (min-width: #{$breakpoint-min}) {
         @include vf-grid-column-reordering($label, $col-count);
+        @include vf-grid-column-reordering($label, $col-count, $row-class: $grid-row-4-cols-class);
       }
     }
 
     @if $breakpoint-reset {
       @media (min-width: #{$breakpoint-reset}) {
         @include vf-grid-column-reordering($label, $col-count, $reset: true);
+        @include vf-grid-column-reordering($label, $col-count, $reset: true, $row-class: $grid-row-4-cols-class);
       }
     }
   }
@@ -168,7 +212,7 @@
   // variants
 
   // deprecated, will be removed in v5
-  .row.is-bordered {
+  .#{$grid-row-class}.is-bordered {
     position: relative;
 
     &::before {
@@ -199,7 +243,7 @@
   $col-75: calc(($grid-columns / 4) * 3);
 
   // 50/50 split on medium and large screens
-  .row--50-50 {
+  .#{$grid-row-class}--50-50 {
     @extend %vf-row;
 
     > .col {
@@ -216,7 +260,7 @@
   }
 
   // 25/75 split on medium and large screens
-  .row--25-75 {
+  .#{$grid-row-class}--25-75 {
     @extend %vf-row;
 
     > .col {
@@ -256,7 +300,7 @@
   }
 
   // 50/50 split just on medium screens
-  .row--50-50-on-medium {
+  .#{$grid-row-class}--50-50-on-medium {
     @extend %vf-row;
 
     > .col {
@@ -266,7 +310,7 @@
     }
   }
 
-  .row--25-75-on-medium {
+  .#{$grid-row-class}--25-75-on-medium {
     @extend %vf-row;
 
     > .col {
@@ -288,7 +332,7 @@
   }
 
   // 50/50 split just on large screens
-  .row--50-50-on-large {
+  .#{$grid-row-class}--50-50-on-large {
     @extend %vf-row;
 
     > .col {
@@ -298,7 +342,7 @@
     }
   }
 
-  .row--25-75-on-large {
+  .#{$grid-row-class}--25-75-on-large {
     @extend %vf-row;
 
     > .col {
@@ -321,7 +365,7 @@
   }
 
   // 75/25 split on medium and large screens
-  .row--75-25 {
+  .#{$grid-row-class}--75-25 {
     @extend %vf-row;
 
     > .col {
@@ -354,7 +398,7 @@
     }
   }
 
-  .row--75-25-on-medium {
+  .#{$grid-row-class}--75-25-on-medium {
     @extend %vf-row;
 
     > .col {
@@ -375,7 +419,7 @@
     }
   }
 
-  .row--75-25-on-large {
+  .#{$grid-row-class}--75-25-on-large {
     @extend %vf-row;
 
     > .col {
@@ -391,7 +435,7 @@
     }
   }
 
-  .row--25-25-50 {
+  .#{$grid-row-class}--25-25-50 {
     @extend %vf-row;
 
     > .col {
@@ -420,7 +464,7 @@
     }
   }
 
-  .row--25-25-25-25 {
+  .#{$grid-row-class}--25-25-25-25 {
     @extend %vf-row;
 
     > .col {

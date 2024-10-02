@@ -1,0 +1,373 @@
+{% extends "_layouts/examples.html" %}
+{% from "docs/examples/patterns/grid/_grid-example.jinja" import grid_example %}
+
+{% block title %}Grid / Medium responsive / 4 columns & 6 columns comparison{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+  <div class="grid-demo">
+    <section>
+      <p>All breakpoints given</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+              {'name': 'medium', 'num_columns': 1},
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'medium', 'num_columns': 1},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+
+    <section>
+      <p>Missing large breakpoint</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 1},
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'medium', 'num_columns': 1},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'medium', 'num_columns': 2},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+
+    <section>
+      <p>Missing medium breakpoint</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+
+    <section>
+      <p>Missing small breakpoint</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+              {'name': 'medium', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'medium', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+
+    <section>
+      <p>Large only</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 4},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 3},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'large', 'num_columns': 5},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+
+    <section>
+      <p>Medium only</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'medium', 'num_columns': 2},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+
+    <section>
+      <p>Small only</p>
+      {{ grid_example(
+        row_class="row--4-cols-medium",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      {{ grid_example(
+        row_class="row",
+        show_row_class=True,
+        columns=[
+          {
+            'breakpoints': [
+              {'name': 'small', 'num_columns': 2},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+          {
+            'breakpoints': [
+              {'name': 'small', 'num_columns': 1},
+            ]
+          },
+        ]
+      ) }}
+      <hr class="is-muted">
+    </section>
+  </div>
+{% endblock %}

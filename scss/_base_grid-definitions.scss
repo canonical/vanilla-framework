@@ -5,6 +5,31 @@
   padding-right: 0;
 }
 
+// Apply grid properties for a given breakpoint
+@mixin vf-b-grid-template-impl($breakpoint, $columns) {
+  grid-gap: 0 map-get($grid-gutter-widths, $breakpoint);
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  // Expose the number of columns available for child elements as a CSS var, so that columns can span full grid width without increasing selector specificity\
+  --vf-grid-columns: #{$columns};
+
+  & > * {
+    grid-column-end: span $columns;
+  }
+}
+
+// Apply grid properties for a given breakpoint. If a min_width is provided, wrap the properties in a media query
+@mixin vf-b-grid-template($breakpoint, $columns, $min_width: None) {
+  @supports (display: grid) {
+    @if $min-width == None {
+      @include vf-b-grid-template-impl($breakpoint, $columns);
+    } @else {
+      @media (min-width: $min_width) {
+        @include vf-b-grid-template-impl($breakpoint, $columns);
+      }
+    }
+  }
+}
+
 @mixin vf-b-grid-definitions {
   %display-block {
     // make columns explicitly display:block; the use of a placeholder is to ensure the rule appears only once in the compiled css
@@ -29,45 +54,50 @@
     }
   }
 
-  %vf-row {
+  %vf-row-small {
+    @include vf-b-grid-template(small, $grid-columns-small);
+  }
+
+  %vf-row-medium-4 {
+    @include vf-b-grid-template(default, $grid-columns-medium-4, $threshold-4-small-4-med-col);
+  }
+
+  %vf-row-medium-6 {
+    @include vf-b-grid-template(default, $grid-columns-medium, $threshold-4-6-col);
+  }
+
+  %vf-row-large {
+    @include vf-b-grid-template(default, $grid-columns, $threshold-6-12-col);
+  }
+
+  %vf-row-base {
     @extend %fixed-width-container;
 
     @supports (display: grid) {
       display: grid;
-      grid-gap: 0 map-get($grid-gutter-widths, small);
-      grid-template-columns: repeat($grid-columns-small, minmax(0, 1fr));
       grid-template-rows: auto;
       margin-left: auto;
       margin-right: auto;
       max-width: $grid-max-width;
 
-      & > * {
-        grid-column-end: span $grid-columns-small;
-      }
-
       [class*='#{$grid-column-prefix}'] {
         grid-column-start: auto;
       }
-
-      // set static gutter width per breakpoint
-      @media (min-width: $threshold-4-6-col) {
-        grid-gap: 0 map-get($grid-gutter-widths, default);
-        grid-template-columns: repeat($grid-columns-medium, minmax(0, 1fr));
-
-        & > * {
-          grid-column-end: span $grid-columns-medium;
-        }
-      }
-
-      @media (min-width: $threshold-6-12-col) {
-        grid-gap: 0 map-get($grid-gutter-widths, default);
-        grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
-
-        & > * {
-          grid-column-end: span $grid-columns;
-        }
-      }
     }
+  }
+
+  %vf-row {
+    @extend %vf-row-base;
+    @extend %vf-row-small;
+    @extend %vf-row-medium-6;
+    @extend %vf-row-large;
+  }
+
+  %vf-row-medium-4 {
+    @extend %vf-row-base;
+    @extend %vf-row-small;
+    @extend %vf-row-medium-4;
+    @extend %vf-row-large;
   }
 
   %vf-grid-container-padding {

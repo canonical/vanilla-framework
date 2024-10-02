@@ -1,0 +1,25 @@
+{% extends "_layouts/examples.html" %}
+{% from "docs/examples/patterns/grid/_grid-example.jinja" import grid_example %}
+
+{% block title %}Grid / 4 columns on medium{% endblock %}
+
+{% block standalone_css %}patterns_grid{% endblock %}
+
+{% block content %}
+  <div class="grid-demo">
+    {{ grid_example(
+        row_class="row--4-cols-medium",
+        columns=[
+          {'breakpoints': [
+            {'name': 'medium', 'num_columns': 1}
+          ]},
+          {'breakpoints': [
+            {'name': 'medium', 'num_columns': 2}
+          ]},
+          {'breakpoints': [
+            {'name': 'medium', 'num_columns': 1}
+          ]}
+        ]
+      ) }}
+  </div>
+{% endblock %}
