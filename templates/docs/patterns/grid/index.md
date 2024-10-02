@@ -31,7 +31,7 @@ Vanilla has a responsive grid with the following columns and gutters:
       <td rowspan="2">1.5rem</td>
     </tr>
     <tr>
-      <td>4 (using <code>.row--4-cols</code> - see <a href="#4-column-grid-on-medium-screens">docs</a>).</td>
+      <td>4 (using <code>.row--4-cols-medium</code> - see <a href="#4-column-grid-on-medium-screens">docs</a>).</td>
     </tr>
     <tr>
       <td>Greater than <code>$breakpoint-large</code></td>
@@ -48,7 +48,8 @@ Vanilla has a responsive grid with the following columns and gutters:
 - All content must be within columns (`.col-*`)
 - Only columns should be direct children of a row
 
-Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each column containing text should span a minimum of 3 columns.
+Layouts can be created combining rows with different number of columns to an ideal maximum of 4 columns per row. Each
+column containing text should span a minimum of 3 columns.
 
 Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
@@ -58,10 +59,21 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
 ## 4-column grid on medium screens
 
-Vanilla is moving towards a layout where each breakpoint has a multiple of 4 columns. This allows for more consistency in layouts and easier design decisions.
-Currently, `.row` has 6 columns on medium screens, but this will be changed to 4 columns in the future.
-To use a multiple of 4 columns on every breakpoint, use the `.row--4-col` class at every level of grid nesting. The same `.col-*` classes can be used as in the default grid.
-`.row--4-col` has the same grid behaviour as `.row` but with 4 columns on the medium breakpoint instead of 6.
+<div class="p-notification--positive">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">New</h3>
+    <p class="p-notification__message">
+      Vanilla is moving towards a layout where each breakpoint has a multiple of 4 columns.<br>
+      The 6 column grid on medium screens is deprecated and should be replaced with the 4 column grid.<br>
+      The default <code>.row</code> class has 6 columns on medium screens, but this will be changed to 4 columns in v5.
+    </p>
+  </div>
+</div>
+
+To use a multiple of 4 columns on every breakpoint, use the `.row--4-col` class at every level of grid nesting. The same
+`.col-*` classes can be used as in the default grid.
+
+`.row--4-cols-medium` has the same grid behaviour as `.row` but with 4 columns on the medium breakpoint instead of 6.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/4-columns-medium-responsive" class="js-example">
     View example of the 4-column grid
@@ -69,9 +81,14 @@ To use a multiple of 4 columns on every breakpoint, use the `.row--4-col` class 
 
 ## Common patterns
 
-On top of the regular row and column classes, we provide shortcut classes to help you build [often used layouts](/docs/layouts/brochure). Instead of specifying columns at each breakpoint, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
+On top of the regular row and column classes, we provide shortcut classes to help you
+build [often used layouts](/docs/layouts/brochure). Instead of specifying columns at each breakpoint, use one of these
+classes on the grid container, and the child elements will be arranged automatically as long as they have the `col`
+class.
 
-N.B.: the shortcut classes are not nestable. If you need further subdivision inside a shortcut class, please use the regular grid classes. Take care to specify a number of columns that is available (e.g. 3 columns in a 25% container, 6 columns in a 50% container, etc). Specifying more columns than are available leads to misalignemnts.
+N.B.: the shortcut classes are not nestable. If you need further subdivision inside a shortcut class, please use the
+regular grid classes. Take care to specify a number of columns that is available (e.g. 3 columns in a 25% container, 6
+columns in a 50% container, etc). Specifying more columns than are available leads to misalignemnts.
 
 |                         | Large screens | Medium screens | Small screens   |
 | ----------------------- | ------------- | -------------- | --------------- |
@@ -92,7 +109,7 @@ N.B.: the shortcut classes are not nestable. If you need further subdivision ins
     <h5 class="p-notification__title">Nesting</h5>
     <p class="p-notification__message">
       These common patterns are meant for top level rows only and are <strong>not intended to be nested</strong>. You should not nest <code>row--50-50</code> inside another column.
-      For nested rows, use the standard <code>.row</code> class, as described in <a href="#nested-columns">section about nested columns</a> later on this page.</p>
+      For nested rows, use the standard <code>.row--4-cols-medium</code> class, as described in <a href="#nested-columns">section about nested columns</a> later on this page.</p>
   </div>
 </div>
 
@@ -107,7 +124,8 @@ N.B.: the shortcut classes are not nestable. If you need further subdivision ins
 
 ### 50/50
 
-The default variant of 50/50 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+The default variant of 50/50 split sets the layout on large and medium screens, stacking both columns on top of each
+other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/50-50/" class="js-example">
     View example of 50/50 grid layout
@@ -115,7 +133,8 @@ The default variant of 50/50 split sets the layout on large and medium screens, 
 
 ### 25/75
 
-The default variant of 25/75 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+The default variant of 25/75 split sets the layout on large and medium screens, stacking both columns on top of each
+other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75/" class="js-example">
     View example of 25/75 grid layout
@@ -123,7 +142,8 @@ The default variant of 25/75 split sets the layout on large and medium screens, 
 
 ### 75/25
 
-The default variant of 75/25 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+The default variant of 75/25 split sets the layout on large and medium screens, stacking both columns on top of each
+other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/75-25/" class="js-example">
     View example of 75/25 grid layout
@@ -131,11 +151,16 @@ The default variant of 75/25 split sets the layout on large and medium screens, 
 
 ### Responsive 50/50, 25/75, and 75/25
 
-The default `.row--50-50`, `.row--25-75`, and `.row--75-25` splits provide the most common default layouts for all screen sizes, as described in the table above.
+The default `.row--50-50`, `.row--25-75`, and `.row--75-25` splits provide the most common default layouts for all
+screen sizes, as described in the table above.
 
-To have more direct control over the layout on different screen sizes, you can use the responsive variants of these classes: `.row--50-50-on-medium`, `.row--25-75-on-medium`, and `.row--75-25-on-medium` will only apply given layout on medium screens, while `.row--50-50-on-large`, `.row--25-75-on-large`, and `.row--75-25-on-large` will only apply given layout on large screens.
+To have more direct control over the layout on different screen sizes, you can use the responsive variants of these
+classes: `.row--50-50-on-medium`, `.row--25-75-on-medium`, and `.row--75-25-on-medium` will only apply given layout on
+medium screens, while `.row--50-50-on-large`, `.row--25-75-on-large`, and `.row--75-25-on-large` will only apply given
+layout on large screens.
 
-For example, to only have 25/75 split on large screens, you can use `.row--25-75-on-large`. This is usually useful when main large column splits further with nested grid that would require full width of the page on medium screens.
+For example, to only have 25/75 split on large screens, you can use `.row--25-75-on-large`. This is usually useful when
+main large column splits further with nested grid that would require full width of the page on medium screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-responsive-large/" class="js-example">
     View example of 25/75 grid layout
@@ -147,7 +172,8 @@ This can also be accomplished with the 75/25 split using `.row--75-25-on-large`.
     View example of 75/25 grid layout
 </a></div>
 
-By utilising the responsive variants, you can also create mixed layouts with 50/50 splits on medium screens and 25/75 or 75/25 on large screens, without the need to nest grids.
+By utilising the responsive variants, you can also create mixed layouts with 50/50 splits on medium screens and 25/75 or
+75/25 on large screens, without the need to nest grids.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-75-mixed-responsive/" class="js-example">
     View example of 25/75 mixed with 50/50 grid layout
@@ -157,11 +183,14 @@ By utilising the responsive variants, you can also create mixed layouts with 50/
     View example of 75/25 mixed with 50/50 grid layout
 </a></div>
 
-<span class="p-status-label--negative">Removed</span> The `.is-split-on-medium` class has been removed in Vanilla 4.6.0 as `.row--25-75` how implements same responsive behaviour by default. If you want to only use 25/75 split on large screens, use `.row--25-75-on-large`.
+<span class="p-status-label--negative">Removed</span> The `.is-split-on-medium` class has been removed in Vanilla 4.6.0
+as `.row--25-75` how implements same responsive behaviour by default. If you want to only use 25/75 split on large
+screens, use `.row--25-75-on-large`.
 
 ### 25/25/50
 
-The row with 25/25/50 split sets this layout on large screens only, switching to 50/50 stacked on top of full width column on medium screen, and stacking all 3 columns on top of each other on small screens.
+The row with 25/25/50 split sets this layout on large screens only, switching to 50/50 stacked on top of full width
+column on medium screen, and stacking all 3 columns on top of each other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-25-50/" class="js-example">
     View example of 25/25/50 grid layout
@@ -169,7 +198,8 @@ The row with 25/25/50 split sets this layout on large screens only, switching to
 
 ### 25/25/25/25
 
-The row with 25/25/25/25 split sets this layout on large screens only, switching to 50/50 stacked on top of 50/50 columns on medium screen, and stacking all 4 columns on top of each other on small screens.
+The row with 25/25/25/25 split sets this layout on large screens only, switching to 50/50 stacked on top of 50/50
+columns on medium screen, and stacking all 4 columns on top of each other on small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/25-25-25-25/" class="js-example">
     View example of 25/25/25/25 grid layout
@@ -177,7 +207,8 @@ The row with 25/25/25/25 split sets this layout on large screens only, switching
 
 ## Fixed width containers
 
-If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.row` with a single 12 column container inside:
+If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It
+behaves as a grid `.row--4-cols-medium` with a single 12 column container inside:
 
 <div class="embedded-example"><a href="/docs/examples/utilities/fixed-width-container/" class="js-example">
     View example of a fixed width container
@@ -185,12 +216,13 @@ If you only want to constrain content so it matches the grid's fixed width, you 
 
 ## Nested columns
 
-Columns can be nested infinitely by adding `.row` classes within columns. When nesting, remember to:
+Columns can be nested infinitely by adding `.row--4-cols-medium` classes within columns. When nesting, remember to:
 
 - keep track of the context (available columns), which is equal to the number of columns spanned by the parent element.
-- Ensure `.col-*` classes are direct descendants of `.row` classes. Failing to do so will result in a broken layout.
+- Ensure `.col-*` classes are direct descendants of `.row--4-cols-medium` classes. Failing to do so will result in a
+  broken layout.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/grid/nested/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/4-columns-medium-nested-responsive/" class="js-example">
     View example of the nested columns within the grid
 </a></div>
 
@@ -206,7 +238,11 @@ To leave gap columns, use `col-start-{breakpoint}{index}`, e.g.: `col-start-larg
     View example of the empty columns within the grid
 </a></div>
 
-Please note, specifying a value that exceeds the available number of columns will result in incorrect offsets. This happens because the grid implicitly creates additional columns to accommodate the grid-column-start property. You should always keep track of how many available columns you have, especially when nesting. In the example below, we are indicating we want a `div` to span 3 columns, and start at position 7. This requires 10 total columns inside a `div` spanning only 4.
+Please note, specifying a value that exceeds the available number of columns will result in incorrect offsets. This
+happens because the grid implicitly creates additional columns to accommodate the grid-column-start property. You should
+always keep track of how many available columns you have, especially when nesting. In the example below, we are
+indicating we want a `div` to span 3 columns, and start at position 7. This requires 10 total columns inside a `div`
+spanning only 4.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/incorrect-empty-columns/" class="js-example">
 View example of the incorrect column offset within a nested grid
@@ -214,7 +250,9 @@ View example of the incorrect column offset within a nested grid
 
 ## Breaking out of the grid
 
-In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to bleed into the page margins. Vanilla provides a separate [fluid breakout layout](/docs/layouts/fluid-breakout) for this purpose.
+In some cases, there might be a good reason to break out of the constraints of a 12 column grid and allow content to
+bleed into the page margins. Vanilla provides a separate [fluid breakout layout](/docs/layouts/fluid-breakout) for this
+purpose.
 
 ## Import
 
@@ -224,17 +262,21 @@ To import just this component into your project, copy the snippet below and incl
 // import Vanilla and include base mixins
 // this only needs to happen once in a given project
 @import 'vanilla-framework';
+
 @include vf-base;
 
 @include vf-p-grid;
 ```
 
-For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides
+and importing instructions.
 
 ## React
 
 You can use grid in React by installing our react-component library and importing `Row` and `Col` components.
 
-[See the documentation for our React `Row` component](https://canonical.github.io/react-components/?path=/docs/row--default-story#row)
+[See the documentation for our React
+`Row` component](https://canonical.github.io/react-components/?path=/docs/row--default-story#row)
 
-[See the documentation for our React `Col` component](https://canonical.github.io/react-components/?path=/docs/col--default-story#col)
+[See the documentation for our React
+`Col` component](https://canonical.github.io/react-components/?path=/docs/col--default-story#col)
