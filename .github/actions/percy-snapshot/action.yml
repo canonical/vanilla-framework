@@ -82,8 +82,12 @@ runs:
         PERCY_TOKEN: ${{ inputs.percy_token_write }}
         # This is used to name the build on the Percy dashboard. For PRs, it is `pull/{pr_number}`, and for baseline, it is `main`.
         PERCY_BRANCH: ${{ inputs.branch_name }}
+        # The branch that the snapshots are being taken against
+        PERCY_TARGET_BRANCH: main
         # HEAD commit SHA signature that triggered this test
         PERCY_COMMIT: ${{ inputs.commitsh }}
+        # The commit SHA signature that the snapshots are being taken against. Since this is always run on `main`, this will be the commit signature of the last commit to main.
+        PERCY_TARGET_COMMIT: ${{ github.sha }}
         # If PR number is set & a Percy-GHA integration is set up, this allows Percy to set status on the PR
         PERCY_PULL_REQUEST: ${{ inputs.pr_number }}
         # GH runner sometimes runs into issues loading assets (large images especially) in the default 30s timeout.
