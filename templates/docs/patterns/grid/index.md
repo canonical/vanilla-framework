@@ -6,7 +6,10 @@ context:
 
 ## Structure
 
-Vanilla has a responsive grid with the following columns and gutters:
+### Default grid
+
+The default grid uses the `.p-row` class. There are a multiple of 4 columns on every breakpoint.
+It has the following columns and gutters:
 
 <table>
   <thead>
@@ -25,13 +28,10 @@ Vanilla has a responsive grid with the following columns and gutters:
       <td>1.0rem</td>
     </tr>
     <tr>
-      <td rowspan="2"><code>$breakpoint-small</code> - <code>$breakpoint-large</code></td>
-      <td>6 (using <code>.row</code>)</td>
-      <td rowspan="2">2.0rem</td>
-      <td rowspan="2">1.5rem</td>
-    </tr>
-    <tr>
-      <td>4 (using <code>.row--4-cols-medium</code> - see <a href="#4-column-grid-on-medium-screens">docs</a>).</td>
+      <td><code>$breakpoint-small</code> - <code>$breakpoint-large</code></td>
+      <td>4</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
     </tr>
     <tr>
       <td>Greater than <code>$breakpoint-large</code></td>
@@ -42,9 +42,60 @@ Vanilla has a responsive grid with the following columns and gutters:
   </tbody>
 </table>
 
-<br>
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/default/" class="js-example">
+    View example of the default grid
+</a></div>
 
-- The page structure must be laid out using rows (`.row`)
+### Legacy grid
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <span class="p-notification__message">The legacy grid has been deprecated. It will be removed in v5. Use the <a href="#default-grid">default grid</a> instead.</span>
+  </div>
+</div>
+
+The legacy grid uses the `.row` class. It behaves nearly the same as the [default grid](#default-grid),
+but it has 6 columns on medium screens instead of 4. It has the following columns and gutters:
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50ch">Screen size (px)</th>
+      <th>Columns</th>
+      <th>Grid gap (gutters)</th>
+      <th>Outer margins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Less than <code>$breakpoint-small</code></td>
+      <td>4</td>
+      <td>1.5rem</td>
+      <td>1.0rem</td>
+    </tr>
+    <tr>
+      <td><code>$breakpoint-small</code> - <code>$breakpoint-large</code></td>
+      <td>6</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
+    </tr>
+    <tr>
+      <td>Greater than <code>$breakpoint-large</code></td>
+      <td>12</td>
+      <td>2.0rem</td>
+      <td>1.5rem</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid/legacy/" class="js-example">
+    View example of the legacy grid
+</a></div>
+
+### Guidelines
+
+- The page structure must be laid out using rows (`.p-row`)
 - All content must be within columns (`.col-*`)
 - Only columns should be direct children of a row
 
@@ -52,32 +103,6 @@ Layouts can be created combining rows with different number of columns to an ide
 column containing text should span a minimum of 3 columns.
 
 Read also: [Breakpoints](/docs/settings/breakpoint-settings)
-
-<div class="embedded-example"><a href="/docs/examples/patterns/grid/default/" class="js-example">
-    View example of the default grid
-</a></div>
-
-## 4-column grid on medium screens
-
-<div class="p-notification--positive">
-  <div class="p-notification__content">
-    <h3 class="p-notification__title">New</h3>
-    <p class="p-notification__message">
-      Vanilla is moving towards a layout where each breakpoint has a multiple of 4 columns.<br>
-      The 6 column grid on medium screens is deprecated and should be replaced with the 4 column grid.<br>
-      The default <code>.row</code> class has 6 columns on medium screens, but this will be changed to 4 columns in v5.
-    </p>
-  </div>
-</div>
-
-To use a multiple of 4 columns on every breakpoint, use the `.row--4-col` class at every level of grid nesting. The same
-`.col-*` classes can be used as in the default grid.
-
-`.row--4-cols-medium` has the same grid behaviour as `.row` but with 4 columns on the medium breakpoint instead of 6.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/grid/4-columns-medium-responsive" class="js-example">
-    View example of the 4-column grid
-</a></div>
 
 ## Common patterns
 
@@ -109,7 +134,7 @@ columns in a 50% container, etc). Specifying more columns than are available lea
     <h5 class="p-notification__title">Nesting</h5>
     <p class="p-notification__message">
       These common patterns are meant for top level rows only and are <strong>not intended to be nested</strong>. You should not nest <code>row--50-50</code> inside another column.
-      For nested rows, use the standard <code>.row--4-cols-medium</code> class, as described in <a href="#nested-columns">section about nested columns</a> later on this page.</p>
+      For nested rows, use the standard <code>.p-row</code> class, as described in <a href="#nested-columns">section about nested columns</a> later on this page.</p>
   </div>
 </div>
 
@@ -208,7 +233,7 @@ columns on medium screen, and stacking all 4 columns on top of each other on sma
 ## Fixed width containers
 
 If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It
-behaves as a grid `.row--4-cols-medium` with a single 12 column container inside:
+behaves as a grid `.p-row` with a single 12 column container inside:
 
 <div class="embedded-example"><a href="/docs/examples/utilities/fixed-width-container/" class="js-example">
     View example of a fixed width container
@@ -216,10 +241,10 @@ behaves as a grid `.row--4-cols-medium` with a single 12 column container inside
 
 ## Nested columns
 
-Columns can be nested infinitely by adding `.row--4-cols-medium` classes within columns. When nesting, remember to:
+Columns can be nested infinitely by adding `.p-row` classes within columns. When nesting, remember to:
 
 - keep track of the context (available columns), which is equal to the number of columns spanned by the parent element.
-- Ensure `.col-*` classes are direct descendants of `.row--4-cols-medium` classes. Failing to do so will result in a
+- Ensure `.col-*` classes are direct descendants of `.p-row` classes. Failing to do so will result in a
   broken layout.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/4-columns-medium-nested-responsive/" class="js-example">
