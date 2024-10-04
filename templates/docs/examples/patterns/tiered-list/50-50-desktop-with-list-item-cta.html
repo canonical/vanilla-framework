@@ -1,12 +1,12 @@
 {% extends "_layouts/examples.html" %}
-{% from "_macros/tiered-list.jinja" import tiered_list %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 
 {% block title %}Tiered list / 50/50 on desktop with list item CTA{% endblock %}
 
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
-{%- call(slot) tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
   {%- if slot == 'title' -%}
     <h2>H2 - up to two lines; ideally one.</h2>
   {%- endif -%}

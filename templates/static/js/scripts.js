@@ -2,10 +2,10 @@
 (function () {
   // throttling function calls, by Remy Sharp
   // http://remysharp.com/2010/07/21/throttling-function-calls/
-  var throttle = function (fn, delay) {
-    var timer = null;
+  const throttle = function (fn, delay) {
+    let timer = null;
     return function () {
-      var context = this,
+      let context = this,
         args = arguments;
       clearTimeout(timer);
       timer = setTimeout(function () {

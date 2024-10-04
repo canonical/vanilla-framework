@@ -9,7 +9,7 @@
 # list_item_title_[1-25]: title element of each child list item
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
-{% macro tiered_list(
+{% macro vf_tiered_list(
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true) -%}
   {%- set title_content = caller('title') -%}
@@ -62,6 +62,8 @@
         {%- set list_item_description_content = caller('list_item_description_' + number|string) -%}
         {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
 
+        {#- Check to see if title/description content exist, since we're
+            iterating through 25 potential list items -#}
         {%- if has_title_content and has_description_content -%}
           {%- if is_list_full_width_on_tablet == true %}
             <div class="row">
