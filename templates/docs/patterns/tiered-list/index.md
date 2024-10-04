@@ -32,7 +32,7 @@ The tiered list pattern is composed of the following elements:
 This variant contains a top-level description which is presented side-by-side
 with its title on desktop screen sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -42,7 +42,7 @@ This variant does not contain a top-level description and its child list is
 presented with its titles side-by-side with its descriptions on tablet screen
 sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-without-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-without-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -51,7 +51,7 @@ View example of the tiered list pattern
 This variant contains a top-level description and its child list is presented
 with its titles side-by-side with its descriptions on tablet screen sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-with-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-tablet-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -61,7 +61,7 @@ This variant contains a top-level description. Its title and description are
 presented side-by-side on desktop screen sizes, and its child list is presented
 side-by-side on tablet screen sizes.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-with-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -71,7 +71,7 @@ This variant does not contain a top-level description, and both its title and
 child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-without-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-without-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -81,7 +81,7 @@ This variant contains a top-level description, and its title, description, and
 child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -99,7 +99,149 @@ View example of the tiered list pattern
 View example of the tiered list pattern
 </a></div>
 
+## Jinja Macro
+
+The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. The API for the macro is shown below.
+
+### Parameters
+
+<div style="overflow: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 220px;">Name</th>
+        <th style="width: 160px;">Required?</th>
+        <th style="width: 160px;">Type</th>
+        <th style="width: 160px;">Default</th>
+        <th style="width: 250px;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>is_description_full_width_on_desktop</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>true</code>
+        </td>
+        <td>
+          Whether the description element should be full-width on desktop
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_list_full_width_on_tablet</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>true</code>
+        </td>
+        <td>
+          Whether the list element should be full-width on tablet
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Slots
+
+<div style="overflow: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 220px;">Name</th>
+        <th style="width: 160px;">Required?</th>
+        <th style="width: 250px;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>title</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          Title sentence displayed at the top of the pattern
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>description</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Description paragraph displayed below the title
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>list_item_title_[1-25]</code>
+        </td>
+        <td>
+          Yes, at least 1
+        </td>
+        <td>
+          Title element of each child list item; max of 25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>list_item_description_[1-25]</code>
+        </td>
+        <td>
+          Yes, at least 1
+        </td>
+        <td>
+          Description element of each child list item; max of 25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>cta</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Contents of a <a href="/docs/patterns/cta-block">CTA block</a> at the
+          bottom of the pattern
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ## Import
+
+### Jinja Macro
+
+To import the Tiered List Jinja macro, copy the following import statement into
+your Jinja template:
+
+```jinja
+{% raw -%}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+{%- endraw -%}
+```
+
+View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros)
+for macro installation instructions.
 
 Since Patterns leverage many other parts of Vanilla in their composition and
 content, we recommend [importing the entirety of Vanilla](/docs#install) for
