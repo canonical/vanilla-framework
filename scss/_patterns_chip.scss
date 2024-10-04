@@ -71,21 +71,28 @@
   @include vf-chips-information;
 }
 
-// Default notification styling
-@mixin vf-chips-default {
-  // stylelint-disable selector-max-type -- allow button selector for interactive chips
-
-  // Status-color chips all use the button pattern mixin to set their colors, so they already have most button styling.
-  // We need to add the default button styling to the link default chip as well.
-  a.p-chip {
-    @include vf-button-pattern;
-  }
-
-  a[class*='p-chip']:hover {
+@mixin vf-chip-interactive(
+  $color-background-hover: $colors--theme--background-neutral-hover,
+  $color-border-hover: $colors--theme--border-neutral,
+  $color-background-active: $colors--theme--background-neutral-active,
+  $color-border-active: $colors--theme--border-neutral
+) {
+  &:hover {
+    background-color: $color-background-hover;
+    border-color: $color-border-hover;
     text-decoration: none;
   }
-  // stylelint-enable selector-max-type
 
+  &[aria-pressed='true'],
+  &.is-selected,
+  &:active {
+    background-color: $color-background-active;
+    border-color: $color-border-active;
+  }
+}
+
+// Default notification styling
+@mixin vf-chips-default {
   .p-chip {
     @extend %vf-chip;
 
@@ -94,19 +101,16 @@
     border-color: $colors--theme--border-neutral;
   }
 
+  // Status-color chips all use the button pattern mixin to set their colors, so they already have most button styling.
+  // We need to add the default button styling to the link default chip as well.
   // stylelint-disable selector-max-type -- allow button selector for interactive chips
-  button.p-chip {
-    &:hover {
-      background-color: $colors--theme--background-neutral-hover;
-      border-color: $colors--theme--border-neutral;
-    }
+  a.p-chip {
+    @include vf-button-pattern;
+    @include vf-chip-interactive;
+  }
 
-    &[aria-pressed='true'],
-    &.is-selected,
-    &:active {
-      background-color: $colors--theme--background-neutral-active;
-      border-color: $colors--theme--border-neutral;
-    }
+  button.p-chip {
+    @include vf-chip-interactive;
   }
   // stylelint-enable selector-max-type
 
@@ -132,18 +136,14 @@
   }
 
   // stylelint-disable selector-max-type  -- allow button selector for interactive chips
-  button.p-chip--positive {
-    &:hover {
-      background-color: $colors--theme--background-positive-hover;
-      border-color: $colors--theme--border-positive;
-    }
-
-    &[aria-pressed='true'],
-    &.is-selected,
-    &:active {
-      background-color: $colors--theme--background-positive-active;
-      border-color: $colors--theme--border-positive;
-    }
+  button.p-chip--positive,
+  a.p-chip--positive {
+    @include vf-chip-interactive(
+      $color-background-hover: $colors--theme--background-positive-hover,
+      $color-border-hover: $colors--theme--border-positive,
+      $color-background-active: $colors--theme--background-positive-active,
+      $color-border-active: $colors--theme--border-positive
+    );
   }
   // stylelint-enable selector-max-type
 
@@ -169,18 +169,14 @@
   }
 
   // stylelint-disable selector-max-type  -- allow button selector for interactive chips
-  button.p-chip--caution {
-    &:hover {
-      background-color: $colors--theme--background-caution-hover;
-      border-color: $colors--theme--border-caution;
-    }
-
-    &[aria-pressed='true'],
-    &.is-selected,
-    &:active {
-      background-color: $colors--theme--background-caution-active;
-      border-color: $colors--theme--border-caution;
-    }
+  button.p-chip--caution,
+  a.p-chip--caution {
+    @include vf-chip-interactive(
+      $color-background-hover: $colors--theme--background-caution-hover,
+      $color-border-hover: $colors--theme--border-caution,
+      $color-background-active: $colors--theme--background-caution-active,
+      $color-border-active: $colors--theme--border-caution
+    );
   }
   // stylelint-enable selector-max-type
 
@@ -206,18 +202,14 @@
   }
 
   // stylelint-disable selector-max-type  -- allow button selector for interactive chips
-  button.p-chip--negative {
-    &:hover {
-      background-color: $colors--theme--background-negative-hover;
-      border-color: $colors--theme--border-negative;
-    }
-
-    &[aria-pressed='true'],
-    &.is-selected,
-    &:active {
-      background-color: $colors--theme--background-negative-active;
-      border-color: $colors--theme--border-negative;
-    }
+  button.p-chip--negative,
+  a.p-chip--negative {
+    @include vf-chip-interactive(
+      $color-background-hover: $colors--theme--background-negative-hover,
+      $color-border-hover: $colors--theme--border-negative,
+      $color-background-active: $colors--theme--background-negative-active,
+      $color-border-active: $colors--theme--border-negative
+    );
   }
   // stylelint-enable selector-max-type
 
@@ -243,18 +235,14 @@
   }
 
   // stylelint-disable selector-max-type  -- allow button selector for interactive chips
-  button.p-chip--information {
-    &:hover {
-      background-color: $colors--theme--background-information-hover;
-      border-color: $colors--theme--border-information;
-    }
-
-    &[aria-pressed='true'],
-    &.is-selected,
-    &:active {
-      background-color: $colors--theme--background-information-active;
-      border-color: $colors--theme--border-information;
-    }
+  button.p-chip--information,
+  a.p-chip--information {
+    @include vf-chip-interactive(
+      $color-background-hover: $colors--theme--background-information-hover,
+      $color-border-hover: $colors--theme--border-information,
+      $color-background-active: $colors--theme--background-information-active,
+      $color-border-active: $colors--theme--border-information
+    );
   }
   // stylelint-enable selector-max-type
 
