@@ -4,6 +4,13 @@ context:
   title: Grid | Components
 ---
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">The grid is deprecated. Use the new <a href="/docs/patterns/content-grid">content grid</a> instead.</p>
+  </div>
+</div>
+
 ## Structure
 
 Vanilla has a responsive grid with the following columns and gutters:
@@ -173,7 +180,7 @@ If you only want to constrain content so it matches the grid's fixed width, you 
 
 Columns can be nested infinitely by adding `.row` classes within columns. When nesting, remember to:
 
-- keep track of the context (available columns), which is equal to the number of columns spanned by the parent element.
+- Keep track of the context (available columns), which is equal to the number of columns spanned by the parent element.
 - Ensure `.col-*` classes are direct descendants of `.row` classes. Failing to do so will result in a broken layout.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/grid/nested/" class="js-example">

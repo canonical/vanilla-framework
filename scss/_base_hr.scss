@@ -1,6 +1,7 @@
 @import 'settings';
 
 %fixed-width-hr {
+  // TODO use content grid gutter instead of old grid
   @mixin adjusted-width($size) {
     $gutters-sizes: 2 * map-get($grid-margin-widths, $size);
 
@@ -17,6 +18,7 @@
   }
 
   .row &,
+  .grid-row &,
   .u-fixed-width & {
     width: 100%;
   }
