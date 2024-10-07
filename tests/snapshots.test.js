@@ -8,7 +8,7 @@ const {SNAPSHOT_BREAKPOINTS, SNAPSHOT_COLOR_THEMES, PORT, DEFAULT_COLOR_THEME, C
  */
 const RESPONSIVE_COMBINED_EXAMPLES = [
   'patterns/grid/combined',
-  'patterns/content-grid/combined',
+  'patterns/grid-8/combined',
   'patterns/divider/combined',
   'patterns/image/combined',
   'patterns/equal-height-row/combined',

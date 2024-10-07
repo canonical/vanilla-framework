@@ -1,4 +1,4 @@
-// Deprecated, use content grid instead
+// Deprecated, use new 4/4/8 grid instead
 
 @mixin vf-b-row-reset {
   margin-left: 0;
@@ -32,6 +32,47 @@
   }
 
   %vf-row {
+    @extend %fixed-width-container;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-gap: 0 map-get($grid-gutter-widths, small);
+      grid-template-columns: repeat($grid-12-columns-small, minmax(0, 1fr));
+      grid-template-rows: auto;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: $grid-max-width;
+
+      & > * {
+        grid-column-end: span $grid-12-columns-small;
+      }
+
+      [class*='#{$grid-12-column-prefix}'] {
+        grid-column-start: auto;
+      }
+
+      // set static gutter width per breakpoint
+      @media (min-width: $threshold-4-6-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+        grid-template-columns: repeat($grid-12-columns-medium, minmax(0, 1fr));
+
+        & > * {
+          grid-column-end: span $grid-12-columns-medium;
+        }
+      }
+
+      @media (min-width: $threshold-6-12-col) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+        grid-template-columns: repeat($grid-12-columns, minmax(0, 1fr));
+
+        & > * {
+          grid-column-end: span $grid-12-columns;
+        }
+      }
+    }
+  }
+
+  %vf-grid-row {
     @extend %fixed-width-container;
 
     @supports (display: grid) {
