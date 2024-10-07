@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'settings';
 
 @mixin vf-p-strip {
@@ -118,9 +119,9 @@
 
 // DEPRECATED:
 // gradient of the main suru slant
-$color-suru-start: lighten($color-brand, 10%) !default;
+$color-suru-start: color.scale($color-brand, $lightness: 10%) !default;
 $color-suru-middle: $color-brand !default;
-$color-suru-end: darken($color-brand, 10%) !default;
+$color-suru-end: color.scale($color-brand, $lightness: -10%) !default;
 
 // page background
 $color-suru-background: $color-x-light !default;
