@@ -1,0 +1,12 @@
+{% from "docs/macros/notice.jinja" import documentation_notice %}
+
+{#- Macro unifying presentation of all new pattern/HOC WIP notices -#}
+{%- macro pattern_wip_notice() -%}
+
+{{- documentation_notice(
+    icon_class="p-notification--information",
+    title_text="Work in progress",
+    message_text="Vanilla's patterns are newly released and still evolving as we receive feedback."
+) -}}
+
+{%- endmacro -%}
