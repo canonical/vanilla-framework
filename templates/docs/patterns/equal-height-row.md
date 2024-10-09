@@ -82,10 +82,7 @@ it.
   </a>
 </div>
 
-<h2>
-  Wrap variant
-  <div class="p-status-label--positive u-vertical-align--middle">New</div>
-</h2>
+## Wrap variant
 
 By applying the modifier class `p-equal-height-row--wrap` to a
 [three column row](#three-column-row) or [four column row](#four-column-row)

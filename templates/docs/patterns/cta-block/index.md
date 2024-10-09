@@ -11,10 +11,7 @@ A CTA (call to action) block is a pattern that is used to encourage users to tak
 View example of the CTA block pattern
 </a></div>
 
-<h2>
-  Borderless
-  <div class="p-status-label--positive u-vertical-align--middle">New</div>
-</h2>
+## Borderless
 
 The CTA block can be used without a border. This is useful when the CTA block is stacked beneath related content.
 

@@ -15,10 +15,7 @@ and/or prevent its white space from becoming indistinguishable from the surround
 View example of the image container with a highlighted background
 </a></div>
 
-<h2>
-  Image container with aspect ratio
-  <div class="p-status-label--positive u-vertical-align--middle">New</div>
-</h2>
+## Image container with aspect ratio
 
 You can modify the aspect ratio of an image container to neatly wrap an image in a container of the desired aspect ratio.
 This is useful for aligning images or other content with mismatching aspect ratios.
