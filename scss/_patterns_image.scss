@@ -25,6 +25,7 @@
         Image element within an image container.
 */
 
+@use 'sass:color';
 @import 'settings';
 
 // Mapping of aspect ratio class names to their `aspect-ratio` values (width / height).
@@ -117,6 +118,6 @@ $aspect-ratios: (
 
   // Deprecated; will be removed in v5
   .p-image--shadowed {
-    box-shadow: 0 1px 5px 1px transparentize($color-mid-light, 0.8);
+    box-shadow: 0 1px 5px 1px color.scale($color-mid-light, $alpha: -80%);
   }
 }
