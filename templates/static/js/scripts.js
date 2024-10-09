@@ -177,7 +177,9 @@
 
   // Generate id from H2s content when it does not exist
   document.querySelectorAll('main h2:not([id])').forEach(function (heading) {
-    var id = heading.textContent
+    // Only get direct text from h2 node, excluding any child nodes
+    var id = heading.childNodes[0].textContent
+      .trim()
       .toLowerCase()
       .replaceAll(/\s+/g, '-')
       .replaceAll(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~]/g, '');
@@ -199,7 +201,8 @@
     var thisItem = item.cloneNode();
     var thisAnchor = anchor.cloneNode();
     thisAnchor.setAttribute('href', '#' + heading.id);
-    thisAnchor.textContent = heading.textContent;
+    // Only get direct text from h2 node, excluding any child nodes
+    thisAnchor.textContent = heading.childNodes[0].textContent.trim();
     thisItem.appendChild(thisAnchor);
     list.appendChild(thisItem);
   });
