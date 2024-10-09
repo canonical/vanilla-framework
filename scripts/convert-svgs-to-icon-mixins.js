@@ -31,10 +31,20 @@ function printBaseMixins(svgs) {
   console.log('//------------------------');
 
   svgs.forEach((svg) => {
-    console.log(`@mixin vf-icon-${svg.name}(${svg.colors.join(', ')}) {`);
-    console.log(` background-image: url("data:image/svg+xml,${encodeSVG(svg.svg, svg.colors)}");`);
-    console.log('}');
-    console.log('');
+    console.log(`
+// ${svg.name}
+@function vf-icon-${svg.name}-url($color) {
+  @return url("data:image/svg+xml,${encodeSVG(svg.svg, svg.colors)}");
+}
+
+@mixin vf-icon-${svg.name}($color: $colors--light-theme--icon) {
+  background-image: vf-icon-${svg.name}-url($color);
+}
+
+@mixin vf-icon-${svg.name}-themed {
+  @include vf-themed-icon($light-value: vf-icon-${svg.name}-url($colors--light-theme--icon), $dark-value: vf-icon-${svg.name}-url($colors--dark-theme--icon));
+}
+`);
   });
 }
 
@@ -49,35 +59,15 @@ function printPatternMixins(svgs) {
   console.log('// Pattern mixins:');
   console.log('//----------------');
 
-  /*
-   @mixin vf-p-icon-controllers {
-  .p-icon--controllers {
+  svgs.forEach((svg) => {
+    console.log(`
+@mixin vf-p-icon-${svg.name} {
+  .p-icon--${svg.name} {
     @extend %icon;
-    @include vf-icon-controllers($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-controllers($colors--dark-theme--icon);
-    }
+    @include vf-icon-${svg.name}-themed;
   }
 }
-   */
-  svgs.forEach((svg) => {
-    console.log(`@mixin vf-p-icon-${svg.name} {`);
-    console.log(` .p-icon--${svg.name} {`);
-    console.log('   @extend %icon;');
-    console.log(`   @include vf-icon-${svg.name}($colors--light-theme--icon);`);
-    console.log('');
-    console.log("   [class*='--dark'] &,");
-    console.log('   body.is-dark &,');
-    console.log('   &.is-dark {');
-    console.log(`     @include vf-icon-${svg.name}($colors--dark-theme--icon);`);
-    console.log('   }');
-    console.log(' }');
-    console.log('}');
-    console.log('');
+`);
   });
 
   console.log('// **Base and Pattern mixins accurate as of October 2024**');
@@ -117,10 +107,10 @@ function convertSVGs(directory, files) {
         name: iconName,
       });
     }
-
-    printBaseMixins(convertedSVGs);
-    printPatternMixins(convertedSVGs);
   });
+
+  printBaseMixins(convertedSVGs);
+  printPatternMixins(convertedSVGs);
 }
 
 if (directory) {
