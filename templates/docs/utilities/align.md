@@ -27,6 +27,10 @@ View example of the text align utility
 If you need to vertically align inline elements to the middle of their
 container, you can use the `u-vertical-align--middle` utility.
 
+<div class="embedded-example"><a href="/docs/examples/utilities/align/vertical-align" class="js-example">
+View example of the vertical align middle utility
+</a></div>
+
 ## Import
 
 To import just this utility into your project, copy the snippet below and
