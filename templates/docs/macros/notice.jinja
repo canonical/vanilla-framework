@@ -1,0 +1,15 @@
+{#
+  Macro to generate documentation notices, such as component deprecations.
+  Params
+  icon_class: The icon class to use for the notice.
+  title_text: The title text for the notice.
+  message_text: The message text for the notice.
+#}
+{%- macro documentation_notice(icon_class, title_text, message_text) -%}
+<div class="{{ icon_class }}">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">{{ title_text }}</h3>
+    <p class="p-notification__message">{{ message_text }}</p>
+  </div>
+</div>
+{%- endmacro -%}

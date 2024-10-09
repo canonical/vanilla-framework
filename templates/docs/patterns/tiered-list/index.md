@@ -4,6 +4,10 @@ context:
   title: Tiered list | Patterns
 ---
 
+{% from "docs/macros/patterns/wip-notice.jinja" import pattern_wip_notice %}
+
+{{- pattern_wip_notice() }}
+
 The tiered list pattern is used to easily implement a list of paired titles and
 descriptions underneath a top-level title and description. Optional [CTA
 blocks](/docs/patterns/cta-block) can be placed at various points in the content
