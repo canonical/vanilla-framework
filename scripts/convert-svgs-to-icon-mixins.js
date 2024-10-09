@@ -49,22 +49,38 @@ function printPatternMixins(svgs) {
   console.log('// Pattern mixins:');
   console.log('//----------------');
 
+  /*
+   @mixin vf-p-icon-controllers {
+  .p-icon--controllers {
+    @extend %icon;
+    @include vf-icon-controllers($colors--light-theme--icon);
+
+    [class*='--dark'] &,
+    body.is-dark &,
+    &.is-light, // DEPRECATED: use is-dark instead
+    &.is-dark {
+      @include vf-icon-controllers($colors--dark-theme--icon);
+    }
+  }
+}
+   */
   svgs.forEach((svg) => {
     console.log(`@mixin vf-p-icon-${svg.name} {`);
     console.log(` .p-icon--${svg.name} {`);
     console.log('   @extend %icon;');
-    console.log(`   @include vf-icon-${svg.name}(${svg.colors.join(', ')});`);
+    console.log(`   @include vf-icon-${svg.name}($colors--light-theme--icon);`);
     console.log('');
     console.log("   [class*='--dark'] &,");
-    console.log('   &.is-light {');
-    console.log(`     @include vf-icon-${svg.name}(${svg.colors.join(', ')});`);
+    console.log('   body.is-dark &,');
+    console.log('   &.is-dark {');
+    console.log(`     @include vf-icon-${svg.name}($colors--dark-theme--icon);`);
     console.log('   }');
     console.log(' }');
     console.log('}');
     console.log('');
   });
 
-  console.log('// **Base and Pattern mixins accurate as of December 2020**');
+  console.log('// **Base and Pattern mixins accurate as of October 2024**');
 }
 
 function encodeSVG(data, colorVariables) {
