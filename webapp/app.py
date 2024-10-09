@@ -80,7 +80,6 @@ TEAM_MEMBERS = [
     {"login": "advl", "role": "Engineering Manager"},
     {"login": "bartaz", "role": "Staff Web Engineer"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
-    {"login": "pastelcyborg", "role": "Web Engineer"},
     {"login": "jmuzina", "role": "Web Engineer"}
 ]
 
