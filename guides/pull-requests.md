@@ -110,26 +110,17 @@ will then automatically be added to the sidebar navigation.
 
 Additionally, you should manually add a status label to the appropriate
 heading on the docs page of each component you make changes to - this is done by
-using the [status label component](/scss/_patterns_status-label.scss):
+using the `{{ status }}` Jinja partial. For example:
 
 ```html
 <!-- An example of a New feature heading -->
-<h2>
-  Wrap variant
-  <div class="p-status-label--positive u-vertical-align--middle">New</div>
-</h2>
+## Wrap variant {{ status('new') }}
 
 <!-- An example of an Updated feature heading -->
-<h2>
-  Fieldset
-  <div class="p-status-label--information u-vertical-align--middle">Updated</div>
-</h2>
+## Nesting {{ status('updated') }}
 
 <!-- An example of a Deprecated feature heading -->
-<h2>
-  Separator
-  <div class="p-status-label--negative u-vertical-align--middle">Deprecated</div>
-</h2>
+## Separators {{ status('deprecated') }}
 ```
 
 When a new version of Vanilla is set to be released, any manually-added status
