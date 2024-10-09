@@ -48,8 +48,7 @@
   {% endif %}
 
   {%- macro _quote_body() -%}
-    {#- Only use shallow section spacing if a another block follows -#}
-    <div {% if has_cta or has_image %} class="p-section--shallow"{% endif %}>
+    <div class="p-section--shallow">
       <p class="p-heading--{{ quote_heading_level }}">
         <i>
           &#8220;{{ quote_text }}&#8221;
