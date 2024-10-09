@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:color';
 
 // Functions used across multiple patterns or utils
 
@@ -33,7 +34,7 @@
 
 // Test value of bg $color and return light or dark text color accordingly
 @function vf-contrast-text-color($color) {
-  @if (lightness($color) > 55) {
+  @if (color.channel($color, 'lightness', $space: hsl) > 55) {
     @return $colors--light-theme--text-default; // Lighter background, return dark color
   } @else {
     @return $colors--dark-theme--text-default; // Darker background, return light color
@@ -43,7 +44,7 @@
 // Returns the font color to be presented on the passed background-color
 // variable.
 @function vf-determine-text-color($background-color) {
-  @if (lightness($background-color) > 50) {
+  @if (color.channel($background-color, 'lightness', $space: hsl) > 50) {
     @return $colors--light-theme--text-default;
   } @else {
     @return $colors--dark-theme--text-default;
@@ -53,7 +54,7 @@
 // Includes the theme variables based on the background color passed as an argument.
 // This is currently only used in the deprecated p-strip--accent.
 @mixin vf-determine-theme-from-background($background-color) {
-  @if (lightness($background-color) > 50) {
+  @if (color.channel($background-color, 'lightness', $space: hsl) > 50) {
     @include vf-theme-light;
   } @else {
     @include vf-theme-dark;
