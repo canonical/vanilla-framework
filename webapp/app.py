@@ -263,10 +263,21 @@ def class_reference(component=None):
         flask.render_template("_layouts/_class-reference.html", data=data)
     )
 
+def status_label(status):
+    variants = {
+        "new": "positive",
+        "updated": "information",
+        "deprecated":"negative",
+        "in progress": "warning",
+    }
+
+    return markupsafe.Markup(
+        flask.render_template("_layouts/_status-label.html", status=status, variant=variants.get(status.lower(), "information"))
+    )
 
 @app.context_processor
 def utility_processor():
-    return {"class_reference": class_reference, "image": image_template}
+    return {"class_reference": class_reference, "image": image_template, "status": status_label}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
