@@ -258,3 +258,9 @@ To import side navigation, copy snippet below:
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
+## React
+
+You can use navigation in React by installing our react-component library and importing `Navigation` component.
+
+[See the documentation for our React `Navigation` component](https://canonical.github.io/react-components/?path=/docs/components-navigation--docs)

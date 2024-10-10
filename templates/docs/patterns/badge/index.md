@@ -60,3 +60,9 @@ To import just this component into your project, copy the snippet below and incl
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
+## React
+
+You can use badge in React by installing our react-component library and importing `Badge` component.
+
+[See the documentation for our React `Badge` component](https://canonical.github.io/react-components/?path=/docs/components-badge--docs)
