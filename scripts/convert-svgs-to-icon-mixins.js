@@ -31,10 +31,20 @@ function printBaseMixins(svgs) {
   console.log('//------------------------');
 
   svgs.forEach((svg) => {
-    console.log(`@mixin vf-icon-${svg.name}(${svg.colors.join(', ')}) {`);
-    console.log(` background-image: url("data:image/svg+xml,${encodeSVG(svg.svg, svg.colors)}");`);
-    console.log('}');
-    console.log('');
+    console.log(`
+      // ${svg.name}
+      @function vf-icon-${svg.name}-url($color) {
+        @return url("data:image/svg+xml,${encodeSVG(svg.svg, svg.colors)}");
+      }
+
+      @mixin vf-icon-${svg.name}($color: $colors--light-theme--icon) {
+        background-image: vf-icon-${svg.name}-url($color);
+      }
+
+      @mixin vf-icon-${svg.name}-themed {
+        @include vf-themed-icon($light-value: vf-icon-${svg.name}-url($colors--light-theme--icon), $dark-value: vf-icon-${svg.name}-url($colors--dark-theme--icon));
+      }
+    `);
   });
 }
 
@@ -50,21 +60,17 @@ function printPatternMixins(svgs) {
   console.log('//----------------');
 
   svgs.forEach((svg) => {
-    console.log(`@mixin vf-p-icon-${svg.name} {`);
-    console.log(` .p-icon--${svg.name} {`);
-    console.log('   @extend %icon;');
-    console.log(`   @include vf-icon-${svg.name}(${svg.colors.join(', ')});`);
-    console.log('');
-    console.log("   [class*='--dark'] &,");
-    console.log('   &.is-light {');
-    console.log(`     @include vf-icon-${svg.name}(${svg.colors.join(', ')});`);
-    console.log('   }');
-    console.log(' }');
-    console.log('}');
-    console.log('');
+    console.log(`
+      @mixin vf-p-icon-${svg.name} {
+        .p-icon--${svg.name} {
+          @extend %icon;
+          @include vf-icon-${svg.name}-themed;
+        }
+      }
+    `);
   });
 
-  console.log('// **Base and Pattern mixins accurate as of December 2020**');
+  console.log('// **Base and Pattern mixins accurate as of October 2024**');
 }
 
 function encodeSVG(data, colorVariables) {
@@ -101,10 +107,10 @@ function convertSVGs(directory, files) {
         name: iconName,
       });
     }
-
-    printBaseMixins(convertedSVGs);
-    printPatternMixins(convertedSVGs);
   });
+
+  printBaseMixins(convertedSVGs);
+  printPatternMixins(convertedSVGs);
 }
 
 if (directory) {
