@@ -82,6 +82,6 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use pagination in React by installing our react-component library and importing `Pagination` or `ArticlePagination` component.
 
-[See the documentation for our React `Pagination` component](https://canonical.github.io/react-components/?path=/docs/pagination--default-story#pagination)
+[See the documentation for our React `Pagination` component](https://canonical.github.io/react-components/?path=/docs/components-pagination--docs)
 
-[See the documentation for our React `ArticlePagination` component](https://canonical.github.io/react-components/?path=/docs/articlepagination--default-story#articlepagination)
+[See the documentation for our React `ArticlePagination` component](https://canonical.github.io/react-components/?path=/docs/components-articlepagination--docs)

@@ -61,7 +61,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use search box in React by installing our react-component library and importing `SearchBox` component.
 
-[See the documentation for our React `SearchBox` component](https://canonical.github.io/react-components/?path=/docs/searchbox--default-story#searchbox)
+[See the documentation for our React `SearchBox` component](https://canonical.github.io/react-components/?path=/docs/components-searchbox--docs)
 
 ## Related
 

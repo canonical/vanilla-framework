@@ -45,4 +45,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use modal dialogs in React by installing our react-component library and importing `Modal` component.
 
-[See the documentation for our React `Modal` component](https://canonical.github.io/react-components/?path=/docs/modal--default-story#modal)
+[See the documentation for our React `Modal` component](https://canonical.github.io/react-components/?path=/docs/components-modal--docs)

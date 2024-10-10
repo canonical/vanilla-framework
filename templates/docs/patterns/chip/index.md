@@ -75,4 +75,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use chips in React by installing our react-component library and importing `Chip` component.
 
-[See the documentation for our React `Chip` component](https://canonical.github.io/react-components/?path=/docs/chip--default-story#chip)
+[See the documentation for our React `Chip` component](https://canonical.github.io/react-components/?path=/docs/components-chip--docs)

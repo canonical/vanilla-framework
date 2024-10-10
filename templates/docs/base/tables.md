@@ -106,6 +106,6 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use tables in React by installing our react-component library and importing `MainTable` or `ModularTable` component.
 
-[See the documentation for our React `MainTable` component](https://canonical.github.io/react-components/?path=/docs/maintable--default-story#maintable)
+[See the documentation for our React `MainTable` component](https://canonical.github.io/react-components/?path=/docs/components-maintable--docs)
 
-[See the documentation for our React `ModularTable` component](https://canonical.github.io/react-components/?path=/docs/modulartable--default-story)
+[See the documentation for our React `ModularTable` component](https://canonical.github.io/react-components/?path=/docs/components-modulartable--docs)
