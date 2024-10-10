@@ -100,7 +100,7 @@ This places the title and subtitle in their own row above the rest of the hero c
 View example of the hero pattern in fallback configuration
 </a></div>
 
-## Jinja Macro
+## Jinja Macro {{ status("new") }}
 
 The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for the macro is shown below.
 
@@ -257,7 +257,7 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
   </table>
 </div>
 
-## Import
+## Import {{ status("updated") }}
 
 ### Jinja Macro
 

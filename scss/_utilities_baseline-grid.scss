@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'settings';
 
 @mixin vf-u-baseline-grid {
@@ -9,7 +10,7 @@
     position: relative;
 
     &::after {
-      background: linear-gradient(to top, transparentize($baseline-color, 0.85), transparentize($baseline-color, 0.85) 1px, transparent 1px, transparent);
+      background: linear-gradient(to top, color.scale($baseline-color, $alpha: -85%), color.scale($baseline-color, $alpha: -85%) 1px, transparent 1px, transparent);
       background-size: 100% $baseline-size;
       bottom: 0;
       content: '';
@@ -26,7 +27,7 @@
   // baseline grid on document should be in the background
   // stylelint-disable selector-max-type -- needed for examples
   html.u-baseline-grid {
-    background-color: transparentize($baseline-color, 0.95);
+    background-color: color.scale($baseline-color, $alpha: -95%);
     position: static;
 
     &::after {

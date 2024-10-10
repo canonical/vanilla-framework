@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // Global color settings
 $color-transparent: transparent !default;
 
@@ -123,7 +125,7 @@ $colors--light-theme--background-code: $color-code-background !default;
 $colors--light-theme--background-inputs: adjust-color($color-x-dark, $lightness: 100% * (1 - $input-background-opacity-amount)) !default;
 $colors--light-theme--background-active: adjust-color($color-x-dark, $lightness: 100% * (1 - $active-background-opacity-amount)) !default;
 $colors--light-theme--background-hover: adjust-color($color-x-dark, $lightness: 100% * (1 - $hover-background-opacity-amount)) !default;
-$colors--light-theme--background-overlay: transparentize($color-dark, 0.15) !default;
+$colors--light-theme--background-overlay: color.scale($color-dark, $alpha: -15%) !default;
 
 $colors--light-theme--border-default: rgba($color-x-dark, 0.2) !default;
 $colors--light-theme--border-high-contrast: rgba($color-x-dark, 0.56) !default;
@@ -183,7 +185,7 @@ $colors--dark-theme--background-code: $color-code-background-dark !default;
 $colors--dark-theme--background-inputs: #2f2f2f !default;
 $colors--dark-theme--background-active: #373737 !default;
 $colors--dark-theme--background-hover: #313131 !default;
-$colors--dark-theme--background-overlay: transparentize($color-dark, 0.15) !default;
+$colors--dark-theme--background-overlay: color.scale($color-dark, $alpha: -15%) !default;
 
 $colors--dark-theme--border-default: rgba($colors--dark-theme--text-default, 0.2) !default;
 $colors--dark-theme--border-high-contrast: rgba($colors--dark-theme--text-default, 0.5) !default;

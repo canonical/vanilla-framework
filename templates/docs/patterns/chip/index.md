@@ -42,6 +42,14 @@ The default chip has margins and padding set so it aligns to paragraphs and with
 View example of the inline chip pattern
 </a></div>
 
+## Link chips
+
+Chips can be used as links. A link chip should not include a dismiss button, as [interactive elements should not contain other interactive elements](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html).
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/link" class="js-example">
+View example of the link chip pattern
+</a></div>
+
 ## Dark chips
 
 To use chips on a dark background the `is-dark` class can be applied. If the chip includes the dismiss icon, you'll need to add the `is-light` class to the icon. To ensure the dark chips are accessible, the background colour used must `#2b2b2b` or darker.

@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'settings_font';
 
 @mixin vf-u-visualise-baseline($horizontal-bleed: 2rem) {
@@ -5,9 +6,9 @@
     position: relative;
 
     &::before {
-      border-bottom-color: transparentize($color-information, 0.5);
+      border-bottom-color: color.scale($color-information, $alpha: -50%);
       border-bottom-style: solid;
-      border-top-color: transparentize($color-positive, 0.5);
+      border-top-color: color.scale($color-positive, $alpha: -50%);
       border-top-style: solid;
       border-width: 1px;
       content: '';
@@ -19,7 +20,7 @@
     }
 
     &::after {
-      background-color: transparentize($color-negative, 0.5);
+      background-color: color.scale($color-negative, $alpha: -50%);
       content: '';
       height: 1px;
       left: -#{$horizontal-bleed};
