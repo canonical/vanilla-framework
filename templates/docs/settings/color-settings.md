@@ -131,6 +131,19 @@ It’s important for us to meet all web accessibility standards. Vanilla encoura
 
 ## Color theming
 
+Vanilla (since version 4.8.0) supports client-side theming based on CSS properties (instead of previously used build-time SCSS based theming).
+
+See our [themes documentation](/docs/base/themes) for more details on how to use the new theming system.
+
+### Setting the default color theme per element / component {{ status("deprecated")}}
+
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Deprecated</h5>
+    <span class="p-notification__message">Setting default theme via SCSS variables is now deprecated. Use the new <a href="/docs/base/themes">theming class names</a> instead.</span>
+  </div>
+</div>
+
 Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/releases/tag/v2.3.0) release, Vanilla framework introduces a theming mechanism. The current default for all components is referred to as the light theme. A subset of elements and components now offer a dark theme:
 
 - [Checkbox](/docs/base/forms#checkbox) and [radio](/docs/base/forms#radio-button) form inputs
@@ -141,15 +154,6 @@ Starting with the [2.3.0](https://github.com/canonical/vanilla-framework/release
 - [Navigation](/docs/patterns/navigation)
 - [Side navigation](/docs/patterns/navigation#side-navigation)
 - [Search box](/docs/patterns/search-box)
-
-### Setting the default color theme per element / component
-
-<div class="p-notification--caution">
-  <div class="p-notification__content">
-    <h5 class="p-notification__title">Deprecated</h5>
-    <span class="p-notification__message">Setting default theme via SCSS variables is now deprecated. Use <code>is-dark</code> or <code>is-light</code> class names in HTML instead.</span>
-  </div>
-</div>
 
 | Element / Component | Variable                               | Default value |
 | ------------------- | -------------------------------------- | ------------- |
