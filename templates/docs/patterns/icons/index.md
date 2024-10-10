@@ -24,6 +24,8 @@ context:
 
 {% set additional_icons = ['applications', 'controllers', 'fullscreen', 'models', 'machines', 'pin', 'units', 'priority-critical', 'priority-high', 'priority-low', 'priority-medium', 'priority-negligible', 'priority-unknown', 'add-canvas', 'add-logical-volume', 'add-partition', 'back-to-top', 'begin-downloading', 'bundle', 'canvas', 'change-version', 'comments', 'conflict-grey', 'conflict-resolution-grey', 'conflict-resolution', 'conflict', 'connected', 'containers', 'copy-to-clipboard', 'desktop', 'disconnect', 'edit', 'export', 'exposed', 'filter', 'fork', 'get-link', 'halfscreen-bar', 'highlight-off', 'highlight-on', 'home', 'import', 'in-progress', 'inspector-debug', 'loading-steps', 'lock-locked-active', 'lock-locked', 'lock-unlock', 'maximise-bar', 'minimise-bar', 'mount-2', 'mount', 'open-terminal', 'pause', 'plans', 'play', 'pods', 'power-error', 'power-off', 'power-on', 'profile', 'restart', 'revisions', 'security', 'settings', 'sort-both', 'sort-down', 'sort-up', 'starred', 'status-failed-small', 'status-in-progress-small', 'status-in-progress', 'status-queued-small', 'status-queued', 'status-succeeded-small', 'status-waiting-small', 'status-waiting', 'status', 'stop', 'submit-bug', 'switcher-dashboard', 'switcher-environments', 'switcher', 'tag', 'task-outstanding', 'timed-out-grey', 'timed-out', 'topic', 'unit-pending', 'unit-running', 'unmount', 'unstarred', 'user-group', 'video-play', 'warning-grey'] %}
 
+{% set additional_icons_new = ['archive', 'arrow-bottom-left', 'arrow-bottom-right', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-top-left', 'arrow-top-right', 'arrow-up', 'blueprint', 'book', 'certificate', 'certification', 'cluster-host', 'contact', 'contextual-menu', 'cursor', 'file-blank', 'file', 'folder', 'gift', 'image', 'iso', 'log-out', 'map', 'notifications', 'location', 'private-key', 'profiles', 'repository', 'security-error', 'security-tick', 'security-warning', 'select-add', 'select-remove', 'select', 'single-host', 'snapshot', 'snooze', 'statistics', 'thumbs-down', 'thumbs-up', 'tidy', 'toggle-side-nav', 'turn-off-notification', 'upload', 'usb', 'website'] %}
+
 {% set social_icons = ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'github', 'rss', 'email'] %}
 
 {#
@@ -101,6 +103,10 @@ Outside of the standard set, additional icons are available for use, and need to
 
 {{ icon_section(additional_icons, 'light')}}
 
+<span id="new-icons" class="p-status-label--positive">New</span> In Vanilla 4.17.0 we introduced additional icons listed below.
+
+{{ icon_section(additional_icons_new, 'light')}}
+
 ## Social
 
 Our social icons are used to drive users to social content.
@@ -164,6 +170,8 @@ If you use a limited set of icons you may want to include them individually to r
 // additional icons
 {% for icon in additional_icons %}@include vf-p-icon-{{ icon }};
 {% endfor %}
+{% for icon in additional_icons_new %}@include vf-p-icon-{{ icon }};
+{% endfor %}
 ```
 
 ## Customisation
@@ -200,4 +208,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use icons in React by installing our react-component library and importing `Icon` component.
 
-[See the documentation for our React `Icon` component](https://canonical.github.io/react-components/?path=/docs/icon--default-story#icon)
+[See the documentation for our React `Icon` component](https://canonical.github.io/react-components/?path=/docs/components-icon--docs)
