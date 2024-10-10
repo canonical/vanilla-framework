@@ -73,4 +73,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use cards in React by installing our react-component library and importing `Card` component.
 
-[See the documentation for our React `Card` component](https://canonical.github.io/react-components/?path=/docs/card--default-story)
+[See the documentation for our React `Card` component](https://canonical.github.io/react-components/?path=/docs/components-card--docs)

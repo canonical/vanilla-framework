@@ -60,4 +60,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use tabs in React by installing our react-component library and importing `Tab` component.
 
-[See the documentation for our React `Tab` component](https://canonical.github.io/react-components/?path=/docs/tabs--default-story#tabs)
+[See the documentation for our React `Tab` component](https://canonical.github.io/react-components/?path=/docs/components-tabs--docs)

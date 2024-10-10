@@ -64,4 +64,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use accordion in React by installing our react-component library and importing `Accordion` component.
 
-[See the documentation for our React `Accordion` component](https://canonical.github.io/react-components/?path=/docs/accordion--default-story#accordion)
+[See the documentation for our React `Accordion` component](https://canonical.github.io/react-components/?path=/docs/components-accordion--docs)

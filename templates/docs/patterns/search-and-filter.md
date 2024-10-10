@@ -84,4 +84,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use search and filter in React by installing our react-component library and importing `SearchAndFilter` component.
 
-[See the documentation for our React `SearchAndFilter` component](https://canonical.github.io/react-components/?path=/docs/search-and-filter--default-story#search-and-filter)
+[See the documentation for our React `SearchAndFilter` component](https://canonical.github.io/react-components/?path=/docs/components-searchandfilter--docs)

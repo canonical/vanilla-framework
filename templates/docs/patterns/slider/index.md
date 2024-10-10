@@ -30,4 +30,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use slider in React by installing our react-component library and importing `Slider` component.
 
-[See the documentation for our React `Slider` component](https://canonical.github.io/react-components/?path=/docs/slider--default-story#slider)
+[See the documentation for our React `Slider` component](https://canonical.github.io/react-components/?path=/docs/components-slider--docs)
