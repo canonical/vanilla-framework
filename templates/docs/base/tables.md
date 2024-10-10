@@ -4,7 +4,7 @@ context:
   title: Tables | Base elements
 ---
 
-Data tables are used to organize and display all information from a data set. 
+Data tables are used to organize and display all information from a data set.
 
 We capitalize table headings and any proper nouns in the table. Use other capitalization and punctuation consistently throughout the table.
 
