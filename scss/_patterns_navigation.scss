@@ -213,6 +213,7 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
   .p-navigation__row--25-75 {
     // ideally we'd like to extend row only on large screens,
     // but that's not possible to use @extend inside media query
+    // TODO implement with new 4/4/8 grid (`%vf-grid-row`)
     @extend %vf-row;
 
     // when mobile navigation is displayed, remove default row padding
@@ -788,6 +789,7 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
 
     // rows think they are nested (because they are inside of navigation row)
     // we need to reset them back to original state
+    // TODO add support for new 4/4/8 grid (.grid-row)
     .row,
     [class*='row--'] {
       @extend %fixed-width-container--common-properties;

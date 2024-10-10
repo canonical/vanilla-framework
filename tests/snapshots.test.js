@@ -6,7 +6,13 @@ const {SNAPSHOT_BREAKPOINTS, SNAPSHOT_COLOR_THEMES, PORT, DEFAULT_COLOR_THEME, C
  * Combined examples that embed responsive examples.
  * @type {Array<String>} Mapping of example urls to whether they embed responsive examples.
  */
-const RESPONSIVE_COMBINED_EXAMPLES = ['patterns/grid/combined', 'patterns/divider/combined', 'patterns/image/combined', 'patterns/equal-height-row/combined'];
+const RESPONSIVE_COMBINED_EXAMPLES = [
+  'patterns/grid/combined',
+  'patterns/grid-8/combined',
+  'patterns/divider/combined',
+  'patterns/image/combined',
+  'patterns/equal-height-row/combined',
+];
 
 test('Returns correct widths for snapshots, including additional breakpoint for responsive examples', async () => {
   const snapshots = await snapshotsTest();
