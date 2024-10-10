@@ -86,4 +86,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use links in React by installing our react-component library and importing `Link` component.
 
-[See the documentation for our React `Link` component](https://canonical.github.io/react-components/?path=/docs/link--default-story#link)
+[See the documentation for our React `Link` component](https://canonical.github.io/react-components/?path=/docs/components-link--docs)

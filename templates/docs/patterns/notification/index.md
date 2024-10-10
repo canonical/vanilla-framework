@@ -117,7 +117,7 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use notifications in React by installing our react-component library and importing `Notification` component.
 
-[See the documentation for our React `Notification` component](https://canonical.github.io/react-components/?path=/docs/notification--default-story#notification)
+[See the documentation for our React `Notification` component](https://canonical.github.io/react-components/?path=/docs/components-notification--docs)
 
 ## Related components
 
