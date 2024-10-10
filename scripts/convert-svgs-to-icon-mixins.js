@@ -32,19 +32,19 @@ function printBaseMixins(svgs) {
 
   svgs.forEach((svg) => {
     console.log(`
-// ${svg.name}
-@function vf-icon-${svg.name}-url($color) {
-  @return url("data:image/svg+xml,${encodeSVG(svg.svg, svg.colors)}");
-}
+      // ${svg.name}
+      @function vf-icon-${svg.name}-url($color) {
+        @return url("data:image/svg+xml,${encodeSVG(svg.svg, svg.colors)}");
+      }
 
-@mixin vf-icon-${svg.name}($color: $colors--light-theme--icon) {
-  background-image: vf-icon-${svg.name}-url($color);
-}
+      @mixin vf-icon-${svg.name}($color: $colors--light-theme--icon) {
+        background-image: vf-icon-${svg.name}-url($color);
+      }
 
-@mixin vf-icon-${svg.name}-themed {
-  @include vf-themed-icon($light-value: vf-icon-${svg.name}-url($colors--light-theme--icon), $dark-value: vf-icon-${svg.name}-url($colors--dark-theme--icon));
-}
-`);
+      @mixin vf-icon-${svg.name}-themed {
+        @include vf-themed-icon($light-value: vf-icon-${svg.name}-url($colors--light-theme--icon), $dark-value: vf-icon-${svg.name}-url($colors--dark-theme--icon));
+      }
+    `);
   });
 }
 
@@ -61,13 +61,13 @@ function printPatternMixins(svgs) {
 
   svgs.forEach((svg) => {
     console.log(`
-@mixin vf-p-icon-${svg.name} {
-  .p-icon--${svg.name} {
-    @extend %icon;
-    @include vf-icon-${svg.name}-themed;
-  }
-}
-`);
+      @mixin vf-p-icon-${svg.name} {
+        .p-icon--${svg.name} {
+          @extend %icon;
+          @include vf-icon-${svg.name}-themed;
+        }
+      }
+    `);
   });
 
   console.log('// **Base and Pattern mixins accurate as of October 2024**');

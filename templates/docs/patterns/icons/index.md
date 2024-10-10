@@ -208,4 +208,4 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 You can use icons in React by installing our react-component library and importing `Icon` component.
 
-[See the documentation for our React `Icon` component](https://canonical.github.io/react-components/?path=/docs/icon--default-story#icon)
+[See the documentation for our React `Icon` component](https://canonical.github.io/react-components/?path=/docs/components-icon--docs)
