@@ -3,10 +3,10 @@
 @mixin vf-p-badge {
   %vf-badge {
     @extend %x-small-text;
-    background-color: $colors--light-theme--text-default;
+    background-color: $colors--theme--text-default; // inverse the theme by using the text color
     border-radius: 1rem;
     box-sizing: content-box;
-    color: $color-x-light;
+    color: $colors--theme--background-default; // inverse the theme by using the baackground color
     margin-bottom: 0;
     max-width: 4ch;
     overflow: hidden;
@@ -19,7 +19,8 @@
   }
 
   .p-badge--negative {
-    background-color: $color-negative;
+    background-color: $colors--theme--button-negative-default;
+    color: $colors--theme--button-negative-text;
   }
 
   .p-chip,
