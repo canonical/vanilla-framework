@@ -36,20 +36,20 @@
       border-top-style: solid;
       border-top-width: 1px;
       display: grid;
-      grid-column: span $grid-12-columns-small;
+      grid-column: span $grid-columns-small;
       grid-row: span 4;
       grid-template-rows: subgrid;
       margin-bottom: $spv--small;
       position: relative;
 
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-column: span $grid-12-columns-medium;
+        grid-column: span $grid-columns-medium;
         grid-template-columns: subgrid;
 
         // At medium size, each column item will take half of the available
         // cols from the parent grid
         .p-equal-height-row__item {
-          grid-column: span calc($grid-12-columns-medium / 2);
+          grid-column: span calc($grid-columns-medium / 2);
         }
 
         // At medium size, position the first column item on the left of the
@@ -63,7 +63,7 @@
 
       @media screen and (width >= $breakpoint-large) {
         border: none;
-        grid-column: span calc($grid-12-columns / 4);
+        grid-column: span calc($grid-columns / 4);
         margin-bottom: 0;
       }
     }
@@ -123,7 +123,7 @@
     .p-equal-height-row__col {
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
         // Fit 2 columns onto each row at medium size
-        grid-column: span calc($grid-12-columns-medium / 2);
+        grid-column: span calc($grid-columns-medium / 2);
         grid-template-columns: none;
 
         .p-equal-height-row__item {

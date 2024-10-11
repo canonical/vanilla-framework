@@ -16,7 +16,7 @@
 
 @mixin vf-grid-8-column-reordering($label, $col-count, $reset: false) {
   @for $i from 1 through $col-count {
-    .grid-row [class*='#{$grid-column-prefix}'].#{$grid-column-prefix}start-#{$label}-#{$i} {
+    .grid-row [class*='#{$grid-8-column-prefix}'].#{$grid-8-column-prefix}start-#{$label}-#{$i} {
       @if $reset {
         grid-column-start: initial;
       } @else {
@@ -24,7 +24,7 @@
       }
     }
 
-    .#{$grid-column-prefix}order-#{$label}-#{$i} {
+    .#{$grid-8-column-prefix}order-#{$label}-#{$i} {
       @if $reset {
         order: initial;
       } @else {
@@ -38,7 +38,7 @@
   // FIXME: this should be removed from framework SCSS
   // (see https://github.com/canonical/vanilla-framework/issues/3199)
   .grid-demo .grid-col,
-  .grid-demo [class*='#{$grid-column-prefix}'] {
+  .grid-demo [class*='#{$grid-8-column-prefix}'] {
     background: $colors--theme--background-negative-default;
     margin-bottom: $spv--small;
   }
@@ -51,26 +51,26 @@
 
   // by default medium and large screen col classes should span full width on mobile (to match block level element behaviour)
   %grid-8-span-on-mobile {
-    grid-column: auto / span $grid-columns-small;
+    grid-column: auto / span $grid-8-columns-small;
   }
 
-  @for $i from 1 through $grid-columns-medium {
-    .#{$grid-medium-col-prefix}#{$i} {
+  @for $i from 1 through $grid-8-columns-medium {
+    .#{$grid-8-medium-col-prefix}#{$i} {
       @extend %grid-8-span-on-mobile;
       @extend %display-block;
     }
   }
 
-  @for $i from 1 through $grid-columns {
-    .#{$grid-large-col-prefix}#{$i} {
+  @for $i from 1 through $grid-8-columns {
+    .#{$grid-8-large-col-prefix}#{$i} {
       @extend %grid-8-span-on-mobile;
       @extend %display-block;
     }
   }
 
   // col-small-X classes define grid for small screen
-  @for $i from $grid-columns-small through 1 {
-    .#{$grid-small-col-prefix}#{$i} {
+  @for $i from $grid-8-columns-small through 1 {
+    .#{$grid-8-small-col-prefix}#{$i} {
       @extend %display-block;
       @include vf-grid-8-column($i);
 
@@ -83,26 +83,26 @@
   // on medium/tablet screens, small and large grid class names span full width (to match block level element behaviour)
   %grid-8-span-on-tablet {
     @media (min-width: $threshold-4-6-col) {
-      grid-column: auto / span $grid-columns-medium;
+      grid-column: auto / span $grid-8-columns-medium;
     }
   }
 
-  @for $i from 1 through $grid-columns-small {
-    .#{$grid-small-col-prefix}#{$i} {
+  @for $i from 1 through $grid-8-columns-small {
+    .#{$grid-8-small-col-prefix}#{$i} {
       @extend %grid-8-span-on-tablet;
     }
   }
 
-  @for $i from 1 through $grid-columns {
-    .#{$grid-large-col-prefix}#{$i} {
+  @for $i from 1 through $grid-8-columns {
+    .#{$grid-8-large-col-prefix}#{$i} {
       @extend %grid-8-span-on-tablet;
     }
   }
 
   // col-medium-X classes define grid for medium screens
   @media (min-width: $threshold-4-6-col) {
-    @for $i from $grid-columns-medium through 1 {
-      .#{$grid-medium-col-prefix}#{$i} {
+    @for $i from $grid-8-columns-medium through 1 {
+      .#{$grid-8-medium-col-prefix}#{$i} {
         @include vf-grid-8-column($i);
 
         width: 100%;
@@ -115,27 +115,27 @@
   // on desktop screens small and medium grid class names span full width (to match block level element behaviour)
   %grid-8-span-on-desktop {
     @media (min-width: $threshold-6-12-col) {
-      grid-column: auto / span $grid-columns;
+      grid-column: auto / span $grid-8-columns;
     }
   }
 
-  @for $i from 1 through $grid-columns-small {
-    .#{$grid-small-col-prefix}#{$i} {
+  @for $i from 1 through $grid-8-columns-small {
+    .#{$grid-8-small-col-prefix}#{$i} {
       @extend %grid-8-span-on-desktop;
     }
   }
 
-  @for $i from 1 through $grid-columns-medium {
-    .#{$grid-medium-col-prefix}#{$i} {
+  @for $i from 1 through $grid-8-columns-medium {
+    .#{$grid-8-medium-col-prefix}#{$i} {
       @extend %grid-8-span-on-desktop;
     }
   }
 
   // col-X class names define grid on large/desktop screens
   @media (min-width: $threshold-6-12-col) {
-    @for $i from $grid-columns through 1 {
+    @for $i from $grid-8-columns through 1 {
       // set col-* to span respective number of columns on desktop
-      .#{$grid-large-col-prefix}#{$i} {
+      .#{$grid-8-large-col-prefix}#{$i} {
         // on smaller screens let them display full width one under another
         @include vf-grid-8-column($i);
       }
@@ -144,9 +144,9 @@
 
   // column reordering
   $offsets: (
-    (small, 0, $threshold-4-6-col, $grid-columns-small),
-    (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-columns-medium),
-    (large, $threshold-6-12-col, false, $grid-columns)
+    (small, 0, $threshold-4-6-col, $grid-8-columns-small),
+    (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-8-columns-medium),
+    (large, $threshold-6-12-col, false, $grid-8-columns)
   );
 
   @each $label, $breakpoint-min, $breakpoint-reset, $col-count in $offsets {

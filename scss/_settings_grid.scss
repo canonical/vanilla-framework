@@ -4,16 +4,22 @@
 // Global grid settings
 $grid-max-width: 80rem !default;
 $grid-columns-small: 4 !default;
-$grid-columns-medium: 4 !default;
-$grid-columns: 8 !default;
-// TODO provide new names for these, as 6 and 12 cols don't exist in new grid
+$grid-8-columns-small: $grid-columns-small !default;
+$grid-columns-medium: 6 !default;
+$grid-8-columns-medium: 4 !default;
+$grid-columns: 12 !default;
+$grid-8-columns: 8 !default;
 $threshold-4-6-col: $breakpoint-small !default;
 $threshold-6-12-col: $breakpoint-large !default;
 
-$grid-column-prefix: 'grid-col-' !default;
+$grid-column-prefix: 'col-' !default;
+$grid-8-column-prefix: 'grid-#{$grid-column-prefix}' !default;
 $grid-small-col-prefix: '#{$grid-column-prefix}small-' !default;
+$grid-8-small-col-prefix: 'grid-#{$grid-small-col-prefix}' !default;
 $grid-medium-col-prefix: '#{$grid-column-prefix}medium-' !default;
+$grid-8-medium-col-prefix: 'grid-#{$grid-medium-col-prefix}' !default;
 $grid-large-col-prefix: #{$grid-column-prefix} !default;
+$grid-8-large-col-prefix: 'grid-#{$grid-large-col-prefix}' !default;
 
 $grid-gutter-widths: (
   small: $sp-unit * 3,
@@ -26,18 +32,7 @@ $grid-margin-widths: (
 ) !default;
 
 // Grid breakout template
-// TODO implement these with the new grid
 $l-fluid-breakout-max-width: $grid-max-width !default;
 $l-fluid-breakout-aside-width: 14rem !default;
 $l-fluid-breakout-main-child-width: 13rem !default;
 $l-fluid-breakout-3-col-threshold: calc($grid-max-width + $l-fluid-breakout-aside-width);
-
-// Legacy grid variables
-$grid-12-columns-small: 4 !default;
-$grid-12-columns-medium: 6 !default;
-$grid-12-columns: 12 !default;
-
-$grid-12-column-prefix: 'col-' !default;
-$grid-12-small-col-prefix: '#{$grid-12-column-prefix}small-' !default;
-$grid-12-medium-col-prefix: '#{$grid-12-column-prefix}medium-' !default;
-$grid-12-large-col-prefix: #{$grid-12-column-prefix} !default;
