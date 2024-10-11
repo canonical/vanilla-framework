@@ -30,3 +30,9 @@ To import just this component into your project, copy the snippet below and incl
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
+## React
+
+You can use status labels in React by installing our react-component library and importing `StatusLabel` component.
+
+[See the documentation for our React `StatusLabel` component](https://canonical.github.io/react-components/?path=/docs/components-statuslabel--docs)

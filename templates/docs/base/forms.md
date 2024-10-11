@@ -252,8 +252,20 @@ For more information see [Customising Vanilla](/docs/customising-vanilla/) in yo
 
 ## React
 
-You can use forms in React by installing our react-component library and importing `Form` and `Input` component.
+You can use forms in React by installing our react-component library and importing `Form`, `Input`, `PasswordToggle`, `Textarea`, `CheckboxInput`, `RadioInput`, `Select` and `MultiSelect` components.
 
 [See the documentation for our React `Form` component](https://canonical.github.io/react-components/?path=/docs/components-form--docs)
 
 [See the documentation for our React `Input` component](https://canonical.github.io/react-components/?path=/docs/components-input--docs)
+
+[See the documentation for our React `PasswordToggle` component](https://canonical.github.io/react-components/?path=/docs/components-passwordtoggle--docs)
+
+[See the documentation for our React `Textarea` component](https://canonical.github.io/react-components/?path=/docs/components-textarea--docs)
+
+[See the documentation for our React `CheckboxInput` component](https://canonical.github.io/react-components/?path=/docs/components-checkboxinput--docs)
+
+[See the documentation for our React `RadioInput` component](https://canonical.github.io/react-components/?path=/docs/components-radioinput--docs)
+
+[See the documentation for our React `Select` component](https://canonical.github.io/react-components/?path=/docs/components-select--docs)
+
+[See the documentation for our React `MultiSelect` component](https://canonical.github.io/react-components/?path=/docs/components-multiselect--docs)
