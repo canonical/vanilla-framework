@@ -24,3 +24,9 @@ To import just this component into your project, copy the snippet below and incl
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
+
+## React
+
+You can use switch in React by installing our react-component library and importing `Switch` component.
+
+[See the documentation for our React `Switch` component](https://canonical.github.io/react-components/?path=/docs/components-switch--docs)
