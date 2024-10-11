@@ -7,7 +7,10 @@ context:
 <div class="p-notification--caution">
   <div class="p-notification__content">
     <h3 class="p-notification__title">Deprecated</h3>
-    <p class="p-notification__message">The legacy grid is deprecated. Use the <a href="/docs/patterns/grid">new grid</a> instead.</p>
+    <p class="p-notification__message">
+      The 12-column legacy grid (<code>.row</code> and <code>.col</code>) is deprecated.<br>
+      New layouts should be built with the <a href="/docs/patterns/grid">new grid</a> instead.
+    </p>
   </div>
 </div>
 

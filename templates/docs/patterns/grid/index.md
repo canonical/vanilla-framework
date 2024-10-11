@@ -4,6 +4,17 @@ context:
   title: Grid | Components
 ---
 
+<div class="p-notification--positive">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Default grid updated</h3>
+    <p class="p-notification__message">
+      Vanilla version 4.18.0 introduced a new 8-column grid with <code>.grid-row</code> and <code>.grid-col</code>.<br>
+      The new grid has different column counts than the <a href="/docs/patterns/grid-legacy">legacy grid</a>.<br>
+      Evaluate the <a href="#structure">grid structure</a> and ensure that you use the correct grid for your desired layout.
+    </p>
+  </div>
+</div>
+
 ## Structure
 
 Vanilla has a responsive grid with the following columns and gutters:
@@ -96,11 +107,3 @@ To import just this component into your project, copy the snippet below and incl
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
-
-## React
-
-You can use the grid in React by installing our react-component library and importing `GridRow` and `GridCol` components.
-
-[See the documentation for our React `GridRow` component](https://canonical.github.io/react-components/?path=/docs/components-grid-row--docs)
-
-[See the documentation for our React `GridCol` component](https://canonical.github.io/react-components/?path=/docs/components-grid-col--docs)
