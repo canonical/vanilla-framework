@@ -1,0 +1,27 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+
+{% block title %}Rich list / Vertical / Minimal{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% call(slot) vf_rich_vertical_list(
+    title_text='H2 - this can take up to two lines, but best to stick to one line.'
+  ) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+      </p>
+    {%- endif -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg"
+            alt="Factory floor"/>
+      </div>
+      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/0dd5ddc8-factory_floor.jpeg"
+            alt="Factory floor"/>
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+{% endblock %}
