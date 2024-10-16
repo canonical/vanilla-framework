@@ -1,12 +1,12 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
 
-{% block title %}Rich list / Vertical / Bulleted / Default{% endblock %}
+{% block title %}Rich list / Vertical / Ticked{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
   {% call(slot) vf_rich_vertical_list(
     title_text='H2 - this can take up to two lines, but best to stick to one line.',
-    list_item_tick_style="bullet"
+    list_item_tick_style="tick"
   ) -%}
     {%- if slot == 'description' -%}
       <p>
@@ -15,7 +15,7 @@
       </p>
     {%- endif -%}
     {%- if slot == 'logo_section' -%}
-      {% include 'docs/examples/patterns/rich-list/vertical/_logo-section.html' %}
+      {% include 'docs/examples/patterns/rich-list-vertical/_logo-section.html' %}
     {%- endif -%}
     {%- if slot == 'list_item_1' -%}
       No mandatory subscriptions for Ubuntu
@@ -43,17 +43,18 @@
     {%- if slot == 'list_item_7' -%}
       <a href="https://ubuntu.com/openstack/pricing-calculator">TCO analysis of Open Infra</a>
     {%- endif -%}
-    {%- if slot == 'list_item_8' -%}
-      <a href="https://ubuntu.com/engage/cloud-economics">451 study on private/public cloud cost</a>
-    {%- endif -%}
     {%- if slot == 'cta' -%}
       <a href="#" class="p-button">Learn more</a>
       <a href="#">Contact us &rsaquo;</a>
     {%- endif -%}
     {%- if slot == 'image' -%}
-      <div class="p-image-container--2-3 is-cover">
+      <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
         <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg"
-             alt="Factory floor"/>
+            alt="Factory floor"/>
+      </div>
+      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/0dd5ddc8-factory_floor.jpeg"
+            alt="Factory floor"/>
       </div>
     {%- endif -%}
   {% endcall -%}

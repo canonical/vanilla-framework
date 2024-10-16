@@ -5,7 +5,7 @@
 # Slots
 # description: Paragraph-style description content
 # logo_section Logo section block
-# list_item_[1-15]: List item content, assumed to be li.p-list__item
+# list_item_[1-7]: List item content, assumed to be li.p-list__item
 # image (required)
 {% macro vf_rich_vertical_list(
   title_text,
@@ -20,7 +20,7 @@
   {% set has_cta = cta_content|trim|length > 0 %}
   {% set has_list = caller('list_item_1')|trim|length > 0 %}
   {% set image_content = caller('image') %}
-  {% set max_list_items = 15 %}
+  {% set max_list_items = 7 %}
 
   {% set list_item_tick_style=list_item_tick_style|trim|lower %}
   {% if list_item_tick_style|length > 0 and list_item_tick_style not in ['bullet', 'tick', 'number'] %}
@@ -54,13 +54,13 @@
   {% endif %}
 
   {%- macro _text_column_contents(list_items) %}
-    <!--Mandatory title-->
+    {#- Mandatory title -#}
     <div class="p-section--shallow">
       <h2>{{ title_text }}</h2>
     </div>
 
     {%- if has_logo_section %}
-      <!--Optional logo section-->
+      {#- Optional logo section -#}
       <div class="p-section--shallow">
         <div class="u-fixed-width">
         {{- logo_section_content -}}
@@ -69,14 +69,14 @@
     {%- endif -%}
 
     {%- if has_description %}
-      <!--Optional description-->
+      {#- Optional description -#}
       <div class="p-section--shallow">
         {{- description_content -}}
       </div>
     {%- endif -%}
 
     {%- if list_items|length > 0 %}
-      <!--Optional list-->
+      {#- Optional list -#}
       <{{ list_element_type }} class="p-list--divided">
        {% for list_item in list_items %}
          <li class="p-list__item {{ list_item_tick_class }}">
@@ -87,7 +87,7 @@
     {%- endif -%}
 
     {%- if has_cta %}
-      <!--Optional CTA block-->
+      {#- Optional CTA block -#}
       <div class="p-cta-block">
         {{- cta_content -}}
       </div>
@@ -96,7 +96,7 @@
   {%- endmacro -%}
 
   {%- macro _image_column_contents() %}
-    <!--Mandatory image-->
+    {#- Mandatory image -#}
     <div class="p-section--shallow">
       {{- image_content -}}
     </div>
@@ -113,7 +113,7 @@
           {{- _image_column_contents() -}}
         </div>
       {%- else -%}
-        <!--For flipped layout, place the image contents in the first column and the text in the second column-->
+        {#- For flipped layout, place the image contents in the first column and the text in the second column -#}
         <div class="col">
           {{- _image_column_contents() -}}
         </div>
