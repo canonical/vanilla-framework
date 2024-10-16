@@ -64,6 +64,18 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
     View example of the default grid
 </a></div>
 
+## Common patterns
+
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Coming soon</h3>
+    <p class="p-notification__message">
+      Grid shorthands (such as <code>.grid-row--50-50</code>) for the new grid are a work-in-progress.<br>
+      If you need to use a grid shorthand, use the <a href="/docs/patterns/grid-legacy#common-patterns">legacy grid</a>.
+    </p>
+  </div>
+</div>
+
 ## Nested columns
 
 Columns can be nested infinitely by adding `.grid-row` classes within columns. When nesting, remember to:

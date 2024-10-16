@@ -65,6 +65,18 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
 
 ## Common patterns
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">
+      Grid shorthands (such as <code>.grid-row--50-50</code>) for the <a href="/docs/patterns/grid#common-patterns">new grid</a> are a work-in-progress.<br>
+      Until new grid shorthands are released, use the legacy grid shorthands below.<br><br>
+      <strong>Please avoid using nested grids</strong> inside legacy grid shorthands.<br>
+      The number of columns per breakpoint <a href="/docs/patterns/grid#structure">changes in the new grid</a>. Using nested grid will make migrating to the new grid more difficult. 
+    </p>
+  </div>
+</div>
+
 On top of the regular row and column classes, we provide shortcut classes to help you build [often used layouts](/docs/layouts/brochure). Instead of specifying columns at each breakpoint, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `col` class.
 
 N.B.: the shortcut classes are not nestable. If you need further subdivision inside a shortcut class, please use the regular grid classes. Take care to specify a number of columns that is available (e.g. 3 columns in a 25% container, 6 columns in a 50% container, etc). Specifying more columns than are available leads to misalignemnts.
