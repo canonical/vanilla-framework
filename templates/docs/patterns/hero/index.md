@@ -4,6 +4,10 @@ context:
   title: Hero | Patterns
 ---
 
+{% from "docs/macros/patterns/wip-notice.jinja" import pattern_wip_notice %}
+
+{{- pattern_wip_notice() }}
+
 A hero is a prominent banner section typically used to quickly capture the user's attention after they land on the page.
 Depending on the size and composition of your content, you can choose from a variety of hero layouts:
 
