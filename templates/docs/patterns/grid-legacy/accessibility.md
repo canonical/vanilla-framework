@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Grid | Components
+  title: Legacy grid | Components
 ---
 
 ## How it works
@@ -12,9 +12,9 @@ The grid gives the ability to maintain semantic meaning in the page, while placi
 
 This component strives to follow [WCAG 2.2 (level AA) guidelines](https://www.w3.org/TR/WCAG22/), and care must be taken to ensure this effort is maintained when the component is implemented across other projects. This section offers advice to that effect:
 
-- Each column containing text should span a minimum of 2 columns.
+- Each column containing text should span a minimum of 3 columns.
 - Only columns should be direct children of rows.
-- The starting point of your page should be a well-structured and accessible source document. Ensure the document remains in a logical order for screen readers, irrespective of how the content looks visually.
+- The starting point of your page should be a well structured and accessible source document. Ensure the document remains in a logical order for screen readers, irrespective of how the content looks visually.
 - Ensure to use order and the grid-placement properties only for visual, not logical, reordering of content.
 
 ## Resources
