@@ -1,0 +1,35 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
+
+{% block title %}Quote Wrapper / Medium quote / No citation{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{% call(slot) vf_quote_wrapper(
+  title_text="Our hiring process",
+  quote_size="medium",
+  quote_text="We're a remote-first international company. I get to work every day with people from all over the world, which is just amazing.",
+) -%}
+
+{%- if slot == 'heading_link' -%}
+  <a href="#">All the success stories &rsaquo;</a>
+{%- endif -%}
+
+{%- if slot == 'signpost_image' -%}
+  <img src="https://assets.ubuntu.com/v1/6e2d4130-example-logo-h4.png" width="114" alt="Canonical logo">
+{%- endif -%}
+
+{%- if slot == 'cta' -%}
+  <a href="#">Explore careers &rsaquo;</a>
+{%- endif -%}
+
+{%- if slot == 'image' %}
+  <div class="p-image-container--cinematic is-cover">
+    <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/da3fbf74-summit2022_crowd.png" alt="Ubuntu Summit crowd">
+  </div>
+{%- endif -%}
+
+{% endcall -%}
+
+{% endblock %}

@@ -1,0 +1,186 @@
+{#
+  Params
+  - title_text (string) (optional): The text to be displayed as the heading
+  - quote_size (string) (required): The size of the quote. Possible values are 'small', 'medium', 'large'. Default is 'medium'.
+  - quote_text (string) (required): The text of the quote. The macro will surround it with quotes, so there is no need to quote it yourself.
+  - citation_source_name_text (string) (optional): The name of the source being quoted
+  - citation_source_title_text (string) (optional): The title of the source being quoted
+  - citation_source_organisation_text (string) (optional): The organisation associated with the source being quoted.
+  - is_shallow (boolean) (optional): Whether the quote wrapper pattern should be displayed in a shallow section. Defaults to false.
+  Slots
+  - signpost_image (optional): The signpost_image of the source being quoted
+  - heading_link (optional): Link to be displayed beside the heading text
+  - cta (optional): Contents of the call to action block to be displayed below the quote
+  - image (optional): An image to be displayed below the quote
+#}
+{%- macro vf_quote_wrapper(
+  title_text="",
+  quote_size="medium",
+  quote_text="",
+  citation_source_name_text="",
+  citation_source_title_text="",
+  citation_source_organisation_text="",
+  is_shallow=False
+) -%}
+  {% set heading_link_content = caller('heading_link') %}
+  {% set has_heading_link =  heading_link_content|trim|length > 0 %}
+  {% set has_title = title_text|length > 0 %}
+  {% set has_heading_row = has_title or has_heading_link %}
+  {% set signpost_image_content = caller('signpost_image') %}
+  {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
+  {% set has_citation_source_name = citation_source_name_text|trim|length > 0 %}
+  {% set has_citation_source_title = citation_source_title_text|trim|length > 0 %}
+  {% set has_citation_source_organisation = citation_source_organisation_text|trim|length > 0 %}
+  {% set has_citation = has_citation_source_name or has_citation_source_title or has_citation_source_organisation %}
+  {% set cta_content = caller('cta') %}
+  {% set has_cta = cta_content|trim|length > 0 %}
+  {% set image_content = caller('image') %}
+  {% set has_image = image_content|trim|length > 0 %}
+  {% set quote_size = quote_size|trim|lower %}
+
+  {# Translate quote size param to quote heading level #}
+  {% if quote_size == 'large' %}
+    {% set quote_heading_level = 2 %}
+  {% elif quote_size == 'small' %}
+    {% set quote_heading_level = 6 %}
+  {% else %}
+    {% set quote_heading_level = 4 %}
+  {% endif %}
+
+  {%- macro _quote_body() -%}
+    <div class="p-section--shallow">
+      <p class="p-heading--{{ quote_heading_level }}">
+        <i>
+          &#8220;{{ quote_text }}&#8221;
+        </i>
+      </p>
+    </div>
+  {%- endmacro %}
+
+  {%- macro _citation_block() -%}
+    {%- if has_citation -%}
+      {#- Optional citation block -#}
+      <p>
+        {% if has_citation_source_name -%}
+          {#- Optional citation source name -#}
+          <strong>{{ citation_source_name_text }}</strong>
+          {% if has_citation_source_title or has_citation_source_organisation -%}
+            {#- If the citation name is followed by title and/or organisation, add a line break -#}
+            <br>
+          {% endif -%}
+        {% endif -%}
+        {% if has_citation_source_title or has_citation_source_organisation -%}
+          {#- Optional citation source title and/or organisation -#}
+          <span class="u-text--muted">
+            {% if has_citation_source_title -%}
+              {#- Optional citation source title -#}
+              {{ citation_source_title_text }}
+              {%- if has_citation_source_organisation %}
+                {#- Add a line break between the title and org if both are present -#}
+                <br>
+              {%- endif %}
+            {% endif %}
+            {%- if has_citation_source_organisation -%}
+              {#- Optional citation source organisation -#}
+              {{ citation_source_organisation_text }}
+            {%- endif %}
+          </span>
+        {%- endif %}
+      </p>
+    {% endif %}
+  {%- endmacro -%}
+
+  {%- macro _heading_block() %}
+    {% if has_heading_row -%}
+      {#- Optional heading -#}
+      <div class="p-section--shallow">
+        <hr class="p-rule--highlight is-fixed-width">
+        <div class="row">
+          {%- if has_title %}
+            {#- Optional heading text -#}
+            <div class="col-3 col-medium-2">
+              <p class="p-muted-heading">{{ title_text }}</p>
+            </div>
+          {%- endif -%}
+
+          {%- if has_heading_link %}
+            {#- Optional heading link  -#}
+            <div class="col-3 col-medium-4 col-start-large-10 col-start-medium-3">
+              <p class="p-text--default">
+                {{ heading_link_content }}
+              </p>
+            </div>
+          {% endif -%}
+        </div>
+      </div>
+    {% endif -%}
+  {%- endmacro %}
+
+  <div class="p-section{% if is_shallow %}--shallow{% endif %}">
+    {{- _heading_block() -}}
+    <div class="row">
+      {% if has_signpost_image -%}
+        {% if not has_heading_row %}
+          {#- 
+            If a signpost is present, but no heading row, the signpost is the first piece of content in the pattern on small.
+            So, we place a standard rule above the signpost to separate it from the preceding section.
+          -#}
+          <hr class="p-rule u-hide--medium u-hide--large">
+        {% endif %}
+        {#- Optional signpost image -#}
+        <div class="col-3 col-medium-2">
+          <div class="p-section--shallow">
+            {{ signpost_image_content }}
+          </div>
+        </div>
+      {% endif -%}
+      
+      <div class="col-9 col-start-large-4 col-medium-4 col-start-medium-3">
+        {% if has_heading_row %}
+          {#- If a heading is present, a muted rule separates the heading from the quote, and can be used on all breakpoints. -#}
+          <hr class="p-rule--muted">
+        {% elif has_signpost_image %}
+          {#- 
+            If a heading is not present, we use a standard rule to separate the pattern from preceding content on large and medium.
+            On small, the signpost is stacked above the quote, so we use a muted rule to separate the signpost from the quote.
+          -#}
+          <hr class="p-rule u-hide--small">
+          <hr class="p-rule--muted u-hide--large u-hide--medium">
+        {% else %}
+          {#- If neither heading nor signpost image is present, use a standard rule on all screen sizes to separate from preceding section -#}
+          <hr class="p-rule">
+        {% endif %}
+        {% if has_citation -%}
+          {#-  When a citation is present, wrap the quote and citation in a nested grid to space them properly  -#}
+          <div class="row">
+            <div class="col-6">
+              {{ _quote_body() }}
+            </div>
+            <div class="col-3">
+              <hr class="p-rule--muted u-hide--large">
+              {{ _citation_block() }}
+            </div>
+          </div>
+        {% else -%}
+          {#-  When no citation is present, display quote body without a nested grid  -#}
+          {{ _quote_body() }}
+        {% endif -%}
+
+        {%- if has_cta or has_image -%}
+          {#-  Optional CTA and/or image block  -#}
+          {%- if has_cta %}
+            {#-  Optional CTA block -#}
+            <div class="p-cta-block">
+              {{ cta_content }}
+            </div>
+          {% endif -%}
+
+          {% if has_image -%}
+            {#-  Optional image block  -#}
+            {{ image_content }}
+          {% endif -%}
+        {% endif -%}
+      </div>
+    </div>
+  </div>
+{% endmacro -%}

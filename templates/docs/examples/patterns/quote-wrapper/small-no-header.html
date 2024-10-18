@@ -1,0 +1,33 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
+
+{% block title %}Quote Wrapper / Small quote / No header{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{% call(slot) vf_quote_wrapper(
+  quote_size="small",
+  quote_text="I am particularly proud to work for an organisation that holds diversity and equal opportunity at the heart of its business. Our global reach allows us to consider people from all over the world for each open role we have. This presents an immense opportunity for talent in the open source community.",
+  citation_source_name_text="Hanna Neuborn",
+  citation_source_title_text="Global Head of Talent Science",
+  citation_source_organisation_text="Canonical"
+) -%}
+
+{%- if slot == 'signpost_image' -%}
+  <img src="https://assets.ubuntu.com/v1/8f188d91-example-logo-h6.png" width="114" alt="Canonical logo">
+{%- endif -%}
+
+{%- if slot == 'cta' -%}
+  <a href="#">Explore careers &rsaquo;</a>
+{%- endif -%}
+
+{%- if slot == 'image' -%}
+  <div class="p-image-container--cinematic is-cover">
+    <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/da3fbf74-summit2022_crowd.png" alt="Ubuntu Summit crowd">
+  </div>
+{%- endif -%}
+
+{% endcall -%}
+
+{% endblock %}
