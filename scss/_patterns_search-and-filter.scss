@@ -121,9 +121,13 @@
       margin: 0;
       position: relative;
 
+      // tab-selectable search submit button
       & > .u-off-screen {
         // Prevents the bottom margin of the search bottom from growing the height of the search container
         @extend %u-no-margin--bottom;
+
+        // Make the button dense to ensure it fits vertically in the search box
+        @extend %vf-button-dense-vertical-padding;
 
         // Make sure the hidden search button appears on top of the input field
         &:focus {
