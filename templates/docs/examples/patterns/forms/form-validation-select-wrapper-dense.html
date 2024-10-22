@@ -1,0 +1,21 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Forms / Validation / Dense select wrapper{% endblock %}
+
+{% block standalone_css %}patterns_forms{% endblock %}
+
+{% block content %}
+  <div class="p-form-validation is-error">
+    <label for="exampleSelectInputError">Ubuntu releases</label>
+    <div class="p-form-validation__select-wrapper is-dense">
+      <select class="p-form-validation__input" id="exampleSelectInputError" name="exampleSelectInputError"
+              aria-invalid="true" aria-describedby="exampleSelectErrorMessage">
+        <option value="">--Select an option--</option>
+        <option value="1">Cosmic Cuttlefish</option>
+        <option value="2">Bionic Beaver</option>
+        <option value="3">Xenial Xerus</option>
+      </select>
+    </div>
+    <p class="p-form-validation__message" id="exampleSelectErrorMessage">You need to select an OS to complete your
+      install.</p>
+  </div>
+{% endblock %}
