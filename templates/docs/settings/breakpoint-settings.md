@@ -20,7 +20,7 @@ Vanilla uses three main breakpoints for screen sizes, below you can see the sett
 ## Target small screens
 
 ```css
-@media screen and (max-width: $breakpoint-small - 1) {
+@media screen and (width < $breakpoint-small) {
   // css
 }
 ```
@@ -28,7 +28,7 @@ Vanilla uses three main breakpoints for screen sizes, below you can see the sett
 ## Target medium size screens
 
 ```css
-@media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) {
+@media screen and ($breakpoint-small <= width < $breakpoint-large) {
   // css
 }
 ```
@@ -36,7 +36,7 @@ Vanilla uses three main breakpoints for screen sizes, below you can see the sett
 ## Target large screens
 
 ```css
-@media screen and (min-width: $breakpoint-large) {
+@media screen and ($breakpoint-large <= width) {
   //css
 }
 ```
@@ -44,7 +44,7 @@ Vanilla uses three main breakpoints for screen sizes, below you can see the sett
 ## Target extra large screens
 
 ```css
-@media screen and (min-width: $breakpoint-x-large) {
+@media screen and ($breakpoint-x-large <= width) {
   //css
 }
 ```
