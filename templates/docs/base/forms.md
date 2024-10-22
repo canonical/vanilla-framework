@@ -177,6 +177,14 @@ Supplementary help text can be provided for the form fields by adding an element
 View example of a form fields with help text
 </a></div>
 
+### Dense help text {{ status('updated') }}
+
+To use help text with a [dense input element](#dense-form-elements), add `.is-dense` to the `.p-form-validation__input` element.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-help-text-dense" class="js-example">
+View example of a form fields with dense help text
+</a></div>
+
 ## Validation
 
 To use form validation feedback - which includes feedback messages, icons and border colours - wrap individual input elements in a `p-form-validation` and additionally apply the `.is-error`, `.is-caution` or `.is-success` to the wrapper as appropriate.
@@ -186,6 +194,14 @@ If your form uses select elements then you will additionally need to wrap only t
 Descriptive text relating to the element's validation status should use the class `p-form-validation__message`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/forms/form-validation/" class="js-example">
+View example of form validation patterns
+</a></div>
+
+### Dense form validation select wrapper {{ status('updated') }}
+
+To create a [dense input](#dense-form-elements) inside a `p-form-validation__select-wrapper`, add the `.is-dense` class to the select wrapper, not the input.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/forms/form-validation-select-wrapper-dense" class="js-example">
 View example of form validation patterns
 </a></div>
 
