@@ -4,6 +4,10 @@ context:
   title: Rich vertical list | Patterns
 ---
 
+{% from "docs/macros/patterns/wip-notice.jinja" import pattern_wip_notice %}
+
+{{- pattern_wip_notice() }}
+
 The rich vertical list is used to display a list alongside a title, logo section, image, and call-to-action block.
 
 The list inside the rich list is a divided list, which is a list with a horizontal divider between each item.
