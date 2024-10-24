@@ -1,0 +1,85 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+
+{% block title %}Rich list / Vertical / Ticked{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% call(slot) vf_rich_vertical_list(
+    title_text='H2 - this can take up to two lines, but best to stick to one line.',
+    list_item_tick_style="tick"
+  ) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+      </p>
+    {%- endif -%}
+    {%- if slot == 'logo_section' -%}
+      <div class="p-logo-section">
+        <div class="p-logo-section__items">
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/e44aa9b2-nvidia-logo.png" alt="NVIDIA logo" class="p-logo-section__logo" />
+          </div>
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/94b00f2b-intel-new-logo.png" alt="Intel logo" class="p-logo-section__logo" />
+          </div>
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/e4bbd168-amd-logo.png" alt="AMD logo" class="p-logo-section__logo" />
+          </div>
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/b0404df4-hp-logo.png" alt="HP logo" class="p-logo-section__logo" />
+          </div>
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/90161e97-dell-logo.png" alt="Dell logo" class="p-logo-section__logo" />
+          </div>
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/35549e17-lenovo-logo.png" alt="Lenovo logo" class="p-logo-section__logo" />
+          </div>
+          <div class="p-logo-section__item">
+            <img src="https://assets.ubuntu.com/v1/94b00f2b-intel-new-logo.png" alt="Intel logo" class="p-logo-section__logo" />
+          </div>
+        </div>
+      </div>    
+    {%- endif -%}
+    {%- if slot == 'list_item_1' -%}
+      No mandatory subscriptions for Ubuntu
+    {%- endif -%}
+    {%- if slot == 'list_item_2' -%}
+      <a href="https://ubuntu.com/security">Security</a>, <a href="https://ubuntu.com/support">Support</a>, and fully managed
+      <a href="https://ubuntu.com/openstack/managed">Infra</a> and
+      <a href="https://ubuntu.com/managed/apps">Apps</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_3' -%}
+      <a href="https://ubuntu.com/cloud/public-cloud">Public cloud</a>,
+      <a href="https://ubuntu.com/download/server">Data centre</a>,
+      <a href="https://microk8s.io/">Edge cluster</a> and
+      <a href="https://ubuntu.com/appliance">Appliances</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_4' -%}
+      <a href="https://ubuntu.com/about/release-cycle">Long term maintenance commitment</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_5' -%}
+      Transparent pricing for enterprise and ISV
+    {%- endif -%}
+    {%- if slot == 'list_item_6' -%}
+      <a href="https://ubuntu.com/engage/from-vmware-to-open-source">Switch from VMware to OpenStack</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_7' -%}
+      <a href="https://ubuntu.com/openstack/pricing-calculator">TCO analysis of Open Infra</a>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <a href="#" class="p-button">Learn more</a>
+      <a href="#">Contact us &rsaquo;</a>
+    {%- endif -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg"
+            alt="Factory floor"/>
+      </div>
+      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/0dd5ddc8-factory_floor.jpeg"
+            alt="Factory floor"/>
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+{% endblock %}
