@@ -132,6 +132,17 @@
   }
 
   // Utilities
+  %u-off-screen {
+    &:not(:focus):not(:active) {
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
+
   %vf-hide-text {
     overflow: hidden;
     // vw value necessary because text indent in % does not work with padding;
