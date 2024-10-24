@@ -18,15 +18,15 @@
 
   // When the search and filter is not expanded, but is overflowing with chips, we need to
   // specify a height that matches that of a standard input element. This height is a combination
-  // of an input's line-height, its vertical padding, and a nudge.
-  $input-height: calc(map-get($line-heights, default-text) + $input-vertical-padding + $spv-nudge - $input-border-thickness);
+  // of an input's line-height, its vertical padding, and the (top transparent) border.
+  $input-height: calc(map-get($line-heights, default-text) + $input-vertical-padding + $input-vertical-padding + $input-border-thickness);
 
   .p-search-and-filter {
     border-bottom: $input-border-thickness solid $colors--theme--border-high-contrast;
     position: relative;
 
     .p-search-and-filter__search-container {
-      align-items: center;
+      align-items: flex-start;
       background-color: $colors--theme--background-inputs;
       display: flex;
       flex-wrap: wrap;
@@ -123,7 +123,7 @@
     }
 
     .p-search-and-filter__input {
-      border: 0;
+      border-bottom: 0; // only remove bottom border (replaced by component border), as the top transparent border is still needed for correct alignment
       box-shadow: none;
       flex-grow: 1;
       margin-bottom: 0;
