@@ -84,6 +84,11 @@ $aspect-ratios: (
     justify-content: center;
     text-align: center;
 
+    // If there is a child element that is not the image, don't let it affect the layout
+    & > *:not(.p-image-container__image) {
+      display: contents;
+    }
+
     &.is-highlighted {
       background: $colors--theme--background-alt;
     }
