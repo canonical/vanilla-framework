@@ -3,7 +3,7 @@
 
 # Build stage: Install python dependencies
 # ===
-FROM ubuntu:noble AS python-dependencies
+FROM ubuntu:jammy AS python-dependencies
 RUN apt-get update && apt-get install --no-install-recommends --yes python3-pip python3-setuptools
 ADD requirements.txt /tmp/requirements.txt
 RUN pip3 config set global.disable-pip-version-check true
@@ -31,7 +31,7 @@ RUN yarn run build
 
 # Build the production image
 # ===
-FROM ubuntu:noble
+FROM ubuntu:jammy
 
 # Set up environment
 ENV LANG C.UTF-8
