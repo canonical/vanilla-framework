@@ -17,7 +17,7 @@ context:
 
 The `.l-full-width` serves as a wrapper for full-width layout and allows for a start (left), main (central) and end (right) areas. Usually, the `l-full-width` class name would be placed on a strip component `p-strip` or an individual element. Additionally, a separate `l-full-width__sidebar` element can be added as a container for side navigation placed on top of the start (left) area of the layout.
 
-On screens smaller than `$breakpoint--large` the sidebar is hidden off-screen and the whole width of the page is occupied by the main content area. On larger screens, the sidebar is visible on the left side of the window.
+On screens smaller than `$breakpoint-large` the sidebar is hidden off-screen and the whole width of the page is occupied by the main content area. On larger screens, the sidebar is visible on the left side of the window.
 
 ### Main area
 
