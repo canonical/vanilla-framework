@@ -13,7 +13,7 @@ Fixes [list issues/bugs if needed]
 
 ### Check if PR is ready for release
 
-If this PR contains Vanilla SCSS code changes, it should contain the following changes to make sure it's ready for the release:
+If this PR contains Vanilla SCSS or macro code changes, it should contain the following changes to make sure it's ready for the release:
 
 - [ ] PR should have one of the following labels to automatically categorise it in release notes:
   - `Feature 🎁`, `Breaking Change 💣`, `Bug 🐛`, `Documentation 📝`, `Maintenance 🔨`.
