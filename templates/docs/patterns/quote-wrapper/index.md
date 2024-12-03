@@ -285,7 +285,7 @@ Jinja template.
 
 ```jinja
 {% raw -%}
-{% from "_macros/vf_quote-wrapper.jinja" import vf_quote-wrapper %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
 {%- endraw -%}
 ```
 
