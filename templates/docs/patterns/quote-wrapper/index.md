@@ -52,6 +52,10 @@ View example of the quote wrapper pattern with large quote text, without a citat
 
 If no heading is desired, the quote can be displayed without a heading, omitting the title and title link.
 
+The heading should be omitted if the quote is not the first element in its page section.
+If the quote is the first element in its section, a heading should be used to introduce the quote and distinguish it from
+previous content.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/quote-wrapper/large-no-header" class="js-example" data-lang="jinja">
 View example of the quote wrapper pattern with large quote text, without a heading.
 </a></div>
