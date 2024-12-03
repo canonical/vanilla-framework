@@ -136,20 +136,7 @@
       {% endif -%}
       
       <div class="col-9 col-start-large-4 col-medium-4 col-start-medium-3">
-        {% if has_heading_row %}
-          {#- If a heading is present, a muted rule separates the heading from the quote, and can be used on all breakpoints. -#}
-          <hr class="p-rule--muted">
-        {% elif has_signpost_image %}
-          {#- 
-            If a heading is not present, we use a standard rule to separate the pattern from preceding content on large and medium.
-            On small, the signpost is stacked above the quote, so we use a muted rule to separate the signpost from the quote.
-          -#}
-          <hr class="p-rule u-hide--small">
-          <hr class="p-rule--muted u-hide--large u-hide--medium">
-        {% else %}
-          {#- If neither heading nor signpost image is present, use a standard rule on all screen sizes to separate from preceding section -#}
-          <hr class="p-rule">
-        {% endif %}
+        <hr class="p-rule--muted">
         {% if has_citation -%}
           {#-  When a citation is present, wrap the quote and citation in a nested grid to space them properly  -#}
           <div class="row">
