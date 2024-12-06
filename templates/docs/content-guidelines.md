@@ -45,6 +45,7 @@ For complex images like graphs or diagrams, consider putting a longer descriptio
 **Instructions for certain types of images:**
 
 - **Card images:** Images inside cards or with links can be tricky. The screen reader will include the card title and link text, so alt text just needs to fill in any gaps. For example below, the card and link text tell the user a Dell XPS 13 Plus is a featured device, the missing information is it’s a laptop.
+
 <img src="https://assets.ubuntu.com/v1/1db0cd77-card-image-featured-device.png" alt="" width="250">
 
 - **Charts and diagrams:** If the chart is already explained in the text, use an empty alt attribute (`alt=""`). For example:
