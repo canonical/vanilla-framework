@@ -68,7 +68,7 @@ On Canonical websites (‘Sites’), we have three CTA patterns: primary (green 
 
 <a href="#" class="p-button--positive">Positive</a>
 <a href="#" class="p-button">Secondary</a>
-<a href="#">Tertiary;&rsaquo;</a>
+<a href="#">Tertiary &rsaquo;</a>
 
 For buttons:
 
