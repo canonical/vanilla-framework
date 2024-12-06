@@ -93,10 +93,6 @@ Error messages can be more frustrating than other notifications. Support the use
 
 Consider thinking about the specific user and the moment they get this error. Do they have a very technical background and want lots of details? Is there a job to be done and they just need to know how to get there?
 
-You can also use this cheat sheet:
-
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/7d840944-error-message-cheat-sheet.png" alt="A decision tree explains how to decide on the vocabulary relative to an error."></div>
-
 ## Dates and times
 
 To support international and US audiences, shorten dates with dashes. For example, 10-SEPT-23.
