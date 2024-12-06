@@ -101,8 +101,6 @@ You can also use this cheat sheet:
 
 To support international and US audiences, shorten dates with dashes. For example, 10-SEPT-23.
 
-To save space, you can use all numerals separated by a forward slash using the UK convention of [day]/[month]/[year].
-
 Use numerals for relative dates. For example, ‘2 hours ago’ or ‘Updated 5 days ago’.
 
 ## Numbers
