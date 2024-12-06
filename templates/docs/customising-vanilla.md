@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Customising Vanilla | test
+  title: Customising Vanilla
 ---
 
 Here you will find information on customising Vanilla to suit your project.
