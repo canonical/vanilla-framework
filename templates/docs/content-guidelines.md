@@ -45,11 +45,11 @@ For complex images like graphs or diagrams, consider putting a longer descriptio
 **Instructions for certain types of images:**
 
 - **Card images:** Images inside cards or with links can be tricky. The screen reader will include the card title and link text, so alt text just needs to fill in any gaps. For example below, the card and link text tell the user a Dell XPS 13 Plus is a featured device, the missing information is it’s a laptop.
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/1db0cd77-card-image-featured-device.png" alt=""></div>
+<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/1db0cd77-card-image-featured-device.png" alt="" width="250"></div>
 
 - **Charts and diagrams:** If the chart is already explained in the text, use an empty alt attribute (`alt=""`). For example:
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/0dd0ff70-empty-alt-attribute.png" alt="A screenshot of a page that describes the LTS support cycle of Ubuntu. A table summarizing the information is provided afterwards, with an empty alt-text."></div>
+<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/0dd0ff70-empty-alt-attribute.png" alt="A screenshot of a page that describes the LTS support cycle of Ubuntu. A table summarizing the information is provided afterwards, with an empty alt-text." width="600"></div>
 
 - **Graphs:** Describe the key trend or insight depicted in the graph so users understand the main data point. For example:
 
@@ -105,9 +105,16 @@ Use numerals in the UI when it can help highlight an action and compare two amou
 
 - **Example from Landscape:**
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/135209d1-numbers-numberals-example-landscape.png" alt="An example of a dialaog in Landscape where the use of numbers is shown"></div>
+<img src="https://assets.ubuntu.com/v1/135209d1-numbers-numberals-example-landscape.png" alt="An example of a dialaog in Landscape where the use of numbers is shown" width="400">
 
-- Note: this guidance differs from the Copy Style Guide to spell out numerals less than 10. Follow the Copy Style Guide for copy that is not part of the UI.
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">
+This guidance differs from the Copy Style Guide to spell out numerals less than 10. Follow the Copy Style Guide for copy that is not part of the UI.
+    </span>
+  </p>
+</div>
 
 ## Videos
 
@@ -131,7 +138,7 @@ We should be specific about objects and actions and not have duplicate terms. Ou
 
 **Example from Anbox:**
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/e53e5133-reset-dialog.png" alt="Example of a reset dialog in Anbox with contextualized title, description and CTA."></div>
+<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/e53e5133-reset-dialog.png" alt="Example of a reset dialog in Anbox with contextualized title, description and CTA." width="500"></div>
 
 You may need to consult with your product manager or engineers to clarify the objects and actions in different circumstances. Follow the guidance below to write messages that support users.
 
@@ -152,8 +159,17 @@ You may need to consult with your product manager or engineers to clarify the ob
 
 ### CTAs
 
-- Match the text of the primary CTA button to the action in the title.
-- Note: our current convention is to make ‘Cancel’ the secondary CTA button. It performs the same action as an ‘X’ icon in the top right corner.
+Match the text of the primary CTA button to the action in the title.
+
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">
+        Our current convention is to make ‘Cancel’ the secondary CTA button. It performs the same action as an ‘X’ icon in the top right corner.
+    </span>
+
+  </p>
+</div>
 
 ## Notification library
 
@@ -176,9 +192,17 @@ We can't load content in the App Center without an internet connection. Check yo
 404 Page not found  
 We can’t find the page you’re looking for. File a bug if you think this might be an error.
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/98071afb-page-not-found.png" alt="Example of a 404 page from Vanilla"></div>
+<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/98071afb-page-not-found.png" alt="Example of a 404 page from Vanilla" width="600"></div>
 
 **Confirmation: Contact form submission**  
 ‘Thank you for contacting us. A member of our team will be in touch shortly.’
 
-> Note: Follow the guidance as described for consistency and accessibility across all content.
+<div class="p-notification--information">
+  <p class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <span class="p-notification__message">
+Follow the guidance as described for consistency and accessibility across all content.
+    </span>
+
+  </p>
+</div>
