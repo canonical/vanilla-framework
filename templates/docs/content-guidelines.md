@@ -45,11 +45,11 @@ For complex images like graphs or diagrams, consider putting a longer descriptio
 **Instructions for certain types of images:**
 
 - **Card images:** Images inside cards or with links can be tricky. The screen reader will include the card title and link text, so alt text just needs to fill in any gaps. For example below, the card and link text tell the user a Dell XPS 13 Plus is a featured device, the missing information is it’s a laptop.
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/1db0cd77-card-image-featured-device.png" alt="" width="250"></div>
+<img src="https://assets.ubuntu.com/v1/1db0cd77-card-image-featured-device.png" alt="" width="250">
 
 - **Charts and diagrams:** If the chart is already explained in the text, use an empty alt attribute (`alt=""`). For example:
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/0dd0ff70-empty-alt-attribute.png" alt="A screenshot of a page that describes the LTS support cycle of Ubuntu. A table summarizing the information is provided afterwards, with an empty alt-text." width="600"></div>
+<img src="https://assets.ubuntu.com/v1/0dd0ff70-empty-alt-attribute.png" alt="A screenshot of a page that describes the LTS support cycle of Ubuntu. A table summarizing the information is provided afterwards, with an empty alt-text." width="600">
 
 - **Graphs:** Describe the key trend or insight depicted in the graph so users understand the main data point. For example:
 
@@ -138,7 +138,7 @@ We should be specific about objects and actions and not have duplicate terms. Ou
 
 **Example from Anbox:**
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/e53e5133-reset-dialog.png" alt="Example of a reset dialog in Anbox with contextualized title, description and CTA." width="500"></div>
+<img src="https://assets.ubuntu.com/v1/e53e5133-reset-dialog.png" alt="Example of a reset dialog in Anbox with contextualized title, description and CTA." width="500">
 
 You may need to consult with your product manager or engineers to clarify the objects and actions in different circumstances. Follow the guidance below to write messages that support users.
 
@@ -192,7 +192,7 @@ We can't load content in the App Center without an internet connection. Check yo
 404 Page not found  
 We can’t find the page you’re looking for. File a bug if you think this might be an error.
 
-<div class="u-fixed-width"><img src="https://assets.ubuntu.com/v1/98071afb-page-not-found.png" alt="Example of a 404 page from Vanilla" width="600"></div>
+<img src="https://assets.ubuntu.com/v1/98071afb-page-not-found.png" alt="Example of a 404 page from Vanilla" width="600">
 
 **Confirmation: Contact form submission**  
 ‘Thank you for contacting us. A member of our team will be in touch shortly.’
