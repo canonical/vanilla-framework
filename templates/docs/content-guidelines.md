@@ -66,6 +66,9 @@ For complex images like graphs or diagrams, consider putting a longer descriptio
 
 On Canonical websites (‘Sites’), we have three CTA patterns: primary (green buttons), secondary (white buttons), and tertiary (linked text with a chevron).
 
+<a href="#" class="p-button--positive">Positive</a>
+<a href="#" class="p-button">Secondary</a>
+<a href="#">Tertiary;&rsaquo;</a>
 For buttons:
 
 - Start with a verb when the button connects to an action.
