@@ -36,6 +36,8 @@ For complex images like graphs or diagrams, consider putting a longer descriptio
 - Always write alt text when the image adds meaning.
 - Use an empty alt attribute (`alt=""`) if the image doesn’t add meaning. For example, the currency icons below are decorative and do not add meaning. [Learn more about decorative images](https://www.w3.org/WAI/tutorials/images/decorative/).
 
+<img src="https://assets.ubuntu.com/v1/f6d73074-alt-text-entreprise-savings.png" alt="" width="560">
+
 ### How to write alt text for images
 
 - Be concise, ideally less than 125 characters.
