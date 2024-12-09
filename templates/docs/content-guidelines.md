@@ -54,11 +54,9 @@ For complex images like graphs or diagrams, consider putting a longer descriptio
 
 <img src="https://assets.ubuntu.com/v1/0dd0ff70-empty-alt-attribute.png" alt="A screenshot of a page that describes the LTS support cycle of Ubuntu. A table summarizing the information is provided afterwards, with an empty alt-text." width="600">
 
-- **Graphs:** Describe the key trend or insight depicted in the graph so users understand the main data point. For example:
+- **Graphs:** Describe the key trend or insight depicted in the graph so users understand the main data point.
 
 - **Logos:** Just use the brand name (for example, ‘Microsoft Azure,’ not ‘Microsoft Azure logo’). Use empty state if the company name is used in the title or a link label.
-
-- **Icons and isometric images:** [Add examples for when you do need alt text and when you don’t].
 
 ---
 
