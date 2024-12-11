@@ -95,11 +95,11 @@ In addition to the CTA block placed below the list, you may also add CTA blocks
 below the top-level description text, as well as below each list item's
 description text.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description-cta/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-description-cta/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-list-item-cta/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-list-item-cta/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
