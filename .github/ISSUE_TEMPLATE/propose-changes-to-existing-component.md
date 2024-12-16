@@ -2,7 +2,7 @@
 name: Propose changes to existing component
 about: This template allows users to propose an amendment to an existing component
   or pattern
-title: ''
+title: '[Component amendment]: <Component name>'
 labels: 'WG: Proposal'
 assignees: ''
 
