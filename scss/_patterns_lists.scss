@@ -199,19 +199,57 @@ $list-step-bullet-margin: $sph--x-large;
   }
 }
 
+@mixin list-horizontal-item-intrinsic-sizing-impl($num-chars, $num-cols, $gutter-width, $list-item-width, $ch-to-rem-factor: 0.5) {
+  width: calc($list-item-width - ($num-cols * $gutter-width));
+
+  // add element borders
+  // todo see if we can make this span the row, rather than just the top of items
+  //&:nth-child(#{$num-cols + 1})::after {
+  //  content: "";
+  //  width: 100%;
+  //  display: block;
+  //  border-top: $border;
+  //}
+}
+
+@mixin list-horizontal-item-intrinsic-sizing($num-chars, $num-cols, $gutter-width, $list-item-width, $ch-to-rem-factor: 0.5) {
+  @if $num-chars > 0 {
+    @container (width > #{$num-cols * $num-chars * $ch-to-rem-factor + ($num-cols - 1) * $gutter-width}) {
+        @include list-horizontal-item-intrinsic-sizing-impl($num-chars, $num-cols, $gutter-width, $list-item-width);
+    }
+  } @else {
+    @include list-horizontal-item-intrinsic-sizing-impl($num-chars, $num-cols, $gutter-width, $list-item-width);
+  }
+}
+
+@mixin vf-p-list-horizontal {
+  .p-list--horizontal {
+    @extend %vf-list-with-state-icons;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: map-get($grid-gutter-widths, small);
+    container-type: inline-size;
+  }
+  .p-list--horizontal .p-list__item {
+    @extend %vf-list-item;
+  }
+  .p-list--horizontal.is-4-cols-on-large {
+    .p-list__item {
+      @include list-horizontal-item-intrinsic-sizing(0, 1, map-get($grid-gutter-widths, small), 100%);
+      @include list-horizontal-item-intrinsic-sizing(40, 2, map-get($grid-gutter-widths, small), 50%);
+      @include list-horizontal-item-intrinsic-sizing(70, 2, map-get($grid-gutter-widths, small), 25%);
+    }
+  }
+}
+
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
-    @extend %vf-list;
+    @extend %vf-list-with-state-icons;
 
     .p-list__item {
       @extend %vf-list-item;
       @include vf-list-item-divided;
-
-      &.is-ticked::before,
-      &.is-crossed::before {
-        top: $spv--medium;
-      }
     }
 
     & & {
@@ -489,6 +527,7 @@ $list-step-bullet-margin: $sph--x-large;
   @include vf-p-list-placeholders;
 
   @include vf-p-list;
+  @include vf-p-list-horizontal;
   @include vf-p-list-divided;
   @include vf-p-list-item-state;
   @include vf-p-inline-list;
