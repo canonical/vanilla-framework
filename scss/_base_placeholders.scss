@@ -67,6 +67,17 @@
     padding-left: 0;
   }
 
+  %vf-list-with-state-icons {
+    @extend %vf-list;
+
+    .p-list__item {
+      &.is-ticked::before,
+      &.is-crossed::before {
+        top: $spv--medium;
+      }
+    }
+  }
+
   // Bars and borders
   %vf-pseudo-border {
     background-color: $colors--theme--border-default;
