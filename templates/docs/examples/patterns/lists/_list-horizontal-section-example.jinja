@@ -24,28 +24,30 @@
     {% set list_item_classes = list_item_classes + " " + list_item_type %}
   {% endif %}
 
-  <{{ list_tag }} class="{{ list_classes }}">
-    <li class="{{ list_item_classes }}">
-      10 year security maintenance and CVE Patching
-    </li>
-    <li class="{{ list_item_classes }}">
-      <a href="#">Kernel Livepatch</a> for 24/7 patching with no downtime
-    </li>
-    <li class="{{ list_item_classes }}">
-      <a href="#">Expanded security</a> for infrastructure and applications
-    </li>
-    <li class="{{ list_item_classes }}">
-      <a href="#">FIPS 140-2</a> cryptographic modules certified by NIST
-    </li>
-    <li class="{{ list_item_classes }}">
-      <a href="#">Common Criteria EAL2</a>: ISO/IEC IS 15408 validated by CSEC
-    </li>
-    <li class="{{ list_item_classes }}">
-      <a href="#">DISA/STIG</a> hardening for <abbr title="Department of Defence, USA">DoD</abbr>
-      compliance
-    </li>
-    <li class="{{ list_item_classes }}">
-      <a href="#">CIS profiles</a> for cyber defence and malware prevention
-    </li>
-  </{{ list_tag }}>
+  <div class="p-list--horizontal-section-wrapper">
+    <{{ list_tag }} class="{{ list_classes }}">
+      <li class="{{ list_item_classes }}">
+        10 year security maintenance and CVE Patching
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">Kernel Livepatch</a> for 24/7 patching with no downtime
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">Expanded security</a> for infrastructure and applications
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">FIPS 140-2</a> cryptographic modules certified by NIST
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">Common Criteria EAL2</a>: ISO/IEC IS 15408 validated by CSEC
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">DISA/STIG</a> hardening for <abbr title="Department of Defence, USA">DoD</abbr>
+        compliance
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">CIS profiles</a> for cyber defence and malware prevention
+      </li>
+    </{{ list_tag }}>
+  </div>
 {% endmacro %}
