@@ -18,7 +18,7 @@ As developers and maintainers of the Vanilla project, we follow a [Code of Condu
 
 We use the [GitHub issues](https://github.com/canonical/vanilla-framework/issues) to track all our bugs and feature requests.
 
-When [submitting a new issue](https://github.com/canonical/vanilla-framework/issues/new), please check that it hasn't already been raised by someone else. We've provided a template for new issues which will help you structure your issue to ensure it can be picked up and actioned easily.
+When [submitting a new issue](https://github.com/canonical/vanilla-framework/issues/new/choose), please check that it hasn't already been raised by someone else. We've provided a template for new issues which will help you structure your issue to ensure it can be picked up and actioned easily.
 
 Please provide as much information possible detailing what you're currently experiencing and what you'd expect to experience.
 
