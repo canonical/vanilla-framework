@@ -199,46 +199,53 @@ $list-step-bullet-margin: $sph--x-large;
   }
 }
 
-@mixin list-horizontal-item-intrinsic-sizing-impl($num-chars, $num-cols, $gutter-width, $list-item-width, $ch-to-rem-factor: 0.5) {
-  width: calc($list-item-width - ($num-cols * $gutter-width));
-
-  // add element borders
-  // todo see if we can make this span the row, rather than just the top of items
-  //&:nth-child(#{$num-cols + 1})::after {
-  //  content: "";
-  //  width: 100%;
-  //  display: block;
-  //  border-top: $border;
-  //}
+// todo this extraction may not be necessary but keeping it for now should the list items need more styling
+@mixin list-horizontal-item-intrinsic-sizing-impl($num-cols) {
+  grid-column-end: span #{$num-cols};
 }
 
-@mixin list-horizontal-item-intrinsic-sizing($num-chars, $num-cols, $gutter-width, $list-item-width, $ch-to-rem-factor: 0.5) {
-  @if $num-chars > 0 {
-    @container (width > #{$num-cols * $num-chars * $ch-to-rem-factor + ($num-cols - 1) * $gutter-width}) {
-        @include list-horizontal-item-intrinsic-sizing-impl($num-chars, $num-cols, $gutter-width, $list-item-width);
+/**
+ * Applies intrinsic sizing to horizontal list items by adjusting their grid column span based on the container's width.
+ * Requires that the parent container has `container-type` set to `inline-size` or `size`.
+ * @param {number} $min-width - The min width that the entire list should span, not including gutter adjustments
+ * @param {number} $num-cols - The number of columns the list item should span.
+ * @param {number} $gutter-width - The width of the gutter (space) between grid items. This is used to calculate the required width for the item.
+ *
+ * Example Usage:
+ * ```scss
+ * <selector> {
+ *   @include list-horizontal-item-intrinsic-sizing(30, 4, 1rem);
+ * }
+ * ```
+ */
+@mixin list-horizontal-item-intrinsic-sizing($min-width, $num-cols, $gutter-width) {
+  @if $min-width {
+    // Constrain to min width, taking gutters into account
+    @container (width > #{$min-width - ($num-cols * $gutter-width)}) {
+      @include list-horizontal-item-intrinsic-sizing-impl($num-cols);
     }
   } @else {
-    @include list-horizontal-item-intrinsic-sizing-impl($num-chars, $num-cols, $gutter-width, $list-item-width);
+    @include list-horizontal-item-intrinsic-sizing-impl($num-cols);
   }
 }
 
 @mixin vf-p-list-horizontal {
   .p-list--horizontal {
     @extend %vf-list-with-state-icons;
-    display: flex;
-    flex-flow: row wrap;
-    column-gap: map-get($grid-gutter-widths, small);
+    @extend %vf-grid-row;
     container-type: inline-size;
   }
   .p-list--horizontal .p-list__item {
     @extend %vf-list-item;
+    border-top: $border;
   }
-  .p-list--horizontal.is-4-cols-on-large {
-    .p-list__item {
-      @include list-horizontal-item-intrinsic-sizing(0, 1, map-get($grid-gutter-widths, small), 100%);
-      @include list-horizontal-item-intrinsic-sizing(40, 2, map-get($grid-gutter-widths, small), 50%);
-      @include list-horizontal-item-intrinsic-sizing(70, 2, map-get($grid-gutter-widths, small), 25%);
-    }
+
+  .p-list--horizontal.is-4-cols-on-large .p-list__item {
+    // note that the 4/4/8 grid will snap at different breakpoints than these list items
+    @include list-horizontal-item-intrinsic-sizing(null, $grid-8-columns-small, map-get($grid-gutter-widths, small));
+    @include list-horizontal-item-intrinsic-sizing(40rem, $grid-8-columns-medium / 2, map-get($grid-gutter-widths, default));
+    // Technically, this "large grid" rule is not needed because half of the medium grid and a quarter of the large grid are both 2 columns.
+    // @include list-horizontal-item-intrinsic-sizing(80, $grid-8-columns / 4, map-get($grid-gutter-widths, default));
   }
 }
 
