@@ -222,6 +222,22 @@ $list-step-bullet-margin: $sph--x-large;
         grid-column-end: span $grid-8-columns / 4;
       }
     }
+    &.is-3-cols-on-large {
+      .p-list__item {
+        // Skip the first two columns on large
+        @media (min-width: $threshold-6-12-col) {
+          &:nth-child(3n+1) {
+            grid-column-start: 3;
+          }
+          &:nth-child(3n+2) {
+            grid-column-start: 5;
+          }
+          &:nth-child(3n+3) {
+            grid-column-start: 7;
+          }
+        }
+      }
+    }
   }
 }
 
