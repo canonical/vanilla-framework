@@ -163,6 +163,29 @@ If you wish to split the items in a list into two columns above `$breakpoint-sma
 View example of the patterns list split
 </a></div>
 
+## Horizontal section {{ status("new") }}
+
+To display a list of items that flow horizontally in a grid, use `.p-list--horizontal-section`.
+
+By default, the horizontal splits items 25/25/25/25 on large, 50/50 on medium and 100% on small screens.
+
+For optimal behaviour, you should use enough list items to fit at least 1 row on large screen size (4 items).
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-section-responsive-ticked/" class="js-example">
+View example of the default horizontal list pattern
+</a></div>
+
+### 25/75 Horizontal section
+
+You can also add the `.is-25-75` modifier to reserve 25% space at the start of the list and place the remaining items in the remaining 75% space.
+This is especially effective when a section heading precedes the list.
+
+For optimal behaviour, you should use enough list items to fit at least 1 row on large screen size (3 items).
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-section-25-75-responsive-ticked/" class="js-example">
+View example of the horizontal list pattern in a 25/75 split
+</a></div>
+
 ## Related components
 
 To separate non-list content with a responsive divider, see our [Divider component](/docs/patterns/divider).

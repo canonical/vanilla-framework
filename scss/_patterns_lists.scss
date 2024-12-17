@@ -134,6 +134,13 @@ $list-step-bullet-margin: $sph--x-large;
     }
   }
 
+  %vf-list-item-with-divisor-common-properties {
+    box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
+    margin: 0;
+    padding-bottom: $sph--large;
+    padding-top: $sph--small;
+  }
+
   %vf-list-item-bullet {
     &::before {
       color: $colors--theme--text-default;
@@ -149,6 +156,7 @@ $list-step-bullet-margin: $sph--x-large;
   position: relative;
 
   > .p-list--divided,
+  > .p-list--horizontal-section,
   > .p-list {
     margin-left: 0;
   }
@@ -161,10 +169,7 @@ $list-step-bullet-margin: $sph--x-large;
 }
 
 @mixin vf-list-item-divided {
-  box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
-  margin: 0;
-  padding-bottom: $sph--large;
-  padding-top: $sph--small;
+  @extend %vf-list-item-with-divisor-common-properties;
 
   &:first-child {
     box-shadow: none;
@@ -172,6 +177,18 @@ $list-step-bullet-margin: $sph--x-large;
 
   .p-list--divided > .p-list__item:first-child {
     box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
+  }
+}
+
+@mixin vf-list-item-horizontal-section {
+  @extend %vf-list-item-with-divisor-common-properties;
+}
+
+// Offset a list item icon (tick or cross) away from the divisor above it
+@mixin vf-list-item-icon-divisor-offset {
+  &.is-ticked::before,
+  &.is-crossed::before {
+    top: $spv--medium;
   }
 }
 
@@ -199,64 +216,58 @@ $list-step-bullet-margin: $sph--x-large;
   }
 }
 
-// todo this extraction may not be necessary but keeping it for now should the list items need more styling
-@mixin list-horizontal-item-intrinsic-sizing-impl($num-cols) {
-  grid-column-end: span #{$num-cols};
-}
-
-/**
- * Applies intrinsic sizing to horizontal list items by adjusting their grid column span based on the container's width.
- * Requires that the parent container has `container-type` set to `inline-size` or `size`.
- * @param {number} $min-width - The min width that the entire list should span, not including gutter adjustments
- * @param {number} $num-cols - The number of columns the list item should span.
- * @param {number} $gutter-width - The width of the gutter (space) between grid items. This is used to calculate the required width for the item.
- *
- * Example Usage:
- * ```scss
- * <selector> {
- *   @include list-horizontal-item-intrinsic-sizing(30, 4, 1rem);
- * }
- * ```
- */
-@mixin list-horizontal-item-intrinsic-sizing($min-width, $num-cols, $gutter-width) {
-  @if $min-width {
-    // Constrain to min width, taking gutters into account
-    @container (width > #{$min-width - ($num-cols * $gutter-width)}) {
-      @include list-horizontal-item-intrinsic-sizing-impl($num-cols);
-    }
-  } @else {
-    @include list-horizontal-item-intrinsic-sizing-impl($num-cols);
-  }
-}
-
-@mixin vf-p-list-horizontal {
-  .p-list--horizontal {
-    @extend %vf-list-with-state-icons;
+@mixin vf-p-list-horizontal-section {
+  .p-list--horizontal-section {
     @extend %vf-grid-row;
-    container-type: inline-size;
-  }
-  .p-list--horizontal .p-list__item {
-    @extend %vf-list-item;
-    border-top: $border;
-  }
+    @extend %vf-list;
 
-  .p-list--horizontal.is-4-cols-on-large .p-list__item {
-    // note that the 4/4/8 grid will snap at different breakpoints than these list items
-    @include list-horizontal-item-intrinsic-sizing(null, $grid-8-columns-small, map-get($grid-gutter-widths, small));
-    @include list-horizontal-item-intrinsic-sizing(40rem, $grid-8-columns-medium / 2, map-get($grid-gutter-widths, default));
-    // Technically, this "large grid" rule is not needed because half of the medium grid and a quarter of the large grid are both 2 columns.
-    // @include list-horizontal-item-intrinsic-sizing(80, $grid-8-columns / 4, map-get($grid-gutter-widths, default));
+    .p-list__item {
+      @extend %vf-list-item;
+      @include vf-list-item-icon-divisor-offset;
+      @include vf-list-item-horizontal-section;
+
+      // Only apply custom grid colspans if there is more than one list item.
+      // If there's only one list item, it will span the full row width.
+      &:not(:only-child) {
+        grid-column-end: span $grid-8-columns-small;
+
+        @media (min-width: $threshold-4-6-col) {
+          grid-column-end: span $grid-8-columns-medium / 2;
+        }
+
+        @media (min-width: $threshold-6-12-col) {
+          grid-column-end: span $grid-8-columns / 4;
+        }
+      }
+    }
+  }
+  .p-list--horizontal-section.is-25-75 {
+    .p-list__item {
+      // Skip the first two columns on large
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-child(3n + 1) {
+          grid-column-start: 3;
+        }
+        &:nth-child(3n + 2) {
+          grid-column-start: 5;
+        }
+        &:nth-child(3n + 3) {
+          grid-column-start: 7;
+        }
+      }
+    }
   }
 }
 
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
-    @extend %vf-list-with-state-icons;
+    @extend %vf-list;
 
     .p-list__item {
       @extend %vf-list-item;
       @include vf-list-item-divided;
+      @include vf-list-item-icon-divisor-offset;
     }
 
     & & {
@@ -271,7 +282,8 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   // stylelint-disable selector-max-type -- we want to target ordered lists
-  ol.p-list--divided {
+  ol.p-list--divided,
+  ol.p-list--horizontal-section {
     counter-reset: p-list-divided-counter;
     list-style: none;
 
@@ -534,7 +546,7 @@ $list-step-bullet-margin: $sph--x-large;
   @include vf-p-list-placeholders;
 
   @include vf-p-list;
-  @include vf-p-list-horizontal;
+  @include vf-p-list-horizontal-section;
   @include vf-p-list-divided;
   @include vf-p-list-item-state;
   @include vf-p-inline-list;
