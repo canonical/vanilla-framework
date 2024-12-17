@@ -169,14 +169,14 @@ To display a list of items that flow horizontally in a grid, use `.p-list--horiz
 
 By default, the horizontal splits items 25/25/25/25 on large, 50/50 on medium and 100% on small screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-responsive/" class="js-example">
 View example of the default horizontal list pattern
 </a></div>
 
 You can also add the `.is-3-cols-on-large` modifier to reserve 25% space at the start of the list and place the remaining items in the remaining 75% space.
 This is especially effective when a section heading precedes the list.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-3-cols-on-large/" class="js-example">
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-3-cols-on-large-responsive/" class="js-example">
 View example of the horizontal list pattern with 3 columns on large
 </a></div>
 
