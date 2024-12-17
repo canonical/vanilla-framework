@@ -203,15 +203,11 @@ $list-step-bullet-margin: $sph--x-large;
   .p-list--horizontal {
     @extend %vf-list-with-state-icons;
     @extend %vf-grid-row;
-    container-type: inline-size;
-  }
-  .p-list--horizontal .p-list__item {
-    @extend %vf-list-item;
-    border-top: $border;
-  }
 
-  .p-list--horizontal {
     .p-list__item {
+      @extend %vf-list-item;
+      border-top: $border;
+
       grid-column-end: span $grid-8-columns-small;
 
       @media (min-width: $threshold-4-6-col) {
@@ -222,19 +218,19 @@ $list-step-bullet-margin: $sph--x-large;
         grid-column-end: span $grid-8-columns / 4;
       }
     }
-    &.is-3-cols-on-large {
-      .p-list__item {
-        // Skip the first two columns on large
-        @media (min-width: $threshold-6-12-col) {
-          &:nth-child(3n+1) {
-            grid-column-start: 3;
-          }
-          &:nth-child(3n+2) {
-            grid-column-start: 5;
-          }
-          &:nth-child(3n+3) {
-            grid-column-start: 7;
-          }
+  }
+  .p-list--horizontal.is-3-cols-on-large {
+    .p-list__item {
+      // Skip the first two columns on large
+      @media (min-width: $threshold-6-12-col) {
+        &:nth-child(3n + 1) {
+          grid-column-start: 3;
+        }
+        &:nth-child(3n + 2) {
+          grid-column-start: 5;
+        }
+        &:nth-child(3n + 3) {
+          grid-column-start: 7;
         }
       }
     }
