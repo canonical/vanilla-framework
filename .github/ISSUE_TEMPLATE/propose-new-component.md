@@ -1,7 +1,7 @@
 ---
 name: Propose new component
 about: This template allows users to propose a new pattern or component
-title: ''
+title: '[New component]: <Component name>'
 labels: 'WG: Proposal'
 assignees: ''
 

@@ -1,7 +1,7 @@
 ---
 name: Report a bug
 about: Create a bug report to help us improve Vanilla framework or our site
-title: ''
+title: '[Bug]: <Short description of the bug>'
 labels: "Bug \U0001F41B"
 assignees: ''
 
