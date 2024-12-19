@@ -12,6 +12,7 @@ const RESPONSIVE_COMBINED_EXAMPLES = [
   'patterns/divider/combined',
   'patterns/image/combined',
   'patterns/equal-height-row/combined',
+  'patterns/lists/combined',
 ];
 
 test('Returns correct widths for snapshots, including additional breakpoint for responsive examples', async () => {
