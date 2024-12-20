@@ -142,9 +142,11 @@
           {{ _hero_title_block() }}
         </div>
         <div class="{{ col_classes[1] }}">
-          <div class="p-section--shallow">
-            {{- _hero_subtitle_block() -}}
-          </div>
+          {% if has_subtitle %}
+            <div class="p-section--shallow">
+              {{- _hero_subtitle_block() -}}
+            </div>
+          {% endif %}
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}
         </div>
