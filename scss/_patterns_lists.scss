@@ -220,84 +220,65 @@ $list-step-bullet-margin: $sph--x-large;
   }
 }
 
+// Sets horizontal list section grid column count and makes list item borders span the full grid width.
+@mixin list-horizontal-section-row-width($columns) {
+  --columns: #{$columns};
+  // List item borders span full grid width, not list item width.
+  // Assuming the list items have absolutely-positioned pseudo-elements acting as borders, we can multiply 100% width by the number of list items
+  // to create a border that spans the full grid width.
+  .p-list__item:nth-child(#{$columns}n + 1)::after {
+    width: calc(100% * #{$columns});
+  }
+}
+
 @mixin vf-p-list-horizontal-section {
+  $horizontal-list-section-medium-content-width: 66ch;
+  $horizontal-list-section-large-content-width: 100ch;
+
   .p-list--horizontal-section-wrapper {
     container-type: inline-size;
 
     .p-list--horizontal-section {
-      // @extend %vf-grid-row;
       @extend %vf-list;
       @extend %fixed-width-container;
 
       display: grid;
 
-      --columns: 1;
-
-      @container (width >= 66ch) {
-        --columns: 2;
+      @container (width < #{$horizontal-list-section-medium-content-width}) {
+        @include list-horizontal-section-row-width($columns: 1);
       }
 
-      @container (width >= 100ch) {
-        --columns: 4;
+      @container (width >= #{$horizontal-list-section-medium-content-width}) {
+        @include list-horizontal-section-row-width($columns: 2);
       }
 
+      @container (width >= #{$horizontal-list-section-large-content-width}) {
+        @include list-horizontal-section-row-width($columns: 4);
+      }
+
+      // --columns is set in the container queries above
       grid-template-columns: repeat(var(--columns), 1fr);
-
 
       .p-list__item {
         @extend %vf-list-item;
         @include vf-list-item-icon-divisor-offset;
         @include vf-list-item-horizontal-section;
-      }
 
-      // TODO make this row border behavior applied by a modifier
-      @container (width <= 33ch) {
-        .p-list__item:nth-child(n)::after {
-          //max-width: calc(100vw - #{map-get($grid-margin-widths, default)});
-          //width: calc(#{$grid-max-width} - #{map-get($grid-margin-widths, default)});
-
-          width: 100%;
-
-          content: "";
+        // Creates a horizontal border line between rows of list items.
+        // Does not set the width, as this needs to be done at each breakpoint. This is done in the container queries above.
+        &::after {
+          content: '';
           position: absolute;
           top: 0;
           height: 1px;
-          background: red;
-          left: 0;
-        }
-      }
-
-      @container (33ch < width <= 66ch) {
-        .p-list__item:nth-child(2n)::after {
-          max-width: calc(100vw - #{2 * map-get($grid-margin-widths, default)});
-          width: calc(#{$grid-max-width} - 2 * #{map-get($grid-margin-widths, default)});
-
-          content: "";
-          position: absolute;
-          top: 0;
-          height: 1px;
-          background: red;
-          left: 0;
-        }
-      }
-
-      @container (width >= 100ch) {
-        .p-list__item:nth-child(4n + 1)::after {
-          max-width: calc(100vw - #{2 * map-get($grid-margin-widths, default)});
-          width: calc(#{$grid-max-width} - 2 * #{map-get($grid-margin-widths, default)});
-
-          content: "";
-          position: absolute;
-          top: 0;
-          height: 1px;
-          background: red;
+          background: $colors--theme--border-default;
           left: 0;
         }
       }
 
       &.is-25-75 {
         // skip first column on large
-        @container (width >= 100ch) {
+        @container (width >= #{$horizontal-list-section-large-content-width}) {
           --columns: 3;
           .p-list__item {
             &:nth-child(3n + 1) {
