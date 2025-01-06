@@ -165,11 +165,21 @@ View example of the patterns list split
 
 ## Horizontal section {{ status("new") }}
 
-To display a list of items that flow horizontally in a grid, use `.p-list--horizontal-section`.
+To display a list of items that flow horizontally in a grid, use `.p-list--horizontal-section-wrapper .p-list--horizontal-section`.
 
-By default, the horizontal splits items 25/25/25/25 on large, 50/50 on medium and 100% on small screens.
+By default, the horizontal section splits items 25/25/25/25 on large, 50/50 on medium and 100% on small screens.
 
-For optimal behaviour, you should use enough list items to fit at least 1 row on large screen size (4 items).
+The horizontal section's column layout is responsive the size of the `.p-list--horizontal-section-wrapper` container, and does not use the <a href="/docs/patterns/grid#structure">grid breakpoints</a>.
+It uses <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">container queries</a> to adjust the layout based on the container's width.
+The following table shows the number of columns for different container widths:
+
+| Container width       | Number of columns |
+| --------------------- | ----------------- |
+| < 66ch                | 1                 |
+| 66ch <= width < 100ch | 2                 |
+| \>= 100ch             | 4                 |
+
+For optimal behaviour, you should use at least 4 list items to fit at least 1 row on all screen sizes.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-section-responsive-ticked/" class="js-example">
 View example of the default horizontal list pattern
@@ -180,7 +190,7 @@ View example of the default horizontal list pattern
 You can also add the `.is-25-75` modifier to reserve 25% space at the start of the list and place the remaining items in the remaining 75% space.
 This is especially effective when a section heading precedes the list.
 
-For optimal behaviour, you should use enough list items to fit at least 1 row on large screen size (3 items).
+For optimal behaviour, you should use at least 3 list items to fit at least 1 row on all screen sizes.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-horizontal-section-25-75-responsive-ticked/" class="js-example">
 View example of the horizontal list pattern in a 25/75 split
