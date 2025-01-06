@@ -221,13 +221,28 @@ $list-step-bullet-margin: $sph--x-large;
 }
 
 // Sets horizontal list section grid column count and makes list item borders span the full grid width.
-@mixin list-horizontal-section-row-width($columns) {
-  --columns: #{$columns};
+// $columns: Number of columns that the list items should be divided into.
+// $skip-cols: Number of columns at the start of each row to skip
+@mixin list-horizontal-section-row-width($columns, $skip-cols: 0) {
+  --columns: #{$columns + $skip-cols};
   // List item borders span full grid width, not list item width.
-  // Assuming the list items have absolutely-positioned pseudo-elements acting as borders, we can multiply 100% width by the number of list items
-  // to create a border that spans the full grid width.
+  // Multiply 100% width by the number of columns to create a border that spans the full grid width.
   .p-list__item:nth-child(#{$columns}n + 1)::after {
-    width: calc(100% * #{$columns});
+    background: $colors--theme--border-default;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: calc(100% * (#{$columns}));
+  }
+
+  @if $skip-cols > 0 {
+    @for $i from 1 through $skip-cols {
+      .p-list__item:nth-child(#{$columns}n + #{$i}) {
+        grid-column-start: #{($i + 1)};
+      }
+    }
   }
 }
 
@@ -248,12 +263,14 @@ $list-step-bullet-margin: $sph--x-large;
         @include list-horizontal-section-row-width($columns: 1);
       }
 
-      @container (width >= #{$horizontal-list-section-medium-content-width}) {
+      @container (#{$horizontal-list-section-medium-content-width} <= width < #{$horizontal-list-section-large-content-width}) {
         @include list-horizontal-section-row-width($columns: 2);
       }
 
-      @container (width >= #{$horizontal-list-section-large-content-width}) {
-        @include list-horizontal-section-row-width($columns: 4);
+      &:not(.is-25-75) {
+        @container (width >= #{$horizontal-list-section-large-content-width}) {
+          @include list-horizontal-section-row-width($columns: 4);
+        }
       }
 
       // --columns is set in the container queries above
@@ -264,34 +281,12 @@ $list-step-bullet-margin: $sph--x-large;
         @include vf-list-item-icon-divisor-offset;
         @include vf-list-item-horizontal-section;
       }
-
-      // Creates a horizontal border line between rows of list items.
-      // Does not set the width, as this needs to be done at each breakpoint. This is done in the container queries above.
-      .p-list__item::after {
-        background: $colors--theme--border-default;
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        top: 0;
-      }
     }
 
     .p-list--horizontal-section.is-25-75 {
       // skip first column on large
       @container (width >= #{$horizontal-list-section-large-content-width}) {
-        --columns: 3;
-        .p-list__item:nth-child(3n + 1) {
-          grid-column-start: 2;
-        }
-
-        .p-list__item:nth-child(3n + 2) {
-          grid-column-start: 3;
-        }
-
-        .p-list__item:nth-child(3n + 3) {
-          grid-column-start: 4;
-        }
+        @include list-horizontal-section-row-width($columns: 3, $skip-cols: 1);
       }
     }
   }
