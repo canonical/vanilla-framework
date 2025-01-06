@@ -263,36 +263,34 @@ $list-step-bullet-margin: $sph--x-large;
         @extend %vf-list-item;
         @include vf-list-item-icon-divisor-offset;
         @include vf-list-item-horizontal-section;
-
-        // Creates a horizontal border line between rows of list items.
-        // Does not set the width, as this needs to be done at each breakpoint. This is done in the container queries above.
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          height: 1px;
-          background: $colors--theme--border-default;
-          left: 0;
-        }
       }
 
-      &.is-25-75 {
-        // skip first column on large
-        @container (width >= #{$horizontal-list-section-large-content-width}) {
-          --columns: 3;
-          .p-list__item {
-            &:nth-child(3n + 1) {
-              grid-column-start: 2;
-            }
+      // Creates a horizontal border line between rows of list items.
+      // Does not set the width, as this needs to be done at each breakpoint. This is done in the container queries above.
+      .p-list__item::after {
+        background: $colors--theme--border-default;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 0;
+      }
+    }
 
-            &:nth-child(3n + 2) {
-              grid-column-start: 3;
-            }
+    .p-list--horizontal-section.is-25-75 {
+      // skip first column on large
+      @container (width >= #{$horizontal-list-section-large-content-width}) {
+        --columns: 3;
+        .p-list__item:nth-child(3n + 1) {
+          grid-column-start: 2;
+        }
 
-            &:nth-child(3n + 3) {
-              grid-column-start: 4;
-            }
-          }
+        .p-list__item:nth-child(3n + 2) {
+          grid-column-start: 3;
+        }
+
+        .p-list__item:nth-child(3n + 3) {
+          grid-column-start: 4;
         }
       }
     }
