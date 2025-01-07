@@ -165,13 +165,25 @@ View example of the patterns list split
 
 ## Horizontal section {{ status("new") }}
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Experimental</h3>
+    <p class="p-notification__message">
+      The horizontal section component is an experimental list variant that is built with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">container queries</a>, unlike the other list variants.<br>
+      It does not respond to the same grid breakpoints as other components.
+    </p>
+  </div>
+</div>
+
 To display a list of items that flow horizontally in a grid, use `.p-list--horizontal-section-wrapper .p-list--horizontal-section`.
 
 By default, the horizontal section splits items 25/25/25/25 on large, 50/50 on medium and 100% on small screens.
 
-The horizontal section's column layout is responsive the size of the `.p-list--horizontal-section-wrapper` container, and does not use the <a href="/docs/patterns/grid#structure">grid breakpoints</a>.
-It uses <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">container queries</a> to adjust the layout based on the container's width.
-The following table shows the number of columns for different container widths:
+The horizontal section's column layout is responsive to the size of the `.p-list--horizontal-section-wrapper` container,
+and does not use the <a href="/docs/patterns/grid#structure">grid breakpoints</a>.
+It uses <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">container queries</a>
+to adjust the layout based on the container's width. The following table shows the number of columns for different
+container widths:
 
 | Container width       | Number of columns |
 | --------------------- | ----------------- |
