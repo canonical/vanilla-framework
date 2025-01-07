@@ -228,7 +228,7 @@ $list-step-bullet-margin: $sph--x-large;
   // List item borders span full grid width, not list item width.
   // Multiply 100% width by the number of columns to create a border that spans the full grid width.
   .p-list__item:nth-child(#{$columns}n + 1)::after {
-    background: $colors--theme--border-default;
+    background: $colors--theme--border-low-contrast;
     content: '';
     height: 1px;
     left: 0;
@@ -259,6 +259,10 @@ $list-step-bullet-margin: $sph--x-large;
 
       display: grid;
 
+      @container (width >= #{$horizontal-list-section-medium-content-width}) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+      }
+
       @container (width < #{$horizontal-list-section-medium-content-width}) {
         @include list-horizontal-section-row-width($columns: 1);
       }
@@ -267,6 +271,8 @@ $list-step-bullet-margin: $sph--x-large;
         @include list-horizontal-section-row-width($columns: 2);
       }
 
+      // We cannot override the default behavior with modifiers, as each container query creates styles for different pseudo-element indices
+      // So, we need to negate variant selectors before applying any styling that does not apply to all variants
       &:not(.is-25-75) {
         @container (width >= #{$horizontal-list-section-large-content-width}) {
           @include list-horizontal-section-row-width($columns: 4);
