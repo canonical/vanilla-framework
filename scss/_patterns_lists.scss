@@ -234,7 +234,7 @@ $list-step-bullet-margin: $sph--x-large;
     left: 0;
     position: absolute;
     top: 0;
-    width: calc(100% * (#{$columns}));
+    width: calc(100% * #{$columns} + #{$columns - 1} * map-get($grid-gutter-widths, default));
   }
 
   @if $skip-cols > 0 {
