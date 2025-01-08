@@ -1471,3 +1471,18 @@
 @mixin vf-icon-website-themed {
   @include vf-themed-icon($light-value: vf-icon-website-url($colors--light-theme--icon), $dark-value: vf-icon-website-url($colors--dark-theme--icon));
 }
+
+// ICONS ADDED IN JANUARY 2025 v4.19.0
+
+// credit card
+@function vf-icon-credit-card-url($color) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 16 16' fill='none'%3E%3Cpath fill='#{vf-url-friendly-color($color)}' fill-rule='evenodd' d='M13 4.5H3c-.27614 0-.5.22386-.5.5v.75h11V5c0-.27614-.2239-.5-.5-.5ZM2.5 11V7.25h11V11c0 .2761-.2239.5-.5.5H3c-.27614 0-.5-.2239-.5-.5ZM3 3c-1.10457 0-2 .89543-2 2v6c0 1.1046.89543 2 2 2h10c1.1046 0 2-.8954 2-2V5c0-1.10457-.8954-2-2-2H3Zm7.75 5.5c-.4142 0-.75.33579-.75.75v.5c0 .4142.3358.75.75.75h.5c.4142 0 .75-.3358.75-.75v-.5c0-.41421-.3358-.75-.75-.75h-.5Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-credit-card($color) {
+  background-image: vf-icon-credit-card-url($color);
+}
+
+@mixin vf-icon-credit-card-themed {
+  @include vf-themed-icon($light-value: vf-icon-credit-card-url($colors--light-theme--icon), $dark-value: vf-icon-credit-card-url($colors--dark-theme--icon));
+}
