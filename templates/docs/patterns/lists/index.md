@@ -169,7 +169,7 @@ View example of the patterns list split
   <div class="p-notification__content">
     <h3 class="p-notification__title">Experimental</h3>
     <p class="p-notification__message">
-      The horizontal section component is an experimental list variant that is built with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">container queries</a>, unlike the other list variants.<br>
+      The horizontal section component is an experimental list variant that is built with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">container queries</a>, unlike the other list variants.
       It does not respond to the same grid breakpoints as other components.
     </p>
   </div>
