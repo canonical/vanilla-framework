@@ -73,8 +73,10 @@
 
   {%- macro _hero_title_block() -%}
     {%- if has_full_width_image -%}
+      {%- if has_subtitle -%}
       {#- On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
-      {% set title_class = "u-no-margin--bottom" %}
+        {% set title_class = "u-no-margin--bottom" %}
+      {%- endif -%}
     {%- endif -%}
 
     {#- Only add a class attribute if needed -#}
