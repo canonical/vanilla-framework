@@ -1,0 +1,53 @@
+{#
+  Generates an example of the horizontal section list pattern.
+  Params:
+    - list_item_type: The style of the list items (optional). Options are: "has-bullet", "is-ticked", "is-crossed", "ordered".
+    - list_variant_class: Modifier classes to apply to the list (optional).
+#}
+{%  macro list_horizontal_section_example(list_item_type="", list_variant_class="") %}
+  {% set list_item_type = list_item_type | trim %}
+  {% set list_variant_class = list_variant_class | trim %}
+
+  {% set list_classes = "p-list--horizontal-section" %}
+  {% if list_variant_class | length > 0 %}
+    {% set list_classes = list_classes + " " + list_variant_class %}
+  {% endif %}
+
+  {% set list_tag = "ul" %}
+  {% if list_item_type == "ordered" %}
+    {% set list_tag = "ol" %}
+    {% set list_item_type = "" %}
+  {% endif %}
+
+  {% set list_item_classes = "p-list__item" %}
+  {% if list_item_type | length > 0 %}
+    {% set list_item_classes = list_item_classes + " " + list_item_type %}
+  {% endif %}
+
+  <div class="p-list--horizontal-section-wrapper">
+    <{{ list_tag }} class="{{ list_classes }}">
+      <li class="{{ list_item_classes }}">
+        10 year security maintenance and CVE Patching
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">Kernel Livepatch</a> for 24/7 patching with no downtime
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">Expanded security</a> for infrastructure and applications
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">FIPS 140-2</a> cryptographic modules certified by NIST
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">Common Criteria EAL2</a>: ISO/IEC IS 15408 validated by CSEC
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">DISA/STIG</a> hardening for <abbr title="Department of Defence, USA">DoD</abbr>
+        compliance
+      </li>
+      <li class="{{ list_item_classes }}">
+        <a href="#">CIS profiles</a> for cyber defence and malware prevention
+      </li>
+    </{{ list_tag }}>
+  </div>
+{% endmacro %}
