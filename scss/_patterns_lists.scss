@@ -134,6 +134,12 @@ $list-step-bullet-margin: $sph--x-large;
     }
   }
 
+  %vf-list-item-with-divisor-common-properties {
+    margin: 0;
+    padding-bottom: $sph--large;
+    padding-top: $sph--small;
+  }
+
   %vf-list-item-bullet {
     &::before {
       color: $colors--theme--text-default;
@@ -149,6 +155,7 @@ $list-step-bullet-margin: $sph--x-large;
   position: relative;
 
   > .p-list--divided,
+  > .p-list--horizontal-section,
   > .p-list {
     margin-left: 0;
   }
@@ -161,10 +168,9 @@ $list-step-bullet-margin: $sph--x-large;
 }
 
 @mixin vf-list-item-divided {
+  @extend %vf-list-item-with-divisor-common-properties;
+
   box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
-  margin: 0;
-  padding-bottom: $sph--large;
-  padding-top: $sph--small;
 
   &:first-child {
     box-shadow: none;
@@ -172,6 +178,21 @@ $list-step-bullet-margin: $sph--x-large;
 
   .p-list--divided > .p-list__item:first-child {
     box-shadow: inset 0px 1px 0px 0px $colors--theme--border-low-contrast;
+  }
+}
+
+@mixin vf-list-item-horizontal-section {
+  @extend %vf-list-item-with-divisor-common-properties;
+
+  // Allows list item pseudo-elements to be absolutely positioned relative to the list item
+  position: relative;
+}
+
+// Offset a list item icon (tick or cross) away from the divisor above it
+@mixin vf-list-item-icon-divisor-offset {
+  &.is-ticked::before,
+  &.is-crossed::before {
+    top: $spv--medium;
   }
 }
 
@@ -199,6 +220,87 @@ $list-step-bullet-margin: $sph--x-large;
   }
 }
 
+// Sets horizontal list section grid column count and makes list item borders span the full grid width.
+// $columns: Number of columns that the list items should be divided into.
+// $skip-cols: Number of columns at the start of each row to skip
+@mixin list-horizontal-section-row-width($columns, $skip-cols: 0) {
+  --columns: #{$columns + $skip-cols};
+  // List item borders span full grid width, not list item width.
+  // Multiply 100% width by the number of columns to create a border that spans the full grid width.
+  .p-list__item:nth-child(#{$columns}n + 1)::after {
+    background: $colors--theme--border-low-contrast;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    // 100% * columns = total width of all list item columns in a row
+    // (gutter width) * (columns - 1) = total width of all gutters in a row
+    // width = (width of list items) + (width of gutters)
+    width: calc(100% * #{$columns} + #{$columns - 1} * map-get($grid-gutter-widths, default));
+  }
+
+  @if $skip-cols > 0 {
+    @for $i from 1 through $skip-cols {
+      .p-list__item:nth-child(#{$columns}n + #{$i}) {
+        grid-column-start: #{($i + 1)};
+      }
+    }
+  }
+}
+
+@mixin vf-p-list-horizontal-section {
+  $horizontal-list-section-medium-content-width: 66ch;
+  $horizontal-list-section-large-content-width: 100ch;
+
+  .p-list--horizontal-section-wrapper {
+    container-type: inline-size;
+
+    .p-list--horizontal-section {
+      @extend %vf-list;
+      @extend %fixed-width-container;
+
+      display: grid;
+
+      @container (width >= #{$horizontal-list-section-medium-content-width}) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+      }
+
+      @container (width < #{$horizontal-list-section-medium-content-width}) {
+        @include list-horizontal-section-row-width($columns: 1);
+      }
+
+      @container (#{$horizontal-list-section-medium-content-width} <= width < #{$horizontal-list-section-large-content-width}) {
+        @include list-horizontal-section-row-width($columns: 2);
+      }
+
+      // We cannot override the default behavior with modifiers, as each container query creates styles for different pseudo-element indices
+      // So, we need to negate variant selectors before applying any styling that does not apply to all variants
+      &:not(.is-25-75) {
+        @container (width >= #{$horizontal-list-section-large-content-width}) {
+          @include list-horizontal-section-row-width($columns: 4);
+        }
+      }
+
+      // --columns is set in the container queries above
+      grid-template-columns: repeat(var(--columns), 1fr);
+
+      .p-list__item {
+        @extend %vf-list-item;
+        @include vf-list-item-icon-divisor-offset;
+        @include vf-list-item-horizontal-section;
+      }
+    }
+
+    .p-list--horizontal-section.is-25-75 {
+      // skip first column on large
+      @container (width >= #{$horizontal-list-section-large-content-width}) {
+        @include list-horizontal-section-row-width($columns: 3, $skip-cols: 1);
+      }
+    }
+  }
+}
+
 // A list with separators between items
 @mixin vf-p-list-divided {
   .p-list--divided {
@@ -207,11 +309,7 @@ $list-step-bullet-margin: $sph--x-large;
     .p-list__item {
       @extend %vf-list-item;
       @include vf-list-item-divided;
-
-      &.is-ticked::before,
-      &.is-crossed::before {
-        top: $spv--medium;
-      }
+      @include vf-list-item-icon-divisor-offset;
     }
 
     & & {
@@ -226,7 +324,8 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   // stylelint-disable selector-max-type -- we want to target ordered lists
-  ol.p-list--divided {
+  ol.p-list--divided,
+  ol.p-list--horizontal-section {
     counter-reset: p-list-divided-counter;
     list-style: none;
 
@@ -489,6 +588,7 @@ $list-step-bullet-margin: $sph--x-large;
   @include vf-p-list-placeholders;
 
   @include vf-p-list;
+  @include vf-p-list-horizontal-section;
   @include vf-p-list-divided;
   @include vf-p-list-item-state;
   @include vf-p-inline-list;
