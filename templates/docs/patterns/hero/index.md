@@ -13,6 +13,7 @@ Depending on the size and composition of your content, you can choose from a var
 
 - [50/50](#5050)
 - [50/50 with full-width image](#5050-with-full-width-image)
+- [50/50 with no image](#5050-with-no-image-new)
 - [25/75 Signpost](#2575-signpost)
 - [75/25](#7525)
 - [Fallback](#fallback)
@@ -62,6 +63,14 @@ This will make the image take up the full width of the hero.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-full-width-image" class="js-example" data-lang="jinja">
 View example of the hero pattern in 50/50 split with a full-width image
+</a></div>
+
+### 50/50 with no image {{ status("new") }}
+
+This layout positions the title in the left half of the hero, and the rest of the text content in the right half.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-no-image" class="js-example" data-lang="jinja">
+View example of the hero pattern in 50/50 split with no image
 </a></div>
 
 ## 25/75 "signpost"

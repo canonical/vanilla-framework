@@ -32,6 +32,8 @@
     {% set layout = 'fallback' %}
   {% endif %}
 
+  {% set is_50_50_no_image = (layout == "50-50" and not has_image) %}
+
   {% if layout == '50-50-full-width-image' and has_image %}
     {% set layout = '50-50' %}
     {% set has_full_width_image = true %}
@@ -72,9 +74,9 @@
   {% endif %}
 
   {%- macro _hero_title_block() -%}
-    {%- if has_full_width_image -%}
+    {%- if has_full_width_image or is_50_50_no_image -%}
       {%- if has_subtitle -%}
-      {#- On full-width-image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
+      {#- On full-width-image and 50/50 with no image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
         {% set title_class = "u-no-margin--bottom" %}
       {%- endif -%}
     {%- endif -%}
@@ -139,7 +141,7 @@
             {{ image_content }}
           </div>
         {% endif -%}
-      {% elif has_full_width_image and not has_signpost_image %}
+      {% elif (has_full_width_image and not has_signpost_image) or is_50_50_no_image %}
         <div class="{{ col_classes[0] }}">
           {{ _hero_title_block() }}
         </div>
