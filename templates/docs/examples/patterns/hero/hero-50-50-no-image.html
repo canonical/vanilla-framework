@@ -1,0 +1,27 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block title %}Hero / 50/50 / Without image{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% set is_paper = true %}
+{% block content %}
+
+{% call(slot) vf_hero(
+  title_text='H1 - ideally one line, up to two',
+  subtitle_text='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
+  layout='50/50'
+) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side.
+      </p>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <a href="#" class="p-button--positive">Learn more</a>
+      <a href="#">Contact us ›</a>
+    {%- endif -%}
+{% endcall -%}
+
+{% endblock %}

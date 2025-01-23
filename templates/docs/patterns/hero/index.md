@@ -13,6 +13,7 @@ Depending on the size and composition of your content, you can choose from a var
 
 - [50/50](#5050)
 - [50/50 with full-width image](#5050-with-full-width-image)
+- [50/50 with no image](#5050-with-no-image-new)
 - [25/75 Signpost](#2575-signpost)
 - [75/25](#7525)
 - [Fallback](#fallback)
@@ -64,6 +65,14 @@ This will make the image take up the full width of the hero.
 View example of the hero pattern in 50/50 split with a full-width image
 </a></div>
 
+### 50/50 with no image {{ status("new") }}
+
+This layout positions the title in the left half of the hero, and the rest of the text content in the right half.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-50-50-no-image" class="js-example" data-lang="jinja">
+View example of the hero pattern in 50/50 split with no image
+</a></div>
+
 ## 25/75 "signpost"
 
 If you have a small image that you want to associate with the hero title, you can use the "signpost" layout.
@@ -104,7 +113,7 @@ This places the title and subtitle in their own row above the rest of the hero c
 View example of the hero pattern in fallback configuration
 </a></div>
 
-## Jinja Macro {{ status("new") }}
+## Jinja Macro
 
 The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for the macro is shown below.
 
@@ -261,7 +270,7 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
   </table>
 </div>
 
-## Import {{ status("updated") }}
+## Import
 
 ### Jinja Macro
 
