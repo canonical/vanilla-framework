@@ -22,7 +22,7 @@ If you only need text to be aligned, you can use the `u-align-text` utilities.
 View example of the text align utility
 </a></div>
 
-## Vertical alignment {{ status("new") }}
+## Vertical alignment
 
 If you need to vertically align inline elements to the middle of their
 container, you can use the `u-vertical-align--middle` utility.

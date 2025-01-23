@@ -103,7 +103,7 @@ View example of the tiered list pattern
 View example of the tiered list pattern
 </a></div>
 
-## Jinja Macro {{ status("new") }}
+## Jinja Macro
 
 The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. The API for the macro is shown below.
 
@@ -231,7 +231,7 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
   </table>
 </div>
 
-## Import {{ status("updated") }}
+## Import
 
 ### Jinja Macro
 
