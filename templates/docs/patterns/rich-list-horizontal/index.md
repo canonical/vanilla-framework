@@ -31,7 +31,7 @@ The rich horizontal list pattern is composed of the following elements:
 
 By default, all the pattern elements are vertically stacked.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked-responsive" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/bulletless-responsive" class="js-example" data-lang="jinja">
 View example of the rich horizontal list pattern
 </a></div>
 
@@ -39,8 +39,27 @@ View example of the rich horizontal list pattern
 
 The 50/50 layout splits the title, description, and logo section into two columns. This makes use of more horizontal white space, allowing for a more compact layout.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked-50-50-responsive" class="js-example" data-lang="jinja">
+Set the Jinja parameter `variant` to <code>"50/50"</code> to enable the 50/50 layout.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/bulletless-50-50-responsive" class="js-example" data-lang="jinja">
 View example of the rich horizontal list pattern in the 50/50 layout
+</a></div>
+
+## List item styling
+
+By default, the list items have no list item icon, and the list is unordered.
+The `list_item_style` Jinja parameter can be set to "bullet", "tick", or "number" to change the list item style.
+
+For example, to create a ticked list, set `list_item_style="tick"`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked-responsive" class="js-example" data-lang="jinja">
+View example of the rich horizontal list pattern with tick item styling.
+</a></div>
+
+You can create an ordered list by setting `list_item_style="number"`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ordered-responsive" class="js-example" data-lang="jinja">
+View example of the rich horizontal list pattern with numbered item styling.
 </a></div>
 
 ## Minimal
