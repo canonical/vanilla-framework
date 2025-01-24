@@ -31,7 +31,7 @@ The rich horizontal list pattern is composed of the following elements:
 
 By default, all the pattern elements are vertically stacked.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked-responsive" class="js-example" data-lang="jinja">
 View example of the rich horizontal list pattern
 </a></div>
 
@@ -39,7 +39,7 @@ View example of the rich horizontal list pattern
 
 The 50/50 layout splits the title, description, and logo section into two columns. This makes use of more horizontal white space, allowing for a more compact layout.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked-50-50" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/ticked-50-50-responsive" class="js-example" data-lang="jinja">
 View example of the rich horizontal list pattern in the 50/50 layout
 </a></div>
 
@@ -47,7 +47,7 @@ View example of the rich horizontal list pattern in the 50/50 layout
 
 The only mandatory elements in the rich horizontal list are the title and the list, and one of the other (optional) elements.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/minimal" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/rich-list-horizontal/minimal-responsive" class="js-example" data-lang="jinja">
 View example of the rich horizontal list pattern with minimal contents
 </a></div>
 
