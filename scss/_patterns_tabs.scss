@@ -8,8 +8,8 @@
     position: relative;
 
     &__list {
-      @extend %vf-pseudo-border--bottom;
-
+      // inset box shadow used to draw the border inside the list's box
+      box-shadow: inset 0 -1px 0 0 $colors--theme--border-default;
       display: flex;
       margin: 0 auto $spv--x-large;
       overflow-x: auto;
@@ -17,9 +17,6 @@
       position: relative;
       white-space: nowrap;
       width: 100%;
-      &::after {
-        background-color: $colors--theme--border-default;
-      }
     }
 
     &__item {
