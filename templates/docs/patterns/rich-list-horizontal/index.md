@@ -184,7 +184,7 @@ The `vf_rich_horizontal_list` Jinja macro can be used to generate a rich horizon
       </tr>
       <tr>
         <td>
-          <code>list_item_[1-7]</code>
+          <code>list_item_[1-8]</code>
         </td>
         <td>
           Yes, at least 4 items
@@ -201,7 +201,7 @@ The `vf_rich_horizontal_list` Jinja macro can be used to generate a rich horizon
           No
         </td>
         <td>
-          Contents of a <a href="/docs/patterns/cta-block">CTA block</a> to display beneath the list.
+          A call to action (such as links or sign-up buttons) to display beneath the list.
         </td>
       </tr>
       <tr>
