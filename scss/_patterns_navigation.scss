@@ -231,6 +231,10 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
       // shift navigation items by the size of grid margin to align with grid
       .p-navigation__items:first-child {
         margin-left: calc(-1 * $sph--large);
+      }
+
+      // if there is only one navigation items list, extend it to the full width (taking into account margin shift)
+      .p-navigation__items:first-child:not(:has(+ .p-navigation__items)) {
         width: calc(100% + $sph--large);
       }
 
