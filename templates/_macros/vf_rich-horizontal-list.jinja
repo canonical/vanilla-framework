@@ -90,7 +90,9 @@
           <div class="grid-row">
             {#- If there is a description, split the title and description. Otherwise, the title spans full width. -#}
             <div class="grid-col-4{% if has_description %} grid-col-medium-2{% endif %}">
-              <h2>{{- title_text -}}</h2>
+              <div class="p-section--shallow">
+                <h2>{{- title_text -}}</h2>
+              </div>
             </div>
             {%- if has_description %}
               <div class="grid-col-4 grid-col-medium-2">
@@ -118,7 +120,9 @@
         </div>
       {#- Full-width layout -#}
       {%- else %}
-        <h2>{{- title_text -}}</h2>
+        <div class="p-section--shallow">
+          <h2>{{- title_text -}}</h2>
+        </div>
         {%- if has_logo_section %}
           <div class="grid-col-8 grid-col-order-small-2">
             {{- logo_section_content -}}
