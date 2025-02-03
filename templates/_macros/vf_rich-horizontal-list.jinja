@@ -1,6 +1,6 @@
 # Params
 # title_text (string) (required): Title of the rich horizontal list
-# variant (string) (optional): Variant of the rich horizontal list. Options are "full-width", "50/50"
+# layout (string) (optional): layout of the rich horizontal list. Options are "full-width", "50/50"
 # list_item_style (string) (optional): Style of the list items. Options are "bullet", "tick", "number"
 # Slots
 # image (optional): Image displayed at the top of the pattern
@@ -10,7 +10,7 @@
 # list_item_[1-8]: List item contents for items in the `.p-list--horizontal-section`. Each will be wrapped in a `li.p-list__item` element, with the item style decided by the `list_item_style` parameter.
 {% macro vf_rich_horizontal_list(
   title_text,
-  variant="full-width",
+  layout="full-width",
   list_item_style=""
 ) -%}
   {% set image_content = caller("image") %}
@@ -25,19 +25,19 @@
   {% set max_list_items = 8 %}
 
   {% set list_item_style = list_item_style|trim|lower %}
-  {% set variant = variant|trim|lower|replace("/", "-") %}
+  {% set layout = layout|trim|lower|replace("/", "-") %}
 
   {% if list_item_style|length > 0 and list_item_style not in ["bullet", "tick", "number"] %}
     {% set list_item_style = "" %}
   {% endif %}
 
-  {% if variant not in ["full-width", "50-50"] %}
-    {% set variant = "full-width" %}
+  {% if layout not in ["full-width", "50-50"] %}
+    {% set layout = "full-width" %}
   {% endif %}
 
   {#- 50/50 layout requires that content for the right column is passed in -#}
-  {% if variant == "50-50" and not has_description and not has_logo_section %}
-    {% set variant = "full-width" %}
+  {% if layout == "50-50" and not has_description and not has_logo_section %}
+    {% set layout = "full-width" %}
   {% endif %}
 
   {% if list_item_style == "bullet" %}
@@ -85,7 +85,7 @@
       {%- if has_image %}
         {{- image_content -}}
       {%- endif -%}
-      {%- if variant == "50-50" %}
+      {%- if layout == "50-50" %}
         <div class="grid-col-8">
           <div class="grid-row">
             {#- If there is a description, split the title and description. Otherwise, the title spans full width. -#}

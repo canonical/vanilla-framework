@@ -127,7 +127,7 @@ The `vf_rich_horizontal_list` Jinja macro can be used to generate a rich horizon
       </tr>
       <tr>
         <td>
-          <code>variant</code>
+          <code>layout</code>
         </td>
         <td>
           No
