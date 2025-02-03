@@ -1,0 +1,16 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
+{% from "docs/examples/patterns/linked-logo-section/_shared-context.jinja" import example_list_items with context %}
+
+{% block title %}Linked Logo Section{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_linked_logo_section(
+  title_text="Come for PostgreSQL, get security and support for your entire stack",
+  links=example_list_items,
+) }}
+
+
+{% endblock %}
