@@ -5,7 +5,7 @@
 # Slots
 # image (optional): Image displayed at the top of the pattern
 # description (optional): Description paragraph
-# logo_section (optional): `.p-logo-section` with between 4 and 8 logos
+# logo_section_items (optional): Block of `.p-logo-section__item` elements, ideally between 4 and 8 items.
 # cta (optional): Call to action area, likely a paragraph element with a button and a link
 # list_item_[1-8]: List item contents for items in the `.p-list--horizontal-section`. Each will be wrapped in a `li.p-list__item` element, with the item style decided by the `list_item_style` parameter.
 {% macro vf_rich_horizontal_list(
@@ -15,7 +15,7 @@
 ) -%}
   {% set image_content = caller("image") %}
   {% set description_content = caller("description") %}
-  {% set logo_section_content = caller("logo_section") %}
+  {% set logo_section_content = caller("logo_section_items") %}
   {% set cta_content = caller("cta") %}
   {% set has_image = image_content|trim|length > 0 %}
   {% set has_logo_section = logo_section_content|trim|length > 0 %}
@@ -79,6 +79,14 @@
       </div>
     {%- endif -%}
   {%- endmacro -%}
+  
+  {%- macro _logo_section(logo_section_content) -%}
+    <div class="p-logo-section">
+      <div class="p-logo-section__items">
+        {{- logo_section_content -}}
+      </div>
+    </div>
+  {%- endmacro -%}
 
   <div class="p-section">
     <div class="grid-row">
@@ -102,7 +110,7 @@
             {%- if has_logo_section %}
               {#- When the description is present, the logo section wraps to another line, so we need to offset it to align with the description. -#}
               <div class="grid-col-4{% if has_description %} grid-col-start-large-5{% endif %}">
-                {{- logo_section_content -}}
+                {{- _logo_section(logo_section_content) -}}
               </div>
             {%- endif -%}
             {%- if has_list %}
@@ -125,7 +133,7 @@
         </div>
         {%- if has_logo_section %}
           <div class="grid-col-8 grid-col-order-small-2">
-            {{- logo_section_content -}}
+            {{- _logo_section(logo_section_content) -}}
           </div>
         {%- endif -%}
         {% if has_description %}
