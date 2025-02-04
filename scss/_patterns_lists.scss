@@ -426,6 +426,13 @@ $list-step-bullet-margin: $sph--x-large;
 
     margin-bottom: 0; // spacing has been moved onto __item; this ensures that the heading / paragraph spacing matches that of regular headings / paragraphs
     margin-left: 0;
+
+    &.no-full-stop {
+      .p-stepped-list__title::before {
+        content: counter(p-stepped-list-counter);
+        text-align: left;
+      }
+    }
   }
 
   .p-stepped-list__item {
@@ -543,6 +550,13 @@ $list-step-bullet-margin: $sph--x-large;
           right: 0;
           top: 0;
         }
+      }
+    }
+
+    &.no-full-stop {
+      .p-stepped-list__title::before {
+        content: counter(p-stepped-list-counter);
+        text-align: left;
       }
     }
   }
