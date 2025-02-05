@@ -173,13 +173,13 @@ The `vf_rich_horizontal_list` Jinja macro can be used to generate a rich horizon
       </tr>
       <tr>
         <td>
-          <code>logo_section</code>
+          <code>logo_section_items</code>
         </td>
         <td>
           No
         </td>
         <td>
-          A <a href="/docs/patterns/logo-section">logo section</a> component.
+          A block of 4-8 <code><a href="/docs/patterns/logo-section">.p-logo-section__item</a></code> elements.
         </td>
       </tr>
       <tr>
@@ -190,7 +190,7 @@ The `vf_rich_horizontal_list` Jinja macro can be used to generate a rich horizon
           Yes, at least 4 items
         </td>
         <td>
-          Contents of a <code>.p-list__item</code> element for the list item.
+          Contents of a <code><a href="/docs/patterns/lists">.p-list__item</a></code> element for the list item.
         </td>
       </tr>
       <tr>
