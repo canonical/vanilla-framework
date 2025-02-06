@@ -1,0 +1,74 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-horizontal-list.jinja" import vf_rich_horizontal_list %}
+
+{% block title %}Rich list / Horizontal / 50/50 Ordered{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% call(slot) vf_rich_horizontal_list(
+    title_text='H2 - this can take up to two lines, but best to stick to one line.',
+    layout="50/50",
+    list_item_style="number"
+  ) -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--cinematic is-cover">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
+      </div>
+    {%- endif -%}
+    {%- if slot == 'logo_section_items' -%}
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/e44aa9b2-nvidia-logo.png" alt="NVIDIA logo" class="p-logo-section__logo" />
+      </div>
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/94b00f2b-intel-new-logo.png" alt="Intel logo" class="p-logo-section__logo" />
+      </div>
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/e4bbd168-amd-logo.png" alt="AMD logo" class="p-logo-section__logo" />
+      </div>
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/b0404df4-hp-logo.png" alt="HP logo" class="p-logo-section__logo" />
+      </div>
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/90161e97-dell-logo.png" alt="Dell logo" class="p-logo-section__logo" />
+      </div>
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/35549e17-lenovo-logo.png" alt="Lenovo logo" class="p-logo-section__logo" />
+      </div>
+      <div class="p-logo-section__item">
+        <img src="https://assets.ubuntu.com/v1/94b00f2b-intel-new-logo.png" alt="Intel logo" class="p-logo-section__logo" />
+      </div>
+    {%- endif -%}
+    {%- if slot == 'description' -%}
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+      </p>
+    {%- endif -%}
+    {%- if slot == 'list_item_1' -%}
+      <a href="#">Active Directory</a> and LDAP integration
+    {%- endif -%}
+    {%- if slot == 'list_item_2' -%}
+      Full disk encryption
+    {%- endif -%}
+    {%- if slot == 'list_item_3' -%}
+      Security updates for the <a href="#">full open source stack</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_4' -%}
+      Estate <a href="#">monitoring and management</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_5' -%}
+      Configuration lockdown
+    {%- endif -%}
+    {%- if slot == 'list_item_6' -%}
+      Local Kubernetes for offline development
+    {%- endif -%}
+    {%- if slot == 'list_item_7' -%}
+      Instant Ubuntu on Windows and macOS with <a href="#">WSL</a> and <a href="#">Multipass</a>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <p>
+        <a href="#" class="p-button">Learn more</a>
+        <a href="#">Contact us&nbsp;&rsaquo;</a>
+      </p>
+    {%- endif -%}
+  {% endcall -%}
+{% endblock %}

@@ -18,7 +18,7 @@ or [ordered](/docs/patterns/lists#ordered-lists-with-horizontal-divider).
 
 By default, text is on the left and the image is on the right.
 
-The vertical rich list pattern is composed of the following elements:
+The rich vertical list pattern is composed of the following elements:
 
 | Element              | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@ The vertical rich list pattern is composed of the following elements:
 | Image (**required**) | Main list visual.                                                                              |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list-vertical/ticked" class="js-example" data-lang="jinja">
-View example of the vertical rich list pattern
+View example of the rich vertical list pattern
 </a></div>
 
 ## Flipped
@@ -38,7 +38,7 @@ View example of the vertical rich list pattern
 The horizontal ordering of the rich list columns can also be reversed, creating a flipped layout.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list-vertical/ticked-flipped" class="js-example" data-lang="jinja">
-View example of the vertical rich list pattern
+View example of the rich vertical list pattern
 </a></div>
 
 ## Minimal
@@ -46,7 +46,7 @@ View example of the vertical rich list pattern
 The only mandatory elements in the rich vertical list are the title and the image, and one of the other (optional) elements.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list-vertical/minimal" class="js-example" data-lang="jinja">
-View example of the vertical rich list pattern
+View example of the rich vertical list pattern
 </a></div>
 
 ## Jinja Macro
@@ -167,7 +167,7 @@ The `vf_rich_vertical_list` Jinja macro can be used to generate a rich vertical 
           No
         </td>
         <td>
-          A <a href="/docs/patterns/lists#ticked-with-horizontal-divider">divided list</a> item.
+          Contents of a <code>.p-list__item</code> element for the list item.
         </td>
       </tr>
       <tr>
@@ -200,7 +200,7 @@ The `vf_rich_vertical_list` Jinja macro can be used to generate a rich vertical 
 
 ### Jinja Macro
 
-To import the Hero Jinja macro, copy the following import statement into your
+To import the Rich Vertical List Jinja macro, copy the following import statement into your
 Jinja template.
 
 ```jinja

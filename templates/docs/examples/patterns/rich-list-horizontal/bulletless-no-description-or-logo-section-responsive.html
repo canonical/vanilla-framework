@@ -1,0 +1,43 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-horizontal-list.jinja" import vf_rich_horizontal_list %}
+
+{% block title %}Rich list / Horizontal / Bulletless / Without description or logo section{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% call(slot) vf_rich_horizontal_list(
+    title_text='H2 - this can take up to two lines, but best to stick to one line.'
+  ) -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--cinematic is-cover">
+        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
+      </div>
+    {%- endif -%}
+    {%- if slot == 'list_item_1' -%}
+      <a href="#">Active Directory</a> and LDAP integration
+    {%- endif -%}
+    {%- if slot == 'list_item_2' -%}
+      Full disk encryption
+    {%- endif -%}
+    {%- if slot == 'list_item_3' -%}
+      Security updates for the <a href="#">full open source stack</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_4' -%}
+      Estate <a href="#">monitoring and management</a>
+    {%- endif -%}
+    {%- if slot == 'list_item_5' -%}
+      Configuration lockdown
+    {%- endif -%}
+    {%- if slot == 'list_item_6' -%}
+      Local Kubernetes for offline development
+    {%- endif -%}
+    {%- if slot == 'list_item_7' -%}
+      Instant Ubuntu on Windows and macOS with <a href="#">WSL</a> and <a href="#">Multipass</a>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <p>
+        <a href="#" class="p-button">Learn more</a>
+        <a href="#">Contact us&nbsp;&rsaquo;</a>
+      </p>
+    {%- endif -%}
+  {% endcall -%}
+{% endblock %}
