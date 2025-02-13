@@ -1,0 +1,68 @@
+{% macro vf_linked_logo_section(title_text, links, layout="full-width") -%}
+  {% set layout = layout | trim | replace('/', '-') %}
+
+  {% if layout not in ['50-50', '25-75', 'full-width'] %}
+    {% set layout = 'full-width' %}
+  {% endif %}
+
+  {% set max_logos_map = {
+    "full-width": 8,
+    "50-50": 6,
+    "25-75": 9
+  } %}
+
+  {% set max_logos = max_logos_map[layout] or 8 %}
+  {% set links = links[:max_logos] %}
+
+  {% macro _list(links, cols_per_item=2) %}
+    {% if links|length > 1 %}
+      <div class="grid-row">
+        {% for link in links %}
+          <div class="grid-col-{{ cols_per_item }}">
+            <a href="{{ link.href }}" aria-label="{{ link.label }}">
+              <div class="p-image-container--16-9 is-highlighted">
+                {{ link.image_html | safe }}
+              </div>
+              <hr class="p-rule--muted">
+              <p>{{ link.text }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endmacro %}
+
+  <section class="p-section">
+    <hr class="p-rule is-fixed-width"/>
+    {% if layout == "50-50" %}
+      <div class="p-section--shallow">
+        <div class="grid-row">
+          <div class="grid-col-4">
+            <h2>{{ title_text }}</h2>
+          </div>
+          <div class="grid-col-4">
+            {{ _list(links) }}
+          </div>
+        </div>
+      </div>
+    {% elif layout == "25-75" %}
+      <div class="p-section--shallow">
+        <div class="grid-row">
+          <div class="grid-col-2">
+            <h2>{{ title_text }}</h2>
+          </div>
+          <div class="grid-col-6">
+            {{ _list(links) }}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="p-section--shallow">
+        <div class="grid-row">
+          <h2>{{ title_text }}</h2>
+        </div>
+      </div>
+      {{ _list(links) }}
+    {% endif %}
+  </section>
+{%- endmacro %}
