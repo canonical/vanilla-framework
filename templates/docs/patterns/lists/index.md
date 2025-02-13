@@ -133,6 +133,14 @@ When the steps don't have headings use `<p>` paragraph as `.p-stepped-list__titl
 View example of the stepped list without headings
 </a></div>
 
+## Vertical stepped no full stop
+
+The a vatient on the stepped list without the full stop and the counter left aligned
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-stepped-no-full-stop/" class="js-example">
+View example of the stepped list pattern with no full stop
+</a></div>
+
 ## Horizontal stepped
 
 The stepped list should be used for step-by-step instructions.
