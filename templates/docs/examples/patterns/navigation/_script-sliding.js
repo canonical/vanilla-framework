@@ -173,7 +173,9 @@ const initNavigationSliding = () => {
           navigation.classList.add('has-menu-open');
         } else {
           collapseDropdown(toggle, target, true);
-          navigation.classList.remove('has-menu-open');
+          if (!isNested) {
+            navigation.classList.remove('has-menu-open');
+          }
         }
       }
     });
