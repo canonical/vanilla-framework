@@ -9,10 +9,10 @@ placed within the grid structure will then adapt to fill the space available to 
 
 | Setting                                                                   | Default value |
 | ------------------------------------------------------------------------- | ------------- |
-| `$grid-gutter-width`                                                      | `20px`        |
+| `$grid-gutter-width`                                                      | `2rem`        |
 | `$grid-8-columns` (new [8 column grid](/docs/patterns/grid))              | `8`           |
 | `$grid-columns` (deprecated [12 column grid](/docs/patterns/grid-legacy)) | `12`          |
-| `$grid-max-width`                                                         | `1030px`      |
+| `$grid-max-width`                                                         | `80rem`       |
 
 ## Import
 
