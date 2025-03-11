@@ -14,7 +14,7 @@ $knob-size: $sp-unit * 2;
     position: absolute;
 
     &:checked + .p-switch__slider::before {
-      border: $input-border-thickness solid $colors--theme--border-high-contrast;
+      border: $input-border-thickness solid $colors--theme--link-default;
       left: 50%;
     }
 
@@ -36,11 +36,8 @@ $knob-size: $sp-unit * 2;
   }
 
   .p-switch__slider {
-    background: $colors--theme--background-neutral-default;
+    background: $colors--theme--border-high-contrast;
     border-radius: $knob-size;
-    box-shadow:
-      inset 0 0 0 $input-border-thickness $colors--theme--border-high-contrast,
-      inset 0 2px 5px 0 color.scale($color-x-dark, $alpha: -80%);
     display: inline-block;
     height: $knob-size;
     margin: 0;
@@ -48,7 +45,6 @@ $knob-size: $sp-unit * 2;
     width: $knob-size * 2;
 
     &::before {
-      @extend %vf-has-box-shadow;
       @include vf-transition($duration: slow);
 
       background: $colors--theme--background-default;
