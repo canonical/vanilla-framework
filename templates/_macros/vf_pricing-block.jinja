@@ -1,0 +1,92 @@
+{#
+  Params
+  - title_text (string) (required): The text to be displayed as the heading
+  - tiers (Array<{
+      tier_name_text: String,
+      tier_price_text: String,
+      tier_price_explanation: String,
+      tier_description_html?: String,
+      tier_label_text: String,
+      tier_offerings: Array<{
+        list_item_style?: ‘ticked’ | ‘crossed’,
+        list_item_content_html: string
+      }>‘,
+      cta_html?: String
+    }>) (required)
+  Slots
+  - description (optional): paragraph-style content below the title
+#}
+{%- macro vf_pricing_block(
+  title_text="",
+  tiers=[]
+  ) -%}
+  {% set section_description = caller('section_description') %}
+  {% set tier_count = tiers|length %}
+  {% if tier_count == 2 %}
+    {% set base_class_name = "p-pricing-block--50-50" %}
+  {% elif tier_count == 3 %}
+    {% set base_class_name = "p-pricing-block--25-75" %}
+  {% else %}
+    {% set base_class_name = "p-pricing-block" %}
+  {% endif %}
+
+  {%- macro _list_item(offering) %}
+    {% set item_style = offering.get('list_item_style', 'undefined') %}
+    {% if item_style == 'ticked' %}
+      {% set item_class = "is-ticked" %}
+    {% elif item_style == 'crossed' %}
+      {% set item_class = "is-crossed u-text--muted" %}
+    {% else %}
+      {% set item_class = "has-bullet" %}
+    {% endif %}
+    <li class="p-list__item {{ item_class }}">{{ offering.list_item_content_html }}</li>
+  {%- endmacro -%}
+
+  {%- macro tier_offerings_list(tier) %}
+    <p class="u-text--muted">What's included</p>
+    <hr class="p-rule--muted u-no-margin--bottom" />
+    <ul class="p-list--divided">
+      {% for offering in tier.get("tier_offerings") %}{{ _list_item(offering) }}{% endfor %}
+    </ul>
+  {%- endmacro -%}
+
+  <div class="p-section">
+    <div class="p-section--shallow">
+      <hr class="p-rule--highlight is-fixed-width" />
+      <div class="grid-row">
+        <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
+          <h2>{{ title_text }}</h2>
+        </div>
+        <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
+          {% if section_description %}{{ section_description }}{% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="u-fixed-width">
+      <div class="p-pricing-block-wrapper">
+        <div class="{{ base_class_name }}">
+          {% for tier in tiers %}
+            <div class="p-pricing-block__tier">
+              <div class="p-pricing-block__section">
+                <div class="p-section--shallow">
+                  <h3 class="p-heading--4">
+                    {{ tier.get("tier_name_text") }}
+                    <br />
+                    <strong>{{ tier.get("tier_price_text") }}</strong>
+                    <span class="u-text--muted">{{ tier.get("tier_price_explanation") }}</span>
+                  </h3>
+                </div>
+              </div>
+              <div class="p-pricing-block__section">
+                {% if tier.get("tier_description_html") %}{{ tier.get("tier_description_html") }}{% endif %}
+              </div>
+              <div class="p-pricing-block__section">{{ tier_offerings_list(tier) }}</div>
+              <div class="p-pricing-block__section">{{ tier.cta_html }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro -%}
