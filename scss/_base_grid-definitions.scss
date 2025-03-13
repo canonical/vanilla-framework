@@ -112,6 +112,48 @@
     }
   }
 
+  %vf-grid-row-equal-height {
+    $horizontal-list-section-medium-content-width: 66ch;
+    $horizontal-list-section-large-content-width: 100ch;
+    @extend %fixed-width-container;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-gap: 0 map-get($grid-gutter-widths, small);
+      grid-template-columns: repeat($grid-8-columns-small, minmax(0, 1fr));
+      grid-template-rows: auto;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: $grid-max-width;
+
+      & > * {
+        display: grid;
+        grid-column: span 2;
+        grid-column-end: span $grid-8-columns-small;
+        grid-row: span 100; // find a better way to do this
+        grid-template-rows: subgrid;
+      }
+
+      @container (#{$horizontal-list-section-medium-content-width} < width) {
+        grid-gap: 0 map-get($grid-gutter-widths, default);
+        grid-template-columns: repeat($grid-8-columns, minmax(0, 1fr));
+
+        & > * {
+          grid-column-end: span $grid-8-columns;
+        }
+      }
+
+      @container (#{$horizontal-list-section-medium-content-width} <= width < #{$horizontal-list-section-large-content-width}) {
+        grid-gap: 0 map-get($grid-gutter-widths, small);
+        grid-template-columns: repeat($grid-8-columns-small, minmax(0, 1fr));
+
+        & > * {
+          grid-column-end: span $grid-8-columns-small;
+        }
+      }
+    }
+  }
+
   %vf-grid-container-padding {
     // set static outside padding per breakpoint
     padding-left: map-get($grid-margin-widths, small);
