@@ -21,10 +21,10 @@
   tiers=[]
   ) -%}
   {% set section_description = caller('section_description') %}
-  {% set tier_count = tiers|length %}
-  {% if tier_count == 2 %}
+  {% set has_tier_descriptions = (tiers | selectattr("tier_description_html") | list | length) > 0 %}
+  {% if tiers|length == 2 %}
     {% set base_class_name = "p-pricing-block--50-50" %}
-  {% elif tier_count == 3 %}
+  {% elif tiers|length == 3 %}
     {% set base_class_name = "p-pricing-block--25-75" %}
   {% else %}
     {% set base_class_name = "p-pricing-block" %}
@@ -57,9 +57,9 @@
         <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
           <h2>{{ title_text }}</h2>
         </div>
-        <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-          {% if section_description %}{{ section_description }}{% endif %}
-        </div>
+        {% if section_description %}
+          <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">{{ section_description }}</div>
+        {% endif %}
       </div>
     </div>
 
@@ -78,11 +78,13 @@
                   </h3>
                 </div>
               </div>
-              <div class="p-pricing-block__section">
-                {% if tier.get("tier_description_html") %}{{ tier.get("tier_description_html") }}{% endif %}
-              </div>
+              {% if has_tier_descriptions %}
+                <div class="p-pricing-block__section">
+                  {% if tier.get("tier_description_html") %}{{ tier.get("tier_description_html") }}{% endif %}
+                </div>
+              {% endif %}
               <div class="p-pricing-block__section">{{ tier_offerings_list(tier) }}</div>
-              <div class="p-pricing-block__section">{{ tier.cta_html }}</div>
+              {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif %}
             </div>
           {% endfor %}
         </div>
