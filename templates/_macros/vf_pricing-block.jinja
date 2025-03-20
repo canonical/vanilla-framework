@@ -63,32 +63,28 @@
       </div>
     </div>
 
-    <div class="u-fixed-width">
-      <div class="p-pricing-block-wrapper">
-        <div class="{{ base_class_name }}">
-          {% for tier in tiers %}
-            <div class="p-pricing-block__tier">
-              <div class="p-pricing-block__section">
-                <div class="p-section--shallow">
-                  <h3 class="p-heading--4">
-                    {{ tier.get("tier_name_text") }}
-                    <br />
-                    <strong>{{ tier.get("tier_price_text") }}</strong>
-                    <span class="u-text--muted">{{ tier.get("tier_price_explanation") }}</span>
-                  </h3>
-                </div>
-              </div>
-              {% if has_tier_descriptions %}
-                <div class="p-pricing-block__section">
-                  {% if tier.get("tier_description_html") %}{{ tier.get("tier_description_html") }}{% endif %}
-                </div>
-              {% endif %}
-              <div class="p-pricing-block__section">{{ tier_offerings_list(tier) }}</div>
-              {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif %}
+    <div class="{{ base_class_name }}">
+      {% for tier in tiers %}
+        <div class="p-pricing-block__tier">
+          <div class="p-pricing-block__section">
+            <div class="p-section--shallow">
+              <h3 class="p-heading--4">
+                {{ tier.get("tier_name_text") }}
+                <br />
+                <strong>{{ tier.get("tier_price_text") }}</strong>
+                <span class="u-text--muted">{{ tier.get("tier_price_explanation") }}</span>
+              </h3>
             </div>
-          {% endfor %}
+          </div>
+          {% if has_tier_descriptions %}
+            <div class="p-pricing-block__section">
+              {% if tier.get("tier_description_html") %}{{ tier.get("tier_description_html") }}{% endif %}
+            </div>
+          {% endif %}
+          <div class="p-pricing-block__section">{{ tier_offerings_list(tier) }}</div>
+          {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif %}
         </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 {% endmacro -%}

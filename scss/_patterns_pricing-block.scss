@@ -1,13 +1,6 @@
 @import 'settings';
 
 @mixin vf-p-pricing-block {
-  $horizontal-list-section-medium-content-width: 66ch;
-  $horizontal-list-section-large-content-width: 100ch;
-
-  .p-pricing-block-wrapper {
-    container-type: inline-size;
-  }
-
   .p-pricing-block,
   .p-pricing-block--25-75,
   .p-pricing-block--50-50 {
@@ -25,47 +18,31 @@
         width: 100%;
       }
 
-      @container (width < #{$horizontal-list-section-medium-content-width}) {
+      @media (max-width: $threshold-4-6-col) {
         grid-column: span 4;
 
         &:not(:last-child)::before {
           width: 100%;
         }
       }
-
-      @container (#{$horizontal-list-section-medium-content-width} <= width < #{$horizontal-list-section-large-content-width}) {
-        grid-column: span 2;
-
-        &:not(:last-child)::before {
-          width: calc(100% + map-get($grid-gutter-widths, small));
-        }
-      }
     }
   }
 
   .p-pricing-block--25-75 {
-    @container (width > #{$horizontal-list-section-large-content-width}) {
-      .p-pricing-block__tier {
-        grid-column: span 2;
-      }
-
+    @media (min-width: $threshold-6-12-col) {
       .p-pricing-block__tier:first-child {
         grid-column: 3 / span 2;
       }
     }
 
-    @container (#{$horizontal-list-section-medium-content-width} <= width < #{$horizontal-list-section-large-content-width}) {
+    @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col) {
       .p-pricing-block__tier:nth-last-child(2)::before {
         width: 100%;
       }
     }
   }
 
-  .p-pricing-block--50-50 {
-    @container (width > #{$horizontal-list-section-large-content-width}) {
-      .p-pricing-block__tier {
-        grid-column: span 4;
-      }
-    }
+  .p-pricing-block--50-50 .p-pricing-block__tier {
+    grid-column: span 4;
   }
 }
