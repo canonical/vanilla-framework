@@ -7,62 +7,24 @@
     @extend %vf-grid-row-subgrid;
 
     .p-pricing-block__tier {
-      @include _pricing-block-border($span-gutter: false);
-
       grid-column: span $grid-8-columns-small;
-
+      padding-bottom: $spv--x-large;
+      
       @media (min-width: $threshold-4-6-col) {
         grid-column: span calc($grid-8-columns-medium / 2);
-
-        // Target cards based on right-adjacent card presence
-        &:first-child,
-        &:nth-child(3) {
-          @include _pricing-block-border($span-gutter: true);
-        }
-      }
-
-      @media (min-width: $threshold-6-12-col) {
-        &:nth-child(2) {
-          @include _pricing-block-border($span-gutter: true);
-        }
       }
     }
   }
 
   .p-pricing-block--25-75 .p-pricing-block__tier {
-    &:last-child {
-      @include _pricing-block-border($span-gutter: false);
-    }
-
     @media (min-width: $threshold-6-12-col) {
       &:first-child {
-        grid-column: calc($grid-8-columns / 4 + 1) / span calc($grid-8-columns / 4); // Shift the first card to the right
+        grid-column: 3 / span calc($grid-8-columns / 4); // Shift the first card to the right
       }
     }
   }
 
   .p-pricing-block--50-50  .p-pricing-block__tier {
     grid-column: span $grid-8-columns-small;
-
-    &:nth-child(n) {
-      @include _pricing-block-border($span-gutter: false);
-    }
-
-    @media (min-width: $threshold-6-12-col) {
-      &:first-child {
-        @include _pricing-block-border($span-gutter: true);
-      }
-    }
   } 
-}
-
-
-// Determines whether the top border spans over the right adjacent gutter
-@mixin _pricing-block-border($span-gutter) {
-  &:before {
-    border-top: 1px solid $colors--theme--border-default;
-    content: '';
-    margin-bottom: calc($spv--small - 1px);
-    width: if($span-gutter, calc(100% + map-get($grid-gutter-widths, default)), 100%);
-  }
 }

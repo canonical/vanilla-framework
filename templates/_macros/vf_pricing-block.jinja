@@ -75,10 +75,9 @@
             </div>
           </div>
           {% if has_tier_descriptions %}
+            {% set description = tier.get("tier_description_html") if tier.get("tier_description_html") else '' %}
             <div class="p-pricing-block__section"
-                 {% if tier.get("tier_description_html") %}role="presentation"{% endif %}>
-              {{ tier.get("tier_description_html") | default('') }}
-            </div>
+                 {% if not description %}role="presentation"{% endif %}>{{ description }}</div>
           {% endif %}
           <div class="p-pricing-block__section">{{ _tier_offerings_list(tier) }}</div>
           {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif %}
