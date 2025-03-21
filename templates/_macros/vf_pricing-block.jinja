@@ -30,23 +30,21 @@
     {% set base_class_name = "p-pricing-block" %}
   {% endif %}
 
-  {%- macro _list_item(offering) %}
-    {% set item_style = offering.get('list_item_style', 'undefined') %}
-    {% if item_style == 'ticked' %}
-      {% set item_class = "is-ticked" %}
-    {% elif item_style == 'crossed' %}
-      {% set item_class = "is-crossed u-text--muted" %}
-    {% else %}
-      {% set item_class = "has-bullet" %}
-    {% endif %}
-    <li class="p-list__item {{ item_class }}">{{ offering.list_item_content_html }}</li>
-  {%- endmacro -%}
-
-  {%- macro tier_offerings_list(tier) %}
+  {%- macro _tier_offerings_list(tier) %}
     <p class="u-text--muted">What's included</p>
     <hr class="p-rule--muted u-no-margin--bottom" />
     <ul class="p-list--divided">
-      {% for offering in tier.get("tier_offerings") %}{{ _list_item(offering) }}{% endfor %}
+      {% for offering in tier.get("tier_offerings") %}
+        {% set item_style = offering.get('list_item_style', 'undefined') %}
+        {% if item_style == 'ticked' %}
+          {% set item_class = "is-ticked" %}
+        {% elif item_style == 'crossed' %}
+          {% set item_class = "is-crossed u-text--muted" %}
+        {% else %}
+          {% set item_class = "has-bullet" %}
+        {% endif %}
+        <li class="p-list__item {{ item_class }}">{{ offering.list_item_content_html }}</li>
+      {% endfor %}
     </ul>
   {%- endmacro -%}
 
@@ -77,11 +75,12 @@
             </div>
           </div>
           {% if has_tier_descriptions %}
-            <div class="p-pricing-block__section">
-              {% if tier.get("tier_description_html") %}{{ tier.get("tier_description_html") }}{% endif %}
+            <div class="p-pricing-block__section"
+                 {% if tier.get("tier_description_html") %}role="presentation"{% endif %}>
+              {{ tier.get("tier_description_html") | default('') }}
             </div>
           {% endif %}
-          <div class="p-pricing-block__section">{{ tier_offerings_list(tier) }}</div>
+          <div class="p-pricing-block__section">{{ _tier_offerings_list(tier) }}</div>
           {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif %}
         </div>
       {% endfor %}

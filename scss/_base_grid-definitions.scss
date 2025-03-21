@@ -112,13 +112,13 @@
     }
   }
 
-  %vf-grid-row-equal-height {
+  %vf-grid-row-subgrid {
     @extend %vf-grid-row;
 
     @supports (display: grid) {
       & > * {
         display: grid;
-        grid-column: span 2;
+        grid-column: span calc($grid-8-columns / 4);
         grid-row: span 100;
         grid-template-rows: subgrid;
       }
