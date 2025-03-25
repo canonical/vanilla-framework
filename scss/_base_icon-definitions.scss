@@ -1486,3 +1486,30 @@
 @mixin vf-icon-credit-card-themed {
   @include vf-themed-icon($light-value: vf-icon-credit-card-url($colors--light-theme--icon), $dark-value: vf-icon-credit-card-url($colors--dark-theme--icon));
 }
+
+// ICONS ADDED IN MARCH 2025 v4.22.0
+// heading
+@function vf-icon-heading-url($color) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  d='M3.704 13.544V2.456h1.648v4.592h5.296V2.456h1.648v11.088h-1.648V8.456H5.352v5.088z'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-heading($color: $colors--light-theme--icon) {
+  background-image: vf-icon-heading-url($color);
+}
+
+@mixin vf-icon-heading-themed {
+  @include vf-themed-icon($light-value: vf-icon-heading-url($colors--light-theme--icon), $dark-value: vf-icon-heading-url($colors--dark-theme--icon));
+}
+
+// quote
+@function vf-icon-quote-url($color) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  d='m3.623 12.782-2.026-.856q1.17-2.206 1.576-4.008.45-1.846.45-3.378v-.766q0-.36-.045-.765h3.018v.495q0 2.522-.72 4.82-.721 2.25-2.253 4.458m7.477 0-2.027-.856q1.125-2.206 1.531-4.008.45-1.846.45-3.378v-.766q0-.36-.045-.765h3.018q.045.135.045.27v.225q0 2.522-.766 4.82-.72 2.25-2.206 4.458'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-quote($color: $colors--light-theme--icon) {
+  background-image: vf-icon-quote-url($color);
+}
+
+@mixin vf-icon-quote-themed {
+  @include vf-themed-icon($light-value: vf-icon-quote-url($colors--light-theme--icon), $dark-value: vf-icon-quote-url($colors--dark-theme--icon));
+}
