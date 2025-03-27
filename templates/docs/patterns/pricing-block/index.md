@@ -12,21 +12,20 @@ The Pricing block pattern is used to display individual cards representing diffe
 
 The Pricing block pattern is composed of the following elements:
 
-| Element | Description |
-| - | - |
-| Title (**required**) | <code>h2</code> title text |
-| Description | <code>p</code> description text |
-| Tiers (**required**) | An `Array<Object>` of individual tiers representing different pricing options |
-| Tiers[].Name (**required**) | <code>h2</code> tier title |
-| Tiers[].Price (**required**) | The price of the tier |
-| Tiers[].Price explanation (**required**) | The timeframe/coverage for the pricing tier |
-| Tier[].Description | Descriptive text for the pricing tier |
-| Tier[].List label (**required**) | A header for the list of offerings |
-| Tier[].Tier offerings (**required**) | An `Array<Object>` of what is offered in this tier |
-| Tier[].Tier offerings[].List item style | The style of the list item |
-| Tier[].Tier offerings[].List item content (**required**) | The list item content |
-| Call to action | [Call to action block](/docs/patterns/cta-block) beneath the list |
-
+| Element                                                  | Description                                                                   |
+| -------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Title (**required**)                                     | <code>h2</code> title text                                                    |
+| Description                                              | <code>p</code> description text                                               |
+| Tiers (**required**)                                     | An `Array<Object>` of individual tiers representing different pricing options |
+| Tiers[].Name (**required**)                              | <code>h2</code> tier title                                                    |
+| Tiers[].Price (**required**)                             | The price of the tier                                                         |
+| Tiers[].Price explanation (**required**)                 | The timeframe/coverage for the pricing tier                                   |
+| Tier[].Description                                       | Descriptive text for the pricing tier                                         |
+| Tier[].List label (**required**)                         | A header for the list of offerings                                            |
+| Tier[].Tier offerings (**required**)                     | An `Array<Object>` of what is offered in this tier                            |
+| Tier[].Tier offerings[].List item style                  | The style of the list item                                                    |
+| Tier[].Tier offerings[].List item content (**required**) | The list item content                                                         |
+| Call to action                                           | [Call to action block](/docs/patterns/cta-block) beneath the list             |
 
 ## 4-blocks
 
