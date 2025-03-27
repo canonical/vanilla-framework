@@ -290,6 +290,10 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
   </table>
 </div>
 
+## Class reference
+
+{{ class_reference("pricing-block") }}
+
 ## Import
 
 ### Jinja Macro

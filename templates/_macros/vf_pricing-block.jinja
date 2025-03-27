@@ -34,17 +34,17 @@
     <p class="u-text--muted">What's included</p>
     <hr class="p-rule--muted u-no-margin--bottom" />
     <ul class="p-list--divided">
-      {% for offering in tier.get("tier_offerings") %}
-        {% set item_style = offering.get('list_item_style', 'undefined') %}
-        {% if item_style == 'ticked' %}
-          {% set item_class = "is-ticked" %}
-        {% elif item_style == 'crossed' %}
-          {% set item_class = "is-crossed u-text--muted" %}
-        {% else %}
-          {% set item_class = "has-bullet" %}
-        {% endif %}
+      {%- for offering in tier.get("tier_offerings") %}
+        {%- set item_style = offering.get('list_item_style', 'undefined') -%}
+        {% if item_style == 'ticked' -%}
+          {% set item_class = "is-ticked" -%}
+        {% elif item_style == 'crossed' -%}
+          {% set item_class = "is-crossed u-text--muted" -%}
+        {% else -%}
+          {% set item_class = "has-bullet" -%}
+        {%- endif -%}
         <li class="p-list__item {{ item_class }}">{{ offering.list_item_content_html }}</li>
-      {% endfor %}
+      {% endfor -%}
     </ul>
   {%- endmacro -%}
 
@@ -55,14 +55,14 @@
         <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
           <h2>{{ title_text }}</h2>
         </div>
-        {% if section_description %}
+        {%- if section_description -%}
           <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">{{ section_description }}</div>
-        {% endif %}
+        {%- endif -%}
       </div>
     </div>
 
     <div class="{{ base_class_name }}">
-      {% for tier in tiers %}
+      {%- for tier in tiers %}
         <div class="p-pricing-block__tier">
           <div class="p-pricing-block__section">
             <div class="p-section--shallow">
@@ -74,15 +74,15 @@
               </h3>
             </div>
           </div>
-          {% if has_tier_descriptions %}
+          {%- if has_tier_descriptions -%}
             {% set description = tier.get("tier_description_html") if tier.get("tier_description_html") else '' %}
             <div class="p-pricing-block__section"
                  {% if not description %}role="presentation"{% endif %}>{{ description }}</div>
-          {% endif %}
+          {%- endif %}
           <div class="p-pricing-block__section">{{ _tier_offerings_list(tier) }}</div>
-          {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif %}
+          {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif -%}
         </div>
-      {% endfor %}
+      {%- endfor -%}
     </div>
   </div>
 {% endmacro -%}
