@@ -301,7 +301,7 @@ To import the Pricing block Jinja macro, copy the following statement into your 
 
 ```jinja
 {% raw -%}
-{% from "_macros/vf_pricing-block.jinja" import vf_pricing-block %}
+{% from "_macros/vf_pricing-block.jinja" import vf_pricing_block %}
 {%- endraw -%}
 ```
 
