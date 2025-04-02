@@ -1,0 +1,18 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Pricing block / Combined{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {% with is_combined = true %}
+    <section>
+      {% include 'docs/examples/patterns/pricing-block/2-blocks.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/pricing-block/3-blocks.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/pricing-block/4-blocks.html' %}
+    </section>
+  {% endwith %}
+{% endblock %}

@@ -1,0 +1,47 @@
+/*
+  @classreference
+  pricing-block:
+    Pricing block:
+      .p-pricing-block:
+        Main element of the pricing block component, to represent 4 cards.
+      .p-pricing-block--25-75:
+        Modifier class for 3 cards with a 25-75 split. The first 25% row is empty.
+      .p-pricing-block--50-50:
+        Modifier class for 2 cards, where each card takes up 50% of the row.
+    Column:
+      .p-pricing-block__tier:
+        Column element within a pricing block. Each column represents a card.
+*/
+
+@import 'settings';
+
+@mixin vf-p-pricing-block {
+  .p-pricing-block,
+  .p-pricing-block--25-75,
+  .p-pricing-block--50-50 {
+    @extend %vf-grid-row-subgrid;
+
+    .p-pricing-block__tier {
+      grid-column: span $grid-8-columns-small;
+      padding-bottom: $spv--x-large;
+
+      @media (min-width: $threshold-4-6-col) {
+        grid-column: span calc($grid-8-columns-medium / 2);
+      }
+    }
+  }
+
+  .p-pricing-block--25-75 .p-pricing-block__tier {
+    @media (min-width: $threshold-6-12-col) {
+      &:first-child {
+        grid-column: calc($grid-8-columns / 4 + 1) / span calc($grid-8-columns / 4); // Shift the first card to the right
+      }
+    }
+  }
+
+  .p-pricing-block--50-50 .p-pricing-block__tier {
+    @media (min-width: $threshold-6-12-col) {
+      grid-column: span $grid-8-columns-small;
+    }
+  }
+}

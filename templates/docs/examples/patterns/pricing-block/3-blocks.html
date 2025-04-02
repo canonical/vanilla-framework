@@ -1,0 +1,155 @@
+{% extends '_layouts/examples.html' %}
+{% from '_macros/vf_pricing-block.jinja' import vf_pricing_block %}
+{% block title %}Pricing block / 3-blocks{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% call(slot) vf_pricing_block(
+    title_text='Kubernetes pricing',
+    tiers=[
+    {
+    'tier_name_text': 'Kubernetes Explorer',
+    'tier_price_text': '$3099',
+    'tier_price_explanation': 'per year, per VM',
+    'tier_description_html': '<p>Three-day Kubernetes training to ramp up your team\'s skills. Three-day Kubernetes training to ramp up your team\'s skills.</p>',
+    'tier_label_text': 'What\'s included',
+    'tier_offerings': [
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'High availability'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': '<a href="#">Public clouds</a>, VMware, <a href="#">OpenStack</a>'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Storage and SDN basic options'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Logging, monitoring, alerting'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Kubernetes lifecycle management'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Security essentials'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'Support or Fully Managed'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'Third-party integrations'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'GPU acceleration'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'GPU acceleration'
+    }
+    ],
+    'cta_html': '<a href="#">Three-day Kubernetes training to ramp up your team’s skills.</a>'
+    },
+    {
+    'tier_name_text': 'Kubernetes Explorer',
+    'tier_price_text': '$3099',
+    'tier_price_explanation': 'per year, per VM',
+    'tier_description_html': '<p>Three-day Kubernetes training to ramp up your team\'s skills. Three-day Kubernetes training to ramp up your team\'s skills.</p>',
+    'tier_label_text': 'What\'s included',
+    'tier_offerings': [
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'High availability'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': '<a href="#">Public clouds</a>, VMware, <a href="#">OpenStack</a>'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Storage and SDN basic options'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Logging, monitoring, alerting'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Kubernetes lifecycle management'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Security essentials'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'Support or Fully Managed'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'Third-party integrations'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'GPU acceleration'
+    }
+    ],
+    'cta_html': '<a href="#">Three-day Kubernetes training to ramp up your team’s skills.</a>'
+    }
+    ,        {
+    'tier_name_text': 'Kubernetes Explorer',
+    'tier_price_text': '$3099',
+    'tier_price_explanation': 'per year, per VM',
+    'tier_description_html': '<p>Three-day Kubernetes training to ramp up your team\'s skills.</p>',
+    'tier_label_text': 'What\'s included',
+    'tier_offerings': [
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'High availability'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': '<a href="#">Public clouds</a>, VMware, <a href="#">OpenStack</a>'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Storage and SDN basic options'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Logging, monitoring, alerting'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Kubernetes lifecycle management'
+    },
+    {
+    'list_item_style': 'ticked',
+    'list_item_content_html': 'Security essentials'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'Support or Fully Managed'
+    },
+    {
+    'list_item_style': 'crossed',
+    'list_item_content_html': 'Third-party integrations'
+    }
+    ],
+    'cta_html': '<a href="#">Three-day Kubernetes training to ramp up your team’s skills.</a>'
+    }
+    ]
+    ) -%}
+    {%- if slot == 'section_description' -%}
+      <p>
+        A low total cost of ownership. Up to five times lower than public clouds. A low total cost of ownership. Up to five times lower than public clouds. A low total cost of ownership. Up to five times lower than public clouds.
+      </p>
+    {%- endif -%}
+  {% endcall %}
+{% endblock content %}

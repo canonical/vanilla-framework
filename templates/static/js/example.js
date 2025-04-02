@@ -23,7 +23,7 @@
    */
   const EXAMPLE_CONTENT_PATTERNS = {
     body: /<body[^>]*>((.|[\n\r])*)<\/body>/im,
-    jinja: /{% block content %}([\s\S]*?){% endblock %}/,
+    jinja: /{% block content %}([\s\S]*?){% endblock( content)? %}/,
     title: /<title[^>]*>((.|[\n\r])*)<\/title>/im,
     head: /<head[^>]*>((.|[\n\r])*)<\/head>/im,
   };
