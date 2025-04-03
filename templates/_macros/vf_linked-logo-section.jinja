@@ -22,9 +22,9 @@
   {% set links = links[:max_logos] %}
 
   {% macro _list(links, cols_per_item=2) %}
-    {% if links|length > 1 %}
+    {%- if links|length > 1 -%}
       <div class="grid-row">
-        {% for link in links %}
+        {%- for link in links -%}
           <div class="grid-col-{{ cols_per_item }} grid-col-medium-{{ cols_per_item }}">
             <a href="{{ link.href }}" aria-label="{{ link.label }}">
               <div class="p-image-container--16-9 is-highlighted">
@@ -34,14 +34,14 @@
               <p>{{ link.text }}</p>
             </a>
           </div>
-        {% endfor %}
+        {%- endfor -%}
       </div>
-    {% endif %}
+    {%- endif -%}
   {% endmacro %}
 
   <section class="p-section">
     <hr class="p-rule is-fixed-width"/>
-    {% if layout == "50-50" %}
+    {%- if layout == "50-50" -%}
       <div class="p-section--shallow">
         <div class="grid-row">
           <div class="grid-col-4">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-    {% elif layout == "25-75" %}
+    {%- elif layout == "25-75" -%}
       <div class="p-section--shallow">
         <div class="grid-row">
           <div class="grid-col-2">
@@ -63,13 +63,13 @@
           </div>
         </div>
       </div>
-    {% else %}
+    {%- else -%}
       <div class="p-section--shallow">
         <div class="grid-row">
-          <h2>{{ title_text }}</h2>
+          <h2>{{- title_text -}}</h2>
         </div>
       </div>
       {{ _list(links) }}
-    {% endif %}
+    {%- endif -%}
   </section>
 {%- endmacro %}

@@ -12,39 +12,15 @@ A linked logo section is used to display a list of logos which explicitly link t
 
 The linked logo section pattern is composed of the following elements:
 
-| Element                   | Description                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------ |
-| title_text (**required**) | `H2` title text.                                                                                       |
-| Links (**required**)      | A list of image links containing four fields for each link: `href`, `text`, `label`, and `image_html`. |
-| Layout                    | Defaults to `full-width`, with additional options for `50-50`, and `25-75` layout splits.              |
-
-### Image variations and considerations
-
-The `image_html` field can be defined using raw html or using the [Canonical image-template module](https://github.com/canonical/canonicalwebteam.image-template/tree/6ebd34c5967f69ac23c97a24bcf6bd703a1ab7ce) as in the following link example:
-
-<pre>
-  {
-    "href": "#",
-    "text": "Learn more&nbsp;&rsaquo;",
-    "label": "MLflow",
-    "image_html": image(url="https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
-      alt="",
-      width="222",
-      height="481",
-      hi_def=True,
-      loading="auto",
-      attrs={"class": "p-image-container__image"}
-    ) | safe
-  },
-</pre>
-
-#### Image containers
-
-Each image is wrapped in a [highlighted image container](/docs/patterns/images#highlighted-image) under the hood. To make correct use of this component the `p-image-container__image` class should be added to each to each image.
-
-### Accessibility
-
-Each image in this component is wrapped by an `a` tag which includes an `aria-label` defined in the `label` field. Therefore, this is the label screenreaders will read, `alt` text added to the image itself will be ignored by assistive techjonology.
+| Element                           | Description                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------- |
+| title_text (**required**)         | `H2` title text.                                                                          |
+| Layout                            | Defaults to `full-width`, with additional options for `50-50`, and `25-75` layout splits. |
+| Links (**required**)              | An `Array<Object>` of individual image link properties.                                   |
+| Links[].href (**required**)       | The target link for the logo.                                                             |
+| Links[].text (**required**)       | The link text for the logo.                                                               |
+| Links[].label (**required**)      | The `aria-label` for the logo.                                                            |
+| Links[].image_html (**required**) | The logo image element.                                                                   |
 
 ## Full width
 
@@ -119,7 +95,7 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             <code>full-wdith</code>
           </td>
           <td>
-            The intented grid layout for the section.
+            The intended grid layout for the section.
           </td>
         </tr>
         <tr>
@@ -136,7 +112,75 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             N/A
           </td>
           <td>
-            Array of image links, each including <code>href</code>, <code>label</code>, <code>text</code>, and <code>image_html</code> fields.
+            Array of image links.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>links[].href</code>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            String
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            Target link for the image.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>links[].text</code>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            String
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            Logo link text.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>links[].label</code>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            String
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            <code>aria-label</code> for the logo link. This attribute is added to the wrapping `a` tag under the hood and it is this label that screenreaders will read. Additional alt text added to the image element will be ignored by assistive techology and as such can be set to null.   
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>links[].image_html</code>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            HTMLImageElement
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            Logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. Regardless of how this is initialized, it will need to include the <code>p-image-container__image</code> to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood. 
           </td>
         </tr>
       </tbody>
@@ -153,9 +197,14 @@ Jinja template.
 
 ```jinja
 {% raw -%}
-{% from "_macros/vf_linked_logo_section.jinja" import vf_linked_logo_section %}
+{% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
 {%- endraw -%}
 ```
 
 View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros)
 for macro installation instructions.
+
+### SCSS
+
+Since Patterns leverage many other parts of Vanilla in their composition and content, we
+recommend [importing the entirety of Vanilla](/docs#install) for full support.
