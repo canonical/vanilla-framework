@@ -24,6 +24,8 @@ The linked logo section pattern is composed of the following elements:
 
 ## Full width
 
+This is the default layout for this pattern and can be used with a maximum of 8 logos. 
+
 <div class="embedded-example"><a href="/docs/examples/patterns/linked-logo-section/default" class="js-example" data-lang="jinja">
 View example of the linked logo section full-width pattern
 </a></div>
@@ -38,7 +40,7 @@ View example of the linked logo section 50-50 pattern
 
 ## 25/75
 
-This variant can be used for adding a header and the logo section in different columns, but can accommodate up to 9 logos. Be aware that the heading only occupies 25% width here, so only very short titles would be appropriate here
+This variant can be used for adding a header and the logo section in different columns, but can accommodate up to 9 logos. Be aware that the heading only occupies 25% width here, so only very short titles would be appropriate here.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/linked-logo-section/25-75" class="js-example" data-lang="jinja">
 View example of the linked logo section 25-75 pattern
@@ -92,7 +94,7 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             <code>'full-width'</code>
           </td>
           <td>
-            <code>full-wdith</code>
+            <code>full-width</code>
           </td>
           <td>
             The intended grid layout for the section.
@@ -180,7 +182,7 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             N/A
           </td>
           <td>
-            Logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. Regardless of how this is initialized, it will need to include the <code>p-image-container__image</code> to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood. 
+            Logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. Regardless of how this is initialized, it will need to include the <code>p-image-container__image</code> CSS class to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood. 
           </td>
         </tr>
       </tbody>
