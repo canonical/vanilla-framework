@@ -24,7 +24,7 @@ The linked logo section pattern is composed of the following elements:
 
 ## Full width
 
-This is the default layout for this pattern and can be used with a maximum of 8 logos. 
+This is the default layout for this pattern and can be used with a maximum of 8 logos.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/linked-logo-section/default" class="js-example" data-lang="jinja">
 View example of the linked logo section full-width pattern
