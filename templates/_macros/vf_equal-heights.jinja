@@ -1,0 +1,90 @@
+{%- macro vf_equal_heights(
+  title_text,
+  subtitle_text,
+  columns
+) -%}
+  {% set has_subtitle = subtitle_text | trim | length > 0 %}
+  {% set description_content = caller('description') | trim %}
+  {% set has_description = description_content | length > 0 %}
+  {% set cta_content = caller('cta') | trim %}
+  {% set has_cta = cta_content | length > 0 %}
+
+  {% set has_two_top_cols = has_subtitle or has_description %}
+
+  <div class="p-section">
+    <div class="p-section--shallow">
+    {%- if has_two_top_cols -%}
+      <div class="row--50-50-on-large">
+        <div class="col">
+    {%- endif -%}
+          <h2{% if not has_two_top_cols %} class="u-fixed-width"{% endif %}>{{ title_text }}</h2>
+    {%- if has_two_top_cols -%}
+        </div>
+    {%- endif -%}
+        {%- if has_subtitle or has_description -%}
+          <div class="col">
+            {%- if has_subtitle -%}
+              <p class="p-heading--5">{{ subtitle_text }}</p>
+            {%- endif -%}
+            {%- if has_description -%}
+              {{- description_content -}}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+    {%- if has_two_top_cols -%}
+      </div>
+    {%- endif -%}
+    </div>
+
+    <div class="row">
+      <div class="{% if columns | length % 3 == 0 %}col-9 col-start-large-4{% else %}col{% endif %}">
+        <div class="p-equal-height-row--wrap">
+          {%- for column in columns -%}
+            {% set image = column.get("image_html") | trim %}
+            {% set title = column.get("title_text") | trim %}
+            {% set description = column.get("description_html") or "" | trim %}
+            {% set cta = column.get("cta_html") or "" | trim %}
+            <div class="p-equal-height-row__col is-borderless">
+              {#- Image item (required) -#}
+              <div class="p-equal-height-row__item">
+                <div
+                  class="p-image-container--2-3-on-medium p-image-container--2-3-on-large is-cover">
+                  {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
+                  {{- image | safe -}}
+                </div>
+              </div>
+              {#- Title item (required) -#}
+              <div class="p-equal-height-row__item">
+                <hr class="p-rule--highlight"/>
+                <p class="p-heading--5">{{- title -}}</p>
+              </div>
+              {#- Description item (optional) -#}
+              <div class="p-equal-height-row__item">
+                {{- description | safe -}}
+              </div>
+              {#- CTA item (optional) -#}
+              <div class="p-equal-height-row__item">
+                <hr class="p-rule" />
+                {%- if cta | length > 0 -%}
+                  <p>
+                    {{- cta | safe -}}
+                  </p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+          </div>
+      </div>
+    </div>
+    {%- if has_cta -%}
+      <div class="row">
+        <hr class="p-rule--muted">
+        <div class="col-6 col-medium-3 col-start-large-7 col-start-medium-4">
+          <p>
+            {{- cta_content -}}
+          </p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endmacro -%}
