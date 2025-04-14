@@ -48,7 +48,7 @@
               {#- Image item (required) -#}
               <div class="p-equal-height-row__item">
                 <div
-                  class="p-image-container--2-3-on-medium p-image-container--2-3-on-large is-cover">
+                  class="p-image-container--square-on-small p-image-container--square-on-medium p-image-container--2-3-on-large is-cover">
                   {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
                   {{- image | safe -}}
                 </div>
@@ -64,7 +64,6 @@
               </div>
               {#- CTA item (optional) -#}
               <div class="p-equal-height-row__item">
-                <hr class="p-rule" />
                 {%- if cta | length > 0 -%}
                   <p>
                     {{- cta | safe -}}
