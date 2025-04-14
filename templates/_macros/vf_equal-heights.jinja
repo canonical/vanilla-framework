@@ -1,10 +1,10 @@
 {%- macro vf_equal_heights(
   title_text,
-  subtitle_text,
-  columns,
+  subtitle_text="",
   image_aspect_ratio_small="square",
   image_aspect_ratio_medium="square",
-  image_aspect_ratio_large="2-3"
+  image_aspect_ratio_large="2-3",
+  items=[]
 ) -%}
   {% set has_subtitle = subtitle_text | trim | length > 0 %}
   {% set description_content = caller('description') | trim %}
@@ -40,13 +40,13 @@
     </div>
 
     <div class="row">
-      <div class="{% if columns | length % 3 == 0 %}col-9 col-start-large-4{% else %}col{% endif %}">
+      <div class="{% if items | length % 3 == 0 %}col-9 col-start-large-4{% else %}col{% endif %}">
         <div class="p-equal-height-row--wrap">
-          {%- for column in columns -%}
-            {% set image = column.get("image_html") | trim %}
-            {% set title = column.get("title_text") | trim %}
-            {% set description = column.get("description_html") or "" | trim %}
-            {% set cta = column.get("cta_html") or "" | trim %}
+          {%- for item in items -%}
+            {% set image = item.get("image_html") | trim %}
+            {% set title = item.get("title_text") | trim %}
+            {% set description = item.get("description_html") or "" | trim %}
+            {% set cta = item.get("cta_html") or "" | trim %}
             <div class="p-equal-height-row__col is-borderless">
               {#- Image item (required) -#}
               <div class="p-equal-height-row__item">
