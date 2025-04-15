@@ -12,6 +12,7 @@ Docs TBD pending design approval of the examples, and design, engineering, conte
 
 - 4 columns
   - [Default](/docs/examples/patterns/equal-heights/4-columns-responsive)
+  - [H4 subtitle](/docs/examples/patterns/equal-heights/4-columns-subtitle-h4-responsive)
   - [No description](/docs/examples/patterns/equal-heights/4-columns-no-description-responsive)
   - [No CTA](/docs/examples/patterns/equal-heights/4-columns-no-cta-responsive)
   - [Custom image aspect ratios](/docs/examples/patterns/equal-heights/4-columns-custom-image-aspect-ratios-responsive)
