@@ -3,22 +3,27 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
+# is_image_full_width: whether the image is full width
 # Slots
 # title: top-level title element
 # description: top-level description element
+# image: top-level image element
 # list_item_title_[1-25]: title element of each child list item
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
 {% macro vf_tiered_list(
   is_description_full_width_on_desktop=true,
-  is_list_full_width_on_tablet=true) -%}
+  is_list_full_width_on_tablet=true,
+  is_image_full_width=false) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
+  {%- set image = caller('image') -%}
+  {%- set has_image = image|trim|length > 0 -%}
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
 
-  <div class="p-section u-fixed-width">
+  <div class="u-fixed-width">
     <hr class="p-rule">
 
     {% if has_description == true -%}
@@ -54,6 +59,22 @@
         </div>
       </div>
     {%- endif %}
+
+    {% if has_image -%}
+      <div class="row">
+        {%- if is_image_full_width -%}
+        <div class="p-section--shallow">
+          {{ image }}
+        </div>
+        {%- else -%}
+          <div class="col-start-large-5 col-9">
+            <div class="p-section--shallow">
+              {{ image }}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
 
     {#-
       When there is a CTA, we use shallow spacing to space the list away from the CTA.
@@ -111,14 +132,35 @@
     {%- endif -%}
 
     {% if has_cta == true -%}
-      <div class="row">
-        <hr class="p-rule--muted"/>
-        <div class="col-6 col-start-large-7">
-          <p>
+      <div class="p-cta-block"> {# This div adds the shallow spacing around the CTA #}
+        <div class="row">
+          <div class="col-6 col-start-large-7">
             {{ cta_content }}
-          </p>
+          </div>
         </div>
       </div>
     {%- endif %}
   </div>
 {%- endmacro %}
+
+    {%- if image -%}
+      <div class="row">
+        {%- if is_image_full_width -%}
+        <div class="p-section--shallow">
+          {{ image }}
+        </div>
+        {%- else -%}
+          <div class="col-start-large-5 col-9">
+            <div class="p-section--shallow">
+              {{ image }}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {#-
+      When there is a CTA, we use shallow spacing to space the list away from the CTA.
+      When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
+    -#}
+    {%- if has_cta -%}
