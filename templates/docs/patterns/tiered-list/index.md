@@ -20,6 +20,8 @@ from a variety of tiered list layouts:
 - [50/50 with description](#5050-with-description)
 - [Full-width without description](#full-width-without-description)
 - [Full-width with description](#full-width-with-description)
+- [Default-width image](#full-width-with-description)
+- [Full-width image](#full-width-with-description)
 
 The tiered list pattern is composed of the following elements:
 
@@ -27,6 +29,7 @@ The tiered list pattern is composed of the following elements:
 | --------------------- | ----------------------------------------------------------------------------------- |
 | Title (**required**)  | <code>h2</code> title text                                                          |
 | Description           | <code>p</code> description text with optional [CTA block](/docs/patterns/cta-block) |
+| Image (optional)      | Image to show under description                                                     |
 | List item title       | Title text/content                                                                  |
 | List item description | Description text/content with optional [CTA block](/docs/patterns/cta-block)        |
 | Call to action block  | [CTA block](/docs/patterns/cta-block) beneath the list                              |
@@ -86,6 +89,26 @@ child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+## With default width image
+
+This variant contains a top-level description, and its title, description, and
+child list are presented full-width on desktop and tablet screen sizes
+respectively. Additionally, it also contains an image with a default width under the title and description.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/with-default-width-image/" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+## With full width image
+
+This variant contains a top-level description, and its title, description, and
+child list are presented full-width on desktop and tablet screen sizes
+respectively. Additionally, it also contains an image with full width under the title and description.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/with-full-width-image/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -153,6 +176,23 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         </td>
         <td>
           Whether the list element should be full-width on tablet
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_image_full_width</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>false</code>
+        </td>
+        <td>
+          Whether the image should be full-width
         </td>
       </tr>
     </tbody>
