@@ -1,7 +1,7 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 
-{% block title %}Tiered list / 50/50 on desktop with description{% endblock %}
+{% block title %}Tiered list / 50/50 with default width image{% endblock %}
 
 {% block standalone_css %}patterns_all{% endblock %}
 
@@ -19,7 +19,7 @@
   {%- endif -%}
 
   {%- if slot == "image" -%}
-  <div class="p-image-container--3-2 is-cover">
+  <div class="p-image-container">
     {{ image(url="https://assets.ubuntu.com/v1/3f63a18c-data-center.png",
             alt="",
             width="2464",
