@@ -96,7 +96,7 @@ View example of the tiered list pattern
 
 This variant contains a top-level description, and its title, description, and
 child list are presented full-width on desktop and tablet screen sizes
-respectively. Additionally, it also contains an image with a default width under the title and description.
+respectively. Additionally, this variant features a default width image positioned beneath the title and description.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/with-default-width-image/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
@@ -106,7 +106,7 @@ View example of the tiered list pattern
 
 This variant contains a top-level description, and its title, description, and
 child list are presented full-width on desktop and tablet screen sizes
-respectively. Additionally, it also contains an image with full width under the title and description.
+respectively. Additionally, this variant features a full width image positioned beneath the title and description.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/with-full-width-image/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
