@@ -1,0 +1,79 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+
+{% block title %}Tiered list / Full-width with description{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=true, is_list_full_width_on_tablet=true) -%}
+  {%- if slot == 'title' -%}
+    <h2>H2 - up to two lines; ideally one.</h2>
+  {%- endif -%}
+
+  {%- if slot == 'description' -%}
+    <p>A <a href="#">private cloud</a> provides organisations with on-demand
+    compute, storage and other resources that can be accessed over the network
+    and that are reserved exclusively for them - either in their own data centre
+    or via a 3rd party.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_1' -%}
+    <h3 class="p-heading--5">Rich portfolio of products</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_1' -%}
+    <p>Resell the full range of Canonical’s portfolio of private and public
+    cloud products: OpenStack, Kubernetes, IoT, support, security and
+    compliance for Ubuntu.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_2' -%}
+    <h3 class="p-heading--5">Sales enablement</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_2' -%}
+    <p>Canonical can help train your field sales and presales teams and
+    provide you with sales collateral and permission to use the Canonical
+    and Ubuntu trademarks in your own materials.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_3' -%}
+    <h3 class="p-heading--5">Access to Canonical partner portal</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_3' -%}
+    <p>We host a partner portal with product and solutions collaterals, agreed
+    pricing, incentives and a deal registration system.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_4' -%}
+    <h3 class="p-heading--5">Training and certification</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_4' -%}
+    <p>Gain access to technology that is the foundation for digital
+    transformation and expand your business through marketing support and
+    alignment with a trusted brand</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_5' -%}
+    <h3 class="p-heading--5">Technical enablement</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_5' -%}
+    <p>We provide in-depth technical training for your customer engineering
+    teams with access to technical resources for your labs and customer
+    engagements.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_6' -%}
+    <h3 class="p-heading--5">Go to market with Canonical</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_6' -%}
+    <p>Working with our dedicated partner team, get new joint marketing
+    opportunities and lead generation.</p>
+  {%- endif -%}
+{%- endcall -%}
+{% endblock %}
