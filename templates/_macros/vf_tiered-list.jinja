@@ -18,7 +18,7 @@
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
 
-  <div class="u-fixed-width">
+  <div class="p-section u-fixed-width">
     <hr class="p-rule">
 
     {% if has_description == true -%}
@@ -55,7 +55,13 @@
       </div>
     {%- endif %}
 
+    {#-
+      When there is a CTA, we use shallow spacing to space the list away from the CTA.
+      When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
+    -#}
+    {%- if has_cta -%}
     <div class="p-section--shallow">
+    {%- endif -%}
       {%- for number in range(1, 25) -%}
         {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
         {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
@@ -100,14 +106,17 @@
           {%- endif -%}
         {%- endif -%}
       {% endfor %}
+    {%- if has_cta -%}
     </div>
+    {%- endif -%}
 
     {% if has_cta == true -%}
-      <div class="p-cta-block">
-        <div class="row">
-          <div class="col-6 col-start-large-7">
+      <div class="row">
+        <hr class="p-rule--muted"/>
+        <div class="col-6 col-start-large-7">
+          <p>
             {{ cta_content }}
-          </div>
+          </p>
         </div>
       </div>
     {%- endif %}
