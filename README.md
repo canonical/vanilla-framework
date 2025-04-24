@@ -2,14 +2,11 @@
 
 [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 [![Downloads](http://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
-[![devDependency Status](https://david-dm.org/canonical/vanilla-framework/dev-status.svg)](https://david-dm.org/canonical/vanilla-framework#info=devDependencies)
-[![Chat in #vanilla-framework on Freenode](https://img.shields.io/badge/chat-%23vanilla--framework-blue.svg)](http://webchat.freenode.net/?channels=vanilla-framework)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io)
 
 Vanilla Framework is an extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement its patterns.
 
 [Documentation](https://vanillaframework.io/docs) |
-[Join the mailing list](http://canonical.us3.list-manage2.com/subscribe?u=56dac47c206ba0f58ec25f314&id=36f7d8394e)
 
 ## Table of contents
 
