@@ -17,9 +17,9 @@ The equal heights pattern is composed of the following elements:
 | title_text (**required**)         | `H2` title text.                                                                                                                                                                                                            |
 | subtitle_text                     | `H4` or `H5` subtitle text, depending on `subtitle_heading_level`.                                                                                                                                                          |
 | subtitle_heading_level            | Heading level of the subtitles. May be `4` or `5`. Defaults to `5`.                                                                                                                                                         |
-| image_aspect_ratio_small          | The aspect ratio to apply to item images on [small screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](docs/patterns/images#class-reference). Defaults to "square".  |
-| image_aspect_ratio_medium         | The aspect ratio to apply to item images on [medium screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](docs/patterns/images#class-reference). Defaults to "square". |
-| image_aspect_ratio_large          | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](docs/patterns/images#class-reference). Defaults to "2-3".     |
+| image_aspect_ratio_small          | The aspect ratio to apply to item images on [small screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "square".  |
+| image_aspect_ratio_medium         | The aspect ratio to apply to item images on [medium screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "square". |
+| image_aspect_ratio_large          | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "2-3".     |
 | items (**required**)              | An `Array<Object>` of individual item properties.                                                                                                                                                                           |
 | items[].title_text (**required**) | The title for the item.                                                                                                                                                                                                     |
 | items[].description_html          | The description for the item.                                                                                                                                                                                               |
@@ -141,7 +141,7 @@ shown below.
            <code>square</code>
         </td>
         <td>
-           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">small screens</a>. Can be any of the <a href="docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
+           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">small screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@ shown below.
            <code>square</code>
         </td>
         <td>
-          The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">medium screens</a>. Can be any of the <a href="docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
+          The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">medium screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
         </td>
       </tr>
       <tr>
@@ -171,7 +171,7 @@ shown below.
            <code>2-3</code>
         </td>
         <td>
-           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">large screens</a>. Can be any of the <a href="docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
+           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">large screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
         </td>
       </tr>
       <tr>
