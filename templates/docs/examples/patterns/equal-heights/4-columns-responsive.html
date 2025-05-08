@@ -1,0 +1,55 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_equal-heights.jinja" import vf_equal_heights %}
+{% block title %}Equal heights / 4 columns{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{% call(slot) vf_equal_heights(
+  title_text="Keep this heading to 2 lines on large screens.",
+  subtitle_text="Ensure the right hand side of this 50/50 split is taller than the left hand side (heading) on its left. This includes the subtitle and description.",
+  items=[
+    {
+      "title_text": "A strong hardware ecosystem",
+      "image_html":  "<img src='https://assets.ubuntu.com/v1/ff6a068d-kernelt-vanilla-ehp-1.png' class='p-image-container__image' width='284' height='426' alt='Kernelt' />",
+      "description_html": "<p>We enable Ubuntu Core with the best ODMs and silicon vendors in the world. We continuously test it on leading IoT and edge devices and hardware.</p>",
+      "cta_html": "<a href='#'>Browse all certified hardware&nbsp;&rsaquo;</a>"
+    },
+    {
+      "title_text": "A strong hardware ecosystem",
+      "image_html":  "<img src='https://assets.ubuntu.com/v1/7aa4ed28-kernelt-vanilla-ehp-2.png' class='p-image-container__image' width='284' height='426' alt='Kernelt' />",
+      "description_html": "<p>We enable Ubuntu Core with the best ODMs and silicon vendors in the world. We continuously test it on leading IoT and edge devices and hardware.</p>",
+      "cta_html": "<a href='#'>Browse all certified hardware&nbsp;&rsaquo;</a>"
+    },
+    {
+      "title_text": "A strong hardware ecosystem",
+      "image_html":  "<img src='https://assets.ubuntu.com/v1/4936d43a-kernelt-vanilla-ehp-3.png' class='p-image-container__image' width='284' height='426' alt='Kernelt' />",
+      "description_html": "<p>We enable Ubuntu Core with the best ODMs and silicon vendors in the world. We continuously test it on leading IoT and edge devices and hardware.</p>",
+      "cta_html": "<a href='#'>Browse all certified hardware&nbsp;&rsaquo;</a>"
+    },
+    {
+      "title_text": "A strong hardware ecosystem",
+      "image_html":  "<img src='https://assets.ubuntu.com/v1/bbe7b062-kernelt-vanilla-ehp-4.png' class='p-image-container__image' width='284' height='426' alt='Kernelt' />",
+      "description_html": "<p>We enable Ubuntu Core with the best ODMs and silicon vendors in the world. We continuously test it on leading IoT and edge devices and hardware.</p>",
+      "cta_html": "<a href='#'>Browse all certified hardware&nbsp;&rsaquo;</a>"
+    }
+  ]
+) %}
+  {% if slot == "description" %}
+    <p>
+      Ensure this block is taller than the heading on its left. Cloud types vary depending on who owns or
+      operates
+      them. It is also possible to use more than one cloud at a time in a hybrid or multi-cloud architecture. Cloud
+      types vary depending on who owns or operates them. It is also possible to use more than one cloud at a time
+      in
+      a hybrid or multi-cloud architecture. Cloud types vary depending on who owns or operates them. It is also
+      possible to use more than one cloud at a time in a hybrid or multi-cloud architecture.
+    </p>
+  {% endif %}
+  {% if slot == "cta" %}
+    <a href="#" class="p-button">Learn more</a>
+    <a href="#">Contact us&nbsp;&rsaquo;</a>
+  {% endif %}
+{% endcall %}
+{% endblock %}
