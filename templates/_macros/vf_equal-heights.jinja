@@ -1,0 +1,108 @@
+{#-
+  Params
+  - title_text (string) (required): The text to be displayed as the heading
+  - subtitle_text (string) (optional): The text to be displayed as the subtitle
+  - subtitle_heading_level (int) (optional): The heading level for the subtitle. Can be 4 or 5. Defaults to 5.
+  - image_aspect_ratio_small (string) (optional): The aspect ratio for item images on small screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "square".
+  - image_aspect_ratio_medium (string) (optional): The aspect ratio for item images on medium screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "square".
+  - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "2-3".
+  - items (array) (required): An array of items, each including 'image_html', 'title_text', 'description_html', and 'cta_html'.
+ -#}
+{%- macro vf_equal_heights(
+  title_text,
+  subtitle_text="",
+  subtitle_heading_level=5,
+  image_aspect_ratio_small="square",
+  image_aspect_ratio_medium="square",
+  image_aspect_ratio_large="2-3",
+  items=[]
+) -%}
+  {% set has_subtitle = subtitle_text | trim | length > 0 %}
+  {% set description_content = caller('description') | trim %}
+  {% set has_description = description_content | length > 0 %}
+  {% set cta_content = caller('cta') | trim %}
+  {% set has_cta = cta_content | length > 0 %}
+
+  {% set has_two_top_cols = has_subtitle or has_description %}
+
+  {%- if subtitle_heading_level not in [4, 5] -%}
+    {% set subtitle_heading_level=5 %}
+  {%- endif -%}
+
+  <div class="p-section">
+    <hr class="p-rule is-fixed-width"/>
+    <div class="p-section--shallow">
+    {%- if has_two_top_cols -%}
+      <div class="row--50-50-on-large">
+        <div class="col">
+    {%- endif -%}
+          <h2{% if not has_two_top_cols %} class="u-fixed-width"{% endif %}>{{ title_text }}</h2>
+    {%- if has_two_top_cols -%}
+        </div>
+    {%- endif -%}
+        {%- if has_two_top_cols -%}
+          <div class="col">
+            {%- if has_subtitle -%}
+              <p class="p-heading--{{ subtitle_heading_level }}">{{ subtitle_text }}</p>
+            {%- endif -%}
+            {%- if has_description -%}
+              {{- description_content -}}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+    {%- if has_two_top_cols -%}
+      </div>
+    {%- endif -%}
+    </div>
+
+    <div class="row">
+      <div class="{%- if items | length % 3 == 0 and items | length % 4 != 0 -%}col-9 col-start-large-4{%- else -%}col{%- endif -%}">
+        <div class="p-equal-height-row--wrap">
+          {%- for item in items -%}
+            {% set image = item.get("image_html") | trim %}
+            {% set title = item.get("title_text") | trim %}
+            {% set description = item.get("description_html") or "" | trim %}
+            {% set cta = item.get("cta_html") or "" | trim %}
+            <div class="p-equal-height-row__col is-borderless">
+              {#- Image item (required) -#}
+              <div class="p-equal-height-row__item">
+                <div
+                  class="p-image-container--{{ image_aspect_ratio_small }}-on-small p-image-container--{{ image_aspect_ratio_medium }}-on-medium p-image-container--{{ image_aspect_ratio_large }}-on-large is-cover">
+                  {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
+                  {{- image | safe -}}
+                </div>
+              </div>
+              {#- Title item (required) -#}
+              <div class="p-equal-height-row__item">
+                <hr class="p-rule--highlight"/>
+                <p class="p-heading--{{ subtitle_heading_level }}">{{- title -}}</p>
+              </div>
+              {#- Description item (optional) -#}
+              <div class="p-equal-height-row__item">
+                {{- description | safe -}}
+              </div>
+              {#- CTA item (optional) -#}
+              <div class="p-equal-height-row__item">
+                {%- if cta | length > 0 -%}
+                  <p>
+                    {{- cta | safe -}}
+                  </p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+          </div>
+      </div>
+    </div>
+    {%- if has_cta -%}
+      <div class="row">
+        <hr class="p-rule--muted">
+        <div class="col-6 col-medium-3 col-start-large-7 col-start-medium-4">
+          <p>
+            {{- cta_content -}}
+          </p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endmacro -%}

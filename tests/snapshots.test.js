@@ -11,6 +11,7 @@ const RESPONSIVE_COMBINED_EXAMPLES = [
   'patterns/grid-8/combined',
   'patterns/divider/combined',
   'patterns/image/combined',
+  'patterns/equal-heights/combined',
   'patterns/equal-height-row/combined',
   'patterns/lists/combined',
   'patterns/rich-list-horizontal/combined',
