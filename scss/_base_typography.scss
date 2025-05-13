@@ -18,17 +18,8 @@
     line-height: map-get($line-heights, default-text);
     text-wrap: pretty;
 
-    @if ($increase-font-size-on-larger-screens) {
-      font-size: map-get($base-font-sizes, base);
+    font-size: map-get($base-font-sizes, base);
 
-      @media (min-width: $breakpoint-x-large) {
-        font-size: map-get($base-font-sizes, large);
-        //the rem value is not affected by the change in font-size; it needs to be multiplied by the ratio new font-size/default font-size
-        line-height: map-get($line-heights, default-text) * $font-size-ratio--largescreen;
-      }
-    } @else {
-      font-size: map-get($base-font-sizes, base);
-    }
   }
 
   // headings
