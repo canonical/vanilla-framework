@@ -14,10 +14,24 @@ import talisker.requests
 import requests
 import flask
 import jinja2
+
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam.search import build_search_view
 from canonicalwebteam import image_template
+
+# --- OpenTelemetry imports ---
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+from opentelemetry.trace import Span
+from webapp.observability.utils import trace_function
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import (
+    OTLPSpanExporter
+)
+from opentelemetry.sdk.resources import Resource
 
 # Constants
 with open("package.json") as package_json:
@@ -64,6 +78,28 @@ with open("side-navigation.yaml") as side_navigation_file:
     for heading in SIDE_NAVIGATION:
         heading = alphabetize_heading_items(heading)
 
+# OpenTelemetry
+UNTRACED_ROUTES = [
+    "/_status",
+    ".*[.jpg|.jpeg|.png|.gif|.ico|.css|.js|.json]$",
+]
+
+
+# Setup tracing manually
+# could be removed if we can run dotrun with opentelemetry
+resource = Resource.create()
+trace.set_tracer_provider(TracerProvider(resource=resource))
+tracer_provider = trace.get_tracer_provider()
+otlp_exporter = OTLPSpanExporter()  # reads env variables
+tracer_provider.add_span_processor(BatchSpanProcessor(otlp_exporter))
+
+
+@trace_function
+def request_hook(span: Span, environ):
+    if span and span.is_recording():
+        span.update_name(f"{environ['REQUEST_METHOD']} {environ['PATH_INFO']}")
+
+
 
 app = FlaskBase(
     __name__,
@@ -74,6 +110,13 @@ app = FlaskBase(
     template_500="500.html",
 )
 session = talisker.requests.get_session()
+
+# Add tracing auto instrumentation
+FlaskInstrumentor().instrument_app(
+    app, excluded_urls=",".join(UNTRACED_ROUTES),
+    request_hook=request_hook
+)
+RequestsInstrumentor().instrument()
 
 TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
@@ -89,7 +132,7 @@ TEAM_MEMBERS = [
 def _get_title(title):
     yield title
 
-
+@trace_function
 def _get_examples():
     # get all example files (but ignore partials that start with _)
     example_files = glob.glob(
@@ -127,7 +170,7 @@ def _get_examples():
 
     return examples
 
-
+@trace_function
 def _make_github_request(endpoint):
     github_secret = os.getenv("GITHUB_TOKEN")
     headers = {}
@@ -146,7 +189,7 @@ def _make_github_request(endpoint):
 
     return response.json()
 
-
+@trace_function
 def _get_team_members(contributors):
     # based on the TEAM_MEMBERS list, see if
     # they're in the repo's list of contributors.
@@ -168,7 +211,7 @@ def _get_team_members(contributors):
         member["role"] = team_member["role"]
         yield member
 
-
+@trace_function
 def _get_contributors():
     contributors = _make_github_request(
         "repos/canonical/vanilla-framework/contributors"
@@ -176,7 +219,7 @@ def _get_contributors():
 
     return contributors
 
-
+@trace_function
 def _filter_team_members_from_contributors(contributors):
     member_usernames = {member["login"] for member in TEAM_MEMBERS}
     return [
@@ -185,7 +228,7 @@ def _filter_team_members_from_contributors(contributors):
         if contributor["login"] not in member_usernames
     ]
 
-
+@trace_function
 def _filter_bots_from_contributors(contributors):
     return [
         contributor
@@ -196,7 +239,7 @@ def _filter_bots_from_contributors(contributors):
         )
     ]
 
-
+@trace_function
 def _filter_contributors(contributors):
     # Distinguish team_members and bots from contributors
 
@@ -206,6 +249,7 @@ def _filter_contributors(contributors):
 
 
 # Global context settings
+@trace_function
 @app.context_processor
 def global_template_context():
     version_parts = VANILLA_VERSION.split(".")
@@ -247,12 +291,12 @@ def global_template_context():
         "updatedFeatures": updated_features,
     }
 
-
+@trace_function
 @app.template_filter()
 def markdown(text):
     return markupsafe.Markup(mistune.markdown(text))
 
-
+@trace_function
 def class_reference(component=None):
     component = (
         component
@@ -263,6 +307,7 @@ def class_reference(component=None):
         flask.render_template("_layouts/_class-reference.html", data=data)
     )
 
+@trace_function
 def status_label(status):
     variants = {
         "new": "positive",
@@ -275,6 +320,7 @@ def status_label(status):
         flask.render_template("_layouts/_status-label.html", status=status, variant=variants.get(status.lower(), "information"))
     )
 
+@trace_function
 @app.context_processor
 def utility_processor():
     return {"class_reference": class_reference, "image": image_template, "status": status_label}
@@ -283,6 +329,7 @@ def utility_processor():
 template_finder_view = TemplateFinder.as_view("template_finder")
 
 
+@trace_function
 @app.route("/docs/examples")
 def examples_index():
     return flask.render_template(
@@ -290,6 +337,7 @@ def examples_index():
     )
 
 
+@trace_function
 @app.route("/docs/examples/standalone")
 def standalone_examples_index():
     return flask.render_template(
@@ -297,6 +345,7 @@ def standalone_examples_index():
     )
 
 
+@trace_function
 @app.route("/docs/examples/<path:example_path>")
 def example(example_path, is_standalone=False):
     try:
@@ -316,11 +365,13 @@ def example(example_path, is_standalone=False):
         return flask.abort(404)
 
 
+@trace_function
 @app.route("/docs/examples/standalone/<path:example_path>")
 def standalone_example(example_path):
     return example(example_path, is_standalone=True)
 
 
+@trace_function
 @app.route("/contribute")
 def contribute_index():
     all_contributors = _get_contributors()
