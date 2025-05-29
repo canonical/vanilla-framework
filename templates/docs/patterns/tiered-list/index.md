@@ -89,6 +89,15 @@ respectively.
 View example of the tiered list pattern
 </a></div>
 
+## Full-width without first hr
+
+This variant uses the full-width layout but omits the horizontal rule that 
+would normally appear above the first tiered list item.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-without-first-hr/" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
 ## Additional CTA options
 
 In addition to the CTA block placed below the list, you may also add CTA blocks
