@@ -3,7 +3,6 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
-# is_first_hr_visible: whether the list item has a hr above it
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -12,8 +11,7 @@
 # cta: CTA block element
 {% macro vf_tiered_list(
   is_description_full_width_on_desktop=true,
-  is_list_full_width_on_tablet=true,
-  is_first_hr_visible=true) -%}
+  is_list_full_width_on_tablet=true) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
@@ -76,7 +74,7 @@
           {%- if is_list_full_width_on_tablet == true %}
             <div class="row">
               <div class="col-9 col-start-large-4">
-                {%- if number == 1 and not is_first_hr_visible %}
+                {%- if number == 1 %}
                   {# Skip the first HR #}
                 {%- else %}
                   <hr class="is-muted">
@@ -92,7 +90,7 @@
           {%- else %}
             <div class="row">
               <div class="col-9 col-start-large-4">
-                {%- if number == 1 and not is_first_hr_visible %}
+                {%- if number == 1 %}
                   {# Skip the first HR #}
                 {%- else %}
                   <hr class="is-muted">
