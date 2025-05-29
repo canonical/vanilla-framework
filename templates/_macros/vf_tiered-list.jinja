@@ -3,6 +3,7 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
+# is_first_hr_visible: whether the list item has a hr above it
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -11,7 +12,8 @@
 # cta: CTA block element
 {% macro vf_tiered_list(
   is_description_full_width_on_desktop=true,
-  is_list_full_width_on_tablet=true) -%}
+  is_list_full_width_on_tablet=true,
+  is_first_hr_visible=true) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
@@ -60,8 +62,8 @@
       When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
     -#}
     {%- if has_cta -%}
-    <div class="p-section--shallow">
-    {%- endif -%}
+      <div class="p-section--shallow">
+      {%- endif -%}
       {%- for number in range(1, 25) -%}
         {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
         {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
@@ -74,23 +76,27 @@
           {%- if is_list_full_width_on_tablet == true %}
             <div class="row">
               <div class="col-9 col-start-large-4">
-                <hr class="is-muted">
+                {%- if number == 1 and not is_first_hr_visible %}
+                  {# Skip the first HR #}
+                {%- else %}
+                  <hr class="is-muted">
+                {%- endif %}
               </div>
             </div>
 
             <div class="row">
-              <div class="col-3 col-start-large-4">
-                {{ list_item_title_content }}
-              </div>
+              <div class="col-3 col-start-large-4">{{ list_item_title_content }}</div>
 
-              <div class="col-6">
-                {{ list_item_description_content }}
-              </div>
+              <div class="col-6">{{ list_item_description_content }}</div>
             </div>
           {%- else %}
             <div class="row">
               <div class="col-9 col-start-large-4">
-                <hr class="is-muted">
+                {%- if number == 1 and not is_first_hr_visible %}
+                  {# Skip the first HR #}
+                {%- else %}
+                  <hr class="is-muted">
+                {%- endif %}
               </div>
             </div>
 
@@ -106,13 +112,13 @@
           {%- endif -%}
         {%- endif -%}
       {% endfor %}
-    {%- if has_cta -%}
-    </div>
+      {%- if has_cta -%}
+      </div>
     {%- endif -%}
 
     {% if has_cta == true -%}
       <div class="row">
-        <hr class="p-rule--muted"/>
+        <hr class="p-rule--muted">
         <div class="col-6 col-start-large-7">
           <p>
             {{ cta_content }}
