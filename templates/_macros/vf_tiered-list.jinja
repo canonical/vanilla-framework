@@ -72,15 +72,14 @@
             iterating through 25 potential list items -#}
         {%- if has_title_content and has_description_content -%}
           {%- if is_list_full_width_on_tablet == true %}
-            <div class="row">
-              <div class="col-9 col-start-large-4">
-                {%- if number == 1 %}
-                  {# Skip the first HR #}
-                {%- else %}
+            {#- Skip the first HR -#}
+            {%- if number != 1 %}
+              <div class="row">
+                <div class="col-9 col-start-large-4">
                   <hr class="is-muted">
-                {%- endif %}
+                </div>
               </div>
-            </div>
+            {%- endif -%}
 
             <div class="row">
               <div class="col-3 col-start-large-4">{{ list_item_title_content }}</div>
@@ -88,15 +87,14 @@
               <div class="col-6">{{ list_item_description_content }}</div>
             </div>
           {%- else %}
-            <div class="row">
-              <div class="col-9 col-start-large-4">
-                {%- if number == 1 %}
-                  {# Skip the first HR #}
-                {%- else %}
+            {#- Skip the first HR -#}
+            {%- if number != 1 %}
+              <div class="row">
+                <div class="col-9 col-start-large-4">
                   <hr class="is-muted">
-                {%- endif %}
+                </div>
               </div>
-            </div>
+            {%- endif -%}
 
             <div class="row">
               <div class="col-medium-3 col-3 col-start-large-4">
