@@ -8,6 +8,7 @@ import yaml
 import urllib
 import markupsafe
 import mistune
+import re
 
 # Packages
 import talisker.requests
@@ -279,7 +280,19 @@ def utility_processor():
     return {"class_reference": class_reference, "image": image_template, "status": status_label}
 
 
-template_finder_view = TemplateFinder.as_view("template_finder")
+# Overrides the representation of the headers that have spans inside them to not add the label content to the id of the header. Enforces a restriction in which two headers with the same text but different tags should not exist. 
+class TemplateFinderStatusTags(TemplateFinder):
+    def dispatch_request(self, *args, **kwargs):
+        inherited_result = super().dispatch_request(*args, **kwargs) 
+        labeled_headers = [result[0] for result in re.findall(r"(<(h\d+).*?>.*?(<span.*?>.*</span>).*?</\2>)", inherited_result)]
+        for header in labeled_headers:
+            statuses = {"-".join(status.split(" ")): "" for status in re.findall(r"<span.*?>(.*?)</span>", header)} # Dictionary to preserve key insertion order
+            label = ("-" + "-".join(statuses.keys())).lower()
+            unlabeled_header = header.replace(label, "")
+            inherited_result = inherited_result.replace(header, unlabeled_header)
+        return inherited_result
+
+template_finder_view = TemplateFinderStatusTags.as_view("template_finder")
 
 
 @app.route("/docs/examples")
