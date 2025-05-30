@@ -481,7 +481,7 @@
   function fixScroll() {
     const titleId = window.location.hash;
     if (titleId) {
-      const title = document.querySelector(titleId);
+      const title = document.querySelector(`[id="${titleId.substring(1)}"]`);
       title.scrollIntoView();
     }
   }
