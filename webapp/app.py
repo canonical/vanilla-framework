@@ -34,7 +34,9 @@ with open("releases.yml") as releases_file:
 with open("side-navigation.yaml") as side_navigation_file:
     # maps values of `side_navigation_file.subheadings.ordering` to their implementations
     supported_orderings = {
-        "alphabetical": lambda subheadings, by_attribute: sorted(subheadings, key=lambda subheading: subheading[by_attribute])
+        "alphabetical": lambda subheadings, by_attribute: sorted(
+            subheadings, key=lambda subheading: subheading[by_attribute]
+        )
     }
 
     SIDE_NAVIGATION = yaml.load(
@@ -54,11 +56,15 @@ with open("side-navigation.yaml") as side_navigation_file:
         subheadings_ordering_fn = None
         try:
             subheadings_ordering_identifier = heading["ordering"]
-            subheadings_ordering_fn = supported_orderings[subheadings_ordering_identifier]
+            subheadings_ordering_fn = supported_orderings[
+                subheadings_ordering_identifier
+            ]
         except KeyError:
             return heading
 
-        heading["subheadings"] = subheadings_ordering_fn(heading["subheadings"], by_attribute)
+        heading["subheadings"] = subheadings_ordering_fn(
+            heading["subheadings"], by_attribute
+        )
 
         return heading
 
@@ -80,7 +86,7 @@ TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
     {"login": "advl", "role": "Engineering Manager"},
     {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
-    {"login": "jmuzina", "role": "Web Engineer"}
+    {"login": "jmuzina", "role": "Web Engineer"},
 ]
 
 
@@ -92,9 +98,7 @@ def _get_title(title):
 
 def _get_examples():
     # get all example files (but ignore partials that start with _)
-    example_files = glob.glob(
-        "templates/docs/examples/*/**/[!_]*.html", recursive=True
-    )
+    example_files = glob.glob("templates/docs/examples/*/**/[!_]*.html", recursive=True)
     examples = {}
 
     for filepath in sorted(example_files):
@@ -155,9 +159,7 @@ def _get_team_members(contributors):
     # their user data instead. If that fails, fall
     # back to what is stored in the TEAM_MEMBERS array.
 
-    contributors = {
-        contributor["login"]: contributor for contributor in contributors
-    }
+    contributors = {contributor["login"]: contributor for contributor in contributors}
 
     for team_member in TEAM_MEMBERS:
         member = (
@@ -192,7 +194,7 @@ def _filter_bots_from_contributors(contributors):
         for contributor in contributors
         if (
             contributor["type"].lower() != "bot"
-            and contributor["id"] != 25180681 # renovate-bot
+            and contributor["id"] != 25180681  # renovate-bot
         )
     ]
 
@@ -226,9 +228,7 @@ def global_template_context():
 
     # Read navigation.yaml
     with open("component_tabs.yaml") as component_tabs_file:
-        component_tabs = yaml.load(
-            component_tabs_file.read(), Loader=yaml.FullLoader
-        )
+        component_tabs = yaml.load(component_tabs_file.read(), Loader=yaml.FullLoader)
 
     updated_features = {}
     for feature in FEATURES_LIST[0]["features"]:
@@ -255,51 +255,70 @@ def markdown(text):
 
 def class_reference(component=None):
     component = (
-        component
-        or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
+        component or urllib.parse.urlsplit(flask.request.path).path.split("/")[-1]
     )
     data = CLASS_REFERENCES["class-references"][component]
     return markupsafe.Markup(
         flask.render_template("_layouts/_class-reference.html", data=data)
     )
 
+
 def status_label(status):
     variants = {
         "new": "positive",
         "updated": "information",
-        "deprecated":"negative",
+        "deprecated": "negative",
         "in progress": "warning",
     }
 
     return markupsafe.Markup(
-        flask.render_template("_layouts/_status-label.html", status=status, variant=variants.get(status.lower(), "information"))
+        flask.render_template(
+            "_layouts/_status-label.html",
+            status=status,
+            variant=variants.get(status.lower(), "information"),
+        )
     )
+
 
 @app.context_processor
 def utility_processor():
-    return {"class_reference": class_reference, "image": image_template, "status": status_label}
+    return {
+        "class_reference": class_reference,
+        "image": image_template,
+        "status": status_label,
+    }
 
 
-# Overrides the representation of the headers that have spans inside them to not add the label content to the id of the header. Enforces a restriction in which two headers with the same text but different tags should not exist. 
+# Overrides the representation of the headers that have spans inside them to not add the label content to the id of the header. Enforces a restriction in which two headers with the same text but different tags should not exist.
 class TemplateFinderStatusTags(TemplateFinder):
     def dispatch_request(self, *args, **kwargs):
-        inherited_result = super().dispatch_request(*args, **kwargs) 
-        labeled_headers = [result[0] for result in re.findall(r"(<(h\d+).*?>.*?(<span.*?>.*</span>).*?</\2>)", inherited_result)]
+        inherited_result = super().dispatch_request(*args, **kwargs)
+        # Finds all headers that inside have a span with class "p-status-label-{something}".
+        labeled_headers = [
+            result[0]
+            for result in re.findall(
+                r'(<(h\d+).*?>.*?(<span.*?class=".*?p-status-label--.*?".*?>.*</span>).*?</\2>)',
+                inherited_result,
+            )
+        ]
         for header in labeled_headers:
-            statuses = {"-".join(status.split(" ")): "" for status in re.findall(r"<span.*?>(.*?)</span>", header)} # Dictionary to preserve key insertion order
-            label = ("-" + "-".join(statuses.keys())).lower()
+            # Removes the "-{something}" that is added to the id.
+            statuses = [
+                "-".join(status.split(" "))
+                for status in re.findall(r"<span.*?>(.*?)</span>", header)
+            ]
+            label = ("-" + "-".join(statuses)).lower()
             unlabeled_header = header.replace(label, "")
             inherited_result = inherited_result.replace(header, unlabeled_header)
         return inherited_result
+
 
 template_finder_view = TemplateFinderStatusTags.as_view("template_finder")
 
 
 @app.route("/docs/examples")
 def examples_index():
-    return flask.render_template(
-        "docs/examples/index.html", examples=_get_examples()
-    )
+    return flask.render_template("docs/examples/index.html", examples=_get_examples())
 
 
 @app.route("/docs/examples/standalone")
@@ -319,7 +338,9 @@ def example(example_path, is_standalone=False):
             # separate directory from file name so that flask.send_from_directory() can prevent malicious file access
             raw_example_directory = os.path.dirname(raw_example_path)
             raw_example_file_name = os.path.basename(raw_example_path)
-            return flask.send_from_directory(raw_example_directory, raw_example_file_name, mimetype="text/raw")
+            return flask.send_from_directory(
+                raw_example_directory, raw_example_file_name, mimetype="text/raw"
+            )
 
         return flask.render_template(
             f"docs/examples/{example_path}.html", is_standalone=is_standalone
