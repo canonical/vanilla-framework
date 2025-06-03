@@ -241,6 +241,11 @@
     vertical-align: calc($vertical-offset + 0.5 * $cap-height - 0.5 * $default-icon-size);
   }
 
+  %themed-icon {
+    @extend %icon;
+    background-color: currentColor;
+  }
+
   %social-icon {
     @extend %vf-hide-text;
     @include vf-icon-size(map-get($icon-sizes, heading-icon--x-small));
