@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/vanilla-framework.svg)](http://badge.fury.io/js/vanilla-framework)
 [![Downloads](http://img.shields.io/npm/dm/vanilla-framework.svg)](https://www.npmjs.com/package/vanilla-framework)
+[![Chat in #vanilla:ubuntu.com on Matrix](https://img.shields.io/badge/chat-%23vanilla:ubuntu.com-blue.svg)](https://matrix.to/#/#vanilla:ubuntu.com)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io)
 
 Vanilla Framework is an extensible CSS framework, built using [Sass](http://sass-lang.com/) and is designed to be used either directly or by using themes to extend or supplement its patterns.
