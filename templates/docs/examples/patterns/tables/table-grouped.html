@@ -1,0 +1,157 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Table / Grouped{% endblock %}
+
+{% block standalone_css %}base{% endblock %}
+
+{#- https://www.w3.org/WAI/tutorials/tables/irregular/ -#}
+
+{% block content %}
+<table aria-label="Example of a grouped table">
+  <thead>
+  <tr>
+    <td></td>
+    <th><strong>IoT/Edge</strong></th>
+    <th><strong>Embedded</strong></th>
+    <th><strong>Workstation</strong></th>
+    <th><strong>Containers</strong></th>
+    <th><strong>Data centre</strong></th>
+    <th><strong>Cloud</strong></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th rowspan="4" scope="rowgroup"><strong>Platform</strong></th>
+    <td></td>
+    <td><a href="#">Real-time Ubuntu</a></td>
+    <td><a href="#">Ubuntu Desktop</a></td>
+    <td><a href="#">LXD</a></td>
+    <td><a href="#">Canonical Kubeflow</a></td>
+    <td><a href="#">Anbox Cloud</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="#">Robotics</a></td>
+    <td><a href="#">Ubuntu Kernel</a></td>
+    <td><a href="#">Multipass</a></td>
+    <td><a href="#">Canonical Kubernetes</a></td>
+    <td><a href="#">MicroCloud</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="#">Ubuntu Core</a></td>
+    <td><a href="#">Ubuntu Server</a></td>
+    <td><a href="#">Ubuntu WSL</a></td>
+    <td><a href="#">Canonical OpenStack</a></td>
+    <td><a href="#">Public Cloud</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td><a href="#">Ubuntu for developers</a></td>
+    <td></td>
+    <td><a href="#">MicroK8s</a></td>
+    <td><a href="#">Ubuntu on AWS</a></td>
+  </tr>
+  <tr style="border-top: 1px solid var(--vf-color-border-default);">
+    <th rowspan="4" scope="rowgroup"><strong>Management</strong></th>
+    <td><a href="#">Pebble</a></td>
+    <td><a href="#">Snap</a></td>
+    <td><a href="#">Landscape</a></td>
+    <td><a href="#">Data Science Stack</a></td>
+    <td><a href="#">JAAS</a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td><a href="#">Ubuntu Pro</a></td>
+    <td></td>
+    <td><a href="#">Juju</a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#">Launchpad</a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#">MAAS</a></td>
+    <td></td>
+  </tr>
+  <tr style="border-top: 1px solid var(--vf-color-border-default);">
+    <th rowspan="2" scope="rowgroup"><strong>Stores</strong></th>
+    <td></td>
+    <td><a href="#">Snap Store</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#">Charmhub</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="#">Snap Store Proxy</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr style="border-top: 1px solid var(--vf-color-border-default);">
+    <th rowspan="5" scope="rowgroup"><strong>Apps</strong></th>
+    <td></td>
+    <td><a href="#">Matter on Ubuntu</a></td>
+    <td><a href="#">ADSys</a></td>
+    <td><a href="#">dqlite</a></td>
+    <td><a href="#">Ceph</a></td>
+    <td><a href="#">authd</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="#">Mir</a></td>
+    <td><a href="#">Netplan</a></td>
+    <td></td>
+    <td><a href="#">Charmed MLflow</a></td>
+    <td><a href="#">Charmed Data</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#">MicroCeph</a></td>
+    <td><a href="#">cloud-init</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#">MicroOVN</a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#">MicroStack</a></td>
+    <td></td>
+  </tr>
+  <tr style="border-top: 1px solid var(--vf-color-border-default);">
+    <th scope="row"><strong>Tools</strong></th>
+    <td></td>
+    <td><a href="#">Snapcraft</a></td>
+    <td><a href="#">Chisel</a></td>
+    <td><a href="#">Rockcraft</a></td>
+    <td><a href="#">Charmcraft</a></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+{% endblock %}
