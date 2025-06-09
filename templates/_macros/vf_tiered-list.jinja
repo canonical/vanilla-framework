@@ -64,16 +64,12 @@
       <div class="row">
         {%- if is_image_full_width -%}
           <div class="p-section--shallow">
-            <div class="p-image-container--cinematic">
-              {{ image }}
-            </div>
+            {{ image }}
           </div>
         {%- else -%}
           <div class="col-start-large-7">
             <div class="p-section--shallow">
-              <div class="p-image-container--cinematic">
-                {{ image }}
-              </div>
+              {{ image }}
             </div>
           </div>
         {%- endif -%}
@@ -136,7 +132,7 @@
     {%- endif -%}
 
     {% if has_cta == true -%}
-      <div class="p-cta-block"> {# This div adds the shallow spacing around the CTA #}
+      <div class="p-cta-block">
         <div class="row">
           <div class="col-6 col-start-large-7">
             {{ cta_content }}
@@ -146,25 +142,3 @@
     {%- endif %}
   </div>
 {%- endmacro %}
-
-    {%- if image -%}
-      <div class="row">
-        {%- if is_image_full_width -%}
-        <div class="p-section--shallow">
-          {{ image }}
-        </div>
-        {%- else -%}
-          <div class="col-start-large-5 col-9">
-            <div class="p-section--shallow">
-              {{ image }}
-            </div>
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-
-    {#-
-      When there is a CTA, we use shallow spacing to space the list away from the CTA.
-      When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
-    -#}
-    {%- if has_cta -%}
