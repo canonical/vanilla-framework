@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
       - name: Read Vanilla version from package.json
         run: |
           node -p "require('./package.json').version" > VANILLA_VERSION
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 22
           registry-url: https://registry.npmjs.org/
       - if: ${{ !github.event.release.prerelease }}
         run: npm publish
