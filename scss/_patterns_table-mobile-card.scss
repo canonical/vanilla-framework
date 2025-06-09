@@ -42,7 +42,10 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           width: 100%;
+          // word-break: break-word is deprecated, but overflow-wrap: anywhere is not yet baseline supported.
+          // stylelint-disable declaration-property-value-keyword-no-deprecated
           word-break: break-word;
+          // stylelint-enable declaration-property-value-keyword-no-deprecated
           // stylelint-disable max-nesting-depth
           &.u-align--right {
             justify-content: unset !important;
