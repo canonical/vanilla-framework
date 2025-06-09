@@ -20,7 +20,6 @@ from a variety of tiered list layouts:
 - [50/50 with description](#5050-with-description)
 - [Full-width without description](#full-width-without-description)
 - [Full-width with description](#full-width-with-description)
-- [Default-width image](#full-width-with-description)
 - [With media](#with-media-new)
 
 The tiered list pattern is composed of the following elements:
