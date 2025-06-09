@@ -3,31 +3,90 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
-# is_image_full_width: whether the image is full width
+# is_media_full_width: whether the media is full width
+# media_placement: where the image is placed relative to the description. Options are "after_description" or "before_description".
 # Slots
 # title: top-level title element
 # description: top-level description element
-# image: top-level image element
+# video: top-level video element. Mutually exclusive with image, and takes priority over the image.
+# image: top-level image element. Mutually exclusive with video. Is not rendered if the video is provided.
 # list_item_title_[1-25]: title element of each child list item
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
 {% macro vf_tiered_list(
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true,
-  is_image_full_width=false) -%}
+  is_media_full_width=false,
+  media_placement="after_description"
+  ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
-  {%- set image = caller('image') -%}
-  {%- set has_image = image|trim|length > 0 -%}
+  {%- set image_content = caller('image') -%}
+  {%- set has_image = image_content|trim|length > 0 -%}
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
+  {%- set video_content = caller('video') -%}
+  {%- set has_video = video_content|trim|length > 0 -%}
+  {%- set has_media = has_image or has_video -%}
 
-  <div class="u-fixed-width">
+  {% if media_placement not in ["before_description", "after_description"] %}
+    {% set media_placement = "after_description" %}
+  {% endif %}
+
+  {% set image_aspect_ratio = "16-9" %}
+  {% if is_media_full_width and not is_video %}
+    {% set image_aspect_ratio = "cinematic" %}
+  {% endif %}
+
+  {% macro _wrapped_media() %}
+    {%- if has_media -%}
+      {%- if has_video -%}
+        <div class="p-section--shallow">
+          {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
+          <div class="u-embedded-media">
+            {#- Assume u-embedded-media__element on the content -#}
+            {{- video_content -}}
+          </div>
+        </div>
+      {%- elif has_image -%}
+        <div class="p-section--shallow">
+          <div class="p-image-container--{{ image_aspect_ratio }} is-cover">
+            {#- Assume p-image-container__image on the content -#}
+            {{- image_content -}}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  {% endmacro %}
+
+  {% macro _full_width_media_row() %}
+    {%- if has_media and is_media_full_width -%}
+      <div class="row">
+        <div class="col">
+          {{- _wrapped_media() -}}
+        </div>
+      </div>
+    {%- endif -%}
+  {% endmacro %}
+
+  {%- if title_content|trim|length == 0 -%}
+    {%- set title_content = "<h2>Tiered List</h2>" -%}
+  {%- endif -%}
+
+  {%- if description_content|trim|length == 0 -%}
+    {%- set description_content = "<p>This is a tiered list.</p>" -%}
+  {%- endif -%}
+
+  {%- if cta_content|trim|length == 0 -%}
+    {%- set cta_content = "<p>No CTA provided.</p>" -%}
+  {%- endif -%}
+
+  <div class="p-section u-fixed-width">
     <hr class="p-rule">
 
-    {% if has_description == true -%}
-      {%- if is_description_full_width_on_desktop == true -%}
+    {% if has_description -%}
+      {%- if is_description_full_width_on_desktop -%}
         <div class="u-fixed-width">
           <div class="p-section--shallow">
             {{ title_content }}
@@ -36,10 +95,18 @@
 
         <div class="row">
           <div class="col-6 col-start-large-7">
+            {#- Non-full-width media before description -#}
+            {% if has_media and media_placement == "before_description" and not is_media_full_width %}
+              {{- _wrapped_media() -}}
+            {% endif %}
             {{ description_content }}
+            {#- Non-full-width media after description -#}
+            {% if has_media and media_placement == "after_description" and not is_media_full_width %}
+              {{- _wrapped_media() -}}
+            {% endif %}
           </div>
         </div>
-      {%- else -%}
+      {%- else -%} {#- (50/50 desktop layout) -#}
         <div class="row">
           <div class="col-6">
             <div class="p-section--shallow">
@@ -48,33 +115,38 @@
           </div>
 
           <div class="col-6">
+            {#- Non-full-width media before description -#}
+            {%- if has_media and media_placement == "before_description" and not is_media_full_width -%}
+              {{- _wrapped_media() -}}
+            {%- endif -%}
             {{ description_content }}
+            {#- Non-full-width media after description -#}
+            {%- if has_media and media_placement == "after_description" and not is_media_full_width -%}
+              {{- _wrapped_media() -}}
+            {%- endif -%}
           </div>
         </div>
       {%- endif -%}
-    {%- else -%}
-      <div class="u-fixed-width">
-        <div class="p-section--shallow">
-          {{ title_content }}
+    {%- else -%} {#- No description (has_description is false) -#}
+      <div class="row">
+        {#- No description; the non-full-width media goes directly adjacent to the title -#}
+        <div class="{% if not has_media or is_media_full_width %}col{% else %}col-6{% endif %}">
+          <div class="p-section--shallow">
+            {{ title_content }}
+          </div>
         </div>
+        {% if has_media and not is_media_full_width %}
+          <div class="col-6 col-start-large-7">
+            {{- _wrapped_media() -}}
+          </div>
+        {% endif %}
       </div>
     {%- endif %}
 
-    {% if has_image -%}
-      <div class="row">
-        {%- if is_image_full_width -%}
-          <div class="p-section--shallow">
-            {{ image }}
-          </div>
-        {%- else -%}
-          <div class="col-start-large-7">
-            <div class="p-section--shallow">
-              {{ image }}
-            </div>
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
+    {#- Always render full-width media in its own row, after the main title/description/no-description blocks -#}
+    {% if has_media and is_media_full_width %}
+      {{- _full_width_media_row() -}}
+    {% endif %}
 
     {#-
       When there is a CTA, we use shallow spacing to space the list away from the CTA.
@@ -132,11 +204,12 @@
     {%- endif -%}
 
     {% if has_cta == true -%}
-      <div class="p-cta-block">
-        <div class="row">
-          <div class="col-6 col-start-large-7">
+      <div class="row">
+        <hr class="p-rule--muted"/>
+        <div class="col-6 col-start-large-7">
+          <p>
             {{ cta_content }}
-          </div>
+          </p>
         </div>
       </div>
     {%- endif %}
