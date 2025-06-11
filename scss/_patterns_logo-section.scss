@@ -18,6 +18,8 @@
   .p-logo-section--dense {
     .p-logo-section__item {
       display: inline-block;
+      // parent p-logo-section__items has font-size: 0 to hide whitespace characters, so we need to display text (like alt text in case of failed image load) for an item.
+      font-size: 1rem;
       margin: 0;
       margin-bottom: calc(-1 * $logo-section-offset-small); // pull the next row of logos up
       margin-right: $logo-section-item-gap;
@@ -42,10 +44,6 @@
 
     .p-logo-section__items {
       font-size: 0; // prevent extra space from whitespace characters
-      // stylelint-disable-next-line selector-max-type -- Override the font-size for images so that alt text is rendered in case the image doesn't load
-      img {
-        font-size: 1rem;
-      }
 
       line-height: 0; // prevent space between rows of inline logos
       margin-right: #{-1 * $logo-section-item-gap}; // Pull the items to fit more items per row
