@@ -5,7 +5,9 @@
       .p-cta-block:
         Main element of the CTA block.
       "&.is-borderless":
-        Borderless variant, to be used to hide top border and padding.
+        Deprecated modifier class that removed top border and padding before v4.25.0. This is now the default behavior, so this class is no longer needed.
+      "&.has-border":
+        Deprecated modifier class that adds a top border and padding.
 */
 
 @import 'settings';
@@ -13,15 +15,20 @@
 @mixin vf-p-cta-block {
   .p-cta-block {
     align-items: baseline;
-    border-top: 1px solid $colors--theme--border-low-contrast;
     display: flex;
     flex-wrap: wrap;
     padding-bottom: $spv--x-large;
-    padding-top: $spv--small;
 
+    &,
+      /** deprecated, borderless is now default behavior */
     &.is-borderless {
       border: none;
       padding-top: 0;
+    }
+
+    &.has-border {
+      border-top: 1px solid $colors--theme--border-low-contrast;
+      padding-top: $spv--small;
     }
   }
 }
