@@ -41,8 +41,13 @@
     }
 
     .p-logo-section__items {
-      line-height: 0; // prevent space between rows of inline logos
+      font-size: 0; // prevent extra space from whitespace characters
+      // stylelint-disable-next-line selector-max-type -- Override the font-size for images so that alt text is rendered in case the image doesn't load
+      img {
+        font-size: 1rem;
+      }
 
+      line-height: 0; // prevent space between rows of inline logos
       margin-right: #{-1 * $logo-section-item-gap}; // Pull the items to fit more items per row
 
       // compensate for the negative margin on the logos
