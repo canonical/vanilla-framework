@@ -20,40 +20,41 @@
 
   <div class="p-section u-fixed-width">
     <hr class="p-rule">
-
-    {% if has_description == true -%}
-      {%- if is_description_full_width_on_desktop == true -%}
-        <div class="u-fixed-width">
-          <div class="p-section--shallow">
-            {{ title_content }}
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6 col-start-large-7">
-            {{ description_content }}
-          </div>
-        </div>
-      {%- else -%}
-        <div class="row">
-          <div class="col-6">
+    <div class="p-section--shallow">
+      {% if has_description == true -%}
+        {%- if is_description_full_width_on_desktop == true -%}
+          <div class="u-fixed-width">
             <div class="p-section--shallow">
               {{ title_content }}
             </div>
           </div>
 
-          <div class="col-6">
-            {{ description_content }}
+          <div class="row">
+            <div class="col-6 col-start-large-7">
+              {{ description_content }}
+            </div>
+          </div>
+        {%- else -%}
+          <div class="row">
+            <div class="col-6">
+              <div class="p-section--shallow">
+                {{ title_content }}
+              </div>
+            </div>
+
+            <div class="col-6">
+              {{ description_content }}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="u-fixed-width">
+          <div class="p-section--shallow">
+            {{ title_content }}
           </div>
         </div>
-      {%- endif -%}
-    {%- else -%}
-      <div class="u-fixed-width">
-        <div class="p-section--shallow">
-          {{ title_content }}
-        </div>
-      </div>
-    {%- endif %}
+      {%- endif %}
+    </div>
 
     {#-
       When there is a CTA, we use shallow spacing to space the list away from the CTA.
