@@ -1,0 +1,174 @@
+# WIP, this is so far a copy of the c.com config
+# https://github.com/canonical/canonical.com/pull/1746
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  # TODO remove after PR is merged
+  pull_request: 
+    branches:
+      - charm
+  release:
+    types:
+      - published
+
+env:
+  CHARMCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS: true
+  ROCKCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS: true
+  CHARM_NAME: vanillaframework-io-charm
+
+jobs:
+  pack-charm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+        # Todo not sure if we need LXD
+      - name: Setup LXD
+        uses: canonical/setup-lxd@main
+
+      - name: Setup Charmcraft
+        run: sudo snap install charmcraft --classic --channel=latest/edge
+
+      - name: Pack charm
+        run: charmcraft pack -v --project-dir ./charm
+
+      - name: Upload charm
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CHARM_NAME }}
+          path: ./*.charm
+
+  pack-rock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+
+      - name: Build Assets
+        run: |
+          yarn install
+          yarn run build
+
+        # Todo not sure if we need LXD
+      - name: Setup LXD
+        uses: canonical/setup-lxd@main
+
+      - name: Create repositories directory
+        run: |
+          mkdir -m 777 repositories
+          mkdir -m 777 tree-cache
+
+      - name: Setup Rockcraft
+        run: sudo snap install rockcraft --classic --channel=latest/edge
+
+      - name: Pack Rock
+        run: rockcraft pack
+
+      - name: Upload Rock
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CHARM_NAME }}
+          path: ./*.rock
+
+  publish-image:
+    runs-on: ubuntu-latest
+    needs: pack-rock
+    outputs:
+      image_url: ${{ steps.set_image_url.outputs.image_url }}
+    steps:
+      - name: Get Rock
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.CHARM_NAME }}
+
+      - name: Set image URL
+        id: set_image_url
+        run: echo "image_url=ghcr.io/canonical/vanillaframework.io:$(date +%s)-${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
+
+      - name: Push to GHCR
+        run: skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
+
+  deploy-staging:
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    runs-on: [self-hosted, self-hosted-linux-amd64-jammy-private-endpoint-medium]
+    needs: [pack-charm, publish-image]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo snap install juju --channel=3.4/stable --classic
+          sudo snap install vault --classic
+
+      - name: Download Charm Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.CHARM_NAME }}
+
+      - name: Configure Vault and Juju
+        run: |
+          export VAULT_ADDR=https://vault.admin.canonical.com:8200
+          export TF_VAR_login_approle_role_id=${{ secrets.STG_VAULT_APPROLE_ROLE_ID }}
+          export TF_VAR_login_approle_secret_id=${{ secrets.STG_VAULT_APPROLE_SECRET_ID }}
+          export VAULT_SECRET_PATH_ROLE=secret/prodstack6/roles/stg-staging-vanillaframework-io
+          export VAULT_SECRET_PATH_COMMON=secret/prodstack6/juju/common
+          VAULT_TOKEN=$(vault write -f -field=token auth/approle/login role_id=${TF_VAR_login_approle_role_id} secret_id=${TF_VAR_login_approle_secret_id}) 
+          export VAULT_TOKEN
+          mkdir -p ~/.local/share/juju
+          vault read -field=controller_config "${VAULT_SECRET_PATH_COMMON}/controllers/juju-controller-35-staging-ps6" | base64 -d > ~/.local/share/juju/controllers.yaml
+          USERNAME=$(vault read -field=username "${VAULT_SECRET_PATH_ROLE}/juju")
+          PASSWORD=$(vault read -field=password "${VAULT_SECRET_PATH_ROLE}/juju")
+          printf "controllers:\n  juju-controller-35-staging-ps6:\n    user: %s\n    password: %s\n" "$USERNAME" "$PASSWORD" > ~/.local/share/juju/accounts.yaml
+
+      - name: Deploy Application to staging
+        run: |
+          export JUJU_MODEL=admin/stg-staging-vanillaframework-io
+          juju refresh vanillaframework-io --path ./vanillaframework-io_ubuntu-22.04-amd64.charm --resource flask-app-image=${{ needs.publish-image.outputs.image_url }}
+          juju wait-for application vanillaframework-io --query='name=="vanillaframework-io" && (status=="active" || status=="idle")'
+
+  deploy-production:
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: [self-hosted, self-hosted-linux-amd64-jammy-private-endpoint-medium]
+    needs: [pack-charm, publish-image]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo snap install juju --channel=3.6/stable --classic
+          sudo snap install vault --classic
+
+      - name: Download Charm Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.CHARM_NAME }}
+
+      - name: Configure Vault and Juju
+        run: |
+          export VAULT_ADDR=https://vault.admin.canonical.com:8200
+          export TF_VAR_login_approle_role_id=${{ secrets.PROD_VAULT_APPROLE_ROLE_ID }}
+          export TF_VAR_login_approle_secret_id=${{ secrets.PROD_VAULT_APPROLE_SECRET_ID }}
+          export VAULT_SECRET_PATH_ROLE=secret/prodstack6/roles/prod-vanillaframework-io
+          export VAULT_SECRET_PATH_COMMON=secret/prodstack6/juju/common
+          VAULT_TOKEN=$(vault write -f -field=token auth/approle/login role_id=${TF_VAR_login_approle_role_id} secret_id=${TF_VAR_login_approle_secret_id}) 
+          export VAULT_TOKEN
+          mkdir -p ~/.local/share/juju
+          vault read -field=controller_config "${VAULT_SECRET_PATH_COMMON}/controllers/juju-controller-36-production-ps6" | base64 -d > ~/.local/share/juju/controllers.yaml
+          USERNAME=$(vault read -field=username "${VAULT_SECRET_PATH_ROLE}/juju")
+          PASSWORD=$(vault read -field=password "${VAULT_SECRET_PATH_ROLE}/juju")
+          printf "controllers:\n  juju-controller-36-production-ps6:\n    user: %s\n    password: %s\n" "$USERNAME" "$PASSWORD" > ~/.local/share/juju/accounts.yaml
+
+      - name: Deploy Application to production
+        run: |
+          export JUJU_MODEL=admin/prod-vanillaframework-io
+          juju refresh vanillaframework-io --path ./vanillaframework-io_ubuntu-22.04-amd64.charm --resource flask-app-image=${{ needs.publish-image.outputs.image_url }}
+          juju wait-for application vanillaframework-io --query='name=="vanillaframework-io" && (status=="active" || status=="idle")'
