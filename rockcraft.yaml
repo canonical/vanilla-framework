@@ -1,0 +1,29 @@
+name: vanillaframework-io
+base: ubuntu@22.04
+version: '0.1'
+summary: A simple, extendable CSS framework.
+description: |
+  This is the rockcraft for the vanillaframework.io
+license: LGPL-3.0
+platforms:
+  amd64:
+
+extensions:
+  - flask-framework
+
+parts:
+  flask-framework/install-app:
+    prime:
+      - flask/app/package.json
+      - flask/app/_index.scss
+      - flask/app/.env
+      - flask/app/app.py
+      - flask/app/scss
+      - flask/app/tokens
+      - flask/app/templates
+      - flask/app/scripts
+      - flask/app/component_tabs.yaml
+      - flask/app/deleted.yaml
+      - flask/app/releases.yml
+      - flask/app/redirects.yaml
+      - flask/app/side-navigation.yaml
