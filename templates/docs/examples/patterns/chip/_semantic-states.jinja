@@ -1,0 +1,70 @@
+{%- macro _chip_icon(icon_name="") -%}
+  <i class="p-chip__icon p-icon--{{ icon_name }}"></i>
+{%- endmacro -%}
+
+{%- macro _chip_badge(text="", label="") -%}
+  <span class="p-badge" aria-label="{{ label }}">{{ text }}</span>
+{%- endmacro -%}
+
+{%- macro chip_semantic_states(
+  states=["", "positive", "information", "caution", "negative"],
+  use_linebreak=False,
+  is_dismissible=False,
+  is_dense=False,
+  is_readonly=False,
+  is_link=False,
+  badge_text="",
+  badge_label="",
+  icon_name=""
+) -%}
+  {%- set variant_class = "" -%}
+  {%- set chip_element_tag = "button" -%}
+  {%- if is_readonly -%}
+    {%- set variant_class = " is-readonly" -%}
+    {%- set chip_element_tag = "span" -%}
+  {%- elif is_link -%}
+    {%- set chip_element_tag = "a" -%}
+  {%- endif -%}
+
+  {%- if is_dismissible -%}
+    {%- set chip_element_tag = "span" -%}
+  {%- endif -%}
+
+  {% set modifier_classes = "" %}
+  {% set has_icon = icon_name|trim|length > 0 %}
+  {% set has_badge = badge_text | trim | length > 0 %}
+  {%- for state in states -%}
+    {%- set semantic_class = "p-chip" -%}
+    {% if state | trim | length > 0 %}
+      {%- set semantic_class = semantic_class + "--" + state -%}
+    {% endif %}
+    <{{ chip_element_tag }} class="{{ semantic_class }}{{ variant_class }}{{ modifier_classes }}">
+    {% if has_icon and not is_dismissible %}
+      {{- _chip_icon(icon_name=icon_name) -}}
+    {% endif %}
+    <span class="p-chip__lead">Lead</span>
+    <span class="p-chip__value">Value</span>
+    {% if has_badge %}
+      {{ _chip_badge(text=badge_text, label=badge_label) -}}
+    {% endif %}
+    {% if is_dismissible %}
+      <button class="p-chip__dismiss">Dismiss</button>
+    {% endif %}
+    </{{ chip_element_tag }}>
+    <{{ chip_element_tag }} class="{{ semantic_class }}{{ variant_class }}{{ modifier_classes }}">
+    {%- if has_icon and not is_dismissible %}
+      {{- _chip_icon(icon_name=icon_name) -}}
+    {% endif %}
+    <span class="p-chip__value">Value</span>
+    {% if has_badge %}
+      {{ _chip_badge(text=badge_text, label=badge_label) -}}
+    {% endif %}
+    {% if is_dismissible %}
+      <button class="p-chip__dismiss">Dismiss</button>
+    {% endif %}
+    </{{ chip_element_tag }}>
+    {% if use_linebreak %}
+      <br>
+    {% endif %}
+  {%- endfor %}
+{%- endmacro -%}

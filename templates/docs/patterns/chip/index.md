@@ -18,12 +18,49 @@ Chips come in 5 colours. The default is neutral (grey). Use any of the following
 View example of the coloured chip pattern
 </a></div>
 
+## Read-only {{ status("new") }}
+
+Chips can be used to display read-only information, such as semantic statuses.
+To create a read-only chip, use `<span class="p-chip is-read-only">`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only" class="js-example">
+View example of the read-only chip pattern
+</a></div>
+
+## Chip with icon {{ status("new") }}
+
+Chips can include an <a href="/docs/patterns/icon">icon</a> to provide additional context or visual interest.
+To add an icon, use the `p-chip__icon` class and include the icon as the first child element of the chip.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-icon" class="js-example">
+View example of the with-icon chip pattern
+</a></div>
+
 ## Chip with dismiss
 
-Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class. Please note that by default the chip main element is a `<button class="p-chip">`, but to include a dismiss button it needs to be changed to non-interactive `<span class="p-chip">`.
+Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class.
+Dismissible chips should use the non-interactive `<span class="p-chip">` rather than interactive `<a>` or `<button>` elements.
+
+Dismissible chips should not include an icon, and should not use any of the semantic colours, as the dismiss button is already a visual indicator of the chip's state.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/with-dismiss" class="js-example">
 View example of the dismiss chip pattern
+</a></div>
+
+## Chip with badge {{ status("new") }}
+
+Chips can be accompanied by a <a href="/docs/patterns/badge">badge</a> to indicate a count or other information.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-badge" class="js-example">
+View example of the with-badge chip pattern
+</a></div>
+
+### Chip with badge and dismiss
+
+Chips with badges can also include a dismiss button. The dismiss button should be placed after the badge.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/with-badge-with-dismiss" class="js-example">
+View example of the with-badge chip pattern with a dismiss button.
 </a></div>
 
 ## Dense chips
@@ -67,6 +104,10 @@ To import just this component into your project, copy the snippet below and incl
 @include vf-base;
 
 @include vf-p-chip;
+@include vf-p-badge;
+// when using icons, include their individual icon mixins as well
+// @include vf-p-icon-edit;
+// @include vf-p-icon-warning;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.

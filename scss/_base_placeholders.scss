@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'settings';
 @import 'base_typography-definitions';
 
@@ -52,6 +53,17 @@
     @extend %vf-card-padding;
 
     margin-bottom: $spv--x-large;
+  }
+
+  %vf-chip-icon {
+    align-self: center;
+    background-size: map-get($icon-sizes, small);
+    border-radius: 50%;
+    flex: 0 0 auto;
+    margin-left: $sph--x-small;
+    @media (min-width: $breakpoint-x-large) {
+      background-size: math.div(map-get($icon-sizes, small), $font-size-ratio--largescreen); //ensure no rounding happens as it positions the icon off center
+    }
   }
 
   //accordion, table

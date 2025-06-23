@@ -4,6 +4,13 @@ context:
   title: Status labels | Components
 ---
 
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Deprecated</h3>
+    <p class="p-notification__message">The status label component has been deprecated. Its behavior has been merged into the <a href="/docs/patterns/chip#read-only-new">read-only chip</a>.</p>
+  </div>
+</div>
+
 Status labels are static elements which you can apply to signify status, tags or any other information you find useful.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/status-labels/" class="js-example">
