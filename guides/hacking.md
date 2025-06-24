@@ -102,10 +102,3 @@ To achieve this quickly, you can use the `icon-svgs-to-mixins` script:
 This will output a mixin for each SVG in the directory. Each mixin will take its name from the SVG's filename i.e. "tick.svg" will output a mixin named "vf-icon-tick".
 
 Bear in mind that the actual SCSS mixins will evolve over time, so you may need to update the mixin output in this script to match them.
-
-## Building for Rockcraft
-
-Vanilla is built and deployed to production as an OCI image using [Rockcraft](https://documentation.ubuntu.com/rockcraft/en/stable/index.html).
-The Rockcraft configuration is found in [rockcraft.yaml](../rockcraft.yaml), and generally shouldn't need to be touched after first deployment.
-
-For more information on building and deploying Charmed Rockcrafted Web Apps, please see [this article](https://discourse.canonical.com/t/deploy-a-charmed-rockrafted-web-app-to-production/4972).
