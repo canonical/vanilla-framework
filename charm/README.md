@@ -18,7 +18,7 @@ This will pack the application into a [rock](https://documentation.ubuntu.com/ro
 You can run the rock as a docker image locally with:
 
 ```bash
-sudo docker run -d -p 8080:8000 --env-file .env -ti vanillaframework-io:latest
+sudo docker run -p 8080:8000 --env-file .env -ti vanillaframework-io:latest
 ```
 
 The site should now be live at http://127.0.0.1:8080.
