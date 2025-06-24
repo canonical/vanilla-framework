@@ -6,95 +6,308 @@ context:
 
 ## Overview
 
-Chips are compact elements that can be a representation of individual interactive items and metadata. They catch users’ attention and allow them to interact directly with them or their parent component, make selections, filter content, or trigger actions; these actions, however, should never be the primary action since that’s what CTA buttons are for.
+Chips are compact elements that can be a representation of individual interactive items and metadata. They catch users'
+attention and allow them to interact directly with them or their parent component, make selections, filter content, or
+trigger actions; these actions, however, should never be the primary action since that's what CTA buttons are for.
 
 Chips will most of the time appear dynamically as a group of multiple interactive elements.
 
-Chips can include a leading label for the metadata displayed in the chip. They can also include a [Badge](https://discourse.ubuntu.com/t/component-badge/31574) to show a count relating to that metadata and a close icon button to remove the chip.
+Chips can include a leading label for the metadata displayed in the chip. They can also include
+a [Badge](https://discourse.ubuntu.com/t/component-badge/31574) to show a count relating to that metadata and a close
+icon button to remove the chip.
 
 ## Anatomy
 
-![Chips anatomy](https://assets.ubuntu.com/v1/794a37b6-1.jpeg)
+Chips are compact UI elements designed to represent individual interactive items or metadata. They are versatile
+components that support multiple use cases such as filtering, tagging, and indicating status. Each variant of the
+chip—Read-Only, Default, and Dismissible—comprises specific elements and structures tailored to its functionality.
 
-The chip is a compact element based on a 24 px high container with a 1 px border and full height border radius. The border colour must satisfy 3:1 contrast against the background colour (more about this in the accessibility section).
-
-Component elements:
-
-1. **Chip Value**
-   The main piece of information that the chip represents.
-
-1. **Chip label** (optional)
-   As a lead text, this label can provide context or a category for the value text.
-
-1. **Badge** (optional)
-   A count related to the chip data.
-
-1. **Close button** (optional)
-   Icon button to remove the chip.
-
-### Examples
-
-Search & Filter:
-
-![Chips in search and filter component](https://assets.ubuntu.com/v1/961dbc68-2.png)
-
-**Chip labels** are useful when the chip values in a certain context belong to different categories.
-The **close button** makes removing filters easier and faster.
+| Element                       | Default Chip | Read-Only Chip | Description                                                            |
+| ----------------------------- | ------------ | -------------- | ---------------------------------------------------------------------- |
+| 1. Value                      | ✓            | ✓              | The primary textual information that the chip represents.              |
+| 2. Key (Optional)             | ✓            | ✓              | Provides additional context for the value displayed on the chip.       |
+| 3. Badge Component (Optional) | ✓            | ✓              | Displays a count or related metadata.                                  |
+| 4. Icon (Optional)            | ✓            | ✓              | An informative icon that enhances the chip's context or appearance.    |
+| 5. Outline                    | ✓            | —              | Makes the differentiation that the chip is interactive and selectable. |
+| 6. Dismissable icon           | ✓            | —              | Indicates dismissability and dismissable area                          |
 
 ## Usage
 
+Chips serve as compact visual elements for representing metadata, making selections, or filtering content. They provide
+a secondary layer of interactivity or information in user interfaces and should never serve as the primary
+call-to-action or a link to other pages.
+
 ### When to use
 
-- Dynamically show metadata that users should be able to interact with.
-- Display compact items with an interactive role in the UI: filters, selections, tags, etc.
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Place next to headers or in cards</h4>
+    <p>Chips may be used inline with headers or within cards to convey supplementary information like category, type, or metadata.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/f6406472-chip_next_to_cards.png" alt="Example of chips placed next to headers or in cards showing category and metadata information" />
+  </div>
+</div>
+
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Use inside tables</h4>
+    <p>Chips are effective in tables for showing quick data tags, such as statuses or attribute types, within table cells.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/72036189-chip_inside_table.png" alt="Example of chips used inside table cells to show status and attribute types" />
+  </div>
+</div>
+
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Use for categorization</h4>
+    <p>They help visually differentiate elements quickly when used for category or labelling.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/13f97182-chip_categorization.png" alt="Example of chips used for categorization and visual differentiation" />
+  </div>
+</div>
 
 ### When not to use
 
-- Any static scenario, e.g. in a case where info, tags, metadata, etc. have to be dynamically displayed as single items for purely informative reasons, and users will not be able to interact with them. In such scenarios, plain text or status labels are the appropriate choices, depending on how much attention we want from the user.
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use as primary navigation or buttons, links</h4>
+    <p>Chips are not links or CTAs. Their function is always secondary to other UI controls like buttons or tabs.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/cb699dff-chip_primary_navigation.png" alt="Example showing incorrect use of chips as primary navigation or buttons" />
+  </div>
+</div>
 
-## Variants
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't display errors using chips</h4>
+    <p>For alerts or warnings, use standard UI components like notifications or inline error messages, not chips.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/292b796b-chip_error.png" alt="Example showing incorrect use of chips for error display" />
+  </div>
+</div>
 
-Apart from the **Default**, there are two variants for this component that can actually be combined: **Semantic** and **Dense**. In most cases, the default would be the preferred option.
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use chips for branding</h4>
+    <p>Chips should not display brand-specific content like "Ubuntu Pro". Use official branding materials instead.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/4b1f2a06-chip_branding.png" alt="Example showing incorrect use of chips for branding content" />
+  </div>
+</div>
 
-| Variant              | Description                                                                               |
-| -------------------- | ----------------------------------------------------------------------------------------- |
-| Semantic colour chip | A background colour provides a semantic meaning: Positive, Warning, Negative, Information |
-| Dense chip           | A special kind of chip with less height and padding.                                      |
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use long phrases</h4>
+    <p>Chip values should be between 1-3 words, maximum of five. Longer values reduce readability and visual scannability.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/9bb777ff-chip_long_phrase.png" alt="Example showing incorrect use of long phrases in chips" />
+  </div>
+</div>
 
-### Semantic colour chip
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use icon-only chips</h4>
+    <p>Chips must include a text label. Icons alone don't convey enough context.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/ae1f70a7-chip_icon_only.png" alt="Example showing incorrect use of icon-only chips" />
+  </div>
+</div>
 
-#### Definition
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use chips in dropdowns selected states</h4>
+    <p>When content is selected in a combo box, show the selected value as plain text, not a chip.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/18664695-chip_dropdown_selected_state.png" alt="Example showing incorrect use of chips in dropdown selected states" />
+  </div>
+</div>
 
-This chip doesn’t use the default background colour. Instead, it has a semantic colour to reinforce the status or meaning.
+---
 
-#### The look
+## Default Chip
 
-There are four semantic colours:
-![Example of chips in 4 semantic colours](https://assets.ubuntu.com/v1/706255f6-3.png)
+### When to use
 
-#### Usage
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Use for filtering</h4>
+    <p>Let users filter page content dynamically by interacting with the chips. ​​Interactive filter chips must be backed by a secondary filtering menu or panel for accessibility and discoverability.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/18664695-chip_filtering.png" alt="Example of default chips used for filtering page content" />
+  </div>
+</div>
 
-The semantic colours can reinforce the chip's status or meaning in its context. These colours, however, should never be used as a single source of information. For example:
+### When not to use
 
-![Example chips usage](https://assets.ubuntu.com/v1/e1166493-4.jpeg)
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use as radio buttons</h4>
+    <p>Chips are not a replacement for exclusive selection controls. Use radios or toggles for binary choice input.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_radio.png" alt="Example showing incorrect use of default chips as radio buttons" />
+  </div>
+</div>
 
-**Do not rely on colour alone to convey semantic meaning**, as this may not be enough for people with colour blindness. In the example above, the text explicitly states what each group of chips represents.
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't use default chip without filtering functionality</h4>
+    <p>Default chips must include active filtering behavior. If no filtering is applied, use a read-only chip instead.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_default_without_filtering.png" alt="Example showing incorrect use of default chips without filtering functionality" />
+  </div>
+</div>
 
-### Dense chip
+---
 
-#### Definition
+## Read-only Chip
 
-A special kind of chip with less height and padding.
+### When to use
 
-#### The look
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Indicate status</h4>
+    <p>Use read-only chips to indicate a status like "New" next to the side navigation item.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/55f94020-chip_indicate_status.png" alt="Example of read-only chips indicating status next to navigation items" />
+  </div>
+</div>
 
-![Dense chip](https://assets.ubuntu.com/v1/5efc5bae-5.png)
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Show non-interactive status or labels</h4>
+    <p>Read-only chips convey static information like availability, type, or other types of metadata.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/72036189-chip_noninteractive_state.png" alt="Example of read-only chips showing non-interactive status and labels" />
+  </div>
+</div>
 
-#### Usage
+### When not to use
 
-For special circumstances where height is limited, e.g. table rows.
+<div class="grid-row">
+  <div class="grid-col-4">
+    <h4>Don't make read-only chips interactive</h4>
+    <p>Read-only chips must not include hover or click states.</p>
+  </div>
+  <div class="grid-col-4">
+    <img src="https://assets.ubuntu.com/v1/f5f5d422-chip_readonly_interactive.png" alt="Example showing incorrect interactive behavior on read-only chips" />
+  </div>
+</div>
 
-## Questions to ask yourself before using this component
+---
 
-- Is the content not clickable? In that case, use a **Status label**.
-- Is the context enough to understand the semantic meaning of a chip? If not, consider adding labels, headings or help text. Don’t rely exclusively on the semantic colour.
+# Properties
+
+Chips can be further tailored through customizable attributes that extend the primary variants. These attributes—such as
+color, icon, and size—add flexibility and adaptability to meet various design and functionality requirements.
+
+## Value
+
+Value is the mandatory text (string of characters) attribute of the chip, with an advised number of words between 1 and
+3, with a maximum of 5. Do not use the value property to only indicate numeric values. Use
+the [badge](/docs/patterns/badge) component instead.
+
+## State
+
+Chips support interactive states to provide clear feedback on user interactions. These states ensure usability and
+accessibility across different interactions. Currently there is no disabled chip state.
+
+### Supported States
+
+- **Default:** The chip's standard appearance when not interacted with.
+- **Hover:** A visual highlight when the user hovers over the chip, indicating interactivity.
+- **Active:** The state when a user clicks or selects the chip, providing clear feedback.
+
+<div class="grid-col-6">
+<img src="https://assets.ubuntu.com/v1/0a9853cc-chip_pseudo_classes.png" alt="Full-width example showing chip states including default, hover, and active states" />
+</div>
+
+Default chips have **default**, **hover** and **active** states while the read-only chips only have a **default** state.
+The dismissible chip's interactive area is limited to the chip's icon area. In any use-case chips should have only one
+interaction associated with them.
+
+## Color
+
+Colors - for background and stroke color - can have semantic connotation, reinforcing meaning or status visually,
+making it easier for users to interpret contextual information, but can be also used to indicate categorization. If
+there is a need for additional color(s) a contribution must be made to the design system.
+
+### Supported Variants
+
+- **Gray:** Used for categorization when no additional semantic meaning is added.
+- **Green:** Can be used to communicate a positive connotation, such as confirmation or success.
+- **Blue:** Can be used for giving additional information, preventive but not risk related.
+- **Red:** Can be used for communicating a negative connotation.
+- **Yellow:** Can be used for prevention or notifying of state with risk.
+
+<div class="grid-col-6">
+<img src="https://assets.ubuntu.com/v1/2c04668e-chip_supported_colors.png" alt="Example showing chips in different semantic colors including gray, green, blue, red, and yellow variants" />
+</div>
+
+## Size
+
+Chips are available in two sizes affecting the height of the chip, to accommodate different UI needs. Width is defined
+by the value text's length.
+
+### Supported Sizes
+
+- **Default**: The standard chip size.
+- **Dense**: A compact version with reduced height and padding, designed for tighter spaces.
+
+<div class="grid-col-6">
+<img src="https://assets.ubuntu.com/v1/a88b305f-chip_size_supported_sizes.png" alt="Example showing default and dense chip sizes side by side" />
+</div>
+
+## Icon
+
+The Icon property on the left hand side of the component is an optional attribute. It is used to display additional
+contextual data related to the chip's content, providing an easy way to distinguish between chips. The icon on the right
+hand side is reserved for the dismissible chip - having the Close icon as part of its anatomy.
+
+### Supported Icons
+
+All non-semantic icons from the icon library are supported for chips. Semantic icons should be only used with the
+corresponding semantic background color.
+
+<div class="grid-col-6">
+<img src="https://assets.ubuntu.com/v1/3b6e88cd-chip_icon_supported_variants.png" alt="Example showing chips with various icons from the icon library" />
+</div>
+
+## Key
+
+Keys (also referred to as leads) are optional, leading text elements that provide context to the chip's primary value.
+
+**Example**: For a filter labeled "Month: June," "Month" is the key, and "June" is the value.
+
+### Supported Variants
+
+<div class="grid-col-6">
+<img src="https://assets.ubuntu.com/v1/4bfd89cb-chip_key_supported_variants.png" alt="Example showing chips with key-value pairs like Month: June" />
+</div>
+
+## Badge
+
+The Badge property is an optional attribute. It is used to display a quantitative value related to the chip's content,
+providing additional context at a glance.
+
+**Example**: In Landscape the chip's value could represent a group of machines while the badge would refer to the number of
+machines in that group.
+
+### Supported Variants
+
+<div class="grid-col-6">
+<img src="https://assets.ubuntu.com/v1/28a5d9e1-chip_badge_supported_variants.png" alt="Example showing chips with badges displaying quantitative values" />
+</div>
