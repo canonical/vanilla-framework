@@ -47,7 +47,7 @@ call-to-action or a link to other pages.
     <p>Chips may be used inline with headers or within cards to convey supplementary information like category, type, or metadata.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/f6406472-chip_next_to_cards.png" alt="Example of chips placed next to headers or in cards showing category and metadata information" />
+    <img src="https://assets.ubuntu.com/v1/f6406472-chip_next_to_cards.png" alt="Chips placed next to headers showing category and metadata information" />
   </div>
 </div>
 
@@ -57,7 +57,7 @@ call-to-action or a link to other pages.
     <p>Chips are effective in tables for showing quick data tags, such as statuses or attribute types, within table cells.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/72036189-chip_inside_table.png" alt="Example of chips used inside table cells to show status and attribute types" />
+    <img src="https://assets.ubuntu.com/v1/72036189-chip_inside_table.png" alt="Chips used inside table cells showing status and attribute types" />
   </div>
 </div>
 
@@ -67,7 +67,7 @@ call-to-action or a link to other pages.
     <p>They help visually differentiate elements quickly when used for category or labelling.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/13f97182-chip_categorization.png" alt="Example of chips used for categorization and visual differentiation" />
+    <img src="https://assets.ubuntu.com/v1/13f97182-chip_categorization.png" alt="Chips used for categorization and visual differentiation" />
   </div>
 </div>
 
@@ -79,7 +79,7 @@ call-to-action or a link to other pages.
     <p>Chips are not links or CTAs. Their function is always secondary to other UI controls like buttons or tabs.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/cb699dff-chip_primary_navigation.png" alt="Example showing incorrect use of chips as primary navigation or buttons" />
+    <img src="https://assets.ubuntu.com/v1/cb699dff-chip_primary_navigation.png" alt="Chips used as primary navigation buttons" />
   </div>
 </div>
 
@@ -89,7 +89,7 @@ call-to-action or a link to other pages.
     <p>For alerts or warnings, use standard UI components like notifications or inline error messages, not chips.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/292b796b-chip_error.png" alt="Example showing incorrect use of chips for error display" />
+    <img src="https://assets.ubuntu.com/v1/292b796b-chip_error.png" alt="Chips used for error messages" />
   </div>
 </div>
 
@@ -99,7 +99,7 @@ call-to-action or a link to other pages.
     <p>Chips should not display brand-specific content like "Ubuntu Pro". Use official branding materials instead.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/4b1f2a06-chip_branding.png" alt="Example showing incorrect use of chips for branding content" />
+    <img src="https://assets.ubuntu.com/v1/4b1f2a06-chip_branding.png" alt="Chips used for branding content" />
   </div>
 </div>
 
@@ -109,7 +109,7 @@ call-to-action or a link to other pages.
     <p>Chip values should be between 1-3 words, maximum of five. Longer values reduce readability and visual scannability.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/9bb777ff-chip_long_phrase.png" alt="Example showing incorrect use of long phrases in chips" />
+    <img src="https://assets.ubuntu.com/v1/9bb777ff-chip_long_phrase.png" alt="Chips with overly long text values" />
   </div>
 </div>
 
@@ -119,7 +119,7 @@ call-to-action or a link to other pages.
     <p>Chips must include a text label. Icons alone don't convey enough context.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/ae1f70a7-chip_icon_only.png" alt="Example showing incorrect use of icon-only chips" />
+    <img src="https://assets.ubuntu.com/v1/ae1f70a7-chip_icon_only.png" alt="Chips with only icons and no text labels" />
   </div>
 </div>
 
@@ -129,7 +129,7 @@ call-to-action or a link to other pages.
     <p>When content is selected in a combo box, show the selected value as plain text, not a chip.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/18664695-chip_dropdown_selected_state.png" alt="Example showing incorrect use of chips in dropdown selected states" />
+    <img src="https://assets.ubuntu.com/v1/18664695-chip_dropdown_selected_state.png" alt="Chips used in dropdown selected states" />
   </div>
 </div>
 
@@ -145,7 +145,7 @@ call-to-action or a link to other pages.
     <p>Let users filter page content dynamically by interacting with the chips. ​​Interactive filter chips must be backed by a secondary filtering menu or panel for accessibility and discoverability.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/18664695-chip_filtering.png" alt="Example of default chips used for filtering page content" />
+    <img src="https://assets.ubuntu.com/v1/18664695-chip_filtering.png" alt="Default chips used for filtering page content" />
   </div>
 </div>
 
@@ -157,7 +157,7 @@ call-to-action or a link to other pages.
     <p>Chips are not a replacement for exclusive selection controls. Use radios or toggles for binary choice input.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_radio.png" alt="Example showing incorrect use of default chips as radio buttons" />
+    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_radio.png" alt="Chips used as radio button alternatives" />
   </div>
 </div>
 
@@ -167,7 +167,7 @@ call-to-action or a link to other pages.
     <p>Default chips must include active filtering behavior. If no filtering is applied, use a read-only chip instead.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_default_without_filtering.png" alt="Example showing incorrect use of default chips without filtering functionality" />
+    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_default_without_filtering.png" alt="Default chips without filtering functionality" />
   </div>
 </div>
 
@@ -183,7 +183,7 @@ call-to-action or a link to other pages.
     <p>Use read-only chips to indicate a status like "New" next to the side navigation item.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/55f94020-chip_indicate_status.png" alt="Example of read-only chips indicating status next to navigation items" />
+    <img src="https://assets.ubuntu.com/v1/55f94020-chip_indicate_status.png" alt="Read-only chips indicating status next to navigation items" />
   </div>
 </div>
 
@@ -193,7 +193,7 @@ call-to-action or a link to other pages.
     <p>Read-only chips convey static information like availability, type, or other types of metadata.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/72036189-chip_noninteractive_state.png" alt="Example of read-only chips showing non-interactive status and labels" />
+    <img src="https://assets.ubuntu.com/v1/72036189-chip_noninteractive_state.png" alt="Read-only chips showing non-interactive status and labels" />
   </div>
 </div>
 
@@ -205,7 +205,7 @@ call-to-action or a link to other pages.
     <p>Read-only chips must not include hover or click states.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/f5f5d422-chip_readonly_interactive.png" alt="Example showing incorrect interactive behavior on read-only chips" />
+    <img src="https://assets.ubuntu.com/v1/f5f5d422-chip_readonly_interactive.png" alt="Read-only chips with interactive hover states" />
   </div>
 </div>
 
@@ -233,9 +233,7 @@ accessibility across different interactions. Currently there is no disabled chip
 - **Hover:** A visual highlight when the user hovers over the chip, indicating interactivity.
 - **Active:** The state when a user clicks or selects the chip, providing clear feedback.
 
-<div class="grid-col-6">
-<img src="https://assets.ubuntu.com/v1/0a9853cc-chip_pseudo_classes.png" alt="Full-width example showing chip states including default, hover, and active states" />
-</div>
+![Chip states including default, hover, and active states](https://assets.ubuntu.com/v1/0a9853cc-chip_pseudo_classes.png)
 
 Default chips have **default**, **hover** and **active** states while the read-only chips only have a **default** state.
 The dismissible chip's interactive area is limited to the chip's icon area. In any use-case chips should have only one
@@ -255,9 +253,7 @@ there is a need for additional color(s) a contribution must be made to the desig
 - **Red:** Can be used for communicating a negative connotation.
 - **Yellow:** Can be used for prevention or notifying of state with risk.
 
-<div class="grid-col-6">
-<img src="https://assets.ubuntu.com/v1/2c04668e-chip_supported_colors.png" alt="Example showing chips in different semantic colors including gray, green, blue, red, and yellow variants" />
-</div>
+![Chips in different semantic colors: gray, green, blue, red, and yellow variants](https://assets.ubuntu.com/v1/2c04668e-chip_supported_colors.png)
 
 ## Size
 
@@ -269,9 +265,7 @@ by the value text's length.
 - **Default**: The standard chip size.
 - **Dense**: A compact version with reduced height and padding, designed for tighter spaces.
 
-<div class="grid-col-6">
-<img src="https://assets.ubuntu.com/v1/a88b305f-chip_size_supported_sizes.png" alt="Example showing default and dense chip sizes side by side" />
-</div>
+![Default and dense chip sizes side by side](https://assets.ubuntu.com/v1/a88b305f-chip_size_supported_sizes.png)
 
 ## Icon
 
@@ -284,9 +278,7 @@ hand side is reserved for the dismissible chip - having the Close icon as part o
 All non-semantic icons from the icon library are supported for chips. Semantic icons should be only used with the
 corresponding semantic background color.
 
-<div class="grid-col-6">
-<img src="https://assets.ubuntu.com/v1/3b6e88cd-chip_icon_supported_variants.png" alt="Example showing chips with various icons from the icon library" />
-</div>
+![Chips with various icons from the icon library](https://assets.ubuntu.com/v1/3b6e88cd-chip_icon_supported_variants.png)
 
 ## Key
 
@@ -296,9 +288,7 @@ Keys (also referred to as leads) are optional, leading text elements that provid
 
 ### Supported Variants
 
-<div class="grid-col-6">
-<img src="https://assets.ubuntu.com/v1/4bfd89cb-chip_key_supported_variants.png" alt="Example showing chips with key-value pairs like Month: June" />
-</div>
+![Chips with key-value pairs like Month: June](https://assets.ubuntu.com/v1/4bfd89cb-chip_key_supported_variants.png)
 
 ## Badge
 
@@ -310,6 +300,4 @@ machines in that group.
 
 ### Supported Variants
 
-<div class="grid-col-6">
-<img src="https://assets.ubuntu.com/v1/28a5d9e1-chip_badge_supported_variants.png" alt="Example showing chips with badges displaying quantitative values" />
-</div>
+![Chips with badges displaying quantitative values](https://assets.ubuntu.com/v1/28a5d9e1-chip_badge_supported_variants.png)
