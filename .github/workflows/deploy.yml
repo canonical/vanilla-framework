@@ -16,7 +16,7 @@ on:
 env:
   CHARMCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS: true
   ROCKCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS: true
-  CHARM_NAME: vanillaframework-io-charm
+  ROCK_NAME: vanillaframework-io-charm
 
 jobs:
   pack-rock:
@@ -28,21 +28,17 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
 
+      # LXD is a prerequisite of Rockcraft
+      - name: Setup LXD
+        uses: canonical/setup-lxd@main
+
+      - name: Setup Rockcraft
+        run: sudo snap install rockcraft --classic --channel=latest/edge
+
       - name: Build Assets
         run: |
           yarn install
           yarn run build
-
-      - name: Setup LXD
-        uses: canonical/setup-lxd@main
-
-      - name: Create repositories directory
-        run: |
-          mkdir -m 777 repositories
-          mkdir -m 777 tree-cache
-
-      - name: Setup Rockcraft
-        run: sudo snap install rockcraft --classic --channel=latest/edge
 
       - name: Pack Rock
         run: rockcraft pack
@@ -50,7 +46,7 @@ jobs:
       - name: Upload Rock
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.CHARM_NAME }}
+          name: ${{ env.ROCK_NAME }}
           path: ./*.rock
 
   publish-image:
@@ -62,7 +58,7 @@ jobs:
       - name: Get Rock
         uses: actions/download-artifact@v4
         with:
-          name: ${{ env.CHARM_NAME }}
+          name: ${{ env.ROCK_NAME }}
 
       - name: Set image URL
         id: set_image_url
