@@ -5,17 +5,17 @@ name: Deploy
 on:
   push:
     branches:
+        # Update staging
       - main
       # TODO remove these after PR is merged - they are just for testing
       - feature/charm
       - feature/charm-rock
+  # Update production
   release:
     types:
       - published
 
 env:
-  CHARMCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS: true
-  ROCKCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS: true
   ROCK_NAME: vanillaframework-io-charm
 
 jobs:
@@ -62,7 +62,7 @@ jobs:
 
       - name: Set image URL
         id: set_image_url
-        run: echo "image_url=ghcr.io/canonical/vanilla-framework:$(date +%s)-${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
+        run: echo "image_url=ghcr.io/${{ github.repository }}:$(date +%s)-${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
 
       - name: Push to GHCR
         run: skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
