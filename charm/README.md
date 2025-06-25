@@ -123,8 +123,6 @@ Add a testing Juju model:
 juju add-model test
 ```
 
-Copy the charm from the mounted directory to the multipass instance.
-
 Finally, deploy the charm:
 
 ```bash
