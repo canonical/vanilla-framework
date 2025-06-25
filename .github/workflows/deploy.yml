@@ -9,7 +9,7 @@ on:
       - main
       # TODO remove these after PR is merged - they are just for testing
       - feature/charm
-      - feature/charm-rock
+      - feature/charm-cicd
   # Update production
   release:
     types:
@@ -48,6 +48,28 @@ jobs:
         with:
           name: ${{ env.ROCK_NAME }}
           path: ./*.rock
+
+  pack-charm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+        # LXD is a prerequisite of Charmcraft
+      - name: Setup LXD
+        uses: canonical/setup-lxd@main
+
+      - name: Setup Charmcraft
+        run: sudo snap install charmcraft --channel latest/stable --classic
+
+      - name: Pack charm
+        run: charmcraft pack -v --project-dir ./charm
+
+      - name: Upload charm
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CHARM_NAME }}
+          path: ./*.charm
 
   publish-image:
     runs-on: ubuntu-latest
