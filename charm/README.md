@@ -224,6 +224,10 @@ You should now be able to access the site at `http://vanilla.local`.
 
 ---
 
+# this is a test change to trigger charm pack again
+
+# REMOVE THESE TWO LINES BEFORE MERGE
+
 ## Additional Resources
 
 - [Rockcraft Documentation](https://documentation.ubuntu.com/rockcraft)
