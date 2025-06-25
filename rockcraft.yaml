@@ -1,0 +1,34 @@
+name: vanillaframework-io
+base: ubuntu@22.04
+version: '0.1'
+summary: A simple, extendable CSS framework.
+description: |
+  This is the rockcraft for the vanillaframework.io website
+license: LGPL-3.0
+platforms:
+  amd64:
+
+extensions:
+  # https://documentation.ubuntu.com/rockcraft/en/latest/reference/extensions/flask-framework
+  - flask-framework
+
+parts:
+  flask-framework/install-app:
+    # Add all files that must be available to the Flask app at runtime.
+    prime:
+      - flask/app/.env
+        # Flask-framework / PAAS charm entrypoint - re-exports `webapp/app.py`
+      - flask/app/app.py
+        # App entrypoint
+      - flask/app/webapp
+      - flask/app/templates
+      - flask/app/scripts
+      - flask/app/build
+        # These YAML files are read by `webapp/app.py` at runtime
+      - flask/app/component_tabs.yaml
+      - flask/app/deleted.yaml
+      - flask/app/releases.yml
+      - flask/app/redirects.yaml
+      - flask/app/side-navigation.yaml
+        # Used on the homepage, release notes page, download pages, to indicate the current version
+      - flask/app/package.json

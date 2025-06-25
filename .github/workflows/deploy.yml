@@ -1,0 +1,71 @@
+# WIP, this is so far a copy of the c.com config
+# https://github.com/canonical/canonical.com/pull/1746
+name: Deploy
+
+on:
+  push:
+    branches:
+        # Update staging
+      - main
+      # TODO remove these after PR is merged - they are just for testing
+      - feature/charm
+      - feature/charm-rock
+  # Update production
+  release:
+    types:
+      - published
+
+env:
+  ROCK_NAME: vanillaframework-io-charm
+
+jobs:
+  pack-rock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+
+      # LXD is a prerequisite of Rockcraft
+      - name: Setup LXD
+        uses: canonical/setup-lxd@main
+
+      - name: Setup Rockcraft
+        run: sudo snap install rockcraft --classic --channel=latest/edge
+
+      - name: Build Assets
+        run: |
+          yarn install
+          yarn run build
+
+      - name: Pack Rock
+        run: rockcraft pack
+
+      - name: Upload Rock
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ROCK_NAME }}
+          path: ./*.rock
+
+  publish-image:
+    runs-on: ubuntu-latest
+    needs: pack-rock
+    outputs:
+      image_url: ${{ steps.set_image_url.outputs.image_url }}
+    steps:
+      - name: Get Rock
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ROCK_NAME }}
+
+      - name: Set image URL
+        id: set_image_url
+        run: echo "image_url=ghcr.io/${{ github.repository }}:$(date +%s)-${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
+
+        # Note: `skopeo` comes with `ubuntu-latest` by default, so no install step is needed.
+        # If you want to use `rockcraft.skopeo` for consistency with the Charm docs, switch this to `rockcraft.skopeo`
+        # And install `rockcraft` in this job first.
+      - name: Push to GHCR
+        run: skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
