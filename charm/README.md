@@ -1,19 +1,43 @@
 # Charm for the vanillaframework.io website
 
+This charm deploys the Vanilla Framework website using the [PAAS Charm](https://github.com/canonical/paas-charm) on Kubernetes.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- [Docker](https://docs.docker.com/get-docker/) installed
+- At least 8GB RAM and 100GB disk space available
+- A Linux system. Ubuntu 22.04 or later is recommended.
+
+## Quick Start
+
+1. **Build the rock** (see [Rockcraft section](#rockcraft))
+2. **Set up development environment** (see [Charm Development section](#charm-development))
+3. **Deploy the charm** (see [Deploying the Charm section](#deploying-the-charm))
+
+---
+
 ## Rockcraft
 
 The first stage of building this charm is to create a rock using [rockcraft](https://documentation.ubuntu.com/rockcraft).
 
+### Host Machine Commands
+
 ```bash
 # Install rockcraft
 sudo snap install rockcraft --classic
-# Pull rock dependencies and pack the rock.
+
+# Pull rock dependencies and pack the rock
 rockcraft pack
-# Push the rock to your local docker registry. This will allow you to pull and run it with `docker run` in later steps.
+
+# Push the rock to your local docker registry
 rockcraft.skopeo --insecure-policy copy oci-archive:./vanillaframework-io_0.1_amd64.rock docker-daemon:vanillaframework-io:latest
 ```
 
 This will pack the application into a [rock](https://documentation.ubuntu.com/rockcraft/en/latest/explanation/rocks/) (OCI image) and upload it to the local registry.
+
+### Local Testing
 
 You can run the rock as a docker image locally with:
 
@@ -23,140 +47,186 @@ sudo docker run -p 8080:8000 --env-file .env -ti vanillaframework-io:latest
 
 The site should now be live at http://127.0.0.1:8080.
 
-Please note that the app will be served at port 8000 within the OCI container, **regardless of environment variables**.
-The [flask-framework extension](https://documentation.ubuntu.com/rockcraft/en/latest/reference/extensions/flask-framework/#flask-framework)
-always exposes port 8000.
+> **Note:** The app will be served at port 8000 within the OCI container, **regardless of environment variables**. The [flask-framework extension](https://documentation.ubuntu.com/rockcraft/en/latest/reference/extensions/flask-framework/#flask-framework) always exposes port 8000.
+
+---
 
 ## Charm Development
 
 This site is deployed using the [PAAS Charm](https://github.com/canonical/paas-charm).
 
-### Packing a Charm
+### Setting Up the Development Environment
 
-To work on the Charm locally, first install [Multipass](https://multipass.run/) and create a Multipass instance:
+#### 1. Create Multipass Instance
 
 ```bash
-# Install Multipass
+# Install Multipass (if not already installed)
 sudo snap install multipass
+
 # Create a Multipass instance
 multipass launch --name juju-dev-env --cpus 4 --memory 8G --disk=100G
 ```
 
-Mount a host directory containing the charm code to the Multipass instance.
-This will allow the instance to access the charm code.
-The command below assumes your current working directory is the root of Vanilla.
+#### 2. Mount Project Directory
+
+Mount a host directory containing the charm code to the Multipass instance. This allows the instance to access the charm code.
 
 ```bash
+# Ensure you're in the vanilla-framework root directory
+cd /path/to/vanilla-framework
+
+# Mount the directory to Multipass
 multipass mount --type=classic $(pwd) juju-dev-env:/home/ubuntu/vanilla-framework
 ```
 
-The following commands will be run from within the Multipass instance, so first open a shell in the instance:
+#### 3. Set Up Kubernetes Environment
+
+Open a shell in the Multipass instance:
 
 ```bash
 # Open a shell in the instance
 multipass shell juju-dev-env
 ```
 
-Next, install & bootstrap microk8s and Juju inside the Multipass instance:
+Install and configure microk8s and Juju:
 
 ```bash
 # Install microk8s and Juju
 sudo snap install microk8s --classic
 sudo snap install juju
+
+# Set up kubectl alias
 alias kubectl="microk8s kubectl"
-# Add user to microk8s group so we can run microk8s without sudo
+
+# Add user to microk8s group
 sudo usermod -a -G microk8s $USER
-# Ensure the user has access to the microk8s config
-sudo chown -R ubuntu ~/.kube
+
 # Reload the group membership
 newgrp microk8s
+
 # Wait for microk8s to be ready
 microk8s status --wait-ready
-# Required for Juju to provide storage volumes
-microk8s enable hostpath-storage
-# Required to host the OCI image of the application
-microk8s enable registry
-# Required to expose the application
-microk8s enable ingress
-# Grant Juju access to K8s cbnfig
+
+# Ensure the user has access to the microk8s config
+sudo chown -R ubuntu ~/.kube
+
+# Enable required microk8s addons
+microk8s enable hostpath-storage  # Required for Juju storage volumes
+microk8s enable registry          # Required to host the OCI image
+microk8s enable ingress           # Required to expose the application
+
+# Grant Juju access to K8s config
 sudo mkdir -p /var/snap/juju/current/microk8s/credentials
 microk8s config | sudo tee /var/snap/juju/current/microk8s/credentials/client.config
 sudo chown -R $USER:$USER /var/snap/juju/current/microk8s/credentials
 
+# Bootstrap Juju
 juju bootstrap microk8s local-k8s
 ```
 
-Next, let's build the charm using `charmcraft`.
+### Building the Charm
 
 ```bash
 # Install charmcraft
 sudo snap install charmcraft --channel latest/stable --classic
+
 # Navigate to the mounted Vanilla directory
 cd ~/vanilla-framework
+
+# Create and navigate to charm directory
 mkdir -p charm && cd charm
-# Initialize Charmcraft. You may need to add --force if the charm directory already exists.
+
+# Initialize Charmcraft (use --force if directory already exists)
 charmcraft init --profile flask-framework --name vanillaframework-io --force
+
 # Fetch charm libraries
 charmcraft fetch-libs
-# Build the charm
+
+# Build the charm. This may take a few minutes the first time you run it.
 charmcraft pack -v
 ```
 
 You should now have a Charm file named `vanillaframework-io_ubuntu-22.04_amd64.charm` in the `/vanilla-framework/charm` directory.
 
-### Deploying the Charm with Juju
+---
 
-You should already have a rock file in `vanilla-framework`, following completion of the [Rockcraft setup](#rockcraft).
-If not, please install Rockcraft on your local machine (**not on Multipass**) and create the rock as described above.
-This is because the Multipass instance does not have write access to the host filesystem, so it cannot pack the rock directly.
+## Deploying the Charm
 
-Set up Rockcraft inside the Multipass instance and push the rock to the microk8s registry.
+### Prerequisites
+
+You should already have a rock file in the `vanilla-framework` root directory, following completion of the [Rockcraft setup](#rockcraft). If not, please install Rockcraft on your local machine (**not on Multipass**, as it will not have permissions to write the rock to your mounted host filesystem) and create the rock as described above.
+
+### Push Rock to Registry
+
+From within the Multipass instance:
 
 ```bash
+# Install rockcraft in Multipass
 sudo snap install rockcraft --classic
+
+# Push the rock to the microk8s registry
 rockcraft.skopeo --insecure-policy copy --dest-tls-verify=false oci-archive:../vanillaframework-io_0.1_amd64.rock docker://localhost:32000/vanillaframework-io:latest
 ```
 
-Add a testing Juju model:
+### Deploy the Application
 
 ```bash
-juju add-model test
-```
+# Acts as a project wrapper, name can be anything
+juju add-model vanillaframework
 
-Finally, deploy the charm:
-
-```bash
+# Deploy the charm. Note that you must use `flask-app-image`, not `app-image`, as the resource identifier, and the resource name must map exactly to the image name that was pushed to the registry.
 juju deploy ./*.charm --resource flask-app-image=localhost:32000/vanillaframework-io:latest
 ```
 
-You can monitor the status of the deployment with:
+### Monitor Deployment
 
 ```bash
+# Watch the deployment status. It will usually be ready in ~10 seconds or less.
 juju status --watch 1s
 ```
 
-The above command will also display the address of the application, within the Multipass instance.
-You can use this to verify the site is served correctly.
+The above command will display the address of the application within the Multipass instance.
 
-The simplest way to check this is with `curl`:
+### Verify Deployment
+
+Test the deployment with curl:
 
 ```bash
 curl {IP_OF_CHARMHUB_IO_UNIT}:8000
 ```
 
-For more advanced verification, you can add a webserver integrator like `nginx-ingress-integrator` to expose the application to your host:
+### Expose to Host (Optional)
+
+For more advanced verification, you can add an nginx integrator to expose the application to your host:
 
 ```bash
+# Deploy nginx integrator
 juju deploy nginx-ingress-integrator --channel=latest/stable --trust
+
+# Integrate with the application
 juju integrate nginx-ingress-integrator vanillaframework-io
+
+# Configure the service
 juju config nginx-ingress-integrator service-hostname=vanilla.local path-routes=/
 ```
 
-Then, on your host machine, get the IP of the Multipass instance and add it to your `/etc/hosts` file:
+Then, on your host machine, add the Multipass IP to your hosts file:
 
 ```bash
-multipass ls
-echo "{IP_OF_VM} vanilla.local" | sudo tee -a /etc/hosts
+# The IP of multipass vm can be retrieved with `multipass ls`.
+# Or, a one-liner would give
+IP_OF_VM="$(multipass ls | grep 'juju-dev-env' | awk '{print $3}')"
+# Adding it to the hosts file
+echo "$IP_OF_VM vanilla.local" | sudo tee -a /etc/hosts
 ```
 
 You should now be able to access the site at `http://vanilla.local`.
+
+---
+
+## Additional Resources
+
+- [Rockcraft Documentation](https://documentation.ubuntu.com/rockcraft)
+- [Charmcraft Documentation](https://canonical-charmcraft.readthedocs-hosted.com/stable/)
+- [Juju Documentation](https://juju.is/docs)
+- [PAAS Charm Repository](https://github.com/canonical/paas-charm)
