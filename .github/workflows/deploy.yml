@@ -55,6 +55,10 @@ jobs:
     outputs:
       image_url: ${{ steps.set_image_url.outputs.image_url }}
     steps:
+        # Install rockcraft so we can use rockcraft.skopeo instead of the default skopeo that is included in Ubuntu
+      - name: Setup Rockcraft
+        run: sudo snap install rockcraft --classic --channel=latest/edge
+
       - name: Get Rock
         uses: actions/download-artifact@v4
         with:
@@ -65,4 +69,4 @@ jobs:
         run: echo "image_url=ghcr.io/${{ github.repository }}:$(date +%s)-${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
 
       - name: Push to GHCR
-        run: skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
+        run: rockcraft.skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
