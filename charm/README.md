@@ -1,6 +1,9 @@
 # Charm for the vanillaframework.io website
 
-This charm deploys the Vanilla Framework website using the [PAAS Charm](https://github.com/canonical/paas-charm) on Kubernetes.
+This charm deploys the Vanilla Framework as a [12-factor app](https://canonical-12-factor-app-support.readthedocs-hosted.com/latest/)
+using the [PAAS Charm](https://github.com/canonical/paas-charm) on Kubernetes.
+The PAAS Charm is our web team's standard practice for deploying a Flask 12-factor app.
+It pulls Python dependencies and runs Flask with minimal extra configuration.
 
 ## Prerequisites
 
@@ -223,10 +226,6 @@ echo "$IP_OF_VM vanilla.local" | sudo tee -a /etc/hosts
 You should now be able to access the site at `http://vanilla.local`.
 
 ---
-
-# this is a test change to trigger charm pack again
-
-# REMOVE THESE TWO LINES BEFORE MERGE
 
 ## Additional Resources
 
