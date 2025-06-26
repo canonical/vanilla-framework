@@ -5,11 +5,11 @@
 #   own row on tablet vs. 50/50 split between title/description
 # is_media_full_width: whether the media is full width
 # media_placement: where the image is placed relative to the description. Options are "after_description" or "before_description".
+# img_attrs: attributes for the image element, e.g. src, alt, class
+# video_attrs: attributes for the video element, e.g. src, class
 # Slots
 # title: top-level title element
 # description: top-level description element
-# video: top-level video element. Mutually exclusive with image, and takes priority over the image.
-# image: top-level image element. Mutually exclusive with video. Is not rendered if the video is provided.
 # list_item_title_[1-25]: title element of each child list item
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
@@ -17,17 +17,17 @@
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true,
   is_media_full_width=false,
-  media_placement="after_description"
+  media_placement="after_description",
+  img_attrs={},
+  video_attrs={}
   ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
-  {%- set image_content = caller('image') -%}
-  {%- set has_image = image_content|trim|length > 0 -%}
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
-  {%- set video_content = caller('video') -%}
-  {%- set has_video = video_content|trim|length > 0 -%}
+  {%- set has_image = img_attrs['src']|trim|length > 0 -%}
+  {%- set has_video = video_attrs['src']|trim|length > 0 -%}
   {%- set has_media = has_image or has_video -%}
 
   {% if media_placement not in ["before_description", "after_description"] %}
@@ -45,15 +45,27 @@
         <div class="p-section--shallow">
           {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
           <div class="u-embedded-media">
-            {#- Assume u-embedded-media__element on the content -#}
-            {{- video_content -}}
+            <iframe class="u-embedded-media__element {{ video_attrs['class'] }}"
+            {% for attr, value in video_attrs.items() %}
+              {% if attr != "class" %}
+                {{- attr }}="{{ value }}"
+              {% endif %}
+            {% endfor %}
+            ></iframe>
           </div>
         </div>
       {%- elif has_image -%}
         <div class="p-section--shallow">
           <div class="p-image-container--{{ image_aspect_ratio }} is-cover">
-            {#- Assume p-image-container__image on the content -#}
-            {{- image_content -}}
+            <img
+              {#- Forward classes from the img_attrs. This is optional, on a per-pattern basis. #}
+              class="p-image-container__image {{ img_attrs['class'] }}"
+            {% for attr, value in img_attrs.items() %}
+              {% if attr != "class" %}
+                {{- attr }}="{{ value }}"
+              {% endif %}
+            {% endfor %}
+            >
           </div>
         </div>
       {%- endif -%}
