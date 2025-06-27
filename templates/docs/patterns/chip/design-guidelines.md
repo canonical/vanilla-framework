@@ -24,14 +24,56 @@ chip—Read-Only, Default, and Dismissible—comprises specific elements and str
 
 ![Anatomy diagram showing the different elements of a chip component including value, key, badge, icon, outline, and dismissible icon](https://assets.ubuntu.com/v1/f07c5040-chip-anatomy-202506.png)
 
-| Element                       | Default Chip | Read-Only Chip | Description                                                            |
-| ----------------------------- | ------------ | -------------- | ---------------------------------------------------------------------- |
-| 1. Value                      | ✓            | ✓              | The primary textual information that the chip represents.              |
-| 2. Key (Optional)             | ✓            | ✓              | Provides additional context for the value displayed on the chip.       |
-| 3. Badge Component (Optional) | ✓            | ✓              | Displays a count or related metadata.                                  |
-| 4. Icon (Optional)            | ✓            | ✓              | An informative icon that enhances the chip's context or appearance.    |
-| 5. Outline                    | ✓            | —              | Makes the differentiation that the chip is interactive and selectable. |
-| 6. Dismissable icon           | ✓            | —              | Indicates dismissability and dismissable area                          |
+<div style="overflow: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 250px;">Element</th>
+        <th style="width: 100px;">Default</th>
+        <th style="width: 100px;">Read-Only</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. Value</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>The primary textual information that the chip represents.</td>
+      </tr>
+      <tr>
+        <td>2. Key (Optional)</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>Provides additional context for the value displayed on the chip.</td>
+      </tr>
+      <tr>
+        <td>3. Badge Component (Optional)</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>Displays a count or related metadata.</td>
+      </tr>
+      <tr>
+        <td>4. Icon (Optional)</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>An informative icon that enhances the chip's context or appearance.</td>
+      </tr>
+      <tr>
+        <td>5. Outline</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>Makes the differentiation that the chip is interactive and selectable.</td>
+      </tr>
+      <tr>
+        <td>6. Dismissable icon</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>Indicates dismissability and dismissable area</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Usage
 
