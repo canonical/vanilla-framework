@@ -1,71 +1,56 @@
-# WIP, this is so far a copy of the c.com config
-# https://github.com/canonical/canonical.com/pull/1746
-name: Deploy
+name: Pack and Deploy
 
 on:
   push:
     branches:
-        # Update staging
       - main
-      # TODO remove these after PR is merged - they are just for testing
-      - feature/charm
-      - feature/charm-rock
-  # Update production
+      # TODO remove me before we merge the feature branch to main
+      - feature/charm-cicd
   release:
     types:
       - published
 
-env:
-  ROCK_NAME: vanillaframework-io-charm
+concurrency:
+    group: "deploy-${{ github.ref }}"
+    cancel-in-progress: true
 
 jobs:
-  pack-rock:
+  setup:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-
-      # LXD is a prerequisite of Rockcraft
-      - name: Setup LXD
-        uses: canonical/setup-lxd@main
-
-      - name: Setup Rockcraft
-        run: sudo snap install rockcraft --classic --channel=latest/edge
-
-      - name: Build Assets
-        run: |
-          yarn install
-          yarn run build
-
-      - name: Pack Rock
-        run: rockcraft pack
-
-      - name: Upload Rock
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.ROCK_NAME }}
-          path: ./*.rock
-
-  publish-image:
-    runs-on: ubuntu-latest
-    needs: pack-rock
+    # Set the environment based on the trigger: 'release' for Production, 'push' for Staging.
+    environment: ${{ github.event_name == 'release' && 'Production' || 'Staging' }}
     outputs:
-      image_url: ${{ steps.set_image_url.outputs.image_url }}
+      charm_name: ${{ steps.setup-vars.outputs.charm_name }}
+      channel: ${{ steps.setup-vars.outputs.channel }}
+      juju_controller_name: ${{ steps.setup-vars.outputs.juju_controller_name }}
+      juju_model_name: ${{ steps.setup-vars.outputs.juju_model_name }}
+      environment: ${{ steps.setup-vars.outputs.environment }}
     steps:
-      - name: Get Rock
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.ROCK_NAME }}
+      - name: setup vars
+        id: setup-vars
+        run: |
+          echo "charm_name=${{ vars.CHARM_NAME }}" >> $GITHUB_OUTPUT
+          echo "channel=${{ vars.CHANNEL }}" >> $GITHUB_OUTPUT
+          echo "juju_controller_name=${{ vars.JUJU_CONTROLLER_NAME }}" >> $GITHUB_OUTPUT
+          echo "juju_model_name=${{ vars.JUJU_MODEL_NAME }}" >> $GITHUB_OUTPUT
+          # Set the environment variable based on the trigger.
+          echo "environment=${{ github.event_name == 'release' && 'Production' || 'Staging' }}" >> $GITHUB_OUTPUT
 
-      - name: Set image URL
-        id: set_image_url
-        run: echo "image_url=ghcr.io/${{ github.repository }}:$(date +%s)-${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
-
-        # Note: `skopeo` comes with `ubuntu-latest` by default, so no install step is needed.
-        # If you want to use `rockcraft.skopeo` for consistency with the Charm docs, switch this to `rockcraft.skopeo`
-        # And install `rockcraft` in this job first.
-      - name: Push to GHCR
-        run: skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
+  deploy:
+    needs: setup
+    name: Deploy
+    # https://github.com/canonical/webteam-devops
+    uses: canonical/webteam-devops/.github/workflows/deploy.yaml@main
+    with:
+      environment: ${{ needs.setup.outputs.environment }}
+      charm_name: ${{ needs.setup.outputs.charm_name }}
+      channel: ${{ needs.setup.outputs.channel }}
+      juju_controller_name: ${{ needs.setup.outputs.juju_controller_name }}
+      juju_model_name: ${{ needs.setup.outputs.juju_model_name }}
+    secrets:
+      VAULT_APPROLE_ROLE_ID: ${{ secrets.VAULT_APPROLE_ROLE_ID }}
+      VAULT_APPROLE_SECRET_ID: ${{ secrets.VAULT_APPROLE_SECRET_ID }}
+      # See https://canonical-charmcraft.readthedocs-hosted.com/en/stable/reference/commands/login/ to create a Charmhub token
+      # Use `charmcraft login --export path/to/save-token-file` to create the token file.
+      # Then, base64-encode it: `cat path/to/save-token-file | base64`
+      CHARMHUB_TOKEN: ${{ secrets.CHARMHUB_TOKEN }}
