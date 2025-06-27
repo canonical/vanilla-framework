@@ -18,13 +18,16 @@ parts:
     source: .
     source-type: local
     build-snaps:
+      # Necessary to run `npm`
       - node/22/stable
     override-build: |
+      # set error & debugging flags - exit on error and pipe commands to the console
       set -eux
       # install dependencies
       npm install -g yarn
       yarn install
-      # build the UI
+      # https://documentation.ubuntu.com/rockcraft/en/latest/common/craft-parts/how-to/override_build/
+      # Vanilla's `build` dir is pointed to by `templates/static/build` symlink - it must be present at runtime
       yarn run build
       mkdir -p "$CRAFT_PART_INSTALL/flask/app"
       cp -r build "$CRAFT_PART_INSTALL/flask/app/"
