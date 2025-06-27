@@ -40,21 +40,22 @@
                       <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
                         {{ title | replace("{version}", version) }}
                         {% if url in updatedFeatures %}
-                          <span class="p-side-navigation__status">
-                            {% if updatedFeatures[url]=="New" %}
-                            <span class="p-status-label--positive">
-                            {% elif updatedFeatures[url]=="Updated" %}
-                            <span class="p-status-label--information">
-                            {% elif updatedFeatures[url]=="Removed" %}
-                            <span class="p-status-label--negative">
-                            {% elif updatedFeatures[url]=="Deprecated" %}
-                            <span class="p-status-label--negative">
-                            {% elif updatedFeatures[url]=="In Progress" %}
-                            <span class="p-status-label--caution">
-                            {% endif %}
-                            {{ updatedFeatures[url] }}
-                            </span>
+                          {% set chip_class = "" %}
+                          {% if updatedFeatures[url] == "New" %}
+                            {% set chip_class = "p-chip--positive" %}
+                          {% elif updatedFeatures[url] == "Updated" %}
+                            {% set chip_class = "p-chip--information" %}
+                          {% elif updatedFeatures[url] == "Removed" or updatedFeatures[url] == "Deprecated" %}
+                            {% set chip_class = "p-chip--negative" %}
+                          {% elif updatedFeatures[url] == "In Progress" %}
+                            {% set chip_class = "p-chip--caution" %}
                           {% endif %}
+                          <div class="p-side-navigation__status u-vertically-center">
+                            <span class="{{ chip_class }} is-readonly">
+                               {{ updatedFeatures[url] }}
+                            </span>
+                          </div>
+                        {% endif %}
                       </a>
                     </li>
                 {%- endmacro %}

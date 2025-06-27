@@ -146,8 +146,6 @@ View example of the sticky side navigation pattern
 
 ### Accordion
 
-<span class="p-status-label--positive">New</span>
-
 To add accordions within side navigation use the `.p-side-navigation--accordion` class on the root element of the side navigation and `.p-side-navigation__accordion-button` to accordion `button` elements. The accordion will be collapsed by default and can be expanded by clicking on the accordion button.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/accordion" class="js-example" data-height="600">
@@ -253,7 +251,7 @@ To import side navigation, copy snippet below:
 @include vf-p-side-navigation;
 
 // optionally add icons and/or labels if you use them in side navigation__nav
-@include vf-p-status-label;
+@include vf-p-chip;
 @include vf-p-icons;
 ```
 

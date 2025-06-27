@@ -1,0 +1,15 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Chip / With Icon{% endblock %}
+{% from "docs/examples/patterns/chip/_semantic-states.jinja" import chip_semantic_states %}
+
+{% block standalone_css %}patterns_chip-icon{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ versioned_static('build/css/standalone/patterns_icons-additional.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+{{ chip_semantic_states(icon_name="edit", use_linebreak=True) }}
+
+{% endblock %}

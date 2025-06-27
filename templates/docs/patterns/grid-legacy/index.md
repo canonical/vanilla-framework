@@ -165,7 +165,9 @@ By utilising the responsive variants, you can also create mixed layouts with 50/
     View example of 75/25 mixed with 50/50 grid layout
 </a></div>
 
-<span class="p-status-label--negative">Removed</span> The `.is-split-on-medium` class has been removed in Vanilla 4.6.0 as `.row--25-75` how implements same responsive behaviour by default. If you want to only use 25/75 split on large screens, use `.row--25-75-on-large`.
+{{ status("removed") }}
+
+The `.is-split-on-medium` class has been removed in Vanilla 4.6.0 as `.row--25-75` how implements same responsive behaviour by default. If you want to only use 25/75 split on large screens, use `.row--25-75-on-large`.
 
 ### 25/25/50
 

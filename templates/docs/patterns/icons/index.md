@@ -89,7 +89,7 @@ Our standard icons fully support theming, so when placed in a container with `is
   </div>
 </div>
 
-<span class="p-status-label--negative">Deprecated</span>
+{{ status("deprecated") }}
 
 ## Alert
 
@@ -103,7 +103,7 @@ Outside of the standard set, additional icons are available for use, and need to
 
 {{ icon_section(additional_icons, 'light')}}
 
-<span id="new-icons" class="p-status-label--positive">New</span> In Vanilla 4.22.0 we introduced additional icons listed below.
+{{ status("new") }} In Vanilla 4.22.0 we introduced additional icons listed below.
 
 {{ icon_section(additional_icons_new, 'light')}}
 
