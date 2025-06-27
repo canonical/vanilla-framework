@@ -15,18 +15,40 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    # Set the environment based on the trigger: 'release' for Production, 'push' for Staging.
+    environment: ${{ github.event_name == 'release' && 'Production' || 'Staging' }}
+    outputs:
+      charm_name: ${{ steps.setup-vars.outputs.charm_name }}
+      channel: ${{ steps.setup-vars.outputs.channel }}
+      juju_controller_name: ${{ steps.setup-vars.outputs.juju_controller_name }}
+      juju_model_name: ${{ steps.setup-vars.outputs.juju_model_name }}
+      environment: ${{ steps.setup-vars.outputs.environment }}
+    steps:
+      - name: setup vars
+        id: setup-vars
+        run: |
+          echo "charm_name=${{ vars.CHARM_NAME }}" >> $GITHUB_OUTPUT
+          echo "channel=${{ vars.CHANNEL }}" >> $GITHUB_OUTPUT
+          echo "juju_controller_name=${{ vars.JUJU_CONTROLLER_NAME }}" >> $GITHUB_OUTPUT
+          echo "juju_model_name=${{ vars.JUJU_MODEL_NAME }}" >> $GITHUB_OUTPUT
+          # Set the environment variable based on the trigger.
+          echo "environment=${{ github.event_name == 'release' && 'Production' || 'Staging' }}" >> $GITHUB_OUTPUT
+
   deploy:
+    needs: setup
     name: Deploy
     # https://github.com/canonical/webteam-devops
     # Uncomment after https://github.com/canonical/webteam-devops/issues/4 is resolved.
     # uses: canonical/webteam-devops/.github/workflows/deploy.yaml@main
     uses: ./.github/workflows/webteam-devops-deploy-fork.yml
     with:
-      environment: ${{ github.event_name == 'release' && 'Production' || 'Staging' }}
-      charm_name: ${{ vars.CHARM_NAME }}
-      channel: ${{ vars.CHANNEL }}
-      juju_controller_name: ${{ vars.JUJU_CONTROLLER_NAME }}
-      juju_model_name: ${{ vars.JUJU_MODEL_NAME }}
+      environment: ${{ needs.setup.outputs.environment }}
+      charm_name: ${{ needs.setup.outputs.charm_name }}
+      channel: ${{ needs.setup.outputs.channel }}
+      juju_controller_name: ${{ needs.setup.outputs.juju_controller_name }}
+      juju_model_name: ${{ needs.setup.outputs.juju_model_name }}
     secrets:
       VAULT_APPROLE_ROLE_ID: ${{ secrets.VAULT_APPROLE_ROLE_ID }}
       VAULT_APPROLE_SECRET_ID: ${{ secrets.VAULT_APPROLE_SECRET_ID }}
