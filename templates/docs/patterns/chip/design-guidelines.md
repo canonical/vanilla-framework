@@ -22,7 +22,7 @@ Chips are compact UI elements designed to represent individual interactive items
 components that support multiple use cases such as filtering, tagging, and indicating status. Each variant of the
 chip—Read-Only, Default, and Dismissible—comprises specific elements and structures tailored to its functionality.
 
-![Anatomy diagram showing the different elements of a chip component including value, key, badge, icon, outline, and dismissible icon](https://assets.ubuntu.com/v1/f07c5040-chip-anatomy-202506.png)
+![Anatomy diagram showing the different elements of a chip component including value, key, badge, icon, outline, and dismissible icon](https://assets.ubuntu.com/v1/8b33b9dc-chip_anatomy_canonical.png)
 
 <div style="overflow: auto;">
   <table>
