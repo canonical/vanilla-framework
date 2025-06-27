@@ -35,7 +35,7 @@ View example of the strip dark pattern
 
 ## Highlighted strip
 
-<span class="p-status-label--positive">New</span>
+<span class="p-chip--positive is-readonly">New</span>
 
 The purpose of the highlighted strip (`.p-strip--highlighted`) is to display content with a lighter version of the background colour based on the current theme.
 

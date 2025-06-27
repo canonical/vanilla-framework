@@ -51,7 +51,7 @@ Use a shallow section component (`.p-section--shallow`) to group larger chunks o
 View example of the shallow section
 </a></div>
 
-<span class="p-status-label--negative">Deprecated</span>
+{{ status("deprecated") }}
 
 The block component `.p-block` previously served the same purpose, but is now deprecated and should not be used any more. Use the shallow section component instead.
 

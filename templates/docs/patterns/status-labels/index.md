@@ -20,7 +20,7 @@ View example of the status label pattern
 <div class="p-notification--caution">
   <p class="p-notification__content">
     <span class="p-notification__title">Deprecation warning:</span>
-    <span class="p-notification__message"><code>p-label</code> and its variants are deprecated and may be removed in future version of Vanilla. Use <code>p-status-label</code> instead.</span>
+    <span class="p-notification__message"><code>p-label</code> and its variants are deprecated and may be removed in future version of Vanilla. Use <code>p-chip is-readonly</code> instead.</span>
   </p>
 </div>
 
@@ -33,7 +33,7 @@ To import just this component into your project, copy the snippet below and incl
 // this only needs to happen once in a given project
 @import 'vanilla-framework';
 @include vf-base;
-@include vf-p-status-label;
+@include vf-p-chip;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.

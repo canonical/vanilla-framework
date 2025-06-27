@@ -1,6 +1,11 @@
 @import 'settings';
 
 @mixin vf-p-chip {
+  %vf-chip-inline {
+    margin: 0;
+    vertical-align: baseline;
+  }
+
   %vf-chip {
     @extend %small-text;
     @include vf-transition(#{background-color, border-color}, snap, out);
@@ -60,8 +65,7 @@
     }
 
     &.is-inline {
-      margin: 0;
-      vertical-align: baseline;
+      @extend %vf-chip-inline;
     }
   }
 
@@ -73,6 +77,7 @@
 
   [class^='p-chip'] {
     &.is-readonly {
+      @extend %vf-chip-inline;
       border: none;
     }
   }
