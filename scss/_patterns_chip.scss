@@ -1,9 +1,22 @@
+@use 'sass:math';
 @import 'settings';
 
 @mixin vf-p-chip {
   %vf-chip-inline {
     margin: 0;
     vertical-align: baseline;
+  }
+
+  %vf-chip-icon {
+    @extend %icon;
+    align-self: center;
+    background-size: map-get($icon-sizes, small);
+    flex: 0 0 auto;
+    // Space chip away from the content preceding it in the chip body
+    margin-left: $sph--x-small;
+    @media (min-width: $breakpoint-x-large) {
+      background-size: math.div(map-get($icon-sizes, small), $font-size-ratio--largescreen); //ensure no rounding happens as it positions the icon off center
+    }
   }
 
   %vf-chip {
@@ -46,18 +59,16 @@
     }
 
     .p-chip__dismiss {
-      @extend %icon;
       @extend %vf-chip-icon;
       @include vf-icon-close-themed;
 
       border-radius: 50%;
-      margin-left: $sph--x-small;
     }
 
     .p-chip__icon {
-      @extend %icon;
       @extend %vf-chip-icon;
 
+      // Space the chip away from the content following it in the chip body
       margin-right: $sph--x-small;
     }
 
