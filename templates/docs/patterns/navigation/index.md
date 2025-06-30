@@ -253,6 +253,7 @@ To import side navigation, copy snippet below:
 // optionally add icons and/or labels if you use them in side navigation__nav
 @include vf-p-chip;
 @include vf-p-icons;
+@include vf-p-chip;
 ```
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
