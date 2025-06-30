@@ -16,6 +16,8 @@ Chips can include a leading label for the metadata displayed in the chip. They c
 a [Badge](https://discourse.ubuntu.com/t/component-badge/31574) to show a count relating to that metadata and a close
 icon button to remove the chip.
 
+---
+
 ## Anatomy
 
 Chips are compact UI elements designed to represent individual interactive items or metadata. They are versatile
@@ -75,6 +77,12 @@ chip—Read-Only, Default, and Dismissible—comprises specific elements and str
   </table>
 </div>
 
+### Subcomponents
+
+The default chip uses the subcomponent of the [dismissible icon (6)](#dismissable-icon).
+
+---
+
 ## Usage
 
 Chips serve as compact visual elements for representing metadata, making selections, or filtering content. They provide
@@ -90,6 +98,9 @@ call-to-action or a link to other pages.
   </div>
   <div class="grid-col-4">
     <img src="https://assets.ubuntu.com/v1/f6406472-chip_next_to_cards.png" alt="Chips placed next to headers showing category and metadata information" />
+  </div>
+  <div class="grid-col-4 grid-col-start-large-5">
+   <img src="https://assets.ubuntu.com/v1/5560edb6-chip_card_status.png" alt="Chips used to indicate status in a card">
   </div>
 </div>
 
@@ -122,6 +133,12 @@ call-to-action or a link to other pages.
   </div>
   <div class="grid-col-4">
     <img src="https://assets.ubuntu.com/v1/cb699dff-chip_primary_navigation.png" alt="Chips used as primary navigation buttons" />
+  </div>
+  <div class="grid-col-4 grid-col-start-large-5">
+   <img src="https://assets.ubuntu.com/v1/7b94d8a3-chip_pnav_1.png" alt="Chips used as primary navigation buttons">
+  </div>
+  <div class="grid-col-4 grid-col-start-large-5">
+   <img src="https://assets.ubuntu.com/v1/08985ed9-chip_pnav_2.png" alt="Chips used as primary navigation buttons">
   </div>
 </div>
 
@@ -161,7 +178,7 @@ call-to-action or a link to other pages.
     <p>Chips must include a text label. Icons alone don't convey enough context.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/ae1f70a7-chip_icon_only.png" alt="Chips with only icons and no text labels" />
+    <img src="https://assets.ubuntu.com/v1/c5ec0270-chip_with_icon_only.png" alt="Chips with only icons and no text labels" />
   </div>
 </div>
 
@@ -175,11 +192,9 @@ call-to-action or a link to other pages.
   </div>
 </div>
 
----
+### Default Chip
 
-## Default Chip
-
-### When to use
+#### When to use
 
 <div class="grid-row">
   <div class="grid-col-4">
@@ -187,11 +202,11 @@ call-to-action or a link to other pages.
     <p>Let users filter page content dynamically by interacting with the chips. ​​Interactive filter chips must be backed by a secondary filtering menu or panel for accessibility and discoverability.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/18664695-chip_filtering.png" alt="Default chips used for filtering page content" />
+    <img src="https://assets.ubuntu.com/v1/139e6623-chip_use_for_filtering.png" alt="Default chips used for filtering page content" />
   </div>
 </div>
 
-### When not to use
+#### When not to use
 
 <div class="grid-row">
   <div class="grid-col-4">
@@ -209,15 +224,13 @@ call-to-action or a link to other pages.
     <p>Default chips must include active filtering behavior. If no filtering is applied, use a read-only chip instead.</p>
   </div>
   <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/7240b5af-chip_default_without_filtering.png" alt="Default chips without filtering functionality" />
+    <img src="https://assets.ubuntu.com/v1/758fbf0c-chip_default_without_filtering.png" alt="Default chips without filtering functionality" />
   </div>
 </div>
 
----
+### Read-only Chip
 
-## Read-only Chip
-
-### When to use
+#### When to use
 
 <div class="grid-row">
   <div class="grid-col-4">
@@ -239,7 +252,7 @@ call-to-action or a link to other pages.
   </div>
 </div>
 
-### When not to use
+#### When not to use
 
 <div class="grid-row">
   <div class="grid-col-4">
@@ -253,23 +266,23 @@ call-to-action or a link to other pages.
 
 ---
 
-# Properties
+## Properties
 
 Chips can be further tailored through customizable attributes that extend the primary variants. These attributes—such as
 color, icon, and size—add flexibility and adaptability to meet various design and functionality requirements.
 
-## Value
+### Value
 
 Value is the mandatory text (string of characters) attribute of the chip, with an advised number of words between 1 and
 3, with a maximum of 5. Do not use the value property to only indicate numeric values. Use
 the [badge](/docs/patterns/badge) component instead.
 
-## State
+### State
 
 Chips support interactive states to provide clear feedback on user interactions. These states ensure usability and
 accessibility across different interactions. Currently there is no disabled chip state.
 
-### Supported States
+#### Supported States
 
 - **Default:** The chip's standard appearance when not interacted with.
 - **Hover:** A visual highlight when the user hovers over the chip, indicating interactivity.
@@ -281,13 +294,13 @@ Default chips have **default**, **hover** and **active** states while the read-o
 The dismissible chip's interactive area is limited to the chip's icon area. In any use-case chips should have only one
 interaction associated with them.
 
-## Color
+### Color
 
 Colors - for background and stroke color - can have semantic connotation, reinforcing meaning or status visually,
 making it easier for users to interpret contextual information, but can be also used to indicate categorization. If
-there is a need for additional color(s) a contribution must be made to the design system.
+there is a need for additional color(s), a [contribution must be made](https://github.com/canonical/vanilla-framework/issues/new/choose) to the design system.
 
-### Supported Variants
+#### Supported Variants
 
 - **Gray:** Used for categorization when no additional semantic meaning is added.
 - **Green:** Can be used to communicate a positive connotation, such as confirmation or success.
@@ -297,42 +310,42 @@ there is a need for additional color(s) a contribution must be made to the desig
 
 ![Chips in different semantic colors: gray, green, blue, red, and yellow variants](https://assets.ubuntu.com/v1/2c04668e-chip_supported_colors.png)
 
-## Size
+### Size
 
 Chips are available in two sizes affecting the height of the chip, to accommodate different UI needs. Width is defined
 by the value text's length.
 
-### Supported Sizes
+#### Supported Sizes
 
 - **Default**: The standard chip size.
 - **Dense**: A compact version with reduced height and padding, designed for tighter spaces.
 
 ![Default and dense chip sizes side by side](https://assets.ubuntu.com/v1/a88b305f-chip_size_supported_sizes.png)
 
-## Icon
+### Icon
 
 The Icon property on the left hand side of the component is an optional attribute. It is used to display additional
 contextual data related to the chip's content, providing an easy way to distinguish between chips. The icon on the right
 hand side is reserved for the dismissible chip - having the Close icon as part of its anatomy.
 
-### Supported Icons
+#### Supported Icons
 
 All non-semantic icons from the icon library are supported for chips. Semantic icons should be only used with the
 corresponding semantic background color.
 
 ![Chips with various icons from the icon library](https://assets.ubuntu.com/v1/3b6e88cd-chip_icon_supported_variants.png)
 
-## Key
+### Key
 
 Keys (also referred to as leads) are optional, leading text elements that provide context to the chip's primary value.
 
 **Example**: For a filter labeled "Month: June," "Month" is the key, and "June" is the value.
 
-### Supported Variants
+#### Supported Variants
 
 ![Chips with key-value pairs like Month: June](https://assets.ubuntu.com/v1/4bfd89cb-chip_key_supported_variants.png)
 
-## Badge
+### Badge
 
 The Badge property is an optional attribute. It is used to display a quantitative value related to the chip's content,
 providing additional context at a glance.
@@ -340,6 +353,64 @@ providing additional context at a glance.
 **Example**: In Landscape the chip's value could represent a group of machines while the badge would refer to the number of
 machines in that group.
 
-### Supported Variants
+#### Supported Variants
 
-![Chips with badges displaying quantitative values](https://assets.ubuntu.com/v1/28a5d9e1-chip_badge_supported_variants.png)
+![Chips with badges displaying quantitative values](https://assets.ubuntu.com/v1/74aa7d1f-chip_badge_supported_variants.png)
+
+### Dismissable icon
+
+The dismissable icon is a subcomponent of the Default chip. When present it becomes the interactive area of the chip.
+
+![Chip with dismissible icon](https://assets.ubuntu.com/v1/1146d7f6-chip_dismissible_icon.png)
+
+---
+
+## Styling
+
+### Layout and Spacing
+
+#### Vertical
+
+![Chip vertical spacing settings](https://assets.ubuntu.com/v1/4276f417-chip_spacing_vertical.jpg)
+
+The spacing in the default sized chip has a `0.25rem` padding, including the outline stroke of the component on both top and bottom of the chip.  
+Label wrappers have a `5.5px` padding vertically.
+In the dense sized chip, the outline stroke is excluded from the body of the chip, so that the padding is only including the `1.5px` border.
+
+Read-only chips have the same dimensions as default chips. The transparent borders are calculated into the size of the chip.
+
+#### Horizontal
+
+![Chip horizontal spacing settings](https://assets.ubuntu.com/v1/01b1b550-chip_spacing_horizontal.jpg)
+
+In the default chip the spacing between icon, label, badge and dismissable icon is `4px`. The chip's horizontal padding is `10.5px`.
+
+We recommend a spacing of minimum `8px` between chip components and chip components with other components.
+
+### Colors
+
+![Chip component colors](https://assets.ubuntu.com/v1/d1d0f2d0-chip_colors.png)
+
+### Text overflow
+
+The chip width mainly depends on the number of characters included in the chip's value. We would like to advise you to keep the length of the chip between one and three words. The hard requirement is having the chip with a maximum of five words.  
+In the case of an overflow, the chip's value truncates rather than wrapping it inside the chip.
+
+### Responsiveness
+
+Responsiveness is inherited from the already documented chip component.
+
+### Tokens
+
+The source of truth can be found in the [Figma file](https://www.figma.com/design/Y0cqKbTG4rejU9xm2oh5pR/%F0%9F%92%A0-Vanilla---Core-component-library?node-id=1-8&p=f&vars=1&var-id=b9d535f654f0fc25bd7eafb20325a7f13b002282%2F3595-780&m=dev) for spacing and color tokens.
+
+---
+
+## Reference
+
+- [Chip Figma File](https://www.figma.com/design/2sIfSFOcU2SEiPe4xtrJmC/%F0%9F%8D%9F-Chip?node-id=31-1771&m=dev)
+- [Material Design - Chips](https://material.io/components/chips#input-chips)
+- [Carbon - Tag](https://www.carbondesignsystem.com/components/tag/usage/)
+- [Clarity - Label](https://clarity.design/angular-components/label/)
+- [Bolt - Chip](https://boltdesignsystem.com/pattern-lab/?p=viewall-components-chip)
+- [Atlassian - Tag](https://atlassian.design/components/tag/examples)
