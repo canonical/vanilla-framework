@@ -18,23 +18,6 @@ Chips come in 5 colours. The default is neutral (grey). Use any of the following
 View example of the coloured chip pattern
 </a></div>
 
-## Read-only {{ status("new") }}
-
-Chips can be used to display read-only information, such as semantic statuses.
-To create a read-only chip, use `<span class="p-chip is-read-only">`.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only" class="js-example">
-View example of the read-only chip pattern
-</a></div>
-
-### Inline read-only chips
-
-Read-only chips can also be displayed inline using [`is-inline`](#inline-chips). This is useful for displaying status-related information in inline contexts, such as tables and [side navigation](#/docs/patterns/navigation#side-navigation), where the default margin of the chip is not desired.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only-inline" class="js-example">
-View example of the read-only chip pattern
-</a></div>
-
 ## Chip with icon {{ status("new") }}
 
 Chips can include an <a href="/docs/patterns/icon">icon</a> to provide additional context or visual interest.
@@ -90,6 +73,29 @@ If you need to align the chip vertically within the text, use the [vertical alig
 
 <div class="embedded-example"><a href="/docs/examples/utilities/align/vertical-align" class="js-example">
 View example of the vertical align middle utility
+</a></div>
+
+## Read-only {{ status("new") }}
+
+Chips can be used to display read-only information, such as semantic statuses.
+To create a read-only chip, use `<span class="p-chip is-read-only">`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only" class="js-example">
+View example of the read-only chip pattern
+</a></div>
+
+### Inline read-only chips
+
+Read-only chips can also be displayed inline using [`is-inline`](#inline-chips). This is useful for displaying status-related information in inline contexts, such as tables and [side navigation](#/docs/patterns/navigation#side-navigation), where the default margin of the chip is not desired.
+
+When including a chip in an environment with limited vertical space, such as a side navigation, you can use the `is-dense` class to reduce the height of the chip and prevent the chip from increasing the height of paragraph-sized elements.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only-inline-table" class="js-example">
+View example of the dense inline read-only chip pattern
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only-inline-sidenav" class="js-example">
+View example of the dense inline read-only chip pattern
 </a></div>
 
 ## Link chips
