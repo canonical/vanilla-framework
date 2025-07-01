@@ -408,7 +408,7 @@ The source of truth can be found in the [Figma file](https://www.figma.com/desig
 
 ## Reference
 
-- [Chip Figma File](https://www.figma.com/design/2sIfSFOcU2SEiPe4xtrJmC/%F0%9F%8D%9F-Chip?node-id=31-1771&m=dev)
+- [Chip Figma File](https://www.figma.com/design/2sIfSFOcU2SEiPe4xtrJmC/%F0%9F%8D%9F-Chip?node-id=68-1007)
 - [Material Design - Chips](https://material.io/components/chips#input-chips)
 - [Carbon - Tag](https://www.carbondesignsystem.com/components/tag/usage/)
 - [Clarity - Label](https://clarity.design/angular-components/label/)
