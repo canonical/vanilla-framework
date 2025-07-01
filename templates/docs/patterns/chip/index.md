@@ -30,7 +30,6 @@ View example of the read-only chip pattern
 ## Chip with icon {{ status("new") }}
 
 Chips can include an <a href="/docs/patterns/icon">icon</a> to provide additional context or visual interest.
-To add an icon, use the `p-chip__icon` class and include the icon as the first child element of the chip.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/with-icon" class="js-example">
 View example of the with-icon chip pattern

@@ -35,7 +35,7 @@
     vertical-align: calc($input-border-thickness - map-get($nudges, p));
     white-space: nowrap;
 
-    .p-chip__icon,
+    [class*='p-icon--'],
     .p-chip__lead,
     .p-chip__value {
       color: $colors--theme--text-default;
@@ -65,7 +65,7 @@
       border-radius: 50%;
     }
 
-    .p-chip__icon {
+    & > [class*='p-icon--'] {
       @extend %vf-chip-icon;
 
       // Space the chip away from the content following it in the chip body
