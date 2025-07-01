@@ -56,19 +56,19 @@
       {{ _create_chip(chip_element_tag, semantic_class, ...) }}
   -#}
   <{{ chip_element_tag }} class="{{ semantic_class }}{{ variant_class }}{{ modifier_classes }}">
-  {%- if has_icon and not is_dismissible -%}
-    {{ _chip_icon(icon_name=icon_name) }}
-  {% endif -%}
-  {% if include_lead -%}
+  {%- if has_icon and not is_dismissible %}
+    {{- _chip_icon(icon_name=icon_name) -}}
+  {% endif %}
+  {%- if include_lead %}
     <span class="p-chip__lead">Lead</span>
-  {% endif -%}
+  {%- endif %}
   <span class="p-chip__value">Value</span>
-  {% if has_badge -%}
+  {%- if has_badge %}
     {{ _chip_badge(text=badge_text, label=badge_label) }}
   {%- endif -%}
   {% if is_dismissible %}
     <button class="p-chip__dismiss">Dismiss</button>
-  {% endif %}
+  {%- endif %}
   </{{ chip_element_tag }}>
 {%- endmacro -%}
 
@@ -147,6 +147,7 @@
       include_lead=False
     ) }}
     {% if use_linebreak and not loop.last %}
+      <!--Line break is for demonstrative purposes only-->
       <br>
     {% endif %}
   {%- endfor -%}
