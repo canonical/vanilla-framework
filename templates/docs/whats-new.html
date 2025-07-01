@@ -25,13 +25,13 @@
       <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
       <td>
         {% if feature.status=="New" %}
-        <span class="p-chip--positive is-readonly">
+        <span class="p-chip--positive is-readonly is-inline">
         {% elif feature.status=="Updated" %}
-        <span class="p-chip--information is-readonly">
+        <span class="p-chip--information is-readonly is-inline">
         {% elif feature.status=="Deprecated" or feature.status=="Removed" %}
-        <span class="p-chip--negative is-readonly">
+        <span class="p-chip--negative is-readonly is-inline">
         {% elif updatedFeatures[url]=="In Progress" %}
-        <span class="p-chip--caution is-readonly">
+        <span class="p-chip--caution is-readonly is-inline">
         {% endif %}
         {{ feature.status }}</span>
       </td>
@@ -60,13 +60,13 @@
       <th><a href="{{ feature.url }}">{{ feature.component|safe }}</a></th>
       <td>
         {% if feature.status=="New" %}
-        <span class="p-chip--positive is-readonly">
+        <span class="p-chip--positive is-readonly is-inline">
         {% elif feature.status=="Updated" %}
-        <span class="p-chip--information is-readonly">
+        <span class="p-chip--information is-readonly is-inline">
         {% elif feature.status=="Deprecated" %}
-        <span class="p-chip--negative is-readonly">
+        <span class="p-chip--negative is-readonly is-inline">
         {% elif updatedFeatures[url]=="In Progress" %}
-        <span class="p-chip--caution is-readonly">
+        <span class="p-chip--caution is-readonly is-inline">
         {% endif %}
         {{ feature.status }}</span>
       </td>
@@ -89,31 +89,31 @@ To see what changed in Vanilla v3, see the <a href="/docs/changelog-v3">changelo
 <div class="row">
   <div class="col-3 u-equal-height">
     <div class="p-card--highlighted">
-      <span class="p-chip--positive is-readonly">New</span>
+      <span class="p-chip--positive is-readonly is-inline">New</span>
       <p class="p-card__content">Newly released components, utilities or settings that are safe to use in projects.</p>
     </div>
   </div>
   <div class="col-3 u-equal-height">
     <div class="p-card--highlighted">
-      <span class="p-chip--negative is-readonly">Deprecated</span>
+      <span class="p-chip--negative is-readonly is-inline">Deprecated</span>
       <p class="p-card__content">These components, utilities or settings are in the process of being removed and should no longer be used in projects.</p>
     </div>
   </div>
   <div class="col-3 u-equal-height">
     <div class="p-card--highlighted">
-      <span class="p-chip--caution is-readonly">In progress</span>
+      <span class="p-chip--caution is-readonly is-inline">In progress</span>
       <p class="p-card__content">Design spec and code implementation are not yet finished.</p>
     </div>
   </div>
   <div class="col-3 u-equal-height">
     <div class="p-card--highlighted">
-      <span class="p-chip--information is-readonly">Updated</span>
+      <span class="p-chip--information is-readonly is-inline">Updated</span>
       <p class="p-card__content">These are existing components, utilities or settings that have been updated either through design or code.</p>
     </div>
   </div>
   <div class="col-3 u-equal-height">
     <div class="p-card--highlighted">
-      <span class="p-chip--negative is-readonly">Removed</span>
+      <span class="p-chip--negative is-readonly is-inline">Removed</span>
       <p class="p-card__content">These components, variants or utilities have been removed from Vanilla. They should be removed from projects or updated to their new recommended versions.</p>
     </div>
   </div>

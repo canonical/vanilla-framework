@@ -2,11 +2,6 @@
 @import 'settings';
 
 @mixin vf-p-chip {
-  %vf-chip-inline {
-    margin: 0;
-    vertical-align: baseline;
-  }
-
   %vf-chip-icon {
     @extend %icon;
     align-self: center;
@@ -77,22 +72,19 @@
     }
 
     &.is-inline {
-      @extend %vf-chip-inline;
+      margin: 0;
+      vertical-align: baseline;
+    }
+
+    &.is-readonly {
+      border-color: transparent;
     }
   }
-
   @include vf-chips-default;
   @include vf-chips-positive;
   @include vf-chips-caution;
   @include vf-chips-negative;
   @include vf-chips-information;
-
-  [class^='p-chip'] {
-    &.is-readonly {
-      @extend %vf-chip-inline;
-      border-color: transparent;
-    }
-  }
 }
 
 @mixin vf-chip-interactive(

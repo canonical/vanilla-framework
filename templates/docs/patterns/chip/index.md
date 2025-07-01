@@ -27,6 +27,14 @@ To create a read-only chip, use `<span class="p-chip is-read-only">`.
 View example of the read-only chip pattern
 </a></div>
 
+### Inline read-only chips
+
+Read-only chips can also be displayed inline using [`is-inline`](#inline-chips). This is useful for displaying status-related information in inline contexts, such as tables and [side navigation](#/docs/patterns/navigation#side-navigation), where the default margin of the chip is not desired.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only-inline" class="js-example">
+View example of the read-only chip pattern
+</a></div>
+
 ## Chip with icon {{ status("new") }}
 
 Chips can include an <a href="/docs/patterns/icon">icon</a> to provide additional context or visual interest.
@@ -76,6 +84,12 @@ The default chip has margins and padding set so it aligns to paragraphs and with
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/inline" class="js-example">
 View example of the inline chip pattern
+</a></div>
+
+If you need to align the chip vertically within the text, use the [vertical alignment utility](/docs/utilities/align#vertical-alignment):
+
+<div class="embedded-example"><a href="/docs/examples/utilities/align/vertical-align" class="js-example">
+View example of the vertical align middle utility
 </a></div>
 
 ## Link chips

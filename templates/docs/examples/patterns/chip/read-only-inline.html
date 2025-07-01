@@ -1,0 +1,46 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Chip / Read-Only / Inline{% endblock %}
+{% from "docs/examples/patterns/chip/_semantic-states.jinja" import chip_semantic_states %}
+
+{% block standalone_css %}patterns_chip{% endblock %}
+
+{% block content %}
+
+<table aria-label="Server status dashboard">
+  <thead>
+  <tr>
+    <th style="width: 20%">Server</th>
+    <th style="width: 20%">Status</th>
+    <th style="width: 10%">Uptime</th>
+    <th style="width: 50%">Notes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>web-01</th>
+    <td>
+      <span class="p-chip--positive is-readonly is-inline">Online</span>
+    </td>
+    <td>99 days</td>
+    <td>Running normally.</td>
+  </tr>
+  <tr>
+    <th>db-02</th>
+    <td>
+      <span class="p-chip--caution is-readonly is-inline">Maintenance</span>
+    </td>
+    <td>2 hours</td>
+    <td>Scheduled maintenance in progress.</td>
+  </tr>
+  <tr>
+    <th>cache-03</th>
+    <td>
+      <span class="p-chip--negative is-readonly is-inline">Offline</span>
+    </td>
+    <td>&mdash;</td>
+    <td>Unexpected downtime, investigating.</td>
+  </tr>
+  </tbody>
+</table>
+
+{% endblock %}

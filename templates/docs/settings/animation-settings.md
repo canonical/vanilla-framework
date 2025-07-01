@@ -80,4 +80,5 @@ If you require multiple properties then the list must be interpolated as shown i
 ```
 
 {{ status("deprecated") }}
-Previously used `vf-animation` mixin has been deprecated in 3.7.0 and will be removed in future versions of Vanilla. Please use `vf-transition` instead.
+
+The previously used `vf-animation` mixin has been deprecated in 3.7.0 and will be removed in future versions of Vanilla. Please use `vf-transition` instead.

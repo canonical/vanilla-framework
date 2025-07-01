@@ -109,7 +109,7 @@ It allows grouping the links into navigation sections and nesting them up to fou
 
 Current page in the side navigation should be highlighted by adding `aria-current="page"` attribute to the corresponding `p-side-navigation__link` element. Alternatively, if `aria-current` attribute cannot be set, the `is-active` class can be used instead.
 
-Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add status labels or icons on right side of navigation items.
+Use `p-side-navigation__status` inside `p-side-navigation__link` elements to add [read-only chips](/docs/patterns/chip#inline-read-only-chips) or [icons](/docs/patterns/icons) on the right side of navigation items.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/side-navigation/docs" class="js-example" data-height="600">
 View example of the side navigation pattern
@@ -165,7 +165,7 @@ In this variant, the side navigation pattern will style headings (`h2`, `h3`, et
 - links (`a`) inside `li` are styled as `p-side-navigation__link`
   - `is-active` class needs to be added to a link element to mark the active page
 
-Because of the limitations of raw HTML markup without class names, it's not possible to use icons or status labels in the raw HTML variant of side navigation.
+Because of the limitations of raw HTML markup without class names, it's not possible to use icons or read-only chips in the raw HTML variant of side navigation.
 
 <div class="p-strip is-shallow">
   <div class="row">
@@ -173,7 +173,7 @@ Because of the limitations of raw HTML markup without class names, it's not poss
        <div class="p-notification--positive">
         <p class="p-notification__content">
           <span class="p-notification__title">Do:</span>
-          <span class="p-notification__message">Use the  raw HTML variant when the backend serving the navigation content won't allow custom class names on HTML elements.</span>
+          <span class="p-notification__message">Use the raw HTML variant when the backend serving the navigation content won't allow custom class names on HTML elements.</span>
           </p>
        </div>
      </div>
