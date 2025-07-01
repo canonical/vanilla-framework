@@ -71,7 +71,7 @@ chip—Read-Only, Default, and Dismissible—comprises specific elements and str
         <td>6. dismissible icon</td>
         <td>✓</td>
         <td>—</td>
-        <td>Indicates dismissability and dismissible area</td>
+        <td>Indicates dismissibility and dismissible area</td>
       </tr>
     </tbody>
   </table>
