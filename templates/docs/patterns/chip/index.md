@@ -88,7 +88,7 @@ View example of the read-only chip pattern
 
 Read-only chips can also be displayed inline using [`is-inline`](#inline-chips). This is useful for displaying status-related information in inline contexts, such as tables and [side navigation](#/docs/patterns/navigation#side-navigation), where the default margin of the chip is not desired.
 
-When including a chip in an environment with limited vertical space, such as a side navigation, you can use the `is-dense` class to reduce the height of the chip and prevent the chip from increasing the height of paragraph-sized elements.
+When including a chip in an environment with limited vertical space, you can use the `is-dense` class to reduce the height of the chip and prevent the chip from increasing the height of paragraph-sized elements.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/chip/read-only-inline-table" class="js-example">
 View example of the dense inline read-only chip pattern
