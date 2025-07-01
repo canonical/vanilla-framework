@@ -68,10 +68,10 @@ chip—Read-Only, Default, and Dismissible—comprises specific elements and str
         <td>Makes the differentiation that the chip is interactive and selectable.</td>
       </tr>
       <tr>
-        <td>6. Dismissable icon</td>
+        <td>6. dismissible icon</td>
         <td>✓</td>
         <td>—</td>
-        <td>Indicates dismissability and dismissable area</td>
+        <td>Indicates dismissability and dismissible area</td>
       </tr>
     </tbody>
   </table>
@@ -79,7 +79,7 @@ chip—Read-Only, Default, and Dismissible—comprises specific elements and str
 
 ### Subcomponents
 
-The default chip uses the subcomponent of the [dismissible icon (6)](#dismissable-icon).
+The default chip uses the subcomponent of the [dismissible icon (6)](#dismissible-icon).
 
 ---
 
@@ -357,9 +357,9 @@ machines in that group.
 
 ![Chips with badges displaying quantitative values](https://assets.ubuntu.com/v1/74aa7d1f-chip_badge_supported_variants.png)
 
-### Dismissable icon
+### dismissible icon
 
-The dismissable icon is a subcomponent of the Default chip. When present it becomes the interactive area of the chip.
+The dismissible icon is a subcomponent of the Default chip. When present it becomes the interactive area of the chip.
 
 ![Chip with dismissible icon](https://assets.ubuntu.com/v1/1146d7f6-chip_dismissible_icon.png)
 
@@ -383,7 +383,7 @@ Read-only chips have the same dimensions as default chips. The transparent borde
 
 ![Chip horizontal spacing settings](https://assets.ubuntu.com/v1/01b1b550-chip_spacing_horizontal.jpg)
 
-In the default chip the spacing between icon, label, badge and dismissable icon is `4px`. The chip's horizontal padding is `10.5px`.
+In the default chip the spacing between icon, label, badge and dismissible icon is `4px`. The chip's horizontal padding is `10.5px`.
 
 We recommend a spacing of minimum `8px` between chip components and chip components with other components.
 

@@ -20,11 +20,11 @@ There should be an alternative text specified when the value (text) doesn't prov
 
 ### Keyboard interactions
 
-When pressing 'Enter' a default chip should perform the filtering action based on its value, the dismissable chip should revert the filtering behavior.
+When pressing 'Enter' a default chip should perform the filtering action based on its value, the dismissible chip should revert the filtering behavior.
 
 #### Focus behavior
 
-When tabulating through chips the focus area should be the whole chip for the default chip, the dismissable area for the dismissible chip. Read-only chips should be skipped during tabulation.
+When tabulating through chips the focus area should be the whole chip for the default chip, the dismissible area for the dismissible chip. Read-only chips should be skipped during tabulation.
 
 ## Reference
 
