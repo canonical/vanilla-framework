@@ -79,5 +79,6 @@ If you require multiple properties then the list must be interpolated as shown i
 @include vf-transition(#{height, width}, brisk, out);
 ```
 
-<span class="p-status-label--negative">Deprecated</span>
-Previously used `vf-animation` mixin has been deprecated in 3.7.0 and will be removed in future versions of Vanilla. Please use `vf-transition` instead.
+{{ status("deprecated") }}
+
+The previously used `vf-animation` mixin has been deprecated in 3.7.0 and will be removed in future versions of Vanilla. Please use `vf-transition` instead.

@@ -1,0 +1,17 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Chip / With Badge / With dismiss{% endblock %}
+{% from "docs/examples/patterns/chip/_semantic-states.jinja" import chip_semantic_states %}
+
+{% block standalone_css %}patterns_chip{% endblock %}
+
+{% block content %}
+
+{{ chip_semantic_states(
+  states=[""],
+  icon_name="warning",
+  badge_text="2.5B",
+  badge_label="Approximately 2.5 billion items exist",
+  is_dismissible=True
+) }}
+
+{% endblock %}
