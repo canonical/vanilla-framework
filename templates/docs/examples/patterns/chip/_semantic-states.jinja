@@ -1,0 +1,170 @@
+{#-
+  Helper macros for generating Chip examples
+-#}
+
+{%- macro _chip_icon(icon_name="") -%}
+  {#
+    Render a chip icon.
+    Parameters:
+      icon_name (str): The name of the icon to use (e.g., "information").
+    Usage:
+      {{ _chip_icon(icon_name="information") }}
+  #}
+  <i class="p-icon--{{ icon_name }}"></i>
+{%- endmacro -%}
+
+{%- macro _chip_badge(text="", label="") -%}
+  {#-
+    Render a badge for a chip.
+    Parameters:
+      text (str): The badge text (e.g., "2.5B").
+      label (str): The aria-label for accessibility.
+    Usage:
+      {{ _chip_badge(text="2.5B", label="More than 2.5 billion items") }}
+  -#}
+  <span class="p-badge" aria-label="{{ label }}">{{ text }}</span>
+{%- endmacro -%}
+
+{%- macro _create_chip(
+  chip_element_tag,
+  semantic_class,
+  variant_class,
+  modifier_classes,
+  has_icon,
+  icon_name,
+  has_badge,
+  lead_text,
+  show_lead,
+  value_text,
+  badge_text,
+  badge_label,
+  is_dismissible
+) -%}
+  {#-
+    Render a single chip element with optional icon, lead, value, badge, and dismiss button.
+    Parameters:
+      chip_element_tag (str): The HTML tag to use (e.g., "button", "span", "a").
+      semantic_class (str): The main chip class (e.g., "p-chip--positive").
+      variant_class (str): Additional variant class (e.g., " is-readonly").
+      modifier_classes (str): Any extra modifier classes.
+      has_icon (bool): Whether to include an icon.
+      icon_name (str): The icon name if has_icon is true.
+      has_badge (bool): Whether to include a badge.
+      lead_text (str): The lead text to display.
+      show_lead (bool): Whether to show the lead text.
+      value_text (str): The main value text of the chip.
+      badge_text (str): The badge text.
+      badge_label (str): The badge aria-label.
+      is_dismissible (bool): Whether to include a dismiss button.
+    Usage:
+      {{ _create_chip(chip_element_tag, semantic_class, ...) }}
+  -#}
+  <{{ chip_element_tag }} class="{{ semantic_class }}{{ variant_class }}{{ modifier_classes }}">
+  {%- if has_icon and not is_dismissible %}
+    {{- _chip_icon(icon_name=icon_name) -}}
+  {% endif %}
+  {%- if show_lead and lead_text | trim | length > 0 %}
+    <span class="p-chip__lead">{{ lead_text }}</span>
+  {%- endif %}
+  <span class="p-chip__value">{{ value_text }}</span>
+  {%- if has_badge %}
+    {{ _chip_badge(text=badge_text, label=badge_label) }}
+  {%- endif -%}
+  {% if is_dismissible %}
+    <button class="p-chip__dismiss">Dismiss</button>
+  {%- endif %}
+  </{{ chip_element_tag }}>
+{%- endmacro -%}
+
+{%- macro chip_semantic_states(
+  states=["", "positive", "information", "caution", "negative"],
+  lead_text="Lead",
+  value_text="Value",
+  use_linebreak=False,
+  is_dismissible=False,
+  is_dense=False,
+  is_readonly=False,
+  is_link=False,
+  badge_text="",
+  badge_label="",
+  icon_name="",
+  show_lead_chip=True
+) -%}
+  {#-
+    Render a set of chip elements for each semantic state.
+    Parameters:
+      states (list): List of semantic state strings (e.g., ["", "positive", ...]).
+      lead_text (str): Text for the lead part of the chip.
+      value_text (str): Text for the value part of the chip.
+      use_linebreak (bool): If true, add a <br> after each pair of chips.
+      is_dismissible (bool): If true, include a dismiss button.
+      is_dense (bool): (Unused) For future density options.
+      is_readonly (bool): If true, use <span> instead of <button>.
+      is_link (bool): If true, use <a> instead of <button>.
+      badge_text (str): Text for the badge.
+      badge_label (str): Aria-label for the badge.
+      icon_name (str): Name of the icon to use.
+      show_lead_chip (bool): If true, generates a chip with a lead and value, and a chip with only the value. If false, generates only the value chip.
+    Usage:
+      {{ chip_semantic_states(states=["positive", "negative"], badge_text="2.5B", badge_label="More than 2.5 billion items") }}
+  -#}
+  {%- set variant_class = "" -%}
+  {%- set chip_element_tag = "button" -%}
+  {%- if is_readonly -%}
+    {%- set variant_class = " is-readonly" -%}
+    {%- set chip_element_tag = "span" -%}
+  {%- elif is_link -%}
+    {%- set chip_element_tag = "a" -%}
+  {%- endif -%}
+
+  {% if is_dismissible -%}
+    {%- set chip_element_tag = "span" -%}
+  {%- endif -%}
+
+  {%- set modifier_classes = "" -%}
+  {%- set has_icon = icon_name|trim|length > 0 -%}
+  {%- set has_badge = badge_text | trim | length > 0 -%}
+  {%- for state in states -%}
+    {%- set semantic_class = "p-chip" -%}
+    {%- if state | trim | length > 0 -%}
+      {%- set semantic_class = semantic_class + "--" + state -%}
+    {%- endif -%}
+    {% if show_lead_chip %}
+      {{ _create_chip(
+        lead_text=lead_text,
+        value_text=value_text,
+        chip_element_tag=chip_element_tag,
+        semantic_class=semantic_class,
+        variant_class=variant_class,
+        modifier_classes=modifier_classes,
+        has_icon=has_icon,
+        icon_name=icon_name,
+        has_badge=has_badge,
+        badge_text=badge_text,
+        badge_label=badge_label,
+        is_dismissible=is_dismissible,
+        show_lead=True
+      ) }}
+    {%- endif %}
+
+    {{ _create_chip(
+      chip_element_tag=chip_element_tag,
+      lead_text=lead_text,
+      value_text=value_text,
+      semantic_class=semantic_class,
+      variant_class=variant_class,
+      modifier_classes=modifier_classes,
+      has_icon=has_icon,
+      icon_name=icon_name,
+      has_badge=has_badge,
+      badge_text=badge_text,
+      badge_label=badge_label,
+      is_dismissible=is_dismissible,
+      show_lead=False
+    ) }}
+    {% if use_linebreak and not loop.last %}
+      <!--Line break is for demonstrative purposes only-->
+      <br>
+    {% endif %}
+  {%- endfor -%}
+{%- endmacro -%}
