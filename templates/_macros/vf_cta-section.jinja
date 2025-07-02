@@ -1,0 +1,109 @@
+# All Params
+  # title_text: H2 title text
+  # link_text: H2 Link text
+  # link_href: href for the link text
+  # layout: Layout type of cta section. Options are "cta-default-100", "cta-default-25-75", "cta-block-100", "cta-block-25-75". Default is "cta-default-100".
+  # same_line_link_text: Whether the link text should be rendered on the same line with title_text. Default is False.
+  # has_chevron: Whether the link text should have a chevron icon. Default is True.
+
+# All Slots
+  # description: Paragraph-style (one or more) content below the title. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
+  # cta: Call-to-action block with action links/buttons. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
+
+# Variants:
+  # cta-default-100: Full-width CTA with title and link text
+    # Params:
+        # title_text: H2 title text - optional
+        # link_text: H2 link text - required
+        # link_href: href for the h2 link - required
+        # layout: the variant - cta-default-100
+        # same_line_link_text: Whether the link text should be rendered on the same line with title_text - Optional, default is False
+        # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
+
+  # cta-default-25-75: 25-75 percent width CTA with title and link text
+    # Params:
+        # title_text: H2 title text - optional
+        # link_text: H2 link text - required
+        # link_href: href for the h2 link - required
+        # layout: the variant - cta-default-25-75
+        # same_line_link_text: Whether the link text should be rendered on the same line with title_text - Optional, default is False
+        # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
+
+  # cta-block-100: Full width CTA with title, description and cta block with action links
+    # Params:
+        # title_text: H2 title text - required
+        # layout: the variant - cta-block-100
+
+    # Slots:
+        # description: Paragraph-style (one or more) content below the title - Optional
+        # cta: Call-to-action block (required)
+
+  # cta-block-25-75: 25-75 percent width CTA with title, description and cta block with action links
+    # Params:
+        # title_text: H2 title text - required
+        # layout: the variant - cta-block-25-75
+
+    # Slots:
+        # description: Paragraph-style (one or more) content below the title - Optional
+        # cta: Call-to-action block (required)
+
+{% macro vf_cta_section(title_text, link_text, link_href, same_line_link_text=False, has_chevron=True, layout='cta-default-100', caller=None) %}
+  {% set description_content = caller('description') %}
+  {% set has_description = description_content|trim|length > 0 %}
+  {% set cta_content = caller('cta') %}
+  {% set has_cta = cta_content|trim|length > 0 %}
+  {% macro _description_block() -%}
+    {% if has_description %}{{ description_content }}{% endif %}
+  {% endmacro %}
+  {% macro _cta_link() %}
+    {% if link_text and link_href %}
+      <a href="{{ link_href }}">{{ link_text }}
+        {% if has_chevron %}&nbsp;&rsaquo;{% endif %}
+      </a>
+    {% endif %}
+  {% endmacro %}
+  {% macro _cta_block() -%}
+    {% if has_cta -%}<div class="p-cta-block">{{ cta_content }}</div>{% endif %}
+  {% endmacro %}
+  <hr class="p-rule is-fixed-width" />
+  <section class="p-strip is-deep">
+    {% if layout == 'cta-default-100' %}
+      <div class="u-fixed-width">
+        {% if title_text %}
+          <h2>
+            {{ title_text }}
+            {% if not same_line_link_text %}<br />{% endif %}
+            {{ _cta_link() }}
+          </h2>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if layout == 'cta-default-25-75' %}
+      <div class="row">
+        <div class="col-start-large-4 col-9">
+          <h2>
+            {{ title_text }}
+            {% if same_line_link_text %}{{ _cta_link() }}{% endif %}
+          </h2>
+          {% if not same_line_link_text %}<h2>{{ _cta_link() }}</h2>{% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if layout == 'cta-block-100' %}
+      <div class="u-fixed-width">
+        <h2>{{ title_text }}</h2>
+        {{ _description_block() -}}
+        {{ _cta_block() }}
+      </div>
+    {% endif %}
+    {% if layout == 'cta-block-25-75' %}
+      <div class="row">
+        <div class="col-start-large-4 col-9">
+          <h2>{{ title_text }}</h2>
+          {{ _description_block() -}}
+          {{ _cta_block() }}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endmacro %}
