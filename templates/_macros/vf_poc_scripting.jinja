@@ -71,6 +71,7 @@
   alert_text='Alert!'
 ) -%}
   <button id="{{ button_id }}">{{ button_text }}</button>
+  {%- if VANILLA_JS_MODULE_PATH -%}
   <script type="module">
     import { initAlertButton } from '{{ VANILLA_JS_MODULE_PATH }}';
 
@@ -79,4 +80,7 @@
       "{{ alert_text }}"
     )
   </script>
+  {%- else -%}
+  <script>console.error("Make sure to define VANILLA_JS_MODULE_PATH and expose it in the template context.");</script>
+  {%- endif -%}
 {%- endmacro %}
