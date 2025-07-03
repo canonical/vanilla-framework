@@ -1,0 +1,22 @@
+# This file configures Charmcraft.
+# See https://juju.is/docs/sdk/charmcraft-config for guidance.
+
+name: vanillaframework-io
+
+type: charm
+
+bases:
+  - build-on:
+      - name: ubuntu
+        channel: '22.04'
+    run-on:
+      - name: ubuntu
+        channel: '22.04'
+
+summary: vanillaframework.io Charm
+
+description: |
+  The documentation site for the Vanilla Framework.
+
+extensions:
+  - flask-framework
