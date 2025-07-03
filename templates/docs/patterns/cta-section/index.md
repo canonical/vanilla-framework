@@ -12,8 +12,11 @@ A CTA section is a prominent section typically used to quickly capture user's at
 Depending on the design of call to action buttons or links, you can choose from a variety of layouts:
 
 - [Full width default CTA](#full-width-default-cta)
-- [Full width default CTA with partial link](#full-width-default-cta-with-partial-link)
-- [25-75 default CTA](#25-75-default-CTA)
+- [Full width default CTA with same line link](#full-width-default-cta-with-same-line-link)
+- [Full width default CTA with multiple links](#full-width-default-cta-with-multiple-partial-links)
+- [25-75 default CTA](#25-75-default-cta)
+- [25-75 default CTA with same line link](#25-75-default-cta-with-same-line-link)
+- [25-75 default CTA with multiple links](#25-75-default-cta-with-multiple-partial-links)
 - [Full width with CTA block](#full-width-with-cta-block)
 - [25-75 with CTA block](#25-75-with-cta-block)
 
@@ -33,16 +36,34 @@ The CTA section pattern is composed of the following elements:
 View example of the default full width cta section pattern
 </a></div>
 
-## Full width default CTA with partial link
+## Full width default CTA with same line link
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta-with-partial-link" class="js-example" data-lang="jinja">
-View example of the default full width cta section pattern with partial link
+<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta-with-same-line-link" class="js-example" data-lang="jinja">
+View example of the default full width cta section pattern with same line link
+</a></div>
+
+## Full width default CTA with multiple partial links
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
+View example of the default full width cta section pattern with multiple partial links
 </a></div>
 
 ## 25-75 default CTA
 
 <div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta" class="js-example" data-lang="jinja">
 View example of the 25-75 split default cta section pattern
+</a></div>
+
+## 25-75 default CTA with same line link
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta-with-same-line-link" class="js-example" data-lang="jinja">
+View example of the default 25-75 cta section pattern with same line link
+</a></div>
+
+## 25-75 default CTA with multiple partial links
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
+View example of the default 25-75 cta section pattern with multiple partial links
 </a></div>
 
 ## Full width with CTA block
@@ -199,13 +220,25 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
     <tbody>
       <tr>
         <td>
+          <code>title</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Custom title to support embedded/partial links, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts 
+        </td>
+      </tr>
+      <tr>
+      <tr>
+        <td>
           <code>description</code>
         </td>
         <td>
-          Yes, = when layout = <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code>
+          No
         </td>
         <td>
-          Paragraph-style content below the title and subtitle
+          Paragraph-style content below the title and subtitle, only applicable to <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code> layouts
         </td>
       </tr>
       <tr>
@@ -213,7 +246,7 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>cta</code>
         </td>
         <td>
-          Yes, = when layout = <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code>
+          Yes, when layout = <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code>
         </td>
         <td>
           Contents of a <a href="/docs/patterns/cta-block">CTA block</a> beneath
