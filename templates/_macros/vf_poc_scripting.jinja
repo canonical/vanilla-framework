@@ -39,7 +39,40 @@
 ) -%}
   <button id="{{ button_id }}">{{ button_text }}</button>
   <script type="module">
-    import { initAlertButton } from '/static/js/patterns.js';
+    import { initAlertButton } from '/static/js/macros/index.js';
+
+    initAlertButton(
+      document.getElementById("{{ button_id }}"),
+      "{{ alert_text }}"
+    )
+  </script>
+{%- endmacro %}
+
+{%- macro vf_injected_module_alert(
+  module_path,
+  button_text,
+  button_id,
+  alert_text='Alert!'
+) -%}
+  <button id="{{ button_id }}">{{ button_text }}</button>
+  <script type="module">
+    import { initAlertButton } from '{{module_path}}';
+
+    initAlertButton(
+      document.getElementById("{{ button_id }}"),
+      "{{ alert_text }}"
+    )
+  </script>
+{%- endmacro %}
+
+{%- macro vf_context_module_alert(
+  button_text,
+  button_id,
+  alert_text='Alert!'
+) -%}
+  <button id="{{ button_id }}">{{ button_text }}</button>
+  <script type="module">
+    import { initAlertButton } from '{{ VANILLA_JS_MODULE_PATH }}';
 
     initAlertButton(
       document.getElementById("{{ button_id }}"),

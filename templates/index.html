@@ -2,6 +2,8 @@
 {% from "_macros/vf_poc_scripting.jinja" import vf_inline_alert %}
 {% from "_macros/vf_poc_scripting.jinja" import vf_include_alert %}
 {% from "_macros/vf_poc_scripting.jinja" import vf_module_alert %}
+{% from "_macros/vf_poc_scripting.jinja" import vf_injected_module_alert %}
+{% from "_macros/vf_poc_scripting.jinja" import vf_context_module_alert with context %}
 
 {% block description %}Vanilla Framework - a simple extensible CSS framework, written in Sass, by the Ubuntu Web Team.{% endblock %}
 {% block copydoc %}https://docs.google.com/document/d/1WQ3u4Eg9Vqp_yFBdIYUyGXkvhMxlPBMSr7g7O3rLzpg/edit{% endblock %}
@@ -22,6 +24,15 @@
   {{ vf_module_alert(
     "Module alert",
     "test3",
+  ) }}
+  {{ vf_injected_module_alert(
+    "/static/js/macros/index.js",
+    "Injected module alert",
+    "test4",
+  ) }}
+  {{ vf_context_module_alert(
+    "Context module alert",
+    "test5",
   ) }}
 
 </div>

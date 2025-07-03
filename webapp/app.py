@@ -276,7 +276,7 @@ def status_label(status):
 
 @app.context_processor
 def utility_processor():
-    return {"class_reference": class_reference, "image": image_template, "status": status_label}
+    return {"class_reference": class_reference, "image": image_template, "status": status_label, "VANILLA_JS_MODULE_PATH": "/static/js/macros/index.js"}
 
 
 template_finder_view = TemplateFinder.as_view("template_finder")
