@@ -228,12 +228,12 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
 
 ### Jinja Macro
 
-To import the Hero Jinja macro, copy the following import statement into your
+To import the CTA Section Jinja macro, copy the following import statement into your
 Jinja template.
 
 ```jinja
 {% raw -%}
-{% from "_macros/vf_cta-section.jinja" import vf_hero %}
+{% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
 {%- endraw -%}
 ```
 
