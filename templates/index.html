@@ -1,4 +1,7 @@
 {% extends "_layouts/site.html" %}
+{% from "_macros/vf_poc_scripting.jinja" import vf_inline_alert %}
+{% from "_macros/vf_poc_scripting.jinja" import vf_include_alert %}
+{% from "_macros/vf_poc_scripting.jinja" import vf_module_alert %}
 
 {% block description %}Vanilla Framework - a simple extensible CSS framework, written in Sass, by the Ubuntu Web Team.{% endblock %}
 {% block copydoc %}https://docs.google.com/document/d/1WQ3u4Eg9Vqp_yFBdIYUyGXkvhMxlPBMSr7g7O3rLzpg/edit{% endblock %}
@@ -6,6 +9,22 @@
 {% block content %}
 <script defer src="https://buttons.github.io/buttons.js"></script>
 
+<div class="u-fixed-width">
+  <p>Macro with inline script tag:</p>
+  {{ vf_inline_alert(
+    "Inline alert",
+    "test1",
+  ) }}
+  {{ vf_include_alert(
+    "Include alert",
+    "test2",
+  ) }}
+  {{ vf_module_alert(
+    "Module alert",
+    "test3",
+  ) }}
+
+</div>
 <div id="main-content" class="p-section--hero">
   <div class="row--25-75">
     <div class="col">

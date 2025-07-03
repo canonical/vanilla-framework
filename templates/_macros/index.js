@@ -1,0 +1,1 @@
+export { initAlertButton } from "./_poc_alert_module.js";

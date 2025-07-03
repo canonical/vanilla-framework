@@ -1,0 +1,49 @@
+{%- macro vf_inline_alert(
+  button_text,
+  button_id,
+  alert_text='Alert!'
+) -%}
+  <button id="{{ button_id}}">{{ button_text }}</button>
+  <script>
+    (function (buttonId, alertText){
+      const buttonEl = document.getElementById(buttonId);
+      buttonEl.addEventListener('click', () => {
+        alert(alertText)
+      })
+    })(
+      "{{ button_id }}",
+      "{{ alert_text }}"
+    )
+  </script>
+{%- endmacro %}
+
+{%- macro vf_include_alert(
+  button_text,
+  button_id,
+  alert_text='Alert!'
+) -%}
+  <button id="{{ button_id }}">{{ button_text }}</button>
+  <script>
+    {% include '_macros/_poc_alert_script.js' %}
+    initAlertButton(
+      document.getElementById("{{ button_id }}"),
+      "{{ alert_text }}"
+    )
+  </script>
+{%- endmacro %}
+
+{%- macro vf_module_alert(
+  button_text,
+  button_id,
+  alert_text='Alert!'
+) -%}
+  <button id="{{ button_id }}">{{ button_text }}</button>
+  <script type="module">
+    import { initAlertButton } from '/static/js/patterns.js';
+
+    initAlertButton(
+      document.getElementById("{{ button_id }}"),
+      "{{ alert_text }}"
+    )
+  </script>
+{%- endmacro %}
