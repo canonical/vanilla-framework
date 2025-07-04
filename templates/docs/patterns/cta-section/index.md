@@ -12,10 +12,8 @@ A CTA section is a prominent section typically used to quickly capture user's at
 Depending on the design of call to action buttons or links, you can choose from a variety of layouts:
 
 - [Full width default CTA](#full-width-default-cta)
-- [Full width default CTA with same line link](#full-width-default-cta-with-same-line-link)
 - [Full width default CTA with multiple links](#full-width-default-cta-with-multiple-partial-links)
 - [25-75 default CTA](#25-75-default-cta)
-- [25-75 default CTA with same line link](#25-75-default-cta-with-same-line-link)
 - [25-75 default CTA with multiple links](#25-75-default-cta-with-multiple-partial-links)
 - [Full width with CTA block](#full-width-with-cta-block)
 - [25-75 with CTA block](#25-75-with-cta-block)
@@ -36,12 +34,6 @@ The CTA section pattern is composed of the following elements:
 View example of the default full width cta section pattern
 </a></div>
 
-## Full width default CTA with same line link
-
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta-with-same-line-link" class="js-example" data-lang="jinja">
-View example of the default full width cta section pattern with same line link
-</a></div>
-
 ## Full width default CTA with multiple partial links
 
 <div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
@@ -52,12 +44,6 @@ View example of the default full width cta section pattern with multiple partial
 
 <div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta" class="js-example" data-lang="jinja">
 View example of the 25-75 split default cta section pattern
-</a></div>
-
-## 25-75 default CTA with same line link
-
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta-with-same-line-link" class="js-example" data-lang="jinja">
-View example of the default 25-75 cta section pattern with same line link
 </a></div>
 
 ## 25-75 default CTA with multiple partial links
@@ -166,23 +152,6 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
         </td>
         <td>
           The actual address of the link, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <code>same_line_link_text</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          <code>boolean</code>
-        </td>
-        <td>
-          <code>False</code>
-        </td>
-        <td>
-          Whether the link text should be rendered on the same line with title_text, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts
         </td>
       </tr>
       <tr>
