@@ -3,7 +3,6 @@
   # link_text: H2 Link text
   # link_href: href for the link text
   # layout: Layout type of cta section. Options are "cta-default-100", "cta-default-25-75", "cta-block-100", "cta-block-25-75". Default is "cta-default-100".
-  # same_line_link_text: Whether the link text should be rendered on the same line with title_text. Default is False.
   # has_chevron: Whether the link text should have a chevron icon. Default is True.
 
 # All Slots
@@ -18,7 +17,6 @@
         # link_text: H2 link text - required
         # link_href: href for the h2 link - required
         # layout: the variant - cta-default-100
-        # same_line_link_text: Whether the link text should be rendered on the same line with title_text - Optional, default is False
         # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
 
     # Slots:
@@ -30,7 +28,6 @@
         # link_text: H2 link text - required
         # link_href: href for the h2 link - required
         # layout: the variant - cta-default-25-75
-        # same_line_link_text: Whether the link text should be rendered on the same line with title_text - Optional, default is False
         # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
 
       # Slots:
@@ -54,7 +51,7 @@
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-{% macro vf_cta_section(title_text, link_text, link_href, same_line_link_text=False, has_chevron=True, layout='cta-default-100', caller=None) %}
+{% macro vf_cta_section(title_text, link_text, link_href, has_chevron=True, layout='cta-default-100', caller=None) %}
   {% set title_content = caller('title') %}
   {% set has_title_slot = title_content|trim|length > 0 %}
   {% set description_content = caller('description') %}
@@ -80,7 +77,7 @@
         {{ title_content }}
       {% elif title_text %}
         {{ title_text }}
-        {% if not same_line_link_text %}<br />{% endif %}
+        <br />
         {{ _cta_link() }}
       {% endif %}
     </h2>
