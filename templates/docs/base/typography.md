@@ -187,6 +187,14 @@ better suits your document style and tree.
 View example of the mixed headings pattern
 </a></div>
 
+## Mixed heading classes inline icons
+
+You can include icons within headings. Icon sizes are responsive and will adjust based on screen size. The icon sizing will automatically align with the heading level defined by either the `p-heading` classes or the native HTML heading tag.
+
+<div class="embedded-example"> <a href="/docs/examples/patterns/headings/mixed-icons/" class="js-example">
+View the mixed heading pattern inline icons
+</a></div>
+
 ## Display headings
 
 Display headings are reserved for the titles of important bespoke pages. They should be used sparingly by adding the `.p-heading--display` class to a `h1` heading element.
