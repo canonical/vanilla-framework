@@ -103,7 +103,7 @@ Outside of the standard set, additional icons are available for use, and need to
 
 {{ icon_section(additional_icons, 'light')}}
 
-### Recently Added Icons {{ status("new") }} 
+### Recently Added Icons {{ status("new") }}
 
 In Vanilla 4.26.0 we introduced an additional icon listed below.
 
