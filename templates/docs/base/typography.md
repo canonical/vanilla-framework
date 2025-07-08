@@ -189,7 +189,7 @@ View example of the mixed headings pattern
 
 ## Mixed heading classes icons
 
-You can include icons within headings. Icon sizes are responsive and will adjust based on screen size. The icon sizing will automatically align with the heading level defined by either the `p-heading` classes or the native HTML heading tag.
+You can include icons within headings. Icon sizes are responsive and will adjust based on screen size.
 
 <div class="embedded-example"> <a href="/docs/examples/patterns/headings/mixed-icons/" class="js-example">
 View the mixed heading pattern with icons
