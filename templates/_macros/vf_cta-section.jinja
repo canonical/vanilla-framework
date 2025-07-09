@@ -86,19 +86,21 @@
     {{ _description_block() -}}
     {{ _cta_block() }}
   {% endmacro %}
+  {% macro _cta_variant() %}
+    {% if variant == 'default' %}
+      {{ _cta_default_variant() }}
+    {% elif variant == 'block' %}
+      {{ _cta_block_variant() }}
+    {% endif %}
+  {% endmacro %}
   <hr class="p-rule is-fixed-width u-no-margin--bottom" />
   <section class="p-strip is-deep">
-    {% if variant == "default" and layout == '100' %}<div class="u-fixed-width">{{ _cta_default_variant() }}</div>{% endif %}
-    {% if variant == "default" and layout == '25-75' %}
-      <div class="row">
-        <div class="col-start-large-4 col-9">{{ _cta_default_variant() }}</div>
-      </div>
-    {% endif %}
-    {% if variant == "block" and layout == '100' %}<div class="u-fixed-width">{{ _cta_block_variant() }}</div>{% endif %}
-    {% if variant == "block" and layout == '25-75' %}
-      <div class="row">
-        <div class="col-start-large-4 col-9">{{ _cta_block_variant() }}</div>
-      </div>
-    {% endif %}
+  {% if layout == "25-75" %}
+    <div class="grid-row">
+      <div class="grid-col-start-large-3 grid-col-9">{{ _cta_variant() }}</div>
+    </div>
+  {% elif layout == "100" %}
+    <div class="u-fixed-width">{{ _cta_variant() }}</div>
+  {% endif %}
   </section>
 {% endmacro %}
