@@ -11,12 +11,12 @@ context:
 A CTA section is a prominent section typically used to quickly capture user's attention to a specific action as they scroll down the page.
 Depending on the design of call to action buttons or links, you can choose from a variety of layouts:
 
-- [Full width default CTA](#full-width-default-cta)
-- [Full width default CTA with multiple links](#full-width-default-cta-with-multiple-partial-links)
-- [25-75 default CTA](#25-75-default-cta)
-- [25-75 default CTA with multiple links](#25-75-default-cta-with-multiple-partial-links)
-- [Full width with CTA block](#full-width-with-cta-block)
-- [25-75 with CTA block](#25-75-with-cta-block)
+- [Default full width](#default-full-width)
+- [Default full width cta html](#default-full-width-cta-html)
+- [Default 25-75](#default-25-75)
+- [Default 25-75 cta html](#default-25-75-cta-html)
+- [Block full width](#block-full-width)
+- [Block 25-75](#block-25-75)
 
 The CTA section pattern is composed of the following elements:
 
@@ -28,39 +28,51 @@ The CTA section pattern is composed of the following elements:
 | Description          | Description text (one or more paragraphs)                     |
 | Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description |
 
-## Full width default CTA
+## Default full width
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/full-width-default-cta" class="js-example" data-lang="jinja">
+You can use <code>default</code> variant with <code>100</code> layout to create a full width container with title and link stacked vertically.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-full-width" class="js-example" data-lang="jinja">
 View example of the default full width cta section pattern
 </a></div>
 
-## Full width default CTA with multiple partial links
+## Default full width CTA HTML
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/full-width-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
+If you need to pass a text that can have multiple partial links within it, you can use do so by passing it to <code>cta_html</code> parameter.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-full-width-cta-html" class="js-example" data-lang="jinja">
 View example of the default full width cta section pattern with multiple partial links
 </a></div>
 
-## 25-75 default CTA
+## Default 25-75
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/25-75-default-cta" class="js-example" data-lang="jinja">
+You can use <code>default</code> variant with <code>25-75</code> layout to create a 25-75 split container with title and link stacked vertically, on the right side.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-25-75" class="js-example" data-lang="jinja">
 View example of the 25-75 split default cta section pattern
 </a></div>
 
-## 25-75 default CTA with multiple partial links
+## Default 25-75 CTA HTML
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/25-75-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
+If you need to pass a text that can have multiple partial links within it, you can use do so by passing it to <code>cta_html</code> parameter. This works for both <code>100</code> and <code>25-75</code> layouts.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-25-75-cta-html" class="js-example" data-lang="jinja">
 View example of the default 25-75 cta section pattern with multiple partial links
 </a></div>
 
-## Full width with CTA block
+## Block full width
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/full-width-with-cta-block" class="js-example" data-lang="jinja">
+You can use <code>block</code> variant with <code>100</code> layout to create full width container, with a required title, an optional description and one or more links/buttons.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/block-full-width" class="js-example" data-lang="jinja">
 View example of the full width cta section with cta block
 </a></div>
 
-## 25-75 with CTA block
+## Block 25-75
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/25-75-with-cta-block" class="js-example" data-lang="jinja">
+You can use <code>block</code> variant with <code>25-75</code> layout to create 25-75 split container, with a required title, an optional description and one or more links/buttons on the right side.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/block-25-75" class="js-example" data-lang="jinja">
 View example of the 25-75 split cta section with cta block
 </a></div>
 
