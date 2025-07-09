@@ -81,19 +81,38 @@ $aspect-ratios: (
 }
 
 @mixin vf-p-image {
+  // Shared base styles for all containers, with or without an aspect ratio.
   .p-image-container,
   [class^='p-image-container--'] {
     display: block;
     position: relative;
     width: 100%;
 
+    &.is-highlighted {
+      background: $colors--theme--background-alt;
+    }
+
+    // If there is a child lazyloaded image, don't let it affect the layout.
+    & > .lazyloaded {
+      display: contents;
+    }
+  }
+
+  // Container without a specified aspect ratio.
+  .p-image-container {
+    .p-image-container__image {
+      display: block;
+      height: auto;
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+
+  // Styles for containers WITH a specified aspect ratio.
+  [class^='p-image-container--'] {
     &::before {
       content: '';
       display: block;
-    }
-
-    &.is-highlighted {
-      background: $colors--theme--background-alt;
     }
 
     .p-image-container__image {
