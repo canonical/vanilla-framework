@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_text-spotlight.jinja" import vf_text_spotlight %}
+{% block title %}Text Spotlight{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+    {% call(slot) vf_text_spotlight(
+        title_text='Why choose <br class="u-hide--medium u-hide--small"/>Data Science Stack?',
+        ) -%}
+        {%- if slot == 'list_item_1' -%}
+            Improve developer productivity
+        {%- endif -%}
+        {%- if slot == 'list_item_2' -%}
+            Easy to use on any AI workstation
+        {%- endif -%}
+        {%- if slot == 'list_item_3' -%}
+            Run your ML workloads in a secure environment
+        {%- endif -%}
+        {%- if slot == 'list_item_4' -%}
+            Begin your AI journey on Ubuntu
+        {%- endif -%}
+        {%- if slot == 'list_item_5' -%}
+            One vendor to support your AI stack
+        {%- endif -%}
+    {% endcall -%}
+{% endblock %}

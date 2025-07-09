@@ -1,0 +1,36 @@
+# All Params
+  # title_text: H2 title text
+# All Slots
+  # list_item_[1-7]: List item content, assumed to be li.p-list__item, H2 text
+
+{%- macro vf_text_spotlight(title_text, caller=None) -%}
+  {% set has_list = caller('list_item_1')|trim|length > 0 %}
+  {% set max_list_items = 7 %}
+  {% set list_items = [] %}
+  {% if has_list %}
+    {% for list_item_index in range(1, max_list_items + 1) %}
+      {% set list_item_content = caller('list_item_' + list_item_index|string) %}
+      {% set has_list_item_content = list_item_content|trim|length > 0 %}
+      {% if has_list_item_content %}{{ list_items.append(list_item_content) or "" }}{% endif %}
+    {% endfor %}
+  {% endif %}
+  <section class="p-section">
+    <hr class="p-rule is-fixed-width" />
+    <div class="row--25-75-on-large">
+      <div class="col">
+        <h2 class="p-text--small-caps">{{ title_text }}</h2>
+      </div>
+      <div class="col">
+        {%- if list_items|length > 0 %}
+          <ul class="p-list--divided">
+            {%- for list_item in list_items -%}
+              <li class="p-list__item u-no-padding--bottom">
+                <p class="p-heading--2">{{- list_item -}}</p>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+{%- endmacro -%}

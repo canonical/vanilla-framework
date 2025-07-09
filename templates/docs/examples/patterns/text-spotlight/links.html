@@ -1,0 +1,32 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_text-spotlight.jinja" import vf_text_spotlight %}
+{% block title %}Text Spotlight{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+    {% call(slot) vf_text_spotlight(
+        title_text='Working here',
+        ) -%}
+        {%- if slot == 'list_item_1' -%}
+            <a href="https://canonical.com/careers/hiring-process">Hiring process</a>
+        {%- endif -%}
+        {%- if slot == 'list_item_2' -%}
+            <a href="https://canonical.com/careers/company-culture">Company culture</a>
+        {%- endif -%}
+        {%- if slot == 'list_item_3' -%}
+            <a href="https://canonical.com/careers/company-culture/remote-work">Remote work</a>
+        {%- endif -%}
+        {%- if slot == 'list_item_4' -%}
+            <a href="https://canonical.com/careers/progression">Progression</a>
+        {%- endif -%}
+        {%- if slot == 'list_item_5' -%}
+            <a href="https://canonical.com/careers/diversity">Diversity</a>
+        {%- endif -%}
+        {%- if slot == 'list_item_6' -%}
+            <a href="https://canonical.com/careers/sustainability">Sustainability</a>
+        {%- endif -%}
+        {%- if slot == 'list_item_7' -%}
+            <a href="https://canonical.com/careers/application/faq">FAQs</a>
+        {%- endif -%}
+    {% endcall -%}
+{% endblock %}
