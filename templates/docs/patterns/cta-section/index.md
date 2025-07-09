@@ -30,37 +30,37 @@ The CTA section pattern is composed of the following elements:
 
 ## Full width default CTA
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/full-width-default-cta" class="js-example" data-lang="jinja">
 View example of the default full width cta section pattern
 </a></div>
 
 ## Full width default CTA with multiple partial links
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/full-width-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
 View example of the default full width cta section pattern with multiple partial links
 </a></div>
 
 ## 25-75 default CTA
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/25-75-default-cta" class="js-example" data-lang="jinja">
 View example of the 25-75 split default cta section pattern
 </a></div>
 
 ## 25-75 default CTA with multiple partial links
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/25-75-default-cta-with-multiple-partial-links" class="js-example" data-lang="jinja">
 View example of the default 25-75 cta section pattern with multiple partial links
 </a></div>
 
 ## Full width with CTA block
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/full-width-with-cta-block" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/full-width-with-cta-block" class="js-example" data-lang="jinja">
 View example of the full width cta section with cta block
 </a></div>
 
 ## 25-75 with CTA block
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta/25-75-with-cta-block" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/25-75-with-cta-block" class="js-example" data-lang="jinja">
 View example of the 25-75 split cta section with cta block
 </a></div>
 
