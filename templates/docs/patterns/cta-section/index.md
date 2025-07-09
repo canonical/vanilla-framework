@@ -24,7 +24,7 @@ The CTA section pattern is composed of the following elements:
 | -------------------- | ------------------------------------------------------------- |
 | Rule                 | [Default rule](/docs/patterns/rule#default)                   |
 | Title                | Title text (to be placed in `h2` heading)                     |
-| Link                 | Link text (using `h2` style)                                  |
+| Link                 | Link HTML or Text (using `h2` style)                          |
 | Description          | Description text (one or more paragraphs)                     |
 | Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description |
 
@@ -125,7 +125,7 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>title_text</code>
         </td>
         <td>
-          Yes, when layout = <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code>
+          Yes, when variant is <code>'block'</code>
         </td>
         <td>
           <code>string</code>
@@ -139,27 +139,10 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
       </tr>
       <tr>
         <td>
-          <code>link_text</code>
+          <code>cta_html</code>
         </td>
         <td>
-          Yes, when layout = <code>'cta-default-100'</code> or <code>'cta-default-25-75'</code>
-        </td>
-        <td>
-          <code>string</code>
-        </td>
-        <td>
-          <code>N/A</code>
-        </td>
-        <td>
-          <code>h2</code> link text, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <code>link_href</code>
-        </td>
-        <td>
-          Yes, when layout = <code>'cta-default-100'</code> or <code>'cta-default-25-75'</code>
+          Yes, when variant is <code>'default'</code>
         </td>
         <td>
           <code>string</code>
@@ -168,24 +151,7 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>N/A</code>
         </td>
         <td>
-          The actual address of the link, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <code>has_chevron</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          <code>boolean</code>
-        </td>
-        <td>
-          <code>True</code>
-        </td>
-        <td>
-          Whether the link text should have a chevron icon, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts
+          HTML content of the link, passed as string
         </td>
       </tr>
     </tbody>
@@ -205,17 +171,6 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
     </thead>
     <tbody>
       <tr>
-        <td>
-          <code>title</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          Custom title to support embedded/partial links, only applicable to <code>'cta-default-100'</code> and <code>'cta-default-25-75'</code> layouts 
-        </td>
-      </tr>
-      <tr>
       <tr>
         <td>
           <code>description</code>
@@ -224,7 +179,7 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           No
         </td>
         <td>
-          Paragraph-style content below the title and subtitle, only applicable to <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code> layouts
+          Paragraph-style content below the title and subtitle, only applicable to <code>'block'</code> variant 
         </td>
       </tr>
       <tr>
@@ -232,11 +187,11 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>cta</code>
         </td>
         <td>
-          Yes, when layout = <code>'cta-block-100'</code> or <code>'cta-block-25-75'</code>
+          Yes, when variant is <code>'block'</code>
         </td>
         <td>
           Contents of a <a href="/docs/patterns/cta-block">CTA block</a> beneath
-          the title and description, only applicable to <code>'cta-block-100'</code> and <code>'cta-block-25-75'</code> layouts 
+          the title and description, only applicable to <code>'block'</code> variant 
         </td>
       </tr>
     </tbody>

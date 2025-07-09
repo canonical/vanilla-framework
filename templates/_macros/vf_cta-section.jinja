@@ -1,13 +1,10 @@
 # All Params
   # title_text: H2 title text
-  # link_text: H2 Link text
-  # link_href: href for the link text
+  # cta_html: H2 link html content
   # variant: variant for the cta section. Options are "default", "block". Default is "default".
   # layout: Layout type of cta section. Options are "100", "25-75".
-  # has_chevron: Whether the link text should have a chevron icon. Default is True.
 
 # All Slots
-  # title: Optional title slot. Only applicable to "cta-default-100" and "cta-default-25-75" layouts. When specified, the "title_text" parameter will be ignored.
   # description: Paragraph-style (one or more) content below the title. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
   # cta: Call-to-action block with action links/buttons. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
 
@@ -15,11 +12,9 @@
   # default-100: Full-width CTA with title and link text
     # Params:
         # title_text: H2 title text - optional
-        # link_text: H2 link text - required
-        # link_href: href for the h2 link - required
+        # cta_html: H2 link html content - required
         # variant: default
         # layout: 100
-        # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
 
     # Slots:
         # title: When specified, the "title_text" parameter will be ignored - Optional
@@ -27,11 +22,9 @@
   # default-25-75: 25-75 percent width CTA with title and link text
     # Params:
         # title_text: H2 title text - optional
-        # link_text: H2 link text - required
-        # link_href: href for the h2 link - required
+        # cta_html: H2 link html content - required
         # variant: default
         # layout: 25-75
-        # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
 
       # Slots:
         # title: When specified, the "title_text" parameter will be ignored - Optional
@@ -56,9 +49,7 @@
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-{% macro vf_cta_section(title_text, link_text, link_href, has_chevron=True, variant='default', layout='100', caller=None) %}
-  {% set title_content = caller('title') %}
-  {% set has_title_slot = title_content|trim|length > 0 %}
+{% macro vf_cta_section(title_text, cta_html, variant='default', layout='100', caller=None) %}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
@@ -78,25 +69,16 @@
   {% macro _description_block() -%}
     {% if has_description %}{{ description_content }}{% endif %}
   {% endmacro %}
-  {% macro _cta_link() %}
-    {% if link_text and link_href %}
-      <a href="{{ link_href }}">{{ link_text }}
-        {% if has_chevron %}&#32;&rsaquo;{% endif %}
-      </a>
-    {% endif %}
-  {% endmacro %}
   {% macro _cta_block() -%}
     {% if has_cta -%}<div class="p-cta-block">{{ cta_content }}</div>{% endif %}
   {% endmacro %}
   {% macro _cta_default_variant() %}
     <h2>
-      {% if has_title_slot %}
-        {{ title_content }}
-      {% elif title_text %}
+      {% if title_text %}
         {{ title_text }}
         <br />
-        {{ _cta_link() }}
       {% endif %}
+      {{ cta_html }}
     </h2>
   {% endmacro %}
   {% macro _cta_block_variant() %}
