@@ -39,8 +39,9 @@ $aspect-ratios: (
 
 @mixin aspect-ratio-classes {
   @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-    .p-image-container--#{$aspect-ratio} {
-      aspect-ratio: $aspect-ratio-value;
+    $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
+    .p-image-container--#{$aspect-ratio}::before {
+      padding-bottom: $padding-percentage;
     }
   }
 
@@ -51,24 +52,27 @@ $aspect-ratios: (
     @if $min-width and $max-width {
       @media ($min-width <= width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
-            aspect-ratio: $aspect-ratio-value;
+          $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name}::before {
+            padding-bottom: $padding-percentage;
           }
         }
       }
     } @else if $min-width {
       @media (width >= $min-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
-            aspect-ratio: $aspect-ratio-value;
+          $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name}::before {
+            padding-bottom: $padding-percentage;
           }
         }
       }
     } @else if $max-width {
       @media (width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
-            aspect-ratio: $aspect-ratio-value;
+          $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name}::before {
+            padding-bottom: $padding-percentage;
           }
         }
       }
@@ -79,14 +83,13 @@ $aspect-ratios: (
 @mixin vf-p-image {
   .p-image-container,
   [class^='p-image-container--'] {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    display: block;
+    position: relative;
+    width: 100%;
 
-    // If there is a child lazyloaded image, don't let it affect the layout
-    & > .lazyloaded {
-      display: contents;
+    &::before {
+      content: '';
+      display: block;
     }
 
     &.is-highlighted {
@@ -94,17 +97,22 @@ $aspect-ratios: (
     }
 
     .p-image-container__image {
-      // max height prevents the image from stretching the container
-      // when the aspect ratio is set, and object-fit ensures the aspect ratio
-      // of the image content is maintained
+      left: 50%;
       max-height: 100%;
+      max-width: 100%;
       object-fit: contain;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
 
     &.is-cover {
       .p-image-container__image {
         height: 100%;
+        left: 0;
         object-fit: cover;
+        top: 0;
+        transform: none;
         width: 100%;
       }
     }
