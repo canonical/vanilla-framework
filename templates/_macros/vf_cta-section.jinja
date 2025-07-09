@@ -2,7 +2,8 @@
   # title_text: H2 title text
   # link_text: H2 Link text
   # link_href: href for the link text
-  # layout: Layout type of cta section. Options are "cta-default-100", "cta-default-25-75", "cta-block-100", "cta-block-25-75". Default is "cta-default-100".
+  # variant: variant for the cta section. Options are "default", "block". Default is "default".
+  # layout: Layout type of cta section. Options are "100", "25-75".
   # has_chevron: Whether the link text should have a chevron icon. Default is True.
 
 # All Slots
@@ -11,53 +12,69 @@
   # cta: Call-to-action block with action links/buttons. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
 
 # Variants:
-  # cta-default-100: Full-width CTA with title and link text
+  # default-100: Full-width CTA with title and link text
     # Params:
         # title_text: H2 title text - optional
         # link_text: H2 link text - required
         # link_href: href for the h2 link - required
-        # layout: the variant - cta-default-100
+        # variant: default
+        # layout: 100
         # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
 
     # Slots:
         # title: When specified, the "title_text" parameter will be ignored - Optional
 
-  # cta-default-25-75: 25-75 percent width CTA with title and link text
+  # default-25-75: 25-75 percent width CTA with title and link text
     # Params:
         # title_text: H2 title text - optional
         # link_text: H2 link text - required
         # link_href: href for the h2 link - required
-        # layout: the variant - cta-default-25-75
+        # variant: default
+        # layout: 25-75
         # has_chevron: Whether the link text should have a chevron icon - Optional, default is True
 
       # Slots:
         # title: When specified, the "title_text" parameter will be ignored - Optional
 
-  # cta-block-100: Full width CTA with title, description and cta block with action links
+  # block-100: Full width CTA with title, description and cta block with action links
     # Params:
         # title_text: H2 title text - required
-        # layout: the variant - cta-block-100
+        # variant: block
+        # layout: 100
 
     # Slots:
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-  # cta-block-25-75: 25-75 percent width CTA with title, description and cta block with action links
+  # block-25-75: 25-75 percent width CTA with title, description and cta block with action links
     # Params:
         # title_text: H2 title text - required
-        # layout: the variant - cta-block-25-75
+        # variant: block
+        # layout: 25-75
 
     # Slots:
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-{% macro vf_cta_section(title_text, link_text, link_href, has_chevron=True, layout='cta-default-100', caller=None) %}
+{% macro vf_cta_section(title_text, link_text, link_href, has_chevron=True, variant='default', layout='100', caller=None) %}
   {% set title_content = caller('title') %}
   {% set has_title_slot = title_content|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
   {% set has_cta = cta_content|trim|length > 0 %}
+
+  {#- User can pass layout as "X-Y" or "X/Y" -#}
+  {% set layout = layout | trim | replace('/', '-') %}
+  {% if layout not in ['100', '25-75'] %}
+    {% set layout = '100' %}
+  {% endif %}
+
+  {% set variant = variant | trim %}
+  {% if variant not in ['default', 'block'] %}
+    {% set variant = 'default' %}
+  {% endif %}
+
   {% macro _description_block() -%}
     {% if has_description %}{{ description_content }}{% endif %}
   {% endmacro %}
@@ -89,14 +106,14 @@
   {% endmacro %}
   <hr class="p-rule is-fixed-width u-no-margin--bottom" />
   <section class="p-strip is-deep">
-    {% if layout == 'cta-default-100' %}<div class="u-fixed-width">{{ _cta_default_variant() }}</div>{% endif %}
-    {% if layout == 'cta-default-25-75' %}
+    {% if variant == "default" and layout == '100' %}<div class="u-fixed-width">{{ _cta_default_variant() }}</div>{% endif %}
+    {% if variant == "default" and layout == '25-75' %}
       <div class="row">
         <div class="col-start-large-4 col-9">{{ _cta_default_variant() }}</div>
       </div>
     {% endif %}
-    {% if layout == 'cta-block-100' %}<div class="u-fixed-width">{{ _cta_block_variant() }}</div>{% endif %}
-    {% if layout == 'cta-block-25-75' %}
+    {% if variant == "block" and layout == '100' %}<div class="u-fixed-width">{{ _cta_block_variant() }}</div>{% endif %}
+    {% if variant == "block" and layout == '25-75' %}
       <div class="row">
         <div class="col-start-large-4 col-9">{{ _cta_block_variant() }}</div>
       </div>

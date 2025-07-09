@@ -84,6 +84,25 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
     <tbody>
       <tr>
         <td>
+          <code>variant</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'default'</code>,<br>
+          <code>'block'</code>
+        </td>
+        <td>
+          <code>default</code>
+        </td>
+        <td>
+          Choice of CTA variant
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>layout</code>
         </td>
         <td>
@@ -91,13 +110,11 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
         </td>
         <td>
           One of:<br>
-          <code>'cta-default-100'</code>,<br>
-          <code>'cta-default-25-75'</code>,<br>
-          <code>'cta-block-100'</code>,<br>
-          <code>'cta-block-25-75'</code>,<br>
+          <code>'-100'</code>,<br>
+          <code>'25-75'</code>
         </td>
         <td>
-          <code>'cta-default-100'</code>
+          <code>100</code>
         </td>
         <td>
           Choice of CTA layout
