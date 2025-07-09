@@ -1,0 +1,18 @@
+application: vanillaframework-io
+application-config:
+# These options help Gunicorn to complete external API calls that can take a while to respond instead of throwing 503/504 errors
+webserver-timeout:
+  description: Time in seconds to kill and restart silent webserver workers.
+  source: user
+  type: int
+  value: 60
+webserver-worker-class:
+  description: The webserver worker process class for handling requests. Can be
+    either 'gevent' or 'sync'.
+  source: unset
+  type: string
+webserver-workers:
+  description: The number of webserver worker processes for handling requests.
+  source: user
+  type: int
+  value: 2

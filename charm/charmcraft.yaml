@@ -2,7 +2,6 @@
 # See https://juju.is/docs/sdk/charmcraft-config for guidance.
 
 name: vanillaframework-io
-
 type: charm
 
 bases:
@@ -20,3 +19,19 @@ description: |
 
 extensions:
   - flask-framework
+config:
+  options:
+    # Note: these secret names are converted to PASCAL_CASE by the PAAS charm
+    # https://canonical-charmcraft.readthedocs-hosted.com/stable/tutorial/kubernetes-charm-flask/index.html#id8
+    sentry-dsn:
+      type: string
+      description: 'Sentry DSN for error tracking.'
+      default: 'https://0ff6fb54f0a14360ac6b0157f130b807@sentry.is.canonical.com//36'
+    search-api-key:
+      type: string
+      description: 'Google Custom Search API key.'
+      default: ''
+    github-token:
+      type: string
+      description: 'GitHub token for accessing repositories.'
+      default: ''
