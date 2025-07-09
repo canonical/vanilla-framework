@@ -25,26 +25,46 @@
         Image element within an image container.
 */
 
-@use 'sass:color';
+@use 'sass:math';
 @import 'settings';
 
-// Mapping of aspect ratio class names to their `aspect-ratio` values (width / height).
+// Mapping of aspect ratio class names to their values
 $aspect-ratios: (
-  '16-9': calc(16 / 9),
-  '3-2': calc(3 / 2),
-  '2-3': calc(2 / 3),
+  '16-9': math.div(16, 9),
+  '3-2': math.div(3, 2),
+  '2-3': math.div(2, 3),
   'cinematic': 2.4,
   'square': 1,
 );
 
+@mixin apply-aspect-ratio-styles($padding-value) {
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: $padding-value;
+  }
+
+  .p-image-container__image {
+    left: 50%;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 @mixin aspect-ratio-classes {
   @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-    $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
-    .p-image-container--#{$aspect-ratio}::before {
-      padding-bottom: $padding-percentage;
+    $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
+    .p-image-container--#{$aspect-ratio} {
+      @include apply-aspect-ratio-styles($padding-percentage);
     }
   }
 
+  // Responsive aspect ratios
   @each $breakpoint-name, $breakpoint-bounds-pair in $breakpoint-bounds {
     $min-width: map-get($breakpoint-bounds-pair, min);
     $max-width: map-get($breakpoint-bounds-pair, max);
@@ -52,27 +72,27 @@ $aspect-ratios: (
     @if $min-width and $max-width {
       @media ($min-width <= width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-          $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
-          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name}::before {
-            padding-bottom: $padding-percentage;
+          $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
+            @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
       }
     } @else if $min-width {
       @media (width >= $min-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-          $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
-          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name}::before {
-            padding-bottom: $padding-percentage;
+          $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
+            @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
       }
     } @else if $max-width {
       @media (width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
-          $padding-percentage: calc(1 / #{$aspect-ratio-value} * 100%);
-          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name}::before {
-            padding-bottom: $padding-percentage;
+          $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
+          .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
+            @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
       }
@@ -81,12 +101,16 @@ $aspect-ratios: (
 }
 
 @mixin vf-p-image {
-  // Shared base styles for all containers, with or without an aspect ratio.
   .p-image-container,
   [class^='p-image-container--'] {
     display: block;
     position: relative;
     width: 100%;
+
+    .p-image-container__image {
+      display: block;
+      margin: auto;
+    }
 
     &.is-highlighted {
       background: $colors--theme--background-alt;
@@ -96,40 +120,14 @@ $aspect-ratios: (
     & > .lazyloaded {
       display: contents;
     }
-  }
-
-  // Container without a specified aspect ratio.
-  .p-image-container {
-    .p-image-container__image {
-      display: block;
-      height: auto;
-      margin: auto;
-      max-width: 100%;
-    }
-  }
-
-  // Styles for containers WITH a specified aspect ratio.
-  [class^='p-image-container--'] {
-    &::before {
-      content: '';
-      display: block;
-    }
-
-    .p-image-container__image {
-      left: 50%;
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
 
     &.is-cover {
       .p-image-container__image {
         height: 100%;
         left: 0;
+        margin: 0;
         object-fit: cover;
+        position: absolute;
         top: 0;
         transform: none;
         width: 100%;
