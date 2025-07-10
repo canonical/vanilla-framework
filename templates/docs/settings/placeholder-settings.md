@@ -33,7 +33,10 @@ Vanilla uses several global placeholders to share common styles between componen
     <tr>
       <td><code>$border-radius</code></td>
       <td><a href="https://github.com/canonical/vanilla-framework/blob/main/scss/_settings_placeholders.scss#L6-L9"><code>0</code></a></td>
-      <td><span class="p-status-label--negative">Deprecated</span> This variable should not be used or modified, it will be removed in future version of Vanilla.</td>
+      <td>
+        <span class="p-chip--negative is-readonly is-inline">Deprecated</span>
+        This variable should not be used or modified, it will be removed in future version of Vanilla.
+      </td>
     </tr>
   </tbody>
 </table>

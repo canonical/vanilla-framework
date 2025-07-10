@@ -265,7 +265,7 @@ Small caps text is used to style column headers in tables. This styling has prov
 View example of the small caps text
 </a></div>
 
-<span class="p-status-label--negative">Deprecated</span>
+{{ status("deprecated") }}
 
 Previously this style was implemented as `.p-text--x-small-capitalised` class name. This name is now deprecated and will be removed in next major version of Vanilla, please use `.p-text--small-caps` instead.
 
@@ -308,7 +308,7 @@ In some cases, for example when used on the same line, it can be useful to align
 View example of baseline alignment of paragraph, small, extra small text
 </a></div>
 
-<span class="p-status-label--negative">Deprecated</span>
+{{ status("deprecated") }}
 
 Small caps style used to be implemented as extra small text variant with `.p-text--x-small-capitalised` class name that required the `.u-align-text--x-small-to-default` utility to align the baseline. This is not the case any more, so usage of this utility with new `.p-text--small-caps` (and its deprecated equivalent `.p-text--x-small-capitaised`) is deprecated and can be removed.
 
@@ -362,7 +362,7 @@ following font setting to true.
 $font-allow-cyrillic-greek-latin: true;
 ```
 
-<span class="p-status-label--negative">Deprecated</span>
+{{ status("deprecated") }}
 
 In previous versions of Vanilla (`< 3.10.0`) there used to be an option `$font-use-subset-latin` for only importing a part of the Latin subset.
 

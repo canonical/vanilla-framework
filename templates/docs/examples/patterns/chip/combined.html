@@ -3,15 +3,29 @@
 
 {% block standalone_css %}patterns_chip{% endblock %}
 
+{% block style %}
+<link rel="stylesheet" href="{{ versioned_static('build/css/standalone/patterns_icons-additional.css') }}" />
+{% endblock %}
+
 {% block content %}
 {% with is_combined = true %}
-<section>{% include 'docs/examples/patterns/chip/colors.html' %}</section>
-<section>{% include 'docs/examples/patterns/chip/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/colors-old.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/default-old.html' %}</section>
 <section>{% include 'docs/examples/patterns/chip/dense.html' %}</section>
 <section>{% include 'docs/examples/patterns/chip/inline.html' %}</section>
 <section>{% include 'docs/examples/patterns/chip/long-values.html' %}</section>
 <section>{% include 'docs/examples/patterns/chip/variants.html' %}</section>
 <section>{% include 'docs/examples/patterns/chip/with-dismiss.html' %}</section>
 <section>{% include 'docs/examples/patterns/chip/link.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/colors.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/read-only.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/read-only-inline-table.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/read-only-inline-sidenav.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/with-icon.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/with-icon-read-only.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/with-badge.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/with-badge-with-dismiss.html' %}</section>
+<section>{% include 'docs/examples/patterns/chip/with-badge-with-icon.html' %}</section>
 {% endwith %}
 {% endblock %}

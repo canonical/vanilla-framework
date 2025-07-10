@@ -1,20 +1,11 @@
 {% extends "_layouts/examples.html" %}
 {% block title %}Chip / Default{% endblock %}
+{% from "docs/examples/patterns/chip/_semantic-states.jinja" import chip_semantic_states %}
 
 {% block standalone_css %}patterns_chip{% endblock %}
 
 {% block content %}
-<button class="p-chip">
-  <span class="p-chip__lead">Owner</span>
-  <span class="p-chip__value">Bob</span>
-</button>
 
-<button class="p-chip">
-  <span class="p-chip__value">21.10</span>
-</button>
-
-<button class="p-chip" aria-pressed="true">
-  <span class="p-chip__value">Selected</span>
-</button>
+{{ chip_semantic_states(states=[""]) }}
 
 {% endblock %}
