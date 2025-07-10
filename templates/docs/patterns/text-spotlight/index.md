@@ -8,18 +8,18 @@ context:
 
 {{- pattern_wip_notice() }}
 
-A CTA section is a prominent section typically used to quickly capture user's attention to specific action items / benefits or advantages of selecting a specific product.
+A Text Spotlight is a prominent section typically used to quickly capture user's attention to specific action items / benefits or advantages of selecting a specific product.
 
 - [Default](#default)
 - [Links](#links)
 
-The CTA section pattern is composed of the following elements:
+The Text Spotlight pattern is composed of the following elements:
 
-| Element | Description                                                                                    |
-| ------- | ---------------------------------------------------------------------------------------------- |
-| Rule    | [Default rule](/docs/patterns/rule#default)                                                    |
-| Title   | Title text (to be placed in `h2` heading)                                                      |
-| List    | A [divided list](/docs/patterns/lists#ticked-with-horizontal-divider) with up to 7 list items. |
+| Element              | Description                                                                                                          |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Rule (**required**)  | [Default rule](/docs/patterns/rule#default)                                                                          |
+| Title (**required**) | Title text (to be placed in `h2` heading)                                                                            |
+| List (**required**)  | A [divided list](/docs/patterns/lists#ticked-with-horizontal-divider) with up to 7 list items (minimum 2, maximum 7) |
 
 ## Default
 
@@ -93,10 +93,10 @@ The `vf_text-spotlight` Jinja macro can be used to generate a Text Spolight Patt
           <code>list_item_[1-7]</code>
         </td>
         <td>
-          No
+          Yes
         </td>
         <td>
-          Contents of a <code>.p-list__item</code> element for the list item.
+          Contents of a <code>.p-list__item</code> element for the list item. Must be between 2 and 7.
         </td>
       </tr>
     </tbody>

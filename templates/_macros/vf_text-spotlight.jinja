@@ -21,14 +21,11 @@
         <h2 class="p-text--small-caps">{{ title_text }}</h2>
       </div>
       <div class="col">
-        {%- if list_items|length > 0 %}
-          <ul class="p-list--divided">
-            {%- for list_item in list_items -%}
-              <li class="p-list__item u-no-padding--bottom">
-                <p class="p-heading--2">{{- list_item -}}</p>
-              </li>
-            {%- endfor -%}
-          </ul>
+        {%- if list_items|length >= 2 and list_items|length <= 7 -%}
+          {%- for list_item in list_items -%}
+            <p class="p-heading--2">{{- list_item -}}</p>
+            {%- if not loop.last %}<hr class="p-rule" />{%- endif %}
+          {%- endfor -%}
         {%- endif -%}
       </div>
     </div>
