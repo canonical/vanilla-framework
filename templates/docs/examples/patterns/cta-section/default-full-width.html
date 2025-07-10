@@ -6,9 +6,11 @@
 {% block content %}
     {% call(slot) vf_cta_section(
         title_text='The quick brown fox jumps over the lazy dog',
-        cta_html='<a href="#">The quick brown fox jumps over the lazy dog &rsaquo;</a>',
         variant='default',
         layout='100',
         ) -%}
+        {%- if slot == 'cta' -%}
+            <a href="#">The quick brown fox jumps over the lazy dog &rsaquo;</a>
+        {%- endif -%}
     {% endcall -%}
 {% endblock %}

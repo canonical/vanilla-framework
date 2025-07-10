@@ -1,6 +1,5 @@
 # All Params
   # title_text: H2 title text
-  # cta_html: H2 link html content
   # variant: variant for the cta section. Options are "default", "block". Default is "default".
   # layout: Layout type of cta section. Options are "100", "25-75".
 
@@ -12,16 +11,20 @@
   # default-100: Full-width CTA with title and link text
     # Params:
         # title_text: H2 title text - optional
-        # cta_html: H2 link html content - required
         # variant: default
         # layout: 100
+
+    # Slots:
+        # cta: The cta link - required
 
   # default-25-75: 25-75 percent width CTA with title and link text
     # Params:
         # title_text: H2 title text - optional
-        # cta_html: H2 link html content - required
         # variant: default
         # layout: 25-75
+
+      # Slots:
+        # cta: The cta link - required
 
   # block-100: Full width CTA with title, description and cta block with action links
     # Params:
@@ -43,7 +46,7 @@
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-{%- macro vf_cta_section(title_text, cta_html, variant='default', layout='100', caller=None) -%}
+{%- macro vf_cta_section(title_text, variant='default', layout='100', caller=None) -%}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
@@ -69,7 +72,7 @@
         {{ title_text }}
         <br />
       {%- endif -%}
-      {{ cta_html }}
+      {{ cta_content }}
     </h2>
   {%- endmacro -%}
   {%- macro _cta_block_variant() -%}

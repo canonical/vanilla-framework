@@ -36,11 +36,11 @@ You can use <code>default</code> variant with <code>100</code> layout to create 
 View example of the default full width cta section pattern
 </a></div>
 
-## Default full width CTA HTML
+## Default full width links within text
 
-If you need to pass a text that can have multiple partial links within it, you can use do so by passing it to <code>cta_html</code> parameter.
+If you need to pass a text that can have multiple partial links within it, you can use do so as well.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-full-width-cta-html" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-full-width-links-within-text" class="js-example" data-lang="jinja">
 View example of the default full width cta section pattern with multiple partial links
 </a></div>
 
@@ -54,9 +54,9 @@ View example of the 25-75 split default cta section pattern
 
 ## Default 25-75 CTA HTML
 
-If you need to pass a text that can have multiple partial links within it, you can use do so by passing it to <code>cta_html</code> parameter. This works for both <code>100</code> and <code>25-75</code> layouts.
+If you need to pass a text that can have multiple partial links within it, you can use do so as well.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-25-75-cta-html" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-25-75-links-within-text" class="js-example" data-lang="jinja">
 View example of the default 25-75 cta section pattern with multiple partial links
 </a></div>
 
@@ -149,23 +149,6 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>h2</code> title text
         </td>
       </tr>
-      <tr>
-        <td>
-          <code>cta_html</code>
-        </td>
-        <td>
-          Yes, when variant is <code>'default'</code>
-        </td>
-        <td>
-          <code>string</code>
-        </td>
-        <td>
-          <code>N/A</code>
-        </td>
-        <td>
-          HTML content of the link, passed as string
-        </td>
-      </tr>
     </tbody>
   </table>
 </div>
@@ -199,11 +182,10 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>cta</code>
         </td>
         <td>
-          Yes, when variant is <code>'block'</code>
+          Yes
         </td>
         <td>
-          Contents of a <a href="/docs/patterns/cta-block">CTA block</a> beneath
-          the title and description, only applicable to <code>'block'</code> variant 
+          Contents of <a href="/docs/patterns/cta-block">CTA</a> link or block
         </td>
       </tr>
     </tbody>
