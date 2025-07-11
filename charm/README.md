@@ -233,3 +233,7 @@ You should now be able to access the site at `http://vanilla.local`.
 - [Charmcraft Documentation](https://canonical-charmcraft.readthedocs-hosted.com/stable/)
 - [Juju Documentation](https://juju.is/docs)
 - [PAAS Charm Repository](https://github.com/canonical/paas-charm)
+
+this is a temporary line change in the `charm/` directory (only needed during initial charm development)
+to force a rebuild of the charm for production environment
+(will allow us to manually configure the charm in the production machine at migration time)
