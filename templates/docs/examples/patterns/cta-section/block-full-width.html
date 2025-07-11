@@ -1,0 +1,21 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
+{% block title %}CTA section / Full width / With CTA Block{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+    {% call(slot) vf_cta_section(
+        title_text='The quick brown fox jumps over the lazy dog',
+        variant='block',
+        layout='100'
+        ) -%}
+        {%- if slot == 'description' -%}
+            <p>The quick brown fox jumps over the lazy dog.</p>
+        {%- endif -%}
+        {%- if slot == 'cta' -%}
+            <a href="#" class="p-button--positive">Action</a>
+            <a href="#" class="p-button">Action</a>
+            <a href="#">Lorem ipsum dolor sit amet&#32;&rsaquo;</a>
+        {%- endif -%}
+    {% endcall -%}
+{% endblock %}

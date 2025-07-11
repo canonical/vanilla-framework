@@ -1,0 +1,17 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
+{% block title %}CTA section / 25-75 / Links within text{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+    {% call(slot) vf_cta_section(
+        variant='default',
+        layout='25/75',
+        ) -%}
+        {%- if slot == 'cta' -%}
+            For more information, <a href="#">read the docs</a>
+            <br />
+            or <a href="#">contact us</a> to let our experts help you take the next step
+        {%- endif -%}
+    {% endcall -%}
+{% endblock %}
