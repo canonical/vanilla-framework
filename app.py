@@ -4,7 +4,4 @@
 # Follows https://github.com/canonical/charmhub.io/blob/082fd048994b2bc5ccff961bb0d6108d6d13c882/app.py
 import os
 
-# canonicalwebteam.flask-base requires SECRET_KEY to be set, this must be done before importing the app
-os.environ["SECRET_KEY"] = os.environ["FLASK_SECRET_KEY"]
-
 from webapp.app import app
