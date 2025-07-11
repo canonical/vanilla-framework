@@ -1,0 +1,20 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_text-spotlight.jinja" import vf_text_spotlight %}
+{% block title %}Text Spotlight / Links{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+    {% call(slot) vf_text_spotlight(
+        title_text='Working here',
+        list_items=[
+        '<a href="https://canonical.com/careers/hiring-process">Hiring process</a>',
+        '<a href="https://canonical.com/careers/company-culture">Company culture</a>',
+        '<a href="https://canonical.com/careers/company-culture/remote-work">Remote work</a>',
+        '<a href="https://canonical.com/careers/progression">Progression</a>',
+        '<a href="https://canonical.com/careers/diversity">Diversity</a>',
+        '<a href="https://canonical.com/careers/sustainability">Sustainability</a>',
+        '<a href="https://canonical.com/careers/application/faq">FAQs</a>'
+        ]
+        ) -%}
+    {% endcall -%}
+{% endblock %}
