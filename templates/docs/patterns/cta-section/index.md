@@ -38,7 +38,7 @@ View example of the default full width cta section pattern
 
 ## Default full width links within text
 
-If you need to pass a text that can have multiple partial links within it, you can use do so as well.
+You can also pass text containing multiple partial links.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-full-width-links-within-text" class="js-example" data-lang="jinja">
 View example of the default full width cta section pattern with multiple partial links
@@ -54,7 +54,7 @@ View example of the 25-75 split default cta section pattern
 
 ## Default 25-75 CTA HTML
 
-If you need to pass a text that can have multiple partial links within it, you can use do so as well.
+You can pass text containing multiple partial links in this variant too.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/cta-section/default-25-75-links-within-text" class="js-example" data-lang="jinja">
 View example of the default 25-75 cta section pattern with multiple partial links
