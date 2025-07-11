@@ -21,8 +21,11 @@ extensions:
   - flask-framework
 config:
   options:
-    # Note: these secret names are converted to PASCAL_CASE by the PAAS charm
+    # Note: these secret names are converted to PASCAL_CASE and prefixed with `FLASK_` by the flask extension.
     # https://canonical-charmcraft.readthedocs-hosted.com/stable/tutorial/kubernetes-charm-flask/index.html#id8
+    # Then, `canonicalwebteam.flask-base` removes the `FLASK_` prefix.
+    # https://github.com/canonical/canonicalwebteam.flask-base/blob/8e954aa0fd57cfd841ad47ae841782638c1c58cd/canonicalwebteam/flask_base/app.py#L222-L223
+    # So, to create a usable env var `ENV_VAR`, add a config option `env-var` here.
     sentry-dsn:
       type: string
       description: 'Sentry DSN for error tracking.'

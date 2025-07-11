@@ -40,7 +40,7 @@ jobs:
     needs: setup
     name: Deploy
     # https://github.com/canonical/webteam-devops
-    uses: canonical/webteam-devops/.github/workflows/deploy.yaml@v1
+    uses: canonical/webteam-devops/.github/workflows/deploy.yaml@main
     with:
       environment: ${{ needs.setup.outputs.environment }}
       charm_name: ${{ needs.setup.outputs.charm_name }}
