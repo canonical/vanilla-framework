@@ -1,7 +1,7 @@
 # All Params
   # title_text: H2 title text
 # All Slots
-  # list_item_[1-7]: List item content, assumed to be li.p-list__item, H2 text
+  # list_item_[1-7]: List item content, H2 text styled content rendered in a paragraph
 
 {%- macro vf_text_spotlight(title_text, caller=None) -%}
   {% set has_list = caller('list_item_1')|trim|length > 0 %}
@@ -26,6 +26,13 @@
             <p class="p-heading--2">{{- list_item -}}</p>
             {%- if not loop.last %}<hr class="p-rule--muted" />{%- endif %}
           {%- endfor -%}
+        {%- else -%}
+          <div class="p-notification--caution">
+            <div class="p-notification__content">
+              <h5 class="p-notification__title">Caution</h5>
+              <p class="p-notification__message">List items must be between 2 and 7.</p>
+            </div>
+          </div>
         {%- endif -%}
       </div>
     </div>

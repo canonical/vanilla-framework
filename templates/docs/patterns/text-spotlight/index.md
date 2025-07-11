@@ -96,7 +96,7 @@ The `vf_text-spotlight` Jinja macro can be used to generate a Text Spolight Patt
           Yes
         </td>
         <td>
-          Contents of a <code>.p-list__item</code> element for the list item. Must be between 2 and 7.
+          Contents of the list item rendered in an H2 styled <code>p</code> tag. Must be between 2 and 7.
         </td>
       </tr>
     </tbody>
