@@ -1,0 +1,32 @@
+{#
+    All Params:
+      @param title_text: H2 title text
+      @param list_items (Array<string>)
+      An array of HTML strings to be rendered
+#}
+{%- macro vf_text_spotlight(title_text, list_items=[], caller=None) -%}
+  {% set has_list = list_items | length >= 2 and list_items | length <= 7 %}
+  <section class="p-section">
+    <hr class="p-rule is-fixed-width" />
+    <div class="row--25-75-on-large">
+      <div class="col">
+        <h2 class="p-text--small-caps">{{ title_text }}</h2>
+      </div>
+      <div class="col">
+        {%- if has_list -%}
+          {%- for list_item in list_items -%}
+            <p class="p-heading--2">{{- list_item -}}</p>
+            {%- if not loop.last %}<hr class="p-rule--muted" />{%- endif %}
+          {%- endfor -%}
+        {%- else -%}
+          <div class="p-notification--caution">
+            <div class="p-notification__content">
+              <h5 class="p-notification__title">Caution</h5>
+              <p class="p-notification__message">List items must be between 2 and 7.</p>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+{%- endmacro -%}
