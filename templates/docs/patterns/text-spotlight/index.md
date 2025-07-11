@@ -76,13 +76,13 @@ The `vf_text-spotlight` Jinja macro can be used to generate a Text Spolight Patt
           <code>list_items</code>
         </td>
         <td>
-          <code>[]</code>
+          Yes
         </td>
         <td>
           <code>Array&lt;string&gt;</code>
         </td>
         <td>
-          <code>Yes</code>
+          <code>[]</code>
         </td>
         <td>
           An array of text or HTML strings
