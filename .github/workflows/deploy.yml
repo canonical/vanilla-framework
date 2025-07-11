@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      # TODO remove me before we merge the feature branch to main
-      - feature/charm
   release:
     types:
       - published
@@ -18,7 +16,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     # Set the environment based on the trigger: 'release' for Production, 'push' for Staging.
-    environment: Production
+    environment: ${{ github.event_name == 'release' && 'Production' || 'Staging' }}
     outputs:
       charm_name: ${{ steps.setup-vars.outputs.charm_name }}
       channel: ${{ steps.setup-vars.outputs.channel }}
@@ -34,7 +32,7 @@ jobs:
           echo "juju_controller_name=${{ vars.JUJU_CONTROLLER_NAME }}" >> $GITHUB_OUTPUT
           echo "juju_model_name=${{ vars.JUJU_MODEL_NAME }}" >> $GITHUB_OUTPUT
           # Set the environment variable based on the trigger.
-          echo "environment=Production" >> $GITHUB_OUTPUT
+          echo "environment=${{ github.event_name == 'release' && 'Production' || 'Staging' }}" >> $GITHUB_OUTPUT
 
   deploy:
     needs: setup
