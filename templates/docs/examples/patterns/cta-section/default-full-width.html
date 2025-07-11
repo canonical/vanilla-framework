@@ -1,0 +1,16 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
+{% block title %}CTA section / Full width / Default{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+    {% call(slot) vf_cta_section(
+        title_text='The quick brown fox jumps over the lazy dog',
+        variant='default',
+        layout='100',
+        ) -%}
+        {%- if slot == 'cta' -%}
+            <a href="#">The quick brown fox jumps over the lazy dog &rsaquo;</a>
+        {%- endif -%}
+    {% endcall -%}
+{% endblock %}

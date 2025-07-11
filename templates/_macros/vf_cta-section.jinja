@@ -1,0 +1,100 @@
+# All Params
+  # title_text: H2 title text
+  # variant: variant for the cta section. Options are "default", "block". Default is "default".
+  # layout: Layout type of cta section. Options are "100", "25-75".
+
+# All Slots
+  # description: Paragraph-style (one or more) content below the title. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
+  # cta: Call-to-action block with action links/buttons. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
+
+# Variants:
+  # default-100: Full-width CTA with title and link text
+    # Params:
+        # title_text: H2 title text - optional
+        # variant: default
+        # layout: 100
+
+    # Slots:
+        # cta: The cta link - required
+
+  # default-25-75: 25-75 percent width CTA with title and link text
+    # Params:
+        # title_text: H2 title text - optional
+        # variant: default
+        # layout: 25-75
+
+      # Slots:
+        # cta: The cta link - required
+
+  # block-100: Full width CTA with title, description and cta block with action links
+    # Params:
+        # title_text: H2 title text - required
+        # variant: block
+        # layout: 100
+
+    # Slots:
+        # description: Paragraph-style (one or more) content below the title - Optional
+        # cta: Call-to-action block (required)
+
+  # block-25-75: 25-75 percent width CTA with title, description and cta block with action links
+    # Params:
+        # title_text: H2 title text - required
+        # variant: block
+        # layout: 25-75
+
+    # Slots:
+        # description: Paragraph-style (one or more) content below the title - Optional
+        # cta: Call-to-action block (required)
+
+{%- macro vf_cta_section(title_text, variant='default', layout='100', caller=None) -%}
+  {% set description_content = caller('description') %}
+  {% set has_description = description_content|trim|length > 0 %}
+  {% set cta_content = caller('cta') %}
+  {% set has_cta = cta_content|trim|length > 0 %}
+  {#- User can pass layout as "X-Y" or "X/Y" -#}
+  {% set layout = layout | trim | replace('/', '-') %}
+  {% if layout not in ['100', '25-75'] %}
+    {% set layout = "100" %}
+  {% endif %}
+  {% set variant = variant | trim %}
+  {% if variant not in ['default', 'block'] %}
+    {% set variant = "default" %}
+  {% endif %}
+  {%- macro _description_block() -%}
+    {% if has_description %}{{ description_content }}{% endif %}
+  {%- endmacro -%}
+  {%- macro _cta_block() -%}
+    {% if has_cta -%}<div class="p-cta-block">{{ cta_content }}</div>{% endif %}
+  {%- endmacro -%}
+  {%- macro _cta_default_variant() -%}
+    <h2>
+      {%- if title_text -%}
+        {{ title_text }}
+        <br />
+      {%- endif -%}
+      {{ cta_content }}
+    </h2>
+  {%- endmacro -%}
+  {%- macro _cta_block_variant() -%}
+    <h2>{{ title_text }}</h2>
+    {{ _description_block() -}}
+    {{ _cta_block() }}
+  {%- endmacro -%}
+  {%- macro _cta_variant() -%}
+    {%- if variant == 'default' -%}
+      {{ _cta_default_variant() }}
+    {%- elif variant == 'block' -%}
+      {{ _cta_block_variant() }}
+    {%- endif -%}
+  {%- endmacro -%}
+  <hr class="p-rule is-fixed-width u-no-margin--bottom" />
+  <section class="p-strip is-deep">
+    {%- if layout == "25-75" -%}
+      <div class="grid-row">
+        <div class="grid-col-start-large-3 grid-col-9">{{ _cta_variant() }}</div>
+      </div>
+    {%- elif layout == "100" -%}
+      <div class="u-fixed-width">{{ _cta_variant() }}</div>
+    {%- endif -%}
+  </section>
+{%- endmacro -%}
