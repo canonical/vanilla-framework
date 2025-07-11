@@ -1,19 +1,11 @@
-# All Params
-  # title_text: H2 title text
-# All Slots
-  # list_item_[1-7]: List item content, H2 text styled content rendered in a paragraph
-
-{%- macro vf_text_spotlight(title_text, caller=None) -%}
-  {% set has_list = caller('list_item_1')|trim|length > 0 %}
-  {% set max_list_items = 7 %}
-  {% set list_items = [] %}
-  {% if has_list %}
-    {% for list_item_index in range(1, max_list_items + 1) %}
-      {% set list_item_content = caller('list_item_' + list_item_index|string) %}
-      {% set has_list_item_content = list_item_content|trim|length > 0 %}
-      {% if has_list_item_content %}{{ list_items.append(list_item_content) or "" }}{% endif %}
-    {% endfor %}
-  {% endif %}
+{#
+    All Params:
+      @param title_text: H2 title text
+      @param list_items (Array<string>)
+      An array of HTML strings to be rendered
+#}
+{%- macro vf_text_spotlight(title_text, list_items=[], caller=None) -%}
+  {% set has_list = list_items | length >= 2 and list_items | length <= 7 %}
   <section class="p-section">
     <hr class="p-rule is-fixed-width" />
     <div class="row--25-75-on-large">
@@ -21,7 +13,7 @@
         <h2 class="p-text--small-caps">{{ title_text }}</h2>
       </div>
       <div class="col">
-        {%- if list_items|length >= 2 and list_items|length <= 7 -%}
+        {%- if has_list -%}
           {%- for list_item in list_items -%}
             <p class="p-heading--2">{{- list_item -}}</p>
             {%- if not loop.last %}<hr class="p-rule--muted" />{%- endif %}

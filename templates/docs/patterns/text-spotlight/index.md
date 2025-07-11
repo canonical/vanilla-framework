@@ -71,31 +71,21 @@ The `vf_text-spotlight` Jinja macro can be used to generate a Text Spolight Patt
           <code>h2</code> title text
         </td>
       </tr>
-    </tbody>
-  </table>
-</div>
-
-### Slots
-
-<div style="overflow: auto;">
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 220px;">Name</th>
-        <th style="width: 160px;">Required?</th>
-        <th style="width: 250px;">Description</th>
-      </tr>
-    </thead>
-    <tbody>
       <tr>
         <td>
-          <code>list_item_[1-7]</code>
+          <code>list_items</code>
         </td>
         <td>
           Yes
         </td>
         <td>
-          Contents of the list item rendered in an H2 styled <code>p</code> tag. Must be between 2 and 7.
+          <code>Array&lt;string&gt;</code>
+        </td>
+        <td>
+          <code>Yes</code>
+        </td>
+        <td>
+          An array of text or HTML strings
         </td>
       </tr>
     </tbody>
