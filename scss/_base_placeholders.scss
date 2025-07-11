@@ -184,6 +184,12 @@
     @media (min-width: $breakpoint-heading-threshold) {
       margin-bottom: -#{map-get($nudges, h2)} !important;
     }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($nudges, h2-large)} !important;
+      }
+    }
   }
 
   %u-no-margin--bottom--h3 {
@@ -191,6 +197,12 @@
 
     @media (min-width: $breakpoint-heading-threshold) {
       margin-bottom: -#{map-get($nudges, h3)} !important;
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($nudges, h3-large)} !important;
+      }
     }
   }
 
