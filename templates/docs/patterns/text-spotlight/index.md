@@ -15,11 +15,10 @@ A Text Spotlight is a prominent section typically used to quickly capture user's
 
 The Text Spotlight pattern is composed of the following elements:
 
-| Element              | Description                                                                                                          |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Rule (**required**)  | [Default rule](/docs/patterns/rule#default)                                                                          |
-| Title (**required**) | Title text (to be placed in `h2` heading)                                                                            |
-| List (**required**)  | A [divided list](/docs/patterns/lists#ticked-with-horizontal-divider) with up to 7 list items (minimum 2, maximum 7) |
+| Element              | Description                                                                 |
+| -------------------- | --------------------------------------------------------------------------- |
+| Title (**required**) | Title text (to be placed in `h2` heading)                                   |
+| List (**required**)  | A list of paragraphs separated with horizontal rules (minimum 2, maximum 7) |
 
 ## Default
 
