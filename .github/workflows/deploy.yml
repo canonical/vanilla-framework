@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      # TODO remove me before we merge the feature branch to main
-      - feature/charm-cicd
   release:
     types:
       - published
@@ -51,6 +49,8 @@ jobs:
       VAULT_APPROLE_ROLE_ID: ${{ secrets.VAULT_APPROLE_ROLE_ID }}
       VAULT_APPROLE_SECRET_ID: ${{ secrets.VAULT_APPROLE_SECRET_ID }}
       # See https://canonical-charmcraft.readthedocs-hosted.com/en/stable/reference/commands/login/ to create a Charmhub token
-      # Use `charmcraft login --export path/to/save-token-file` to create the token file.
-      # Then, base64-encode it: `cat path/to/save-token-file | base64`
+      # Default TTL is 30 hours, the command below creates one that is valid for 6 months
+      # Current token was set 11 July 2025, needs update by 10 January 2026
+      # Use `charmcraft login --ttl 15638400 --export path/to/save-token-file` to create the token file.
+      # Then, copy its contents to the secret.
       CHARMHUB_TOKEN: ${{ secrets.CHARMHUB_TOKEN }}
