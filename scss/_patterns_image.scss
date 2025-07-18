@@ -25,25 +25,47 @@
         Image element within an image container.
 */
 
-@use 'sass:color';
+@use 'sass:math';
 @import 'settings';
 
-// Mapping of aspect ratio class names to their `aspect-ratio` values (width / height).
+// Mapping of aspect ratio class names to their values
 $aspect-ratios: (
-  '16-9': calc(16 / 9),
-  '3-2': calc(3 / 2),
-  '2-3': calc(2 / 3),
+  '16-9': math.div(16, 9),
+  '3-2': math.div(3, 2),
+  '2-3': math.div(2, 3),
   'cinematic': 2.4,
   'square': 1,
 );
 
+@mixin apply-aspect-ratio-styles($padding-value) {
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: $padding-value;
+  }
+
+  .p-image-container__image {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
 @mixin aspect-ratio-classes {
   @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+    $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
     .p-image-container--#{$aspect-ratio} {
-      aspect-ratio: $aspect-ratio-value;
+      @include apply-aspect-ratio-styles($padding-percentage);
     }
   }
 
+  // Responsive aspect ratios
   @each $breakpoint-name, $breakpoint-bounds-pair in $breakpoint-bounds {
     $min-width: map-get($breakpoint-bounds-pair, min);
     $max-width: map-get($breakpoint-bounds-pair, max);
@@ -51,24 +73,27 @@ $aspect-ratios: (
     @if $min-width and $max-width {
       @media ($min-width <= width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+          $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
           .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
-            aspect-ratio: $aspect-ratio-value;
+            @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
       }
     } @else if $min-width {
       @media (width >= $min-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+          $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
           .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
-            aspect-ratio: $aspect-ratio-value;
+            @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
       }
     } @else if $max-width {
       @media (width < $max-width) {
         @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
+          $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
           .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
-            aspect-ratio: $aspect-ratio-value;
+            @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
       }
@@ -79,32 +104,33 @@ $aspect-ratios: (
 @mixin vf-p-image {
   .p-image-container,
   [class^='p-image-container--'] {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    display: block;
+    position: relative;
+    width: 100%;
 
-    // If there is a child lazyloaded image, don't let it affect the layout
-    & > .lazyloaded {
-      display: contents;
+    .p-image-container__image {
+      display: block;
+      margin: auto;
     }
 
     &.is-highlighted {
       background: $colors--theme--background-alt;
     }
 
-    .p-image-container__image {
-      // max height prevents the image from stretching the container
-      // when the aspect ratio is set, and object-fit ensures the aspect ratio
-      // of the image content is maintained
-      max-height: 100%;
-      object-fit: contain;
+    // If there is a child lazyloaded image, don't let it affect the layout.
+    & > .lazyloaded {
+      display: contents;
     }
 
     &.is-cover {
       .p-image-container__image {
         height: 100%;
+        left: 0;
+        margin: 0;
         object-fit: cover;
+        position: absolute;
+        top: 0;
+        transform: none;
         width: 100%;
       }
     }
