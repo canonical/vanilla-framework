@@ -7,8 +7,6 @@
     align-self: center;
     background-size: map-get($icon-sizes, small);
     flex: 0 0 auto;
-    // Space chip away from the content preceding it in the chip body
-    margin-left: $sph--x-small;
     @media (min-width: $breakpoint-x-large) {
       background-size: math.div(map-get($icon-sizes, small), $font-size-ratio--largescreen); //ensure no rounding happens as it positions the icon off center
     }
@@ -58,6 +56,8 @@
       @include vf-icon-close-themed;
 
       border-radius: 50%;
+      // Space away from the content preceding it in the chip body
+      margin-left: $sph--x-small;
     }
 
     & > [class*='p-icon--'] {
