@@ -20,48 +20,43 @@
 
   <div class="p-section u-fixed-width">
     <hr class="p-rule">
-
-    {% if has_description == true -%}
-      {%- if is_description_full_width_on_desktop == true -%}
-        <div class="u-fixed-width">
-          <div class="p-section--shallow">
+    <div class="p-section--shallow">
+      {% if has_description == true -%}
+        {%- if is_description_full_width_on_desktop == true -%}
+          <div class="u-fixed-width">
             {{ title_content }}
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-6 col-start-large-7">
-            {{ description_content }}
-          </div>
-        </div>
-      {%- else -%}
-        <div class="row">
-          <div class="col-6">
-            <div class="p-section--shallow">
-              {{ title_content }}
+          <div class="row">
+            <div class="col-6 col-start-large-7">
+              {{ description_content }}
             </div>
           </div>
+        {%- else -%}
+          <div class="row">
+            <div class="col-6">
+              {{ title_content }}
+            </div>
 
-          <div class="col-6">
-            {{ description_content }}
+            <div class="col-6">
+              {{ description_content }}
+            </div>
           </div>
-        </div>
-      {%- endif -%}
-    {%- else -%}
-      <div class="u-fixed-width">
-        <div class="p-section--shallow">
+        {%- endif -%}
+      {%- else -%}
+        <div class="u-fixed-width">
           {{ title_content }}
         </div>
-      </div>
-    {%- endif %}
+      {%- endif %}
+    </div>
 
     {#-
       When there is a CTA, we use shallow spacing to space the list away from the CTA.
       When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
     -#}
     {%- if has_cta -%}
-    <div class="p-section--shallow">
-    {%- endif -%}
+      <div class="p-section--shallow">
+      {%- endif -%}
       {%- for number in range(1, 25) -%}
         {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
         {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
@@ -72,27 +67,29 @@
             iterating through 25 potential list items -#}
         {%- if has_title_content and has_description_content -%}
           {%- if is_list_full_width_on_tablet == true %}
-            <div class="row">
-              <div class="col-9 col-start-large-4">
-                <hr class="is-muted">
+            {#- Skip the first HR -#}
+            {%- if number != 1 %}
+              <div class="row">
+                <div class="col-9 col-start-large-4">
+                  <hr class="is-muted">
+                </div>
               </div>
-            </div>
+            {%- endif -%}
 
             <div class="row">
-              <div class="col-3 col-start-large-4">
-                {{ list_item_title_content }}
-              </div>
+              <div class="col-3 col-start-large-4">{{ list_item_title_content }}</div>
 
-              <div class="col-6">
-                {{ list_item_description_content }}
-              </div>
+              <div class="col-6">{{ list_item_description_content }}</div>
             </div>
           {%- else %}
-            <div class="row">
-              <div class="col-9 col-start-large-4">
-                <hr class="is-muted">
+            {#- Skip the first HR -#}
+            {%- if number != 1 %}
+              <div class="row">
+                <div class="col-9 col-start-large-4">
+                  <hr class="is-muted">
+                </div>
               </div>
-            </div>
+            {%- endif -%}
 
             <div class="row">
               <div class="col-medium-3 col-3 col-start-large-4">
@@ -106,13 +103,13 @@
           {%- endif -%}
         {%- endif -%}
       {% endfor %}
-    {%- if has_cta -%}
-    </div>
+      {%- if has_cta -%}
+      </div>
     {%- endif -%}
 
     {% if has_cta == true -%}
       <div class="row">
-        <hr class="p-rule--muted"/>
+        <hr class="p-rule--muted">
         <div class="col-6 col-start-large-7">
           <p>
             {{ cta_content }}
