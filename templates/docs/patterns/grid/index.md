@@ -79,11 +79,11 @@ Specifying more columns than are available leads to misalignments.
 | `.grid-row--50-50`           | 50/50         | 50/50          | 100/100         |
 | `.grid-row--50-50-on-medium` | -             | 50/50          | -               |
 | `.grid-row--50-50-on-large`  | 50/50         | -              | -               |
-| `.grid-row--25-75`           | 25/75         | 33/66          | 100/100         |
-| `.grid-row--25-75-on-medium` | -             | 33/66          | -               |
+| `.grid-row--25-75`           | 25/75         | 25/75          | 100/100         |
+| `.grid-row--25-75-on-medium` | -             | 25/75          | -               |
 | `.grid-row--25-75-on-large`  | 25/75         | -              | -               |
-| `.grid-row--75-25`           | 75/25         | 66/33          | 100/100         |
-| `.grid-row--75-25-on-medium` | -             | 66/33          | -               |
+| `.grid-row--75-25`           | 75/25         | 75/25          | 100/100         |
+| `.grid-row--75-25-on-medium` | -             | 75/25          | -               |
 | `.grid-row--75-25-on-large`  | 75/25         | -              | -               |
 | `.grid-row--25-25-50`        | 25/25/50      | 50/50/100      | 100/100/100     |
 | `.grid-row--25-25-25-25`     | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
