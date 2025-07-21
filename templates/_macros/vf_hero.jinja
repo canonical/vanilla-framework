@@ -63,13 +63,13 @@
 
   {#- Construct grid classes from params input -#}
   {% set row_classes = [] %}
-  {% set col_classes = ['col', 'col'] %}
+  {% set col_classes = ['grid-col', 'grid-col'] %}
   {% if layout in ['50-50', '25-75', '75-25'] %}
     {#- Responsive breakpoint classes were requested -#}
     {% if not is_split_on_medium %}
-      {{ row_classes.append('row--' + layout + '-on-large') or "" }}
+      {{ row_classes.append('grid-row--' + layout + '-on-large') or "" }}
     {% else %}
-      {{ row_classes.append('row--' + layout) or "" }}
+      {{ row_classes.append('grid-row--' + layout) or "" }}
     {% endif %}
   {% endif %}
 
@@ -121,8 +121,8 @@
 
   <section class="p-section--hero">
     {% if is_fallback -%}
-      <div class="row">
-        <div class="col">
+      <div class="grid-row">
+        <div class="grid-col">
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
