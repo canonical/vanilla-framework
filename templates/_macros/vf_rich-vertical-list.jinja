@@ -103,21 +103,21 @@
   {%- endmacro -%}
 
   <div class="p-section">
-    <div class="row--50-50-on-large">
+    <div class="grid-row--50-50-on-large">
       <hr>
       {% if not is_flipped -%}
-        <div class="col">
+        <div class="grid-col">
           {{- _text_column_contents(list_items) -}}
         </div>
-        <div class="col">
+        <div class="grid-col">
           {{- _image_column_contents() -}}
         </div>
       {%- else -%}
         {#- For flipped layout, place the image contents in the first column and the text in the second column -#}
-        <div class="col">
+        <div class="grid-col">
           {{- _image_column_contents() -}}
         </div>
-        <div class="col">
+        <div class="grid-col">
           {{- _text_column_contents(list_items) -}}
         </div>
       {%- endif -%}
