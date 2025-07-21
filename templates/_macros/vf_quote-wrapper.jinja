@@ -95,17 +95,17 @@
       {#- Optional heading -#}
       <div class="p-section--shallow">
         <hr class="p-rule--highlight is-fixed-width">
-        <div class="row">
+        <div class="grid-row">
           {%- if has_title %}
             {#- Optional heading text -#}
-            <div class="col-3 col-medium-2">
+            <div class="grid-col-2 grid-col-medium-1">
               <h2 class="p-muted-heading">{{ title_text }}</h2>
             </div>
           {%- endif -%}
 
           {%- if has_heading_link %}
             {#- Optional heading link  -#}
-            <div class="col-3 col-medium-4 col-start-large-10 col-start-medium-3">
+            <div class="grid-col-2 grid-col-medium-3 grid-col-start-large-6 grid-col-start-medium-2">
               <p class="p-text--default">
                 {{ heading_link_content }}
               </p>
@@ -118,7 +118,7 @@
 
   <div class="p-section{% if is_shallow %}--shallow{% endif %}">
     {{- _heading_block() -}}
-    <div class="row">
+    <div class="grid-row">
       {% if has_signpost_image -%}
         {% if not has_heading_row %}
           {#- 
@@ -128,22 +128,22 @@
           <hr class="p-rule u-hide--medium u-hide--large">
         {% endif %}
         {#- Optional signpost image -#}
-        <div class="col-3 col-medium-2">
+        <div class="grid-col-2 grid-col-medium-1">
           <div class="p-section--shallow">
             {{ signpost_image_content }}
           </div>
         </div>
       {% endif -%}
       
-      <div class="col-9 col-start-large-4 col-medium-4 col-start-medium-3">
+      <div class="grid-col-6 grid-col-start-large-3 grid-col-medium-3 grid-col-start-medium-2">
         <hr class="p-rule--muted">
         {% if has_citation -%}
           {#-  When a citation is present, wrap the quote and citation in a nested grid to space them properly  -#}
-          <div class="row">
-            <div class="col-6">
+          <div class="grid-row">
+            <div class="grid-col-4">
               {{ _quote_body() }}
             </div>
-            <div class="col-3">
+            <div class="grid-col-2">
               <hr class="p-rule--muted u-hide--large">
               {{ _citation_block() }}
             </div>
