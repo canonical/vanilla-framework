@@ -82,7 +82,7 @@
 
   // on medium/tablet screens, small and large grid class names span full width (to match block level element behaviour)
   %grid-8-span-on-tablet {
-    @media (min-width: $threshold-4-6-col) {
+    @media (min-width: $threshold-4-small-4-med-col) {
       grid-column: auto / span $grid-8-columns-medium;
     }
   }
@@ -100,7 +100,7 @@
   }
 
   // col-medium-X classes define grid for medium screens
-  @media (min-width: $threshold-4-6-col) {
+  @media (min-width: $threshold-4-small-4-med-col) {
     @for $i from $grid-8-columns-medium through 1 {
       .#{$grid-8-medium-col-prefix}#{$i} {
         @include vf-grid-8-column($i);
@@ -114,7 +114,7 @@
 
   // on desktop screens small and medium grid class names span full width (to match block level element behaviour)
   %grid-8-span-on-desktop {
-    @media (min-width: $threshold-6-12-col) {
+    @media (min-width: $threshold-4-8-col) {
       grid-column: auto / span $grid-8-columns;
     }
   }
@@ -132,7 +132,7 @@
   }
 
   // col-X class names define grid on large/desktop screens
-  @media (min-width: $threshold-6-12-col) {
+  @media (min-width: $threshold-4-8-col) {
     @for $i from $grid-8-columns through 1 {
       // set col-* to span respective number of columns on desktop
       .#{$grid-8-large-col-prefix}#{$i} {
@@ -144,9 +144,9 @@
 
   // column reordering
   $offsets: (
-    (small, 0, $threshold-4-6-col, $grid-8-columns-small),
-    (medium, $threshold-4-6-col, $threshold-6-12-col, $grid-8-columns-medium),
-    (large, $threshold-6-12-col, false, $grid-8-columns)
+    (small, 0, $threshold-4-small-4-med-col, $grid-8-columns-small),
+    (medium, $threshold-4-small-4-med-col, $threshold-4-8-col, $grid-8-columns-medium),
+    (large, $threshold-4-8-col, false, $grid-8-columns)
   );
 
   @each $label, $breakpoint-min, $breakpoint-reset, $col-count in $offsets {
@@ -161,6 +161,255 @@
     @if $breakpoint-reset {
       @media (min-width: #{$breakpoint-reset}) {
         @include vf-grid-8-column-reordering($label, $col-count, $reset: true);
+      }
+    }
+  }
+
+  // Common grid patterns
+  $col-50-medium: calc($grid-8-columns-medium / 2);
+
+  $col-25: calc($grid-8-columns / 4);
+  $col-25-medium: calc($grid-8-columns-medium / 4);
+  $col-50: calc($grid-8-columns / 2);
+  $col-75: calc(($grid-8-columns / 4) * 3);
+  $col-75-medium: calc(($grid-8-columns-medium / 4) * 3);
+
+  // 50/50 split on medium and large screens
+  .grid-row--50-50 {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @include vf-grid-8-column($grid-8-columns-small);
+
+      @media (min-width: $threshold-4-small-4-med-col) {
+        @include vf-grid-8-column($col-50-medium);
+      }
+
+      @media (min-width: $threshold-4-8-col) {
+        @include vf-grid-8-column($col-50);
+      }
+    }
+  }
+
+  // 25/75 split on medium and large screens
+  .grid-row--25-75 {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @include vf-grid-8-column($grid-8-columns-small);
+
+      @media (min-width: $threshold-4-small-4-med-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-25-medium);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-75-medium);
+        }
+
+        // if there is only one column, use the whole width
+        &:only-of-type {
+          @include vf-grid-8-column($grid-8-columns-medium);
+        }
+      }
+
+      @media (min-width: $threshold-4-8-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-25);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-75);
+        }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          grid-column-start: calc($col-25 + 1);
+          @include vf-grid-8-column($col-75);
+        }
+      }
+    }
+  }
+
+  // 50/50 split just on medium screens
+  .grid-row--50-50-on-medium {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @media ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+        @include vf-grid-8-column($col-50-medium);
+      }
+    }
+  }
+
+  .grid-row--25-75-on-medium {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @media ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-25-medium);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-75-medium);
+        }
+
+        // if there is only one column, use the whole width
+        &:only-of-type {
+          @include vf-grid-8-column($grid-8-columns-medium);
+        }
+      }
+    }
+  }
+
+  // 50/50 split just on large screens
+  .grid-row--50-50-on-large {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @media (min-width: $threshold-4-8-col) {
+        @include vf-grid-8-column($col-50);
+      }
+    }
+  }
+
+  .grid-row--25-75-on-large {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @media (min-width: $threshold-4-8-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-25);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-75);
+        }
+
+        // if there is only one column we offset it to the right
+        &:only-of-type {
+          grid-column-start: calc($col-25 + 1);
+          @include vf-grid-8-column($col-75);
+        }
+      }
+    }
+  }
+
+  // 75/25 split on medium and large screens
+  .grid-row--75-25 {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @include vf-grid-8-column($grid-8-columns-small);
+
+      @media (min-width: $threshold-4-small-4-med-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-75-medium);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-25-medium);
+        }
+
+        // if there is only one column, use the whole width
+        &:only-of-type {
+          @include vf-grid-8-column($grid-8-columns-medium);
+        }
+      }
+
+      @media (min-width: $threshold-4-8-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-75);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-25);
+        }
+      }
+    }
+  }
+
+  .grid-row--75-25-on-medium {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @media ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-75-medium);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-25-medium);
+        }
+
+        // if there is only one column, use the whole width
+        &:only-of-type {
+          @include vf-grid-8-column($grid-8-columns-medium);
+        }
+      }
+    }
+  }
+
+  .grid-row--75-25-on-large {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @media (min-width: $threshold-4-8-col) {
+        &:nth-of-type(1) {
+          @include vf-grid-8-column($col-75);
+        }
+
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-25);
+        }
+      }
+    }
+  }
+
+  .grid-row--25-25-50 {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @include vf-grid-8-column($grid-8-columns-small);
+
+      @media (min-width: $threshold-4-small-4-med-col) {
+        // todo checkme
+        &:nth-of-type(-n + 2) {
+          @include vf-grid-8-column($col-50-medium);
+        }
+
+        // todo check me
+        &:nth-of-type(3) {
+          @include vf-grid-8-column($grid-8-columns-medium);
+        }
+      }
+
+      @media (min-width: $threshold-4-8-col) {
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          @include vf-grid-8-column($col-25);
+        }
+
+        &:nth-of-type(3) {
+          @include vf-grid-8-column($col-50);
+        }
+      }
+    }
+  }
+
+  .grid-row--25-25-25-25 {
+    @extend %vf-grid-row;
+
+    > .grid-col {
+      @include vf-grid-8-column($grid-8-columns-small);
+
+      @media (min-width: $threshold-4-small-4-med-col) {
+        @include vf-grid-8-column($col-50-medium);
+      }
+
+      @media (min-width: $threshold-4-8-col) {
+        @include vf-grid-8-column($col-25);
       }
     }
   }
