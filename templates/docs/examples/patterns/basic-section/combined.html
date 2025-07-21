@@ -1,0 +1,11 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Basic Section / Combined{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/basic-section/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/basic-section/link-title.html' %}</section>
+{% endwith %}
+{% endblock %}

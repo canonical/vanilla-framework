@@ -1,0 +1,304 @@
+{% from "_macros/shared/vf_dedent.jinja" import vf_dedent %}
+{% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
+
+# description_config
+# - type: "text" | "html" (default is "text")
+# - content: The content of the description. Could be plain text (if type is "text") or HTML (if type is "html").
+{% macro _basic_section_description(description_config={}) %}
+  {%- set type = (description_config["type"] or "text") | trim -%}
+  {%- if type not in ["text", "html"] -%}
+    {%- set type = "text" -%}
+  {%- endif -%}
+
+  {% if type == "text" %}
+    <p>{{- description_config["content"] -}}</p>
+  {% elif type == "html" %}
+    {{- description_config["content"] | safe -}}
+  {% endif %}
+{% endmacro %}
+
+# image_config
+# - aspect_ratio: "16-9" | "3-2" | "" (default is "")
+# - attrs: A dictionary of attributes to apply to the image
+{% macro _basic_section_image(image_config={}) %}
+  {% set aspect_ratio = image_config["aspect_ratio"] | trim %}
+  {% if aspect_ratio not in ["16-9", "3-2"] %}
+    {% set aspect_ratio = "" %}
+  {% endif %}
+
+  <div class="p-image-container{% if aspect_ratio | length > 0 %}--{{- aspect_ratio -}}{% endif %} is-highlighted">
+    <img class="p-image-container__image{{- image_config["attrs"]["class"] -}}"
+      {% for attr, value in image_config["attrs"].items() %}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {% endif %}
+      {% endfor %}
+    />
+  </div>
+{% endmacro %}
+
+# video_config
+# - attrs: A dictionary of attributes to apply to the video iframe
+{% macro _basic_section_video(video_config={}) %}
+  <div class="u-embedded-media">
+    <iframe class="u-embedded-media__element {{- video_config["attrs"]["class"] -}}"
+      {% for attr, value in video_config["attrs"].items() %}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {% endif %}
+      {% endfor %}
+    ></iframe>
+  </div>
+{% endmacro %}
+
+# list_config
+# - list_item_type: "bullet" | "tick" | "cross" | "number" | "" (default is "")
+# - list_items: A list of items to be displayed in the section.
+# - - content: The HTML content of the list item.
+# - - sublist: A nested list configuration
+{% macro _basic_section_list(list_config={}) %}
+  {% if list_config["list_items"] | length > 0 %}
+    {#- Note: namespace() requires jinja2 2.10 or later -#}
+    {% set ns = namespace(list_tag="ul") %}
+
+    {#- If any of the list items is numbered, the entire list is numbered -#}
+    {% for list_item in list_config["list_items"] %}
+      {% if list_item["list_item_type"]|trim|lower == "number" %}
+        {% set ns.list_tag = "ol" %}
+      {% endif %}
+    {% endfor %}
+
+    <{{ ns.list_tag }} class="p-list--divided">
+    {% for list_item in list_config["list_items"] %}
+      {% set list_item_type=list_item["list_item_type"] | trim | lower %}
+      {#- If the list is ordered, ignore list item type. Prevents from drawing both a tick and a number, for example. -#}
+      {% if ns.list_tag == "ol" %}
+        {% set list_item_type = 'number' %}
+      {% elif list_item_type|length > 0 and list_item_type not in ['bullet', 'tick', 'number', 'cross'] %}
+        {% set list_item_type = '' %}
+      {% endif %}
+
+      {% if list_item_type == "bullet" %}
+        {% set list_item_style_class = "has-bullet" %}
+      {% elif list_item_type == "tick" %}
+        {% set list_item_style_class = "is-ticked" %}
+      {% elif list_item_type == "cross" %}
+        {% set list_item_style_class = "is-crossed" %}
+      {% endif %}
+
+      <li class="p-list__item {{ list_item_style_class }}">
+        {{- list_item["content"] | safe -}}
+        {% if "sublist" in list_item %}
+          {{- _basic_section_list(list_config=list_item["sublist"]) -}}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </{{ ns.list_tag }}>
+  {% endif %}
+{% endmacro %}
+
+# code_block_config
+# - content: The HTML content to be displayed in the code block. Will be wrapped in a <pre> tag.
+{% macro _basic_section_code_block(code_block_config={}) %}
+  <pre>{{- vf_dedent(code_block_config["content"]) | safe -}}</pre>
+{% endmacro %}
+
+{#- TODO does this need to handle the specific column count case? -#}
+# logo_block_config
+# - logos: A list of logos to be displayed in the section.
+# - - attrs: A dictionary of attributes to apply to the logo
+# - - is_fixed_width: Boolean to indicate if the logo should be wrapped in a fixed-width container (default is true).
+# - - include_line_break_after: Boolean to indicate if a line break should be included after the logo (default is false). This will be hidden on small screens.
+#       See https://vanillaframework.io/docs/patterns/logo-section#line-breaks
+{% macro _basic_section_logo_block(logo_block_config={}) %}
+  {% if is_fixed_width %}<div class="u-fixed-width">{% endif %}
+    <div class="p-logo-section">
+      {%- for logo in logo_block_config["logos"] -%}
+        <div class="p-logo-section__item">
+          <img class="p-logo-section__logo {{- logo["attrs"]["class"] -}}"
+            {% for attr, value in logo["attrs"].items() %}
+              {% if attr != "class" %}
+                {{ attr }}="{{ value }}"
+              {% endif %}
+            {% endfor %}
+          />
+          {%- if logo.get("include_line_break_after", false) %}
+            <br class="u-hide--small">
+          {% endif %}
+        </div>
+      {%- endfor -%}
+    </div>
+  {% if is_fixed_width %}</div>{% endif %}
+{% endmacro %}
+
+# linked_logo_block_config
+#   - title_text (string) (required): The text to be displayed as the heading
+#   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_attrs'
+# TODO I think this probably shouldn't allow title_text as linked logo section has an h2 title which would
+# create an h2 inside an h2.
+# otherwise we'd need to update the linked logo section to allow a heading level param.
+{% macro _basic_section_linked_logo_block(linked_logo_block_config={}) %}
+  {{-
+    vf_linked_logo_section(
+      title_text=linked_logo_block_config["title_text"],
+      links=linked_logo_block_config["links"]
+    )
+  -}}
+{% endmacro %}
+
+# text: The text for the call-to-action button.
+# button_type: "primary" | "secondary" (default is "primary")
+# attrs: A dictionary of attributes to apply to the button or link.
+{% macro _cta_button(text, button_type="", attrs={}) %}
+  {% set cta_element_tag = "button" %}
+  {% if "href" in attrs and attrs["href"] | length > 0 %}
+    {% set cta_element_tag = "a" %}
+  {% endif %}
+
+  {% if button_type not in ["primary", "secondary"] %}
+    {% set button_type = "" %}
+  {% endif %}
+
+  {% set cta_class = "" %}
+  {% if button_type == "primary" %}
+    {% set cta_class = "p-button--positive" %}
+  {% elif button_type == "secondary" %}
+    {% set cta_class = "p-button" %}
+  {% endif %}
+
+
+  <{{ cta_element_tag }} class="{{ cta_class }} {{ attrs["class"] }}"
+    {% for attr, value in attrs.items() %}
+      {% if attr != "class" %}
+        {{ attr }}="{{ value }}"
+      {% endif %}
+    {% endfor %}
+  >
+    {{- text -}}
+  </{{ cta_element_tag }}>
+{% endmacro %}
+
+# cta_block_config
+# - primary
+#  - text: The text for the primary call-to-action button.
+#  - attrs: A dictionary of attributes to apply to the primary button.
+# - secondaries (generally, we recommend using 2):
+#  - text: The text for the secondary call-to-action button.
+#  - attrs: A dictionary of attributes to apply to the secondary button.
+# - link
+#  - text: The text for the link.
+#  - attrs: A dictionary of attributes to apply to the link.
+{% macro _basic_section_cta_block(cta_block_config={}) %}
+  <div class="p-cta-block">
+    {% if "primary" in cta_block_config %}
+      {{ _cta_button(
+        text=cta_block_config["primary"]["text"],
+        attrs=cta_block_config["primary"]["attrs"],
+        button_type="primary"
+      ) }}
+    {% endif %}
+    {% if "secondaries" in cta_block_config %}
+      {% for secondary in cta_block_config["secondaries"] %}
+        {{ _cta_button(
+          text=secondary["text"],
+          attrs=secondary["attrs"],
+          button_type="secondary"
+        ) }}
+      {% endfor %}
+    {% endif %}
+    {% if "link" in cta_block_config %}
+      {{ _cta_button(
+        text=cta_block_config["link"]["text"],
+        attrs=cta_block_config["link"]["attrs"]
+      ) }}
+    {% endif %}
+  </div>
+{% endmacro %}
+
+# item_config
+# - padding: "shallow" or "" (default is "")
+# - type: "description" | "image" | "video" | "list" | "code-block" | "logo-block" | "liked-logo-block" | "cta-block"
+{% macro _basic_section_item(item_config={}) %}
+  {%- set padding = (item_config["padding"] or "") | trim -%}
+  {%- if padding not in ["shallow"] -%}
+    {%- set padding="" -%}
+  {%- endif -%}
+  {%- set type = (item_config["type"] or "") | trim -%}
+
+  <div{% if padding | length %} class="p-section--{{ padding }}"{% endif %}>
+    {%- if type == "description" -%}
+      {{- _basic_section_description(item_config["item"]) -}}
+    {%- elif type == "image" -%}
+      {{- _basic_section_image(item_config["item"]) -}}
+    {%- elif type == "video" -%}
+      {{- _basic_section_video(item_config["item"]) -}}
+    {%- elif type == "list"  -%}
+      {{- _basic_section_list(item_config["item"]) -}}
+    {%- elif type == "code-block" -%}
+      {{- _basic_section_code_block(item_config["item"]) -}}
+    {%- elif type =="logo-block" -%}
+      {{- _basic_section_logo_block(item_config["item"]) -}}
+    {%- elif type == "linked-logo-block" -%}
+      {{- _basic_section_linked_logo_block(item_config["item"]) -}}
+    {%- elif type == "cta-block" -%}
+      {{- _basic_section_cta_block(item_config["item"]) -}}
+    {%- endif -%}
+  </div>
+{% endmacro %}
+
+# Params
+# title_html: The title for the section.
+# subtitle_text: The subtitle text for the section.
+# label_text: Muted heading above the title.
+# items: A list of items to be displayed in the section.
+# padding: Type of padding to apply to the pattern - "deep", "shallow" or "" (default is "").
+# split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
+# TODO
+# - Mutual validation (some items may not be allowed with others)
+# - "standalone" validation (some items cannot be the only item)
+# - examples for various combinations
+# - add docs to the linked logo section explaining that image_attrs can be used now
+# - document to note that jinja2 2.10 or later is required for namespace() to work
+# - trim whitespace / whitespace control
+# - check with designers on whether the embedded linked logo section should allow a title (conflicting h2 with the section title)
+{% macro vf_basic_section(
+  title={},
+  subtitle_text="",
+  label_text="",
+  items=[],
+  padding="",
+  split_on_medium=false
+) -%}
+
+  {% set padding = padding | trim %}
+  {% if padding not in ["deep", "shallow"] %}
+    {% set padding = "" %}
+  {% endif %}
+
+{%- set description_content = caller('description') -%}
+
+<section class="p-section{% if padding | length > 0 %}--{{ padding }}{% endif %}">
+  <div class="grid-row--50-50{% if not split_on_medium %}-on-large{% endif %}">
+    <div class="grid-col">
+      <h2>
+        {% if "link_attrs" in title and "href" in title["link_attrs"] %}
+          <a
+            {% for attr, value in title["link_attrs"].items() %}
+              {{ attr }}="{{ value }}"
+            {% endfor %}
+          >{{- title["text"] -}}</a>
+        {% else %}
+          {{- title["text"] -}}
+        {% endif %}
+      </h2>
+    </div>
+    <div class="grid-col">
+      <p>{{- subtitle_text -}}</p>
+      {%- for item in items -%}
+        {{- _basic_section_item(item) -}}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- endmacro %}

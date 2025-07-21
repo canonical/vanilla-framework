@@ -1,0 +1,232 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / Default{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{% call(slot) vf_basic_section(
+  title={
+    "text": "The quick brown fox jumps over the lazy dog"
+  },
+  subtitle_text="The quick brown fox jumps over the lazy dog",
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "16-9",
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+        }
+      }
+    },
+    {
+      "type": "video",
+      "item": {
+        "attrs": {
+          "src": "https://www.youtube.com/embed/lPaUMpAampI?si=nic5eE_mv5xrB9Go",
+          "allowfullscreen": ""
+        }
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "bullet",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          },
+          {
+            "list_item_type": "bullet",
+            "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+          {
+            "list_item_type": "bullet",
+            "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          }
+        ]
+      }
+    },
+    {
+      "type": "code-block",
+      "item": {
+        "content": '
+          ubuntu@test:~$ sudo pro attach
+          Initiating attach operation...
+
+          Please sign in to your Ubuntu Pro account at this link:
+          <a href="https://ubuntu.com/pro/attach" target="_blank">https://ubuntu.com/pro/attach</a>
+          And provide the following code: H31JIV
+        '
+      }
+    },
+    {
+      "type": "logo-block",
+      "item": {
+        "logos": [
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/38fdfd23-Dell-logo.png",
+              "alt": "Dell Technologies"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+              "alt": "Hewlett Packard"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+              "alt": "Lenovo"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/2ef3c028-amazon-web-services-logo.png",
+              "alt": "Amazon Web Services"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/cb7ef8ac-ibm-cloud-logo.png",
+              "alt": "IBM Cloud"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/a554a818-google-cloud-logo.png",
+              "alt": "Google Cloud Platform"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/b3e692f4-oracle-new-logo.png",
+              "alt": "Oracle"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "linked-logo-block",
+      "item": {
+        "title_text": "Come for PostgreSQL, get security and support for your entire stack",
+        "links": [
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "Kubeflow",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+              "alt": "",
+              "width": "432",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "MLflow",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
+              "alt": "",
+              "width": "222",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "Apache Spark",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/855deda8-apache-spark-logo-container-vert-fill.png",
+              "alt": "",
+              "width": "240",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "OpenSearch",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/a8185f91-opensearch-logo-container-vert-fill.png",
+              "alt": "",
+              "width": "330",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "Kafka",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/d30de1f1-kafka-logo-container-vert-fill.png",
+              "alt": "",
+              "width": "294",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "PostgreSQL",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/f5605b7e-postgre-sql-container-vert-fill.png",
+              "alt": "",
+              "width": "432",
+              "height": "481"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "text": "Primary CTA",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "text": "Secondary CTA 1",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          {
+            "text": "Secondary CTA 2",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ],
+        "link": {
+          "text": "Learn more ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+
+      }
+    }
+  ]
+) -%}
+
+{% endcall -%}
+
+{% endblock %}
