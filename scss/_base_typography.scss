@@ -87,44 +87,46 @@
   }
 
   //@section Adjusted spacing for headings (or a p) following a paragraph
-  p:not([class*='p-heading--']):not([class*='p-muted-heading']) {
-    & + h1,
-    & + .p-heading--1 {
-      @extend %sp--ph1;
-    }
+  @if ($include-paragraph-heading-spacing) {
+    p:not([class*='p-heading--']):not([class*='p-muted-heading']) {
+      & + h1,
+      & + .p-heading--1 {
+        @extend %sp--ph1;
+      }
 
-    & + h2,
-    & + .p-heading--2 {
-      @extend %sp--ph2;
-    }
+      & + h2,
+      & + .p-heading--2 {
+        @extend %sp--ph2;
+      }
 
-    & + h3,
-    & + .p-heading--3 {
-      @extend %sp--ph3;
-    }
+      & + h3,
+      & + .p-heading--3 {
+        @extend %sp--ph3;
+      }
 
-    & + h4,
-    & + .p-heading--4 {
-      @extend %sp--ph4;
-    }
+      & + h4,
+      & + .p-heading--4 {
+        @extend %sp--ph4;
+      }
 
-    & + h5,
-    & + .p-heading--5,
-    & + h6,
-    & + .p-heading--6 {
-      @extend %sp--ph5;
-    }
+      & + h5,
+      & + .p-heading--5,
+      & + h6,
+      & + .p-heading--6 {
+        @extend %sp--ph5;
+      }
 
-    & + .p-muted-heading {
-      @extend %sp--pmuted;
+      & + .p-muted-heading {
+        @extend %sp--pmuted;
+      }
     }
+  }
 
-    // N.B.: selector order matters here - the epmty selector must come after all other rules affecting paragraphs
-    &:empty {
-      line-height: 0;
-      margin: 0;
-      padding: 0;
-    }
+  // N.B.: selector order matters here - the empty selector must come after all other rules affecting paragraphs
+  p:empty {
+    line-height: 0;
+    margin: 0;
+    padding: 0;
   }
 
   cite {
