@@ -27,18 +27,18 @@
             {{ title_content }}
           </div>
 
-          <div class="row">
-            <div class="col-6 col-start-large-7">
+          <div class="grid-row">
+            <div class="grid-col-4 grid-col-start-large-5">
               {{ description_content }}
             </div>
           </div>
         {%- else -%}
-          <div class="row">
-            <div class="col-6">
+          <div class="grid-row--50-50-on-large">
+            <div class="grid-col">
               {{ title_content }}
             </div>
 
-            <div class="col-6">
+            <div class="grid-col">
               {{ description_content }}
             </div>
           </div>
@@ -69,34 +69,34 @@
           {%- if is_list_full_width_on_tablet == true %}
             {#- Skip the first HR -#}
             {%- if number != 1 %}
-              <div class="row">
-                <div class="col-9 col-start-large-4">
+              <div class="grid-row">
+                <div class="grid-col-6 grid-col-start-large-3">
                   <hr class="is-muted">
                 </div>
               </div>
             {%- endif -%}
 
-            <div class="row">
-              <div class="col-3 col-start-large-4">{{ list_item_title_content }}</div>
+            <div class="grid-row">
+              <div class="grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
 
-              <div class="col-6">{{ list_item_description_content }}</div>
+              <div class="grid-col-4">{{ list_item_description_content }}</div>
             </div>
           {%- else %}
             {#- Skip the first HR -#}
             {%- if number != 1 %}
-              <div class="row">
-                <div class="col-9 col-start-large-4">
+              <div class="grid-row">
+                <div class="grid-col-6 grid-col-start-large-3">
                   <hr class="is-muted">
                 </div>
               </div>
             {%- endif -%}
 
-            <div class="row">
-              <div class="col-medium-3 col-3 col-start-large-4">
+            <div class="grid-row">
+              <div class="grid-col-medium-2 grid-col-2 grid-col-start-large-3">
                 {{ list_item_title_content }}
               </div>
 
-              <div class="col-medium-3 col-6">
+              <div class="grid-col-medium-2 grid-col-4">
                 {{ list_item_description_content }}
               </div>
             </div>
@@ -108,9 +108,9 @@
     {%- endif -%}
 
     {% if has_cta == true -%}
-      <div class="row">
+      <div class="grid-row">
         <hr class="p-rule--muted">
-        <div class="col-6 col-start-large-7">
+        <div class="grid-col-4 grid-col-start-large-5">
           <p>
             {{ cta_content }}
           </p>
