@@ -108,6 +108,7 @@ A list of all of the new text settings maps is given below.
 - `$settings-text-h6-mobile`
 - `$settings-text-p`
 - `$settings-text-small`
+- `$settings-text-small-dense`
 - `$settings-text-x-small`
 - `$settings-text-default`
 
