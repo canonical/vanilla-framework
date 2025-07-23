@@ -24,18 +24,18 @@ $list-step-bullet-margin: $sph--x-large;
   %numbered-step-title {
     list-style: none;
     margin-left: 0;
-    padding-left: calc(map-get($settings-p, line-height) + $list-step-bullet-margin);
+    padding-left: calc(map-get($settings-text-p, line-height) + $list-step-bullet-margin);
     position: relative;
 
     &::before {
       content: counter(p-stepped-list-counter) '.';
       display: block;
-      height: map-get($settings-p, line-height);
+      height: map-get($settings-text-p, line-height);
       left: 0;
       margin-right: $list-step-bullet-margin;
       position: absolute;
       text-align: right;
-      width: map-get($settings-p, line-height);
+      width: map-get($settings-text-p, line-height);
     }
   }
 
@@ -389,7 +389,7 @@ $list-step-bullet-margin: $sph--x-large;
 
       &::after {
         content: '\2022';
-        line-height: map-get($settings-p, line-height);
+        line-height: map-get($settings-text-p, line-height);
         position: relative;
         right: -0.25rem;
       }
@@ -445,8 +445,8 @@ $list-step-bullet-margin: $sph--x-large;
   }
 
   // Indent titles
-  $bullet-width: map-get($settings-p, line-height);
-  $bullet-width-mobile: map-get($settings-p, line-height);
+  $bullet-width: map-get($settings-text-p, line-height);
+  $bullet-width-mobile: map-get($settings-text-p, line-height);
 
   .p-stepped-list__title {
     @extend %numbered-step-title;
@@ -466,17 +466,17 @@ $list-step-bullet-margin: $sph--x-large;
   @for $i from 4 through 1 {
     // Bullet sizes for each heading level
     @if $i == 1 {
-      $bullet-width: map-get($settings-h1, line-height);
-      $bullet-width-mobile: map-get($settings-h1-mobile, line-height);
+      $bullet-width: map-get($settings-text-h1, line-height);
+      $bullet-width-mobile: map-get($settings-text-h1-mobile, line-height);
     } @else if $i == 2 {
-      $bullet-width: map-get($settings-h2, line-height);
-      $bullet-width-mobile: map-get($settings-h2-mobile, line-height);
+      $bullet-width: map-get($settings-text-h2, line-height);
+      $bullet-width-mobile: map-get($settings-text-h2-mobile, line-height);
     } @else if $i == 3 {
-      $bullet-width: map-get($settings-h3, line-height);
-      $bullet-width-mobile: map-get($settings-h3-mobile, line-height);
+      $bullet-width: map-get($settings-text-h3, line-height);
+      $bullet-width-mobile: map-get($settings-text-h3-mobile, line-height);
     } @else if $i == 4 {
-      $bullet-width: map-get($settings-h4, line-height);
-      $bullet-width-mobile: map-get($settings-h4-mobile, line-height);
+      $bullet-width: map-get($settings-text-h4, line-height);
+      $bullet-width-mobile: map-get($settings-text-h4-mobile, line-height);
     }
 
     .p-heading--#{$i}.p-stepped-list__title,

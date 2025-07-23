@@ -1,7 +1,7 @@
 @mixin vf-p-navigation-reduced {
   .p-navigation--reduced {
     // height of reduced navigation calculated from line height and padding
-    $reduced-nav-height: calc(map-get($settings-x-small, line-height) + 2 * $spv--small);
+    $reduced-nav-height: calc(map-get($settings-text-x-small, line-height) + 2 * $spv--small);
 
     background-color: $colors--theme--background-alt;
     position: relative;
@@ -26,7 +26,7 @@
     // reduced nav logo text uses default font size (on small screens)
     .p-navigation__logo-title {
       color: $colors--theme--text-muted;
-      font-size: #{map-get($settings-p, font-size)}rem;
+      font-size: #{map-get($settings-text-p, font-size)}rem;
       font-weight: $font-weight-regular-text;
     }
 
@@ -47,8 +47,8 @@
       .p-navigation__link,
       .p-navigation__logo-title {
         color: $colors--theme--text-muted;
-        font-size: #{map-get($settings-small, font-size)}rem;
-        line-height: map-get($settings-x-small, line-height);
+        font-size: #{map-get($settings-text-small, font-size)}rem;
+        line-height: map-get($settings-text-x-small, line-height);
       }
 
       .p-navigation__link {
@@ -88,7 +88,7 @@
       // use muted icon to align with text colour
       &::after {
         @include vf-icon-search-muted;
-        top: calc($spv--medium + map-get($settings-x-small, nudge));
+        top: calc($spv--medium + map-get($settings-text-x-small, nudge));
       }
 
       // search label is always hidden in reduced navigation

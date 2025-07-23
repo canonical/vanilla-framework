@@ -24,237 +24,318 @@ $sph--large: $sp-unit * 2 !default;
 $sph--x-large: $sp-unit * 3 !default;
 
 // Typography settings - per-level configuration maps
-// Each settings map contains: nudge, line-height, font-size, and sp-after (font-weight handled separately)
+// Each settings map contains: nudge, line-height, font-size, sp-after, and sp-before (font-weight handled separately)
 
-$settings-display: (
+$settings-text-display: (
   nudge: 0.35rem,
   line-height: 11 * $sp-unit,
   font-size: 5,
   sp-after: $spv--x-large,
+  sp-before: 0,
 ) !default;
-$settings-display-mobile: (
+
+$settings-text-display-mobile: (
   nudge: 0.25rem,
   line-height: 9 * $sp-unit,
   font-size: 4,
   sp-after: $spv--x-large,
+  sp-before: 0,
 ) !default;
-$settings-h1: (
+
+$settings-text-h1: (
   nudge: 0.55rem,
   line-height: 6 * $sp-unit,
   font-size: 2.5,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h1-mobile: (
-  nudge: 0.55rem,
-  line-height: 5 * $sp-unit,
-  font-size: 2,
-  sp-after: $spv--x-large,
-) !default;
-$settings-h2: (
+
+$settings-text-h1-large: (
   nudge: 0.55rem,
   line-height: 6 * $sp-unit,
   font-size: 2.5,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h2-mobile: (
+
+$settings-text-h1-mobile: (
   nudge: 0.55rem,
   line-height: 5 * $sp-unit,
   font-size: 2,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h3: (
+
+$settings-text-h2: (
+  nudge: 0.55rem,
+  line-height: 6 * $sp-unit,
+  font-size: 2.5,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
+) !default;
+
+$settings-text-h2-large: (
+  nudge: 0.55rem,
+  line-height: 6 * $sp-unit,
+  font-size: 2.5,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
+) !default;
+
+$settings-text-h2-mobile: (
+  nudge: 0.55rem,
+  line-height: 5 * $sp-unit,
+  font-size: 2,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
+) !default;
+
+$settings-text-h3: (
   nudge: 0.45rem,
   line-height: 4 * $sp-unit,
   font-size: 1.5,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h3-mobile: (
+
+$settings-text-h3-large: (
   nudge: 0.45rem,
   line-height: 4 * $sp-unit,
   font-size: 1.5,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h4: (
+
+$settings-text-h3-mobile: (
   nudge: 0.45rem,
   line-height: 4 * $sp-unit,
   font-size: 1.5,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h4-mobile: (
+
+$settings-text-h4: (
   nudge: 0.45rem,
   line-height: 4 * $sp-unit,
   font-size: 1.5,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h5: (
+
+$settings-text-h4-large: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
+) !default;
+
+$settings-text-h4-mobile: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
+) !default;
+
+$settings-text-h5: (
   nudge: 0.375rem,
   line-height: 3 * $sp-unit,
   font-size: 1,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h5-mobile: (
+
+$settings-text-h5-large: (
   nudge: 0.375rem,
   line-height: 3 * $sp-unit,
   font-size: 1,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h6: (
+
+$settings-text-h5-mobile: (
   nudge: 0.375rem,
   line-height: 3 * $sp-unit,
   font-size: 1,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-h6-mobile: (
+
+$settings-text-h6: (
   nudge: 0.375rem,
   line-height: 3 * $sp-unit,
   font-size: 1,
   sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-p: (
+
+$settings-text-h6-large: (
   nudge: 0.375rem,
   line-height: 3 * $sp-unit,
   font-size: 1,
-  sp-after: $sp-unit,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-small: (
+
+$settings-text-h6-mobile: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $spv--x-large,
+  sp-before: $spv--x-large,
+) !default;
+
+$settings-text-p: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $spv--x-large,
+  sp-before: 0,
+) !default;
+
+$settings-text-small: (
   nudge: 0.05rem,
   line-height: 2.5 * $sp-unit,
   font-size: 0.875,
   sp-after: $spv--large,
+  sp-before: $spv--x-large,
 ) !default;
-$settings-x-small: (
+
+$settings-text-x-small: (
   nudge: 0.25rem,
   line-height: 2 * $sp-unit,
   font-size: 0.75,
   sp-after: $spv--large,
+  sp-before: 0,
 ) !default;
 
-$settings-h1-large: (
-  nudge: 0.55rem,
-  line-height: 6 * $sp-unit,
-  font-size: 2.5,
-  sp-after: $spv--x-large,
-) !default;
-
-$settings-h2-large: (
-  nudge: 0.55rem,
-  line-height: 6 * $sp-unit,
-  font-size: 2.5,
-  sp-after: $spv--x-large,
-) !default;
-
-$settings-h3-large: (
-  nudge: 0.45rem,
-  line-height: 4 * $sp-unit,
-  font-size: 1.5,
-  sp-after: $spv--x-large,
-) !default;
-
-$settings-h4-large: (
-  nudge: 0.45rem,
-  line-height: 4 * $sp-unit,
-  font-size: 1.5,
-  sp-after: $spv--x-large,
+$settings-text-default: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $sp-unit,
+  sp-before: 0,
 ) !default;
 
 // Legacy maps for backwards compatibility
 $font-sizes: (
-  display: map-get($settings-display, font-size),
-  display-mobile: map-get($settings-display-mobile, font-size),
-  h1: map-get($settings-h1, font-size),
-  h1-mobile: map-get($settings-h1-mobile, font-size),
-  h2: map-get($settings-h2, font-size),
-  h2-mobile: map-get($settings-h2-mobile, font-size),
-  h3: map-get($settings-h3, font-size),
-  h3-mobile: map-get($settings-h3-mobile, font-size),
-  h4: map-get($settings-h4, font-size),
-  h4-mobile: map-get($settings-h4-mobile, font-size),
-  h5: map-get($settings-h5, font-size),
-  h5-mobile: map-get($settings-h5-mobile, font-size),
-  h6: map-get($settings-h6, font-size),
-  h6-mobile: map-get($settings-h6-mobile, font-size),
-  default: map-get($settings-p, font-size),
-  small: map-get($settings-small, font-size),
-  x-small: map-get($settings-x-small, font-size),
+  display: map-get($settings-text-display, font-size),
+  display-mobile: map-get($settings-text-display-mobile, font-size),
+  h1: map-get($settings-text-h1, font-size),
+  h1-large: map-get($settings-text-h1-large, font-size),
+  h1-mobile: map-get($settings-text-h1-mobile, font-size),
+  h2: map-get($settings-text-h2, font-size),
+  h2-large: map-get($settings-text-h2-large, font-size),
+  h2-mobile: map-get($settings-text-h2-mobile, font-size),
+  h3: map-get($settings-text-h3, font-size),
+  h3-large: map-get($settings-text-h3-large, font-size),
+  h3-mobile: map-get($settings-text-h3-mobile, font-size),
+  h4: map-get($settings-text-h4, font-size),
+  h4-large: map-get($settings-text-h4-large, font-size),
+  h4-mobile: map-get($settings-text-h4-mobile, font-size),
+  h5: map-get($settings-text-h5, font-size),
+  h5-large: map-get($settings-text-h5-large, font-size),
+  h5-mobile: map-get($settings-text-h5-mobile, font-size),
+  h6: map-get($settings-text-h6, font-size),
+  h6-large: map-get($settings-text-h6-large, font-size),
+  h6-mobile: map-get($settings-text-h6-mobile, font-size),
+  default: map-get($settings-text-default, font-size),
+  small: map-get($settings-text-small, font-size),
+  x-small: map-get($settings-text-x-small, font-size),
 ) !default;
 
 $line-heights: (
-  display: map-get($settings-display, line-height),
-  display-mobile: map-get($settings-display-mobile, line-height),
-  h1: map-get($settings-h1, line-height),
-  h1-mobile: map-get($settings-h1-mobile, line-height),
-  h2: map-get($settings-h2, line-height),
-  h2-mobile: map-get($settings-h2-mobile, line-height),
-  h3: map-get($settings-h3, line-height),
-  h3-mobile: map-get($settings-h3-mobile, line-height),
-  h4: map-get($settings-h4, line-height),
-  h4-mobile: map-get($settings-h4-mobile, line-height),
-  h5: map-get($settings-h5, line-height),
-  h5-mobile: map-get($settings-h5-mobile, line-height),
-  h6: map-get($settings-h6, line-height),
-  h6-mobile: map-get($settings-h6-mobile, line-height),
-  default-text: map-get($settings-p, line-height),
-  small: map-get($settings-small, line-height),
-  x-small: map-get($settings-x-small, line-height),
+  display: map-get($settings-text-display, line-height),
+  display-mobile: map-get($settings-text-display-mobile, line-height),
+  h1: map-get($settings-text-h1, line-height),
+  h1-large: map-get($settings-text-h1-large, line-height),
+  h1-mobile: map-get($settings-text-h1-mobile, line-height),
+  h2: map-get($settings-text-h2, line-height),
+  h2-large: map-get($settings-text-h2-large, line-height),
+  h2-mobile: map-get($settings-text-h2-mobile, line-height),
+  h3: map-get($settings-text-h3, line-height),
+  h3-large: map-get($settings-text-h3-large, line-height),
+  h3-mobile: map-get($settings-text-h3-mobile, line-height),
+  h4: map-get($settings-text-h4, line-height),
+  h4-large: map-get($settings-text-h4-large, line-height),
+  h4-mobile: map-get($settings-text-h4-mobile, line-height),
+  h5: map-get($settings-text-h5, line-height),
+  h5-large: map-get($settings-text-h5-large, line-height),
+  h5-mobile: map-get($settings-text-h5-mobile, line-height),
+  h6: map-get($settings-text-h6, line-height),
+  h6-large: map-get($settings-text-h6-large, line-height),
+  h6-mobile: map-get($settings-text-h6-mobile, line-height),
+  default-text: map-get($settings-text-default, line-height),
+  small: map-get($settings-text-small, line-height),
+  x-small: map-get($settings-text-x-small, line-height),
 ) !default;
 
 // baseline nudges for type scale ratio of (16/14)^2
 $nudges: (
-  display: map-get($settings-p, nudge),
-  display-mobile: map-get($settings-display-mobile, nudge),
-  h1-large: map-get($settings-h1, nudge),
+  display: map-get($settings-text-display, nudge),
+  display-mobile: map-get($settings-text-display-mobile, nudge),
+  h1-large: map-get($settings-text-h1, nudge),
   // fallback to h1 nudge
-  h1-mobile: map-get($settings-h1-mobile, nudge),
-  h1: map-get($settings-h1, nudge),
-  h2: map-get($settings-h2, nudge),
-  h2-mobile: map-get($settings-h2-mobile, nudge),
-  h2-large: map-get($settings-h2, nudge),
+  h1-mobile: map-get($settings-text-h1-mobile, nudge),
+  h1: map-get($settings-text-h1, nudge),
+  h2: map-get($settings-text-h2, nudge),
+  h2-mobile: map-get($settings-text-h2-mobile, nudge),
+  h2-large: map-get($settings-text-h2, nudge),
   // fallback to h2 nudge
-  h3: map-get($settings-h3, nudge),
-  h3-mobile: map-get($settings-h3-mobile, nudge),
-  h3-large: map-get($settings-h3, nudge),
+  h3: map-get($settings-text-h3, nudge),
+  h3-mobile: map-get($settings-text-h3-mobile, nudge),
+  h3-large: map-get($settings-text-h3, nudge),
   // fallback to h3 nudge
-  h4-large: map-get($settings-h4, nudge),
+  h4-large: map-get($settings-text-h4, nudge),
   // fallback to h4 nudge
-  h4: map-get($settings-h4, nudge),
-  h4-mobile: map-get($settings-h4-mobile, nudge),
-  h5: map-get($settings-h5, nudge),
-  h5-large: map-get($settings-h5, nudge),
+  h4: map-get($settings-text-h4, nudge),
+  h4-mobile: map-get($settings-text-h4-mobile, nudge),
+  h5: map-get($settings-text-h5, nudge),
+  h5-large: map-get($settings-text-h5, nudge),
   // fallback to h5 nudge
-  h5-mobile: map-get($settings-h5-mobile, nudge),
-  h6: map-get($settings-h6, nudge),
-  h6-mobile: map-get($settings-h6-mobile, nudge),
-  h6-large: map-get($settings-h6, nudge),
+  h5-mobile: map-get($settings-text-h5-mobile, nudge),
+  h6: map-get($settings-text-h6, nudge),
+  h6-mobile: map-get($settings-text-h6-mobile, nudge),
+  h6-large: map-get($settings-text-h6, nudge),
   // fallback to h6 nudge
-  p: map-get($settings-p, nudge),
-  p-ubuntumono: map-get($settings-p, nudge),
+  p: map-get($settings-text-p, nudge),
+  default: map-get($settings-text-default, nudge),
+  // not currently used in Vanilla, kept for backwards compatibility
+  p-ubuntumono: 0.45rem,
   // fallback
-  small: map-get($settings-small, nudge),
-  x-small: map-get($settings-x-small, nudge),
+  small: map-get($settings-text-small, nudge),
+  x-small: map-get($settings-text-x-small, nudge),
 ) !default;
 
 $sp-after: (
-  display: map-get($settings-display, sp-after),
-  display-mobile: map-get($settings-display-mobile, sp-after),
-  h1: map-get($settings-h1, sp-after),
-  h1-mobile: map-get($settings-h1-mobile, sp-after),
-  h2: map-get($settings-h2, sp-after),
-  h2-mobile: map-get($settings-h2-mobile, sp-after),
-  h3: map-get($settings-h3, sp-after),
-  h3-mobile: map-get($settings-h3-mobile, sp-after),
-  h4: map-get($settings-h4, sp-after),
-  h4-mobile: map-get($settings-h4-mobile, sp-after),
-  h5: map-get($settings-h5, sp-after),
-  h5-mobile: map-get($settings-h5-mobile, sp-after),
-  h6: map-get($settings-h6, sp-after),
-  h6-mobile: map-get($settings-h6-mobile, sp-after),
-  p: map-get($settings-p, sp-after),
-  p-small-caps: map-get($settings-small, sp-after),
-  p-dense: map-get($settings-small, sp-after),
-  default-text: map-get($settings-p, sp-after),
-  small: map-get($settings-small, sp-after),
-  small--dense: map-get($settings-small, sp-after),
-  x-small: map-get($settings-x-small, sp-after),
+  display: map-get($settings-text-display, sp-after),
+  display-mobile: map-get($settings-text-display-mobile, sp-after),
+  h1: map-get($settings-text-h1, sp-after),
+  h1-large: map-get($settings-text-h1-large, sp-after),
+  h1-mobile: map-get($settings-text-h1-mobile, sp-after),
+  h2: map-get($settings-text-h2, sp-after),
+  h2-large: map-get($settings-text-h2-large, sp-after),
+  h2-mobile: map-get($settings-text-h2-mobile, sp-after),
+  h3: map-get($settings-text-h3, sp-after),
+  h3-large: map-get($settings-text-h3-large, sp-after),
+  h3-mobile: map-get($settings-text-h3-mobile, sp-after),
+  h4: map-get($settings-text-h4, sp-after),
+  h4-large: map-get($settings-text-h4-large, sp-after),
+  h4-mobile: map-get($settings-text-h4-mobile, sp-after),
+  h5: map-get($settings-text-h5, sp-after),
+  h5-large: map-get($settings-text-h5-large, sp-after),
+  h5-mobile: map-get($settings-text-h5-mobile, sp-after),
+  h6: map-get($settings-text-h6, sp-after),
+  h6-large: map-get($settings-text-h6-large, sp-after),
+  h6-mobile: map-get($settings-text-h6-mobile, sp-after),
+  p: map-get($settings-text-p, sp-after),
+  p-small-caps: map-get($settings-text-small, sp-after),
+  p-dense: map-get($settings-text-small, sp-after),
+  default-text: map-get($settings-text-default, sp-after),
+  small: map-get($settings-text-small, sp-after),
+  small--dense: map-get($settings-text-small, sp-after),
+  x-small: map-get($settings-text-x-small, sp-after),
 ) !default;
 
 $font-weights: (
@@ -294,7 +375,7 @@ $browser-rounding-compensations: (
 ) !default;
 
 // commonly occuring calculations available as variables
-$spv-nudge: map-get($settings-p, nudge) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
+$spv-nudge: map-get($settings-text-p, nudge) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
 
 // form input spacing variables
