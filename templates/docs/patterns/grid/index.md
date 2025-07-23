@@ -64,17 +64,105 @@ Read also: [Breakpoints](/docs/settings/breakpoint-settings)
     View example of the default grid
 </a></div>
 
-## Common patterns
+## Common patterns {{ status("New") }}
 
-<div class="p-notification--information">
-  <div class="p-notification__content">
-    <h3 class="p-notification__title">Coming soon</h3>
-    <p class="p-notification__message">
-      Grid shorthands (such as <code>.grid-row--50-50</code>) for the new grid are a work-in-progress.<br>
-      If you need to use a grid shorthand, use the <a href="/docs/patterns/grid-legacy#common-patterns">legacy grid</a>.
-    </p>
-  </div>
-</div>
+On top of the regular row and column classes, we provide shortcut classes to help you build [often used layouts](/docs/layouts/brochure).
+Instead of specifying columns at each breakpoint, use one of these classes on the grid container, and the child elements will be arranged automatically as long as they have the `grid-col` class.
+
+N.B.: the shortcut classes are not nestable.
+If you need further subdivision inside a shortcut class, please use the regular grid classes.
+Take care to specify a number of columns that is available (e.g. 2 columns in a 25% container, 4 columns in a 50% container, etc).
+Specifying more columns than are available leads to misalignments.
+
+|                              | Large screens | Medium screens | Small screens   |
+| ---------------------------- | ------------- | -------------- | --------------- |
+| `.grid-row--50-50`           | 50/50         | 50/50          | 100/100         |
+| `.grid-row--50-50-on-medium` | -             | 50/50          | -               |
+| `.grid-row--50-50-on-large`  | 50/50         | -              | -               |
+| `.grid-row--25-75`           | 25/75         | 25/75          | 100/100         |
+| `.grid-row--25-75-on-medium` | -             | 25/75          | -               |
+| `.grid-row--25-75-on-large`  | 25/75         | -              | -               |
+| `.grid-row--75-25`           | 75/25         | 75/25          | 100/100         |
+| `.grid-row--75-25-on-medium` | -             | 75/25          | -               |
+| `.grid-row--75-25-on-large`  | 75/25         | -              | -               |
+| `.grid-row--25-25-50`        | 25/25/50      | 50/50/100      | 100/100/100     |
+| `.grid-row--25-25-25-25`     | 25/25/25/25   | 50/50/50/50    | 100/100/100/100 |
+
+### 50/50
+
+The default variant of 50/50 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/50-50/" class="js-example">
+    View example of 50/50 grid layout
+</a></div>
+
+### 25/75
+
+The default variant of 25/75 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/25-75/" class="js-example">
+    View example of 25/75 grid layout
+</a></div>
+
+### 75/25
+
+The default variant of 75/25 split sets the layout on large and medium screens, stacking both columns on top of each other on small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/75-25/" class="js-example">
+    View example of 75/25 grid layout
+</a></div>
+
+### Responsive 50/50, 25/75, and 75/25
+
+The default `.grid-row--50-50`, `.grid-row--25-75`, and `.grid-row--75-25` splits provide the most common default layouts for all screen sizes, as described in the table above.
+
+To have more direct control over the layout on different screen sizes, you can use the responsive variants of these classes: `.grid-row--50-50-on-medium`, `.grid-row--25-75-on-medium`, and `.grid-row--75-25-on-medium` will only apply given layout on medium screens, while `.grid-row--50-50-on-large`, `.grid-row--25-75-on-large`, and `.grid-row--75-25-on-large` will only apply given layout on large screens.
+
+For example, to only have 25/75 split on large screens, you can use `.grid-row--25-75-on-large`. This is usually useful when main large column splits further with nested grid that would require full width of the page on medium screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/25-75-responsive-large/" class="js-example">
+    View example of 25/75 grid layout
+</a></div>
+
+This can also be accomplished with the 75/25 split using `.grid-row--75-25-on-large`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/75-25-responsive-large/" class="js-example">
+    View example of 75/25 grid layout
+</a></div>
+
+By utilising the responsive variants, you can also create mixed layouts with 50/50 splits on medium screens and 25/75 or 75/25 on large screens, without the need to nest grids.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/25-75-mixed-responsive/" class="js-example">
+    View example of 25/75 mixed with 50/50 grid layout
+</a></div>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/75-25-mixed-responsive/" class="js-example">
+    View example of 75/25 mixed with 50/50 grid layout
+</a></div>
+
+### 25/25/50
+
+The row with 25/25/50 split sets this layout on large screens only, switching to 50/50 stacked on top of full width column on medium screen, and stacking all 3 columns on top of each other on small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/25-25-50/" class="js-example">
+    View example of 25/25/50 grid layout
+</a></div>
+
+### 25/25/25/25
+
+The row with 25/25/25/25 split sets this layout on large screens only, switching to 50/50 stacked on top of 50/50 columns on medium screen, and stacking all 4 columns on top of each other on small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/grid-8/25-25-25-25/" class="js-example">
+    View example of 25/25/25/25 grid layout
+</a></div>
+
+## Fixed width containers
+
+If you only want to constrain content so it matches the grid's fixed width, you can use the utility `.u-fixed-width`. It behaves as a grid `.grid-row` with a single 8-column container inside:
+
+<div class="embedded-example"><a href="/docs/examples/utilities/fixed-width-container/" class="js-example">
+    View example of a fixed width container
+</a></div>
 
 ## Nested columns
 
