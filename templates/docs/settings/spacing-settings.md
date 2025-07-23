@@ -78,12 +78,48 @@ There are also generic spacing units for backwards compatibility with components
 | `$sp-xxxx-large`  | `$sp-unit * 8`    | `4rem`        |
 | `$sp-xxxxx-large` | `$sp-unit * 12`   | `6rem`        |
 
-## Import
+## Text Spacing {{ status("new") }}
 
-To import just this utility into your project, copy the snippet below and include it in your main Sass file.
+In Vanilla 4.27.0, we migrated the `$sp-after`, `$nudges`, `$font-sizes`, and `$line-heights` maps to new per-text type maps `$settings-text-h1`, `$settings-text-h1-large`, `$settings-text-h1-mobile`, `$settings-text-h2`, etc.
 
-```scss
-@import 'utilities_vertical-spacing';
-```
+These maps can be used to customize the spacing of different type levels in your application.
+
+A list of all of the new text settings maps is given below.
+
+- `$settings-text-display`
+- `$settings-text-display-mobile`
+- `$settings-text-h1`
+- `$settings-text-h1-large`
+- `$settings-text-h1-mobile`
+- `$settings-text-h2`
+- `$settings-text-h2-large`
+- `$settings-text-h2-mobile`
+- `$settings-text-h3`
+- `$settings-text-h3-large`
+- `$settings-text-h3-mobile`
+- `$settings-text-h4`
+- `$settings-text-h4-large`
+- `$settings-text-h4-mobile`
+- `$settings-text-h5`
+- `$settings-text-h5-large`
+- `$settings-text-h5-mobile`
+- `$settings-text-h6`
+- `$settings-text-h6-large`
+- `$settings-text-h6-mobile`
+- `$settings-text-p`
+- `$settings-text-small`
+- `$settings-text-small-dense`
+- `$settings-text-x-small`
+- `$settings-text-default`
+
+Within each map, the following settings can be customised:
+
+| Attribute     | Description                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| `nudge`       | The vertical offset applied to the top of the text to align it to the baseline grid.          |
+| `line-height` | The total height of the line for this text type, usually a multiple of the base spacing unit. |
+| `font-size`   | The font size for this text type, typically in `rem` units or as a multiplier.                |
+| `sp-after`    | The vertical spacing applied after this text element, controlling space between elements.     |
+| `sp-before`   | The additional spacing added to the nudge for padding-top when text follows other elements.   |
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
