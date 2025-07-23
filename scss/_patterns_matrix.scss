@@ -103,13 +103,13 @@
 
     @media (min-width: $breakpoint-heading-threshold) {
       // place image in the middle of the heading text
-      margin-top: calc(map-get($nudges, h4) + (map-get($line-heights, h4) - $matrix-img-width) / 2);
+      margin-top: calc(map-get($settings-h4, nudge) + (map-get($settings-h4, line-height) - $matrix-img-width) / 2);
     }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
         // place image in the middle of the heading text
-        margin-top: calc(map-get($nudges, h4-large) + (map-get($line-heights, h4) - $matrix-img-width) / 2);
+        margin-top: calc(map-get($settings-h4-large, nudge) + (map-get($settings-h4, line-height) - $matrix-img-width) / 2);
       }
     }
   }
@@ -129,12 +129,12 @@
     @extend %vf-heading-4;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-bottom: -#{map-get($nudges, h4)};
+      margin-bottom: -#{map-get($settings-h4, nudge)};
     }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        margin-bottom: -#{map-get($nudges, h4-large)};
+        margin-bottom: -#{map-get($settings-h4-large, nudge)};
       }
     }
   }

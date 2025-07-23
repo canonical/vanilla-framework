@@ -19,7 +19,7 @@
   // When the search and filter is not expanded, but is overflowing with chips, we need to
   // specify a height that matches that of a standard input element. This height is a combination
   // of an input's line-height, its vertical padding, and the (top transparent) border.
-  $input-height: calc(map-get($line-heights, default-text) + $input-vertical-padding + $input-vertical-padding + $input-border-thickness);
+  $input-height: calc(map-get($settings-p, line-height) + $input-vertical-padding + $input-vertical-padding + $input-border-thickness);
 
   .p-search-and-filter {
     border-bottom: $input-border-thickness solid $colors--theme--border-high-contrast;
@@ -103,7 +103,7 @@
 
       border: none;
       bottom: $focus-outline-offset;
-      line-height: map-get($line-heights, small);
+      line-height: map-get($settings-small, line-height);
       margin: 0;
       position: absolute;
       right: $focus-outline-offset;

@@ -7,7 +7,7 @@
     border: 0;
     border-collapse: collapse;
     caption-side: bottom;
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-p, line-height);
     margin-bottom: $spv--x-large;
     overflow-x: auto;
     width: 100%;
@@ -40,8 +40,8 @@
     th {
       @extend %table-header-label;
 
-      padding-bottom: $spv--large - map-get($nudges, x-small);
-      padding-top: map-get($nudges, x-small) + $sp-unit;
+      padding-bottom: $spv--large - map-get($settings-x-small, nudge);
+      padding-top: map-get($settings-x-small, nudge) + $sp-unit;
     }
 
     tr {

@@ -7,72 +7,275 @@ $sp-unit-ratio: 0.5 !default;
 // Baseline grid settings
 $sp-unit: 1rem * $sp-unit-ratio !default;
 
+// Main spacing variables. spv stands spacing-vertical; sph stands for spacing-horizontal.
+
+$spv--x-small: $sp-unit * 0.5 !default;
+$spv--small: $sp-unit !default;
+$spv--medium: $sp-unit * 1.5 !default;
+$spv--large: $sp-unit * 2;
+$spv--x-large: $sp-unit * 3 !default;
+$spv--strip-shallow: $sp-unit * 3 !default;
+$spv--strip-regular: $sp-unit * 8 !default;
+$spv--strip-deep: $sp-unit * 16 !default;
+
+$sph--x-small: $sp-unit * 0.5 !default; // to be used in place of an inline space between characters/words
+$sph--small: $sp-unit !default;
+$sph--large: $sp-unit * 2 !default;
+$sph--x-large: $sp-unit * 3 !default;
+
+// Typography settings - per-level configuration maps
+// Each settings map contains: nudge, line-height, font-size, and sp-after (font-weight handled separately)
+
+$settings-display: (
+  nudge: 0.35rem,
+  line-height: 11 * $sp-unit,
+  font-size: 5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-display-mobile: (
+  nudge: 0.25rem,
+  line-height: 9 * $sp-unit,
+  font-size: 4,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h1: (
+  nudge: 0.55rem,
+  line-height: 6 * $sp-unit,
+  font-size: 2.5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h1-mobile: (
+  nudge: 0.55rem,
+  line-height: 5 * $sp-unit,
+  font-size: 2,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h2: (
+  nudge: 0.55rem,
+  line-height: 6 * $sp-unit,
+  font-size: 2.5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h2-mobile: (
+  nudge: 0.55rem,
+  line-height: 5 * $sp-unit,
+  font-size: 2,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h3: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h3-mobile: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h4: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h4-mobile: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h5: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h5-mobile: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h6: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $spv--x-large,
+) !default;
+$settings-h6-mobile: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $spv--x-large,
+) !default;
+$settings-p: (
+  nudge: 0.375rem,
+  line-height: 3 * $sp-unit,
+  font-size: 1,
+  sp-after: $sp-unit,
+) !default;
+$settings-small: (
+  nudge: 0.05rem,
+  line-height: 2.5 * $sp-unit,
+  font-size: 0.875,
+  sp-after: $spv--large,
+) !default;
+$settings-x-small: (
+  nudge: 0.25rem,
+  line-height: 2 * $sp-unit,
+  font-size: 0.75,
+  sp-after: $spv--large,
+) !default;
+
+$settings-h1-large: (
+  nudge: 0.55rem,
+  line-height: 6 * $sp-unit,
+  font-size: 2.5,
+  sp-after: $spv--x-large,
+) !default;
+
+$settings-h2-large: (
+  nudge: 0.55rem,
+  line-height: 6 * $sp-unit,
+  font-size: 2.5,
+  sp-after: $spv--x-large,
+) !default;
+
+$settings-h3-large: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+) !default;
+
+$settings-h4-large: (
+  nudge: 0.45rem,
+  line-height: 4 * $sp-unit,
+  font-size: 1.5,
+  sp-after: $spv--x-large,
+) !default;
+
+// Legacy maps for backwards compatibility
 $font-sizes: (
-  display: 5,
-  display-mobile: 4,
-  h1: 2.5,
-  h1-mobile: 2,
-  h2: 2.5,
-  h2-mobile: 2,
-  h3: 1.5,
-  h3-mobile: 1.5,
-  h4: 1.5,
-  h4-mobile: 1.5,
-  h5: 1,
-  h5-mobile: 1,
-  h6: 1,
-  h6-mobile: 1,
-  default: 1,
-  small: 0.875,
-  x-small: 0.75,
+  display: map-get($settings-display, font-size),
+  display-mobile: map-get($settings-display-mobile, font-size),
+  h1: map-get($settings-h1, font-size),
+  h1-mobile: map-get($settings-h1-mobile, font-size),
+  h2: map-get($settings-h2, font-size),
+  h2-mobile: map-get($settings-h2-mobile, font-size),
+  h3: map-get($settings-h3, font-size),
+  h3-mobile: map-get($settings-h3-mobile, font-size),
+  h4: map-get($settings-h4, font-size),
+  h4-mobile: map-get($settings-h4-mobile, font-size),
+  h5: map-get($settings-h5, font-size),
+  h5-mobile: map-get($settings-h5-mobile, font-size),
+  h6: map-get($settings-h6, font-size),
+  h6-mobile: map-get($settings-h6-mobile, font-size),
+  default: map-get($settings-p, font-size),
+  small: map-get($settings-small, font-size),
+  x-small: map-get($settings-x-small, font-size),
 ) !default;
 
 $line-heights: (
-  display: 11 * $sp-unit,
-  display-mobile: 9 * $sp-unit,
-  h1: 6 * $sp-unit,
-  h1-mobile: 5 * $sp-unit,
-  h2: 6 * $sp-unit,
-  h2-mobile: 5 * $sp-unit,
-  h3: 4 * $sp-unit,
-  h3-mobile: 4 * $sp-unit,
-  h4: 4 * $sp-unit,
-  h4-mobile: 4 * $sp-unit,
-  h5: 3 * $sp-unit,
-  h5-mobile: 3 * $sp-unit,
-  h6: 3 * $sp-unit,
-  h6-mobile: 3 * $sp-unit,
-  default-text: 3 * $sp-unit,
-  small: 2.5 * $sp-unit,
-  x-small: 2 * $sp-unit,
+  display: map-get($settings-display, line-height),
+  display-mobile: map-get($settings-display-mobile, line-height),
+  h1: map-get($settings-h1, line-height),
+  h1-mobile: map-get($settings-h1-mobile, line-height),
+  h2: map-get($settings-h2, line-height),
+  h2-mobile: map-get($settings-h2-mobile, line-height),
+  h3: map-get($settings-h3, line-height),
+  h3-mobile: map-get($settings-h3-mobile, line-height),
+  h4: map-get($settings-h4, line-height),
+  h4-mobile: map-get($settings-h4-mobile, line-height),
+  h5: map-get($settings-h5, line-height),
+  h5-mobile: map-get($settings-h5-mobile, line-height),
+  h6: map-get($settings-h6, line-height),
+  h6-mobile: map-get($settings-h6-mobile, line-height),
+  default-text: map-get($settings-p, line-height),
+  small: map-get($settings-small, line-height),
+  x-small: map-get($settings-x-small, line-height),
 ) !default;
 
 // baseline nudges for type scale ratio of (16/14)^2
 $nudges: (
-  display: 0.35rem,
-  display-mobile: 0.25rem,
-  h1-large: 0.55rem,
-  h1-mobile: 0.55rem,
-  h1: 0.55rem,
-  h2: 0.55rem,
-  h2-mobile: 0.55rem,
-  h2-large: 0.55rem,
-  h3: 0.45rem,
-  h3-mobile: 0.45rem,
-  h3-large: 0.45rem,
-  h4-large: 0.45rem,
-  h4: 0.45rem,
-  h4-mobile: 0.45rem,
-  h5: 0.375rem,
-  h5-large: 0.375rem,
-  h5-mobile: 0.375rem,
-  h6: 0.375rem,
-  h6-mobile: 0.375rem,
-  h6-large: 0.375rem,
-  p: 0.375rem,
-  p-ubuntumono: 0.45rem,
-  small: 0.05rem,
-  x-small: 0.25rem,
+  display: map-get($settings-p, nudge),
+  display-mobile: map-get($settings-display-mobile, nudge),
+  h1-large: map-get($settings-h1, nudge),
+  // fallback to h1 nudge
+  h1-mobile: map-get($settings-h1-mobile, nudge),
+  h1: map-get($settings-h1, nudge),
+  h2: map-get($settings-h2, nudge),
+  h2-mobile: map-get($settings-h2-mobile, nudge),
+  h2-large: map-get($settings-h2, nudge),
+  // fallback to h2 nudge
+  h3: map-get($settings-h3, nudge),
+  h3-mobile: map-get($settings-h3-mobile, nudge),
+  h3-large: map-get($settings-h3, nudge),
+  // fallback to h3 nudge
+  h4-large: map-get($settings-h4, nudge),
+  // fallback to h4 nudge
+  h4: map-get($settings-h4, nudge),
+  h4-mobile: map-get($settings-h4-mobile, nudge),
+  h5: map-get($settings-h5, nudge),
+  h5-large: map-get($settings-h5, nudge),
+  // fallback to h5 nudge
+  h5-mobile: map-get($settings-h5-mobile, nudge),
+  h6: map-get($settings-h6, nudge),
+  h6-mobile: map-get($settings-h6-mobile, nudge),
+  h6-large: map-get($settings-h6, nudge),
+  // fallback to h6 nudge
+  p: map-get($settings-p, nudge),
+  p-ubuntumono: map-get($settings-p, nudge),
+  // fallback
+  small: map-get($settings-small, nudge),
+  x-small: map-get($settings-x-small, nudge),
+) !default;
+
+$sp-after: (
+  display: map-get($settings-display, sp-after),
+  display-mobile: map-get($settings-display-mobile, sp-after),
+  h1: map-get($settings-h1, sp-after),
+  h1-mobile: map-get($settings-h1-mobile, sp-after),
+  h2: map-get($settings-h2, sp-after),
+  h2-mobile: map-get($settings-h2-mobile, sp-after),
+  h3: map-get($settings-h3, sp-after),
+  h3-mobile: map-get($settings-h3-mobile, sp-after),
+  h4: map-get($settings-h4, sp-after),
+  h4-mobile: map-get($settings-h4-mobile, sp-after),
+  h5: map-get($settings-h5, sp-after),
+  h5-mobile: map-get($settings-h5-mobile, sp-after),
+  h6: map-get($settings-h6, sp-after),
+  h6-mobile: map-get($settings-h6-mobile, sp-after),
+  p: map-get($settings-p, sp-after),
+  p-small-caps: map-get($settings-small, sp-after),
+  p-dense: map-get($settings-small, sp-after),
+  default-text: map-get($settings-p, sp-after),
+  small: map-get($settings-small, sp-after),
+  small--dense: map-get($settings-small, sp-after),
+  x-small: map-get($settings-x-small, sp-after),
+) !default;
+
+$font-weights: (
+  display: $font-weight-display-heading,
+  display-mobile: $font-weight-display-heading,
+  h1: $font-weight-h1,
+  h1-mobile: $font-weight-h1,
+  h2: $font-weight-h2,
+  h2-mobile: $font-weight-h2,
+  h3: $font-weight-h3,
+  h3-mobile: $font-weight-h3,
+  h4: $font-weight-h4,
+  h4-mobile: $font-weight-h4,
+  h5: $font-weight-h5,
+  h5-mobile: $font-weight-h5,
+  h6: $font-weight-h6,
+  h6-mobile: $font-weight-h6,
+  p: $font-weight-regular-text,
+  default-text: $font-weight-regular-text,
+  small: $font-weight-regular-text,
+  x-small: $font-weight-bold,
 ) !default;
 
 // Correct baseline drift due to browser rounding. (Visible in text > 1000 lines)
@@ -90,49 +293,8 @@ $browser-rounding-compensations: (
   small: 0,
 ) !default;
 
-// Main spacing variables. spv stands spacing-vertical; sph stands for spacing-horizontal.
-
-$spv--x-small: $sp-unit * 0.5 !default;
-$spv--small: $sp-unit !default;
-$spv--medium: $sp-unit * 1.5 !default;
-$spv--large: $sp-unit * 2;
-$spv--x-large: $sp-unit * 3 !default;
-$spv--strip-shallow: $sp-unit * 3 !default;
-$spv--strip-regular: $sp-unit * 8 !default;
-$spv--strip-deep: $sp-unit * 16 !default;
-
-$sph--x-small: $sp-unit * 0.5 !default; // to be used in place of an inline space between characters/words
-$sph--small: $sp-unit !default;
-$sph--large: $sp-unit * 2 !default;
-$sph--x-large: $sp-unit * 3 !default;
-
-// Space after text elements
-$sp-after: (
-  display: $spv--x-large,
-  display-mobile: $spv--x-large,
-  h1: $spv--x-large,
-  h1-mobile: $spv--x-large,
-  h2: $spv--x-large,
-  h2-mobile: $spv--x-large,
-  h3: $spv--x-large,
-  h3-mobile: $spv--x-large,
-  h4: $spv--x-large,
-  h4-mobile: $spv--x-large,
-  h5: $spv--x-large,
-  h5-mobile: $spv--x-large,
-  h6: $spv--x-large,
-  h6-mobile: $spv--x-large,
-  p: $spv--x-large,
-  p-small-caps: $spv--large,
-  p-dense: $spv--large,
-  default-text: $sp-unit,
-  small: $spv--large,
-  small--dense: $spv--large,
-  x-small: $spv--large,
-) !default;
-
 // commonly occuring calculations available as variables
-$spv-nudge: map-get($nudges, p) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
+$spv-nudge: map-get($settings-p, nudge) !default; // top: nudge; bottom: unit - nudge; result: height = exact multiple of base unit
 $spv-nudge-compensation: $sp-unit - $spv-nudge !default;
 
 // form input spacing variables
