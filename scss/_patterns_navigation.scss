@@ -94,7 +94,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
 
     display: block;
     font-weight: $font-weight-regular-text;
-    line-height: map-get($settings-text-p, line-height);
+    line-height: map-get($settings-text-default, line-height);
     margin: 0;
     overflow: hidden;
     padding-left: calc(map-get($grid-margin-widths, small) + $navigation-logo-padding); // allow navigation align with tag logo text on small screens
@@ -690,7 +690,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     @media (min-width: $breakpoint-navigation-threshold) {
       position: absolute;
       // padding applied to .p-navigation__link + line-heigh of the anchor text inside
-      top: $spv--large * 2 + map-get($settings-text-p, line-height);
+      top: $spv--large * 2 + map-get($settings-text-default, line-height);
     }
 
     @media (width < $breakpoint-navigation-threshold) {
