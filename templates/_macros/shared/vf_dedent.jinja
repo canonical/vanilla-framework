@@ -1,0 +1,36 @@
+{#-
+ Shared Dedent macro for Jinja templates.
+ Determines the minimum indentation of a block of text and removes it from each line.
+ This allows multi-line strings to be passed as parameters while maintaining readability in the template code and retaining the original formatting.
+ Usage: {{ vf_dedent(text_block='
+        This is a multi-line string
+          that will be dedented
+            to remove the minimum indentation.
+ ') }} ->
+ This is a multi-line string
+    that will be dedented
+      to remove the minimum indentation.
+ -#}
+{% macro vf_dedent(text_block) -%}
+  {%- set lines = text_block.split('\n') -%}
+  {%- set ns = namespace(min_indent=none) -%}
+
+  {#- Find the minimum indentation of all non-empty lines -#}
+  {%- for line in lines -%}
+    {%- if line | trim | length > 0 -%}
+      {%- set indent = (line | length) - (line | trim | length) -%}
+      {%- if ns.min_indent is none or indent < ns.min_indent -%}
+        {%- set ns.min_indent = indent -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {#- Rebuild the string with the minimum indentation removed -#}
+  {%- if ns.min_indent and ns.min_indent > 0 -%}
+    {%- for line in lines -%}
+      {{- line[ns.min_indent:] -}}{%- if not loop.last and not loop.first %}<br/>{% endif -%}
+    {%- endfor -%}
+  {%- else -%}
+    {{- text_block -}}
+  {%- endif -%}
+{%- endmacro %}
