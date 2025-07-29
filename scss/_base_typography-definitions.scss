@@ -1,3 +1,19 @@
+/**
+  Whenever an even-numbered heading directly follows its parent heading (e.g., h2 after h1),
+  we need to move it up under the parent heading above by the amount of bottom margin + top padding of the parent heading.
+  This is the only element of type levels that extend behavior between heading levels, in order to ensure
+  placeholder extensions apply the correct margin (h1 and h2 must extend the same placeholder in order for the rule to apply)
+ */
+@mixin subsequent-heading-placement($sp-after-mobile, $sp-after-default) {
+  &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
+    margin-top: calc(-1 * $sp-after-mobile);
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-top: calc(-1 * $sp-after-default);
+    }
+  }
+}
+
 @mixin vf-b-typography-definitions {
   %vf-is-accent {
     &.is-accent {
@@ -11,149 +27,215 @@
     max-width: $text-max-width;
   }
 
+  %vf-heading-1-2-heading-subsequent-placement {
+    @include subsequent-heading-placement(map-get($settings-text-h1-mobile, sp-after), map-get($settings-text-h1, sp-after));
+  }
+
   //@section Heading styling in placeholders
   %vf-heading-1 {
     @extend %vf-heading--common;
     @extend %vf-is-accent;
+    @extend %vf-heading-1-2-heading-subsequent-placement;
 
-    font-size: #{map-get($font-sizes, h1-mobile)}rem;
-    font-weight: $font-weight-bold;
-    line-height: map-get($line-heights, h1-mobile);
-    margin-bottom: map-get($sp-after, h1-mobile) - map-get($nudges, h1-mobile);
-    padding-top: map-get($nudges, h1-mobile);
+    font-size: #{map-get($settings-text-h1-mobile, font-size)}rem;
+    font-weight: $font-weight-h1;
+    line-height: map-get($settings-text-h1-mobile, line-height);
+    margin-bottom: map-get($settings-text-h1-mobile, sp-after) - map-get($settings-text-h1-mobile, nudge);
+    padding-top: map-get($settings-text-h1-mobile, nudge);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      font-size: #{map-get($font-sizes, h1)}rem;
-      line-height: map-get($line-heights, h1);
-      margin-bottom: map-get($sp-after, h1) - map-get($nudges, h1);
-      padding-top: map-get($nudges, h1);
+      font-size: #{map-get($settings-text-h1, font-size)}rem;
+      line-height: map-get($settings-text-h1, line-height);
+      margin-bottom: map-get($settings-text-h1, sp-after) - map-get($settings-text-h1, nudge);
+      padding-top: map-get($settings-text-h1, nudge);
     }
 
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--h1;
     }
 
-    &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
-      // move it up under the heading above by the amount of bottom margin + top padding
-      margin-top: calc(-1 * map-get($sp-after, h1-mobile));
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        margin-top: calc(-1 * map-get($sp-after, h1));
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        padding-top: map-get($settings-text-h1, nudge);
       }
     }
   }
 
   %vf-heading-2 {
     @extend %vf-heading--common;
-    @extend %vf-heading-1;
-    font-weight: 180; // custom font weight adjusted for h2
+    @extend %vf-is-accent;
+    @extend %vf-heading-1-2-heading-subsequent-placement;
+
+    font-size: #{map-get($settings-text-h2-mobile, font-size)}rem;
+    font-weight: $font-weight-h2;
+    line-height: map-get($settings-text-h2-mobile, line-height);
+    margin-bottom: map-get($settings-text-h2-mobile, sp-after) - map-get($settings-text-h2-mobile, nudge);
+    padding-top: map-get($settings-text-h2-mobile, nudge);
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: #{map-get($settings-text-h2, font-size)}rem;
+      line-height: map-get($settings-text-h2, line-height);
+      margin-bottom: map-get($settings-text-h2, sp-after) - map-get($settings-text-h2, nudge);
+      padding-top: map-get($settings-text-h2, nudge);
+    }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h2;
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        padding-top: map-get($settings-text-h2, nudge);
+      }
+    }
   }
 
   %vf-heading-display {
     @extend %vf-heading--common;
 
-    font-size: #{map-get($font-sizes, display-mobile)}rem;
+    font-size: #{map-get($settings-text-display-mobile, font-size)}rem;
     font-weight: $font-weight-display-heading;
-    line-height: map-get($line-heights, display-mobile);
-    margin-bottom: map-get($sp-after, display-mobile) - map-get($nudges, display-mobile);
-    padding-top: map-get($nudges, display-mobile);
+    line-height: map-get($settings-text-display-mobile, line-height);
+    margin-bottom: map-get($settings-text-display-mobile, sp-after) - map-get($settings-text-display-mobile, nudge);
+    padding-top: map-get($settings-text-display-mobile, nudge);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      font-size: #{map-get($font-sizes, display)}rem;
-      line-height: map-get($line-heights, display);
-      margin-bottom: map-get($sp-after, display) - map-get($nudges, display);
-      padding-top: map-get($nudges, display);
+      font-size: #{map-get($settings-text-display, font-size)}rem;
+      line-height: map-get($settings-text-display, line-height);
+      margin-bottom: map-get($settings-text-display, sp-after) - map-get($settings-text-display, nudge);
+      padding-top: map-get($settings-text-display, nudge);
     }
+  }
+
+  %vf-heading-3-4-heading-subsequent-placement {
+    @include subsequent-heading-placement(map-get($settings-text-h3-mobile, sp-after), map-get($settings-text-h3, sp-after));
   }
 
   %vf-heading-3 {
     @extend %vf-heading--common;
     @extend %vf-is-accent;
+    @extend %vf-heading-3-4-heading-subsequent-placement;
 
-    font-size: #{map-get($font-sizes, h3-mobile)}rem;
-    font-weight: $font-weight-bold;
-    line-height: map-get($line-heights, h3-mobile);
-    margin-bottom: map-get($sp-after, h3-mobile) - map-get($nudges, h3-mobile);
-    padding-top: map-get($nudges, h3-mobile);
+    font-size: #{map-get($settings-text-h3-mobile, font-size)}rem;
+    font-weight: $font-weight-h3;
+    line-height: map-get($settings-text-h3-mobile, line-height);
+    margin-bottom: map-get($settings-text-h3-mobile, sp-after) - map-get($settings-text-h3-mobile, nudge);
+    padding-top: map-get($settings-text-h3-mobile, nudge);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      font-size: #{map-get($font-sizes, h3)}rem;
-      line-height: map-get($line-heights, h3);
-      margin-bottom: map-get($sp-after, h3) - map-get($nudges, h3);
-      padding-top: map-get($nudges, h3);
+      font-size: #{map-get($settings-text-h3, font-size)}rem;
+      line-height: map-get($settings-text-h3, line-height);
+      margin-bottom: map-get($settings-text-h3, sp-after) - map-get($settings-text-h3, nudge);
+      padding-top: map-get($settings-text-h3, nudge);
     }
 
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--h3;
     }
 
-    &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
-      // move it up under the heading above by the amount of bottom margin + top padding
-      margin-top: calc(-1 * map-get($sp-after, h3-mobile));
-
-      @media (min-width: $breakpoint-heading-threshold) {
-        margin-top: calc(-1 * map-get($sp-after, h3));
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        padding-top: map-get($settings-text-h3, nudge);
       }
     }
   }
 
   %vf-heading-4 {
     @extend %vf-heading--common;
-    @extend %vf-heading-3;
-    font-weight: 275; // custom font weight adjusted for h4
+    @extend %vf-is-accent;
+    @extend %vf-heading-3-4-heading-subsequent-placement;
+
+    font-size: #{map-get($settings-text-h4-mobile, font-size)}rem;
+    font-weight: $font-weight-h4;
+    line-height: map-get($settings-text-h4-mobile, line-height);
+    margin-bottom: map-get($settings-text-h4-mobile, sp-after) - map-get($settings-text-h4-mobile, nudge);
+    padding-top: map-get($settings-text-h4-mobile, nudge);
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      font-size: #{map-get($settings-text-h4, font-size)}rem;
+      line-height: map-get($settings-text-h4, line-height);
+      margin-bottom: map-get($settings-text-h4, sp-after) - map-get($settings-text-h4, nudge);
+      padding-top: map-get($settings-text-h4, nudge);
+    }
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h4;
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        padding-top: map-get($settings-text-h4, nudge);
+      }
+    }
+  }
+
+  %vf-heading-5-6-heading-subsequent-placement {
+    @include subsequent-heading-placement(map-get($settings-text-h5-mobile, sp-after), map-get($settings-text-h5, sp-after));
   }
 
   %vf-heading-5 {
     @extend %vf-heading--common;
+    @extend %vf-heading-5-6-heading-subsequent-placement;
 
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
-    line-height: map-get($line-heights, default-text);
-    margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
-    padding-top: map-get($nudges, p);
+    font-size: #{map-get($settings-text-h5-mobile, font-size)}rem;
+    font-weight: $font-weight-h5;
+    line-height: map-get($settings-text-h5-mobile, line-height);
+    margin-bottom: map-get($settings-text-h5-mobile, sp-after) - map-get($settings-text-h5-mobile, nudge);
+    padding-top: map-get($settings-text-h5-mobile, nudge);
 
     &.u-no-margin--bottom {
-      @extend %u-no-margin--bottom--default-text;
+      @extend %u-no-margin--bottom--h5;
     }
 
-    &:not(.u-no-margin):not(.u-no-margin--bottom) + & {
-      // move it up under the heading above by the amoung of bottom margin + top padding
-      margin-top: calc(-1 * map-get($sp-after, p));
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        padding-top: map-get($settings-text-h5, nudge);
+      }
     }
   }
 
   %vf-heading-6 {
     @extend %vf-heading--common;
-    @extend %vf-heading-5;
+    @extend %vf-heading-5-6-heading-subsequent-placement;
 
+    font-size: #{map-get($settings-text-h6-mobile, font-size)}rem;
     font-style: italic;
-    font-weight: $font-weight-regular-text;
+    font-weight: $font-weight-h6;
+    line-height: map-get($settings-text-h6-mobile, line-height);
+    margin-bottom: map-get($settings-text-h6-mobile, sp-after) - map-get($settings-text-h6-mobile, nudge);
+    padding-top: map-get($settings-text-h6-mobile, nudge);
+
+    &.u-no-margin--bottom {
+      @extend %u-no-margin--bottom--h6;
+    }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        padding-top: map-get($nudges, h6-large);
+        padding-top: map-get($settings-text-h6, nudge);
       }
     }
   }
 
   %common-default-text-properties {
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     margin-top: 0;
-    padding-top: map-get($nudges, p);
+    padding-top: map-get($settings-text-default, nudge);
   }
 
   %default-text {
     @extend %common-default-text-properties;
-    font-size: 1rem;
+    font-size: #{map-get($settings-text-default, font-size)}rem;
     font-weight: $font-weight-regular-text;
 
-    margin-bottom: map-get($sp-after, default-text) - map-get($nudges, p);
+    margin-bottom: map-get($settings-text-default, sp-after) - map-get($settings-text-default, nudge);
   }
 
   %paragraph {
     @extend %common-default-text-properties;
-
-    margin-bottom: map-get($sp-after, p) - map-get($nudges, p);
+    font-size: #{map-get($settings-text-p, font-size)}rem;
+    line-height: map-get($settings-text-p, line-height);
+    margin-bottom: map-get($settings-text-p, sp-after) - map-get($settings-text-p, nudge);
+    padding-top: map-get($settings-text-p, nudge);
 
     &:not([class*='p-heading--']):not([class*='p-muted-heading']) + & {
       margin-top: -#{$sp-unit};
@@ -165,14 +247,14 @@
   }
 
   %small-text {
-    font-size: #{map-get($font-sizes, small)}rem;
-    line-height: map-get($line-heights, small);
-    margin-bottom: map-get($sp-after, small) - map-get($nudges, small);
-    padding-top: map-get($nudges, small);
+    font-size: #{map-get($settings-text-small, font-size)}rem;
+    line-height: map-get($settings-text-small, line-height);
+    margin-bottom: map-get($settings-text-small, sp-after) - map-get($settings-text-small, nudge);
+    padding-top: map-get($settings-text-small, nudge);
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        padding-top: map-get($nudges, small);
+        padding-top: map-get($settings-text-small, nudge);
       }
     }
 
@@ -182,15 +264,15 @@
   }
 
   %x-small-text {
-    font-size: #{map-get($font-sizes, x-small)}rem;
+    font-size: #{map-get($settings-text-x-small, font-size)}rem;
     font-weight: $font-weight-bold;
-    line-height: map-get($line-heights, x-small);
-    margin-bottom: map-get($sp-after, x-small) - map-get($nudges, x-small);
-    padding-top: map-get($nudges, x-small);
+    line-height: map-get($settings-text-x-small, line-height);
+    margin-bottom: map-get($settings-text-x-small, sp-after) - map-get($settings-text-x-small, nudge);
+    padding-top: map-get($settings-text-x-small, nudge);
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        padding-top: map-get($nudges, x-small);
+        padding-top: map-get($settings-text-x-small, nudge);
       }
     }
 
@@ -208,7 +290,7 @@
     font-variant-caps: all-small-caps;
     font-variant-numeric: oldstyle-nums;
     letter-spacing: 0.05em;
-    margin-bottom: map-get($sp-after, p-small-caps) - map-get($nudges, p);
+    margin-bottom: map-get($settings-text-small, sp-after) - map-get($settings-text-p, nudge);
 
     &.u-no-margin--bottom {
       @extend %u-no-margin--bottom--default-text;
@@ -219,7 +301,7 @@
     // but now it's implemented with default text size not requiring any compensations,
     // so we need to reset the padding-top to the default value
     &.u-align-text--x-small-to-default {
-      padding-top: map-get($nudges, p);
+      padding-top: map-get($settings-text-default, nudge);
     }
   }
 
@@ -244,42 +326,46 @@
   // Placeholder naming: $sp + -- + {preceding element} + {following element}, e.g. for p + h1: $sp--ph1
 
   %sp--ph1 {
-    padding-top: map-get($nudges, h1-mobile) + $spv--x-large;
+    padding-top: map-get($settings-text-h1-mobile, nudge) + map-get($settings-text-h1-mobile, sp-before);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, h1) + $spv--x-large;
+      padding-top: map-get($settings-text-h1, nudge) + map-get($settings-text-h1, sp-before);
     }
   }
 
   %sp--ph2 {
-    padding-top: map-get($nudges, h2-mobile) + $spv--x-large;
+    padding-top: map-get($settings-text-h2-mobile, nudge) + map-get($settings-text-h2-mobile, sp-before);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, h2) + $spv--x-large;
+      padding-top: map-get($settings-text-h2, nudge) + map-get($settings-text-h2, sp-before);
     }
   }
 
   %sp--ph3 {
-    padding-top: map-get($nudges, h3-mobile) + $spv--x-large;
+    padding-top: map-get($settings-text-h3-mobile, nudge) + map-get($settings-text-h3-mobile, sp-before);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, h3) + $spv--x-large;
+      padding-top: map-get($settings-text-h3, nudge) + map-get($settings-text-h3, sp-before);
     }
   }
 
   %sp--ph4 {
-    padding-top: map-get($nudges, h4-mobile) + $spv--x-large;
+    padding-top: map-get($settings-text-h4-mobile, nudge) + map-get($settings-text-h4-mobile, sp-before);
 
     @media (min-width: $breakpoint-heading-threshold) {
-      padding-top: map-get($nudges, h4) + $spv--x-large;
+      padding-top: map-get($settings-text-h4, nudge) + map-get($settings-text-h4, sp-before);
     }
   }
 
   %sp--ph5 {
-    padding-top: map-get($nudges, p) + $spv--x-large;
+    padding-top: map-get($settings-text-h5-mobile, nudge) + map-get($settings-text-h5-mobile, sp-before);
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      padding-top: map-get($settings-text-h5, nudge) + map-get($settings-text-h5, sp-before);
+    }
   }
 
   %sp--pmuted {
-    padding-top: map-get($nudges, small) + $spv--x-large;
+    padding-top: map-get($settings-text-small, nudge) + map-get($settings-text-small, sp-before);
   }
 }

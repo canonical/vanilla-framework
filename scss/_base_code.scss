@@ -27,7 +27,7 @@ $code-inline-padding: 0.25rem;
     background-color: $colors--theme--background-code;
     box-decoration-break: slice;
     color: inherit;
-    line-height: map-get($line-heights, default-text) - $code-inline-padding;
+    line-height: map-get($settings-text-default, line-height) - $code-inline-padding;
     padding: calc($code-inline-padding - $input-border-thickness) $code-inline-padding;
   }
 
@@ -50,7 +50,7 @@ $code-inline-padding: 0.25rem;
   pre code {
     background: none;
     box-shadow: none;
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     margin-left: 0;
     margin-right: 0;
     padding: 0;
@@ -77,13 +77,13 @@ $code-inline-padding: 0.25rem;
       content: '';
       left: $sph--large;
       position: absolute;
-      top: #{$spv--small + 0.5 * (map-get($line-heights, default-text) - map-get($icon-sizes, default))};
+      top: #{$spv--small + 0.5 * (map-get($settings-text-default, line-height) - map-get($icon-sizes, default))};
       width: map-get($icon-sizes, default);
 
       @if ($increase-font-size-on-larger-screens) {
         // stylelint-disable-next-line max-nesting-depth
         @media (min-width: $breakpoint-x-large) {
-          top: #{$spv--small + 0.5 * (map-get($line-heights, default-text) * $font-size-ratio--largescreen - map-get($icon-sizes, default))};
+          top: #{$spv--small + 0.5 * (map-get($settings-text-default, line-height) * $font-size-ratio--largescreen - map-get($icon-sizes, default))};
         }
       }
     }

@@ -165,55 +165,75 @@
   }
 
   %u-no-margin--bottom--h1 {
-    margin-bottom: -#{map-get($nudges, h1-mobile)} !important;
+    margin-bottom: -#{map-get($settings-text-h1-mobile, nudge)} !important;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-bottom: -#{map-get($nudges, h1)} !important;
+      margin-bottom: -#{map-get($settings-text-h1, nudge)} !important;
     }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        margin-bottom: -#{map-get($nudges, h1-large)} !important;
+        margin-bottom: -#{map-get($settings-text-h1-large, nudge)} !important;
       }
     }
   }
 
   %u-no-margin--bottom--h2 {
-    margin-bottom: -#{map-get($nudges, h2-mobile)} !important;
+    margin-bottom: -#{map-get($settings-text-h2-mobile, nudge)} !important;
 
     @media (min-width: $breakpoint-heading-threshold) {
-      margin-bottom: -#{map-get($nudges, h2)} !important;
-    }
-  }
-
-  %u-no-margin--bottom--h3 {
-    margin-bottom: #{$sp-unit - map-get($nudges, h3-mobile)} !important;
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      margin-bottom: -#{map-get($nudges, h3)} !important;
-    }
-  }
-
-  %u-no-margin--bottom--h4 {
-    margin-bottom: #{$sp-unit - map-get($nudges, h4-mobile)} !important;
-
-    @media (min-width: $breakpoint-heading-threshold) {
-      margin-bottom: -#{map-get($nudges, h4)} !important;
+      margin-bottom: -#{map-get($settings-text-h2, nudge)} !important;
     }
 
     @if ($increase-font-size-on-larger-screens) {
       @media (min-width: $breakpoint-x-large) {
-        margin-bottom: -#{map-get($nudges, h4-large)} !important;
+        margin-bottom: -#{map-get($settings-text-h2-large, nudge)} !important;
       }
     }
   }
 
+  %u-no-margin--bottom--h3 {
+    margin-bottom: #{$sp-unit - map-get($settings-text-h3-mobile, nudge)} !important;
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($settings-text-h3, nudge)} !important;
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($settings-text-h3-large, nudge)} !important;
+      }
+    }
+  }
+
+  %u-no-margin--bottom--h4 {
+    margin-bottom: #{$sp-unit - map-get($settings-text-h4-mobile, nudge)} !important;
+
+    @media (min-width: $breakpoint-heading-threshold) {
+      margin-bottom: -#{map-get($settings-text-h4, nudge)} !important;
+    }
+
+    @if ($increase-font-size-on-larger-screens) {
+      @media (min-width: $breakpoint-x-large) {
+        margin-bottom: -#{map-get($settings-text-h4-large, nudge)} !important;
+      }
+    }
+  }
+
+  %u-no-margin--bottom--h5 {
+    margin-bottom: #{$sp-unit - map-get($settings-text-h5, nudge)} !important;
+  }
+
+  %u-no-margin--bottom--h6 {
+    margin-bottom: #{$sp-unit - map-get($settings-text-h6, nudge)} !important;
+  }
+
   %u-no-margin--bottom--default-text {
-    margin-bottom: #{$sp-unit - map-get($nudges, p)} !important;
+    margin-bottom: #{$sp-unit - map-get($settings-text-p, nudge)} !important;
   }
 
   %u-no-margin--bottom--small {
-    margin-bottom: -#{map-get($nudges, small)} !important;
+    margin-bottom: -#{map-get($settings-text-small, nudge)} !important;
   }
 
   %u-no-margin--bottom--hr {

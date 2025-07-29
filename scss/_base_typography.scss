@@ -15,7 +15,7 @@
     -webkit-font-smoothing: antialiased;
     font-weight: $font-weight-regular-text;
     // set default line height to match p
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     text-wrap: pretty;
 
     @if ($increase-font-size-on-larger-screens) {
@@ -24,7 +24,7 @@
       @media (min-width: $breakpoint-x-large) {
         font-size: map-get($base-font-sizes, large);
         //the rem value is not affected by the change in font-size; it needs to be multiplied by the ratio new font-size/default font-size
-        line-height: map-get($line-heights, default-text) * $font-size-ratio--largescreen;
+        line-height: map-get($settings-text-default, line-height) * $font-size-ratio--largescreen;
       }
     } @else {
       font-size: map-get($base-font-sizes, base);
@@ -71,7 +71,11 @@
     @extend %small-text;
 
     &.dense {
-      margin-bottom: map-get($sp-after, small--dense) + map-get($line-heights, default-text) - map-get($line-heights, small) - map-get($nudges, small);
+      $dense-text-sp-after: map-get($settings-text-small-dense, sp-after);
+      $dense-text-line-height: map-get($settings-text-small-dense, line-height);
+      $dense-text-nudge: map-get($settings-text-small-dense, nudge);
+
+      margin-bottom: $dense-text-sp-after + $dense-text-line-height - $dense-text-nudge;
     }
   }
 

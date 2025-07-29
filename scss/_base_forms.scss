@@ -30,7 +30,7 @@
     font-family: unquote($font-base-family);
     font-size: 1rem;
     font-weight: $font-weight-regular-text;
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     margin-bottom: $input-margin-bottom;
     min-width: 8em;
     padding-left: $sph--large;
@@ -103,11 +103,11 @@
   label {
     cursor: pointer;
     display: inline-block;
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     margin-bottom: $spv--large - $spv-nudge;
     margin-top: 0;
     max-width: $text-max-width;
-    padding-top: map-get($nudges, p);
+    padding-top: map-get($settings-text-p, nudge);
     width: fit-content;
 
     &.is-required::before {
@@ -186,7 +186,7 @@
     background-repeat: no-repeat;
     background-size: map-get($icon-sizes, default);
     box-shadow: none;
-    min-height: map-get($line-heights, default-text);
+    min-height: map-get($settings-text-default, line-height);
     padding-right: calc($default-icon-size + 2 * $sph--small);
     text-indent: 0.01px;
     text-overflow: '';
