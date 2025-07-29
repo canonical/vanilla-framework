@@ -3,6 +3,7 @@
   - title_text (string) (required): The text to be displayed as the heading
   - subtitle_text (string) (optional): The text to be displayed as the subtitle
   - subtitle_heading_level (int) (optional): The heading level for the subtitle. Can be 4 or 5. Defaults to 5.
+  - highlight_images (boolean) (optional): If the images need to be highlighted, which means adding a subtle grey background. Not added by default.
   - image_aspect_ratio_small (string) (optional): The aspect ratio for item images on small screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "square".
   - image_aspect_ratio_medium (string) (optional): The aspect ratio for item images on medium screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "square".
   - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "2-3".
@@ -12,6 +13,7 @@
   title_text,
   subtitle_text="",
   subtitle_heading_level=5,
+  highlight_images=false,
   image_aspect_ratio_small="square",
   image_aspect_ratio_medium="square",
   image_aspect_ratio_large="2-3",
@@ -67,7 +69,7 @@
               {#- Image item (required) -#}
               <div class="p-equal-height-row__item">
                 <div
-                  class="p-image-container--{{ image_aspect_ratio_small }}-on-small p-image-container--{{ image_aspect_ratio_medium }}-on-medium p-image-container--{{ image_aspect_ratio_large }}-on-large is-cover">
+                  class="p-image-container--{{ image_aspect_ratio_small }}-on-small p-image-container--{{ image_aspect_ratio_medium }}-on-medium p-image-container--{{ image_aspect_ratio_large }}-on-large is-cover{% if highlight_images %} is-highlighted{% endif %}" >
                   {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
                   {{- image | safe -}}
                 </div>

@@ -17,6 +17,7 @@ The equal heights pattern is composed of the following elements:
 | title_text (**required**)         | `H2` title text.                                                                                                                                                                                                             |
 | subtitle_text                     | `H4` or `H5` subtitle text, depending on `subtitle_heading_level`.                                                                                                                                                           |
 | subtitle_heading_level            | Heading level of the subtitles. May be `4` or `5`. Defaults to `5`.                                                                                                                                                          |
+| highlight_images                  | If the images need to be highlighted, which means adding a subtle grey background. Not added by default.                                                                                                                     |
 | image_aspect_ratio_small          | The aspect ratio to apply to item images on [small screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "square".  |
 | image_aspect_ratio_medium         | The aspect ratio to apply to item images on [medium screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "square". |
 | image_aspect_ratio_large          | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "2-3".     |
@@ -127,6 +128,22 @@ shown below.
         </td>
         <td>
           Heading level of the subtitles. May be <code>4</code> or <code>5</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>highlight_images</code>
+        </td>
+        <td>
+          No </td>
+        <td>
+          boolean
+        </td>
+        <td>
+           <code>False</code>
+        </td>
+        <td>
+          If the images need to be highlighted.
         </td>
       </tr>
       <tr>
