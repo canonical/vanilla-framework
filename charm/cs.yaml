@@ -1,0 +1,14 @@
+application: vanillaframework-io
+application-config:
+# Google Search API calls can take a while to respond sometimes - increase the default timeout to help avoid 503/504 errors
+webserver-timeout:
+  description: Time in seconds to kill and restart silent webserver workers.
+  source: user
+  type: int
+  value: 60
+# Increase number of workers available to handle requests - helps to decrease processing time especially for external API calls
+webserver-workers:
+  description: The number of webserver worker processes for handling requests.
+  source: user
+  type: int
+  value: 2
