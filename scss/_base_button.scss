@@ -24,7 +24,7 @@
     font-size: 1rem;
     font-weight: $font-weight-regular-text;
     justify-content: center;
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     margin: 0 $sph--large $input-margin-bottom 0;
     padding: $input-vertical-padding $sph--large;
     text-align: center;
@@ -53,10 +53,10 @@
     }
 
     &.is-small {
-      font-size: #{map-get($font-sizes, small)}rem;
-      line-height: map-get($line-heights, small);
+      font-size: #{map-get($settings-text-small, font-size)}rem;
+      line-height: map-get($settings-text-small, line-height);
       margin-bottom: $input-margin-bottom - $sp-unit;
-      padding: calc(map-get($nudges, small) - $input-border-thickness) $sph--small;
+      padding: calc(map-get($settings-text-small, nudge) - $input-border-thickness) $sph--small;
     }
 
     &.is-small.is-dense {

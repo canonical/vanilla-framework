@@ -8,7 +8,7 @@ $navigation-logo-size: 1rem;
 $navigation-logo-padding: calc(1.5rem + 0.1rem); // ~25.6px to align better with logos as originally designed in SVG
 $sph-navigation-link: 0.3rem;
 $spv-navigation-logo-bottom-position: 0.25rem; // 4px when 1rem is 16px
-$navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large); // navigation bar height based on line height and paddings
+$navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--large); // navigation bar height based on line height and paddings
 
 @mixin vf-p-navigation {
   // placeholders
@@ -94,7 +94,7 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
 
     display: block;
     font-weight: $font-weight-regular-text;
-    line-height: map-get($line-heights, default-text);
+    line-height: map-get($settings-text-default, line-height);
     margin: 0;
     overflow: hidden;
     padding-left: calc(map-get($grid-margin-widths, small) + $navigation-logo-padding); // allow navigation align with tag logo text on small screens
@@ -576,7 +576,7 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
       position: absolute;
       right: calc($sph--large / 2);
       text-indent: calc(100% + 10rem);
-      top: calc($spv--large + map-get($nudges, x-small));
+      top: calc($spv--large + map-get($settings-text-x-small, nudge));
       width: map-get($icon-sizes, default);
     }
   }
@@ -690,7 +690,7 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
     @media (min-width: $breakpoint-navigation-threshold) {
       position: absolute;
       // padding applied to .p-navigation__link + line-heigh of the anchor text inside
-      top: $spv--large * 2 + map-get($line-heights, default-text);
+      top: $spv--large * 2 + map-get($settings-text-default, line-height);
     }
 
     @media (width < $breakpoint-navigation-threshold) {
@@ -728,7 +728,7 @@ $navigation-height: calc(map-get($line-heights, default-text) + 2 * $spv--large)
 
       @media (min-width: $breakpoint-navigation-threshold) {
         right: calc($sph--large / 2); // position by the center of grid margin
-        top: calc($spv--large + map-get($nudges, x-small));
+        top: calc($spv--large + map-get($settings-text-x-small, nudge));
         transform: rotate(0deg);
       }
     }
