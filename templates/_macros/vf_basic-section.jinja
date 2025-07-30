@@ -132,18 +132,9 @@
 {% endmacro %}
 
 # linked_logo_block_config
-#   - title_text (string) (required): The text to be displayed as the heading
 #   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_attrs'
-# TODO I think this probably shouldn't allow title_text as linked logo section has an h2 title which would
-# create an h2 inside an h2.
-# otherwise we'd need to update the linked logo section to allow a heading level param.
 {% macro _basic_section_linked_logo_block(linked_logo_block_config={}) %}
-  {{-
-    vf_linked_logo_section(
-      title_text=linked_logo_block_config["title_text"],
-      links=linked_logo_block_config["links"]
-    )
-  -}}
+  {{- vf_linked_logo_section(links=linked_logo_block_config["links"], has_top_rule=False) -}}
 {% endmacro %}
 
 # text: The text for the call-to-action button.
@@ -249,6 +240,7 @@
 # Params
 # title_html: The title for the section.
 # subtitle_text: The subtitle text for the section.
+# subtitle_heading_level: The heading level for the subtitle (default is 4).
 # label_text: Muted heading above the title.
 # items: A list of items to be displayed in the section.
 # padding: Type of padding to apply to the pattern - "deep", "shallow" or "" (default is "").
@@ -263,8 +255,9 @@
 # - check with designers on whether the embedded linked logo section should allow a title (conflicting h2 with the section title)
 {% macro vf_basic_section(
   title={},
-  subtitle_text="",
   label_text="",
+  subtitle_text="",
+  subtitle_heading_level=4,
   items=[],
   padding="",
   split_on_medium=false
@@ -275,11 +268,17 @@
     {% set padding = "" %}
   {% endif %}
 
-{%- set description_content = caller('description') -%}
+  {% set label_text=label_text|trim %}
+
+  {%- set description_content = caller('description') -%}
 
 <section class="p-section{% if padding | length > 0 %}--{{ padding }}{% endif %}">
   <div class="grid-row--50-50{% if not split_on_medium %}-on-large{% endif %}">
     <div class="grid-col">
+      {#- TODO is this the right markup for the muted heading in this case - h4? Does it clash with H2 title? -#}
+      {% if label_text | length > 0 %}
+        <h4 class="p-muted-heading">{{- label_text -}}</h4>
+      {% endif %}
       <h2>
         {% if "link_attrs" in title and "href" in title["link_attrs"] %}
           <a
@@ -293,7 +292,7 @@
       </h2>
     </div>
     <div class="grid-col">
-      <p>{{- subtitle_text -}}</p>
+      <p class="p-heading--{{ subtitle_heading_level }}">{{- subtitle_text -}}</p>
       {%- for item in items -%}
         {{- _basic_section_item(item) -}}
       {%- endfor -%}
