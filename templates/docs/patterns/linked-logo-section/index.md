@@ -116,6 +116,24 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
           <td>
             Whether to include the top <a href="/docs/patterns/rule">rule</a> above the section. This is a horizontal line that separates the section from the content above it.
           </td>
+        </tr>
+        <tr>
+          <td>
+            <code>padding</code>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            "default" or "none"
+          </td>
+          <td>
+            False
+          </td>
+          <td>
+            Type of padding to apply to the section. If set to "none", no padding will be applied to the section. If set to "default", the section will have the default <code>p-section</code> padding applied.
+          </td>
+        </tr>
         <tr>
           <td>
             <code>links</code>
