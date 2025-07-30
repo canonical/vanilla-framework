@@ -107,6 +107,9 @@ app.jinja_loader = loader
 After making the macros available to your webserver/templating engine, see the
 individual component/pattern docs for import and usage instructions.
 
+Some macros use [Jinja namespaces](https://jinja.palletsprojects.com/en/stable/templates/#jinja-globals.namespace) to allow for
+more powerful state management. Jinja namespaces were introduced in Jinja v2.10 - please ensure you are using a compatible version of Jinja.
+
 ## Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile JavaScript modules, and can be used to inject Vanilla styles to the DOM. To get set up using Vanilla with Webpack, add the `webpack` and `vanilla-framework` packages to your project dependencies:
