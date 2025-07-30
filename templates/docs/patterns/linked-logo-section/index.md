@@ -14,7 +14,7 @@ The linked logo section pattern is composed of the following elements:
 
 | Element                           | Description                                                                               |
 | --------------------------------- | ----------------------------------------------------------------------------------------- |
-| title_text (**required**)         | `H2` title text.                                                                          |
+| title_text                        | `H2` title text.                                                                          |
 | Layout                            | Defaults to `full-width`, with additional options for `50-50`, and `25-75` layout splits. |
 | Links (**required**)              | An `Array<Object>` of individual image link properties.                                   |
 | Links[].href (**required**)       | The target link for the logo.                                                             |
@@ -68,7 +68,7 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             <code>title_text</code>
           </td>
           <td>
-            Yes
+            No
           </td>
           <td>
             String
@@ -100,6 +100,22 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             The intended grid layout for the section.
           </td>
         </tr>
+        <tr>
+          <td>
+            <code>has_top_rule</code>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Boolean
+          </td>
+          <td>
+            True
+          </td>
+          <td>
+            Whether to include the top <a href="/docs/patterns/rule">rule</a> above the section. This is a horizontal line that separates the section from the content above it.
+          </td>
         <tr>
           <td>
             <code>links</code>
