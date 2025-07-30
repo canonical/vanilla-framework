@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% call(slot) vf_basic_section(
+{{ vf_basic_section(
   label_text="The quick brown fox jumps over the lazy dog",
   title={
     "text": "The quick brown fox jumps over the lazy dog"
@@ -24,6 +24,8 @@
       "type": "image",
       "item": {
         "aspect_ratio": "16-9",
+        "alt": "Lock and key",
+        "caption_html": "Secure your deployments with Ubuntu",
         "attrs": {
           "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
         }
@@ -226,8 +228,6 @@
       }
     }
   ]
-) -%}
-
-{% endcall -%}
+) }}
 
 {% endblock %}
