@@ -277,6 +277,37 @@
   split_on_medium=false
 ) -%}
 
+  {#- Input validation for invalid combinations of optional blocks -#}
+  {% set ns = namespace(
+    has_logo_block=false,
+    has_linked_logo_block=false,
+    has_cta_block=false
+  ) %}
+
+  {% for item in items %}
+    {% if item.type == 'logo-block' %}{% set ns.has_logo_block = true %}{% endif %}
+    {% if item.type == 'linked-logo-block' %}{% set ns.has_linked_logo_block = true %}{% endif %}
+    {% if item.type == 'cta-block' %}{% set ns.has_cta_block = true %}{% endif %}
+  {% endfor %}
+
+  {#- Logo block and Linked Logo Section are mutually exclusive -#}
+  {% set is_invalid_logo_combo = ns.has_logo_block and ns.has_linked_logo_block %}
+
+  {#- CTA block cannot be combined with Logo or Linked Logo Section -#}
+  {% set is_invalid_cta_combo = ns.has_cta_block and (ns.has_logo_block or ns.has_linked_logo_block) %}
+
+  {#- If there are no items, the section is invalid -#}
+  {% set is_invalid_empty_section = items | length == 0 %}
+
+  {#- "Standalone" - only one item block was passed -#}
+  {%- if items | length == 1 -%}
+    {#- Linked logo section cannot be standalone -#}
+    {% set is_invalid_linked_logo_combo = ns.has_linked_logo_block %}
+
+    {#- CTA block cannot be standalone -#}
+    {% set is_invalid_cta_combo = ns.has_cta_block %}
+  {%- endif -%}
+
   {% set padding = padding | trim %}
   {% if padding not in ["deep", "shallow"] %}
     {% set padding = "" %}
