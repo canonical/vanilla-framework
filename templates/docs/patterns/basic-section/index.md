@@ -8,12 +8,187 @@ context:
 
 {{- pattern_wip_notice() }}
 
-A basic section is used to....
+A basic section is used to create structured content sections with a title, subtitle, and various content blocks. It
+provides a flexible layout system that can accommodate different types of content including text, images, videos, lists,
+code blocks, logos, and call-to-action elements.
 
 The basic section pattern is composed of the following elements:
 
-| Element | Description |
-| ------- | ----------- |
+| Element              | Description                                                                             |
+|----------------------|-----------------------------------------------------------------------------------------|
+| Label                | Optional muted heading above the title                                                  |
+| Title (**required**) | Main heading text (h2)                                                                  |
+| Subtitle             | Subtitle text with configurable heading level                                           |
+| Items                | Array of content blocks (descriptions, images, videos, lists, code blocks, logos, CTAs) |
+
+The default basic section uses a 50/50 grid layout that splits on large screens and stacks on smaller screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/mixed-content" class="js-example" data-lang="jinja">
+View example of the basic section pattern with mixed content
+</a></div>
+
+## Blocks
+
+The basic section pattern uses a flexible block model where you can pass an array of items representing different
+content types.
+Each item can be one of several types, allowing for a rich variety of content within the section.
+
+The Jinja macro's `items` parameter accepts an array of block objects, each with a `type` that maps to one of the block
+types, and a `item` object that contains the specific content and attributes for that block.
+
+The following block types are supported:
+
+### Description
+
+Description blocks can be used to display elaborative text content.
+
+By default, the description contents are rendered within a `<p>` tag, but you can also `type:"html"` to render raw HTML
+content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/description-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with different description variants
+</a></div>
+
+### Media
+
+Image and video blocks allow you to embed rich media content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/media-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with different media variants
+</a></div>
+
+#### Images
+
+Images are automatically wrapped in the <a href="/docs/patterns/images#highlighted-image">highlighted image
+container</a> and can have configurable <a href="/docs/patterns/images#image-container-with-aspect-ratio">aspect
+ratios</a> and a [caption](/docs/patterns/images#image-with-caption).
+
+#### Videos
+
+Videos are automatically embedded in an iframe using the <a href="/docs/utilities/embedded-media">embedded media
+utility</a>.
+
+### List
+
+Lists use the <a href="/docs/patterns/lists">list pattern</a> to display various types of lists.
+
+- **Bullet lists**: Standard bullet points
+- **Numbered lists**: Ordered lists
+- **Status lists**: Lists with tick or cross icons
+- **Default lists**: Simple unordered lists (no icon or numbering)
+- **Nested lists**: Hierarchical list structures
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/list-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with different media variants
+</a></div>
+
+### Code
+
+The <a href="/docs/base/code">code pattern</a> allow you to display pre-formatted code snippets.
+Contents are wrapped in a `<pre>` tag and automatically dedented to remove leading whitespace.
+
+Contents may also be wrapped in a `<code>` tag to indicate a code block
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/code-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with different code variants
+</a></div>
+
+### Logo
+
+Logos may be displayed with the <a href="/docs/patterns/logo-section">logo section pattern</a> (in the case of a simple
+list of logos),
+or the <a href="/docs/patterns/linked-logo-section">linked logo section pattern</a> (in the case of clickable logos).
+
+We recommend against using both the logo block and linked logo block in the same section, as it can lead to confusion.
+
+### Logo section
+
+The logo section is suitable for displaying logos in a flow layout.
+If you would like to include links to learn more about logo items, use the [linked logo block](#linked-logo-block)
+instead of this logo block.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/logo-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with different logo variants
+</a></div>
+
+### Linked logo block
+
+The linked logo block uses the [linked logo section pattern](/docs/patterns/linked-logo-section) to display clickable
+logos.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/linked-logo-block" class="js-example" data-lang="jinja">
+View example of the basic section pattern with the linked logo section block
+</a></div>
+
+Linked logo sections within the basic section always have no title and no top horizontal rule, in order to incorporate
+them into the basic section layout.
+
+### CTA
+
+The CTA block allows you to include call-to-action elements within the section.
+
+It supports three types of CTA items:
+
+- **Primary**: 1 main call-to-action button
+- **Secondary**: Supporting action buttons
+- **Link**: Text link
+
+We recommend against using the CTA item as a standalone item in the section.
+Instead, you should use the [CTA Section](/docs/patterns/cta-section) pattern.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/cta-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with cta variants
+</a></div>
+
+## With Label
+
+Basic sections can include a muted heading label above the main title.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/with-label" class="js-example" data-lang="jinja">
+View example of the basic section pattern with label
+</a></div>
+
+## Linked Title
+
+The title can be made clickable by providing link attributes.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/linked-title" class="js-example" data-lang="jinja">
+View example of the basic section pattern with linked title
+</a></div>
+
+## Split Layout
+
+Use `is_split_on_medium=true` to create a 50/50 grid layout that splits on medium screens and above.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/split-layout" class="js-example" data-lang="jinja">
+View example of the basic section pattern with split layout
+</a></div>
+
+## Padding Variants
+
+Basic sections support customizable padding options at both the pattern and item level, using
+the [section pattern](/docs/patterns/section).
+
+### Pattern level
+
+By default, the pattern has `p-section` padding. It can also use `deep` or `shallow` padding to support different
+spacing needs.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/padding-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern with different padding options
+</a></div>
+
+### Block level
+
+Each item within the section can also have its own padding applied using the `padding` property.
+By default, items have no additional padding, but you can set `padding: "shallow"` to increase spacing around the item.
+
+The last block will always have no additional padding, regardless of the item padding setting.
+This way, the [pattern padding](#pattern-level) is the only padding at the bottom of the pattern.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/item-padding" class="js-example" data-lang="jinja">
+View example of the basic section pattern with item padding options
+</a></div>
 
 ## Jinja Macro
 
@@ -34,6 +209,267 @@ below.
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>
+          <code>title</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>Object</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Title configuration object with <code>text</code> and optional <code>link_attrs</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>title.text</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          The main title text (rendered as h2)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>title.link_attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>Object</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a>, as a dictionary.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>label_text</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>""</code>
+        </td>
+        <td>
+          Muted heading text displayed above the title
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>subtitle_text</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>""</code>
+        </td>
+        <td>
+          Subtitle text displayed below the title
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>subtitle_heading_level</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>number</code>
+        </td>
+        <td>
+          <code>4</code>
+        </td>
+        <td>
+          Heading level for the subtitle (4-5)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>items</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>Array&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>[]</code>
+        </td>
+        <td>
+          Array of content blocks to display in the section
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>padding</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'deep'</code>,<br>
+          <code>'shallow'</code>,<br>
+          <code>'default'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Padding variant for the entire section
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_split_on_medium</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>false</code>
+        </td>
+        <td>
+          Whether to split the layout on medium screens and above
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Item Types
+
+<div style="overflow: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 220px;">Type</th>
+        <th style="width: 160px;">Required Fields</th>
+        <th style="width: 250px;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>description</code>
+        </td>
+        <td>
+          <code>item.type</code><br>
+          <code>item.content</code>
+        </td>
+        <td>
+          Text or HTML content. Use <code>type: "text"</code> for plain text or <code>type: "html"</code> for HTML content.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>image</code>
+        </td>
+        <td>
+          <code>item.attrs</code>
+        </td>
+        <td>
+          Image with optional <code>aspect_ratio</code> ("16-9", "3-2") and <code>caption_html</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>video</code>
+        </td>
+        <td>
+          <code>item.attrs</code>
+        </td>
+        <td>
+          Embedded video iframe with attributes like <code>src</code>, <code>allowfullscreen</code>, etc.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>list</code>
+        </td>
+        <td>
+          <code>item.list_items</code>
+        </td>
+        <td>
+          List with items containing <code>list_item_type</code> ("bullet", "tick", "cross", "number"), <code>content</code>, and optional <code>sublist</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>code-block</code>
+        </td>
+        <td>
+          <code>item.content</code>
+        </td>
+        <td>
+          Pre-formatted code block with automatic dedentation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>logo-block</code>
+        </td>
+        <td>
+          <code>item.logos</code>
+        </td>
+        <td>
+          Static logo display with optional <code>is_fixed_width</code> and <code>has_line_break_after</code> per logo.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>linked-logo-block</code>
+        </td>
+        <td>
+          <code>item.links</code>
+        </td>
+        <td>
+          Clickable logos with <code>href</code>, <code>text</code>, <code>label</code>, and <code>image_attrs</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>cta-block</code>
+        </td>
+        <td>
+          <code>item.primary</code> or <code>item.secondaries</code> or <code>item.link</code>
+        </td>
+        <td>
+          Call-to-action buttons and links with <code>text</code> and <code>attrs</code>.
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -113,8 +113,18 @@
 
 # code_block_config
 # - content: The HTML content to be displayed in the code block. Will be wrapped in a <pre> tag.
+# - is_code_snippet: Boolean to indicate if the content is a code snippet (default is false). If true, the content will be wrapped in a <code> tag, within the <pre> tag.
 {% macro _basic_section_code_block(code_block_config={}) %}
-  <pre>{{- vf_dedent(code_block_config["content"]) | safe -}}</pre>
+  {% set is_code_snippet = code_block_config.get("is_code_snippet", False) %}
+  <pre>
+    {%- if is_code_snippet -%}
+    <code>
+    {%- endif -%}
+    {{- vf_dedent(code_block_config["content"]) | safe -}}
+    {%- if is_code_snippet -%}
+    </code>
+    {%- endif -%}
+  </pre>
 {% endmacro %}
 
 {#- TODO does this need to handle the specific column count case? -#}
@@ -222,35 +232,28 @@
 {% endmacro %}
 
 # item_config
-# - padding: "shallow" or "" (default is "")
 # - type: "description" | "image" | "video" | "list" | "code-block" | "logo-block" | "liked-logo-block" | "cta-block"
 # - item: The configuration for the item, which varies based on the type.
 {% macro _basic_section_item(item_config={}) %}
-  {%- set padding = (item_config["padding"] or "") | trim -%}
-  {%- if padding not in ["shallow"] -%}
-    {%- set padding="" -%}
-  {%- endif -%}
-  {%- set type = (item_config["type"] or "") | trim -%}
+  {%- set type = (item_config.get("type", "")) | trim -%}
 
-  <div{% if padding | length %} class="p-section--{{ padding }}"{% endif %}>
-    {%- if type == "description" -%}
-      {{- _basic_section_description(item_config["item"]) -}}
-    {%- elif type == "image" -%}
-      {{- _basic_section_image(item_config["item"]) -}}
-    {%- elif type == "video" -%}
-      {{- _basic_section_video(item_config["item"]) -}}
-    {%- elif type == "list"  -%}
-      {{- _basic_section_list(item_config["item"]) -}}
-    {%- elif type == "code-block" -%}
-      {{- _basic_section_code_block(item_config["item"]) -}}
-    {%- elif type =="logo-block" -%}
-      {{- _basic_section_logo_block(item_config["item"]) -}}
-    {%- elif type == "linked-logo-block" -%}
-      {{- _basic_section_linked_logo_block(item_config["item"]) -}}
-    {%- elif type == "cta-block" -%}
-      {{- _basic_section_cta_block(item_config["item"]) -}}
-    {%- endif -%}
-  </div>
+  {%- if type == "description" -%}
+    {{- _basic_section_description(item_config["item"]) -}}
+  {%- elif type == "image" -%}
+    {{- _basic_section_image(item_config["item"]) -}}
+  {%- elif type == "video" -%}
+    {{- _basic_section_video(item_config["item"]) -}}
+  {%- elif type == "list"  -%}
+    {{- _basic_section_list(item_config["item"]) -}}
+  {%- elif type == "code-block" -%}
+    {{- _basic_section_code_block(item_config["item"]) -}}
+  {%- elif type =="logo-block" -%}
+    {{- _basic_section_logo_block(item_config["item"]) -}}
+  {%- elif type == "linked-logo-block" -%}
+    {{- _basic_section_linked_logo_block(item_config["item"]) -}}
+  {%- elif type == "cta-block" -%}
+    {{- _basic_section_cta_block(item_config["item"]) -}}
+  {%- endif -%}
 {% endmacro %}
 
 # Params
@@ -259,31 +262,36 @@
 # subtitle_heading_level: The heading level for the subtitle (default is 4).
 # label_text: Muted heading above the title.
 # items: A list of items to be displayed in the section.
-# padding: Type of padding to apply to the pattern - "deep", "shallow" or "" (default is "").
-# split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
+# padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
+# is_split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
 # TODO
 # - examples for various combinations
 # - document to note that jinja2 2.10 or later is required for namespace() to work
 # - trim whitespace / whitespace control
+# - can we remove the section padding from the linked logo section
 {% macro vf_basic_section(
   title={},
   label_text="",
   subtitle_text="",
   subtitle_heading_level=4,
   items=[],
-  padding="",
-  split_on_medium=false
+  padding="default",
+  is_split_on_medium=false
 ) -%}
 
   {% set padding = padding | trim %}
-  {% if padding not in ["deep", "shallow"] %}
-    {% set padding = "" %}
+  {% if padding not in ["deep", "shallow", "default"] %}
+    {% set padding = "default" %}
+  {% endif %}
+  {% set padding_classes = "p-section--" + padding %}
+  {% if padding == "default" %}
+  {% set padding_classes = "p-section" %}
   {% endif %}
 
   {% set label_text=label_text|trim %}
 
-<section class="p-section{% if padding | length > 0 %}--{{ padding }}{% endif %}">
-  <div class="grid-row--50-50{% if not split_on_medium %}-on-large{% endif %}">
+<section class="{{ padding_classes }}">
+  <div class="grid-row--50-50{% if not is_split_on_medium %}-on-large{% endif %}">
     <div class="grid-col">
       {#- TODO is this the right markup for the muted heading in this case - h4? Does it clash with H2 title? -#}
       {% if label_text | length > 0 %}
@@ -304,7 +312,23 @@
     <div class="grid-col">
       <p class="p-heading--{{ subtitle_heading_level }}">{{- subtitle_text -}}</p>
       {%- for item in items -%}
+        {%- set item_padding = (item.get("padding", "")) | trim -%}
+        {%- if item_padding not in ["shallow"] -%}
+          {%- set item_padding="" -%}
+        {%- endif -%}
+
+        {% set item_classes = "" %}
+        {% if item_padding | length > 0 %}
+          {% set item_classes = "p-section--" + item_padding %}
+        {% endif %}
+
+        {#- Last item should not have any additional padding - the pattern itself already has bottom padding -#}
+        {% if loop.last %}
+         {% set item_classes = "" %}
+        {% endif %}
+        <div{% if item_classes | length > 0 %} class="{{ item_classes }}"{% endif %}>
         {{- _basic_section_item(item) -}}
+        </div>
       {%- endfor -%}
     </div>
   </div>
