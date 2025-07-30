@@ -162,10 +162,10 @@
   {{- vf_linked_logo_section(links=linked_logo_block_config["links"], has_top_rule=False) -}}
 {% endmacro %}
 
-# text: The text for the call-to-action button.
+# content_html: The inner HTML for the call-to-action button.
 # button_type: "primary" | "secondary" (default is "primary")
 # attrs: A dictionary of attributes to apply to the button or link.
-{% macro _cta_button(text, button_type="", attrs={}) %}
+{% macro _cta_button(content_html, button_type="", attrs={}) %}
   {% set cta_element_tag = "button" %}
   {% if "href" in attrs and attrs["href"] | length > 0 %}
     {% set cta_element_tag = "a" %}
@@ -190,42 +190,42 @@
       {% endif %}
     {% endfor %}
   >
-    {{- text -}}
+    {{- content_html | safe -}}
   </{{ cta_element_tag }}>
 {% endmacro %}
 
 # cta_block_config
 # - primary
-#  - text: The text for the primary call-to-action button.
+#  - content_html: The inner HTML for the primary call-to-action button.
 #  - attrs: A dictionary of attributes to apply to the primary button.
 # - secondaries (generally, we recommend using 2):
-#  - text: The text for the secondary call-to-action button.
+#  - content_html: The inner HTML for the secondary call-to-action button.
 #  - attrs: A dictionary of attributes to apply to the secondary button.
 # - link
-#  - text: The text for the link.
+#  - content_html: The inner HTML for the link.
 #  - attrs: A dictionary of attributes to apply to the link.
 {% macro _basic_section_cta_block(cta_block_config={}) %}
   <div class="p-cta-block">
     {% if "primary" in cta_block_config %}
       {{ _cta_button(
-        text=cta_block_config["primary"]["text"],
-        attrs=cta_block_config["primary"]["attrs"],
+        content_html=cta_block_config["primary"]["content_html"],
+        attrs=cta_block_config["primary"]["attrs"] or {},
         button_type="primary"
       ) }}
     {% endif %}
     {% if "secondaries" in cta_block_config %}
       {% for secondary in cta_block_config["secondaries"] %}
         {{ _cta_button(
-          text=secondary["text"],
-          attrs=secondary["attrs"],
+          content_html=secondary["content_html"],
+          attrs=secondary["attrs"] or {},
           button_type="secondary"
         ) }}
       {% endfor %}
     {% endif %}
     {% if "link" in cta_block_config %}
       {{ _cta_button(
-        text=cta_block_config["link"]["text"],
-        attrs=cta_block_config["link"]["attrs"]
+        content_html=cta_block_config["link"]["content_html"],
+        attrs=cta_block_config["link"]["attrs"] or {}
       ) }}
     {% endif %}
   </div>
