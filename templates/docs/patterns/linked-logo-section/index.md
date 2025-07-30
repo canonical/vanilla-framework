@@ -184,12 +184,37 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             <code>aria-label</code> for the logo link. This attribute is added to the wrapping `a` tag under the hood and it is this label that screenreaders will read. Additional alt text added to the image element will be ignored by assistive techology and as such can be set to null.   
           </td>
         </tr>
-        <tr>
+         <tr>
+          <td>
+            <code>links[].image_attrs</code>
+          </td>
+          <td>
+            Yes (either <code>image_attrs</code> or <code>image_html</code>)
+          </td>
+          <td>
+            <code>Partial&lt;HTMLImageElement&gt;</code>
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            <p>
+            Props (as a dictionary) of a logo image element. The <code>p-image-container__image</code> class will be added automatically by the pattern.
+            </p>
+            <p>
+            You can construct these props manually, or use the <a href="https://github.com/canonical/canonicalwebteam.image-template?tab=readme-ov-file#attribute-output">canonicalwebteam.image-template module with <code>output_mode="attrs"</code></a>.
+            </p>
+            <p>
+              If this argument is used, the <code>image_html</code> argument will be ignored.
+            </p>
+          </td>
+        </tr>
+          <tr>
           <td>
             <code>links[].image_html</code>
           </td>
           <td>
-            Yes
+            Yes (either <code>image_attrs</code> or <code>image_html</code>)
           </td>
           <td>
             HTMLImageElement
@@ -198,7 +223,15 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             N/A
           </td>
           <td>
-            Logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. Regardless of how this is initialized, it will need to include the <code>p-image-container__image</code> CSS class to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood. 
+            <p>
+                Raw HTML of a logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. 
+            </p>
+            <p>
+                Must include the <code>p-image-container__image</code> CSS class to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood.
+            </p>
+            <p>
+                If you use <code>image_attrs</code> instead of <code>image_html</code>, the <code>p-image-container__image</code> class will be added automatically by the pattern.
+            </p>
           </td>
         </tr>
       </tbody>
