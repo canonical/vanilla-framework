@@ -5,13 +5,27 @@
   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_html'
   - - if present, `image_attrs` will be used over `image_html` as it provides a more flexible way to pass image attributes.
   - has_top_rule (boolean) (optional): Whether to include a top rule in the section. Default is true.
+  - padding (string) (optional): Padding style for the section. Default is 'default' for `p-section`. May also be `none` to remove padding.
 #}
 
-{% macro vf_linked_logo_section(title_text="", links=[], layout="full-width", has_top_rule=True) -%}
+{% macro vf_linked_logo_section(title_text="", links=[], layout="full-width", has_top_rule=True, padding="default") -%}
   {% set layout = layout | trim | replace('/', '-') %}
+
+  {% set has_title = title_text | trim | length > 0 %}
 
   {% if layout not in ['50-50', '25-75', 'full-width'] %}
     {% set layout = 'full-width' %}
+  {% endif %}
+
+  {% set padding = padding | trim %}
+
+  {% if padding not in ["default", "none"] %}
+    {% set padding = "default" %}
+  {% endif %}
+
+  {% set section_classes = "p-section" %}
+  {% if padding == "none" %}
+  {% set section_classes = "p-section u-no-padding--bottom" %}
   {% endif %}
 
   {% set max_logos_map = {
@@ -52,17 +66,19 @@
     {%- endif -%}
   {% endmacro %}
 
-  <section class="p-section">
+  <section class="{{ section_classes }}">
     {%- if has_top_rule -%}
       <hr class="p-rule is-fixed-width"/>
     {%- endif -%}
     {%- if layout == "50-50" -%}
       <div class="p-section--shallow">
         <div class="grid-row">
+          {% if has_title %}
           <div class="grid-col-4">
             <h2>{{ title_text }}</h2>
           </div>
-          <div class="grid-col-4 grid-col-medium-4">
+          {% endif %}
+          <div class="grid-col-4 grid-col-start-large-5 grid-col-medium-4 grid-col-start-medium-5">
             {{ _list(links) }}
           </div>
         </div>
@@ -70,20 +86,24 @@
     {%- elif layout == "25-75" -%}
       <div class="p-section--shallow">
         <div class="grid-row">
+          {% if has_title %}
           <div class="grid-col-2">
             <h2>{{ title_text }}</h2>
           </div>
-          <div class="grid-col-6">
+          {% endif %}
+          <div class="grid-col-6 grid-col-start-large-3">
             {{ _list(links) }}
           </div>
         </div>
       </div>
     {%- else -%}
-      <div class="p-section--shallow">
-        <div class="grid-row">
-          <h2>{{- title_text -}}</h2>
+      {% if has_title %}
+        <div class="p-section--shallow">
+          <div class="grid-row">
+            <h2>{{- title_text -}}</h2>
+          </div>
         </div>
-      </div>
+      {% endif %}
       {{ _list(links) }}
     {%- endif -%}
   </section>
