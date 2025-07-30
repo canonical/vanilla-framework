@@ -1,0 +1,24 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / Subtitle Heading Levels{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={
+    "text": "Subtitle Heading Level: h4 (default)"
+  },
+  subtitle_text="This subtitle uses the default heading level 4 (h4)."
+) }}
+
+{{ vf_basic_section(
+  title={
+    "text": "Subtitle Heading Level: h5"
+  },
+  subtitle_text="This subtitle uses heading level 5 (h5).",
+  subtitle_heading_level=5
+) }}
+
+{% endblock %} 

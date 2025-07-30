@@ -1,0 +1,17 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / With Label{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  label_text="Section Label",
+  title={
+    "text": "Basic Section with Label"
+  },
+  subtitle_text="This example shows how to add a muted heading label above the main title."
+) }}
+
+{% endblock %} 

@@ -1,0 +1,99 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / Padding Variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+<h3>Default Padding</h3>
+{{ vf_basic_section(
+  title={
+    "text": "Default Padding Section"
+  },
+  subtitle_text="This section uses the default padding.",
+  items=[
+  {
+    "type": "list",
+    "item": {
+      "list_items": [
+        {
+          "list_item_type": "tick",
+          "content": "Enhanced security with AppArmor and live kernel patching"
+        },
+        {
+          "list_item_type": "tick",
+          "content": "Optimized performance for cloud and container workloads"
+        },
+        {
+          "list_item_type": "tick",
+          "content": "10-year long term support with regular security updates"
+        }
+      ]
+    }
+  }
+]
+) }}
+
+<h3>Deep Padding</h3>
+{{ vf_basic_section(
+  title={
+    "text": "Deep Padding Section"
+  },
+  subtitle_text="This section uses deep padding for more vertical spacing.",
+  padding="deep",
+  items=[
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "Enhanced security with AppArmor and live kernel patching"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "Optimized performance for cloud and container workloads"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "10-year long term support with regular security updates"
+          }
+        ]
+      }
+    }
+  ]
+) }}
+
+<h3>Shallow Padding</h3>
+{{ vf_basic_section(
+  title={
+    "text": "Shallow Padding Section"
+  },
+  subtitle_text="This section uses shallow padding for tighter spacing.",
+  padding="shallow",
+  items=[
+  {
+    "type": "list",
+    "item": {
+      "list_items": [
+        {
+          "list_item_type": "tick",
+          "content": "Enhanced security with AppArmor and live kernel patching"
+        },
+        {
+          "list_item_type": "tick",
+          "content": "Optimized performance for cloud and container workloads"
+        },
+        {
+          "list_item_type": "tick",
+          "content": "10-year long term support with regular security updates"
+        }
+      ]
+    }
+  }
+]
+
+) }}
+
+{% endblock %} 
