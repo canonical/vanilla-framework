@@ -1,0 +1,62 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / Item Padding{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={
+    "text": "Item Padding"
+  },
+  subtitle_text="This example shows how individual items can have different padding levels applied.",
+  items=[
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "text",
+        "content": "This description has shallow padding applied, increasing the vertical space between it and the next item."
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "bullet",
+            "content": "This list has no additional padding"
+          },
+          {
+            "list_item_type": "bullet",
+            "content": "So it has less padding than the description above"
+          }
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "padding": "shallow",
+      "item": {
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+          "alt": "Image with shallow padding"
+        }
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "text": "Primary Action",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

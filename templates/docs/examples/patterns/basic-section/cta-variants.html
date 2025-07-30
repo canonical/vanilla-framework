@@ -1,0 +1,109 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / CTA Variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={
+    "text": "CTA Variants"
+  },
+  subtitle_text="This example shows different call-to-action configurations.",
+  items=[
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "text": "Primary Button",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "text": "Primary Button",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "text": "Secondary Button 1",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          {
+            "text": "Secondary Button 2",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "secondaries": [
+          {
+            "text": "Secondary Button 1",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          {
+            "text": "Secondary Button 2",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "link": {
+          "text": "Learn more ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "text": "Primary Button",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "text": "Secondary Button",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ],
+        "link": {
+          "text": "Learn more ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 
