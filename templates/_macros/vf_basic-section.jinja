@@ -19,6 +19,7 @@
 
 # image_config
 # - aspect_ratio: "16-9" | "3-2" | "" (default is "")
+# - caption_html: The HTML content for the caption of the image (optional). Will be wrapped in <figcaption>, and the image and caption will be wrapped in a <figure>.
 # - attrs: A dictionary of attributes to apply to the image
 {% macro _basic_section_image(image_config={}) %}
   {% set aspect_ratio = image_config["aspect_ratio"] | trim %}
@@ -26,6 +27,13 @@
     {% set aspect_ratio = "" %}
   {% endif %}
 
+  {% set caption_html = image_config["caption_html"] | trim %}
+
+  {% set has_caption = caption_html | length > 0 %}
+
+  {% if has_caption %}
+  <figure>
+  {% endif %}
   <div class="p-image-container{% if aspect_ratio | length > 0 %}--{{- aspect_ratio -}}{% endif %} is-highlighted">
     <img class="p-image-container__image{{- image_config["attrs"]["class"] -}}"
       {% for attr, value in image_config["attrs"].items() %}
@@ -35,6 +43,12 @@
       {% endfor %}
     />
   </div>
+  {% if has_caption %}
+    <figcaption>
+      {{- caption_html | safe -}}
+    </figcaption>
+  </figure>
+  {% endif %}
 {% endmacro %}
 
 # video_config
@@ -111,6 +125,7 @@
 # - - include_line_break_after: Boolean to indicate if a line break should be included after the logo (default is false). This will be hidden on small screens.
 #       See https://vanillaframework.io/docs/patterns/logo-section#line-breaks
 {% macro _basic_section_logo_block(logo_block_config={}) %}
+  {% set is_fixed_width = logo_block_config["is_fixed_width"] != False %}
   {% if is_fixed_width %}<div class="u-fixed-width">{% endif %}
     <div class="p-logo-section">
       {%- for logo in logo_block_config["logos"] -%}
@@ -209,6 +224,7 @@
 # item_config
 # - padding: "shallow" or "" (default is "")
 # - type: "description" | "image" | "video" | "list" | "code-block" | "logo-block" | "liked-logo-block" | "cta-block"
+# - item: The configuration for the item, which varies based on the type.
 {% macro _basic_section_item(item_config={}) %}
   {%- set padding = (item_config["padding"] or "") | trim -%}
   {%- if padding not in ["shallow"] -%}
@@ -249,10 +265,8 @@
 # - Mutual validation (some items may not be allowed with others)
 # - "standalone" validation (some items cannot be the only item)
 # - examples for various combinations
-# - add docs to the linked logo section explaining that image_attrs can be used now
 # - document to note that jinja2 2.10 or later is required for namespace() to work
 # - trim whitespace / whitespace control
-# - check with designers on whether the embedded linked logo section should allow a title (conflicting h2 with the section title)
 {% macro vf_basic_section(
   title={},
   label_text="",
@@ -269,8 +283,6 @@
   {% endif %}
 
   {% set label_text=label_text|trim %}
-
-  {%- set description_content = caller('description') -%}
 
 <section class="p-section{% if padding | length > 0 %}--{{ padding }}{% endif %}">
   <div class="grid-row--50-50{% if not split_on_medium %}-on-large{% endif %}">
