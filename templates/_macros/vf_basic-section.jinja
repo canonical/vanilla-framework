@@ -264,6 +264,7 @@
 # items: A list of items to be displayed in the section.
 # padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
 # is_split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
+# top_rule: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
 # TODO
 # - trim whitespace / whitespace control
 {% macro vf_basic_section(
@@ -273,7 +274,8 @@
   subtitle_heading_level=4,
   items=[],
   padding="default",
-  is_split_on_medium=false
+  is_split_on_medium=false,
+  top_rule="default"
 ) -%}
 
   {% set padding = padding | trim %}
@@ -293,6 +295,7 @@
 
 <section class="{{ padding_classes }}">
   <div class="grid-row--50-50{% if not is_split_on_medium %}-on-large{% endif %}">
+    <hr class="p-rule{% if top_rule == "muted" %} is-muted{% endif %}"/>
     <div class="grid-col">
       {#- TODO is this the right markup for the muted heading in this case - h4? Does it clash with H2 title? -#}
       {% if has_label %}

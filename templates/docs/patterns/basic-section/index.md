@@ -53,6 +53,15 @@ Use `is_split_on_medium=true` to create a 50/50 grid layout that splits on mediu
 View example of the basic section pattern with split layout
 </a></div>
 
+### Top Rule variants
+
+By default, the basic section has a [default horizontal rule](/docs/patterns/rule#default) at the top.
+You can also use a [muted horizontal rule](/docs/patterns/rule#muted) to create a more subtle separation between sections.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/top-rule-variants" class="js-example" data-lang="jinja">
+View example of the basic section pattern's top rule variants
+</a></div>
+
 ### Padding Variants
 
 Basic sections support customizable padding options at both the pattern and item level, using
@@ -520,6 +529,25 @@ below.
         </td>
         <td>
           Whether to split the layout on medium screens and above
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>top_rule</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'default'</code>,<br>
+          <code>'muted'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Variant of <a href="/docs/patterns/rule">horizontal rule</a> to display at the top of the section."
         </td>
       </tr>
     </tbody>
