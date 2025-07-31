@@ -135,7 +135,7 @@
 # - - has_line_break_after: Boolean to indicate if a line break should be included after the logo (default is false). This will be hidden on small screens.
 #       See https://vanillaframework.io/docs/patterns/logo-section#line-breaks
 {% macro _basic_section_logo_block(logo_block_config={}) %}
-  {% set is_fixed_width = logo_block_config["is_fixed_width"] != False %}
+  {% set is_fixed_width = logo_block_config["is_fixed_width"] != false %}
   {% if is_fixed_width %}<div class="u-fixed-width">{% endif %}
     <div class="p-logo-section">
       {%- for logo in logo_block_config["logos"] -%}
@@ -147,10 +147,10 @@
               {% endif %}
             {% endfor %}
           />
-          {%- if logo.get("has_line_break_after", false) %}
-            <br class="u-hide--small">
-          {% endif %}
         </div>
+        {%- if logo.get("has_line_break_after", false) %}
+          <br class="u-hide--small">
+        {% endif %}
       {%- endfor -%}
     </div>
   {% if is_fixed_width %}</div>{% endif %}
