@@ -286,12 +286,16 @@
   {% endif %}
 
   {% set label_text=label_text|trim %}
+  {% set subtitle_text=subtitle_text|trim %}
+
+  {% set has_label = label_text|length > 0 %}
+  {% set has_subtitle = subtitle_text|length > 0 %}
 
 <section class="{{ padding_classes }}">
   <div class="grid-row--50-50{% if not is_split_on_medium %}-on-large{% endif %}">
     <div class="grid-col">
       {#- TODO is this the right markup for the muted heading in this case - h4? Does it clash with H2 title? -#}
-      {% if label_text | length > 0 %}
+      {% if has_label %}
         <h4 class="p-muted-heading">{{- label_text -}}</h4>
       {% endif %}
       <h2>
@@ -307,7 +311,9 @@
       </h2>
     </div>
     <div class="grid-col">
-      <p class="p-heading--{{ subtitle_heading_level }}">{{- subtitle_text -}}</p>
+      {%- if has_subtitle %}
+        <p class="p-heading--{{ subtitle_heading_level }}">{{- subtitle_text -}}</p>
+      {%- endif -%}
       {%- for item in items -%}
         {%- set item_padding = (item.get("padding", "")) | trim -%}
         {%- if item_padding not in ["shallow"] -%}
