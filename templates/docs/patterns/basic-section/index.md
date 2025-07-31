@@ -242,8 +242,8 @@ The logo section is suitable for displaying logos in a flow layout.
 If you would like to include links to learn more about logo items, use the [linked logo block](#linked-logo-block)
 instead of this logo block.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/logo-variants" class="js-example" data-lang="jinja">
-View example of the basic section pattern with different logo variants
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/logo-section" class="js-example" data-lang="jinja">
+View example of the basic section pattern with a logo section block
 </a></div>
 
 ```json
@@ -265,8 +265,8 @@ View example of the basic section pattern with different logo variants
 }
 ```
 
-- **`is_fixed_width`**: Whether to wrap logos in a fixed-width container (default: `true`).
-- **`has_line_break_after`**: Whether to include a line break after the logo (hidden on small screens).
+- **`is_fixed_width`**: Whether to wrap logos in a [fixed-width container](/docs/patterns/grid#fixed-width-containers) (default: `true`).
+- **`has_line_break_after`**: Whether to include a line break after the logo (hidden on small screens). Use this to force a logo to a new line, avoiding orphaned logos on the last line. See the [logo section documentation](/docs/patterns/logo-section#line-breaks) for more information.
 
 #### Linked logo block
 
