@@ -72,6 +72,8 @@ the [section pattern](/docs/patterns/section).
 By default, the pattern has `p-section` padding. It can also use `deep` or `shallow` padding to support different
 spacing needs.
 
+Please refer to the [section documentation](/docs/patterns/section) for more information on when to choose which padding option.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/basic-section/padding-variants" class="js-example" data-lang="jinja">
 View example of the basic section pattern with different padding options
 </a></div>
