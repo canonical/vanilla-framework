@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Basic Section | Patterns
+  title: Basic section | Patterns
 ---
 
 {% from "docs/macros/patterns/wip-notice.jinja" import pattern_wip_notice %}
