@@ -14,7 +14,7 @@ The linked logo section pattern is composed of the following elements:
 
 | Element                           | Description                                                                               |
 | --------------------------------- | ----------------------------------------------------------------------------------------- |
-| title_text (**required**)         | `H2` title text.                                                                          |
+| title_text                        | `H2` title text.                                                                          |
 | Layout                            | Defaults to `full-width`, with additional options for `50-50`, and `25-75` layout splits. |
 | Links (**required**)              | An `Array<Object>` of individual image link properties.                                   |
 | Links[].href (**required**)       | The target link for the logo.                                                             |
@@ -68,7 +68,7 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             <code>title_text</code>
           </td>
           <td>
-            Yes
+            No
           </td>
           <td>
             String
@@ -98,6 +98,40 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
           </td>
           <td>
             The intended grid layout for the section.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>has_top_rule</code>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Boolean
+          </td>
+          <td>
+            True
+          </td>
+          <td>
+            Whether to include the top <a href="/docs/patterns/rule">rule</a> above the section. This is a horizontal line that separates the section from the content above it.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>padding</code>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            "default" or "none"
+          </td>
+          <td>
+            False
+          </td>
+          <td>
+            Type of padding to apply to the section. If set to "none", no padding will be applied to the section. If set to "default", the section will have the default <code>p-section</code> padding applied.
           </td>
         </tr>
         <tr>
@@ -168,12 +202,37 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             <code>aria-label</code> for the logo link. This attribute is added to the wrapping `a` tag under the hood and it is this label that screenreaders will read. Additional alt text added to the image element will be ignored by assistive techology and as such can be set to null.   
           </td>
         </tr>
-        <tr>
+         <tr>
+          <td>
+            <code>links[].image_attrs</code>
+          </td>
+          <td>
+            Yes (either <code>image_attrs</code> or <code>image_html</code>)
+          </td>
+          <td>
+            <code>Partial&lt;HTMLImageElement&gt;</code>
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            <p>
+            Props (as a dictionary) of a logo image element. The <code>p-image-container__image</code> class will be added automatically by the pattern.
+            </p>
+            <p>
+            You can construct these props manually, or use the <a href="https://github.com/canonical/canonicalwebteam.image-template?tab=readme-ov-file#attribute-output">canonicalwebteam.image-template module with <code>output_mode="attrs"</code></a>.
+            </p>
+            <p>
+              If this argument is used, the <code>image_html</code> argument will be ignored.
+            </p>
+          </td>
+        </tr>
+          <tr>
           <td>
             <code>links[].image_html</code>
           </td>
           <td>
-            Yes
+            Yes (either <code>image_attrs</code> or <code>image_html</code>)
           </td>
           <td>
             HTMLImageElement
@@ -182,7 +241,15 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             N/A
           </td>
           <td>
-            Logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. Regardless of how this is initialized, it will need to include the <code>p-image-container__image</code> CSS class to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood. 
+            <p>
+                Raw HTML of a logo image element. This can be defined using raw HTML or using the <a href="https://github.com/canonical/canonicalwebteam.image-template/">Canonical image-template module</a>. 
+            </p>
+            <p>
+                Must include the <code>p-image-container__image</code> CSS class to comply with the <a href="/docs/patterns/images#highlighted-image">Highlighted image pattern</a> which wraps each link item under the hood.
+            </p>
+            <p>
+                If you use <code>image_attrs</code> instead of <code>image_html</code>, the <code>p-image-container__image</code> class will be added automatically by the pattern.
+            </p>
           </td>
         </tr>
       </tbody>
