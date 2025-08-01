@@ -65,14 +65,15 @@ View example of the basic section pattern's top rule variants
 ### Padding Variants
 
 Basic sections support customizable padding options at both the pattern and item level, using
-the [section pattern](/docs/patterns/section).
+the [section pattern](/docs/patterns/section). The Jinja macro for the pattern applies the section padding automatically.
 
 #### Pattern level
 
-By default, the pattern has `p-section` padding. It can also use `deep` or `shallow` padding to support different
-spacing needs.
+By default, the pattern is wrapped in a [regular section](/docs/patterns/section#regular-sections).
 
-Please refer to the [section documentation](/docs/patterns/section) for more information on when to choose which padding option.
+For different spacing needs, you may instead use a [deep section](/docs/patterns/section#deep-sections) or a [shallow section](/docs/patterns/section#shallow-sections) by changing the `padding` parameter.
+
+Please refer to the [section documentation](/docs/patterns/section) for more guidance on padding selection.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/basic-section/padding-variants" class="js-example" data-lang="jinja">
 View example of the basic section pattern with different padding options
