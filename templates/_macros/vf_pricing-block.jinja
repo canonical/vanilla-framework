@@ -76,16 +76,14 @@
     {%- endfor -%}
   {%- endmacro -%}
   <div class="p-section">
-    <div class="p-section--shallow">
-      <hr class="p-rule{% if is_rule_highlighted %}--highlight{% endif %} is-fixed-width" />
-      <div class="grid-row">
-        <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-          <h2>{{ title_text }}</h2>
-        </div>
-        <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-          {{ section_description }}
-          {% if tiers|length == 1 %}{{ _tiers() }}{% endif %}
-        </div>
+    <hr class="p-rule{% if is_rule_highlighted %}--highlight{% endif %} is-fixed-width" />
+    <div class="grid-row">
+      <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
+        <h2>{{ title_text }}</h2>
+      </div>
+      <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
+        {{ section_description }}
+        {% if tiers|length == 1 %}{{ _tiers() }}{% endif %}
       </div>
     </div>
     {% if tiers|length > 1 %}<div class="{{ base_class_name }}">{{ _tiers() }}</div>{% endif %}
