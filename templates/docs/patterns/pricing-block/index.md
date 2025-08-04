@@ -6,9 +6,12 @@ context:
 
 The Pricing block pattern is used to display individual cards representing different tiers of pricing and their associated offerings, positioned below a title and a description of the product. It uses the 4-4-8 grid pattern with subgrid, to retain alignment between rows. There are three variations of the block layout, depending on the number of cards displayed, ranging from two to four:
 
+- 1 block
 - 2 block, 50-50 split
 - 3 block, 25-75 split
 - 4 block, 25-25-25-25 split
+- Block with description and a highlighted rule
+- Block without description and a muted rule
 
 The Pricing block pattern is composed of the following elements:
 
@@ -17,7 +20,7 @@ The Pricing block pattern is composed of the following elements:
 | Title (**required**)                                     | <code>h2</code> title text                                                    |
 | Description                                              | <code>p</code> description text                                               |
 | Tiers (**required**)                                     | An `Array<Object>` of individual tiers representing different pricing options |
-| Tiers[].Name (**required**)                              | <code>h2</code> tier title                                                    |
+| Tiers[].Name (**optional**)                              | <code>h2</code> tier title                                                    |
 | Tiers[].Price (**required**)                             | The price of the tier                                                         |
 | Tiers[].Price explanation (**required**)                 | The timeframe/coverage for the pricing tier                                   |
 | Tier[].Description                                       | Descriptive text for the pricing tier                                         |
@@ -32,7 +35,7 @@ The Pricing block pattern is composed of the following elements:
 The cards are evenly spread across the available space, with any gaps in content not affecting the alignment of the grid.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/4-blocks" class="js-example" data-lang="jinja">
-View example of the tiered list pattern
+View example of 4 pricing blocks
 </a></div>
 
 ## 3-blocks
@@ -40,7 +43,7 @@ View example of the tiered list pattern
 With 3 tier blocks, a 25-75 split will be used on large screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/3-blocks" class="js-example" data-lang="jinja">
-View example of the tiered list pattern
+View example of 3 pricing blocks
 </a></div>
 
 ## 2-blocks
@@ -48,7 +51,31 @@ View example of the tiered list pattern
 With two tier blocks, they will take all the available space.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/2-blocks" class="js-example" data-lang="jinja">
-View example of the tiered list pattern
+View example of 2 pricing blocks
+</a></div>
+
+## 1-block
+
+A single pricing block will take all the available space.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/1-block" class="js-example" data-lang="jinja">
+View example of the single pricing block
+</a></div>
+
+## Block with description and a highlighted rule
+
+A pricing block with description and a highlighted rule
+
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-description-and-highlighted-rule" class="js-example" data-lang="jinja">
+View example of the pricing block with description and a highlighted rule
+</a></div>
+
+## Block without description and a muted rule
+
+A pricing block with a muted rule and no description
+
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-without-description-and-muted-rule" class="js-example" data-lang="jinja">
+View example of the pricing block with a muted rule and no description
 </a></div>
 
 ## Jinja Macro
@@ -88,6 +115,23 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
       </tr>
       <tr>
         <td>
+          <code>is_rule_highlighted</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>True</code>
+        </td>
+        <td>
+          Whether the rule should be highlighted or muted
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>tiers</code>
         </td>
         <td>
@@ -108,7 +152,7 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
           <code>tiers[].tier_name_text</code>
         </td>
         <td>
-          Yes
+          No
         </td>
         <td>
           <code>string</code>

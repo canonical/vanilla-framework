@@ -1,8 +1,9 @@
 {#
   Params
   - title_text (string) (required): The text to be displayed as the heading
+  - is_rule_highlighted (boolean) (optional): Whether to toggle a strong horizontal rule
   - tiers (Array<{
-      tier_name_text: String,
+      tier_name_text: String (optional),
       tier_price_text: String,
       tier_price_explanation: String,
       tier_description_html?: String,
@@ -17,6 +18,7 @@
   - description (optional): paragraph-style content below the title
 #}
 {%- macro vf_pricing_block(
+  is_rule_highlighted=True,
   title_text="",
   tiers=[]
   ) -%}
@@ -29,7 +31,6 @@
   {% else %}
     {% set base_class_name = "p-pricing-block" %}
   {% endif %}
-
   {%- macro _tier_offerings_list(tier) %}
     <p class="u-text--muted">What's included</p>
     <hr class="p-rule--muted u-no-margin--bottom" />
@@ -47,42 +48,46 @@
       {% endfor -%}
     </ul>
   {%- endmacro -%}
-
+  {%- macro _tiers() -%}
+    {%- for tier in tiers %}
+      <div class="p-pricing-block__tier">
+        <div class="p-pricing-block__section">
+          <div class="p-section--shallow">
+            <h3 class="p-heading--{% if tiers|length == 1 and (not 'tier_name_text' in tier) %}2{% else %}4{% endif %}">
+              {% if 'tier_name_text' in tier %}
+                {{ tier.get("tier_name_text") }}
+                <br />
+              {% endif %}
+              <strong>{{ tier.get("tier_price_text") }}</strong>
+              <span class="u-text--muted">{{ tier.get("tier_price_explanation") }}</span>
+            </h3>
+          </div>
+        </div>
+        {%- if has_tier_descriptions -%}
+          {% set description = tier.get("tier_description_html") if tier.get("tier_description_html") else '' %}
+          <div class="p-pricing-block__section"
+               {% if not description %}role="presentation"{% endif %}>{{ description }}</div>
+        {%- endif %}
+        <div class="p-pricing-block__section">{{ _tier_offerings_list(tier) }}</div>
+        {% if tier.cta_html %}
+          <div class="p-pricing-block__section">{{ tier.cta_html }}</div>
+        {% endif -%}
+      </div>
+    {%- endfor -%}
+  {%- endmacro -%}
   <div class="p-section">
     <div class="p-section--shallow">
-      <hr class="p-rule--highlight is-fixed-width" />
+      <hr class="p-rule{% if is_rule_highlighted %}--highlight{% endif %} is-fixed-width" />
       <div class="grid-row">
         <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
           <h2>{{ title_text }}</h2>
         </div>
-        {%- if section_description -%}
-          <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">{{ section_description }}</div>
-        {%- endif -%}
+        <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
+          {{ section_description }}
+          {% if tiers|length == 1 %}{{ _tiers() }}{% endif %}
+        </div>
       </div>
     </div>
-
-    <div class="{{ base_class_name }}">
-      {%- for tier in tiers %}
-        <div class="p-pricing-block__tier">
-          <div class="p-pricing-block__section">
-            <div class="p-section--shallow">
-              <h3 class="p-heading--4">
-                {{ tier.get("tier_name_text") }}
-                <br />
-                <strong>{{ tier.get("tier_price_text") }}</strong>
-                <span class="u-text--muted">{{ tier.get("tier_price_explanation") }}</span>
-              </h3>
-            </div>
-          </div>
-          {%- if has_tier_descriptions -%}
-            {% set description = tier.get("tier_description_html") if tier.get("tier_description_html") else '' %}
-            <div class="p-pricing-block__section"
-                 {% if not description %}role="presentation"{% endif %}>{{ description }}</div>
-          {%- endif %}
-          <div class="p-pricing-block__section">{{ _tier_offerings_list(tier) }}</div>
-          {% if tier.cta_html %}<div class="p-pricing-block__section">{{ tier.cta_html }}</div>{% endif -%}
-        </div>
-      {%- endfor -%}
-    </div>
+    {% if tiers|length > 1 %}<div class="{{ base_class_name }}">{{ _tiers() }}</div>{% endif %}
   </div>
 {% endmacro -%}
