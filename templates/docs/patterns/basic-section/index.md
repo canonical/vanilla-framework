@@ -59,7 +59,7 @@ View example of the basic section pattern with subtitle heading levels
 
 Use `is_split_on_medium=true` to create a 50/50 grid layout that splits on medium screens and above.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/split-layout" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/split-layout-responsive" class="js-example" data-lang="jinja">
 View example of the basic section pattern with split layout
 </a></div>
 
