@@ -150,7 +150,7 @@ ratios</a> and a [caption](/docs/patterns/images#image-with-caption).
 
 - **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, or empty string for default.
 - **`caption_html`**: Optional HTML caption. If provided, the image and caption are wrapped in a `<figure>` element.
-- **`attrs`**: Dictionary of image attributes (src, alt, class, etc.).
+- **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 #### Videos
 
@@ -169,7 +169,7 @@ utility</a>.
 }
 ```
 
-- **`attrs`**: Dictionary of iframe attributes. Videos are automatically wrapped in the `u-embedded-media` utility.
+- **`attrs`**: Dictionary of iframe attributes. Videos are automatically wrapped in the `u-embedded-media` utility. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 ### List
 
@@ -267,7 +267,9 @@ View example of the basic section pattern with a logo section block
 ```
 
 - **`is_fixed_width`**: Whether to wrap logos in a [fixed-width container](/docs/patterns/grid#fixed-width-containers) (default: `true`).
-- **`has_line_break_after`**: Whether to include a line break after the logo (hidden on small screens). Use this to force a logo to a new line, avoiding orphaned logos on the last line. See the [logo section documentation](/docs/patterns/logo-section#line-breaks) for more information.
+- **`logos`**: Array of logo objects. Each logo element has the following properties:
+  - **`attrs`**: Dictionary of image attributes for the logo. The `p-image-container__image` class is applied automatically. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
+  - **`has_line_break_after`**: Whether to include a line break after the logo (hidden on small screens). Use this to force a logo to a new line, avoiding orphaned logos on the last line. See the [logo section documentation](/docs/patterns/logo-section#line-breaks) for more information.
 
 #### Linked logo block
 
@@ -302,7 +304,11 @@ them into the basic section layout.
 }
 ```
 
-- **`links`**: Array of link objects, each containing href, text, label, and image_attrs.
+- **`links`**: Array of link objects. Each link element has the following properties:
+  - **`href`**: URL the logo links to.
+  - **`text`**: Text for the link (used as the link text).
+  - **`label`**: Aria label for the link (for accessibility).
+  - **`image_attrs`**: Dictionary of image attributes for the logo. `p-image-container__image` is applied automatically. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 ### CTA
 
@@ -357,7 +363,7 @@ View example of the basic section pattern with cta variants
 Each of the CTA configurations accepts the following properties:
 
 - **`content_html`**: The inner HTML of the CTA item.
-- **`attrs`**: Dictionary of button/link attributes. These are applied to the CTA element. If `href` is present, the CTA item will be an `<a>`, otherwise it will be a `<button>`.
+- **`attrs`**: Dictionary of button/link attributes. These are applied to the CTA element. If `href` is present, the CTA item will be an `<a>`, otherwise it will be a `<button>`. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 ## Jinja Macro
 
@@ -426,8 +432,7 @@ below.
           <code>N/A</code>
         </td>
         <td>
-          Attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a>, as a dictionary.
-        </td>
+          Attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a>, as a dictionary. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
       </tr>
       <tr>
         <td>
