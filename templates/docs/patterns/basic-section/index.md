@@ -342,7 +342,7 @@ View example of the basic section pattern with cta variants
   "type": "cta-block",
   "item": {
     "primary": {
-      "text": "Primary button text",
+      "content_html": "Primary button text",
       "attrs": {
         "href": "link-url",
         "class": "optional-css-class"
@@ -350,14 +350,14 @@ View example of the basic section pattern with cta variants
     },
     "secondaries": [
       {
-        "text": "Secondary button text",
+        "content_html": "Secondary button text",
         "attrs": {
           "href": "link-url"
         }
       }
     ],
     "link": {
-      "text": "Link text",
+      "content_html": "Link text",
       "attrs": {
         "href": "link-url"
       }
