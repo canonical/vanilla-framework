@@ -128,7 +128,7 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
             "default" or "none"
           </td>
           <td>
-            False
+            <code>"default"</code>
           </td>
           <td>
             Type of padding to apply to the section. If set to "none", no padding will be applied to the section. If set to "default", the section will have the default <code>p-section</code> padding applied.
