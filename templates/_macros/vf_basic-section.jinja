@@ -5,15 +5,15 @@
 # - type: "text" | "html" (default is "text")
 # - content: The content of the description. Could be plain text (if type is "text") or HTML (if type is "html").
 {% macro _basic_section_description(description_config={}) %}
-  {%- set type = (description_config["type"] or "text") | trim -%}
+  {%- set type = (description_config.get("type", "text")) | trim -%}
   {%- if type not in ["text", "html"] -%}
     {%- set type = "text" -%}
   {%- endif -%}
 
   {%- if type == "text" -%}
-    <p>{{- description_config["content"] -}}</p>
+    <p>{{- description_config.get("content", "") -}}</p>
   {%- elif type == "html" -%}
-    {{- description_config["content"] | safe -}}
+    {{- description_config.get("content", "") | safe -}}
   {%- endif -%}
 {% endmacro %}
 
@@ -22,21 +22,20 @@
 # - caption_html: The HTML content for the caption of the image (optional). Will be wrapped in <figcaption>, and the image and caption will be wrapped in a <figure>.
 # - attrs: A dictionary of attributes to apply to the image
 {% macro _basic_section_image(image_config={}) %}
-  {%- set aspect_ratio = image_config["aspect_ratio"] | trim -%}
+  {%- set aspect_ratio = image_config.get("aspect_ratio", "") | trim -%}
   {%- if aspect_ratio not in ["16-9", "3-2"] -%}
     {%- set aspect_ratio = "" -%}
   {%- endif -%}
 
-  {%- set caption_html = image_config["caption_html"] | trim -%}
-
+  {%- set caption_html = image_config.get("caption_html", "") | trim -%}
   {%- set has_caption = caption_html | length > 0 -%}
 
   {%- if has_caption -%}
   <figure>
   {%- endif -%}
   <div class="p-image-container{%- if aspect_ratio | length > 0 -%}--{{- aspect_ratio -}}{%- endif %} is-highlighted">
-    <img class="p-image-container__image {{ image_config["attrs"]["class"] -}}"
-      {%- for attr, value in image_config["attrs"].items() -%}
+    <img class="p-image-container__image {{ image_config.get("attrs", {}).get("class", "") -}}"
+      {%- for attr, value in image_config.get("attrs", {}).items() -%}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
         {%- endif -%}
@@ -55,8 +54,8 @@
 # - attrs: A dictionary of attributes to apply to the video iframe
 {% macro _basic_section_video(video_config={}) %}
   <div class="u-embedded-media">
-    <iframe class="u-embedded-media__element {{ video_config["attrs"]["class"] -}}"
-      {%- for attr, value in video_config["attrs"].items() -%}
+    <iframe class="u-embedded-media__element {{ video_config.get("attrs", {}).get("class", "") -}}"
+      {%- for attr, value in video_config.get("attrs", {}).items() -%}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
         {%- endif -%}
@@ -71,20 +70,20 @@
 # - - content: The HTML content of the list item.
 # - - sublist: A nested list configuration
 {% macro _basic_section_list(list_config={}) %}
-  {%- if list_config["list_items"] | length > 0 -%}
+  {%- if list_config.get("list_items", []) | length > 0 -%}
     {#- Note: namespace() requires jinja2 2.10 or later -#}
     {%- set ns = namespace(list_tag="ul") -%}
 
     {#- If any of the list items is numbered, the entire list is numbered -#}
-    {%- for list_item in list_config["list_items"] -%}
-      {%- if list_item["list_item_type"]|trim|lower == "number" -%}
+    {%- for list_item in list_config.get("list_items", []) -%}
+      {%- if list_item.get("list_item_type", "")|trim|lower == "number" -%}
         {%- set ns.list_tag = "ol" -%}
       {%- endif -%}
     {%- endfor -%}
 
     <{{ ns.list_tag }} class="p-list--divided">
-    {%- for list_item in list_config["list_items"] -%}
-      {%- set list_item_type=list_item["list_item_type"] | trim | lower -%}
+    {%- for list_item in list_config.get("list_items", []) -%}
+      {%- set list_item_type=list_item.get("list_item_type", "") | trim | lower -%}
       {#- If the list is ordered, ignore list item type. Prevents from drawing both a tick and a number, for example. -#}
       {%- if ns.list_tag == "ol" -%}
         {%- set list_item_type = 'number' -%}
@@ -92,6 +91,7 @@
         {%- set list_item_type = '' -%}
       {%- endif -%}
 
+      {%- set list_item_style_class = "" -%}
       {%- if list_item_type == "bullet" -%}
         {%- set list_item_style_class = "has-bullet" -%}
       {%- elif list_item_type == "tick" -%}
@@ -101,7 +101,7 @@
       {%- endif -%}
 
       <li class="p-list__item {{ list_item_style_class }}">
-        {{- list_item["content"] | safe -}}
+        {{- list_item.get("content", "") | safe -}}
         {%- if "sublist" in list_item -%}
           {{- _basic_section_list(list_config=list_item["sublist"]) -}}
         {%- endif -%}
@@ -120,14 +120,13 @@
     {%- if is_code_snippet -%}
     <code>
     {%- endif -%}
-    {{- vf_dedent(code_block_config["content"]) | safe -}}
+    {{- vf_dedent(code_block_config.get("content", "")) | safe -}}
     {%- if is_code_snippet -%}
     </code>
     {%- endif -%}
   </pre>
 {% endmacro %}
 
-{#- TODO does this need to handle the specific column count case? -#}
 # logo_block_config
 # - logos: A list of logos to be displayed in the section.
 # - - attrs: A dictionary of attributes to apply to the logo
@@ -135,13 +134,13 @@
 # - - has_line_break_after: Boolean to indicate if a line break should be included after the logo (default is false). This will be hidden on small screens.
 #       See https://vanillaframework.io/docs/patterns/logo-section#line-breaks
 {% macro _basic_section_logo_block(logo_block_config={}) %}
-  {%- set is_fixed_width = logo_block_config["is_fixed_width"] != false -%}
+  {%- set is_fixed_width = logo_block_config.get("is_fixed_width", true) != false -%}
   {%- if is_fixed_width -%}<div class="u-fixed-width">{%- endif -%}
     <div class="p-logo-section">
-      {%- for logo in logo_block_config["logos"] -%}
+      {%- for logo in logo_block_config.get("logos", []) -%}
         <div class="p-logo-section__item">
-          <img class="p-logo-section__logo {{ logo["attrs"]["class"] -}}"
-            {%- for attr, value in logo["attrs"].items() -%}
+          <img class="p-logo-section__logo {{ logo.get("attrs", {}).get("class", "") -}}"
+            {%- for attr, value in logo.get("attrs", {}).items() -%}
               {% if attr != "class" %}
                 {{ attr }}="{{ value }}"
               {%- endif -%}
@@ -159,7 +158,7 @@
 # linked_logo_block_config
 #   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_attrs'
 {% macro _basic_section_linked_logo_block(linked_logo_block_config={}) %}
-  {{- vf_linked_logo_section(links=linked_logo_block_config["links"], has_top_rule=False, padding="none") -}}
+  {{- vf_linked_logo_section(links=linked_logo_block_config.get("links", []), has_top_rule=False, padding="none") -}}
 {% endmacro %}
 
 # content_html: The inner HTML for the call-to-action button.
@@ -167,7 +166,7 @@
 # attrs: A dictionary of attributes to apply to the button or link.
 {% macro _cta_button(content_html, button_type="", attrs={}) %}
   {%- set cta_element_tag = "button" -%}
-  {%- if "href" in attrs and attrs["href"] | length > 0 -%}
+  {%- if "href" in attrs and attrs.get("href", "") | length > 0 -%}
     {%- set cta_element_tag = "a" -%}
   {%- endif -%}
 
@@ -182,8 +181,7 @@
     {%- set cta_class = "p-button" -%}
   {%- endif -%}
 
-
-  <{{ cta_element_tag }} class="{{ cta_class }} {{ attrs["class"] }}"
+  <{{ cta_element_tag }} class="{{ cta_class }} {{ attrs.get("class", "") }}"
     {%- for attr, value in attrs.items() -%}
       {% if attr != "class" %}
         {{ attr }}="{{ value }}"
@@ -208,24 +206,24 @@
   <div class="p-cta-block">
     {%- if "primary" in cta_block_config %}
       {{ _cta_button(
-        content_html=cta_block_config["primary"]["content_html"],
-        attrs=cta_block_config["primary"]["attrs"] or {},
+        content_html=cta_block_config["primary"].get("content_html", ""),
+        attrs=cta_block_config["primary"].get("attrs", {}),
         button_type="primary"
       ) }}
     {%- endif -%}
     {%- if "secondaries" in cta_block_config %}
       {%- for secondary in cta_block_config["secondaries"] -%}
         {{ _cta_button(
-          content_html=secondary["content_html"],
-          attrs=secondary["attrs"] or {},
+          content_html=secondary.get("content_html", ""),
+          attrs=secondary.get("attrs", {}),
           button_type="secondary"
         ) }}
       {%- endfor -%}
     {%- endif -%}
     {%- if "link" in cta_block_config %}
       {{ _cta_button(
-        content_html=cta_block_config["link"]["content_html"],
-        attrs=cta_block_config["link"]["attrs"] or {}
+        content_html=cta_block_config["link"].get("content_html", ""),
+        attrs=cta_block_config["link"].get("attrs", {})
       ) }}
     {%- endif -%}
   </div>
@@ -238,21 +236,21 @@
   {%- set type = (item_config.get("type", "")) | trim -%}
 
   {%- if type == "description" -%}
-    {{- _basic_section_description(item_config["item"]) -}}
+    {{- _basic_section_description(item_config.get("item", {})) -}}
   {%- elif type == "image" -%}
-    {{- _basic_section_image(item_config["item"]) -}}
+    {{- _basic_section_image(item_config.get("item", {})) -}}
   {%- elif type == "video" -%}
-    {{- _basic_section_video(item_config["item"]) -}}
+    {{- _basic_section_video(item_config.get("item", {})) -}}
   {%- elif type == "list"  -%}
-    {{- _basic_section_list(item_config["item"]) -}}
+    {{- _basic_section_list(item_config.get("item", {})) -}}
   {%- elif type == "code-block" -%}
-    {{- _basic_section_code_block(item_config["item"]) -}}
+    {{- _basic_section_code_block(item_config.get("item", {})) -}}
   {%- elif type =="logo-block" -%}
-    {{- _basic_section_logo_block(item_config["item"]) -}}
+    {{- _basic_section_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "linked-logo-block" -%}
-    {{- _basic_section_linked_logo_block(item_config["item"]) -}}
+    {{- _basic_section_linked_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "cta-block" -%}
-    {{- _basic_section_cta_block(item_config["item"]) -}}
+    {{- _basic_section_cta_block(item_config.get("item", {})) -}}
   {%- endif -%}
 {% endmacro %}
 
@@ -264,8 +262,6 @@
 # padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
 # is_split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
 # top_rule: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
-# TODO
-# - trim whitespace / whitespace control
 {% macro vf_basic_section(
   title={},
   label_text="",
@@ -288,26 +284,29 @@
   {%- set label_text=label_text|trim -%}
   {%- set subtitle_text = subtitle.get("text", "") | trim -%}
   {%- set subtitle_heading_level = subtitle.get("heading_level", 4) -%}
+  {%- if subtitle_heading_level not in [4, 5] -%}
+    {%- set subtitle_heading_level = 4 -%}
+  {%- endif -%}
 
   {%- set has_label = label_text|length > 0 -%}
   {%- set has_subtitle = subtitle_text|length > 0 -%}
 
 <section class="{{ padding_classes }}">
   <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}">
-    <hr class="p-rule{%- if top_rule == "muted" -%} is-muted{%- endif -%}"/>
+    <hr class="p-rule{%- if top_rule == "muted" %} is-muted{%- endif -%}"/>
     <div class="grid-col">
       {%- if has_label -%}
         <h3 class="p-muted-heading u-no-padding--top u-no-margin--bottom">{{- label_text -}}</h3>
       {%- endif -%}
       <h2>
-        {%- if "link_attrs" in title and "href" in title["link_attrs"] -%}
+        {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
           <a
-            {% for attr, value in title["link_attrs"].items() -%}
+            {% for attr, value in title.get("link_attrs", {}).items() -%}
               {{ attr }}="{{ value }}"
             {%- endfor -%}
-          >{{- title["text"] -}}</a>
+          >{{- title.get("text", "") -}}</a>
         {%- else -%}
-          {{- title["text"] -}}
+          {{- title.get("text", "") -}}
         {%- endif -%}
       </h2>
     </div>
