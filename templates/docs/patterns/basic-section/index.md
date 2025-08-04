@@ -45,6 +45,16 @@ The title can be made clickable by providing link attributes.
 View example of the basic section pattern with linked title
 </a></div>
 
+### Subtitle
+
+The subtitle is an optional text displayed below the main title, with a configurable heading level (h4 or h5).
+
+By default, the subtitle is rendered as an h4 element, but you can change it to h5 by setting the `heading_level` property.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/subtitle-heading-levels" class="js-example" data-lang="jinja">
+View example of the basic section pattern with subtitle heading levels
+</a></div>
+
 ### Split Layout
 
 Use `is_split_on_medium=true` to create a 50/50 grid layout that splits on medium screens and above.
@@ -453,16 +463,33 @@ below.
       </tr>
       <tr>
         <td>
-          <code>subtitle_text</code>
+          <code>subtitle</code>
         </td>
         <td>
           No
         </td>
         <td>
+          <code>Object</code>
+        </td>
+        <td>
+          <code>{}</code>
+        </td>
+        <td>
+          Subtitle configuration object with <code>text</code> and optional <code>heading_level</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>subtitle.text</code>
+        </td>
+        <td>
+          Yes
+        </td>
+        <td>
           <code>string</code>
         </td>
         <td>
-          <code>""</code>
+          <code>N/A</code>
         </td>
         <td>
           Subtitle text displayed below the title
@@ -470,7 +497,7 @@ below.
       </tr>
       <tr>
         <td>
-          <code>subtitle_heading_level</code>
+          <code>subtitle.heading_level</code>
         </td>
         <td>
           No

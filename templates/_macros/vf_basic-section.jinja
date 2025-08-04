@@ -258,8 +258,7 @@
 
 # Params
 # title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
-# subtitle_text: The subtitle text for the section.
-# subtitle_heading_level: The heading level for the subtitle (default is 4).
+# subtitle: A dictionary with "text" (required) and optional "heading_level" (default is 4).
 # label_text: Muted heading above the title.
 # items: A list of items to be displayed in the section.
 # padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
@@ -270,8 +269,7 @@
 {% macro vf_basic_section(
   title={},
   label_text="",
-  subtitle_text="",
-  subtitle_heading_level=4,
+  subtitle={},
   items=[],
   padding="default",
   is_split_on_medium=false,
@@ -288,7 +286,8 @@
   {%- endif -%}
 
   {%- set label_text=label_text|trim -%}
-  {%- set subtitle_text=subtitle_text|trim -%}
+  {%- set subtitle_text = subtitle.get("text", "") | trim -%}
+  {%- set subtitle_heading_level = subtitle.get("heading_level", 4) -%}
 
   {%- set has_label = label_text|length > 0 -%}
   {%- set has_subtitle = subtitle_text|length > 0 -%}
