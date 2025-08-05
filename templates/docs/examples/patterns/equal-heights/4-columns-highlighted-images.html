@@ -1,0 +1,66 @@
+{% extends "_layouts/examples.html" %}
+
+{% from "_macros/vf_equal-heights.jinja" import vf_equal_heights %}
+
+{% block title %}Equal heights / 4 columns / Highlighted images{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {% call(slot) vf_equal_heights(
+    title_text="Why choose Charmed Kubeflow?",
+    image_aspect_ratio_medium="2-3",
+    image_aspect_ratio_small="2-3",
+    highlight_images=True,
+    items=[
+    {
+    "title_text": "One solution, any cloud
+    ",
+    "image_html":  '<img src="https://assets.ubuntu.com/v1/566c5295-one-solution.png"
+     class="p-image-container__image"
+     width="568"
+     height="853"
+     alt="" />',
+    "description_html": "<p>Deploy Kubeflow on public clouds, private infrastructure, or air-gapped environments.</p>",
+    },
+    {
+    "title_text": "Multi-user collaboration",
+    "image_html":  '<img src="https://assets.ubuntu.com/v1/1b774c6e-multi-user.png"
+     class="p-image-container__image"
+     width="568"
+     height="853"
+     alt="" />',
+    "description_html": "<p>Enable secure workspaces with role-based access for data science teams.</p>",
+    },
+    {
+    "title_text": "Scale with confidence",
+    "image_html":  '<img src="https://assets.ubuntu.com/v1/faa2c0b5-scale-with.png"
+     class="p-image-container__image"
+     width="568"
+     height="853"
+     alt="" />',
+    "description_html": "<p>Run parallel experiments at any scale, with GPU acceleration built-in.</p>",
+    },
+    {
+    "title_text": "Open and cost-efficient",
+    "image_html":  '<img src="https://assets.ubuntu.com/v1/c9c7d08a-open-and.png"
+     class="p-image-container__image"
+     width="568"
+     height="853"
+     alt="" />',
+    "description_html": "<p>No licensing fees. No usage limits. Backed by Canonical’s enterprise-grade support.</p>",
+    }
+    ]
+    ) %}
+    {% if slot == "description" %}
+      <p>
+        The fastest way to deploy production-ready Kubeflow, with full support and zero lock-in. Run anywhere, scale effortlessly, and empower your data scientists.
+      </p>
+    {% endif %}
+    {% if slot == "cta" %}
+      <a href="#"
+         class="p-button">Explore Charmed Kubeflow</a>
+    {% endif %}
+  {% endcall %}
+
+{% endblock %}
