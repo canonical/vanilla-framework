@@ -66,7 +66,7 @@ View example of the equal heights pattern
 
 ## Highlighted Images
 
-To [highlight](https://vanillaframework.io/docs/patterns/images#highlighted-image) images with in the pattern, set `highlight_images=True`. This is generally used when images are illustrations.
+To [highlight](https://vanillaframework.io/docs/patterns/images#highlighted-image) images within the pattern, set `highlight_images=True`. This is generally used when images are illustrations.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/4-columns-highlighted-images" class="js-example" data-lang="jinja">
 View example of the equal heights pattern
@@ -151,7 +151,7 @@ shown below.
            <code>False</code>
         </td>
         <td>
-          If the images need to be <a href="https://vanillaframework.io/docs/patterns/images#highlighted-image">highlighted</a>.
+          Whether to <a href="https://vanillaframework.io/docs/patterns/images#highlighted-image">highlight</a> images within the pattern.
         </td>
       </tr>
       <tr>
