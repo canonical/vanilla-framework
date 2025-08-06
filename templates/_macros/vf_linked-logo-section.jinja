@@ -4,28 +4,18 @@
   - layout: layout of linked logo section. Options are '50/50', '25/75', 'full-width'
   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_html'
   - - if present, `image_attrs` will be used over `image_html` as it provides a more flexible way to pass image attributes.
-  - has_top_rule (boolean) (optional): Whether to include a top rule in the section. Default is true.
-  - padding (string) (optional): Padding style for the section. Default is 'default' for `p-section`. May also be `none` to remove padding.
+  - scope (string): The Scope at which the pattern is used.  Defaults to 'section'. Options are "section" and "block".
+    - 'section' will render the section with a top rule and padding - the pattern is intended to be used as a standalone section.
+    - 'block' will render the section without a top rule and padding - the pattern is intended to be used as a block within another section.
 #}
 
-{% macro vf_linked_logo_section(title_text="", links=[], layout="full-width", has_top_rule=True, padding="default") -%}
+{% macro vf_linked_logo_section(title_text="", links=[], layout="full-width", scope="section") -%}
   {% set layout = layout | trim | replace('/', '-') %}
 
   {% set has_title = title_text | trim | length > 0 %}
 
   {% if layout not in ['50-50', '25-75', 'full-width'] %}
     {% set layout = 'full-width' %}
-  {% endif %}
-
-  {% set padding = padding | trim %}
-
-  {% if padding not in ["default", "none"] %}
-    {% set padding = "default" %}
-  {% endif %}
-
-  {% set section_classes = "p-section" %}
-  {% if padding == "none" %}
-  {% set section_classes = "p-section u-no-padding--bottom" %}
   {% endif %}
 
   {% set max_logos_map = {
@@ -66,8 +56,12 @@
     {%- endif -%}
   {% endmacro %}
 
-  <section class="{{ section_classes }}">
-    {%- if has_top_rule -%}
+  {%- if scope == "section" %}
+  <section class="p-section">
+  {%- else %}
+  <div>
+  {%- endif -%}
+    {%- if scope == "section" -%}
       <hr class="p-rule is-fixed-width"/>
     {%- endif -%}
     {%- if layout == "50-50" -%}
@@ -106,5 +100,9 @@
       {% endif %}
       {{ _list(links) }}
     {%- endif -%}
+  {%- if scope == "section" %}
   </section>
+  {%- else %}
+  </div>
+  {%- endif -%}
 {%- endmacro %}

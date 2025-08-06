@@ -102,36 +102,23 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
         </tr>
         <tr>
           <td>
-            <code>has_top_rule</code>
+            <code>scope</code>
           </td>
           <td>
             No
           </td>
           <td>
-            Boolean
+            One of:<br>
+            <code>'section'</code>,<br>
+            <code>'block'</code>
           </td>
           <td>
-            True
+            <code>'section'</code>
           </td>
           <td>
-            Whether to include the top <a href="/docs/patterns/rule">rule</a> above the section. This is a horizontal line that separates the section from the content above it.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>padding</code>
-          </td>
-          <td>
-            No
-          </td>
-          <td>
-            "default" or "none"
-          </td>
-          <td>
-            <code>"default"</code>
-          </td>
-          <td>
-            Type of padding to apply to the section. If set to "none", no padding will be applied to the section. If set to "default", the section will have the default <code>p-section</code> padding applied.
+            Scope within the page at which the pattern's contents live.<br><br> 
+            With "section" scope, a <a href="/docs/patterns/rule">rule</a> is placed above the section and a <a href="/docs/patterns/section#regular-sections">regular section</a> wraps the pattern.<br><br>
+            With "block" scope, no rule is placed above the section and a <code>div</code> wraps the pattern. Use this to embed the pattern as a block within another section.
           </td>
         </tr>
         <tr>
