@@ -82,7 +82,11 @@
         <h2>{{ title_text }}</h2>
       </div>
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-        {{ section_description }}
+        {% if section_description %}
+          <div class="p-section--shallow">
+            {{ section_description }}
+          </div>
+        {% endif %}
         {% if tiers|length == 1 %}{{ _tiers() }}{% endif %}
       </div>
     </div>

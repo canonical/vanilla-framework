@@ -6,10 +6,10 @@ context:
 
 The Pricing block pattern is used to display individual cards representing different tiers of pricing and their associated offerings, positioned below a title and a description of the product. It uses the 4-4-8 grid pattern with subgrid, to retain alignment between rows. There are three variations of the block layout, depending on the number of cards displayed, ranging from two to four:
 
+- 4 blocks, 25-25-25-25 split
+- 3 blocks, 25-75 split
+- 2 blocks, 50-50 split
 - 1 block
-- 2 block, 50-50 split
-- 3 block, 25-75 split
-- 4 block, 25-25-25-25 split
 - Block with description and a highlighted rule
 - Block without description and a muted rule
 
