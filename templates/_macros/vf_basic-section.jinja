@@ -158,7 +158,7 @@
 # linked_logo_block_config
 #   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_attrs'
 {% macro _basic_section_linked_logo_block(linked_logo_block_config={}) %}
-  {{- vf_linked_logo_section(links=linked_logo_block_config.get("links", []), has_top_rule=False, padding="none") -}}
+  {{- vf_linked_logo_section(links=linked_logo_block_config.get("links", []), scope="block") -}}
 {% endmacro %}
 
 # content_html: The inner HTML for the call-to-action button.
@@ -203,7 +203,7 @@
 #  - content_html: The inner HTML for the link.
 #  - attrs: A dictionary of attributes to apply to the link.
 {% macro _basic_section_cta_block(cta_block_config={}) %}
-  <div class="p-cta-block">
+  <div class="p-cta-block u-no-padding--bottom">
     {%- if "primary" in cta_block_config %}
       {{ _cta_button(
         content_html=cta_block_config["primary"].get("content_html", ""),
