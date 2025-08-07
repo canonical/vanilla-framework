@@ -122,16 +122,18 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
         </td>
         <td>
           One of: <br>
-          <code>'default'</code><br>
-          <code>'muted'</code><br>
           <code>'highlighted'</code><br>
+          <code>'muted'</code><br>
           <code>'none'</code><br>
         </td>
         <td>
-          <code>'default'</code>
+          <code>'highlighted'</code>
         </td>
         <td>
-          Variant of the top rule
+            Variant of the top rule.<br>
+            Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section.<br>
+            Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it.<br>
+            Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
         </td>
       </tr>
       <tr>

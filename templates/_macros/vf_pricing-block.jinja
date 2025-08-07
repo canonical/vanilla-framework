@@ -1,7 +1,7 @@
 {#
   Params
   - title_text (string) (required): The text to be displayed as the heading
-  - top_rule_variant (string) (optional): Variant of the top rule, default is default
+  - top_rule_variant (string) (optional): Variant of the top rule, default is "highlighted". Options are "muted", "highlighted", "none".
   - tiers (Array<{
       tier_name_text: String (optional),
       tier_price_text: String,
@@ -18,13 +18,13 @@
   - description (optional): paragraph-style content below the title
 #}
 {%- macro vf_pricing_block(
-  top_rule_variant="default",
+  top_rule_variant="highlighted",
   title_text="",
   tiers=[]
   ) -%}
   {% set top_rule_variant = top_rule_variant | trim %}
-  {% if top_rule_variant not in ['default', 'muted', 'highlighted', 'none'] %}
-    {% set top_rule_variant = "default" %}
+  {% if top_rule_variant not in ['muted', 'highlighted', 'none'] %}
+    {% set top_rule_variant = "highlighted" %}
   {% endif %}
   {% set section_description = caller('section_description') %}
   {% set has_tier_descriptions = (tiers | selectattr("tier_description_html") | list | length) > 0 %}
@@ -80,9 +80,7 @@
     {%- endfor -%}
   {%- endmacro -%}
   {%- macro _top_rule() -%}
-    {% if top_rule_variant == 'default' %}
-      <hr class="p-rule is-fixed-width" />
-    {% elif top_rule_variant == 'muted' %}
+    {% if top_rule_variant == 'muted' %}
       <hr class="p-rule--muted is-fixed-width" />
     {% elif top_rule_variant == 'highlighted' %}
       <hr class="p-rule--highlight is-fixed-width" />
