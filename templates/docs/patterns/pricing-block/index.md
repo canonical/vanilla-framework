@@ -115,19 +115,23 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
       </tr>
       <tr>
         <td>
-          <code>is_rule_highlighted</code>
+          <code>top_rule_variant</code>
         </td>
         <td>
-          Yes
+          No
         </td>
         <td>
-          <code>boolean</code>
+          One of: <br>
+          <code>'default'</code><br>
+          <code>'muted'</code><br>
+          <code>'highlighted'</code><br>
+          <code>'none'</code><br>
         </td>
         <td>
-          <code>True</code>
+          <code>'default'</code>
         </td>
         <td>
-          Whether the rule should be highlighted or muted
+          Variant of the top rule
         </td>
       </tr>
       <tr>

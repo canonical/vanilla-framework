@@ -1,7 +1,7 @@
 {#
   Params
   - title_text (string) (required): The text to be displayed as the heading
-  - is_rule_highlighted (boolean) (optional): Whether to toggle a strong horizontal rule
+  - top_rule_variant (string) (optional): Variant of the top rule, default is default
   - tiers (Array<{
       tier_name_text: String (optional),
       tier_price_text: String,
@@ -18,10 +18,14 @@
   - description (optional): paragraph-style content below the title
 #}
 {%- macro vf_pricing_block(
-  is_rule_highlighted=True,
+  top_rule_variant="default",
   title_text="",
   tiers=[]
   ) -%}
+  {% set top_rule_variant = top_rule_variant | trim %}
+  {% if top_rule_variant not in ['default', 'muted', 'highlighted', 'none'] %}
+    {% set top_rule_variant = "default" %}
+  {% endif %}
   {% set section_description = caller('section_description') %}
   {% set has_tier_descriptions = (tiers | selectattr("tier_description_html") | list | length) > 0 %}
   {% if tiers|length == 2 %}
@@ -75,18 +79,25 @@
       </div>
     {%- endfor -%}
   {%- endmacro -%}
+  {%- macro _top_rule() -%}
+    {% if top_rule_variant == 'default' %}
+      <hr class="p-rule is-fixed-width" />
+    {% elif top_rule_variant == 'muted' %}
+      <hr class="p-rule--muted is-fixed-width" />
+    {% elif top_rule_variant == 'highlighted' %}
+      <hr class="p-rule--highlight is-fixed-width" />
+    {% elif top_rule_variant == 'none' %}
+      {# No rule #}
+    {% endif %}
+  {%- endmacro -%}
   <div class="p-section">
-    <hr class="p-rule{% if is_rule_highlighted %}--highlight{% endif %} is-fixed-width" />
+    {{ _top_rule() }}
     <div class="grid-row">
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
         <h2>{{ title_text }}</h2>
       </div>
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-        {% if section_description %}
-          <div class="p-section--shallow">
-            {{ section_description }}
-          </div>
-        {% endif %}
+        {% if section_description %}<div class="p-section--shallow">{{ section_description }}</div>{% endif %}
         {% if tiers|length == 1 %}{{ _tiers() }}{% endif %}
       </div>
     </div>
