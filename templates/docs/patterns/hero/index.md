@@ -57,7 +57,7 @@ View example of the hero pattern in 50/50 that is split on medium and small
 The above hero layouts place the hero image in the right column by default. However, this is not suitable for very wide
 images.
 If you have a very wide image or otherwise want your image to take up the full hero width, place the title by itself in
-the first column and place the image in a <code>.p-image-container .is-cover</code> at the same level as the grid
+the first column and place the image in a [cover image container](/docs/patterns/images#cover-image) at the same level as the grid
 columns.
 This will make the image take up the full width of the hero.
 
@@ -82,7 +82,7 @@ This places the image in a small column beside the primary hero content.
 View example of the hero pattern in 50/50 split
 </a></div>
 
-This layout also supports a full-width image. Place the image in a <code>.p-image-container .is-cover</code>at the same
+This layout also supports a full-width image. Place the image in a [cover image container](/docs/patterns/images#cover-image) at the same
 level as the hero grid columns to make it take full width beneath the rest of the hero. This is identical to the
 full-width image layout for the [50/50 layout](#50-50-with-full-width-image).
 
