@@ -1,0 +1,66 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Logo section{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Logo Section"},
+  subtitle={"text": "This example shows use of a logo section inside the basic section."},
+  items=[
+    {
+      "type": "logo-block",
+      "item": {
+        "is_fixed_width": true,
+        "logos": [
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/38fdfd23-Dell-logo.png",
+              "alt": "Dell Technologies"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+              "alt": "Hewlett Packard"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+              "alt": "Lenovo"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/2ef3c028-amazon-web-services-logo.png",
+              "alt": "Amazon Web Services"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/cb7ef8ac-ibm-cloud-logo.png",
+              "alt": "IBM Cloud"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/a554a818-google-cloud-logo.png",
+              "alt": "Google Cloud Platform"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/b3e692f4-oracle-new-logo.png",
+              "alt": "Oracle"
+            }
+          }
+        ]
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

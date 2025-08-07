@@ -1,0 +1,47 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Item padding{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Item Padding Example"},
+  subtitle={"text": "This example shows how individual items can have different padding levels applied."},
+  items=[
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "text",
+        "content": "This description has shallow padding applied, increasing the vertical space between it and the next item."
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "bullet",
+            "content": "This list has no additional padding"
+          },
+          {
+            "list_item_type": "bullet",
+            "content": "So it has less padding than the description above"
+          }
+        ]
+      }
+    },
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "text",
+        "content": "This block has no additional padding (even though it requested shallow padding), because it is the last item in the section."
+      }
+    },
+  ]
+) }}
+
+{% endblock %} 

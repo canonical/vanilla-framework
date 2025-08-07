@@ -1,0 +1,24 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Split layout{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Split Layout Example"},
+  subtitle={"text": "This section uses is_split_on_medium=true to create a 50-50 grid layout on medium screens and above."},
+  is_split_on_medium=true,
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "This content appears in the right column alongside the subtitle. The layout splits into two equal columns on medium screens and above."
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

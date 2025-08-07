@@ -1,0 +1,130 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Mixed content{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  label_text="Product Overview",
+  title={"text": "Ubuntu Server"},
+  subtitle={"text": "The world's most popular Linux server platform, now with enhanced security and performance features."},
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "html",
+        "content": "
+          <p>
+            Ubuntu Server provides the best value scale-out performance available.
+            It includes everything you need to deploy and operate OpenStack, Kubernetes, and a wide range of workloads.
+          </p>
+        "
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "16-9",
+        "caption_html": "Ubuntu Server running in production environment",
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+          "class": "another-classname",
+          "alt": "Ubuntu Server dashboard"
+        }
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "Enhanced security with AppArmor and live kernel patching"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "Optimized performance for cloud and container workloads"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "10-year long term support with regular security updates"
+          }
+        ]
+      }
+    },
+    {
+      "type": "code-block",
+      "item": {
+        "content": '
+          # Install Ubuntu Server
+          sudo apt update
+          sudo apt install ubuntu-server
+          
+          # Enable security features
+          sudo ufw enable
+          sudo ufw default deny incoming
+        '
+      }
+    },
+    {
+      "type": "logo-block",
+      "item": {
+        "logos": [
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/38fdfd23-Dell-logo.png",
+              "alt": "Dell Technologies"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+              "alt": "Hewlett Packard"
+            }
+          },
+          {
+            "attrs": {
+              "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+              "alt": "Lenovo"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Download Ubuntu Server",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "content_html": "View Documentation",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          {
+            "content_html": "Contact Sales",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ],
+        "link": {
+          "content_html": "Learn more about Ubuntu Server ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 
