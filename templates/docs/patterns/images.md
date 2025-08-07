@@ -195,25 +195,25 @@ Use the [aspect ratio classes](#image-container-with-aspect-ratio) to define an 
 View example of cover image with explicit aspect ratio
 </a></div>
 
-### Explicit height
-
-Use `style` or your own CSS to define a fixed height for the cover image container.
-
-- The image will fill the image container parent's width.
-- The container's height is fixed to the value you define.
-- The image scales proportionally to **completely cover the container's area**.
-  - To prevent stretching or compressing, parts of the image that fall outside the container's height will be **cropped** from the edges.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover-explicit-height" class="js-example">
-View example of cover image with explicit height
-</a></div>
-
 ### Intrinsic aspect ratio
 
 If you do not specify an explicit aspect ratio or height for a cover image, it will fill the image container parent element's width, and scale the image height to keep its intrinsic aspect ratio.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover-intrinsic-aspect-ratio" class="js-example">
 View example of cover image with implicit aspect ratio
+</a></div>
+
+### Explicit height
+
+Use `style` or your own CSS to define a fixed height for the cover image container.
+
+- The image will fill the image container parent's width.
+- The container's height is fixed to the value you define.
+- The image scales to **completely cover the container's area**.
+- **Warning**: This method may stretch or compress the image to fit the container's exact dimensions, ignoring its original aspect ratio. For responsive, non-distorted images, we recommend you use [aspect ratio classes](#explicit-aspect-ratio) or [intrinsic aspect ratio](#intrinsic-aspect-ratio) instead.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover-explicit-height" class="js-example">
+View example of cover image with explicit height
 </a></div>
 
 ## Image with border
