@@ -178,7 +178,10 @@ View example of an image container with aspect ratios that respond to the screen
 
 ## Cover image
 
-Cover images are used to fill the entire container, cropping the image if necessary. This can be combined with the aspect ratio modifier to crop the image to a specific aspect ratio.
+Cover images are used to fill the entire container, cropping the image if necessary. 
+This requires the image container to have its dimensions defined, with either:
+- An [aspect ratio class](#image-container-with-aspect-ratio)
+- A fixed `min-height` or `height`
 
 <div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover" class="js-example">
 View example of cover image
