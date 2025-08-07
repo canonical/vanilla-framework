@@ -33,7 +33,7 @@ View example of image container with 16/9 aspect ratio
 
 It can be useful to change the aspect ratio of an image container, depending on the screen size.
 Using a tall aspect ratio on a small screen, or a wide aspect ratio on a large screen, may waste page space or make the image's details less visible.
-For example, the cinematic aspect ratio (2.4:1) is great in cases where there are at least 9 columns available.
+For example, the cinematic aspect ratio (2.4:1) is great in cases where there are at least 6 columns available.
 However, using this aspect ratio on a small screen may make the image too small to see its details, so aspect ratios like 16:9 or 3:2 may be more appropriate.
 
 You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
