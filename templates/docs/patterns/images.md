@@ -33,7 +33,7 @@ View example of image container with 16/9 aspect ratio
 
 It can be useful to change the aspect ratio of an image container, depending on the screen size.
 Using a tall aspect ratio on a small screen, or a wide aspect ratio on a large screen, may waste page space or make the image's details less visible.
-For example, the cinematic aspect ratio (2.4:1) is great in cases where there are at least 9 columns available.
+For example, the cinematic aspect ratio (2.4:1) is great in cases where there are at least 6 columns available.
 However, using this aspect ratio on a small screen may make the image too small to see its details, so aspect ratios like 16:9 or 3:2 may be more appropriate.
 
 You can apply different aspect ratios on different screen sizes by using the responsive aspect ratio classes.
@@ -178,10 +178,42 @@ View example of an image container with aspect ratios that respond to the screen
 
 ## Cover image
 
-Cover images are used to fill the entire container, cropping the image if necessary. This can be combined with the aspect ratio modifier to crop the image to a specific aspect ratio.
+Cover images are used to fill the entire container, cropping the image if necessary.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover" class="js-example">
-View example of cover image
+You can define explicit dimensions for a cover image to fill to a specified [aspect ratio](#image-container-with-aspect-ratio) or height.
+
+### Explicit aspect ratio
+
+Use the [aspect ratio classes](#image-container-with-aspect-ratio) to define an aspect ratio for the cover image container.
+
+- The image will fill the image container parent's width.
+- The container's height is set based on the chosen aspect ratio.
+- The image scales to **completely cover the container's area**, preserving its own aspect ratio.
+  - To prevent stretching or compressing, parts of the image that fall outside the container's aspect ratio will be **cropped** from the edges.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover-explicit-aspect-ratio" class="js-example">
+View example of cover image with explicit aspect ratio
+</a></div>
+
+### Intrinsic aspect ratio
+
+If you do not specify an explicit aspect ratio or height for a cover image, it will fill the image container parent element's width, and scale the image height to keep its intrinsic aspect ratio.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover-intrinsic-aspect-ratio" class="js-example">
+View example of cover image with implicit aspect ratio
+</a></div>
+
+### Explicit height
+
+Use `style` or your own CSS to define a fixed height for the cover image container.
+
+- The image will fill the image container parent's width.
+- The container's height is fixed to the value you define.
+- The image scales to **completely cover the container's area**.
+- **Warning**: This method may stretch or compress the image to fit the container's exact dimensions, ignoring its original aspect ratio. For responsive, non-distorted images, we recommend you use [aspect ratio classes](#explicit-aspect-ratio) or [intrinsic aspect ratio](#intrinsic-aspect-ratio) instead.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/image/container/cover-explicit-height" class="js-example">
+View example of cover image with explicit height
 </a></div>
 
 ## Image with border
