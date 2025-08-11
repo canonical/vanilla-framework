@@ -1,7 +1,7 @@
 {#
   Params
   - title_text (string) (required): The text to be displayed as the heading
-  - top_rule_variant (string) (optional): Variant of the top rule, default is "highlighted". Options are "muted", "highlighted", "none".
+  - top_rule_variant (string) (optional): Variant of the top rule, default is "highlighted". Options are "muted", "highlighted", "default", "none".
   - tiers (Array<{
       tier_name_text: String (optional),
       tier_price_text: String,
@@ -23,7 +23,7 @@
   tiers=[]
   ) -%}
   {% set top_rule_variant = top_rule_variant | trim %}
-  {% if top_rule_variant not in ['muted', 'highlighted', 'none'] %}
+  {% if top_rule_variant not in ['muted', 'highlighted', 'default', 'none'] %}
     {% set top_rule_variant = "highlighted" %}
   {% endif %}
   {% set section_description = caller('section_description') %}
@@ -80,12 +80,9 @@
     {%- endfor -%}
   {%- endmacro -%}
   {%- macro _top_rule() -%}
-    {% if top_rule_variant == 'muted' %}
-      <hr class="p-rule--muted is-fixed-width" />
-    {% elif top_rule_variant == 'highlighted' %}
-      <hr class="p-rule--highlight is-fixed-width" />
-    {% elif top_rule_variant == 'none' %}
-      {# No rule #}
+    {% if top_rule_variant != 'none' %}
+      {% set rule_class = 'muted' if top_rule_variant == 'muted' else 'highlight' if top_rule_variant == 'highlighted' %}
+      <hr class="p-rule{% if top_rule_variant != 'default' %}--{{ rule_class }}{% endif %} is-fixed-width" />
     {% endif %}
   {%- endmacro -%}
   <div class="p-section">
