@@ -1,0 +1,132 @@
+{#
+    All Params:
+      @param title_text: H2 title text
+      @param input_label: Label for the input field
+      @param checkbox_label: Label for the checkbox
+      @param layout: Layout variant for the section. Options are "50-50", "25-75", "2-col", and "4-col". Default is "25-75".
+      @param formId: Marketo form ID
+      @param returnURL: URL to return to after form submission
+
+    All Slots:
+      @slot description: Description text, one or more paragraphs
+#}
+{%- macro vf_newsletter_signup(formId, returnURL, title_text, input_label="Work email", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", caller=None) -%}
+  {% set layout = layout | trim %}
+  {% if layout not in ['50-50', '25-75', '2-col', '4-col'] %}
+    {% set layout = "25-75" %}
+  {% endif %}
+  {% set description = caller('description') %}
+  {% set is_section_level = layout in ['50-50', '25-75'] %}
+  {% set heading_level = 'h2' if is_section_level else 'h3' %}
+  {% if is_section_level %}
+    <section class="p-section">
+      <hr class="p-rule is-fixed-width" />
+    {% endif %}
+    <div class="{% if is_section_level %}grid-row--{{ layout }}-on-large{% else %}p-newsletter-signup--{{ layout }}{% endif %}">
+      {% if not is_section_level %}
+        <hr class="p-rule--muted u-hide--large {% if layout == '2-col' %}u-hide--medium{% endif %}" />
+      {% endif %}
+      <div class="grid-col">
+        <{{ heading_level }}>{{ title_text }}</{{ heading_level }}>
+      </div>
+      <div class="grid-col">
+        {{ description | safe }}
+        <form action="https://ubuntu.com/marketo/submit"
+              method="post"
+              id="mktoForm_{{ formId }}">
+          <label class="is-required" for="email">{{ input_label }}:</label>
+          <input required
+                 id="email"
+                 name="email"
+                 maxlength="255"
+                 type="email"
+                 pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$"
+                 required="required" />
+          <label class="p-checkbox is-required">
+            <input required
+                   class="p-checkbox__input"
+                   value="yes"
+                   aria-labelledby="canonicalUpdatesOptIn"
+                   name="canonicalUpdatesOptIn"
+                   type="checkbox" />
+            <span class="p-checkbox__label" id="canonicalUpdatesOptIn">{{ checkbox_label }}</span>
+          </label>
+          <p>
+            By submitting this form, I confirm that I have read and agree to Canonical's <a href="https://ubuntu.com/legal/terms-and-policies/privacy-policy">Privacy Policy</a>
+          </p>
+          <button type="submit" class="u-no-margin--bottom">Sign up</button>
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="returnURL"
+                 value="{{ returnURL }}" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="formid"
+                 value="{{ formId }}" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="Consent_to_Processing__c"
+                 value="yes" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="productContext"
+                 id="product-context"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="utm_campaign"
+                 id="utm_campaign"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="utm_medium"
+                 id="utm_medium"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="utm_source"
+                 id="utm_source"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="utm_content"
+                 id="utm_content"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="utm_term"
+                 id="utm_term"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="GCLID__c"
+                 id="GCLID__c"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 name="Facebook_Click_ID__c"
+                 id="Facebook_Click_ID__c"
+                 value="" />
+          <input type="hidden"
+                 aria-hidden="true"
+                 aria-label="hidden field"
+                 id="preferredLanguage"
+                 name="preferredLanguage"
+                 maxlength="255"
+                 value="" />
+        </form>
+      </div>
+    </div>
+    {% if is_section_level %}</section>{% endif %}
+{%- endmacro -%}
