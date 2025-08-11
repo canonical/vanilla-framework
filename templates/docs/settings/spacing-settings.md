@@ -122,4 +122,34 @@ Within each map, the following settings can be customised:
 | `sp-after`    | The vertical spacing applied after this text element, controlling space between elements.     |
 | `sp-before`   | The additional spacing added to the nudge for padding-top when text follows other elements.   |
 
+To customise these settings, you can create overrides for whichever text types you need in your project's settings file. For example:
+
+```scss
+// settings.scss (in your project)
+
+// sass:map is needed to merge settings maps
+@use 'sass:map';
+// Import Vanilla's base settings
+@import 'vanilla-framework';
+
+// Define maps that contain settings you want to customise.
+// You only need to specify the settings you want to change.
+$custom-settings-text-p: (
+  nudge: 0.5rem,
+  sp-after: $spv--medium,
+);
+
+// Merge the custom settings with the default settings.
+// Make sure your custom settings map is the second argument, so that it overrides the defaults.
+$settings-text-p: map.merge($settings-text-p, $custom-settings-text-p);
+
+// index.scss (in your project)
+// Import your custom settings
+@import 'settings';
+
+// Include Vanilla AFTER your settings are imported - this causes Vanilla to use your custom settings.
+@include vanilla;
+// or include only the parts you need - see the customising guide below for more details
+```
+
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
