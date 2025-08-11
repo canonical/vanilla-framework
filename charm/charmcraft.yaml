@@ -1,0 +1,40 @@
+# This file configures Charmcraft.
+# See https://juju.is/docs/sdk/charmcraft-config for guidance.
+
+name: vanillaframework-io
+type: charm
+
+bases:
+  - build-on:
+      - name: ubuntu
+        channel: '22.04'
+    run-on:
+      - name: ubuntu
+        channel: '22.04'
+
+summary: vanillaframework.io Charm
+
+description: |
+  The documentation site for the Vanilla Framework.
+
+extensions:
+  - flask-framework
+config:
+  options:
+    # Note: these secret names are converted to PASCAL_CASE and prefixed with `FLASK_` by the flask extension.
+    # https://canonical-charmcraft.readthedocs-hosted.com/stable/tutorial/kubernetes-charm-flask/index.html#id8
+    # Then, `canonicalwebteam.flask-base` removes the `FLASK_` prefix.
+    # https://github.com/canonical/canonicalwebteam.flask-base/blob/8e954aa0fd57cfd841ad47ae841782638c1c58cd/canonicalwebteam/flask_base/app.py#L222-L223
+    # So, to create a usable env var `ENV_VAR`, add a config option `env-var` here.
+    sentry-dsn:
+      type: string
+      description: 'Sentry DSN for error tracking.'
+      default: 'https://0ff6fb54f0a14360ac6b0157f130b807@sentry.is.canonical.com//36'
+    search-api-key:
+      type: string
+      description: 'Google Custom Search API key.'
+      default: ''
+    github-token:
+      type: string
+      description: 'GitHub token for accessing repositories.'
+      default: ''
