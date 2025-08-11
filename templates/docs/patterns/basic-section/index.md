@@ -65,7 +65,7 @@ View example of the basic section pattern with split layout
 
 ### Top Rule variants
 
-By default, the basic section has a [default horizontal rule](/docs/patterns/rule#default) at the top. 
+By default, the basic section has a [default horizontal rule](/docs/patterns/rule#default) at the top.
 You can also use [muted](/docs/patterns/rule#muted) or [highlighted](/docs/patterns/rule#highlighted) rules, or disable the rule entirely using the `top_rule_variant` parameter.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/basic-section/top-rule-variants" class="js-example" data-lang="jinja">

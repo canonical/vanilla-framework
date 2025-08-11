@@ -4,12 +4,11 @@
   - layout: layout of linked logo section. Options are '50/50', '25/75', 'full-width'
   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_html'
   - if present, `image_attrs` will be used over `image_html` as it provides a more flexible way to pass image attributes.
-  - scope (string): The Scope at which the pattern is used.  Defaults to 'section'. Options are "section" and "block".
-    - 'section' will render the section with a top rule and padding - the pattern is intended to be used as a standalone section.
-    - 'block' will render the section without a top rule and padding - the pattern is intended to be used as a block within another section.
+  - top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" | "highlighted" | "none" (default is "default").
+  - padding: Type of padding to apply to the pattern - "deep", "shallow", "default", "none" (default is "default").
 #}
 
-{% macro vf_linked_logo_section(title_text="", links=[], layout="full-width", scope="section") -%}
+{% macro vf_linked_logo_section(title_text="", links=[], layout="full-width", top_rule_variant="default", padding="default") -%}
   {% set layout = layout | trim | replace('/', '-') %}
 
   {% set has_title = title_text | trim | length > 0 %}
@@ -26,6 +25,39 @@
 
   {% set max_logos = max_logos_map[layout] or 8 %}
   {% set links = links[:max_logos] %}
+
+  {% set top_rule_variant = top_rule_variant | trim -%}
+  {%- if top_rule_variant not in ["default", "muted", "highlighted", "none"] -%}
+    {%- set top_rule_variant = "default" -%}
+  {%- endif -%}
+
+  {%- if top_rule_variant != "none" -%}
+    {%- set top_rule_classes = "p-rule" -%}
+    {%- if top_rule_variant != "default" -%}
+      {#-
+        p-rule--highlighted doesn't exist (use p-rule--highlight instead), but p-rule--muted does.
+        We keep the external API here consistent ("-ed" suffix) for simplicity but need to handle this internally.
+      -#}
+      {%- if top_rule_variant == "highlighted" -%}
+        {%- set top_rule_classes = "p-rule--highlight" -%}
+      {%- else -%}
+        {#- Other cases: just append the top_rule_variant to the p-rule class. -#}
+        {%- set top_rule_classes = top_rule_classes + "--" + top_rule_variant -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- set padding = padding | trim -%}
+  {%- if padding not in ["deep", "shallow", "default", "none"] -%}
+    {%- set padding = "default" -%}
+  {%- endif -%}
+
+  {%- set padding_classes = "p-section--" + padding -%}
+  {%- if padding == "default" -%}
+  {%- set padding_classes = "p-section" -%}
+  {%- elif padding == "none" -%}
+  {%- set padding_classes = "" -%}
+  {%- endif -%}
 
   {% macro _list(links, cols_per_item=2) %}
     {%- if links|length > 1 -%}
@@ -56,13 +88,13 @@
     {%- endif -%}
   {% endmacro %}
 
-  {%- if scope == "section" %}
-  <section class="p-section">
-  {%- else %}
+  {%- if padding == "none" -%}
   <div>
+  {%- else -%}
+  <section{%- if padding_classes | length > 0 %} class="{{ padding_classes }}"{%- endif -%}>
   {%- endif -%}
-    {%- if scope == "section" -%}
-      <hr class="p-rule is-fixed-width"/>
+    {%- if top_rule_variant != "none" -%}
+      <hr class="is-fixed-width {{ top_rule_classes -}}"/>
     {%- endif -%}
     {%- if layout == "50-50" -%}
       <div class="p-section--shallow">
@@ -100,9 +132,9 @@
       {% endif %}
       {{ _list(links) }}
     {%- endif -%}
-  {%- if scope == "section" %}
-  </section>
-  {%- else %}
+  {%- if padding == "none" -%}
   </div>
+  {%- else -%}
+  </section>
   {%- endif -%}
 {%- endmacro %}

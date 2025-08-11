@@ -32,7 +32,7 @@ View example of the linked logo section full-width pattern
 
 ## 50/50
 
-This variant can be used for adding a header and the logo section in different columns. This should only be used when there’s a maximum of 6 logos to avoid occupying too much vertical space.
+This variant can be used for adding a header and the logo section in different columns. This should only be used when there's a maximum of 6 logos to avoid occupying too much vertical space.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/linked-logo-section/50-50" class="js-example" data-lang="jinja">
 View example of the linked logo section 50-50 pattern
@@ -102,23 +102,44 @@ The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo l
         </tr>
         <tr>
           <td>
-            <code>scope</code>
+            <code>top_rule_variant</code>
           </td>
           <td>
             No
           </td>
           <td>
             One of:<br>
-            <code>'section'</code>,<br>
-            <code>'block'</code>
+            <code>'default'</code>,<br>
+            <code>'muted'</code>,<br>
+            <code>'highlighted'</code>,<br>
+            <code>'none'</code>
           </td>
           <td>
-            <code>'section'</code>
+            <code>'default'</code>
           </td>
           <td>
-            Scope within the page at which the pattern's contents live.<br><br> 
-            With "section" scope, a <a href="/docs/patterns/rule">rule</a> is placed above the section and a <a href="/docs/patterns/section#regular-sections">regular section</a> wraps the pattern.<br><br>
-            With "block" scope, no rule is placed above the section and a <code>div</code> wraps the pattern. Use this to embed the pattern as a block within another section.
+            Type of <a href="/docs/patterns/rule">rule</a> to render at the top of the pattern. Use <code>'none'</code> to hide the top rule.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>padding</code>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            One of:<br>
+            <code>'deep'</code>,<br>
+            <code>'shallow'</code>,<br>
+            <code>'default'</code>,<br>
+            <code>'none'</code>
+          </td>
+          <td>
+            <code>'default'</code>
+          </td>
+          <td>
+            Type of padding to apply to the pattern. Use <code>'none'</code> to remove all padding. See <a href="/docs/patterns/section#regular-sections">section padding options</a> for details.
           </td>
         </tr>
         <tr>

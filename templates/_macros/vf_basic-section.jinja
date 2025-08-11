@@ -158,7 +158,11 @@
 # linked_logo_block_config
 #   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_attrs'
 {% macro _basic_section_linked_logo_block(linked_logo_block_config={}) %}
-  {{- vf_linked_logo_section(links=linked_logo_block_config.get("links", []), scope="block") -}}
+  {{- vf_linked_logo_section(
+    links=linked_logo_block_config.get("links", []),
+    top_rule_variant="none",
+    padding="none"
+  ) -}}
 {% endmacro %}
 
 # content_html: The inner HTML for the call-to-action button.
