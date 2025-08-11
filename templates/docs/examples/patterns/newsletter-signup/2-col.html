@@ -1,0 +1,49 @@
+{% extends "_layouts/examples.html" %}
+{% from '_macros/vf_newsletter-signup.jinja' import vf_newsletter_signup %}
+{% block title %}Newsletter signup{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+    <section class="p-section">
+        <div class="grid-row--25-25-25-25">
+            <hr class="p-rule" />
+            <div class="grid-col">
+                <h5 class="p-heading--5">Continuous security</h5>
+                <p>
+                    Imagine a world where every device is trustworthy. We designed every
+                    aspect of Ubuntu Core to create the most secure embedded Linux ever, with
+                    a 10 year LTS commitment.
+                </p>
+                <a href="#">
+                    <p>Learn more about Ubuntu security&nbsp;›</p>
+                </a>
+            </div>
+            <div class="grid-col">
+                <h5 class="p-heading--5">Continuous security</h5>
+                <p>
+                    Imagine a world where every device is trustworthy. We designed every
+                    aspect of Ubuntu Core to create the most secure embedded Linux ever, with
+                    a 10 year LTS commitment.
+                </p>
+                <a href="#">
+                    <p>Learn more about Ubuntu security&nbsp;›</p>
+                </a>
+            </div>
+            <div class="grid-col">
+                <h5 class="p-heading--5">Continuous security</h5>
+                <p>
+                    Imagine a world where every device is trustworthy. We designed every
+                    aspect of Ubuntu Core to create the most secure embedded Linux ever, with
+                    a 10 year LTS commitment.
+                </p>
+                <a href="#">
+                    <p>Learn more about Ubuntu security&nbsp;›</p>
+                </a>
+            </div>
+            {% call(slot) vf_newsletter_signup(layout="2-col", title_text="Newsletter signup", formId="4960", returnURL="https://ubuntu.com/#contact-form-success") %}
+                {%- if slot == 'section' -%}
+                    <p>Get the latest Ubuntu news and updates in your inbox.</p>
+                {%- endif -%}
+            {% endcall %}
+        </div>
+    </section>
+{% endblock %}

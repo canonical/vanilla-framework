@@ -1,0 +1,60 @@
+/*
+  @classreference
+  newsletter-signup:
+    Newsletter signup:
+      .p-newsletter-signup:
+        Main element of the newsletter signup component.
+      .p-newsletter-signup--25-75:
+        Modifier class for a 25-75 split layout.
+      .p-newsletter-signup--50-50:
+        Modifier class for a 50-50 split layout.
+      .p-newsletter-signup--2-col:
+        Modifier class for a 2 column layout.
+        Takes at most 2 columns on large and medium dimensions.
+        Takes full width  on small dimensions.
+      .p-newsletter-signup--4-col:
+        Modifier class for a 4 column layout.
+        Takes at most 4 columns on large and medium dimensions.
+        Takes full width  on small dimensions.
+*/
+
+@import 'settings';
+
+  $col-50-medium: calc($grid-8-columns-medium / 2);
+  $col-25: calc($grid-8-columns / 4);
+  $col-50: calc($grid-8-columns / 2);
+
+@mixin vf-p-newsletter-signup {
+
+  .p-newsletter-signup--2-col,
+  .p-newsletter-signup--4-col {
+    @include vf-grid-8-column($grid-8-columns-small);
+    // same as %section-padding--default
+    padding-bottom: $spv--strip-regular * 0.5;
+
+    @media (min-width: $breakpoint-large) {
+      padding-bottom: $spv--strip-regular;
+    }
+  }
+
+  @media (min-width: $threshold-4-small-4-med-col) {
+    .p-newsletter-signup--2-col {
+      @include vf-grid-8-column($col-50-medium);
+      padding-bottom: 0 !important;
+    }
+
+    .p-newsletter-signup--4-col {
+      @include vf-grid-8-column($col-50);
+    }
+  }
+
+  @media (min-width: $threshold-4-8-col) {
+    .p-newsletter-signup--2-col {
+      @include vf-grid-8-column($col-25);
+    }
+    .p-newsletter-signup--4-col {
+      @include vf-grid-8-column($col-50);
+      padding-bottom: 0 !important;
+    }
+  }
+}
