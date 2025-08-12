@@ -10,6 +10,7 @@ The Pricing block pattern is used to display individual cards representing diffe
 - 3 blocks, 25-75 split
 - 2 blocks, 50-50 split
 - 1 block
+- Block with normal rule
 - Block with description and a highlighted rule
 - Block without description and a muted rule
 
@@ -62,9 +63,17 @@ A single pricing block will take all the available space.
 View example of the single pricing block
 </a></div>
 
+## Block with a normal rule
+
+A pricing block with the <a href="https://vanillaframework.io/docs/patterns/rule#default">default variant</a> of the rule
+
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-normal-rule" class="js-example" data-lang="jinja">
+View example of the pricing block with a normal rule
+</a></div>
+
 ## Block with description and a highlighted rule
 
-A pricing block with description and a highlighted rule
+A pricing block with description and a <a href="https://vanillaframework.io/docs/patterns/rule#highlighted">highlighted rule</a>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-description-and-highlighted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with description and a highlighted rule
@@ -72,7 +81,7 @@ View example of the pricing block with description and a highlighted rule
 
 ## Block without description and a muted rule
 
-A pricing block with a muted rule and no description
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#muted">muted rule</a> and no description
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-without-description-and-muted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with a muted rule and no description
@@ -124,7 +133,7 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
           One of: <br>
           <code>'highlighted'</code><br>
           <code>'muted'</code><br>
-          <code>'default'</code><br>
+          <code>'normal'</code><br>
           <code>'none'</code><br>
         </td>
         <td>
@@ -134,7 +143,7 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
             Variant of the top rule.<br>
             Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section.<br>
             Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it.<br>
-            Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section.<br>
+            Use <code>'normal'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section.<br>
             Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
         </td>
       </tr>
