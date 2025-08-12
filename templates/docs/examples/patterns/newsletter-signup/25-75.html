@@ -1,0 +1,11 @@
+{% extends "_layouts/examples.html" %}
+{% from '_macros/vf_newsletter-signup.jinja' import vf_newsletter_signup %}
+{% block title %}Newsletter signup{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+    {% call(slot) vf_newsletter_signup(layout="25-75", title_text="Newsletter signup", formId="4960", returnURL="https://ubuntu.com/#contact-form-success") %}
+        {%- if slot == 'section' -%}
+            <p>Get the latest Ubuntu news and updates in your inbox.</p>
+        {%- endif -%}
+    {% endcall %}
+{% endblock %}
