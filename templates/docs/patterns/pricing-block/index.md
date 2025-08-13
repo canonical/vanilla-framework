@@ -65,7 +65,7 @@ View example of the single pricing block
 
 ## Block with a normal rule
 
-A pricing block with the <a href="https://vanillaframework.io/docs/patterns/rule#default">default variant</a> of the rule
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a> at the top
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-normal-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with a normal rule
@@ -73,7 +73,7 @@ View example of the pricing block with a normal rule
 
 ## Block with description and a highlighted rule
 
-A pricing block with description and a <a href="https://vanillaframework.io/docs/patterns/rule#highlighted">highlighted rule</a>
+A pricing block with description and a <a href="https://vanillaframework.io/docs/patterns/rule#highlighted">highlighted rule</a> at the top
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-description-and-highlighted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with description and a highlighted rule
@@ -81,7 +81,7 @@ View example of the pricing block with description and a highlighted rule
 
 ## Block without description and a muted rule
 
-A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#muted">muted rule</a> and no description
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#muted">muted rule</a> at the top and and no description
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-without-description-and-muted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with a muted rule and no description
