@@ -1,13 +1,14 @@
 {% extends '_layouts/examples.html' %}
 {% from '_macros/vf_pricing-block.jinja' import vf_pricing_block %}
-{% block title %}Pricing block / Without optional elements{% endblock %}
+{% block title %}Pricing block / With highlighted rule{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
   {% call(slot) vf_pricing_block(
-    top_rule_variant="muted",
+    top_rule_variant="highlighted",
     title_text='Kubernetes pricing',
     tiers=[
     {
+    'tier_name_text': 'Kubernetes Explorer',
     'tier_price_text': '$3099',
     'tier_price_explanation': 'per year, per VM',
     'tier_description_html': '<p>Three-day Kubernetes training to ramp up your team\'s skills.</p>',
