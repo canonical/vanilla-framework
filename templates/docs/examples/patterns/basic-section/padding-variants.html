@@ -1,0 +1,90 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Padding variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Default Padding"},
+  subtitle={"text": "This section uses default padding."},
+  items=[
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "Enhanced security with AppArmor and live kernel patching"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "Optimized performance for cloud and container workloads"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "10-year long term support with regular security updates"
+          }
+        ]
+      }
+    }
+  ]
+) }}
+
+{{ vf_basic_section(
+  title={"text": "Deep Padding"},
+  subtitle={"text": "This section uses deep padding for more vertical spacing."},
+  padding="deep",
+  items=[
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "Enhanced security with AppArmor and live kernel patching"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "Optimized performance for cloud and container workloads"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "10-year long term support with regular security updates"
+          }
+        ]
+      }
+    }
+  ]
+) }}
+
+{{ vf_basic_section(
+  title={"text": "Shallow Padding"},
+  subtitle={"text": "This section uses shallow padding for tighter spacing."},
+  padding="shallow",
+  items=[
+  {
+    "type": "list",
+    "item": {
+      "list_items": [
+        {
+          "list_item_type": "tick",
+          "content": "Enhanced security with AppArmor and live kernel patching"
+        },
+        {
+          "list_item_type": "tick",
+          "content": "Optimized performance for cloud and container workloads"
+        },
+        {
+          "list_item_type": "tick",
+          "content": "10-year long term support with regular security updates"
+        }
+      ]
+    }
+  }
+]
+
+) }}
+
+{% endblock %} 

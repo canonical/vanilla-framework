@@ -107,6 +107,78 @@ app.jinja_loader = loader
 After making the macros available to your webserver/templating engine, see the
 individual component/pattern docs for import and usage instructions.
 
+Some macros use [Jinja namespaces](https://jinja.palletsprojects.com/en/stable/templates/#jinja-globals.namespace) to allow for
+more powerful state management. Jinja namespaces were introduced in Jinja v2.10 - please ensure you are using a compatible version of Jinja.
+
+### Attribute forwarding
+
+Some macros support attribute forwarding, which allows you to pass structured attributes to specific elements within the macro.
+This enables macros to apply more structure to the markup they produce and reduce the amount of boilerplate code you need to write.
+
+For example, consider a pattern that accepts images as raw HTML, which are wrapped by the macro in a container that expects the image to have a specific class.
+A user would be required to apply that class manually, as with the `p-image-container__image` class in the example below:
+
+```jinja2
+{% raw -%}
+{{ vf_linked_logo_section(
+  title_text="Come for PostgreSQL, get security and support for your entire stack",
+  links=[
+    {
+      "href": "#",
+      "text": "Learn more &rsaquo;",
+      "label": "Kubeflow",
+      "image_html": '
+        <img
+            {#- we need to apply this class manually, or layouts will be broken -#}
+            class="p-image-container__image custom-class"
+            src="https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png"
+            alt=""
+            width="432"
+            height="481"
+        />
+      '
+    },
+  {#- more links... -#}
+{% endraw %}
+```
+
+Going forward, some patterns will support a structured dictionary of attributes that are applied to specific elements within the macro.
+This allows the macro to handle more business logic, such as applying required classes to elements.
+
+The macro can apply its own structure to markup, and **forward** your attributes, allowing you to pass additional attributes without needing to know the internal structure of the macro.
+An example snippet that produces equivalent markup to the above, using attribute forwarding, is shown below:
+
+```jinja2
+{% raw %}
+{{ vf_linked_logo_section(
+  title_text="Come for PostgreSQL, get security and support for your entire stack",
+  links=[
+    {
+      "href": "#",
+      "text": "Learn more &rsaquo;",
+      "label": "Kubeflow",
+      "image_attrs": {
+        "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+        {#-
+            Class is no longer required - macro will apply p-image-container__image
+            We can still pass additional classes if needed
+        -#}
+        "class": "custom-class",
+        "alt": "",
+        "width": "432",
+        "height": "481"
+      }
+    },
+{% endraw %}
+```
+
+Any `_attrs` parameter in a macro should be treated as an attribute forwarding parameter.
+It applies all attributes to the targeted element, unless otherwise specified in the documentation for that macro.
+The macro may also apply its own attributes to the element, which will be merged with the attributes you pass in.
+
+If you use a templating tool that generates raw HTML, you should switch to an output mode that outputs element attributes as a dictionary or object, if available.
+For example, [canonicalwebteam.image-template](https://github.com/canonical/canonicalwebteam.image-template/blob/3182710447965de9241944591f3dffc48a17a2d5/README.md#attribute-output) supports an `output_mode="attrs"` option that outputs image attributes as a dictionary, rather than raw HTML.
+
 ## Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile JavaScript modules, and can be used to inject Vanilla styles to the DOM. To get set up using Vanilla with Webpack, add the `webpack` and `vanilla-framework` packages to your project dependencies:

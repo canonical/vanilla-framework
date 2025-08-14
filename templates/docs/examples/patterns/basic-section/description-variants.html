@@ -1,0 +1,30 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Description variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Description Variants"},
+  subtitle={"text": "This example shows different types of descriptions."},
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "This is a plain text description. It will be wrapped in a paragraph tag automatically."
+      }
+    },
+    {
+      "type": "description",
+      "item": {
+        "type": "html",
+        "content": "<p>This is an HTML description with <strong>bold text</strong> and <em>italic text</em>. You can include any HTML markup.</p><p>You can even have multiple paragraphs.</p>"
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

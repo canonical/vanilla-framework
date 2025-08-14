@@ -1,0 +1,54 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic Section / Code Variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Code Block Variants"},
+  subtitle={"text": "This example shows different code block configurations and content types."},
+  items=[
+    {
+      "type": "code-block",
+      "item": {
+        "content": '
+          #!/bin/bash
+          # Build CSS into the ./build/ directory:
+          dotrun build
+
+          # Build CSS into the ./build/ directory,
+          # and start the server:
+          dotrun
+
+          # Dynamically watch for changes to the
+          # Sass files and build automatically:
+          dotrun watch
+
+          # See a full list of commands:
+          dotrun exec yarn run --non-interactive
+        '
+      }
+    },
+    {
+      "type": "code-block",
+      "item": {
+        "is_code_snippet": true,
+        "content": '
+          document.addEventListener("DOMContentLoaded", () => {
+            const examples = document.querySelectorAll(".js-example");
+
+            [].slice.call(examples).forEach((placementElement) => {
+              renderExample(placementElement).catch((error) => {
+                console.error("Failed to render example", {placementElement, error});
+              });
+            });
+          });
+        '
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

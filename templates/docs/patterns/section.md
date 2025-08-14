@@ -45,7 +45,11 @@ View example of the "section" pattern
 
 ## Shallow sections
 
-Use a shallow section component (`.p-section--shallow`) to group larger chunks of content inside a single section or strip or to add a shallow spacing to a heading.
+Use a shallow section component (`.p-section--shallow`):
+
+- To group larger chunks of content inside a single section or strip
+- To add shallow spacing to a heading
+- When a section is followed by a related full-width element, such as an image or table
 
 <div class="embedded-example"><a href="/docs/examples/patterns/section/shallow" class="js-example">
 View example of the shallow section
@@ -57,9 +61,9 @@ The block component `.p-block` previously served the same purpose, but is now de
 
 ## Deep sections
 
-In cases when a section needs a deep spacing below it (for example at the bottom of the page), use a deep section component (`.p-section--deep`).
+In cases when a section needs a deep spacing below it (for example, at the bottom of the page, to create distance from the footer), use a deep section component (`.p-section--deep`).
 
-Please not that to emphasize the sections of the page with both top and bottom spacing, a strip component should be used instead.
+Please note that to emphasize the sections of the page with both top and bottom spacing, a strip component should be used instead.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/section/deep" class="js-example">
 View example of the shallow section
