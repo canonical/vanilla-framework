@@ -1,9 +1,10 @@
 {% extends '_layouts/examples.html' %}
 {% from '_macros/vf_pricing-block.jinja' import vf_pricing_block %}
-{% block title %}Pricing block / With optional elements{% endblock %}
+{% block title %}Pricing block / With highlighted rule{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
   {% call(slot) vf_pricing_block(
+    top_rule_variant="highlighted",
     title_text='Kubernetes pricing',
     tiers=[
     {
@@ -58,10 +59,5 @@
     },
     ]
     ) -%}
-    {%- if slot == 'section_description' -%}
-      <p>
-        A low total cost of ownership. Up to five times lower than public clouds. A low total cost of ownership. Up to five times lower than public clouds. A low total cost of ownership. Up to five times lower than public clouds.
-      </p>
-    {%- endif -%}
   {% endcall %}
 {% endblock content %}
