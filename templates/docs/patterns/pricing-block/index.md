@@ -10,8 +10,9 @@ The Pricing block pattern is used to display individual cards representing diffe
 - 3 blocks, 25-75 split
 - 2 blocks, 50-50 split
 - 1 block
-- Block with description and a highlighted rule
-- Block without description and a muted rule
+- Block with description
+- Block with highlighted rule
+- Block with muted rule
 
 The Pricing block pattern is composed of the following elements:
 
@@ -62,19 +63,27 @@ A single pricing block will take all the available space.
 View example of the single pricing block
 </a></div>
 
-## Block with description and a highlighted rule
+## Block with a description
 
-A pricing block with description and a highlighted rule
+You can add a description to a pricing block by passing paragraphs into a `section_description` slot.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-description-and-highlighted-rule" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-description" class="js-example" data-lang="jinja">
+View example of the pricing block with a description
+</a></div>
+
+## Block with a highlighted rule
+
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#highlighted">highlighted rule</a> at the top, instead of the <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a>
+
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-highlighted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with description and a highlighted rule
 </a></div>
 
-## Block without description and a muted rule
+## Block with a muted rule
 
-A pricing block with a muted rule and no description
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#muted">muted rule</a> at the top, instead of the <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-without-description-and-muted-rule" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-muted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with a muted rule and no description
 </a></div>
 
@@ -122,15 +131,17 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
         </td>
         <td>
           One of: <br>
+          <code>'default'</code><br>
           <code>'highlighted'</code><br>
           <code>'muted'</code><br>
           <code>'none'</code><br>
         </td>
         <td>
-          <code>'highlighted'</code>
+          <code>'default'</code>
         </td>
         <td>
             Variant of the top rule.<br>
+            Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section.<br>
             Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section.<br>
             Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it.<br>
             Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
