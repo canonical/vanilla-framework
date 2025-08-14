@@ -1,0 +1,72 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Top rule variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={
+    "text": "Default top rule"
+  },
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "This basic section has a default horizontal rule at the top."
+      }
+    }
+  ]
+) }}
+
+{{ vf_basic_section(
+  title={
+    "text": "Highlighted top rule"
+  },
+  top_rule_variant="highlighted",
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "This basic section has a highlighted horizontal rule at the top."
+      }
+    }
+  ]
+) }}
+
+{{ vf_basic_section(
+  title={
+    "text": "Muted top rule"
+  },
+  top_rule_variant="muted",
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "This basic section has a muted horizontal rule at the top."
+      }
+    }
+  ]
+) }}
+
+{{ vf_basic_section(
+  title={
+    "text": "No top rule"
+  },
+  top_rule_variant="none",
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "This basic section has no horizontal rule at the top."
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

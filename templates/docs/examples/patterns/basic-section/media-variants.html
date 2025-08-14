@@ -1,0 +1,46 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Media variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Media Variants"},
+  subtitle={"text": "This example shows different image and video configurations and embedding options."},
+  items=[
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "16-9",
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+          "alt": "16:9 aspect ratio image"
+        }
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "16-9",
+        "caption_html": "This image has a caption with <strong>HTML formatting</strong>",
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+          "alt": "Image with caption"
+        }
+      }
+    },
+    {
+      "type": "video",
+      "item": {
+        "attrs": {
+          "src": "https://www.youtube.com/embed/lPaUMpAampI?si=nic5eE_mv5xrB9Go",
+          "allowfullscreen": ""
+        }
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

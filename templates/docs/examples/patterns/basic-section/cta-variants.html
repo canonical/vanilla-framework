@@ -1,0 +1,104 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / CTA variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Call-to-Action Variants"},
+  subtitle={"text": "This example shows different call-to-action configurations."},
+  items=[
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Primary Button"
+        }
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Primary Button",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "content_html": "Secondary Button 1",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          {
+            "content_html": "Secondary Button 2",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "secondaries": [
+          {
+            "content_html": "Secondary Button 1",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          {
+            "content_html": "Secondary Button 2",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "link": {
+          "content_html": "Learn more ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Primary Button",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "content_html": "Secondary Button",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ],
+        "link": {
+          "content_html": "Learn more ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

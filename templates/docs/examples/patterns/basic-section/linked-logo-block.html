@@ -1,0 +1,89 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Linked logo block{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Linked Logo Section"},
+  subtitle={"text": "This example shows a linked logo section with clickable logos and associated links."},
+  items=[
+    {
+      "type": "linked-logo-block",
+      "item": {
+        "links": [
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "Kubeflow",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+              "alt": "Kubeflow",
+              "width": "432",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "MLflow",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
+              "alt": "MLflow",
+              "width": "222",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "Apache Spark",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/855deda8-apache-spark-logo-container-vert-fill.png",
+              "alt": "Apache Spark",
+              "width": "240",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "OpenSearch",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/a8185f91-opensearch-logo-container-vert-fill.png",
+              "alt": "OpenSearch",
+              "width": "330",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "Kafka",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/d30de1f1-kafka-logo-container-vert-fill.png",
+              "alt": "Kafka",
+              "width": "294",
+              "height": "481"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Learn more ›",
+            "label": "PostgreSQL",
+            "image_attrs": {
+              "src": "https://assets.ubuntu.com/v1/f5605b7e-postgre-sql-container-vert-fill.png",
+              "alt": "PostgreSQL",
+              "width": "432",
+              "height": "481"
+            }
+          }
+        ]
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

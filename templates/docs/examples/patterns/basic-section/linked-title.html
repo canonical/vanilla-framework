@@ -1,0 +1,19 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Linked title{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={
+    "text": "Basic Section with Linked Title",
+    "link_attrs": {
+      "href": "#"
+    }
+  },
+  subtitle={"text": "This example shows how to make the title a clickable link."}
+) }}
+
+{% endblock %} 

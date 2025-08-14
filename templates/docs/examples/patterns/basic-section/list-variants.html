@@ -1,0 +1,100 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / List variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "List Variants"},
+  subtitle={"text": "This example shows different list types and configurations."},
+  items=[
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "bullet",
+            "content": "Bullet list item 1"
+          },
+          {
+            "list_item_type": "bullet",
+            "content": "Bullet list item 2"
+          },
+          {
+            "list_item_type": "bullet",
+            "content": "Bullet list item 3"
+          }
+        ]
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "Tick list item 1"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "Tick list item 2"
+          },
+          {
+            "list_item_type": "cross",
+            "content": "Tick list item 3"
+          }
+        ]
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "number",
+            "content": "Numbered list item 1"
+          },
+          {
+            "list_item_type": "number",
+            "content": "Numbered list item 2"
+          },
+          {
+            "list_item_type": "number",
+            "content": "Numbered list item 3"
+          }
+        ]
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "number",
+            "content": "Parent item with nested list",
+            "sublist": {
+              "list_items": [
+                {
+                  "list_item_type": "number",
+                  "content": "Nested item 1"
+                },
+                {
+                  "list_item_type": "number",
+                  "content": "Nested item 2"
+                }
+              ]
+            }
+          },
+          {
+            "list_item_type": "number",
+            "content": "Another parent item"
+          }
+        ]
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 
