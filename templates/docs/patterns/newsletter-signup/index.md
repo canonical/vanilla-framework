@@ -115,6 +115,23 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
       </tr>
       <tr>
         <td>
+          <code>checkbox_id</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>canonicalUpdatesOptIn</code>
+        </td>
+        <td>
+          Label for the input field
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>checkbox_label</code>
         </td>
         <td>
@@ -150,7 +167,7 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
       </tr>
       <tr>
         <td>
-          <code>formId</code>
+          <code>form_id</code>
         </td>
         <td>
           Yes
@@ -162,12 +179,29 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>N/A</code>
         </td>
         <td>
-          Marketo form id
+          Marketo form id. For example <code>mktoForm_XXXX</code>
         </td>
       </tr>
       <tr>
         <td>
-          <code>returnURL</code>
+          <code>form_action</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>https://ubuntu.com/marketo/submit</code>
+        </td>
+        <td>
+          Action URL for the form submission, typically the Marketo form endpoint.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>return_url</code>
         </td>
         <td>
           Yes
@@ -180,6 +214,31 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
         </td>
         <td>
           URL to return to after form submission
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>top_rule_variant</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>One of:</code><br />
+          <code>'default'</code><br />
+          <code>'highlighted'</code><br />
+          <code>'muted'</code><br />
+          <code>'none'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Variant of the top rule.<br>
+          Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section.<br>
+          Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section.<br>
+          Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it.<br>
+          Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
         </td>
       </tr>
     </tbody>
@@ -199,7 +258,6 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
     </thead>
     <tbody>
       <tr>
-      <tr>
         <td>
           <code>description</code>
         </td>
@@ -208,6 +266,28 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
         </td>
         <td>
           Paragraph-style content. One or more paragraphs
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>addendum</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Additional content to include in the form, such as a disclaimer or additional information. Paragraph-style content
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>hidden_fields</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Additional hidden fields to include in the form
         </td>
       </tr>
     </tbody>

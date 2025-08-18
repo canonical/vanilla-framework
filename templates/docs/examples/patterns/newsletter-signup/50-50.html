@@ -3,9 +3,86 @@
 {% block title %}Newsletter signup{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
-    {% call(slot) vf_newsletter_signup(layout="50-50", title_text="Newsletter signup", formId="4960", returnURL="https://ubuntu.com/#contact-form-success") %}
-        {%- if slot == 'section' -%}
+    {% call(slot) vf_newsletter_signup(layout="50-50", title_text="Newsletter signup", form_id="mktoForm_4960", return_url="https://ubuntu.com/#contact-form-success", input_label='Work email', checkbox_id='canonicalUpdatesOptIn', checkbox_label='I agree to receive information about Canonical\'s products and services.') %}
+        {%- if slot == 'description' -%}
             <p>Get the latest Ubuntu news and updates in your inbox.</p>
+        {%- endif -%}
+        {%- if slot == 'addendum' -%}
+            <p>
+                By submitting this form, I confirm that I have read and agree to <a href="https://ubuntu.com/legal/terms-and-policies/privacy-policy">Canonical's Privacy Policy</a>.
+            </p>
+        {%- endif -%}
+        {%- if slot == 'hidden_fields' -%}
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="returnURL"
+                   value="https://ubuntu.com/#contact-form-success" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="formid"
+                   value="mktoForm_4960" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="Consent_to_Processing__c"
+                   value="yes" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="productContext"
+                   id="product-context"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_campaign"
+                   id="utm_campaign"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_medium"
+                   id="utm_medium"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_source"
+                   id="utm_source"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_content"
+                   id="utm_content"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_term"
+                   id="utm_term"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="GCLID__c"
+                   id="GCLID__c"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="Facebook_Click_ID__c"
+                   id="Facebook_Click_ID__c"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   id="preferredLanguage"
+                   name="preferredLanguage"
+                   maxlength="255"
+                   value="" />
         {%- endif -%}
     {% endcall %}
 {% endblock %}

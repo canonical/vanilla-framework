@@ -3,47 +3,47 @@
 {% block title %}Newsletter signup{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
-    <section class="p-section">
-        <div class="grid-row--25-25-25-25">
-            <hr class="p-rule" />
-            <div class="grid-col">
-                <h5 class="p-heading--5">Continuous security</h5>
-                <p>
-                    Imagine a world where every device is trustworthy. We designed every
-                    aspect of Ubuntu Core to create the most secure embedded Linux ever, with
-                    a 10 year LTS commitment.
-                </p>
-                <a href="#">
-                    <p>Learn more about Ubuntu security&nbsp;›</p>
-                </a>
-            </div>
-            <div class="grid-col">
-                <h5 class="p-heading--5">Continuous security</h5>
-                <p>
-                    Imagine a world where every device is trustworthy. We designed every
-                    aspect of Ubuntu Core to create the most secure embedded Linux ever, with
-                    a 10 year LTS commitment.
-                </p>
-                <a href="#">
-                    <p>Learn more about Ubuntu security&nbsp;›</p>
-                </a>
-            </div>
-            <div class="grid-col">
-                <h5 class="p-heading--5">Continuous security</h5>
-                <p>
-                    Imagine a world where every device is trustworthy. We designed every
-                    aspect of Ubuntu Core to create the most secure embedded Linux ever, with
-                    a 10 year LTS commitment.
-                </p>
-                <a href="#">
-                    <p>Learn more about Ubuntu security&nbsp;›</p>
-                </a>
-            </div>
-            {% call(slot) vf_newsletter_signup(layout="2-col", title_text="Newsletter signup", formId="4960", returnURL="https://ubuntu.com/#contact-form-success") %}
-                {%- if slot == 'section' -%}
-                    <p>Get the latest Ubuntu news and updates in your inbox.</p>
-                {%- endif -%}
-            {% endcall %}
-        </div>
-    </section>
+    {% call(slot) vf_newsletter_signup(layout="2-col", title_text="Newsletter signup", form_id="mktoForm_4960", return_url="https://ubuntu.com/#contact-form-success", input_label='Work email', checkbox_id='canonicalUpdatesOptIn', checkbox_label='I agree to receive information about Canonical\'s products and services.') %}
+        {%- if slot == 'description' -%}
+            <p>Get the latest Ubuntu news and updates in your inbox.</p>
+        {%- endif -%}
+        {%- if slot == 'addendum' -%}
+            <p>
+                By submitting this form, I confirm that I have read and agree to <a href="https://ubuntu.com/legal/terms-and-policies/privacy-policy">Canonical's Privacy Policy</a>.
+            </p>
+        {%- endif -%}
+        {%- if slot == 'col_1' -%}
+            <h5 class="p-heading--5">Continuous security</h5>
+            <p>
+                Imagine a world where every device is trustworthy. We designed every
+                aspect of Ubuntu Core to create the most secure embedded Linux ever, with
+                a 10 year LTS commitment.
+            </p>
+            <a href="#">
+                <p>Learn more about Ubuntu security&nbsp;›</p>
+            </a>
+        {%- endif -%}
+        {%- if slot == 'col_2' -%}
+            <h5 class="p-heading--5">Continuous security</h5>
+            <p>
+                Imagine a world where every device is trustworthy. We designed every
+                aspect of Ubuntu Core to create the most secure embedded Linux ever, with
+                a 10 year LTS commitment.
+            </p>
+            <a href="#">
+                <p>Learn more about Ubuntu security&nbsp;›</p>
+            </a>
+        {% endif %}
+        {%- if slot == 'col_3' -%}
+            <h5 class="p-heading--5">Continuous security</h5>
+            <p>
+                Imagine a world where every device is trustworthy. We designed every
+                aspect of Ubuntu Core to create the most secure embedded Linux ever, with
+                a 10 year LTS commitment.
+            </p>
+            <a href="#">
+                <p>Learn more about Ubuntu security&nbsp;›</p>
+            </a>
+        {% endif %}
+    {% endcall %}
 {% endblock %}

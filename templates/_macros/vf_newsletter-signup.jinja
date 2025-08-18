@@ -6,35 +6,55 @@
       @param checkbox_label: Label for the checkbox
       @param layout: Layout variant for the section. Options are "50-50", "25-75", "2-col", and "4-col". Default is "25-75".
       @param form_id: Marketo form ID
+      @param form_action: Action URL for the form submission, typically the Marketo form endpoint.
       @param return_url: URL to return to after form submission
+      @param top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
 
     All Slots:
       @slot description: Description text, one or more paragraphs
       @slot addendum: Additional content to include in the form, such as a disclaimer or additional information
       @slot hidden_fields: Additional hidden fields to include in the form
 #}
-{%- macro vf_newsletter_signup(form_id, form_action, return_url, title_text, input_label="Work email", checkbox_id="canonicalUpdatesOptIn" checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", caller=None) -%}
+{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", caller=None) -%}
   {% set layout = layout | trim %}
   {% if layout not in ['50-50', '25-75', '2-col', '4-col'] %}
     {% set layout = "25-75" %}
+  {% endif %}
+  {% set top_rule_variant = top_rule_variant | trim %}
+  {% if top_rule_variant not in ['muted', 'highlighted', 'default', 'none'] %}
+    {% set top_rule_variant = "default" %}
   {% endif %}
   {% set description = caller('description') %}
   {% set addendum = caller('addendum') %}
   {% set hidden_fields = caller('hidden_fields') %}
   {% set is_section_level = layout in ['50-50', '25-75'] %}
+  {% set is_grid_level = layout in ['2-col', '4-col'] %}
   {% set heading_level = 'h2' if is_section_level else 'h3' %}
-  {% if is_section_level %}
-    <section class="p-section">
-      <hr class="p-rule is-fixed-width" />
+  {%- macro _top_rule() -%}
+    {% if top_rule_variant != 'none' %}
+      {% set rule_class = 'muted' if top_rule_variant == 'muted' else 'highlight' if top_rule_variant == 'highlighted' %}
+      <hr class="p-rule{% if top_rule_variant != 'default' %}--{{ rule_class }}{% endif %} is-fixed-width" />
     {% endif %}
-    <div class="{% if is_section_level %}grid-row--{{ layout }}-on-large{% else %}p-newsletter-signup--{{ layout }}{% endif %}">
-      {% if not is_section_level %}
-        <hr class="p-rule--muted u-hide--large {% if layout == '2-col' %}u-hide--medium{% endif %}" />
+  {%- endmacro -%}
+  {%- if is_section_level -%}
+    <section class="p-section">
+    {%- endif -%}
+    {{ _top_rule() | safe }}
+    <div class="grid-row--{% if is_section_level %}{{ layout }}-on-large{% else %}25-25-25-25{% endif %}">
+      {% if is_grid_level %}
+        {%- set upper_limit = 4 if layout == '2-col' else 3 -%}
+        {%- for number in range(1, upper_limit) -%}
+          {%- set col_content = caller('col_' + number|string) -%}
+          <div class="grid-col">{{ col_content | safe }}</div>
+        {%- endfor -%}
       {% endif %}
-      <div class="grid-col">
+      <div class="grid-col{% if layout == '4-col' %}-4{% endif %} {% if is_grid_level %}p-newsletter-signup--{{ layout }}{% endif %}">
+        {%- if is_grid_level -%}
+          <hr class="p-rule--muted u-hide--large {% if layout == '2-col' %}u-hide--medium{% endif %}" />
+        {%- endif -%}
         <{{ heading_level }}>{{ title_text }}</{{ heading_level }}>
-      </div>
-      <div class="grid-col">
+        {% if is_section_level %}</div>{% endif %}
+      {% if is_section_level %}<div class="grid-col">{% endif %}
         {{ description | safe }}
         <form action="{{ form_action }}" method="post" id="mktoForm_{{ form_id }}">
           <label class="is-required" for="email">{{ input_label }}:</label>
@@ -66,5 +86,7 @@
         </form>
       </div>
     </div>
-    {% if is_section_level %}</section>{% endif %}
+    {%- if is_section_level -%}
+    </section>
+  {%- endif -%}
 {%- endmacro -%}
