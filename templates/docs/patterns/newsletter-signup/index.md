@@ -37,7 +37,7 @@ View example of the 25-75 newsletter signup
 
 ## 50-50
 
-THis variant consists of a 50-50 split, with title on the left, and description(s) with form on the right.
+This variant consists of a 50-50 split, with title on the left, and description(s) with form on the right.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/newsletter-signup/50-50" class="js-example" data-lang="jinja">
 View example of the 50-50 newsletter signup
@@ -45,7 +45,10 @@ View example of the 50-50 newsletter signup
 
 ## 2-col
 
-This variant is used within a grid, and takes up 2 columns on large/medium and 4 columns on small dimensions.
+This variant can be used to add a newsletter block within a grid.
+Internally, it utilizes the new <a href="/docs/patterns/grid">4-4-8 column grid</a>.
+The newsletter block itself takes 2 columns on large dimension (hence the name "2-col"), and 4 columns on both medium and small dimensions.
+For the other adjacent content in the grid, you can utilize <a href="#col_slots">col_1..X slots</a>, each of which takes 2 columns on large dimensions, and 4 columns on both medium and small dimensions.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/newsletter-signup/2-col" class="js-example" data-lang="jinja">
 View example of the 2-col newsletter signup
@@ -53,7 +56,10 @@ View example of the 2-col newsletter signup
 
 ## 4-col
 
-This variant is also used within a grid, and takes up 4 columns on all dimensions.
+This variant is another option to add a newsletter block within a grid.
+Internally, it also utilizes the new <a href="/docs/patterns/grid">4-4-8 column grid</a>.
+The newsletter block itself takes 4 columns on all dimensions (hence the name "4-col").
+For the other adjacent content in the grid, you can utilize <a href="#col_slots">col_1..X slots</a>, each of which takes 2 columns on large dimensions, and 4 columns on both medium and small dimensions.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/newsletter-signup/4-col" class="js-example" data-lang="jinja">
 View example of the 4-col newsletter signup
@@ -91,9 +97,11 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>N/A</code>
         </td>
         <td>
-          <code>h2/h3</code> title text<br/>
-          <code>h2</code> for <code>`25-75`, `50-50` variants</code><br/>
-          <code>h3</code> for <code>`2-col`, `4-col` variants</code><br/>
+          <code>h2/h3</code> title text
+          <ul>
+            <li class="p-list__item"><code>h2</code> for <code>'25-75', '50-50' variants</code></li> 
+            <li class="p-list__item"><code>h3</code> for <code>'2-col', '4-col' variants</code></li> 
+          </ul>
         </td>
       </tr>
       <tr>
@@ -127,7 +135,7 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>canonicalUpdatesOptIn</code>
         </td>
         <td>
-          Label for the input field
+          ID for the checkbox field, used for agreeing to something before submitting the form. This may vary based on the backend used to collect form responses.
         </td>
       </tr>
       <tr>
@@ -179,7 +187,7 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>N/A</code>
         </td>
         <td>
-          Marketo form id. For example <code>mktoForm_XXXX</code>
+          The ID passed to the form element. For example <code>mktoForm_XXXX</code>
         </td>
       </tr>
       <tr>
@@ -196,7 +204,7 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>https://ubuntu.com/marketo/submit</code>
         </td>
         <td>
-          Action URL for the form submission, typically the Marketo form endpoint.
+          Action URL for the form submission, typically the form endpoint.
         </td>
       </tr>
       <tr>
@@ -234,11 +242,21 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>'default'</code>
         </td>
         <td>
-          Variant of the top rule.<br>
-          Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section.<br>
-          Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section.<br>
-          Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it.<br>
-          Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
+          Variant of the top rule
+          <ul class="u-no-margin--bottom">
+            <li class="p-list__item">
+              Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section
+            </li>
+            <li class="p-list__item">
+              Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section
+            </li>
+            <li class="p-list__item">
+              Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it
+            </li>
+            <li class="p-list__item">
+              Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
+            </li>
+          </ul>
         </td>
       </tr>
     </tbody>
@@ -288,6 +306,30 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
         </td>
         <td>
           Additional hidden fields to include in the form
+        </td>
+      </tr>
+      <tr id="col_slots">
+        <td>
+          <code>col_1..X</code><br />
+          <ul>
+            <li class="p-list__item">X = 3, for <code>'2-col'</code></li>
+            <li class="p-list__item">X = 2, for <code>'4-col'</code></li>
+          </ul>
+        </td>
+        <td>
+          Only for <code>'2-col'</code> and <code>'4-col'</code> variants
+        </td>
+        <td>
+          Content for the neighbouring columns in the grid. Only applicable to <code>'2-col'</code> and <code>'4-col'</code> layouts.<br />
+          <ul class="u-no-margin--bottom">
+            <li class="p-list__item">
+              In <code>4-col</code> variant, the newsletter block takes up 4 columns on large dimensions, leaving space for two adjacent columns namely col_1 and col_2
+            </li>
+            <li class="p-list__item">
+              In <code>2-col</code> variant, the newsletter block takes up 2 columns on large dimensions, leaving space for three adjacent columns namely col_1, col_2 and col_3
+            </li>
+          </ul>
+          For more information, please checkout the new <a href="/docs/patterns/grid">4-4-8 column grid</a>.
         </td>
       </tr>
     </tbody>

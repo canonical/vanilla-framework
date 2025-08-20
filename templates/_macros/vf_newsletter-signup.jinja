@@ -5,8 +5,8 @@
       @param checkbox_id: Name for the checkbox field, used for agreeing to something before submitting the form. This may vary based on the backend used to collect form responses.
       @param checkbox_label: Label for the checkbox
       @param layout: Layout variant for the section. Options are "50-50", "25-75", "2-col", and "4-col". Default is "25-75".
-      @param form_id: Marketo form ID
-      @param form_action: Action URL for the form submission, typically the Marketo form endpoint.
+      @param form_id: Form ID
+      @param form_action: Action URL for the form submission, typically the form endpoint.
       @param return_url: URL to return to after form submission
       @param top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
 
@@ -56,7 +56,7 @@
         {% if is_section_level %}</div>{% endif %}
       {% if is_section_level %}<div class="grid-col">{% endif %}
         {{ description | safe }}
-        <form action="{{ form_action }}" method="post" id="mktoForm_{{ form_id }}">
+        <form action="{{ form_action }}" method="post" id="{{ form_id }}">
           <label class="is-required" for="email">{{ input_label }}:</label>
           <input required
                  id="email"
@@ -69,8 +69,8 @@
             <input required
                    class="p-checkbox__input"
                    value="yes"
-                   aria-labelledby="canonicalUpdatesOptIn"
-                   name="canonicalUpdatesOptIn"
+                   aria-labelledby="{{ checkbox_id }}"
+                   name="{{ checkbox_id }}"
                    type="checkbox" />
             <span class="p-checkbox__label" id="{{ checkbox_id }}">{{ checkbox_label }}</span>
           </label>
@@ -82,7 +82,75 @@
             </p>
           {% endif %}
           <button type="submit" class="u-no-margin--bottom">Sign up</button>
-          {% if hidden_fields %}{{ hidden_fields | safe }}{% endif %}
+          {% if hidden_fields %}
+            {{ hidden_fields | safe }}
+          {% else %}
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="returnURL"
+                   value="{{ return_url }}" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="formid"
+                   value="{{ form_id }}" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="productContext"
+                   id="product-context"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_campaign"
+                   id="utm_campaign"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_medium"
+                   id="utm_medium"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_source"
+                   id="utm_source"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_content"
+                   id="utm_content"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="utm_term"
+                   id="utm_term"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="GCLID__c"
+                   id="GCLID__c"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   name="Facebook_Click_ID__c"
+                   id="Facebook_Click_ID__c"
+                   value="" />
+            <input type="hidden"
+                   aria-hidden="true"
+                   aria-label="hidden field"
+                   id="preferredLanguage"
+                   name="preferredLanguage"
+                   maxlength="255"
+                   value="" />
+          {% endif %}
         </form>
       </div>
     </div>
