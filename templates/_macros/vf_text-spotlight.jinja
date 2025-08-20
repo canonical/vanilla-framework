@@ -3,9 +3,14 @@
       @param title_text: H2 title text
       @param list_items (Array<string>)
       An array of HTML strings to be rendered
+      @param item_heading_level: Level of the heading to use, defaults to '2'. Can be '2', or '4'.
 #}
-{%- macro vf_text_spotlight(title_text, list_items=[], caller=None) -%}
+{%- macro vf_text_spotlight(title_text, item_heading_level='2', list_items=[], caller=None) -%}
   {% set has_list = list_items | length >= 2 and list_items | length <= 7 %}
+  {% set item_heading_level = item_heading_level | trim %}
+  {%- if item_heading_level not in ["2", "4"] -%}
+    {%- set item_heading_level = "2" -%}
+  {%- endif -%}
   <section class="p-section">
     <hr class="p-rule is-fixed-width" />
     <div class="grid-row--25-75-on-large">
@@ -15,7 +20,7 @@
       <div class="grid-col">
         {%- if has_list -%}
           {%- for list_item in list_items -%}
-            <p class="p-heading--2">{{- list_item -}}</p>
+            <p class="p-heading--{{ item_heading_level }}">{{- list_item -}}</p>
             {%- if not loop.last %}<hr class="p-rule--muted" />{%- endif %}
           {%- endfor -%}
         {%- else -%}

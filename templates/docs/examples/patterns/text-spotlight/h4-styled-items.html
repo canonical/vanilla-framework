@@ -1,11 +1,12 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_text-spotlight.jinja" import vf_text_spotlight %}
-{% block title %}Text spotlight | Default{% endblock %}
+{% block title %}Text spotlight | H4 styled items{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% set is_paper = true %}
 {% block content %}
     {% call(slot) vf_text_spotlight(
         title_text='Why choose <br class="u-hide--medium u-hide--small" />Data Science Stack?',
+        item_heading_level='4',
         list_items=[
         'Improve developer productivity',
         'Easy to use on any AI workstation',
