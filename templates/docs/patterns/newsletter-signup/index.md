@@ -323,13 +323,13 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           Content for the neighbouring columns in the grid. Only applicable to <code>'2-col'</code> and <code>'4-col'</code> layouts.<br />
           <ul class="u-no-margin--bottom">
             <li class="p-list__item">
-              In <code>4-col</code> variant, the newsletter block takes up 4 columns on large dimensions, leaving space for two adjacent columns namely col_1 and col_2
+              In the <code>4-col</code> variant, the newsletter block takes up 4 columns on large screens. This leaves space for two 2-column blocks, which can be populated with the `col_1` and `col_2` slots.
             </li>
             <li class="p-list__item">
-              In <code>2-col</code> variant, the newsletter block takes up 2 columns on large dimensions, leaving space for three adjacent columns namely col_1, col_2 and col_3
+              In the <code>2-col</code> variant, the newsletter block takes up 2 columns on large screens. This leaves space for three 2-column blocks, which can be populated with the `col_1`, `col_2`, and `col_3` slots.
             </li>
           </ul>
-          For more information, please checkout the new <a href="/docs/patterns/grid">4-4-8 column grid</a>.
+          For more information, please see the new <a href="/docs/patterns/grid">4-4-8 column grid</a>.
         </td>
       </tr>
     </tbody>

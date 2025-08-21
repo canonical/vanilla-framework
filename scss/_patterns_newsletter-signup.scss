@@ -21,25 +21,19 @@
 @import 'settings';
 
 @mixin vf-p-newsletter-signup {
-  .p-newsletter-signup--2-col,
+  .p-newsletter-signup--2-col {
+    padding-bottom: 0;
+
+    @media (width < $breakpoint-small) {
+      padding-bottom: $spv--strip-regular * 0.5;
+    }
+  }
+
   .p-newsletter-signup--4-col {
-    // same as %section-padding--default
-    padding-bottom: $spv--strip-regular * 0.5;
+    padding-bottom: 0;
 
-    @media (min-width: $breakpoint-large) {
-      padding-bottom: $spv--strip-regular;
-    }
-  }
-
-  @media (min-width: $threshold-4-small-4-med-col) {
-    .p-newsletter-signup--2-col {
-      padding-bottom: 0 !important;
-    }
-  }
-
-  @media (min-width: $threshold-4-8-col) {
-    .p-newsletter-signup--4-col {
-      padding-bottom: 0 !important;
+    @media (width < $breakpoint-large) {
+      padding-bottom: $spv--strip-regular * 0.5;
     }
   }
 }

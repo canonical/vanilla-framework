@@ -42,7 +42,7 @@ View example of the text spotlight section with links
 You can also apply h4 level styles to the list items, by setting `item_heading_level=4`
 
 <div class="embedded-example"><a href="/docs/examples/patterns/text-spotlight/h4-styled-items" class="js-example" data-lang="jinja">
-View example of the default text spotlight section
+View example of the text spotlight section with h4-styled items
 </a></div>
 
 ## Jinja Macro
@@ -105,7 +105,9 @@ The `vf_text-spotlight` Jinja macro can be used to generate a Text Spolight Patt
           No
         </td>
         <td>
-          <code>string</code>
+          One of:<br>
+          <code>2</code>,<br>
+          <code>4</code>
         </td>
         <td>
           <code>2</code>
