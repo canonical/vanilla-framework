@@ -190,6 +190,20 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     }
   }
 
+  .p-navigation--sliding {
+    @property --right {
+      inherits: false;
+      initial-value: 0%;
+      syntax: '<percentage>';
+    }
+
+    @property --up {
+      inherits: false;
+      initial-value: 0%;
+      syntax: '<percentage>';
+    }
+  }
+
   // navigation row
   .p-navigation__row,
   .p-navigation__row--full-width {
@@ -1061,6 +1075,86 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
       }
       @media (min-width: $breakpoint-navigation-threshold) {
         display: none;
+      }
+    }
+  }
+
+  @media (width < $breakpoint-navigation-threshold) {
+    .p-navigation--sliding {
+      .p-navigation__nav {
+        display: block;
+        margin-top: 3.5rem;
+        min-width: 100%;
+        position: absolute;
+        transform: translateX(var(--right));
+        // same function as for the global-nav dropdown
+        transition: transform 0.333s cubic-bezier(0.215, 0.61, 0.355, 1);
+        // starts on the right outside of the screen
+        --right: 110%;
+      }
+
+      &.has-menu-open {
+        overflow-x: hidden;
+      }
+
+      &.has-menu-open .p-navigation__nav {
+        --right: 0%;
+      }
+
+      &.menu-closing .p-navigation__nav {
+        --right: 110%;
+      }
+
+      .p-navigation__items--section {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-navigation-threshold) {
+    .p-navigation--sliding {
+      &.has-menu-open {
+        box-shadow: none;
+      }
+
+      .p-navigation__items {
+        justify-content: space-between;
+
+        &--section {
+          display: flex;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .p-navigation__item--dropdown-toggle {
+        position: relative;
+      }
+
+      .p-navigation__dropdown--container {
+        // a bit extra % to be able to show the shadow of the box if present
+        clip-path: rect(0 105% 105% 0);
+        display: block;
+        min-width: 100%;
+        position: absolute;
+      }
+
+      .p-navigation__dropdown--container > .p-navigation__dropdown {
+        display: block;
+        position: static;
+        transform: translateY(calc(-1 * var(--up)));
+        // same function as for the global-nav dropdown
+        transition: transform 0.333s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        &[aria-hidden='true'] {
+          // extra 10% to not let the shadow show underneath the navbar
+          --up: 110%;
+        }
+
+        &[aria-hidden='false'] {
+          --up: 0%;
+        }
       }
     }
   }
