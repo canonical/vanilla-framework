@@ -5,8 +5,11 @@ const initNavigationSliding = () => {
   const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back-button)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
-  const dropdownNavLists = document.querySelectorAll('.js-dropdown-nav-list');
-  const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.js-dropdown-nav-list'))[0];
+  const dropdownNavLists = document.querySelectorAll('.p-navigation__dropdown');
+  // const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.p-navigation__dropdown'))[0];
+  const topNavLists = document.querySelectorAll(
+    '.p-navigation__nav > .p-navigation__items'
+  );
 
   const hasSearch = searchButtons.length > 0;
 
@@ -14,12 +17,20 @@ const initNavigationSliding = () => {
     if (hasSearch) {
       closeSearch();
     }
-    resetToggles();
-    navigation.classList.remove('has-menu-open');
-    if (secondaryNavigation) {
-      secondaryNavigation.classList.remove('has-menu-open');
-    }
+    
     menuButton.innerHTML = 'Menu';
+    navigation.classList.add('menu-closing');
+    const closeMenuHandler = () => {
+      if (secondaryNavigation) {
+        secondaryNavigation.classList.remove('has-menu-open');
+      }
+      navigation.classList.remove('has-menu-open');
+      navigation.classList.remove('menu-closing');
+      resetToggles();
+    };
+
+    // the time is aproximately the time of the sliding animation
+    setTimeout(closeMenuHandler, ANIMATION_SNAP_DURATION);
   };
 
   const keyPressHandler = (e) => {
@@ -75,11 +86,35 @@ const initNavigationSliding = () => {
   const setActiveDropdown = (dropdownToggleButton, isActive = true) => {
     // set active state of the dropdown toggle (to slide the panel into view)
     const dropdownToggleEl = dropdownToggleButton.closest('.js-navigation-dropdown-toggle');
-    dropdownToggleEl?.classList.toggle('is-active', isActive);
+    if (dropdownToggleEl) {
+      dropdownToggleEl.classList.toggle('is-active', isActive);
+      dropdownToggleEl.classList.toggle('is-selected', isActive);
+    }
 
     // set active state of the parent dropdown panel (to fade it out of view)
     const parentLevelDropdown = dropdownToggleEl.closest('.js-navigation-sliding-panel');
-    parentLevelDropdown?.classList.toggle('is-active', isActive);
+    if (parentLevelDropdown) {
+      parentLevelDropdown.classList.toggle('is-active', isActive);
+    }
+
+    // set active state of the top navigation list under p-navigation__nav
+    // to set the position of the sliding panel properly
+    const topLevelNavigation = dropdownToggleButton.closest('.p-navigation__nav');
+    if (topLevelNavigation) {
+      const topLevelItems = topLevelNavigation.querySelectorAll(
+        ':scope > .p-navigation__items'
+      );
+      // eslint-disable-next-line no-restricted-syntax
+      for (const item of topLevelItems) {
+        // in case there are more than one top level navigation lists, we need to
+        // mark as active the one that contains the clicked button and hide the rest
+        if (item.contains(dropdownToggleButton)) {
+          item.classList.toggle('is-active', isActive);
+        } else {
+          item.classList.toggle('u-hide', isActive);
+        }
+      }
+    }
   };
 
   const collapseDropdown = (dropdownToggleButton, targetDropdown, animated = false) => {
@@ -147,7 +182,7 @@ const initNavigationSliding = () => {
     const isList = target.classList.contains('js-dropdown-nav-list');
     if (!isList) {
       // find all lists in the target dropdown and make them focusable
-      target.querySelectorAll('.js-dropdown-nav-list').forEach(function (element) {
+      target.querySelectorAll('.js-dropdown-nav-list').forEach(element => {
         setListFocusable(element);
       });
     } else {

@@ -31,26 +31,37 @@
       <ul class="p-navigation__items is-active js-dropdown-nav-list js-navigation-sliding-panel">
         <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" role="menuitem" id="products">
           <a class="p-navigation__link" href="#products" aria-controls="products-content" tabindex="0">Products</a>
-          {{ build_fake_dropdown('products-content', 'Products', links_count=11, sub_links_count=10, quick_links_count=5) }}
+          <div class="p-navigation__dropdown--container">
+            {{ build_fake_dropdown('products-content', 'Products', links_count=11, sub_links_count=10, quick_links_count=5) }}
+          </div>
         </li>
         <li class="p-navigation__item--dropdown-toggle is-active js-navigation-dropdown-toggle" role="menuitem" id="use-case">
           <a class="p-navigation__link" href="#use-case" aria-controls="use-case-content" tabindex="0">Use cases</a>
-          {{ build_fake_dropdown('use-case-content', 'Use cases', True) }}
+          <div class="p-navigation__dropdown--container">
+            {{ build_fake_dropdown('use-case-content', 'Use cases', True) }}
+          </div>
         </li>
         <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" role="menuitem" id="support">
           <a class="p-navigation__link" href="#support" aria-controls="support-content" tabindex="0">Support</a>
-          {{ build_fake_dropdown('support-content', 'Support', links_count=2, sub_links_count=8, quick_links_count=5) }}
+          <div class="p-navigation__dropdown--container">
+            {{ build_fake_dropdown('support-content', 'Support', links_count=2, sub_links_count=8, quick_links_count=5) }}
+          </div>
         </li>
         <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" role="menuitem" id="community">
           <a class="p-navigation__link" href="#community" aria-controls="community-content" tabindex="0">Community</a>
-          {{ build_fake_dropdown('community-content', 'Community', links_count=5, sub_links_count=7, quick_links_count=5) }}
+          <div class="p-navigation__dropdown--container">
+            {{ build_fake_dropdown('community-content', 'Community', links_count=5, sub_links_count=7, quick_links_count=5) }}
+          </div>
         </li>
         <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" role="menuitem" id="get-ubuntu">
           <a class="p-navigation__link" href="#get-ubuntu" aria-controls="get-ubuntu-content" tabindex="0">Get Ubuntu</a>
-          {{ build_fake_dropdown('get-ubuntu-content', 'Get Ubuntu', links_count=6, sub_links_count=3, quick_links_count=8, has_cta_button=True ) }}
+          <div class="p-navigation__dropdown--container">
+            {{ build_fake_dropdown('get-ubuntu-content', 'Get Ubuntu', links_count=6, sub_links_count=3, quick_links_count=8, has_cta_button=True ) }}
+          </div>
         </li>
         <li class="p-navigation__item--dropdown-toggle is-right-shifted js-navigation-dropdown-toggle" role="menuitem" id="all-canonical">
           <button aria-controls="canonical-products" class="p-navigation__link" id="all-canonical-link" aria-expanded="false">All Canonical</button>
+          <div class="p-navigation__dropdown--container">
             <ul class="p-navigation__dropdown js-dropdown-nav-list js-navigation-sliding-panel" id="canonical-products" aria-hidden="true" data-level="1">
               <li class="p-navigation__item--dropdown-close" id="link-6-back">
                 <button aria-controls="canonical-products" class="p-navigation__link js-back-button">
@@ -64,6 +75,7 @@
                 <a href="#" class="p-navigation__dropdown-item">TODO....</a>
               </li>
             </ul>
+          </div>
         </li>
         <li class="p-navigation__item js-account" role="menuitem" id="canonical-login">
           <a href="#sign-in" class="p-navigation__link" tabindex="0">Sign in</a>
