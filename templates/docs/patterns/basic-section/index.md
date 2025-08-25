@@ -375,6 +375,31 @@ Each of the CTA configurations accepts the following properties:
 - **`content_html`**: The inner HTML of the CTA item.
 - **`attrs`**: Dictionary of button/link attributes. These are applied to the CTA element. If `href` is present, the CTA item will be an `<a>`, otherwise it will be a `<button>`. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
+### Notification
+
+The Notification block allows you to include notifications within the section.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/notification" class="js-example" data-lang="jinja">
+View example of the basic section pattern with notification block
+</a></div>
+
+```json
+{
+  "type": "notification",
+  "item": {
+    "type": "positive",
+    "title": "This is a notification",
+    "content": "The quick brown fox jumps over the lazy dog"
+  }
+}
+```
+
+- **`type`**: One of "information", "caution", "negative", or "positive"
+- **`title`**: Title text of the notification block
+- **`content`**: Descriptive text of the notification block
+
+See [Notifications](/docs/patterns/notification) for more information on notification blocks.
+
 ## Jinja Macro
 
 The `vf_basic_section` Jinja macro can be used to generate a basic section pattern. The API for the macro is shown

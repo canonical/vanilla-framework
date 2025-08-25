@@ -1,0 +1,49 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Divided section / Description only{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  title={
+    "text": "The quick brown fox jumps over the lazy dog",
+  },
+  blocks=[
+  {
+    "type": "description-block",
+    "items": [
+      {
+        "type": "list",
+        "item": {
+          "list_items": [
+            {
+              "list_item_type": "tick",
+              "content": "Enhanced security with AppArmor and live kernel patching"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "Optimized performance for cloud and container workloads"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "10-year long term support with regular security updates"
+            }
+          ]
+        },
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "This description has shallow padding applied, increasing the vertical space between it and the next item."
+        }
+      }
+    ]
+  },
+    ],
+  ) 
+}}
+
+{% endblock %} 

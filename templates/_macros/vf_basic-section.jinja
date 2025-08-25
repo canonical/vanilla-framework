@@ -64,6 +64,23 @@
   </div>
 {% endmacro %}
 
+# notification_config
+# - type: "information" | "caution" | "negative" | "positive" (default is "information")
+# - title: The title of notification. Plain text.
+# - content: The content of the notification. Plain text.
+{% macro _basic_section_notification(notification_config={}) %}
+  {%- set type = (notification_config.get("type", "information")) | trim -%}
+  {%- if type not in ["information", "caution", "negative", "positive"] -%}
+    {%- set type = "information" -%}
+  {%- endif -%}
+  <div class="p-notification--{{ type }}">
+    <div class="p-notification__content">
+      <h5 class="p-notification__title">{{ notification_config.get("title", "") }}</h5>
+      <p class="p-notification__message">{{ notification_config.get("content", "") }}</p>
+    </div>
+  </div>
+{% endmacro %}
+
 # list_config
 # - list_item_type: "bullet" | "tick" | "cross" | "number" | "" (default is "")
 # - list_items: A list of items to be displayed in the section.
@@ -234,9 +251,9 @@
 {% endmacro %}
 
 # item_config
-# - type: "description" | "image" | "video" | "list" | "code-block" | "logo-block" | "liked-logo-block" | "cta-block"
+# - type: "description" | "image" | "video" | "list" | "code-block" | "logo-block" | "liked-logo-block" | "cta-block" | "notification"
 # - item: The configuration for the item, which varies based on the type.
-{% macro _basic_section_item(item_config={}) %}
+{% macro basic_section_item(item_config={}) %}
   {%- set type = (item_config.get("type", "")) | trim -%}
 
   {%- if type == "description" -%}
@@ -255,8 +272,51 @@
     {{- _basic_section_linked_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "cta-block" -%}
     {{- _basic_section_cta_block(item_config.get("item", {})) -}}
+  {%- elif type == "notification" -%}
+    {{- _basic_section_notification(item_config.get("item", {})) -}}
   {%- endif -%}
 {% endmacro %}
+
+{% macro basic_section_title(title={}) %}
+  <h2>
+    {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
+      <a
+        {% for attr, value in title.get("link_attrs", {}).items() -%}
+          {{ attr }}="{{ value }}"
+        {%- endfor -%}
+      >{{- title.get("text", "") -}}</a>
+    {%- else -%}
+      {{- title.get("text", "") -}}
+    {%- endif -%}
+  </h2>
+{%- endmacro -%}
+
+{%- macro basic_section_top_rule(top_rule_variant="default") -%}
+  {%- set top_rule_variant = top_rule_variant | trim -%}
+  {%- if top_rule_variant not in ["default", "muted", "highlighted", "none"] -%}
+    {%- set top_rule_variant = "default" -%}
+  {%- endif -%}
+
+  {%- if top_rule_variant != "none" -%}
+    {%- set top_rule_classes = "p-rule" -%}
+    {%- if top_rule_variant != "default" -%}
+      {#-
+        p-rule--highlighted doesn't exist (use p-rule--highlight instead), but p-rule--muted does.
+        We keep the external API here consistent ("-ed" suffix) for simplicity but need to handle this internally.
+      -#}
+      {%- if top_rule_variant == "highlighted" -%}
+        {%- set top_rule_classes = "p-rule--highlight" -%}
+      {%- else -%}
+        {#- Other cases: just append the top_rule_variant to the p-rule class. -#}
+        {%- set top_rule_classes = top_rule_classes + "--" + top_rule_variant -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if top_rule_variant != "none" -%}
+    <hr class="{{- top_rule_classes -}}"/>
+  {%- endif -%}
+{%- endmacro -%}
 
 # Params
 # title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
@@ -281,27 +341,6 @@
     {%- set padding = "default" -%}
   {%- endif -%}
 
-  {%- set top_rule_variant = top_rule_variant | trim -%}
-  {%- if top_rule_variant not in ["default", "muted", "highlighted", "none"] -%}
-    {%- set top_rule_variant = "default" -%}
-  {%- endif -%}
-
-  {%- if top_rule_variant != "none" -%}
-    {%- set top_rule_classes = "p-rule" -%}
-    {%- if top_rule_variant != "default" -%}
-      {#-
-        p-rule--highlighted doesn't exist (use p-rule--highlight instead), but p-rule--muted does.
-        We keep the external API here consistent ("-ed" suffix) for simplicity but need to handle this internally.
-      -#}
-      {%- if top_rule_variant == "highlighted" -%}
-        {%- set top_rule_classes = "p-rule--highlight" -%}
-      {%- else -%}
-        {#- Other cases: just append the top_rule_variant to the p-rule class. -#}
-        {%- set top_rule_classes = top_rule_classes + "--" + top_rule_variant -%}
-      {%- endif -%}
-    {%- endif -%}
-  {%- endif -%}
-
   {%- set padding_classes = "p-section--" + padding -%}
   {%- if padding == "default" -%}
   {%- set padding_classes = "p-section" -%}
@@ -319,24 +358,12 @@
 
 <section class="{{ padding_classes }}">
   <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}">
-    {%- if top_rule_variant != "none" %}
-    <hr class="{{- top_rule_classes -}}"/>
-    {%- endif -%}
+    {{ basic_section_top_rule(top_rule_variant) }}
     <div class="grid-col">
       {%- if has_label -%}
         <h3 class="p-muted-heading u-no-padding--top u-no-margin--bottom">{{- label_text -}}</h3>
       {%- endif -%}
-      <h2>
-        {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
-          <a
-            {% for attr, value in title.get("link_attrs", {}).items() -%}
-              {{ attr }}="{{ value }}"
-            {%- endfor -%}
-          >{{- title.get("text", "") -}}</a>
-        {%- else -%}
-          {{- title.get("text", "") -}}
-        {%- endif -%}
-      </h2>
+      {{ basic_section_title(title) }}
     </div>
     <div class="grid-col">
       {%- if has_subtitle -%}
@@ -358,7 +385,7 @@
          {%- set item_classes = "" -%}
         {%- endif -%}
         <div{%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>
-        {{- _basic_section_item(item) -}}
+        {{- basic_section_item(item) -}}
         </div>
       {%- endfor -%}
     </div>

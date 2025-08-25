@@ -1,0 +1,71 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Divided section / No headings{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  title={
+    "text": "The quick brown fox jumps over the lazy dog",
+  },
+  blocks=[
+  {
+    "type": "divided-block",
+    "bullet_type": "none",
+    "items": [
+          {
+            "contents": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "The quick brown fox jumps over the lazy dog"
+                }
+              },
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "The quick brown fox jumps over the lazy dog"
+                }
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "The quick brown fox jumps over the lazy dog"
+                }
+              },
+              {
+                "type": "cta-block",
+                "item": {
+                  "secondaries": [
+                    {
+                      "content_html": "Action",
+                      "attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "link": {
+                    "content_html": "Lorem ipsum dolor sit amet ›",
+                    "attrs": {
+                      "href": "#"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+    ]
+  },
+],
+) 
+}}
+
+{% endblock %} 

@@ -1,0 +1,138 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Divided section / Split layout responsive{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  is_split_on_medium=true,
+  title={
+    "text": "The quick brown fox jumps over the lazy dog",
+  },
+  blocks=[
+  {
+    "type": "description-block",
+    "items": [
+      {
+        "type": "list",
+        "item": {
+          "list_items": [
+            {
+              "list_item_type": "tick",
+              "content": "Enhanced security with AppArmor and live kernel patching"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "Optimized performance for cloud and container workloads"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "10-year long term support with regular security updates"
+            }
+          ]
+        },
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "This description has shallow padding applied, increasing the vertical space between it and the next item."
+        }
+      }
+    ]
+  },
+  {
+    "type": "divided-block",
+    "bullet_type": "number",
+    "items": [
+          {
+            "title_text": "To get started, install the MicroCeph snap with the following command on each node to be used in the cluster:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo snap install microceph"
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "Then bootstrap the cluster:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo microceph cluster bootstrap"
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "Check the cluster status with the following command:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo microceph.ceph status"
+                }
+              },
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "Here you should see that there is a single node in the cluster."
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "To use MicroCeph as a single node, the default CRUSH rules need to be modified:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "
+                              sudo microceph.ceph osd crush rule rm replicated_rule
+                              sudo microceph.ceph osd crush rule create-replicated single
+                              default osd
+                              "
+                }
+              },
+            ]
+          },
+          {
+            "title_text": "Next, add some disks that will be used as OSDs:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo microceph disk add /dev/sd[x] --wipe"
+                }
+              },
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "Repeat for each disk you would like to use as an OSD on that node, and additionally on the other nodes in the cluster. Cluster status can be verified using:"
+                }
+              },
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "
+                  sudo microceph.ceph status
+                  sudo microceph.ceph osd status
+                  "
+                }
+              },
+            ]
+          }
+        ]
+      },
+    ],
+  ) 
+}}
+
+{% endblock %} 
