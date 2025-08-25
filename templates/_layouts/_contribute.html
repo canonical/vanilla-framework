@@ -1,0 +1,43 @@
+<h2>Meet the team</h2>
+
+<div class="row">
+    {% for team_member in team_members %}
+    <div class="col-3 p-media-object">
+        {% if team_member.avatar_url %}
+        <img src="{{ team_member.avatar_url }}" class="p-media-object__image is-round" alt="">
+        {% endif %}
+        <div class="p-media-object__details">
+        <h3 class="p-media-object__title">
+            <a href="https://github.com/{{ team_member.login }}">{{ team_member.login }}</a>
+        </h3>
+        <p class="p-media-object__content u-no-margin--bottom">{{ team_member.role }}</p>
+
+        {% if team_member.contributions %}
+            <small>Contributions: {{ team_member.contributions }}</small>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if contributors %}
+<h2>Contributors</h2>
+
+<div class="row">
+    {% for contributor in contributors%}
+    <div class="col-3 p-media-object">
+    <img src="{{ contributor.avatar_url }}" class="p-media-object__image is-round" alt="">
+    <div class="p-media-object__details">
+        <h3 class="p-media-object__title">
+        <a href="{{ contributor.html_url }}">{{ contributor.login }}</a>
+        </h3>
+        <p class="p-media-object__content u-no-margin--bottom">{{ contributor.role }}</p>
+
+        {% if contributor.contributions %}
+        <small>Contributions: {{ contributor.contributions }}</small>
+        {% endif %}
+    </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
