@@ -7,9 +7,7 @@ const initNavigationSliding = () => {
   const menuButton = document.querySelector('.js-menu-button');
   const dropdownNavLists = document.querySelectorAll('.p-navigation__dropdown');
   // const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.p-navigation__dropdown'))[0];
-  const topNavLists = document.querySelectorAll(
-    '.p-navigation__nav > .p-navigation__items'
-  );
+  const topNavLists = document.querySelectorAll('.p-navigation__nav > .p-navigation__items');
 
   const hasSearch = searchButtons.length > 0;
 
@@ -17,7 +15,7 @@ const initNavigationSliding = () => {
     if (hasSearch) {
       closeSearch();
     }
-    
+
     menuButton.innerHTML = 'Menu';
     navigation.classList.add('menu-closing');
     const closeMenuHandler = () => {
@@ -101,9 +99,7 @@ const initNavigationSliding = () => {
     // to set the position of the sliding panel properly
     const topLevelNavigation = dropdownToggleButton.closest('.p-navigation__nav');
     if (topLevelNavigation) {
-      const topLevelItems = topLevelNavigation.querySelectorAll(
-        ':scope > .p-navigation__items'
-      );
+      const topLevelItems = topLevelNavigation.querySelectorAll(':scope > .p-navigation__items');
       // eslint-disable-next-line no-restricted-syntax
       for (const item of topLevelItems) {
         // in case there are more than one top level navigation lists, we need to
@@ -182,7 +178,7 @@ const initNavigationSliding = () => {
     const isList = target.classList.contains('js-dropdown-nav-list');
     if (!isList) {
       // find all lists in the target dropdown and make them focusable
-      target.querySelectorAll('.js-dropdown-nav-list').forEach(element => {
+      target.querySelectorAll('.js-dropdown-nav-list').forEach((element) => {
         setListFocusable(element);
       });
     } else {
