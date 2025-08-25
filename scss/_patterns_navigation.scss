@@ -977,23 +977,23 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     &.is-active {
       transform: translateX(-25vw);
       @media (min-width: $breakpoint-navigation-threshold) {
-        transform: none;
+        transform: translateY(calc(-1 * var(--up)));
       }
       .p-navigation__dropdown {
         transform: translateX(25vw);
         @media (min-width: $breakpoint-navigation-threshold) {
-          transform: none;
+          transform: translateY(calc(-1 * var(--up)));
         }
         &[aria-hidden='false'],
         &:not([aria-hidden]) {
           transform: translateX(-75vw);
           @media (min-width: $breakpoint-navigation-threshold) {
-            transform: none;
+            transform: translateY(calc(-1 * var(--up)));
           }
           &.is-active {
             transform: translateX(-100vw);
             @media (min-width: $breakpoint-navigation-threshold) {
-              transform: none;
+              transform: translateY(calc(-1 * var(--up)));
             }
           }
         }
@@ -1087,8 +1087,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
         min-width: 100%;
         position: absolute;
         transform: translateX(var(--right));
-        // same function as for the global-nav dropdown
-        transition: transform 0.333s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: transform $sliding-nav-animation-settings;
         // starts on the right outside of the screen
         --right: 110%;
       }
@@ -1144,8 +1143,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
         display: block;
         position: static;
         transform: translateY(calc(-1 * var(--up)));
-        // same function as for the global-nav dropdown
-        transition: transform 0.333s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: transform $sliding-nav-animation-settings;
 
         &[aria-hidden='true'] {
           // extra 10% to not let the shadow show underneath the navbar
