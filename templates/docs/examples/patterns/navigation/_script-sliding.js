@@ -6,8 +6,7 @@ const initNavigationSliding = () => {
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
   const dropdownNavLists = document.querySelectorAll('.p-navigation__dropdown');
-  // const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.p-navigation__dropdown'))[0];
-  const topNavLists = document.querySelectorAll('.p-navigation__nav > .p-navigation__items');
+  const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.p-navigation__dropdown'))[0];
 
   const hasSearch = searchButtons.length > 0;
 

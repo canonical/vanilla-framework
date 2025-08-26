@@ -1103,32 +1103,21 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
       &.menu-closing .p-navigation__nav {
         --right: 110%;
       }
-
-      .p-navigation__items--section {
-        margin: 0;
-        padding: 0;
-      }
     }
   }
 
   @media (min-width: $breakpoint-navigation-threshold) {
     .p-navigation--sliding {
-      &.has-menu-open {
+      &.has-menu-open.desktop-no-shadow {
         box-shadow: none;
-      }
-
-      .p-navigation__items {
-        justify-content: space-between;
-
-        &--section {
-          display: flex;
-          margin: 0;
-          padding: 0;
-        }
       }
 
       .p-navigation__item--dropdown-toggle {
         position: relative;
+
+        &.is-full-width {
+          position: initial;
+        }
       }
 
       .p-navigation__dropdown--container {
