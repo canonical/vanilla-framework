@@ -1,0 +1,11 @@
+{% extends "_layouts/examples.html" %}
+{% from '_macros/vf_newsletter-signup.jinja' import vf_newsletter_signup %}
+{% block title %}Newsletter signup{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+    {% call(slot) vf_newsletter_signup(layout="50-50", title_text="Newsletter signup", form_id="mktoForm_4960", return_url="https://ubuntu.com/#contact-form-success", input_label='Work email', checkbox_id='canonicalUpdatesOptIn', checkbox_label='I agree to receive information about Canonical\'s products and services.') %}
+        {%- if slot == 'description' -%}
+            <p>Get the latest Ubuntu news and updates in your inbox.</p>
+        {%- endif -%}
+    {% endcall %}
+{% endblock %}
