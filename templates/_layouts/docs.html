@@ -103,6 +103,10 @@
             {% block content %}
               {{ content | safe }}
             {% endblock content %}
+
+            {% if path == '/docs/contribute' %}
+              {% include '_layouts/_contribute.html' %}
+            {% endif %}
           </main>
         </div>
       </div>

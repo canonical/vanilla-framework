@@ -320,25 +320,23 @@ def standalone_example(example_path):
     return example(example_path, is_standalone=True)
 
 
-@app.route("/contribute")
-def contribute_index():
-    all_contributors = _get_contributors()
-    team_members = list(_get_team_members(all_contributors))
-    contributors = _filter_contributors(all_contributors)
+# Inject team_members and contributors for /docs/contribute
+@app.context_processor
+def contribute_context():
+    if flask.request.path.rstrip("/") == "/docs/contribute":
+        contributors = _get_contributors()
+        return {
+            "team_members": list(_get_team_members(contributors)),
+            "contributors": _filter_contributors(contributors),
+        }
+    return {}
 
-    response = flask.make_response(
-        flask.render_template(
-            "contribute.html",
-            team_members=team_members,
-            contributors=contributors,
-        )
-    )
-
-    response.cache_control.max_age = 86400
-    response.cache_control.public = True
-
+@app.after_request
+def set_contribute_cache_control(response):
+    if flask.request.path.rstrip("/") == "/docs/contribute":
+        response.cache_control.max_age = 86400
+        response.cache_control.public = True
     return response
-
 
 app.add_url_rule("/", view_func=template_finder_view)
 app.add_url_rule(
