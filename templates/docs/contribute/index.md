@@ -17,7 +17,7 @@ When committing changes, make sure to group related changes so that the project 
 We follow two guideline documents that align with the practices that the Canonical Web Team follows across all projects.
 
 - [HTML code standards](https://webteam.canonical.com/practices/html-code-standards)
-- [Stylesheets code standards](https://webteam.canonical.com/practices/css)
+- [Stylesheet code standards](https://webteam.canonical.com/practices/css)
 
 ## File a bug
 
