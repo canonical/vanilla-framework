@@ -53,7 +53,7 @@
           <{{ ns.list_element }} class="p-list--divided u-no-padding">
           {%- for item in block.get("items",[]) -%}
             {%- set list_bullet_type = "has-bullet" if block.bullet_type == "bullet" else "is-ticked" if block.bullet_type == "status" -%}
-            <li class="p-list__item {{ list_bullet_type }} {% if loop.last %}u-no-padding--bottom{% endif %}">
+            <li class="p-divided__heading p-list__item {{ list_bullet_type }} {% if loop.last %}u-no-padding--bottom{% endif %}">
               {%- if item.title_text -%}
                 <h5>{{ item.title_text }}</h5>
               {%- endif -%}
