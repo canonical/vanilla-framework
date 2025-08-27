@@ -162,6 +162,18 @@ View example of the divided section pattern's divided block with no bullets
 View example of the divided section pattern's divided block with no headings
 </a></div>
 
+#### Divided Block with mixed content and bulleted headings
+
+<div class="embedded-example"><a href="/docs/examples/patterns/divided-section/mixed-items-with-bullets" class="js-example" data-lang="jinja">
+View example of the divided section pattern's divided block with bulleted headings and mixed content
+</a></div>
+
+#### Divided Block with mixed content and numbered headings
+
+<div class="embedded-example"><a href="/docs/examples/patterns/divided-section/mixed-items-with-numbered-bullets" class="js-example" data-lang="jinja">
+View example of the divided section pattern's divided block with numbered headings and mixed content
+</a></div>
+
 ## Jinja Macro
 
 The `vf_divided_section` Jinja macro can be used to generate a basic section pattern. The API for the macro is shown
