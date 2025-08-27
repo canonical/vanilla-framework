@@ -1,0 +1,125 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Divided section / No description{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  title={
+    "text": "The quick brown fox jumps over the lazy dog",
+  },
+  blocks=[
+  {
+    "type": "divided-block",
+    "bullet_type": "number",
+    "items": [
+          {
+            "title_text": "Install the Raspberry Pi Imaging Tool",
+            "contents": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "Download the imaging tool for Ubuntu ›"
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "Prepare the microSD card",
+            "contents": [
+              {
+                "type": "notification",
+                "item": {
+                  "type": "caution",
+                  "title": "Warning",
+                  "content": "This will completely erase the microSD card."
+                }
+              },
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "Insert the microSD card into your computer, run the image, and click 'Choose OS'"
+                }
+              },
+              {
+              "type": "image",
+              "padding": "shallow",
+              "item": {
+                "aspect_ratio": "16-9",
+                "attrs": {
+                  "src": "https://assets.ubuntu.com/v1/e24d92fc-raspberry-pi-imager-2024.png",
+                  "alt": "16:9 aspect ratio image"
+                }
+              }
+            },
+            {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "Next, choose 'Use Custom'."
+                }
+            },
+            ]
+          },
+          {
+            "title_text": "Generate Secure Shell (SSH) keys",
+            "contents": [
+              {
+                  "type": "description",
+                  "item": {
+                    "type": "text",
+                    "content": "The 'Secure Shell' protocol provides access to your Ubuntu Appliance and uses cryptographic keys to authenticate you to the device. You need SSH software  and keys."
+                  }
+              },
+              {
+                  "type": "description",
+                  "item": {
+                    "type": "text",
+                    "content": "Run the following command:"
+                  }
+              },
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "ssh-keygen -t rsa"
+                }
+              },
+              {
+                "type": "list",
+                "item": {
+                  "list_items": [
+                    {
+                      "list_item_type": "number",
+                      "content": "This starts the key generation process. When you execute this command, the ssh-keygen utility prompts you to indicate where to store the key"
+                    },
+                    {
+                      "list_item_type": "number",
+                      "content": "Press the enter key to accept the default location.<br />The ssh-keygen utility prompts you for a passphrase"
+                    },
+                    {
+                      "list_item_type": "number",
+                      "content": "Type in a passphrase"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "You now have a public and private key that you can use to authenticate."
+                }
+              },
+            ]
+          },
+    ]
+  },
+],
+) 
+}}
+
+{% endblock %} 

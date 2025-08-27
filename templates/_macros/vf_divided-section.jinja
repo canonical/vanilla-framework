@@ -46,26 +46,30 @@
         {%- endif -%}
         {%- for block in divided_blocks -%}
           {%- set outer_last = loop.last -%}
-          {%- set ns = namespace(list_element="ul") -%}
+          {%- set ns = namespace(list_element="ul", list_class="p-list") -%}
           {%- if block.get("bullet_type") == "number" -%}
             {%- set ns.list_element = "ol" -%}
+            {%- set ns.list_class = "p-stepped-list" -%}
           {%- endif -%}
-          <{{ ns.list_element }} class="p-list--divided u-no-padding">
+          <{{ ns.list_element }} class="{{ ns.list_class }} u-no-padding">
           {%- for item in block.get("items",[]) -%}
             {%- set list_bullet_type = "has-bullet" if block.bullet_type == "bullet" else "is-ticked" if block.bullet_type == "status" -%}
-            <li class="p-divided__heading p-list__item {{ list_bullet_type }} {% if loop.last %}u-no-padding--bottom{% endif %}">
-              {%- if item.title_text -%}
-                <h5>{{ item.title_text }}</h5>
-              {%- endif -%}
-              {%- for content in item.contents -%}
-                {%- set item_classes = _get_item_padding_classes(content, loop.last, outer_last) -%}
-                <div {%- if item_classes | trim | length > 0 %}
-                     class="{{ item_classes }}"
-                     {%- endif -%}>{{- basic_section_item(content) -}}</div>
-              {%- endfor -%}
+            <li class="p-divided__heading u-no-padding--bottom {{ list_bullet_type }}{% if ns.list_class == 'p-stepped-list' %} p-stepped-list__item{% else %} p-list__item{% endif %}">
+              <div class="{% if not loop.last %}p-section--shallow{% endif %}{% if ns.list_class == 'p-stepped-list' %} p-stepped-list__title{% endif %}">
+                {%- if item.title_text -%}
+                  <h3 class="p-heading--5 u-no-padding">{{ item.title_text }}</h3>
+                {%- endif -%}
+                {%- for content in item.contents -%}
+                  {%- set item_classes = _get_item_padding_classes(content, loop.last, outer_last) -%}
+                  <div {%- if item_classes | trim | length > 0 %}
+                       class="{{ item_classes }}"
+                       {%- endif -%}>{{- basic_section_item(content) -}}</div>
+                {%- endfor -%}
+              </div>
+              {% if not loop.last %}<hr class="p-rule--muted" />{% endif %}
             </li>
           {%- endfor -%}
-          </{{ ns.list_element }}>
+          </ {{ ns.list_element }}>
         {%- endfor -%}
       </div>
     </div>
