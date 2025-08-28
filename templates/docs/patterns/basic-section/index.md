@@ -223,6 +223,8 @@ Contents are wrapped in a `<pre>` tag and automatically dedented to remove leadi
 
 Contents may also be wrapped in a `<code>` tag to indicate a code block.
 
+**Note:** Multi-line code blocks will preserve indentation.
+
 <div class="embedded-example"><a href="/docs/examples/patterns/basic-section/code-variants" class="js-example" data-lang="jinja">
 View example of the basic section pattern with different code variants
 </a></div>

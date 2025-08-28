@@ -69,7 +69,7 @@
 # - title: The title of notification. Plain text.
 # - content: The content of the notification. Plain text.
 {% macro _basic_section_notification(notification_config={}) %}
-  {%- set type = (notification_config.get("type", "information")) | trim -%}
+  {%- set type = (notification_config.get("type", "information")) | trim | lower -%}
   {%- if type not in ["information", "caution", "negative", "positive"] -%}
     {%- set type = "information" -%}
   {%- endif -%}
@@ -292,7 +292,7 @@
 {%- endmacro -%}
 
 {%- macro basic_section_top_rule(top_rule_variant="default") -%}
-  {%- set top_rule_variant = top_rule_variant | trim -%}
+  {%- set top_rule_variant = top_rule_variant | trim | lower -%}
   {%- if top_rule_variant not in ["default", "muted", "highlighted", "none"] -%}
     {%- set top_rule_variant = "default" -%}
   {%- endif -%}
