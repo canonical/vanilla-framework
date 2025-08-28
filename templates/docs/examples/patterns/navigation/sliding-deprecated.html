@@ -1,0 +1,120 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Navigation / Sliding deprecated{% endblock %}
+
+{% block standalone_css %}patterns_navigation{% endblock %}
+
+{% block content %}
+<header id="navigation" class="p-navigation--sliding is-dark">
+  <div class="p-navigation__row--25-75">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="#">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="" >
+          </div>
+          <span class="p-navigation__logo-title">Ubuntu</span>
+        </a>
+      </div>
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item">
+          <button class="js-menu-button p-navigation__link">Menu</button>
+        </li>
+      </ul>
+    </div>
+    <nav class="p-navigation__nav" aria-label="Example main">
+      <ul class="p-navigation__items js-dropdown-nav-list js-navigation-sliding-panel">
+        <li class="p-navigation__item is-selected">
+          <a class="p-navigation__link" href="#">Products</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Services</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="#">Partners</a>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" id="link-1">
+          <button href="#link-1-menu" aria-controls="link-1-menu" class="p-navigation__link">
+            LXD
+          </button>
+          <ul class="p-navigation__dropdown js-dropdown-nav-list js-navigation-sliding-panel" id="link-1-menu" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="link-1-back">
+              <button href="#link-1-menu" aria-controls="link-1-menu" class="p-navigation__link js-back-button">
+                Back
+              </button>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - Command line</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenStack</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started - OpenNebula</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" id="link-2">
+          <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">
+            LXCFS
+          </button>
+          <ul class="p-navigation__dropdown js-dropdown-nav-list js-navigation-sliding-panel" id="link-2-menu" aria-hidden="true" data-level="1">
+            <li class="p-navigation__item--dropdown-close" id="link-2-back">
+              <button href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link js-back-button">
+                Back
+              </button>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">News</a>
+            </li>
+            <li>
+              <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+            </li>
+            <li class="p-navigation__item--dropdown-toggle js-navigation-dropdown-toggle" id="link-4">
+              <button href="#link-4-menu" aria-controls="link-4-menu" class="p-navigation__link">
+                Nested Layer
+              </button>
+              <ul class="p-navigation__dropdown js-dropdown-nav-list js-navigation-sliding-panel" id="link-4-menu" aria-hidden="true" data-level="2">
+                <li class="p-navigation__item--dropdown-close" id="link-4-back">
+                  <button href="#link-4-menu" aria-controls="link-4-menu" class="p-navigation__link js-back-button">
+                    Back
+                  </button>
+                </li>
+                <li>
+                  <a href="#" class="p-navigation__dropdown-item">Introduction</a>
+                </li>
+                <li>
+                  <a href="#" class="p-navigation__dropdown-item">News</a>
+                </li>
+                <li>
+                  <a href="#" class="p-navigation__dropdown-item">Getting started</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block script %}
+    <script>
+        {% include 'docs/examples/patterns/navigation/_script-sliding.js' %}
+    </script>
+{% endblock %}
+
+{% block style %}
+<style>
+    body { margin: 0; }
+</style>
+{% endblock %}

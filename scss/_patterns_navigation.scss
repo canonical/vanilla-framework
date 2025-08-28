@@ -191,17 +191,8 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
   }
 
   .p-navigation--sliding {
-    @property --right {
-      inherits: false;
-      initial-value: 0%;
-      syntax: '<percentage>';
-    }
-
-    @property --up {
-      inherits: false;
-      initial-value: 0%;
-      syntax: '<percentage>';
-    }
+    --vf-nav-sliding-right: 0%;
+    --vf-nav-sliding-up: 0%;
   }
 
   // navigation row
@@ -977,23 +968,23 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     &.is-active {
       transform: translateX(-25vw);
       @media (min-width: $breakpoint-navigation-threshold) {
-        transform: translateY(calc(-1 * var(--up)));
+        transform: none;
       }
       .p-navigation__dropdown {
         transform: translateX(25vw);
         @media (min-width: $breakpoint-navigation-threshold) {
-          transform: translateY(calc(-1 * var(--up)));
+          transform: translateY(calc(-1 * var(--vf-nav-sliding-up)));
         }
         &[aria-hidden='false'],
         &:not([aria-hidden]) {
           transform: translateX(-75vw);
           @media (min-width: $breakpoint-navigation-threshold) {
-            transform: translateY(calc(-1 * var(--up)));
+            transform: translateY(calc(-1 * var(--vf-nav-sliding-up)));
           }
           &.is-active {
             transform: translateX(-100vw);
             @media (min-width: $breakpoint-navigation-threshold) {
-              transform: translateY(calc(-1 * var(--up)));
+              transform: translateY(calc(-1 * var(--vf-nav-sliding-up)));
             }
           }
         }
@@ -1086,10 +1077,10 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
         margin-top: 3.5rem;
         min-width: 100%;
         position: absolute;
-        transform: translateX(var(--right));
+        transform: translateX(var(--vf-nav-sliding-right));
         transition: transform $sliding-nav-animation-settings;
         // starts on the right outside of the screen
-        --right: 110%;
+        --vf-nav-sliding-right: 110%;
       }
 
       &.has-menu-open {
@@ -1097,27 +1088,19 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
       }
 
       &.has-menu-open .p-navigation__nav {
-        --right: 0%;
+        --vf-nav-sliding-right: 0%;
       }
 
       &.menu-closing .p-navigation__nav {
-        --right: 110%;
+        --vf-nav-sliding-right: 110%;
       }
     }
   }
 
   @media (min-width: $breakpoint-navigation-threshold) {
     .p-navigation--sliding {
-      &.has-menu-open.desktop-no-shadow {
-        box-shadow: none;
-      }
-
-      .p-navigation__item--dropdown-toggle {
+      .p-navigation__item--dropdown-toggle.is-container-parent {
         position: relative;
-
-        &.is-full-width {
-          position: initial;
-        }
       }
 
       .p-navigation__dropdown--container {
@@ -1131,16 +1114,16 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
       .p-navigation__dropdown--container > .p-navigation__dropdown {
         display: block;
         position: static;
-        transform: translateY(calc(-1 * var(--up)));
+        transform: translateY(calc(-1 * var(--vf-nav-sliding-up)));
         transition: transform $sliding-nav-animation-settings;
 
         &[aria-hidden='true'] {
           // extra 10% to not let the shadow show underneath the navbar
-          --up: 110%;
+          --vf-nav-sliding-up: 110%;
         }
 
         &[aria-hidden='false'] {
-          --up: 0%;
+          --vf-nav-sliding-up: 0%;
         }
       }
     }

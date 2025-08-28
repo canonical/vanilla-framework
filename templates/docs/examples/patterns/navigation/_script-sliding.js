@@ -5,8 +5,8 @@ const initNavigationSliding = () => {
   const toggles = document.querySelectorAll('.p-navigation__nav .p-navigation__link[aria-controls]:not(.js-back-button)');
   const searchButtons = document.querySelectorAll('.js-search-button');
   const menuButton = document.querySelector('.js-menu-button');
-  const dropdownNavLists = document.querySelectorAll('.p-navigation__dropdown');
-  const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.p-navigation__dropdown'))[0];
+  const dropdownNavLists = document.querySelectorAll('.js-dropdown-nav-list');
+  const topNavList = [...dropdownNavLists].filter((list) => !list.parentNode.closest('.js-dropdown-nav-list'))[0];
 
   const hasSearch = searchButtons.length > 0;
 
@@ -26,7 +26,7 @@ const initNavigationSliding = () => {
       resetToggles();
     };
 
-    // the time is aproximately the time of the sliding animation
+    // the time is approximately the time of the sliding animation
     setTimeout(closeMenuHandler, ANIMATION_SNAP_DURATION);
   };
 
