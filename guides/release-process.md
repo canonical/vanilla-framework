@@ -67,7 +67,4 @@ Please follow the [release process](https://github.com/canonical/react-component
 
 Only major/minor releases need to be promoted.
 
-- New releases should be announced on newsletter via MailChimp
-- New releases should be announced on the [@vanillaframewrk twitter account](https://twitter.com/vanillaframewrk)
-  - this should happen automatically when newsletter is sent
 - Major and minor releases should also be announced in detail on the [ubuntu blog](https://blog.ubuntu.com/)
