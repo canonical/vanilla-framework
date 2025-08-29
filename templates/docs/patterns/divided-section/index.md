@@ -11,7 +11,7 @@ context:
 A divided section is used to create structured content section with a title, a description block and various divided blocks. It
 provides a flexible layout system that can accommodate different types of content including text, images, videos, lists,
 code blocks, logos, and call-to-action elements, within both the description and divided blocks.
-Internally, it utilizes <a href="/docs/patterns/basic-section">Basic section pattern</a>, so the configuration for most of the layout options, as well as for content items is going to be identical.
+Internally, it utilizes <a href="/docs/patterns/basic-section#content-blocks">content blocks</a> from <a href="/docs/patterns/basic-section">Basic section pattern</a>, so the configuration for most of the layout options, as well as for content items is going to be identical.
 
 The divided section pattern is composed of the following elements:
 
@@ -39,7 +39,7 @@ View example of the basic section pattern with linked title
 
 ### Top Rule variants
 
-Since divided section pattern utilizes the <a href="/docs/patterns/basic-section#layout-options">Basic section pattern</a> internally, it also supports the same top rule variants.
+Since divided section pattern utilizes the <a href="/docs/patterns/basic-section#content-blocks">content blocks</a> from <a href="/docs/patterns/basic-section#layout-options">Basic section pattern</a>, therefore, it also supports the same top rule variants.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/divided-section/top-rule-variants" class="js-example" data-lang="jinja">
 View example of the divided section pattern's top rule variants

@@ -51,7 +51,7 @@
             {%- set ns.list_element = "ol" -%}
             {%- set ns.list_class = "p-stepped-list" -%}
           {%- endif -%}
-          <{{ ns.list_element }} class="{{ ns.list_class }} u-no-padding">
+          <{{ ns.list_element }} class="p-divided__block {{ ns.list_class }} u-no-padding">
           {%- for item in block.get("items",[]) -%}
             {%- set list_bullet_type = "has-bullet" if block.bullet_type == "bullet" else "is-ticked" if block.bullet_type == "status" -%}
             <li class="p-divided__heading u-no-padding--bottom {{ list_bullet_type }}{% if ns.list_class == 'p-stepped-list' %} p-stepped-list__item{% else %} p-list__item{% endif %}">
