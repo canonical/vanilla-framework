@@ -1,0 +1,34 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Divided section | Combined{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% with is_combined = true %}
+    <section>
+      {% include 'docs/examples/patterns/divided-section/default.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/linked-title.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/no-bullets.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/no-headings.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/bulleted-list.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/status-list.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/no-description.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/mixed-items-with-bullets.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/divided-section/mixed-items-with-numbered-bullets.html' %}
+    </section>
+  {% endwith %}
+{% endblock %}

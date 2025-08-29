@@ -1,0 +1,24 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Notification{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Notification block"},
+  subtitle={"text": "This example shows a notification block within the basic section."},
+  items=[
+    {
+      "type": "notification",
+      "item": {
+        "type": "positive",
+        "title": "This is a positive notificaton",
+        "content": "The quick brown fox jumps over the lazy dog"
+      }
+    }
+  ]
+) }}
+
+{% endblock %} 

@@ -1,0 +1,64 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Divided section / No description{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  title={
+    "text": "The quick brown fox jumps over the lazy dog",
+  },
+  blocks=[
+  {
+    "type": "divided-block",
+    "bullet_type": "number",
+    "items": [
+          {
+            "title_text": "To get started, install the MicroCeph snap with the following command on each node to be used in the cluster:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo snap install microceph"
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "Then bootstrap the cluster:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo microceph cluster bootstrap"
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "Check the cluster status with the following command:",
+            "contents": [
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "sudo microceph.ceph status"
+                }
+              },
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "Here you should see that there is a single node in the cluster."
+                }
+              }
+            ]
+          },
+    ]
+  },
+],
+) 
+}}
+
+{% endblock %} 

@@ -1,0 +1,73 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Divided section / Bulleted list{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  title={
+    "text": "The quick brown fox jumps over the lazy dog",
+  },
+  blocks=[
+  {
+    "type": "divided-block",
+    "bullet_type": "bullet",
+    "items": [
+          {
+            "title_text": "To get started, install the MicroCeph snap with the following command on each node to be used in the cluster:",
+            "contents": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "The quick brown fox jumps over the lazy dog"
+                }
+              },
+              {
+                "type": "code-block",
+                "item": {
+                  "content": "The quick brown fox jumps over the lazy dog"
+                }
+              }
+            ]
+          },
+          {
+            "title_text": "Then bootstrap the cluster:",
+            "contents": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "text",
+                  "content": "The quick brown fox jumps over the lazy dog"
+                }
+              },
+              {
+                "type": "cta-block",
+                "item": {
+                  "secondaries": [
+                    {
+                      "content_html": "Action",
+                      "attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "link": {
+                    "content_html": "Lorem ipsum dolor sit amet ›",
+                    "attrs": {
+                      "href": "#"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+    ]
+  },
+],
+) 
+}}
+
+{% endblock %} 

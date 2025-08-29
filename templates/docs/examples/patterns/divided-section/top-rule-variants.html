@@ -1,0 +1,92 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block title %}Basic section / Top rule variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_divided_section(
+  title={
+    "text": "Default top rule"
+  },
+  blocks=[
+    {
+    "type": "description-block",
+    "items": [
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "This divided section has a default horizontal rule at the top."
+        }
+      }
+    ]
+  },
+  ]
+) }}
+
+{{ vf_divided_section(
+  title={
+    "text": "Highlighted top rule"
+  },
+  top_rule_variant="highlighted",
+  blocks=[
+    {
+    "type": "description-block",
+    "items": [
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "This divided section has a highlighted horizontal rule at the top."
+        }
+      }
+    ]
+  },
+  ]
+) }}
+
+{{ vf_divided_section(
+  title={
+    "text": "Muted top rule"
+  },
+  top_rule_variant="muted",
+  blocks=[
+    {
+    "type": "description-block",
+    "items": [
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "This divided section has a muted horizontal rule at the top."
+        }
+      }
+    ]
+  },
+  ]
+) }}
+
+{{ vf_divided_section(
+  title={
+    "text": "No top rule"
+  },
+  top_rule_variant="none",
+  blocks=[
+    {
+    "type": "description-block",
+    "items": [
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "This divided section has no horizontal rule at the top."
+        }
+      }
+    ]
+  },
+  ]
+) }}
+
+{% endblock %} 
