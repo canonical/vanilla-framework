@@ -324,10 +324,12 @@ def standalone_example(example_path):
 @app.context_processor
 def contribute_context():
     if flask.request.path.rstrip("/") == "/docs/contribute":
-        contributors = _get_contributors()
+        all_contributors = _get_contributors()
+        team_members = list(_get_team_members(all_contributors))
+        contributors = _filter_contributors(all_contributors)
         return {
-            "team_members": list(_get_team_members(contributors)),
-            "contributors": _filter_contributors(contributors),
+            "team_members": team_members,
+            "contributors": contributors
         }
     return {}
 
