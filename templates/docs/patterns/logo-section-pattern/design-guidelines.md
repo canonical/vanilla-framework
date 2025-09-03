@@ -15,4 +15,4 @@ In cases where the logo block functions as the main content, with all other elem
 ### When not to use
 
 1. When images, lists, or other content need to be included, use the [Basic section](/docs/patterns/basic-section) instead
-2. If logos need to be linked, use the linked logo section instead
+2. If logos need to be linked, use the [Linked logo section](/docs/patterns/linked-logo-section) instead
