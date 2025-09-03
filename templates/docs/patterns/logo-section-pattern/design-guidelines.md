@@ -10,9 +10,15 @@ The logo section highlights the logo as the primary content. It is typically pai
 
 ### When to use
 
-In cases where the logo block functions as the main content, with all other elements acting as supporting content
+In cases where the logo block functions as the main content, with all other elements acting as supporting content.
 
 ### When not to use
 
 1. When images, lists, or other content need to be included, use the [Basic section](/docs/patterns/basic-section) instead
 2. If logos need to be linked, use the [Linked logo section](/docs/patterns/linked-logo-section) instead
+
+### Monochrome logos
+
+Use monochrome logos when using Logo section on a dark background.<br />
+
+![Logo section with monochrome logos](https://assets.ubuntu.com/v1/977ba8a9-logo_section_monochrome_logos.png)
