@@ -37,7 +37,7 @@
 
                 {% macro side_nav_item(url, title) -%}
                     <li class="p-side-navigation__item">
-                      <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and slug in url) or (url == path) %}aria-current="page"{% endif %}>
+                      <a class="p-side-navigation__link" href="{{ url }}" {% if (slug and url.endswith(slug)) or (url == path) %}aria-current="page"{% endif %}>
                         {{ title | replace("{version}", version) }}
                         {% if url in updatedFeatures %}
                           {% set chip_class = "" %}
