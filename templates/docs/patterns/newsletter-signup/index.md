@@ -14,6 +14,7 @@ Newsletter signup is a form which allows users to subscribe to a newsletter for 
 - [50-50](#50-50)
 - [col-2](#col-2)
 - [col-4](#col-4)
+- [x-col-without-newsletter-block-rule-on-smaller-screens](#x-col-without-newsletter-block-rule-on-smaller-screens)
 
 The Newsletter signup pattern is composed of the following elements:
 
@@ -63,6 +64,17 @@ For the other adjacent content in the grid, you can utilize <a href="#col_slots"
 
 <div class="embedded-example"><a href="/docs/examples/patterns/newsletter-signup/4-col" class="js-example" data-lang="jinja">
 View example of the 4-col newsletter signup
+</a></div>
+
+## x-col-without-newsletter-block-rule-on-smaller-screens
+
+The <code>2-col</code> variant comes with a [muted-rule](/docs/patterns/rule#muted) on small screens.<br/>
+Similarly, the <code>4-col</code> variant comes with a [muted-rule](/docs/patterns/rule#muted) on both small and medium screens.<br/>
+To hide this rule, you can pass <code>hide_newsletter_block_rule</code>.<br />
+The following example shows both 2-col and 4-col variants not having a muted rule on medium/small screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/newsletter-signup/x-col-without-newsletter-block-rule" class="js-example" data-lang="jinja">
+View example of the 2-col/4-col newsletter signup without a newsletter block-level rule on smaller screens
 </a></div>
 
 ## Jinja Macro
@@ -259,6 +271,24 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           </ul>
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>hide_newsletter_block_rule</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>False</code>
+        </td>
+        <td>
+          Whether to hide the newsletter block rule on medium/small screens.<br />
+          Only applicable to <code>2-col</code> and <code>4-col</code> variants
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -306,6 +336,17 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
         </td>
         <td>
           Additional hidden fields to include in the form
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>honeypot_fields</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          Hidden honeypot fields for spam prevention
         </td>
       </tr>
       <tr id="col_slots">

@@ -9,13 +9,15 @@
       @param form_action: Action URL for the form submission, typically the form endpoint.
       @param return_url: URL to return to after form submission
       @param top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
+      @param hide_newsletter_block_rule (boolean) (optional): Whether to hide the newsletter block rule on medium/small screens. Default is false.
 
     All Slots:
       @slot description: Description text, one or more paragraphs
       @slot addendum: Additional content to include in the form, such as a disclaimer or additional information
       @slot hidden_fields: Additional hidden fields to include in the form
+      @slot honeypot_fields: hidden honeypot fields for spam prevention
 #}
-{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", caller=None) -%}
+{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", hide_newsletter_block_rule=false, caller=None) -%}
   {% set layout = layout | trim %}
   {% if layout not in ['50-50', '25-75', '2-col', '4-col'] %}
     {% set layout = "25-75" %}
@@ -27,6 +29,7 @@
   {% set description = caller('description') %}
   {% set addendum = caller('addendum') %}
   {% set hidden_fields = caller('hidden_fields') %}
+  {% set honeypot_fields = caller('honeypot_fields') %}
   {% set is_section_level = layout in ['50-50', '25-75'] %}
   {% set is_grid_level = layout in ['2-col', '4-col'] %}
   {% set heading_level = 'h2' if is_section_level else 'h3' %}
@@ -49,7 +52,7 @@
         {%- endfor -%}
       {% endif %}
       <div class="grid-col{% if layout == '4-col' %}-4{% endif %} {% if is_grid_level %}p-newsletter-signup--{{ layout }}{% endif %}">
-        {%- if is_grid_level -%}
+        {%- if is_grid_level and not hide_newsletter_block_rule -%}
           <hr class="p-rule--muted u-hide--large {% if layout == '2-col' %}u-hide--medium{% endif %}" />
         {%- endif -%}
         <{{ heading_level }}>{{ title_text }}</{{ heading_level }}>
@@ -150,6 +153,28 @@
                    name="preferredLanguage"
                    maxlength="255"
                    value="" />
+          {% endif %}
+          {% if honeypot_fields %}
+            {{ honeypot_fields | safe }}
+          {% else %}
+            <div class="u-off-screen">
+              <label class="website" for="website">Website:</label>
+              <input name="website"
+                     type="text"
+                     class="website"
+                     autocomplete="off"
+                     value=""
+                     id="website"
+                     tabindex="-1" />
+              <label class="name" for="name">Name:</label>
+              <input name="name"
+                     type="text"
+                     class="name"
+                     autocomplete="off"
+                     value=""
+                     id="name"
+                     tabindex="-1" />
+            </div>
           {% endif %}
         </form>
       </div>
