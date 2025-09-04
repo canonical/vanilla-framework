@@ -8,7 +8,7 @@ When [submitting a new issue](https://github.com/canonical/vanilla-framework/iss
 
 Please provide as much information possible detailing what you're currently experiencing and what you'd expect to experience.
 
-To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local origin/main to upstream/main.
+To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/main` to `upstream/main`.
 
 When committing changes, make sure to group related changes so that the project is always in a working state. Use succinct yet descriptive commit messages to allow for easy reading of the commit log.
 
