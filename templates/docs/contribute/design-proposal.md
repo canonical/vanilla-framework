@@ -74,14 +74,74 @@ Documentation works as a ‘user manual’ for your component or pattern. It's y
 
 To get started with the minimal documentation, answer the following questions in clear, plain language:
 
-| Questions:                           | Answers:                                     | For example:                                                                                                                                                                                                                                                 |
-| :----------------------------------- | :------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| What are the parts of the component? | Parts, or ‘anatomy’                          | List of component parts and their names Illustrations to show structure                                                                                                                                                                                      |
-|                                      | Variants                                     | Different implementations of the component Examples like blog cards versus Charmhub cards                                                                                                                                                                    |
-|                                      | Properties                                   | Configurable properties like size and color Show/hide options Editable text fields                                                                                                                                                                           |
-| When should we use the component?    | When to use (best practices)                 | Context and problem-solving scenarios Alternative component options Comparative advantages UI examples showing correct implementation Recommended practices or dos and don’ts Usage limitations (such as primary button frequency) Implementation guidelines |
-|                                      | When not to use                              | Scenarios to avoid Team agreements on component usage                                                                                                                                                                                                        |
-| How is your contribution accessible? | Show how you meet accessibility requirements | Follow this [accessibility checklist](https://discourse.canonical.com/t/quick-accessibility-audit-for-designers/340)                                                                                                                                         |
+<table>
+  <thead>
+  <tr>
+    <th>Questions</th>
+    <th>Answers</th>
+    <th>For example:</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">What are the parts of the component?</td>
+      <td>Parts, or ‘anatomy’</td>
+      <td>
+        <ul class="u-no-margin--bottom">
+          <li>List of component parts and their names</li>
+          <li>Illustrations to show structure</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Variants</td>
+      <td>
+        <ul class="u-no-margin--bottom">
+          <li>Different implementations of the component</li>
+          <li>Examples like blog cards versus Charmhub cards</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Properties</td>
+      <td>
+        <ul class="u-no-margin--bottom">
+          <li>Configurable properties like size and color</li>
+          <li>Show/hide options Editable text fields</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">When should we use the component?</td>
+      <td>When to use (best practices)</td>
+      <td>
+        <ul class="u-no-margin--bottom">
+          <li>Context and problem-solving scenarios</li>
+          <li>Alternative component options</li>
+          <li>Comparative advantages</li>
+          <li>UI examples showing correct implementation</li>
+          <li>Recommended practices or dos and don’ts</li>
+          <li>Usage limitations (such as primary button frequency)</li>
+          <li>Implementation guidelines</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>When not to use</td>
+      <td>
+        <ul class="u-no-margin--bottom">
+          <li>Scenarios to avoid</li>
+          <li>Team agreements on component usage</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>How is your contribution accessible?</td>
+      <td>Show how you meet accessibility requirements</td>
+      <td>Follow this <a href="/accessibility">accessibility checklist</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Get your proposal approved
 
