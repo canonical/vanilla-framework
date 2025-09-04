@@ -34,7 +34,7 @@ Before submitting an idea, look through the [Vanilla documentation](https://vani
 Once you confirm there’s a need for it, we recommend that you:
 
 - Check articles or guidelines from reputable, external sources to inform your approach.
-- Benchmark solutions from other design systems, particularly those from leading organisations. We frequently look at systems like [Carbon](https://carbondesignsystem.com/) (IBM) and [Material Design](https://material.io/) (Google) for inspiration.
+- Benchmark solutions from other design systems, particularly those from leading organizations. We frequently look at systems like [Carbon](https://carbondesignsystem.com/) (IBM) and [Material Design](https://material.io/) (Google) for inspiration.
 
 ### 2. Ideation
 
