@@ -10,15 +10,14 @@ The Canonical Design System Team will take around 2 weeks to review and approve 
 
 Before submitting a new idea:
 
-<!-- To do: add link to documentation in Figma whenever available -->
-
+<!-- TODO add link to documentation in Figma whenever available -->
 - Review any existing documentation for the pattern or component
+<!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
 - Check if your proposal was already addressed by checking the [backlog](https://github.com/canonical/vanilla-framework/issues)
 
 Once you confirm your idea is new, submit it by creating an issue in the [Vanilla Framework’s GitHub repository](https://github.com/canonical/vanilla-framework/issues/new/choose). You can:
 
-<!-- To do: replace issue templates with new forms -->
-
+<!-- TODO replace issue templates with new forms -->
 - [Propose changes to an existing component](https://github.com/canonical/vanilla-framework/issues/new?template=propose-changes-to-existing-component.md)
 - [Propose a new component](https://github.com/canonical/vanilla-framework/issues/new?template=propose-new-component.md)
 - [Report a bug](https://github.com/canonical/vanilla-framework/issues/new?template=report-a-bug.md)

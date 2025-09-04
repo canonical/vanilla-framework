@@ -13,7 +13,8 @@ Generally speaking, we accept proposals that:
 - Are flexible enough to handle many different use cases
 - Consider how other designers might use the design in the future
 - Match the styles from the design foundations of the Design System (font scale, colors, spacing)
-- Consider how [accessibility](https://vanillaframework.io/accessibility) will be taken into account
+<!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
+- Consider how [accessibility](/accessibility) will be taken into account
 - Include [research](#the-design-process) such as benchmarking, how you understood the problem, how you came to your solution
 - Include clear and detailed [documentation](#document-your-proposal)
 
@@ -29,6 +30,7 @@ Not all of these steps are mandatory, but a proposal can only be approved if it 
 
 ### 1. Discovery
 
+<!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
 Before submitting an idea, look through the [Vanilla documentation](https://vanillaframework.io/docs) or [the backlog on GitHub](https://github.com/canonical/vanilla-framework/issues) in case we’ve addressed it already.
 
 Once you confirm there’s a need for it, we recommend that you:
@@ -60,7 +62,7 @@ Make sure to keep track of your conclusions and add them to the relevant section
 
 If your proposal is a component, pattern, or page template, you may need to create Figma components.
 
-1. Check our Figma libraries for [instructions on adding a component](https://www.figma.com/community/file/1435297834108003391). You can use [our Figma template](https://www.figma.com/files/team/989818926921821605/project/354426501/%F0%9F%AA%9A-Design-Systems-Component-Contributions?fuid=802129372533337888) to check what we expect.
+1. Check our Figma libraries for [instructions on adding a component](https://www.figma.com/community/file/1435297834108003391)
 2. Create a share link for your file and set permissions to “anyone can view”
 3. Add the link to the GitHub issue
 
@@ -74,6 +76,7 @@ Documentation works as a ‘user manual’ for your component or pattern. It's y
 
 To get started with the minimal documentation, answer the following questions in clear, plain language:
 
+<!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
 <table>
   <thead>
   <tr>
