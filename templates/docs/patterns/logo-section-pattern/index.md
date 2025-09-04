@@ -59,6 +59,10 @@ It supports three types of CTA items:
 - **Secondary**: Supporting action buttons
 - **Link**: Text link
 
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section-pattern/cta-block" class="js-example" data-lang="jinja">
+View example of the logo section pattern with CTA block
+</a></div>
+
 ```json
 {
   "type": "cta-block",
@@ -101,7 +105,11 @@ Each of the CTA configurations accepts the following properties:
 
 ### Logo Block
 
-The logo block is a list of logos, within a fixed-width container. The logos are automatically wrapped.
+The logo block is a list of logos, within a fixed width container. The logos are automatically wrapped.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section-pattern/no-description-and-cta-block" class="js-example" data-lang="jinja">
+View example of the logo section pattern with logo block
+</a></div>
 
 ```json
 {
