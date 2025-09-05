@@ -14,7 +14,7 @@ Newsletter signup is a form which allows users to subscribe to a newsletter for 
 - [50-50](#50-50)
 - [col-2](#col-2)
 - [col-4](#col-4)
-- [x-col-without-newsletter-block-rule-on-smaller-screens](#x-col-without-newsletter-block-rule-on-smaller-screens)
+- [newsletter-block-rule-on-smaller-screens](#newsletter-block-rule-on-smaller-screens)
 
 The Newsletter signup pattern is composed of the following elements:
 
@@ -66,7 +66,7 @@ For the other adjacent content in the grid, you can utilize <a href="#col_slots"
 View example of the 4-col newsletter signup
 </a></div>
 
-## x-col-without-newsletter-block-rule-on-smaller-screens
+## Newsletter block rule on smaller screens
 
 The <code>2-col</code> variant comes with a [muted-rule](/docs/patterns/rule#muted) on small screens.<br/>
 Similarly, the <code>4-col</code> variant comes with a [muted-rule](/docs/patterns/rule#muted) on both small and medium screens.<br/>
