@@ -31,6 +31,7 @@ Not all of these steps are mandatory, but a proposal can only be approved if it 
 ### 1. Discovery
 
 <!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
+
 Before submitting an idea, look through the documentation and [the backlog on GitHub](https://github.com/canonical/vanilla-framework/issues) in case we’ve addressed it already.
 
 Once you confirm there’s a need for it, we recommend that you:

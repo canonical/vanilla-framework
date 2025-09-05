@@ -9,6 +9,7 @@ context:
 When using our Design System, you might not find every solution you need. Before submitting a new idea:
 
 <!-- TODO add link to documentation in Figma whenever available -->
+
 - Review any existing documentation for the pattern or component
 <!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
 - Check if your proposal was already addressed by checking the [backlog](https://github.com/canonical/vanilla-framework/issues)
