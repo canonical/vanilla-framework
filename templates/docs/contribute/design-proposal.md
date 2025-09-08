@@ -67,7 +67,7 @@ If your proposal is a component, pattern, or page template, you may need to crea
 2. Create a share link for your file and set permissions to “anyone can view”
 3. Add the link to the GitHub issue
 
-The Figma library maintainers at Canonical will then review your work and add it into the shared library
+The Figma library maintainers at Canonical will then review your work and add it into the shared library.
 
 At Canonical, we currently use Figma for our design libraries, but you can also create the design for your proposal with a different tool, such as [Penpot](https://penpot.app/).
 
