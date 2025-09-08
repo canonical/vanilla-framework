@@ -2,7 +2,7 @@
 
 <div class="grid-row">
     {% for team_member in team_members %}
-    <div class="grid-col-2 grid-col-medium-2 grid-col-small-4 p-media-object">
+    <div class="grid-col-2 grid-col-medium-2 grid-col-small-4">
         {% if team_member.avatar_url %}
         <img src="{{ team_member.avatar_url }}" class="p-media-object__image is-round" alt="">
         {% endif %}
@@ -13,7 +13,7 @@
         <p class="p-media-object__content u-no-margin--bottom">{{ team_member.role }}</p>
 
         {% if team_member.contributions %}
-        <small>{{ team_member.contributions }} contribution{% if team_member.contributions != 1 %}s{% endif %}</small>
+        <p class="u-text--muted">{{ team_member.contributions }} contribution{% if team_member.contributions != 1 %}s{% endif %}</p>
         {% endif %}
         </div>
     </div>
@@ -25,7 +25,7 @@
 
 <div class="grid-row">
     {% for contributor in contributors%}
-    <div class="grid-col-2 grid-col-medium-2 grid-col-small-4 p-media-object">
+    <div class="grid-col-2 grid-col-medium-2 grid-col-small-4">
     <img src="{{ contributor.avatar_url }}" class="p-media-object__image is-round" alt="">
     <div class="p-media-object__details">
         <h3 class="p-heading--5 p-media-object__title">
@@ -34,7 +34,7 @@
         <p class="p-media-object__content u-no-margin--bottom">{{ contributor.role }}</p>
 
         {% if contributor.contributions %}
-        <small>{{ contributor.contributions }} contribution{% if contributor.contributions != 1 %}s{% endif %}</small>
+        <p class="u-text--muted">{{ contributor.contributions }} contribution{% if contributor.contributions != 1 %}s{% endif %}</p>
         {% endif %}
     </div>
     </div>
