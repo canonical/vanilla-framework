@@ -1,8 +1,9 @@
 name: Publish Vanilla release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 4-33-republish
 
 jobs:
   build:
@@ -28,29 +29,10 @@ jobs:
           name: css
           path: build/css
 
-  publish-npm:
-    name: Publish to NPM
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - if: ${{ !github.event.release.prerelease }}
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - if: ${{ github.event.release.prerelease }}
-        run: npm publish --tag next
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
   publish-assets:
     name: Publish to assets server
     if: ${{ !github.event.release.prerelease }}
-    needs: [build, publish-npm]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -64,12 +46,3 @@ jobs:
         run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
-  
-  notify-figma:
-    name: Notify Figma library maintainers
-    needs: publish-npm
-    runs-on: ubuntu-latest
-    steps:
-      - name: Notify Figma library maintainers
-        run: |
-          curl -X POST -H "Content-Type: application/json" -d '{ "source": "Vanilla CSS", "change-summary": " [Vanilla release notes](${{ github.event.release.html_url }})" }' ${{ secrets.FIGMA_LIBRARY_ALERT_URL }}
