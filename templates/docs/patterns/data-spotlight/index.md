@@ -1,14 +1,14 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Data spotlight section | Patterns
+  title: Data spotlight | Patterns
 ---
 
 {% from "docs/macros/patterns/wip-notice.jinja" import pattern_wip_notice %}
 
 {{- pattern_wip_notice() }}
 
-The data spotlight section is a pattern where key statistics serve as the main content, supported by short headlines and optional descriptions.
+The data spotlight is a pattern where key statistics serve as the main content, supported by short headlines and optional descriptions.
 
 It is composed of the following elements:
 
@@ -18,7 +18,7 @@ It is composed of the following elements:
 | Blocks (**required**) | Array of data spotlight blocks |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/4-blocks.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section
+View example of the data spotlight
 </a></div>
 
 ## Layout Options
@@ -28,7 +28,7 @@ View example of the data spotlight section
 The title can be made clickable by providing link attributes.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/linked-title.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section with linked title
+View example of the data spotlight with linked title
 </a></div>
 
 ## Data Spotlight Blocks
@@ -54,19 +54,19 @@ Depending on the number of data spotlight blocks provided, there are 3 variants 
 ### 4 blocks
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/4-blocks.html" class="js-example" data-lang="jinja">
-View example of the 4 blocks variant of data spotlight section
+View example of the 4 blocks variant of data spotlight
 </a></div>
 
 ### 3 blocks
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/3-blocks.html" class="js-example" data-lang="jinja">
-View example of the 3 blocks variant of data spotlight section
+View example of the 3 blocks variant of data spotlight
 </a></div>
 
 ### 2 blocks
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/2-blocks.html" class="js-example" data-lang="jinja">
-View example of the 2 blocks variant of data spotlight section
+View example of the 2 blocks variant of data spotlight
 </a></div>
 
 ## Usage Examples
@@ -74,36 +74,36 @@ View example of the 2 blocks variant of data spotlight section
 ### Without description
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/no-description.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section without description
+View example of the data spotlight without description
 </a></div>
 
 ### Without CTA
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/no-cta.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section without CTA
+View example of the data spotlight without CTA
 </a></div>
 
 ### Without CTA and description
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/no-cta-description.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section without CTA and description
+View example of the data spotlight without CTA and description
 </a></div>
 
 ### Only statistics
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/only-statistics.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section with only statistics
+View example of the data spotlight with only statistics
 </a></div>
 
 ### Link style heading
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/linked-title.html" class="js-example" data-lang="jinja">
-View example of the data spotlight section with linked title
+View example of the data spotlight with linked title
 </a></div>
 
 ## Jinja Macro
 
-The `vf_data_spotlight` Jinja macro can be used to generate a logo section pattern. The API for the macro is shown
+The `vf_data_spotlight` Jinja macro can be used to generate a Data spotlight pattern. The API for the macro is shown
 below.
 
 ### Parameters
@@ -195,7 +195,7 @@ below.
 
 ### Jinja Macro
 
-To import the Logo Section Jinja macro, copy the following import statement into your
+To import the Data Spotlight Jinja macro, copy the following import statement into your
 Jinja template.
 
 ```jinja
