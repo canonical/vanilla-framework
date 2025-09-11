@@ -10,6 +10,7 @@
       @param return_url: URL to return to after form submission
       @param top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
       @param hide_newsletter_block_rule (boolean) (optional): Whether to hide the newsletter block rule on medium/small screens. Default is false.
+      @param submit_btn_class (string) (optional): Additional classes to add to the submit button.
 
     All Slots:
       @slot description: Description text, one or more paragraphs
@@ -17,7 +18,7 @@
       @slot hidden_fields: Additional hidden fields to include in the form
       @slot honeypot_fields: hidden honeypot fields for spam prevention
 #}
-{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", hide_newsletter_block_rule=false, caller=None) -%}
+{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", hide_newsletter_block_rule=false, submit_btn_class="js-submit-button", caller=None) -%}
   {% set layout = layout | trim %}
   {% if layout not in ['50-50', '25-75', '2-col', '4-col'] %}
     {% set layout = "25-75" %}
@@ -27,9 +28,13 @@
     {% set top_rule_variant = "default" %}
   {% endif %}
   {% set description = caller('description') %}
+  {% set has_description = description | trim | length > 0 %}
   {% set addendum = caller('addendum') %}
+  {% set has_addendum = addendum | trim | length > 0 %}
   {% set hidden_fields = caller('hidden_fields') %}
+  {% set has_hidden_fields = hidden_fields | trim | length > 0 %}
   {% set honeypot_fields = caller('honeypot_fields') %}
+  {% set has_honeypot_fields = honeypot_fields | trim | length > 0 %}
   {% set is_section_level = layout in ['50-50', '25-75'] %}
   {% set is_grid_level = layout in ['2-col', '4-col'] %}
   {% set heading_level = 'h2' if is_section_level else 'h3' %}
@@ -58,7 +63,7 @@
         <{{ heading_level }}>{{ title_text }}</{{ heading_level }}>
         {% if is_section_level %}</div>{% endif %}
       {% if is_section_level %}<div class="grid-col">{% endif %}
-        {{ description | safe }}
+        {% if has_description %}{{ description | safe }}{% endif %}
         <form action="{{ form_action }}" method="post" id="{{ form_id }}">
           <label class="is-required" for="email">{{ input_label }}:</label>
           <input required
@@ -77,15 +82,16 @@
                    type="checkbox" />
             <span class="p-checkbox__label" id="{{ checkbox_id }}">{{ checkbox_label }}</span>
           </label>
-          {% if addendum %}
+          {% if has_addendum %}
             {{ addendum | safe }}
           {% else %}
             <p>
               By submitting this form, I confirm that I have read and agree to <a href="https://ubuntu.com/legal/terms-and-policies/privacy-policy">Canonical's Privacy Policy</a>.
             </p>
           {% endif %}
-          <button type="submit" class="u-no-margin--bottom">Sign up</button>
-          {% if hidden_fields %}
+          <button type="submit"
+                  class="u-no-margin--bottom {{ submit_btn_class | safe }}">Sign up</button>
+          {% if has_hidden_fields %}
             {{ hidden_fields | safe }}
           {% else %}
             <input type="hidden"
@@ -154,7 +160,7 @@
                    maxlength="255"
                    value="" />
           {% endif %}
-          {% if honeypot_fields %}
+          {% if has_honeypot_fields %}
             {{ honeypot_fields | safe }}
           {% else %}
             <div class="u-off-screen">
