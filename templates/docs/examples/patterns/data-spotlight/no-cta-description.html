@@ -1,0 +1,32 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_data-spotlight.jinja" import vf_data_spotlight %}
+
+{% block title %}Data spotlight / Without CTA and description{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_data_spotlight(
+  title={
+    "text": "Canonical openstack in numbers",
+  },
+  blocks=[
+    {
+      "stat": "100+",
+      "headline": "Happy customers",
+    },
+    {
+      "stat": "100+",
+      "headline": "Clouds in production",
+    },
+    {
+      "stat": "500+",
+      "headline": "Happy customers",
+    },
+    {
+      "stat": "~30 min",
+      "headline": "To spin it up in your lab",
+    }
+  ],
+) }}
+{% endblock %} 

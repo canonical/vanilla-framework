@@ -1,0 +1,28 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_data-spotlight.jinja" import vf_data_spotlight %}
+
+{% block title %}Data spotlight / Only statistics{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_data_spotlight(
+  title={
+    "text": "Canonical openstack in numbers",
+  },
+  blocks=[
+    {
+      "stat": "100+",
+    },
+    {
+      "stat": "100+",
+    },
+    {
+      "stat": "500+",
+    },
+    {
+      "stat": "~30 min",
+    }
+  ],
+) }}
+{% endblock %} 
