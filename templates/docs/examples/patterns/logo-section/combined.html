@@ -1,17 +1,25 @@
 {% extends "_layouts/examples.html" %}
-{% block title %}Logo section / Combined{% endblock %}
-
-{% block standalone_css %}patterns_logo-section{% endblock %}
-
+{% block title %}Divided section | Combined{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
 {% block content %}
-{% with is_combined = true %}
-<section>{% include 'docs/examples/patterns/logo-section/default.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-dark.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-dense.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-fallback.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-in-six-column-parent.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-lazyloaded.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-legacy.html' %}</section>
-<section>{% include 'docs/examples/patterns/logo-section/logo-section-line-breaks.html' %}</section>
-{% endwith %}
+  {% with is_combined = true %}
+    <section>
+      {% include 'docs/examples/patterns/logo-section/default.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/logo-section/linked-title.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/logo-section/no-description.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/logo-section/no-cta-block.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/logo-section/no-description-and-cta-block.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/logo-section/padding-variants.html' %}
+    </section>
+  {% endwith %}
 {% endblock %}
