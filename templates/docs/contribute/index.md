@@ -31,6 +31,6 @@ Find out about new releases, latest features and get help on [Matrix](https://ma
 
 The simplest way to run Vanilla framework is to first [install Docker](https://docs.docker.com/install/) and [dotrun](https://github.com/canonical/dotrun#installation), and then use the `dotrun` script to [build the site](https://github.com/canonical/vanilla-framework#vanilla-local-development). Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests for your project, in the terminal `dotrun test`.
 
-## Licences
+## Licenses
 
 The content of this project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/), and the underlying code used to format and display that content is licensed under the [LGPLv3](https://opensource.org/licenses/lgpl-3.0.html) by [Canonical Ltd](https://canonical.com/).
