@@ -48,13 +48,76 @@ Valid ideas have most of the following characteristics:
 
 If your idea is approved, the Canonical Design System Team will assign a priority level to it.
 
-| Depending on these characteristics:                        | 🔴 High                                                                   | 🟠 Medium                                                                              | 🟡 Low                                                                     |
-| :--------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Impacts a bug                                              | Critical bug that prevents teams from using the Design System as intended | Divergence of solutions across products, but it doesn’t block immediate functionality  | Not applicable to critical functionality or bug fixes                      |
-| Has strategic gain                                         | High strategic value for the Design System and/or user needs              | High strategic gain for business and/or user needs, but will require a lot of planning | Strategic value is minimal or deferred                                     |
-| Complexity of implementation                               | Relatively easy to implement                                              | Moderate to high complexity, requiring detailed planning and execution                 | Can be implemented but without urgent need or substantial benefit          |
-| Urgency                                                    | Required by multiple Canonical products and/or sites for ongoing work     | Not urgent but strategically important                                                 | Not urgent and doesn’t provide immediate strategic value                   |
-| What you can expect from the Canonical Design System Team: | Allocate available resources to complete the proposal                     | Add to our list of items to work on, you can of course develop on your own             | Unlikely to address within 6 months, you can of course develop on your own |
+### 🔴 High priority
+A proposal is assigned high priority based on criteria such as:
+- Fixes a critical bug that prevents teams from using the Design System as intended.
+- Offers high strategic value for the Design System and/or user needs.
+- Is relatively easy to implement.
+- Required by multiple Canonical products and/or sites for ongoing work.
+
+The team will allocate available resources to complete the proposal.
+
+### 🟠 Medium priority
+A proposal is assigned medium priority based on criteria such as:
+- Addresses a divergence of solutions across products, but doesn’t block immediate functionality.
+- Has high strategic gain for business and/or user needs, but will require a lot of planning.
+- Has moderate to high complexity, requiring detailed planning and execution.
+- Not urgent but strategically important.
+
+The team will add your idea to our list of items to work on; you can also develop it on your own.
+
+### 🟡 Low priority  
+A proposal is assigned low priority based on criteria such as:
+- Not applicable to critical functionality or bug fixes.
+- Strategic value is minimal or deferred.
+- Can be implemented but without urgent need or substantial benefit.
+- Not urgent and doesn’t provide immediate strategic value.
+
+Low priority ideas are unlikely to be addressed within 6 months, but you can of course develop them on your own.
+
+<!-- TODO Re-add table when issues fixed in Vanilla -->
+<!-- <table class="p-table--mobile-card">
+  <thead>
+    <tr>
+      <th>Depending on these characteristics:</th>
+      <th>🔴 High</th>
+      <th>🟠 Medium</th>
+      <th>🟡 Low</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-heading="Depending on these characteristics:">Impacts a bug</td>
+      <td data-heading="🔴 High">Critical bug that prevents teams from using the Design System as intended</td>
+      <td data-heading="🟠 Medium">Divergence of solutions across products, but it doesn’t block immediate functionality</td>
+      <td data-heading="🟡 Low">Not applicable to critical functionality or bug fixes</td>
+    </tr>
+    <tr>
+      <td data-heading="Depending on these characteristics:">Has strategic gain</td>
+      <td data-heading="🔴 High">High strategic value for the Design System and/or user needs</td>
+      <td data-heading="🟠 Medium">High strategic gain for business and/or user needs, but will require a lot of planning</td>
+      <td data-heading="🟡 Low">Strategic value is minimal or deferred</td>
+    </tr>
+    <tr>
+      <td data-heading="Depending on these characteristics:">Complexity of implementation</td>
+      <td data-heading="🔴 High">Relatively easy to implement</td>
+      <td data-heading="🟠 Medium">Moderate to high complexity, requiring detailed planning and execution</td>
+      <td data-heading="🟡 Low">Can be implemented but without urgent need or substantial benefit</td>
+    </tr>
+    <tr>
+      <td data-heading="Depending on these characteristics:">Urgency</td>
+      <td data-heading="🔴 High">Required by multiple Canonical products and/or sites for ongoing work</td>
+      <td data-heading="🟠 Medium">Not urgent but strategically important</td>
+      <td data-heading="🟡 Low">Not urgent and doesn’t provide immediate strategic value</td>
+    </tr>
+    <tr>
+      <td data-heading="Depending on these characteristics:">What you can expect from the Canonical Design System Team:</td>
+      <td data-heading="🔴 High">Allocate available resources to complete the proposal</td>
+      <td data-heading="🟠 Medium">Add to our list of items to work on, you can of course develop on your own</td>
+      <td data-heading="🟡 Low">Unlikely to address within 6 months, you can of course develop on your own</td>
+    </tr>
+  </tbody>
+</table> -->
 
 ## Rejected ideas
 

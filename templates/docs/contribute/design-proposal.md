@@ -77,8 +77,41 @@ Documentation works as a ‘user manual’ for your component or pattern. It's y
 
 To get started with the minimal documentation, answer the following questions in clear, plain language:
 
-<!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
-<table>
+### What are the parts of the component? 
+Describe the structure and options for your component:
+- **Parts, or ‘anatomy’**: List all component parts and their names. Include illustrations to show the structure if possible. For example:
+  - List of component parts and their names
+  - Illustrations to show structure
+
+- **Variants**: Explain different implementations of the component. For example:
+  - Different implementations of the component
+  - Examples like blog cards versus Charmhub cards
+
+- **Properties**: List configurable properties such as size, color, show/hide options, or editable text fields. For example:
+  - Configurable properties like size and color
+  - Show/hide options, editable text fields
+
+### When should we use the component?
+Clarify the intended use and limitations:
+
+- **When to use (best practices)**: Describe the context, problem-solving scenarios, alternative component options, comparative advantages, UI examples showing correct implementation, recommended practices or dos and don’ts, usage limitations (such as primary button frequency), and implementation guidelines. For example:
+  - Context and problem-solving scenarios
+  - Alternative component options
+  - Comparative advantages
+  - UI examples showing correct implementation
+  - Recommended practices or dos and don’ts
+  - Usage limitations (such as primary button frequency)
+  - Implementation guidelines
+
+- **When not to use**: List scenarios to avoid and any team agreements on component usage. For example:
+  - Scenarios to avoid
+  - Team agreements on component usage
+
+### How is your contribution accessible? 
+Show how you meet accessibility requirements. You can follow the [accessibility checklist](/accessibility).
+
+<!-- TODO Re-add table when issues fixed in Vanilla -->
+<!-- <table>
   <thead>
   <tr>
     <th>Questions</th>
@@ -145,7 +178,7 @@ To get started with the minimal documentation, answer the following questions in
       <td>Follow this <a href="/accessibility">accessibility checklist</a></td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
 ## Get your proposal approved
 
