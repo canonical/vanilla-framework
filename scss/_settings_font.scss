@@ -6,10 +6,10 @@ $font-display-option: fallback !default;
 $font-allow-cyrillic-greek-latin: false !default;
 $increase-font-size-on-larger-screens: true !default;
 $font-size-ratio--largescreen: 1.125 !default;
-$font-size-largescreen: #{$font-size-ratio--largescreen}rem;
+$font-size-largescreen: map-get($settings-text-default, font-size) * $font-size-ratio--largescreen;
 $base-font-sizes: (
-  base: 1rem,
-  large: $font-size-largescreen,
+  base: #{map-get($settings-text-default, font-size)}rem,
+  large: #{$font-size-largescreen}rem,
 ) !default;
 
 // TODO removeme? This variable is not used in Vanilla - worth seeing if it's used downstream.
