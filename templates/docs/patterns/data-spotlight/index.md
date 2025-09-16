@@ -12,10 +12,10 @@ The data spotlight is a pattern where key statistics serve as the main content, 
 
 It is composed of the following elements:
 
-| Element               | Description                     |
-| --------------------- | ------------------------------  |
-| Title (**required**)  | Main heading text (**h2**)      |
-| Blocks (**required**) | Array of data spotlight blocks  |
+| Element               | Description                    |
+| --------------------- | ------------------------------ |
+| Title (**required**)  | Main heading text (**h2**)     |
+| Blocks (**required**) | Array of data spotlight blocks |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/4-blocks.html" class="js-example" data-lang="jinja">
 View example of the data spotlight
