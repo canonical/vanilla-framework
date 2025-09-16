@@ -1,0 +1,34 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_data-spotlight.jinja" import vf_data_spotlight %}
+
+{% block title %}Data spotlight / 2-blocks{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_data_spotlight(
+  title={
+    "text": "Canonical openstack in numbers",
+  },
+  blocks=[
+    {
+      "stat": "100+",
+      "headline": "Happy customers",
+      "description": "The quick brown fox jumps over the lazy dog",
+      "link": {
+        "url": "#",
+        "text": "Lorem ipsum dolor sit amet ›"
+      }
+    },
+    {
+      "stat": "500+",
+      "headline": "Clouds in production",
+      "description": "The quick brown fox jumps over the lazy dog",
+      "link": {
+        "url": "#",
+        "text": "Lorem ipsum dolor sit amet ›"
+      }
+    },
+  ],
+) }}
+{% endblock %} 

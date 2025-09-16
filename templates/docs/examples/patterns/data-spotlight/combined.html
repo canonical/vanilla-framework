@@ -1,0 +1,31 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Data spotlight | Combined{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {% with is_combined = true %}
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/4-blocks.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/3-blocks.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/2-blocks.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/linked-title.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/no-description.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/no-cta.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/no-cta-description.html' %}
+    </section>
+    <section>
+      {% include 'docs/examples/patterns/data-spotlight/only-statistics.html' %}
+    </section>
+  {% endwith %}
+{% endblock %}
