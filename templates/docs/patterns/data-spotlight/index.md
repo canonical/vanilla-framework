@@ -12,10 +12,10 @@ The data spotlight is a pattern where key statistics serve as the main content, 
 
 It is composed of the following elements:
 
-| Element               | Description                    |
-| --------------------- | ------------------------------ |
-| Title (**required**)  | Main heading text (h2)         |
-| Blocks (**required**) | Array of data spotlight blocks |
+| Element               | Description                     |
+| --------------------- | ------------------------------  |
+| Title (**required**)  | Main heading text (**h2**)      |
+| Blocks (**required**) | Array of data spotlight blocks  |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/data-spotlight/4-blocks.html" class="js-example" data-lang="jinja">
 View example of the data spotlight
@@ -37,9 +37,9 @@ You can pass an array of data spotlight block objects to this pattern.
 
 ```json
 {
-  "stat": "text (required)",
-  "headline": "text (optional)",
-  "description": "text (optional)",
+  "stat": "text" (required),
+  "headline": "text" (optional),
+  "description": "text" (optional),
   "link": {
     "url": "link-url",
     "text": "link-text"
@@ -151,7 +151,7 @@ below.
           <code>N/A</code>
         </td>
         <td>
-          The main title text (rendered as h2)
+          The main title text (rendered as <code>h2</code>)
         </td>
       </tr>
       <tr>
