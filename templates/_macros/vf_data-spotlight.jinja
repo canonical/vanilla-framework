@@ -1,0 +1,65 @@
+{# 
+  Parameters:
+    - title (object) (required): A dictionary with the title configuration.
+      - text (string) (required): The text to be displayed as the title.
+      - link_attrs (object) (optional): A dictionary of link attributes for the title.
+    - blocks (array<object>) (required): List of stat blocks to be displayed in the section. Each block is an object with the following properties:
+      - stat (string) (required): The main statistic to be highlighted.
+      - headline (string) (optional): The headline text for the block.
+      - description (string) (optional): The description text for the block.
+      - link (object) (optional): A dictionary with 'url' and 'text' keys for the link.
+        - url (string) (required if link is provided): The URL for the link.
+        - text (string) (required if link is provided): The text for the link.
+#}
+{%- macro vf_data_spotlight(title={}, blocks=[]) -%}
+  {%- set variant = (blocks | length | string) + "-blocks" -%}
+  {%- if variant not in ['2-blocks', '3-blocks', '4-blocks'] -%}
+    {%- set variant = "4-blocks" -%}
+  {%- endif -%}
+  {%- macro _title(title={}) -%}
+    <h2 class="p-muted-heading">
+      {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
+        <a {% for attr, value in title.get("link_attrs", {}).items() -%} {{ attr }}="{{ value }}" {%- endfor -%}>{{- title.get('text', '') -}}</a>
+      {%- else -%}
+        {{- title.get('text', '') -}}
+      {%- endif -%}
+    </h2>
+  {%- endmacro -%}
+  <section class="p-section p-data-spotlight--{{ variant }}">
+    {%- if variant == '4-blocks' -%}
+      <div class="u-fixed-width">{{- _title(title) -}}</div>
+    {%- endif -%}
+    <div class="p-equal-height-row--wrap">
+      {%- if variant in ['2-blocks', '3-blocks'] -%}
+        <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__title-col">
+          <div class="p-equal-height-row__item p-data-spotlight__title">{{- _title(title) -}}</div>
+        </div>
+      {%- endif -%}
+      {%- for block in blocks -%}
+        {%- set has_headline = block.get("headline", "") | trim -%}
+        {%- set has_description = block.get("description", "") | trim -%}
+        {%- set block_link = block.get("link", {}) -%}
+        {%- set has_block_link = "url" in block_link -%}
+        <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__block">
+          <div class="p-equal-height-row__item">
+            <hr class="p-rule--highlight" />
+            <p class="p-heading--1 u-no-margin u-no-padding">{{ block.stat | safe }}</p>
+          </div>
+          {%- if has_headline -%}
+            <p class="p-equal-height-row__item p-heading--3 u-no-margin u-no-padding">{{ block.headline | safe }}</p>
+          {%- endif -%}
+          {%- if has_description -%}
+            <div class="p-equal-height-row__item">
+              <p>{{ block.description | safe }}</p>
+            </div>
+          {%- endif -%}
+          {%- if has_block_link -%}
+            <div class="p-equal-height-row__item">
+              <a href="{{ block.link.url }}">{{ block.link.text | safe }}</a>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endmacro -%}

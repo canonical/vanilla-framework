@@ -289,6 +289,23 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           Only applicable to <code>2-col</code> and <code>4-col</code> variants
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>submit_btn_class</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>'js-submit-button'</code>
+        </td>
+        <td>
+          Additional classes added to form submit button
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

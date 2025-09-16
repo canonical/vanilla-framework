@@ -1,0 +1,50 @@
+@import 'settings';
+
+@mixin vf-p-data-spotlight {
+  .p-data-spotlight--2-blocks,
+  .p-data-spotlight--3-blocks,
+  .p-data-spotlight--4-blocks {
+    .p-equal-height-row--wrap .p-equal-height-row__col {
+      border: none;
+    }
+  }
+
+  @media (width > $breakpoint-large) {
+    .p-data-spotlight--2-blocks .p-data-spotlight__title {
+      height: 0;
+    }
+
+    .p-data-spotlight--2-blocks .p-data-spotlight__title-col {
+      // TODO: update the following after the equal height row is updated to use the new grid system
+      grid-column: span 6 !important;
+    }
+  }
+
+  @media (width > $breakpoint-small) {
+    .p-data-spotlight--3-blocks .p-data-spotlight__title {
+      height: 0;
+    }
+  }
+
+  @media (width < $breakpoint-small) {
+    // Apply padding to all blocks except the last one
+    .p-data-spotlight__block:not(:last-child) {
+      padding-bottom: $spv--strip-shallow;
+    }
+  }
+
+  @media (width > $breakpoint-small) and (width < $breakpoint-large) {
+    .p-data-spotlight--4-blocks .p-equal-height-row--wrap > .p-equal-height-row__col:nth-child(-n + 2) {
+      padding-bottom: $spv--strip-shallow;
+    }
+
+    .p-data-spotlight--3-blocks .p-equal-height-row--wrap > .p-equal-height-row__col:nth-child(2) {
+      padding-bottom: $spv--strip-shallow;
+    }
+
+    .p-data-spotlight--2-blocks .p-data-spotlight__title-col {
+      // TODO: update the following after the equal height row is updated to use the new grid system
+      grid-column: span 6 !important;
+    }
+  }
+}

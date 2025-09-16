@@ -1,0 +1,59 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_data-spotlight.jinja" import vf_data_spotlight %}
+
+{% block title %}Data spotlight / Linked title{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_data_spotlight(
+  title={
+    "text": "Canonical openstack in numbers ›",
+    "link_attrs": {
+      "href": "#"
+    }
+  },
+  blocks=[
+    {
+      "stat": "100+",
+      "headline": "Happy customers",
+      "description": "The quick brown fox jumps over the lazy dog",
+      "type": "data-block",
+      "link": {
+        "url": "#",
+        "text": "Lorem ipsum dolor sit amet ›"
+      }
+    },
+    {
+      "stat": "100+",
+      "headline": "Clouds in production",
+      "description": "The quick brown fox jumps over the lazy dog",
+      "type": "data-block",
+      "link": {
+        "url": "#",
+        "text": "Lorem ipsum dolor sit amet ›"
+      }
+    },
+    {
+      "stat": "500+",
+      "headline": "Happy customers",
+      "description": "The quick brown fox jumps over the lazy dog",
+      "type": "data-block",
+      "link": {
+        "url": "#",
+        "text": "Lorem ipsum dolor sit amet ›"
+      }
+    },
+    {
+      "stat": "~30 min",
+      "headline": "To spin it up in your lab",
+      "description": "The quick brown fox jumps over the lazy dog",
+      "type": "data-block",
+      "link": {
+        "url": "#",
+        "text": "Lorem ipsum dolor sit amet ›"
+      }
+    }
+  ],
+) }}
+{% endblock %} 
