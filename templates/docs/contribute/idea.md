@@ -49,7 +49,9 @@ Valid ideas have most of the following characteristics:
 If your idea is approved, the Canonical Design System Team will assign a priority level to it.
 
 ### 🔴 High priority
+
 A proposal is assigned high priority based on criteria such as:
+
 - Fixes a critical bug that prevents teams from using the Design System as intended.
 - Offers high strategic value for the Design System and/or user needs.
 - Is relatively easy to implement.
@@ -58,7 +60,9 @@ A proposal is assigned high priority based on criteria such as:
 The team will allocate available resources to complete the proposal.
 
 ### 🟠 Medium priority
+
 A proposal is assigned medium priority based on criteria such as:
+
 - Addresses a divergence of solutions across products, but doesn’t block immediate functionality.
 - Has high strategic gain for business and/or user needs, but will require a lot of planning.
 - Has moderate to high complexity, requiring detailed planning and execution.
@@ -66,8 +70,10 @@ A proposal is assigned medium priority based on criteria such as:
 
 The team will add your idea to our list of items to work on; you can also develop it on your own.
 
-### 🟡 Low priority  
+### 🟡 Low priority
+
 A proposal is assigned low priority based on criteria such as:
+
 - Not applicable to critical functionality or bug fixes.
 - Strategic value is minimal or deferred.
 - Can be implemented but without urgent need or substantial benefit.
