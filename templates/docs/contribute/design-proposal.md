@@ -82,10 +82,12 @@ To get started with the minimal documentation, answer the following questions in
 Describe the structure and options for your component:
 
 - **Parts, or ‘anatomy’**: List all component parts and their names. Include illustrations to show the structure if possible. For example:
+
   - List of component parts and their names
   - Illustrations to show structure
 
 - **Variants**: Explain different implementations of the component. For example:
+
   - Different implementations of the component
   - Examples like blog cards versus Charmhub cards
 
@@ -98,6 +100,7 @@ Describe the structure and options for your component:
 Clarify the intended use and limitations:
 
 - **When to use (best practices)**: Describe the context, problem-solving scenarios, alternative component options, comparative advantages, UI examples showing correct implementation, recommended practices or dos and don’ts, usage limitations (such as primary button frequency), and implementation guidelines. For example:
+
   - Context and problem-solving scenarios
   - Alternative component options
   - Comparative advantages
