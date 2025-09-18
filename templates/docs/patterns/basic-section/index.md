@@ -244,19 +244,19 @@ View example of the basic section pattern with different code variants
 
 ### Logo
 
-Logos may be displayed with the <a href="/docs/patterns/logo-section">logo section pattern</a> (in the case of a simple
-list of logos), or the <a href="/docs/patterns/linked-logo-section">linked logo section pattern</a> (in the case of clickable logos).
+Logos may be displayed with the <a href="#logo-block">logo block</a> (in the case of a simple
+list of logos), or the <a href="#linked-logo-block">linked logo block</a> (in the case of clickable logos).
 
 We recommend against using both the logo block and linked logo block in the same section, as it can lead to confusion.
 
-#### Logo section
+#### Logo block
 
-The logo section is suitable for displaying logos in a flow layout.
+The logo block is suitable for displaying logos in a flow layout.
 If you would like to include links to learn more about logo items, use the [linked logo block](#linked-logo-block)
-instead of this logo block.
+instead.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/logo-section" class="js-example" data-lang="jinja">
-View example of the basic section pattern with a logo section block
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/logo-block" class="js-example" data-lang="jinja">
+View example of the basic section pattern with a logo block
 </a></div>
 
 ```json
@@ -281,7 +281,7 @@ View example of the basic section pattern with a logo section block
 - **`is_fixed_width`**: Whether to wrap logos in a [fixed-width container](/docs/patterns/grid#fixed-width-containers) (default: `true`).
 - **`logos`**: Array of logo objects. Each logo element has the following properties:
   - **`attrs`**: Dictionary of image attributes for the logo. The `p-image-container__image` class is applied automatically. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
-  - **`has_line_break_after`**: Whether to include a line break after the logo (hidden on small screens). Use this to force a logo to a new line, avoiding orphaned logos on the last line. See the [logo section documentation](/docs/patterns/logo-section#line-breaks) for more information.
+  - **`has_line_break_after`**: Whether to include a line break after the logo (hidden on small screens). Use this to force a logo to a new line, avoiding orphaned logos on the last line. See the [logo block documentation](/docs/patterns/logo-block#line-breaks) for more information.
 
 #### Linked logo block
 

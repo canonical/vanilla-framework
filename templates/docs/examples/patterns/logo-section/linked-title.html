@@ -1,12 +1,15 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_logo-section.jinja" import vf_logo_section %}
-{% block title %}Logo section / Default{% endblock %}
+{% block title %}Logo section / Linked title{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% set is_paper = true %}
 {% block content %}
 {% call(slot) vf_logo_section(
   title={
-    "text": "The quick brown fox jumps over the lazy dog"
+    "text": "The quick brown fox jumps over the lazy dog ›",
+    "link_attrs": {
+      "href": "#"
+    }
   },
   blocks=[
     {
