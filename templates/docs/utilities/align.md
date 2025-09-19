@@ -22,13 +22,20 @@ If you only need text to be aligned, you can use the `u-align-text` utilities.
 View example of the text align utility
 </a></div>
 
-## Vertical alignment
+## Vertical alignment {{ status('updated') }}
 
-If you need to vertically align inline elements to the middle of their
-container, you can use the `u-vertical-align--middle` utility.
+If you need to vertically align elements, you can use the vertical alignment utilities. These utilities work with inline and inline-block elements.
+
+The available vertical alignment utilities are:
+
+- `u-vertical-align--top` - Aligns the top of the element with the top of the tallest element on the line
+- `u-vertical-align--middle` - Aligns the middle of the element with the middle of the parent element
+- `u-vertical-align--bottom` - Aligns the bottom of the element with the bottom of the line
+- `u-vertical-align--text-top` - Aligns the top of the element with the top of the parent element's font
+- `u-vertical-align--text-bottom` - Aligns the bottom of the element with the bottom of the parent element's font
 
 <div class="embedded-example"><a href="/docs/examples/utilities/align/vertical-align" class="js-example">
-View example of the vertical align middle utility
+View example of the vertical alignment utilities
 </a></div>
 
 ## Import
