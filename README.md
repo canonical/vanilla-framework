@@ -24,7 +24,7 @@ Vanilla Framework is an extensible CSS framework, built using [Sass](http://sass
 You can link to the latest build to add directly into your markup like so, by replacing the x values with the [version number you wish to link](https://github.com/canonical/vanilla-framework/releases).
 
 ```html
-<link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_x_x_x_min.css" />
+<link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-x.x.x.min.css" />
 ```
 
 ### Including Vanilla in your project via NPM or yarn
