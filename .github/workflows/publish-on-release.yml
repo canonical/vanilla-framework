@@ -42,8 +42,8 @@ jobs:
           path: css
       - name: Install upload-assets snap
         run: sudo snap install upload-assets
-      - name: Add a change to the file to allow it to pass checksum
-        run: echo "/* Vanilla */" >> css/build.css
+#      - name: Add a change to the file to allow it to pass checksum
+#        run: echo "/* Vanilla */" >> css/build.css
       - name: Upload to assets server
         run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
         env:
