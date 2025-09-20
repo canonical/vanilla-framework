@@ -843,8 +843,8 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
 
   .p-navigation--sliding.has-menu-open,
   .p-navigation--reduced.has-menu-open {
-    box-shadow: $colors--theme--background-overlay 0px 0px 0px 100vh;
-    height: 100vh;
+    box-shadow: $colors--theme--background-overlay 0px 0px 0px 100dvh;
+    height: 100dvh;
     overflow-y: hidden;
     position: fixed;
     width: 100vw;
@@ -866,7 +866,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     }
     .p-navigation__nav {
       display: block;
-      height: calc(100vh - $navigation-height);
+      height: calc(100dvh - $navigation-height);
       overflow-x: hidden;
 
       .p-navigation__items {
@@ -893,7 +893,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
   .p-navigation--sliding .p-navigation__dropdown,
   .p-navigation--reduced .p-navigation__dropdown {
     display: block;
-    height: calc(100vh - $navigation-height);
+    height: calc(100dvh - $navigation-height);
     left: 100vw;
     position: absolute;
     top: 0;
@@ -1007,6 +1007,7 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     .p-navigation__dropdown > :last-child {
       // should be enough to make some space at the bottom
       // and workaround the issues of 100vh not taking address toolbar into account
+      // this workaround might not be needed since we moved from 100vh to 100dvh
       padding-bottom: 3rem;
 
       @media (min-width: $breakpoint-navigation-threshold) {
