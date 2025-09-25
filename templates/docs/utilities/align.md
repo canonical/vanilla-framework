@@ -24,7 +24,7 @@ View example of the text align utility
 
 ## Vertical alignment {{ status('updated') }}
 
-If you need to vertically align elements, you can use the vertical alignment utilities. These utilities work with inline and inline-block elements.
+If you need to vertically align elements, you can use the vertical alignment utilities. These utilities work with `inline` and `inline-block` elements.
 
 The available vertical alignment utilities are:
 
