@@ -69,25 +69,23 @@
 # Params
 # title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
 # articles: A list of article dictionaries, each with "title", "image", "description", "author", and "date".
+# num_templates: An integer for the number of article templates to render if no articles are provided (for dynamic loading scenarios).
 {% macro vf_blog(
     title={},
-    articles=[]
+    articles=[],
+    num_templates=0
 ) -%}
-    {#
-        TODO strong assumption - if no articles are present, we are in "dynamic" mode and assume user will use JS to populate the articles themselves
-        Saves us from adding a "mode" param
-    #}
-
     {#- todo add title styling more properly -#}
     {{ title }}
 
-    {%- for article in articles -%}
-
-        
-
-    {%- endfor -%}
-
-
-
+    {%- if num_templates <= 0 -%}
+        {%- for article in articles -%}
+            {{- _blog_article(article) -}}
+        {%- endfor -%}
+    {%- else -%}
+        {%- for i in range(num_templates) -%}
+            {{- _blog_article() -}}
+        {%- endfor -%}
+    {%- endif -%}
 
 {% endmacro %}
