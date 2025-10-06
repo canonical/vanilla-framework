@@ -1,0 +1,13 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Blog / Combined{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/blog/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/blog/3-blocks.html' %}</section>
+<section>{% include 'docs/examples/patterns/blog/truncated.html' %}</section>
+<section>{% include 'docs/examples/patterns/blog/templates.html' %}</section>
+{% endwith %}
+{% endblock %}

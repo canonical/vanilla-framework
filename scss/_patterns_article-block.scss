@@ -1,0 +1,90 @@
+/*
+  @classreference
+    Article block:
+      .p-article-block:
+        Container for blog article content
+      .p-article-block__item:
+        Individual content block within article block
+      .p-article-block__metadata:
+        Metadata container
+      .p-article-block__metadata-item:
+        Individual metadata item with middot separator between items
+*/
+
+@use 'sass:math';
+
+@mixin vf-p-article-block {
+  .p-article-block {
+    @extend %article-block-grid-span;
+    grid-template-rows: subgrid;
+
+    // the section that wraps the items already has bottom padding defined, so the last row of items must have no bottom padding to avoid duplicating spacing.
+    // small screens - the last item gets no bottom padding
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      &:last-child {
+        .p-article-block__item:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    // medium screens - the last two items get no bottom padding
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      &:nth-last-child(-n + 2) {
+        .p-article-block__item:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    // large screen - all items get no bottom padding
+    @media screen and (width >= $threshold-4-8-col) {
+      // 4 items per row, only 4 items allowed - items have no padding at all
+      .p-article-block__item:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .p-article-block__item {
+    padding-bottom: $spv--small;
+
+    // Collapse bottom margin of descriptions to avoid duplicating spacing with the pattern that embeds the blog.
+    & .article-excerpt {
+      // In dynamic contexts (`@canonical/latest-news`), the description is wrapped in a paragraph
+      &, // stylelint-disable selector-max-type -- the latest news module creates a classless paragraph element
+      & > p {
+        @extend %u-no-margin--bottom--default-text;
+      }
+    }
+  }
+
+  // Add middot between metadata items
+  .p-article-block__metadata {
+    margin-left: 0;
+    padding-left: 0;
+
+    & > .p-article-block__metadata-item {
+      @include vf-inline-list-item;
+      margin-right: $sph--x-small;
+      position: relative;
+
+      &::after {
+        content: '\2022';
+        line-height: map-get($settings-text-small, line-height);
+        position: relative;
+        right: -0.25rem;
+      }
+
+      &:last-of-type::after {
+        content: '';
+      }
+    }
+
+    // Collapse bottom margin of metadata to avoid duplicating spacing with the pattern that embeds the blog.
+    &,
+    & > .p-article-block__metadata-item {
+      @extend %u-no-margin--bottom--small;
+    }
+  }
+}
