@@ -1,0 +1,93 @@
+# Params
+# - article_config: A dictionary with the article configuration.
+    # - "title": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+    # - "image": A dictionary with "attrs" dict containing "src", "alt", and other image attributes. Always wrapped in 16:9 cover image container by the pattern and has `p-image-container__image` added. Fallback image used if no image passed, which can be overriden by "fallback_attrs" attr within this object.
+    # - "description": A dictionary with "text", and "truncation_length" (an integer for max characters before truncation).
+    # - "author": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the author).
+    # - "date": A string with the publication date.
+{%- macro _blog_article(article_config={}) -%}
+    {%- set image = article_config.get("image", {}) -%}
+    {%- set title = article_config.get("title", {}) -%}
+    {%- set description = article_config.get("description", {}) -%}
+    {%- set description_truncation_length = description.get("truncation_length", 300) -%}
+    {%- set author = article_config.get("author", {}) -%}
+    {%- set has_author = author.get("text") | trim | length > 0 -%}
+    {%- set date = article_config.get("date", {}) -%}
+    {%- set has_date = date | trim | length > 0 -%}
+
+    <div class="p-section--shallow">
+        <div class="p-image-container--16-9 is-cover">
+        {#- todo fallback image -#}
+            <img class="p-image-container__image {{ image.get("attrs", {}).get("class", "") -}}"
+                {%- for attr, value in image.get("attrs", {}).items() -%}
+                    {% if attr != "class" %}
+                        {{ attr }}="{{ value }}"
+                    {%- endif -%}
+                {%- endfor -%}
+            />
+        </div>
+    </div>
+    <h5>
+        <a
+            {%- for attr, value in title.get("link_attrs", {}).items() -%}
+                {{ attr }}="{{ value }}"
+            {%- endfor -%}
+        >
+            {{ title.get("text", "Article Title")[:description_truncation_length] }}
+        </a>
+    </h5>
+    <p>
+        {{ description.get("text", "Article description goes here.") }}
+    </p>
+    {%- if has_author or has_date -%}
+        <small>
+            {%- if has_author -%}
+                {% if author.get("link_attrs") -%}
+                    <a
+                        {%- for attr, value in author.get("link_attrs", {}).items() -%}
+                            {{ attr }}="{{ value }}"
+                        {%- endfor -%}
+                    >
+                {%- endif -%}
+                {{ author.get("text") }}
+                {%- if author.get("link_attrs") -%}
+                    </a>
+                {%- endif -%}
+            {%- endif -%}
+            {%- if has_author and has_date -%}
+                &middot;
+            {%- endif -%}
+            {%- if has_date -%}
+                <time datetime="{{ date }}">{{ date }}</time>
+            {%- endif -%}
+        </small>
+    {%- endif -%}
+
+
+{%- endmacro -%}
+
+# Params
+# title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+# articles: A list of article dictionaries, each with "title", "image", "description", "author", and "date".
+{% macro vf_blog(
+    title={},
+    articles=[]
+) -%}
+    {#
+        TODO strong assumption - if no articles are present, we are in "dynamic" mode and assume user will use JS to populate the articles themselves
+        Saves us from adding a "mode" param
+    #}
+
+    {#- todo add title styling more properly -#}
+    {{ title }}
+
+    {%- for article in articles -%}
+
+        
+
+    {%- endfor -%}
+
+
+
+
+{% endmacro %}
