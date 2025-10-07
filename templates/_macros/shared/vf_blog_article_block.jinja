@@ -1,0 +1,84 @@
+# Params
+{#- todo the entire pattern should be sensitive to `template_config`  -#}
+# - article_config: A dictionary with the article configuration.
+  # - "title": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+  # - "image": A dictionary with "attrs" dict containing "src", "alt", and other image attributes. Always wrapped in 16:9 cover image container by the pattern and has `p-image-container__image` added. Fallback image used if no image passed, which can be overriden by "fallback_attrs" attr within this object.
+  # - "description": A dictionary with "text"
+  # - "author": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the author).
+  # - "date": A string with the publication date.
+# - truncation_config={}: A dictionary with objects for each type of object that may need truncation configuration. Currently only "description" is supported. Each object has a "length" integer property to set the max characters before truncation, and a "add_ellipses" boolean property to control whether ellipses are added when truncation occurs. Default length is 300 and default add_ellipses is True.
+{%- macro vf_blog_article_block(article_config={}, truncation_config={}) -%}
+  {%- set image = article_config.get("image", {}) -%}
+  {%- set title = article_config.get("title", {}) -%}
+  {%- set description = article_config.get("description", {}) -%}
+  {%- set author = article_config.get("author", {}) -%}
+  {%- set has_author = author.get("text") | trim | length > 0 -%}
+  {%- set date = article_config.get("date", {}) -%}
+  {%- set has_date = date | trim | length > 0 -%}
+
+  <div class="p-section--shallow">
+    <div class="p-image-container--16-9 is-cover article-image">
+      {%- set fallback_attrs = image.get("fallback_attrs", {"src": "https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png", "alt": "Blog fallback image"}) -%}
+      {%- set image_attrs = image.get("attrs", {}) -%}
+      {%- if not image_attrs.get("src") -%}
+        {%- set _ = image_attrs.update(fallback_attrs) -%}
+      {%- endif -%}
+      <img class="p-image-container__image {{ image_attrs.get("class", "") -}}"
+      {% for attr, value in image_attrs.items() -%}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {%- endif -%}
+      {%- endfor -%}
+      />
+    </div>
+  </div>
+  <h5 class="article-title u-no-margin--bottom">
+    <a
+      class="article-link {{ title.get("link_attrs", {}).get("class", "") }}"
+    {% for attr, value in title.get("link_attrs", {}).items() -%}
+      {% if attr != "class" -%}
+        {{ attr }}="{{ value }}"
+      {% endif %}
+    {%- endfor -%}
+    >
+    {{ title.get("text", "Article Title")}}
+    </a>
+  </h5>
+  {#- todo this should be article-excerpt -#}
+  <p {% if not (has_author or has_date) %} class="u-no-margin--bottom" {% endif %}>
+    {%- set description_truncation_config = truncation_config.get("description", {}) -%}
+    {%- set description_truncation_length = description_truncation_config.get("length", 300) -%}
+    {%- set add_ellipses = description_truncation_config.get("add_ellipses", True) -%}
+
+    {{ description.get("text", "Article description goes here.")[:description_truncation_length]  }}
+    {%- if add_ellipses and description.get("text", "") | length > description_truncation_length -%}...{%- endif -%}
+  </p>
+  {%- if has_author or has_date -%}
+    {#- TODO this will create unavoidable double spacing in the last row due to the section's bottom padding.  -#}
+    <p>
+      <small>
+        {%- if has_author -%}
+          {% if author.get("link_attrs") -%}
+            <a
+            {% for attr, value in author.get("link_attrs", {}).items() -%}
+              {{ attr }}="{{ value }}"
+            {%- endfor -%}
+            >
+          {%- endif -%}
+          {{ author.get("text") }}
+          {%- if author.get("link_attrs") -%}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+        {%- if has_author and has_date -%}
+          &nbsp;&middot;&nbsp;
+        {%- endif -%}
+        {%- if has_date -%}
+          <time class="article-time" datetime="{{ date }}">{{ date }}</time>
+        {%- endif -%}
+      </small>
+    </p>
+  {%- endif -%}
+
+
+{%- endmacro -%}
