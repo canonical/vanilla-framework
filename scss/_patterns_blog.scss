@@ -7,6 +7,10 @@
     Blog item:
       .p-blog__item:
         A sub-item of the blog pattern.
+    Blog thumbnail:
+      .p-blog__thumbnail:
+    Blog title:
+      .p-blog__title:
 */
 
 @use 'sass:math';
@@ -17,7 +21,16 @@
   }
 
   .p-blog__item {
-    @include vf-grid-column(math.div($grid-8-columns, 4));
+    @include vf-grid-column($grid-8-columns-small);
+
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      @include vf-grid-column(math.div($grid-8-columns-medium, 2));
+    }
+
+    @media screen and (width >= $threshold-4-8-col) {
+      @include vf-grid-column(math.div($grid-8-columns, 4));
+    }
+
     display: grid;
     grid-template-rows: subgrid;
 
@@ -46,5 +59,15 @@
       // 4 items per row, only 4 items allowed - items have no padding at all
       padding-bottom: 0;
     }
+  }
+
+  .p-blog.has-3-blocks .p-blog__title {
+    @media screen and (width >= $threshold-4-8-col) {
+      @include vf-grid-column(math.div($grid-8-columns, 4));
+    }
+  }
+
+  .p-blog__thumbnail {
+    padding-bottom: $spv--small;
   }
 }

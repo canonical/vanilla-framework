@@ -63,28 +63,23 @@
   {%- endif -%}
 
   <section class="{{ padding_classes }}">
-    <div class="p-blog">
+    <div class="p-blog {% if layout == "3-blocks" %}has-3-blocks{% endif %}">
       {{ vf_section_top_rule(top_rule_variant) }}
-      {#- 3-blocks needs to wrap the title in a blog item to define its position in the grid, rather than above the pattern -#}
-      {%- if layout == "3-blocks" -%}
-        <div class="p-blog__item">
-      {%- endif -%}
-        <h4 class="p-muted-heading">
-        {%- if title.get("link_attrs") -%}
-          <a
-            {% for attr, value in title.get("link_attrs", {}).items() -%}
-              {{ attr }}="{{ value }}"
-            {%- endfor -%}
-          >
-        {%- endif -%}
-        {{ title.get("text", "Blog Title") }}
-        {%- if title.get("link_attrs") -%}
-        </a>
-        {%- endif -%}
-      </h4>
-      {%- if layout == "3-blocks" -%}
-        </div>
-      {%- endif -%}
+        <div class="p-blog__title">
+          <h4 class="p-muted-heading">
+          {%- if title.get("link_attrs") -%}
+            <a
+              {% for attr, value in title.get("link_attrs", {}).items() -%}
+                {{ attr }}="{{ value }}"
+              {%- endfor -%}
+            >
+          {%- endif -%}
+          {{ title.get("text", "Blog Title") }}
+          {%- if title.get("link_attrs") -%}
+          </a>
+          {%- endif -%}
+        </h4>
+      </div>
 
       {%- if template_config.get("enabled", False) -%}
         <div id="{{ template_config.get("template_container_id", "articles")}}"></div>
