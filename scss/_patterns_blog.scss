@@ -1,0 +1,50 @@
+/*
+  @classreference
+  blog:
+    Blog:
+      .p-blog:
+        Main element of the blog pattern.
+    Blog item:
+      .p-blog__item:
+        A sub-item of the blog pattern.
+*/
+
+@use 'sass:math';
+
+@mixin vf-p-blog {
+  .p-blog {
+    @extend %vf-grid-row;
+  }
+
+  .p-blog__item {
+    @include vf-grid-column(math.div($grid-8-columns, 4));
+    display: grid;
+    grid-template-rows: subgrid;
+
+    // 4 potential items - picture, title, description, optional author & date
+    grid-row: span 4;
+
+    padding-bottom: $spv--small;
+
+    // the section that wraps the items already has bottom padding defined, so the last row of items must have no bottom padding to avoid duplicating spacing.
+    // small screens - the last item gets no bottom padding
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    // medium screens - the last two items get no bottom padding
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      &:nth-last-child(-n + 2) {
+        padding-bottom: 0;
+      }
+    }
+
+    // large screen - all items get no bottom padding
+    @media screen and (width >= $threshold-4-8-col) {
+      // 4 items per row, only 4 items allowed - items have no padding at all
+      padding-bottom: 0;
+    }
+  }
+}

@@ -10,8 +10,8 @@
     # - "description": A dictionary with "text", and "truncation_length" (an integer for max characters before truncation).
     # - "author": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the author).
     # - "date": A string with the publication date.
-{%- macro _blog_article(article_config={}, truncation_config={}, col_start=None) -%}
-  <div class="grid-col-2{% if col_start > 0 %} grid-col-start-large-{{ col_start }}{% endif %}">
+{%- macro _blog_article(article_config={}, truncation_config={}) -%}
+  <div class="p-blog__item">
     {{- vf_blog_article_block(article_config=article_config, truncation_config=truncation_config) -}}
   </div>
 {%- endmacro -%}
@@ -63,45 +63,37 @@
   {%- endif -%}
 
   <section class="{{ padding_classes }}">
-    <div class="grid-row">
+    <div class="p-blog">
       {{ vf_section_top_rule(top_rule_variant) }}
+      {#- 3-blocks needs to wrap the title in a blog item to define its position in the grid, rather than above the pattern -#}
       {%- if layout == "3-blocks" -%}
-        <div class="grid-col-2">
+        <div class="p-blog__item">
       {%- endif -%}
-          <h4 class="p-muted-heading">
-            {%- if title.get("link_attrs") -%}
-              <a
-                {% for attr, value in title.get("link_attrs", {}).items() -%}
-                  {{ attr }}="{{ value }}"
-                {%- endfor -%}
-              >
-            {%- endif -%}
-            {{ title.get("text", "Blog Title") }}
-            {%- if title.get("link_attrs") -%}
-            </a>
-            {%- endif -%}
-          </h4>
-        {%- if layout == "3-blocks" -%}
-          </div>
+        <h4 class="p-muted-heading">
+        {%- if title.get("link_attrs") -%}
+          <a
+            {% for attr, value in title.get("link_attrs", {}).items() -%}
+              {{ attr }}="{{ value }}"
+            {%- endfor -%}
+          >
         {%- endif -%}
-
-      {%- set col_start = 0 -%}
+        {{ title.get("text", "Blog Title") }}
+        {%- if title.get("link_attrs") -%}
+        </a>
+        {%- endif -%}
+      </h4>
+      {%- if layout == "3-blocks" -%}
+        </div>
+      {%- endif -%}
 
       {%- if template_config.get("enabled", False) -%}
         <div id="{{ template_config.get("template_container_id", "articles")}}"></div>
         <template style="display: none;" id="{{ template_config.get("template_id", "template") }}">
-          {%- if layout == "3-blocks" -%}
-            {%- set col_start=3 -%}
-          {%- endif -%}
-          {{- _blog_article(truncation_config=truncation_config, col_start=col_start) -}}
+          {{- _blog_article(truncation_config=truncation_config) -}}
         </template>
       {%- else -%}
         {%- for article in articles -%}
-          {%- set extra_classes = [] -%}
-          {%- if layout == "3-blocks" and loop.index0 % 3 == 0 and loop.index0 > 0 -%}
-            {%- set col_start=3 -%}
-          {%- endif -%}
-          {{- _blog_article(article_config=article, truncation_config=truncation_config, col_start=col_start) -}}
+          {{- _blog_article(article_config=article, truncation_config=truncation_config) -}}
         {%- endfor -%}
       {%- endif -%}
 
