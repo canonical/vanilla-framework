@@ -1,0 +1,98 @@
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+{% from "_macros/shared/vf_blog_article_block.jinja" import vf_blog_article_block %}
+
+# Params
+# - col_start: An integer override for the column start (for grid-col-start-*)
+# - truncation_config:
+# - article_config: A dictionary with the article configuration.
+    # - "title": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+    # - "image": A dictionary with "attrs" dict containing "src", "alt", and other image attributes. Always wrapped in 16:9 cover image container by the pattern and has `p-image-container__image` added. Fallback image used if no image passed, which can be overriden by "fallback_attrs" attr within this object.
+    # - "description": A dictionary with "text", and "truncation_length" (an integer for max characters before truncation).
+    # - "author": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the author).
+    # - "date": A string with the publication date.
+{%- macro _blog_article(article_config={}, truncation_config={}) -%}
+  <div class="p-blog__column">
+    {{- vf_blog_article_block(article_config=article_config, truncation_config=truncation_config) -}}
+  </div>
+{%- endmacro -%}
+
+# Params
+# title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+# articles: A list of article dictionaries, each with "title", "image", "description", "author", and "date".
+# template_config:
+#   - enabled: A boolean to enable or disable the template mode.
+#   - template_container_id: A string for the id of the container to use for dynamic loading scenarios.
+#   - template_id: A string for the id of the template to use for dynamic loading scenarios.
+#   - layout: (todo) give a desc for what is happening here
+# padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
+# top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
+{% macro vf_blog(
+    title={},
+    articles=[],
+    template_config={},
+    padding="default",
+    top_rule_variant="default",
+    truncation_config={}
+) -%}
+  {%- set padding = padding | trim -%}
+  {%- if padding not in ["deep", "shallow", "default"] -%}
+    {%- set padding = "default" -%}
+  {%- endif -%}
+
+  {%- set padding_classes = "p-section--" + padding -%}
+  {%- if padding == "default" -%}
+    {%- set padding_classes = "p-section" -%}
+  {%- endif -%}
+
+  {# TODO an article script would need to be context-aware of how many articles there are in order to apply proper grid layout. Need to explore this. #}
+  {%- if articles | length == 3 -%}
+    {%- set layout = "3-blocks" -%}
+  {%- elif articles | length == 4 -%}
+    {%- set layout = "4-blocks" -%}
+  {%- endif -%}
+
+  {%- set template_mode = template_config.get("enabled", False) -%}
+
+  {#- template mode layout override - todo check this is working as expected -#}
+  {%- if template_mode and (not articles | length) -%}
+    {%- set layout = template_config.get("layout", "4-blocks") -%}
+  {%- endif -%}
+
+  {%- if layout not in ["3-blocks", "4-blocks"] -%}
+    {%- set layout = "4-blocks" -%}
+  {%- endif -%}
+
+  <section class="{{ padding_classes }}">
+    <div class="p-blog {% if layout == "4-blocks" %}has-4-blocks{% endif %}">
+      {{ vf_section_top_rule(top_rule_variant) }}
+        <div class="p-blog__title">
+          <h4 class="p-muted-heading">
+          {%- if title.get("link_attrs") -%}
+            <a
+              {% for attr, value in title.get("link_attrs", {}).items() -%}
+                {{ attr }}="{{ value }}"
+              {%- endfor -%}
+            >
+          {%- endif -%}
+          {{ title.get("text", "Blog Title") }}
+          {%- if title.get("link_attrs") -%}
+          </a>
+          {%- endif -%}
+        </h4>
+      </div>
+
+      {%- if template_config.get("enabled", False) -%}
+        <div id="{{ template_config.get("template_container_id", "articles")}}"></div>
+        <template style="display: none;" id="{{ template_config.get("template_id", "template") }}">
+          {{- _blog_article(truncation_config=truncation_config) -}}
+        </template>
+      {%- else -%}
+        {%- for article in articles -%}
+          {{- _blog_article(article_config=article, truncation_config=truncation_config) -}}
+        {%- endfor -%}
+      {%- endif -%}
+
+    </div>
+  </section>
+
+{% endmacro %}

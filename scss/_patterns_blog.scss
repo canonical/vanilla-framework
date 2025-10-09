@@ -1,0 +1,80 @@
+/*
+  @classreference
+  blog:
+    Blog:
+      .p-blog:
+        Main element of the blog pattern.
+    Blog column:
+      .p-blog__column:
+        A column of the blog pattern.
+    Blog thumbnail:
+      .p-blog__thumbnail:
+    Blog title:
+      .p-blog__title:
+*/
+
+@use 'sass:math';
+
+@mixin vf-p-blog {
+  .p-blog {
+    @extend %vf-grid-row;
+  }
+
+  .p-blog__column,
+  .p-blog__title {
+    @include vf-grid-column($grid-8-columns-small);
+
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      @include vf-grid-column(math.div($grid-8-columns-medium, 2));
+    }
+
+    @media screen and (width >= $threshold-4-8-col) {
+      @include vf-grid-column(math.div($grid-8-columns, 4));
+    }
+
+    display: grid;
+    grid-template-rows: subgrid;
+
+    // 4 potential article items - picture, title, description, optional author & date
+    grid-row: span 4;
+
+    padding-bottom: $spv--small;
+
+    // the section that wraps the items already has bottom padding defined, so the last row of items must have no bottom padding to avoid duplicating spacing.
+    // small screens - the last item gets no bottom padding
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    // medium screens - the last two items get no bottom padding
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      &:nth-last-child(-n + 2) {
+        padding-bottom: 0;
+      }
+    }
+
+    // large screen - all items get no bottom padding
+    @media screen and (width >= $threshold-4-8-col) {
+      // 4 items per row, only 4 items allowed - items have no padding at all
+      padding-bottom: 0;
+    }
+  }
+
+  /**
+    The 4-block blog section's title must be 100% width on medium and large screens, rather than following the column sizing of the columns. */
+  .p-blog.has-4-blocks .p-blog__title {
+    @media screen and (width >= $threshold-4-8-col) {
+      @include vf-grid-column($grid-8-columns);
+    }
+
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      @include vf-grid-column($grid-8-columns-medium);
+    }
+  }
+
+  .p-blog__thumbnail {
+    padding-bottom: $spv--small;
+  }
+}
