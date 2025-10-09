@@ -11,7 +11,7 @@
     # - "author": A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the author).
     # - "date": A string with the publication date.
 {%- macro _blog_article(article_config={}, truncation_config={}) -%}
-  <div class="p-blog__item">
+  <div class="p-blog__column">
     {{- vf_blog_article_block(article_config=article_config, truncation_config=truncation_config) -}}
   </div>
 {%- endmacro -%}
@@ -63,7 +63,7 @@
   {%- endif -%}
 
   <section class="{{ padding_classes }}">
-    <div class="p-blog {% if layout == "3-blocks" %}has-3-blocks{% endif %}">
+    <div class="p-blog {% if layout == "4-blocks" %}has-4-blocks{% endif %}">
       {{ vf_section_top_rule(top_rule_variant) }}
         <div class="p-blog__title">
           <h4 class="p-muted-heading">

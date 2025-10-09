@@ -4,9 +4,9 @@
     Blog:
       .p-blog:
         Main element of the blog pattern.
-    Blog item:
-      .p-blog__item:
-        A sub-item of the blog pattern.
+    Blog column:
+      .p-blog__column:
+        A column of the blog pattern.
     Blog thumbnail:
       .p-blog__thumbnail:
     Blog title:
@@ -20,7 +20,8 @@
     @extend %vf-grid-row;
   }
 
-  .p-blog__item {
+  .p-blog__column,
+  .p-blog__title {
     @include vf-grid-column($grid-8-columns-small);
 
     @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
@@ -34,7 +35,7 @@
     display: grid;
     grid-template-rows: subgrid;
 
-    // 4 potential items - picture, title, description, optional author & date
+    // 4 potential article items - picture, title, description, optional author & date
     grid-row: span 4;
 
     padding-bottom: $spv--small;
@@ -61,9 +62,15 @@
     }
   }
 
-  .p-blog.has-3-blocks .p-blog__title {
+  /**
+    The 4-block blog section's title must be 100% width on medium and large screens, rather than following the column sizing of the columns. */
+  .p-blog.has-4-blocks .p-blog__title {
     @media screen and (width >= $threshold-4-8-col) {
-      @include vf-grid-column(math.div($grid-8-columns, 4));
+      @include vf-grid-column($grid-8-columns);
+    }
+
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      @include vf-grid-column($grid-8-columns-medium);
     }
   }
 
