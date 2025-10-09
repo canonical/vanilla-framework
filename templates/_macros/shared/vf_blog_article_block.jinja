@@ -47,7 +47,8 @@
   {#- todo this should be article-excerpt -#}
   <p {% if not (has_author or has_date) %} class="u-no-margin--bottom" {% endif %}>
     {%- set description_truncation_config = truncation_config.get("description", {}) -%}
-    {%- set description_truncation_length = description_truncation_config.get("length", 300) -%}
+    {#- todo the truncation length should depend on static vs dynamic blog, apply this in vf_blog or make it a param of this macro -#}
+    {%- set description_truncation_length = description_truncation_config.get("length", 180) -%}
     {%- set add_ellipses = description_truncation_config.get("add_ellipses", True) -%}
 
     {{ description.get("text", "Article description goes here.")[:description_truncation_length]  }}
