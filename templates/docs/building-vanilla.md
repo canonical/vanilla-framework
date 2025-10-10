@@ -434,3 +434,54 @@ git submodule update
 <script>
   {% include 'docs/examples/patterns/list-tree/_script.js' %}
 </script>
+
+## Javascript
+
+### Using ES Modules (Recommended - With a Bundler)
+
+For modern projects utilizing a module bundler like esbuild, Webpack, or Rollup, you can import the modules directly from the installed package.
+
+<h4 class="p-heading--5 u-no-padding--top">Import Specific Modules</h4>
+
+This is the recommended approach, as it allows your bundler to perform tree-shaking and include only the necessary code.
+
+```javascript
+// Import the 'tabs' module
+import {tabs} from 'vanilla-framework/js';
+
+// Initialize the tabs component
+tabs.initTabs('[role="tablist"]');
+```
+
+<h4 class="p-heading--5 u-no-padding--top">Import All Modules</h4>
+
+If you need access to everything or prefer a single import statement, you can import all modules into a single namespace.
+
+```javascript
+// Import all modules and assign them to the 'vanilla' object
+import * as vanilla from 'vanilla-framework/js';
+```
+
+### Using Modules in the Browser (Without Build Tools)
+
+If your project does not use a bundler (e.g., using a simple server or static HTML files), you need to manually copy the necessary JavaScript files into your project path and load them as native ES modules.
+
+<h4 class="p-heading--5 u-no-padding--top">Step 1: Copy the Module Files</h4>
+
+Copy the required module files from node_modules into a local directory that your web server can access. The exact path may vary based on your project setup.
+
+Example build script (e.g., in package.json):
+
+```bash
+"build-vanilla-js": "mkdir -p static/js/modules/vanilla-framework/js && cp -r node_modules/vanilla-framework/templates/js static/js/modules/vanilla-framework"
+```
+
+<h4 class="p-heading--5 u-no-padding--top">Step 2: Reference Modules in HTML</h4>
+
+Reference the individual module files in your HTML using a `<script type="module">` tag, pointing to the location where you copied the files.
+
+Example HTML:
+
+```html
+<script type="module" src="/static/js/modules/vanilla-framework/js/tabs.js"></script>
+```

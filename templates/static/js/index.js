@@ -1,5 +1,5 @@
 /**
- * Vanilla Framework JavaScript Components
+ * Vanilla Framework JavaScript modules
  *
  * This is the main entry point for importing Vanilla Framework JavaScript modules.
  * You can import individual modules or all modules from this module.
