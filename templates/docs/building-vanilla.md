@@ -437,6 +437,18 @@ git submodule update
 
 ## Javascript
 
+Vanilla Framework's JavaScript modules complement the CSS framework by providing the interactive behavior for components that require it. While Vanilla's CSS handles all the visual styling, some components need JavaScript to function properly - such as switching between tab panels, toggling navigation menus, or handling form interactions.
+
+The main benefits of using Vanilla's JavaScript modules are:
+- **Consistent behavior**: JavaScript that's designed to work seamlessly with Vanilla's CSS components
+- **Lightweight and focused**: Only include the functionality you actually need
+- **Framework agnostic**: Works with any JavaScript framework or vanilla JavaScript projects
+- **Accessibility**: Built with proper ARIA attributes and keyboard navigation support
+
+These modules are entirely optional - if you're building static pages or handling interactivity with your own JavaScript, you can use Vanilla's CSS styling without any JavaScript. However, for components that require interactive behavior, Vanilla's JavaScript ensures everything works as intended.
+
+**Note**: Vanilla's ESM (ES Module) support is currently being expanded. While the module system is in place, only a limited set of components have JavaScript modules available at this time.
+
 ### Using ES Modules (Recommended - With a Bundler)
 
 For modern projects utilizing a module bundler like esbuild, Webpack, or Rollup, you can import the modules directly from the installed package.
