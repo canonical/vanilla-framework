@@ -1,8 +1,14 @@
 name: Publish Vanilla release
 
-on:
-  release:
-    types: [published]
+# for QA only, undo before merging
+on: pull_request
+# on:
+#   release:
+#     types: [published]
+
+# for QA only, remove before merging
+env:
+  DEV_WORKFLOW: true
 
 jobs:
   build-css:
@@ -69,6 +75,8 @@ jobs:
     needs: [build-css, build-js]
 
   publish-npm:
+    # for QA only, remove before merging
+    if: ${{ !env.DEV_WORKFLOW }}
     name: Publish to NPM
     needs: build
     runs-on: ubuntu-latest
