@@ -1,6 +1,6 @@
 {
   "name": "vanilla-framework",
-  "version": "4.34.1",
+  "version": "4.34.2",
   "author": {
     "email": "webteam@canonical.com",
     "name": "Canonical Webteam"
@@ -22,6 +22,14 @@
     "module"
   ],
   "license": "LGPL-3.0",
+  "module": "templates/static/js/index.js",
+  "exports": {
+    ".": {
+      "sass": "./_index.scss"
+    },
+    "./js": "./templates/static/js/index.js",
+    "./js/*": "./templates/static/js/*.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/canonical/vanilla-framework"
@@ -54,7 +62,8 @@
     "/scss",
     "!/scss/docs",
     "!/scss/standalone",
-    "/templates/_macros"
+    "/templates/_macros",
+    "/templates/static/js"
   ],
   "devDependencies": {
     "@canonical/cookie-policy": "3.6.5",
