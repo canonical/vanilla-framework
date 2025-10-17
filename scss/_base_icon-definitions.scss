@@ -9,7 +9,7 @@
 // - a mixin `vf-icon-NAME-themed` that sets the background-image to the icon URL with the light and dark theme colors
 
 // chevron
-@function vf-icon-chevron-url($color) {
+@function vf-icon-chevron-url($color: $colors--icon-mask) {
   @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='#{vf-url-friendly-color($color)}' d='M8.187 11.748l6.187-6.187-1.06-1.061-5.127 5.127L3.061 4.5 2 5.561z'/%3E%3C/svg%3E");
 }
 
@@ -20,7 +20,8 @@
 // Default chevron is the same as down chevron - points down, as in its usage
 // in accordions/dropdowns
 @mixin vf-icon-chevron-themed {
-  @include vf-themed-icon($light-value: vf-icon-chevron-url($colors--light-theme--icon), $dark-value: vf-icon-chevron-url($colors--dark-theme--icon));
+  mask-image: vf-icon-chevron-url();
+  -webkit-mask-image: vf-icon-chevron-url();
 }
 
 @mixin vf-icon-chevron-up-themed {
