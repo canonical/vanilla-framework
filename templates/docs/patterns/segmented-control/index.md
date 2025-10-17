@@ -94,4 +94,4 @@ or reference directly from `node_modules`
 <script src="/node_modules/vanilla-framework/js/tabs.js"></script>
 ```
 
-For more information, see [Building Vanilla with JavaScript](http://localhost:8101/docs/building-vanilla#javascript)
+For more information, see [Building Vanilla with JavaScript](/docs/building-vanilla#javascript)
