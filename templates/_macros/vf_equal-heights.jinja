@@ -62,7 +62,7 @@
         <div class="p-equal-height-row--wrap">
           {%- for item in items -%}
             {% set image = item.get("image_html") | trim %}
-            {% set title = item.get("title_text") | trim %}
+            {% set title = item.get("title_text") or "" | trim %}
             {% set description = item.get("description_html") or "" | trim %}
             {% set cta = item.get("cta_html") or "" | trim %}
             <div class="p-equal-height-row__col is-borderless">
@@ -74,11 +74,13 @@
                   {{- image | safe -}}
                 </div>
               </div>
-              {#- Title item (required) -#}
-              <div class="p-equal-height-row__item">
-                <hr class="p-rule--highlight"/>
-                <p class="p-heading--{{ subtitle_heading_level }}">{{- title -}}</p>
-              </div>
+              {#- Title item -#}
+              {%- if title | length > 0 -%}
+                <div class="p-equal-height-row__item">
+                  <hr class="p-rule--highlight"/>
+                  <p class="p-heading--{{ subtitle_heading_level }}">{{- title -}}</p>
+                </div>
+              {%- endif -%}
               {#- Description item (optional) -#}
               <div class="p-equal-height-row__item">
                 {{- description | safe -}}
