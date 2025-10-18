@@ -58,7 +58,7 @@
     </div>
 
     <div class="row">
-      <div class="{%- if items | length % 3 == 0 and items | length % 4 != 0 -%}col-9 col-start-large-4{%- else -%}col{%- endif -%}">
+      <div class="{%- if items | length == 2 -%}col-6 col-start-large-7{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}col-9 col-start-large-4{%- else -%}col{%- endif -%}">
         <div class="p-equal-height-row--wrap">
           {%- for item in items -%}
             {% set image = item.get("image_html") | trim %}
