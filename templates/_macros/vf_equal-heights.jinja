@@ -4,9 +4,9 @@
   - subtitle_text (string) (optional): The text to be displayed as the subtitle
   - subtitle_heading_level (int) (optional): The heading level for the subtitle. Can be 4 or 5. Defaults to 5.
   - highlight_images (boolean) (optional): If the images need to be highlighted, which means adding a subtle grey background. Not added by default.
-  - image_aspect_ratio_small (string) (optional): The aspect ratio for item images on small screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "square".
-  - image_aspect_ratio_medium (string) (optional): The aspect ratio for item images on medium screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "square".
-  - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic". Defaults to "2-3".
+  - image_aspect_ratio_small (string) (optional): The aspect ratio for item images on small screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "square".
+  - image_aspect_ratio_medium (string) (optional): The aspect ratio for item images on medium screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "square".
+  - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "2-3".
   - items (array) (required): An array of items, each including 'image_html', 'title_text', 'description_html', and 'cta_html'.
  -#}
 {%- macro vf_equal_heights(
@@ -69,7 +69,7 @@
               {#- Image item (required) -#}
               <div class="p-equal-height-row__item">
                 <div
-                  class="p-image-container--{{ image_aspect_ratio_small }}-on-small p-image-container--{{ image_aspect_ratio_medium }}-on-medium p-image-container--{{ image_aspect_ratio_large }}-on-large is-cover{% if highlight_images %} is-highlighted{% endif %}" >
+                  class="p-image-container {% if image_aspect_ratio_small != 'auto' %} p-image-container--{{ image_aspect_ratio_small }}-on-small{% endif %}{% if image_aspect_ratio_medium != 'auto' %} p-image-container--{{ image_aspect_ratio_medium }}-on-medium{% endif %}{% if image_aspect_ratio_large != 'auto' %} p-image-container--{{ image_aspect_ratio_large }}-on-large{% endif %} is-cover{% if highlight_images %} is-highlighted{% endif %}" >
                   {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
                   {{- image | safe -}}
                 </div>
