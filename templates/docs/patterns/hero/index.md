@@ -204,6 +204,23 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
           Whether the layout is split on tablet-sized devices
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>display_blank_signpost_image_space</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>false</code>
+        </td>
+        <td>
+          whether to leave a blank space where the signpost image would be when using the 25/75 Hero on large screens
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
