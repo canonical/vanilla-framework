@@ -45,10 +45,11 @@
           {% set item_class = "is-ticked" -%}
         {% elif item_style == 'crossed' -%}
           {% set item_class = "is-crossed u-text--muted" -%}
+          {% set sr_prefix = '<span class="u-off-screen">Not included </span>' -%}
         {% else -%}
           {% set item_class = "has-bullet" -%}
         {%- endif -%}
-        <li class="p-list__item {{ item_class }}">{{ offering.list_item_content_html }}</li>
+        <li class="p-list__item {{ item_class }}">{{ sr_prefix }}{{ offering.list_item_content_html }}</li>
       {% endfor -%}
     </ul>
   {%- endmacro -%}
