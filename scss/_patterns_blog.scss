@@ -4,48 +4,12 @@
     Blog:
       .p-blog:
         Main element of the blog pattern.
-      "&.has-4-blocks":
-        Variant for 4-block layout where title spans full width on medium and large screens.
-      .p-blog__title:
-        Title element of the blog pattern.
-      .p-blog__template-container:
-        Container for dynamically loaded content, uses display: contents to maintain grid.
+      .p-blog__articles:
+        Container for blog articles.
 */
 
-@use 'sass:math';
-
 @mixin vf-p-blog {
-  .p-blog > .p-article-block,
-  .p-blog__title {
-    @include vf-grid-column($grid-8-columns-small);
-
-    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
-      @include vf-grid-column(math.div($grid-8-columns-medium, 2));
-    }
-
-    @media screen and (width >= $threshold-4-8-col) {
-      @include vf-grid-column(math.div($grid-8-columns, 4));
-    }
-  }
-
-  .p-blog__template-container {
-    // template container wraps dynamically filled-in content, which still needs to follow the grid.
+  .p-blog__articles {
     display: contents;
-  }
-
-  .p-blog__title {
-    @extend %article-block-grid-span;
-  }
-
-  /**
-    The 4-block blog section's title must be 100% width on medium and large screens, rather than following the column sizing of the columns. */
-  .p-blog.has-4-blocks .p-blog__title {
-    @media screen and (width >= $threshold-4-8-col) {
-      @include vf-grid-column($grid-8-columns);
-    }
-
-    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
-      @include vf-grid-column($grid-8-columns-medium);
-    }
   }
 }

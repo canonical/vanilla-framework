@@ -1,0 +1,131 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_blog.jinja" import vf_blog %}
+
+{% block title %}Blog / Static contents / Mixed item inputs{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_blog(
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
+  articles=[
+    {
+      "title": {"text": "This example is missing a description", "link": {"href": "#"}},
+      "metadata": {
+        "authors": [
+          {
+            "text": "John Doe",
+            "link": {"href": "#"}
+          }
+        ],
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    },
+    {
+      "title": {"text": "This example is missing all metadata", "link": {"href": "#"}},
+      "description": {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+    },
+    {
+      "metadata": {
+        "authors": [
+          {
+            "text": "Missing title/desc",
+            "link": {"href": "#"}
+          }
+        ],
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    },
+    {
+      "title": {"text": "This example is missing an author", "link": {"href": "#"}},
+      "description": {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      "metadata": {
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    }
+  ]
+) }}
+
+{{ vf_blog(
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
+  articles=[
+    {
+      "title": {"text": "This example's author has no link", "link": {"href": "#"}},
+      "metadata": {
+        "authors": [
+          {
+            "text": "John Doe"
+          }
+        ],
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    },
+    {
+      "title": {"text": "This example is missing a publishing date", "link": {"href": "#"}},
+      "description": {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      "metadata": {
+         "authors": [
+          {
+            "text": "John Doe"
+          }
+        ],
+      }
+    }
+  ]
+) }}
+
+
+{{ vf_blog(
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
+  articles=[
+    {
+      "description": {"text": "None of these examples have titles. Their metadata should vertically align on non-small screens and the empty title block should not contribute any spacing."},
+      "metadata": {
+        "authors": [
+          {
+            "text": "John Doe"
+          }
+        ],
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    },
+    {
+      "metadata": {
+         "authors": [
+          {
+            "text": "John Doe"
+          }
+        ],
+      }
+    }
+  ]
+) }}
+
+{{ vf_blog(
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
+  articles=[
+    {
+      "description": {"text": "None of these examples have metadata. Their empty metadata blocks should not contribute to spacing."},
+    },
+    {
+      "title": {"text": "This example has no metadata", "link": {"href": "#"}},
+      "description": {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+    },
+    {
+      "title": {"text": "This example also has no metadata", "link": {"href": "#"}},
+    }
+  ]
+) }}
+
+
+{% endblock %} 

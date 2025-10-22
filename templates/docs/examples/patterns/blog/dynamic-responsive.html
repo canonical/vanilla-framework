@@ -1,0 +1,32 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_blog.jinja" import vf_blog %}
+
+{% block title %}Blog / Dynamic contents{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_blog(
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
+  template_config={"enabled": True, "template_container_id": "articles"}
+) }}
+
+<script type="module">
+  // remove module type and module import when https://github.com/canonical/latest-news/pull/55 is released, then move the path to script.src
+  import { fetchLatestNews } from "{{ versioned_static('build/js/modules/latest-news.js') }}";
+  fetchLatestNews({
+    articlesContainerSelector: "#articles",
+    articleTemplateSelector: "#template",
+    gtmEventLabel: "Vanilla Blog pattern template example",
+    /*
+      Make sure your article limit and `template_config.layout` match.
+      Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
+     */
+    limit: "4",
+    excerptLength: 180,
+    imageClasses: ["p-image-container__image"],
+
+  })
+</script>
+
+{% endblock %}

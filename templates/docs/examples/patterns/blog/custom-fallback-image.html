@@ -1,17 +1,17 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_blog.jinja" import vf_blog %}
 
-{% block title %}Blog / Custom Fallback Image{% endblock %}
+{% block title %}Blog / Static contents / Custom fallback image{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
 
 {{ vf_blog(
-  title={"text": "Latest from our Blog"},
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
   articles=[
     {
       "title": {"text": "Discover your fully open source robotics observability at ROSCon 2025", "link": {"href": "#"}},
-      "description": {"text": "Another year, another ROSCon! This year we’re heading to Singapore, and Canonical is once again thrilled to sponsor this important community event. Just like last year in Odense, Denmark, we’re looking forward to the talks and workshops, which always inspire us and teach us new things about robotics. We’re excited to reconnect with our Southeast Asia community, especially after our earlier gathering at Canonical’s IoT day in Singapore."},
+      "description": {"text": "Another year, another ROSCon! This year we’re heading to Singapore, and Canonical is once again thrilled to sponsor this important community event."},
       "image": {
         "attrs": {
           "src": "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_555/https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads%2F40a4%2FROSCon-2024-header-1.png",

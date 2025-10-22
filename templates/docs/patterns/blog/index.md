@@ -12,8 +12,8 @@ A blog pattern is used to display a collection of blog articles in a grid layout
 
 The blog pattern supports two content loading strategies:
 
-- [Static content](#static-content) - Articles are passed directly to the pattern
 - [Dynamic content](#dynamic-content) - Articles are loaded asynchronously using a template
+- [Static content](#static-content) - Articles are passed directly to the pattern
 
 The pattern offers two layout variants based on the number of articles:
 
@@ -22,58 +22,33 @@ The pattern offers two layout variants based on the number of articles:
 
 The blog pattern is composed of the following elements:
 
-| Element              | Description                                                                                     |
-| -------------------- | ----------------------------------------------------------------------------------------------- |
-| Title (**required**) | Title text (using `h4` with muted heading style)                                                |
-| Articles             | A list of article blocks, each containing a 16:9 cover image, title, description, and citation. |
-
-## Static content
-
-When using static content, articles are passed directly to the pattern via the `articles` parameter. The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
-
-### 4-block layout
-
-The default layout displays four articles in a grid. On large screens, the title spans the full width while articles are arranged in a 4-column grid.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/default" class="js-example" data-lang="jinja">
-View example of the blog pattern with 4 blocks
-</a></div>
-
-### 3-block layout
-
-When exactly three articles are provided, the pattern automatically adjusts to a 3-column grid layout.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/3-blocks" class="js-example" data-lang="jinja">
-View example of the blog pattern with 3 blocks
-</a></div>
-
-### Custom Fallback Image
-
-Each article can specify its own cover image. If no image is provided, a [fallback image](https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png) is used.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/custom-image" class="js-example" data-lang="jinja">
-View example of the blog pattern with custom image
-</a></div>
-
-### Description truncation
-
-For static content, blog descriptions are automatically truncated after 180 characters.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/truncated" class="js-example" data-lang="jinja">
-View example of the blog pattern with truncated descriptions
-</a></div>
+| Element              | Description                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Title (**required**) | Title text (using `h4` with muted heading style)                                                           |
+| Articles             | 3 or 4 blog article blocks, each containing a 16:9 cover image, title, description, and citation metadata. |
 
 ## Dynamic content
 
-For scenarios where articles need to be loaded asynchronously (e.g., from a blog API), the pattern provides a template mode. This mode creates a template structure that can be populated by external modules like [@canonical/latest-news](https://github.com/canonical/latest-news).
+For scenarios where articles need to be loaded asynchronously (e.g., from a blog API), the pattern provides a template mode.
+This mode creates a template structure that can be populated by external modules like [@canonical/latest-news](https://github.com/canonical/latest-news).
+See [the next section](#using-with-latest-news-module) for setup instructions.
+
+To use static content instead, see [static content](#static-content).
 
 Using dynamic content mode introduces some slight variations in pattern usage.
 
 - All content normally passed in via `articles` is assumed to be loaded from an asynchronous data source. The pattern creates `.article-image`, `.article-title`, `.article-link`, `.article-excerpt`, `.article-author`, and `.article-time` objects inside a template element, which should then be populated by JavaScript.
 - Layout must be explicitly specified via `template_config.layout` ("3-blocks" or "4-blocks")
-- Truncation is assumed to be handled by the data source, not the pattern
 
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/templates" class="js-example" data-lang="jinja">
+By default, the pattern assumes a 4-block layout, just like in static content mode.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/dynamic-responsive" class="js-example" data-lang="jinja" data-height="625">
+View example of the blog pattern with dynamic content loading
+</a></div>
+
+To show a 3-block layout, the `template_config.layout` parameter must be set to "3-blocks".
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/dynamic-3-blocks-responsive" class="js-example" data-lang="jinja" data-height="625">
 View example of the blog pattern with dynamic content loading
 </a></div>
 
@@ -89,12 +64,13 @@ yarn add @canonical/latest-news
 
 Expose the latest-news file to web clients.
 
-Enable template mode in the blog pattern:
+Enable template mode in the blog pattern by passing `template_config`.
+This generates the template structure and prepares it for dynamic content.
 
 ```jinja
-{% raw %}
+{% raw -%}
 {{ vf_blog(
-  title={"text": "Latest from our Blog"},
+  title={"text": "Latest from our blog"},
   template_config={
     "enabled": True,
     "layout": "3-blocks",  # Must specify layout "3-blocks" or "4-blocks" in template mode.
@@ -102,24 +78,52 @@ Enable template mode in the blog pattern:
     "template_id": "template"
   }
 ) }}
-{% endraw %}
+{%- endraw -%}
 ```
 
-Initialize the latest-news module:
+Populate the template with the latest news articles.
+Be sure to match `articlesContainerSelector` with `template_container_id`, `articleTemplateSelector` with `template_id`, and set `limit` to `"3"` or `"4"`.
 
-```html
-{% raw %}
-<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
-<script>
-  fetchLatestNews({
+```javascript
+{% raw -%}
+fetchLatestNews({
     articlesContainerSelector: '#articles',
     articleTemplateSelector: '#template',
-    excerptLength: 180, // Truncation handled by the module
+    excerptLength: 180,
+    // Use `3` with `template_config.layout="3-blocks"` or `4` with `template_config.layout="4-blocks"`
     limit: '3',
-  });
-</script>
-{% endraw %}
+});
+{%- endraw -%}
 ```
+
+## Static content
+
+When using static content, articles are passed directly to the pattern via the `articles` parameter.
+The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
+
+### 4-block layout
+
+The default layout displays four articles in a grid. On large screens, the title spans the full width while articles are arranged in a 4-column grid.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/static-responsive" class="js-example" data-lang="jinja">
+View example of the blog pattern with 4 blocks
+</a></div>
+
+### 3-block layout
+
+When exactly three articles are provided, the pattern automatically adjusts to a 3-column grid layout.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/static-3-blocks-responsive" class="js-example" data-lang="jinja">
+View example of the blog pattern with 3 blocks
+</a></div>
+
+### Custom Fallback Image
+
+Each article can specify its own cover image. If no image is provided, a [fallback image](https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png) is used.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/custom-fallback-image" class="js-example" data-lang="jinja">
+View example of the blog pattern with custom image
+</a></div>
 
 ## Jinja Macro
 
@@ -231,25 +235,6 @@ The `vf_blog` Jinja macro can be used to generate a blog pattern. The API for th
         </td>
         <td>
           Top rule (horizontal line) style
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <code>truncation_config</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          <code>object</code>
-        </td>
-        <td>
-          <code>{}</code>
-        </td>
-        <td>
-          Description truncation settings (static content only):<br>
-          - <code>description.max_chars</code>: Maximum characters<br>
-          - <code>description.overflow_text</code>: Text to show after truncation
         </td>
       </tr>
       <tr>

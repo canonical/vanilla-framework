@@ -1,13 +1,13 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_blog.jinja" import vf_blog %}
 
-{% block title %}Blog / 3 Blocks{% endblock %}
+{% block title %}Blog / Static contents{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
 
 {{ vf_blog(
-  title={"text": "Latest from our Blog"},
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
   articles=[
     {
       "title": {"text": "How to enable Real-time Ubuntu on your machine", "link": {"href": "#"}},
@@ -15,7 +15,8 @@
       "metadata": {
         "authors": [
           {
-            "text": "John Doe"
+            "text": "John Doe",
+            "link": {"href": "#"}
           }
         ],
         "date": {
@@ -29,7 +30,8 @@
       "metadata": {
         "authors": [
           {
-            "text": "John Doe"
+            "text": "John Doe",
+            "link": {"href": "#"}
           }
         ],
         "date": {
@@ -43,7 +45,23 @@
       "metadata": {
         "authors": [
           {
-            "text": "John Doe"
+          "text": "John Doe",
+          "link": {"href": "#"}
+          }
+        ],
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    },
+    {
+      "title": {"text": "How to enable Real-time Ubuntu on your machine", "link": {"href": "#"}},
+      "description": {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      "metadata": {
+        "authors": [
+          {
+            "text": "John Doe",
+            "link": {"href": "#"}
           }
         ],
         "date": {

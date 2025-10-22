@@ -5,62 +5,48 @@
     title (object): Title configuration
       text (string): The title text
       link (object) (optional): Link attributes
-      class (string) (optional): Additional classes
       attrs (object) (optional): Additional HTML attributes
 #}
 {%- macro _article_title(title={}) -%}
-    <h5
-            class="u-no-margin--bottom {{ title.get("class", "") -}}"
-    {% for attr, value in title.items() -%}
-        {% if attr not in ["class", "text", "link"] %}
-            {{ attr }}="{{ value }}"
-        {%- endif -%}
-    {%- endfor -%}>
-    <a
-      class="article-title article-link {{ title.get("link", {}).get("class", "") }}"
+  <a
+    class="article-link {{ title.get("link", {}).get("class", "") }}"
     {% for attr, value in title.get("link", {}).items() -%}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
         {% endif %}
     {%- endfor -%}
->
-    {{ title.get("text", "") }}
-    </a>
-    </h5>
+  >
+    <h3
+      class="p-article-block__title article-title {{ title.get("class", "") }}"
+      {% for attr, value in title.items() -%}
+        {%- if attr not in ["text", "link", "class"] -%}
+          {{ attr }}="{{ value }}"
+        {%- endif -%}
+      {%- endfor -%}>
+      {{- title.get("text", "") | trim -}}
+    </h3>
+  </a>
 {%- endmacro -%}
 
 {#
-  Helper macro to render the article description with optional truncation.
+  Helper macro to render the article description.
 
   Parameters:
     description (object): Description configuration
       text (string): The description text
       attrs (object) (optional): Additional HTML attributes
-
-    truncation (object) (optional): Truncation settings
-      max_chars (number): Maximum characters before truncation
-      overflow_text (string): Text to show after truncation
 #}
-{%- macro _article_description(description={}, truncation={}) -%}
-    {%- set text_full = description.get("text", "") -%}
-    {%- set truncation_max_chars = truncation.get("max_chars") -%}
-    {%- set truncation_overflow_text = truncation.get("overflow_text", "") -%}
-    {%- set text = text_full[:truncation_max_chars] -%}
-    {%- set is_truncated = (truncation_overflow_text | length > 0) and text_full | length > truncation_max_chars -%}
-
-    {%- if is_truncated -%}
-        {%- set text = text + truncation_overflow_text -%}
-    {%- endif -%}
-
-  <p class="article-excerpt{{ description.get("attrs", {}).get("class", "") -}}"
+{%- macro _article_description(description={}) -%}
+  <p class="p-article-block__description article-excerpt{{ description.get("attrs", {}).get("class", "") -}}"
     {% for attr, value in description.get("attrs", {}).items() -%}
       {% if attr != "class" %}
         {{ attr }}="{{ value }}"
       {% endif %}
     {%- endfor -%}
   >
-  {{- text -}}
+    {{- description.get("text", "") | trim -}}
   </p>
+
 {%- endmacro -%}
 
 {#
@@ -75,44 +61,45 @@
       text (string): The date text
       attrs (object) (optional): Additional HTML attributes for the time element
 #}
-{%- macro _article_metadata(authors=[], date={}, template_mode=False) -%}
-    {% set has_authors = authors | length > 0 %}
-    {% set has_date = date.get("text", "") | length > 0 %}
-    {%- set date_attrs = date.get("attrs", {}) -%}
-    {%- set date_text = date.get("text", "") -%}
-    <p class="p-article-block__metadata">
-        <small class="p-article-block__metadata-item article-author">
-            {%- for author in authors -%}
-                {%- set author_text = author.get("text") -%}
-                {%- set author_link_attrs = author.get("link", {}) -%}
-                {% if author_link_attrs -%}
-                    <a
-                    {% for attr, value in author_link_attrs.items() -%}
-                        {{ attr }}="{{ value }}"
-                    {%- endfor -%}
-                    >
-                {%- endif -%}
-                {{- author_text -}}
-                {%- if author_link_attrs -%}</a>{%- endif -%}
-                {%- if not loop.last -%}, {% endif -%}
-            {%- endfor -%}
-        </small>
-        {%- if has_date or template_mode -%}
-          <small class="p-article-block__metadata-item">
-            <time
-              datetime="{{ date_text }}"
-              class="article-time {{ date_attrs.get("class", "") }}"
-              {% for attr, value in date_attrs.items() -%}
-                {% if attr not in ["datetime", "class"] %}
+{%- macro _article_metadata(authors=[], date={}) -%}
+  {% set has_authors = authors | length > 0 %}
+  {% set has_date = date.get("text", "") | length > 0 %}
+  {%- set date_attrs = date.get("attrs", {}) -%}
+  {%- set date_text = date.get("text", "") | trim -%}
+
+  <p class="p-article-block__metadata">
+    <small class="p-article-block__metadata-item u-no-margin--bottom">
+      <span class="article-author">
+        {%- for author in authors -%}
+          {%- set author_text = author.get("text", "") | trim -%}
+          {%- set author_link_attrs = author.get("link", {}) -%}
+          {% if author_link_attrs -%}
+              <a
+              {% for attr, value in author_link_attrs.items() -%}
                   {{ attr }}="{{ value }}"
-                {% endif %}
               {%- endfor -%}
-            >
-              {{ date_text }}
-            </time>
-          </small>
-        {%- endif -%}
-    </p>
+              >
+          {%- endif -%}
+          {{- author_text -}}
+          {%- if author_link_attrs -%}</a>{%- endif -%}
+          {%- if not loop.last -%}, {% endif -%}
+        {%- endfor -%}
+      </span>
+    </small>
+    <small class="p-article-block__metadata-item u-no-margin--bottom">
+      <time
+        datetime="{{ date_text }}"
+        class="article-time {{ date_attrs.get("class", "") }}"
+        {% for attr, value in date_attrs.items() -%}
+          {% if attr not in ["datetime", "class"] %}
+            {{ attr }}="{{ value }}"
+          {% endif %}
+        {%- endfor -%}
+      >
+        {{- date_text -}}
+      </time>
+    </small>
+  </p>
 {%- endmacro -%}
 
 {#
@@ -134,23 +121,18 @@
         date (object) (optional): Date configuration
           text (string) (required): Date text
           attrs (object) (optional): Date element attributes
-      before_title_html (string) (optional): HTML to render before the title.
+      image_html (string) (optional): Image to render before the title.
         When used with vf_blog macro, this is automatically populated with a 16:9 cover image
-        from the article's image configuration. Can also be used for other custom content.
-
-    truncation_config (object) (optional): Description truncation settings
-      description (object) (optional):
-        max_chars (number): Maximum characters before truncation
-        overflow_text (string): Text to show after truncation
+        from the article's image configuration.
 
     attrs (object) (optional): Additional attributes for the resource block
 #}
-{%- macro vf_blog_article_block(article_config={}, truncation_config={}, attrs={}, template_mode=False) -%}
+{%- macro vf_article_block(article_config={}, attrs={}) -%}
     {%- set title = article_config.get("title", {}) -%}
     {%- set description = article_config.get("description", {}) -%}
     {%- set _ = description.setdefault('attrs', {}) -%}
     {%- set metadata = article_config.get("metadata", {}) -%}
-    {%- set before_title_html = article_config.get("before_title_html") -%}
+    {%- set image_html = article_config.get("image_html", "") | trim -%}
     {%- set authors = metadata.get("authors", []) -%}
     {%- set date = metadata.get("date", {}) -%}
 
@@ -161,25 +143,30 @@
         {% endif %}
       {%- endfor -%}
     >
+      {#-
+        Note: p-article-block relies on subgrid to align items vertically across the grid.
+        This means that we must always create 4 p-article-block__items, even if some are empty.
+        This allows the subgrid to maintain alignment, even when some blocks are missing some items.
+        Note that this means `p-article-block__item` elements should never define padding or margin, as this would cause empty items to take up space.
+      -#}
         <div class="p-article-block__item">
-            {%- if before_title_html -%}
-                {{ before_title_html | safe }}
-            {%- endif -%}
+          {%- if image_html | length > 0 -%}
+            <div class="p-article-block__image">
+              {{- image_html | safe -}}
+            </div>
+          {%- endif -%}
         </div>
 
         <div class="p-article-block__item">
-            {{- _article_title(title=title) -}}
+          {{- _article_title(title=title) -}}
         </div>
 
         <div class="p-article-block__item">
-            {{- _article_description(
-                description=description,
-                truncation=truncation_config.get("description", {})
-            ) -}}
+          {{- _article_description(description=description) -}}
         </div>
 
         <div class="p-article-block__item">
-            {{- _article_metadata(authors=authors, date=date, template_mode=template_mode) -}}
+          {{- _article_metadata(authors=authors, date=date) -}}
         </div>
     </div>
 
