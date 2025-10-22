@@ -145,7 +145,7 @@
 
     attrs (object) (optional): Additional attributes for the resource block
 #}
-{%- macro vf_blog_article_block(article_config={}, truncation_config={}, attrs={}, template_mode=False) -%}
+{%- macro vf_article_block(article_config={}, truncation_config={}, attrs={}, template_mode=False) -%}
     {%- set title = article_config.get("title", {}) -%}
     {%- set description = article_config.get("description", {}) -%}
     {%- set _ = description.setdefault('attrs', {}) -%}
@@ -161,11 +161,11 @@
         {% endif %}
       {%- endfor -%}
     >
-        <div class="p-article-block__item">
-            {%- if before_title_html -%}
-                {{ before_title_html | safe }}
-            {%- endif -%}
-        </div>
+        {%- if before_title_html -%}
+          <div class="p-article-block__item">
+            {{ before_title_html | safe }}
+          </div>
+        {%- endif -%}
 
         <div class="p-article-block__item">
             {{- _article_title(title=title) -}}
