@@ -1,0 +1,27 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
+
+{% block title %}Article block{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+<div class="u-fixed-width">
+  {{- vf_article_block(article_config={
+    "title": {"text": "This is an article block", "link": {"href": "#"}},
+    "description": {"text": "It displays a title, description, and metadata (author and date)."},
+    "metadata": {
+      "authors": [
+        {
+          "text": "John Doe",
+          "link": {"href": "#"}
+        }
+      ],
+      "date": {
+        "text": "15 March 2025"
+      }
+    }
+  }) -}}
+</div>
+
+{% endblock %}
