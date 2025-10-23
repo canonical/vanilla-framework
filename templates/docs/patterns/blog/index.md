@@ -31,7 +31,9 @@ The blog pattern is composed of the following elements:
 
 For scenarios where articles need to be loaded asynchronously (e.g., from a blog API), the pattern provides a template mode.
 This mode creates a template structure that can be populated by external modules like [@canonical/latest-news](https://github.com/canonical/latest-news).
-To use static content, see [Static content](#static-content).
+See [the next section](#using-with-latest-news-module) for setup instructions.
+
+To use static content instead, see [static content](#static-content).
 
 Using dynamic content mode introduces some slight variations in pattern usage.
 
@@ -40,43 +42,14 @@ Using dynamic content mode introduces some slight variations in pattern usage.
 
 By default, the pattern assumes a 4-block layout, just like in static content mode.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/templates" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/dynamic-responsive" class="js-example" data-lang="jinja" data-height="625">
 View example of the blog pattern with dynamic content loading
 </a></div>
 
 To show a 3-block layout, the `template_config.layout` parameter must be set to "3-blocks".
 
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/templates-3-blocks" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/dynamic-3-blocks-responsive" class="js-example" data-lang="jinja" data-height="625">
 View example of the blog pattern with dynamic content loading
-</a></div>
-
-## Static content
-
-When using static content, articles are passed directly to the pattern via the `articles` parameter.
-The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
-
-### 4-block layout
-
-The default layout displays four articles in a grid. On large screens, the title spans the full width while articles are arranged in a 4-column grid.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/default" class="js-example" data-lang="jinja">
-View example of the blog pattern with 4 blocks
-</a></div>
-
-### 3-block layout
-
-When exactly three articles are provided, the pattern automatically adjusts to a 3-column grid layout.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/3-blocks" class="js-example" data-lang="jinja">
-View example of the blog pattern with 3 blocks
-</a></div>
-
-### Custom Fallback Image
-
-Each article can specify its own cover image. If no image is provided, a [fallback image](https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png) is used.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/custom-image" class="js-example" data-lang="jinja">
-View example of the blog pattern with custom image
 </a></div>
 
 ### Using with latest-news module
@@ -91,10 +64,11 @@ yarn add @canonical/latest-news
 
 Expose the latest-news file to web clients.
 
-Enable template mode in the blog pattern:
+Enable template mode in the blog pattern by passing `template_config`.
+This generates the template structure and prepares it for dynamic content.
 
 ```jinja
-{% raw %}
+{% raw -%}
 {{ vf_blog(
   title={"text": "Latest from our blog"},
   template_config={
@@ -104,24 +78,52 @@ Enable template mode in the blog pattern:
     "template_id": "template"
   }
 ) }}
-{% endraw %}
+{%- endraw -%}
 ```
 
-Initialize the latest-news module:
+Populate the template with the latest news articles.
+Be sure to match `articlesContainerSelector` with `template_container_id`, `articleTemplateSelector` with `template_id`, and set `limit` to `"3"` or `"4"`.
 
-```html
-{% raw %}
-<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
-<script>
-  fetchLatestNews({
+```javascript
+{% raw -%}
+fetchLatestNews({
     articlesContainerSelector: '#articles',
     articleTemplateSelector: '#template',
     excerptLength: 180,
+    // Use `3` with `template_config.layout="3-blocks"` or `4` with `template_config.layout="4-blocks"`
     limit: '3',
-  });
-</script>
-{% endraw %}
+});
+{%- endraw -%}
 ```
+
+## Static content
+
+When using static content, articles are passed directly to the pattern via the `articles` parameter.
+The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
+
+### 4-block layout
+
+The default layout displays four articles in a grid. On large screens, the title spans the full width while articles are arranged in a 4-column grid.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/static-responsive" class="js-example" data-lang="jinja">
+View example of the blog pattern with 4 blocks
+</a></div>
+
+### 3-block layout
+
+When exactly three articles are provided, the pattern automatically adjusts to a 3-column grid layout.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/static-3-blocks-responsive" class="js-example" data-lang="jinja">
+View example of the blog pattern with 3 blocks
+</a></div>
+
+### Custom Fallback Image
+
+Each article can specify its own cover image. If no image is provided, a [fallback image](https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png) is used.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/custom-fallback-image" class="js-example" data-lang="jinja">
+View example of the blog pattern with custom image
+</a></div>
 
 ## Jinja Macro
 
