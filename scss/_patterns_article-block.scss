@@ -19,8 +19,9 @@
 
 @mixin vf-p-article-block {
   .p-article-block {
-    @extend %article-block-grid-span;
     display: grid;
+    // image, title, desc/excerpt, metadata
+    grid-row: span 4;
     grid-template-rows: subgrid;
     // the section that wraps the items already has bottom padding defined, so the last row of items must have collapsed bottom margin to avoid duplicating spacing.
     // small screens - the last item gets collapsed bottom margin
@@ -76,6 +77,8 @@
     padding-left: 0;
 
     & > .p-article-block__metadata-item {
+      // Collapse bottom margin of metadata to avoid duplicating spacing with the pattern that embeds the blog.
+      @extend %u-no-margin--bottom--small;
       @include vf-inline-list-item;
       margin-right: $sph--x-small;
       position: relative;
@@ -90,11 +93,6 @@
       &:last-of-type::after {
         content: '';
       }
-    }
-
-    // Collapse bottom margin of metadata to avoid duplicating spacing with the pattern that embeds the blog.
-    & > .p-article-block__metadata-item {
-      @extend %u-no-margin--bottom--small;
     }
   }
 }

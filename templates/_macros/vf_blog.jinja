@@ -51,7 +51,7 @@
     {%- set _ = article_config.update({'image_html': '<div class="' + base_image_container_classes + '"></div>'}) -%}
   {% endif %}
 
-  {{- vf_article_block(article_config=article_config, attrs={"class": "grid-col-2"}, template_mode=template_mode) -}}
+  {{- vf_article_block(article_config=article_config, attrs={"class": "grid-col-2 grid-col-medium-2"}, template_mode=template_mode) -}}
 
 {%- endmacro -%}
 
@@ -74,63 +74,65 @@
     top_rule_variant="default",
     fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png"
 ) -%}
-    {%- set padding = padding | trim -%}
-    {%- if padding not in ["deep", "shallow", "default"] -%}
-        {%- set padding = "default" -%}
-    {%- endif -%}
+  {%- set padding = padding | trim -%}
+  {%- if padding not in ["deep", "shallow", "default"] -%}
+    {%- set padding = "default" -%}
+  {%- endif -%}
 
-    {%- set padding_classes = "p-section--" + padding -%}
-    {%- if padding == "default" -%}
-        {%- set padding_classes = "p-section" -%}
-    {%- endif -%}
+  {%- set padding_classes = "p-section--" + padding -%}
+  {%- if padding == "default" -%}
+    {%- set padding_classes = "p-section" -%}
+  {%- endif -%}
 
-    {%- if articles | length == 3 -%}
-        {%- set layout = "3-blocks" -%}
-    {%- elif articles | length == 4 -%}
-        {%- set layout = "4-blocks" -%}
-    {%- endif -%}
+  {%- if articles | length == 3 -%}
+    {%- set layout = "3-blocks" -%}
+  {%- elif articles | length == 4 -%}
+    {%- set layout = "4-blocks" -%}
+  {%- endif -%}
 
-    {%- set template_mode = template_config.get("enabled", False) -%}
+  {%- set template_mode = template_config.get("enabled", False) -%}
 
-    {%- if template_mode and (not articles | length) -%}
-        {%- set layout = template_config.get("layout", "4-blocks") -%}
-    {%- endif -%}
+  {%- if template_mode and (not articles | length) -%}
+    {%- set layout = template_config.get("layout", "4-blocks") -%}
+  {%- endif -%}
 
-    {%- if layout not in ["3-blocks", "4-blocks"] -%}
-        {%- set layout = "4-blocks" -%}
-    {%- endif -%}
+  {%- if layout not in ["3-blocks", "4-blocks"] -%}
+    {%- set layout = "4-blocks" -%}
+  {%- endif -%}
 
-    <section class="{{ padding_classes }}">
-        <div class="p-blog {% if layout == "4-blocks" %}has-4-blocks{% endif %} grid-row">
-            {{ vf_section_top_rule(top_rule_variant) }}
-            <div class="p-blog__title">
-                <h2 class="p-muted-heading">
-                    {%- if title.get("link") -%}
-                        <a
-                        {% for attr, value in title.get("link", {}).items() -%}
-                            {{ attr }}="{{ value }}"
-                        {%- endfor -%}
-                        >
-                    {%- endif -%}
-                    {{ title.get("text", "Blog Title") }}
-                    {%- if title.get("link") -%}
-                        </a>
-                    {%- endif -%}
-                </h2>
-            </div>
+  <section class="{{ padding_classes }}">
+    <div class="p-blog grid-row">
+      {{ vf_section_top_rule(top_rule_variant) }}
 
-            {%- if template_config.get("enabled", False) -%}
-                <div id="{{ template_config.get("template_container_id", "articles") }}" class="p-blog__template-container"></div>
-                <template style="display: none;" id="{{ template_config.get("template_id", "template") }}">
-                    {{- _blog_article(template_mode=True) -}}
-                </template>
-            {%- else -%}
-                {%- for article in articles -%}
-                    {{- _blog_article(article_config=article, fallback_image_url=fallback_image_url) -}}
-                {%- endfor -%}
-            {%- endif -%}
+      <div class="grid-col-{% if layout == "3-blocks" %}2{% else %}8{% endif %}">
+        <h2 class="p-muted-heading">
+          {%- if title.get("link") -%}
+            <a
+            {% for attr, value in title.get("link", {}).items() -%}
+              {{ attr }}="{{ value }}"
+            {%- endfor -%}
+            >
+          {%- endif -%}
+          {{ title.get("text", "Blog Title") }}
+          {%- if title.get("link") -%}
+            </a>
+          {%- endif -%}
+        </h2>
+      </div>
 
+      {%- if template_mode -%}
+        <div id="{{ template_config.get("template_container_id", "articles") }}" class="p-blog__articles"></div>
+        <template style="display: none;" id="{{ template_config.get("template_id", "template") }}">
+            {{- _blog_article(template_mode=True) -}}
+        </template>
+      {%- else -%}
+        <div class="p-blog__articles grid-row">
+          {%- for article in articles -%}
+              {{- _blog_article(article_config=article, fallback_image_url=fallback_image_url) -}}
+          {%- endfor -%}
         </div>
-    </section>
+      {%- endif -%}
+    </div>
 
+  </section>
 {% endmacro %}
