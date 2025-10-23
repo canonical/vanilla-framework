@@ -85,7 +85,7 @@ Enable template mode in the blog pattern:
 ```jinja
 {% raw %}
 {{ vf_blog(
-  title={"text": "Latest from our Blog"},
+  title={"text": "Latest from our blog"},
   template_config={
     "enabled": True,
     "layout": "3-blocks",  # Must specify layout "3-blocks" or "4-blocks" in template mode.
