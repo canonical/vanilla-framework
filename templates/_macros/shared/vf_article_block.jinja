@@ -9,8 +9,8 @@
       attrs (object) (optional): Additional HTML attributes
 #}
 {%- macro _article_title(title={}) -%}
-    <h5
-            class="u-no-margin--bottom {{ title.get("class", "") -}}"
+    <h3
+            class="p-heading--5 u-no-margin--bottom {{ title.get("class", "") -}}"
     {% for attr, value in title.items() -%}
         {% if attr not in ["class", "text", "link"] %}
             {{ attr }}="{{ value }}"
@@ -26,7 +26,7 @@
 >
     {{ title.get("text", "") }}
     </a>
-    </h5>
+    </h3>
 {%- endmacro -%}
 
 {#
