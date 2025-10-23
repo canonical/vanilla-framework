@@ -14,6 +14,7 @@
 #   - "authors": A list of author objects, each with "text" and optional "link" (a dictionary of link attributes)
 #   - "date": A dictionary with "text" and optional "attrs" (a dictionary of time element attributes)
 {%- macro _blog_article(article_config={}, truncation_config={}, template_mode=False, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
+  {%- set base_image_classes = "article-image p-image-container--16-9 is-cover" -%}
   {% if not template_mode %}
     {%- set default_image = {
         'attrs': {
@@ -27,13 +28,9 @@
     {%- set _ = article_config.update({'image': default_image}) -%}
     {#- Merge the user's attributes over the defaults -#}
     {%- set img_attrs = article_config.get("image", {}).get("attrs", {}) -%}
-    {#- Add article-image class to the image for compatibility with template tools -#}
-    {%- set img_class = img_attrs.get("class", "") -%}
-    {%- if img_class -%}
-      {%- set img_attrs = img_attrs.update({"class": img_class ~ " article-image"}) or img_attrs -%}
-    {%- else -%}
-      {%- set img_attrs = img_attrs.update({"class": "article-image"}) or img_attrs -%}
-    {%- endif -%}
+    {#- Add article-image class to the image for compatibility with template tools, image container classes to control image layout -#}
+    {%- set image_classes = (img_attrs.get("class", "") ~ " " ~ base_image_classes).strip() -%}
+    {%- set _ = img_attrs.update({"class": image_classes}) -%}
     {%- set ns = namespace(image_html="<img") -%}
     {%- for attr, value in img_attrs.items() -%}
         {%- set ns.image_html = ns.image_html + " " + attr + "=\"" + value + "\"" -%}
@@ -41,7 +38,8 @@
     {%- set image_html = ns.image_html + ">" -%}
     {%- set _ = article_config.update({'before_title_html': image_html}) -%}
   {% else %}
-    {%- set _ = article_config.update({'before_title_html': '<div class="article-image"></div>'}) -%}
+    {#- template mode - the template JS will fill in the image slot. -#}
+    {%- set _ = article_config.update({'before_title_html': '<div class="' + base_image_classes + '"></div>'}) -%}
   {% endif %}
 
     {{- vf_article_block(article_config=article_config, truncation_config=truncation_config, attrs={"class": "grid-col-2"}, template_mode=template_mode) -}}
