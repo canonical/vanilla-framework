@@ -3,7 +3,9 @@
 # - padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
 # - is_split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
 # - top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
-{% from "_macros/vf_basic-section.jinja" import basic_section_item, basic_section_title, basic_section_top_rule %}
+{% from "_macros/vf_basic-section.jinja" import basic_section_item, basic_section_title %}
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+
 {% macro _get_item_padding_classes(item_config={}, isLastLoopItr=False, isLastBlockItr=False) %}
   {%- set item_padding = (item_config.get("padding", "")) | trim -%}
   {%- if item_padding not in ["shallow"] -%}
@@ -32,7 +34,7 @@
     <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}">
       {%- set description_block = blocks | selectattr("type", "equalto", "description-block") | first -%}
       {%- set divided_blocks = blocks | selectattr("type", "equalto", "divided-block") | list -%}
-      {{ basic_section_top_rule(top_rule_variant) }}
+      {{ vf_section_top_rule(top_rule_variant) }}
       <div class="grid-col">{{- basic_section_title(title) -}}</div>
       <div class="grid-col">
         {%- if description_block -%}
