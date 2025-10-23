@@ -30,28 +30,14 @@
 {%- endmacro -%}
 
 {#
-  Helper macro to render the article description with optional truncation.
+  Helper macro to render the article description.
 
   Parameters:
     description (object): Description configuration
       text (string): The description text
       attrs (object) (optional): Additional HTML attributes
-
-    truncation (object) (optional): Truncation settings
-      max_chars (number): Maximum characters before truncation
-      overflow_text (string): Text to show after truncation
 #}
-{%- macro _article_description(description={}, truncation={}) -%}
-    {%- set text_full = description.get("text", "") -%}
-    {%- set truncation_max_chars = truncation.get("max_chars") -%}
-    {%- set truncation_overflow_text = truncation.get("overflow_text", "") -%}
-    {%- set text = text_full[:truncation_max_chars] -%}
-    {%- set is_truncated = (truncation_overflow_text | length > 0) and text_full | length > truncation_max_chars -%}
-
-    {%- if is_truncated -%}
-        {%- set text = text + truncation_overflow_text -%}
-    {%- endif -%}
-
+{%- macro _article_description(description={}) -%}
   <p class="article-excerpt{{ description.get("attrs", {}).get("class", "") -}}"
     {% for attr, value in description.get("attrs", {}).items() -%}
       {% if attr != "class" %}
@@ -59,7 +45,7 @@
       {% endif %}
     {%- endfor -%}
   >
-  {{- text -}}
+  {{- description.get("text", "") -}}
   </p>
 {%- endmacro -%}
 
@@ -138,14 +124,9 @@
         When used with vf_blog macro, this is automatically populated with a 16:9 cover image
         from the article's image configuration. Can also be used for other custom content.
 
-    truncation_config (object) (optional): Description truncation settings
-      description (object) (optional):
-        max_chars (number): Maximum characters before truncation
-        overflow_text (string): Text to show after truncation
-
     attrs (object) (optional): Additional attributes for the resource block
 #}
-{%- macro vf_article_block(article_config={}, truncation_config={}, attrs={}, template_mode=False) -%}
+{%- macro vf_article_block(article_config={}, attrs={}, template_mode=False) -%}
     {%- set title = article_config.get("title", {}) -%}
     {%- set description = article_config.get("description", {}) -%}
     {%- set _ = description.setdefault('attrs', {}) -%}
@@ -172,10 +153,7 @@
         </div>
 
         <div class="p-article-block__item">
-            {{- _article_description(
-                description=description,
-                truncation=truncation_config.get("description", {})
-            ) -}}
+            {{- _article_description(description=description) -}}
         </div>
 
         <div class="p-article-block__item">

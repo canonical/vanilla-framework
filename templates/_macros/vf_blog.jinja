@@ -2,18 +2,17 @@
 {% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
 
 # Params
-# - truncation_config:
 # - article_config: A dictionary with the article configuration.
 # - "title": A dictionary with "text" and optional "link" (a dictionary of link attributes for the title).
 # - "image": A dictionary with "attrs" dict containing "src", "alt", and other image attributes.
 #          The image is automatically wrapped in a 16:9 cover image container and passed to
 #          vf_article_block as before_title_html. A fallback image is used if no image
 #          is provided (can be overridden via fallback_attrs).
-# - "description": A dictionary with "text", and "truncation_length" (an integer for max characters before truncation).
+# - "description": A dictionary with "text" containing the article description.
 # - "metadata": A dictionary with:
 #   - "authors": A list of author objects, each with "text" and optional "link" (a dictionary of link attributes)
 #   - "date": A dictionary with "text" and optional "attrs" (a dictionary of time element attributes)
-{%- macro _blog_article(article_config={}, truncation_config={}, template_mode=False, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
+{%- macro _blog_article(article_config={}, template_mode=False, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
   {%- set base_image_classes = "article-image p-image-container--16-9 is-cover" -%}
   {% if not template_mode %}
     {%- set default_image = {
@@ -42,7 +41,7 @@
     {%- set _ = article_config.update({'before_title_html': '<div class="' + base_image_classes + '"></div>'}) -%}
   {% endif %}
 
-    {{- vf_article_block(article_config=article_config, truncation_config=truncation_config, attrs={"class": "grid-col-2"}, template_mode=template_mode) -}}
+    {{- vf_article_block(article_config=article_config, attrs={"class": "grid-col-2"}, template_mode=template_mode) -}}
 
 {%- endmacro -%}
 
@@ -56,13 +55,13 @@
 #   - layout: Layout to apply to the template. Options are "3-blocks" and "4-blocks".
 # padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
 # top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
+# fallback_image_url: URL to use as a fallback image, if no image is provided for an article.
 {% macro vf_blog(
     title={},
     articles=[],
     template_config={},
     padding="default",
     top_rule_variant="default",
-    truncation_config={},
     fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png"
 ) -%}
     {%- set padding = padding | trim -%}
@@ -91,15 +90,6 @@
         {%- set layout = "4-blocks" -%}
     {%- endif -%}
 
-    {%- if not truncation_config -%}
-        {%- set truncation_config = {
-            "description": {
-                "max_chars": None if template_mode else 180,
-                "overflow_text": "…"
-            }
-        } -%}
-    {%- endif -%}
-
     <section class="{{ padding_classes }}">
         <div class="p-blog {% if layout == "4-blocks" %}has-4-blocks{% endif %} grid-row">
             {{ vf_section_top_rule(top_rule_variant) }}
@@ -126,7 +116,7 @@
                 </template>
             {%- else -%}
                 {%- for article in articles -%}
-                    {{- _blog_article(article_config=article, truncation_config=truncation_config, fallback_image_url=fallback_image_url) -}}
+                    {{- _blog_article(article_config=article, fallback_image_url=fallback_image_url) -}}
                 {%- endfor -%}
             {%- endif -%}
 

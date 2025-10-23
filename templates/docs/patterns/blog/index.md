@@ -55,14 +55,6 @@ Each article can specify its own cover image. If no image is provided, a [fallba
 View example of the blog pattern with custom image
 </a></div>
 
-### Description truncation
-
-For static content, blog descriptions are automatically truncated after 180 characters.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/truncated" class="js-example" data-lang="jinja">
-View example of the blog pattern with truncated descriptions
-</a></div>
-
 ## Dynamic content
 
 For scenarios where articles need to be loaded asynchronously (e.g., from a blog API), the pattern provides a template mode. This mode creates a template structure that can be populated by external modules like [@canonical/latest-news](https://github.com/canonical/latest-news).
@@ -71,7 +63,6 @@ Using dynamic content mode introduces some slight variations in pattern usage.
 
 - All content normally passed in via `articles` is assumed to be loaded from an asynchronous data source. The pattern creates `.article-image`, `.article-title`, `.article-link`, `.article-excerpt`, `.article-author`, and `.article-time` objects inside a template element, which should then be populated by JavaScript.
 - Layout must be explicitly specified via `template_config.layout` ("3-blocks" or "4-blocks")
-- Truncation is assumed to be handled by the data source, not the pattern
 
 <div class="embedded-example"><a href="/docs/examples/patterns/blog/templates" class="js-example" data-lang="jinja">
 View example of the blog pattern with dynamic content loading
@@ -114,7 +105,7 @@ Initialize the latest-news module:
   fetchLatestNews({
     articlesContainerSelector: '#articles',
     articleTemplateSelector: '#template',
-    excerptLength: 180, // Truncation handled by the module
+    excerptLength: 180,
     limit: '3',
   });
 </script>
@@ -231,25 +222,6 @@ The `vf_blog` Jinja macro can be used to generate a blog pattern. The API for th
         </td>
         <td>
           Top rule (horizontal line) style
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <code>truncation_config</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          <code>object</code>
-        </td>
-        <td>
-          <code>{}</code>
-        </td>
-        <td>
-          Description truncation settings (static content only):<br>
-          - <code>description.max_chars</code>: Maximum characters<br>
-          - <code>description.overflow_text</code>: Text to show after truncation
         </td>
       </tr>
       <tr>
