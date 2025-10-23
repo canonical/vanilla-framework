@@ -11,8 +11,13 @@
   template_config={"enabled": True, "layout": "3-blocks"}
 ) }}
 
+<!--
+Uncomment when https://github.com/canonical/latest-news/pull/55 is released
 <script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
-<script>
+-->
+<script type="module">
+  // remove module type and module import when https://github.com/canonical/latest-news/pull/55 is released
+  import { fetchLatestNews } from "{{ versioned_static('build/js/modules/latest-news.js') }}";
   fetchLatestNews({
     articlesContainerSelector: "#articles",
     articleTemplateSelector: "#template",
