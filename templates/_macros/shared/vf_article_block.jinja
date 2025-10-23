@@ -5,28 +5,27 @@
     title (object): Title configuration
       text (string): The title text
       link (object) (optional): Link attributes
-      class (string) (optional): Additional classes
       attrs (object) (optional): Additional HTML attributes
 #}
 {%- macro _article_title(title={}) -%}
-    <h3
-            class="p-heading--5 u-no-margin--bottom {{ title.get("class", "") -}}"
-    {% for attr, value in title.items() -%}
-        {% if attr not in ["class", "text", "link"] %}
-            {{ attr }}="{{ value }}"
-        {%- endif -%}
-    {%- endfor -%}>
-    <a
-      class="article-title article-link {{ title.get("link", {}).get("class", "") }}"
+  <a
+    class="article-link {{ title.get("link", {}).get("class", "") }}"
     {% for attr, value in title.get("link", {}).items() -%}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
         {% endif %}
     {%- endfor -%}
->
-    {{ title.get("text", "") }}
-    </a>
+  >
+    <h3
+      class="p-article-block__title article-title {{ title.get("class", "") }}"
+      {% for attr, value in title.items() -%}
+        {% if attr not in ["text", "link", "class"] %}
+          {{ attr }}="{{ value }}"
+        {%- endif -%}
+      {%- endfor -%}>
+      {{ title.get("text", "") }}
     </h3>
+  </a>
 {%- endmacro -%}
 
 {#
@@ -120,9 +119,9 @@
         date (object) (optional): Date configuration
           text (string) (required): Date text
           attrs (object) (optional): Date element attributes
-      before_title_html (string) (optional): HTML to render before the title.
+      image_html (string) (optional): Image to render before the title.
         When used with vf_blog macro, this is automatically populated with a 16:9 cover image
-        from the article's image configuration. Can also be used for other custom content.
+        from the article's image configuration.
 
     attrs (object) (optional): Additional attributes for the resource block
 #}
@@ -131,7 +130,7 @@
     {%- set description = article_config.get("description", {}) -%}
     {%- set _ = description.setdefault('attrs', {}) -%}
     {%- set metadata = article_config.get("metadata", {}) -%}
-    {%- set before_title_html = article_config.get("before_title_html") -%}
+    {%- set image_html = article_config.get("image_html") -%}
     {%- set authors = metadata.get("authors", []) -%}
     {%- set date = metadata.get("date", {}) -%}
 
@@ -142,9 +141,11 @@
         {% endif %}
       {%- endfor -%}
     >
-        {%- if before_title_html -%}
+        {%- if image_html -%}
           <div class="p-article-block__item">
-            {{ before_title_html | safe }}
+            <div class="p-article-block__image">
+              {{ image_html | safe }}
+            </div>
           </div>
         {%- endif -%}
 

@@ -5,6 +5,10 @@
         Container for blog article content
       .p-article-block__item:
         Individual content block within article block
+      .p-article-block__image:
+        An image within an article block
+      .p-article-block__title:
+        The title of the article block
       .p-article-block__metadata:
         Metadata container
       .p-article-block__metadata-item:
@@ -18,46 +22,52 @@
     @extend %article-block-grid-span;
     display: grid;
     grid-template-rows: subgrid;
-
-    // the section that wraps the items already has bottom padding defined, so the last row of items must have no bottom padding to avoid duplicating spacing.
-    // small screens - the last item gets no bottom padding
+    // the section that wraps the items already has bottom padding defined, so the last row of items must have collapsed bottom margin to avoid duplicating spacing.
+    // small screens - the last item gets collapsed bottom margin
     @media screen and (width < $threshold-4-small-4-med-col) {
       &:last-child {
-        .p-article-block__item:last-child {
-          padding-bottom: 0;
+        .p-article-block__item:last-child *:last-child {
+          margin-bottom: #{$sp-unit - map-get($settings-text-p, nudge)};
         }
       }
     }
 
-    // medium screens - the last two items get no bottom padding
+    // medium screens - the last two items get collapsed bottom margin
     @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
       &:nth-last-child(-n + 2) {
-        .p-article-block__item:last-child {
-          padding-bottom: 0;
+        .p-article-block__item:last-child *:last-child {
+          margin-bottom: #{$sp-unit - map-get($settings-text-p, nudge)};
         }
       }
     }
 
-    // large screen - all items get no bottom padding
+    // large screen - all items get collapsed bottom margin
     @media screen and (width >= $threshold-4-8-col) {
-      // 4 items per row, only 4 items allowed - items have no padding at all
-      .p-article-block__item:last-child {
-        padding-bottom: 0;
+      // 4 items per row, only 4 items allowed - items have no margin at all
+      .p-article-block__item:last-child *:last-child {
+        margin-bottom: #{$sp-unit - map-get($settings-text-p, nudge)};
       }
     }
   }
 
   .p-article-block__item {
-    padding-bottom: $spv--small;
-
     // Collapse bottom margin of descriptions to avoid duplicating spacing with the pattern that embeds the blog.
-    & .article-excerpt {
-      // In dynamic contexts (`@canonical/latest-news`), the description is wrapped in a paragraph
-      &, // stylelint-disable selector-max-type -- the latest news module creates a classless paragraph element
-      & > p {
-        @extend %u-no-margin--bottom--default-text;
-      }
+    // In dynamic contexts (`@canonical/latest-news`), the description is wrapped in a paragraph
+    // stylelint-disable selector-max-type -- the latest news module creates a classless paragraph element
+    & .article-excerpt > p {
+      // .article-excerpt is already a `p` tag with paragraph spacing.
+      margin-bottom: 0;
+      padding-top: 0;
     }
+  }
+
+  .p-article-block__image {
+    margin-bottom: $spv--small;
+  }
+
+  .p-article-block__title,
+  .p-article-block__metadata {
+    @extend %paragraph;
   }
 
   // Add middot between metadata items
@@ -83,7 +93,6 @@
     }
 
     // Collapse bottom margin of metadata to avoid duplicating spacing with the pattern that embeds the blog.
-    &,
     & > .p-article-block__metadata-item {
       @extend %u-no-margin--bottom--small;
     }
