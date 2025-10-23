@@ -1,0 +1,29 @@
+# Helper macro to render a top rule for a section.
+# Parameters:
+#  - top_rule_variant: string, one of "default", "muted", "highlighted", "none"
+{%- macro vf_section_top_rule(top_rule_variant="default") -%}
+  {%- set top_rule_variant = top_rule_variant | trim | lower -%}
+  {%- if top_rule_variant not in ["default", "muted", "highlighted", "none"] -%}
+    {%- set top_rule_variant = "default" -%}
+  {%- endif -%}
+
+  {%- if top_rule_variant != "none" -%}
+    {%- set top_rule_classes = "p-rule" -%}
+    {%- if top_rule_variant != "default" -%}
+      {#-
+        p-rule--highlighted doesn't exist (use p-rule--highlight instead), but p-rule--muted does.
+        We keep the external API here consistent ("-ed" suffix) for simplicity but need to handle this internally.
+      -#}
+      {%- if top_rule_variant == "highlighted" -%}
+        {%- set top_rule_classes = "p-rule--highlight" -%}
+      {%- else -%}
+        {#- Other cases: just append the top_rule_variant to the p-rule class. -#}
+        {%- set top_rule_classes = top_rule_classes + "--" + top_rule_variant -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if top_rule_variant != "none" -%}
+    <hr class="{{- top_rule_classes -}}"/>
+  {%- endif -%}
+{%- endmacro -%}
