@@ -51,48 +51,49 @@
     }
   }
 
-  .p-article-block__item {
-    // Collapse bottom margin of descriptions to avoid duplicating spacing with the pattern that embeds the blog.
-    // In dynamic contexts (`@canonical/latest-news`), the description is wrapped in a paragraph
-    // stylelint-disable selector-max-type -- the latest news module creates a classless paragraph element
-    & .article-excerpt > p {
-      // .article-excerpt is already a `p` tag with paragraph spacing.
-      margin-bottom: 0;
-      padding-top: 0;
-    }
-  }
-
   .p-article-block__image {
     margin-bottom: $spv--small;
   }
 
   .p-article-block__title,
+  .p-article-block__description,
   .p-article-block__metadata {
     @extend %paragraph;
   }
 
-  // Add middot between metadata items
+  /** collapse padding and margin of block items that have no content */
+  .p-article-block__image,
+  .p-article-block__title,
+  .p-article-block__description,
   .p-article-block__metadata {
-    margin-left: 0;
-    padding-left: 0;
+    &:empty,
+    /* metadata and image wrap around further items, so we need to check for presence of non-empty children */
+    &.p-article-block__metadata:not(:has(.p-article-block__metadata-item > *:not(:empty))),
+    .p-article-block__image:not(:has(> *:not(:empty))) {
+      &,
+      // *nothing* should have bottom margin or top padding if the item is empty.
+      * {
+        margin-bottom: 0;
+        padding-top: 0;
+      }
+    }
+  }
 
-    & > .p-article-block__metadata-item {
-      // Collapse bottom margin of metadata to avoid duplicating spacing with the pattern that embeds the blog.
-      @extend %u-no-margin--bottom--small;
-      @include vf-inline-list-item;
-      margin-right: $sph--x-small;
+  /*
+    Add a middot between non-empty metadata items
+    The metadata-items are wrappers around child elements that are **always** rendered, so that dynamic content has slots to populate items into.
+    We don't know at build time if there will be any content.
+    So, we use :has() to target `p-article-block__metadata-item` elements that have at least one non-empty child element, without having to target any specific child selectors here.
+    Note that this requires careful management of whitespace within the metadata items. Extra whitespace can cause elements with no children to be considered non-empty and unnecessarily render a middot.
+   */
+  .p-article-block__metadata-item:has(> *:not(:empty)) {
+    @include vf-inline-list-item;
+
+    margin-right: $sph--x-small;
+
+    & ~ &::before {
+      content: '\2022';
       position: relative;
-
-      &::after {
-        content: '\2022';
-        line-height: map-get($settings-text-small, line-height);
-        position: relative;
-        right: -0.25rem;
-      }
-
-      &:last-of-type::after {
-        content: '';
-      }
     }
   }
 }

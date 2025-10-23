@@ -7,16 +7,12 @@
 {% block content %}
 
 {{ vf_blog(
-  title={"text": "Latest from our blog"},
-  template_config={"enabled": True}
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
+  template_config={"enabled": True, "template_container_id": "articles"}
 ) }}
 
-<!--
-Uncomment when https://github.com/canonical/latest-news/pull/55 is released
-<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
--->
 <script type="module">
-  // remove module type and module import when https://github.com/canonical/latest-news/pull/55 is released
+  // remove module type and module import when https://github.com/canonical/latest-news/pull/55 is released, then move the path to script.src
   import { fetchLatestNews } from "{{ versioned_static('build/js/modules/latest-news.js') }}";
   fetchLatestNews({
     articlesContainerSelector: "#articles",
@@ -28,7 +24,8 @@ Uncomment when https://github.com/canonical/latest-news/pull/55 is released
      */
     limit: "4",
     excerptLength: 180,
-    imageClasses: ["p-image-container__image"]
+    imageClasses: ["p-image-container__image"],
+
   })
 </script>
 

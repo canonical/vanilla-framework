@@ -6,31 +6,26 @@
       text (string): The title text
       link (object) (optional): Link attributes
       attrs (object) (optional): Additional HTML attributes
-    template_mode (boolean): Whether template mode is enabled
-      Forces the creation of the `article-title` and `article-link` slots for population by external API.
 #}
-{%- macro _article_title(title={}, template_mode=False) -%}
-  {%- set title_text = title.get("text") | trim -%}
-  {%- if title_text | length > 0 or template_mode -%}
-    <a
-      class="article-link {{ title.get("link", {}).get("class", "") }}"
-      {% for attr, value in title.get("link", {}).items() -%}
-          {% if attr != "class" %}
-            {{ attr }}="{{ value }}"
-          {% endif %}
-      {%- endfor -%}
-    >
-      <h3
-        class="p-article-block__title article-title {{ title.get("class", "") }}"
-        {% for attr, value in title.items() -%}
-          {% if attr not in ["text", "link", "class"] %}
-            {{ attr }}="{{ value }}"
-          {%- endif -%}
-        {%- endfor -%}>
-        {{ title.get("text", "") }}
-      </h3>
-    </a>
-  {%- endif -%}
+{%- macro _article_title(title={}) -%}
+  <a
+    class="article-link {{ title.get("link", {}).get("class", "") }}"
+    {% for attr, value in title.get("link", {}).items() -%}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {% endif %}
+    {%- endfor -%}
+  >
+    <h3
+      class="p-article-block__title article-title {{ title.get("class", "") }}"
+      {% for attr, value in title.items() -%}
+        {%- if attr not in ["text", "link", "class"] -%}
+          {{ attr }}="{{ value }}"
+        {%- endif -%}
+      {%- endfor -%}>
+      {{- title.get("text", "") | trim -}}
+    </h3>
+  </a>
 {%- endmacro -%}
 
 {#
@@ -40,22 +35,18 @@
     description (object): Description configuration
       text (string): The description text
       attrs (object) (optional): Additional HTML attributes
-    template_mode (boolean): Whether template mode is enabled
-      Forces the creation of the `article-excerpt` slot for population by external API.
 #}
-{%- macro _article_description(description={}, template_mode=False) -%}
-  {%- set description_text = description.get("text", "") | trim -%}
-  {%- if description_text | length > 0 or template_mode -%}
-    <p class="article-excerpt{{ description.get("attrs", {}).get("class", "") -}}"
-      {% for attr, value in description.get("attrs", {}).items() -%}
-        {% if attr != "class" %}
-          {{ attr }}="{{ value }}"
-        {% endif %}
-      {%- endfor -%}
-    >
-    {{- description_text -}}
-    </p>
-  {%- endif -%}
+{%- macro _article_description(description={}) -%}
+  <p class="p-article-block__description article-excerpt{{ description.get("attrs", {}).get("class", "") -}}"
+    {% for attr, value in description.get("attrs", {}).items() -%}
+      {% if attr != "class" %}
+        {{ attr }}="{{ value }}"
+      {% endif %}
+    {%- endfor -%}
+  >
+    {{- description.get("text", "") | trim -}}
+  </p>
+
 {%- endmacro -%}
 
 {#
@@ -69,50 +60,46 @@
     date (object): Date configuration
       text (string): The date text
       attrs (object) (optional): Additional HTML attributes for the time element
-
-    template_mode (boolean): Whether template mode is enabled.
-      Forces the creation of the `article-author` and `article-date` slots for population by external API.
 #}
-{%- macro _article_metadata(authors=[], date={}, template_mode=False) -%}
-    {% set has_authors = authors | length > 0 %}
-    {% set has_date = date.get("text", "") | length > 0 %}
-    {%- set date_attrs = date.get("attrs", {}) -%}
-    {%- set date_text = date.get("text", "") -%}
-    {% if has_date or has_authors or template_mode %}
-      <p class="p-article-block__metadata">
-          <small class="p-article-block__metadata-item article-author">
-              {%- for author in authors -%}
-                  {%- set author_text = author.get("text") -%}
-                  {%- set author_link_attrs = author.get("link", {}) -%}
-                  {% if author_link_attrs -%}
-                      <a
-                      {% for attr, value in author_link_attrs.items() -%}
-                          {{ attr }}="{{ value }}"
-                      {%- endfor -%}
-                      >
-                  {%- endif -%}
-                  {{- author_text -}}
-                  {%- if author_link_attrs -%}</a>{%- endif -%}
-                  {%- if not loop.last -%}, {% endif -%}
+{%- macro _article_metadata(authors=[], date={}) -%}
+  {% set has_authors = authors | length > 0 %}
+  {% set has_date = date.get("text", "") | length > 0 %}
+  {%- set date_attrs = date.get("attrs", {}) -%}
+  {%- set date_text = date.get("text", "") | trim -%}
+
+  <p class="p-article-block__metadata">
+    <small class="p-article-block__metadata-item u-no-margin--bottom">
+      <span class="article-author">
+        {%- for author in authors -%}
+          {%- set author_text = author.get("text", "") | trim -%}
+          {%- set author_link_attrs = author.get("link", {}) -%}
+          {% if author_link_attrs -%}
+              <a
+              {% for attr, value in author_link_attrs.items() -%}
+                  {{ attr }}="{{ value }}"
               {%- endfor -%}
-          </small>
-          {%- if has_date or template_mode -%}
-            <small class="p-article-block__metadata-item">
-              <time
-                datetime="{{ date_text }}"
-                class="article-time {{ date_attrs.get("class", "") }}"
-                {% for attr, value in date_attrs.items() -%}
-                  {% if attr not in ["datetime", "class"] %}
-                    {{ attr }}="{{ value }}"
-                  {% endif %}
-                {%- endfor -%}
               >
-                {{ date_text }}
-              </time>
-            </small>
           {%- endif -%}
-      </p>
-    {% endif %}
+          {{- author_text -}}
+          {%- if author_link_attrs -%}</a>{%- endif -%}
+          {%- if not loop.last -%}, {% endif -%}
+        {%- endfor -%}
+      </span>
+    </small>
+    <small class="p-article-block__metadata-item u-no-margin--bottom">
+      <time
+        datetime="{{ date_text }}"
+        class="article-time {{ date_attrs.get("class", "") }}"
+        {% for attr, value in date_attrs.items() -%}
+          {% if attr not in ["datetime", "class"] %}
+            {{ attr }}="{{ value }}"
+          {% endif %}
+        {%- endfor -%}
+      >
+        {{- date_text -}}
+      </time>
+    </small>
+  </p>
 {%- endmacro -%}
 
 {#
@@ -139,11 +126,8 @@
         from the article's image configuration.
 
     attrs (object) (optional): Additional attributes for the resource block
-
-    template_mode (boolean) (optional): Whether template mode is enabled.
-      Forces the creation of all slots for population by external API.
 #}
-{%- macro vf_article_block(article_config={}, attrs={}, template_mode=False) -%}
+{%- macro vf_article_block(article_config={}, attrs={}) -%}
     {%- set title = article_config.get("title", {}) -%}
     {%- set description = article_config.get("description", {}) -%}
     {%- set _ = description.setdefault('attrs', {}) -%}
@@ -168,21 +152,21 @@
         <div class="p-article-block__item">
           {%- if image_html | length > 0 -%}
             <div class="p-article-block__image">
-              {{ image_html | safe }}
+              {{- image_html | safe -}}
             </div>
           {%- endif -%}
         </div>
 
         <div class="p-article-block__item">
-          {{- _article_title(title=title, template_mode=template_mode) -}}
+          {{- _article_title(title=title) -}}
         </div>
 
         <div class="p-article-block__item">
-          {{- _article_description(description=description, template_mode=template_mode) -}}
+          {{- _article_description(description=description) -}}
         </div>
 
         <div class="p-article-block__item">
-          {{- _article_metadata(authors=authors, date=date, template_mode=template_mode) -}}
+          {{- _article_metadata(authors=authors, date=date) -}}
         </div>
     </div>
 

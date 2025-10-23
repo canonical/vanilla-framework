@@ -1,13 +1,13 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_blog.jinja" import vf_blog %}
 
-{% block title %}Blog / Custom Fallback Image{% endblock %}
+{% block title %}Blog / Static Contents / Custom Fallback Image{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
 
 {{ vf_blog(
-  title={"text": "Latest from our blog"},
+  title={"text": "Latest from our blog", "link": {"href": "#"}},
   articles=[
     {
       "title": {"text": "Discover your fully open source robotics observability at ROSCon 2025", "link": {"href": "#"}},
