@@ -1,14 +1,14 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_blog.jinja" import vf_blog %}
 
-{% block title %}Blog / Templates{% endblock %}
+{% block title %}Blog / Templates / 3 blocks{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
 
 {{ vf_blog(
   title={"text": "Latest from our blog"},
-  template_config={"enabled": True}
+  template_config={"enabled": True, "layout": "3-blocks"}
 ) }}
 
 <!--
@@ -24,9 +24,9 @@ Uncomment when https://github.com/canonical/latest-news/pull/55 is released
     gtmEventLabel: "Vanilla Blog pattern template example",
     /*
       Make sure your article limit and `template_config.layout` match.
-      Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
-     */
-    limit: "4",
+      Use "3-blocks" with `limit: "3"`.
+    */
+    limit: "3",
     excerptLength: 180,
     imageClasses: ["p-image-container__image"]
   })

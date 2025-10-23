@@ -12,8 +12,8 @@ A blog pattern is used to display a collection of blog articles in a grid layout
 
 The blog pattern supports two content loading strategies:
 
-- [Static content](#static-content) - Articles are passed directly to the pattern
 - [Dynamic content](#dynamic-content) - Articles are loaded asynchronously using a template
+- [Static content](#static-content) - Articles are passed directly to the pattern
 
 The pattern offers two layout variants based on the number of articles:
 
@@ -22,14 +22,38 @@ The pattern offers two layout variants based on the number of articles:
 
 The blog pattern is composed of the following elements:
 
-| Element              | Description                                                                                     |
-| -------------------- | ----------------------------------------------------------------------------------------------- |
-| Title (**required**) | Title text (using `h4` with muted heading style)                                                |
-| Articles             | A list of article blocks, each containing a 16:9 cover image, title, description, and citation. |
+| Element              | Description                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Title (**required**) | Title text (using `h4` with muted heading style)                                                           |
+| Articles             | 3 or 4 blog article blocks, each containing a 16:9 cover image, title, description, and citation metadata. |
+
+## Dynamic content
+
+For scenarios where articles need to be loaded asynchronously (e.g., from a blog API), the pattern provides a template mode.
+This mode creates a template structure that can be populated by external modules like [@canonical/latest-news](https://github.com/canonical/latest-news).
+To use static content, see [Static content](#static-content).
+
+Using dynamic content mode introduces some slight variations in pattern usage.
+
+- All content normally passed in via `articles` is assumed to be loaded from an asynchronous data source. The pattern creates `.article-image`, `.article-title`, `.article-link`, `.article-excerpt`, `.article-author`, and `.article-time` objects inside a template element, which should then be populated by JavaScript.
+- Layout must be explicitly specified via `template_config.layout` ("3-blocks" or "4-blocks")
+
+By default, the pattern assumes a 4-block layout, just like in static content mode.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/templates" class="js-example" data-lang="jinja">
+View example of the blog pattern with dynamic content loading
+</a></div>
+
+To show a 3-block layout, the `template_config.layout` parameter must be set to "3-blocks".
+
+<div class="embedded-example"><a href="/docs/examples/patterns/blog/templates-3-blocks" class="js-example" data-lang="jinja">
+View example of the blog pattern with dynamic content loading
+</a></div>
 
 ## Static content
 
-When using static content, articles are passed directly to the pattern via the `articles` parameter. The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
+When using static content, articles are passed directly to the pattern via the `articles` parameter.
+The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
 
 ### 4-block layout
 
@@ -53,19 +77,6 @@ Each article can specify its own cover image. If no image is provided, a [fallba
 
 <div class="embedded-example"><a href="/docs/examples/patterns/blog/custom-image" class="js-example" data-lang="jinja">
 View example of the blog pattern with custom image
-</a></div>
-
-## Dynamic content
-
-For scenarios where articles need to be loaded asynchronously (e.g., from a blog API), the pattern provides a template mode. This mode creates a template structure that can be populated by external modules like [@canonical/latest-news](https://github.com/canonical/latest-news).
-
-Using dynamic content mode introduces some slight variations in pattern usage.
-
-- All content normally passed in via `articles` is assumed to be loaded from an asynchronous data source. The pattern creates `.article-image`, `.article-title`, `.article-link`, `.article-excerpt`, `.article-author`, and `.article-time` objects inside a template element, which should then be populated by JavaScript.
-- Layout must be explicitly specified via `template_config.layout` ("3-blocks" or "4-blocks")
-
-<div class="embedded-example"><a href="/docs/examples/patterns/blog/templates" class="js-example" data-lang="jinja">
-View example of the blog pattern with dynamic content loading
 </a></div>
 
 ### Using with latest-news module
