@@ -44,10 +44,7 @@ $aspect-ratios: (
     padding-bottom: $padding-value;
   }
 
-  // NOTE: `article-image` selector is temporary and can be removed once https://github.com/canonical/latest-news/issues/54 is closed, and we update our example `fetchLatestNews()` calls to add `p-image-container__image` to article images.
-  .p-image-container__image,
-    // stylelint-disable selector-max-type -- we need to target unclassed img until the above comment is resolved
-  &.article-image > img {
+  .p-image-container__image {
     bottom: 0;
     left: 0;
     margin: auto;
@@ -58,7 +55,6 @@ $aspect-ratios: (
     right: 0;
     top: 0;
   }
-  // stylelint-enable selector-max-type
 }
 
 @mixin aspect-ratio-classes {
@@ -112,14 +108,10 @@ $aspect-ratios: (
     position: relative;
     width: 100%;
 
-    // NOTE: `article-image` selector is temporary and can be removed once https://github.com/canonical/latest-news/issues/54 is closed, and we update our example `fetchLatestNews()` calls to add `p-image-container__image` to article images.
-    .p-image-container__image,
-      // stylelint-disable selector-max-type -- we need to target unclassed img until the above comment is resolved
-    &.article-image > img {
+    .p-image-container__image {
       display: block;
       margin: auto;
     }
-    // stylelint-enable selector-max-type
 
     &.is-highlighted {
       background: $colors--theme--background-alt;
@@ -131,15 +123,11 @@ $aspect-ratios: (
     }
 
     &.is-cover {
-      // NOTE: `article-image` selector is temporary and can be removed once https://github.com/canonical/latest-news/issues/54 is closed, and we update our example `fetchLatestNews()` calls to add `p-image-container__image` to article images.
-      .p-image-container__image,
-        // stylelint-disable selector-max-type -- we need to target unclassed img until the above comment is resolved
-      &.article-image > img {
+      .p-image-container__image {
         height: 100%;
         object-fit: cover;
         width: 100%;
       }
-      // stylelint-enable selector-max-type
     }
   }
 
