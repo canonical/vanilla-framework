@@ -43,7 +43,7 @@
     "build-tokens": "((style-dictionary build --verbose --config ./sd.config.json) || true)",
     "build-scss": "yarn build-tokens && sass --load-path=node_modules --embed-sources --style=compressed --silence-deprecation=mixed-decls,import,global-builtin scss:build/css && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
     "build:essential": "yarn run build-js && sass --load-path=node_modules --embed-sources --style=compressed --silence-deprecation=mixed-decls,import,global-builtin scss/build.scss:build/css/build.css scss/docs:build/css/docs && postcss --use autoprefixer --replace 'build/css/**/*.css' --map",
-    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/src/index.js build/js/modules/latest-news.js && cp node_modules/js-beautify/js/lib/beautify.js node_modules/js-beautify/js/lib/beautify-html.js node_modules/js-beautify/js/lib/beautify-css.js build/js/modules",
+    "build-js": "mkdir -p build/js/modules && cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js build/js/modules && cp node_modules/@canonical/latest-news/dist/latest-news.js build/js/modules && cp node_modules/js-beautify/js/lib/beautify.js node_modules/js-beautify/js/lib/beautify-html.js node_modules/js-beautify/js/lib/beautify-css.js build/js/modules",
     "build-class-references": "node scripts/create-class-references.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -70,7 +70,7 @@
   ],
   "devDependencies": {
     "@canonical/cookie-policy": "3.6.5",
-    "@canonical/latest-news": "github:jmuzina/latest-news#image-class",
+    "@canonical/latest-news": "2.1.0",
     "@percy/cli": "1.30.7",
     "@testing-library/cypress": "10.0.3",
     "autoprefixer": "10.4.20",

@@ -10,20 +10,20 @@
   template_config={"enabled": True, "layout": "3-blocks", "template_container_id": "articles-3-blocks"}
 ) }}
 
-<script type="module">
-  // remove module type and module import when https://github.com/canonical/latest-news/pull/55 is released, then move the path to script.src
-  import { fetchLatestNews } from "{{ versioned_static('build/js/modules/latest-news.js') }}";
-  fetchLatestNews({
-    articlesContainerSelector: "#articles-3-blocks",
-    articleTemplateSelector: "#template",
-    gtmEventLabel: "Vanilla Blog pattern template example",
+<script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
+<script>
+  canonicalLatestNews.fetchLatestNews({
+    // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+    imageClasses: ["p-image-container__image"],
     /*
       Make sure your article limit and `template_config.layout` match.
       Use "3-blocks" with `limit: "3"`.
      */
     limit: "3",
+    articlesContainerSelector: "#articles-3-blocks",
+    articleTemplateSelector: "#template",
     excerptLength: 180,
-    imageClasses: ["p-image-container__image"]
+    gtmEventLabel: "Vanilla Blog pattern template example",
   })
 </script>
 {% endblock %}

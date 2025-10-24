@@ -56,13 +56,8 @@ View example of the blog pattern with dynamic content loading
 
 To use the blog pattern with the [latest-news module](https://github.com/canonical/latest-news), follow the following steps.
 
-Install the module:
-
-```
-yarn add @canonical/latest-news
-```
-
-Expose the latest-news file to web clients.
+Install `@canonical/latest-news` and configure it, following its [usage instructions](https://github.com/canonical/latest-news/blob/4c7bbf8b3c48456fd66a4d895166c4e4f1c02b84/README.md#usage).
+**You must use version 2.1.0 or later**, as earlier versions do not support the `imageClasses` option needed for proper article image styling.
 
 Enable template mode in the blog pattern by passing `template_config`.
 This generates the template structure and prepares it for dynamic content.
@@ -81,24 +76,29 @@ This generates the template structure and prepares it for dynamic content.
 {%- endraw -%}
 ```
 
-Populate the template with the latest news articles.
+Populate the template with the latest news articles by calling `canonicalLatestNews.fetchLatestNews()`.
+
 Be sure to match `articlesContainerSelector` with `template_container_id`, `articleTemplateSelector` with `template_id`, and set `limit` to `"3"` or `"4"`.
 
 ```javascript
 {% raw -%}
-fetchLatestNews({
-    articlesContainerSelector: '#articles',
-    articleTemplateSelector: '#template',
-    excerptLength: 180,
-    // Use `3` with `template_config.layout="3-blocks"` or `4` with `template_config.layout="4-blocks"`
-    limit: '3',
+canonicalLatestNews.fetchLatestNews({
+  // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+  imageClasses: ["p-image-container__image"],
+  // Use `3` with `template_config.layout="3-blocks"` or `4` with `template_config.layout="4-blocks"`
+  limit: "3",
+  articlesContainerSelector: "#articles",
+  articleTemplateSelector: "#template",
+  excerptLength: 180
 });
 {%- endraw -%}
 ```
 
+After following the above steps, the blog pattern will render with articles fetched and populated by the latest-news module.
+
 ## Static content
 
-When using static content, articles are passed directly to the pattern via the `articles` parameter.
+The pattern can also render static articles passed into the `articles` parameter.
 The layout (3-block or 4-block) is automatically determined based on the number of articles provided.
 
 ### 4-block layout
