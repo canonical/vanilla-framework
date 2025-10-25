@@ -67,8 +67,8 @@
   {%- set date_attrs = date.get("attrs", {}) -%}
   {%- set date_text = date.get("text", "") | trim -%}
 
-  <p class="p-article-block__metadata">
-    <small class="p-article-block__metadata-item u-no-margin--bottom">
+  <div class="p-article-block__metadata">
+    <small class="p-article-block__metadata-item">
       <span class="article-author">
         {%- for author in authors -%}
           {%- set author_text = author.get("text", "") | trim -%}
@@ -86,7 +86,7 @@
         {%- endfor -%}
       </span>
     </small>
-    <small class="p-article-block__metadata-item u-no-margin--bottom">
+    <small class="p-article-block__metadata-item">
       <time
         datetime="{{ date_text }}"
         class="article-time {{ date_attrs.get("class", "") }}"
@@ -99,7 +99,7 @@
         {{- date_text -}}
       </time>
     </small>
-  </p>
+  </div>
 {%- endmacro -%}
 
 {#
