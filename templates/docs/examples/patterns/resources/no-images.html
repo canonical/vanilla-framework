@@ -1,0 +1,193 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_resources.jinja" import vf_resources %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
+{% block title %}Resources | No images{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+  {% call(slot) vf_resources(
+    title={
+      "text": "Additional resources",
+      "link_attrs": {
+        "href": "#"
+      }
+    },
+    blocks=[
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "secondaries": [
+            {
+              "content_html": "Action",
+              "attrs": {
+                "href": "#"
+              }
+            }
+          ],
+          "link": {
+            "content_html": "Lorem ipsum dolor sit amet ›",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        }
+      },
+      {
+        "type": "resources",
+        "render_images": false,
+        "categories": [
+          {
+            "title": "Category 1",
+            "items": [
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "default",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9374033b-9374033b77400848b48de4d9746e205c48077ed8.jpg",
+                    "alt": "Default 16:9 aspect ratio image"
+                  }
+                }
+              },
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "default",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9374033b-9374033b77400848b48de4d9746e205c48077ed8.jpg",
+                    "alt": "Default 16:9 aspect ratio image"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "Category 2",
+            "items": [
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "logo",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/c7ed6de4-canonical_logo.svg",
+                    "alt": "Logo image"
+                  }
+                }
+              },
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "logo",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/c7ed6de4-canonical_logo.svg",
+                    "alt": "Logo image"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+    ) -%}
+    {% endcall -%}
+{% endblock %}
