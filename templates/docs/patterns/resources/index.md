@@ -12,12 +12,12 @@ The resources pattern is used to display a collection of resources. Each resourc
 
 It is composed of the following elements:
 
-| Element                         | Description                                                                                                         |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Title (**required**)            | Main heading text (h2)                                                                                              |
-| Description                     | Pragraph styled description text                                                                                    |
-| CTA block                       | CTA with variations of primary/secondary buttons and text links                                                     |
-| Resource blocks (**required**)  | Resources with categories, each containing a 16:9 cover image or a logo, title, description, and citation metadata. |
+| Element                        | Description                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Title (**required**)           | Main heading text (h2)                                                                                              |
+| Description                    | Pragraph styled description text                                                                                    |
+| CTA block                      | CTA with variations of primary/secondary buttons and text links                                                     |
+| Resource blocks (**required**) | Resources with categories, each containing a 16:9 cover image or a logo, title, description, and citation metadata. |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/default" class="js-example" data-lang="jinja">
 View example of the default resources pattern
@@ -87,14 +87,6 @@ You can use a 16:9 image for a resource, a logo image, or no image at all
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/mixed-images" class="js-example" data-lang="jinja">
 View example of the resources pattern with mixed images
-</a></div>
-
-### Linked resource
-
-You can make resource title clickable, by providing the `link_attrs`
-
-<div class="embedded-example"><a href="/docs/examples/patterns/resources/linked-resources" class="js-example" data-lang="jinja">
-View example of the resources pattern with linked resources
 </a></div>
 
 ## Jinja Macro
