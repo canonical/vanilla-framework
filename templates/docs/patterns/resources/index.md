@@ -12,12 +12,12 @@ The resources pattern is used to display a collection of resources. Each resourc
 
 It is composed of the following elements:
 
-| Element              | Description                                                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Title (**required**) | Main heading text (h2)                                                                                              |
-| Description          | Pragraph styled description text                                                                                    |
-| CTA block            | CTA with variations of primary/secondary buttons and text links                                                     |
-| Resource blocks      | Resources with categories, each containing a 16:9 cover image or a logo, title, description, and citation metadata. |
+| Element                         | Description                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Title (**required**)            | Main heading text (h2)                                                                                              |
+| Description                     | Pragraph styled description text                                                                                    |
+| CTA block                       | CTA with variations of primary/secondary buttons and text links                                                     |
+| Resource blocks (**required**)  | Resources with categories, each containing a 16:9 cover image or a logo, title, description, and citation metadata. |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/default" class="js-example" data-lang="jinja">
 View example of the default resources pattern
@@ -31,6 +31,22 @@ The title can be made clickable by providing link attributes.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/linked-title" class="js-example" data-lang="jinja">
 View example of the resources pattern with linked title
+</a></div>
+
+### With Description
+
+You can also pass a description, to provide additional information about resources
+
+<div class="embedded-example"><a href="/docs/examples/patterns/resources/section-description" class="js-example" data-lang="jinja">
+View example of the resources pattern with section description
+</a></div>
+
+### With CTA
+
+You can also pass a CTA block, under the description
+
+<div class="embedded-example"><a href="/docs/examples/patterns/resources/with-cta-and-description" class="js-example" data-lang="jinja">
+View example of the resources pattern with description and CTA
 </a></div>
 
 ### Without images
@@ -77,7 +93,7 @@ View example of the resources pattern with mixed images
 
 You can make resource title clickable, by providing the `link_attrs`
 
-<div class="embedded-example"><a href="/docs/examples/patterns/resources/mixed-images" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/resources/linked-resources" class="js-example" data-lang="jinja">
 View example of the resources pattern with linked resources
 </a></div>
 

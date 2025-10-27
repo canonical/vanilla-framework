@@ -97,7 +97,7 @@
     {%- endif -%}
     {%- set attrs = image_config.get("attrs", {}) -%}
     {%- if image_type == "default" -%}
-      <div class="p-image-container--16-9">
+      <div class="p-image-container--16-9 is-cover">
         <img class="p-image-container__image {{ attrs.get('class', '') }}" alt="{{ attrs.get('alt', '') }}" {%- if attrs.get('src') %} src="{{ attrs.get('src') }}"{% endif -%} {%- if attrs.get('width') %} width="{{ attrs.get('width') }}"{% endif -%} {%- if attrs.get('height') %} height="{{ attrs.get('height') }}"{% endif -%} {%- for attr, value in attrs.items() -%} {%- if attr not in ["class", "alt", "src", "width", "height"] %} {{ attr }}="{{ value }}"{% endif -%} {%- endfor -%} />
       </div>
     {%- elif image_type == "logo" -%}
@@ -172,7 +172,7 @@
   {%- set item_title = item.get("title", {}) -%}
   {%- set item_description = item.get("description", {}) -%}
   {%- set item_metadata = item.get("metadata", {}) -%}
-  <div class="{% if not (is_last_category and is_last_item) %}p-section--shallow{% endif %}">
+  <div class="{% if not (is_last_category and is_last_item) and item_description %}p-section--shallow{% endif %}">
     {{- vf_article_block({"title": item_title, "description": item_description, "metadata": item_metadata}) -}}
   </div>
 {% endmacro %}
