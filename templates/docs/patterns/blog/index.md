@@ -157,7 +157,7 @@ The `vf_blog` Jinja macro can be used to generate a blog pattern. The API for th
           <code>{}</code>
         </td>
         <td>
-          Title configuration with <code>text</code> and optional <code>link</code> (link attributes)
+          Title configuration with <code>text</code> and optional <code>link_attrs</code> (link attributes)
         </td>
       </tr>
       <tr>
@@ -303,7 +303,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>title.link</code>
+          <code>title.link_attrs</code>
         </td>
         <td>
           No
@@ -457,7 +457,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation.authors[].link</code>
+          <code>citation.authors[].link_attrs</code>
         </td>
         <td>
           No

@@ -51,12 +51,12 @@
     {%- set _ = article_config.update({'image_html': '<div class="' + base_image_container_classes + '"></div>'}) -%}
   {% endif %}
 
-  {{- vf_article_block(article_config=article_config, attrs={"class": "grid-col-2 grid-col-medium-2"}) -}}
+  {{- vf_article_block(article_config=article_config, attrs={"class": "grid-col-2 grid-col-medium-2"}, template_mode=template_mode) -}}
 
 {%- endmacro -%}
 
 # Params
-# title: A dictionary with "text" and optional "link" (a dictionary of link attributes for the title).
+# title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
 # articles: A list of article dictionaries, each with "title", "image", "description", and "metadata".
 # template_config:
 #   - enabled: A boolean to enable or disable the template mode.
@@ -106,15 +106,15 @@
 
       <div class="grid-col-{% if layout == "3-blocks" %}2{% else %}8{% endif %}">
         <h2 class="p-muted-heading">
-          {%- if title.get("link") -%}
+          {%- if title.get("link_attrs") -%}
             <a
-            {% for attr, value in title.get("link", {}).items() -%}
+            {% for attr, value in title.get("link_attrs", {}).items() -%}
               {{ attr }}="{{ value }}"
             {%- endfor -%}
             >
           {%- endif -%}
           {{ title.get("text", "Blog Title") }}
-          {%- if title.get("link") -%}
+          {%- if title.get("link_attrs") -%}
             </a>
           {%- endif -%}
         </h2>

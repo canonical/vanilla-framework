@@ -4,28 +4,36 @@
   Parameters:
     title (object): Title configuration
       text (string): The title text
-      link (object) (optional): Link attributes
+      link_attrs (object) (optional): Link attributes. If passed, wraps the title in a link.
       attrs (object) (optional): Additional HTML attributes
+    template_mode (boolean) (optional): Whether this is being rendered in template mode
 #}
-{%- macro _article_title(title={}) -%}
+{%- macro _article_title(title={}, template_mode=False) -%}
+  {%- set link_attrs = title.get("link_attrs", {}) -%}
+  {#- Assume blog module always sets a link in template mode. -#}
+  {%- set is_link = link_attrs.items() | length > 0 or template_mode -%}
+  {%- if is_link -%}
   <a
-    class="article-link {{ title.get("link", {}).get("class", "") }}"
-    {% for attr, value in title.get("link", {}).items() -%}
+    class="article-link {{ link_attrs.get("class", "") }}"
+    {% for attr, value in link_attrs.items() -%}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
         {% endif %}
     {%- endfor -%}
   >
+  {%- endif -%}
     <h3
       class="p-article-block__title article-title {{ title.get("class", "") }}"
       {% for attr, value in title.items() -%}
-        {%- if attr not in ["text", "link", "class"] -%}
+        {%- if attr not in ["text", "link_attrs", "class"] -%}
           {{ attr }}="{{ value }}"
         {%- endif -%}
       {%- endfor -%}>
       {{- title.get("text", "") | trim -}}
     </h3>
+  {%- if is_link -%}
   </a>
+  {%- endif -%}
 {%- endmacro -%}
 
 {#
@@ -55,7 +63,7 @@
   Parameters:
     authors (array): List of author objects
       text (string): Author name
-      link (object) (optional): Link attributes for the author
+      link_attrs (object) (optional): Link attributes for the author. If passed, wraps the author in a link.
 
     date (object): Date configuration
       text (string): The date text
@@ -72,8 +80,8 @@
       <span class="article-author">
         {%- for author in authors -%}
           {%- set author_text = author.get("text", "") | trim -%}
-          {%- set author_link_attrs = author.get("link", {}) -%}
-          {% if author_link_attrs -%}
+          {%- set author_link_attrs = author.get("link_attrs", {}) -%}
+          {% if author_link_attrs.items() | length > 0 -%}
               <a
               {% for attr, value in author_link_attrs.items() -%}
                   {{ attr }}="{{ value }}"
@@ -109,7 +117,7 @@
     article_config (object) (required): Article configuration
       title (object) (required): Title configuration
         text (string) (required): The title text
-        link (object) (optional): Link attributes for the title
+        link_attrs (object) (optional): Link attributes for the title. If passed, wraps the title in a link.
         attrs (object) (optional): Additional attributes for the title
       description (object) (optional): Description configuration
         text (string) (required): Description text
@@ -117,7 +125,7 @@
       metadata (object) (optional): Metadata configuration
         authors (array) (optional): List of author objects
           text (string) (required): Author name
-          link (object) (optional): Author link attributes
+          link_attrs (object) (optional): Author link attributes. If passed, wraps the author in a link.
         date (object) (optional): Date configuration
           text (string) (required): Date text
           attrs (object) (optional): Date element attributes
@@ -126,8 +134,9 @@
         from the article's image configuration.
 
     attrs (object) (optional): Additional attributes for the resource block
+    template_mode (boolean) (optional): Whether this is being rendered in template mode
 #}
-{%- macro vf_article_block(article_config={}, attrs={}) -%}
+{%- macro vf_article_block(article_config={}, attrs={}, template_mode=False) -%}
     {%- set title = article_config.get("title", {}) -%}
     {%- set description = article_config.get("description", {}) -%}
     {%- set _ = description.setdefault('attrs', {}) -%}
@@ -158,7 +167,7 @@
         </div>
 
         <div class="p-article-block__item">
-          {{- _article_title(title=title) -}}
+          {{- _article_title(title=title, template_mode=template_mode) -}}
         </div>
 
         <div class="p-article-block__item">
