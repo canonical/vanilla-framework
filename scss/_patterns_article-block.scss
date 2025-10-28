@@ -57,8 +57,10 @@
   So, we by default remove all margin and padding. Then, further style rules can query for presence of content and add appropriate margins and padding.
    */
   .p-article-block__item {
-    // empty items pull their following contents up by canceling the row-gap.
-    margin-bottom: -#{$article-block-row-gap};
+    &:not(:last-child) {
+      // empty items pull their following contents up by canceling the row-gap.
+      margin-bottom: -#{$article-block-row-gap};
+    }
 
     // Only apply article block spacing styles to contentful items
     &:has(.p-article-block__title:not(:empty)),
