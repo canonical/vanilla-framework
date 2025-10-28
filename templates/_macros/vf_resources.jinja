@@ -210,6 +210,10 @@
           {%- endif -%}
         </div>
         <div class="grid-col p-resources-block__col">
+          {%- if render_categories -%}
+            {%- set x=item_title.__setitem__("heading_level",  4) -%}
+            {%- set x=item_title.__setitem__("class",  "p-heading--3") -%}
+          {%- endif -%}
           {{- vf_article_block({"title": item_title, "description": item_description, "metadata": item_metadata}) -}}
         </div>
       </div>

@@ -67,7 +67,7 @@ View example of the resources pattern without categories
 
 ### Text only
 
-By providing both `has_categories: false` and `has_images: false`, the pattern renders only textual content in a 50:50 layout
+By providing both `has_categories: false` and `has_images: false`, the pattern renders only textual content in a 50/50 layout
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/no-categories-and-images" class="js-example" data-lang="jinja">
 View example of the resources pattern without categories and images
@@ -87,6 +87,14 @@ You can use a 16:9 image for a resource, a logo image, or no image at all
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/mixed-images" class="js-example" data-lang="jinja">
 View example of the resources pattern with mixed images
+</a></div>
+
+### Multiple authors
+
+You can pass also multiple, comma separated authors
+
+<div class="embedded-example"><a href="/docs/examples/patterns/resources/multiple-authors" class="js-example" data-lang="jinja">
+View example of the resources pattern with multiple authors
 </a></div>
 
 ## Jinja Macro
