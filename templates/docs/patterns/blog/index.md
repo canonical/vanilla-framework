@@ -331,6 +331,21 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
+          <code>title.heading_level</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>integer</code>
+        </td>
+        <td>
+          Heading level applied to title. One of <code>3</code> or <code>4</code>. Default is <code>3</code><br />
+          See <a href="/docs/base/typography#heading-classes">heading classes</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>image</code>
         </td>
         <td>

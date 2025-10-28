@@ -6,10 +6,15 @@
       text (string): The title text
       link_attrs (object) (optional): Link attributes. If passed, wraps the title in a link.
       attrs (object) (optional): Additional HTML attributes
+      heading_level (integer) (optional): Heading level to use, defaults to 3. Can be 3 or 4.
     template_mode (boolean) (optional): Whether this is being rendered in template mode
 #}
 {%- macro _article_title(title={}, template_mode=False) -%}
   {%- set link_attrs = title.get("link_attrs", {}) -%}
+  {%- set heading_level = title.get("heading_level", 3) -%}
+  {%- if heading_level not in [3, 4] -%}
+    {%- set heading_level = 3 -%}
+  {%- endif -%}
   {#- Assume blog module always sets a link in template mode. -#}
   {%- set is_link = link_attrs.items() | length > 0 or template_mode -%}
   {%- if is_link -%}
@@ -22,15 +27,15 @@
     {%- endfor -%}
   >
   {%- endif -%}
-    <h3
+    <h{{ heading_level }}
       class="p-article-block__title article-title {{ title.get("class", "") }}"
       {% for attr, value in title.items() -%}
-        {%- if attr not in ["text", "link_attrs", "class"] -%}
+        {%- if attr not in ["text", "link_attrs", "class", "heading_level"] -%}
           {{ attr }}="{{ value }}"
         {%- endif -%}
       {%- endfor -%}>
       {{- title.get("text", "") | trim -}}
-    </h3>
+    </h{{ heading_level }}>
   {%- if is_link -%}
   </a>
   {%- endif -%}
