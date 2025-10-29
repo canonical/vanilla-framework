@@ -15,7 +15,7 @@ It is composed of the following elements:
 | Element                        | Description                                                                                                         |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
 | Title (**required**)           | Main heading text (h2)                                                                                              |
-| Description                    | Pragraph styled description text                                                                                    |
+| Description                    | Paragraph styled description text                                                                                    |
 | CTA block                      | CTA with variations of primary/secondary buttons and text links                                                     |
 | Resource blocks (**required**) | Resources with categories, each containing a 16:9 cover image or a logo, title, description, and citation metadata. |
 
@@ -120,7 +120,7 @@ The `vf_resources` Jinja macro can be used to generate a resources pattern. The 
           <code>title</code>
         </td>
         <td>
-          Required
+          Yes
         </td>
         <td>
           <code>object</code>
@@ -255,7 +255,7 @@ The Resources block allows you to specify categories and resource items to appea
           <code>boolean</code>
         </td>
         <td>
-          Whether to render resource images
+          Whether to render resource images. Default is <code>true</code>
         </td>
       </tr>
       <tr>
@@ -269,7 +269,7 @@ The Resources block allows you to specify categories and resource items to appea
           <code>boolean</code>
         </td>
         <td>
-          Whether to render category names
+          Whether to render category names. Default is <code>true</code>
         </td>
       </tr>
       <tr>
@@ -382,6 +382,20 @@ The Resources block allows you to specify categories and resource items to appea
         </td>
         <td>
           Image configuration for the article
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>categories[].items[].image.type</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of <code>image</code> or <code>logo</code>
+        </td>
+        <td>
+          Image type for the thumbnail. Defaults to <code>image</code> which applies 16:9 ratio to the container
         </td>
       </tr>
       <tr>

@@ -323,7 +323,7 @@
   {%- set description = blocks | selectattr("type", "equalto", "description") | first -%}
   {%- set cta = blocks | selectattr("type", "equalto", "cta-block") | first -%}
   {%- set resources = blocks | selectattr("type", "equalto", "resources") | first -%}
-  {%- set render_images = resources.get("render_images", false) -%}
+  {%- set render_images = resources.get("render_images", true) -%}
   {%- set render_categories = resources.get("render_categories", true) -%}
   {%- set is_text_only = not (render_images or render_categories) -%}
   <section class="p-section">
