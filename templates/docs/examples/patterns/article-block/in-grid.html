@@ -1,0 +1,37 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
+
+{% block title %}Article block / In grid{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+<section class="p-section--shallow">
+    <div class="grid-row--25-75-on-large">
+        <hr class="p-rule"/>
+        <div class="grid-col">
+            <div class="p-image-container--16-9 is-cover p-article-block__image">
+                <img class="p-image-container__image" src="https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_555/https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads%2F40a4%2FROSCon-2024-header-1.png">
+            </div>
+        </div>
+        <div class="grid-col">
+            {{- vf_article_block(article_config={
+                "title": {"text": "How to enable Real-time Ubuntu on your machine", "link": {"href": "#"}},
+                "description": {"text": "This example demonstrates the article block being used within a grid."},
+                "metadata": {
+                    "authors": [
+                    {
+                        "text": "John Doe",
+                        "link": {"href": "#"}
+                    }
+                    ],
+                    "date": {
+                        "text": "15 March 2025"
+                    }
+                }
+            }) -}}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

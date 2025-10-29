@@ -1,0 +1,120 @@
+/*
+  @classreference
+    Article block:
+      .p-article-block:
+        Container for blog article content
+      .p-article-block__item:
+        Individual content block within article block
+      .p-article-block__image:
+        An image within an article block
+      .p-article-block__title:
+        The title of the article block
+      .p-article-block__metadata:
+        Metadata container
+      .p-article-block__metadata-item:
+        Individual metadata item with middot separator between items
+*/
+
+@use 'sass:math';
+
+@mixin vf-p-article-block {
+  // same as paragraph bottom margin.
+  // To simplify the logic of adding bottom margin to items only if they have content, we will use row-gap instead of margin-bottom.
+  $article-block-row-gap: map-get($settings-text-p, sp-after) - map-get($settings-text-p, nudge);
+
+  .p-article-block {
+    display: grid;
+    // image, title, desc/excerpt, metadata
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    margin-bottom: #{$spv--small + $article-block-row-gap};
+    row-gap: $article-block-row-gap;
+
+    // the section that wraps the items already has bottom padding defined, so the last row of items must have collapsed bottom margin to avoid duplicating spacing.
+    // small screens - the last item gets collapsed bottom margin
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // medium screens - the last two items get collapsed bottom margin
+    @media screen and ($threshold-4-small-4-med-col <= width < $threshold-4-8-col) {
+      &:nth-last-child(-n + 2) {
+        margin-bottom: 0;
+      }
+    }
+
+    // large screen - all items get collapsed bottom margin
+    @media screen and (width >= $threshold-4-8-col) {
+      margin-bottom: 0;
+    }
+  }
+
+  /*
+  Article block items and their descendants by default don't get any margin or padding.
+  Article block items are always rendered (we need to keep subgrid alignment, and we don't know at request time whether the content is going to be there or not due to dynamic content).
+  So, we by default remove all margin and padding. Then, further style rules can query for presence of content and add appropriate margins and padding.
+   */
+  .p-article-block__item {
+    display: contents;
+
+    &:not(:last-child) {
+      // empty items pull their following contents up by canceling the row-gap.
+      margin-bottom: -#{$article-block-row-gap};
+    }
+
+    // Only apply article block spacing styles to contentful items
+    &:has(.p-article-block__title:not(:empty)),
+    &:has(.p-article-block__description:not(:empty)),
+    &:has(.article-author:not(:empty)),
+    &:has(.article-time:not(:empty)) {
+      display: grid;
+      font-size: #{map-get($settings-text-p, font-size)}rem;
+      line-height: map-get($settings-text-p, line-height);
+      // cancel out the row-gap cancellation if the item has contents.
+      margin-bottom: 0;
+      padding-top: map-get($settings-text-p, nudge);
+    }
+
+    // Apply all spacing at the item level.
+    & * {
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  .p-article-block__title {
+    font-size: #{map-get($settings-text-p, font-size)}rem;
+    line-height: map-get($settings-text-p, line-height);
+  }
+
+  /**
+    Article block images are an exception to the above - they get small bottom margin, not paragraph styling.
+   */
+  .p-article-block__item:has(.p-article-block__image) {
+    display: grid;
+    // we want $spv--small below the images - but we are also using `row-gap`. We can create this effective spacing by subtracting the desired bottom margin from the row gap.
+    margin-bottom: -#{$article-block-row-gap - $spv--small};
+  }
+
+  /*
+    Add a middot between non-empty metadata items
+    The metadata-items are wrappers around child elements that are **always** rendered, so that dynamic content has slots to populate items into.
+    We don't know at build time if there will be any content.
+    So, we use :has() to target `p-article-block__metadata-item` elements that have at least one non-empty child element, without having to target any specific child selectors here.
+    Note that this requires careful management of whitespace within the metadata items. Extra whitespace can cause elements with no children to be considered non-empty and unnecessarily render a middot.
+   */
+  .p-article-block__metadata-item:has(> *:not(:empty)) {
+    @include vf-inline-list-item;
+
+    margin-right: $sph--x-small;
+
+    & ~ &::before {
+      content: '\2022';
+      position: relative;
+    }
+  }
+}
