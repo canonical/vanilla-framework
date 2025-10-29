@@ -12,20 +12,20 @@ The equal heights pattern is used to display rich content about multiple items i
 
 The equal heights pattern is composed of the following elements:
 
-| Element                   | Description                                                                                                                                                                                                                  |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| title_text (**required**) | `H2` title text.                                                                                                                                                                                                             |
-| subtitle_text             | `H4` or `H5` subtitle text, depending on `subtitle_heading_level`.                                                                                                                                                           |
-| subtitle_heading_level    | Heading level of the subtitles. May be `4` or `5`. Defaults to `5`.                                                                                                                                                          |
-| highlight_images          | If the images need to be [highlighted](https://vanillaframework.io/docs/patterns/images#highlighted-image). Not added by default.                                                                                            |
-| image_aspect_ratio_small  | The aspect ratio to apply to item images on [small screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "square".  |
-| image_aspect_ratio_medium | The aspect ratio to apply to item images on [medium screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "square". |
-| image_aspect_ratio_large  | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference). Defaults to "2-3".     |
-| items (**required**)      | An `Array<Object>` of individual item properties.                                                                                                                                                                            |
-| items[].title_text        | The title for the item.                                                                                                                                                                                                      |
-| items[].description_html  | The description for the item.                                                                                                                                                                                                |
-| items[].image_html        | The image element for the item.                                                                                                                                                                                              |
-| items[].cta_html          | The call to action element for the item.                                                                                                                                                                                     |     |
+| Element                           | Description                                                                                                                                                                                                                                                                     |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title_text (**required**)         | `H2` title text.                                                                                                                                                                                                                                                                |
+| subtitle_text                     | `H4` or `H5` subtitle text, depending on `subtitle_heading_level`.                                                                                                                                                                                                              |
+| subtitle_heading_level            | Heading level of the subtitles. May be `4` or `5`. Defaults to `5`.                                                                                                                                                                                                             |
+| highlight_images                  | If the images need to be [highlighted](https://vanillaframework.io/docs/patterns/images#highlighted-image). Not added by default.                                                                                                                                               |
+| image_aspect_ratio_small          | The aspect ratio to apply to item images on [small screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "square".  |
+| image_aspect_ratio_medium         | The aspect ratio to apply to item images on [medium screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "square". |
+| image_aspect_ratio_large          | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "2-3".     |
+| items (**required**)              | An `Array<Object>` of individual item properties.                                                                                                                                                                                                                               |
+| items[].title_text                | The title for the item.                                                                                                                                                                                                                                                         |
+| items[].description_html          | The description for the item.                                                                                                                                                                                                                                                   |
+| items[].image_html                | The image element for the item.                                                                                                                                                                                                                                                 |
+| items[].cta_html                  | The call to action element for the item.                                                                                                                                                                                                                                        |
 
 ## 4 columns
 
@@ -166,7 +166,7 @@ shown below.
            <code>square</code>
         </td>
         <td>
-           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">small screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
+           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">small screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a> or "auto" to use the image's original aspect ratio.
         </td>
       </tr>
       <tr>
@@ -181,7 +181,7 @@ shown below.
            <code>square</code>
         </td>
         <td>
-          The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">medium screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
+          The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">medium screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a> or "auto" to use the image's original aspect ratio.
         </td>
       </tr>
       <tr>
@@ -196,7 +196,7 @@ shown below.
            <code>2-3</code>
         </td>
         <td>
-           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">large screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a>.
+           The aspect ratio to apply to item images on <a href="/docs/settings/breakpoint-settings">large screens</a>. Can be any of the <a href="/docs/patterns/images#class-reference">image container aspect ratio identifiers</a> or "auto" to use the image's original aspect ratio.
         </td>
       </tr>
       <tr>

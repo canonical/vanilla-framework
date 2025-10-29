@@ -10,6 +10,7 @@ const RESPONSIVE_COMBINED_EXAMPLES = [
   'patterns/grid/combined',
   'patterns/grid-8/combined',
   'patterns/divider/combined',
+  'patterns/blog/combined',
   'patterns/image/combined',
   'patterns/equal-heights/combined',
   'patterns/equal-height-row/combined',

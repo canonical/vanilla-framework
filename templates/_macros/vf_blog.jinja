@@ -1,0 +1,133 @@
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
+
+# Params
+# - article_config: A dictionary with the article configuration.
+#   - "title": A dictionary with "text" and optional "link" (a dictionary of link attributes for the title).
+#   - "image": A dictionary with "attrs" dict containing "src", "alt", and other image attributes.
+#          The image is automatically wrapped in a 16:9 cover image container and passed to
+#          vf_article_block as before_title_html. A fallback image is used if no image
+#          is provided (can be overridden via fallback_image_url).
+#   - "description": A dictionary with "text" containing the article description.
+#   - "metadata": A dictionary with:
+#     - "authors": A list of author objects, each with "text" and optional "link" (a dictionary of link attributes)
+#     - "date": A dictionary with "text" and optional "attrs" (a dictionary of time element attributes)
+# - template_mode: Boolean indicating if the macro is being used in template mode (for dynamic loading scenarios).
+# - fallback_image_url: URL to use as a fallback image, if no image is provided for an article.
+{%- macro _blog_article(article_config={}, template_mode=False, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
+  {%- set base_image_container_classes = "p-image-container--16-9 is-cover article-image" -%}
+  {%- if not template_mode -%}
+    {%- set default_image_attrs = {
+      'src': fallback_image_url,
+      'alt': 'Blog fallback image'
+      }
+    -%}
+    {%- set input_image_attrs = article_config.get('image', {}).get('attrs', {}) -%}
+    {#- Merge user attributes over the defaults -#}
+    {%- set img_attrs = default_image_attrs.copy() -%}
+    {%- set _ = img_attrs.update(input_image_attrs) -%}
+    {#- class merging -#}
+    {%- set base_image_class = 'p-image-container__image' -%}
+    {%- set input_image_class = input_image_attrs.get('class', '') -%}
+    {%- if input_image_class -%}
+      {%- set final_image_classes = base_image_class + ' ' + input_image_class -%}
+    {%- else -%}
+      {%- set final_image_classes = base_image_class -%}
+    {%- endif -%}
+    {%- set _ = img_attrs.update({'class': final_image_classes}) -%}
+    {#- Build the HTML tag -#}
+    {%- set ns = namespace(image_html="<img") -%}
+    {%- for attr, value in img_attrs.items() -%}
+      {%- set ns.image_html = ns.image_html + " " + attr + "=\"" + value + "\"" -%}
+    {%- endfor -%}
+    {%- set image_html = ns.image_html + ">" -%}
+    {%- set _ = article_config.update({'image_html': '<div class="' + base_image_container_classes + '">\n            ' + image_html + '\n          </div>'}) -%}
+  {%- else -%}
+    {#- template mode - the template JS will fill in the image slot. -#}
+    {%- set _ = article_config.update({'image_html': '<div class="' + base_image_container_classes + '"></div>'}) -%}
+  {%- endif -%}
+  {{ vf_article_block(article_config=article_config, attrs={"class": "grid-col-2 grid-col-medium-2"}, template_mode=template_mode) }}
+
+{%- endmacro -%}
+
+# Params
+# title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+# articles: A list of article dictionaries, each with "title", "image", "description", and "metadata".
+# template_config:
+#   - enabled: A boolean to enable or disable the template mode.
+#   - template_container_id: A string for the id of the container to use for dynamic loading scenarios.
+#   - template_id: A string for the id of the template to use for dynamic loading scenarios.
+#   - layout: Layout to apply to the template. Options are "3-blocks" and "4-blocks".
+# padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
+# top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
+# fallback_image_url: URL to use as a fallback image, if no image is provided for an article.
+{% macro vf_blog(
+    title={},
+    articles=[],
+    template_config={},
+    padding="default",
+    top_rule_variant="default",
+    fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png"
+) -%}
+  {%- set padding = padding | trim -%}
+  {%- if padding not in ["deep", "shallow", "default"] -%}
+    {%- set padding = "default" -%}
+  {%- endif -%}
+
+  {%- set padding_classes = "p-section--" + padding -%}
+  {%- if padding == "default" -%}
+    {%- set padding_classes = "p-section" -%}
+  {%- endif -%}
+
+  {#- Infer layout from article count -#}
+  {%- if articles | length == 3 -%}
+    {%- set layout = "3-blocks" -%}
+  {%- elif articles | length == 4 -%}
+    {%- set layout = "4-blocks" -%}
+  {%- endif -%}
+
+  {%- set template_mode = template_config.get("enabled", False) -%}
+
+  {#- In template mode, read layout from the template config, instead of inferring it from the article count. -#}
+  {%- if template_mode -%}
+    {%- set layout = template_config.get("layout", "4-blocks") -%}
+  {%- endif -%}
+
+  {#- Default to "4-blocks" layout if an unrecognized layout is used. -#}
+  {%- if layout not in ["3-blocks", "4-blocks"] -%}
+    {%- set layout = "4-blocks" -%}
+  {%- endif -%}
+
+  <section class="{{ padding_classes }}">
+    <div class="p-blog grid-row">
+      {{- vf_section_top_rule(top_rule_variant) -}}
+      <div class="grid-col-{%- if layout == "3-blocks" -%}2{%- else -%}8{%- endif -%}">
+        <h2 class="p-muted-heading">
+          {%- if title.get("link_attrs") -%}
+            <a
+              {% for attr, value in title.get("link_attrs", {}).items() %}
+                {{ attr }}="{{ value }}"
+              {% endfor %}
+            >
+          {%- endif -%}
+          {{- title.get("text", "Blog Title") -}}
+          {%- if title.get("link_attrs") -%}
+            </a>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if template_mode -%}
+        <div id="{{ template_config.get("template_container_id", "articles") }}" class="p-blog__articles"></div>
+        <template style="display: none;" id="{{ template_config.get("template_id", "template") }}">
+          {{ _blog_article(template_mode=True) }}
+        </template>
+      {%- else -%}
+        <div class="p-blog__articles grid-row">
+          {%- for article in articles -%}
+            {{ _blog_article(article_config=article, fallback_image_url=fallback_image_url) }}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endmacro -%}

@@ -10,11 +10,13 @@
 # cta: call-to-action block below the description
 # image: slot for image content
 # signpost_image: slot for signpost (left column) image content in 25/75 layout. Required for 25/75 layout.
+# display_blank_signpost_image_space: whether to indent the content for 25/75 layout on large screens.
 {% macro vf_hero(
   title_text,
   subtitle_text='',
   layout="fallback",
-  is_split_on_medium=false
+  is_split_on_medium=false,
+  display_blank_signpost_image_space=false
 ) -%}
   {% set has_subtitle = subtitle_text|trim|length > 0 %}
   {% set description_content = caller('description') %}
@@ -24,7 +26,7 @@
   {% set image_content = caller('image') %}
   {% set has_image = image_content|trim|length > 0 %}
   {% set signpost_image_content = caller('signpost_image') %}
-  {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
+  {% set has_signpost_image = signpost_image_content|trim|length > 0 or display_blank_signpost_image_space %}
 
   {#- User can pass layout as "X-Y" or "X/Y" -#}
   {% set layout = layout | trim | replace('/', '-') %}
