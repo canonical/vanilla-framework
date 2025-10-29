@@ -19,7 +19,7 @@
   {%- set is_link = link_attrs.items() | length > 0 or template_mode -%}
   {%- if is_link -%}
   <a
-    class="article-link {{ link_attrs.get("class", "") }}"
+    class="article-link{%- if link_attrs.get("class") %} {{ link_attrs.get("class", "") }}{%- endif -%}"
     {% for attr, value in link_attrs.items() -%}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
@@ -28,7 +28,7 @@
   >
   {%- endif -%}
     <h{{ heading_level }}
-      class="p-article-block__title article-title {{ title.get("class", "") }}"
+      class="p-article-block__title article-title{%- if title.get("class") %} {{ title.get("class", "") }}{%- endif -%}"
       {% for attr, value in title.items() -%}
         {%- if attr not in ["text", "link_attrs", "class", "heading_level"] -%}
           {{ attr }}="{{ value }}"
@@ -50,8 +50,10 @@
       attrs (object) (optional): Additional HTML attributes
 #}
 {%- macro _article_description(description={}) -%}
-  <p class="p-article-block__description article-excerpt{{ description.get("attrs", {}).get("class", "") -}}"
-    {% for attr, value in description.get("attrs", {}).items() -%}
+  {%- set description_attrs = description.get("attrs", {}) -%}
+  {%- set description_class = description_attrs.get("class", "") -%}
+  <p class="p-article-block__description article-excerpt{%- if description_class %} {{ description_class }}{%- endif -%}"
+    {% for attr, value in description_attrs.items() -%}
       {% if attr != "class" %}
         {{ attr }}="{{ value }}"
       {% endif %}
@@ -102,7 +104,7 @@
     <small class="p-article-block__metadata-item">
       <time
         datetime="{{ date_text }}"
-        class="article-time {{ date_attrs.get("class", "") }}"
+        class="article-time{%- if date_attrs.get("class") %} {{ date_attrs.get("class", "") }}{%- endif -%}"
         {% for attr, value in date_attrs.items() -%}
           {% if attr not in ["datetime", "class"] %}
             {{ attr }}="{{ value }}"
@@ -150,7 +152,7 @@
     {%- set authors = metadata.get("authors", []) -%}
     {%- set date = metadata.get("date", {}) -%}
 
-    <div class="p-article-block {{ attrs.get("class", "") }}"
+    <div class="p-article-block{%- if attrs.get("class") %} {{ attrs.get("class", "") }}{%- endif -%}"
       {% for attr, value in attrs.items() %}
         {% if attr != "class" %}
           {{ attr }}="{{ value }}"
