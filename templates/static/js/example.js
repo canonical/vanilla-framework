@@ -191,13 +191,55 @@
     let bodyHtml = getExampleSection('body', renderedHtml);
 
     // Extract JS from the body before we strip it out
-    const jsSource = formatSource(getScriptFromSource(bodyHtml), 'js');
+    let jsSource = getScriptFromSource(bodyHtml);
+    const externalScripts = getExternalScriptsFromSource(renderedHtml);
+
+    // Filter external scripts to only include project-local scripts (not CDN/third-party)
+    // and exclude utility/tool files that aren't part of the actual example
+    const baseUrl = new URL(placementElement.href);
+    const projectScripts = externalScripts.filter((scriptSrc) => {
+      try {
+        const scriptUrl = new URL(scriptSrc, baseUrl);
+        // Only include scripts from the same origin (project scripts)
+        if (scriptUrl.origin !== baseUrl.origin) {
+          return false;
+        }
+
+        // Exclude common utility files that aren't part of the actual example code
+        const excludedFiles = ['example-tools.js', 'example.js', 'build.js'];
+
+        const scriptPath = scriptUrl.pathname;
+        return !excludedFiles.some((excludedFile) => scriptPath.includes(excludedFile));
+      } catch (error) {
+        return false;
+      }
+    });
+
+    // Render external scripts, if no inline-script was found
+    if (!jsSource && projectScripts.length > 0) {
+      const projectScriptContents = await Promise.all(
+        projectScripts.map(async (scriptSrc) => {
+          try {
+            const absoluteUrl = new URL(scriptSrc, baseUrl).href;
+            const scriptContent = await fetchResponseText(absoluteUrl);
+            return scriptContent;
+          } catch (error) {
+            console.warn(`Failed to fetch project script: ${scriptSrc}`, error);
+            return `// Failed to load: ${scriptSrc}`;
+          }
+        }),
+      );
+
+      const allJsContent = projectScriptContents.filter(Boolean);
+      jsSource = allJsContent.length > 0 ? allJsContent.join('\n\n') : null;
+    }
+
+    jsSource = jsSource ? formatSource(jsSource, 'js') : null;
     bodyHtml = formatSource(stripScriptsFromSource(bodyHtml), 'html');
 
     const title = getExampleSection('title', renderedHtml).split('|')[0];
     const headHtml = getExampleSection('head', renderedHtml);
     const cssSource = formatSource(getStyleFromSource(headHtml), 'css');
-    const externalScripts = getExternalScriptsFromSource(renderedHtml);
 
     return {renderedHtml, bodyHtml, title, jsSource, externalScripts, cssSource};
   }
