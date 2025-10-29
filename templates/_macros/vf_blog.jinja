@@ -12,6 +12,8 @@
 #   - "metadata": A dictionary with:
 #     - "authors": A list of author objects, each with "text" and optional "link" (a dictionary of link attributes)
 #     - "date": A dictionary with "text" and optional "attrs" (a dictionary of time element attributes)
+# - template_mode: Boolean indicating if the macro is being used in template mode (for dynamic loading scenarios).
+# - fallback_image_url: URL to use as a fallback image, if no image is provided for an article.
 {%- macro _blog_article(article_config={}, template_mode=False, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
   {%- set base_image_container_classes = "p-image-container--16-9 is-cover article-image" -%}
   {% if not template_mode %}
@@ -84,6 +86,7 @@
     {%- set padding_classes = "p-section" -%}
   {%- endif -%}
 
+  {#- Infer layout from article count -#}
   {%- if articles | length == 3 -%}
     {%- set layout = "3-blocks" -%}
   {%- elif articles | length == 4 -%}
@@ -92,10 +95,12 @@
 
   {%- set template_mode = template_config.get("enabled", False) -%}
 
-  {%- if template_mode and (not articles | length) -%}
+  {#- In template mode, read layout from the template config, instead of inferring it from the article count. -#}
+  {%- if template_mode -%}
     {%- set layout = template_config.get("layout", "4-blocks") -%}
   {%- endif -%}
 
+  {#- Default to "4-blocks" layout if an unrecognized layout is used. -#}
   {%- if layout not in ["3-blocks", "4-blocks"] -%}
     {%- set layout = "4-blocks" -%}
   {%- endif -%}
