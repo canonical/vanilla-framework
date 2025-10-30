@@ -2,7 +2,7 @@
 
 set -e
 
-RUN_COMMAND="talisker.gunicorn.gevent webapp.app:app --bind $1 --worker-class gevent --workers 1 --name talisker-`hostname`"
+RUN_COMMAND="gunicorn webapp.app:app --bind $1 --worker-class gevent --workers 1 --name `hostname`"
 
 if [ "${FLASK_DEBUG}" = true ] || [ "${FLASK_DEBUG}" = 1 ]; then
     RUN_COMMAND="${RUN_COMMAND} --reload --log-level debug --timeout 9999"
