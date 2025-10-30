@@ -1,0 +1,364 @@
+{#
+  VF Resources Pattern Macros
+  
+  This file contains macros for rendering resources sections with various layouts
+  including text-only, image-based, and categorized displays.
+#}
+{% from "_macros/vf_basic-section.jinja" import basic_section_item, basic_section_title %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+{#
+  Renders the pattern's title block
+  
+  @param {object} title - Title configuration object
+    {
+      "text": "Title text",
+      "link_attrs": {
+        "href": "#"
+      } // Optional: link attributes to make title clickable
+    }
+#}
+{% macro _title_block(title={}) %}
+  {%- if title -%}
+    {{- basic_section_title(title) -}}
+  {%- endif -%}
+{% endmacro %}
+{#
+  Renders the pattern's description block
+  
+  @param {object} description - Description configuration object
+    {
+      "type": "description",
+      "item": {
+        "type": "text|html",
+        "content": "Description content",
+      }
+    }
+#}
+{% macro _description_block(description={}) %}
+  {%- if description -%}
+    {{- basic_section_item(description) -}}
+  {%- endif -%}
+{% endmacro %}
+{#
+  Renders the pattern's CTA block
+  
+  @param {object} cta - CTA configuration object
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Primary Action",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "secondaries": [
+          {
+            "content_html": "Secondary Action",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        ],
+        "link": {
+          "content_html": "Lorem ipsum dolor sit amet ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    }
+#}
+{% macro _cta_block(cta={}) %}
+  {%- if cta -%}
+    {{- basic_section_item(cta) -}}
+  {%- endif -%}
+{% endmacro %}
+{#
+  Renders an image based on its type configuration
+  
+  @param {object} image_config - Image configuration object
+    {
+      "type": "default" | "logo", // default applies 16-9 ratio container
+      "attrs": {
+        "src": "image url",
+        "alt": "Image description",
+        "width": "100",
+        "height": "100"
+      }
+    }
+#}
+{% macro _render_image(image_config={}) %}
+  {%- if image_config -%}
+    {%- set image_type = image_config.get("type", "default") -%}
+    {%- if image_type not in ["default", "logo"] -%}
+      {%- set image_type = "default" -%}
+    {%- endif -%}
+    {%- set attrs = image_config.get("attrs", {}) -%}
+    {%- if image_type == "default" -%}
+      <div class="p-image-container--16-9 is-cover">
+        <img class="p-image-container__image {{ attrs.get('class', '') }}" alt="{{ attrs.get('alt', '') }}" {%- if attrs.get('src') %} src="{{ attrs.get('src') }}"{% endif -%} {%- if attrs.get('width') %} width="{{ attrs.get('width') }}"{% endif -%} {%- if attrs.get('height') %} height="{{ attrs.get('height') }}"{% endif -%} {%- for attr, value in attrs.items() -%} {%- if attr not in ["class", "alt", "src", "width", "height"] %} {{ attr }}="{{ value }}"{% endif -%} {%- endfor -%} />
+      </div>
+    {%- elif image_type == "logo" -%}
+      <img class="{{ attrs.get('class', '') }}" alt="{{ attrs.get('alt', '') }}" {%- if attrs.get('src') %} src="{{ attrs.get('src') }}"{% endif -%} {%- if attrs.get('width') %} width="{{ attrs.get('width') }}"{% endif -%} {%- if attrs.get('height') %} height="{{ attrs.get('height') }}"{% endif -%} {%- for attr, value in attrs.items() -%} {%- if attr not in ["class", "alt", "src", "width", "height"] %} {{ attr }}="{{ value }}"{% endif -%} {%- endfor -%} />
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+{#
+  Renders a category title with proper spacing and styling
+  
+  @param {object} category - Category configuration object
+    {
+      "text": "Title text",
+      "link_attrs": {
+        "href": "#"
+      } // Optional: link attributes to make title clickable
+    }
+  @param {boolean} is_first_category - Whether this is the first category in the list
+  @param {boolean} is_first_item - Whether this is the first item in the category
+#}
+{% macro _render_category_title(category={}, is_first_category=True, is_first_item=True) %}
+  {%- if category.title -%}
+    <div class="grid-col">
+      {% if is_first_item %}<h3 class="p-text--small-caps">{{ category.title }}</h3>{% endif %}
+    </div>
+  {%- endif -%}
+{% endmacro %}
+{#
+  Renders a resource item for text-only layout
+  
+  @param {object} item - Resource item configuration
+    {
+      "title": {
+        "text": "Resource Title",
+        "link_attrs": {
+          "href": "/resource-path"
+        }
+      },
+      "description": {
+        "text": "Resource description",
+      },
+      "metadata": {
+        "authors": [
+          {
+            "text": "Resource author",
+            "link": {
+              "href": "#"
+            }
+          }
+        ],
+        "date": {
+          "text": "20th April 2024",
+          "link": {
+            "href": "#"
+          }
+        }
+      },
+      "image": {
+        "type": "default" | "logo", // default applies 16-9 ratio container
+        "attrs": {
+          "src": "Image url",
+          "alt": "Image description",
+          "width": "Image width",
+          "height": "Image height"
+        }
+      }
+    }
+  @param {boolean} is_last_item - Whether this is the last item
+  @param {boolean} is_last_category - Whether this is the last category
+#}
+{% macro _render_text_only_item(item={}, is_last_item=False, is_last_category=False) %}
+  {%- set item_title = item.get("title", {}) -%}
+  {%- set item_description = item.get("description", {}) -%}
+  {%- set item_metadata = item.get("metadata", {}) -%}
+  <div class="{% if not (is_last_category and is_last_item) and item_description %}p-section--shallow{% endif %}">
+    {{- vf_article_block({"title": item_title, "description": item_description, "metadata": item_metadata}) -}}
+  </div>
+{% endmacro %}
+{#
+  Renders a resource item for full layout (with images and/or categories)
+  
+  @param {object} item - Resource item configuration (same structure as _render_text_only_item)
+  @param {object} category - Category configuration
+  @param {boolean} render_images - Whether to render images
+  @param {boolean} render_categories - Whether to render category titles
+  @param {boolean} is_first_category - Whether this is the first category
+  @param {boolean} is_first_item - Whether this is the first item in category
+  @param {boolean} is_last_item - Whether this is the last item in category
+#}
+{% macro _render_full_layout_item(item={}, category={}, render_images=False, render_categories=True, is_first_category=True, is_first_item=True, is_last_item=False) %}
+  {%- set item_title = item.get("title", {}) -%}
+  {%- set item_description = item.get("description", {}) -%}
+  {%- set item_metadata = item.get("metadata", {}) -%}
+  {%- set image_config = item.get("image", {}) -%}
+  <div class="grid-row--25-75-on-large{% if not is_last_item %} p-section--shallow{% endif %}">
+    {%- if render_categories and render_images -%}
+      {% if not is_first_category and is_first_item %}<hr class="p-rule--muted" />{% endif %}
+      {{- _render_category_title(category, is_first_category, is_first_item) -}}
+    {%- endif -%}
+    <div class="grid-col">
+      {%- if render_categories and not render_images -%}
+        {% if not is_first_category and is_first_item %}<hr class="p-rule--muted" />{% endif %}
+      {%- endif %}
+      <div class="p-resources-block grid-row{% if render_images or render_categories %} grid-row--50-50-on-medium{% endif %}">
+        <div class="grid-col p-resources-block__col">
+          {%- if render_images -%}
+            {{- _render_image(image_config) -}}
+          {%- elif render_categories -%}
+            {{- _render_category_title(category, is_first_category, is_first_item) -}}
+          {%- endif -%}
+        </div>
+        <div class="grid-col p-resources-block__col">
+          {%- if render_categories -%}
+            {%- set x=item_title.__setitem__("heading_level",  4) -%}
+            {%- set x=item_title.__setitem__("class",  "p-heading--3") -%}
+          {%- endif -%}
+          {{- vf_article_block({"title": item_title, "description": item_description, "metadata": item_metadata}) -}}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+{#
+  Main VF Resources macro for rendering resource sections
+  
+  @param {object} title - Section title configuration
+    {
+      "text": "Section Title",
+      "link_attrs": {
+        "href": "#"
+      }
+    }
+  @param {array} blocks - Array of content blocks
+    [
+      {
+        "type": "description",
+        "item": {
+          "type": "text|html",
+          "content": "Description content",
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "primary": {
+            "content_html": "Primary Action",
+            "attrs": {
+              "href": "#"
+            }
+          },
+          "secondaries": [
+            {
+              "content_html": "Secondary Action",
+              "attrs": {
+                "href": "#"
+              }
+            }
+          ],
+          "link": {
+            "content_html": "Lorem ipsum dolor sit amet ›",
+            "attrs": {
+              "href": "#"
+            }
+          }
+        }
+      },
+      {
+        "type": "resources",
+        "render_images": true|false,
+        "render_categories": true|false,
+        "categories": [
+          {
+            "title": {
+              "text": "Category Name",
+              "link_attrs": {
+                "href": "#"
+              }
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Resource Title",
+                  "link_attrs": {
+                    "href": "/resource-path"
+                  }
+                },
+                "description": {
+                  "text": "Resource description",
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "Resource author",
+                      "link": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {
+                      "href": "#"
+                    }
+                  }
+                },
+                "image": {
+                  "type": "default" | "logo", // default applies 16-9 ratio container
+                  "attrs": {
+                    "src": "Image url",
+                    "alt": "Image description",
+                    "width": "Image width",
+                    "height": "Image height"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+#}
+{% macro vf_resources(title={}, blocks=[], caller=None) %}
+  {%- set description = blocks | selectattr("type", "equalto", "description") | first -%}
+  {%- set cta = blocks | selectattr("type", "equalto", "cta-block") | first -%}
+  {%- set resources = blocks | selectattr("type", "equalto", "resources") | first -%}
+  {%- set render_images = resources.get("render_images", true) -%}
+  {%- set render_categories = resources.get("render_categories", true) -%}
+  {%- set is_text_only = not (render_images or render_categories) -%}
+  <section class="p-section">
+    <div class="grid-row--50-50{% if is_text_only %}-on-large{% endif %}{% if not is_text_only %} p-section--shallow{% endif %}">
+      {{- vf_section_top_rule("default") -}}
+      <div class="grid-col">{{- _title_block(title) -}}</div>
+      <div class="grid-col">
+        {{- _description_block(description) -}}
+        {{- _cta_block(cta) -}}
+        {%- if is_text_only -%}
+          {%- for category in resources.get("categories", []) -%}
+            {%- set category_last = loop.last -%}
+            {%- for item in category.get("items", []) -%}
+              {{- _render_text_only_item(item, loop.last, category_last) -}}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+    {%- if not is_text_only -%}
+      {%- for category in resources.get("categories", []) -%}
+        {%- set first_category = loop.first -%}
+        {%- set last_category = loop.last -%}
+        <div {% if not last_category %}class="p-section--shallow"{% endif %}>
+          {%- for item in category.get("items", []) -%}
+            {{- _render_full_layout_item(item,
+                        category,
+                        render_images,
+                        render_categories,
+                        first_category,
+                        loop.first,
+                        loop.last) -}}
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </section>
+{% endmacro %}
