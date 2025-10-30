@@ -43,6 +43,14 @@ If the number of items is evenly divisible by 3, but not evenly divisible by 4 (
 View example of the equal heights pattern
 </a></div>
 
+## 2 columns
+
+If the number of items is exactly 2, the items will be right aligned on large screens.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/2-columns-responsive" class="js-example" data-lang="jinja">
+View example of the equal heights pattern
+</a></div>
+
 ## Minimal contents
 
 At a minimum, you should provide a title, at least 3 items, and a title and image for each item.
