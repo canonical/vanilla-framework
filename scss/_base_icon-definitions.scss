@@ -1539,3 +1539,32 @@
 @mixin vf-icon-generative-ai-themed {
   @include vf-themed-icon($light-value: vf-icon-generative-ai-url($colors--light-theme--icon), $dark-value: vf-icon-generative-ai-url($colors--dark-theme--icon));
 }
+
+// ignored
+@function vf-icon-ignored-url($color) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  d='m10.47 4.47 1.06 1.06-6 6-1.06-1.06z'/%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  d='M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1m0 1.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-ignored($color: $colors--light-theme--icon) {
+  background-image: vf-icon-ignored-url($color);
+}
+
+@mixin vf-icon-ignored-themed {
+  @include vf-themed-icon($light-value: vf-icon-ignored-url($colors--light-theme--icon), $dark-value: vf-icon-ignored-url($colors--dark-theme--icon));
+}
+
+// vulnerable
+@function vf-icon-vulnerable-url($color: $color-negative, $color-symbol: $color-x-light) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  fill-rule='evenodd' d='M1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8' clip-rule='evenodd'/%3E%3Cpath fill='#{vf-url-friendly-color($color-symbol)}'  fill-rule='evenodd' d='M9 8.5V4H7v4.5zm-.008 1.91A.5.5 0 0 0 8.5 10h-1l-.09.008A.5.5 0 0 0 7 10.5v1l.008.09A.5.5 0 0 0 7.5 12h1l.09-.008A.5.5 0 0 0 9 11.5v-1z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-vulnerable($color: $color-negative, $color-symbol: $color-x-light) {
+  background-image: vf-icon-vulnerable-url($color, $color-symbol);
+}
+
+@mixin vf-icon-vulnerable-themed {
+  @include vf-themed-icon(
+    $light-value: vf-icon-vulnerable-url($color: map-get($colors-light-theme--tinted-borders, negative), $color-symbol: $colors--light-theme--background-default),
+    $dark-value: vf-icon-vulnerable-url($color: map-get($colors-dark-theme--tinted-borders, negative), $color-symbol: $colors--dark-theme--background-default)
+  );
+}
