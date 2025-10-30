@@ -84,7 +84,7 @@
   <div class="p-article-block__metadata">
     <small class="p-article-block__metadata-item">
       <span class="article-author">
-        {% for author in authors -%}
+        {%- for author in authors -%}
           {%- set author_text = author.get("text", "") | trim -%}
           {%- set author_link_attrs = author.get("link_attrs", {}) -%}
           {%- if author_link_attrs.items() | length > 0 -%}
@@ -97,7 +97,7 @@
           {{- author_text -}}
           {%- if author_link_attrs -%}</a>{%- endif -%}
           {%- if not loop.last -%}, {% endif -%}
-        {%- endfor %}
+        {%- endfor -%}
       </span>
     </small>
     <small class="p-article-block__metadata-item">
