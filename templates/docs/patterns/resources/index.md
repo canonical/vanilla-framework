@@ -15,7 +15,7 @@ It is composed of the following elements:
 | Element                        | Description                                                                                                         |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
 | Title (**required**)           | Main heading text (h2)                                                                                              |
-| Description                    | Paragraph styled description text                                                                                    |
+| Description                    | Paragraph styled description text                                                                                   |
 | CTA block                      | CTA with variations of primary/secondary buttons and text links                                                     |
 | Resource blocks (**required**) | Resources with categories, each containing a 16:9 cover image or a logo, title, description, and citation metadata. |
 
