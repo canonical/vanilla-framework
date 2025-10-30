@@ -105,7 +105,7 @@ Outside of the standard set, additional icons are available for use, and need to
 
 ### Recently Added Icons {{ status("new") }}
 
-In Vanilla 4.36.0 we introduced an additional icon listed below.
+In Vanilla 4.37.0 we introduced an additional icon listed below.
 
 {{ icon_section(additional_icons_new, 'light')}}
 
