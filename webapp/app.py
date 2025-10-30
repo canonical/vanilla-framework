@@ -10,7 +10,6 @@ import markupsafe
 import mistune
 
 # Packages
-import talisker.requests
 import requests
 import flask
 import jinja2
@@ -64,7 +63,6 @@ with open("side-navigation.yaml") as side_navigation_file:
     for heading in SIDE_NAVIGATION:
         heading = alphabetize_heading_items(heading)
 
-
 app = FlaskBase(
     __name__,
     "vanillaframework.io",
@@ -73,7 +71,7 @@ app = FlaskBase(
     template_404="404.html",
     template_500="500.html",
 )
-session = talisker.requests.get_session()
+session = requests.Session()
 
 TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
