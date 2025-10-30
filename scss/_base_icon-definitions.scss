@@ -1526,3 +1526,16 @@
 @mixin vf-icon-history-themed {
   @include vf-themed-icon($light-value: vf-icon-history-url($colors--light-theme--icon), $dark-value: vf-icon-history-url($colors--dark-theme--icon));
 }
+
+// generative-ai
+@function vf-icon-generative-ai-url($color) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  d='m7.75 3 .007.27a5.25 5.25 0 0 0 4.973 4.973l.27.007v1.5a5.25 5.25 0 0 0-5.243 4.98L7.75 15h-1.5c0-2.9-2.35-5.25-5.25-5.25v-1.5C3.9 8.25 6.25 5.9 6.25 3zM7 6.09A6.78 6.78 0 0 1 4.09 9 6.78 6.78 0 0 1 7 11.908 6.78 6.78 0 0 1 9.908 9 6.78 6.78 0 0 1 7 6.09M15.5 3.103A2.704 2.704 0 0 1 12.898.5h-.796A2.704 2.704 0 0 1 9.5 3.103v.794A2.704 2.704 0 0 1 12.102 6.5h.796A2.704 2.704 0 0 1 15.5 3.897z'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-generative-ai($color: $colors--light-theme--icon) {
+  background-image: vf-icon-generative-ai-url($color);
+}
+
+@mixin vf-icon-generative-ai-themed {
+  @include vf-themed-icon($light-value: vf-icon-generative-ai-url($colors--light-theme--icon), $dark-value: vf-icon-generative-ai-url($colors--dark-theme--icon));
+}

@@ -54,7 +54,6 @@ COPY --from=build-vanilla /srv/build build
 
 # Set revision ID
 ARG BUILD_ID
-ENV TALISKER_REVISION_ID "${BUILD_ID}"
 
 # Setup commands to run server
 ENTRYPOINT ["./entrypoint"]

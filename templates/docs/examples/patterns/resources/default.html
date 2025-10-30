@@ -1,0 +1,169 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_resources.jinja" import vf_resources %}
+{% block title %}Resources | Default{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+{% block content %}
+  {% call(slot) vf_resources(
+    title={
+      "text": "Additional resources",
+    },
+    blocks=[
+      {
+        "type": "resources",
+        "render_images": true,
+        "categories": [
+          {
+            "title": "Category 1",
+            "items": [
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  },
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link_attrs": {
+                        "href": "#"
+                      }
+                    },
+                    {
+                      "text": "Jane Foster",
+                      "link_attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "default",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9374033b-9374033b77400848b48de4d9746e205c48077ed8.jpg",
+                    "alt": "Default 16:9 aspect ratio image"
+                  }
+                }
+              },
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link_attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "default",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9374033b-9374033b77400848b48de4d9746e205c48077ed8.jpg",
+                    "alt": "Default 16:9 aspect ratio image"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "Category 2",
+            "items": [
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link_attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "default",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9374033b-9374033b77400848b48de4d9746e205c48077ed8.jpg",
+                    "alt": "Default 16:9 aspect ratio image"
+                  }
+                }
+              },
+              {
+                "title": {
+                  "text": "How to enable Real-time Ubuntu on your machine",
+                  "link_attrs": {
+                    "href": "#"
+                  }
+                },
+                "description": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  "attrs": {}
+                },
+                "metadata": {
+                  "authors": [
+                    {
+                      "text": "John Doe",
+                      "link_attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "date": {
+                    "text": "20th April 2024",
+                    "link": {}
+                  }
+                },
+                "image": {
+                  "type": "default",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9374033b-9374033b77400848b48de4d9746e205c48077ed8.jpg",
+                    "alt": "Default 16:9 aspect ratio image"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+    ) -%}
+    {% endcall -%}
+{% endblock %}
