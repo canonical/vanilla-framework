@@ -16,56 +16,46 @@ Main page sections are often separated by horizontal rules. You can use the `p-r
 
 This is an equivalent of the base `<hr>` element.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">
-View example of a default horizontal rule
-</a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/default" class="js-example">View example of a default horizontal rule</a></div>
 
 ## Muted
 
-Muted rules are usually used within sections of content. You can add a muted rule to make it less prominent by using the `p-rule--muted` class name. This is useful for separating smaller blocks of content without drawing too much attention to the rule itself.
+Horizontal rules should be muted by default, except in the following cases:
 
-<div class="embedded-example"><a href="/docs/examples/patterns/rule/muted" class="js-example">
-View example of a muted horizontal rule
-</a></div>
+- when they are placed at the beginning of a section, usually above an h2
+- when they are using the highlighted rule variant
+
+Whenever a rule is inside a section, and spans less than the full fixed width of the grid, it should always be muted.
+
+You can add a muted rule by using the `p-rule--muted` class name.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/muted" class="js-example">View example of a muted horizontal rule</a></div>
 
 ## Highlighted
 
-You can add a highlight to a rule to make it stand out more by using `p-rule--highlight` class name. This is useful for drawing attention to a section of content.
+If you want to draw more attention to a horizontal rule, you can use the `p-rule--highlighted` class name.
 
-Highlighted rules can also be accented by adding the `is-accent` modifier class.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/rule/highlight" class="js-example">
-View example of a highlighted rule
-</a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/highlighted" class="js-example">View example of a highlighted horizontal rule</a></div>
 
 ## Fixed width
 
-Often it is useful to add a rule that aligns with content placed in a grid `row` class. One way to do that is to wrap a `p-rule` component in a `row`.
+Rules that are placed at the beginning of a section (or as part of a header) should use the default variant and span the full width (100%) of the section.
 
-To avoid the need for a wrapping element, add the class `is-fixed-width` directly on the `p-rule`.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/rule/fixed-width/" class="js-example">
-View example of the fixed-width rule component
-</a></div>
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/full-width" class="js-example">View example of a fixed width horizontal rule</a></div>
 
 ## Dark theme
 
-To use rule component on dark background, add `is-dark` modifier class.
+On dark backgrounds rules can be used with `.p-rule--dark` class name.
 
-[View example of a highlighted rule on dark background](/docs/examples/patterns/rule/default?theme=dark).
+<div class="embedded-example"><a href="/docs/examples/patterns/rule/dark" class="js-example">View example of a dark horizontal rule</a></div>
 
 ## Deprecated
 
-Rule component replaces the following deprecated styles:
-
-- muted horizontal line `<hr class="is-muted">`: use `p-rule--muted` instead
-- fixed width horizontal line `<hr class="is-fixed-width">`: use `<div class="row"><hr class="p-rule"></div>` or `<hr class="p-rule is-fixed-width">` instead
-- separator `<hr class="p-separator">`: use rule component nested in a strip or section instead
-- bordered strip `<div class="p-strip is-bordered">`: use highlighted strip, or a rule component instead
+The variants `p-rule--accent` and `p-rule--muted` have been renamed to `p-rule--highlighted` and `p-rule--muted` respectively.
 
 ## Import
 
-To add a rule into your project, copy the snippet below and include it in your main Sass file.
+To import just this component into your project, copy the snippet below and include it in your main Sass file.
 
 ```scss
 // import Vanilla and include base mixins
