@@ -8,12 +8,7 @@ Vanilla uses the Ubuntu font family by default, but you can specify any other fo
 
 All Ubuntu sites and applications should use the Ubuntu font, as it has been specially created to complement the Ubuntu tone of voice. It has a contemporary style and contains characteristics unique to the Ubuntu brand that convey a precise, reliable and free attitude.
 
-[
-Read more about the Ubuntu typeface
-]
-(
-http://font.ubuntu.com/
-)
+[Read more about the Ubuntu typeface](http://font.ubuntu.com/)
 
 | Setting                | Default value                                         |
 | ---------------------- | ----------------------------------------------------- |
@@ -28,11 +23,7 @@ Vanilla uses several font weight settings in tandem with the Ubuntu font, which 
 
 | Setting                        | Default value | Notes                                                                                                  |
 | ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------ |
-| `$font-weight-display-heading` | `100`         | This lighter font weight is used by the [
-display heading
-](
-/docs/base/typography#display-headings
-).     |
+| `$font-weight-display-heading` | `100`         | This lighter font weight is used by the [display heading](/docs/base/typography#display-headings).     |
 | `$font-weight-regular-text`    | `400`         | Vanilla's default font-weight. Also used in `h6`.                                                      |
 | `$font-weight-bold`            | `550`         | Most often used on elements with very small text to make them stand out. Used in `h1`, `h3`, and `h5`. |
 
@@ -45,3 +36,17 @@ To customise the font weight of each heading level, you can override the followi
 
 | Variable          | Default value                       |
 | ----------------- | ----------------------------------- |
+| `$h1-font-weight` | `$font-weight-bold`                 |
+| `$h2-font-weight` | `$font-weight-regular-text`         |
+| `$h3-font-weight` | `$font-weight-bold`                 |
+| `$h4-font-weight` | `$font-weight-regular-text`         |
+| `$h5-font-weight` | `$font-weight-bold`                 |
+| `$h6-font-weight` | `$font-weight-regular-text`         |
+
+## Related
+
+- [Typography](/docs/base/typography)
+- [Design](/docs/foundations/design)
+- [Branding](/docs/branding)
+- [Typography](/docs/patterns/typography)
+- [Accessibility](/docs/foundations/accessibility)
