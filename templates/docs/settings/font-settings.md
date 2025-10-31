@@ -14,7 +14,7 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 | ---------------------- | ----------------------------------------------------- |
 | `$font-base-family`    | 'Ubuntu, Arial, "libra sans", sans-serif'             |
 | `$font-monospace`      | '"Ubuntu Mono", Consolas, Monaco, Courier, monospace' |
-| `$font-base-size`      | `1rem`                                                |
+| `$base-font-sizes`     | Map with `base` and `large` keys (based on `$settings-text-default` and `$font-size-largescreen`) |
 | `$font-heading-family` | `$font-base-family`                                   |
 
 ## Font weight
@@ -36,18 +36,17 @@ To customise the font weight of each heading level, you can override the followi
 
 | Variable          | Default value                       |
 | ----------------- | ----------------------------------- |
-| `$font-weight-h1` | `$font-weight-bold` (`550`)         |
-| `$font-weight-h2` | `180`                               |
-| `$font-weight-h3` | `$font-weight-bold` (`550`)         |
-| `$font-weight-h4` | `275`                               |
-| `$font-weight-h5` | `$font-weight-bold` (`550`)         |
-| `$font-weight-h6` | `$font-weight-regular-text` (`400`) |
-
-<br>
-<hr />
+| `$h1-font-weight` | `$font-weight-bold`                 |
+| `$h2-font-weight` | `$font-weight-regular-text`         |
+| `$h3-font-weight` | `$font-weight-bold`                 |
+| `$h4-font-weight` | `$font-weight-regular-text`         |
+| `$h5-font-weight` | `$font-weight-bold`                 |
+| `$h6-font-weight` | `$font-weight-regular-text`         |
 
 ## Related
 
-- [Base typography](/docs/base/typography)
-- [Code](/docs/base/code)
-- [Pull quote pattern](/docs/patterns/pull-quote)
+- [Typography](/docs/base/typography)
+- [Design](/docs/foundations/design)
+- [Branding](/docs/branding)
+- [Typography](/docs/patterns/typography)
+- [Accessibility](/docs/foundations/accessibility)
