@@ -1,7 +1,12 @@
 # Helper macro to render a top rule for a section.
 # Parameters:
-#  - top_rule_variant: string, one of "default", "muted", "highlighted", "none"
-{%- macro vf_section_top_rule(top_rule_variant="default") -%}
+#   - top_rule_variant("default" | "muted" | "highlighted" |"none"): variant of horizontal rule to use
+#   - is_fixed_width(Boolean): Whether to constrain the rule by the fixed content width. Default to False.
+#       If you don't use this, you should wrap the rule in a .grid-row.
+{%- macro vf_section_top_rule(
+  top_rule_variant="default",
+  is_fixed_width=False
+) -%}
   {%- set top_rule_variant = top_rule_variant | trim | lower -%}
   {%- if top_rule_variant not in ["default", "muted", "highlighted", "none"] -%}
     {%- set top_rule_variant = "default" -%}
@@ -21,6 +26,10 @@
         {%- set top_rule_classes = top_rule_classes + "--" + top_rule_variant -%}
       {%- endif -%}
     {%- endif -%}
+  {%- endif -%}
+
+  {%- if is_fixed_width -%}
+    {%- set top_rule_classes = top_rule_classes + " " + "is-fixed-width" -%}
   {%- endif -%}
 
   {%- if top_rule_variant != "none" -%}
