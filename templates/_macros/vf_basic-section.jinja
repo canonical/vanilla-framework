@@ -1,22 +1,19 @@
 {% from "_macros/shared/vf_dedent.jinja" import vf_dedent %}
 {% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+{% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
 {% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
 
-# description_config
-# - type: "text" | "html" (default is "text")
-# - content: The content of the description. Could be plain text (if type is "text") or HTML (if type is "html").
-{% macro _basic_section_description(description_config={}) %}
-  {%- set type = (description_config.get("type", "text")) | trim -%}
-  {%- if type not in ["text", "html"] -%}
-    {%- set type = "text" -%}
-  {%- endif -%}
-
-  {%- if type == "text" -%}
-    <p>{{- description_config.get("content", "") -}}</p>
-  {%- elif type == "html" -%}
-    {{- description_config.get("content", "") | safe -}}
-  {%- endif -%}
-{% endmacro %}
+{#-
+    This helper macro used to entirely implement the description block for this pattern.
+    The description block has since been upstreamed to `templates/_macros/shared/vf_description-block.jinja`.
+    Now, this helper serves as an adapter between the established API of the basic section and the description block.
+-#}
+{%-macro _basic_section_description(description_config={}) -%}
+    {{- vf_description_block(
+        type=description_config.get("type"),
+        content=description_config.get("content")
+    ) -}}
+{%- endmacro -%}
 
 # image_config
 # - aspect_ratio: "16-9" | "3-2" | "" (default is "")
